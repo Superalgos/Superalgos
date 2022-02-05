@@ -1,9 +1,6 @@
-
-
 const path = require('path');
 const fs = require('fs');
 const getPublicUrlOrPath = require('react-dev-utils/getPublicUrlOrPath');
-const {appPublic} = require("./paths");
 
 // Make sure any symlinks in the project folder are resolved:
 // https://github.com/facebook/create-react-app/issues/637
@@ -22,7 +19,7 @@ const publicUrlOrPath = getPublicUrlOrPath(
     process.env.PUBLIC_URL
 );
 
-const buildPath = process.env.BUILD_PATH || 'DesktopReact/build';
+const buildPath = process.env.BUILD_PATH || 'build';
 
 const moduleFileExtensions = [
     'web.mjs',
@@ -56,13 +53,22 @@ module.exports = {
     dotenv: resolveApp('.env'),
     appPath: resolveApp('.'),
     appBuild: resolveApp(buildPath),
-    appPublic: resolveApp('DesktopReact/frontend/public'),
-    appHtml: resolveApp('DesktopReact/frontend/public/index.html'),
-    appIndexJs: resolveModule(resolveApp, 'DesktopReact/frontend/src/index'),
+    appPublic: resolveApp('./frontend/public'),
+    appHtml: resolveApp('./frontend/public/index.html'),
+    appIndexJs: resolveModule(resolveApp, './frontend/src/index'),
     appPackageJson: resolveApp('package.json'),
-    appSrc: resolveApp('DesktopReact/frontend/src'),
+    appSrc: resolveApp('./frontend/src'),
+    appTsConfig: resolveApp('tsconfig.json'),
+    appJsConfig: resolveApp('jsconfig.json'),
+    yarnLockFile: resolveApp('yarn.lock'),
+    testsSetup: resolveModule(resolveApp, 'src/setupTests'),
+    proxySetup: resolveApp('src/setupProxy.js'),
     appNodeModules: resolveApp('node_modules'),
+    appWebpackCache: resolveApp('node_modules/.cache'),
+    appTsBuildInfoFile: resolveApp('node_modules/.cache/tsconfig.tsbuildinfo'),
+    swSrc: resolveModule(resolveApp, './frontend/src/service-worker'),
     publicUrlOrPath,
 };
+
 
 module.exports.moduleFileExtensions = moduleFileExtensions;

@@ -4,32 +4,144 @@
     "type": "Tutorial Step - Ready to Rock....?",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "trading-strategy"
+            "name": "Trading\\trading-strategy",
+            "project": "Foundations"
         },
-        "text": "We are on a new chart! Let's set it up so that we may see the results of the backtest!"
+        "text": "We are on a new chart! Let's set it up so that we may see the results of the backtest!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Wir befinden uns in einem neuen Chart! Richten wir ihn so ein, dass wir die Ergebnisse des Backtests sehen können!",
+                "updated": 1639418188840
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Yeni bir grafik üzerindeyiz! Geriye dönük testin sonuçlarını görebilmemiz için ayarlayalım!",
+                "updated": 1641798985814
+            },
+            {
+                "language": "RU",
+                "text": "Мы находимся на новом графике! Давайте настроим его так, чтобы мы могли увидеть результаты бэктеста!",
+                "updated": 1642943747337
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Make sure the following layers are turned on in each of the layer managers:"
+            "text": "Turn on the following layers in each of the layer managers (feel free to close all plotter panels):",
+            "updated": 1640968518135,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schalten Sie die folgenden Ebenen in den Ebenenmanagern ein (Sie können auch alle Plotter-Panels schließen)",
+                    "updated": 1639418198295
+                },
+                {
+                    "language": "TR",
+                    "text": "Katman yöneticilerinin her birinde aşağıdaki katmanları açın (öncesinde tüm çizici panellerini kapatabilirsiniz):",
+                    "updated": 1641799021655
+                },
+                {
+                    "language": "RU",
+                    "text": "Включите следующие слои в каждом из менеджеров слоев (не забудьте закрыть все панели плоттера):",
+                    "updated": 1642943766650
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Masters Data: Candles and Bollinger Bands."
+            "text": "Candles Data: \"Candles\".",
+            "updated": 1622549387433,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Candles Data: \"Candles\". ",
+                    "updated": 1639418248951
+                },
+                {
+                    "language": "TR",
+                    "text": "Mum Verileri (Candles Data): \"Mumlar\".",
+                    "updated": 1641799061164
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Simulation Objects:Strategies, Market Buy Orders,Market Sell Orders,Position Base Asset,Stop Loss, and Take Profit.",
-            "updated": 1610473284506
+            "text": "Bollinger Data: \"Bollinger Bands\".",
+            "updated": 1622549394686,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bollinger Data: \"Bollinger Bänder\".",
+                    "updated": 1639418271307
+                },
+                {
+                    "language": "TR",
+                    "text": "Bollinger Verileri(Bollinger Data): \"Bollinger Bantları\".",
+                    "updated": 1641799086123
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Trading System: Trading System Errors and Trading System Warnings."
+            "text": "Simulation Objects: \"Strategies\", \"Market Buy Orders\", \"Market Sell Orders\", \"Position Base Asset\", \"Stop Loss\", and \"Take Profit\".",
+            "updated": 1622549420151,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Simülasyon Nesneleri(Simulation Objects): (Strategies)\"Stratejiler\", ( Market Buy Orders)\"Piyasa Alım Emirleri\",(Market Sell Orders) \"Piyasa Satış Emirleri\",(Position Base Asset) \"Pozisyon Baz Varlık\",(Stop Loss) \"Zararı Durdur\" ve (Take Profit) \"Kâr Al\".",
+                    "updated": 1641799136460
+                },
+                {
+                    "language": "RU",
+                    "text": "Simulation Objects: \"Strategies\", \"Market Buy Orders\", \"Market Sell Orders\", \"Position Base Asset\", \"Stop Loss\", и \"Take Profit\".",
+                    "updated": 1642943789359
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Trading System: \"Trading System Errors\" and \"Trading System Warnings\".",
+            "updated": 1622549431740,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Trading System: \"Trading System Errors\" und \"Trading System Warnings\".",
+                    "updated": 1639418281823
+                },
+                {
+                    "language": "TR",
+                    "text": "İşlem Sistemi(Trading System): (Trading System Errors)\"İşlem Sistemi Hataları\" ve (Trading System Warnings)\"İşlem Sistemi Uyarıları\".",
+                    "updated": 1641801992366
+                },
+                {
+                    "language": "RU",
+                    "text": "Trading System: \"Trading System Errors\" и \"Trading System Warnings\".",
+                    "updated": 1642943796381
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "The next step shows what you should see!"
+            "text": "The next step shows what you should see!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der nächste Schritt zeigt, was Sie sehen sollten!",
+                    "updated": 1639418292878
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bir sonraki adım, ne görmeniz gerektiğini gösteriyor!",
+                    "updated": 1641802043525
+                },
+                {
+                    "language": "RU",
+                    "text": "Следующий шаг показывает, что вы должны увидеть!",
+                    "updated": 1642943812533
+                }
+            ]
         }
     ]
 }

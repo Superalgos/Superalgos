@@ -94,7 +94,7 @@ exports.newGithubServer = function newGithubServer() {
                     while (lastPage === false) {
                         try {
                             page++
-                            await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                            await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                             let listResponse = await octokit[endpoint][method]({
                                 owner,
                                 repo,
@@ -163,23 +163,38 @@ exports.newGithubServer = function newGithubServer() {
         }
     }
 
-    async function createGithubFork(token) {
+    async function createGithubFork(username, token, repo='Superalgos') {
         try {
             token = unescape(token)
-
+            username = unescape(username)
             await doGithub()
+            await Promise.all(Object.values(global.env.PROJECT_PLUGIN_MAP).map(v => {
+              return doGithub(v.repo)
+            }))
 
-            async function doGithub() {
+            async function doGithub(repo='Superalgos') {
                 try {
-                    const { Octokit } = SA.nodeModules.octokit
+                    let Octokit
+                    if (SA && SA.nodeModules && SA.nodeModules.octokit) Octokit = SA.nodeModules.octokit.Octokit
+                    else Octokit = require('@octokit/rest').Octokit
                     const octokit = new Octokit({
                         auth: token,
                         userAgent: 'Superalgos ' + SA.version
                     })
+                    // check if repo already exists
 
-                    await octokit.repos.createFork({
-                        owner: 'Superalgos',
-                        repo: 'Superalgos'
+                    octokit.repos.get({
+                        owner: username,
+                        repo: repo,
+                    }).catch(async err => {
+                        console.log('[ERROR] Github Server -> createGithubFork -> doGithub -> err.stack = ' + err.stack)
+                        console.log('[WARN] Github Server -> createGithubFork -> doGithub -> forking new submodule: ' + repo)
+                        // fork it since it doesn't seem to exist, but the user has presumably already forked main repo
+                        await octokit.repos.createFork({
+                            owner: 'Superalgos',
+                            repo: repo
+                        })
+
                     })
                 } catch (err) {
                     if (err === undefined) { return }
@@ -208,7 +223,6 @@ exports.newGithubServer = function newGithubServer() {
             commitMessage = unescape(commitMessage)
             username = unescape(username)
             token = unescape(token)
-            const repository = 'Superalgos'
 
             /* Unsaving # */
             for (let i = 0; i < 10; i++) {
@@ -222,7 +236,7 @@ exports.newGithubServer = function newGithubServer() {
             return await processOpenPullRequests()
 
             async function processOpenPullRequests() {
-                await doGithub()
+                await doGithub('Governance-Plugins')
                 if (error !== undefined) {
 
                     let docs = {
@@ -241,9 +255,8 @@ exports.newGithubServer = function newGithubServer() {
                 }
             }
 
-            async function doGithub() {
+            async function doGithub(repo='Governance-Plugins') {
                 try {
-                    const repo = repository
                     const owner = 'Superalgos'
                     const { Octokit } = SA.nodeModules.octokit
                     const octokit = new Octokit({
@@ -264,7 +277,7 @@ exports.newGithubServer = function newGithubServer() {
                             try {
                                 page++
 
-                                await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
 
                                 let listResponse = await octokit.rest.pulls.list({
                                     owner: owner,
@@ -297,7 +310,7 @@ exports.newGithubServer = function newGithubServer() {
                                 } else {
                                     console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->Method call produced an error.')
                                     console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->err.stack = ' + err.stack)
-                                    console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->repository = ' + repository)
+                                    console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->repository = ' + repo)
                                     console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->username = ' + username)
                                     console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->token starts with = ' + token.substring(0, 10) + '...')
                                     console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->token ends with = ' + '...' + token.substring(token.length - 10))
@@ -332,7 +345,7 @@ exports.newGithubServer = function newGithubServer() {
 
                             while (lastPage === false) {
                                 page++
-                                await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                 let listResponse = await octokit.rest.pulls.listFiles({
                                     owner: owner,
                                     repo: repo,
@@ -374,7 +387,7 @@ exports.newGithubServer = function newGithubServer() {
                                 console.log('[WARN] Github Server -> mergeGithubPullRequests -> Merge Failed -> Pull Request "' + pullRequest.title + '" not merged because Github could not merge it. -> mergeResponse.message = ' + mergeResponse.data.message)
                             } else {
                                 console.log('[INFO] Github Server -> mergeGithubPullRequests -> Merge Succeed -> Pull Request "' + pullRequest.title + '" successfully merged. -> mergeResponse.message = ' + mergeResponse.data.message)
-                                await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                 await octokit.rest.issues.createComment({
                                     owner: owner,
                                     repo: repo,
@@ -397,8 +410,8 @@ exports.newGithubServer = function newGithubServer() {
                                     for (let j = 0; j < filesChanged.length; j++) {
                                         let pullRequestFile = filesChanged[j]
                                         let fileContentUrl = pullRequestFile.raw_url
-                                        if (fileContentUrl.indexOf('Governance/Plugins/User-Profiles') >= 0) {
-                                            await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                        if (fileContentUrl.indexOf('Plugins/Governance/User-Profiles') >= 0) {
+                                            await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                             await octokit.rest.issues.createComment({
                                                 owner: owner,
                                                 repo: repo,
@@ -406,7 +419,7 @@ exports.newGithubServer = function newGithubServer() {
                                                 body: 'This Pull Request could not be automatically merged and was closed by the Superalgos Governance System because it was detected that a User Profile file... \n\n' + fileContentUrl + '\n\n...was submitted together with  ' + (filesChanged.length - 1) + ' other file/s. User Profiles files as per the Governance System rules, must be the only file present at a Pull Request in order to pass all the validations and be automatically merged. \n\n If you intentionally submitted the extra files, the way to get your work merged is by first removing your User Profile file from the Plugins folder at your local installation and executing an app.contribute again. Then wait until the PR is merged (manually reviewed) and after that you put your User Profile file again and create a new PR only with that file with an app.contribute. That last PR should be merged automatically.'
                                             });
 
-                                            await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                            await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                             await octokit.rest.pulls.update({
                                                 owner: owner,
                                                 repo: repo,
@@ -427,7 +440,7 @@ exports.newGithubServer = function newGithubServer() {
                                 let pullRequestFile = filesChanged[0]
                                 fileContentUrl = pullRequestFile.raw_url
 
-                                if (fileContentUrl.indexOf('Governance/Plugins/User-Profiles') < 0) {
+                                if (fileContentUrl.indexOf('User-Profiles') < 0) {
                                     /*
                                     If it is not a user profile then there is no need to auto merge.
                                     */
@@ -444,7 +457,7 @@ exports.newGithubServer = function newGithubServer() {
                                 if (githubUsername.toLowerCase() !== fileName.toLowerCase()) {
                                     console.log('[INFO] Github Server -> mergeGithubPullRequests -> Validation #2 Failed -> Pull Request "' + pullRequest.title + '" not merged because the Github Username is not equal to the File Name. -> Github Username = ' + githubUsername + '-> fileName = ' + fileName)
 
-                                    await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                    await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                     await octokit.rest.issues.createComment({
                                         owner: owner,
                                         repo: repo,
@@ -452,7 +465,7 @@ exports.newGithubServer = function newGithubServer() {
                                         body: 'This Pull Request could not be automatically merged and was closed by the Superalgos Governance System because it was detected that the Github User "' + githubUsername + '" who submitted it, is not equal to the name of the User Profile Plugin File.\n\n File Name = "' + fileName + '"'
                                     });
 
-                                    await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                    await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                     await octokit.rest.pulls.update({
                                         owner: owner,
                                         repo: repo,
@@ -467,10 +480,31 @@ exports.newGithubServer = function newGithubServer() {
                                 /*
                                 Validation #3: The file changed at the PR is a User Profile.
                                 */
-                                await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
-                                fileContent = await PL.projects.foundations.utilities.webAccess.fetchAPIDataFile(fileContentUrl)
-                                userProfile = JSON.parse(fileContent)
+                                await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                fileContent = await SA.projects.foundations.utilities.webAccess.fetchAPIDataFile(fileContentUrl)
+                                try {
+                                    userProfile = JSON.parse(fileContent)
+                                } catch(err) {
+                                    console.log('[INFO] Github Server -> mergeGithubPullRequests -> Validation #3 Failed -> Pull Request "' + pullRequest.title + '" not merged because the file modified it is not in a valid JSON format. -> err = ' + err.message)
+                                    
+                                    await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                    await octokit.rest.issues.createComment({
+                                        owner: owner,
+                                        repo: repo,
+                                        issue_number: pullRequest.number,
+                                        body: 'This Pull Request could not be automatically merged and was closed by the Superalgos Governance System because the User Profile is not in a valid JSON format.\n\n err = "' + err.message + '"'
+                                    });
 
+                                    await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                    await octokit.rest.pulls.update({
+                                        owner: owner,
+                                        repo: repo,
+                                        pull_number: pullRequest.number,
+                                        state: 'closed'
+                                    });
+                                    return false
+                                }
+                                
                                 if (userProfile.type !== 'User Profile') {
                                     console.log('[INFO] Github Server -> mergeGithubPullRequests -> Validation #3 Failed -> Pull Request "' + pullRequest.title + '" not merged because the file modified is not a User Profile. -> Type = ' + userProfile.type)
                                     return false
@@ -486,7 +520,7 @@ exports.newGithubServer = function newGithubServer() {
                                 if (messageSigned.toLowerCase() !== githubUsername.toLowerCase()) {
                                     console.log('[INFO] Github Server -> mergeGithubPullRequests -> Validation #4 Failed -> Pull Request "' + pullRequest.title + '" not merged because the Github Username is not equal to the Message Signed at the User Profile. -> Github Username = ' + githubUsername + '-> messageSigned = ' + messageSigned)
 
-                                    await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                    await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                     await octokit.rest.issues.createComment({
                                         owner: owner,
                                         repo: repo,
@@ -494,7 +528,7 @@ exports.newGithubServer = function newGithubServer() {
                                         body: 'This Pull Request could not be automatically merged and was closed by the Superalgos Governance System because it was detected that the Github User "' + githubUsername + '" who submitted it, is not equal to the Message Signed at the User Profile.\n\n Message Signed = "' + messageSigned + '"'
                                     });
 
-                                    await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                    await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                     await octokit.rest.pulls.update({
                                         owner: owner,
                                         repo: repo,
@@ -520,7 +554,7 @@ exports.newGithubServer = function newGithubServer() {
                                 if (messageSignedHash !== signatureHash) {
                                     console.log('[INFO] Github Server -> mergeGithubPullRequests -> Validation #5 Failed -> Pull Request "' + pullRequest.title + '" not merged because the Message Signed Hash is not equal to the the Signature Hash. -> messageSignedHash = ' + messageSignedHash + '-> signatureHash = ' + signatureHash)
 
-                                    await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                    await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                     await octokit.rest.issues.createComment({
                                         owner: owner,
                                         repo: repo,
@@ -528,7 +562,7 @@ exports.newGithubServer = function newGithubServer() {
                                         body: 'This Pull Request could not be automatically merged and was closed by the Superalgos Governance System because the Message Signed Hash is not equal to the the Signature Hash.\n\n messageSignedHash = "' + messageSignedHash + '"\n\n signatureHash = "' + signatureHash + '"'
                                     });
 
-                                    await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                    await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                     await octokit.rest.pulls.update({
                                         owner: owner,
                                         repo: repo,
@@ -546,7 +580,7 @@ exports.newGithubServer = function newGithubServer() {
                                 if (userProfile.name.toLowerCase() !== githubUsername.toLowerCase()) {
                                     console.log('[INFO] Github Server -> mergeGithubPullRequests -> Validation #6 Failed -> Pull Request "' + pullRequest.title + '" not merged because the Github Username is not equal to the User Profile node\'s name. -> Github Username = ' + githubUsername + '-> userProfile.name = ' + userProfile.name)
 
-                                    await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                    await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                     await octokit.rest.issues.createComment({
                                         owner: owner,
                                         repo: repo,
@@ -554,7 +588,7 @@ exports.newGithubServer = function newGithubServer() {
                                         body: 'This Pull Request could not be automatically merged and was closed by the Superalgos Governance System because it was detected that the Github User "' + githubUsername + '" who submitted it, is not equal to the User Profile node\'s name.\n\n User Profile Name = "' + userProfile.name + '"'
                                     });
 
-                                    await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                    await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                     await octokit.rest.pulls.update({
                                         owner: owner,
                                         repo: repo,
@@ -594,7 +628,7 @@ exports.newGithubServer = function newGithubServer() {
 
                                     console.log('[INFO] Github Server -> mergeGithubPullRequests -> Validation #7 Failed -> Pull Request "' + pullRequest.title + '" not merged because the User Profile Id already exists and belongs to another User Profile on record. -> Profile Id = ' + userProfile.id + '-> User Profile with the same Id = ' + testUserProfile)
 
-                                    await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                    await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                     await octokit.rest.issues.createComment({
                                         owner: owner,
                                         repo: repo,
@@ -602,7 +636,7 @@ exports.newGithubServer = function newGithubServer() {
                                         body: 'This Pull Request could not be automatically merged and was closed by the Superalgos Governance System because the User Profile Id already exists and belongs to another User Profile on record. \n\nUser Profile Id = "' + userProfile.id + '" \n\n User Profile with the same Id = "' + testUserProfile + '"'
                                     });
 
-                                    await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                    await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                     await octokit.rest.pulls.update({
                                         owner: owner,
                                         repo: repo,
@@ -655,7 +689,7 @@ exports.newGithubServer = function newGithubServer() {
 
                                         console.log('[INFO] Github Server -> mergeGithubPullRequests -> Validation #8 Failed -> Pull Request "' + pullRequest.title + '" not merged because the User Profile Blockchain Account already exists and belongs to another User Profile on record. -> Profile Blockchain Account = ' + serverResponse.address + '-> User Profile with the same Blockchain Account = ' + testUserProfile)
 
-                                        await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                        await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                         await octokit.rest.issues.createComment({
                                             owner: owner,
                                             repo: repo,
@@ -663,7 +697,7 @@ exports.newGithubServer = function newGithubServer() {
                                             body: 'This Pull Request could not be automatically merged and was closed by the Superalgos Governance System because the User Profile Blockchain Account already exists and belongs to another User Profile on record. \n\nUser Profile Blockchain Account = "' + serverResponse.address + '" \n\n User Profile with the same Blockchain Account = "' + testUserProfile + '"'
                                         });
 
-                                        await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                        await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                         await octokit.rest.pulls.update({
                                             owner: owner,
                                             repo: repo,
@@ -694,7 +728,7 @@ exports.newGithubServer = function newGithubServer() {
                                         if (messageSigned.toLowerCase() !== githubUsername.toLowerCase()) {
                                             console.log('[INFO] Github Server -> mergeGithubPullRequests -> Validation #9 Failed -> Pull Request "' + pullRequest.title + '" not merged because the Signing Account ' + signingAccount.name + ' has not signed the current Github User Account, but something else. -> messageSigned = ' + messageSigned + '-> githubUsername = ' + githubUsername)
 
-                                            await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                            await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                             await octokit.rest.issues.createComment({
                                                 owner: owner,
                                                 repo: repo,
@@ -702,7 +736,7 @@ exports.newGithubServer = function newGithubServer() {
                                                 body: 'This Pull Request could not be automatically merged and was closed by the Superalgos Governance System because the Signing Account "' + signingAccount.name + '" has not signed the current Github User Account, but something else. \n\n messageSigned = "' + messageSigned + '" \n\n githubUsername = "' + githubUsername + '"'
                                             });
 
-                                            await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                            await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                             await octokit.rest.pulls.update({
                                                 owner: owner,
                                                 repo: repo,
@@ -723,7 +757,7 @@ exports.newGithubServer = function newGithubServer() {
                                         if (messageSignedHash !== signatureHash) {
                                             console.log('[INFO] Github Server -> mergeGithubPullRequests -> Validation #10 Failed -> Pull Request "' + pullRequest.title + '" not merged because the Message Signed Hash is not equal to the the Signature Hash. -> messageSignedHash = ' + messageSignedHash + '-> signatureHash = ' + signatureHash)
 
-                                            await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                            await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                             await octokit.rest.issues.createComment({
                                                 owner: owner,
                                                 repo: repo,
@@ -731,7 +765,7 @@ exports.newGithubServer = function newGithubServer() {
                                                 body: 'This Pull Request could not be automatically merged and was closed by the Superalgos Governance System because the Message Signed Hash is not equal to the the Signature Hash.\n\n messageSignedHash = "' + messageSignedHash + '"\n\n signatureHash = "' + signatureHash + '"'
                                             });
 
-                                            await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                            await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                             await octokit.rest.pulls.update({
                                                 owner: owner,
                                                 repo: repo,
@@ -752,7 +786,7 @@ exports.newGithubServer = function newGithubServer() {
                                 /*
                                 All validations passed, we will proceed an merge this Pull Request.
                                 */
-                                await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                 mergeResponse = await octokit.rest.pulls.merge({
                                     owner: owner,
                                     repo: repo,
@@ -773,7 +807,7 @@ exports.newGithubServer = function newGithubServer() {
                         try {
                             page++
 
-                            await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                            await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
 
                             let listResponse = await octokit.rest.pulls.list({
                                 owner: owner,
@@ -801,7 +835,7 @@ exports.newGithubServer = function newGithubServer() {
                             for (let i = 0; i < githubPrListMaster.length; i++) {
                                 let pullRequest = githubPrListMaster[i]
 
-                                await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                 await octokit.rest.issues.createComment({
                                     owner: owner,
                                     repo: repo,
@@ -809,7 +843,7 @@ exports.newGithubServer = function newGithubServer() {
                                     body: 'Hi, this is the Superalgos Governance System taking notice that you have submitted a pull request directly to the master branch.\n\nThanks for submitting a PR to the Superalgos Project. We value every contribution and everyone is welcome to send PRs. Unfortunately we are not merging pull requests directly into the master branch. Consider resubmitting to the develop branch instead. For your convenience, you can switch branches from within the app, at the footer of the Docs tab. \n\n I will close this pull request now and look forward for your next contribution either to the develop branch or any other branch available for this purpose.'
                                 });
 
-                                await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                 await octokit.rest.pulls.update({
                                     owner: owner,
                                     repo: repo,
@@ -819,14 +853,12 @@ exports.newGithubServer = function newGithubServer() {
                             }
 
                         } catch (err) {
-                            console.log(err)
-
                             if (err.stack.indexOf('last page') >= 0) {
                                 return
                             } else {
                                 console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->Method call produced an error.')
                                 console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->err.stack = ' + err.stack)
-                                console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->repository = ' + repository)
+                                console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->repository = ' + repo)
                                 console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->username = ' + username)
                                 console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->token starts with = ' + token.substring(0, 10) + '...')
                                 console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->token ends with = ' + '...' + token.substring(token.length - 10))
@@ -846,7 +878,7 @@ exports.newGithubServer = function newGithubServer() {
         } catch (err) {
             console.log('[ERROR] Github Server -> mergeGithubPullRequests -> Method call produced an error.')
             console.log('[ERROR] Github Server -> mergeGithubPullRequests -> err.stack = ' + err.stack)
-            console.log('[ERROR] Github Server -> mergeGithubPullRequests -> repository = ' + repository)
+            console.log('[ERROR] Github Server -> mergeGithubPullRequests -> repository = ' + repo)
             console.log('[ERROR] Github Server -> mergeGithubPullRequests -> username = ' + username)
             console.log('[ERROR] Github Server -> mergeGithubPullRequests -> token starts with = ' + token.substring(0, 10) + '...')
             console.log('[ERROR] Github Server -> mergeGithubPullRequests -> token ends with = ' + '...' + token.substring(token.length - 10))

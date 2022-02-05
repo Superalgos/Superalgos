@@ -7,24 +7,109 @@
             "project": "Foundations",
             "name": ""
         },
-        "text": "The Task Manager Server is a simple server to manage the execution of Task Servers Node.js processes. It keeps track of all the instances running at any point in time and allows the UI to decide when to run more instance or stop any of those running."
+        "text": "The Task Manager Server is a simple server to manage the execution of Task Servers Node.js processes. It keeps track of all the instances running at any point in time and allows the UI to decide when to run more instance or stop any of those running.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Der Task Manager Server ist ein einfacher Server, der die Ausführung von Task Server Node.js Prozessen verwaltet. Er behält den Überblick über alle Instanzen, die zu einem bestimmten Zeitpunkt laufen, und ermöglicht es der Benutzeroberfläche, zu entscheiden, wann weitere Instanzen ausgeführt oder eine der laufenden Instanzen gestoppt werden soll.",
+                "updated": 1641729859188
+            },
+            {
+                "language": "RU",
+                "text": "Task Manager Server - это простой сервер для управления выполнением процессов Task Servers Node.js. Он отслеживает все экземпляры, запущенные в данный момент времени, и позволяет пользовательскому интерфейсу решать, когда запустить больше экземпляров или остановить любой из них.",
+                "updated": 1640930037741
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Görev Yöneticisi ( Task Manager ) Sunucusu, Görev Sunucuları Node.js işlemlerinin yürütülmesini yöneten basit bir sunucudur. Herhangi bir zamanda çalışan tüm örnekleri takip eder ve kullanıcı arayüzünün ne zaman daha fazla örnek çalıştıracağına veya çalışanlardan herhangi birini ne zaman durduracağına karar vermesine olanak tanır.",
+                "updated": 1643040147095
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The Task Manager Server provides the following commands to the UI:"
+            "text": "The Task Manager Server provides the following commands to the UI:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Task Manager Server stellt der Benutzeroberfläche die folgenden Befehle zur Verfügung:",
+                    "updated": 1641729865583
+                },
+                {
+                    "language": "RU",
+                    "text": "Task Manager Server предоставляет следующие команды для пользовательского интерфейса:",
+                    "updated": 1640930058186
+                },
+                {
+                    "language": "TR",
+                    "text": "Görev Yöneticisi Sunucusu, kullanıcı arabirimi (UI) için aşağıdaki komutları sağlar:",
+                    "updated": 1643040171376
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Run Task: Used to run a new task, spawns a Node.js fork process where a Task Server is run."
+            "text": "Run Task: Used to run a new task, spawns a Node.js fork process where a Task Server is run.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Run Task: Wird verwendet, um einen neuen Task auszuführen, der einen Node.js Fork-Prozess erzeugt, in dem ein Task Server ausgeführt wird.",
+                    "updated": 1641729885979
+                },
+                {
+                    "language": "RU",
+                    "text": "Запустить задачу: Используется для запуска новой задачи, порождает форк-процесс Node.js, в котором запускается сервер задач Task Server.",
+                    "updated": 1640930117281
+                },
+                {
+                    "language": "TR",
+                    "text": "Görevi Çalıştır (Run Task): Yeni bir görevi başlatmak için kullanılır, Görev Sunucusunu çalıştıran bir Node.js çatal işlemi oluşturur.",
+                    "updated": 1643040184682
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Stop Task: Sends a fork-process-message to the Task Server instance that needs to stop."
+            "text": "Stop Task: Sends a fork-process-message to the Task Server instance that needs to stop.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Stop Task:  Sendet eine fork-process-Nachricht an die Task Server-Instanz, die gestoppt werden soll.",
+                    "updated": 1641729897785
+                },
+                {
+                    "language": "RU",
+                    "text": "Остановить задачу: Отправляет сообщение fork-process-message экземпляру сервера задач, который необходимо остановить.",
+                    "updated": 1640930139371
+                },
+                {
+                    "language": "TR",
+                    "text": "Görevi Durdur (Stop Task): Durdurulması için görev sunucusu örneğine bir çatal-işlem-mesajı gönderir.",
+                    "updated": 1643040218632
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Task Status: Tells the caller if the Task Id provided corresponds to a running task or not."
+            "text": "Task Status: Tells the caller if the Task Id provided corresponds to a running task or not.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Task Status: Teilt dem Aufrufer mit, ob die angegebene Task-ID einem laufenden Task entspricht oder nicht.",
+                    "updated": 1641729904531
+                },
+                {
+                    "language": "RU",
+                    "text": "Статус задачи: Сообщает вызывающей стороне, соответствует ли предоставленный идентификатор задачи запущенной задаче или нет.",
+                    "updated": 1640930157215
+                },
+                {
+                    "language": "TR",
+                    "text": "Görev Durumu (Task Status): Arayan kişiye, sağlanan görev kimliğinin çalışan görevle eşleşip eşleşmediğini söyler.",
+                    "updated": 1643040222282
+                }
+            ]
         }
     ]
 }

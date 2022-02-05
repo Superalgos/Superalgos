@@ -38,7 +38,7 @@
             "actionFunction": "payload.executeAction"
         }
     ],
-    "isTitleAllwaysVisible": true,
+    "isTitleAllwaysVisible": false,
     "isHierarchyHead": true,
     "addLeftIcons": true,
     "editors": {

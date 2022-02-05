@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "Indikatrler Topluluk tarafından oluşturulmuştur! Genellikle, bir geliştirici ihtiyaç duyduğu birkaç gösterge oluşturur ve bunları yeni bir Veri Madeni'ndeki ( Data Mine ) projeye katkıda  bulunur!",
                 "updated": 1639836507868
+            },
+            {
+                "language": "RU",
+                "text": "Индикаторы создаются сообществом! Обычно разработчик создает несколько нужных ему индикаторов и вносит их в проект в новой Data Mine!",
+                "updated": 1640876027226
             }
         ]
     },
@@ -61,6 +66,11 @@
                     "language": "TR",
                     "text": "Topluluk Veri Madenleri Kitabı ( Community Data Mines Book ), mevcut tüm veri madenlerini ve göstergelerini bulabileceğiniz yerdir! Kitaptaki her bölüm bir Veri Madenine ( Data Mine ) karşılık gelir...",
                     "updated": 1639836612445
+                },
+                {
+                    "language": "RU",
+                    "text": "Книга Community Data Mines - это место, где вы можете найти все существующие сборщики данных и их индикаторы! Каждая глава в книге соответствует добыче данных...",
+                    "updated": 1640877157320
                 }
             ]
         },
@@ -89,6 +99,11 @@
                     "language": "TR",
                     "text": "Bu noktada hangi indikatörlerin olduğuna dair bir fikir edinmek için her bölümün içeriğini inceleyin!",
                     "updated": 1639836749476
+                },
+                {
+                    "language": "RU",
+                    "text": "Просмотрите содержание каждой главы, чтобы получить представление о том, что доступно на данный момент!",
+                    "updated": 1640877218761
                 }
             ]
         },
@@ -118,6 +133,11 @@
                     "language": "TR",
                     "text": "Bir Veri Madeni ( Data Mine ) kullanmak için, onu çalışma alanına bir eklenti olarak dahil etmeli ve marketi kurmalısınız. Tüm Veri Görevleri ( Data Task ) otomatik olarak oluşturulacaktır!",
                     "updated": 1639836804563
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы использовать Data Mine, вы должны включить его в рабочее пространство или как плагин и установить рынок. Все задачи Data Tasks будут созданы автоматически!",
+                    "updated": 1640877259977
                 }
             ]
         }

@@ -4,34 +4,83 @@
     "type": "Initial Setup - Node is not Recognized as an Internal or External Command",
     "definition": {
         "text": "Make sure Node JS is properly installed and that you are running the commando from within the correct folder.",
-        "updated": 1611511701216
+        "updated": 1611511701216,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Убедитесь, что Node JS правильно установлен и что вы выполняете команду из правильной папки.",
+                "updated": 1640456872045
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Have You Installed Node JS?",
-            "updated": 1611511729403
+            "updated": 1611511729403,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "У вас установлен Node JS?",
+                    "updated": 1640456524058
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The Download and Set Up guide walks you through the process of installing Node JS, an open-source server environment required to run Superalgos. Make sure you have installed the software correctly. Double-check in case the installation hasn’t finished yet."
+            "text": "The Download and Set Up guide walks you through the process of installing Node JS, an open-source server environment required to run Superalgos. Make sure you have installed the software correctly. Double-check in case the installation hasn’t finished yet.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Руководство Download and Set Up проведет вас через процесс установки Node JS, серверной среды с открытым исходным кодом, необходимой для работы Superalgos. Убедитесь, что вы правильно установили программное обеспечение. Дважды проверьте, если установка еще не завершилась.",
+                    "updated": 1640456738452
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Are you running the command from the correct folder?"
+            "text": "Are you running the command from the correct folder?",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "А вы выполняете команду из правильной папки?",
+                    "updated": 1640456846114
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Make sure you run the command from within the Superalgos-master folder."
+            "text": "Make sure you run the command from within the Superalgos-master folder.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Убедитесь, что вы запустили команду из папки Superalgos-master.",
+                    "updated": 1640456889460
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Test if Node JS is installed"
+            "text": "Test if Node JS is installed",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Проверьте, установлен ли Node JS",
+                    "updated": 1640456903014
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Run the command...",
-            "updated": 1611511888280
+            "updated": 1611511888280,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Выполните команду...",
+                    "updated": 1640456919987
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -39,7 +88,14 @@
         },
         {
             "style": "Text",
-            "text": "... to test if Node JS is installed. If Node JS is installed, the system should return a version number. If it doesn’t, please install Node JS again."
+            "text": "... to test if Node JS is installed. If Node JS is installed, the system should return a version number. If it doesn’t, please install Node JS again.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "... чтобы проверить, установлен ли Node JS. Если Node JS установлен, система должна вернуть номер версии. Если этого не происходит, установите Node JS снова.",
+                    "updated": 1640456941803
+                }
+            ]
         }
     ]
 }

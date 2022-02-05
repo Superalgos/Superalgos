@@ -1,0 +1,14 @@
+{
+    "type": "Outgoing Signal Reference",
+    "definition": {
+        "text": "The Outgoing Signal Reference node stores a reference to a signal definition held under the User's Profile in order to be sent across the Superalgos peer to peer network.",
+        "updated": 1643399854093
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "the Signal’s Reference node to the matching Signals node under the Social Trading Bot of the Provider.",
+            "updated": 1643405264982
+        }
+    ]
+}

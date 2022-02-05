@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "Bir çalışma alanına bir eklenti yerleştirmek için, Add The Missing Plugins seçeneğini seçmelisiniz!",
                 "updated": 1639813267037
+            },
+            {
+                "language": "RU",
+                "text": "Чтобы поместить плагин в рабочее пространство, необходимо выбрать опцию Add the Missing Plugins на узле соответствующего типа!",
+                "updated": 1640873740630
             }
         ]
     },
@@ -61,6 +66,11 @@
                     "language": "TR",
                     "text": "Plugin Trading System düğümünde Add Missing Trading System'ı  seçin!",
                     "updated": 1639815783798
+                },
+                {
+                    "language": "RU",
+                    "text": "Давайте попробуем! Выберите Add Missing Trading Systems в узле Plugin Trading Systems!",
+                    "updated": 1640873761062
                 }
             ]
         },
@@ -90,6 +100,11 @@
                     "language": "TR",
                     "text": "Her eklenti için \\Foundations\\Plugins\\Trading-Systems dizininde Plugin Files dosyası oluşturulur.İhtiyacınız olmayan Plugin File düğümlerini silebilir ve istediklerinizi saklayabilirsiniz! Şimdi herhangi bir Plugin File düğümünü genişletin, Plugin File Position düğümünü eklentiyi yerleştirmek istediğiniz yere sürükleyerek sabitleyin",
                     "updated": 1639816060254
+                },
+                {
+                    "language": "RU",
+                    "text": "Новые узлы Plugin File создаются для каждого плагина в \\Foundations\\Plugins\\Trading-Systems. Вы можете удалить ненужные вам узлы Plugin File и оставить те, которые вам нужны! Теперь добавьте и закрепите узел Plugin File Position там, где вы хотите разместить иерархию плагинов!",
+                    "updated": 1640873789742
                 }
             ]
         },
@@ -119,6 +134,11 @@
                     "language": "TR",
                     "text": "Çalışma alanını bir sonraki yüklediğinizde Plugin eklenecektir! Test etmek istiyorsanız, sayfayı yenileyin!",
                     "updated": 1639816105489
+                },
+                {
+                    "language": "RU",
+                    "text": "Плагины будут добавлены при следующей загрузке рабочего пространства! Если вы хотите протестировать его, обновите страницу!",
+                    "updated": 1640873813342
                 }
             ]
         }

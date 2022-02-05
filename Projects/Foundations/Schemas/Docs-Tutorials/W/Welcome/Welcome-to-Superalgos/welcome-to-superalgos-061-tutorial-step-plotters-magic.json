@@ -35,6 +35,11 @@
                 "language": "RU",
                 "text": "И вот как строятся плоттеры! Плоттеры создают графические представления данных... от свечей до всего остального!",
                 "updated": 1636746375089
+            },
+            {
+                "language": "ID",
+                "text": "Dan beginilah cara plotters dibangun! Plotter membuat representasi grafis dari data... dari candles, hingga yang lainnya!",
+                "updated": 1639709684476
             }
         ]
     },
@@ -69,6 +74,11 @@
                     "language": "RU",
                     "text": "Опять же, визуальное описание в лучшем виде! Плоттеры используют стилизованные полигоны, произведенные из координатных точек для окрашивания линий и фигур, представляющих данные. Каждый слой произвел доступ на диаграммах, создавая наборы определений того типа, на который Вы смотрите прямо сейчас. Каждый случай бота сопротивления и поддержки является довольно сложным, но показывает мощность инструмента!",
                     "updated": 1636746631697
+                },
+                {
+                    "language": "ID",
+                    "text": "Sekali lagi, visual scripting yang terbaik! Plotter menggunakan polygons bergaya yang terbuat dari titik koordinat untuk melukis garis dan bentuk yang mewakili data. Setiap layer yang tersedia di charts dibuat dengan serangkaian definisi seperti yang kamu lihat sekarang. Kasus khusus bot Resistances dan Supports agak rumit, tetapi akan menunjukkan kekuatan Superalgos ini!",
+                    "updated": 1639709926721
                 }
             ]
         },
@@ -91,8 +101,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Suchen Sie das Polygon der Widerstandszone 5 (links), erweitern Sie es und krabbeln Sie die Äste hinauf, um zu sehen, wie diese Schönheit entstanden ist!",
-                    "updated": 1634218503528
+                    "text": "Suchen Sie das Polygon der Unterstützungszone 5 (links), erweitern Sie es und gehen Sie die Äste hinauf, um zu sehen, wie diese Schönheit gebaut wurde! ",
+                    "updated": 1642152254598
                 },
                 {
                     "language": "TR",
@@ -101,8 +111,13 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Найдите Polygon Зоны сопротивления 5 (Zone 5) - слева, разверните его и поднимайтесь вверх по ветвям, чтобы взглянуть украдкой на то, как была построена эта красота!",
-                    "updated": 1636746844784
+                    "text": "Найдите полигон Support Zone 5 (слева), расширьте его и проберитесь по ветвям, чтобы увидеть, как создавалась эта красота! ",
+                    "updated": 1641833235714
+                },
+                {
+                    "language": "ID",
+                    "text": "Temukan Support Zone 5 Polygon (ke kiri), perluas, dan jelajahi cabang-cabangnya untuk mengintip bagaimana keindahan ini dibangun!",
+                    "updated": 1639709793022
                 }
             ]
         }

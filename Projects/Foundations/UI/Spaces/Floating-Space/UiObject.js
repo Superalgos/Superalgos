@@ -34,6 +34,9 @@ function newUiObject() {
         percentageAngleOffset: 0,
         statusAtAngle: false,
         statusAngleOffset: 0,
+        highlightReferenceChildren: false,
+        drawReferenceLine: false,
+        getHighlightReferenceChildrenStatus: getHighlightReferenceChildrenStatus,
         run: run,
         stop: stop,
         heartBeat: heartBeat,
@@ -57,6 +60,8 @@ function newUiObject() {
         resetPercentage: resetPercentage,
         setStatus: setStatus,
         resetStatus: resetStatus,
+        setQuickInfo: setQuickInfo,
+        resetQuickInfo: resetQuickInfo,
         physics: physics,
         invisiblePhysics: invisiblePhysics,
         drawBackground: drawBackground,
@@ -75,6 +80,7 @@ function newUiObject() {
     thisObject.container.frame.radius = 0
     thisObject.container.frame.position.x = 0
     thisObject.container.frame.position.y = 0
+    thisObject.container.uiObject = thisObject
 
     let icon
     let executingIcon
@@ -103,6 +109,8 @@ function newUiObject() {
 
     let hasStatus
     let statusCounter = 0
+
+    let hasQuickInfo
 
     let previousDistanceToChainParent
     let readyToChainAttachDisplayCounter = 5
@@ -138,6 +146,7 @@ function newUiObject() {
     let valueMinDecimals = undefined
     let currentPercentage = ''
     let currentStatus = ''
+    let currentQuickInfo = ''
     let rightDragging = false
 
     let eventSubscriptionIdOnError
@@ -352,7 +361,10 @@ function newUiObject() {
             }
         }
 
-        thisObject.payload.floatingObject.container.frame.radius = thisObject.payload.floatingObject.targetRadius + ((openMenuCount - 1) * (250 * UI.projects.foundations.spaces.floatingSpace.settings.node.menuItem.widthPercentage / 100))
+        thisObject.payload.floatingObject.container.frame.radius =
+            thisObject.payload.floatingObject.targetRadius +
+            ((openMenuCount - 1) *
+                (250 * UI.projects.foundations.spaces.floatingSpace.settings.node.menuItem.widthPercentage / 100))
 
         if (thisObject.conditionEditor !== undefined) {
             thisObject.conditionEditor.physics()
@@ -572,7 +584,7 @@ function newUiObject() {
             let THRESHOLD = 1.15
 
             if (ratio > THRESHOLD) {
-                UI.projects.foundations.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Parent Detach', project: 'Visual-Scripting' })
+                UI.projects.workspaces.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Parent Detach', project: 'Visual-Scripting' })
             }
         }
 
@@ -679,7 +691,7 @@ function newUiObject() {
             let THRESHOLD = 1.15
 
             if (ratio > THRESHOLD) {
-                UI.projects.foundations.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Reference Detach', project: 'Visual-Scripting' })
+                UI.projects.workspaces.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Reference Detach', project: 'Visual-Scripting' })
             }
         }
 
@@ -1026,6 +1038,18 @@ function newUiObject() {
         statusCounter = 0
     }
 
+    function setQuickInfo(quickInfo) {
+        if (quickInfo !== undefined) {
+            currentQuickInfo = quickInfo
+            hasQuickInfo = true
+        }
+    }
+
+    function resetQuickInfo() {
+        currentQuickInfo = undefined
+        hasQuickInfo = false
+    }
+
     function heartBeat() {
         lastHeartBeat = new Date()
         thisObject.isRunning = true
@@ -1162,7 +1186,7 @@ function newUiObject() {
     async function getTargetUiObject(message) {
         let uiObject = thisObject
         if (message.event.nodeId !== undefined) {
-            let targetNode = await UI.projects.foundations.spaces.designSpace.workspace.getNodeById(message.event.nodeId)
+            let targetNode = await UI.projects.workspaces.spaces.designSpace.workspace.getNodeById(message.event.nodeId)
             if (targetNode !== undefined) {
                 if (targetNode.payload !== undefined) {
                     if (targetNode.payload.uiObject !== undefined) {
@@ -1228,7 +1252,7 @@ function newUiObject() {
     }
 
     function iconPhysics() {
-        icon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.payload.node.type)
+        icon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.payload.node.type)
         let schemaDocument = getSchemaDocument(thisObject.payload.node)
 
         /*
@@ -1288,7 +1312,7 @@ function newUiObject() {
                             iconName = alternativeIcon.iconName
                         }
                     }
-                    let newIcon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(nodeToUse.project, iconName)
+                    let newIcon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName(nodeToUse.project, iconName)
                     if (newIcon !== undefined) {
                         icon = newIcon
                     }
@@ -1297,7 +1321,7 @@ function newUiObject() {
                 }
             } else {
                 if (schemaDocument.icon !== undefined) {
-                    let newIcon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(nodeToUse.project, schemaDocument.icon)
+                    let newIcon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName(nodeToUse.project, schemaDocument.icon)
                     if (newIcon !== undefined) {
                         icon = newIcon
                     }
@@ -1307,7 +1331,7 @@ function newUiObject() {
 
             let config = JSON.parse(thisObject.payload.node.config)
             let url = 'https://www.github.com/' + config.codeName + '.png'
-            let image = UI.projects.foundations.spaces.designSpace.getIconByExternalSource(thisObject.payload.node.project, url)
+            let image = UI.projects.workspaces.spaces.designSpace.getIconByExternalSource(thisObject.payload.node.project, url)
 
             if (image.canDrawIcon === true) {
                 icon = image
@@ -1315,7 +1339,7 @@ function newUiObject() {
         }
 
         thisObject.icon = icon
-        executingIcon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', 'bitcoin')
+        executingIcon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName('Foundations', 'bitcoin')
     }
 
     function onFocus() {
@@ -1376,14 +1400,14 @@ function newUiObject() {
 
     function onDragFinished(event) {
         if (isChainAttaching === true) {
-            UI.projects.foundations.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Parent Attach', project: 'Visual-Scripting', relatedNode: chainAttachToNode })
+            UI.projects.workspaces.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Parent Attach', project: 'Visual-Scripting', relatedNode: chainAttachToNode })
             chainAttachToNode = undefined
             isChainAttaching = false
             /* We want to avoid the situation in which we are attaching a node to its parent and at the same time referencing another node. */
             isReferenceAttaching = false
         }
         if (isReferenceAttaching === true) {
-            UI.projects.foundations.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Reference Attach', project: 'Visual-Scripting', relatedNode: referenceAttachToNode })
+            UI.projects.workspaces.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Reference Attach', project: 'Visual-Scripting', relatedNode: referenceAttachToNode })
             referenceAttachToNode = undefined
             isReferenceAttaching = false
         }
@@ -1478,6 +1502,7 @@ function newUiObject() {
             drawValue()
             drawPercentage()
             drawStatus()
+            drawQuickInfo()
 
             if (drawTitle === true) {
                 thisObject.uiObjectTitle.draw()
@@ -1563,7 +1588,7 @@ function newUiObject() {
     }
 
     function drawReferenceLine() {
-        if (UI.projects.foundations.spaces.floatingSpace.drawReferenceLines === false && thisObject.isOnFocus === false) { return }
+        if (UI.projects.foundations.spaces.floatingSpace.drawReferenceLines === false && thisObject.drawReferenceLine === false && thisObject.isOnFocus === false) { return }
         if (thisObject.payload.referenceParent === undefined) { return }
         if (thisObject.payload.referenceParent.payload === undefined) { return }
         if (thisObject.payload.referenceParent.payload.floatingObject === undefined) { return }
@@ -1955,6 +1980,64 @@ function newUiObject() {
         }
     }
 
+    function drawQuickInfo() {
+        if (hasQuickInfo === false) { return }
+        if (UI.projects.foundations.spaces.floatingSpace.inMapMode === true) { return }
+
+        let position = {
+            x: 0,
+            y: 0
+        }
+
+        position = thisObject.container.frame.frameThisPoint(position)
+
+        let radius = thisObject.payload.floatingObject.container.frame.radius
+        /* Label Text */
+        let labelPoint
+        let fontSize = 20
+        let lineSeparator = 25
+        let label
+
+        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
+
+        if (radius > 6) {
+            const IDEAL_LABEL_LENGTH = 80
+
+            label = currentQuickInfo
+
+            if (label !== undefined && label !== null) {
+                if (label.length > IDEAL_LABEL_LENGTH) {
+                    if (label.length > IDEAL_LABEL_LENGTH * 3) {
+                        label = label.substring(0, IDEAL_LABEL_LENGTH * 3) + '...'
+                    }
+                }
+
+                /* Split the line into Phrases */
+                let phrases = splitTextIntoPhrases(label, 5)
+                if (phrases.length === 1) {
+                    phrases.push("")
+                }
+                if (phrases.length === 2) {
+                    phrases.push("")
+                }
+
+                for (let i = 0; i < phrases.length; i++) {
+                    let phrase = phrases[i]
+                    labelPoint = {
+                        x: position.x - getTextWidth(phrase) / 2,
+                        y: position.y + lineSeparator * (10 - phrases.length + 1 + i)
+                    }
+                    printMessage(phrase)
+                }
+
+                function printMessage(text) {
+                    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
+                    browserCanvasContext.fillText(text, labelPoint.x, labelPoint.y)
+                }
+            }
+        }
+    }
+
     function addIndexNumber(label) {
         switch (thisObject.payload.node.type) {
             case 'Phase': {
@@ -2079,7 +2162,7 @@ function newUiObject() {
             drawHierarchyHeadRing()
             drawProjectHeadRing()
             drawInfoRing()
-            drawWarningRing() 
+            drawWarningRing()
             drawErrorRing()
             drawHighlighted()
             drawReadyToChainAttach()
@@ -2252,6 +2335,9 @@ function newUiObject() {
             function drawHighlighted() {
                 if (isHighlighted === true) {
                     VISIBLE_RADIUS = thisObject.payload.floatingObject.container.frame.radius
+                    if (UI.projects.foundations.spaces.floatingSpace.inMapMode === true) {
+                        VISIBLE_RADIUS = UI.projects.foundations.spaces.floatingSpace.transformRadiusToMap(VISIBLE_RADIUS)
+                    }
                     let OPACITY = highlightCounter / 10
 
                     browserCanvasContext.beginPath()
@@ -2443,7 +2529,7 @@ function newUiObject() {
                 }
 
                 // If this UiObject is being loaded then display at half opacity
-                if(thisObject.payload.isLoading === true) {
+                if (thisObject.payload.isLoading === true) {
                     browserCanvasContext.globalAlpha = 0.5
                 } else {
                     browserCanvasContext.globalAlpha = 1
@@ -2477,5 +2563,9 @@ function newUiObject() {
                 }
             }
         }
+    }
+
+    function getHighlightReferenceChildrenStatus() {
+        return thisObject.highlightReferenceChildren
     }
 }

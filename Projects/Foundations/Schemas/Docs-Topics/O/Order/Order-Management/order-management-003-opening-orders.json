@@ -4,7 +4,14 @@
     "type": "Opening Orders",
     "definition": {
         "text": "Several calculations and validations are required before creating and placing an order.",
-        "updated": 1610219973766
+        "updated": 1610219973766,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Перед созданием и размещением ордера необходимо провести несколько расчетов и проверок.",
+                "updated": 1640176767139
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -14,15 +21,36 @@
         },
         {
             "style": "Text",
-            "text": "Before creating an order, a few calculations to determine what the order should look like are required, in particular about the rate of the order (see Calculate Order Rate) and the size of the order (see Calculate Order Size)."
+            "text": "Before creating an order, a few calculations to determine what the order should look like are required, in particular about the rate of the order (see Calculate Order Rate) and the size of the order (see Calculate Order Size).",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Перед созданием ордера необходимо выполнить несколько расчетов, чтобы определить, как должен выглядеть ордер, в частности, курс ордера (см. \"Расчет цены для ордера\") и размер ордера (см. \"Расчет размера ордера\").",
+                    "updated": 1640177977099
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Once the calculations are done, some validations are in order."
+            "text": "Once the calculations are done, some validations are in order.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "После проведения расчетов необходимо провести некоторые проверки.",
+                    "updated": 1640176877996
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The size of an order may not be negative."
+            "text": "The size of an order may not be negative.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Размер заказа не может быть отрицательным.",
+                    "updated": 1640176890354
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -31,11 +59,25 @@
         },
         {
             "style": "Callout",
-            "text": "If previous checks pass and it is a forward testing or live trading session, the order is placed at the exchange. If it is a backtesting or paper trading session, the order exists in the data structure of the trading engine only."
+            "text": "If previous checks pass and it is a forward testing or live trading session, the order is placed at the exchange. If it is a backtesting or paper trading session, the order exists in the data structure of the trading engine only.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если предыдущие проверки пройдены и это форвард-тестирование или реальная торговая сессия, ордер размещается на бирже. Если это бэктестинг или бумажная торговая сессия, ордер существует только в структуре данных торгового движка.",
+                    "updated": 1640176924793
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If the order is placed successfully, then all related data structures in the trading engine are updated accordingly, including size placed for the stage in both assets, episode counters, and the particular order’s details."
+            "text": "If the order is placed successfully, then all related data structures in the trading engine are updated accordingly, including size placed for the stage in both assets, episode counters, and the particular order’s details.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если ордер размещен успешно, то все связанные структуры данных в торговом движке обновляются соответствующим образом, включая размер, размещенный в обоих активах, счетчики эпизодов и детали конкретного ордера.",
+                    "updated": 1640186069938
+                }
+            ]
         },
         {
             "style": "Block",
@@ -43,20 +85,48 @@
         },
         {
             "style": "Title",
-            "text": "Calculate Order Rate"
+            "text": "Calculate Order Rate",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Расчет цены для ордера",
+                    "updated": 1640177936111
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The first thing to consider to determine the rate of the order is whether it is a limit or a market order."
+            "text": "The first thing to consider to determine the rate of the order is whether it is a limit or a market order.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Первое, что необходимо учитывать для определения ставки ордера, это то, является ли он лимитным или рыночным.",
+                    "updated": 1640177749348
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Limit orders must have a proper definition of the order rate. That is, the order rate node must have a formula that results in a number, and that is greater than zero. If all validations pass, the order rate is stored in tradingEngineOrder.rate.value."
+            "text": "Limit orders must have a proper definition of the order rate. That is, the order rate node must have a formula that results in a number, and that is greater than zero. If all validations pass, the order rate is stored in tradingEngineOrder.rate.value.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Лимитные ордера должны иметь правильное определение ставки ордера. То есть узел ставки ордера Order Rate должен иметь формулу, результатом которой является число, большее нуля. Если все проверки пройдены, ставка ордера сохраняется в файле tradingEngineOrder.rate.value.",
+                    "updated": 1640177808584
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "For market orders, there is no definition of the rate, as the rate is whatever rate the order fills at the exchange. The initial value is therefore the last known market rate, that is, the rate of the last closed candle: ",
-            "updated": 1610220046300
+            "updated": 1610220046300,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для рыночных ордеров не существует определения ставки, так как ставка является любой ставкой, по которой ордер исполняется на бирже. Поэтому начальным значением является последний известный рыночный курс, то есть курс последней закрытой свечи:",
+                    "updated": 1640177880071
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -69,39 +139,102 @@
         },
         {
             "style": "Title",
-            "text": "Calculate Order Size"
+            "text": "Calculate Order Size",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Расчет размера ордера",
+                    "updated": 1640177929349
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The calculation of the size of the order is a bit more elaborate, as several things must be taken into account, with the added intricacy that the user may define the target size for the stage in the base asset or the quoted asset."
+            "text": "The calculation of the size of the order is a bit more elaborate, as several things must be taken into account, with the added intricacy that the user may define the target size for the stage in the base asset or the quoted asset.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Расчет размера ордера немного более сложен, поскольку необходимо учитывать несколько моментов, с дополнительной сложностью в том, что пользователь может определить целевой размер для этой стадии в базовом активе или котируемом активе.",
+                    "updated": 1640179445008
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The three main steps to define the size are the following:"
+            "text": "The three main steps to define the size are the following:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Три основных шага для определения размера следующие:",
+                    "updated": 1640178038004
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "To start with, the definitions regarding the size of the order must be valid (see Required Configuration Validation)."
+            "text": "To start with, the definitions regarding the size of the order must be valid (see Required Configuration Validation).",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Прежде всего, определения, касающиеся размера ордера, должны быть действительными (см. раздел \"Проверка требуемой конфигурации\").",
+                    "updated": 1640179206641
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Then, the size of the order added to the rest of the orders that may have been placed before must not be greater than the target size for the stage (see Not Passing Target Size Validation)."
+            "text": "Then, the size of the order added to the rest of the orders that may have been placed before must not be greater than the target size for the stage (see Not Passing Target Size Validation).",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Затем размер ордера, сложенный с остальными ордерами, которые могли быть размещены ранее, не должен превышать целевой размер для данной стадии (см. раздел \"Не прохождение проверки целевого размера\").",
+                    "updated": 1640178175552
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Finally, the size of the order must not leave any of the assets in the trading engine’s built-in accounting system with a negative balance (see Not Negative Balance Validation)."
+            "text": "Finally, the size of the order must not leave any of the assets in the trading engine’s built-in accounting system with a negative balance (see Not Negative Balance Validation).",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Наконец, размер ордера не должен оставлять ни один из активов во встроенной системе учета торгового движка с отрицательным балансом (см. Проверка отсутствия отрицательного баланса).",
+                    "updated": 1640178234399
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Required Configuration Validation"
+            "text": "Required Configuration Validation",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Проверка требуемой конфигурации",
+                    "updated": 1640179199298
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Beyond the target size for the stage, the user produces two more definitions that affect what the order size should be for the particular order: at the level of the execution algorithm’s configuration (percentageOfStageTargetSize parameter) and the level of the order’s configuration (percentageOfAlgorithmSize parameter). Both of these definitions must be valid and numeric."
+            "text": "Beyond the target size for the stage, the user produces two more definitions that affect what the order size should be for the particular order: at the level of the execution algorithm’s configuration (percentageOfStageTargetSize parameter) and the level of the order’s configuration (percentageOfAlgorithmSize parameter). Both of these definitions must be valid and numeric.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Помимо целевого размера для стадии, пользователь создает еще два определения, которые влияют на то, каким должен быть размер ордера для конкретного ордера: на уровне конфигурации алгоритма исполнения (параметр percentageOfStageTargetSize) и на уровне конфигурации ордера (параметр percentageOfAlgorithmSize). Оба эти определения должны быть действительными и числовыми.",
+                    "updated": 1640178902200
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Once the corresponding checks pass, the size of the algorithm is determined as per the definitions:"
+            "text": "Once the corresponding checks pass, the size of the algorithm is determined as per the definitions:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "После прохождения соответствующих проверок размер алгоритма определяется в соответствии с определениями:",
+                    "updated": 1640178952162
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -110,7 +243,14 @@
         },
         {
             "style": "Text",
-            "text": "… and…"
+            "text": "… and…",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "… и …",
+                    "updated": 1640178959187
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -120,7 +260,14 @@
         {
             "style": "Note",
             "text": "Notice that it is assumed that the target size for the stage is defined both in base asset and the quoted asset. This is because, although the user defines the target size in one asset only, the system converts the definition to the other asset (at an earlier moment), to keep track of accounts on both assets at all times, which is a design requirement.",
-            "updated": 1610220163303
+            "updated": 1610220163303,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание, что предполагается, что целевой размер для стадии определен как в базовом активе, так и в котируемом активе. Это связано с тем, что, хотя пользователь определяет целевой размер только в одном активе, система преобразует определение в другой актив (в более ранний момент), чтобы постоянно отслеживать счета в обоих активах, что является требованием проекта.",
+                    "updated": 1640179007871
+                }
+            ]
         },
         {
             "style": "Block",
@@ -132,20 +279,48 @@
         },
         {
             "style": "Text",
-            "text": "This validation requires handling two possible scenarios separately. Did the user define the target size for the stage in base asset or the quoted asset?"
+            "text": "This validation requires handling two possible scenarios separately. Did the user define the target size for the stage in base asset or the quoted asset?",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Эта проверка требует отдельной обработки двух возможных сценариев. Определил ли пользователь целевой размер для стадии в базовом активе или в котируемом активе?",
+                    "updated": 1640179079697
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "The system discriminates both scenarios to remain faithful to the intent of the definitions. This is a design feature throughout the system, and it is at the core of allowing maximum flexibility, so that users may use trading systems in various ways to achieve different goals.",
-            "updated": 1610220186307
+            "updated": 1610220186307,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Система различает оба сценария, чтобы сохранить верность замыслу определений. Это особенность конструкции всей системы, и она лежит в основе обеспечения максимальной гибкости, чтобы пользователи могли использовать торговые системы различными способами для достижения различных целей.",
+                    "updated": 1640179117772
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Stage size defined in base asset"
+            "text": "Stage size defined in base asset",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Размер стадии заданного в базовом активе",
+                    "updated": 1640179556161
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If the stage size was defined in base asset, then the size of the order derives from the definitions that where validated in the previous step (see Required Configuration Validation):"
+            "text": "If the stage size was defined in base asset, then the size of the order derives from the definitions that where validated in the previous step (see Required Configuration Validation):",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если размер стадии был определен в базовом активе, то размер ордера вытекает из определений, которые были проверены на предыдущем шаге (см. раздел \"Проверка требуемой конфигурации\"):",
+                    "updated": 1640179195014
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -154,11 +329,25 @@
         },
         {
             "style": "Text",
-            "text": "With the above value, the validation is run to determine if the combined sizes of all orders placed up to this point would be larger than the size defined for the stage. Remember that the size defined for the stage is enforced as a cap. If the defined order size does exceed the stage size limit, then the size is lowered to fit the limit. The re-sizing goes out with a warning, to let the user know why the resizing took place."
+            "text": "With the above value, the validation is run to determine if the combined sizes of all orders placed up to this point would be larger than the size defined for the stage. Remember that the size defined for the stage is enforced as a cap. If the defined order size does exceed the stage size limit, then the size is lowered to fit the limit. The re-sizing goes out with a warning, to let the user know why the resizing took place.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "При указанном выше значении выполняется проверка, чтобы определить, будет ли совокупный размер всех ордеров, размещенных до этого момента, больше, чем размер, определенный для данной стадии. Помните, что размер, определенный для данной стадии, применяется в качестве ограничения. Если определенный размер ордера превышает лимит размера этапа, то размер уменьшается, чтобы соответствовать лимиту. Изменение размера сопровождается предупреждением, чтобы пользователь знал, почему произошло изменение размера.",
+                    "updated": 1640179414754
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Once the order size in base asset is final, then the size in quoted asset may be determined multiplying the size in base asset by the order rate determined earlier:"
+            "text": "Once the order size in base asset is final, then the size in quoted asset may be determined multiplying the size in base asset by the order rate determined earlier:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Когда размер ордера в базовом активе окончательно определен, можно определить размер в котируемом активе, умножив размер в базовом активе на ставку ордера, определенную ранее:",
+                    "updated": 1640179509695
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -167,11 +356,25 @@
         },
         {
             "style": "Subtitle",
-            "text": "Stage size defined in quoted asset"
+            "text": "Stage size defined in quoted asset",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Размер стадии, заданной в котируемом активе",
+                    "updated": 1640179541598
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Similarly, in this case the size of the order in quoted asset derives directly from the definitions:"
+            "text": "Similarly, in this case the size of the order in quoted asset derives directly from the definitions:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Аналогично, в данном случае размер ордера в котируемом активе вытекает непосредственно из определений:",
+                    "updated": 1640179584789
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -180,7 +383,14 @@
         },
         {
             "style": "Text",
-            "text": "The same validation is run as with the base asset, and the size of the order in base asset is also determined at the end:"
+            "text": "The same validation is run as with the base asset, and the size of the order in base asset is also determined at the end:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Выполняется та же проверка, что и с базовым активом, и в конце также определяется размер ордера в базовом активе:",
+                    "updated": 1640179602214
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -193,19 +403,47 @@
         },
         {
             "style": "Title",
-            "text": "Not Negative Balance Validation"
+            "text": "Not Negative Balance Validation",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Проверка отсутствия отрицательного баланса",
+                    "updated": 1640179629288
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The final validation is there to make sure that no balances become negative if the order is created with the currently defined size."
+            "text": "The final validation is there to make sure that no balances become negative if the order is created with the currently defined size.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Окончательная проверка проводится для того, чтобы убедиться, что баланс не станет отрицательным, если ордер будет создан с определенным на данный момент размером.",
+                    "updated": 1640179651353
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Buy orders"
+            "text": "Buy orders",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ордера на покупку",
+                    "updated": 1640179691799
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "For buy orders (both market and limit), the quoted asset balance minus the order size must be equal to or greater than zero."
+            "text": "For buy orders (both market and limit), the quoted asset balance minus the order size must be equal to or greater than zero.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для ордеров на покупку (как рыночных, так и лимитных) котируемый остаток актива за вычетом размера ордера должен быть равен или больше нуля.",
+                    "updated": 1640179717411
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -214,7 +452,14 @@
         },
         {
             "style": "Text",
-            "text": "If not, the size of the order is redefined to fit the available balance. The resizing goes out with a warning."
+            "text": "If not, the size of the order is redefined to fit the available balance. The resizing goes out with a warning.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если нет, размер заказа переопределяется, чтобы соответствовать имеющемуся балансу. Изменение размера сопровождается предупреждением.",
+                    "updated": 1640179737243
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -223,7 +468,14 @@
         },
         {
             "style": "Text",
-            "text": "And, remember, every time a property changes for one asset, the same property for the other asset must be updated as well:"
+            "text": "And, remember, every time a property changes for one asset, the same property for the other asset must be updated as well:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "И, помните, каждый раз, когда свойство изменяется для одного актива, это же свойство для другого актива также должно быть обновлено:",
+                    "updated": 1640179755693
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -232,16 +484,37 @@
         },
         {
             "style": "Subtitle",
-            "text": "Sell orders"
+            "text": "Sell orders",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ордера на продажу",
+                    "updated": 1640179769996
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "For market and limit sell orders, the validation is reversed, checking the balance of the base asset instead of the quoted asset."
+            "text": "For market and limit sell orders, the validation is reversed, checking the balance of the base asset instead of the quoted asset.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для рыночных и лимитных ордеров на продажу проверка производится в обратном порядке, проверяется баланс базового актива, а не котируемого актива.",
+                    "updated": 1640179799293
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "Remember that a sell order always exchanges the base asset for the quoted asset and a buy order does the opposite.",
-            "updated": 1610220400837
+            "updated": 1610220400837,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Помните, что ордер на продажу всегда обменивает базовый актив на котируемый актив, а ордер на покупку делает обратное.",
+                    "updated": 1640179824321
+                }
+            ]
         }
     ]
 }

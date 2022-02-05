@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Это токен BEP20 в сети Binance Smart Chain, который будет использоваться в качестве средства обмена пользователями Superalgos при оплате товаров или услуг, которые они покупают и продают друг другу.",
                 "updated": 1638298808232
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos kullanıcılarının alıp sattıkları ürün veya hizmetler için ödeme yaparken değişim aracı olarak kullanacakları Binance Akıllı Zincirindeki BEP20 tokenidir.",
+                "updated": 1642711509778
             }
         ]
     },
@@ -21,6 +26,11 @@
                     "language": "RU",
                     "text": "Характеристики",
                     "updated": 1638298836264
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1642711547203
                 }
             ]
         },
@@ -32,29 +42,69 @@
                     "language": "RU",
                     "text": "Токен SA имеет следующие свойства:",
                     "updated": 1638298880619
+                },
+                {
+                    "language": "TR",
+                    "text": "SA Token aşağıdaki özelliklere sahiptir:",
+                    "updated": 1642711567813
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Name: Superalgos"
+            "text": "Name: Superalgos",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Adı: Superalgos",
+                    "updated": 1642711579431
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Ticker: SA"
+            "text": "Ticker: SA",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Simgesi: SA",
+                    "updated": 1642711589295
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Max Total Supply: 1,500,000,000"
+            "text": "Max Total Supply: 1,500,000,000",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Maksimum toplam Arz: 1,500,000,000",
+                    "updated": 1642711609189
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Issued on Binance Smart Chain: 500,000,000"
+            "text": "Issued on Binance Smart Chain: 500,000,000",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Binance Smart Chain'de Dağıtılacak Miktar: 500,000,000",
+                    "updated": 1642711686936
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Contract Address: 0xfb981ed9a92377ca4d75d924b9ca06df163924fd",
-            "updated": 1618832141201
+            "updated": 1618832141201,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Kontrat Adresi: 0xfb981ed9a92377ca4d75d924b9ca06df163924fd",
+                    "updated": 1642711670828
+                }
+            ]
         },
         {
             "style": "Title",
@@ -65,6 +115,11 @@
                     "language": "RU",
                     "text": "Распределение",
                     "updated": 1638298919420
+                },
+                {
+                    "language": "TR",
+                    "text": "Dağıtım",
+                    "updated": 1642711700357
                 }
             ]
         },
@@ -77,13 +132,25 @@
                     "language": "RU",
                     "text": "Токен был развернут в марте 2021 года, и все токены были депонированы на казначейском счете проекта. Токены распределяются среди участников из этой учетной записи для каждого выпуска.",
                     "updated": 1638298947085
+                },
+                {
+                    "language": "TR",
+                    "text": "Token Mart 2021'de ortaya çıktı ve tüm tokenler projenin Hazine Hesabına yatırıldı. Tokenler, bu hesaptan katkıda bulunanlara sürüm bazında dağıtılır.",
+                    "updated": 1642711794925
                 }
             ]
         },
         {
             "style": "List",
             "text": "Treasury Account: 0x8d4d2557ce99f83f658adf61eef3e61e04c2ac2c",
-            "updated": 1618832329524
+            "updated": 1618832329524,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hazine Hesabı: 0x8d4d2557ce99f83f658adf61eef3e61e04c2ac2c",
+                    "updated": 1642711843176
+                }
+            ]
         },
         {
             "style": "Success",
@@ -93,6 +160,11 @@
                     "language": "RU",
                     "text": "Узнайте больше о токене Superalgos SA на веб-сайте.",
                     "updated": 1638298987604
+                },
+                {
+                    "language": "TR",
+                    "text": "Web sitesinde Superalgos SA Simgesi hakkında daha fazla bilgi edinebilirsiniz.",
+                    "updated": 1642711932425
                 }
             ]
         }

@@ -13,6 +13,16 @@
                 "language": "DE",
                 "text": "Wie Sie sehen, ist der initialBalance in der Session Base Asset definiert. Das ist einfach eine Frage der Wahl!",
                 "updated": 1639397987476
+            },
+            {
+                "language": "TR",
+                "text": "Gördüğünüz gibi, initialBalance, Session Base Asset'te tanımlanmıştır. Bu sadece bir seçim meselesi!",
+                "updated": 1641668574833
+            },
+            {
+                "language": "RU",
+                "text": "Как вы можете видеть, initialBalance определяется в Session Base Asset. Это просто вопрос выбора!",
+                "updated": 1642777458872
             }
         ]
     },
@@ -25,6 +35,16 @@
                     "language": "DE",
                     "text": "Wir haben ihn im Basis-Asset definiert, weil er für unsere Handelsidee sinnvoll ist, die darauf abzielt, einige von uns gehaltene Bitcoins zu verkaufen, um sie zu einem günstigeren Preis wieder zu kaufen.",
                     "updated": 1639398003512
+                },
+                {
+                    "language": "TR",
+                    "text": "Baz varlıkta tanımladık, çünkü daha ucuz bir fiyata geri almak için tuttuğumuz bazı bitcoinleri daha yüksek bir fiyata  satmayı amaçlayan ticaret fikrimiz için olması gerenken mantık bu.",
+                    "updated": 1641668586589
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы определили его в базовый актив, потому что это имеет смысл для нашей торговой идеи, которая заключается в том, чтобы продать часть биткоина, которым мы владеем, чтобы снова купить его по более дешевой цене.",
+                    "updated": 1642777483018
                 }
             ]
         },
@@ -36,6 +56,16 @@
                     "language": "DE",
                     "text": "Aber wir können den Wert des initialBalance nicht für unsere Zielgröße verwenden! Verstehen Sie, warum?",
                     "updated": 1639398013930
+                },
+                {
+                    "language": "TR",
+                    "text": "Ancak hedef boyutumuz için başlangıç dengesini (initialBalance) değerini kullanamayız! Nedenini anladın mı?",
+                    "updated": 1641668598299
+                },
+                {
+                    "language": "RU",
+                    "text": "Но мы не можем использовать значение initialBalance для нашего целевого размера! Вы можете понять, почему?",
+                    "updated": 1642777502464
                 }
             ]
         },
@@ -47,6 +77,16 @@
                     "language": "DE",
                     "text": "Die Zielgröße, die wir festlegen, gilt für jede Position, die die Strategie einnimmt. Wäre es der initialBalance und wir würden in der ersten Position einige Bitcoin verlieren, würden wir in der zweiten Position einen Fehler erhalten, da wir dann nicht mehr so viele Bitcoin hätten!",
                     "updated": 1639398043359
+                },
+                {
+                    "language": "TR",
+                    "text": "Tanımladığımız hedef büyüklük, stratejinin alacağı her pozisyon için geçerlidir. Başlangıç dengesi ( initialBalance ) olsaydı ve ilk pozisyonda biraz bitcoin kaybettiysek, ikinci pozisyonda bir hata alırdık, çünkü o zamana kadar artık o kadar fazla bitcoinimiz olmazdı!",
+                    "updated": 1641668609825
+                },
+                {
+                    "language": "RU",
+                    "text": "Целевой размер, который мы определяем, действителен для каждой позиции, которую будет использовать стратегия. Если бы это был начальный баланс (InitialBalance) и мы потеряли несколько биткоинов в первой позиции, мы бы получили ошибку во второй позиции, поскольку к тому времени у нас уже не было бы столько биткоинов!",
+                    "updated": 1642777546207
                 }
             ]
         }

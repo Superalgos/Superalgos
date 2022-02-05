@@ -142,6 +142,12 @@
             "type": "node",
             "childType": "Plugin Positions",
             "autoAdd": false
+        },
+        {
+            "name": "pluginP2PNetworks",
+            "type": "node",
+            "childType": "Plugin P2P-Networks",
+            "autoAdd": false
         }
     ],
     "alternativeIcons": [
@@ -164,6 +170,10 @@
         {
             "codeName": "Governance",
             "iconName": "governance"
+        },
+        {
+            "codeName": "Network",
+            "iconName": "network"
         }
     ]
 }

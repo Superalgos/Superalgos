@@ -29,21 +29,21 @@
             "type": "node",
             "childType": "Portfolio Current",
             "autoAdd": false,
-            "project": "Foundations"
+            "project": "Portfolio-Management"
         },
         {
             "name": "portfolioLast",
             "type": "node",
             "childType": "Portfolio Last",
             "autoAdd": false,
-            "project": "Foundations"
+            "project": "Portfolio-Management"
         },
         {
-            "name": "exchangeOrders",
+            "name": "managedTradingBots",
             "type": "node",
-            "childType": "Exchange Orders",
-            "autoAdd": false,
-            "project": "Foundations"
+            "childType": "Managed Trading Bots",
+            "project": "Portfolio-Management",
+            "autoAdd": true
         }
     ]
 }

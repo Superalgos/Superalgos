@@ -4,7 +4,14 @@
     "type": "Canceling Orders",
     "definition": {
         "text": "After running a few checks, if the Cancel Order Event is triggered, the order is canceled, the synchronization is run, and accounts are updated.",
-        "updated": 1610221990441
+        "updated": 1610221990441,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "После выполнения нескольких проверок, если срабатывает событие Cancel Order Event, ордер отменяется, запускается синхронизация, и счета обновляются.",
+                "updated": 1640331297865
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -14,15 +21,36 @@
         },
         {
             "style": "Title",
-            "text": "Check Cancel Order Event"
+            "text": "Check Cancel Order Event",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Проверка события Cancel Order Event",
+                    "updated": 1640331330200
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Before evaluating the cancel order event, a few checks are in order."
+            "text": "Before evaluating the cancel order event, a few checks are in order.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Прежде чем оценивать событие отмены ордера, необходимо выполнить несколько проверок.",
+                    "updated": 1640331378510
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Orders are not canceled if the stage is closing."
+            "text": "Orders are not canceled if the stage is closing.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ордера не отменяются, если этап закрывается.",
+                    "updated": 1640331394066
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -30,7 +58,14 @@
         },
         {
             "style": "List",
-            "text": "Orders may only be canceled if the status is Open."
+            "text": "Orders may only be canceled if the status is Open.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ордера могут быть отменены только в том случае, если их статус открыт (\"Open\").",
+                    "updated": 1640331426561
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -39,36 +74,92 @@
         {
             "style": "Text",
             "text": "If both checks pass, then the cancel order event is evaluated. If a situation in the event is true, then the following actions take place:",
-            "updated": 1610222066264
+            "updated": 1610222066264,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если обе проверки пройдены, то оценивается событие отмены ордера. Если ситуация в событии истинна (true), то выполняются следующие действия:",
+                    "updated": 1640331468108
+                }
+            ]
         },
         {
             "style": "List",
             "text": "If it’s a backtesting or paper trading session, the order cancellation must be simulated (see Simulating Order Cancellation).",
-            "updated": 1610222051378
+            "updated": 1610222051378,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если речь идет о бэктестинге или бумажной торговой сессии, отмена ордера должна быть смоделирована (см. раздел  Simulating Order Cancellation).",
+                    "updated": 1640331492703
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "If it’s a forward testing or live trading session, the order must be canceled at the exchange."
+            "text": "If it’s a forward testing or live trading session, the order must be canceled at the exchange.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если речь идет о форвардном тестировании или реальной торговой сессии, ордер должен быть отменен на бирже.",
+                    "updated": 1640331506439
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Canceling Orders"
+            "text": "Canceling Orders",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Отмена ордеров",
+                    "updated": 1640331518335
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "When the cancel order event as defined in the trading system is triggered, the trading bot sends the cancel order request to the exchange, and waits for an answer. No further action is taken until the exchange confirms the order has been closed."
+            "text": "When the cancel order event as defined in the trading system is triggered, the trading bot sends the cancel order request to the exchange, and waits for an answer. No further action is taken until the exchange confirms the order has been closed.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Когда срабатывает событие отмены ордера, определенное в торговой системе, торговый бот отправляет запрос на отмену ордера на биржу и ждет ответа. Никаких дальнейших действий не предпринимается до тех пор, пока биржа не подтвердит, что ордер отменен.",
+                    "updated": 1640331555397
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Once the confirmation is in, a new request to check the order is sent, so as to determine if the size filled for the order changed between the last time it was checked and the moment of the cancellation."
+            "text": "Once the confirmation is in, a new request to check the order is sent, so as to determine if the size filled for the order changed between the last time it was checked and the moment of the cancellation.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "После получения подтверждения отправляется новый запрос на проверку заказа, чтобы определить, изменился ли размер, заполненный для заказа, между последней проверкой и моментом отмены.",
+                    "updated": 1640331578598
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Once the trading bot gets the order details, it runs the synchronization (see Syncing with the exchange) and the recalculation of the stage size again (see Accounting), to make up and account for any differences that may exist compared to the last known state of the order"
+            "text": "Once the trading bot gets the order details, it runs the synchronization (see Syncing with the exchange) and the recalculation of the stage size again (see Accounting), to make up and account for any differences that may exist compared to the last known state of the order",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как только торговый бот получает детали ордера, он запускает синхронизацию (см. Syncing with exchange) и повторный пересчет размера этапа (см. Accounting), чтобы исправить и учесть любые различия, которые могут существовать по сравнению с последним известным состоянием ордера.",
+                    "updated": 1640331626638
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The order is not closed until the order details are received from the exchange."
+            "text": "The order is not closed until the order details are received from the exchange.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ордер не закрывается до тех пор, пока данные ордера не будут получены от биржи.",
+                    "updated": 1640331660264
+                }
+            ]
         },
         {
             "style": "Javascript",

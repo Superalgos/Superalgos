@@ -13,6 +13,16 @@
                 "language": "DE",
                 "text": "Lassen Sie uns eine schnelle visuelle Überprüfung der Simulation durchführen, um zu verstehen, ob die Strategie wie erwartet ein- und ausgeschaltet wurde!",
                 "updated": 1639267047467
+            },
+            {
+                "language": "RU",
+                "text": "Давайте проведем быструю визуальную проверку симуляции, чтобы понять, срабатывала ли стратегия, как ожидалось!",
+                "updated": 1640950819567
+            },
+            {
+                "language": "TR",
+                "text": "Stratejinin beklendiği gibi açık ve kapalı olup olmadığını anlamak için simülasyonun hızlı bir görsel incelemesini yapalım!",
+                "updated": 1641655718540
             }
         ]
     },
@@ -25,6 +35,16 @@
                     "language": "DE",
                     "text": "Vergewissern Sie sich, dass der Layer Bollinger SubChannels Object zusammen mit dem Panel des Layers aktiviert ist!",
                     "updated": 1639267060984
+                },
+                {
+                    "language": "RU",
+                    "text": "Убедитесь, что слой Bollinger SubChannels Object включен вместе с панелью слоя!",
+                    "updated": 1640950837528
+                },
+                {
+                    "language": "TR",
+                    "text": "Bollinger SubChannels Object katmanının katmanlar paneliyle birlikte açık olduğundan emin olun!",
+                    "updated": 1641655738469
                 }
             ]
         },
@@ -36,6 +56,16 @@
                     "language": "DE",
                     "text": "Setzen Sie den Mauszeiger auf die Kerze vom 25. Februar. Dies ist die erste Kerze, die mit einem fallenden MA geschlossen wurde. Sie erkennen dies an der roten Farbe des Subchannels und an der Richtungseigenschaft im Panel. Die Neigung dieser Kerze ist jedoch seitlich, und das ist der Grund, warum die Strategie am 25. Februar nicht ausgelöst wurde. Denken Sie daran, dass die Bedingungen sind, dass die Richtung nach unten und die Neigung sollte anders als Seite sein.",
                     "updated": 1639267073082
+                },
+                {
+                    "language": "RU",
+                    "text": "Установите указатель мыши на свечу от 25 февраля. Это первая свеча, которая закрылась с понижением МА. Это можно определить по красному цвету подканала, а также посмотрев на свойство direction в панели. Однако наклон на этой свече боковой, и это причина, по которой стратегия не сработала 25-го числа. Помните, что условия заключаются в том, что направление должно быть Down, а наклон должен быть не Side.",
+                    "updated": 1640950878073
+                },
+                {
+                    "language": "TR",
+                    "text": "25 Şubat mumunun üzerine gelin. Bu, MA'nın aşağı inmesiyle kapanan ilk mum. Bunu alt kanalın kırmızı renginden ve paneldeki yön özelliğinden anlayabilirsiniz. Ancak, bu mumun eğimi yana (Side) ve ve stratejinin 25'inde tetiklenmemesinin nedeni budur. Koşulların yönün aşağı olması ve eğimin yandan (Side)  farklı olması gerektiğini unutmayın.",
+                    "updated": 1641655750970
                 }
             ]
         }

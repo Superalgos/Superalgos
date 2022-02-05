@@ -5,7 +5,7 @@
     "definition": {
         "text": "Enjoy your backtest!",
         "icon": {
-            "name": "Charting-Space\\charting-space",
+            "name": "charting-space",
             "project": "Foundations"
         },
         "updated": 1614269880685,
@@ -20,6 +20,21 @@
                 "language": "ES",
                 "text": "¡Disfruta tu backtest!",
                 "updated": 1629578516025
+            },
+            {
+                "language": "IT",
+                "text": "Goditi il backtest!",
+                "updated": 1640111170974
+            },
+            {
+                "language": "TR",
+                "text": "Backtest'in tadını çıkarın!",
+                "updated": 1640618527650
+            },
+            {
+                "language": "RU",
+                "text": "Наслаждайтесь бэктестом!",
+                "updated": 1640857620372
             }
         ]
     },
@@ -39,32 +54,87 @@
                     "language": "ES",
                     "text": "Ahora es el momento de pasar al Charting Spacey (si aún no se está ejecutando) enciende:",
                     "updated": 1629578564301
+                },
+                {
+                    "language": "IT",
+                    "text": "Premi SHIFT + CTRL + FRECCIA GIU per far comparire la Chart e rendi visibili i seguenti pannelli:",
+                    "updated": 1640111668328
+                },
+                {
+                    "language": "TR",
+                    "text": "Şimdi Grafik Alanı'na ( Charting Space ) geçme ve tüm hiyerarşiyi durdursanız harekete geçme zamanı:",
+                    "updated": 1640618539913
+                },
+                {
+                    "language": "RU",
+                    "text": "Теперь пришло время перейти в Charting Space и (если он еще не запущен) запустить работу:",
+                    "updated": 1640857683899
                 }
             ]
         },
         {
             "style": "List",
             "text": "Episodes",
-            "updated": 1614269968163
+            "updated": 1614269968163,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bölümler",
+                    "updated": 1640618552960
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Strategies",
-            "updated": 1614269964528
+            "updated": 1614269964528,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Stratejiler ( Strategies )",
+                    "updated": 1640618564547
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Candles",
-            "updated": 1622386265635
+            "updated": 1622386265635,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Mumlar",
+                    "updated": 1640618573665
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Buy and Sell Market Orders",
-            "updated": 1614269946923
+            "updated": 1614269946923,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Buy e Sell Market Orders",
+                    "updated": 1640111675322
+                },
+                {
+                    "language": "TR",
+                    "text": "Piyasa Emirleri ( Market Orders ) Al ve Sat",
+                    "updated": 1640618588052
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Position Quoted Asset"
+            "text": "Position Quoted Asset",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Pozisyon Kote Edilen Varlık ( Position Quoted Asset )",
+                    "updated": 1640618599797
+                }
+            ]
         },
         {
             "style": "Success",
@@ -81,6 +151,21 @@
                     "language": "ES",
                     "text": "Tómese su tiempo y explore los resultados visuales. Aplique el indicador SMA al gráfico y asegúrese de que el bot haya tomado posición cuando se esperaba",
                     "updated": 1629578671372
+                },
+                {
+                    "language": "IT",
+                    "text": "Prenditi un pò di tempo per esplorare il backtest. Aggiungi la SMA al grafico e controlla se il bot ha eseguito le operazioni dove ti aspettavi venissero fatte.",
+                    "updated": 1640111718571
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Zaman ayırın ve görsel sonuçları keşfedin. SMA göstergesini grafiğe uygulayın ve botun beklendiği zaman pozisyon aldığından emin olun.",
+                    "updated": 1640618613714
+                },
+                {
+                    "language": "RU",
+                    "text": "Не торопитесь и изучите визуальные результаты. Примените индикатор SMA к графику и убедитесь, что бот занял позицию, когда это ожидалось.",
+                    "updated": 1640857737238
                 }
             ]
         }

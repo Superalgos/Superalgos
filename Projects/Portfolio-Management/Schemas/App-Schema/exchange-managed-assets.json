@@ -1,0 +1,37 @@
+{
+    "type": "Exchange Managed Assets",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Exchange Managed Asset",
+            "relatedUiObject": "Exchange Managed Asset",
+            "relatedUiObjectProject": "Portfolio-Management",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Portfolio Current->Portfolio Last->"
+    },
+    "propertyNameAtParent": "exchangeManagedAssets",
+    "childrenNodesProperties": [
+        {
+            "name": "exchangeManagedAssets",
+            "type": "array",
+            "childType": "Exchange Managed Asset",
+            "autoAdd": true
+        }
+    ]
+}

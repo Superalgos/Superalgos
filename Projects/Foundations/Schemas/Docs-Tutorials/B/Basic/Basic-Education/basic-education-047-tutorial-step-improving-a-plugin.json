@@ -32,6 +32,11 @@
                 "language": "TR",
                 "text": "İkinci senaryo şudur: Diyelim ki EMA göstergesini test ediyorsunuz, bir hata buldunuz ve nasıl düzeltileceğini biliyorsunuz. Herkesin bundan faydalanabilmesi için düzeltmeye katkıda bulunmayı düşünüyorsunuz!",
                 "updated": 1639818513811
+            },
+            {
+                "language": "RU",
+                "text": "Во втором сценарии: допустим, вы тестируете индикатор EMA, нашли ошибку и знаете, как ее исправить. Вы намерены внести исправление, чтобы все могли им воспользоваться!",
+                "updated": 1640874963360
             }
         ]
     },
@@ -63,6 +68,11 @@
                     "language": "TR",
                     "text": "Bu Indıcator Bot 'u, Sparta Veri Madeni'nin ( Data Mine ) bir parçasıdır. Eklentiyi kullanıcı arayüzünden ( UI ) değiştirmek ve değişiklikleri kaydetmek için iki seçeneğiniz vardır:",
                     "updated": 1639818618736
+                },
+                {
+                    "language": "RU",
+                    "text": "Этот индикаторный бот (Indicator Bot) является частью Sparta Data Mine, который обычно включается в качестве плагина в некоторые рабочие пространства плагинов. Чтобы изменить плагин из пользовательского интерфейса и сохранить изменения, у вас есть два способа:",
+                    "updated": 1640875005766
                 }
             ]
         },
@@ -80,6 +90,11 @@
                     "language": "TR",
                     "text": "Plugin hiyerarşisinde ilgili Plugin Dosyasına gidin ve menüden \"Enable Saving With Workspace\"seçeneğini seçin. Artık eklenti dosyası, çalışma alanını her kaydettiğinizde, yapmış olabileceğiniz değişiklikleri içerecek şekilde güncellenir!",
                     "updated": 1639818782919
+                },
+                {
+                    "language": "RU",
+                    "text": "Перейдите к соответствующему узлу Plugin File в иерархии Plugins и выберите в меню Enable Saving With Workspace. Теперь он будет обновляться каждый раз, когда вы сохраняете рабочее пространство, чтобы содержать изменения, которые вы могли внести!",
+                    "updated": 1640875166906
                 }
             ]
         },
@@ -98,6 +113,11 @@
                     "language": "TR",
                     "text": "Veya eklenti dosyasını istediğiniz zaman manuel olarak kaydetmek için \"Save Plugin File\" seçeneğini kullanın!",
                     "updated": 1639818865475
+                },
+                {
+                    "language": "RU",
+                    "text": "Или используйте опцию Save Plugin File, чтобы вручную сохранить файл плагина, когда захотите!",
+                    "updated": 1640875192451
                 }
             ]
         }

@@ -1,16 +1,17 @@
 import './Logo.css';
 import React from 'react';
-import {Avatar, Stack} from "@mui/material";
+import {Avatar, Link} from "@mui/material";
 import pic from "../../images/superalgos.png"
 
 
 const Logo = props => {
-    /* TODO add on click redirect to / */
     return (
-        <Stack direction="row" className="logo">
-            <Avatar className="icon" alt="SuperAlgos" src={pic}/>
-            <div>SuperAlgos</div>
-        </Stack>
+        <div className="logo">
+            <Link className="linkLogo" href="https://superalgos.org/" underline="none" color="inherit">
+                <Avatar className="icon" alt="SuperAlgos" src={pic}/>
+                <div>SuperAlgos</div>
+            </Link>
+        </div>
     );
 };
 

@@ -6,7 +6,7 @@
         "translations": [
             {
                 "language": "DE",
-                "text": "Die User Manual (Benutzerhandbuch) behandelt Superalgos von A bis Z, beginnend mit einer umfassenden konzeptionellen Einführung. Das Buch deckt die Funktionalität und die Merkmale zusammen mit der Beschreibung der einzelnen Hierarchien ab. Es ist so aufgebaut, dass es kontinuierlich gelesen werden kann und führt Sie vom Einsteiger bis zum fortgeschrittenen Superalgos-User (Benutzer).",
+                "text": "Die User Manual (Benutzerhandbuch) behandelt Superalgos von A bis Z, beginnend mit einer umfassenden konzeptionellen Einführung. Das Buch deckt die Funktionalität sowie die Merkmale zusammen mit der Beschreibung der einzelnen Hierarchien ab. Es ist so aufgebaut, dass es kontinuierlich gelesen werden kann und führt Sie vom Einsteiger bis zum fortgeschrittenen Superalgos-User (Benutzer).",
                 "updated": 1634758568256
             },
             {
@@ -18,6 +18,11 @@
                 "language": "EL",
                 "text": "Το Εγχειρίδιο Χρήστη καλύπτει το Superalgos από το Α έως το Ω, ξεκινώντας με μια ολοκληρωμένη εννοιολογική εισαγωγή. Το βιβλίο καλύπτει τη λειτουργικότητα και τα χαρακτηριστικά, μαζί με την περιγραφή κάθε ιεραρχίας. Είναι οργανωμένο για ομαλή ανάγνωση και θα σας πάει από αρχάριο σε προηγμένο επίπεδο χρήστη του Superalgos.",
                 "updated": 1638789399927
+            },
+            {
+                "language": "ES",
+                "text": "El Manual del Usuario cubre Superalgos de la A a la Z, comenzando con una completa introducción conceptual. El libro cubre la funcionalidad y las características, junto con la descripción de cada jerarquía. Está organizado para una lectura continua y le llevará desde el nivel de usuario de Superalgos principiante hasta el avanzado.",
+                "updated": 1641091888093
             }
         ]
     },

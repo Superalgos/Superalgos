@@ -13,6 +13,16 @@
                 "language": "DE",
                 "text": "Sobald \"Take Position Event\" als wahr bestätigt wird, werden sowohl die Open Stage als auch die Manage Stage aktiv.",
                 "updated": 1639395001702
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Pozisyon Al Etkinliği ( Take Position Event ) doğru olarak onaylanır onaylanmaz, hem Açık Aşama hem de Yönetim Aşaması aktif hale gelir.",
+                "updated": 1641667945051
+            },
+            {
+                "language": "RU",
+                "text": "Как только событие Take Position Event становится true, становятся активными и стадия открытия, и стадия управления.",
+                "updated": 1642776274036
             }
         ]
     },
@@ -25,6 +35,16 @@
                     "language": "DE",
                     "text": "Die Open Stage wird aktiviert, um die Auftragsausführung beim Eingehen der Position zu bearbeiten.",
                     "updated": 1639395010697
+                },
+                {
+                    "language": "TR",
+                    "text": "Açık aşama ( Open Stage ), pozisyon alındığında emir yürütmeyi işlemek için etkinleştirilir.",
+                    "updated": 1641667964793
+                },
+                {
+                    "language": "RU",
+                    "text": "Стадия Open Stage активируется для того, чтобы справиться с исполнением ордера на вход в позицию.",
+                    "updated": 1642776301258
                 }
             ]
         },
@@ -36,6 +56,16 @@
                     "language": "DE",
                     "text": "Die Manage Stage wird aktiviert, um Stop Loss- und Take Profit-Ziele zu überwachen. Es ist möglich, dass die Ziele erreicht werden, noch bevor die Aufträge zur Positionsübernahme tatsächlich ausgeführt werden, weshalb die Phase sofort aktiviert werden muss.",
                     "updated": 1639395023763
+                },
+                {
+                    "language": "TR",
+                    "text": "Zarar Durdur ve Kâr Al hedeflerini izlemek için Yönetim Aşaması ( Manage Stage ) etkinleştirilir. Hedeflere, pozisyon alma emirleri fiilen uygulanmadan önce ulaşılması mümkündür, bu nedenle aşamanın hemen etkinleştirilmesi gerekir.",
+                    "updated": 1641667977382
+                },
+                {
+                    "language": "RU",
+                    "text": "Стадия Manage Stage активируется для отслеживания целей стоп-лосс и тейк-профит. Возможно, что цели будут достигнуты еще до фактического исполнения ордеров на занятие позиции, и именно по этой причине этот этап должен быть активирован немедленно.",
+                    "updated": 1642776401115
                 }
             ]
         },
@@ -47,6 +77,16 @@
                     "language": "DE",
                     "text": "Lesen Sie diese ersten Absätze über die Open Stage!",
                     "updated": 1639395032743
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Açık Aşama(open stage) ile ilgili bu ilk birkaç paragrafı okuyun!",
+                    "updated": 1641667988190
+                },
+                {
+                    "language": "RU",
+                    "text": "Прочитайте эти первые несколько абзацев о стадии открытия!",
+                    "updated": 1642776426595
                 }
             ]
         }

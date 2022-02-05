@@ -13,6 +13,16 @@
                 "language": "DE",
                 "text": "Bereiten wir nun die Syntax für die Formel der Phase #1 des Managed Stop Loss vor!",
                 "updated": 1639400100389
+            },
+            {
+                "language": "TR",
+                "text": "Şimdi Yönetilen Zarar Durdur'un ( Managed Stop Loss ) 1. Aşama ( Phase ) formülü için kullanılacak söz dizimini hazırlayalım!",
+                "updated": 1641748723193
+            },
+            {
+                "language": "RU",
+                "text": "Давайте подготовим синтаксис для использования в формуле Phase #1 управляемого стоп-лосса (Managed Stop Loss)!",
+                "updated": 1642941911984
             }
         ]
     },
@@ -25,6 +35,16 @@
                     "language": "DE",
                     "text": "Wir wollen ein Stop Loss-Ziel festlegen, das 3 % über dem Kurs liegt, zu dem wir die Position eingegangen sind. Wie machen wir das?",
                     "updated": 1639400105955
+                },
+                {
+                    "language": "TR",
+                    "text": "Pozisyonu aldığımız fiyatın %3 üzerinde bir zararı durdurma hedefi belirlemek istiyoruz. Nasıl yapacağız?",
+                    "updated": 1641749163084
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы хотим установить стоп-лосс на 3% выше курса, по которому мы вошли в позицию. Как нам это сделать?",
+                    "updated": 1642941928933
                 }
             ]
         },
@@ -36,6 +56,16 @@
                     "language": "DE",
                     "text": "Gehen Sie zur Trading Engine und versuchen Sie, den Knoten zu finden, der die Informationen über den Kurs enthält, zu dem die Position eingegangen wurde.",
                     "updated": 1639400112374
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret motoruna ( Trading Engine ) gidin ve pozisyonun alındığı fiyatla ilgili bilgileri içeren düğümü bulmaya çalışın.",
+                    "updated": 1641749172874
+                },
+                {
+                    "language": "RU",
+                    "text": "Перейдите в Trading Engine и попытайтесь найти узел, содержащий информацию о ставке, по которой осуществляется вход в позицию.",
+                    "updated": 1642941951749
                 }
             ]
         },
@@ -47,6 +77,16 @@
                     "language": "DE",
                     "text": "Erinnern Sie sich an die Logik zur Navigation in der Datenstruktur! Bestimmen Sie zunächst den Kontext, in dem die Information existiert!",
                     "updated": 1639400119718
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Veri yapısında gezinme mantığını hatırlayın! Önce bilginin var olduğu bağlamı belirleyin!",
+                    "updated": 1641749181113
+                },
+                {
+                    "language": "RU",
+                    "text": "Запомните логику навигации по структуре данных! Сначала определите контекст, в котором существует информация!",
+                    "updated": 1642941961420
                 }
             ]
         }

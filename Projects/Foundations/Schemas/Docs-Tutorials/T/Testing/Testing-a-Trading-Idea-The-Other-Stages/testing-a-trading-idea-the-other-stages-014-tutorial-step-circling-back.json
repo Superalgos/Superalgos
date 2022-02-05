@@ -13,6 +13,16 @@
                 "language": "DE",
                 "text": "Wahnsinn! Wir haben den Pfad des entsprechenden Balance-Knotens und können ihn nun in unserer Formel verwenden!",
                 "updated": 1639398342953
+            },
+            {
+                "language": "TR",
+                "text": "Harika! Karşılık gelen denge ( Balance ) düğümünün yoluna sahibiz ve artık bunu formülümüzde kullanabiliriz!",
+                "updated": 1641746380565
+            },
+            {
+                "language": "RU",
+                "text": "Потрясающе! У нас есть путь к соответствующему узлу Balance, и теперь мы можем использовать его в нашей формуле!",
+                "updated": 1642779458796
             }
         ]
     },
@@ -25,6 +35,16 @@
                     "language": "DE",
                     "text": "Fügen Sie die kopierte Zeichenfolge in die Formel des Knotens \"Target Size In Base Asset\" ein! Das war's!",
                     "updated": 1639398380949
+                },
+                {
+                    "language": "TR",
+                    "text": "Kopyalanan dizeyi \"Temel Varlıktaki Hedef Boyut\"( Target Size In Base Asset ) düğümünün formülüne yapıştırın! Bu kadar!",
+                    "updated": 1641746413319
+                },
+                {
+                    "language": "RU",
+                    "text": "Вставьте скопированную вами строку в формулу узла Target Size In Base Asset! Вот и все!",
+                    "updated": 1642779469472
                 }
             ]
         },
@@ -36,6 +56,16 @@
                     "language": "DE",
                     "text": " Beachten Sie, dass die Verwendung des Gleichgewichts für die Zielgröße eine willkürliche Entscheidung ist! Wir hätten auch etwas anderes verwenden können! Ein Prozentsatz des Saldos, eine feste Zahl, ein Prozentsatz des Anfangssaldos... alles! Oder, was auch immer für Ihre Strategie sinnvoll ist!",
                     "updated": 1639398387991
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Hedef boyut için dengeyi kullanmanın keyfi bir karar olduğuna dikkat edin! Başka bir şey kullanabilirdik! Bakiyenin bir yüzdesi, sabit bir sayı, ilk bakiyenin bir yüzdesi... herhangi bir şey! Veya, aslında, stratejiniz için mantıklı olan her neyse!",
+                    "updated": 1641746424682
+                },
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание, что использование баланса для целевого размера - это произвольное решение! Мы могли бы использовать что угодно другое! Процент от баланса, фиксированное число, процент от начального баланса... что угодно! Или, вообще, все, что имеет смысл для вашей стратегии!",
+                    "updated": 1642779491845
                 }
             ]
         }

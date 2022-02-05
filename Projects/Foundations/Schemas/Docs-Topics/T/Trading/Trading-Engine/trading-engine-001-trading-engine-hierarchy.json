@@ -4,7 +4,14 @@
     "type": "Trading Engine Hierarchy",
     "definition": {
         "text": "The trading engine provides a feedback loop to trading systems so that your strategies may leverage the information processed by the trading bot.",
-        "updated": 1611253515308
+        "updated": 1611253515308,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Торговый бот обеспечивает обратную связь с торговыми системами, чтобы ваши стратегии могли использовать информацию, обработанную торговым ботом.",
+                "updated": 1640337696182
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -18,7 +25,14 @@
         },
         {
             "style": "Success",
-            "text": "The trading engine hierarchy is deep and large, with many ramifications. It is best to learn it through hands-on experimentation, by testing an existing trading system."
+            "text": "The trading engine hierarchy is deep and large, with many ramifications. It is best to learn it through hands-on experimentation, by testing an existing trading system.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Иерархия Trading Engine глубока и велика, имеет множество разветвлений. Лучше всего изучать ее путем практических экспериментов, тестируя существующую торговую систему.",
+                    "updated": 1640337744299
+                }
+            ]
         }
     ]
 }

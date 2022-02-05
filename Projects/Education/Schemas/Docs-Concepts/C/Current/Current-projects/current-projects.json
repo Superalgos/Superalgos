@@ -6,9 +6,14 @@
     },
     "paragraphs": [
         {
+            "style": "Block",
+            "text": "current projects",
+            "updated": 1642463944441
+        },
+        {
             "style": "Table",
-            "text": "|Project|Project Explanation|\n|Algorithmic-Trading|Project Explanation|\n|Community-Plugins|Project Explanation|\n|Data-Mining|Project Explanation|\n|Education|This Project is about building up and maintaining the Docs (-Articles)|\n|Ethereum|Project Explanation|\n|Foundations|Project Explanation|\n|Governance|Manages and organizes the Superalgos Project (All of us, the community)|\n|Machine-Learning|Project Explanation|\n|Network|Project Explanation|\n|Social-Bots|Project Explanation|\n|Social-Trading|Project Explanation|\n|TensorFlow|Project Explanation|\n|Visual-Scripting|Project Explanation|",
-            "updated": 1638116155258,
+            "text": "\n||Project|Project Explanation||\n|Algorithmic-Trading|Project Explanation|\n|Community-Plugins|Project Explanation|\n|Data-Mining|Project Explanation|\n|Education|This Project is about building up and maintaining the Docs (-Articles)|\n|Ethereum|Project Explanation|\n|Foundations|Project Explanation|\n|Governance|Manages and organizes the Superalgos Project (All of us, the community)|\n|Machine-Learning|Project Explanation|\n|Network|Project Explanation|\n|Social-Bots|Project Explanation|\n|Social-Trading|Project Explanation|\n|TensorFlow|Project Explanation|\n|Visual-Scripting|Project Explanation|\n|",
+            "updated": 1642462788711,
             "translations": [
                 {
                     "language": "DE",
@@ -19,8 +24,8 @@
         },
         {
             "style": "Text",
-            "text": "Created and maintained by gitforkgit.",
-            "updated": 1638112659687
+            "text": "Created and maintained by gitforkgit. Feel free to add more specific explanations and if needed new projects.",
+            "updated": 1640215168911
         },
         {
             "style": "Text",

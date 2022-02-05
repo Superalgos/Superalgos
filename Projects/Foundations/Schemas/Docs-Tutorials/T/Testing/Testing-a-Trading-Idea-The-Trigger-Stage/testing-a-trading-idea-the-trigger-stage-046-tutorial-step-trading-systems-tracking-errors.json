@@ -1,0 +1,31 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 46,
+    "type": "Tutorial Step - Trading Systems Tracking Errors",
+    "definition": {
+        "text": "This step will play a video in full screen mode.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "In diesem Schritt wird ein Video im Vollbildmodus abgespielt.",
+                "updated": 1639267775542
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu adımda, Video tam ekran modunda oynatılır.",
+                "updated": 1641660774092
+            },
+            {
+                "language": "RU",
+                "text": "Этот шаг позволит воспроизвести видео в полноэкранном режиме.",
+                "updated": 1642657388183
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Gif",
+            "text": "GIFs/Foundations/Tutorials/trading-systems-tracking-errors.gif"
+        }
+    ]
+}

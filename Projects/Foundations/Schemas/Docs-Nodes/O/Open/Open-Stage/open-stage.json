@@ -15,8 +15,13 @@
             },
             {
                 "language": "TR",
-                "text": "Açık aşama, hedef oran,  büyüklük ve emir yürütme dahil olmak üzere bir pozisyona girme mantığını oluşturan tanımlardır.",
-                "updated": 1639224861043
+                "text": "Open Stage, hedef oran, büyüklük ve emir yürütme dahil olmak üzere bir pozisyona girme mantığını oluşturan tanımlardır.",
+                "updated": 1642500529699
+            },
+            {
+                "language": "DE",
+                "text": "In der Eröffnungsphase (Open Stage) geht es um die Definitionen, die die Logik für das Eingehen einer Position ausmachen, einschließlich des Zielkurses und der Zielgröße sowie der Auftragsausführung.",
+                "updated": 1641667344601
             }
         ]
     },
@@ -33,6 +38,16 @@
                     "language": "RU",
                     "text": "Cтадия открытия Open Stage вступает в игру, как только запуска события Take Position Event.",
                     "updated": 1639564060390
+                },
+                {
+                    "language": "TR",
+                    "text": "Oen Stage, pozisyon alma olayı tetiklendiğinde devreye girer.",
+                    "updated": 1642500540582
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Eröffnungsphase kommt ins Spiel, sobald ein Take Position Event ausgelöst wird.",
+                    "updated": 1641667297133
                 }
             ]
         },
@@ -44,6 +59,16 @@
                     "language": "RU",
                     "text": "Концептуально стадия открытия касается деталей, касающихся того, как должна быть открыта позиция после принятия решения о ее открытии. То есть стадия открытая не участвует в процессе принятия решения о том, открывать позицию или нет.",
                     "updated": 1639564136123
+                },
+                {
+                    "language": "TR",
+                    "text": "Kavramsal olarak Open Stage, pozisyon alma kararı verildikten sonra pozisyonun nasıl açılacağına ilişkin ayrıntılarla ilgilenir. Yani, Open Stage, bir pozisyonun açık olup olmayacağına karar verme sürecine katılmaz.",
+                    "updated": 1642500566431
+                },
+                {
+                    "language": "DE",
+                    "text": "Konzeptionell befasst sich die Eröffnungsphase mit den Einzelheiten, wie die Position eröffnet werden soll, sobald die Entscheidung getroffen wurde, eine Position zu übernehmen. Das heißt, die Eröffnungsphase ist nicht an der Entscheidung beteiligt, ob eine Position eröffnet werden soll oder nicht.",
+                    "updated": 1641667318014
                 }
             ]
         },
@@ -55,6 +80,16 @@
                     "language": "RU",
                     "text": "Чтобы занять позицию, требуется несколько определений. В частности, те, которые касаются целей, таких как ставка и размер позиции, а также логика стратегии исполнения, то есть, сколько ордеров должно быть размещено на бирже и когда входить позицию.",
                     "updated": 1639564372267
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir pozisyon almak için birkaç tanım gereklidir. Özellikle, pozisyonun oranı ve büyüklüğü gibi hedeflerle ilgili olanlar ve uygulama stratejisinin mantığı, yani borsaya hangi emirlerin ne kadar ve ne zaman girileceği gibi.",
+                    "updated": 1642500467880
+                },
+                {
+                    "language": "DE",
+                    "text": "Um eine Position zu eröffnen, sind mehrere Definitionen erforderlich. Insbesondere solche, die die Ziele betreffen, wie den Kurs und die Größe der Position, und die Logik der Ausführungsstrategie, d. h. wie viele von welchen Aufträgen wann an der Börse platziert werden sollen, um die Position einzugehen.",
+                    "updated": 1641667382202
                 }
             ]
         },
@@ -66,6 +101,16 @@
                     "language": "RU",
                     "text": "Стадия открытия завершается, как только произойдет одно из следующих событий:",
                     "updated": 1639564838893
+                },
+                {
+                    "language": "TR",
+                    "text": "Open Stage, aşağıdaki olaylardan biri gerçekleşir gerçekleşmez kapanır:",
+                    "updated": 1642500615417
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Eröffnungsphase schließt sich, sobald eines der folgenden Ereignisse eintritt:",
+                    "updated": 1641667637618
                 }
             ]
         },
@@ -77,6 +122,16 @@
                     "language": "RU",
                     "text": "целевой размер заполняется,",
                     "updated": 1639564582296
+                },
+                {
+                    "language": "TR",
+                    "text": "hedef miktar doldurulur,",
+                    "updated": 1642501057574
+                },
+                {
+                    "language": "DE",
+                    "text": "die Zielgröße (Target Size) wird erreicht,",
+                    "updated": 1641667724359
                 }
             ]
         },
@@ -88,6 +143,16 @@
                     "language": "RU",
                     "text": "запускается событие стадии закрытия,",
                     "updated": 1639564825000
+                },
+                {
+                    "language": "TR",
+                    "text": "Close Stage olayı tetiklenir,",
+                    "updated": 1642501084544
+                },
+                {
+                    "language": "DE",
+                    "text": "das Ereignis der Schlussphase (Close Stage Event) wird ausgelöst,",
+                    "updated": 1641667737492
                 }
             ]
         },
@@ -99,6 +164,16 @@
                     "language": "RU",
                     "text": "достигнуты целевые значения тейк-профита или стоп-лосса.",
                     "updated": 1639564862412
+                },
+                {
+                    "language": "TR",
+                    "text": "Take profit or Stop Loss hedeflerine ulaşılır.",
+                    "updated": 1642501113117
+                },
+                {
+                    "language": "DE",
+                    "text": "Take Profit oder Stop Loss Ziele werden erreicht.",
+                    "updated": 1641667538383
                 }
             ]
         },

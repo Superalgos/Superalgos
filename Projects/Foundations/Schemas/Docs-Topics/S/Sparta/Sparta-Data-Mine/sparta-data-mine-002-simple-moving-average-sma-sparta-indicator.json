@@ -4,18 +4,39 @@
     "type": "Simple Moving Average (SMA) - Sparta Indicator",
     "definition": {
         "text": "The indicator produces the Simple Moving Average in multiple settings, including the popular 20, 50, 100, and 200, as well as less frequent base 7 and base 11 SMAs.",
-        "updated": 1611661320849
+        "updated": 1611661320849,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Индикатор выдает простую скользящую среднюю в нескольких вариантах, включая популярные 20, 50, 100 и 200, а также менее распространенные базовые 7 и базовые 11 SMA.",
+                "updated": 1643529461628
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Simple Moving Average On the Charts",
-            "updated": 1611661332955
+            "updated": 1611661332955,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Простая скользящая средняя на графиках",
+                    "updated": 1643529471412
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "According to Investopedia, “A simple moving average (SMA) is an arithmetic moving average calculated by adding recent closing prices and then dividing that by the number of time frames in the calculation average. Short-term averages respond quickly to changes in the price of the underlying asset, while long-term averages are slow to react.”",
-            "updated": 1611764485658
+            "updated": 1611764485658,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Согласно Investopedia, \"простая скользящая средняя (SMA) - это арифметическая скользящая средняя, рассчитываемая путем сложения последних цен закрытия и последующего деления на количество таймфреймов в расчетной средней. Краткосрочные средние быстро реагируют на изменения в цене базового актива, в то время как долгосрочные средние реагируют медленно.\"",
+                    "updated": 1643529482422
+                }
+            ]
         },
         {
             "style": "Gif",
@@ -28,19 +49,47 @@
         },
         {
             "style": "Text",
-            "text": "You will find several layers with different settings for SMAs, calculated on different periods. Each layer corresponds to a product made available by the indicator."
+            "text": "You will find several layers with different settings for SMAs, calculated on different periods. Each layer corresponds to a product made available by the indicator.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы найдете несколько слоев с различными настройками для SMA, рассчитанных на разных периодах. Каждый слой соответствует продукту, предлагаемому индикатором.",
+                    "updated": 1643529495375
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The information panel shows the numeric value for each SMA in the layer, in ascending order (i.e. SMA 20, SMA 50, SMA 100, etc.)."
+            "text": "The information panel shows the numeric value for each SMA in the layer, in ascending order (i.e. SMA 20, SMA 50, SMA 100, etc.).",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "На информационной панели отображается числовое значение для каждого SMA в слое в порядке возрастания (т.е. SMA 20, SMA 50, SMA 100 и т.д.).",
+                    "updated": 1643529506264
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Simple Moving Average Products & Properties"
+            "text": "Simple Moving Average Products & Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты и свойства Simple Moving Average",
+                    "updated": 1643529517612
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "There are three products pre-configured to start calculating as soon as you start the corresponding task, each with different period configurations:"
+            "text": "There are three products pre-configured to start calculating as soon as you start the corresponding task, each with different period configurations:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Есть три продукта, предварительно настроенные на начало расчета сразу после запуска соответствующей задачи, каждый с различными конфигурациями периода:",
+                    "updated": 1643529528730
+                }
+            ]
         },
         {
             "style": "Table",
@@ -50,7 +99,14 @@
         {
             "style": "Text",
             "text": "There are four more products available but they will not be calculated unless you create the corresponding data outputs and reference them to the corresponding data sets:",
-            "updated": 1611661553639
+            "updated": 1611661553639,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Имеются еще четыре продукта, но они не будут рассчитаны, пока вы не создадите соответствующие выходы данных и не свяжете их с соответствующими наборами данных:",
+                    "updated": 1643529543161
+                }
+            ]
         },
         {
             "style": "Table",
@@ -60,7 +116,14 @@
         {
             "style": "Text",
             "text": "Examples:",
-            "updated": 1611661674316
+            "updated": 1611661674316,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Примеры:",
+                    "updated": 1643529550190
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -69,7 +132,14 @@
         },
         {
             "style": "Text",
-            "text": "An indication of a bull market? Is the 50-day moving average above the 200-day moving average?"
+            "text": "An indication of a bull market? Is the 50-day moving average above the 200-day moving average?",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Признак бычьего рынка? Находится ли 50-дневная скользящая средняя выше 200-дневной скользящей средней?",
+                    "updated": 1643529558881
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -78,7 +148,14 @@
         },
         {
             "style": "Text",
-            "text": "Looking even further in the past, comparing a 200-day with a 350-day moving average. Notice how the two MA belong to different products."
+            "text": "Looking even further in the past, comparing a 200-day with a 350-day moving average. Notice how the two MA belong to different products.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Заглянув еще дальше в прошлое, сравним 200-дневную и 350-дневную скользящие средние. Обратите внимание, что эти две MA относятся к разным продуктам.",
+                    "updated": 1643529575939
+                }
+            ]
         },
         {
             "style": "Table",

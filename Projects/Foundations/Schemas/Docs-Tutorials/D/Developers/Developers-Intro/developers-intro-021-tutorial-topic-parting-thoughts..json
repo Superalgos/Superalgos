@@ -7,20 +7,88 @@
             "project": "Foundations",
             "name": ""
         },
-        "text": "As you can see, Superalgos is  much more than a trading bot. It's a holistic infrastructure to manage complexity in the easiest way possible for users."
+        "text": "As you can see, Superalgos is  much more than a trading bot. It's a holistic infrastructure to manage complexity in the easiest way possible for users.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Wie Sie sehen können, ist Superalgos viel mehr als ein Handelsbot. Es ist eine ganzheitliche Infrastruktur, um die Komplexität für die Nutzer so einfach wie möglich zu verwalten.",
+                "updated": 1641736908954
+           },
+           {
+                "language": "RU",
+                "text": "Как видите, Superalgos - это гораздо больше, чем просто торговый бот. Это целостная инфраструктура для управления сложностями самым простым для пользователей способом.",
+                "updated": 1640932109754
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Gördüğünüz gibi Superalgos bir ticaret botundan çok daha fazlasıdır. Kullanıcılar için karmaşıklığı mümkün olan en kolay şekilde yönetmek için bütünsel bir altyapıdır.",
+                "updated": 1643204000053
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "This introduction covered the highest level topics of the system in the hope it may help you understand the foundations on which the system is being built."
+            "text": "This introduction covered the highest level topics of the system in the hope it may help you understand the foundations on which the system is being built.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "In dieser Einführung wurden die wichtigsten Themen des Systems behandelt, in der Hoffnung, dass es Ihnen hilft, die Grundlagen zu verstehen, auf denen das System aufgebaut ist.",
+                    "updated": 1641736921927
+               },
+               {
+                    "language": "RU",
+                    "text": "Это введение охватывает темы самого высокого уровня в надежде, что оно поможет вам понять основы, на которых строится система.",
+                    "updated": 1640932129152
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu giriş, sistemin üzerine inşa edildiği temelleri anlamanıza yardımcı olabileceği umuduyla sistemin en üst düzey konularını içeriyordu.",
+                    "updated": 1643204022742
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "We hope you agree it's a good idea to reuse this infrastructure to build trading intelligence rather than code a trading bot from scratch. We hope more devs will join us!"
+            "text": "We hope you agree it's a good idea to reuse this infrastructure to build trading intelligence rather than code a trading bot from scratch. We hope more devs will join us!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wir hoffen, dass Sie uns zustimmen, dass es eine gute Idee ist, diese Infrastruktur wiederzuverwenden, um Handelsintelligenz aufzubauen, anstatt einen Handelsbot von Grund auf zu programmieren. Wir hoffen, dass noch mehr Entwickler sich uns anschließen werden!",
+                    "updated": 1641736937320
+               },
+               {                    
+                    "language": "RU",
+                    "text": "Мы надеемся, что вы согласны с тем, что это хорошая идея - использовать эту инфраструктуру для создания торгового интеллекта, а не создавать торгового бота с нуля. Мы надеемся, что к нам присоединится больше разработчиков!",
+                    "updated": 1640932145724
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir alım satım botunu sıfırdan kodlamak yerine alım satım zekası oluşturmak için bu altyapıyı yeniden kullanmanın iyi bir fikir olduğunu kabul ettiğinizi umuyoruz. Umarız daha fazla geliştirici bize katılır!",
+                    "updated": 1643204044572
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "If you like the project, there are many ways to contribute. Take a look at this page featuring the roadmap to becoming a part of the team."
+            "text": "If you like the project, there are many ways to contribute. Take a look at this page featuring the roadmap to becoming a part of the team.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn Ihnen das Projekt gefällt, gibt es viele Möglichkeiten, einen Beitrag zu leisten. Werfen Sie einen Blick auf diese Seite mit der Roadmap, wie Sie Teil des Teams werden können.",
+                    "updated": 1641736942963
+               },
+               {
+                    "language": "RU",
+                    "text": "Если вам нравится проект, есть много способов внести свой вклад. Взгляните на эту страницу, где представлена дорожная карта для того, чтобы стать частью команды.",
+                    "updated": 1640932177605
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Projeyi beğendiyseniz, katkıda bulunmanın birçok yolu vardır. Takımın bir parçası olmanın yol haritasını içeren bu sayfaya bir göz atın.",
+                    "updated": 1643204060718
+                }
+            ]
         }
     ]
 }

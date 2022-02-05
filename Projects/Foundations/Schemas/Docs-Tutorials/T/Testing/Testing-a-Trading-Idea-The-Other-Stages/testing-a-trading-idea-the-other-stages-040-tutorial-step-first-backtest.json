@@ -13,6 +13,16 @@
                 "language": "DE",
                 "text": "Nun, da wir die grundlegenden Definitionen in allen Phasen haben, können wir einen ersten Backtest durchführen!",
                 "updated": 1639418146020
+            },
+            {
+                "language": "TR",
+                "text": "Artık tüm aşamalarda temel tanımlara sahip olduğumuza göre, ilk geriye dönük test yapabiliriz!",
+                "updated": 1641797495481
+            },
+            {
+                "language": "RU",
+                "text": "Теперь, когда у нас есть основные определения на всех этапах, мы можем провести первый бэктест!",
+                "updated": 1642943617754
             }
         ]
     },
@@ -25,6 +35,16 @@
                     "language": "DE",
                     "text": "Wir werden die gleichen Parameter verwenden, die wir am Ende des vorherigen Tutorials verwendet haben. Probieren Sie es einfach aus!",
                     "updated": 1639418152942
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir önceki dersin sonunda kullandığımız parametreleri kullanacağız. Deneyin!",
+                    "updated": 1641797506853
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы будем использовать те же параметры, что и в конце предыдущего урока. Не поленитесь зайти и проверить!",
+                    "updated": 1642943673072
                 }
             ]
         },
@@ -36,6 +56,16 @@
                     "language": "DE",
                     "text": "Starten Sie die Aufgabe für BB Breakdown 2 und starten Sie auch die entsprechende Backtesting-Session!",
                     "updated": 1639418159855
+                },
+                {
+                    "language": "TR",
+                    "text": "BB Breakdown 2 görevini başlatın ve ilgili geriye dönük test oturumunu da başlatın!",
+                    "updated": 1641797524991
+                },
+                {
+                    "language": "RU",
+                    "text": "Запустите задание для BB Breakdown 2 и запустите соответствующую сессию бэктестинга!",
+                    "updated": 1642943718578
                 }
             ]
         },
@@ -47,6 +77,16 @@
                     "language": "DE",
                     "text": "Ich gehe davon aus, dass Sie über die Daten verfügen, die wir in der vorherigen Anleitung ausgewertet haben! Wenn Sie diese nicht haben, wird es wahrscheinlich nicht funktionieren!",
                     "updated": 1639418167383
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bir önceki derste değerlendirdiğimiz verilere sahip olduğunuzu varsayıyorum! Bunlara sahip değilseniz, muhtemelen çalışmayacaktır!",
+                    "updated": 1641797536321
+                },
+                {
+                    "language": "RU",
+                    "text": "Я предполагаю, что у вас есть данные, которые мы добыли в предыдущем уроке! Если у вас их нет, это вряд ли сработает!",
+                    "updated": 1642943735176
                 }
             ]
         }

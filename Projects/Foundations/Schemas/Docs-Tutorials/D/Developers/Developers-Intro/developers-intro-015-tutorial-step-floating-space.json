@@ -7,16 +7,67 @@
             "project": "Foundations",
             "name": ""
         },
-        "text": "This is like the low-level part of the Design Space. It features a physics engine that governs the physical interactions of floating objects."
+        "text": "This is like the low-level part of the Design Space. It features a physics engine that governs the physical interactions of floating objects.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Dies ist sozusagen der Low-Level-Teil des Design Space. Er verfügt über eine Physik-Engine, die die physikalischen Interaktionen der schwebenden Objekte steuert.",
+                "updated": 1641735953807
+            },
+            {       
+                "language": "RU",
+                "text": "Это как низкоуровневая часть Design Space. Она включает в себя физический движок, который управляет физическим взаимодействием плавающих объектов.",
+                "updated": 1640931222172
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu, Tasarım Alanının ( Design Space ) alt düzey kısmı gibidir. Yüzen cisimlerin fiziksel etkileşimlerini yöneten bir fizik motoruna sahiptir.",
+                "updated": 1643202622055
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "At runtime, each node on the Design Space behaves like a molecule featuring three atoms working together: the first one is called Floating Object and belongs to the Floating Space, which controls its position and collision-related physics; the second one is a UiObject which lives at the Design Space and controls the UI of the node, including menu, label, etc.; the third one is a Node that is&mdash;essentially&mdash;the information contained in that node."
+            "text": "At runtime, each node on the Design Space behaves like a molecule featuring three atoms working together: the first one is called Floating Object and belongs to the Floating Space, which controls its position and collision-related physics; the second one is a UiObject which lives at the Design Space and controls the UI of the node, including menu, label, etc.; the third one is a Node that is&mdash;essentially&mdash;the information contained in that node.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Zur Laufzeit verhält sich jeder Knoten im Design Space wie ein Molekül mit drei Atomen, die zusammenarbeiten: Das erste heißt Floating Object und gehört zum Floating Space, der seine Position und kollisionsbezogene Physik steuert; das zweite ist ein UiObject, das im Design Space lebt und die Benutzeroberfläche des Knotens steuert, einschließlich Menü, Beschriftung usw.; das dritte ist ein Node, der - im Wesentlichen - die in diesem Knoten enthaltenen Informationen darstellt.",
+                    "updated": 1641735968004
+                },
+                {   
+                    "language": "RU",
+                    "text": "Во время работы программы каждый узел в пространстве проектирования ведет себя как молекула, состоящая из трех атомов, работающих вместе: первый называется Floating Object и принадлежит пространству Design Space, которое управляет его положением и физикой, связанной с столкновениями; второй - UiObject, который живет в пространстве Design Space и управляет пользовательским интерфейсом узла, включая меню, ярлык и т.д.; третий - Node, который по сути является информацией, содержащейся в этом узле.",
+                    "updated": 1640931306861
+                },
+                {
+                    "language": "TR",
+                    "text": "Program çalışırken, tasarım alanındaki ( Design Space ) her bir düğüm, birlikte çalışan üç atomdan oluşan bir molekül gibi davranır: ilki, Yüzen Nesne olarak adlandırılır ve konumunu ve çarpışmayla ilgili fiziği kontrol eden Tasarım Alanına ( Design Space ) aittir; ikincisi, Tasarım Alanında yaşayan menüler, kısayollar vb. dahil olmak üzere düğümün kullanıcı arabirimini ( UI ) yöneten bir UiObject'dir; üçüncüsü, esasen o düğümde yer alan içinde bilgiler olan Düğümdür.",
+                    "updated": 1643202861362
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "When you save the Workspace, Floating Objects and UIOBjects are detached from Nodes, and saved as a big JSON object with only its data."
+            "text": "When you save the Workspace, Floating Objects and UIOBjects are detached from Nodes, and saved as a big JSON object with only its data.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie den Arbeitsbereich speichern, werden schwebende Objekte und UIOObjects von den Knoten getrennt und als großes JSON-Objekt nur mit ihren Daten gespeichert.",
+                    "updated": 1641735974212
+                },
+                { 
+                    "language": "RU",
+                    "text": "При сохранении рабочего пространства (Workspace), плавающие объекты (Floating Objects) и UIOBjects отделяются от узлов и сохраняются как большой JSON-объект, содержащий только свои данные.",
+                    "updated": 1640931361889
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Çalışma Alanı ( Workspace ) kaydedilirken, Yüzen Nesneler ve UIOBject'ler düğümlerden ayrılır ve yalnızca verilerini içeren büyük bir JSON nesnesi olarak kaydedilir.",
+                    "updated": 1643202999827
+                }
+            ]
         }
     ]
 }

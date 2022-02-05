@@ -251,6 +251,17 @@ exports.newHttpInterface = function newHttpInterface() {
                     }
                 }
                     break
+                case 'DEX':
+                    SA.projects.foundations.utilities.httpRequests.getRequestBodyAsync(httpRequest, httpResponse)
+                        .then(body => {
+                            let config = JSON.parse(body)
+                            //stuff
+                            console.log(config)
+                        })
+                        .catch(err => {
+                            console.error(err)
+                        })
+                    break
                 case 'Social-Bots':
                     switch (requestPath[2]) {
                         case 'Discord-Test-Message':
@@ -276,7 +287,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                             SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                                         })
                                 })
-                                .catch (err => {
+                                .catch(err => {
                                     console.error(err)
                                 })
                             break
@@ -296,7 +307,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                             SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                                         })
                                 })
-                                .catch (err => {
+                                .catch(err => {
                                     console.error(err)
                                 })
                             break
@@ -316,7 +327,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                             SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                                         })
                                 })
-                                .catch (err => {
+                                .catch(err => {
                                     console.error(err)
                                 })
                             break
@@ -409,16 +420,16 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 case 'Secrets': {
                     switch (requestPath[2]) { // switch by command
-                        case 'Save-Secrets-File': {
+                        case 'Save-Singing-Accounts-Secrets-File': {
                             SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, httpResponse, processRequest)
 
                             async function processRequest(body) {
                                 try {
 
                                     let filePath = global.env.PATH_TO_SECRETS + '/'
-                                    let fileName = "Secrets.json"
+                                    let fileName = "SigningAccountsSecrets.json"
 
-                                    createNewDir(filePath)
+                                    SA.projects.foundations.utilities.filesAndDirectories.createNewDir(filePath)
                                     SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, body)
 
                                     console.log('[SUCCESS] ' + filePath + '/' + fileName + '  created.')
@@ -426,9 +437,9 @@ exports.newHttpInterface = function newHttpInterface() {
                                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
 
                                 } catch (err) {
-                                    console.log('[ERROR] httpInterface -> Secrets -> Save-Secrets-File -> Method call produced an error.')
-                                    console.log('[ERROR] httpInterface -> Secrets -> Save-Secrets-File -> err.stack = ' + err.stack)
-                                    console.log('[ERROR] httpInterface -> Secrets -> Save-Secrets-File -> Params Received = ' + body)
+                                    console.log('[ERROR] httpInterface -> Secrets -> Save-Singing-Accounts-Secrets-File -> Method call produced an error.')
+                                    console.log('[ERROR] httpInterface -> Secrets -> Save-Singing-Accounts-Secrets-File -> err.stack = ' + err.stack)
+                                    console.log('[ERROR] httpInterface -> Secrets -> Save-Singing-Accounts-Secrets-File -> Params Received = ' + body)
 
                                     let error = {
                                         result: 'Fail Because',
@@ -709,9 +720,9 @@ exports.newHttpInterface = function newHttpInterface() {
 
                             function createPrefixDirectories(filePath, schemaTextToUse) {
                                 let firstLetter = schemaTextToUse.substring(0, 1)
-                                createNewDir(filePath + '/' + firstLetter)
+                                SA.projects.foundations.utilities.filesAndDirectories.createNewDir(filePath + '/' + firstLetter)
                                 let extraWord = schemaTextToUse.split(' ')[0]
-                                createNewDir(filePath + '/' + firstLetter + '/' + extraWord)
+                                SA.projects.foundations.utilities.filesAndDirectories.createNewDir(filePath + '/' + firstLetter + '/' + extraWord)
                                 return filePath + '/' + firstLetter + '/' + extraWord + '/' + cleanFileName(schemaTextToUse)
                             }
 
@@ -735,7 +746,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                         schemaDocument.updated = undefined
                                         schemaDocument.created = undefined
                                         let fileContent = JSON.stringify(schemaDocument, undefined, 4)
-                                        createNewDir(newFilepath)
+                                        SA.projects.foundations.utilities.filesAndDirectories.createNewDir(newFilepath)
                                         fs.writeFileSync(newFilepath + '/' + fileName, fileContent)
                                         if (created === true) {
                                             console.log('[SUCCESS] ' + newFilepath + '/' + fileName + '  created.')
@@ -794,6 +805,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                 const token = unescape(requestPath[5])
                                 const currentBranch = unescape(requestPath[6])
                                 const contributionsBranch = unescape(requestPath[7])
+                                let governanceModified = false
                                 let error
 
                                 /* Unsaving # */
@@ -810,7 +822,9 @@ exports.newHttpInterface = function newHttpInterface() {
                                     if (gitpath === undefined) {
                                         console.log('[ERROR] `git` not installed.')
                                     } else {
-                                        await doGit()
+                                        await doGit().catch(e => {
+                                            error = e
+                                        })
                                         if (error !== undefined) {
 
                                             let docs = {
@@ -825,7 +839,9 @@ exports.newHttpInterface = function newHttpInterface() {
                                             return
                                         }
 
-                                        await doGithub()
+                                        await doGithub().catch(e => {
+                                            error = e
+                                        })
                                         if (error !== undefined) {
 
                                             let docs = {
@@ -846,31 +862,46 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                 async function doGit() {
                                     const simpleGit = SA.nodeModules.simpleGit
-                                    const options = {
+                                    let options = {
                                         baseDir: process.cwd(),
                                         binary: 'git',
                                         maxConcurrentProcesses: 6,
                                     }
-                                    const git = simpleGit(options)
-
-                                    try {
-                                        await git.add('./*')
-                                        await git.commit(commitMessage)
-                                        await git.push('origin', currentBranch)
-                                    } catch (err) {
-                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> Method call produced an error.')
-                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> err.stack = ' + err.stack)
-                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> commitMessage = ' + commitMessage)
-                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> currentBranch = ' + currentBranch)
-                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> contributionsBranch = ' + contributionsBranch)
-                                        console.log('')
-                                        console.log('Troubleshooting Tips:')
-                                        console.log('')
-                                        console.log('1. Make sure that you have set up your Github Username and Token at the APIs -> Github API node at the workspace.')
-                                        console.log('2. Make sure you are running the latest version of Git available for your OS.')
-                                        console.log('3. Make sure that you have cloned your Superalgos repository fork, and not the main Superalgos repository.')
-                                        console.log('4. If your fork is old, you might need to do an app.update and also a node setup at every branch. If you just reforked all is good.')
-                                        error = err
+                                    let git = simpleGit(options)
+                                    // first look for modified user profile, since that's the most popular contribution
+                                    let summary = await git.diffSummary()
+                                    if (summary && summary.files && summary.files.length > 0) {
+                                        for (let i = 0; i < summary.files.length; i++) {
+                                            if (summary.files[i].file === 'Plugins/Governance' && summary.files[i].changes === 0) {
+                                                // switch to working in governance plugin submodule, since this must be changed first anyway
+                                                governanceModified = true
+                                                options = {
+                                                    baseDir: SA.nodeModules.path.join(process.cwd(), 'Plugins', 'Governance'),
+                                                    binary: 'git',
+                                                    maxConcurrentProcesses: 6,
+                                                }
+                                                git = simpleGit(options)
+                                            }
+                                        }
+                                        try {
+                                            await git.add('./*')
+                                            await git.commit(commitMessage)
+                                            await git.push('origin', currentBranch)
+                                        } catch (err) {
+                                            console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> Method call produced an error.')
+                                            console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> err.stack = ' + err.stack)
+                                            console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> commitMessage = ' + commitMessage)
+                                            console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> currentBranch = ' + currentBranch)
+                                            console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> contributionsBranch = ' + contributionsBranch)
+                                            console.log('')
+                                            console.log('Troubleshooting Tips:')
+                                            console.log('')
+                                            console.log('1. Make sure that you have set up your Github Username and Token at the APIs -> Github API node at the workspace.')
+                                            console.log('2. Make sure you are running the latest version of Git available for your OS.')
+                                            console.log('3. Make sure that you have cloned your Superalgos repository fork, and not the main Superalgos repository.')
+                                            console.log('4. If your fork is old, you might need to do an app.update and also a node setup at every branch. If you just reforked all is good.')
+                                            error = err
+                                        }
                                     }
                                 }
 
@@ -883,7 +914,9 @@ exports.newHttpInterface = function newHttpInterface() {
                                         userAgent: 'Superalgos ' + SA.version
                                     })
 
-                                    const repo = 'Superalgos'
+                                    let repo
+                                    if (governanceModified) repo = 'Governance-Plugins'
+                                    else repo = 'Superalgos'
                                     const owner = 'Superalgos'
                                     const head = username + ':' + contributionsBranch
                                     const base = currentBranch
@@ -971,16 +1004,32 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                 async function doGit() {
                                     const simpleGit = SA.nodeModules.simpleGit
-                                    const options = {
-                                        baseDir: process.cwd(),
-                                        binary: 'git',
-                                        maxConcurrentProcesses: 6,
-                                    }
-                                    const git = simpleGit(options)
-
-                                    let message
                                     try {
-                                        message = await git.pull('https://github.com/Superalgos/Superalgos', currentBranch)
+                                        /*
+                                        Update the Main Superalgos Repository.
+                                        */
+                                        let options = {
+                                            baseDir: process.cwd(),
+                                            binary: 'git',
+                                            maxConcurrentProcesses: 6,
+                                        }
+                                        let git = simpleGit(options)
+
+                                        let message = await git.pull('https://github.com/Superalgos/Superalgos', currentBranch)
+
+                                        if (message.error === undefined) {
+                                            /*
+                                            Update the Submodules
+                                            */
+                                            options = {
+                                                baseDir: SA.nodeModules.path.join(process.cwd(), 'Plugins', 'Governance'),
+                                                binary: 'git',
+                                                maxConcurrentProcesses: 6,
+                                            }
+                                            git = simpleGit(options)
+                                            message = await git.pull('https://github.com/Superalgos/Governance-Plugins', currentBranch)
+                                        }
+
                                         return { message: message }
                                     } catch (err) {
                                         console.log('[ERROR] Error updating ' + currentBranch)
@@ -1008,7 +1057,22 @@ exports.newHttpInterface = function newHttpInterface() {
                                 const currentBranch = unescape(requestPath[3])
                                 let error
 
-                                checkout()
+                                checkout().catch(errorResp)
+
+                                function errorResp(e) {
+                                    error = e
+                                    console.error(error)
+                                    let docs = {
+                                        project: 'Foundations',
+                                        category: 'Topic',
+                                        type: 'Switching Branches - Current Branch Not Changed',
+                                        anchor: undefined,
+                                        placeholder: {}
+                                    }
+
+                                    respondWithDocsObject(docs, error)
+                                }
+
 
                                 async function checkout() {
                                     const { lookpath } = SA.nodeModules.lookpath
@@ -1016,7 +1080,10 @@ exports.newHttpInterface = function newHttpInterface() {
                                     if (gitpath === undefined) {
                                         console.log('[ERROR] `git` not installed.')
                                     } else {
-                                        await doGit()
+                                        await doGit().catch(errorResp)
+                                        await Promise.all(Object.values(global.env.PROJECT_PLUGIN_MAP).map(v => {
+                                            return doGit(v.dir, v.repo)
+                                        })).catch(errorResp)
 
                                         if (error === undefined) {
                                             // Run node setup to prepare instance for branch change
@@ -1024,49 +1091,30 @@ exports.newHttpInterface = function newHttpInterface() {
                                             // Return to UI that Branch is successfully changed
                                             SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                                         } else {
-                                            let docs = {
-                                                project: 'Foundations',
-                                                category: 'Topic',
-                                                type: 'Switching Branches - Current Branch Not Changed',
-                                                anchor: undefined,
-                                                placeholder: {}
-                                            }
-
-                                            respondWithDocsObject(docs, error)
+                                            errorResp(error)
                                         }
                                     }
                                 }
 
-                                async function doGit() {
+                                async function doGit(dir, repo = 'Superalgos') {
                                     const simpleGit = SA.nodeModules.simpleGit
                                     const options = {
-                                        baseDir: process.cwd(),
                                         binary: 'git',
                                         maxConcurrentProcesses: 6,
                                     }
+                                    // main app repo should be the working directory
+                                    if (repo === 'Superalgos') options.baseDir = dir || process.cwd()
+                                    // if repo is not main app repo, assume it is a plugin, in ./Plugins.
+                                    else options.baseDir = SA.nodeModules.path.join(process.cwd(), 'Plugins', dir)
                                     const git = simpleGit(options)
                                     try {
-                                        await git.checkout(currentBranch)
+                                        await git.checkout(currentBranch).catch(errorResp)
 
-                                        // Check to see it main repo has been set as upstream
-                                        let remotes = await git.getRemotes();
-                                        let isUpstreamSet
-                                        for (let remote in remotes) {
-                                            if (remotes[remote].name === 'upstream') {
-                                                isUpstreamSet = true
-                                            } else {
-                                                isUpstreamSet = false
-                                            }
-                                        }
-                                        // If upstream has not been set. Set it now
-                                        if (isUpstreamSet === false) {
-                                            await git.addRemote('upstream', 'https://github.com/Superalgos/Superalgos');
-                                        }
                                         // Pull branch from main repo
-                                        await git.pull('upstream', currentBranch);
+                                        await git.pull('upstream', currentBranch).catch(errorResp);
                                         // Reset branch to match main repo
                                         let upstreamLocation = `upstream/${currentBranch}`
-                                        await git.reset('hard', [upstreamLocation])
+                                        await git.reset('hard', [upstreamLocation]).catch(errorResp)
 
                                     } catch (err) {
                                         console.log('[ERROR] Error changing current branch to ' + currentBranch)
@@ -1221,8 +1269,8 @@ exports.newHttpInterface = function newHttpInterface() {
                                                 allAppSchemasFilePaths.push(fileToRead)
                                                 allAppSchemasFileProjects.push(project)
                                             } catch (err) {
-                                                console.log('[ERROR] sendSchema -> Error Parsing JSON File: ' + fileToRead + ' .Error = ' + err.stack)
-                                                return
+                                                console.log('[WARN] sendSchema -> Error Parsing JSON File: ' + fileToRead + ' .Error = ' + err.stack)
+                                                continue
                                             }
                                         }
                                         PROJECTS_MAP.set(project, SCHEMA_MAP)
@@ -1292,11 +1340,11 @@ exports.newHttpInterface = function newHttpInterface() {
                                         }
 
                                         //if (wasUpdated === true) {
-                                            //let fileContent = JSON.stringify(schemaDocument, undefined, 4)
-                                            //let filePath = allAppSchemasFilePaths[i]
-                                            //console.log('Saving File at ' + filePath)
-                                            //console.log(fileContent)
-                                            //fs.writeFileSync(filePath, fileContent)
+                                        //let fileContent = JSON.stringify(schemaDocument, undefined, 4)
+                                        //let filePath = allAppSchemasFilePaths[i]
+                                        //console.log('Saving File at ' + filePath)
+                                        //console.log(fileContent)
+                                        //fs.writeFileSync(filePath, fileContent)
                                         //}
                                     }
                                 } catch (err) {
@@ -1397,6 +1445,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                 case 'createGithubFork': {
 
                                     let serverResponse = await PL.servers.GITHUB_SERVER.createGithubFork(
+                                        params.username,
                                         params.token
                                     )
 
@@ -1436,17 +1485,20 @@ exports.newHttpInterface = function newHttpInterface() {
                                         let error
 
                                         await checkFork()
+                                        await checkFork('Governance-Plugins')
                                         await updateUser()
 
-                                        async function checkFork() {
+                                        async function checkFork(repo = 'Superalgos') {
                                             let serverResponse = await PL.servers.GITHUB_SERVER.createGithubFork(
-                                                params.token
+                                                username,
+                                                token,
+                                                repo
                                             )
-        
+
                                             SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
-                                            
-                                            if(error != undefined) {
-                                                console.log('[ERROR] httpInterface -> Gov -> createFork -> You already have a fork. Good for you!')
+
+                                            if (error != undefined) {
+                                                console.log(`[ERROR] httpInterface -> Gov -> createFork -> You already have a ${repo} fork. Good for you!`)
                                             }
                                         }
 
@@ -1480,7 +1532,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                                 userAgent: 'Superalgos ' + SA.version
                                             })
 
-                                            const repo = 'Superalgos'
+                                            const repo = 'Governance-Plugins'
                                             const owner = 'Superalgos'
                                             const head = username + ':' + contributionsBranch
                                             //const base = currentBranch
@@ -1491,8 +1543,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                                 base = currentBranch
                                             }
                                             const title = 'Governance: ' + mess
-                                            const path = 'Projects/Governance/Plugins/User-Profiles/' + username + '.json';
-
+                                            const path = 'User-Profiles/' + username + '.json';
                                             const sha = await getSHA(path);
 
                                             if (sha === undefined) {
@@ -1508,15 +1559,14 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                             let buff = new Buffer.from(file, 'utf-8');
                                             let encodedFile = buff.toString('base64');
-
                                             try {
                                                 await octokit.repos.createOrUpdateFileContents({
                                                     owner: username,
-                                                    repo: "Superalgos",
-                                                    path,
+                                                    repo: repo,
+                                                    path: path,
                                                     message: title,
                                                     content: encodedFile,
-                                                    sha,
+                                                    sha: sha,
                                                     branch: base
                                                 });
                                             } catch (err) {
@@ -1534,7 +1584,6 @@ exports.newHttpInterface = function newHttpInterface() {
                                                     error = err
                                                 }
                                             }
-
                                             try {
                                                 await octokit.pulls.create({
                                                     owner,
@@ -1560,7 +1609,6 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                             }
 
-
                                         }
 
                                         async function getSHA(path) {
@@ -1571,7 +1619,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                                 const { repository } = await graphql(
                                                     '{  ' +
-                                                    '  repository(name: "SuperAlgos", owner: "' + username + '") {' +
+                                                    '  repository(name: "Governance-Plugins", owner: "' + username + '") {' +
                                                     '    object(expression: "develop:' + path + '") {' +
                                                     '      ... on Blob {' +
                                                     '        oid' +
@@ -1880,9 +1928,8 @@ exports.newHttpInterface = function newHttpInterface() {
                                     try {
                                         schemaDocument = JSON.parse(fileContent)
                                     } catch (err) {
-                                        console.log('[ERROR] sendSchema -> Error Parsing JSON File: ' + fileToRead + ' .Error = ' + err.stack)
-                                        SA.projects.foundations.utilities.httpResponses.respondWithContent("[]", httpResponse)
-                                        return
+                                        console.log('[WARN] sendSchema -> Error Parsing JSON File: ' + fileToRead + ' .Error = ' + err.stack)
+                                        continue
                                     }
                                     schemaArray.push(schemaDocument)
                                 }
@@ -2048,7 +2095,8 @@ exports.newHttpInterface = function newHttpInterface() {
                             let project = requestPath[2]
                             let folder = requestPath[3]
                             let fileName = requestPath[4]
-                            let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Plugins/' + folder
+                            let pluginName = global.env.PROJECT_PLUGIN_MAP[project].dir || project
+                            let filePath = global.env.PATH_TO_PLUGINS + '/' + pluginName + '/' + folder
                             let fileContent = JSON.stringify(plugin, undefined, 4)
                             const fs = SA.nodeModules.fs
                             fs.writeFileSync(filePath + '/' + fileName + '.json', fileContent)
@@ -2098,7 +2146,9 @@ exports.newHttpInterface = function newHttpInterface() {
                         readPluginWorkspaces()
 
                         function readPluginWorkspaces() {
-                            let dirPath = global.env.PATH_TO_PROJECTS + '/' + project + '/Plugins/Workspaces'
+                            let pluginName = project
+                            if (global.env.PROJECT_PLUGIN_MAP[project] && global.env.PROJECT_PLUGIN_MAP[project].dir) pluginName = global.env.PROJECT_PLUGIN_MAP[project].dir
+                            let dirPath = global.env.PATH_TO_PLUGINS + '/' + pluginName + '/Workspaces'
                             try {
                                 let fs = SA.nodeModules.fs
                                 fs.readdir(dirPath, onDirRead)
@@ -2227,6 +2277,11 @@ exports.newHttpInterface = function newHttpInterface() {
                     SA.projects.foundations.utilities.httpResponses.respondWithFile(path, httpResponse)
                 }
                     break
+                case 'ProjectsMenu': {
+                    let path = global.env.PATH_TO_PROJECTS + '/' + 'ProjectsMenu.json'
+                    SA.projects.foundations.utilities.httpResponses.respondWithFile(path, httpResponse)
+                }
+                    break
                 case 'ListSpaceFiles': {
                     let fs = SA.nodeModules.fs
                     let allFiles = []
@@ -2290,6 +2345,14 @@ exports.newHttpInterface = function newHttpInterface() {
                     SA.projects.foundations.utilities.httpResponses.respondWithProjectFolderFileList(httpResponse, 'Function-Libraries', 'UI')
                 }
                     break
+                case 'ListNodeActionFunctions': {
+                    SA.projects.foundations.utilities.httpResponses.respondWithProjectFolderFileList(httpResponse, 'Node-Action-Functions', 'UI')
+                }
+                    break
+                case 'ListSystemActionFunctions': {
+                    SA.projects.foundations.utilities.httpResponses.respondWithProjectFolderFileList(httpResponse, 'System-Action-Functions', 'UI')
+                }
+                    break
                 case 'ListUtilitiesFiles': {
                     SA.projects.foundations.utilities.httpResponses.respondWithProjectFolderFileList(httpResponse, 'Utilities', 'UI')
                 }
@@ -2330,16 +2393,6 @@ exports.newHttpInterface = function newHttpInterface() {
             }
             if (err.message !== undefined) {
                 console.log('[ERROR] onHttpRequest -> err.message = ' + err.message)
-            }
-        }
-    }
-
-    function createNewDir(path) {
-        try {
-            SA.nodeModules.fs.mkdirSync(path, { recursive: true })
-        } catch (err) {
-            if (err.message.indexOf('file already exists') < 0) {
-                throw (err)
             }
         }
     }

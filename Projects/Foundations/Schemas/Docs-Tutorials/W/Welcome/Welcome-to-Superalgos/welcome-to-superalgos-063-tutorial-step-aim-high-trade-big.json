@@ -35,6 +35,11 @@
                 "language": "RU",
                 "text": "Представьте себе армию ботов, работающих с множеством биржей, рынков и стратегий  в сети а-ля торговая ферма.",
                 "updated": 1636747931667
+            },
+            {
+                "language": "ID",
+                "text": "Bayangkan pasukan bot bekerja dengan banyak exchanges, markets,  dan strategi, berjalan di jaringan yang dikatakan trading farm.",
+                "updated": 1639711890257
             }
         ],
         "updated": 1622200549490
@@ -42,8 +47,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "That is what the Network Node is about. What you've seen so far is running on a single machine. But...",
-            "updated": 1616427867794,
+            "text": "That is what the LAN Network Node is about. What you've seen so far is running on a single machine. But...",
+            "updated": 1640285917398,
             "translations": [
                 {
                     "language": "IT",
@@ -59,8 +64,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Genau darum geht es beim Network Node. Was Sie bisher gesehen haben, läuft auf einer einzigen Maschine. Aber...",
-                    "updated": 1634220028409
+                    "text": "Darum geht es beim LAN-Netzwerkknoten. Was Sie bisher gesehen haben, läuft auf einem einzelnen Rechner. Aber ... ",
+                    "updated": 1642152340888
                 },
                 {
                     "language": "TR",
@@ -69,8 +74,13 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Вот, что такое Network Node. То, что Вы видели до сих пор - работает на одной машине. Но...",
-                    "updated": 1636747649665
+                    "text": "Именно для этого и существует сетевой узел LAN Network. То, что вы видели до сих пор, работает на одной машине. Но...",
+                    "updated": 1641833119629
+                },
+                {
+                    "language": "ID",
+                    "text": "Itulah yang dimaksud dengan Network Node. Apa yangkamu lihat sejauh ini berjalan pada satu mesin. Tetapi...",
+                    "updated": 1639711924341
                 }
             ]
         },
@@ -105,6 +115,11 @@
                     "language": "RU",
                     "text": "Superalgos поддерживает распределения и координацию задач между сетями узлов, на которых работает Client! Это обеспечивает интеллектуальные и масштабные операции. Любая машина, на которой работает графический интерфейс, может управлять предприятием!",
                     "updated": 1636747776256
+                },
+                {
+                    "language": "ID",
+                    "text": "Superalgos mendukung pendistribusian dan koordinasi tugas di seluruh jaringan node yang menjalankan Client! Hal ini memungkinkan operasi yang cerdas dan terukur. Setiap mesin yang menjalankan GUI dapat mengontrol perusahaan!",
+                    "updated": 1639712035776
                 }
             ]
         },
@@ -138,6 +153,11 @@
                     "language": "RU",
                     "text": "Вы можете настроить сеть с несколькими  Raspberry Pi, центром обработки данных промышленного уровня или чем-то средним.",
                     "updated": 1636747852002
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu dapat mengatur jaringan dengan beberapa Raspberry Pi, industrial-grade datacenter, atau apa pun di antaranya.",
+                    "updated": 1639711978226
                 }
             ],
             "updated": 1629821982211

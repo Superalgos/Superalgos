@@ -16,7 +16,7 @@
 
             let dataFiles = new Map()
             let multiTimeFrameDataFiles = new Map()
-            TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).PORTFOLIO_ENGINE_MODULE_OBJECT = TS.projects.portfolioManagement.botModules.portfolioEngine.newPortfolioManagementBotModulesPortfolioEngine(processIndex)
+            TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).ENGINE_MODULE_OBJECT = TS.projects.portfolioManagement.botModules.portfolioEngine.newPortfolioManagementBotModulesPortfolioEngine(processIndex)
             let portfolioOutputModuleObject = TS.projects.portfolioManagement.botModules.portfolioOutput.newPortfolioManagementBotModulesPortfolioOutput(processIndex)
 
             let currentTimeFrame = {}
@@ -46,7 +46,7 @@
             }
 
             /* We set up the Portfolio Engine Module. */
-            TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).PORTFOLIO_ENGINE_MODULE_OBJECT.initialize()
+            TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).ENGINE_MODULE_OBJECT.initialize()
 
             /* Initializing the Portfolio Process Date */
             if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_FIRST_LOOP === true && TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_RESUMING === false) {
@@ -65,7 +65,7 @@
             This is the Date that is going to be used across the execution of this Portfolio Process. 
             We need this because it has a different life cycle than the processData stored at the 
             Portfolio Engine data structure. This date has to remain the same during the whole execution
-            of the Portfolio Process until the end, inclusind the writing of Data Ranges and Status Reports.
+            of the Portfolio Process until the end, including the writing of Data Ranges and Status Reports.
             The processDate of the Portfolio Engine data structure on the other hand can be changed during
             the simulation loop, once we discover that all candles from a certain date have benn processed.
             Here is the point where we sync one and the other.
@@ -108,7 +108,7 @@
                 Here we check if we need to get Daily Files or not. As an optimization, when 
                 we are running on a Time Frame of 1hs or above, we are not going to load 
                 dependencies on Daily Files. The way we recognize that is by checking if 
-                we alreaady set a value to currentTimeFrame.value. We are also not going to loop
+                we already set a value to currentTimeFrame.value. We are also not going to loop
                 through days if we are processing market files.
             */
             if (currentTimeFrame.value) {
@@ -290,7 +290,7 @@
             }
         }
         catch (err) {
-            /* An unhandled exception occured. in this case we return Fail and log the stack. */
+            /* An unhandled exception occurred. in this case we return Fail and log the stack. */
             if (err.stack) {
                 TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
@@ -307,7 +307,7 @@
                 return
             }
 
-            /* Some other handled exception occured. We return Fail and move on. */
+            /* Some other handled exception occurred. We return Fail and move on. */
             if (err.result !== TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                 TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,

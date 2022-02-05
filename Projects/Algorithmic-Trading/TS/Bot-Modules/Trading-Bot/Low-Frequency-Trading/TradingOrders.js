@@ -100,7 +100,7 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
                     if (tradingSystemOrder.referenceParent === undefined) {
                         badDefinitionUnhandledException(undefined, 'Order Reference Missing', tradingSystemOrder)
                     }
-                    let tradingEngineOrder = TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.getNodeById(tradingSystemOrder.referenceParent.id)
+                    let tradingEngineOrder = TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).ENGINE_MODULE_OBJECT.getNodeById(tradingSystemOrder.referenceParent.id)
 
                     if (tradingEngineOrder.status === undefined) {
                         badDefinitionUnhandledException(undefined, 'Status Node Missing', tradingEngineOrder)
@@ -124,7 +124,7 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
 
             let tradingSystemOrder = orders[i]
             tradingSystemValidations(tradingSystemOrder)
-            let tradingEngineOrder = TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.getNodeById(tradingSystemOrder.referenceParent.id)
+            let tradingEngineOrder = TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).ENGINE_MODULE_OBJECT.getNodeById(tradingSystemOrder.referenceParent.id)
             tradingEngineValidations(tradingEngineOrder)
 
             switch (tradingEngineOrder.status.value) {
@@ -211,11 +211,11 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
                     if (tradingEngineOrder.status.value === 'Closed') {
                         switch (tradingEngineOrder.type) {
                             case 'Market Order': {
-                                TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.cloneValues(tradingEngineOrder, tradingEngine.tradingLast.marketOrders)
+                                TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).ENGINE_MODULE_OBJECT.cloneValues(tradingEngineOrder, tradingEngine.tradingLast.marketOrders)
                                 break
                             }
                             case 'Limit Order': {
-                                TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.cloneValues(tradingEngineOrder, tradingEngine.tradingLast.limitOrders)
+                                TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).ENGINE_MODULE_OBJECT.cloneValues(tradingEngineOrder, tradingEngine.tradingLast.limitOrders)
                                 break
                             }
                         }
@@ -1270,7 +1270,13 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
 
                 passed = tradingSystem.checkConditions(situation, passed)
 
+                if (event.askPortfolioEventsManager !== undefined) {
+                    let response = await portfolioManagerClientModuleObject.askPortfolioEventsManager(event, passed)
+                    passed = response.passed
+                }
+
                 tradingSystem.values.push([situation.id, passed])
+
                 if (passed) {
                     tradingSystem.highlights.push(situation.id)
                     tradingSystem.highlights.push(event.id)
@@ -1310,7 +1316,7 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
     function resetTradingEngineDataStructure(tradingEngineOrder, tradingSystemOrder, stageStatus) {
         if (tradingEngineOrder.status.value === 'Closed') {
             /* We reset the order data structure inside the Trading Engine to its initial value */
-            TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.initializeNode(tradingEngineOrder)
+            TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).ENGINE_MODULE_OBJECT.initializeNode(tradingEngineOrder)
             if (tradingSystemOrder.config.spawnMultipleOrders !== true) {
                 /* 
                 We close the lock so as to prevent this data structure to be used again during this same stage execution.

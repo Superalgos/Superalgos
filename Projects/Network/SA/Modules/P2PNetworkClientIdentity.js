@@ -7,8 +7,6 @@ exports.newNetworkModulesP2PNetworkClientIdentity = function newNetworkModulesP2
         node: undefined,
         blockchainAccount: undefined,
         userProfile: undefined,
-
-        /* Framework Functions */
         initialize: initialize,
         finalize: finalize
     }
@@ -18,10 +16,15 @@ exports.newNetworkModulesP2PNetworkClientIdentity = function newNetworkModulesP2
     function finalize() {
         thisObject.node = undefined
         thisObject.blockchainAccount = undefined
-        thisObject.userProfile = undefined
     }
 
-    async function initialize() {
-
+    async function initialize(
+        node,
+        userProfile,
+        blockchainAccount
+    ) {
+        thisObject.node = node
+        thisObject.userProfile = userProfile
+        thisObject.blockchainAccount = blockchainAccount
     }
 }

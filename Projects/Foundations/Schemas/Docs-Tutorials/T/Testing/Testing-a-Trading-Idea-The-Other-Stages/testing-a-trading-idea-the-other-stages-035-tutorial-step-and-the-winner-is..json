@@ -13,6 +13,16 @@
                 "language": "DE",
                 "text": "Die Antwort lautet: Größe der Gefüllten Position minus gezahlte Gebühren ( Size Filled minus Fees Paid ) ! Ich erkläre, warum keiner der anderen Knotenpunkte passt!",
                 "updated": 1639417837022
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Cevap şudur: Doldurulan pozisyonun boyutu eksi ödenen ücretler (Dolu Boyut (Size Filled ) eksi Ödenen Ücretler! ( Fees Paid ) Diğer düğümlerin hiçbirinin neden uymadığını açıklıyorum!",
+                "updated": 1641796531526
+            },
+            {
+                "language": "RU",
+                "text": "Ответ: Size Filled минус Fees Paid! Я объясню, почему ни один из других узлов не подходит для этого!",
+                "updated": 1642942403448
             }
         ]
     },
@@ -25,6 +35,16 @@
                     "language": "DE",
                     "text": "Target Size: nein, denn dies ist nur das Ziel, das wir definiert haben!",
                     "updated": 1639417852485
+                },
+                {
+                    "language": "TR",
+                    "text": "Hedef Boyut ( Target Size ): hayır, çünkü bu sadece bizim tanımladığımız hedef!",
+                    "updated": 1641796545324
+                },
+                {
+                    "language": "RU",
+                    "text": "Target Size: не подходит, потому что это просто цель, которую мы определили!",
+                    "updated": 1642942458196
                 }
             ]
         },
@@ -36,6 +56,16 @@
                     "language": "DE",
                     "text": "Size Placed: näher dran, aber nein, denn der Auftrag wird nicht unbedingt für den exakten Betrag ausgeführt, der platziert wurde, aufgrund von Dezimalrundungen oder anderen Gründen!",
                     "updated": 1639417867555
+                },
+                {
+                    "language": "TR",
+                    "text": "Yerleştirilen Boyut ( Size Placed ): daha yakın, ancak hayır, çünkü ondalık yuvarlama veya diğer nedenlerden dolayı sipariş, verilen miktar için mutlaka yerine getirilmeyecektir!",
+                    "updated": 1641796561329
+                },
+                {
+                    "language": "RU",
+                    "text": "Size Placed: ближе, но нет, потому что ордер не обязательно будет выполнен на точную сумму, из-за округления десятичных дробей или по другим причинам!",
+                    "updated": 1642942477126
                 }
             ]
         },
@@ -47,6 +77,16 @@
                     "language": "DE",
                     "text": "Size Filled: ja! Aber denken Sie daran, dass die Börse auch ihren Anteil nimmt, also müssen Sie die Gebühren abziehen!",
                     "updated": 1639417882169
+                },
+                {
+                    "language": "TR",
+                    "text": "Dolu Boyut ( Size Filled ): evet! Ancak unutmayın, borsa da hissesini alıyor, dolayısıyla ücretleri çıkarmanız gerekecek!",
+                    "updated": 1641796571152
+                },
+                {
+                    "language": "RU",
+                    "text": "Size Filled: да! Но помните, что биржа тоже берет свою долю, поэтому вы должны вычесть комиссионные!",
+                    "updated": 1642942512050
                 }
             ]
         },
@@ -58,6 +98,16 @@
                     "language": "DE",
                     "text": "Können Sie die korrekte Syntax für die Formel erstellen? Denken Sie daran, dass Sie die Pfade der Knoten kopieren können, die die benötigten Daten enthalten!",
                     "updated": 1639417892615
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Formül için doğru söz dizimini oluşturabilir misin? Unutmayın, ihtiyaç duyduğunuz verileri içeren düğümlerin yollarını kopyalayabilirsiniz!",
+                    "updated": 1641796580952
+                },
+                {
+                    "language": "RU",
+                    "text": "Можете ли вы создать правильный синтаксис для формулы? Помните, что вы можете копировать пути узлов, содержащих нужные нам данные!",
+                    "updated": 1642942526790
                 }
             ]
         }

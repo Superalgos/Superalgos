@@ -63,7 +63,7 @@
                     "relatedUiObject": "Testing Portfolio Tasks",
                     "actionFunction": "payload.executeAction",
                     "actionProject": "Visual-Scripting",
-                    "relatedUiObjectProject": "Foundations"
+                    "relatedUiObjectProject": "Portfolio-Management"
                 },
                 {
                     "action": "Add UI Object",
@@ -73,7 +73,7 @@
                     "relatedUiObject": "Production Portfolio Tasks",
                     "actionFunction": "payload.executeAction",
                     "actionProject": "Visual-Scripting",
-                    "relatedUiObjectProject": "Foundations"
+                    "relatedUiObjectProject": "Portfolio-Management"
                 }
             ]
         },

@@ -19,6 +19,16 @@
                 "language": "TR",
                 "text": "Superalgos Platformu, algo tüccarlarına hizmet etmek için tasarlanmıştır. Ancak proje, tüm kripto kullanıcılarına hitap edecek şekilde kapsamını genişletiyor!",
                 "updated": 1636661912945
+            },
+            {
+                "language": "ID",
+                "text": "Platform Superalgos dirancang untuk melayani algo traders. Tetapi proyek ini memperluas cakupannya untuk melayani semua pengguna crypto!",
+                "updated": 1640598614989
+            },
+            {
+                "language": "RU",
+                "text": "Платформа Superalgos предназначена для алготрейдеров. Но проект расширяет сферу своей деятельности, чтобы удовлетворить всех пользователей криптовалют!",
+                "updated": 1642773110913
             }
         ]
     },
@@ -37,6 +47,16 @@
                     "language": "TR",
                     "text": "Protokol tarafından teşvik edilen algo tüccarları, ticaret sinyalleri üretmek ve yaymak için rekabet edecek.",
                     "updated": 1636661931970
+                },
+                {
+                    "language": "ID",
+                    "text": "Terpusat oleh protokol, algo traders akan bersaing untuk memproduksi dan menyebarkan trading signals.",
+                    "updated": 1640598656754
+                },
+                {
+                    "language": "RU",
+                    "text": "Благодаря протоколу алготрейдеры будут соревноваться в производстве и распространении торговых сигналов.",
+                    "updated": 1642773165400
                 }
             ]
         },
@@ -53,6 +73,16 @@
                     "language": "TR",
                     "text": "Influencer’lar sinyal sağlayıcıları seçecek ve seçilen sinyalleri takipçilerine yayınlayacak.",
                     "updated": 1636661965784
+                },
+                {
+                    "language": "ID",
+                    "text": "Influencer akan mengenalkan providers dan broadcast sinyal tertentu ke followers mereka.",
+                    "updated": 1640598777370
+                },
+                {
+                    "language": "RU",
+                    "text": "Влиятельные люди будут курировать поставщиков сигналов и транслировать избранные сигналы своим подписчикам.",
+                    "updated": 1642773176745
                 }
             ]
         },
@@ -70,6 +100,16 @@
                     "language": "TR",
                     "text": "Kripto kullanıcıları, influencers'ları takip edecek ve sinyallerini mobil, masaüstü veya sunucu uygulamasında ücretsiz olarak alacak! Bu uygulamalar, uzmanlar tarafından üretilen ücretsiz zeka ile kolay otomatik alım satımı mümkün kılacaktır!",
                     "updated": 1636662050183
+                },
+                {
+                    "language": "ID",
+                    "text": "Pengguna Crypto akan mengikuti influencer dan mendapatkan sinyal mereka di aplikasi seluler, desktop, atau server, gratis! Aplikasi ini akan memungkinkan perdagangan otomatis yang mudah, dengan kecerdasan gratis yang dihasilkan oleh para ahli!",
+                    "updated": 1640598811939
+                },
+                {
+                    "language": "RU",
+                    "text": "Пользователи криптовалют будут следить за экспертами и получать их сигналы в мобильном, настольном или серверном приложении бесплатно! Эти приложения позволят легко осуществлять автоматическую торговлю, используя бесплатные аналитические данные, полученные от экспертов!",
+                    "updated": 1642773363404
                 }
             ]
         },
@@ -87,6 +127,16 @@
                     "language": "TR",
                     "text": "Hem algo tüccarları hem de etkileyiciler protokol tarafından ödenirken, kripto kullanıcıları tüm ürün ve hizmetleri ücretsiz olarak kullanacaklar. Oldukça etkileyici değil mi?",
                     "updated": 1636662121975
+                },
+                {
+                    "language": "ID",
+                    "text": "Baik algo traders dan influencer dibayar oleh protokol, sementara pengguna crypto mendapatkan semua produk dan layanan gratis. Cukup adil, bukan?",
+                    "updated": 1640598876455
+                },
+                {
+                    "language": "RU",
+                    "text": "И алготрейдеры, и влиятельные лица получают оплату по протоколу, а пользователи криптовалют получают все продукты и услуги бесплатно. Довольно революционно, не так ли?",
+                    "updated": 1642773545277
                 }
             ]
         }

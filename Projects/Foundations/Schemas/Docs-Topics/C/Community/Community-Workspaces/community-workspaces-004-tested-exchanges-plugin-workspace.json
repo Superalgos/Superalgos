@@ -135,7 +135,14 @@
         {
             "style": "Title",
             "text": "Maintainer",
-            "updated": 1616151450651
+            "updated": 1616151450651,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Разработчик",
+                    "updated": 1640236922589
+                }
+            ]
         },
         {
             "style": "List",

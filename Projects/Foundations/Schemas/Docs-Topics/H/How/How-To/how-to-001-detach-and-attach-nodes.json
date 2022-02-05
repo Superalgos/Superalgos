@@ -10,6 +10,16 @@
                 "language": "RU",
                 "text": "Чтобы отсоединить узел, нажмите кнопку отсоединения в меню узла. Чтобы присоединить узел, щелкните узел правой кнопкой мыши и перетащите его ближе к узлу, к которому вы хотите его присоединить. Отпустите правую кнопку мыши, когда целевой узел будет выделен.",
                 "updated": 1638346583080
+            },
+            {
+                "language": "EL",
+                "text": "Για να αποσυνδέσετε έναν κόμβο, κάντε κλικ στο κουμπί αποσύνδεσης στο μενού του κόμβου. Για να επισυνάψετε έναν κόμβο, κάντε δεξί κλικ στον κόμβο και σύρετέ τον πιο κοντά στον κόμβο στον οποίο θέλετε να τον προσαρτήσετε. Αφήστε το δεξί κλικ όταν επισημανθεί ο κόμβος προορισμού.",
+                "updated": 1641830430430
+            },
+            {
+                "language": "DE",
+                "text": "Um einen Node abzutrennen, klicken Sie auf die Schaltfläche \"Trennen\" im Menü des Nodes. Um einen Node anzuhängen, klicken Sie mit der rechten Maustaste auf den Node und ziehen ihn näher an den Node, an den Sie ihn anhängen möchten. Lassen Sie die rechte Maustaste los, wenn der Ziel-Node hervorgehoben ist.",
+                "updated": 1641768235825
             }
         ]
     },
@@ -30,8 +40,18 @@
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Узлы в рабочей области могут быть освобождены или отсоединены от своего родителя, неся с собой все потомки. Когда узел не связан, он больше не учитывается в логике иерархии, поскольку больше не принадлежит ей. Когда узел возвращается в цепочку или повторно присоединяется к иерархии, он снова становится функциональным.",
+                    "text": "Узлы в рабочем пространстве могут быть освобождены или отсоединены от своего родителя, неся с собой все потомки. Когда узел не связан, он больше не учитывается в логике иерархии, поскольку больше не принадлежит ей. Когда узел возвращается в цепочку или повторно присоединяется к иерархии, он снова становится функциональным.",
                     "updated": 1638346608272
+                },
+                {
+                    "language": "EL",
+                    "text": "Οι κόμβοι στο χώρο εργασίας μπορεί να αποσυνδεθούν ή να αποσπαστούν από τον γονέα τους, μεταφέροντας όλους τους απογόνους μαζί τους. Όταν ένας κόμβος αφήνεται χωρίς αλυσίδα, δεν λαμβάνεται πλέον υπόψη στη λογική της ιεραρχίας, καθώς δεν ανήκει πλέον σε αυτόν. Όταν ένας κόμβος είναι δεμένος ή επανασυνδεθεί στην ιεραρχία, επανέρχεται στη λειτουργικότητα.",
+                    "updated": 1641830460583
+                },
+                {
+                    "language": "DE",
+                    "text": "Nodes im Arbeitsbereich können entkettet oder von ihren Eltern abgetrennt werden, wobei alle Nachkommen mitgenommen werden. Wenn ein Node losgelöst wird, wird er in der Logik der Hierarchie nicht mehr berücksichtigt, da er nicht mehr zu ihr gehört. Wenn ein Node zurück verkettet oder wieder an die Hierarchie angehängt wird, ist er wieder funktionsfähig.",
+                    "updated": 1641768318555
                 }
             ]
         },
@@ -41,8 +61,18 @@
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Эта функция полезна при тестировании различных конфигураций, правил или параметров, так как позволяет держать альтернативы под рукой в ​​рабочей области.",
+                    "text": "Эта функция полезна при тестировании различных конфигураций, правил или параметров, так как позволяет держать альтернативы под рукой в ​​рабочем пространстве.",
                     "updated": 1638346623438
+                },
+                {
+                    "language": "EL",
+                    "text": "Αυτή η δυνατότητα είναι χρήσιμη κατά τη δοκιμή διαφορετικών διαμορφώσεων, κανόνων ή παραμέτρων, καθώς επιτρέπει τη διατήρηση των εναλλακτικών πρακτικών στο χώρο εργασίας.",
+                    "updated": 1641830486059
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese Funktion ist nützlich beim Testen verschiedener Konfigurationen, Regeln oder Parameter, da sie es ermöglicht, Alternativen im Arbeitsbereich bereitzuhalten.",
+                    "updated": 1641768331802
                 }
             ]
         },
@@ -54,6 +84,16 @@
                     "language": "RU",
                     "text": "Узлы могут быть прикреплены только к потенциальным родителям. Система ограничивает способ подключения узлов в соответствии с логикой содержащейся в них информации.",
                     "updated": 1638346637620
+                },
+                {
+                    "language": "EL",
+                    "text": "Οι κόμβοι μπορούν να συνδεθούν μόνο σε πιθανούς γονείς. Το σύστημα περιορίζει τον τρόπο με τον οποίο μπορούν να συνδεθούν οι κόμβοι, σύμφωνα με τη λογική των πληροφοριών που περιέχουν.",
+                    "updated": 1641830499019
+                },
+                {
+                    "language": "DE",
+                    "text": "Nodes können nur an potentielle Eltern angehängt werden. Das System begrenzt die Art und Weise, in der Nodes angehängt werden können, je nach der Logik der Informationen, die sie enthalten.",
+                    "updated": 1641768343222
                 }
             ]
         },
@@ -66,6 +106,16 @@
                     "language": "RU",
                     "text": "Узлы нельзя отсоединять или присоединять к замороженным узлам. Перед установкой или отсоединением их необходимо разморозить.",
                     "updated": 1638346663411
+                },
+                {
+                    "language": "EL",
+                    "text": "Οι κόμβοι δεν πρέπει να αποσπώνται ή να συνδέονται με παγωμένους κόμβους. Πρέπει να τους ξεπαγώσετε πριν τους προσαρτήσετε ή τους αποσυνδέσετε.",
+                    "updated": 1641830513574
+                },
+                {
+                    "language": "DE",
+                    "text": "Nodes können nicht von eingefrorenen Nodes gelöst oder an sie angehängt werden. Sie müssen das Einfrieren aufheben, bevor Sie sie anhängen oder abnehmen.",
+                    "updated": 1641768363302
                 }
             ]
         },
@@ -77,6 +127,16 @@
                     "language": "RU",
                     "text": "Глаголы «связывать» и «прикреплять» могут использоваться как синонимы. Точно так же и \"разъединение\", и \"отсоединение\" допустимы.",
                     "updated": 1638346757261
+                },
+                {
+                    "language": "EL",
+                    "text": "Τα ρήματα αλυσίδας και προσάρτησης μπορούν να χρησιμοποιηθούν εναλλακτικά, ως συνώνυμα. Ομοίως, ισχύουν και τα δύο για να ξεκλειδώσετε και να αποκολλήσετε.",
+                    "updated": 1641830527298
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Ausdrücke \"to chain\" (verketten) und \"to attach\" (anhängen) können als Synonyme austauschbar verwendet werden. Ebenso sind \"to unchain\" und \"to detach\" beides gültig. Dieser auf Englisch bezogene Hinweis gilt sicher auch für die Übersetzungen \"anhängen\", \"verknüpfen\", \"verbinden\", etc.",
+                    "updated": 1641768710081
                 }
             ]
         }

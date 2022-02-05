@@ -359,7 +359,7 @@ function newFloatingObject() {
                 if (parent.payload === undefined) { return }
                 if (parent.payload.position === undefined) { return }
                 distanceToParent = Math.sqrt(Math.pow(parent.payload.position.x - thisObject.container.frame.position.x, 2) + Math.pow(parent.payload.position.y - thisObject.container.frame.position.y, 2))  // ... we calculate the distance ...
-                parentChildren = UI.projects.visualScripting.functionLibraries.nodeChildren.childrenCount(parent, thisObject.payload.node)
+                parentChildren = UI.projects.visualScripting.nodeActionFunctions.nodeChildren.childrenCount(parent, thisObject.payload.node)
                 parentDistanceToGarndParent = parent.payload.distance
             }
 
@@ -578,7 +578,11 @@ function newFloatingObject() {
 
             if (thisObject.isOnFocus === true) {
                 animationStepSize = (targetRadiusWithFocus() - targetRadiusWithoutFocus()) / ANIMATION_STEPS
-                if (thisObject.container.frame.radius >= targetRadiusWithFocus()) { return }
+                if (thisObject.container.frame.radius > targetRadiusWithFocus()) { 
+                    thisObject.container.frame.radius = targetRadiusWithFocus()
+                    thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
+                    return 
+                }
                 thisObject.container.frame.radius = thisObject.container.frame.radius + animationStepSize
                 if (thisObject.container.frame.radius >= targetRadiusWithFocus()) {
                     thisObject.container.frame.radius = targetRadiusWithFocus()
@@ -586,7 +590,11 @@ function newFloatingObject() {
                 thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
             } else {
                 animationStepSize = (targetRadiusWithoutFocus() - targetRadiusWithFocus()) / ANIMATION_STEPS
-                if (thisObject.container.frame.radius <= targetRadiusWithoutFocus()) { return }
+                if (thisObject.container.frame.radius < targetRadiusWithoutFocus()) { 
+                    thisObject.container.frame.radius = targetRadiusWithoutFocus()
+                    thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
+                    return 
+                }
                 thisObject.container.frame.radius = thisObject.container.frame.radius + animationStepSize
                 if (thisObject.container.frame.radius <= targetRadiusWithoutFocus()) {
                     thisObject.container.frame.radius = targetRadiusWithoutFocus()

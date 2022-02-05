@@ -26,6 +26,16 @@
                 "language": "DE",
                 "text": "Damit der Befehl app.contribute funktioniert, müssen Sie sich auf zwei verschiedenen Ebenen authentifizieren. Wir befassen uns zuerst mit GiHub.com!",
                 "updated": 1635150651730
+            },
+            {
+                "language": "RU",
+                "text": "Чтобы команда app.contribute работала, вам необходимо пройти аутентификацию на двух разных уровнях. Сначала мы разберемся с GiHub.com!",
+                "updated": 1640162342611
+            },
+            {
+                "language": "TR",
+                "text": "app.contribute komutunun çalışması için iki farklı düzeyde kimlik doğrulaması yapmanız gerekir. Önce GiHub.com ile ilgileneceğiz!",
+                "updated": 1640629205391
             }
         ]
     },
@@ -51,6 +61,16 @@
                     "language": "DE",
                     "text": "Sie müssen sich bei GitHub.com registrieren und authentifizieren, damit der Client den Pull Request in Ihrem Namen erstellen kann. Dazu erstellen Sie ein persönliches Zugriffstoken auf GitHub.com:",
                     "updated": 1635150710714
+                },
+                {
+                    "language": "RU",
+                    "text": "Вам необходимо пройти аутентификацию на GitHub.com, чтобы клиент (Client) мог создать Pull Request от вашего имени. Для этого вы создадите личный токен доступа (Personal Access Token) на GitHub.com:",
+                    "updated": 1640162394295
+                },
+                {
+                    "language": "TR",
+                    "text": "İstemcinin sizin adınıza Çekme İsteği oluşturması için GitHub.com'da kimlik doğrulaması yapmanız gerekir. Bunu yapmak için GitHub.com'da bir Kişisel Erişim Simgesi (PPersonal Access Token) oluşturacaksınız:",
+                    "updated": 1640629257214
                 }
             ]
         },
@@ -87,6 +107,16 @@
                     "language": "DE",
                     "text": "Klicken Sie auf den Link und folgen Sie den Anweisungen! Vergewissern Sie sich, dass Sie dem Token die Bereiche Repo und Workflow zuweisen. Schauen Sie sich den Clip im nächsten Schritt an, um Klarheit zu schaffen...",
                     "updated": 1635150718901
+                },
+                {
+                    "language": "RU",
+                    "text": "Нажмите на ссылку и следуйте инструкциям! Убедитесь, что вы передали токену полномочия на репозиторий и область применения. Посмотрите ролик на следующем шаге для наглядности...",
+                    "updated": 1640162608903
+                },
+                {
+                    "language": "TR",
+                    "text": "Bağlantıya tıklayın ve talimatları izleyin! Oluşturduğunuz anahtarda depo (Repo) ve iş akışı alanları (Workflow Scopes) için izin  verdiğinizden emin olun. Netlik için bir sonraki adımdaki klibi kontrol edin...",
+                    "updated": 1640629471975
                 }
             ]
         },
@@ -111,6 +141,16 @@
                     "language": "DE",
                     "text": "Ich schlage vor, dass Sie das Token nach Superalgos benennen, damit Sie es später wiedererkennen können, und stellen Sie sicher, dass Sie die Repo-Checkbox aktivieren, um den Geltungsbereich des Tokens zu definieren.",
                     "updated": 1635150726375
+                },
+                {
+                    "language": "RU",
+                    "text": "Я предлагаю вам назвать токен именем Superalgos, чтобы вы могли узнать его позже, и убедитесь, что вы отметили флажок repo, чтобы определить область применения токена.",
+                    "updated": 1640162593892
+                },
+                {
+                    "language": "TR",
+                    "text": "Anahtarı daha sonra tanıyabilmeniz için Superalgos'diye adlandırmanızı ve belirtecin kapsamını tanımlamak için repo onay kutusunu işaretlediğinizden emin olmanızı öneririm.",
+                    "updated": 1640629528203
                 }
             ]
         }

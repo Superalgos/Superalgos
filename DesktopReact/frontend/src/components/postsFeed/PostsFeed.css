@@ -1,5 +1,6 @@
 .postFeedContainer {
-    max-width: 39rem;
-    padding: 0.5rem ;
+    min-width: 20rem;
+    max-width: inherit;
+    padding-top: 0.5rem;
     width: 100%;
 }

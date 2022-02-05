@@ -4,22 +4,50 @@
     "type": "Superalgos Review - Initial Thoughts",
     "definition": {
         "text": "My initial thoughts on Superalgos.",
-        "updated": 1618134889544
+        "updated": 1618134889544,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Мои первые мысли о Superalgos.",
+                "updated": 1640411614422
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "The first thought that came to my mind was how well documented, polished and presented Superalgos is.  Considering the shear amount of knowledge to be conveied to a new user, the tutorials move at a the right pace as to not overwhelm.",
-            "updated": 1618134839988
+            "updated": 1618134839988,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Первая мысль, которая пришла мне в голову, это то, насколько хорошо документирован, отшлифован и представлен Superalgos. Учитывая огромный объем знаний, которые необходимо передать новому пользователю, учебники идут в правильном темпе, чтобы не перегрузить его.",
+                    "updated": 1640411653324
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Having written my own basic trading interface and bots using python, I look forward to not having to worry about software edge cases or outcomes I hadn't considered.  Only through the work of a focussed community team can these issues be effectivly solved."
+            "text": "Having written my own basic trading interface and bots using python, I look forward to not having to worry about software edge cases or outcomes I hadn't considered.  Only through the work of a focussed community team can these issues be effectivly solved.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Написав свой собственный базовый торговый интерфейс и ботов с помощью python, я с нетерпением жду момента, когда мне не придется беспокоиться о нестандартных ситуациях в программном обеспечении или о результатах, о которых я не подумал. Только благодаря работе целеустремленной команды сообщества эти проблемы могут быть эффективно решены.",
+                    "updated": 1640411683475
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Wish I'd found this earlier. Can't wait to dig in.",
-            "updated": 1618484966020
+            "updated": 1618484966020,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Жаль, что я не нашел это раньше. Не терпится покопаться.",
+                    "updated": 1640411777423
+                }
+            ]
         },
         {
             "style": "Text",

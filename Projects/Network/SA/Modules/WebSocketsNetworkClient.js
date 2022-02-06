@@ -17,6 +17,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
 
     function finalize() {
         thisObject.socketNetworkClients = undefined
+        thisObject.p2pNetworkNode = undefined
         thisObject.host = undefined
         thisObject.port = undefined
     }
@@ -29,9 +30,9 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
         onConnectionClosedCallBack
     ) {
 
-        thisObject.p2pNetworkNode = undefined
-        thisObject.host = p2pNetworkNode.node.config.host
-        thisObject.port = p2pNetworkNode.node.config.webSocketsPort
+        thisObject.p2pNetworkNode = p2pNetworkNode
+        thisObject.host = thisObject.p2pNetworkNode.node.config.host
+        thisObject.port = thisObject.p2pNetworkNode.node.config.webSocketsPort
 
         let socket = new SA.nodeModules.ws('ws://' + thisObject.host + ':' + thisObject.port)
 
@@ -46,17 +47,10 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
         )
 
         await setUpWebSocketClient(socket)
-            .then(onConnectionSucceed)
-            .catch(onConnectionFailed)
 
-        function onConnectionSucceed() {
-            console.log('Websockets Client Connected to Network Node via Web Sockets .................. Connected to ' + thisObject.p2pNetworkNode.userProfile.config.codeName + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
-            thisObject.socketNetworkClients.isConnected = true
-        }
+        console.log('Websockets Client Connected to Network Node via Web Sockets .................. Connected to ' + thisObject.p2pNetworkNode.userProfile.config.codeName + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
+        thisObject.socketNetworkClients.isConnected = true
 
-        function onConnectionFailed() {
-            throw('Connection Failed')
-        }
     }
 
     async function setUpWebSocketClient(socket) {
@@ -73,7 +67,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
 
                 function onConnectionOpened() {
 
-                    thisObject.socketNetworkClients.handshakeProcedure()
+                    thisObject.socketNetworkClients.handshakeProcedure(resolve, reject)
 
                 }
 

@@ -64,7 +64,7 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
 
     }
 
-    function handshakeProcedure() {
+    function handshakeProcedure(resolve, reject) {
 
         let callerTimestamp
 

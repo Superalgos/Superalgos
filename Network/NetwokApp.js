@@ -92,6 +92,12 @@ exports.newNetworkApp = function newNetworkApp() {
             thisObject.webSocketsInterface.initialize()
             console.log('Network Node Web Sockets Interface ........................................... Listening at port ' + NT.networkApp.p2pNetworkNode.node.config.webSocketsPort)
             /*
+             Other Network Nodes and Client Apps will communicate with this Network Node via it's WebRTC Interface.
+             */
+            //thisObject.webSocketsInterface = NT.projects.network.modules.webSocketsInterface.newNetworkModulesWebRTCInterface()
+            //thisObject.webSocketsInterface.initialize()
+            console.log('Network Node Web Sockets Interface ........................................... Interface Node Id ' + '')
+            /*
             Other Network Nodes and Client Apps will communicate with this Network Node via it's HTTP Interface.
             */
             thisObject.httpInterface = NT.projects.network.modules.httpInterface.newNetworkModulesHttpInterface()

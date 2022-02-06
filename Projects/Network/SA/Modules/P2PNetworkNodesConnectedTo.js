@@ -117,6 +117,6 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
         let peerIndex = Math.max(Math.round(Math.random() * thisObject.peers.length) - 1, 0)
         let peer = thisObject.peers[peerIndex]
         // console.log(peer)
-        return await peer.webSocketsClient.sendMessage(message)
+        return await peer.webSocketsClient.socketNetworkClients.sendMessage(message)
     }
 }

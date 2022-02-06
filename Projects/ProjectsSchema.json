@@ -1704,6 +1704,12 @@
                     "fileName": "WebSocketsNetworkClient.js"
                 },
                 {
+                    "name": "Socket Network Clients",
+                    "propertyName": "socketNetworkClients",
+                    "functionName": "newNetworkModulesSocketNetworkClients",
+                    "fileName": "SocketNetworkClients.js"
+                },
+                {
                     "name": "Http Network Client",
                     "propertyName": "webHttpNetworkClient",
                     "functionName": "newNetworkModulesHttpNetworkClient",

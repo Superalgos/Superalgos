@@ -9,10 +9,6 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
         finalize: finalize
     }
 
-    let web3
-    let called = {}
-    let onMessageFunctionsMap = new Map()
-
     return thisObject
 
     function finalize() {
@@ -96,7 +92,6 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
             } catch (err) {
                 console.log('[ERROR] Web Sockets Network Client -> setUpWebSocketClient -> err.stack = ' + err.stack)
             }
-
         }
     }
 }

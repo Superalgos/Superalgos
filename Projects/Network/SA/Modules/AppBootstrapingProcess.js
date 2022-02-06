@@ -172,9 +172,6 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                                 if (networkClient.config.host === undefined) {
                                     return
                                 }
-                                if (networkClient.config.webSocketsPort === undefined) {
-                                    return
-                                }
 
                                 let p2pNetworkNode = SA.projects.network.modules.p2pNetworkNode.newNetworkModulesP2PNetworkNode()
                                 let response = p2pNetworkNode.initialize(

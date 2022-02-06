@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Торговый бот Superalgos выводит несколько продуктов данных, которые могут быть визуализированы во внешнем приложении различными способами.",
                 "updated": 1640097341374
+            },
+            {
+                "language": "DE",
+                "text": "Der Superalgos-Handelsbot gibt mehrere Datenprodukte aus, die auf der Frontend-Anwendung auf vielfältige Weise visualisiert werden können.",
+                "updated": 1644153303223
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Низкочастотный торговый бот выводит десятки продуктов данных, которые становятся доступными для использования другими через структуру данных, предоставляемую иерархией Trading Engine, Торговой системой, участвующей в торговой сессии, и машинами времени, установленными для визуализации торговых симуляций.",
                     "updated": 1640097386752
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Low-Frequency-Trading-Bot gibt Dutzende von Datenprodukten aus, die über die von der Trading Engine Hierarchie bereitgestellte Datenstruktur, das an der Handelssitzung beteiligte Trading System und die zur Visualisierung der Handelssimulationen installierten Zeitmaschinen für andere zur Verfügung gestellt werden.",
+                    "updated": 1644153313092
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Интерактивный учебник Trading Bot Layers, доступный в рабочем пространстве плагина Weak-Hands Buster v.2, охватывает все функции торгового бота, позволяющие визуализировать торговую информацию:",
                     "updated": 1640097410454
+                },
+                {
+                    "language": "DE",
+                    "text": "Das interaktive Tutorial Trading Bot Layers, das im Arbeitsbereich des Plugins Weak-Hands Buster v.2 verfügbar ist, behandelt alle Funktionen des Trading Bot s, die die Visualisierung von Handelsinformationen ermöglichen:",
+                    "updated": 1644153352590
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "RU",
                     "text": "Визуализация симуляций на графике для всех типов торговых сессий.",
                     "updated": 1640097434042
+                },
+                {
+                    "language": "DE",
+                    "text": "Visualisierung von Simulationen über den Chart für alle Arten von Handelssitzungen.",
+                    "updated": 1644153382952
                 }
             ]
         },
@@ -56,6 +76,11 @@
                     "language": "RU",
                     "text": "Визуализация всей торговой информации, управляемой торговым ботом, в иерархии торгового движка.",
                     "updated": 1640097492702
+                },
+                {
+                    "language": "DE",
+                    "text": "Visualisierung aller vom Trading-Bot verwalteten Handelsinformationen in der Hierarchie der Trading-Engine.",
+                    "updated": 1644153398015
                 }
             ]
         },
@@ -67,6 +92,11 @@
                     "language": "RU",
                     "text": "Визуализация основных событий, значений, предупреждений, ошибок и общей информации, касающейся торговой системы.",
                     "updated": 1640097509184
+                },
+                {
+                    "language": "DE",
+                    "text": "Visualisierung von Ereignis-Highlights, Werten, Warnungen, Fehlern und allgemeinen Informationen über das Handelssystem.",
+                    "updated": 1644153414974
                 }
             ]
         }

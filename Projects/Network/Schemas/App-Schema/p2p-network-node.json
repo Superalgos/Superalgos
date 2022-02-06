@@ -65,7 +65,7 @@
         "config": true
     },
     "initialValues": {
-        "config": "{ \n\"codeName\": \"\", \n\"host\": \"localhost\", \n\"webPort\": \"31248\", \n\"webSocketsPort\": \"18042\"\n}"
+        "config": "{ \n\"codeName\": \"\", \n\"host\": \"localhost\" \n}"
     },
     "addLeftIcons": true,
     "level": 1,

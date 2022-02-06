@@ -28,7 +28,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
 
         thisObject.p2pNetworkNode = p2pNetworkNode
         thisObject.host = thisObject.p2pNetworkNode.node.config.host
-        thisObject.port = thisObject.p2pNetworkNode.node.config.webSocketsPort
+        thisObject.port = thisObject.p2pNetworkNode.node.networkInterfaces.websocketsNetworkInterface.config.webSocketsPort
 
         let socket = new SA.nodeModules.ws('ws://' + thisObject.host + ':' + thisObject.port)
 

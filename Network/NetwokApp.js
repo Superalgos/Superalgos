@@ -94,7 +94,7 @@ exports.newNetworkApp = function newNetworkApp() {
                  */
                 thisObject.webSocketsInterface = NT.projects.network.modules.webSocketsInterface.newNetworkModulesWebSocketsInterface()
                 thisObject.webSocketsInterface.initialize()
-                console.log('Network Node Web Sockets Interface ........................................... Listening at port ' + NT.networkApp.p2pNetworkNode.node.config.webSocketsPort)
+                console.log('Network Node Web Sockets Interface ........................................... Listening at port ' + NT.networkApp.p2pNetworkNode.node.networkInterfaces.websocketsNetworkInterface.config.webSocketsPort)
             }
             if (
                 thisObject.p2pNetworkNode.node.networkInterfaces !== undefined &&

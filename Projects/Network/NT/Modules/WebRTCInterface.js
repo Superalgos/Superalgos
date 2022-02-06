@@ -1,4 +1,4 @@
-exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSocketsInterface() {
+exports.newNetworkModulesWebRTCInterface = function newNetworkModulesWebRTCInterface() {
     /*
     This module represents the websockets interface of the Network Node.
 

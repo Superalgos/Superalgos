@@ -1,4 +1,4 @@
-exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWebSocketsNetworkClient() {
+exports.newNetworkModulesWebRTCNetworkClient = function newNetworkModulesWebRTCNetworkClient() {
 
     let thisObject = {
         socketNetworkClients: undefined,

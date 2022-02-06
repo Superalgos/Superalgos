@@ -85,18 +85,39 @@ exports.newNetworkApp = function newNetworkApp() {
         }
 
         function setupNetworkInterfaces() {
-            /*
-             Other Network Nodes and Client Apps will communicate with this Network Node via it's Websocket Interface.
-             */
-            thisObject.webSocketsInterface = NT.projects.network.modules.webSocketsInterface.newNetworkModulesWebSocketsInterface()
-            thisObject.webSocketsInterface.initialize()
-            console.log('Network Node Web Sockets Interface ........................................... Listening at port ' + NT.networkApp.p2pNetworkNode.node.config.webSocketsPort)
-            /*
-            Other Network Nodes and Client Apps will communicate with this Network Node via it's HTTP Interface.
-            */
-            thisObject.httpInterface = NT.projects.network.modules.httpInterface.newNetworkModulesHttpInterface()
-            thisObject.httpInterface.initialize()
-            console.log('Network Node Http Interface .................................................. Listening at port ' + NT.networkApp.p2pNetworkNode.node.config.webPort)
+            if (
+                thisObject.p2pNetworkNode.node.networkInterfaces !== undefined &&
+                thisObject.p2pNetworkNode.node.networkInterfaces.websocketsNetworkInterface !== undefined
+            ) {
+                /*
+                 Other Network Nodes and Client Apps will communicate with this Network Node via it's Websocket Interface.
+                 */
+                thisObject.webSocketsInterface = NT.projects.network.modules.webSocketsInterface.newNetworkModulesWebSocketsInterface()
+                thisObject.webSocketsInterface.initialize()
+                console.log('Network Node Web Sockets Interface ........................................... Listening at port ' + NT.networkApp.p2pNetworkNode.node.networkInterfaces.websocketsNetworkInterface.config.webSocketsPort)
+            }
+            if (
+                thisObject.p2pNetworkNode.node.networkInterfaces !== undefined &&
+                thisObject.p2pNetworkNode.node.networkInterfaces.webrtcNetworkInterface !== undefined
+            ) {
+                /*
+                 Other Network Nodes and Client Apps will communicate with this Network Node via it's WebRTC Interface.
+                 */
+                thisObject.webSocketsInterface = NT.projects.network.modules.webSocketsInterface.newNetworkModulesWebRTCInterface()
+                thisObject.webSocketsInterface.initialize()
+                console.log('Network Node Web Sockets Interface ........................................... Interface Node Id ' + '')
+            }
+            if (
+                thisObject.p2pNetworkNode.node.networkInterfaces !== undefined &&
+                thisObject.p2pNetworkNode.node.networkInterfaces.httpNetworkInterface !== undefined
+            ) {
+                /*
+                Other Network Nodes and Client Apps will communicate with this Network Node via it's HTTP Interface.
+                */
+                thisObject.httpInterface = NT.projects.network.modules.httpInterface.newNetworkModulesHttpInterface()
+                thisObject.httpInterface.initialize()
+                console.log('Network Node Http Interface .................................................. Listening at port ' + NT.networkApp.p2pNetworkNode.node.config.webPort)
+            }
         }
     }
 }

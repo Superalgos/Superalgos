@@ -59,8 +59,8 @@
                             "id": "30d83622-3341-4cdb-a4a1-ff0290530835",
                             "savedPayload": {
                                 "position": {
-                                    "x": 21575.041420330213,
-                                    "y": 45677.999889350955
+                                    "x": 21576.228376181454,
+                                    "y": 45672.23027339022
                                 },
                                 "targetPosition": {
                                     "x": 21134.875,
@@ -95,12 +95,12 @@
                                     "id": "461dc6c0-6507-4c74-9da5-cae2f3f59907",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 21066.45460147279,
-                                            "y": 45409.68868166782
+                                            "x": 21996.770977248296,
+                                            "y": 45697.91038654823
                                         },
                                         "targetPosition": {
-                                            "x": 20636.830211543944,
-                                            "y": 45543.56505590266
+                                            "x": 21550.62078963008,
+                                            "y": 45756.647173047255
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -125,42 +125,12 @@
                                     "id": "5f5e040c-63e2-4634-9c5b-2cefe3673dc3",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 21035.285423087887,
-                                            "y": 45752.69048332236
+                                            "x": 21824.563432684005,
+                                            "y": 46113.65617617831
                                         },
                                         "targetPosition": {
-                                            "x": 20636.830211543944,
-                                            "y": 45543.56505590266
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "Position",
-                                    "name": "Infrastructure Team Token Pool",
-                                    "config": "{}",
-                                    "project": "Governance",
-                                    "positions": [],
-                                    "positionClasss": [],
-                                    "id": "45774a1e-2952-40f4-9797-7b2b52669cec",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 20770.706585778786,
-                                            "y": 45973.18944583151
-                                        },
-                                        "targetPosition": {
-                                            "x": 20636.830211543944,
-                                            "y": 45543.56505590266
+                                            "x": 21550.62078963008,
+                                            "y": 45756.647173047255
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -180,8 +150,8 @@
                             "id": "5c994463-567b-4433-bc9d-154a58fef42b",
                             "savedPayload": {
                                 "position": {
-                                    "x": 21545.970455939172,
-                                    "y": 45767.47111786708
+                                    "x": 21550.62078963008,
+                                    "y": 45756.647173047255
                                 },
                                 "targetPosition": {
                                     "x": 21134.875,
@@ -241,8 +211,8 @@
                             "id": "5324ddfa-08ac-4b13-a3bf-ec878f54d8a7",
                             "savedPayload": {
                                 "position": {
-                                    "x": 21498.932647468726,
-                                    "y": 45848.94299201458
+                                    "x": 21509.036325536144,
+                                    "y": 45834.44623334178
                                 },
                                 "targetPosition": {
                                     "x": 21134.875,
@@ -302,8 +272,8 @@
                             "id": "28b3569f-a1cc-4c0b-944a-5a9da748bc07",
                             "savedPayload": {
                                 "position": {
-                                    "x": 21435.983772861488,
-                                    "y": 45918.85479994779
+                                    "x": 21453.073051533946,
+                                    "y": 45902.63768001691
                                 },
                                 "targetPosition": {
                                     "x": 21134.875,
@@ -363,8 +333,8 @@
                             "id": "b2eb140d-f1c8-4796-8f2d-fd8e1276e66e",
                             "savedPayload": {
                                 "position": {
-                                    "x": 21359.875,
-                                    "y": 45974.15106018596
+                                    "x": 21384.88160485882,
+                                    "y": 45958.60095401911
                                 },
                                 "targetPosition": {
                                     "x": 21134.875,
@@ -399,12 +369,12 @@
                                     "id": "88b7a9c0-298c-4b3d-93ec-6820a36a1b98",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 19825.91357475871,
-                                            "y": 44231.31292541685
+                                            "x": 21665.017182884105,
+                                            "y": 46155.79701744969
                                         },
                                         "targetPosition": {
-                                            "x": 20070.581835446486,
-                                            "y": 44404.91431427079
+                                            "x": 21235.00942028034,
+                                            "y": 46023.15718896478
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -429,12 +399,12 @@
                                     "id": "e59c8635-a146-4cd4-bf0d-1c7a1483145c",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 19910.972212491884,
-                                            "y": 44150.897054502304
+                                            "x": 21541.087152277254,
+                                            "y": 46353.030531288205
                                         },
                                         "targetPosition": {
-                                            "x": 20070.581835446486,
-                                            "y": 44404.91431427079
+                                            "x": 21235.00942028034,
+                                            "y": 46023.15718896478
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -459,42 +429,12 @@
                                     "id": "eaf4a88f-2170-4fc2-a4cf-df5bab1a3e48",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 20020.329968455066,
-                                            "y": 44109.15300871532
+                                            "x": 21335.143840560682,
+                                            "y": 46461.8747494466
                                         },
                                         "targetPosition": {
-                                            "x": 20070.581835446486,
-                                            "y": 44404.91431427079
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "Position",
-                                    "name": "Exchange Relationships Team Token Pool",
-                                    "config": "{}",
-                                    "project": "Governance",
-                                    "positions": [],
-                                    "positionClasss": [],
-                                    "id": "5791b036-adc5-4563-8efa-dd4648c126a1",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 20137.33811563338,
-                                            "y": 44112.43594061624
-                                        },
-                                        "targetPosition": {
-                                            "x": 20070.581835446486,
-                                            "y": 44404.91431427079
+                                            "x": 21235.00942028034,
+                                            "y": 46023.15718896478
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -519,12 +459,12 @@
                                     "id": "7ac564e2-9633-4787-8bcc-3b6cb40f41f6",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 20244.18322430043,
-                                            "y": 44160.24605358301
+                                            "x": 21102.369591795436,
+                                            "y": 46453.16495156854
                                         },
                                         "targetPosition": {
-                                            "x": 20070.581835446486,
-                                            "y": 44404.91431427079
+                                            "x": 21235.00942028034,
+                                            "y": 46023.15718896478
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -549,42 +489,12 @@
                                     "id": "68b02319-2eeb-459a-964c-720b398f38c6",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 20324.599095214973,
-                                            "y": 44245.30469131619
+                                            "x": 20905.13607795692,
+                                            "y": 46329.234920961695
                                         },
                                         "targetPosition": {
-                                            "x": 20070.581835446486,
-                                            "y": 44404.91431427079
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "Position",
-                                    "name": "CoinMonks Team Token Pool",
-                                    "config": "{}",
-                                    "project": "Governance",
-                                    "positions": [],
-                                    "positionClasss": [],
-                                    "id": "51758919-6742-4b49-85c6-063e29d74961",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 20366.34314100196,
-                                            "y": 44354.66244727937
-                                        },
-                                        "targetPosition": {
-                                            "x": 20070.581835446486,
-                                            "y": 44404.91431427079
+                                            "x": 21235.00942028034,
+                                            "y": 46023.15718896478
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -604,8 +514,8 @@
                             "id": "2b6b9773-2ffd-4c26-88c3-26aee4e03b75",
                             "savedPayload": {
                                 "position": {
-                                    "x": 21273.932647468726,
-                                    "y": 46012.41506081578
+                                    "x": 21307.08254456429,
+                                    "y": 46000.18541811304
                                 },
                                 "targetPosition": {
                                     "x": 21134.875,
@@ -640,12 +550,72 @@
                                     "id": "f8a56ff5-14d0-418b-a306-a7781d5db7a0",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 20169.9268621145,
-                                            "y": 44120.84229475829
+                                            "x": 21453.073051533946,
+                                            "y": 46352.63768001691
                                         },
                                         "targetPosition": {
-                                            "x": 20086.876208687045,
-                                            "y": 44409.117491341814
+                                            "x": 21134.875,
+                                            "y": 46034.43962848296
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Position",
+                                    "name": "Lantschirky Team Token Pool",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "positions": [],
+                                    "positionClasss": [],
+                                    "id": "8f945352-9574-4889-80bc-546718fec142",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 21134.875,
+                                            "y": 46484.43962848296
+                                        },
+                                        "targetPosition": {
+                                            "x": 21134.875,
+                                            "y": 46034.43962848296
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Position",
+                                    "name": "SSChana Team Token Pool",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "positions": [],
+                                    "positionClasss": [],
+                                    "id": "e94ede1c-a841-439a-b6b3-d93b9da9acf6",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 20816.676948466054,
+                                            "y": 46352.63768001691
+                                        },
+                                        "targetPosition": {
+                                            "x": 21134.875,
+                                            "y": 46034.43962848296
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -665,8 +635,8 @@
                             "id": "700997dc-7fd5-4ba8-9447-92bdaac90acc",
                             "savedPayload": {
                                 "position": {
-                                    "x": 21181.912808470443,
-                                    "y": 46031.97448139868
+                                    "x": 21222.665644907258,
+                                    "y": 46025.79300466442
                                 },
                                 "targetPosition": {
                                     "x": 21134.875,
@@ -726,8 +696,8 @@
                             "id": "9f3b4c01-b057-42bf-af2f-35122ecf83a8",
                             "savedPayload": {
                                 "position": {
-                                    "x": 21087.837191529557,
-                                    "y": 46031.97448139868
+                                    "x": 21134.875,
+                                    "y": 46034.43962848296
                                 },
                                 "targetPosition": {
                                     "x": 21134.875,
@@ -787,8 +757,8 @@
                             "id": "ba2f7dfc-1635-493a-a17a-dc0469bfab44",
                             "savedPayload": {
                                 "position": {
-                                    "x": 20995.817352531274,
-                                    "y": 46012.41506081578
+                                    "x": 21047.084355092742,
+                                    "y": 46025.79300466442
                                 },
                                 "targetPosition": {
                                     "x": 21134.875,
@@ -848,8 +818,8 @@
                             "id": "d5995cb4-6faf-4672-8abc-1f59dd909782",
                             "savedPayload": {
                                 "position": {
-                                    "x": 20909.875,
-                                    "y": 45974.15106018596
+                                    "x": 20962.66745543571,
+                                    "y": 46000.18541811304
                                 },
                                 "targetPosition": {
                                     "x": 21134.875,
@@ -909,8 +879,8 @@
                             "id": "a5ee431a-ef5d-4533-b9e2-76a9d92002cc",
                             "savedPayload": {
                                 "position": {
-                                    "x": 20833.766227138512,
-                                    "y": 45918.85479994779
+                                    "x": 20884.86839514118,
+                                    "y": 45958.60095401911
                                 },
                                 "targetPosition": {
                                     "x": 21134.875,
@@ -970,8 +940,8 @@
                             "id": "dec9077e-22c2-4339-a300-02e021053e8f",
                             "savedPayload": {
                                 "position": {
-                                    "x": 20770.817352531274,
-                                    "y": 45848.94299201458
+                                    "x": 20816.676948466054,
+                                    "y": 45902.63768001691
                                 },
                                 "targetPosition": {
                                     "x": 21134.875,
@@ -1006,12 +976,12 @@
                                     "id": "2d7d3aab-45cc-428a-a68a-6293418c156f",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 20257.439879036356,
-                                            "y": 45784.70846904365
+                                            "x": 20386.55234892771,
+                                            "y": 46084.4528382006
                                         },
                                         "targetPosition": {
-                                            "x": 20696.157439518178,
-                                            "y": 45684.57404876331
+                                            "x": 20760.713674463856,
+                                            "y": 45834.44623334178
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -1031,8 +1001,69 @@
                             "id": "04b25886-ca7d-4857-aee8-78db0ea25467",
                             "savedPayload": {
                                 "position": {
-                                    "x": 20723.779544060828,
-                                    "y": 45767.47111786708
+                                    "x": 20760.713674463856,
+                                    "y": 45834.44623334178
+                                },
+                                "targetPosition": {
+                                    "x": 21134.875,
+                                    "y": 45584.43962848296
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": true,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Position Class",
+                            "name": "UX/UI Design Team PoW Report",
+                            "config": "{}",
+                            "project": "Governance",
+                            "positions": [
+                                {
+                                    "type": "Position",
+                                    "name": "UX/UI Design Team Token Pool",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "positions": [],
+                                    "positionClasss": [],
+                                    "id": "b568bffb-8876-449b-88ff-04651c6de4b6",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 20303.38342073984,
+                                            "y": 45928.854717611546
+                                        },
+                                        "targetPosition": {
+                                            "x": 20719.12921036992,
+                                            "y": 45756.647173047255
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                }
+                            ],
+                            "positionClasss": [],
+                            "id": "79e051ce-de8f-4c97-8c4a-ed34b22ebfb7",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 20719.12921036992,
+                                    "y": 45756.647173047255
                                 },
                                 "targetPosition": {
                                     "x": 21134.875,
@@ -1064,7 +1095,7 @@
                                     "project": "Governance",
                                     "positions": [],
                                     "positionClasss": [],
-                                    "id": "5f31fe20-f10a-474c-aa88-b86dafbae407",
+                                    "id": "0924cdd2-fea6-4cb8-a97e-d639f88f1b6f",
                                     "savedPayload": {
                                         "position": {
                                             "x": 20252.16824763709,
@@ -1089,11 +1120,11 @@
                                 }
                             ],
                             "positionClasss": [],
-                            "id": "7e28979d-d321-4478-871b-77036f74ce6a",
+                            "id": "6cc14445-8d9a-4e51-a7d9-0bf19fd96a32",
                             "savedPayload": {
                                 "position": {
-                                    "x": 20694.708579669787,
-                                    "y": 45677.999889350955
+                                    "x": 20693.521623818546,
+                                    "y": 45672.23027339022
                                 },
                                 "targetPosition": {
                                     "x": 21134.875,
@@ -1175,7 +1206,7 @@
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": false,
+            "isCollapsed": true,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

@@ -54,8 +54,8 @@
             "translations": [
                 {
                     "language": "ID",
-                    "text": "Menyesuaikan aspect ratio: Point mouse-mu ke chart dan tekan Ctrl + Shift + Key-A",
-                    "updated": 1616948923519,
+                    "text": "Sesuaikan aspect ratio: Arahkan mouse ke chart Backtesting Session (yang ada di atas) dan tekan Ctrl + Shift + Alt + Key-A",
+                    "updated": 1639745771769,
                     "style": "List"
                 },
                 {
@@ -128,8 +128,8 @@
                 },
                 {
                     "language": "ID",
-                    "text": "Double-click sekali: Ini memusatkan chart dan membawamu ke tingkat zoom tertentu; margin terlihat kekiri agar pas dengan nama dan tab chart di sudut kiri atas.",
-                    "updated": 1616949208729,
+                    "text": "Double-click : Ini memusatkan chart dan membawamu ke tingkat zoom tertentu; margin terlihat kekiri agar pas dengan nama dan tab chart di sudut kiri atas.",
+                    "updated": 1639745801432,
                     "style": "List"
                 },
                 {
@@ -169,8 +169,8 @@
                 },
                 {
                     "language": "ID",
-                    "text": "Double-click lagi: Ini membawamu lebih jauh kedalam bagan, tingkat zoom ini secara sempurna cocok dengan layar beserta layer managers yang muncul.",
-                    "updated": 1616949317416,
+                    "text": "Double-click lagi: ini akan membawakamu lebih jauh di chart, ke tingkat zoom di mana chart sangat cocok dengan layar dan Layer Managers yang muncul.",
+                    "updated": 1639745729265,
                     "style": "List"
                 },
                 {

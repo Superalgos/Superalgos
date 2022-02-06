@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Первая реализация Trading Bot оптимизирована для низкочастотной торговли.",
                 "updated": 1640096841896
+            },
+            {
+                "language": "DE",
+                "text": "Die erste Trading Bot Implementierung ist für den Handel mit geringen Frequenzen optimiert.",
+                "updated": 1644152274218
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Низкочастотный торговый бот принимает решения после закрытия текущей свечи.",
                     "updated": 1640096865341
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Low-Frequency Trading Bot trifft seine Entscheidungen nach dem Schließen der aktuellen Kerze",
+                    "updated": 1644152298691
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "RU",
                     "text": "Независимо от того, какое свойство какого индикатора вы можете использовать, всегда помните, что торговый бот по умолчанию работает с последней закрытой свечой. То, что Superalgos называет текущей свечой, на самом деле является последней закрытой свечой. Торговый бот никогда не работает со свечой, которая еще не закрылась, так как ее параметры не определены. Например, candle.max обозначает максимальную цену последней закрытой свечи, а bollingerBand.movingAverage обозначает скользящую среднюю последней закрытой свечи.",
                     "updated": 1640096907894
+                },
+                {
+                    "language": "DE",
+                    "text": "Unabhängig davon, welche Eigenschaft des Indikators Sie verwenden, denken Sie immer daran, dass der Trading Bot standardmäßig mit der letzten geschlossenen Kerze arbeitet. Was Superalgos als aktuelle Kerze bezeichnet, ist tatsächlich die letzte geschlossene Kerze. Der Trading Bot arbeitet nie mit einer Kerze, die noch nicht geschlossen wurde, da seine Parameter nicht definiert sind. Zum Beispiel bezieht sich candle.max auf den Höchstpreis der letzten geschlossenen Kerze und bollingerBand.movingAverage auf den gleitenden Durchschnitt der letzten geschlossenen Kerze.",
+                    "updated": 1644152363287
                 }
             ]
         },
@@ -46,6 +61,11 @@
                     "language": "RU",
                     "text": "Superalgos управляет таймфреймами вплоть до одной минуты. То есть, одна минута - это самая высокая частота, с которой работает торговый бот.",
                     "updated": 1640096932419
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos verwaltet Zeitrahmen von bis zu einer Minute. Das heißt, eine Minute ist die höchste Frequenz, die der Trading Bot verarbeiten kann.",
+                    "updated": 1644152448160
                 }
             ]
         },
@@ -57,6 +77,11 @@
                     "language": "RU",
                     "text": "Когда торговая сессия запускается на таймфрейме 01 минута, это то, что вы должны ожидать с точки зрения времени, необходимого для выполнения всей необходимой обработки, чтобы торговый бот принял решение и разместил ордер на бирже. :",
                     "updated": 1640097104960
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn eine Handelssitzung auf dem 01-Minuten-Zeitrahmen ausgeführt wird, ist das, was Sie erwarten sollten, in Bezug auf die Zeit, die benötigt wird, um alle erforderlichen Verarbeitungen für den Handels-Bot durchzuführen, um eine Entscheidung zu treffen und einen Auftrag an der Börse zu platzieren:",
+                    "updated": 1644152431256
                 }
             ]
         },
@@ -69,6 +94,11 @@
                     "language": "RU",
                     "text": "| Process | Estimated Time [s] | Comments |\n| Sensor bot | 0 - 65 | Сенсорный бот запускается (по умолчанию) каждые 60 секунд. При каждом выполнении может пройти от 0 до 60 секунд с момента закрытия последней одноминутной свечи. Кроме того, время выполнения датчика может составлять от 1 до 5 секунд, в зависимости от нескольких факторов (например: ваше оборудование, пропускная способность интернета, расстояние до биржи, время отклика биржи и т.д.). |\n| Candles - Volumes indicator | 1 - 5 | Этот индикатор требуется большую часть времени, поскольку именно он обрабатывает одноминутные свечи, извлекаемые с биржи, чтобы превратить их в свечи для остальных доступных таймфреймов. В этом случае время обработки полностью зависит от вашего оборудования. |\n| Другие индикаторы | 1 - 5 | Индикаторы, которые зависят исключительно от продуктов данных, созданных Candles - Volumes, могут обрабатывать свои продукты сразу после завершения работы Candles - Volumes. Индикаторы с вложенными зависимостями должны дождаться завершения своих зависимостей, поэтому они обрабатываются не параллельно, а последовательно. |\n| Trading bot | 1 - 5 | В зависимости от сложности вашей торговой системы, количества зависимостей, которые должны быть загружены, вашего оборудования и тех же соображений подключения, которые обсуждались для сенсорного бота, торговому боту может потребоваться несколько секунд, чтобы выполнить обработку и разместить ордер на бирже. |",
                     "updated": 1640097274990
+                },
+                {
+                    "language": "DE",
+                    "text": "| Prozess | Geschätzte Zeit [s] | Kommentare |\n| Sensor Bot | 0 - 65 | Der Sensor-Bot wird (standardmäßig) alle 60 Sekunden ausgeführt. Bei jeder Ausführung können zwischen 0 und 60 Sekunden vergangen sein, seit die letzte einminütige Kerze geschlossen wurde. Darüber hinaus kann die Ausführungszeit des Sensors zwischen 1 und 5 Sekunden liegen, was von verschiedenen Faktoren abhängt (z.B.: Ihre Hardware, Internet-Bandbreite, Entfernung zur Börse, Reaktionszeit der Börse, usw.). |\n| Candle - Volumen Indikator | 1 - 5 | Dieser Indikator wird die meiste Zeit benötigt, da er die von der Börse extrahierten 1-Minuten-Kerzen verarbeitet, um sie in Kerzen für die restlichen verfügbaren Zeitrahmen umzuwandeln. In diesem Fall hängt die Verarbeitungszeit vollständig von Ihrer Hardware ab. |\n| Andere Indikatoren | 1 - 5 | Indikatoren, die ausschließlich von den durch Candles - Volumes erzeugten Datenprodukten abhängen, können ihre Produkte verarbeiten, sobald Candles - Volumes beendet ist. Indikatoren mit verschachtelten Abhängigkeiten müssen auf die Beendigung ihrer Abhängigkeiten warten, sie werden also nicht parallel, sondern in Serie verarbeitet. |\n| Trading Bot | 1 - 5 | Abhängig von der Komplexität Ihres Handelssystems, der Anzahl der Abhängigkeiten, die geladen werden müssen, Ihrer Hardware und denselben Überlegungen zur Konnektivität, die für den Sensor-Bot erörtert wurden, kann der Trading-Bot mehrere Sekunden benötigen, um die Verarbeitung durchzuführen und den Auftrag an die Börse zu übermitteln. |",
+                    "updated": 1644152755178
                 }
             ]
         },
@@ -81,6 +111,11 @@
                     "language": "RU",
                     "text": "В заключение, в зависимости от того, сколько индикаторов использует торговая система, и каковы могут быть зависимости, вы должны ожидать от 15 до 75 секунд или более задержки с момента закрытия свечи на бирже до размещения ордера, с настройками по умолчанию.",
                     "updated": 1640097318347
+                },
+                {
+                    "language": "DE",
+                    "text": "Je nachdem, wie viele Indikatoren das Handelssystem verwendet und welche Abhängigkeiten bestehen, sollten Sie bei den Standardeinstellungen mit einer Verzögerung von 15 bis 75 Sekunden oder mehr ab dem Zeitpunkt rechnen, an dem die Kerze an der Börse geschlossen wird, bis der Auftrag erteilt wird.",
+                    "updated": 1644152806060
                 }
             ]
         },

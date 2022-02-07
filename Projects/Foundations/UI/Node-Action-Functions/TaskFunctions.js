@@ -153,6 +153,15 @@ function newFoundationsFunctionLibraryTaskFunctions() {
             'Project Data Tasks->Project Trading Tasks->Project Portfolio Tasks->Project Learning Tasks->Project Definition->' +
             'Backtesting Session->Live Trading Session->Paper Trading Session->Forward Testing Session->Backtesting Portfolio Session->Live Portfolio Session->' +
             'Back Learning Session->Live Learning Session->Managed Sessions->Session Reference->Live Trading Session->Backtesting Session->Forward Testing Session->Paper Trading Session->' +
+            /* 
+             Managed Sessions 
+            */
+            'Managed Sessions->Session Reference->Live Trading Session->Backtesting Session->Forward Testing Session->Paper Trading Session->' +
+            'Trading Parameters->' +
+            'Session Base Asset->Session Quoted Asset->Time Range->Time Frame->Slippage->Fee Structure->Snapshots->Heartbeats->User Defined Parameters->' +
+            /* 
+            Process Definition 
+            */
             'Process Definition->' +
             'Process Output->' +
             'Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->' +
@@ -231,7 +240,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
             'Task Manager->' +
             'Data Mine Tasks->Trading Mine Tasks->Learning Mine Tasks->Portfolio Mine Tasks->' +
             'Market Trading Tasks->Market Data Tasks->Market Learning Tasks->Market Portfolio Tasks->' +
-            'Market->Exchange Markets->Crypto Exchange->Crypto Exchanges->exchange Markets->Market->'
+            'Market->Market Base Asset->Market Quoted Asset->Asset->'
 
         let managedTasksDefinition =
             UI.projects.visualScripting.nodeActionFunctions.protocolNode.getProtocolNode(node, false, true, true, false, false, managedTasksLightingPath);
@@ -729,14 +738,14 @@ function newFoundationsFunctionLibraryTaskFunctions() {
 
     /* run|stop ManagedTasks(): Portfolio Management managed tasks runners: */
     function runAllManagedTasks(managedTasks) {
-        for (let i = 0; i < managedTasks.taskReference.length; i++) {
-            managedTasks.taskReference[i].payload.referenceParent.payload.uiObject.menu.internalClick('Run Task');
+        for (let i = 0; i < managedTasks.taskReferences.length; i++) {
+            managedTasks.taskReferences[i].payload.referenceParent.payload.uiObject.menu.internalClick('Run Task');
         }
     }
 
     function stopAllManagedTasks(managedTasks) {
-        for (let i = 0; i < managedTasks.taskReference.length; i++) {
-            managedTasks.taskReference[i].payload.referenceParent.payload.uiObject.menu.internalClick('Stop Task');
+        for (let i = 0; i < managedTasks.taskReferences.length; i++) {
+            managedTasks.taskReferences[i].payload.referenceParent.payload.uiObject.menu.internalClick('Stop Task');
         }
     }
 
@@ -904,7 +913,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
     function addAllTasks(node, rootNodes) {
         if (node.payload === undefined) { return }
         if (node.payload.referenceParent === undefined) { return }
-        
+
         let newUiObjects = []
 
         let taskManager = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(node, 'Task Manager');
@@ -913,7 +922,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
         if (taskManager !== undefined) {
             newUiObjects.push(taskManager)
         }
-        
+
         switch (node.type) {
             case 'Data Mine Tasks': {
                 addDataTasks()

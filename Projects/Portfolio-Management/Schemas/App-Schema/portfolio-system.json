@@ -3,20 +3,8 @@
     "menuItems": [
         {
             "action": "Add UI Object",
-            "label": "Add Events Manager",
-            "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "eventsManager",
-            "relatedUiObject": "Events Manager",
-            "actionFunction": "payload.executeAction",
-            "relatedUiObjectProject": "Portfolio-Management",
-            "actionProject": "Visual-Scripting"
-        },
-        {
-            "action": "Add UI Object",
-            "label": "Add Formulas Manager",
-            "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "formulasManager",
-            "relatedUiObject": "Formulas Manager",
+            "label": "Managed Session Reference",
+            "relatedUiObject": "Managed Session Reference",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Portfolio-Management",
             "actionProject": "Visual-Scripting"
@@ -47,17 +35,10 @@
     "level": 0,
     "childrenNodesProperties": [
         {
-            "name": "eventsManager",
-            "type": "node",
-            "childType": "Events Manager",
-            "autoAdd": true,
-            "project": "Portfolio-Management"
-        },
-        {
-            "name": "formulasManager",
-            "type": "node",
-            "childType": "Formulas Manager",
-            "autoAdd": true,
+            "name": "managedSessionReferences",
+            "type": "array",
+            "childType": "Managed Session Reference",
+            "autoAdd": false,
             "project": "Portfolio-Management"
         },
         {

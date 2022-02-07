@@ -103,6 +103,8 @@ function newPortfolioManagementFunctionLibraryPortfolioSessionFunctions() {
 
         let lightingPath = '' +
             'Portfolio System->' +
+            'Managed Session Reference->' + 
+            'Backtesting Session->Paper Trading Session->Forward Testing Session->Live Trading Session->' +
             'Events Manager->' +
             'Set Event Rules->Set Event Reference->Confirm Event Rules->Confirm Event Reference->' +
             'Formulas Manager->Confirm Formula Rules->Confirm Formula Reference->' +

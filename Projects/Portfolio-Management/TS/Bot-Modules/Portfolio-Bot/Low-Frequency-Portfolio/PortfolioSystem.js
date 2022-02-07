@@ -226,20 +226,20 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
         }
     }
 
-    function confirmThisEvent(event) {
-        return portfolioEventsManagerModuleObject.confirmThisEvent(event)
+    function confirmThisEvent(sessionId, event) {
+        return portfolioEventsManagerModuleObject.confirmThisEvent(sessionId, event)
     }
 
-    function setThisEvent(event) {
-        return portfolioEventsManagerModuleObject.setThisEvent(event)
+    function setThisEvent(sessionId, event) {
+        return portfolioEventsManagerModuleObject.setThisEvent(sessionId, event)
     }
 
-    function confirmThisFormula(formula) {
-        return portfolioFormulasManagerModuleObject.confirmThisFormula(formula)
+    function confirmThisFormula(sessionId, formula) {
+        return portfolioFormulasManagerModuleObject.confirmThisFormula(sessionId, formula)
     }
 
-    function setThisFormula(formula) {
-        return portfolioFormulasManagerModuleObject.setThisFormula(formula)
+    function setThisFormula(sessionId, formula) {
+        return portfolioFormulasManagerModuleObject.setThisFormula(sessionId, formula)
     }
 
     function evalNode(

@@ -1,0 +1,51 @@
+{
+    "topic": "quantum Data Mine",
+    "pageNumber": 9,
+    "type": "Heikin Ashi Relative Strength Indicator - HARSI",
+    "definition": {
+        "text": "This script, originally made by JayRogers on TradingView, translates the Heikin Ashi Candles over to an RSI oscillator to show clear trends in the market."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "HARSI On the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "The HARSI indicator uses the RSI as it's basis to show strength in a price trend. It plots the RSI oscillator, but shifts it so that it oscillates around the zero point instead of a value of 50. Buy and Sell zones are then set up at the -20 and 20 lines respectively. A Heikin Ashi style histogram is then plotted using the RSI function as an input. This provides a potential buy/sell signal when the candles enter the respective zones."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-HARSI.png"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the HARSI can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"HARSI\" Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-HARSI-params.png"
+        },
+        {
+            "style": "Title",
+            "text": "HARSI Products & Properties"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Setting | Product Variable | Properties |\n| HARSI | harsi | rsi, HaOpen, HaClose, HaMax, HaMin, StochK, StochD |",
+            "updated": 1643007813003
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "A simple strategy can be built by entering a trade when the HA histogram enters the buy zone at -20 and then leaves it again:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at15min.HARSI.previous.HaClose < -20 && chart.at15min.HARSI.HaClose > -20"
+        }
+    ]
+}

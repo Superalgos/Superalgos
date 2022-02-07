@@ -1667,6 +1667,18 @@
                     "fileName": "WebSocketsInterface.js"
                 },
                 {
+                    "name": "Web RTC Interface",
+                    "propertyName": "webRTCInterface",
+                    "functionName": "newNetworkModulesWebRTCInterface",
+                    "fileName": "WebRTCInterface.js"
+                },
+                {
+                    "name": "Socket Interfaces",
+                    "propertyName": "socketInterfaces",
+                    "functionName": "newNetworkModulesSocketInterfaces",
+                    "fileName": "SocketInterfaces.js"
+                },                
+                {
                     "name": "Http Interface",
                     "propertyName": "httpInterface",
                     "functionName": "newNetworkModulesHttpInterface",
@@ -1696,6 +1708,18 @@
                     "propertyName": "webSocketsNetworkClient",
                     "functionName": "newNetworkModulesWebSocketsNetworkClient",
                     "fileName": "WebSocketsNetworkClient.js"
+                },
+                {
+                    "name": "Web RTC Network Client",
+                    "propertyName": "webRTCNetworkClient",
+                    "functionName": "newNetworkModulesWebRTCNetworkClient",
+                    "fileName": "WebRTCNetworkClient.js"
+                },
+                {
+                    "name": "Socket Network Clients",
+                    "propertyName": "socketNetworkClients",
+                    "functionName": "newNetworkModulesSocketNetworkClients",
+                    "fileName": "SocketNetworkClients.js"
                 },
                 {
                     "name": "Http Network Client",

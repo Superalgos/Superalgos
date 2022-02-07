@@ -82,20 +82,31 @@ function newGovernanceUtilitiesCommonTables() {
                 weightPower = 0
              }
 
-            let name = ''
+            /*
+            Display node name and path
+            */
+            let name = '<b>' + node.name + '</b>'
+            let nodePath = []
             if (node.payload.parentNode !== undefined) {
                 if (node.payload.parentNode.payload.parentNode !== undefined) {
                     if (node.payload.parentNode.payload.parentNode.payload.parentNode !== undefined) {
                         if (node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode !== undefined) {
-                            name = name + node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.name + ' - '
+                            nodePath.push(node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.name)
                         }
-                        name = name + node.payload.parentNode.payload.parentNode.payload.parentNode.name + ' - '
+                        nodePath.push(node.payload.parentNode.payload.parentNode.payload.parentNode.name)
                     }
-                    name = name + node.payload.parentNode.payload.parentNode.name + ' - '
+                    nodePath.push(node.payload.parentNode.payload.parentNode.name)
                 }
-                name = name + node.payload.parentNode.name + ' - '
+                nodePath.push(node.payload.parentNode.name)
             }
-            name = name + node.name
+            if (nodePath.length) {
+                name = name + ' ('
+                for (let i = 0; i < nodePath.length; i++) {
+                    name = name + nodePath[i]
+                    if (i < (nodePath.length - 1)) { name = name + ' - ' }
+                }
+                name = name + ')'   
+            }
 
             let tableRecord = {
                 "name": name,

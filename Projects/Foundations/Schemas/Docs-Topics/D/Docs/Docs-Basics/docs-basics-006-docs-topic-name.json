@@ -38,7 +38,8 @@
         },
         {
             "style": "Text",
-            "text": "In other workds, there is no page describing a topic. Instead, the Docs Topic Name is used to group a set of related pages under a certain topic."
+            "text": "In other words, there is no page describing a topic. Instead, the Docs Topic Name is used to group a set of related pages under a certain topic.",
+            "updated": 1644143474077
         }
     ]
 }

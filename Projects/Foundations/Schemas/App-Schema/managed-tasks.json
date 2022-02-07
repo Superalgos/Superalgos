@@ -47,7 +47,7 @@
     },
     "childrenNodesProperties": [
         {
-            "name": "taskReference",
+            "name": "taskReferences",
             "type": "array",
             "childType": "Task Reference",
             "autoAdd": false,

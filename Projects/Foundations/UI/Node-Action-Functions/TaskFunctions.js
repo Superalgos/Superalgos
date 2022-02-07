@@ -738,14 +738,14 @@ function newFoundationsFunctionLibraryTaskFunctions() {
 
     /* run|stop ManagedTasks(): Portfolio Management managed tasks runners: */
     function runAllManagedTasks(managedTasks) {
-        for (let i = 0; i < managedTasks.taskReference.length; i++) {
-            managedTasks.taskReference[i].payload.referenceParent.payload.uiObject.menu.internalClick('Run Task');
+        for (let i = 0; i < managedTasks.taskReferences.length; i++) {
+            managedTasks.taskReferences[i].payload.referenceParent.payload.uiObject.menu.internalClick('Run Task');
         }
     }
 
     function stopAllManagedTasks(managedTasks) {
-        for (let i = 0; i < managedTasks.taskReference.length; i++) {
-            managedTasks.taskReference[i].payload.referenceParent.payload.uiObject.menu.internalClick('Stop Task');
+        for (let i = 0; i < managedTasks.taskReferences.length; i++) {
+            managedTasks.taskReferences[i].payload.referenceParent.payload.uiObject.menu.internalClick('Stop Task');
         }
     }
 

@@ -1037,6 +1037,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                         /*
                                         Update the Main Superalgos Repository.
                                         */
+                                        let reposUpdated = false
                                         let options = {
                                             baseDir: process.cwd(),
                                             binary: 'git',
@@ -1048,6 +1049,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                         let message = await git.pull(repoURL, currentBranch)
 
                                         if (message.error === undefined) {
+                                            addToReposUpdated(message, 'Superalgos')
 
                                             for (const propertyName in global.env.PROJECT_PLUGIN_MAP) {
                                                 /*
@@ -1062,10 +1064,26 @@ exports.newHttpInterface = function newHttpInterface() {
                                                 repoURL = 'https://github.com/Superalgos/' + global.env.PROJECT_PLUGIN_MAP[propertyName].repo
                                                 console.log('[INFO] Downloading from ' + repoURL)
                                                 message = await git.pull(repoURL, currentBranch)
+                                                if (message.error === undefined) {
+                                                    addToReposUpdated(message, global.env.PROJECT_PLUGIN_MAP[propertyName].repo)
+                                                }
                                             }
                                         }
 
+                                        message = {
+                                            reposUpdated: reposUpdated
+                                        }
                                         return { message: message }
+
+                                        function addToReposUpdated(message, repo) {
+                                            if (message.summary.changes + message.summary.deletions + message.summary.insertions > 0) {
+                                                reposUpdated = true
+                                                console.log('[INFO] Your local repository ' + repo + ' was successfully updated. ')
+                                            } else {
+                                                console.log('[INFO] Your local repository ' + repo + ' was already up-to-date. ')
+                                            }
+                                        }
+
                                     } catch (err) {
                                         console.log('[ERROR] Error updating ' + currentBranch)
                                         console.log(err.stack)

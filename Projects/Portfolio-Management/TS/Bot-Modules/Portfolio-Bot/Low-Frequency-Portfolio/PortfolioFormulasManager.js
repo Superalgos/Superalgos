@@ -12,26 +12,37 @@ exports.newPortfolioManagementBotModulesPortfolioFormulasManager = function (pro
     }
 
     let portfolioSystem
+    let formulasManagerMap
 
     return thisObject
 
     function initialize() {
         portfolioSystem = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.portfolioSystem
+
+        formulasManagerMap = new Map()
+        for (let i = 0; i < portfolioSystem.managedSessionReferences.length; i++) {
+            let managedSessionReference = portfolioSystem.managedSessionReferences[i]
+            if (managedSessionReference.referenceParent === undefined) { continue }
+            formulasManagerMap.set(managedSessionReference.referenceParent.id, managedSessionReference.formulasManager)
+        }
     }
 
     function finalize() {
         portfolioSystem = undefined
+        formulasManagerMap = undefined
     }
 
-    function confirmThisFormula(formula) {
-        if (portfolioSystem.formulasManager === undefined) {
+    function confirmThisFormula(sessionId, formula) {
+        let formulasManager = formulasManagerMap.get(sessionId)
+
+        if (formulasManager === undefined) {
             let response = {
                 status: 'Not Ok',
-                reason: "No Portfolio Formulas Manager found at Portfolio System"
+                reason: "No Portfolio Formulas Manager found at Portfolio System for this Managed Session."
             }
             return response
         }
-        if (portfolioSystem.formulasManager.confirmFormulaRules === undefined) {
+        if (formulasManager.confirmFormulaRules === undefined) {
             let response = {
                 status: 'Not Ok',
                 reason: "No Confirm Formulas Rules found at Portfolio Formulas Manager"
@@ -39,8 +50,8 @@ exports.newPortfolioManagementBotModulesPortfolioFormulasManager = function (pro
             return response
         }
 
-        for (let i = 0; i < portfolioSystem.formulasManager.confirmFormulaRules.confirmFormulaReferences.length; i++) {
-            let confirmFormulaReference = portfolioSystem.formulasManager.confirmFormulaRules.confirmFormulaReferences[i]
+        for (let i = 0; i < formulasManager.confirmFormulaRules.confirmFormulaReferences.length; i++) {
+            let confirmFormulaReference = formulasManager.confirmFormulaRules.confirmFormulaReferences[i]
 
             if (confirmFormulaReference.formula === undefined) { continue }
             if (confirmFormulaReference.referenceParent === undefined) { continue }
@@ -58,15 +69,17 @@ exports.newPortfolioManagementBotModulesPortfolioFormulasManager = function (pro
         }
     }
 
-    function setThisFormula(formula) {
-        if (portfolioSystem.formulasManager === undefined) {
+    function setThisFormula(sessionId, formula) {
+        let formulasManager = formulasManagerMap.get(sessionId)
+
+        if (formulasManager === undefined) {
             let response = {
                 status: 'Not Ok',
-                reason: "No Portfolio Formulas Manager found at Portfolio System"
+                reason: "No Portfolio Formulas Manager found at Portfolio System for this Managed Session."
             }
             return response
         }
-        if (portfolioSystem.formulasManager.setFormulaRules === undefined) {
+        if (formulasManager.setFormulaRules === undefined) {
             let response = {
                 status: 'Not Ok',
                 reason: "No Set Formulas Rules found at Portfolio Formulas Manager"
@@ -74,8 +87,8 @@ exports.newPortfolioManagementBotModulesPortfolioFormulasManager = function (pro
             return response
         }
 
-        for (let i = 0; i < portfolioSystem.formulasManager.setFormulaRules.setFormulaReferences.length; i++) {
-            let setFormulaReference = portfolioSystem.formulasManager.setFormulaRules.setFormulaReferences[i]
+        for (let i = 0; i < formulasManager.setFormulaRules.setFormulaReferences.length; i++) {
+            let setFormulaReference = formulasManager.setFormulaRules.setFormulaReferences[i]
 
             if (setFormulaReference.formula === undefined) { continue }
             if (setFormulaReference.referenceParent === undefined) { continue }

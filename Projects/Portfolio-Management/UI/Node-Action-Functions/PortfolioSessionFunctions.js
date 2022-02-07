@@ -103,6 +103,8 @@ function newPortfolioManagementFunctionLibraryPortfolioSessionFunctions() {
 
         let lightingPath = '' +
             'Portfolio System->' +
+            'Managed Session Reference->' + 
+            'Backtesting Session->Paper Trading Session->Forward Testing Session->Live Trading Session->' +
             'Events Manager->' +
             'Set Event Rules->Set Event Reference->Confirm Event Rules->Confirm Event Reference->' +
             'Formulas Manager->Confirm Formula Rules->Confirm Formula Reference->' +
@@ -222,7 +224,7 @@ function newPortfolioManagementFunctionLibraryPortfolioSessionFunctions() {
         let portfolioEngine = UI.projects.visualScripting.nodeActionFunctions.protocolNode.getProtocolNode(node.portfolioEngineReference.payload.referenceParent, false, true, true, false, false, lightingPath)
 
         lightingPath = '' +
-            'Backtesting Portfolio Session->Paper Portfolio Session->Forward Testing Session->Live Portfolio Session->' +
+            'Backtesting Portfolio Session->Paper Portfolio Session->Forward Portfolio Session->Live Portfolio Session->' +
             'Portfolio Parameters->' +
             'Session Base Asset->Session Quoted Asset->Time Range->Time Frame->Slippage->Fee Structure->Snapshots->Heartbeats->User Defined Parameters->Managed Assets->Managed Asset->Asset->' +
             'Social Bots->Telegram Bot->Discord Bot->Slack Bot->Twitter Bot->' +
@@ -305,8 +307,8 @@ function newPortfolioManagementFunctionLibraryPortfolioSessionFunctions() {
     }
 
     function runManagedSessions(managedSessions) {
-        for (let i = 0; i < managedSessions.sessionReference.length; i++) {
-            let refParent = managedSessions.sessionReference[i].payload.referenceParent;
+        for (let i = 0; i < managedSessions.sessionReferences.length; i++) {
+            let refParent = managedSessions.sessionReferences[i].payload.referenceParent;
             let sessionType = refParent.type;
 
             if (sessionType === 'Live Trading Session' ||
@@ -321,8 +323,8 @@ function newPortfolioManagementFunctionLibraryPortfolioSessionFunctions() {
     }
 
     function stopManagedSessions(managedSessions) {
-        for (let i = 0; i < managedSessions.sessionReference.length; i++) {
-            let refParent = managedSessions.sessionReference[i].payload.referenceParent;
+        for (let i = 0; i < managedSessions.sessionReferences.length; i++) {
+            let refParent = managedSessions.sessionReferences[i].payload.referenceParent;
             let sessionType = refParent.type;
 
             if (sessionType === 'Live Trading Session' ||

@@ -57,6 +57,7 @@ exports.newPortfolioManagementModulesPortfolioManagerEventsInterface = function 
 
                     let response = tradingBotsInterfaceModuleObject.processMessage(
                         SESSION_KEY,
+                        TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_REFERENCES[i].referenceParent.id,
                         eventMessage.event
                     )
                     /* 

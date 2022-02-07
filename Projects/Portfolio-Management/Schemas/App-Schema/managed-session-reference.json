@@ -1,22 +1,22 @@
 {
-    "type": "Events Manager",
+    "type": "Managed Session Reference",
     "menuItems": [
         {
             "action": "Add UI Object",
-            "label": "Add Confirm Event Rules",
-            "relatedUiObject": "Confirm Event Rules",
+            "label": "Add Events Manager",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "confirmEventRules",
+            "propertyToCheckFor": "eventsManager",
+            "relatedUiObject": "Events Manager",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Portfolio-Management",
             "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
-            "label": "Add Set Event Rules",
-            "relatedUiObject": "Set Event Rules",
+            "label": "Add Formulas Manager",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "setEventRules",
+            "propertyToCheckFor": "formulasManager",
+            "relatedUiObject": "Formulas Manager",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Portfolio-Management",
             "actionProject": "Visual-Scripting"
@@ -33,21 +33,32 @@
         }
     ],
     "addLeftIcons": true,
-    "level": 2,
+    "level": 3,
     "attachingRules": {
-        "compatibleTypes": "->Managed Session Reference->"
+        "compatibleTypes": "->Portfolio System->"
     },
+    "referencingRules": {
+        "compatibleTypes": "->Paper Trading Session->Forward Testing Session->Backtesting Session->Live Trading Session->"
+    },
+    "title": [
+        "Use Reference Parent",
+        "Use Reference Parent Type"
+    ],
+    "propertyNameAtParent": "managedSessionReferences",
     "childrenNodesProperties": [
         {
-            "name": "confirmEventRules",
+            "name": "eventsManager",
             "type": "node",
-            "childType": "Confirm Event Rules"
+            "childType": "Events Manager",
+            "autoAdd": true,
+            "project": "Portfolio-Management"
         },
         {
-            "name": "setEventRules",
+            "name": "formulasManager",
             "type": "node",
-            "childType": "Set Event Rules"
+            "childType": "Formulas Manager",
+            "autoAdd": true,
+            "project": "Portfolio-Management"
         }
-    ],
-    "propertyNameAtParent": "eventsManager"
+    ]
 }

@@ -12,26 +12,37 @@ exports.newPortfolioManagementBotModulesPortfolioEventsManager = function (proce
     }
 
     let portfolioSystem
+    let eventsManagerMap
 
     return thisObject
 
     function initialize() {
         portfolioSystem = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.portfolioSystem
+
+        eventsManagerMap = new Map()
+        for (let i = 0; i < portfolioSystem.managedSessionReferences.length; i++) {
+            let managedSessionReference = portfolioSystem.managedSessionReferences[i]
+            if (managedSessionReference.referenceParent === undefined) { continue }
+            eventsManagerMap.set(managedSessionReference.referenceParent.id, managedSessionReference.eventsManager)
+        }
     }
 
     function finalize() {
         portfolioSystem = undefined
+        eventsManagerMap = undefined
     }
 
-    function confirmThisEvent(event) {
-        if (portfolioSystem.eventsManager === undefined) {
+    function confirmThisEvent(sessionId, event) {
+        let eventsManager = eventsManagerMap.get(sessionId)
+
+        if (eventsManager === undefined) {
             let response = {
                 status: 'Not Ok',
-                reason: "No Portfolio Events Manager found at Portfolio System"
+                reason: "No Portfolio Events Manager found at Portfolio System for this Managed Session."
             }
             return response
         }
-        if (portfolioSystem.eventsManager.confirmEventRules === undefined) {
+        if (eventsManager.confirmEventRules === undefined) {
             let response = {
                 status: 'Not Ok',
                 reason: "No Confirm Events Rules found at Portfolio Events Manager"
@@ -39,8 +50,8 @@ exports.newPortfolioManagementBotModulesPortfolioEventsManager = function (proce
             return response
         }
 
-        for (let i = 0; i < portfolioSystem.eventsManager.confirmEventRules.confirmEventReferences.length; i++) {
-            let confirmEventReference = portfolioSystem.eventsManager.confirmEventRules.confirmEventReferences[i]
+        for (let i = 0; i < eventsManager.confirmEventRules.confirmEventReferences.length; i++) {
+            let confirmEventReference = eventsManager.confirmEventRules.confirmEventReferences[i]
 
             if (confirmEventReference.referenceParent === undefined) { continue }
             if (confirmEventReference.referenceParent.id !== event.node.id) { continue }
@@ -80,15 +91,17 @@ exports.newPortfolioManagementBotModulesPortfolioEventsManager = function (proce
         }
     }
 
-    function setThisEvent(event) {
-        if (portfolioSystem.eventsManager === undefined) {
+    function setThisEvent(sessionId, event) {
+        let eventsManager = eventsManagerMap.get(sessionId)
+
+        if (eventsManager === undefined) {
             let response = {
                 status: 'Not Ok',
-                reason: "No Portfolio Events Manager found at Portfolio System"
+                reason: "No Portfolio Events Manager found at Portfolio System for this Managed Session."
             }
             return response
         }
-        if (portfolioSystem.eventsManager.setEventRules === undefined) {
+        if (eventsManager.setEventRules === undefined) {
             let response = {
                 status: 'Not Ok',
                 reason: "No Set Events Rules found at Portfolio Events Manager"
@@ -96,8 +109,8 @@ exports.newPortfolioManagementBotModulesPortfolioEventsManager = function (proce
             return response
         }
 
-        for (let i = 0; i < portfolioSystem.eventsManager.setEventRules.setEventReferences.length; i++) {
-            let setEventReference = portfolioSystem.eventsManager.setEventRules.setEventReferences[i]
+        for (let i = 0; i < eventsManager.setEventRules.setEventReferences.length; i++) {
+            let setEventReference = eventsManager.setEventRules.setEventReferences[i]
 
             if (setEventReference.referenceParent === undefined) { continue }
             if (setEventReference.referenceParent.id !== event.node.id) { continue }

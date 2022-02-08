@@ -49,7 +49,7 @@
     },
     "childrenNodesProperties": [
         {
-            "name": "sessionReference",
+            "name": "sessionReferences",
             "type": "array",
             "childType": "Session Reference",
             "autoAdd": false,

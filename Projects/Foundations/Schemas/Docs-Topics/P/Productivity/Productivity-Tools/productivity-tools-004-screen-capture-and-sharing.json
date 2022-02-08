@@ -33,17 +33,18 @@
         },
         {
             "style": "Text",
-            "text": "2. Hit CTRL + F7 to start the capture.",
-            "updated": 1644354927648
+            "text": "2. Hit Ctrl + F7 to start the capture.",
+            "updated": 1644355571587
         },
         {
             "style": "Text",
-            "text": "3. Hit the RIGHT ARROW key to pan the chart up to the end datetime."
+            "text": "3. Hit the right arrow key → to pan the chart up to the end datetime.",
+            "updated": 1644355673808
         },
         {
             "style": "Text",
-            "text": "4. Hit CTRL + F7 again. A PNG file should download immediately...",
-            "updated": 1644354685344
+            "text": "4. Hit Ctrl + F7 again. A PNG file should download immediately...",
+            "updated": 1644355582352
         },
         {
             "style": "List",

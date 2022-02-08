@@ -22,5 +22,5 @@
     "referencingRules": {
       "compatibleTypes": "->Backtesting Session->Forward Testing Session->Paper Trading Session->Live Trading Session->Back Learning Session->Live Learning Session->"
     },
-    "propertyNameAtParent": "sessionReference"
+    "propertyNameAtParent": "sessionReferences"
 }

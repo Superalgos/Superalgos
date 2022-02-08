@@ -791,6 +791,7 @@ exports.newHttpInterface = function newHttpInterface() {
                 }
                     break
                 case 'App': {
+                    const GITHUB_API_WAITING_TIME = 3000
                     // If running the electron app do not try to get git tool. I don't allow it.
                     if (process.env.SA_MODE === 'gitDisable') {
                         console.log('[WARN] No contributions on binary distributions. Do manual installation')
@@ -867,7 +868,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                         maxConcurrentProcesses: 6,
                                     }
                                     let repoURL = 'https://github.com/Superalgos/Superalgos'
-                                    console.log('[INFO] Uploading to ' + repoURL)
+                                    console.log('[INFO] Starting process of uploading changes (if any) to ' + repoURL)
                                     let git = simpleGit(options)
 
                                     await pushFiles(git) // Main Repo
@@ -883,8 +884,8 @@ exports.newHttpInterface = function newHttpInterface() {
                                         }
                                         git = simpleGit(options)
                                         repoURL = 'https://github.com/Superalgos/' + global.env.PROJECT_PLUGIN_MAP[propertyName].repo
-                                        console.log('[INFO] Uploading to ' + repoURL)
-                                        pushFiles(git)
+                                        console.log('[INFO] Starting process of uploading changes (if any) to ' + repoURL)
+                                        await pushFiles(git)
                                     }
 
                                     async function pushFiles(git) {
@@ -932,12 +933,14 @@ exports.newHttpInterface = function newHttpInterface() {
                                         /*
                                         Upload the Plugins
                                         */
-                                       await createPullRequest(global.env.PROJECT_PLUGIN_MAP[propertyName].repo)
+                                        await createPullRequest(global.env.PROJECT_PLUGIN_MAP[propertyName].repo)
                                     }
 
                                     async function createPullRequest(repo) {
                                         try {
-                                            console.log('[INFO] Creating Pull Request at repository ' + repo)
+                                            console.log(' ')
+                                            console.log('[INFO] Checking if we need to create Pull Request at repository ' + repo)
+                                            await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                             await octokit.pulls.create({
                                                 owner,
                                                 repo,
@@ -945,17 +948,18 @@ exports.newHttpInterface = function newHttpInterface() {
                                                 head,
                                                 base,
                                             });
+                                            console.log('[INFO] A pull request has been succesfully created. ')
                                         } catch (err) {
                                             if (
                                                 err.stack.indexOf('A pull request already exists') >= 0 ||
                                                 err.stack.indexOf('No commits between') >= 0
-                                                ) {
-                                                    if (err.stack.indexOf('A pull request already exists') >= 0) {
-                                                        console.log('[WARN] A pull request already exists. Commits added to the existing Pull Request. ')
-                                                    }
-                                                    if (err.stack.indexOf('No commits between') >= 0) {
-                                                        console.log('[WARN] No commits detected. Pull request not created. ')
-                                                    }
+                                            ) {
+                                                if (err.stack.indexOf('A pull request already exists') >= 0) {
+                                                    console.log('[WARN] A pull request already exists. If any, commits would added to the existing Pull Request. ')
+                                                }
+                                                if (err.stack.indexOf('No commits between') >= 0) {
+                                                    console.log('[WARN] No commits detected. Pull request not created. ')
+                                                }
                                                 return
                                             } else {
                                                 console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> Method call produced an error.')
@@ -1033,6 +1037,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                         /*
                                         Update the Main Superalgos Repository.
                                         */
+                                        let reposUpdated = false
                                         let options = {
                                             baseDir: process.cwd(),
                                             binary: 'git',
@@ -1044,6 +1049,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                         let message = await git.pull(repoURL, currentBranch)
 
                                         if (message.error === undefined) {
+                                            addToReposUpdated(message, 'Superalgos')
 
                                             for (const propertyName in global.env.PROJECT_PLUGIN_MAP) {
                                                 /*
@@ -1058,10 +1064,26 @@ exports.newHttpInterface = function newHttpInterface() {
                                                 repoURL = 'https://github.com/Superalgos/' + global.env.PROJECT_PLUGIN_MAP[propertyName].repo
                                                 console.log('[INFO] Downloading from ' + repoURL)
                                                 message = await git.pull(repoURL, currentBranch)
+                                                if (message.error === undefined) {
+                                                    addToReposUpdated(message, global.env.PROJECT_PLUGIN_MAP[propertyName].repo)
+                                                }
                                             }
                                         }
 
+                                        message = {
+                                            reposUpdated: reposUpdated
+                                        }
                                         return { message: message }
+
+                                        function addToReposUpdated(message, repo) {
+                                            if (message.summary.changes + message.summary.deletions + message.summary.insertions > 0) {
+                                                reposUpdated = true
+                                                console.log('[INFO] Your local repository ' + repo + ' was successfully updated. ')
+                                            } else {
+                                                console.log('[INFO] Your local repository ' + repo + ' was already up-to-date. ')
+                                            }
+                                        }
+
                                     } catch (err) {
                                         console.log('[ERROR] Error updating ' + currentBranch)
                                         console.log(err.stack)

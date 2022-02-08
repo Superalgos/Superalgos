@@ -9,6 +9,11 @@
             "style": "Text",
             "text": "the Signal’s Reference node to the matching Signals node under the Social Trading Bot of the Provider.",
             "updated": 1643405264982
+        },
+        {
+            "style": "Text",
+            "text": "Each of the locations to which signals can be attached to send or receive signals has a matching Signals nodes available under the Social Trading Bots.",
+            "updated": 1644030748959
         }
     ]
 }

@@ -40,12 +40,11 @@ exports.newDesktopApp = function newDesktopApp() {
             requestType: 'Profile',
             profileMessage: JSON.stringify(profileMessage)
         }
-        */
         
         let response = await thisObject.webAppInterface.sendMessage(JSON.stringify(testMessage))
         console.log(response)
-        
-        
+        */
+
         async function initialSetupInterfaces() {
             /*
             This is what we are going to use to send messages to the P2P Network.

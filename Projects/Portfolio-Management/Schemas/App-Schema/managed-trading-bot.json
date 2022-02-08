@@ -4,6 +4,8 @@
         {
             "action": "Add UI Object",
             "label": "Add Managed Trading Bot Engine",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "managedTradingBotEngine",
             "relatedUiObject": "Managed Trading Bot Engine",
             "relatedUiObjectProject": "Portfolio-Management",
             "actionFunction": "payload.executeAction",

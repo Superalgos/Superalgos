@@ -3,20 +3,35 @@
     "pageNumber": 32,
     "type": "Superalgos Review - A city within a jungle",
     "definition": {
-        "text": "Technical analysis is hard, so is Superalgos. I've had to go through the tutorials at least 3 times for most stuff to click.\n\nIt helps to have a large monitor.\n\nNeobii",
-        "updated": 1635714967650,
+        "text": "Technical analysis is hard, so is Superalgos.",
+        "updated": 1641345444030,
         "translations": [
             {
                 "language": "RU",
-                "text": "Технический анализ - это сложно, как и Superalgos. Мне пришлось пройти через учебники по меньшей мере 3 раза, чтобы большинство вещей стали понятны.\n\nБольшой монитор помогает.\nNeobii",
-                "updated": 1640418384740
+                "text": "Технический анализ сложен, как и Superalgos.",
+                "updated": 1641834097430
             }
         ]
     },
     "paragraphs": [
         {
-            "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository."
+            "style": "Note",
+            "text": "There is a jungle of crypto communities out there, Superalgos feels like the first city with working plumbing.",
+            "updated": 1641345804532
+        },
+        {
+            "style": "Important",
+            "text": "There is great detail taken to make sure (if you are patient) that you get over the learning curve to professional technical analysis. ",
+            "updated": 1641345913660
+        },
+        {
+            "style": "Warning",
+            "text": "It helps to have a large monitor!",
+            "updated": 1641345935252
+        },
+        {
+            "style": "Subtitle",
+            "text": "Neobii"
         }
     ]
 }

@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Узел Position Base Asset отслеживает эволюцию переменных, связанных с базовым активом, на протяжении всей позиции.",
                 "updated": 1640345518925
+            },
+            {
+                "language": "TR",
+                "text": "Position Base Asset düğümü, pozisyon boyunca baz varlıkla ilgili değişkenlerin evrimini izler.",
+                "updated": 1642402099130
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Подробнее о том, как ведутся счета для базового актива и котируемого актива, можно узнать на странице базового актива и котируемого актива в разделе документации Trading Engine.",
                     "updated": 1640345553048
+                },
+                {
+                    "language": "TR",
+                    "text": "Belgelerin Trading Engine bölümündeki temel varlık ve kote varlık sayfasında temel varlık ve kote varlık hesaplarının nasıl tutulduğu hakkında daha fazla bilgi edinin.",
+                    "updated": 1642402112687
                 }
             ]
         }

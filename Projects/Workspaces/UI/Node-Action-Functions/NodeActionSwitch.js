@@ -20,12 +20,28 @@ function newWorkspacesNodeActionSwitch() {
         switch (action.name) {
             case 'Add Missing Workspace Projects':
                 {
-                    UI.projects.workspaces.nodeActionFunctions.workspaceFunctions.addMissingWorkspaceProjects(action.node, action.rootNodes)
+                    let newUiObjects = await UI.projects.workspaces.nodeActionFunctions.workspaceFunctions.addMissingWorkspaceProjects(action.node, action.rootNodes)
+
+                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
-            case 'Add Specified Workspace Project':
+            case 'Add Specified Project':
                 {
-                    UI.projects.workspaces.nodeActionFunctions.workspaceFunctions.addSpecifiedWorkspaceProject(action.node, action.rootNodes)
+                    let historyObject = {
+                        action: action,
+                        nodeClones: []
+                    }
+                    /* we’re passing the historyObject along since the action involves an event handled elsewhere */
+                    UI.projects.workspaces.nodeActionFunctions.workspaceFunctions.addSpecifiedWorkspaceProject(action.node, action.rootNodes, historyObject)
                 }
                 break
             case 'Check For Missing References':

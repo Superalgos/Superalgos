@@ -13,6 +13,16 @@
                 "language": "DE",
                 "text": "Wir werden uns ein paar Minuten Zeit nehmen, um alles, was wir auf dem Chart sehen, auszupacken, damit Sie verstehen, wie das funktioniert!",
                 "updated": 1639391418728
+            },
+            {
+                "language": "TR",
+                "text": "Nasıl çalıştığını anlayabilmeniz ve grafikte gördüğümüz her şeyi açmak için birkaç dakikanızı ayıracağız!",
+                "updated": 1641665982894
+            },
+            {
+                "language": "RU",
+                "text": "Мы уделим несколько минут разбору всего, что мы видим на графике, чтобы вы могли полностью понять, как это работает!",
+                "updated": 1642663832076
             }
         ]
     },
@@ -25,6 +35,16 @@
                     "language": "DE",
                     "text": "Die Tatsache, dass die Strategie fünfmal hintereinander in fünf aufeinanderfolgenden Kerzen ausgelöst und geschlossen wird, muss Folgendes bedeuten:",
                     "updated": 1639391427003
+                },
+                {
+                    "language": "TR",
+                    "text": "Stratejinin art arda beş kez arka arkaya beş mumda tetiklenip kapatılmış olması şu anlama gelmelidir:",
+                    "updated": 1641665993012
+                },
+                {
+                    "language": "RU",
+                    "text": "Тот факт, что стратегия срабатывает и закрывается пять раз подряд на пяти последовательных свечах, должен означать следующее:",
+                    "updated": 1642663847703
                 }
             ]
         },
@@ -36,6 +56,16 @@
                     "language": "DE",
                     "text": "Das Trigger On Event Ereignis ist bei jeder dieser Kerzen gültig.",
                     "updated": 1639391461998
+                },
+                {
+                    "language": "TR",
+                    "text": "Tetikleme Olayı ( Trigger On Event olayı ) bu mumların her biri için geçerlidir.",
+                    "updated": 1641666005462
+                },
+                {
+                    "language": "RU",
+                    "text": "Событие Trigger On Event принимает значение true на каждой из этих свечей.",
+                    "updated": 1642663879779
                 }
             ]
         },
@@ -47,6 +77,16 @@
                     "language": "DE",
                     "text": "Das Take Position Event Ereignis gilt ebenfalls für jede dieser Kerzen!",
                     "updated": 1639391468626
+                },
+                {
+                    "language": "TR",
+                    "text": "Pozisyon Al Etkinliği ( Take Position Event ) bu mumların her biri için de geçerlidir!",
+                    "updated": 1641666021826
+                },
+                {
+                    "language": "RU",
+                    "text": "Событие Take Position Event также соответствует true на каждой из этих свечей!",
+                    "updated": 1642663935798
                 }
             ]
         },
@@ -58,6 +98,16 @@
                     "language": "DE",
                     "text": "Dies bedeutet auch, dass die Strategie bei derselben Kerze ausgelöst wird und die Position einnimmt! Überprüfen wir nun, ob dies alles zutrifft!",
                     "updated": 1639391474980
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Aynı zamanda stratejinin aynı mum üzerinde tetikleneceği ve pozisyonu alacağı anlamına gelir! Şimdi tüm bunların doğru olup olmadığını kontrol edelim!",
+                    "updated": 1641666038197
+                },
+                {
+                    "language": "RU",
+                    "text": "Это также означает, что стратегия срабатывает и занимает позицию на одной и той же свече! Давайте проверим, так ли это!",
+                    "updated": 1642663962302
                 }
             ]
         }

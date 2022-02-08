@@ -35,6 +35,11 @@
                 "language": "ID",
                 "text": "Bagian ini adalah bagaimana Trading Engine membuat setiap bit informasi yang diproses oleh Trading Bot tersedia untuk trading systems.",
                 "updated": 1640569049941
+            },
+            {
+                "language": "RU",
+                "text": "Таким образом, Trading Engine делает каждый бит информации, обработанной Trading Bot, доступным для торговых систем.",
+                "updated": 1642769333026
             }
         ]
     },
@@ -69,6 +74,11 @@
                     "language": "ID",
                     "text": "Ada jalur ke setiap bagian data, dan dengan mengetahui jalurnya, kamu dapat mengakses data dari dalam Formula atau Condition dalam Trading Strategy. Mari kita jalankan pemeriksaan cepat :",
                     "updated": 1640569263982
+                },
+                {
+                    "language": "RU",
+                    "text": "К каждой части данных существует путь, и, зная этот путь, вы можете получить доступ к данным из любой формулы (Formula) или условия (Condition) в торговой стратегии. Давайте проведем быструю проверку:",
+                    "updated": 1642769415127
                 }
             ]
         },
@@ -90,8 +100,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Öffnen Sie das Menü des Knotens Exit Target Rate auf der linken Seite, und klicken Sie auf Copy Node Path. Öffnen Sie nun einen Texteditor und fügen Sie den kopierten Text ein.",
-                    "updated": 1634226278604
+                    "text": "Rufen Sie das Menü des Knotens \"Exit Target Rate\" auf der linken Seite auf und klicken Sie auf \"Copy Node Path\". Öffnen Sie nun einen externen Texteditor und fügen Sie den kopierten Text ein. ",
+                    "updated": 1642152499640
                 },
                 {
                     "language": "TR",
@@ -102,6 +112,11 @@
                     "language": "ID",
                     "text": "Akses menu dari Exit Target Rate node ke kiri, dan klik \"Copy node path\". Sekarang, buka external text editor dan tempel apa yang kamu salin.",
                     "updated": 1640569441360
+                },
+                {
+                    "language": "RU",
+                    "text": "Зайдите в меню узла Exit Target Rate слева и нажмите \"Copy node path\". Теперь откройте внешний текстовый редактор и вставьте то, что вы скопировали.",
+                    "updated": 1642769438898
                 }
             ],
             "updated": 1636911911813
@@ -136,6 +151,11 @@
                     "language": "ID",
                     "text": "Baik! Beginilah Formula dan Condition mengakses informasi... Bagaimana dengan Humans?",
                     "updated": 1640569563377
+                },
+                {
+                    "language": "RU",
+                    "text": "Хорошо! Вот как формулы и условия получают доступ к информации... А как насчет людей?",
+                    "updated": 1642769453309
                 }
             ]
         }

@@ -13,6 +13,16 @@
                 "language": "DE",
                 "text": "Die meisten Warnungen treten auf, wenn der Trading-Bot Aufträge bearbeitet, mit der Börse synchronisiert oder die Synchronisierung simuliert.",
                 "updated": 1639418688201
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Çoğu uyarı, ticaret botu emirleri işlerken, bunları borsa ile senkronize ederken veya senkronizasyonu simüle ederken ortaya çıkar.",
+                "updated": 1641802792003
+            },
+            {
+                "language": "RU",
+                "text": "Большинство предупреждений возникает, когда торговый бот обрабатывает ордера, синхронизируется с биржей или симулирует синхронизацию.",
+                "updated": 1642944939349
             }
         ]
     },
@@ -25,6 +35,16 @@
                     "language": "DE",
                     "text": "Diese Vorgänge sind sehr umfangreich und kompliziert und werden in zukünftigen Tutorials behandelt. In diesem Tutorial kratzen wir nur an der Oberfläche!",
                     "updated": 1639418695517
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu süreçler çok kapsamlı ve karmaşıktır ve gelecekteki eğitimlerde ele alınacaktır. Daha yolun başındayız.",
+                    "updated": 1641802804209
+                },
+                {
+                    "language": "RU",
+                    "text": "Эти операции отличаются большой глубиной и некоторой сложностью, о которых мы расскажем в следующих уроках. В этом уроке мы только пощупали поверхность!",
+                    "updated": 1642944968390
                 }
             ]
         },
@@ -37,6 +57,16 @@
                     "language": "DE",
                     "text": "Wenn Sie es ganz genau wissen wollen, sollten Sie die zwölf Seiten zum Thema Auftragsverwaltung in der Dokumentation lesen.",
                     "updated": 1639418705966
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu konunun özüne inmek istiyorsanız, Dokümantasyonun Sipariş Yönetimi ( Order Management ) konusundaki on iki sayfalık öğreticiyi okumalısınız.",
+                    "updated": 1641802815873
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы хотите досконально разобраться в этом вопросе, вам следует прочитать двенадцать страниц по теме \"Управление ордерами\" (Order Management) в документации.",
+                    "updated": 1642945005476
                 }
             ]
         },
@@ -49,6 +79,16 @@
                     "language": "DE",
                     "text": "Sie müssen sie nicht sofort lesen, aber Sie können sich gerne damit beschäftigen, wenn Sie es wünschen!",
                     "updated": 1639418712343
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Hemen okumak zorunda değilsiniz, ancak isterseniz okumaktan çekinmeyin!",
+                    "updated": 1641802826074
+                },
+                {
+                    "language": "RU",
+                    "text": "Вам не обязательно читать его сейчас, но не стесняйтесь погрузиться в него, если хотите!",
+                    "updated": 1642945016618
                 }
             ]
         }

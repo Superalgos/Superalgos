@@ -29,8 +29,8 @@
             },
             {
                 "language": "DE",
-                "text": "Da wir keine Live Trading Session durchführen, macht es grade keinen Sinn, das Data Mining zu diesem Zeitpunkt laufen zu lassen.",
-                "updated": 1634170784986,
+                "text": "Wir werden jetzt noch keine Live Trading Session durchführen, so dass es keinen Sinn hat, unser Data-Mining weiterlaufen zu lassen.",
+                "updated": 1642151062865,
                 "style": "Definition"
             },
             {
@@ -40,8 +40,8 @@
             },
             {
                 "language": "RU",
-                "text": "Мы пока не собираемся проводить Live Trading Session, поэтому на данный момент нет смысла продолжать наш интеллектуальный анализ данных.",
-                "updated": 1636195299595
+                "text": "Мы пока не собираемся запускать реальную торговую сессию, поэтому нет смысла продолжать добычу данных.",
+                "updated": 1641810904116
             },
             {
                 "language": "NL",
@@ -88,8 +88,8 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Для выполнения Data Tasks существует два основных варианта использования:",
-                    "updated": 1636195344198
+                    "text": "Существует два основных случая использования задач Data Tasks:",
+                    "updated": 1641812367824
                 },
                 {
                     "language": "NL",
@@ -134,8 +134,8 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Для обработки исторических данных: Вам может понадобится обработать диапазон дат и времени для любого данного Market, чтобы запустить Backtesting Session или обработать новые индикаторы.",
-                    "updated": 1636195747856
+                    "text": "Для обработки исторических данных: Вы можете захотеть обработать диапазон дат любого данного рынка для запуска сессии бэктестинга (Backtesting Session) или для разработки новых индикаторов.",
+                    "updated": 1641812523327
                 },
                 {
                     "language": "NL",
@@ -180,8 +180,8 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Для запуска сессии в реальном времени: сессии бывают разных типов: Paper Trading Session, Forward Testing Session и Live Trading Session - это все, что необходимо для потока рынка в реальном времени.",
-                    "updated": 1636195795182
+                    "text": "Для запуска реальной сессии:   Реальные сессии различных типов, такие как бумажная торговая сессия (Paper Trading Session), форвардная тестовая сессия (Forward Testing Session) и реальная торговая сессия (Live Trading Session), все они нуждаются в реальном потоке рыночных данных.",
+                    "updated": 1641812643880
                 },
                 {
                     "language": "NL",

@@ -13,6 +13,16 @@
                 "language": "DE",
                 "text": "Wann immer Sie an einem Trading System arbeiten und Definitionen testen, sollten Sie auf Fehlersuche gehen!",
                 "updated": 1639267237424
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bir ticaret sisteminde tanımları test ederken ve üzerinde çalışırken, sorun giderme modunda olmalısınız!",
+                "updated": 1641656598377
+            },
+            {
+                "language": "RU",
+                "text": "Всякий раз, когда вы работаете и тестируете определения в торговой системе, вы должны находиться в режиме поиска и устранения неисправностей!",
+                "updated": 1642655791744
             }
         ]
     },
@@ -25,6 +35,16 @@
                     "language": "DE",
                     "text": "Es gibt so viele Dinge, die bei der Ausführung einer Handelssitzung eine Rolle spielen, dass Fehler aus den unterschiedlichsten Gründen auftreten können. Der Trading Bot wertet die Definitionen im Trading System aus und wendet sie an, indem er die Datensätze auswertet, auf die in den Definitionen verwiesen wird.",
                     "updated": 1639267245526
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir alım satım seansını yürütmek için o kadar çok şey var ki, çeşitli nedenlerle hatalar ortaya çıkabilir. Ticaret botu, ticaret sistemindeki tanımları değerlendirir ve tanımlarda atıfta bulunulan veri setlerini değerlendirerek bunları uygular.",
+                    "updated": 1641656618104
+                },
+                {
+                    "language": "RU",
+                    "text": "В ходе торговой сессии происходит так много событий, что ошибки могут возникать по самым разным причинам. Торговый бот оценивает определения в торговой системе и применяет их, оценивая наборы данных, на которые ссылаются в определениях.",
+                    "updated": 1642655836540
                 }
             ]
         },
@@ -36,6 +56,16 @@
                     "language": "DE",
                     "text": "Fehler in den Daten oder in den Definitionen sind keine Seltenheit.",
                     "updated": 1639267252309
+                },
+                {
+                    "language": "TR",
+                    "text": "Verilerdeki veya tanımlardaki hatalar yaygındır.",
+                    "updated": 1641656627709
+                },
+                {
+                    "language": "RU",
+                    "text": "Ошибки в данных или определениях встречаются часто.",
+                    "updated": 1642655881197
                 }
             ]
         },
@@ -47,6 +77,16 @@
                     "language": "DE",
                     "text": "Es ist unwahrscheinlich, dass ein Datensatz mit Fehlern berechnet wird. Wenn Sie jedoch den Datensatz nicht durch Ausführen der entsprechenden Datenaufgabe berechnet haben, werden Sie Fehler erhalten!",
                     "updated": 1639267258612
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir veri kümesinin hatalarla hesaplanması olası değildir. Ancak, uygun veri görevini gerçekleştirerek veri kümesini hesaplamadıysanız, hatalar alırsınız!",
+                    "updated": 1641656641257
+                },
+                {
+                    "language": "RU",
+                    "text": "Маловероятно, что набор данных рассчитан с ошибками. Однако, если вы не провели расчет набора данных, выполнив соответствующую задачу по работе с данными, вы получите ошибки!",
+                    "updated": 1642656013880
                 }
             ]
         }

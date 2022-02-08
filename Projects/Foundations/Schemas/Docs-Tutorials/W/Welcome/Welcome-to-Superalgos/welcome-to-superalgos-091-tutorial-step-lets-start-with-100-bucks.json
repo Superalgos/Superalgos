@@ -35,6 +35,11 @@
                 "language": "ID",
                 "text": "Hal utama initialBalance diatur ke 100 USDT, jauh di atas ukuran transaksi minimum yang didukung oleh Binance.",
                 "updated": 1640575059904
+            },
+            {
+                "language": "RU",
+                "text": "По умолчанию начальный баланс (initialBalance) установлен на 100 USDT, что значительно превышает минимальный размер транзакции, поддерживаемый Binance.",
+                "updated": 1642770033805
             }
         ]
     },
@@ -69,6 +74,11 @@
                     "language": "ID",
                     "text": "Saldo awal initialBalance didefinisikan dalam konfigurasi Session Quoted Asset. Lihat dan putuskan sendiri jika kamu ingin mengubahnya!",
                     "updated": 1640575114280
+                },
+                {
+                    "language": "RU",
+                    "text": "Значение initialBalance определяется в конфигурации Session Quoted Asset. Проверьте его и решите для себя, хотите ли вы его изменить!",
+                    "updated": 1642770066017
                 }
             ]
         },
@@ -102,6 +112,11 @@
                     "language": "ID",
                     "text": "Binance menentukan ukuran transaksi minimum dalam BTC, sehingga persyaratan dalam USDT sangat bervariasi seiring waktu. Saya mengatur jumlahnya menjadi 100 USDT hanya untuk memastikan kamu tidak mengalami kesalahan. Kamu bebas mencoba dengan jumlah yang lebih kecil. kamu akan mendapatkan kesalahan jika terlalu kecil tetapi dapat mencoba lagi sebanyak yang diperlukan. Hentikan saja taskmya, ubah initialBalance dalam Session Quoted Asset, dan coba lagi!",
                     "updated": 1640575200976
+                },
+                {
+                    "language": "RU",
+                    "text": "Binance определяет минимальный размер транзакции в BTC, поэтому требования в USDT сильно меняются со временем. Я установил сумму в 100 USDT только для того, чтобы вы не столкнулись с ошибками. Вы можете попробовать с меньшей суммой. Вы получите ошибки, если она слишком мала, но можете повторить попытку столько раз, сколько потребуется. Просто остановите задание, измените значение initialBalance в Session Quoted Asset и попробуйте снова!",
+                    "updated": 1642770107860
                 }
             ]
         }

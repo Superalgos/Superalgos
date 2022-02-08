@@ -13,6 +13,16 @@
                 "language": "DE",
                 "text": "Wir werden die Neigungseigenschaft des Bollinger Subchannels-Indikators verwenden, um zu bestätigen, dass ein Trend ein Trend ist!",
                 "updated": 1639264098758
+            },
+            {
+                "language": "RU",
+                "text": "Мы будем использовать свойство slope индикатора Bollinger Subchannels для подтверждения того, что тренд - это тренд",
+                "updated": 1640940113565
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bir trendin trend olduğunu doğrulamak için Bollinger Alt Kanalları (Bollinger Subchannels) göstergesinin eğim özelliğini kullanacağız!",
+                "updated": 1641653922774
             }
         ]
     },
@@ -25,6 +35,16 @@
                     "language": "DE",
                     "text": "Bewegen Sie den Mauszeiger über verschiedene Subkanäle und beachten Sie deren gemeldete Neigung im Plotter-Panel.",
                     "updated": 1639264110148
+                },
+                {
+                    "language": "RU",
+                    "text": "Проведите указателем мыши по разным подканалам и обратите внимание на их наклон на панели плоттера.",
+                    "updated": 1640940128585
+                },
+                {
+                    "language": "TR",
+                    "text": "Fare işaretçisini farklı alt kanallar üzerinde hareket ettirin ve çizici panelindeki (plotter panel) raporlanan eğilimleri not alın.",
+                    "updated": 1641653967743
                 }
             ]
         },
@@ -36,6 +56,16 @@
                     "language": "DE",
                     "text": "Beachten Sie, dass die Neigung der Subkanäle bei einem Trend fast nie seitlich ist. Das ist auch zu erwarten, da die seitliche Steigung die geringste mögliche Steigung im MA darstellt. In den Perioden, in denen der Markt schwankt, kann die Richtung zwar zwischen Aufwärts- und Abwärtsbewegungen hin und her wechseln, aber die Neigung ist meistens seitlich.",
                     "updated": 1639264117122
+                },
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание, что когда рынок трендовый, наклон подканала почти никогда не является боковым. И этого следовало ожидать, поскольку боковой наклон представляет собой более мелкий наклон, возможный для МА. С другой стороны, в периоды, когда рынок колеблется, хотя направление может меняться взад и вперед между \"вверх\" и \"вниз\", уклон в основном боковой.",
+                    "updated": 1640940209987
+                },
+                {
+                    "language": "TR",
+                    "text": "alt kanalların eğiminin bir trendde neredeyse hiç yanal olmadığını unutmayın. Yanal eğim MA'da mümkün olan en düşük eğimi temsil ettiği için bu da beklenen bir durumdur. Piyasanın dalgalı olduğu dönemlerde yön yukarı ve aşağı yönlü hareketler arasında ileri geri geçiş yapabilir, ancak eğim çoğunlukla yanaldır.",
+                    "updated": 1641653985058
                 }
             ]
         }

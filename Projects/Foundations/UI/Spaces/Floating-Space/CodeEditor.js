@@ -19,7 +19,12 @@ function newCodeEditor() {
 
 
     function activate(action) {
+        let historyObjectOnHold = {
+            action: action,
+            previousCode: action.node.code
+        }
         UI.projects.foundations.spaces.codeEditorSpace.openSpaceArea(action.node, codeEditorType.CODE)
+        UI.projects.workspaces.spaces.designSpace.workspace.undoStackOnHold.push(historyObjectOnHold)
     }
 
 }

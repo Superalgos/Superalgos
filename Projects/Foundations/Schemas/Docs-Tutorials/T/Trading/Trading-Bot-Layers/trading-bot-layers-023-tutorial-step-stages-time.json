@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Stages & Time",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "close-stage-event"
+            "name": "Close/close-stage-event",
+            "project": "Foundations"
         },
         "text": "Layers corresponding to stages, that is, Trigger Stage, Open Stage, Close Stage, and Manage Stage are markers of spans of time.",
         "translations": [
@@ -18,6 +18,11 @@
                 "language": "RU",
                 "text": "Слои, соответствующие этапам, а именно этапы Trigger Stage, Open Stage, Close Stage и Manage Stage, являются маркерами временных отрезков.",
                 "updated": 1640630043907
+            },
+            {
+                "language": "TR",
+                "text": "Aşamalara karşılık gelen katmanlar, yani Tetik Aşaması (Trigger Stage), Aşamayı Aç (Open Stage), Aşamayı Kapat (Close Stage) ve Aşamayı Yönet (Manage Stage), zaman aralığının belirteçleridir.",
+                "updated": 1642431712810
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "RU",
                     "text": "То есть, они сигнализируют о промежутке времени, в течение которого каждый этап был открыт.",
                     "updated": 1640630056254
+                },
+                {
+                    "language": "TR",
+                    "text": "Yani, her aşamanın açık olduğu zaman aralığını işaret ederler.",
+                    "updated": 1642431647004
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "RU",
                     "text": "Экспериментируйте с ними! Найдите слои различных этапов и включите их!",
                     "updated": 1640630083716
+                },
+                {
+                    "language": "TR",
+                    "text": "Onları deneyin! Farklı aşamaların katmanlarını bulun ve açın!",
+                    "updated": 1642431659446
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "RU",
                     "text": "Не стесняйтесь отключить несколько слоев, которые у вас сейчас включены, для ясности!",
                     "updated": 1640630105613
+                },
+                {
+                    "language": "TR",
+                    "text": "Netlik için şu anda sahip olduğunuz katmanlardan birkaçını kapatmaktan çekinmeyin!",
+                    "updated": 1642431672567
                 }
             ]
         }

@@ -16,7 +16,7 @@
             "actionFunction": "payload.executeAction",
             "label": "Add Social Trading Bots",
             "relatedUiObject": "Social Trading Bots",
-            "relatedUiObjectProject": "Governance"
+            "relatedUiObjectProject": "Social-Trading"
         },
         {
             "action": "Delete UI Object",
@@ -46,6 +46,7 @@
             "name": "socialTradingBots",
             "type": "node",
             "childType": "Social Trading Bots",
+            "project": "Social-Trading",
             "autoAdd": false
         }
     ]

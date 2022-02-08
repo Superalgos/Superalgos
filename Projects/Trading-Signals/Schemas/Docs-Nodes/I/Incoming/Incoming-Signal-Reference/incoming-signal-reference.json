@@ -1,0 +1,14 @@
+{
+    "type": "Incoming Signal Reference",
+    "definition": {
+        "text": "This node stores a reference to a signal definition held under the User Profile of the signal provider.",
+        "updated": 1642908288435
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Each of the locations to which signals can be attached have matching Signals nodes under the Trading System Signals node of the provider's Social Trading Bot.",
+            "updated": 1644031659051
+        }
+    ]
+}

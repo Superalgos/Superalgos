@@ -19,6 +19,11 @@
                 "language": "RU",
                 "text": "Вы заметили, что есть три разных слоя о позициях? \" Position\", \"Position Base Asset\", и \"Position Quoted Asset\"!",
                 "updated": 1640547310056
+            },
+            {
+                "language": "TR",
+                "text": "Pozisyonlarla ilgili üç farklı katman olduğunu fark ettiniz mi? \"Position\", \"Position Base Asset\" ve \"Position Quoted Asset\"!\nDid you notice there are three different layers about positions? \"Position\", \"Position Base Asset\", and \"Position Quoted Asset\"!",
+                "updated": 1642171754938
             }
         ]
     },
@@ -36,6 +41,11 @@
                     "language": "RU",
                     "text": "Я расскажу вам коротко:",
                     "updated": 1640547333604
+                },
+                {
+                    "language": "TR",
+                    "text": "Size kısa versiyonunu göstereceğim:",
+                    "updated": 1642171785582
                 }
             ]
         },
@@ -52,6 +62,11 @@
                     "language": "RU",
                     "text": "Система ведет учет по отношению как к базовому, так и к котируемому активу. Она также ведет объединенный счет обоих активов (следовательно, позицию). Какой набор счетов актуален для вас, зависит от того, как разработана стратегия!",
                     "updated": 1640547367408
+                },
+                {
+                    "language": "TR",
+                    "text": "Sistem, hem temel varlığa hem de kote edilen varlığa göre hesapları tutar. Ayrıca her iki varlığın (dolayısıyla pozisyon) konsolide bir hesabını tutar. Hangi hesapların sizinle alakalı olduğu, stratejinin nasıl tasarlandığına bağlıdır!",
+                    "updated": 1642171813874
                 }
             ]
         },
@@ -68,6 +83,11 @@
                     "language": "RU",
                     "text": "Чтение этой страницы документации является обязательным для полного понимания этой концепции.",
                     "updated": 1640547379935
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu kavramı tam olarak anlamak için bu dokümantasyon sayfasını okumak bir zorunluluktur.",
+                    "updated": 1642171829448
                 }
             ]
         }

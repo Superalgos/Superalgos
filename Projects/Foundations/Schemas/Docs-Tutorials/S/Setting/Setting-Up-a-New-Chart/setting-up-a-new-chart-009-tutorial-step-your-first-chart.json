@@ -24,6 +24,11 @@
                 "language": "RU",
                 "text": "Этот учебник поможет вам настроить свою первую пользовательскую диаграмму. Основополагающие концепции, которые вы здесь изучите, помогут вам максимально использовать возможности Charting Space.",
                 "updated": 1637918595225
+            },
+            {
+                "language": "TR",
+                "text": "Bu Öğretici, ilk özel grafiğinizi oluşturmanıza yardımcı olacaktır. Burada öğreneceğiniz temel kavramlar, grafik alanından ( Charting Space ) en iyi şekilde yararlanmanıza yardımcı olacaktır.",
+                "updated": 1642518772504
             }
         ]
     },
@@ -47,6 +52,11 @@
                     "language": "RU",
                     "text": "В частности, мы собираемся подключить машину времени (Time Machine) к индикаторам шахты Candles Data Mine. Эти индикаторы будут основными данными, которые мы наносим на наш график.",
                     "updated": 1637918725340
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikle Candles Data Mine göstergelerine bir zaman makinesi ( Time Machine ) bağlayacağız. Bu göstergeler, grafiğimizde çizdiğimiz (temsil ettiğimiz) temel veriler olacaktır.",
+                    "updated": 1642518784676
                 }
             ]
         },
@@ -69,6 +79,11 @@
                     "language": "RU",
                     "text": "Например, свечи, полосы Боллинджера, поддержки и т.д.",
                     "updated": 1637918742832
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Örneğin mumlar, bollinger bantları, destekler vb.",
+                    "updated": 1642518795784
                 }
             ]
         },
@@ -91,6 +106,11 @@
                     "language": "RU",
                     "text": "Мы также приложим сессию бэктестинга (Backtesting Session) для торговой системы (Trading System) Lighting Strike. Это позволит нам увидеть вывод торговой системы на нашем графике!",
                     "updated": 1637918901245
+                },
+                {
+                    "language": "TR",
+                    "text": "Ayrıca geriye dönük test oturumunu ( Backtesting Session ) Lighting Strike Ticaret Sistemine ( Trading System ) bağlayacağız. Böylece ticaret sisteminin çıktısını grafiğimizde de görebiliriz!",
+                    "updated": 1642518808513
                 }
             ]
         }

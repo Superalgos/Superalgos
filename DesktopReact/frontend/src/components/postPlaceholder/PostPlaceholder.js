@@ -1,11 +1,13 @@
 import "./PostPlaceholder.css"
 import React, {useState} from 'react';
-import {Alert, Avatar, Button, Card, Snackbar, Stack, TextField, Typography} from "@mui/material";
+import {Alert, Avatar, Button, Snackbar, Stack, TextField, Typography} from "@mui/material";
 import pic from "../../images/superalgos.png"
 import {STATUS_OK} from "../../api/httpConfig";
 import {createPost} from "../../api/post.httpService"
+import {useSelector} from "react-redux";
 
 const PostPlaceholder = ({reloadPostCallback}) => {
+    const {profilePic} = useSelector(state => state.profile.actualUser);
     const [postText, setPostText] = useState(undefined);
     const [open, setOpen] = useState(false);
 
@@ -34,42 +36,40 @@ const PostPlaceholder = ({reloadPostCallback}) => {
         <div className="postPlaceholder">
             <h4>Posts</h4>
             <div className="postPlaceholderContainer">
-                <Card>
-                    <Stack
-                        className="postPlaceholderInputBox"
-                        direction="row"
-                        justifyContent="flex-start"
-                        alignItems="center"
-                        spacing={1}
-                        justify="flex-end">
-                        <Stack className="postPlaceholderAvatar">
-                            <Avatar src={pic}/>
-                        </Stack>
-                        <Stack className="postPlaceholderTextField">
-                            <Typography gutterBottom variant="subtitle1" component="div">
-                                <TextField
-                                    id="outlined-multiline-flexible"
-                                    label="what's happening?"
-                                    fullWidth
-                                    multiline
-                                    maxRows={6}
-                                    value={postText}
-                                    onChange={handleChange}
-                                />
-                            </Typography>
-                        </Stack>
+                <Stack
+                    className="postPlaceholderInputBox"
+                    direction="row"
+                    justifyContent="flex-start"
+                    alignItems="center"
+                    spacing={1}
+                    justify="flex-end">
+                    <div className="postPlaceholderAvatar">
+                        <Avatar src={profilePic || pic}/>
+                    </div>
+                    <Stack className="postPlaceholderTextField">
+                        <Typography gutterBottom variant="subtitle1" component="div">
+                            <TextField
+                                id="outlined-multiline-flexible"
+                                label="What's happening?"
+                                fullWidth
+                                multiline
+                                maxRows={6}
+                                value={postText}
+                                onChange={handleChange}
+                            />
+                        </Typography>
                     </Stack>
-                    <Stack className="postPlaceholderButtonStyle" direction="row">
-                        <Button
-                            disabled={!postText}
-                            onClick={onButtonClick}
-                            className="postPlaceholderButton" variant="outlined">
-                            Post
-                        </Button>
-                    </Stack>
-                </Card>
+                </Stack>
+                <Stack className="postPlaceholderButtonStyle" direction="row">
+                    <Button
+                        disabled={!postText}
+                        onClick={onButtonClick}
+                        className="postPlaceholderButton" variant="outlined">
+                        Post
+                    </Button>
+                </Stack>
             </div>
-            <Snackbar open={ open} autoHideDuration={6000} onClose={handleClose}>
+            <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
                 <Alert onClose={handleClose} severity="error" sx={{width: '100%'}}>
                     Failed to post message!
                 </Alert>

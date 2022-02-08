@@ -24,6 +24,11 @@
                 "language": "DE",
                 "text": "Lassen Sie uns die erste Verbindung herstellen. Suchen Sie Ihre Time Machine und ziehen Sie sie hierher zurück.",
                 "updated": 1639497579188
+            },
+            {
+                "language": "TR",
+                "text": "İlk bağlantıyı yapalım. Zaman Makinenizi (Time Machine) bulun ve buraya sürükleyin.",
+                "updated": 1642596457314
             }
         ]
     },
@@ -47,6 +52,11 @@
                     "language": "DE",
                     "text": "Die erste Verbindung besteht zwischen einer Trading Session und der Time Machine, an der wir gearbeitet haben. Diese Referenz teilt unserem Diagramm mit, auf welches Trading System und welche Session es achten soll.",
                     "updated": 1639497703152
+                },
+                {
+                    "language": "TR",
+                    "text": "İlk bağlantı, bir Ticaret Oturumu ( Trading Session ) ile üzerinde çalıştığımız Zaman Makinesi (Time Machine) arasındadır. Bu referans, grafiğimize hangi Ticaret Sistemini (Trading System) ve Oturumu dinleyeceğimizi söyler.",
+                    "updated": 1642596793957
                 }
             ]
         },
@@ -63,6 +73,11 @@
                     "language": "DE",
                     "text": "Sobald Sie zurück sind, stellen Sie einen Bezug zwischen Ihrer Time Machine und der Backtesting Session her.",
                     "updated": 1639497756281
+                },
+                {
+                    "language": "TR",
+                    "text": "Geri döndüğünüzde, zaman makinenizi ( Time Machine ) geriye dönük test oturumuyla ( Backtesting Session ) ilişkilendirin.",
+                    "updated": 1642596961504
                 }
             ]
         },
@@ -89,6 +104,11 @@
                     "language": "DE",
                     "text": "Diese Schritte sind die gleichen wie für die Verbindung mit einer Live Trading Session. Der einzige Unterschied besteht darin, dass die Session stattdessen in der Hierarchie der Production Trading Task zu finden ist.",
                     "updated": 1639497853068
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu adımlar, gerçek bir ticaret oturumuna ( Live Trading Session ) bağlanmaya benzer. Tek fark, oturumun \"Üretim Ticaret Görevleri\" ( Production Trading Task ) hiyerarşisinde olacağıdır.",
+                    "updated": 1642597276171
                 }
             ]
         }

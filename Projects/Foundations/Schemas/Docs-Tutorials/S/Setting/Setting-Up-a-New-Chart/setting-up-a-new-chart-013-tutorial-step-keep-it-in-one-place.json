@@ -24,6 +24,11 @@
                 "language": "DE",
                 "text": "Die Einrichtung einer Time Machine ermöglicht es Ihnen, Ihre Daten synchronisiert und zugänglich zu halten.",
                 "updated": 1639103079650
+            },
+            {
+                "language": "TR",
+                "text": "Bir Zaman Makinesi ( Time Machine ) kurmak, verilerinizi senkronize ve erişilebilir durumda tutmanıza olanak tanır.",
+                "updated": 1642584334854
             }
         ]
     },
@@ -47,6 +52,11 @@
                     "language": "DE",
                     "text": "Bei der Time Machine dreht sich alles um die Synchronisierung. Ob es darum geht, Kerzen mit Volumenindikatoren abzugleichen oder genau zu sehen, wann eine Kauforder von Ihrer Trading Strategy, platziert wurde, die Zeitmaschine ist Ihr bester Freund im Charting Space.",
                     "updated": 1639103192511
+                },
+                {
+                    "language": "TR",
+                    "text": "Zaman Makinesi ( Time Machine ) tamamen senkronizasyonla ilgilidir. Mumları hacim göstergeleriyle eşleştirmek veya Ticaret Stratejiniz (Trading Strategy) tarafından bir satın alma emrinin tam olarak ne zaman verildiğini belirlemek için, bir zaman makinesi Grafik Alanındaki (Charting Space) en iyi arkadaşınızdır.",
+                    "updated": 1642584547333
                 }
             ]
         },
@@ -62,13 +72,18 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Одна машина времени (Time Machine) в пространстве дизайна (Design Space) будет отображаться как один блок или набор диаграмм в пространстве диаграмм (Charting Space).",
+                    "text": "Одна машина времени (Time Machine) в пространстве проектирования (Design Space) будет отображаться как один блок или набор диаграмм в пространстве диаграмм (Charting Space).",
                     "updated": 1637938426322
                 },
                 {
                     "language": "DE",
                     "text": "Eine Time Machine im Design Space wird als eine Box oder ein Set von Charts im Charting Space angezeigt.",
                     "updated": 1639103510583
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Tasarım alanındaki (Design Space) bir Zaman Makinesi (Time Machine), grafik alanında (Charting Space) bir kutu veya çizelge kümesi olarak görüntülenir.",
+                    "updated": 1642584687935
                 }
             ]
         },

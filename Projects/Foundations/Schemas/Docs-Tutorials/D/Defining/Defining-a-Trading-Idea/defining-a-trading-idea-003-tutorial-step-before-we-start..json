@@ -20,6 +20,11 @@
                 "updated": 1639251358018
             },
             {
+                "language": "RU",
+                "text": "Позвольте мне проинформировать вас о некоторых вопросах, которые вы должны рассмотреть до того, как мы начнем!",
+                "updated": 1640887553284
+            },
+            {
                 "language": "TR",
                 "text": "Özet: Başlamadan önce göz önünde bulundurmanız gereken birkaç konuda size bilgi vereyim!",
                 "updated": 1640859451125
@@ -42,6 +47,11 @@
                     "updated": 1639251394203
                 },
                 {
+                    "language": "RU",
+                    "text": "Воспринимайте любую информацию, связанную с торговлей, так, как она того стоит! Когда я делюсь торговыми концепциями, принимайте их с долей сомнения! Я всего лишь учебник, а не ваш финансовый советник! Я здесь для того, чтобы ознакомить вас с Superalgos, а не для того, чтобы рассказать вам, как торговать! Если вы не являетесь трейдером, вы можете почерпнуть что-то ценное, но всегда убедитесь, что вы провели собственное исследование!",
+                    "updated": 1640887702909
+                },
+                {
                     "language": "TR",
                     "text": "Ne kadar değerli olursa olsun, ticaretle ilgili her bir bilgiyi alın! Ticaret kavramlarını paylaştığımda, onları en küçük zerresine kadar aklınıza kazıyın! Ben sadece bir öğreticiyim, mali danışmanın değil! Buraya size Superalgo'u öğretmeye geldim, nasıl takas yapılacağını söylemeye değil! Bir tüccar değilseniz, değerli bir şey alabilirsiniz, ancak her zaman kendi araştırmanızı yaptığınızdan emin olun!",
                     "updated": 1640862680133
@@ -61,6 +71,11 @@
                     "language": "DE",
                     "text": "Dieses Tutorial ist für ein breites Publikum gedacht! Ich werde es einfach halten und die Konzepte so darlegen, dass jeder sie verstehen kann. Wenn Sie ein erfahrener Händler sind, werden Sie vielleicht das Gefühl haben, dass einige Erklärungen zu grundlegend sind. In diesem Fall können Sie diesen Lehrgang überspringen und zum nächsten der Reihe übergehen.",
                     "updated": 1639251376690
+                },
+                {
+                    "language": "RU",
+                    "text": "Этот учебник рассчитан на широкую аудиторию! Я не буду торопиться и изложу концепции так, чтобы каждый мог их понять. Если вы опытный трейдер, вам может показаться, что некоторые объяснения слишком просты. В таком случае смело пропускайте этот урок и переходите к следующему в этой серии.",
+                    "updated": 1640887728309
                 },
                 {
                     "language": "TR",

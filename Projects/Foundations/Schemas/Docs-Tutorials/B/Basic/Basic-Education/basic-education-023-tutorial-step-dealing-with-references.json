@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "Referanslar, bir düğümün, alakasız başka bir düğüm hakkında nasıl bilgi edinebileceğini göstermenin bir yoludur. Bu çok önemli bir kavramdır, bu yüzden dikkat edin!",
                 "updated": 1639485293172
+            },
+            {
+                "language": "RU",
+                "text": "Ссылки (References) - это способ, с помощью которого узел может получить информацию о другом, не связанном с ним узле. Это очень важная концепция, поэтому будьте внимательны!",
+                "updated": 1640868992374
             }
         ]
     },
@@ -61,6 +66,11 @@
                     "language": "TR",
                     "text": "Bu sayfayı dikkatlice okuyun! Eğer bir geliştirici değilseniz, işin içine girene kadar iki kez okumak isteyebilirsiniz!",
                     "updated": 1639485321908
+                },
+                {
+                    "language": "RU",
+                    "text": "Внимательно прочитайте эту страницу! Если вы не являетесь разработчиком, возможно, вам захочется прочитать ее дважды, пока все не усвоится!",
+                    "updated": 1640869009641
                 }
             ]
         },
@@ -90,6 +100,11 @@
                     "language": "TR",
                     "text": "Özetle, referanslar...",
                     "updated": 1639485347952
+                },
+                {
+                    "language": "RU",
+                    "text": "Короче говоря, ссылки...",
+                    "updated": 1640869032650
                 }
             ]
         },
@@ -119,6 +134,11 @@
                     "language": "TR",
                     "text": "yön (direction): giden veya gelen.",
                     "updated": 1639485384474
+                },
+                {
+                    "language": "RU",
+                    "text": "направление: исходящее или входящее,",
+                    "updated": 1640869047240
                 }
             ]
         },
@@ -147,6 +167,11 @@
                     "language": "TR",
                     "text": "kapsam (scope): dahili veya harici.",
                     "updated": 1639485415731
+                },
+                {
+                    "language": "RU",
+                    "text": "и область применения: внутренняя или внешняя.",
+                    "updated": 1640869062653
                 }
             ]
         },
@@ -176,6 +201,11 @@
                     "language": "TR",
                     "text": "Daha sonraki kavram —bir referansın kapsamı— Yedeklemeler ( Backups ) ve Klonlar ( Clones ) arasındaki farkları anlamak için çok önemlidir.",
                     "updated": 1639485464835
+                },
+                {
+                    "language": "RU",
+                    "text": "Последнее понятие - объем ссылки - имеет решающее значение для понимания различий между резервными копиями (Backups) и клонами (Clones).",
+                    "updated": 1640869114024
                 }
             ]
         }

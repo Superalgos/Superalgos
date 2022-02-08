@@ -19,6 +19,16 @@
                 "language": "DE",
                 "text": "Stellen Sie einen Verweis vom Knoten Market Base Asset im soeben definierten Market auf den entsprechenden Asset Knoten unter Exchange Assets her.",
                 "updated": 1635832090712
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Az önce tanımladığınız Market'teki Market Base Asset düğümünü, Exchange Assets altındaki ilgili Varlık düğümüne yönlendirin.",
+                "updated": 1642147781613
+            },
+            {
+                "language": "RU",
+                "text": "Установите ссылку от узла Market Base Asset на только что определенном рынке к соответствующему узлу Asset, определенному в разделе Exchange Assets.",
+                "updated": 1643090538100
             }
         ]
     },
@@ -37,6 +47,16 @@
                     "language": "DE",
                     "text": "Wenn Sie mit der Erstellung von Verweisen nicht vertraut sind, lesen Sie bitte in der Dokumentation über dieses Thema.",
                     "updated": 1635832150842
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bağlantı oluşturma konusunda bilginiz yoksa, lütfen bu konudaki belgelere bakın.",
+                    "updated": 1642147983857
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы не знакомы с созданием ссылок, пожалуйста, прочитайте об этом в документации.",
+                    "updated": 1643090547251
                 }
             ]
         }

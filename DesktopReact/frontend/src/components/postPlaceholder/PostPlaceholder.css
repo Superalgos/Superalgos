@@ -1,9 +1,10 @@
 .postPlaceholder {
-    width: 40rem;
+    min-width: 20rem;
+    max-width: 40rem;
 }
 
 .postPlaceholderContainer {
-    min-width: 100%;
+    min-width: 60%;
     max-width: 100%;
 }
 
@@ -22,7 +23,6 @@
 
 .postPlaceholderInputBox {
     width: auto;
-    padding: 0.5rem 0.5rem 0rem;
 }
 
 .postFeedAccountCircle {
@@ -39,4 +39,5 @@
 .postPlaceholderButton {
     height: 1.5rem;
     width: 5rem;
+    border-radius: 20px !important;
 }

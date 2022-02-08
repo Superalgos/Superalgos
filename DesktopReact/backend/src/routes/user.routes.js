@@ -4,23 +4,35 @@ const userController = require('../controllers/users.controller');
 const router = express.Router();
 
 router
-  .route('/profiles')
-  .get(userController.getProfiles);
+  .route('/social-persona')
+  .get(userController.getSocialPersonaId);
 
 router
   .route('/follow')
   .post(userController.follow);
 
-  router
+router
   .route('/profile')
-  .get(userController.getProfile);
+  .get(userController.loadProfile);
 
 router
   .route('/profile')
-  .post(userController.editProfile);
+  .post(userController.saveProfile);
 
-  router
+router
   .route('/paginate-profiles')
   .post(userController.paginateProfiles)
+
+router
+  .route('/create-profile')
+  .post(userController.createProfile)
+
+router
+  .route('/social-entities')
+  .get(userController.listSocialEntities)
+
+router
+  .route('/social-entities')
+  .post(userController.createSocialPersona)
 
 module.exports = router;

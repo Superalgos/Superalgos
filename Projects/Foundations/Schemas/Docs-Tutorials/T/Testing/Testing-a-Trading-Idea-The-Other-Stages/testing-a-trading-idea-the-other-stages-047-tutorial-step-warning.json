@@ -14,6 +14,16 @@
                 "language": "DE",
                 "text": "Ich sehe drei Warnzeichen am 28. Februar bei der 9-Stunden-Kerze. Wir sollten einen Blick darauf werfen und sehen, worum es bei den Warnungen geht!",
                 "updated": 1639418492593
+            },
+            {
+                "language": "TR",
+                "text": "Özet: 28 Şubat'ta 9 saatlik mumun yanında üç uyarı işareti görüyorum. Bir göz atalım ve uyarıların neyle ilgili olduğunu bakalım!",
+                "updated": 1641802351404
+            },
+            {
+                "language": "RU",
+                "text": "Я вижу три предупреждающих знака 28 февраля на свече 9 hs. Мы должны взглянуть и посмотреть, о чем предупреждения!",
+                "updated": 1642944255263
             }
         ]
     },
@@ -27,6 +37,16 @@
                     "language": "DE",
                     "text": "Wie bei den Fehlern zeigen die Anzahl und Größe der Kugeln die Reihenfolge an, in der die Warnungen aufgezeichnet wurden!",
                     "updated": 1639418505817
+                },
+                {
+                    "language": "TR",
+                    "text": "Hatalarda olduğu gibi, topların sayısı ve büyüklüğü uyarıların kaydedildiği sırayı gösterir!",
+                    "updated": 1641802363702
+                },
+                {
+                    "language": "RU",
+                    "text": "Как и в случае с ошибками, количество и размер знаков указывают на последовательность, в которой были записаны предупреждения!",
+                    "updated": 1642944292557
                 }
             ]
         },
@@ -39,6 +59,16 @@
                     "language": "DE",
                     "text": "Berühren Sie mit der Maus das erste Warnsymbol, das größere, am 28. Februar um 10 Uhr...",
                     "updated": 1639418515060
+                },
+                {
+                    "language": "TR",
+                    "text": "28 Şubat'ta sabah saat 10.00'da, daha büyük olan ilk uyarı sembolüne fareyi kullanarak dokunun.",
+                    "updated": 1641802373941
+                },
+                {
+                    "language": "RU",
+                    "text": "Коснитесь мышкой первой предупреждающего значка, большего по размеру, 28 февраля в 10 часов...",
+                    "updated": 1642944335633
                 }
             ]
         },
@@ -51,6 +81,16 @@
                     "language": "DE",
                     "text": "Warnungen werden immer dann erstellt, wenn der Trading-Bot Anpassungen an Informationen vornimmt, die sonst nicht offensichtlich wären. Es ist wie ein ausführlicher Modus, den der Bot verwendet, um eine Spur seiner Aktionen zu hinterlassen.",
                     "updated": 1639418522492
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Ticaret botu, açık olmayacak bilgilerde ayarlamalar yaptığında uyarılar verilir. Botun eylemlerinin izini bırakmak için kullandığı ayrıntılı bir mod gibidir.",
+                    "updated": 1641802382655
+                },
+                {
+                    "language": "RU",
+                    "text": "Предупреждения создаются каждый раз, когда торговый бот вносит коррективы в информацию, которая в противном случае не была бы очевидной. Это похоже на многословный режим, который бот использует, чтобы оставить след своих действий.",
+                    "updated": 1642944353816
                 }
             ]
         }

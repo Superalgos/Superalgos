@@ -4,13 +4,27 @@
     "type": "Messari API Map",
     "definition": {
         "text": "The current Messari API Map accesses the following endpoints of the Messari API.",
-        "updated": 1623016798805
+        "updated": 1623016798805,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Текущая карта Messari API Map обеспечивает доступ к следующим конечным точкам Messari API.",
+                "updated": 1643527280638
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Documentation for the Messari API can be found at the following link:",
-            "updated": 1623016832972
+            "updated": 1623016832972,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Документацию по Messari API можно найти по следующей ссылке:",
+                    "updated": 1643527293538
+                }
+            ]
         },
         {
             "style": "Link",
@@ -20,7 +34,14 @@
         {
             "style": "Text",
             "text": "The base request URL is:",
-            "updated": 1623016916374
+            "updated": 1623016916374,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Базовый URL-адрес запроса:",
+                    "updated": 1643527309254
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -29,7 +50,14 @@
         {
             "style": "Title",
             "text": "Mapped Endpoints",
-            "updated": 1623017084118
+            "updated": 1623017084118,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сопоставленные конечные точки",
+                    "updated": 1643527323386
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -43,7 +71,14 @@
         {
             "style": "Text",
             "text": "Get all available quantitative metrics for current asset.",
-            "updated": 1623017262818
+            "updated": 1623017262818,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Получение всех доступных количественных показателей для текущего актива.",
+                    "updated": 1643527339600
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -52,7 +87,14 @@
         {
             "style": "List",
             "text": "elapsed: Number of milliseconds taken to generate this response.",
-            "updated": 1623019719259
+            "updated": 1623019719259,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "elapsed: Количество миллисекунд, необходимое для генерации этого ответа.",
+                    "updated": 1643527364315
+                }
+            ]
         },
         {
             "style": "Text",
@@ -61,107 +103,254 @@
         {
             "style": "List",
             "text": "timestamp: Current timestamp (ISO 8601) on the server.",
-            "updated": 1623017513914
+            "updated": 1623017513914,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "timestamp: Текущая временная метка (ISO 8601) на сервере.",
+                    "updated": 1643527375121
+                }
+            ]
         },
         {
             "style": "List",
             "text": "id: identifier of current asset.",
-            "updated": 1623017679361
+            "updated": 1623017679361,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "id: идентификатор текущего актива.",
+                    "updated": 1643527400287
+                }
+            ]
         },
         {
             "style": "List",
             "text": "symbol: The commonly accepted \"symbol\" for an asset.",
-            "updated": 1623017708291
+            "updated": 1623017708291,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "symbol: Общепринятый \"symbol\" для актива.",
+                    "updated": 1643527423521
+                }
+            ]
         },
         {
             "style": "List",
             "text": "name: Name of asset.",
-            "updated": 1623017721425
+            "updated": 1623017721425,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "name: Название актива.",
+                    "updated": 1643527431678
+                }
+            ]
         },
         {
             "style": "List",
             "text": "slug: Web URL friendly shorthand slug, alternative to ID.",
-            "updated": 1623017759520
+            "updated": 1623017759520,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "slug: Дружественное сокращенное обозначение веб-адреса, альтернатива ID.",
+                    "updated": 1643527446948
+                }
+            ]
         },
         {
             "style": "List",
             "text": "price_usd: Market price in USD.",
-            "updated": 1623019895224
+            "updated": 1623019895224,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "price_usd: Рыночная цена в USD.",
+                    "updated": 1643527458010
+                }
+            ]
         },
         {
             "style": "List",
             "text": "price_btc: Market price in BTC.",
-            "updated": 1623019925906
+            "updated": 1623019925906,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "price_btc: Рыночная цена в BTC.",
+                    "updated": 1643527466146
+                }
+            ]
         },
         {
             "style": "List",
             "text": "volume_last_24_hours: 24h trading volume in USD.",
-            "updated": 1623019946052
+            "updated": 1623019946052,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "volume_last_24_hours: Объем торгов за 24 часа в USD.",
+                    "updated": 1643527479763
+                }
+            ]
         },
         {
             "style": "List",
             "text": "real_volume_last_24_hours: 24h \"real\" trading volume in USD, read more here: https://messari.io/article/messari-methodology.",
-            "updated": 1623019966494
+            "updated": 1623019966494,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "real_volume_last_24_hours: 24-часовой \"реальный\" объем торгов в USD, подробнее читайте здесь: https://messari.io/article/messari-methodology.",
+                    "updated": 1643527497507
+                }
+            ]
         },
         {
             "style": "List",
             "text": "volume_last_24_hours_overstatement_multiple: 24h trading volume in USD.",
-            "updated": 1623019998323
+            "updated": 1623019998323,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "volume_last_24_hours_overstatement_multiple: Объем торгов за 24 часа в долларах США.",
+                    "updated": 1643527505688
+                }
+            ]
         },
         {
             "style": "List",
             "text": "percent_change_usd_last_24_hours: 24h percent change of USD-denominated price. If the return value is 1.23, it means 1.23%.",
-            "updated": 1623020015637
+            "updated": 1623020015637,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "percent_change_usd_last_24_hours: 24-часовое процентное изменение цены, деноминированной в USD. Если возвращаемое значение равно 1,23, это означает 1,23%.",
+                    "updated": 1643527529476
+                }
+            ]
         },
         {
             "style": "List",
             "text": "percent_change_btc_last_24_hours: 24h percent change of BTC-denominated price. If the return value is 1.23, it means 1.23%.",
-            "updated": 1623020029901
+            "updated": 1623020029901,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "percent_change_btc_last_24_hours: 24-часовое процентное изменение цены, деноминированной в BTC. Если возвращаемое значение равно 1,23, это означает 1,23%.",
+                    "updated": 1643527542304
+                }
+            ]
         },
         {
             "style": "List",
             "text": "ohlcv_last_1_hour: Last one hour candle for current asset.",
-            "updated": 1623020085197
+            "updated": 1623020085197,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "ohlcv_last_1_hour: Последняя часовая свеча для текущего актива.",
+                    "updated": 1643527552436
+                }
+            ]
         },
         {
             "style": "List",
             "text": "ohlcv_last_24_hour: Last 24h candle for current asset.",
-            "updated": 1623020119322
+            "updated": 1623020119322,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "ohlcv_last_24_hour: Последняя 24-часовая свеча для текущего актива.",
+                    "updated": 1643527563129
+                }
+            ]
         },
         {
             "style": "List",
             "text": "supply-> y_2050: The expected supply on Jan 1 2050.",
-            "updated": 1623020285674
+            "updated": 1623020285674,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "supply-> y_2050: Ожидаемое предложение на 1 января 2050 года.",
+                    "updated": 1643527574173
+                }
+            ]
         },
         {
             "style": "List",
             "text": "supply-> y_2050_percent_issued: The percentage of the Y2050 supply which has already been issued.",
-            "updated": 1623020280999
+            "updated": 1623020280999,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "supply-> y_2050_percent_issued: Процент уже выпущенного в обращение объема предложения Y2050.",
+                    "updated": 1643527624121
+                }
+            ]
         },
         {
             "style": "List",
             "text": "supply_yplus_10: The expected supply 10 years from now.",
-            "updated": 1623020326848
+            "updated": 1623020326848,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "supply_yplus_10: Ожидаемое предложение через 10 лет.",
+                    "updated": 1643527633092
+                }
+            ]
         },
         {
             "style": "List",
             "text": "supply-> y_plus10_issued_percent: Tthe percent of the Y+10 supply that's currently liquid on the market today.",
-            "updated": 1623020414095
+            "updated": 1623020414095,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "supply-> y_plus10_issued_percent: Процент предложения Y+10, который сегодня ликвиден на рынке.",
+                    "updated": 1643527645758
+                }
+            ]
         },
         {
             "style": "List",
             "text": "supply-> liquid: Liquid Supply refers to tokens that exist on-chain, and which are not known to be encumbered by any contracts (programmatic or legal). Data is sourced by the Messari research team where available.",
-            "updated": 1623020418907
+            "updated": 1623020418907,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "supply-> liquid: Текущее предложение (Liquid Supply) относится к токенам, которые существуют на цепочке, и которые, как известно, не обременены никакими контрактами (программными или юридическими). Данные получены от исследовательской группы Messari, где это возможно.",
+                    "updated": 1643527819802
+                }
+            ]
         },
         {
             "style": "List",
             "text": "supply-> circulating: Circulating Supply refers to tokens that exist on-chain, and which are not known to be encumbered by any contracts (programmatic or legal).",
-            "updated": 1623020423068
+            "updated": 1623020423068,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "supply-> circulating: Циркулирующее предложение (Circulating Supply) относится к токенам, которые существуют на цепочке и которые, как известно, не обременены никакими контрактами (программными или юридическими).",
+                    "updated": 1643527695254
+                }
+            ]
         },
         {
             "style": "List",
             "text": "supply-> stock_to_flow: Stock to Flow is calculated by taking the Liquid Supply today and dividing by the projected 12month increase in Liquid Supply. This is essentially the inverse of Current Inflation. The value is null for assets with fixed or decreasing Liquid Supply.",
-            "updated": 1623020439797
+            "updated": 1623020439797,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "supply-> stock_to_flow: Stock to Flow рассчитывается путем взятия сегодняшнего предложения жидкости и деления на прогнозируемый 12-месячный рост предложения жидкости. По сути, это обратная величина текущей инфляции (Current Inflation). Значение равно нулю для активов с фиксированным или уменьшающимся Liquid Supply.",
+                    "updated": 1643527882228
+                }
+            ]
         },
         {
             "style": "List",
@@ -231,22 +420,50 @@
         {
             "style": "List",
             "text": "all_time_high-> price: The highest hourly open of the asset in USD.",
-            "updated": 1623020724372
+            "updated": 1623020724372,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "all_time_high-> price: Наибольшее часовое открытие актива в USD.",
+                    "updated": 1643527910801
+                }
+            ]
         },
         {
             "style": "List",
             "text": "all_time_high-> at: ISO8601 timestamp of the date which the asset reached its all time high.",
-            "updated": 1623020739786
+            "updated": 1623020739786,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "all_time_high-> at: Временная метка ISO8601 даты, когда актив достиг своего исторического максимума.",
+                    "updated": 1643527920240
+                }
+            ]
         },
         {
             "style": "List",
             "text": "all_time_high-> days_since: Days since the asset's recorded all time high.",
-            "updated": 1623020755609
+            "updated": 1623020755609,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "all_time_high-> days_since: Дни с момента достижения активом исторического максимума.",
+                    "updated": 1643527927544
+                }
+            ]
         },
         {
             "style": "List",
             "text": "all_time_high-> percent_down: Percent that the current asset is down from all time high.",
-            "updated": 1623020782349
+            "updated": 1623020782349,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "all_time_high-> percent_down: Процент, на который текущий актив упал с исторического максимума.",
+                    "updated": 1643527936887
+                }
+            ]
         },
         {
             "style": "List",
@@ -331,12 +548,26 @@
         {
             "style": "Javascript",
             "text": "news",
-            "updated": 1623017985081
+            "updated": 1623017985081,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "новости",
+                    "updated": 1643527947788
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Get the latest (paginated) news and analysis for all assets.",
-            "updated": 1623018013665
+            "updated": 1623018013665,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Получайте последние (постраничные) новости и аналитические материалы по всем активам.",
+                    "updated": 1643527970887
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -345,62 +576,146 @@
         {
             "style": "List",
             "text": "timestamp: Current timestamp (ISO 8601) on the server.",
-            "updated": 1623019062328
+            "updated": 1623019062328,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "timestamp: Текущая временная метка (ISO 8601) на сервере.",
+                    "updated": 1643527979107
+                }
+            ]
         },
         {
             "style": "List",
             "text": "elapsed: Number of milliseconds taken to generate this response",
-            "updated": 1623019084220
+            "updated": 1623019084220,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "elapsed: Количество миллисекунд, необходимых для генерации данного ответа",
+                    "updated": 1643527991464
+                }
+            ]
         },
         {
             "style": "List",
             "text": "id: identifier for current article.",
-            "updated": 1623019168164
+            "updated": 1623019168164,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "id: идентификатор для текущей статьи.",
+                    "updated": 1643528010333
+                }
+            ]
         },
         {
             "style": "List",
             "text": "title: Title of current article.",
-            "updated": 1623019183222
+            "updated": 1623019183222,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "title: Название текущей статьи.",
+                    "updated": 1643528018588
+                }
+            ]
         },
         {
             "style": "List",
             "text": "content: Content of current article.",
-            "updated": 1623019201030
+            "updated": 1623019201030,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "content: Содержание данной статьи.",
+                    "updated": 1643528024580
+                }
+            ]
         },
         {
             "style": "List",
             "text": "references-> name: Name of cited material.",
-            "updated": 1623020299082
+            "updated": 1623020299082,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "references-> name: Название цитируемого материала.",
+                    "updated": 1643528030648
+                }
+            ]
         },
         {
             "style": "List",
             "text": "references-> url: URL of cited material.",
-            "updated": 1623020303521
+            "updated": 1623020303521,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "references-> url: URL цитируемого материала.",
+                    "updated": 1643528037465
+                }
+            ]
         },
         {
             "style": "List",
             "text": "reference_title: Shortened title of currrent article.",
-            "updated": 1623019361980
+            "updated": 1623019361980,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "reference_title: Сокращенное название текущей статьи.",
+                    "updated": 1643528044869
+                }
+            ]
         },
         {
             "style": "List",
             "text": "published_at: Time current article was published.",
-            "updated": 1623019395108
+            "updated": 1623019395108,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "published_at: Время публикации статьи.",
+                    "updated": 1643528052754
+                }
+            ]
         },
         {
             "style": "List",
             "text": "author-> name: Name of article's author.",
-            "updated": 1623020308899
+            "updated": 1623020308899,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "author-> name: Имя автора статьи.",
+                    "updated": 1643528065175
+                }
+            ]
         },
         {
             "style": "List",
             "text": "tags: Tags associated with current article. Such as \"BTC.\"",
-            "updated": 1623019588064
+            "updated": 1623019588064,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "tags: Теги, связанные с текущей статьей. Например, \"BTC\".",
+                    "updated": 1643528074140
+                }
+            ]
         },
         {
             "style": "List",
             "text": "url: URL to current article.",
-            "updated": 1623019678774
+            "updated": 1623019678774,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "url: URL-адрес текущей статьи.",
+                    "updated": 1643528081595
+                }
+            ]
         },
         {
             "style": "Text",

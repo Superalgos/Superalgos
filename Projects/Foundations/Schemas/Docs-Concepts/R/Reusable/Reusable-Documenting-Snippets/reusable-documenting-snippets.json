@@ -1,0 +1,154 @@
+{
+    "type": "Reusable Documenting Snippets",
+    "definition": {
+        "text": "This page features snippets of content used in sections explaining how documenting works.",
+        "updated": 1642953495098
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "The Quest for Quality",
+            "updated": 1642954340314
+        },
+        {
+            "style": "Title",
+            "text": "The Quest for Quality"
+        },
+        {
+            "style": "Text",
+            "text": "At Superalgos, we take pride in the quality of the product we are building. Documentation and tutorials are crucial parts of Superalgos."
+        },
+        {
+            "style": "Text",
+            "text": "That said, we understand that it takes time and effort to get to a quality product, thus iterating on early prototypes and implementing early-stage feedback is a good way to achieve the desired quality standards."
+        },
+        {
+            "style": "Success",
+            "text": "When you write documentation or build a tutorial for Superalgos, you become the maintainer of what you've created. It is your responsibility to keep the material up to date with the system, and to implement the feedback users may share! Your material must become the ultimate resource to learn the topics it covers.",
+            "updated": 1642954422784
+        },
+        {
+            "style": "Block",
+            "text": "Use Precise Language"
+        },
+        {
+            "style": "Title",
+            "text": "Use Precise Language"
+        },
+        {
+            "style": "Text",
+            "text": "The ultimate goal of documentation and tutorials is to provide users with a hands-on learning experience covering topics in detail. In general terms, we know the material is good — or has reached a mature state — when users ask no questions about it in the Support Group."
+        },
+        {
+            "style": "Text",
+            "text": "Be precise and unequivocal with language. Read your writing over and over in search of phrases that may not be easily understood, or that may be interpreted in different ways. Improve the sentences to make them as clear as possible. Remember, the less clear your writing is, the more questions we have in the Support Group."
+        },
+        {
+            "style": "Success",
+            "text": "Be prepared to iterate over and over until the material stabilizes. That will happen when there are no more questions about the topic in the Support Group!",
+            "updated": 1642954433441
+        },
+        {
+            "style": "Block",
+            "text": "Alternating Colors"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Alternating Colors"
+        },
+        {
+            "style": "Text",
+            "text": "Colorful pages look great, while white pages full of text are harder to follow. Make sure you break the monotony with the four different styles of boxes:"
+        },
+        {
+            "style": "Success",
+            "text": "This is great for additional tips.",
+            "updated": 1642954480940
+        },
+        {
+            "style": "Note",
+            "text": "Use this every once in a while to break up otherwise large sections of plain text.",
+            "updated": 1642954485946
+        },
+        {
+            "style": "Important",
+            "text": "Leave this box for the truly important stuff. Things you don't want users to overlook or forget.",
+            "updated": 1642954491763
+        },
+        {
+            "style": "Warning",
+            "text": "And this one, save it for real warnings. Things that may represent a threat or risk.",
+            "updated": 1642954496973
+        },
+        {
+            "style": "Block",
+            "text": "Tooltips"
+        },
+        {
+            "style": "Title",
+            "text": "Tooltips"
+        },
+        {
+            "style": "Text",
+            "text": "The system recognizes the name of all entities that have a Docs Page when the name of the entity is written in title case. When that happens, the system automatically creates a tooltip for the phrase. This is a valuable resource, as it provides context that you don't need to explain."
+        },
+        {
+            "style": "Text",
+            "text": "Make sure you use this resource wisely, as too many tooltips on a single page may be overwhelming, and probably irrelevant."
+        },
+        {
+            "style": "Success",
+            "text": "When you believe the tooltip is relevant, then write the name of the entity in title case. If the tooltip is not relevant, then write the name of the entity in lower case.",
+            "updated": 1642954513330
+        },
+        {
+            "style": "Block",
+            "text": "Proper English"
+        },
+        {
+            "style": "Title",
+            "text": "Proper English"
+        },
+        {
+            "style": "Text",
+            "text": "There are at least two reasons why it's desirable to have spell and grammar-checked content:"
+        },
+        {
+            "style": "List",
+            "text": "Proper language speaks to the quality of the product."
+        },
+        {
+            "style": "List",
+            "text": "Users who don't speak English may be using online translators, which perform well only when they have a proper source."
+        },
+        {
+            "style": "Important",
+            "text": "Always use a grammar and spell-checker to make sure your content is as correct as it may be!",
+            "updated": 1642954538110
+        },
+        {
+            "style": "Block",
+            "text": "Title Case",
+            "updated": 1642954558893
+        },
+        {
+            "style": "Title",
+            "text": "Title Case",
+            "updated": 1642954569250
+        },
+        {
+            "style": "Text",
+            "text": "Always use proper title case for titles. But, what exactly is proper title case? Let's agree to the standard proposed on this blog post:"
+        },
+        {
+            "style": "Link",
+            "text": "Capitalization of titles 101->www.grammarcheck.net/capitalization-in-titles-101/",
+            "updated": 1642954985868
+        },
+        {
+            "style": "Success",
+            "text": "Titles look best when they span a single line. Use two-line titles only if strictly necessary!",
+            "updated": 1642954586605
+        }
+    ]
+}

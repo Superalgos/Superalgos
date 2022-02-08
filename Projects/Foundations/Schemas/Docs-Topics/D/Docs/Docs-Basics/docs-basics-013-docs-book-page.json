@@ -3,8 +3,8 @@
     "pageNumber": 13,
     "type": "Docs Book Page",
     "definition": {
-        "text": "A book is a collection of topics, each representing a chapter in the book.",
-        "updated": 1613756750385,
+        "text": "A book is a collection of topics, each representing a chapter in the book. The purpose of a book is to offer a compendium of information optimized for linear reading, from start to end, usually covering an entire Project.",
+        "updated": 1643046016794,
         "translations": [
             {
                 "language": "DE",

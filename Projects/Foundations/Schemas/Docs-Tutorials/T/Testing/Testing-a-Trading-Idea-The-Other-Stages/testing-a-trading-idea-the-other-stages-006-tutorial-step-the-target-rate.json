@@ -13,6 +13,16 @@
                 "language": "DE",
                 "text": "Wie ich bereits sagte, ist die Target Rate  ein Konzept, das eine gewisse Tiefe aufweist, aber wir wollen es vorerst einfach halten!",
                 "updated": 1639395364013
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Daha önce de söylediğim gibi, hedef oran ( Target Rate ) biraz derinliği olan bir kavram ama şimdilik basit tutalım!",
+                "updated": 1641668146367
+            },
+            {
+                "language": "RU",
+                "text": "Как я уже говорил ранее, Target Rate - это концепция, которая подразумевает некоторую глубину, но пока мы будем придерживаться простого подхода!",
+                "updated": 1642776849154
             }
         ]
     },
@@ -25,6 +35,16 @@
                     "language": "DE",
                     "text": "Die Target Rate dient mehreren Zwecken. An dieser Stelle werden wir uns auf einen davon konzentrieren:",
                     "updated": 1639395456334
+                },
+                {
+                    "language": "TR",
+                    "text": "Hedef oran birkaç amaca hizmet eder. Bu noktada bunlardan birine odaklanacağız:",
+                    "updated": 1641668162353
+                },
+                {
+                    "language": "RU",
+                    "text": "Целевая ставка служит нескольким целям. На данном этапе мы сосредоточимся на одной из них:",
+                    "updated": 1642776868099
                 }
             ]
         },
@@ -36,6 +56,16 @@
                     "language": "DE",
                     "text": "Wir werden Target Rate als Referenzsatz verwenden.",
                     "updated": 1639395447151
+                },
+                {
+                    "language": "TR",
+                    "text": "Hedef oranı referans oranı olarak kullanacağız.",
+                    "updated": 1641668172504
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы будем использовать целевую ставку в качестве базовой ставки.",
+                    "updated": 1642776890212
                 }
             ]
         },
@@ -47,6 +77,16 @@
                     "language": "DE",
                     "text": "Später werden wir einen Marktauftrag einrichten, um die Position einzugehen. Marktaufträge geben jedoch per Definition keinen Kurs an, da sie zum aktuellen Marktpreis ausgeführt werden. Das System verwendet den von uns definierten Referenzkurs, um den Kurs für die Positionsübernahme in Simulationen zu markieren, und verwendet ihn auch als Ausgangspunkt für interne Berechnungen.",
                     "updated": 1639395463074
+                },
+                {
+                    "language": "TR",
+                    "text": "Daha sonra pozisyonu almak için bir piyasa emri oluşturacağız. Ancak, tanım gereği piyasa emirleri, cari piyasa fiyatından yürütüldükleri için bir fiyat göstermezler. Sistem, simülasyonlarda pozisyon transfer oranını işaretlemek için tanımladığımız referans oranını kullanır ve ayrıca dahili hesaplamalar için bir başlangıç ​​noktası olarak kullanır.",
+                    "updated": 1641668195120
+                },
+                {
+                    "language": "RU",
+                    "text": "Позже мы установим рыночный ордер для входа в позицию. Однако рыночные ордера по определению не указывают курс, поскольку они исполняются по текущей рыночной цене. Система будет использовать определенную нами базовую ставку для обозначения ставки взятия позиции в симуляциях, а также будет использовать ее в качестве отправной точки для внутренних расчетов.",
+                    "updated": 1642776923428
                 }
             ]
         }

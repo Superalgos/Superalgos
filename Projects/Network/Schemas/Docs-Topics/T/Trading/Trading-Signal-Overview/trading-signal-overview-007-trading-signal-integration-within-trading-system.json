@@ -1,0 +1,62 @@
+{
+    "topic": "Trading Signal Overview",
+    "pageNumber": 7,
+    "type": "Trading Signal Integration within Trading System",
+    "definition": {
+        "text": "Trading Signals intergrate seamlessly into Superalgos Trading Systems ",
+        "updated": 1642565193708
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The actual node structure of trading signals can be thought of as an extension of a Trading System. If you are unfamiliar with Trading Systems in Superalgos you can read this topic to learn more about how they work and what they can do.  ",
+            "updated": 1642565142346
+        },
+        {
+            "style": "Text",
+            "text": "Trading signals plug directly into Tradings Systems using two main nodes"
+        },
+        {
+            "style": "List",
+            "text": "Incoming Signals node"
+        },
+        {
+            "style": "List",
+            "text": "Outgoing Signals node"
+        },
+        {
+            "style": "Text",
+            "text": "These types of nodes have a child node called a Signal Reference node (Incoming Signal Reference and Outgoing Signal Reference respectively).  These Signal Reference nodes connect with the Social Trading Bots held under a provider’s profile in order to tell the system where to feed or receive signal data within the trading system."
+        },
+        {
+            "style": "Text",
+            "text": "Examples of how these nodes work is as follows:"
+        },
+        {
+            "style": "Text",
+            "text": "A provider wants to send a signal every time their trading system triggers on.  To achieve this they add an Outgoing Signal Node to their Trigger On Event (much like adding an announcement node).  Then they add the child Outgoing Signal Reference node.  After this they then connect the Outgoing Signal Reference node to the Trigger On Signal node of the Social Trading Bot that will be sending out this signal."
+        },
+        {
+            "style": "Text",
+            "text": "Receiving signals works very similarly. If a recipient wants to receive the Trigger On signal described above, then within their trading system they will add an Incoming Trading Signal node to their Trigger On event.  Then add the Incoming Signal Reference node as a child to it. Finally they will connect the Signal reference node to the same Trigger On Signal node of the Social Trading Bot Sending the signal under the provider’s profile. "
+        },
+        {
+            "style": "Text",
+            "text": "This method of routing signals works everywhere within the Trading System. Here is the list of available places to attach signals:"
+        },
+        {
+            "style": "Warning",
+            "text": "Include compatible attachment nodes here",
+            "updated": 1642565239257
+        },
+        {
+            "style": "Note",
+            "text": "Each of these locations to which signals can be attached also have matching Signals nodes available under Social Trading Bots.",
+            "updated": 1642565217447
+        },
+        {
+            "style": "Text",
+            "text": "An Incoming Signal node receives the signal information and then injects this data into a specific part of a trading system. This is achieved by connecting the Signal’s Reference node to the matching Signals node under the Social Trading Bot of the Provider."
+        }
+    ]
+}

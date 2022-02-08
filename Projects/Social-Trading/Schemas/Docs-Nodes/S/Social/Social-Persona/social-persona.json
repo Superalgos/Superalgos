@@ -1,0 +1,13 @@
+{
+    "type": "Social Persona",
+    "definition": {
+        "text": "The Social Persona node holds the definition for a profile to be used on the Superalgos Desktop app.",
+        "updated": 1643982084387
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Right click and select the pencil button to enter edit mode."
+        }
+    ]
+}

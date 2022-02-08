@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "Düğümün Yardım/Dokümanlar sayfasına erişmek için İşlem Parametreleri ( Trading Parameters ) düğümündeki yardım düğmesine tıklayın. Sana bir şey göstereceğim...",
                 "updated": 1636792560853
+            },
+            {
+                "language": "RU",
+                "text": "Нажмите кнопку справки на узле Trading Parameters, чтобы перейти на страницу документации узла. Я собираюсь показать вам кое-что...",
+                "updated": 1640868242738
             }
         ]
     },
@@ -61,6 +66,11 @@
                     "language": "TR",
                     "text": "\"Ticaret Parametreleri Ekleme Kuralları\" ( Trading Parameters Attaching Rules ) başlığını bulana kadar sayfayı sonuna kadar kaydırın.",
                     "updated": 1636792599389
+                },
+                {
+                    "language": "RU",
+                    "text": "Прокрутите страницу до самого низа, пока не найдете заголовок \"Правила присоединения торговых параметров\" (\"Trading Parameters Attaching Rules\").",
+                    "updated": 1640868520513
                 }
             ]
         },
@@ -90,6 +100,11 @@
                     "language": "TR",
                     "text": "Her düğüm belirli düğüm türlerine eklenebilir. Bu ekleme kuralları, Dokümanlar'da düğümün sayfasında listelenir.",
                     "updated": 1636792641639
+                },
+                {
+                    "language": "RU",
+                    "text": "Каждый узел может быть присоединен к определенным типам узлов. Эти правила присоединения перечислены на странице узла в документации.",
+                    "updated": 1640868549651
                 }
             ]
         },
@@ -119,6 +134,11 @@
                     "language": "TR",
                     "text": "Bağlantıyı kabul edebilecek birkaç düğüm olduğunda, her aday eki almaya hazır olduklarını belirten gri bir halka görüntüler. Yalnızca eklenecek düğüme daha yakın olan aday turuncu renkle vurgulanır.",
                     "updated": 1636792767216
+                },
+                {
+                    "language": "RU",
+                    "text": "Когда есть несколько узлов, которые могут принять соединение, каждый кандидат отображает серое кольцо, указывающее на его готовность принять присоединение. Только тот кандидат, который находится ближе к узлу, подлежащему присоединению, выделяется оранжевым цветом.",
+                    "updated": 1640868576676
                 }
             ]
         }

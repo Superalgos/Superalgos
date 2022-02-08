@@ -1,0 +1,86 @@
+{
+    "type": "Network Interfaces",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionProject": "Foundations",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "dontShowAtFullscreen": true,
+            "actionFunction": "uiObject.configEditor.activate"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "websocketsNetworkInterface",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Websockets Network Interface",
+            "relatedUiObject": "Websockets Network Interface",
+            "relatedUiObjectProject": "Network"
+        },  
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "webrtcNetworkInterface",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Webrtc Network Interface",
+            "relatedUiObject": "Webrtc Network Interface",
+            "relatedUiObjectProject": "Network"
+        },  
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "httpNetworkInterface",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Http Network Interface",
+            "relatedUiObject": "Http Network Interface",
+            "relatedUiObjectProject": "Network"
+        },       
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{}"
+    },
+    "addLeftIcons": true,
+    "level": 1,
+    "attachingRules": {
+        "compatibleTypes": "->P2P Network Node->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "websocketsNetworkInterface",
+            "type": "node",
+            "childType": "Websockets Network Interface",
+            "autoAdd": false
+        },
+        {
+            "name": "webrtcNetworkInterface",
+            "type": "node",
+            "childType": "Webrtc Network Interface",
+            "autoAdd": false
+        },        
+        {
+            "name": "httpNetworkInterface",
+            "type": "node",
+            "childType": "Http Network Interface",
+            "autoAdd": false
+        }
+    ],
+    "propertyNameAtParent": "networkInterfaces"
+}

@@ -5,8 +5,8 @@
         "translations": [
             {
                 "language": "DE",
-                "text": "Die Node für die offene Ausführung fasst alle execution algorithms (Ausführungsalgorithmen) zusammen, die an der Eröffnung einer Position beteiligt sind.",
-                "updated": 1639571784140
+                "text": "Der Open Execution Node fasst alle execution algorithms (Ausführungsalgorithmen) zusammen, die an der Eröffnung einer Position beteiligt sind.",
+                "updated": 1641668661073
             },
             {
                 "language": "RU",

@@ -1,0 +1,49 @@
+{
+    "topic": "The Art of Documenting",
+    "pageNumber": "1",
+    "type": "General Notions on Documenting",
+    "definition": {
+        "text": "The main challenge in producing collaborative documentation is in maintaining quality and consistency. Let's start with a few general guidelines that will help us set the tone for what's to come.",
+        "updated": 1642956159522
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Foundations->Concept->Reusable Documenting Snippets->The Quest for Quality"
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Concept->Reusable Documenting Snippets->Proper English"
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Concept->Reusable Documenting Snippets->Use Precise Language"
+        },
+        {
+            "style": "Title",
+            "text": "Beauty and Readability",
+            "updated": 1642962839272
+        },
+        {
+            "style": "Text",
+            "text": "The ultimate goal of the Docs is to provide the tools that enable everyone to become power users as soon as possible. Beyond clear and accessible content, the Docs must also be easy to read."
+        },
+        {
+            "style": "Callout",
+            "text": "Long pages of plain text are quite painful to read… and are ugly! Instead, alternating different kinds of paragraph styles help make pages nicer and easier to read. Use the callout style for paragraphs that offer key insights or revelations that make up the core of the topic in discussion."
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Concept->Reusable Documenting Snippets->Alternating Colors",
+            "updated": 1642962935227
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Concept->Reusable Documenting Snippets->Title Case"
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Concept->Reusable Documenting Snippets->Tooltips"
+        }
+    ]
+}

@@ -7,17 +7,68 @@
             "project": "Foundations",
             "name": "trigger-stage"
         },
-        "text": "We are going to go through the simulation and see if the definition we came up with has the expected results!"
+        "text": "We are going to go through the simulation and see if the definition we came up with has the expected results!",
+        "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wir werden nun die Simulation durchlaufen und sehen, ob die von uns erstellte Definition die erwarteten Ergebnisse bringt!",
+                    "updated": 1641763341271
+                }, 
+                {
+                    "language": "TR",
+                    "text": "Simülasyonu gözden geçireceğiz ve ortaya çıkan tanımın beklenen sonuçlara sahip olup olmadığına bakacağız!",
+                    "updated": 1641655373874
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы собираемся провести симуляцию и посмотреть, дает ли определение, которое мы придумали, ожидаемые результаты!",
+                    "updated": 1642655108942
+                }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
             "text": "Go to the Simulation Objects layer manager and turn on the \"Strategies\" and \"Trigger Stages\" layers.",
-            "updated": 1622487006173
+            "updated": 1622487006173,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Rufen Sie den Ebenenmanager für Simulationsobjekte auf und aktivieren Sie die Ebenen \"Strategies\" und \"Trigger Stages\".",
+                    "updated": 1641763368275
+                },
+                {
+                    "language": "TR",
+                    "text": "Simülasyon Nesneleri katman yöneticisine gidin, Strategies  ve Trigger Stages katmanlarını açın.",
+                    "updated": 1641655422767
+                },
+                {
+                    "language": "RU",
+                    "text": "Перейдите в менеджер слоев Simulation Objects и включите слои \"Strategies\" и \"Trigger Stages\".",
+                    "updated": 1642655130395
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "Do you see the two instances of strategies triggered between February 26th and April 2nd? Now, pan the charts to the right... You should see another two triggered between September 3rd - 23rd! The following step features a video of what you should see on the screen, just to make sure we're on the same page!"
+            "text": "Do you see the two instances of strategies triggered between February 26th and April 2nd? Now, pan the charts to the right... You should see another two triggered between September 3rd - 23rd! The following step features a video of what you should see on the screen, just to make sure we're on the same page!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sehen Sie die beiden Instanzen von Strategien, die zwischen dem 26. Februar und dem 2. April ausgelöst wurden? Schwenken Sie nun das Diagramm nach rechts... Sie sollten zwei weitere Auslöser zwischen dem 3. und 23. September sehen! Im folgenden Schritt sehen Sie in einem Video, was Sie auf dem Bildschirm sehen sollten, um sicherzustellen, dass wir auf der gleichen Seite sind!",
+                    "updated": 1641763377294
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: 26 Şubat ve 2 Nisan arasında tetiklenen iki strateji örneğini görüyor musunuz? Şimdi, çizelgeleri sağa kaydırın... 3 - 23 Eylül arasında tetiklenen iki tane daha görmelisiniz! Aşağıdaki adım, aynı sayfada olduğumuzdan emin olmak için ekranda görmeniz gerekenlerin bir videosunu içeriyor!",
+                    "updated": 1641655438338
+                },
+                {
+                    "language": "RU",
+                    "text": "Видите ли вы два случая срабатывания стратегий между 26 февраля и 2 апреля? Теперь переверните графики вправо... Вы должны увидеть еще две стратегии, сработавшие в период с 3 по 23 сентября! Чтобы убедиться, что мы находимся на одной и той же странице, на следующем шаге мы покажем вам видео, что вы должны увидеть на экране!",
+                    "updated": 1642655167714
+                }
+            ]
         }
     ]
 }

@@ -1,0 +1,34 @@
+{
+    "type": "Task Server App",
+    "definition": {
+        "text": "The Task Server App node allows a user to define an identity for a Task Server.",
+        "updated": 1643078111479
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1643078288954
+        },
+        {
+            "style": "Text",
+            "text": "Defining an identity for a task server allows the current User Profile to connect an instance of the Superalgos Platform to the Superalgos Peer to Peer Network."
+        },
+        {
+            "style": "Note",
+            "text": "This is achieved through the creation of a Signing Account."
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Title",
+            "text": "Properties"
+        },
+        {
+            "style": "List",
+            "text": "codeName: This property defines the chosen name for a User's task server app."
+        }
+    ]
+}

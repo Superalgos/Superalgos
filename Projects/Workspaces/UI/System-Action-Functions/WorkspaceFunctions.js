@@ -1,6 +1,7 @@
 function newWorkspacesSystemActionWorkspaceFunctions() {
     let thisObject = {
-        workspacesSubmenu: workspacesSubmenu
+        workspacesSubmenu: workspacesSubmenu,
+        collapseAllRootNodes: collapseAllRootNodes
     }
 
     return thisObject
@@ -41,5 +42,16 @@ function newWorkspacesSystemActionWorkspaceFunctions() {
             }
         }
         return subMenu
+    }
+
+    function collapseAllRootNodes() {
+        let rootNodes = UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode.rootNodes
+        for (let rootNode of rootNodes) {
+            if (rootNode.payload === undefined) { continue }
+            if (rootNode.payload.floatingObject === undefined) { continue }
+            if (rootNode.payload.floatingObject.isCollapsed !== true) {
+                rootNode.payload.floatingObject.collapseToggle()
+            }
+        }
     }
 }

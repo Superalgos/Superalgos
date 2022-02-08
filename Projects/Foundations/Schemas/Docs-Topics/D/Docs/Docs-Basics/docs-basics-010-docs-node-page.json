@@ -3,8 +3,8 @@
     "pageNumber": 10,
     "type": "Docs Node Page",
     "definition": {
-        "text": "Each Node defined in the context of a Project features a Docs Node Page explaining what the Node is and how it is used.",
-        "updated": 1613756218722,
+        "text": "Each Node defined in the context of a Project features a Docs Node Page, also refered to as a definition page, explaining what the Node is and how it is used.",
+        "updated": 1643045134256,
         "translations": [
             {
                 "language": "DE",
@@ -20,9 +20,9 @@
     },
     "paragraphs": [
         {
-            "style": "Text",
-            "text": "This is the page that opens when clicking the help button in the menu of the node.",
-            "updated": 1613756213394,
+            "style": "Block",
+            "text": "Content",
+            "updated": 1643045088075,
             "translations": [
                 {
                     "language": "DE",
@@ -113,7 +113,7 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Автоматически сгенерированный контент: информация, извлеченная из системы, рабочей области и т.д., для обеспечения технического контекста, в котором существует узел.",
+                    "text": "Автоматически сгенерированный контент: информация, извлеченная из системы, рабочего пространства и т.д., для обеспечения технического контекста, в котором существует узел.",
                     "updated": 1638464694797
                 }
             ]

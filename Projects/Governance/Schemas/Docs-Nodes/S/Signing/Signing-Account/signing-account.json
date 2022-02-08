@@ -1,0 +1,54 @@
+{
+    "type": "Signing Account",
+    "definition": {
+        "text": "Signing Accounts store unique hash IDs that allow users to idenify themselves on the Superalgos peer to peer Network.",
+        "updated": 1643078472785
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1643078714411
+        },
+        {
+            "style": "Text",
+            "text": "It is important that signals, and any other communication, are transmitted securely across the Superalgos Peer to Peer Network. Signing Accounts are the center of security within the Superalgos network."
+        },
+        {
+            "style": "Text",
+            "text": "In order to achieve this and ensure that the signals received have not been tampered with, every communication across the network is signed using a private key signature. This means that even if the message travels through many hops, the recipient can verify the signature."
+        },
+        {
+            "style": "Text",
+            "text": "This is true for trading signals and messages, as well as confirming the identity of every app or node connected to the network. Every entity that connects to the network must be identified by its unique signature in order to ensure the entities communicating with each other are truly who they say they are."
+        },
+        {
+            "style": "Text",
+            "text": "This identity confirmation happens on two levels. The first is an initial verification between entities before any communication happens. The second is checking the validity of the private key signature every time a signal is received. As mentioned above, each app (like the desktop app, mobile app, server app, platform app, or network node) needs to run with a network identity, which is called a Signing Account."
+        },
+        {
+            "style": "Text",
+            "text": "In the case of signals, the sender signs each message using their private key. Then the recipient’s bots look at the Signing Account node held within the sender’s profile to verify that the generated hash is correct."
+        },
+        {
+            "style": "Text",
+            "text": "The Signing Account node is how the private key signature is verified. Within the Config of the Signing account is stored the necessary hashes the recipient uses to check if the incoming message has indeed been signed using the original private key."
+        },
+        {
+            "style": "Text",
+            "text": "The way this information is available to all recipients is that all these Signing Account nodes (along with the other definition nodes for each app or bot) are stored within the governance profile. Since governance profiles are public parts of the Superalgos ecosystem these definitions are accessible for all users of the Platform."
+        },
+        {
+            "style": "Text",
+            "text": "Signing accounts are very specific. Each app, network node and Social Trading Bots (which are collections of signals) has its own Signing Account node. This means that your profile identity has its own private key. Each app has its own private key. Each Social Trading Bot has its own Private key, etc. This makes it possible to only store the private keys needed by a particular device."
+        },
+        {
+            "style": "Text",
+            "text": "For example, say you are running a trading bot using a raspberry pi. That pi will need to have a task server signing account set up so that the pi can identify itself on the Superalgos network. Using this identity the pi can then send and receive signals over the network. Only the private key for the task server needs to be stored on that machine. Meaning that there is absolutely no possibility of your main governance private key or other private keys being compromised. Each machine only has access to what it needs and nothing more. This is especially important in protecting the main private key of a governance profile since that is the key which holds access to that profile's token holdings."
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

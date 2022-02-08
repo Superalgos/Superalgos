@@ -162,6 +162,28 @@
         ]
     },
     {
+        "name": "Decentralized-Exchanges",
+        "propertyName": "decentralizedExchanges",
+        "UI": {
+            "nodeActionFunctions": [
+                {
+                    "name": "Decentralized Exchanges Functions",
+                    "propertyName": "decentralizedExchangesFunctions",
+                    "functionName": "newFoundationsFunctionLibraryDecentralizedExchangesFunctions"
+                }
+            ],
+            "systemActionFunctions": [],
+            "functionLibraries": []
+        },
+        "SA":{},
+        "TS": {
+            "functionLibraries": [],
+            "botModules": []
+        },
+        "plugins": [],
+        "tasks": []
+    },
+    {
         "name": "Portfolio-Management",
         "propertyName": "portfolioManagement",
         "UI": {
@@ -288,7 +310,7 @@
                     "functionName": "newPortfolioManagementBotModulesPortfolioFormulasManager",
                     "fileName": "PortfolioFormulasManager.js",
                     "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
-                },                
+                },
                 {
                     "name": "Exchange API",
                     "propertyName": "exchangeAPI",
@@ -452,6 +474,11 @@
                     "name": "Node Path",
                     "propertyName": "nodePath",
                     "functionName": "newVisualScriptingFunctionLibraryNodePath"
+                },
+                {
+                    "name": "Reference Children",
+                    "propertyName": "referenceChildren",
+                    "functionName": "newVisualScriptingNodeActionFunctionReferenceChildren"
                 }
             ],
             "systemActionFunctions": [],
@@ -496,6 +523,12 @@
                     "propertyName": "nodeFunctions",
                     "functionName": "newVisualScriptingUtilitiesNodeFunctions",
                     "fileName": "NodeFunctions.js"
+                },
+                {
+                    "name": "Node Configuration",
+                    "propertyName": "nodeConfiguration",
+                    "functionName": "newVisualScriptingUtilitiesNodeConfiguration",
+                    "fileName": "NodeConfiguration.js"
                 }
             ]
         }
@@ -905,12 +938,7 @@
         },
         "PL": {
             "utilities": [
-                {
-                    "name": "Web Access",
-                    "propertyName": "webAccess",
-                    "functionName": "newFoundationsUtilitiesWebAccess",
-                    "fileName": "WebAccess.js"
-                }
+
             ]
         },
         "SA": {
@@ -929,6 +957,12 @@
                 }
             ],
             "utilities": [
+                {
+                    "name": "Web Access",
+                    "propertyName": "webAccess",
+                    "functionName": "newFoundationsUtilitiesWebAccess",
+                    "fileName": "WebAccess.js"
+                },
                 {
                     "name": "Miscellaneous Functions",
                     "propertyName": "miscellaneousFunctions",
@@ -1116,16 +1150,21 @@
         "UI": {
             "nodeActionFunctions": [
                 {
-                    "name": "Node Action Workspace Functions",
+                    "name": "Workspace Functions",
                     "propertyName": "workspaceFunctions",
                     "functionName": "newWorkspacesNodeActionWorkspaceFunctions"
                 }
             ],
             "systemActionFunctions": [
                 {
-                    "name": "System Action Workspace Functions",
+                    "name": "Workspace Functions",
                     "propertyName": "workspaceFunctions",
                     "functionName": "newWorkspacesSystemActionWorkspaceFunctions"
+                },
+                {
+                    "name": "Undo Redo",
+                    "propertyName": "undoRedo",
+                    "functionName": "newWorkspacesSystemActionUndoRedo"
                 }
             ],
             "functionLibraries": [],
@@ -1188,6 +1227,12 @@
                     "functionName": "newPluginsUtilitiesPlugins",
                     "fileName": "Plugins.js"
                 },
+                {
+                    "name": "PluginsAtGithub",
+                    "propertyName": "pluginsAtGithub",
+                    "functionName": "newPluginsUtilitiesPluginsAtGithub",
+                    "fileName": "PluginsAtGithub.js"
+                },                
                 {
                     "name": "Nodes",
                     "propertyName": "nodes",
@@ -1582,6 +1627,16 @@
                 }
             ]
         },
+        "SA": {
+            "utilities": [
+                {
+                    "name": "Signing Accounts",
+                    "propertyName": "signingAccounts",
+                    "functionName": "newGovernanceUtilitiesSigningAccounts",
+                    "fileName": "SigningAccounts.js"
+                }
+            ]
+        },
         "TS": {},
         "PL": {},
         "plugins": [
@@ -1612,16 +1667,22 @@
                     "fileName": "WebSocketsInterface.js"
                 },
                 {
+                    "name": "Web RTC Interface",
+                    "propertyName": "webRTCInterface",
+                    "functionName": "newNetworkModulesWebRTCInterface",
+                    "fileName": "WebRTCInterface.js"
+                },
+                {
+                    "name": "Socket Interfaces",
+                    "propertyName": "socketInterfaces",
+                    "functionName": "newNetworkModulesSocketInterfaces",
+                    "fileName": "SocketInterfaces.js"
+                },                
+                {
                     "name": "Http Interface",
                     "propertyName": "httpInterface",
                     "functionName": "newNetworkModulesHttpInterface",
                     "fileName": "HttpInterface.js"
-                },
-                {
-                    "name": "Incoming Signals",
-                    "propertyName": "incomingSignals",
-                    "functionName": "newNetworkModulesIncomingSignals",
-                    "fileName": "IncomingSignals.js"
                 }
             ],
             "utilities": []
@@ -1637,10 +1698,28 @@
             ],
             "modules": [
                 {
+                    "name": "P2P Network Client",
+                    "propertyName": "p2pNetworkClient",
+                    "functionName": "newNetworkModulesP2PNetworkClient",
+                    "fileName": "P2PNetworkClient.js"
+                },
+                {
                     "name": "Web Sockets Network Client",
                     "propertyName": "webSocketsNetworkClient",
                     "functionName": "newNetworkModulesWebSocketsNetworkClient",
                     "fileName": "WebSocketsNetworkClient.js"
+                },
+                {
+                    "name": "Web RTC Network Client",
+                    "propertyName": "webRTCNetworkClient",
+                    "functionName": "newNetworkModulesWebRTCNetworkClient",
+                    "fileName": "WebRTCNetworkClient.js"
+                },
+                {
+                    "name": "Socket Network Clients",
+                    "propertyName": "socketNetworkClients",
+                    "functionName": "newNetworkModulesSocketNetworkClients",
+                    "fileName": "SocketNetworkClients.js"
                 },
                 {
                     "name": "Http Network Client",
@@ -1655,10 +1734,10 @@
                     "fileName": "AppBootstrapingProcess.js"
                 },
                 {
-                    "name": "P2P Network",
-                    "propertyName": "p2pNetwork",
-                    "functionName": "newNetworkModulesP2PNetwork",
-                    "fileName": "P2PNetwork.js"
+                    "name": "P2P Network Reachable Nodes",
+                    "propertyName": "p2pNetworkReachableNodes",
+                    "functionName": "newNetworkModulesP2PNetworkReachableNodes",
+                    "fileName": "P2PNetworkReachableNodes.js"
                 },
                 {
                     "name": "P2P Network Node",
@@ -1667,10 +1746,10 @@
                     "fileName": "P2PNetworkNode.js"
                 },
                 {
-                    "name": "P2P Network Peers",
-                    "propertyName": "p2pNetworkPeers",
-                    "functionName": "newNetworkModulesP2PNetworkPeers",
-                    "fileName": "P2PNetworkPeers.js"
+                    "name": "P2P Network Nodes Connected To",
+                    "propertyName": "p2pNetworkNodesConnectedTo",
+                    "functionName": "newNetworkModulesP2PNetworkNodesConnectedTo",
+                    "fileName": "P2PNetworkNodesConnectedTo.js"
                 },
                 {
                     "name": "P2P Network Head",
@@ -1693,7 +1772,10 @@
                     "fileName": "AppClientNetworkNodePicker.js"
                 }
             ]
-        }
+        },
+        "plugins": [
+            "P2P-Networks"
+        ]
     },
     {
         "name": "Social-Trading",
@@ -1702,46 +1784,52 @@
             "globals": [],
             "modules": [
                 {
-                    "name": "User Profiles",
-                    "propertyName": "queriesUserProfiles",
-                    "functionName": "newSocialTradingModulesQueriesUserProfiles",
-                    "fileName": "Queries/UserProfiles.js"
+                    "name": "Social Personas",
+                    "propertyName": "queriesSocialPersonas",
+                    "functionName": "newSocialTradingModulesQueriesSocialPersonas",
+                    "fileName": "Queries/SocialPersonas.js"
                 },
                 {
-                    "name": "Unfollowed User Profiles",
-                    "propertyName": "queriesUnfollowedUserProfiles",
-                    "functionName": "newSocialTradingModulesQueriesUnfollowedUserProfiles",
-                    "fileName": "Queries/UnfollowedUserProfiles.js"
+                    "name": "Unfollowed Social Personas",
+                    "propertyName": "queriesUnfollowedSocialPersonas",
+                    "functionName": "newSocialTradingModulesQueriesUnfollowedSocialPersonas",
+                    "fileName": "Queries/UnfollowedSocialPersonas.js"
                 },
                 {
-                    "name": "Bot Profile Stats",
-                    "propertyName": "queriesBotProfileStats",
-                    "functionName": "newSocialTradingModulesQueriesBotProfileStats",
-                    "fileName": "Queries/BotProfileStats.js"
+                    "name": "Social Trading Bot Stats",
+                    "propertyName": "queriesSocialTradingBotStats",
+                    "functionName": "newSocialTradingModulesQueriesSocialTradingBotStats",
+                    "fileName": "Queries/SocialTradingBotStats.js"
                 },
                 {
-                    "name": "User Profile Stats",
-                    "propertyName": "queriesUserProfileStats",
-                    "functionName": "newSocialTradingModulesQueriesUserProfileStats",
-                    "fileName": "Queries/UserProfileStats.js"
+                    "name": "Social Persona Stats",
+                    "propertyName": "queriesSocialPersonaStats",
+                    "functionName": "newSocialTradingModulesQueriesSocialPersonaStats",
+                    "fileName": "Queries/SocialPersonaStats.js"
                 },
                 {
-                    "name": "Profile Posts",
-                    "propertyName": "queriesProfilePosts",
-                    "functionName": "newSocialTradingModulesQueriesProfilePosts",
-                    "fileName": "Queries/ProfilePosts.js"
+                    "name": "Posts",
+                    "propertyName": "queriesPosts",
+                    "functionName": "newSocialTradingModulesQueriesPosts",
+                    "fileName": "Queries/Posts.js"
                 },
                 {
-                    "name": "Profile Followers",
-                    "propertyName": "queriesProfileFollowers",
-                    "functionName": "newSocialTradingModulesQueriesProfileFollowers",
-                    "fileName": "Queries/ProfileFollowers.js"
+                    "name": "Post",
+                    "propertyName": "queriesPost",
+                    "functionName": "newSocialTradingModulesQueriesPost",
+                    "fileName": "Queries/Post.js"
                 },
                 {
-                    "name": "Profile Following",
-                    "propertyName": "queriesProfileFollowing",
-                    "functionName": "newSocialTradingModulesQueriesProfileFollowing",
-                    "fileName": "Queries/ProfileFollowing.js"
+                    "name": "Followers",
+                    "propertyName": "queriesFollowers",
+                    "functionName": "newSocialTradingModulesQueriesFollowers",
+                    "fileName": "Queries/Followers.js"
+                },
+                {
+                    "name": "Following",
+                    "propertyName": "queriesFollowing",
+                    "functionName": "newSocialTradingModulesQueriesFollowing",
+                    "fileName": "Queries/Following.js"
                 },
                 {
                     "name": "Post Replies",
@@ -1756,10 +1844,10 @@
                     "fileName": "Queries/Events.js"
                 },
                 {
-                    "name": "Social Graph",
-                    "propertyName": "socialGraph",
-                    "functionName": "newSocialTradingModulesSocialGraph",
-                    "fileName": "SocialGraph.js"
+                    "name": "Social Graph Network Service",
+                    "propertyName": "socialGraphNetworkService",
+                    "functionName": "newSocialTradingModulesSocialGraphNetworkService",
+                    "fileName": "SocialGraphNetworkService.js"
                 },
                 {
                     "name": "Query",
@@ -1792,6 +1880,12 @@
                     "fileName": "PeerInterface.js"
                 },
                 {
+                    "name": "Service Interface",
+                    "propertyName": "serviceInterface",
+                    "functionName": "newSocialTradingModulesServiceInterface",
+                    "fileName": "ServiceInterface.js"
+                },
+                {
                     "name": "Storage",
                     "propertyName": "storage",
                     "functionName": "newSocialTradingModulesStorage",
@@ -1804,22 +1898,28 @@
                     "propertyName": "queriesValidations",
                     "functionName": "newSocialTradingUtilitiesQueriesValidations",
                     "fileName": "QueriesValidations.js"
+                },
+                {
+                    "name": "Broadcasting Filter",
+                    "propertyName": "broadcastingFilter",
+                    "functionName": "newSocialTradingUtilitiesBroadcastingFilter",
+                    "fileName": "BroadcastingFilter.js"
                 }
             ]
         },
         "SA": {
             "modules": [
                 {
-                    "name": "User Profile",
-                    "propertyName": "socialGraphUserProfile",
-                    "functionName": "newSocialTradingModulesSocialGraphUserProfile",
-                    "fileName": "Social-Graph/UserProfile.js"
+                    "name": "Social Persona",
+                    "propertyName": "socialGraphSocialPersona",
+                    "functionName": "newSocialTradingModulesSocialGraphSocialPersona",
+                    "fileName": "Social-Graph/SocialPersona.js"
                 },
                 {
-                    "name": "Bot Profile",
-                    "propertyName": "socialGraphBotProfile",
-                    "functionName": "newSocialTradingModulesSocialGraphBotProfile",
-                    "fileName": "Social-Graph/BotProfile.js"
+                    "name": "SocialTradingBot",
+                    "propertyName": "socialGraphSocialTradingBot",
+                    "functionName": "newSocialTradingModulesSocialGraphSocialTradingBot",
+                    "fileName": "Social-Graph/SocialTradingBot.js"
                 },
                 {
                     "name": "Post",
@@ -1828,13 +1928,57 @@
                     "fileName": "Social-Graph/Post.js"
                 },
                 {
+                    "name": "App Bootstraping Process",
+                    "propertyName": "appBootstrapingProcess",
+                    "functionName": "newSocialTradingAppBootstrapingProcess",
+                    "fileName": "AppBootstrapingProcess.js"
+                },
+                {
                     "name": "P2P Network Interface",
                     "propertyName": "p2pNetworkInterface",
                     "functionName": "newSocialTradingModulesP2PNetworkInterface",
                     "fileName": "P2PNetworkInterface.js"
+                },
+                {
+                    "name": "Social Graph Network Service Client",
+                    "propertyName": "socialGraphNetworkServiceClient",
+                    "functionName": "newSocialTradingModulesSocialGraphNetworkServiceClient",
+                    "fileName": "SocialGraphNetworkServiceClient.js"
                 }
             ],
+            "functionLibraries": [
+                {
+                    "name": "Posts Storage",
+                    "propertyName": "postsStorage",
+                    "functionName": "newSocialTradingFunctionLibrariesPostsStorage",
+                    "fileName": "PostsStorage.js"
+                },
+                {
+                    "name": "Social Entities Storage",
+                    "propertyName": "socialEntitiesStorage",
+                    "functionName": "newSocialTradingFunctionLibrariesSocialEntitiesStorage",
+                    "fileName": "SocialEntitiesStorage.js"
+                },
+                {
+                    "name": "Social Entities Profile",
+                    "propertyName": "socialEntitiesProfile",
+                    "functionName": "newSocialTradingFunctionLibrariesSocialEntitiesProfile",
+                    "fileName": "SocialEntitiesProfile.js"
+                },
+                {
+                    "name": "User Profile",
+                    "propertyName": "userProfile",
+                    "functionName": "newSocialTradingFunctionLibrariesUserProfile",
+                    "fileName": "UserProfile.js"
+                }
+            ],            
             "globals": [
+                {
+                    "name": "Memory",
+                    "propertyName": "memory",
+                    "functionName": "newSocialTradingGlobalsMemory",
+                    "fileName": "Memory.js"
+                },
                 {
                     "name": "Query Constants",
                     "propertyName": "queryConstants",
@@ -1854,6 +1998,12 @@
                     "fileName": "EventTypes.js"
                 },
                 {
+                    "name": "Profile Types",
+                    "propertyName": "profileTypes",
+                    "functionName": "newSocialTradingGlobalsProfileTypes",
+                    "fileName": "ProfileTypes.js"
+                },
+                {
                     "name": "Signal Types",
                     "propertyName": "signalTypes",
                     "functionName": "newSocialTradingGlobalsSignalTypes",
@@ -1871,47 +2021,23 @@
                     "functionName": "newSocialTradingGlobalsReactionTypes",
                     "fileName": "ReactionTypes.js"
                 }
+            ],
+            "utilities": [
+                {
+                    "name": "Event Signature Validations",
+                    "propertyName": "eventSignatureValidations",
+                    "functionName": "newSocialTradingUtilitiesEventSignatureValidations",
+                    "fileName": "EventSignatureValidations.js"
+                }
             ]
         },
         "DK": {
             "globals": [],
-            "modules": [
-                {
-                    "name": "Http Interface",
-                    "propertyName": "httpInterface",
-                    "functionName": "newDesktopModulesHttpInterface",
-                    "fileName": "HttpInterface.js"
-                },
-                {
-                    "name": "Web Sockets Interface",
-                    "propertyName": "webSocketsInterface",
-                    "functionName": "newDesktopModulesWebSocketsInterface",
-                    "fileName": "WebSocketsInterface.js"
-                },
-                {
-                    "name": "Web App Interface",
-                    "propertyName": "webAppInterface",
-                    "functionName": "newSocialTradingModulesWebAppInterface",
-                    "fileName": "WebAppInterface.js"
-                },
-                {
-                    "name": "Social Graph",
-                    "propertyName": "socialGraph",
-                    "functionName": "newSocialTradingModulesSocialGraph",
-                    "fileName": "SocialGraph.js"
-                }
-            ],
+            "modules": [],
             "utilities": []
         },
         "UI": {
-            "modules": [
-                {
-                    "name": "Web Sockets WebApp Client",
-                    "propertyName": "webSocketsWebAppClient",
-                    "functionName": "newSocialTradingModulesWebSocketsWebAppClient",
-                    "fileName": "WebSocketsWebAppClient.js"
-                }
-            ]
+            "modules": []
         }
     },
     {
@@ -1995,6 +2121,28 @@
             "functionLibraries": [],
             "utilities": []
         },
+        "NT": {
+            "modules": [
+                {
+                    "name": "Trading Signals Network Service",
+                    "propertyName": "tradingSignalsNetworkService",
+                    "functionName": "newTradingSignalsModulesTradingSignalsNetworkService",
+                    "fileName": "TradingSignalsNetworkService.js"
+                },
+                {
+                    "name": "Client Interface",
+                    "propertyName": "clientInterface",
+                    "functionName": "newTradingSignalsModulesClientInterface",
+                    "fileName": "ClientInterface.js"
+                },
+                {
+                    "name": "Peer Interface",
+                    "propertyName": "peerInterface",
+                    "functionName": "newTradingSignalsModulesPeerInterface",
+                    "fileName": "PeerInterface.js"
+                }
+            ]
+        },
         "TS": {
             "modules": [
                 {
@@ -2028,12 +2176,34 @@
             ]
         },
         "SA": {
+            "globals": [
+                {
+                    "name": "Memory",
+                    "propertyName": "memory",
+                    "functionName": "newTradingSignalsGlobalsMemory",
+                    "fileName": "Memory.js"
+                }
+            ],
+            "modules": [
+                {
+                    "name": "P2P Network Interface",
+                    "propertyName": "p2pNetworkInterface",
+                    "functionName": "newTradingSignalsModulesP2PNetworkInterface",
+                    "fileName": "P2PNetworkInterface.js"
+                },
+                {
+                    "name": "Trading Signals Network Service Client",
+                    "propertyName": "tradingSignalsNetworkServiceClient",
+                    "functionName": "newTradingSignalsModulesTradingSignalsNetworkServiceClient",
+                    "fileName": "TradingSignalsNetworkServiceClient.js"
+                }
+            ],
             "utilities": [
                 {
-                    "name": "Signal Validations",
-                    "propertyName": "signalValidations",
-                    "functionName": "newTradingSignalsUtilitiesSignalValidations",
-                    "fileName": "SignalValidations.js"
+                    "name": "Signal Signature Validations",
+                    "propertyName": "signalSignatureValidations",
+                    "functionName": "newTradingSignalsUtilitiesSignalSignatureValidations",
+                    "fileName": "SignalSignatureValidations.js"
                 }
             ]
         }
@@ -2092,6 +2262,20 @@
                     "fileName": "OutputRecordsFunctions.js"
                 }
             ]
+        },
+        "SA": {}
+    },
+    {
+        "name": "User-Apps",
+        "propertyName": "userApps",
+        "UI": {
+            "nodeActionFunctions": [],
+            "systemActionFunctions": [],
+            "functionLibraries": [],
+            "utilities": []
+        },
+        "TS": {
+            "functionLibraries": []
         },
         "SA": {}
     }

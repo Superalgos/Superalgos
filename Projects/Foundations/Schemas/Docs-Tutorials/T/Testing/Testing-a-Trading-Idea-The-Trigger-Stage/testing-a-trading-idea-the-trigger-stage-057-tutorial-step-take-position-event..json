@@ -13,6 +13,16 @@
                 "language": "DE",
                 "text": "Machen wir weiter und beginnen wir mit der Definition des Take Position Event!",
                 "updated": 1639389035613
+            },
+            {
+                "language": "TR",
+                "text": "Hadi devam edelim ve Pozisyon Al Etkinliğinin ( Take Position Event ) tanımı üzerinde çalışmaya başlayalım!",
+                "updated": 1641662714185
+            },
+            {
+                "language": "RU",
+                "text": "Давайте двигаться дальше и начнем работать над определением события \"Take Position Event\"!",
+                "updated": 1642659505853
             }
         ]
     },
@@ -25,6 +35,16 @@
                     "language": "DE",
                     "text": "Eine kurze Auffrischung der Hypothese, die wir während des letzten Tutorials aufgestellt haben: Im Zusammenhang mit einem Abwärtstrend im Tages-Chart kann ein Durchbruch der Bollinger Bands im 1H-Chart eine Beschleunigung des Abwärtstrends vorhersagen. Ein Durchbruch bedeutet, dass eine Kerze unterhalb des unteren Bandes schließt. Lassen Sie uns also herausfinden, wie ein Kerzenschluss in Superalgos beschrieben wird.",
                     "updated": 1639389052334
+                },
+                {
+                    "language": "TR",
+                    "text": "Son eğitimde yaptığımız hipotez hakkında hızlı bir tazeleme: Günlük grafikteki düşüş trendi bağlamında, 1H grafiğindeki Bollinger Bantlarında bir kırılma düşüş trendinde bir hızlanma öngörebilir. Bir atılım, bir mumun alt bandın altında kapanması anlamına gelir. Öyleyse Superalgos'ta bir mum kapanışının nasıl tanımlandığını öğrenelim.",
+                    "updated": 1641662726624
+                },
+                {
+                    "language": "RU",
+                    "text": "Кратко напомним о гипотезе, которую мы выдвинули в предыдущем уроке: В контексте нисходящего тренда на дневном графике, пробой полос Боллинджера на графике 1H может предсказать ускорение нисходящего тренда. Пробой означает закрытие свечи ниже нижней полосы, поэтому давайте выясним, как закрытие свечи описывается в Superalgos.",
+                    "updated": 1642659553056
                 }
             ]
         },
@@ -36,6 +56,16 @@
                     "language": "DE",
                     "text": "Dies ist die Seite, die den Candles Volumes Indikator dokumentiert. Scrollen Sie nach unten zum Abschnitt Products & Properties > Candles und lesen Sie!",
                     "updated": 1639389221442
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu, Mum Hacimleri Göstergesini (Candles Volumes indicator) belgeleyen sayfadır. Ürünler ve Özellikler > Mumlar bölümüne ilerleyin ve okuyun!",
+                    "updated": 1641662738925
+                },
+                {
+                    "language": "RU",
+                    "text": "Это страница с описанием индикатора Candles Volumes. Прокрутите вниз до раздела Products & Properties > Candles и читайте!",
+                    "updated": 1642659580943
                 }
             ]
         }

@@ -1319,7 +1319,8 @@ function newFoundationsDocsDocumentPage() {
                     let propertyMap = new Map()
                     for (let i = 0; i < allNodesFound.length; i++) {
                         let node = allNodesFound[i]
-                        let config = JSON.parse(node.config)
+                        let config = {}
+                        try { config = JSON.parse(node.config) } catch(e) {}
                         for (const property in config) {
                             let value = JSON.stringify(config[property], undefined, 4)
                             let valueArray = propertyMap.get(property)
@@ -1740,7 +1741,7 @@ function newFoundationsDocsDocumentPage() {
                         sufix = ''
                         role = ''
                         key = key + '-link'
-                        innerHTML = UI.projects.education.utilities.docs.parseLink(paragraph.text)
+                        innerHTML = UI.projects.education.utilities.docs.parseLink(UI.projects.education.utilities.docs.getTextBasedOnLanguage(paragraph))
                         break
                     }
                     case 'Youtube': {

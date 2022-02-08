@@ -13,6 +13,16 @@
                 "language": "DE",
                 "text": "Wo aufeinanderfolgende Schlusskurse bedeuten, dass die aktuelle und die vorherige Kerze unterhalb der unteren Bandbreite schließen!",
                 "updated": 1639389956813
+            },
+            {
+                "language": "TR",
+                "text": "Ard arda iki kapanış, mevcut ve önceki mumların düşük bant genişliğinin altına yakın olduğu anlamına gelir!",
+                "updated": 1641663752763
+            },
+            {
+                "language": "RU",
+                "text": "Два последовательных закрытия означают, что текущая и предыдущая свечи закрываются ниже нижней полосы!",
+                "updated": 1642661289834
             }
         ]
     },
@@ -26,6 +36,16 @@
                     "language": "DE",
                     "text": "Um den Schluss der vorherigen Kerze zu beschreiben, müssen wir die Eigenschaft \"previous\" verwenden, um jede Eigenschaft jedes Indikators zu ändern, der auf beiden Seiten der Anweisung verwendet wird:",
                     "updated": 1639389978319
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir önceki mumun kapanışını tanımlamak için, ifadenin her iki tarafında kullanılan her bir göstergenin her bir özelliğini değiştirmek için önceki özelliği kullanmamız gerekir:",
+                    "updated": 1641663765670
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы описать закрытие предыдущей свечи, нам нужно использовать свойство previous для изменения каждого свойства каждого индикатора, используемого по обе стороны выражения:",
+                    "updated": 1642661527711
                 }
             ]
         },
@@ -43,6 +63,16 @@
                     "language": "DE",
                     "text": "Erstellen Sie eine neue Bedingung unter der gleichen Situation und verwenden Sie den obigen Code!",
                     "updated": 1639389985428
+                },
+                {
+                    "language": "TR",
+                    "text": "Aynı durumda yeni bir koşul oluşturun ve yukarıdaki kodu kullanın!",
+                    "updated": 1641663780922
+                },
+                {
+                    "language": "RU",
+                    "text": "Создайте новое условие в той же ситуации и используйте приведенный выше код!",
+                    "updated": 1642661372482
                 }
             ]
         }

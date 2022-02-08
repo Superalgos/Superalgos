@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "Borsalardan indirdiğiniz ve göstergelerle işlediğiniz verilere herhangi bir çalışma alanından ve stratejiden erişilebilirsiniz. Yani çalışma alanını değiştrisenizde yeni alanınızda daha önce indirilmiş bu verileri kullanırsınız. Her çalışma alanı için tekrardan indirmenize gerek yoktur..",
                 "updated": 1639825082061
+            },
+            {
+                "language": "RU",
+                "text": "Данные, которые вы загружаете с бирж и обрабатываете с помощью индикаторов, доступны повсеместно, из любого рабочего пространства и стратегии.",
+                "updated": 1640875700028
             }
         ]
     },
@@ -61,6 +66,11 @@
                     "language": "TR",
                     "text": "Veriler, Data-Storage klasörü altında diske depolanır ve Project, Data Mine, bot ve Market tarafından düzenlenir. Verileri veya süreç göstergelerini çıkarmak için hangi çalışma alanını kullandığınızın bir önemi yoktur.",
                     "updated": 1639825127007
+                },
+                {
+                    "language": "RU",
+                    "text": "Данные хранятся на диске в папке Data-Storage и организованы по категориям Project, Data Mine, bot и Market. Не имеет значения, какое рабочее пространство вы использовали для добычи данных или обработки индикаторов.",
+                    "updated": 1640875728180
                 }
             ]
         },
@@ -89,6 +99,11 @@
                     "language": "TR",
                     "text": "Herhangi bir borsadan çektiğiniz verilerin hepis tüm çalışma alanlarında mevcuttur, böylece ne yapıyor olursanız olun aynı veri kaynaklarıyla çalışabilirsiniz.",
                     "updated": 1639825202230
+                },
+                {
+                    "language": "RU",
+                    "text": "Все данные доступны для всех рабочих пространств, поэтому вы можете работать с одними и теми же источниками данных независимо от того, что вы делаете.",
+                    "updated": 1640875743084
                 }
             ]
         },
@@ -118,6 +133,11 @@
                     "language": "TR",
                     "text": "Uygulamada yerleşik veri yönetimi yoktur. Bunun yerine dosya sisteminizi kullanın!",
                     "updated": 1639825229337
+                },
+                {
+                    "language": "RU",
+                    "text": "В приложении нет встроенного управления данными. Вместо этого используйте файловую систему!",
+                    "updated": 1640875757997
                 }
             ]
         }

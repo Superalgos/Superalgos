@@ -14,6 +14,16 @@
                 "language": "DE",
                 "text": "Dies ist die Struktur der Knoten des  Market Sell Order #1, auf die wir bei dem Marktverkaufsauftrag im Handelssystem Bezug genommen haben.",
                 "updated": 1639418565114
+            },
+            {
+                "language": "TR",
+                "text": "Bu, ticaret sistemindeki piyasa satış emrinden referans aldığımız düğümlerin 1 Numaralı Piyasa Satış Emri ( Market Sell Order ) yapısıdır.",
+                "updated": 1641802463350
+            },
+            {
+                "language": "RU",
+                "text": "Это структура узлов Market Sell Order #1, на которую мы ссылались из рыночного ордера на продажу в торговой системе.",
+                "updated": 1642944517026
             }
         ]
     },
@@ -26,6 +36,16 @@
                     "language": "DE",
                     "text": "Dies ist die Struktur der Knoten, die alle mit diesem Auftrag verbundenen Variablen aufzeichnet, erinnern Sie sich?",
                     "updated": 1639418575708
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu işle ilgili tüm değişkenlerin kaydını tutan düğümlerin yapısı bu, hatırladın mı?",
+                    "updated": 1641802489303
+                },
+                {
+                    "language": "RU",
+                    "text": "Это структура узлов, которая отслеживает все переменные, связанные с этим ордером, помните?",
+                    "updated": 1642944532294
                 }
             ]
         },
@@ -38,6 +58,16 @@
                     "language": "DE",
                     "text": "Prüfen Sie die Warnung auf dem Knoten Rate!",
                     "updated": 1639418583132
+                },
+                {
+                    "language": "TR",
+                    "text": "Oran ( Rate ) düğümündeki uyarıyı kontrol edin!",
+                    "updated": 1641802499810
+                },
+                {
+                    "language": "RU",
+                    "text": "Проверьте предупреждение на узле Rate!",
+                    "updated": 1642944543833
                 }
             ]
         },
@@ -50,6 +80,16 @@
                     "language": "DE",
                     "text": "Der als Parameter der Handelssitzung konfigurierte Slippage wurde vom Auftragskurs abgezogen. Dies führte zu einer niedrigeren tatsächlichen Rate. Alles gut! Die gleiche Meldung erscheint auch beim Parameter Slippage der Handelssitzung... sehen Sie sich das an!",
                     "updated": 1639418596060
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: İşlem seansının bir parametresi olarak yapılandırılan slippage, emir fiyatından düşülmüştür. Bu, daha düşük bir gerçek oran ile sonuçlandı. Her şey yolunda! Aynı mesaj, işlem seansı parametre kaymasında da görünür ... Kontrol edin!",
+                    "updated": 1641802509781
+                },
+                {
+                    "language": "RU",
+                    "text": "Проскальзывание, настроенное как параметр торговой сессии, вычиталось из ставки ордера. Это привело к снижению фактической ставки. Все хорошо! Такое же сообщение появляется и на параметре Slippage торговой сессии... проверьте!",
+                    "updated": 1642944642188
                 }
             ]
         }

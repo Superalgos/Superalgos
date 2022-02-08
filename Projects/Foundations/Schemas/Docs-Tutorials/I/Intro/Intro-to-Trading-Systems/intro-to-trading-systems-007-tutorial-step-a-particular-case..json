@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Özet: Her iki strateji de neredeyse aynıdır, çünkü tetikleme için aynı temel kuralları paylaşırlar... küçük farklılıklarla...",
                 "updated": 1640698837719
+            },
+            {
+                "language": "RU",
+                "text": "Обе стратегии практически одинаковы, поскольку имеют одни и те же базовые правила срабатывания... с небольшими различиями...",
+                "updated": 1640885230836
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "Yedi ortak koşulun ötesinde, Steep stratejisinde bir ek Koşul ( Condition )bulunurken Xtreme stratejisinde üç tane bulunur. Bu farklılıkları tek tek incelemeyeceğiz, isterseniz yapabilirsiniz! Bunun yerine, farklılıkların altında yatan kavramı ortaya çıkaralım:",
                     "updated": 1640698962240
+                },
+                {
+                    "language": "RU",
+                    "text": "Помимо семи общих условий, стратегия Steep имеет одно дополнительное условие, в то время как стратегия Xtreme - три. Мы не будем анализировать эти различия по одному, хотя вы можете это сделать, если захотите! Вместо этого давайте раскроем концепцию, лежащую в основе этих различий:",
+                    "updated": 1640885262372
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": "İlk yedi koşul tarafından tanımlanan piyasa Durumu ( Situation ) içinde, Steep stratejisi belirli bir fiyat hareketi türüyle (fiyatın dik bir eğri üzerine düşmesi) ile ilgilenir, Xtreme stratejisi ise fiyatın aşırı derecede dik bir eğri üzerine düşmesiyle ilgilenir!",
                     "updated": 1640699056295
+                },
+                {
+                    "language": "RU",
+                    "text": "В рамках рыночной ситуации, определенной первыми семью условиями, стратегия Steep имеет дело с определенным типом ценового движения - цена падает по крутой кривой - в то время как стратегия Xtreme имеет дело с ценой, падающей по чрезвычайно крутой кривой!",
+                    "updated": 1640885532337
                 }
             ]
         }

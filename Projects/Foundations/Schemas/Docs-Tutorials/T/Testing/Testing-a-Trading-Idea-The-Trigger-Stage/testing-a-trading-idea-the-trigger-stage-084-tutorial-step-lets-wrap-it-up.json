@@ -13,6 +13,16 @@
                 "language": "DE",
                 "text": "Wir haben die Grundlagen und viele der Feinheiten der Trigger Stage behandelt, aber die Handelsidee ist noch nicht getestet!",
                 "updated": 1639391817293
+            },
+            {
+                "language": "TR",
+                "text": "Tetikleme Aşamasının ( Trigger Stage ) temellerini ve inceliklerinin çoğunu ele aldık, ancak ticaret fikri henüz test edilmedi!",
+                "updated": 1641666314982
+            },
+            {
+                "language": "RU",
+                "text": "Мы рассмотрели основы и многие нюансы этапа Trigger Stage, но торговая идея еще не протестирована!",
+                "updated": 1642664768097
             }
         ]
     },
@@ -25,6 +35,16 @@
                     "language": "DE",
                     "text": "Dieses kleine Spekulationsspiel, das wir gerade gespielt haben, ist genau das... ein Spiel! Um den Test der Handelsidee zu vervollständigen, müssen wir tief in die übrigen Phasen eintauchen!",
                     "updated": 1639391826096
+                },
+                {
+                    "language": "TR",
+                    "text": "Az önce oynadığımız bu küçük spekülasyon oyunu tam da bu ... bir oyun! Ticaret fikri testini tamamlamak için geri kalan aşamaları derinlemesine incelememiz gerekiyor!",
+                    "updated": 1641666324941
+                },
+                {
+                    "language": "RU",
+                    "text": "Эта небольшая спекулятивная игра, в которую мы только что играли, является всего лишь... игрой! Чтобы завершить проверку торговой идеи, нам придется глубоко погрузиться в остальные этапы!",
+                    "updated": 1642664789741
                 }
             ]
         },
@@ -36,6 +56,16 @@
                     "language": "DE",
                     "text": "Und das ist das Thema des nächsten Tutorials!",
                     "updated": 1639391833052
+                },
+                {
+                    "language": "TR",
+                    "text": "Ve bu, bir sonraki eğitimin konusu!",
+                    "updated": 1641666333274
+                },
+                {
+                    "language": "RU",
+                    "text": "И это тема следующего урока!",
+                    "updated": 1642664802254
                 }
             ]
         },
@@ -47,6 +77,16 @@
                     "language": "DE",
                     "text": "Wenn Sie bereit sind, weiterzumachen, klicken Sie auf Weiter, um dieses Tutorial zu schließen, und wählen Sie \"Play\" auf der rechten Seite!",
                     "updated": 1639391857514
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Devam etmeye hazırsanız, bu öğreticiyi kapatmak için İleri'ye tıklayın ve sağdaki Oynat'ı seçin!",
+                    "updated": 1641666343092
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы готовы продолжить, нажмите кнопку Next, чтобы закрыть этот урок, и выберите Play на странице справа!",
+                    "updated": 1642664834123
                 }
             ]
         }

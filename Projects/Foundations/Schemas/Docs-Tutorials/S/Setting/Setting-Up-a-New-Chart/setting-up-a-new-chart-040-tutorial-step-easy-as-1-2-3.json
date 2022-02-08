@@ -24,6 +24,11 @@
                 "language": "DE",
                 "text": "Du hast es geschafft! Ich wusste, dass Sie es können. Sie haben erfolgreich Ihren ersten benutzerdefinierte Chart erstellt. Ich hoffe, Sie hatten genauso viel Spaß wie ich!",
                 "updated": 1639500375357
+            },
+            {
+                "language": "TR",
+                "text": "Başardın! Yapabileceğinizi biliyordum. İlk özel grafiğinizi başarıyla oluşturdunuz. Umarım benim kadar eğlenmişsinizdir!",
+                "updated": 1642882163962
             }
         ]
     },
@@ -47,6 +52,11 @@
                     "language": "DE",
                     "text": "Herzlichen Glückwunsch, Ihr benutzerdefiniertes Diagramm ist jetzt angeschlossen und funktioniert! Sie kennen nun die grundlegenden Schritte der Diagrammerstellung. Sie können dieselben Schritte wiederholen und weitere Timeline Charts hinzufügen, um jede beliebige Kombination von Daten zu verbinden. Zur Erinnerung: Sie können den Timeline Chart’s Layer Manager mit den folgenden drei Knotentypen verbinden:",
                     "updated": 1639500524753
+                },
+                {
+                    "language": "TR",
+                    "text": "Tebrikler, özel grafiğiniz şimdi bağlandı ve çalışıyor! Artık çizelge oluşturmanın temel adımlarını biliyorsunuz. Herhangi bir tarih kombinasyonunu bağlamak için aynı adımları tekrarlayabilir ve daha fazla zaman çizelgesi grafiği ekleyebilirsiniz. Bir hatırlatma olarak, Zaman Çizelgesi Grafiğinin Katman Yöneticisini ( Layer Manager ) aşağıdaki üç düğüm tipine bağlayabilirsiniz:",
+                    "updated": 1642882302287
                 }
             ]
         },
@@ -69,6 +79,11 @@
                     "language": "DE",
                     "text": "Data Mine Products  - für Market Data und Indikatoren.",
                     "updated": 1639500719128
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri Madeni Ürünleri ( Data Mine Products ) – Piyasa Verileri ( Market Data ) ve göstergeler için.",
+                    "updated": 1642882401656
                 }
             ]
         },
@@ -84,13 +99,18 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Trading Mine Products– для ре��ультатов сессии торговой системы (Trading System’s) бэктестинга (Backtesting Session) реальной торговой сессии (Live Trading Session).",
+                    "text": "Trading Mine Products– для результатов сессии торговой системы (Trading System’s) бэктестинга (Backtesting Session) реальной торговой сессии (Live Trading Session).",
                     "updated": 1639084838280
                 },
                 {
                     "language": "DE",
                     "text": "Trading Mine Products - für die Ergebnisse einer Trading System’s Backtesting Session oder Live Trading Session.",
                     "updated": 1639500737942
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Maden Ürünleri ( Trading Mine Products ) – Bir Ticaret Sisteminin Geri Test Oturumunun ( Backtesting Session ) veya Canlı Ticaret Oturumunun ( Live Trading Session ) sonuçları için.",
+                    "updated": 1642882622097
                 }
             ]
         },
@@ -112,6 +132,11 @@
                     "language": "DE",
                     "text": "Learning Mine Products - für die Datenausgabe von Lernalgorithmen.",
                     "updated": 1639500758749
+                },
+                {
+                    "language": "TR",
+                    "text": "Maden Ürünleri Öğrenme ( Learning Mine Products ) – öğrenme algoritmalarından veri çıkışı için.",
+                    "updated": 1642882696332
                 }
             ]
         }

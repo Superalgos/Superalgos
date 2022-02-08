@@ -1,0 +1,81 @@
+{
+    "type": "Outgoing Signals",
+    "definition": {
+        "text": "The Outgoing Signals node defines the location within a Trading System from which data can be gathered and composed into a Trading Signal. ",
+        "updated": 1644029844037
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1643406159352
+        },
+        {
+            "style": "Text",
+            "text": "What this means is that an Outgoing Signal node captures and then tells the system where to send signal information. This is achieved by adding a child Outgoing Signal Reference node.",
+            "updated": 1643406587670
+        },
+        {
+            "style": "Title",
+            "text": "Types of Signals",
+            "updated": 1643406148598
+        },
+        {
+            "style": "Text",
+            "text": "There are three types of signals that can be sent:",
+            "updated": 1644029880507
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Subtitle",
+            "text": "Candle Sync Signals",
+            "updated": 1643425661140
+        },
+        {
+            "style": "Text",
+            "text": "Keeping the bots of provider and recipient on the same candle is vital for trading signals to actually be useful. Therefore, Candle Sync signals are the foundational use of the Outgoing Signal node. It communicates the candle on which the current signal belongs. This allows the recipient’s bots to identify the exact same candle and stay in sync with the provider’s bots.",
+            "updated": 1643425213425
+        },
+        {
+            "style": "Text",
+            "text": "Candle sync signals are established by attaching an Outgoing Signal node to a Trading System node. Then adding a child Outgoing Signal Reference node. Then establishing a reference from the Outgoing Signal Reference node to the Trading System Signal node held under the Social Trading Bot of the provider.",
+            "updated": 1643425432904
+        },
+        {
+            "style": "Subtitle",
+            "text": "Event Signals",
+            "updated": 1643425667662
+        },
+        {
+            "style": "Text",
+            "text": "Event signals allow the signal provider to send information concerning trading system events. Examples of such events are the Trigger On Event, Trigger Off Event, Take Position Event, etc.",
+            "updated": 1643426918248
+        },
+        {
+            "style": "Text",
+            "text": "Creating event signals is very straightforward. First find the event which you would like to include in your signal. Then add an Outgoing Signal node to the Event node. After that attach a child Outgoing Signal Reference node. Finally establish a reference from the Outgoing Signal Reference node to the appropriate Trading Strategy Signals node.",
+            "updated": 1643426717064
+        },
+        {
+            "style": "Subtitle",
+            "text": "Formula Signals",
+            "updated": 1643426795012
+        },
+        {
+            "style": "Text",
+            "text": "Formula signals allow the signal provider to send information coming out of trading system formulas. Examples of such formulas are, Target Rate, Order Rate, Target Size In Base Asset, etc.",
+            "updated": 1643427806063
+        },
+        {
+            "style": "Text",
+            "text": "Creating a formula signal is the same as establishing an event signal."
+        },
+        {
+            "style": "Include",
+            "text": "Trading-Signals->Node->Signal Context Formula->Content"
+        }
+    ]
+}

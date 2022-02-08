@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Ведите учет счетов, выраженных в базовом активе и котируемом активе, в различных контекстах. На этой странице: Episode Base Asset, Episode Quoted Asset, Position Base Asset, Position Quoted Asset, Stage Base Asset, Stage Quoted Asset, Order Base Asset, Order Quoted Asset.",
                 "updated": 1640344134647
+            },
+            {
+                "language": "TR",
+                "text": "Temel varlıkta ve kote varlıkta belirtilen hesapları birden çok durumda takip edin. Bu sayfada aşağıdakileri göreceksiniz: Episode Base Asset, Episode Quoted Asset, Position Base Asset, Position Quoted Asset, Stage Base Asset, Stage Quoted Asset, Order Base Asset, Order Quoted Asset.",
+                "updated": 1642342380340
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Поскольку система стремится быть максимально гибкой, торговый движок сохраняет счета относительно базового актива и котируемого актива. Это позволяет пользователю настроить торговую систему с любой логикой и решить, какой набор счетов соответствует замыслу - цели торговой стратегии.",
                     "updated": 1640344161431
+                },
+                {
+                    "language": "TR",
+                    "text": "Sistem mümkün olduğunca esnek olmayı amaçladığından, ticaret motoru hesapları hem temel varlığa hem de kote varlığa göre tutar. Bu, kullanıcının ticaret sistemini gerekli olan mantıkla kurmasına ve hangi hesap setinin ticaret stratejisinin amacına uygun olduğuna karar vermesine olanak tanır.",
+                    "updated": 1642342446776
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Обратите внимание, что обычно счета, выраженные в одном активе, будут действительными, а счета, выраженные в другом активе, скорее всего, не будут иметь смысла.",
                     "updated": 1640344189307
+                },
+                {
+                    "language": "TR",
+                    "text": "Dikkat edin - genellikle - bir varlıkta belirtilen hesaplar geçerli olurken, diğer varlıkta belirtilen hesaplar muhtemelen hiçbir anlam ifade etmeyecektir.",
+                    "updated": 1642363998521
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "RU",
                     "text": "Какой набор счетов вы будете контролировать для отслеживания результативности эпизода, зависит от того, как вы определите свою торговую систему.",
                     "updated": 1640344206252
+                },
+                {
+                    "language": "TR",
+                    "text": "Bölümün performansını izlemek için hangi hesap grubunu izleyeceğiniz, ticaret sisteminizi nasıl tanımladığınıza bağlıdır.",
+                    "updated": 1642364029592
                 }
             ]
         },
@@ -56,6 +76,11 @@
                     "language": "RU",
                     "text": "Например, если вы торгуете на рынке BTC/USDT и разработали торговую систему для накопления USDT, то набор счетов, который будет иметь смысл для вас, это тот, который выражен в котируемом активе, то есть в USDT. Вот почему:",
                     "updated": 1640344232941
+                },
+                {
+                    "language": "TR",
+                    "text": "Örneğin, BTC/USDT piyasasında işlem yapıyorsanız ve USDT biriktirmek için bir ticaret sistemi geliştirdiyseniz, sizin için anlamlı olacak hesap seti, kote varlıkta, yani USDT'de belirtilen hesap setidir. Bu nedenle:",
+                    "updated": 1642364057203
                 }
             ]
         },
@@ -67,6 +92,11 @@
                     "language": "RU",
                     "text": "Ваша стратегия, скорее всего, будет покупать BTC (базовый актив), ожидая, что цена будет расти, пока позиция открыта, чтобы продать BTC по более высокому курсу и в итоге получить больше USDT (котируемый актив), чем в начале.",
                     "updated": 1640344298195
+                },
+                {
+                    "language": "TR",
+                    "text": "Stratejiniz, BTC'yi daha yüksek bir oranda satmak ve sonunda başladığınızdan daha fazla USDT (kote edilen varlık) elde etmek için pozisyon açıkken fiyatın yükselmesini bekleyerek BTC'yi (temel varlık) satın alacaktır.",
+                    "updated": 1642364201227
                 }
             ]
         },
@@ -90,6 +120,11 @@
                     "language": "RU",
                     "text": "Допустим, вы купили BTC на сумму 10 000 USDT. Цена BTC увеличивается на 10%, поэтому вы продаете всю сумму BTC, чтобы закрыть позицию, и в итоге получаете 10 900 USDT (комиссия за обмен вычитается из баланса).",
                     "updated": 1640344338695
+                },
+                {
+                    "language": "TR",
+                    "text": "10.000 USDT değerinde BTC aldığınızı varsayalım. BTC fiyatı %10 artar, bu nedenle pozisyonu kapatmak için tüm BTC miktarını satarsınız ve 10.900 USDT ile sonuçlanırsınız (borsa komisyonlarının bakiyeden düştüğünü farzediyorum).",
+                    "updated": 1642364260972
                 }
             ]
         },
@@ -102,6 +137,11 @@
                     "language": "RU",
                     "text": "Что касается базового актива, ваш начальный баланс составляет 0 BTC, а конечный баланс - 0.00000012 BTC, так как обмен оставил на счете немного BTC из-за ограничений на конвертацию валют. Также с точки зрения базового актива, ваша прибыль-убыток по позиции составляет...",
                     "updated": 1640344376081
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel varlık açısından, döviz kur dönüştürme sınırlamaları nedeniyle hesapta bir miktar BTC bıraktığından, başlangıç bakiyeniz 0 BTC ve bitiş bakiyeniz 0.00000012 BTC'dir. Ayrıca temel varlık açısından, pozisyon için kar kaybınız...",
+                    "updated": 1642364341144
                 }
             ]
         },
@@ -122,6 +162,11 @@
                     "language": "RU",
                     "text": "ROI и другие показатели также могут быть получены из этих первоначальных наблюдений. Само собой разумеется, такие показатели не имеют отношения к замыслу стратегии, который заключается в накоплении USDT.",
                     "updated": 1640344395959
+                },
+                {
+                    "language": "TR",
+                    "text": "ROI ve diğer metrikler de bu ilk gözlemlerden türetilebilir. Söylemeye gerek yok, bu tür ölçümler, USDT biriktirmek olan stratejinin amacı ile ilgisizdir.",
+                    "updated": 1642364369042
                 }
             ]
         },
@@ -134,6 +179,11 @@
                     "language": "RU",
                     "text": "Теперь, с точки зрения котируемого актива, ваш начальный баланс составляет 10 000 USDT, а конечный баланс - 10 900 USDT (из баланса вычитается комиссия за обмен). Также с точки зрения котируемого актива, ваша прибыль-убыток по данной позиции составляет...",
                     "updated": 1640344416123
+                },
+                {
+                    "language": "TR",
+                    "text": "Şimdi, kote edilen varlık açısından başlangıç bakiyeniz 10.000 USD ve bitiş bakiyeniz 10.900 USD'dir borsa konisyon ücretleri bakiyeden düşülür). Ayrıca, kote edilen varlık açısından, pozisyon için kar kaybınız olur...",
+                    "updated": 1642364499822
                 }
             ]
         },
@@ -149,6 +199,11 @@
                     "language": "RU",
                     "text": "Теперь должно быть понятно, что это показатели, соответствующие замыслу стратегии.",
                     "updated": 1640344432146
+                },
+                {
+                    "language": "TR",
+                    "text": "Bunun stratejinin amacına uygun ölçüler olduğunu artık herkes biliyor.",
+                    "updated": 1642364601529
                 }
             ]
         },
@@ -161,6 +216,11 @@
                     "language": "RU",
                     "text": "Для других типов стратегий, например, тех, в которых целью является накопление обоих активов, оба набора показателей могут быть уместны. Также могут быть уместны сводные показатели, представленные в контексте статистики.",
                     "updated": 1640344462006
+                },
+                {
+                    "language": "TR",
+                    "text": "Diğer tür stratejilerle, örneğin amacın her iki varlığı da biriktirmek olduğu stratejilerde, her iki ölçüm grubu da alakalı olabilir. Ayrıca, istatistik bağlamında sağlanan birleştirilmiş metrikler de alakalı olabilir.",
+                    "updated": 1642364535603
                 }
             ]
         },
@@ -172,6 +232,11 @@
                     "language": "RU",
                     "text": "Концепции относительно базового и котируемого актива, такие как баланс каждого актива и показатели эффективности, рассчитанные с точки зрения каждого актива, отслеживаются в нескольких контекстах одновременно.",
                     "updated": 1640344480314
+                },
+                {
+                    "language": "TR",
+                    "text": "Her bir varlığın dengesi ve her bir varlığın perspektifinden hesaplanan performans ölçütleri gibi temel ve kote varlıkla ilgili kavramlar, aynı anda birden çok bağlamda izlenir.",
+                    "updated": 1642364623194
                 }
             ]
         },
@@ -183,6 +248,11 @@
                     "language": "RU",
                     "text": "Далее следуют определения базового и котируемого актива в каждом из контекстов, в которых отслеживаются эти понятия.",
                     "updated": 1640344495376
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıda, kavramların izlendiği bağlamların her birinde temel ve kote edilmiş varlığın tanımları yer almaktadır.",
+                    "updated": 1642364652467
                 }
             ]
         },

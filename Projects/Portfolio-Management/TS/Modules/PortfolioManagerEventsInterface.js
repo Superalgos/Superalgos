@@ -63,6 +63,9 @@ exports.newPortfolioManagementModulesPortfolioManagerEventsInterface = function 
                     /* 
                     Return Response 
                     */
+                   if (response.status === 'Not Ok' && response.reason === 'Trading Bot Already Checked-In') {
+                       return;
+                   }
                     TS.projects.foundations.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent(
                         SESSION_KEY,
                         'Response From Portfolio Manager',

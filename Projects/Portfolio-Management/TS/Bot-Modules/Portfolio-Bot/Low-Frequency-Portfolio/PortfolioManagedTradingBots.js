@@ -108,6 +108,18 @@ exports.newPortfolioManagementBotModulesPortfolioManagedTradingBots = function (
 
         if (
             candle.begin === portfolioEngine.portfolioCurrent.portfolioEpisode.candle.begin.value &&
+            candle.end === portfolioEngine.portfolioCurrent.portfolioEpisode.candle.end.value &&
+            tradingBotsCheckInCheckOutStatusMap.get(SESSION_KEY) === 'Checked In'
+        ) {
+            response = {
+                status: 'Not Ok',
+                reason: 'Trading Bot Already Checked-In'
+            }
+            return response;
+        }
+
+        if (
+            candle.begin === portfolioEngine.portfolioCurrent.portfolioEpisode.candle.begin.value &&
             candle.end === portfolioEngine.portfolioCurrent.portfolioEpisode.candle.end.value
         ) {
             response = {

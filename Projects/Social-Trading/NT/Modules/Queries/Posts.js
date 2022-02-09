@@ -44,7 +44,7 @@ exports.newSocialTradingModulesQueriesPosts = function newSocialTradingModulesQu
                     if (arrayItem === undefined) {
                         break
                     }
-                    addToResponse(arrayItem[1])
+                    addToResponse(arrayItem[1], i)
                 }
                 break
             }
@@ -54,16 +54,17 @@ exports.newSocialTradingModulesQueriesPosts = function newSocialTradingModulesQu
                     if (arrayItem === undefined) {
                         break
                     }
-                    addToResponse(arrayItem[1])
+                    addToResponse(arrayItem[1], i)
                 }
                 break
             }
         }
         return response
 
-        function addToResponse(post) {
+        function addToResponse(post, index) {
 
             let postResponse = {
+                index: index, 
                 originSocialPersonaId: post.originSocialPersonaId,
                 targetSocialPersonaId: post.targetSocialPersonaId,
                 originSocialTradingBotId: post.originSocialTradingBotId,

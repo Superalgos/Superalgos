@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Возникла проблема при попытке отправить ваш вклад в ваш форк репозитория Superalgos или с вашего форка в главный репозиторий Superalgos / Superalgos.",
                 "updated": 1638163298057
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Katkınızı Superalgos deposundaki çatalınıza veya çatalınızdan Superalgos/Superalgos ana deposuna göndermeye çalışırken bir sorun oluştu.",
+                "updated": 1644411705848
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "RU",
                     "text": "Обратитесь к следующему разделу для получения подробной информации о том, что могло произойти. После устранения проблемы, из-за которой команда App Contribute Command не запускалась, вы можете попробовать еще раз.",
                     "updated": 1638163372898
+                },
+                {
+                    "language": "TR",
+                    "text": "Neler olmuş olabileceğini öğrenmek için aşağıdaki bölümü okuyun. App Contribute Command Komutunun çalışmasını engelleyen sorunu düzelttikten sonra tekrar deneyebilirsiniz.",
+                    "updated": 1644411742847
                 }
             ]
         },
@@ -45,6 +55,11 @@
                     "language": "RU",
                     "text": "Информация об ошибке",
                     "updated": 1638163397925
+                },
+                {
+                    "language": "TR",
+                    "text": "Hata Bilgisi (Error Info)",
+                    "updated": 1644411772489
                 }
             ]
         },
@@ -61,6 +76,11 @@
                     "language": "RU",
                     "text": "В следующем разделе вы найдете информацию, записанную при возникновении ошибки.",
                     "updated": 1638163423671
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki bölümde, hata oluştuğunda kaydedilen bilgileri bulacaksınız.",
+                    "updated": 1644411798903
                 }
             ]
         },
@@ -78,6 +98,11 @@
                     "language": "RU",
                     "text": "Вы увидите информацию только в том случае, если вы открыли эту страницу в результате действительно возникшей ошибки.",
                     "updated": 1638163451251
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bilgileri yalnızca bu sayfayı gerçek bir hatanın sonucu olarak açtıysanız göreceksiniz.",
+                    "updated": 1644411813965
                 }
             ]
         },
@@ -94,6 +119,11 @@
                     "language": "RU",
                     "text": "Сообщение об ошибке",
                     "updated": 1638163470882
+                },
+                {
+                    "language": "TR",
+                    "text": "Hata Mesajı (Error Message)",
+                    "updated": 1644411829415
                 }
             ]
         },
@@ -110,6 +140,11 @@
                     "language": "RU",
                     "text": "Ниже приводится сообщение об ошибке исключения, которое произошло на Client:",
                     "updated": 1638163508896
+                },
+                {
+                    "language": "TR",
+                    "text": "İstemcide ( Client ) meydana gelen hatanın Hata Mesajı aşağıdadır:",
+                    "updated": 1644411847275
                 }
             ]
         },
@@ -125,6 +160,11 @@
                     "language": "RU",
                     "text": "Стек ошибок",
                     "updated": 1638163536906
+                },
+                {
+                    "language": "TR",
+                    "text": "Hata Yığını (Error Stack)",
+                    "updated": 1644411861373
                 }
             ]
         },
@@ -141,6 +181,11 @@
                     "language": "RU",
                     "text": "Ниже приводится стек ошибок исключения, возникшего на Client:",
                     "updated": 1638163563203
+                },
+                {
+                    "language": "TR",
+                    "text": "İstemcide ( Client ) meydana gelen hatanın Hata Yığını aşağıdadır:",
+                    "updated": 1644411885305
                 }
             ]
         },
@@ -156,6 +201,11 @@
                     "language": "RU",
                     "text": "Код ошибки",
                     "updated": 1638163579463
+                },
+                {
+                    "language": "TR",
+                    "text": "Hata Kodu (Error Code)",
+                    "updated": 1644411902054
                 }
             ]
         },
@@ -172,6 +222,11 @@
                     "language": "RU",
                     "text": "Ниже приведен код ошибки исключения, возникшего на Client:",
                     "updated": 1638163601482
+                },
+                {
+                    "language": "TR",
+                    "text": "İstemcide ( Client ) meydana gelen hatanın Hata Kodu aşağıdadır:",
+                    "updated": 1644411914231
                 }
             ]
         },
@@ -188,6 +243,11 @@
                     "language": "RU",
                     "text": "Детали ошибки",
                     "updated": 1638163624397
+                },
+                {
+                    "language": "TR",
+                    "text": "Hata Detayları (Error Details)",
+                    "updated": 1644411926032
                 }
             ]
         },
@@ -205,6 +265,11 @@
                     "language": "RU",
                     "text": "Ниже приведены все подробности об ошибке исключения, которое произошло на Client:",
                     "updated": 1638163644557
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdakiler, İstemcide ( Client ) meydana gelen hatanın tüm Hata ayrıntılarıdır:",
+                    "updated": 1644411942854
                 }
             ]
         },

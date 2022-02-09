@@ -1,0 +1,226 @@
+{
+    "topic": "App Commands Errors",
+    "pageNumber": "4",
+    "type": "App Error - Update Failed",
+    "definition": {
+        "text": "There was a problem trying to update the Client. Check the console for errors and make sure your GitHub.com credentials are correct.",
+        "updated": 1611129344277,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Es gab ein Problem beim aktualisieren ihres client`s. Überprüfen sie die Konsole nach error-Meldungen und vergewissern sie sich, das ihre Github.com credentials korrekt sind.",
+                "updated": 1637772440444
+            },
+            {
+                "language": "RU",
+                "text": "Возникла проблема при попытке обновления клиента Client. Проверьте консоль на наличие ошибок и убедитесь, что ваши учетные данные GitHub.com верны.",
+                "updated": 1640235675711
+            },
+            {
+                "language": "TR",
+                "text": "Özet: İstemciyi ( Client ) güncellemeye çalışırken bir sorun oluştu. Konsolda hatalar olup olmadığını kontrol edin ve GitHub.com kimlik bilgilerinizin doğru olduğundan emin olun.",
+                "updated": 1644412897098
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Success",
+            "text": "Check for the following section for details on what may have happened. After you fix the issue, you may try again.",
+            "updated": 1611152967185,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Проверьте в следующем разделе подробную информацию о том, что могло произойти. После устранения проблемы вы можете повторить попытку.",
+                    "updated": 1640235693442
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Olabileceklerle ilgili ayrıntılar için aşağıdaki bölümü kontrol edin. Sorunu çözdükten sonra tekrar deneyebilirsiniz.",
+                    "updated": 1644412930998
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "Error Info",
+            "updated": 1611154641024,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Информация об ошибке",
+                    "updated": 1640235703447
+                },
+                {
+                    "language": "TR",
+                    "text": "Hata Bilgisi (Error Info)",
+                    "updated": 1644412960075
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "In the following section, you will find the information recorded when the error occurred.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В следующем разделе вы найдете информацию, записанную при возникновении ошибки.",
+                    "updated": 1640235769275
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki bölümde, hata oluştuğunda kaydedilen bilgileri bulacaksınız.",
+                    "updated": 1644412970292
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "You will only see the information if you opened this page as a result of the error actually occurring.",
+            "updated": 1611151375974,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы увидите информацию только в том случае, если вы открыли эту страницу в результате фактической ошибки.",
+                    "updated": 1640235808864
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bilgileri ancak bu sayfayı gerçekten oluşan hatanın bir sonucu olarak açtıysanız göreceksiniz.",
+                    "updated": 1644412993952
+                }
+            ]
+        },
+        {
+            "style": "Subtitle",
+            "text": "Error Message",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hata Mesajı (Error Message)",
+                    "updated": 1644413012188
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The following is the Error Message of the Exception that occurred at the Client:",
+            "updated": 1611151299633,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ниже приведено сообщение об ошибке исключения, произошедшего на клиенте:",
+                    "updated": 1640235844652
+                },
+                {
+                    "language": "TR",
+                    "text": "İstemcide ( Client ) meydana gelen İstisnanın Hata Mesajı aşağıdadır:",
+                    "updated": 1644413093645
+                }
+            ]
+        },
+        {
+            "style": "Placeholder",
+            "text": "errorMessage"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Error Stack",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hata Yığını (Error Stack)",
+                    "updated": 1644413055915
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The following is the Error Stack of the Exception that occurred at the Client:",
+            "updated": 1611151427220,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ниже приведен стек ошибок исключения, произошедшего на клиенте:",
+                    "updated": 1640235857685
+                },
+                {
+                    "language": "TR",
+                    "text": "İstemcide ( Client ) meydana gelen İstisnanın Hata Yığını aşağıdadır:",
+                    "updated": 1644413089587
+                }
+            ]
+        },
+        {
+            "style": "Placeholder",
+            "text": "errorStack"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Error Code",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hata Kodu (Error Code)",
+                    "updated": 1644413110540
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The following is the Error Code of the Exception that occurred at the Client:",
+            "updated": 1611151443562,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ниже приведен код ошибки исключения, возникшего у клиента:",
+                    "updated": 1640235869591
+                },
+                {
+                    "language": "TR",
+                    "text": "İstemcide ( Client ) meydana gelen İstisnanın Hata Kodu aşağıdadır:",
+                    "updated": 1644413135558
+                }
+            ]
+        },
+        {
+            "style": "Placeholder",
+            "text": "errorCode"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Error Details",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hata detayları (Error Details)",
+                    "updated": 1644413157144
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The following are all the Error details of the Exception that occurred at the Client:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ниже приведены все детали ошибки исключения, возникшей у клиента:",
+                    "updated": 1640235916516
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdakiler, İstemcide ( Client ) meydana gelen İstisnanın tüm Hata ayrıntılarıdır:",
+                    "updated": 1644413176325
+                }
+            ]
+        },
+        {
+            "style": "Placeholder",
+            "text": "errorDetails"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

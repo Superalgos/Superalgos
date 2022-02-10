@@ -23,8 +23,8 @@ const Feed = () => {
         const mappedPosts = await Promise.all(
             rawPosts.map(async (post, index) => {
                 if (post.eventType === 10) {
-                    const { data,result} = await getProfile( {socialPersonaId: post.originPost.originSocialPersonaId} )
-                                                    .then( response => response.json() )
+                    const {data, result} = await getProfile({socialPersonaId: post.originPost.originSocialPersonaId})
+                        .then(response => response.json())
                     const postData = {
                         postText: post?.postText,
                         originPostHash: post?.originPost.originPostHash,

@@ -47,7 +47,7 @@
     border-radius: 20px !important;
 }
 
-.followButtonExternalProfile{
+.followButtonExternalProfile {
     margin-bottom: 0.4rem !important;
     margin-right: 1.25rem !important;
     height: 1.5rem;
@@ -92,7 +92,7 @@
     color: #6b6b6b;
 }
 
-.profileIcons{
+.profileIcons {
     width: 15px;
     height: 15px;
     vertical-align: text-top;

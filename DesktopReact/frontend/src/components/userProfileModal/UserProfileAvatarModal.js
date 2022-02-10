@@ -1,7 +1,4 @@
-import React, {useState} from 'react';
-import AvatarEditor from "react-avatar-editor";
-import ReactAvatarEditor from 'react-avatar-editor';
-import {Modal} from "@mui/material";
+import React from 'react';
 
 const UserProfileAvatarModal = (props) => {
 

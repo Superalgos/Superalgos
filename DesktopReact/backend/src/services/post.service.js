@@ -167,7 +167,7 @@ const createReply = async (body, res) => {
 };
 
 
-const postReactions = async (body,res) => {
+const postReactions = async (body, res) => {
     try {
 
         let eventMessage;

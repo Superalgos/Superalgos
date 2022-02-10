@@ -21,7 +21,7 @@
     align-items: center;
 }
 
-.commentIconButton{
+.commentIconButton {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,10 +33,10 @@
     align-items: center;
 }
 
-.repostIconButton{
+.repostIconButton {
 }
 
-.reactionsButtons{
+.reactionsButtons {
     position: relative !important;
     min-height: 0.5rem;
     width: 1.8rem !important;
@@ -45,7 +45,7 @@
     margin: 0.20rem !important;
 }
 
-.MuiSpeedDial-actions{
+.MuiSpeedDial-actions {
     margin-left: -45px !important;
     bottom: 30px;
     left: -43px;

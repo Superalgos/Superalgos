@@ -5,7 +5,8 @@ import {
     CardContent,
     CardMedia,
     FormControl,
-    FormHelperText, IconButton,
+    FormHelperText,
+    IconButton,
     InputLabel,
     Modal,
     OutlinedInput,
@@ -16,7 +17,6 @@ import "./UserProfileModal.css"
 import {CloseOutlined, Input} from "@mui/icons-material";
 import pfp from "../../images/superalgos.png";
 import AvatarEditor from "react-avatar-editor";
-import UserProfileAvatarModal from "./UserProfileAvatarModal";
 
 const UserProfileModalView = (props) => {
     const {

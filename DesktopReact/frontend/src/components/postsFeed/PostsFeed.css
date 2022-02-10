@@ -3,4 +3,5 @@
     max-width: inherit;
     padding-top: 0.5rem;
     width: 100%;
+    border-top: 1px solid #eee;
 }

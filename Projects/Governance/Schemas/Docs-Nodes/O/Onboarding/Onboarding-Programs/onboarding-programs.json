@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Эти программы побуждают пользователей Superalgos сделать первые несколько шагов, чтобы принять участие в управлении и начать вносить вклад в проект. Они упрощают получение первых нескольких токенов и позволяют каждому инвестировать в токен Superalgos SA Token! Речь идет о программе Airdrop и программе Github.",
                 "updated": 1638979401159
+            },
+            {
+                "language": "TR",
+                "text": "Bu programlar, Superalgos kullanıcılarını yönetişime katılmak ve projeye katkı sağlamalarını başlatmak için ilk birkaç adımı atmaya teşvik eder.İlk birkaç jetonu kazanmayı çok kolaylaştırır ve herkesin Superalgos SA Token'a yatırım yapmasına izin verir! Airdrop Program ve Github Program' dan bahsediyoruz",
+                "updated": 1644480816574
             }
         ]
     },
@@ -36,6 +41,11 @@
                     "language": "RU",
                     "text": "Узнайте больше о том, как токен перетекает в эти программы Token Power Flows!",
                     "updated": 1638979486025
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Token Gücünün bu programlara nasıl aktığı hakkında daha fazla bilgi edinin!",
+                    "updated": 1644480869142
                 }
             ]
         },
@@ -52,6 +62,11 @@
                     "language": "RU",
                     "text": "Общее у этих двух программ то, что для их работы не требуется Token Power. То есть, даже если у вас ноль токенов Superalgos SA Token и ноль делегированных полномочий Delegated Power, вы все равно можете участвовать, чтобы заработать свои первые несколько токенов!",
                     "updated": 1638979596447
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu iki programın ortak özelliği, çalışması için Token Power gerektirmemeleridir. Yani, sıfır Superalgos SA Jetonunuz ve sıfır Delegasyon Gücünüz olsa bile, yine de ilk birkaç jetonunuzu kazanmak için katılabilirsiniz!",
+                    "updated": 1644481003949
                 }
             ]
         },
@@ -69,6 +84,11 @@
                     "language": "RU",
                     "text": "Все, что вам нужно сделать для участия, - это запустить каждый из узлов программы и отправить свой профиль пользователя User Profile!",
                     "updated": 1638979630378
+                },
+                {
+                    "language": "TR",
+                    "text": "Katılmak için tek yapmanız gereken program düğümlerinin her birini oluşturmak ve Kullanıcı Profilinizi göndermek!",
+                    "updated": 1644481020086
                 }
             ]
         },
@@ -84,6 +104,11 @@
                     "language": "RU",
                     "text": "Конфигурация",
                     "updated": 1638979641463
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırma",
+                    "updated": 1644481029372
                 }
             ]
         }

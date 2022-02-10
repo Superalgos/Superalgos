@@ -577,7 +577,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
         for (let i = 0; i < NT.networkApp.p2pNetworkNodesConnectedTo.peers.length; i++) {
             let peer = NT.networkApp.p2pNetworkNodesConnectedTo.peers[i]
             if (peer.p2pNetworkNode.node.id === callerIdToAVoid) { continue }
-            peer.webSocketsClient.sendMessage(socketMessage.payload)
+            peer.webSocketsClient.socketNetworkClients.sendMessage(socketMessage.payload)
                 .catch(onError)
 
             function onError() {

@@ -51,7 +51,7 @@ exports.newSocialTradingModulesQueriesPostReplies = function newSocialTradingMod
                     if (thisObject.post === undefined) {
                         break
                     }
-                    addToResponse(arrayItem[1])
+                    addToResponse(arrayItem[1], i)
                 }
                 break
             }
@@ -61,19 +61,20 @@ exports.newSocialTradingModulesQueriesPostReplies = function newSocialTradingMod
                     if (thisObject.post === undefined) {
                         break
                     }
-                    addToResponse(arrayItem[1])
+                    addToResponse(arrayItem[1], i)
                 }
                 break
             }
         }
         return response
 
-        function addToResponse(postHash) {
+        function addToResponse(postHash, index) {
             let post = SA.projects.socialTrading.globals.memory.maps.POSTS.get(postHash);
 
             if (post === undefined) return;
 
             let postResponse = {
+                index: index,
                 originSocialPersonaId: post.originSocialPersonaId,
                 targetSocialPersonaId: post.targetSocialPersonaId,
                 originSocialTradingBotId: post.originSocialTradingBotId,

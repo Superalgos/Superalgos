@@ -8,9 +8,9 @@ const UsersSidebar = () => {
     const showMoreCallback = () => console.log("clicked show more");
     return (
         <Drawer className="usersSidebarContainer"
-            variant="permanent"
-            PaperProps={{style: {position: "relative"}}}
-            sx={{display: {xs: 'none', sm: 'none', md: 'block'}}}>
+                variant="permanent"
+                PaperProps={{style: {position: "relative"}}}
+                sx={{display: {xs: 'none', sm: 'none', md: 'block'}}}>
             <Stack
                 direction="column"
                 justifyContent="flex-start"

@@ -18,6 +18,11 @@
                 "language": "DE",
                 "text": "Eine Sammlung von wiederverwendbaren Textabschnitten (snippets), die im Rahmen des Governance-Projekts wiederverwendet werden können.",
                 "updated": 1640092192798
+            },
+            {
+                "language": "TR",
+                "text": "Yönetişim Projesi (Governance Project) içinde yeniden kullanılacak yeniden kullanılabilir metin parçacıklarından oluşan bir koleksiyon.",
+                "updated": 1644499708964
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "DE",
                     "text": "Rechnerische Grenzen",
                     "updated": 1640092210174
+                },
+                {
+                    "language": "TR",
+                    "text": "Hesaplama Sınırlamaları",
+                    "updated": 1644499732094
                 }
             ]
         },
@@ -65,6 +75,11 @@
                     "language": "DE",
                     "text": "Das Governance-System führt alle Berechnungen dynamisch und in Echtzeit durch, bei jeder Änderung der Definitionen, und berechnet alle im aktuellen Workspace geladenen Hierarchien.",
                     "updated": 1640092096488
+                },
+                {
+                    "language": "TR",
+                    "text": "Yönetişim sistemi tüm hesaplamaları dinamik ve gerçek zamanlı olarak, tanımlanan her değişiklikle yapar ve Geçerli Çalışma Alanına (Current Workspace) yüklenen tüm hiyerarşileri hesaplar.",
+                    "updated": 1644499791584
                 }
             ]
         },
@@ -86,6 +101,11 @@
                     "language": "DE",
                     "text": "Das bedeutet, dass die Berechnungen, die Sie in einem bestimmten Workspace sehen, nur eine Teilberechnung im Rahmen des aktuellen Arbeitsbereichs sind. Definitions, claims, votes, usw. die in anderen Workspaces oder Plugins vorhanden sind, werden nicht berechnet.",
                     "updated": 1640092349603
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarıda bahsedilen hesaplamalar, herhangi bir Çalışma Alanı içinden gördüğünüz hesaplamaların yalnızca Geçerli Çalışma Alanı kapsamındaki bir hesaplama olduğu anlamına gelir. Diğer çalışma alanlarında veya eklentilerde bulunan tanımlar, talepler, oylar vb. hesaplanmaz.",
+                    "updated": 1644499862425
                 }
             ]
         },
@@ -113,6 +133,11 @@
                     "language": "DE",
                     "text": "Wenn Sie in mehr als einem Governance Workspace abstimmen oder Anträge stellen, können Sie nicht sehen, worum es bei einigen Ihrer Anträge und Abstimmungen geht - insbesondere bei denen, die sich in einem Workspace befinden, der nicht der aktuelle Arbeitsbereich ist.",
                     "updated": 1640092502144
+                },
+                {
+                    "language": "TR",
+                    "text": "Birden fazla Yönetişim Çalışma Alanında çalışarak oy verirseniz veya hak talebinde bulunursanız, bazı hak taleplerinizin ve oylarınızın -özellikle o anki geçerli olan çalışma Alanı olmayan bir çalışma alanında bulunanlar - hesaplanmaz.",
+                    "updated": 1644499991628
                 }
             ]
         },
@@ -135,6 +160,11 @@
                     "language": "DE",
                     "text": "Wenn Sie sich einen besseren Überblick über alle Ihre Abstimmungen (votes) und Anträge (claims) verschaffen wollen, sollten Sie einen neuen Workspace einrichten, der alle Hierarchien enthält, mit denen Sie interagieren müssen. Auf diese Weise können Sie alle Ihre votes und claims gleichzeitig sehen. Speichern Sie dazu einen neuen Workspace, der von einem der Governance Arbeitsbereiche abgeleitet ist, und laden Sie die benötigten Plugins.",
                     "updated": 1640092827493
+                },
+                {
+                    "language": "TR",
+                    "text": "Tüm oylarınızın ve iddialarınızın daha net bir resmini elde etmek istiyorsanız, etkileşim kurmanız gereken tüm hiyerarşileri içeren yeni bir çalışma alanı oluşturmalısınız.Bu sayede tüm oylarınızı ve iddialarınızı aynı anda görebilirsiniz.Bunu yapmak için, Yönetişim Çalışma Alanlarından (Governance Workspace) birinden türetilen yeni bir çalışma alanı kaydedin ve ihtiyacınız olan eklentileri yükleyin.",
+                    "updated": 1644500061565
                 }
             ]
         },
@@ -157,6 +187,11 @@
                     "language": "DE",
                     "text": "Selbst wenn Sie wie oben vorgeschlagen vorgehen, sind die Berechnungen, die Sie in Bezug auf Token Rewards (Token Belohnungen), Tokens Awarded, Tokens Bonus, usw. sehen, immer noch unvollständig. Die eigentliche Berechnung des Distribution Event (Verteilungsereignisses) umfasst die Berechnung aller Project Definition Hierarchies, einschließlich aller Benutzerprofilhierarchien, die an der Governance teilnehmen.",
                     "updated": 1640092986097
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarıda önerildiği gibi yapsanız bile, Token Ödülleri (Token Rewards), Kazanılmış Tokenlar (Tokens Awarded), Token Bonusu (Tokens Bonus) vb. açısından gördüğünüz hesaplamalar yine de kısmidir. Gerçek Dağıtım Olayı (Distribution Event) hesaplaması, yönetişime katılan tüm Kullanıcı Profili (User Profile) hiyerarşileri dahil olmak üzere tüm Proje Tanımı Hiyerarşilerinin (Project Definition Hierarchies) hesaplanmasını içerir.",
+                    "updated": 1644500777155
                 }
             ]
         },
@@ -183,6 +218,11 @@
                     "language": "DE",
                     "text": "Tief in der Governance",
                     "updated": 1640092999101
+                },
+                {
+                    "language": "TR",
+                    "text": "Yönetimin Derinliği",
+                    "updated": 1644500797159
                 }
             ]
         },
@@ -202,13 +242,18 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Если вы внесли свой вклад или хотите углубить в свое участие в управлении, вам, скорее всего, потребуется взаимодействовать с одним или несколькими рабочими пространствами Governance Workspaces для конкретного проекта. Для этого загрузите свой профиль пользователя User Profile в соответствующие рабочее пространство, чтобы вы могли установить ссылки для Contribution Claims и распределения Weight Votes.",
+                    "text": "Если вы внесли свой вклад или хотите углубить в свое участие в управлении, вам, скорее всего, потребуется взаимодействовать с одним или несколькими рабочими простра��ствами Governance Workspaces для конкретного проекта. Для этого загрузите свой профиль пользователя User Profile в соответствующие рабочее пространство, чтобы вы могли установить ссылки для Contribution Claims и распределения Weight Votes.",
                     "updated": 1639038374443
                 },
                 {
                     "language": "DE",
                     "text": "Wenn Sie einen Beitrag geleistet (contributed) haben oder Ihre Beteiligung an der Governance vertiefen möchten, müssen Sie höchstwahrscheinlich mit einem oder mehreren der projektspezifischen Governance Workspaces interagieren. Laden Sie dazu Ihr User Profile (Benutzerprofil) in die entsprechenden Workspaces, damit Sie references (Bezüge) herstellen können, um Contribution Claims (Beitragsforderungen) zu stellen und Gewichtungsstimmen (Weight Votes) abzugeben.",
                     "updated": 1640093265065
+                },
+                {
+                    "language": "TR",
+                    "text": "İşe katkıda bulunduysanız veya yönetişime katılımınızla daha derine inmek istiyorsanız, büyük olasılıkla projeye özel bir veya daha fazla Yönetişim Çalışma Alanı (Governance Workspaces) ile etkileşime girmeniz gerekecektir. Bunu yapmak için, Katkı İddialarını (Contribution Claims) yerleştirmek ve Ağırlık Oyları (Weight Votes) vermek için referanslar oluşturabilmeniz için Kullanıcı Profilinizi (User Profile) ilgili çalışma alanlarına yükleyin.",
+                    "updated": 1644500912380
                 }
             ]
         },
@@ -230,6 +275,11 @@
                     "language": "DE",
                     "text": "Mit Token-Bonus",
                     "updated": 1640093423352
+                },
+                {
+                    "language": "TR",
+                    "text": "Jeton Bonusu Özelliği",
+                    "updated": 1644500939764
                 }
             ]
         },
@@ -257,6 +307,11 @@
                     "language": "DE",
                     "text": "Die Teilnahme an diesem Programm wird mit einem Token-Bonus belohnt, d. h. Sie verdienen Token, indem Sie einfach mitmachen! Lesen Sie über den Token-Bonus, um mehr zu erfahren!",
                     "updated": 1640093469802
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu programa katılım, Jeton Bonusu (Tokens Bonus) ile teşvik edilir, yani sadece katılarak jeton kazanırsınız! Daha fazla bilgi edinmek için Jeton Bonusu (Tokens Bonus) hakkında bilgi edinin!",
+                    "updated": 1644500975936
                 }
             ]
         },
@@ -278,6 +333,11 @@
                     "language": "DE",
                     "text": "Programme für den Aufbau von Gemeinschaften (Community Building Programs)",
                     "updated": 1640093500778
+                },
+                {
+                    "language": "TR",
+                    "text": "Topluluk Oluşturma Bonusu",
+                    "updated": 1644500995447
                 }
             ]
         },
@@ -304,6 +364,11 @@
                     "language": "DE",
                     "text": "Lesen Sie über die Community Building-Programme, um zu erfahren, wie dieses Programm die vergebenen Token berechnet.",
                     "updated": 1640093558260
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu programın Jeton ödüllerini nasıl hesapladığını öğrenmek için Topluluk Oluşturma Programları (Community Building Programs) hakkında bilgi edinin.",
+                    "updated": 1644501045473
                 }
             ]
         },
@@ -326,6 +391,11 @@
                     "language": "DE",
                     "text": "Claims Inhalt",
                     "updated": 1640093584820
+                },
+                {
+                    "language": "TR",
+                    "text": "Talep İçeriği",
+                    "updated": 1644501063251
                 }
             ]
         },
@@ -352,6 +422,11 @@
                     "language": "ES",
                     "text": "Asegúrate de conducir lo suficiente de Claim Power al nodo para que pueda obtener la recompensa que se merece! Y recuerde pedir a las personas que conocen su trabajo que respondan por sus declaraciones con sus Claim Votes. Así es como se valida su contribución y cómo obtiene las recompensas asociadas.",
                     "updated": 1640961394925
+                },
+                {
+                    "language": "TR",
+                    "text": "Hak ettiğiniz ödülü alabilmeniz için düğüme yeterince Talep Gücü (Claim Power) yüklediğinizden emin olun! Ve işinizi bilen insanlardan Talep Oylarıyla (Claim Votes) iddialarınız için kefil olmalarını istemeyi unutmayın. Katkınız bu şekilde onaylanır ve ilgili ödülleri bu şekilde alırsınız.",
+                    "updated": 1644501138213
                 }
             ]
         },
@@ -373,6 +448,11 @@
                     "language": "ES",
                     "text": "Más información sobre cómo las declaraciones se resuelven (HowClaims are Resolved)!",
                     "updated": 1640961450130
+                },
+                {
+                    "language": "TR",
+                    "text": "Taleplerin Nasıl Çözüldüğü hakkında daha fazla bilgi edinin!",
+                    "updated": 1644501239899
                 }
             ]
         },
@@ -395,6 +475,11 @@
                     "language": "DE",
                     "text": "Claim Votes Inhalt",
                     "updated": 1640094034238
+                },
+                {
+                    "language": "TR",
+                    "text": "Talep Oy içeriği",
+                    "updated": 1644501266299
                 }
             ]
         },
@@ -422,6 +507,11 @@
                     "language": "ES",
                     "text": "El Claim Support Power que dirija hacia los nodos de Claim Voteses significativo, ya que es una medida de su apoyo al reclamo. El escenario ideal para la parte que presenta el reclamo es que el reclamo recibe suficientes Claim Votes con suficiente Claim Support Powerpara que coincida con el Claim Power el reclamo lleva.",
                     "updated": 1640961610754
+                },
+                {
+                    "language": "TR",
+                    "text": "Talep Oyları düğümlerine yönlendirdiğiniz Talep Destek Gücü (Claim Support Power), iddiaya verdiğiniz desteğin bir ölçüsü olduğundan önemlidir. Hak talebinde bulunan taraf için ideal durum senaryosu, talebin, iddianın taşıdığı Talep Gücü ile eşleşmesi için yeterli Talep Destek Gücü (Claim Support Power) ile yeterli Talep Oyu (Claim Votes)  almasıdır.",
+                    "updated": 1644502030626
                 }
             ]
         },
@@ -443,6 +533,11 @@
                     "language": "ES",
                     "text": "Es posible que desee obtener más información sobre How Claims are Resolved!",
                     "updated": 1640961629473
+                },
+                {
+                    "language": "TR",
+                    "text": "Taleplerin Nasıl Çözüldüğü hakkında daha fazla bilgi edinmek için How Claims are Resolved dökümanına başvurabilirsiniz!",
+                    "updated": 1644502499007
                 }
             ]
         },

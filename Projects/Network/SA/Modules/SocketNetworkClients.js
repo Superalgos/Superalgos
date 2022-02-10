@@ -6,7 +6,6 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
     let thisObject = {
         id: undefined,
         socket: undefined,
-        isConnected: undefined,
         callerRole: undefined,
         p2pNetworkClient: undefined,
         p2pNetworkNode: undefined,
@@ -29,7 +28,6 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
         thisObject.socket.close()
         thisObject.socket = undefined
         thisObject.id = undefined
-        thisObject.isConnected = undefined
         thisObject.callerRole = undefined
         thisObject.p2pNetworkNode = undefined
         thisObject.p2pNetworkClient = undefined
@@ -216,7 +214,11 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
 
             if (thisObject.socket.readyState !== 1) { // 1 means connected and ready.
                 console.log('[ERROR] Socket Network Clients -> sendMessage -> Cannot send message while connection is closed.')
-                reject('Websockets Connection Not Ready.')
+                let response = {
+                    result: 'Error',
+                    message: 'Websockets Connection Not Ready.'
+                }
+                resolve(response)
                 return
             }
 

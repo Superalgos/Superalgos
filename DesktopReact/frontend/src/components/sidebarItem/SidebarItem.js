@@ -18,7 +18,7 @@ const SidebarItem = ({value, Icon, Button, text}) => {
     }
 
     return (
-        <div className="sidebarItem" >
+        <div className="sidebarItem">
             <Stack direction="row">
                 <Button
                     variant="outlined"

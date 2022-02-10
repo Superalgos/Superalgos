@@ -30,7 +30,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
         thisObject.socketInterfaces = NT.projects.network.modules.socketInterfaces.newNetworkModulesSocketInterfaces()
         thisObject.socketInterfaces.initialize()
 
-        let port = NT.networkApp.p2pNetworkNode.node.config.webSocketsPort
+        let port = NT.networkApp.p2pNetworkNode.node.networkInterfaces.websocketsNetworkInterface.config.webSocketsPort
         thisObject.socketServer = new SA.nodeModules.ws.Server({ port: port })
         setUpWebSocketServer()
     }

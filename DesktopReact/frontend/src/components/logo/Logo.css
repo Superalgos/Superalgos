@@ -3,17 +3,18 @@
     width: 100%;
     height: 3rem;
 }
+
 .icon {
     margin: 0 0.5rem;
 }
 
-.iconContainer{
+.iconContainer {
     display: flex;
     align-items: center;
     height: 3rem;
 }
 
-.linkLogo{
+.linkLogo {
     display: inline-flex;
     align-items: center;
     height: 3rem;

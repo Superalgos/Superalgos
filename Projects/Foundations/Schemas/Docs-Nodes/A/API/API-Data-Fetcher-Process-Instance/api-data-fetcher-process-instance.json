@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Этот узел представляет собой экземпляр процесса API Data Fetcher. При запуске он будет отображать статус процесса.",
                 "updated": 1638623675316
+            },
+            {
+                "language": "DE",
+                "text": "Diese Node stellt eine Instanz eines API Data Fetcher-Prozesses dar. Wenn er läuft, zeigt er den Status des Prozesses an.",
+                "updated": 1644524277488
             }
         ]
     },
@@ -21,6 +26,11 @@
                     "language": "RU",
                     "text": "Пожалуйста, ознакомьтесь со страницей Process Definition для более подробного описания того, что такое процесс и как он работает.",
                     "updated": 1638623760705
+                },
+                {
+                    "language": "DE",
+                    "text": "Auf der Seite: \"Process Definition\" finden Sie eine ausführlichere Beschreibung dessen, was ein process ist und wie er funktioniert.",
+                    "updated": 1644524464100
                 }
             ]
         }

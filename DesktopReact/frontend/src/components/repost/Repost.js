@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
+import { useSelector } from 'react-redux';
 import {Avatar, Button, Stack, TextField} from "@mui/material";
 import pic from "../../images/superalgos.png";
 
 const Repost = ({postHash, targetSocialPersonaId, closeModal}) => {
     /*** Variables */
     const [repost, setRepost] = useState('');
+    const {profilePic} = useSelector(state => state.profile.actualUser);
 
     /*** Methods */
     const handleChange = (event) => {
@@ -28,7 +30,7 @@ const Repost = ({postHash, targetSocialPersonaId, closeModal}) => {
     }
 
     return <Stack direction="row" className="reply" /*justifyContent="space-between"*/>
-        <Avatar src={pic} className="avatar"/>
+        <Avatar src={profilePic || pic}/>
         <TextField className="replyText"
                    id="outlined-multiline-flexible"
                    label="Add a comment"

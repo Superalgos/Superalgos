@@ -33,12 +33,12 @@
 
 .grid-container {
     display: grid;
-    grid-template-columns: 50px 50px 50px 50px 50px;
+    grid-template-columns: 3.438rem auto;
     grid-template-areas:
-    'avatar header header header header header'
-    'avatar body body body body body'
-    'footer footer footer footer footer footer';
-    grid-gap: 10px;
+    'avatar header'
+    'avatar body'
+    'footer footer';
+    /*grid-gap: 10px;*/
 }
 
 .postAvatarContainer {
@@ -52,12 +52,11 @@
 .postName {
     justify-content: center;
     align-items: center;
-    padding: 0.25rem;
 }
 .postUserName {
     justify-content: center;
     align-items: center;
-    padding: 0.25rem;
+    padding-left: 0.25rem;
     color: #6b6b6b;
 }
 
@@ -65,7 +64,6 @@
     max-width: 100%;
     min-width: 1.5rem;
     min-height: 1.5rem;
-    padding-left: 0.25rem;
     overflow: auto;
 }
 

@@ -47,6 +47,14 @@
     border-radius: 20px !important;
 }
 
+.followButtonExternalProfile{
+    margin-bottom: 0.4rem !important;
+    margin-right: 1.25rem !important;
+    height: 1.5rem;
+    width: 8.6rem;
+    border-radius: 20px !important;
+}
+
 .stats {
     padding-top: 1px;
     width: 100%;

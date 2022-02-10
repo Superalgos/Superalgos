@@ -21,6 +21,41 @@
     margin: 0.5rem 0 !important;
 }
 
+.editProfileAvatar {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 37.5rem;
+    height: 40rem;
+    max-height: 90vh;
+    max-width: 90vw;
+    border: 1px solid #000;
+    background-color: white;
+    box-shadow: 24px 24px 100px black;
+    overflow-y: auto;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding-bottom: 16px !important;
+    border-radius: 1rem;
+}
+
+.editProfileAvatarHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.editProfileAvatarHeaderApplyButton {
+
+}
+
+.reactAvatarEditor{
+
+}
 
 .userProfileAvatarButton{
     margin-bottom: 0.4rem !important;

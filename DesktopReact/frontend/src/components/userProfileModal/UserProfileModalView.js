@@ -15,6 +15,8 @@ import styled from "@emotion/styled";
 import "./UserProfileModal.css"
 import {CloseOutlined, Input} from "@mui/icons-material";
 import pfp from "../../images/superalgos.png";
+import AvatarEditor from "react-avatar-editor";
+import UserProfileAvatarModal from "./UserProfileAvatarModal";
 
 const UserProfileModalView = (props) => {
     const {
@@ -25,7 +27,14 @@ const UserProfileModalView = (props) => {
         saveProfile,
         isEquals,
         errorState,
-        close
+        close,
+        modalEditAvatar,
+        handleClickCallback,
+        avatarEditor,
+        handleNewImage,
+        handleScale,
+        handlePositionChange,
+        setEditorRef
     } = props;
     const inputCharLimit = [{name: 50, bio: 150, location: 30, web: 100}] // temporal char limiter constant. Use json file instead?
     const Input = styled('input')({
@@ -37,7 +46,7 @@ const UserProfileModalView = (props) => {
             <div className="editProfileHeader">
                 <div className="editProfileCloseBtn">
                     <IconButton onClick={close}>
-                    <CloseOutlined/>
+                        <CloseOutlined/>
                     </IconButton>
                 </div>
                 <div className="editProfileHeaderTitleAndBtn">
@@ -159,21 +168,60 @@ const UserProfileModalView = (props) => {
         )
     }
 
-    return (
-        <Modal open
-               onClose={close}>
-            <Box className="editUserBox" component="form" noValidate autoComplete="off">
-                <CardContent className="userSection">
-                    {formHeader()}
-                    <div className="editBannerAvatarContainer">
-                        {setBanner()}
-                        {avatarContainer()}
-                        {formFields()}
-                        {formSaveButton()}
+    return (<>
+            <Modal open={modalEditAvatar}
+                   onClose={handleClickCallback}>
+                <Box className="editProfileAvatar">
+                    <div className="editProfileAvatarHeader">
+                        <IconButton onClick={handleClickCallback}>
+                            <CloseOutlined/>
+                        </IconButton>
+                        <Typography>
+                            Edit media
+                        </Typography>
+                        <Button
+                            className="editProfileAvatarHeaderApplyButton"
+                            onClick={handleNewImage}>
+                            Apply
+                        </Button>
                     </div>
-                </CardContent>
-            </Box>
-        </Modal>
+                    <AvatarEditor className="reactAvatarEditor"
+                                  image={avatarEditor.image}
+                                  width={avatarEditor.width}
+                                  height={avatarEditor.height}
+                                  borderRadius={avatarEditor.borderRadius}
+                                  scale={parseFloat(avatarEditor.scale)}
+                                  position={avatarEditor.position}
+                                  onPositionChange={handlePositionChange}
+                                  ref={setEditorRef}
+                    />
+                    Zoom:
+                    <input
+                        name="scale"
+                        type="range"
+                        onChange={handleScale}
+                        min={avatarEditor.allowZoomOut ? '0.1' : '1'}
+                        max="2"
+                        step="0.01"
+                        defaultValue="1"
+                    />
+                </Box>
+            </Modal>
+            <Modal open
+                   onClose={close}>
+                <Box className="editUserBox" component="form" noValidate autoComplete="off">
+                    <CardContent className="userSection">
+                        {formHeader()}
+                        <div className="editBannerAvatarContainer">
+                            {setBanner()}
+                            {avatarContainer()}
+                            {formFields()}
+                            {formSaveButton()}
+                        </div>
+                    </CardContent>
+                </Box>
+            </Modal>
+        </>
     );
 }
 

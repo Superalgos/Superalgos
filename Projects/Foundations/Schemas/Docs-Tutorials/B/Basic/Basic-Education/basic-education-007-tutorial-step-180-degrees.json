@@ -36,6 +36,11 @@
                 "language": "RU",
                 "text": "Когда все узлы потомков установлены на угол 180 градусов, каждый узел занимает слот в доле окружности, простирающейся на 180 градусов, нормальной к родительскому узлу.",
                 "updated": 1640865971973
+            },
+            {
+                "language": "ID",
+                "text": "Ketika semua turunan node diatur ke sudut 180 derajat, setiap node mengambil tempat disekeliling yang mencakup 180 derajat, normal untuk parentnya.",
+                "updated": 1643473595168
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "RU",
                     "text": "Но что произойдет, если один из узлов потомков будет иметь другой параметр Angle to Parent? Давайте проведем эксперимент!",
                     "updated": 1640865895452
+                },
+                {
+                    "language": "ID",
+                    "text": "Tetapi apa yang terjadi jika salah satu turunan node memiliki pengaturan Angle to Parent yang berbeda? Mari kita tes!",
+                    "updated": 1643473612431
                 }
             ]
         },
@@ -104,6 +114,11 @@
                     "language": "RU",
                     "text": "Нажмите один раз на Angle Trading Parameters для установки Parent и выйдите из меню!",
                     "updated": 1640865931438
+                },
+                {
+                    "language": "ID",
+                    "text": "Klik sekali pada pengaturan Angle to Parent di node Trading Parameters dan keluar dari menu!",
+                    "updated": 1643336532710
                 }
             ]
         },
@@ -138,6 +153,11 @@
                     "language": "RU",
                     "text": "Узел занимает слот под меньшим углом - 90 градусов! Проделайте то же самое с узлами Trading System Reference и Trading Engine Reference!",
                     "updated": 1640865956050
+                },
+                {
+                    "language": "ID",
+                    "text": "Node mengambil tempat dalam sudut yang lebih kecil — 90 derajat! Lakukan hal yang sama dengan node Trading System Reference dan Trading Engine Reference !",
+                    "updated": 1643336695129
                 }
             ]
         }

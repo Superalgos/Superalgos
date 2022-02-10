@@ -1,12 +1,12 @@
 import "./SuggestedUsers.css"
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux'
-import { Skeleton, Stack } from "@mui/material";
+import React, {useEffect, useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux'
+import {Skeleton, Stack} from "@mui/material";
 import ShowMoreUsers from "../showMoreUsers/ShowMoreUsers";
 import UserCard from "../userCard/UserCard";
-import { getPaginationProfiles, getProfile } from "../../api/profile.httpService";
-import { STATUS_OK } from "../../api/httpConfig";
-import { setSuggestedUsersList } from '../../store/slices/suggestedUsers.slice'
+import {getPaginationProfiles, getProfile} from "../../api/profile.httpService";
+import {STATUS_OK} from "../../api/httpConfig";
+import {setSuggestedUsersList} from '../../store/slices/suggestedUsers.slice'
 
 /* TODO remove unused code */
 const SuggestedUsers = () => {
@@ -55,13 +55,15 @@ const SuggestedUsers = () => {
     }
 
     const loadSuggestedUsersInfo = async (rawUsersData) => {
-        const usersList = await Promise.all(
-            rawUsersData.map( async (user) => {
-                const {data, result} = await  getProfile({socialPersonaId: user.socialPersonaId}).then( response => response.json() );
-                return {...user, profilePic: data?.profilePic }
+        return await Promise.all(
+            rawUsersData.map(async (user) => {
+                const {
+                    data,
+                    result
+                } = await getProfile({socialPersonaId: user.socialPersonaId}).then(response => response.json());
+                return {...user, profilePic: data?.profilePic}
             })
-        )
-        return usersList;
+        );
     }
 
     const showMoreCallback = async () => {

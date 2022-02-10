@@ -5,7 +5,6 @@ import {updateProfile} from "../../api/profile.httpService";
 import UserProfileModalView from './UserProfileModalView'
 import {STATUS_OK} from "../../api/httpConfig";
 import {validateFileSize} from "../../utils/helper";
-import UserProfileAvatarModal from "./UserProfileAvatarModal";
 
 const UserProfileModal = ({user, close}) => {
     const loadedSocialPersona = useSelector(state => state.profile.socialPersona)
@@ -19,7 +18,7 @@ const UserProfileModal = ({user, close}) => {
             image: userInfo.profilePic,
             croppedImg: '',
             allowZoomOut: false,
-            position: { x: 0.5, y: 0.5 },
+            position: {x: 0.5, y: 0.5},
             scale: 1,
             rotate: 0,
             borderRadius: 200,
@@ -99,7 +98,7 @@ const UserProfileModal = ({user, close}) => {
             close={handleClickCallback}
         />
     }*/
-    const handleNewImage = (e) => {
+    const handleNewImage = () => {
         if (setEditorRef) {
             const canvasScaled = editor.getImageScaledToCanvas();
             const croppedImg = canvasScaled.toDataURL();
@@ -116,10 +115,10 @@ const UserProfileModal = ({user, close}) => {
     }
     const handleScale = (e) => {
         const scale = parseFloat(e.target.value);
-        setAvatarEditor({ ...avatarEditor, scale });
+        setAvatarEditor({...avatarEditor, scale});
     }
     const handlePositionChange = position => {
-        setAvatarEditor({ ...avatarEditor, position });
+        setAvatarEditor({...avatarEditor, position});
     }
     const setEditorRef = (ed) => {
         editor = ed;

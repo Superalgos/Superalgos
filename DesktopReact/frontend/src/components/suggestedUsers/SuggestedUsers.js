@@ -33,16 +33,16 @@ const SuggestedUsers = () => {
     const dispatch = useDispatch();
     const suggestedUsersList = useSelector(state => state.suggestedUsers.suggestedUsersList)
     const [loading, setLoading] = useState(true);
-    const [initialPaginationIdex, setInitialPaginationIndex] = useState(7);
-    const [pagination, setPagination] = useState(3);
+    const /*[*/initialPaginationIdex/*, setInitialPaginationIndex] */ =/* useState(*/7/*)*/;
+    const /*[*/pagination/*, setPagination] */ =/* useState(*/3/*)*/;
 
     useEffect(() => {
         const loadUsers = async () => {
-            const {data, result} = await getPaginationProfiles().then(  response => response.json())
-                if (result === STATUS_OK) {
-                    const usersList = await loadSuggestedUsersInfo(data)
-                    dispatch( setSuggestedUsersList(usersList) );
-                }
+            const {data, result} = await getPaginationProfiles().then(response => response.json())
+            if (result === STATUS_OK) {
+                const usersList = await loadSuggestedUsersInfo(data)
+                dispatch(setSuggestedUsersList(usersList));
+            }
         };
 
         setLoading(true);
@@ -67,13 +67,16 @@ const SuggestedUsers = () => {
     }
 
     const showMoreCallback = async () => {
-        const paginationIndex = suggestedUsersList.length + initialPaginationIdex;
-        const {data, result } = await getPaginationProfiles(paginationIndex, pagination).then( response => response.json() );
-        
-        if(result === STATUS_OK) {
+        const paginationIndex = suggestedUsersList.length + initialPaginationIndex;
+        const {
+            data,
+            result
+        } = await getPaginationProfiles(paginationIndex, pagination).then(response => response.json());
+
+        if (result === STATUS_OK) {
             const usersList = await loadSuggestedUsersInfo(data);
-            dispatch( 
-                setSuggestedUsersList( suggestedUsersList.concat(usersList) )
+            dispatch(
+                setSuggestedUsersList(suggestedUsersList.concat(usersList))
             );
 
             const docElement = document.getElementById('scroll-div')
@@ -92,16 +95,16 @@ const SuggestedUsers = () => {
                     width="20rem"
                 >
                     {
-                        suggestedUsersList
-                            ? suggestedUsersList.map( (profile, index) => {
+                        (!loading) || suggestedUsersList
+                            ? suggestedUsersList.map((profile, index) => {
                                 return <UserCard
-                                            key={ index }
-                                            id={ index }
-                                            name={ profile.socialPersonaHandle }
-                                            userId={ profile.socialPersonaId }
-                                            profilePic= { profile.profilePic }
-                                            followCallback={ followCallback }
-                                        />
+                                    key={index}
+                                    id={index}
+                                    name={profile.socialPersonaHandle}
+                                    userId={profile.socialPersonaId}
+                                    profilePic={profile.profilePic}
+                                    followCallback={followCallback}
+                                />
                             })
                             : (skeletons)
                     }

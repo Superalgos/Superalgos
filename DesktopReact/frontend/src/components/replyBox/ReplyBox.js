@@ -4,11 +4,14 @@ import React, {useState} from "react";
 import {createReply} from "../../api/post.httpService";
 import "./ReplyBox.css"
 import {STATUS_OK} from "../../api/httpConfig";
+import {useSelector} from "react-redux";
 
 
 const ReplyBox = ({postHash, targetSocialPersonaId, closeModal}) => {
     /*** Variables */
     const [reply, setReply] = useState('');
+    const actualUser = useSelector(state => state.profile.actualUser)
+
 
 
     /*** Methods */
@@ -29,7 +32,7 @@ const ReplyBox = ({postHash, targetSocialPersonaId, closeModal}) => {
     }
 
     return <Stack direction="row" className="reply" /*justifyContent="space-between"*/>
-        <Avatar src={pic} className="avatar"/>
+        <Avatar src={actualUser?.profilePic || pic} className="avatar"/>
         <TextField className="replyText"
                    id="outlined-multiline-flexible"
                    label="Post your reply"

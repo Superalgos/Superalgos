@@ -36,6 +36,11 @@
                 "language": "RU",
                 "text": "Кнопка переключает несколько вариантов расположения, которые влияют на расположение узла по отношению к его родителю.",
                 "updated": 1640866906072
+            },
+            {
+                "language": "ID",
+                "text": "Tombol cycles melalui beberapa opsi arrangement  yang mempengaruhi di mana sebuah node ditempatkan dalam kaitannya dengan parentnya.",
+                "updated": 1643472768208
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "RU",
                     "text": "На рисунке оранжевая точка представляет родительский узел, а синие точки - узел, принимающий определенный стиль расположения.",
                     "updated": 1640866922356
+                },
+                {
+                    "language": "ID",
+                    "text": "Dalam pengaplikasiannya, bulatan oren merepresentasikan node parent, dan bulatan biru adalah node yang mengadopsi gaya arrangement secara spesifik.",
+                    "updated": 1643473102846
                 }
             ]
         },
@@ -105,6 +115,11 @@
                     "language": "RU",
                     "text": "Concave: Это стиль по умолчанию. Узел принимает паз по окружности вокруг своего родительского узла.",
                     "updated": 1640866971076
+                },
+                {
+                    "language": "ID",
+                    "text": "Concave: Ini adalah gaya default. Node mengadopsi slot pada keliling di sekitar node parent-nya.",
+                    "updated": 1643473091231
                 }
             ]
         },
@@ -139,6 +154,11 @@
                     "language": "RU",
                     "text": "Convex: Слот находится на выпуклой кривой.",
                     "updated": 1640866983469
+                },
+                {
+                    "language": "ID",
+                    "text": "Convex: Slot berada pada kurva cembung.",
+                    "updated": 1643473130882
                 }
             ]
         },
@@ -173,6 +193,11 @@
                     "language": "RU",
                     "text": "Vertical-Right: По вертикальной линии справа.",
                     "updated": 1640867049669
+                },
+                {
+                    "language": "ID",
+                    "text": "Vertical-Right: Pada garis vertikal ke kanan.",
+                    "updated": 1643473152602
                 }
             ]
         },
@@ -207,6 +232,11 @@
                     "language": "RU",
                     "text": "Vertical-Left: Слот располагается на вертикальной линии слева.",
                     "updated": 1640867062310
+                },
+                {
+                    "language": "ID",
+                    "text": "Vertical-Left: Slot berada pada garis vertikal ke kiri.",
+                    "updated": 1643473174943
                 }
             ]
         },
@@ -241,6 +271,11 @@
                     "language": "RU",
                     "text": "Horizontal-Bottom: По горизонтальной линии внизу.",
                     "updated": 1640867121955
+                },
+                {
+                    "language": "ID",
+                    "text": "Horizontal-Bottom: Pada garis horizontal ke bawah ini.",
+                    "updated": 1643473208313
                 }
             ]
         },
@@ -275,6 +310,11 @@
                     "language": "RU",
                     "text": "Horizontal-Top: слот находится по горизонтальной линии вверху.",
                     "updated": 1640867146157
+                },
+                {
+                    "language": "ID",
+                    "text": "Horizontal-Top: Slot berada pada garis horizontal di atas.",
+                    "updated": 1643473234697
                 }
             ]
         },

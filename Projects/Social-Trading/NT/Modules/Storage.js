@@ -142,6 +142,7 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
 
             saveEventsFile(eventsFromLastLastMinute, lastLastTimestamp)
             saveEventsFile(eventsFromLastMinute, lastTimestamp)
+            saveDataRangeFile()
 
             function saveEventsFile(eventsToSave, timestamp) {
 
@@ -149,6 +150,28 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                 const fileName = "Events" + ".json"
 
                 let filePath = './My-Network-Nodes-Data/Nodes/Node-1/' + SA.projects.foundations.utilities.filesAndDirectories.pathFromDatetime(timestamp)
+
+                SA.projects.foundations.utilities.filesAndDirectories.mkDirByPathSync(filePath + '/')
+                SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, fileContent)
+            }
+
+            function saveDataRangeFile() {
+                const dataRange = {
+                    begin: 0,
+                    end: 0
+                }
+                firstEvent = SA.projects.socialTrading.globals.memory.arrays.EVENTS[0]
+                if (firstEvent !== undefined) {
+                    dataRange.begin = Math.trunc(firstEvent.timestamp / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS) * SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS
+                    dataRange.end = (Math.trunc((new Date()).valueOf() / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS) - 1) * SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS
+                } else {
+                    return
+                }
+
+                const fileContent = JSON.stringify(dataRange, undefined, 4)
+                const fileName = "Data.Range" + ".json"
+
+                let filePath = './My-Network-Nodes-Data/Nodes/Node-1/'
 
                 SA.projects.foundations.utilities.filesAndDirectories.mkDirByPathSync(filePath + '/')
                 SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, fileContent)

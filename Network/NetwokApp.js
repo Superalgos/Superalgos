@@ -70,7 +70,9 @@ exports.newNetworkApp = function newNetworkApp() {
                 thisObject.p2pNetworkNode.node.networkServices.socialGraph !== undefined
             ) {
                 thisObject.socialGraphNetworkService = NT.projects.socialTrading.modules.socialGraphNetworkService.newSocialTradingModulesSocialGraphNetworkService()
-                await thisObject.socialGraphNetworkService.initialize()
+                await thisObject.socialGraphNetworkService.initialize(
+                    thisObject.p2pNetworkNode.node.config.codeName
+                )
                 console.log('Social Graph Network Service ................................................. Running')
             }
 

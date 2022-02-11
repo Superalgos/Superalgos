@@ -14,6 +14,7 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
     their own copy of the social graph.
     */
     let thisObject = {
+        p2pNetworkNodeCodeName: undefined, 
         initialize: initialize,
         finalize: finalize
     }
@@ -26,7 +27,9 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
 
     }
 
-    async function initialize() {
+    async function initialize(p2pNetworkNodeCodeName) {
+        thisObject.p2pNetworkNodeCodeName = p2pNetworkNodeCodeName
+
         //await fetchMissingEventsFromOtherNodes()
         loadEventsFromStorage()
         setInterval(saveEventsAtStorage, 60000)
@@ -44,12 +47,12 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
 
         function promiseWork(resolve, reject) {
 
-            SA.projects.foundations.utilities.filesAndDirectories.getAllFilesInDirectoryAndSubdirectories('./My-Network-Nodes-Data/Nodes/Node-1/', onFiles)
+            SA.projects.foundations.utilities.filesAndDirectories.getAllFilesInDirectoryAndSubdirectories('./My-Network-Nodes-Data/Nodes/' + thisObject.p2pNetworkNodeCodeName + '/', onFiles)
 
             function onFiles(fileList) {
 
                 for (let i = 0; i < fileList.length; i++) {
-                    let filePath = './My-Network-Nodes-Data/Nodes/Node-1/' + fileList[i]
+                    let filePath = './My-Network-Nodes-Data/Nodes/' + thisObject.p2pNetworkNodeCodeName + '/' + fileList[i]
 
                     for (let k = 0; k < 5; k++) {
                         filePath = filePath.replace('\\', '/')
@@ -149,7 +152,7 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                 const fileContent = JSON.stringify(eventsToSave, undefined, 4)
                 const fileName = "Events" + ".json"
 
-                let filePath = './My-Network-Nodes-Data/Nodes/Node-1/' + SA.projects.foundations.utilities.filesAndDirectories.pathFromDatetime(timestamp)
+                let filePath = './My-Network-Nodes-Data/Nodes/' + thisObject.p2pNetworkNodeCodeName + '/' + SA.projects.foundations.utilities.filesAndDirectories.pathFromDatetime(timestamp)
 
                 SA.projects.foundations.utilities.filesAndDirectories.mkDirByPathSync(filePath + '/')
                 SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, fileContent)
@@ -171,7 +174,7 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                 const fileContent = JSON.stringify(dataRange, undefined, 4)
                 const fileName = "Data.Range" + ".json"
 
-                let filePath = './My-Network-Nodes-Data/Nodes/Node-1/'
+                let filePath = './My-Network-Nodes-Data/Nodes/' + thisObject.p2pNetworkNodeCodeName + '/'
 
                 SA.projects.foundations.utilities.filesAndDirectories.mkDirByPathSync(filePath + '/')
                 SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, fileContent)

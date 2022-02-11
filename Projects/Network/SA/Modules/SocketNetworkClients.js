@@ -235,7 +235,11 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
             function onMenssageFunction(response) {
                 try {
                     if (response.result === 'Ok' || response.result === 'Warning') {
-                        resolve(response.data)
+                        if (response.data !== undefined) {
+                            resolve(response.data)
+                        } else {
+                            resolve(response)
+                        }
                     } else {
                         console.log('[ERROR] Socket Network Clients -> onMenssageFunction -> response.message = ' + response.message)
                         reject(response.message)

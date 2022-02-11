@@ -22,13 +22,16 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
     }
 
     const RECONNECT_DELAY = 10 * 1000
+    const HEALTH_CHECK_DELAY = 1 * 1000
     let intervalIdConnectToPeers
+    let intervalIdCheckConnectedToPeers
 
     return thisObject
 
     function finalize() {
         thisObject.peers = undefined
         clearInterval(intervalIdConnectToPeers)
+        clearInterval(intervalIdCheckConnectedToPeers)
     }
 
     async function initialize(
@@ -42,7 +45,8 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
         thisObject.peers = []
 
         connectToPeers()
-        intervalIdConnectToPeers = setInterval(connectToPeers, RECONNECT_DELAY);
+        intervalIdConnectToPeers = setInterval(connectToPeers, RECONNECT_DELAY)
+        intervalIdCheckConnectedToPeers = setInterval(checkConnectedPeers, HEALTH_CHECK_DELAY)
 
         async function connectToPeers() {
 
@@ -61,6 +65,9 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
                 }
 
                 peer.p2pNetworkNode = p2pNetwork.p2pNodesToConnect[i]
+                if (peer.p2pNetworkNode.node.networkInterfaces === undefined) {
+                    continue
+                }
                 if (isPeerConnected(peer) === true) {
                     continue
                 }
@@ -107,16 +114,45 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
                 }
             }
         }
+
+        function checkConnectedPeers() {
+            for (let i = 0; i < thisObject.peers.length; i++) {
+                let peer = thisObject.peers[i]
+                if (peer.webSocketsClient.socketNetworkClients.isConnected !== true) {
+                    thisObject.peers.splice(i, 1)
+                    return
+                }
+            }
+        }
     }
 
     async function sendMessage(message) {
+        if (thisObject.peers.length === 0) {
+            console.log('[WARN] There are no network nodes available to process this message. Please try again later.')
+            let response = {
+                result: 'Error',
+                message: 'No Network Node Available.'
+            }
+            return response
+        }
         /*
         This function will send the message from a random picked network node
         selected from the array of already connected peers.
         */
         let peerIndex = Math.max(Math.round(Math.random() * thisObject.peers.length) - 1, 0)
         let peer = thisObject.peers[peerIndex]
-        // console.log(peer)
-        return await peer.webSocketsClient.socketNetworkClients.sendMessage(message)
+        if (peer === undefined) {
+            console.log('[ERROR] Selected Peer Undefined. Please try again later.')
+            let response = {
+                result: 'Error',
+                message: 'Peer Undefined.'
+            }
+            return response
+        }
+        let response = await peer.webSocketsClient.socketNetworkClients.sendMessage(message)
+        if (response.result === 'Error' && response.message === 'Websockets Connection Not Ready.') {
+            thisObject.peers.splice(peerIndex, 1)
+        }
+        return response
     }
 }

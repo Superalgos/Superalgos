@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Мы не любим бессмысленные раздачи токенов (Airdrop). Но что, если они приблизят пользователей на шаг к участию в управлении? Программа Airdrops Program побуждает пользователей сделать первый шаг к участию в управлении: создать и отправить профиль пользователя User Profile.",
                 "updated": 1638605752026
+            },
+            {
+                "language": "TR",
+                "text": "Biz anlamsız airdropları sevmiyoruz. Peki ya airdroplar kullanıcıları yönetime katılmaya bir adım daha yaklaştırırsa? Airdrops programı, kullanıcıları , kullanıcı Profili (User Profile) oluşturup ve göndererek. yönetişime katılmak için ilk adımı atmaya teşvik eder",
+                "updated": 1644481284653
             }
         ]
     },
@@ -36,6 +41,11 @@
                     "language": "RU",
                     "text": "Программа Airdrop распределяет пул вознаграждений Rewards Pool, определенный в разделе Governance Programs > Onboarding Programs иерархии Superalgos Pools.",
                     "updated": 1638605544880
+                },
+                {
+                    "language": "TR",
+                    "text": "Airdrop program'ı, Superalgos Havuzları (Superalgos Pools) hiyerarşisinin Yönetişim Programları (Governance Programs) > Alıştırma Programları (Onboarding Programs) bölümünde tanımlanan Ödül Havuzunu (Reward Pool) dağıtır.",
+                    "updated": 1644481470999
                 }
             ]
         },
@@ -53,6 +63,11 @@
                     "language": "RU",
                     "text": "Запуск программы Airdrop и отправка вашего профиля пользователя User Profile - единственное требование для получения токенов, раздающихся по воздуху, и в то же время первый шаг к участию в управлении и внесению вклада в проект.",
                     "updated": 1638605651266
+                },
+                {
+                    "language": "TR",
+                    "text": "Airdrop Programını oluşturmak ve Kullanıcı Profilinizi (User Profile) göndermek, airdrop jetonlarını almak için tek gerekliliktir ve aynı zamanda yönetişime katılmanın ve projeye katkıda bulunmanın ilk adımıdır.",
+                    "updated": 1644481512280
                 }
             ]
         },
@@ -69,6 +84,11 @@
                     "language": "RU",
                     "text": "Программа распределяет Rewards Pool равномерно по всем существующим профилям с лимитом в 1000 SA на профиль для каждого выпуска!",
                     "updated": 1638606024273
+                },
+                {
+                    "language": "TR",
+                    "text": "Program, Ödül Havuzunu (Reward Pool) her sürümde profil başına 1.000 SA'lık bir üst sınırla mevcut tüm profillere eşit olarak dağıtır!",
+                    "updated": 1644481546961
                 }
             ]
         },
@@ -84,6 +104,11 @@
                     "language": "RU",
                     "text": "Конфигурация",
                     "updated": 1638606037595
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırma",
+                    "updated": 1644481554225
                 }
             ]
         }

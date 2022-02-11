@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Используйте этот узел для ссылки на узел Position в одной из иерархий Positions для создания Position Contribution Claim. Это заявление означает, что вы заявляете, что работали на этим Position и ожидаете соответствующего вознаграждения!",
                 "updated": 1639134163757
+            },
+            {
+                "language": "TR",
+                "text": "Bir Pozisyon Katkısı Talebi oluşturmak için Pozisyonlar (Positions) hiyerarşisinden birindeki bir Pozisyon (Position) düğümüne başvurmak için bu düğümü kullanın. Bu iddia, o Pozisyonda çalıştığınızı ve buna göre ödüllendirilmeyi beklediğinizi beyan ettiğiniz anlamına gelir!",
+                "updated": 1644497602886
             }
         ]
     },

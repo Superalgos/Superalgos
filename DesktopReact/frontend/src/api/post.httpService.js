@@ -23,7 +23,8 @@ function reactedPost(body) {
 function getReplies(queryParams) {
     return httpRequest('/posts/replies', GET, undefined, queryParams);
 }
-function createReply(body){
+
+function createReply(body) {
     return httpRequest('/posts/replies', POST, body);
 }
 

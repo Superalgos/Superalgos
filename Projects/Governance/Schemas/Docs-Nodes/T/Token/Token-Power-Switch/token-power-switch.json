@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Концепция переключателя может использоваться в различных программах в иерархии профиля пользователя. Switch - это устройство, используемое для распределения потока Token Power между дочерними узлами. В случае Token Power Switch, это единственный дочерний узел иерархии профилей пользователей, используемый для распределения Token Power между различными программами.",
                 "updated": 1639126693151
+            },
+            {
+                "language": "TR",
+                "text": "Token Power Switch kavramı, Kullanıcı Profili hiyerarşisindeki farklı programlarda kullanılabilir. Anahtar, Token Gücü akışını yavru düğümlere dağıtmak için kullanılan bir aygıttır. Token Power Switch, token gücünü farklı programlara dağıtmak için kullanılabilecek tek  alt düğümdür.",
+                "updated": 1644492780159
             }
         ]
     },
@@ -36,6 +41,11 @@
                     "language": "RU",
                     "text": "Большинство узлов в иерархии действуют как переключатели, даже если их имя не включает слово переключатель!",
                     "updated": 1639126728649
+                },
+                {
+                    "language": "TR",
+                    "text": "Hiyerarşideki çoğu düğüm, adları \"anahtar\" (switch) kelimesini içermese bile anahtar görevi görür!",
+                    "updated": 1644492832201
                 }
             ]
         },
@@ -52,6 +62,11 @@
                     "language": "RU",
                     "text": "Конфигурация",
                     "updated": 1639126742901
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırma",
+                    "updated": 1644492841173
                 }
             ]
         }

@@ -68,13 +68,13 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                 }
 
                 function onConnectionClosed() {
-                    if (thisObject.isConnected === true) {
+                    if (thisObject.socketNetworkClients.isConnected === true) {
                         console.log('Websockets Client Disconnected from Network Node via Web Sockets ............. Disconnected from ' + thisObject.p2pNetworkNode.userProfile.config.codeName + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
                     }
                     if (thisObject.onConnectionClosedCallBack !== undefined) {
                         thisObject.onConnectionClosedCallBack(thisObject.id)
                     }
-                    thisObject.isConnected = false
+                    thisObject.socketNetworkClients.isConnected = false
                 }
 
                 function onError(err) {

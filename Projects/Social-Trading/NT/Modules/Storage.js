@@ -27,13 +27,15 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
     }
 
     async function initialize() {
-        await fetchMissingEventsFromOtherNodes()
+        //await fetchMissingEventsFromOtherNodes()
         loadEventsFromStorage()
-        setInterval(saveEventsAtStorage, 60000)
+        //setInterval(saveEventsAtStorage, 60000)
     }
 
     async function fetchMissingEventsFromOtherNodes() {
-
+        /*
+        Iterate and as
+        */
     }
 
     async function loadEventsFromStorage() {
@@ -104,60 +106,65 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
             Here we will save all the events that were not saved before,
             in one minute batched files.
             */
-            let eventsToSave = []
-            let minuteToSave
+            let lastMinute = Math.trunc((new Date()).valueOf() / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS) - 1
+            let lastLastMinute = lastMinute - 1
+            let lastTimestamp = lastMinute * SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS
+            let lastLastTimestamp = lastLastMinute * SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS
+            let eventsFromLastMinute = []
+            let eventsFromLastLastMinute = []
+            let dontMoveIndexForward = false
 
             for (let i = indexLastSavedEvent + 1; i < SA.projects.socialTrading.globals.memory.arrays.EVENTS.length; i++) {
                 let event = SA.projects.socialTrading.globals.memory.arrays.EVENTS[i]
-
-                let currentMinute = Math.trunc((new Date()).valueOf() / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS)
                 let eventMinute = Math.trunc(event.timestamp / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS)
-
-                if (minuteToSave === undefined) {
-                    minuteToSave = eventMinute
-                }
                 /*
-                We will save events only of the last closed minute.
-                We will also pack events into one minute chunks only.
+                We will save events only of the last last closed minute.
                 */
+                let eventToSave = {
+                    eventId: event.eventId,
+                    eventType: event.eventType,
+                    originSocialPersonaId: event.originSocialPersonaId,
+                    targetSocialPersonaId: event.targetSocialPersonaId,
+                    originSocialTradingBotId: event.originSocialTradingBotId,
+                    targetSocialTradingBotId: event.targetSocialTradingBotId,
+                    originPostHash: event.originPostHash,
+                    targetPostHash: event.targetPostHash,
+                    timestamp: event.timestamp,
+                    fileKeys: event.fileKeys,
+                    botAsset: event.botAsset,
+                    botExchange: event.botExchange,
+                    botEnabled: event.botEnabled
+                }
                 if (
-                    eventMinute < currentMinute &&
-                    eventMinute === minuteToSave
+                    eventMinute === lastMinute
                 ) {
-                    let eventToSave = {
-                        eventId: event.eventId,
-                        eventType: event.eventType,
-                        originSocialPersonaId: event.originSocialPersonaId,
-                        targetSocialPersonaId: event.targetSocialPersonaId,
-                        originSocialTradingBotId: event.originSocialTradingBotId,
-                        targetSocialTradingBotId: event.targetSocialTradingBotId,
-                        originPostHash: event.originPostHash,
-                        targetPostHash: event.targetPostHash,
-                        timestamp: event.timestamp,
-                        fileKeys: event.fileKeys,
-                        botAsset: event.botAsset,
-                        botExchange: event.botExchange,
-                        botEnabled: event.botEnabled
+                    eventsFromLastMinute.push(eventToSave)
+                    dontMoveIndexForward = true
+                }
+                if (
+                    eventMinute === lastLastMinute
+                ) {
+                    eventsFromLastLastMinute.push(eventToSave)
+                    if (dontMoveIndexForward === false) {
+                        indexLastSavedEvent = i
                     }
-
-                    eventsToSave.push(eventToSave)
-                    indexLastSavedEvent = i
                 }
             }
 
-            if (eventsToSave.length === 0) { return false }
-
-            let timestamp = minuteToSave * SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS
-
-            const fileContent = JSON.stringify(eventsToSave, undefined, 4)
-            const fileName = "Events" + ".json"
-
-            let filePath = './My-Network-Nodes-Data/Nodes/Node-1/' + SA.projects.foundations.utilities.filesAndDirectories.pathFromDatetime(timestamp)
-
-            SA.projects.foundations.utilities.filesAndDirectories.mkDirByPathSync(filePath + '/')
-            SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, fileContent)
-
+            saveEventsFile(eventsFromLastLastMinute, lastLastTimestamp)
+            saveEventsFile(eventsFromLastMinute, lastTimestamp)
             return true
+
+            function saveEventsFile(eventsToSave, timestamp) {
+
+                const fileContent = JSON.stringify(eventsToSave, undefined, 4)
+                const fileName = "Events" + ".json"
+
+                let filePath = './My-Network-Nodes-Data/Nodes/Node-1/' + SA.projects.foundations.utilities.filesAndDirectories.pathFromDatetime(timestamp)
+
+                SA.projects.foundations.utilities.filesAndDirectories.mkDirByPathSync(filePath + '/')
+                SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, fileContent)
+            }
         }
 
         async function doGit() {

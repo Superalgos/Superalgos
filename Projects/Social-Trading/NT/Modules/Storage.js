@@ -29,7 +29,7 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
     async function initialize() {
         //await fetchMissingEventsFromOtherNodes()
         loadEventsFromStorage()
-        //setInterval(saveEventsAtStorage, 60000)
+        setInterval(saveEventsAtStorage, 60000)
     }
 
     async function fetchMissingEventsFromOtherNodes() {
@@ -87,19 +87,8 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
 
     async function saveEventsAtStorage() {
 
-        let oneMore = true
-        let needToDoGit = false
-
-        while (oneMore === true) {
-            oneMore = saveOneMinuteOfEvents()
-            if (oneMore === true) {
-                needToDoGit = true
-            }
-        }
-
-        if (needToDoGit === true) {
-            doGit()
-        }
+        saveOneMinuteOfEvents()
+        doGit()
 
         function saveOneMinuteOfEvents() {
             /*
@@ -153,7 +142,6 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
 
             saveEventsFile(eventsFromLastLastMinute, lastLastTimestamp)
             saveEventsFile(eventsFromLastMinute, lastTimestamp)
-            return true
 
             function saveEventsFile(eventsToSave, timestamp) {
 

@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Der Aktualisierungsvorgang wurde erfolgreich abgeschlossen. Es wurde eine neue Version von Superalgos heruntergeladen, die die aktuelle Version ersetzt. Damit die Änderungen wirksam werden, müssen Sie den Client neu starten und die UI (Benutzeroberfläche) aktualisieren.",
                 "updated": 1638037815569
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Güncelleme işlemi başarıyla tamamlandı. Mevcut olanın yerine yeni bir Superalgos sürümü indirildi. Değişikliklerin etkili olması için İstemciyi ( Client ) yeniden başlatmanız ve kullanıcı arayüzü ( UI ) sayfasını yenilemeniz gerekir.",
+                "updated": 1644415659827
             }
         ]
     },
@@ -55,6 +60,11 @@
                     "language": "DE",
                     "text": "Sie haben nun die neueste Version von Superalgos. Denken Sie nur daran, den Client und die Benutzeroberfläche neu zu starten. Wenn Sie Tasks laufen haben, sollten Sie zuerst die Tasks stoppen und dann den Client neu starten, damit Sie diese Tasks wieder mit der aktualisierten Codebasis ausführen können.",
                     "updated": 1638037876325
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Artık Superalgos'un en son sürümüne sahipsiniz. İstemciyi ( Client ) ve kullanıcı arayüzünü ( UI ) yeniden başlatmayı unutmayın. Çalışan Görevleriniz varsa, önce görevleri durdurmanız ve ardından, güncellenmiş kod tabanını kullanarak bu görevleri yeniden çalıştırabilmeniz için İstemciyi yeniden başlatmanız gerekir.",
+                    "updated": 1644415707051
                 }
             ]
         },
@@ -82,6 +92,11 @@
                     "language": "DE",
                     "text": "Die von Ihnen vorgenommene Aktualisierung betrifft nur den Client, mit dem Sie über http mit Ihrem Browser verbunden sind. Wenn Sie weitere Clients als Teil eines Netzwerks betreiben, müssen Sie auch diese aktualisieren, entweder manuell mit Git oder indem Sie mit Ihrem Browser zu deren URL navigieren und dort den Befehl App Update ausführen.",
                     "updated": 1638037951915
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Yaptığınız güncelleme sadece tarayıcınızı kullanarak http üzerinden bağlı olduğunuz İstemciyi etkiler. Bir Ağın parçası olarak çalışan daha fazla İstemciniz varsa, Git'i manuel olarak kullanarak veya tarayıcınızla URL'lerine gidip orada Uygulama Güncelleme Komutunu ( App Update Command ) çalıştırarak onları da güncellemeniz gerekir.",
+                    "updated": 1644415781193
                 }
             ],
             "updated": 1616081262353

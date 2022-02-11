@@ -43,10 +43,10 @@ exports.newSocialTradingModulesSocialGraphNetworkService = function newSocialTra
         thisObject.peerInterface = NT.projects.socialTrading.modules.peerInterface.newSocialTradingModulesPeerInterface()
         thisObject.serviceInterface = NT.projects.socialTrading.modules.serviceInterface.newSocialTradingModulesServiceInterface()
 
-        thisObject.storage.initialize()
-        thisObject.clientInterface.initialize()
-        thisObject.peerInterface.initialize()
-        thisObject.serviceInterface.initialize()
+        await thisObject.storage.initialize()
+        await thisObject.clientInterface.initialize()
+        await thisObject.peerInterface.initialize()
+        await thisObject.serviceInterface.initialize()
 
         let appBootstrapingProcess = SA.projects.socialTrading.modules.appBootstrapingProcess.newSocialTradingAppBootstrapingProcess()
         appBootstrapingProcess.run()

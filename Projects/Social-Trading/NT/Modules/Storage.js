@@ -26,48 +26,59 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
 
     }
 
-    function initialize() {
+    async function initialize() {
+        await fetchMissingEventsFromOtherNodes()
         loadEventsFromStorage()
         setInterval(saveEventsAtStorage, 60000)
     }
 
+    async function fetchMissingEventsFromOtherNodes() {
+
+    }
+
     async function loadEventsFromStorage() {
 
-        SA.projects.foundations.utilities.filesAndDirectories.getAllFilesInDirectoryAndSubdirectories('./My-Network-Nodes-Data/Nodes/Node-1/', onFiles)
+        return new Promise(promiseWork)
 
-        function onFiles(fileList) {
+        function promiseWork(resolve, reject) {
 
-            for (let i = 0; i < fileList.length; i++) {
-                let filePath = './My-Network-Nodes-Data/Nodes/Node-1/' + fileList[i]
+            SA.projects.foundations.utilities.filesAndDirectories.getAllFilesInDirectoryAndSubdirectories('./My-Network-Nodes-Data/Nodes/Node-1/', onFiles)
 
-                for (let k = 0; k < 5; k++) {
-                    filePath = filePath.replace('\\', '/')
-                }
+            function onFiles(fileList) {
 
-                let fileContent = SA.nodeModules.fs.readFileSync(filePath)
+                for (let i = 0; i < fileList.length; i++) {
+                    let filePath = './My-Network-Nodes-Data/Nodes/Node-1/' + fileList[i]
 
-                let eventsList = JSON.parse(fileContent)
+                    for (let k = 0; k < 5; k++) {
+                        filePath = filePath.replace('\\', '/')
+                    }
 
-                for (let j = 0; j < eventsList.length; j++) {
-                    let storedEvent = eventsList[j]
+                    let fileContent = SA.nodeModules.fs.readFileSync(filePath)
 
-                    try {
-                        let event = NT.projects.socialTrading.modules.event.newSocialTradingModulesEvent()
-                        event.initialize(storedEvent)
-                        event.run()
-                        
-                        SA.projects.socialTrading.globals.memory.maps.EVENTS.set(storedEvent.eventId, event)
-                        SA.projects.socialTrading.globals.memory.arrays.EVENTS.push(event)
-                        indexLastSavedEvent = SA.projects.socialTrading.globals.memory.arrays.EVENTS.length - 1
-                    } catch (err) {
-                        if (err.stack !== undefined) {
-                            console.log('[ERROR] Client Interface -> err.stack = ' + err.stack)
+                    let eventsList = JSON.parse(fileContent)
+
+                    for (let j = 0; j < eventsList.length; j++) {
+                        let storedEvent = eventsList[j]
+
+                        try {
+                            let event = NT.projects.socialTrading.modules.event.newSocialTradingModulesEvent()
+                            event.initialize(storedEvent)
+                            event.run()
+
+                            SA.projects.socialTrading.globals.memory.maps.EVENTS.set(storedEvent.eventId, event)
+                            SA.projects.socialTrading.globals.memory.arrays.EVENTS.push(event)
+                            indexLastSavedEvent = SA.projects.socialTrading.globals.memory.arrays.EVENTS.length - 1
+                        } catch (err) {
+                            if (err.stack !== undefined) {
+                                console.log('[ERROR] Client Interface -> err.stack = ' + err.stack)
+                            }
+                            let errorMessage = err.message
+                            if (errorMessage === undefined) { errorMessage = err }
+                            console.log('Could not apply the event from storage. -> errorMessage = ' + errorMessage)
                         }
-                        let errorMessage = err.message
-                        if (errorMessage === undefined) { errorMessage = err }
-                        console.log ('Could not apply the event from storage. -> errorMessage = ' + errorMessage)
                     }
                 }
+                resolve()
             }
         }
     }

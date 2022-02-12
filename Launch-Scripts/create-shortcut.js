@@ -1,18 +1,18 @@
-const path     = require("path");
-const fs       = require("fs");
-const { exec, execSync } = require("child_process");
-const os       = require("os");
+const path = require("path")
+const fs = require("fs")
+const { exec, execSync } = require("child_process")
+const os = require("os")
 
 // Get the name of the main directory
-let cwd = __dirname;
-let dirs = cwd.split(path.sep);
-let name = dirs[dirs.length - 2];
+let cwd = __dirname
+let dirs = cwd.split(path.sep)
+let name = dirs[dirs.length - 2]
 
 // Windows Shortcuts
 if (os.platform() == "win32") {
     // Paths and Icon for Windows shortcuts
-    let target = path.join( __dirname, "launch-windows.bat");
-    let icon = path.join( __dirname, "superalgos.ico");
+    let target = path.join( __dirname, "launch-windows.bat")
+    let icon = path.join( __dirname, "superalgos.ico")
     let shortcutPaths = [
         path.join( os.homedir(), "Desktop", `${name}.lnk`),
         path.join( os.homedir(), "AppData", "Roaming", "Microsoft", "Windows", "Start Menu", "Programs", `${name}.lnk`)
@@ -20,7 +20,7 @@ if (os.platform() == "win32") {
 
     // Place Shortcuts using powershell
     for (let dir of shortcutPaths) {
-        let command = `$ws = New-Object -ComObject WScript.Shell; $s = $ws.CreateShortcut("${dir}"); $S.TargetPath = "${target}"; $S.IconLocation = "${icon}"; $S.Save()`;
+        let command = `$ws = New-Object -ComObject WScript.Shell; $s = $ws.CreateShortcut("${dir}"); $S.TargetPath = "${target}"; $S.IconLocation = "${icon}"; $S.Save()`
 
         exec( command,
             {
@@ -29,27 +29,27 @@ if (os.platform() == "win32") {
             },
             function ( error, stdout){
                 if (error) {
-                    console.log('');
-                    console.log("There was an error installing a shortcut: ");
-                    console.log('');
-                    console.log( error );
-                    return;
+                    console.log('')
+                    console.log("There was an error installing a shortcut: ")
+                    console.log('')
+                    console.log( error )
+                    return
                 } else {
-                    console.log('');
-                    console.log("Shortcut added successfully!");
-                    console.log('');
-                    console.log(stdout);
+                    console.log('')
+                    console.log("Shortcut added successfully!")
+                    console.log('')
+                    console.log(stdout)
                 }
-        });
-    };
+        })
+    }
 
 // Linux Shortcuts
 } else if (os.platform() == "linux") {
     // Check for Ubuntu
-    let version = os.version();
+    let version = os.version()
     if (version.includes("Ubuntu")) {
         // Paths and Icon for Ubuntu shortcuts
-        let icon = path.join( __dirname,"..", "/Projects/Foundations/Icons/superalgos.png");
+        let icon = path.join( __dirname,"..", "/Projects/Foundations/Icons/superalgos.png")
 
         // Create .desktop shortcut file
         fs.writeFileSync( `${name}.desktop`,
@@ -66,21 +66,21 @@ if (os.platform() == "win32") {
         );
 
         // Set shortcut as executable
-        fs.chmodSync( `${name}.desktop`, "775" );
+        fs.chmodSync( `${name}.desktop`, "775" )
 
         // Place shortcut in proper folders
         let command = `cp ${name}.desktop ~/Desktop/${name}.desktop & cp ${name}.desktop ~/.local/share/applications/${name}.desktop`
             exec( command,
                 function ( error, stdout ){
                     if (error) {
-                        console.log('');
-                        console.log("There was an error installing a shortcut: ");
-                        console.log('');
-                        console.log( error );
-                        return;
+                        console.log('')
+                        console.log("There was an error installing a shortcut: ")
+                        console.log('')
+                        console.log( error )
+                        return
                     } else {
                         console.log('');
-                        console.log("Shortcuts added successfully!");
+                        console.log("Shortcuts added successfully!")
                     }
                     // Remove temporary .desktop file
                     fs.unlinkSync( `${name}.desktop` )
@@ -92,11 +92,11 @@ if (os.platform() == "win32") {
 
 // Mac Shortcuts
 } else if (os.platform() == "darwin") {
-    const icon = path.join( __dirname,"/superalgos.ico");
+    const icon = path.join( __dirname,"/superalgos.ico")
     const createShortcutCommand = `chmod +x ${name}.command & cp ${name}.command ~/Desktop/${name}.command`
-    const installFileIconcommand = `npm install -g fileicon`;
+    const installFileIconcommand = `npm install -g fileicon`
     const changeIconCommand = `./node_modules/fileicon/bin/fileicon set ~/Desktop/${name}.command ./Launch-Scripts/superalgos.ico`
-    const unInstallFileIconcommand = `npm uninstall -g fileicon`;
+    const unInstallFileIconcommand = `npm uninstall -g fileicon`
 
     try {
         // Create .desktop shortcut file
@@ -106,7 +106,7 @@ if (os.platform() == "win32") {
             cd ..
             node run
             "$SHELL"`,
-        );
+        )
 
         // Place shortcut in proper folders
         execSync( createShortcutCommand,{ timeout: 30000})
@@ -115,22 +115,22 @@ if (os.platform() == "win32") {
         fs.unlinkSync( `${name}.command` )
 
         //Install fileicon utility
-        execSync(installFileIconcommand, {stdio: 'inherit', timeout: 30000});
+        execSync(installFileIconcommand, {stdio: 'inherit', timeout: 30000})
 
         //change Icon
-        execSync(changeIconCommand, {stdio: 'inherit', timeout: 30000});
+        execSync(changeIconCommand, {stdio: 'inherit', timeout: 30000})
 
         //Un-Install fileicon utility
-        execSync(unInstallFileIconcommand, {stdio: 'inherit', timeout: 30000});
+        execSync(unInstallFileIconcommand, {stdio: 'inherit', timeout: 30000})
     } catch (error) {
-        console.log('');
-        console.log("There was an error installing a shortcut: ");
-        console.log('');
-        console.log( error );
-        return;
+        console.log('')
+        console.log("There was an error installing a shortcut: ")
+        console.log('')
+        console.log( error )
+        return
     }
 
-    console.log("Shortcuts added successfully!");
+    console.log("Shortcuts added successfully!")
 
 // Misc Operating System
 } else {

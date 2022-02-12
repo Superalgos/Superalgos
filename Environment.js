@@ -64,5 +64,11 @@ exports.newEnvironment = function () {
         thisObject.PATH_TO_MY_WORKSPACES = path.join(process.env.DATA_PATH, '/Superalgos_Data/My-Workspaces')
     }
 
+    for (const envVariable in thisObject) {
+        if (thisObject[envVariable] === undefined) {
+            throw new Error(`Environment variable ${envVariable} is not defined`)
+        }
+    }
+
     return thisObject
 }

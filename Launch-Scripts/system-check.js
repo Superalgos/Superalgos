@@ -48,7 +48,6 @@ function systemCheck () {
 
             // Verify C:\Windows\System32 is on the windows PATH
             const path = execSync( "echo %PATH%",{ encoding: 'utf8',timeout: 30000 })
-            console.log(path)
             let check = path.includes('System32')
             if ( check === false ) {
                 console.log('')

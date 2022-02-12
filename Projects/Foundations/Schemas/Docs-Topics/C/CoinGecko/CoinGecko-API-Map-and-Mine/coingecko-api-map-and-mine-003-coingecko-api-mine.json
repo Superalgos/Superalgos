@@ -4,63 +4,161 @@
     "type": "CoinGecko API Mine",
     "definition": {
         "text": "This data mine processes data fetched from the CoinGecko API Map.",
-        "updated": 1622689326578
+        "updated": 1622689326578,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Özet: Bu veri madeni, CoinGecko API Haritasından ( CoinGecko API Map ) alınan verileri işler.",
+                "updated": 1644592339501
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Note",
             "text": "There are currently not plotters for this mine. This means that there are currently no visual representations of this data for the charts. However, all data is processed into Multi-Time-Frame-Daily and Multi-Time-Frame-Market data types making it ready to be used by other SA bots.",
-            "updated": 1622689830172
+            "updated": 1622689830172,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Şu anda bu maden için çizici yok. Bu, şu anda grafikler için bu verilerin görsel temsillerinin olmadığı anlamına gelir. Ancak, tüm veriler Multi-Time-Frame-Daily ve Multi-Time-Frame-Market veri türlerinde işlenerek diğer SA botları tarafından kullanılmaya hazır hale getirilir.",
+                    "updated": 1644592390152
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Processed Values",
-            "updated": 1622689893560
+            "updated": 1622689893560,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İşlenen Değerler",
+                    "updated": 1644592417881
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "id: name of returned coin (string)."
+            "text": "id: name of returned coin (string).",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "id: döndürülen paranın adı (dize).",
+                    "updated": 1644592498579
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "market_cap_rank: Current ranking of coin based on its overall share of the crypto market cap (number)."
+            "text": "market_cap_rank: Current ranking of coin based on its overall share of the crypto market cap (number).",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Piyasa değeri sıralaması(market_cap_rank): Kripto piyasa değeri (sayı) içindeki genel payına göre mevcut madeni para sıralaması.",
+                    "updated": 1644592583358
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "sentiment_votes_up_percentage: Percentage of up votes for coin through CoinGecko platforms (number)."
+            "text": "sentiment_votes_up_percentage: Percentage of up votes for coin through CoinGecko platforms (number).",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Duyarlılık oyu artış yüzdesi(sentiment_votes_up_percentage): CoinGecko platformları aracılığıyla madeni para için artan oy yüzdesi (sayı).",
+                    "updated": 1644666582578
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "sentiment_votes_down_percentage: Percentage of down votes for coin through CoinGecko platforms (number)."
+            "text": "sentiment_votes_down_percentage: Percentage of down votes for coin through CoinGecko platforms (number).",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Duyarlılık oyu düşüş yüzdesi(sentiment_votes_down_percentage): CoinGecko platformları aracılığıyla madeni para için aşağı oy yüzdesi (sayı).",
+                    "updated": 1644666574665
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "block_time_in_minutes: Current time in minutes taken to mine the last block of coin (number)."
+            "text": "block_time_in_minutes: Current time in minutes taken to mine the last block of coin (number).",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Dakika cinsinden blok süresi(block_time_in_minutes): Son madeni para bloğunu (sayı) çıkarmak için alınan dakika cinsinden geçerli süre.",
+                    "updated": 1644666620720
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "coingecko_score: Overall trust score given to coin by the CoinGecko platform (number)."
+            "text": "coingecko_score: Overall trust score given to coin by the CoinGecko platform (number).",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Coingecko puanı(coingecko_score): CoinGecko platformu tarafından madeni paraya verilen genel güven puanı (sayı).",
+                    "updated": 1644666658065
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "CoinGecko score is an aggregated score combining liquidity, community, and developer scores.",
-            "updated": 1622846902289
+            "updated": 1622846902289,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Not: CoinGecko puanı, likidite, topluluk ve geliştirici puanlarını birleştiren toplam bir puandır.",
+                    "updated": 1644666677154
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "liquidity_score: Liquidity health score given by the CoinGecko platform (number)."
+            "text": "liquidity_score: Liquidity health score given by the CoinGecko platform (number).",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Likidite puanı(liquidity_score): CoinGecko platformu tarafından verilen likidite sağlık puanı (sayı).",
+                    "updated": 1644666755992
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "community_score: Community strength score given by the CoinGecko platform (number)."
+            "text": "community_score: Community strength score given by the CoinGecko platform (number).",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Topluluk puanı(community_score): CoinGecko platformu tarafından verilen topluluk gücü puanı (sayı).",
+                    "updated": 1644666790715
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "developer_score: Developer strength score given by the CoinGecko platform (number)."
+            "text": "developer_score: Developer strength score given by the CoinGecko platform (number).",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Geliştirici puanı(developer_score): CoinGecko platformu tarafından verilen geliştirici gücü puanı (sayı).",
+                    "updated": 1644666822477
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "public_interest_score: Level of public interest score given by the CoinGecko platform (number)."
+            "text": "public_interest_score: Level of public interest score given by the CoinGecko platform (number).",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Kamu yararı puanı(public_interest_score): CoinGecko platformu tarafından verilen kamu yararı puanı seviyesi (sayı).",
+                    "updated": 1644666860903
+                }
+            ]
         },
         {
             "style": "Text",

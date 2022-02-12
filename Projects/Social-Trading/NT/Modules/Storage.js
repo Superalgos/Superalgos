@@ -32,12 +32,30 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
         p2pNetworkReachableNodes
     ) {
         thisObject.p2pNetworkNode = p2pNetworkNode
+        /*
+        The strategy to syncronize this node with the rest of the network is like this:
 
-        await fetchMissingEventsFromOtherNodes()
-        await loadEventsFromStorage()
-        setInterval(saveEventsAtStorage, 60000)
+        * First we will locate the most up to date node, download its events, and override
+        the ones we might have, with those events.
 
-        async function fetchMissingEventsFromOtherNodes() {
+        * Second we will load and apply to the social graph all these events.
+
+        * Third we will run the service and start processing online events. We know that 
+        there might be a hole on the dataset caused by the download time.
+        
+        * Fourth to fill the hole in the dataset, we will repeat the previous process after
+        5 minutes.
+        */
+        await syncronizeWithTheNetwork()
+        setInterval(saveEventsAtStorage, 60 * 1000)
+        setTimeout(syncronizeWithTheNetwork, 5 * 60 * 1000)
+
+        async function syncronizeWithTheNetwork() {
+            await syncronizeOurStorageWithAnUpToDateNode()
+            await loadEventsFromStorageAndApplyThemToTheSocialGraph()
+        }
+
+        async function syncronizeOurStorageWithAnUpToDateNode() {
             /*
             Our mission here is to update this node storage and to do that we need to
             know which is the single node that has the most complete history. Note
@@ -198,7 +216,7 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
             }
         }
 
-        async function loadEventsFromStorage() {
+        async function loadEventsFromStorageAndApplyThemToTheSocialGraph() {
 
             return new Promise(promiseWork)
 
@@ -225,18 +243,22 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                             try {
                                 let event = NT.projects.socialTrading.modules.event.newSocialTradingModulesEvent()
                                 event.initialize(storedEvent)
-                                event.run()
 
-                                SA.projects.socialTrading.globals.memory.maps.EVENTS.set(storedEvent.eventId, event)
-                                SA.projects.socialTrading.globals.memory.arrays.EVENTS.push(event)
-                                indexLastSavedEvent = SA.projects.socialTrading.globals.memory.arrays.EVENTS.length - 1
+                                if (SA.projects.socialTrading.globals.memory.maps.EVENTS.get(storedEvent.eventId) === undefined) {
+                                    event.run()
+
+                                    SA.projects.socialTrading.globals.memory.maps.EVENTS.set(storedEvent.eventId, event)
+                                    SA.projects.socialTrading.globals.memory.arrays.EVENTS.push(event)
+                                    indexLastSavedEvent = SA.projects.socialTrading.globals.memory.arrays.EVENTS.length - 1
+                                }
+
                             } catch (err) {
                                 if (err.stack !== undefined) {
                                     console.log('[ERROR] Client Interface -> err.stack = ' + err.stack)
                                 }
                                 let errorMessage = err.message
                                 if (errorMessage === undefined) { errorMessage = err }
-                                console.log('Could not apply the event from storage. -> errorMessage = ' + errorMessage + ' -> event.id = ' + event.id )
+                                console.log('Could not apply the event from storage. -> errorMessage = ' + errorMessage + ' -> event.id = ' + event.id)
                             }
                         }
                     }

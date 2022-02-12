@@ -39,6 +39,11 @@ exports.newSocialTradingModulesSocialGraphNetworkService = function newSocialTra
         p2pNetworkReachableNodes
     ) {
         /*
+        We run the Service Bootstrapping Process
+        */
+        let appBootstrapingProcess = SA.projects.socialTrading.modules.appBootstrapingProcess.newSocialTradingAppBootstrapingProcess()
+        appBootstrapingProcess.run()
+        /*
         The Storage deals with persisting the Social Graph.
         */
         thisObject.storage = NT.projects.socialTrading.modules.storage.newSocialTradingModulesStorage()
@@ -53,8 +58,5 @@ exports.newSocialTradingModulesSocialGraphNetworkService = function newSocialTra
         await thisObject.clientInterface.initialize()
         await thisObject.peerInterface.initialize()
         await thisObject.serviceInterface.initialize()
-
-        let appBootstrapingProcess = SA.projects.socialTrading.modules.appBootstrapingProcess.newSocialTradingAppBootstrapingProcess()
-        appBootstrapingProcess.run()
     }
 }

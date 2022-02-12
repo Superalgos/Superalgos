@@ -2,8 +2,6 @@ const child_process = require('child_process')
 const os = require('os')
 const systemCheck = require('../../Launch-Scripts/system-check')
 
-jest.mock('os')
-// os.platform.mockResolvedValue('win32')
 // FYI the mock below must be repeated as done in the 'it' blocks for each
 // use case. jest mocks do not allow reference to out of scope anything so 
 // we can't re-use one function on top unfortunately

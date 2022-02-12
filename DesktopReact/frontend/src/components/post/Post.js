@@ -1,7 +1,7 @@
 import "./Post.css"
 import React, {useState} from 'react';
 import {useDispatch} from 'react-redux'
-import {Avatar, Stack, Typography} from "@mui/material";
+import {Avatar, Typography} from "@mui/material";
 import pic from "../../images/superalgos.png"
 import {useNavigate, useParams} from "react-router-dom";
 import PostFooter from "../postFooter/PostFooter";
@@ -38,7 +38,7 @@ const Post = ({postData}) => {
 
     return (
         <div className="postWrapper">
-          <div className="post">
+            <div className="post">
                 <div className="grid-container">
                     <div className="postHeader" onClick={handlePostClick}>
                         <Typography className="postName">
@@ -54,7 +54,7 @@ const Post = ({postData}) => {
                         </div>
                     </div>
                     <div className="postBodyContainer" onClick={handlePostClick}>
-                        <div className="postBody" >
+                        <div className="postBody">
                             {postText ? postText.toString() : ''}
                         </div>
                     </div>

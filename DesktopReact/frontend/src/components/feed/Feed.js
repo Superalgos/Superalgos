@@ -1,7 +1,6 @@
 import './Feed.css';
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from 'react-redux'
-import {Divider} from "@mui/material";
 import PostPlaceholder from "../postPlaceholder/PostPlaceholder";
 import PostsFeed from "../postsFeed/PostsFeed";
 import {getFeed} from "../../api/post.httpService";
@@ -24,8 +23,8 @@ const Feed = () => {
         const mappedPosts = await Promise.all(
             rawPosts.map(async (post, index) => {
                 if (post.eventType === 10) {
-                    const { data,result} = await getProfile( {socialPersonaId: post.originPost.originSocialPersonaId} )
-                                                    .then( response => response.json() )
+                    const {data, result} = await getProfile({socialPersonaId: post.originPost.originSocialPersonaId})
+                        .then(response => response.json())
                     const postData = {
                         postText: post?.postText,
                         originPostHash: post?.originPost.originPostHash,
@@ -64,7 +63,6 @@ const Feed = () => {
             <div className="feedContainer">
                 <PostPlaceholder reloadPostCallback={loadPosts}/>
             </div>
-            <Divider flexItem/>
             <PostsFeed posts={posts} loading={loading}/>
         </div>
     );

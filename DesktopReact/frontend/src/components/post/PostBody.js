@@ -1,6 +1,6 @@
 import "./Post.css"
 import React from 'react';
-import {Avatar, Stack, Typography} from "@mui/material";
+import {Avatar, Typography} from "@mui/material";
 import pic from "../../images/superalgos.png"
 import {useNavigate, useParams} from "react-router-dom";
 

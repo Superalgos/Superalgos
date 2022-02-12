@@ -12,7 +12,7 @@
     width: 100%;
 }
 
-.replyAvatarContainer{
+.replyAvatarContainer {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,18 +20,18 @@
     height: 3rem;
 }
 
-.replyBody{
+.replyBody {
     padding: 0.5rem;
     width: 93%;
 }
 
-.replyButton{
+.replyButton {
     padding: 0.45rem 0.75rem;
     width: auto;
     justify-content: flex-end;
 }
 
-.replyButtonStyle{
+.replyButtonStyle {
     height: 1.5rem;
     width: 5rem;
     border-radius: 20px !important;

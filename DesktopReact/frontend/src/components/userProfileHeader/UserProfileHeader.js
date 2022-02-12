@@ -1,16 +1,25 @@
 import React, {useState} from 'react';
-import {Button, Card, CardContent, CardMedia, Typography} from "@mui/material";
+import {Button, CardContent, CardMedia, Typography} from "@mui/material";
 import "./UserProfileHeader.css"
 import UserProfileModal from "../userProfileModal/UserProfileModal";
 import {DateRangeOutlined, LocationOnOutlined} from "@mui/icons-material";
 import pfp from "../../images/superalgos.png";
+import {followUser} from "../../api/follow.httpService";
+import {STATUS_OK} from "../../api/httpConfig";
 
 const UserProfileHeader = ({user, isExternalProfile}) => {
     const profileIcons = { // todo need proper style, and handle from css file
         width: "15px", height: "15px", verticalAlign: "text-top"
     }
     const [modal, setModal] = useState(false);
+    const [followed, setFollowed] = useState(false);
     const handleClickCallback = () => setModal(!modal);
+
+    const followCallback = async () => {
+        const eventType = followed ? 16 : 15;/* TODO use constant */
+        const {result} = await followUser(user.socialPersonaId, eventType).then(response => response.json());
+        setFollowed(value => ((result === STATUS_OK) ? (!value) : (value)));
+    }
 
     return (
         <div className="profileSection">
@@ -29,10 +38,13 @@ const UserProfileHeader = ({user, isExternalProfile}) => {
                 </div>
                 {
                     !isExternalProfile
-                        ?  <Button className="editProfileButton" variant="outlined" onClick={handleClickCallback}>
-                                    Edit profile
-                            </Button>
-                        : <></>
+                        ? <Button className="editProfileButton" variant="outlined" onClick={handleClickCallback}>
+                            Edit profile
+                        </Button>
+                        : <Button className="followButtonExternalProfile" disableElevation variant="outlined"
+                                  onClick={followCallback}>
+                            {followed ? 'Unfollow' : 'Follow'}
+                        </Button>
                 }
 
                 {/* {modal ? (<UserProfileModal user={user} show={modal} close={handleClickCallback}/>) : null} */}

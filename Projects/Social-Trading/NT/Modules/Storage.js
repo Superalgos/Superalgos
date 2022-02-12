@@ -14,6 +14,7 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
     their own copy of the social graph.
     */
     let thisObject = {
+        p2pNetworkNode: undefined,
         p2pNetworkNodeCodeName: undefined,
         initialize: initialize,
         finalize: finalize
@@ -24,7 +25,8 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
     return thisObject
 
     function finalize() {
-
+        thisObject.p2pNetworkNode = undefined
+        thisObject.p2pNetworkNodeCodeName = undefined
     }
 
     async function initialize(
@@ -39,47 +41,61 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
 
         async function fetchMissingEventsFromOtherNodes() {
             /*
-            As this Network Service is starting, it can happen that it is either
-            the first time it runs at this network node, or that it already 
-            ran before. The way we know if it ran before or not is by reading
-            the Data.Range.json file. If it does not exist, it means it never ran
-            before.
+            Our mission here is to update this node storage and to do that we need to
+            know which is the single node that has the most complete history. Note
+            that that node could be ourselves.
+            */
+            let p2pNetworkNodeMostUpToDate
+            let maxDataRangeEnd = 0
+            /*
+            Check if we have the Data Range file, to know how up to date is this node.
             */
             const fileName = "Data.Range" + ".json"
             let filePath = './My-Network-Nodes-Data/Nodes/' + thisObject.p2pNetworkNodeCodeName + '/'
             let fileContent
             try {
-                fileContent = SA.nodeModules.fs.readFileSync(filePath)
+                fileContent = SA.nodeModules.fs.readFileSync(filePath + '/' + fileName)
+                let fileObject = JSON.parse(fileContent)
+                p2pNetworkNodeMostUpToDate = thisObject.p2pNetworkNode
+                maxDataRangeEnd = fileObject.end
             } catch (err) {
                 // This means the file does not exist.
             }
 
-            if (fileContent === undefined) {
+            for (let i = 0; i < p2pNetworkReachableNodes.p2pNodesToConnect.length; i++) {
+                p2pNetworkNode = p2pNetworkReachableNodes.p2pNodesToConnect[i]
+                let p2pNetworkNodeCodeName = p2pNetworkNode.node.config.codeName
+                let userProfileCodeName = p2pNetworkNode.userProfile.config.codeName
+                let dataRangeFile = await loadFileFromGithubRepository('Data.Range', '/Nodes/' + p2pNetworkNodeCodeName, userProfileCodeName)
                 /*
-                This network service has never ran before at this node.
-                This means that we will have to read the Data.Range.json file 
-                from another network node, to know from when we need to fetch 
-                Events files.
-                */                
-                for (let i = 0; i < p2pNetworkReachableNodes.p2pNodesToConnect.length; i++) {
-                    p2pNetworkNode = p2pNetworkReachableNodes.p2pNodesToConnect[i]
-                    let p2pNetworkNodeCodeName = p2pNetworkNode.node.config.codeName
-                    let userProfileCodeName = p2pNetworkNode.userProfile.config.codeName
-                    let dataRangeFile = await loadFileFromGithubRepository('Data.Range', '/Nodes/' + p2pNetworkNodeCodeName, userProfileCodeName)
-                    if (dataRangeFile !== undefined) {
-                        
-                        console.log()
-                        return
-                    }
-                    console.log()
-                }
-
-            } else {
-                /*
-                Since we already have a Data.Range.json file, then we know from when we should
-                read event files from other nodes.
+                Searching for the node that is most up-to-date
                 */
+                if (dataRangeFile !== undefined) {
+                    if (maxDataRangeEnd < dataRangeFile.end) {
+                        maxDataRangeEnd = dataRangeFile.end
+                        p2pNetworkNodeMostUpToDate = p2pNetworkNode
+                    }
+                }
             }
+            /*
+            We will check that the node most up to date is not ourselves.
+            */
+            if (p2pNetworkNodeMostUpToDate.node.id = thisObject.p2pNetworkNode.node.id) {
+                /*
+                There is no need to update ourselves from some other node, because no other
+                is more up to date than ourselves.
+                */
+                return
+            }
+            /*
+            We will use the node with the most recent history.
+            */
+            let p2pNetworkNodeCodeName = p2pNetworkNodeMostUpToDate.node.config.codeName
+            let userProfileCodeName = p2pNetworkNodeMostUpToDate.userProfile.config.codeName
+            await cloneNetworkNodeRepo(userProfileCodeName)
+            await transferFilesFromClonnedRepo(p2pNetworkNodeCodeName)
+            deleteTemporaryFiles()
+
 
             async function loadFileFromGithubRepository(fileName, filePath, owner) {
 
@@ -105,6 +121,83 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                 })
 
                 return promise
+            }
+
+            async function cloneNetworkNodeRepo(username) {
+
+                return new Promise(promiseWork)
+
+                async function promiseWork(resolve, reject) {
+                    const repo = 'My-Network-Nodes-Data'
+                    const { exec } = require("child_process")
+                    const path = require("path")
+
+                    deleteTemporaryFiles()
+
+                    SA.projects.foundations.utilities.filesAndDirectories.mkDirByPathSync('./Temp/')
+
+                    let repoURL = 'https://github.com/' + username + '/' + repo
+
+                    exec('git clone ' + repoURL,
+                        {
+                            cwd: path.join('./Temp')
+                        },
+                        async function (error) {
+                            if (error) {
+                                console.log('')
+                                console.log("[ERROR] There was an error clonning this Network node repo. " + repoURL);
+                                console.log('')
+                                console.log(error)
+                                throw (error)
+                            } else {
+                                console.log('[INFO] Clonning repo ' + repoURL + ' succeed.')
+                                resolve()
+                            }
+                        })
+                }
+            }
+
+            async function transferFilesFromClonnedRepo(p2pNetworkNodeCodeName) {
+                const path = require("path")
+                const repo = 'My-Network-Nodes-Data'
+
+                let originPath = path.join('./Temp', repo, 'Nodes', p2pNetworkNodeCodeName)
+                let targetPath = path.join(repo, 'Nodes', thisObject.p2pNetworkNodeCodeName)
+                await transferFiles()
+
+                async function transferFiles() {
+                    return new Promise(promiseWork)
+
+                    async function promiseWork(resolve, reject) {
+
+                        SA.projects.foundations.utilities.filesAndDirectories.getAllFilesInDirectoryAndSubdirectories(originPath + '/', onFiles)
+
+                        function onFiles(fileList) {
+                            for (let i = 0; i < fileList.length; i++) {
+                                let originFilePath = originPath + '/' + fileList[i]
+                                let fileContent = SA.nodeModules.fs.readFileSync(originFilePath)
+                                let targetFilePath = targetPath + '\\' + fileList[i]
+                                let targeDirPath = targetFilePath.replace('Events.json', '')
+                                for (let k = 0; k < 10; k++) {
+                                    targeDirPath = targeDirPath.replace('\\', '/')
+                                }
+                                SA.projects.foundations.utilities.filesAndDirectories.mkDirByPathSync(targeDirPath)
+                                SA.nodeModules.fs.writeFileSync(targetFilePath, fileContent)
+                            }
+                            resolve()
+                        }
+                    }
+                }
+            }
+
+            function deleteTemporaryFiles() {
+                try {
+                    SA.nodeModules.fs.rmSync('./Temp/', { recursive: true })
+                } catch (err) {
+                    /*
+                    not a big deal.
+                    */
+                }
             }
         }
 

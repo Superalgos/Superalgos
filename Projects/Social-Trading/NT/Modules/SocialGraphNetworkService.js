@@ -35,7 +35,8 @@ exports.newSocialTradingModulesSocialGraphNetworkService = function newSocialTra
     }
 
     async function initialize(
-        p2pNetworkNodeCodeName
+        p2pNetworkNode,
+        p2pNetworkReachableNodes
     ) {
         /*
         The Storage deals with persisting the Social Graph.
@@ -45,7 +46,10 @@ exports.newSocialTradingModulesSocialGraphNetworkService = function newSocialTra
         thisObject.peerInterface = NT.projects.socialTrading.modules.peerInterface.newSocialTradingModulesPeerInterface()
         thisObject.serviceInterface = NT.projects.socialTrading.modules.serviceInterface.newSocialTradingModulesServiceInterface()
 
-        await thisObject.storage.initialize(p2pNetworkNodeCodeName)
+        await thisObject.storage.initialize(
+            p2pNetworkNode,
+            p2pNetworkReachableNodes
+        )
         await thisObject.clientInterface.initialize()
         await thisObject.peerInterface.initialize()
         await thisObject.serviceInterface.initialize()

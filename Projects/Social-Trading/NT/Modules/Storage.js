@@ -14,7 +14,7 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
     their own copy of the social graph.
     */
     let thisObject = {
-        p2pNetworkNodeCodeName: undefined, 
+        p2pNetworkNodeCodeName: undefined,
         initialize: initialize,
         finalize: finalize
     }
@@ -27,63 +27,131 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
 
     }
 
-    async function initialize(p2pNetworkNodeCodeName) {
-        thisObject.p2pNetworkNodeCodeName = p2pNetworkNodeCodeName
+    async function initialize(
+        p2pNetworkNode,
+        p2pNetworkReachableNodes
+    ) {
+        thisObject.p2pNetworkNodeCodeName = p2pNetworkNode.node.config.codeName
 
-        //await fetchMissingEventsFromOtherNodes()
-        loadEventsFromStorage()
+        await fetchMissingEventsFromOtherNodes()
+        await loadEventsFromStorage()
         setInterval(saveEventsAtStorage, 60000)
-    }
 
-    async function fetchMissingEventsFromOtherNodes() {
-        /*
-        Iterate and as
-        */
-    }
+        async function fetchMissingEventsFromOtherNodes() {
+            /*
+            As this Network Service is starting, it can happen that it is either
+            the first time it runs at this network node, or that it already 
+            ran before. The way we know if it ran before or not is by reading
+            the Data.Range.json file. If it does not exist, it means it never ran
+            before.
+            */
+            const fileName = "Data.Range" + ".json"
+            let filePath = './My-Network-Nodes-Data/Nodes/' + thisObject.p2pNetworkNodeCodeName + '/'
+            let fileContent
+            try {
+                fileContent = SA.nodeModules.fs.readFileSync(filePath)
+            } catch (err) {
+                // This means the file does not exist.
+            }
 
-    async function loadEventsFromStorage() {
-
-        return new Promise(promiseWork)
-
-        function promiseWork(resolve, reject) {
-
-            SA.projects.foundations.utilities.filesAndDirectories.getAllFilesInDirectoryAndSubdirectories('./My-Network-Nodes-Data/Nodes/' + thisObject.p2pNetworkNodeCodeName + '/', onFiles)
-
-            function onFiles(fileList) {
-
-                for (let i = 0; i < fileList.length; i++) {
-                    let filePath = './My-Network-Nodes-Data/Nodes/' + thisObject.p2pNetworkNodeCodeName + '/' + fileList[i]
-
-                    for (let k = 0; k < 5; k++) {
-                        filePath = filePath.replace('\\', '/')
+            if (fileContent === undefined) {
+                /*
+                This network service has never ran before at this node.
+                This means that we will have to read the Data.Range.json file 
+                from another network node, to know from when we need to fetch 
+                Events files.
+                */                
+                for (let i = 0; i < p2pNetworkReachableNodes.p2pNodesToConnect.length; i++) {
+                    p2pNetworkNode = p2pNetworkReachableNodes.p2pNodesToConnect[i]
+                    let p2pNetworkNodeCodeName = p2pNetworkNode.node.config.codeName
+                    let userProfileCodeName = p2pNetworkNode.userProfile.config.codeName
+                    let dataRangeFile = await loadFileFromGithubRepository('Data.Range', '/Nodes/' + p2pNetworkNodeCodeName, userProfileCodeName)
+                    if (dataRangeFile !== undefined) {
+                        
+                        console.log()
+                        return
                     }
+                    console.log()
+                }
 
-                    let fileContent = SA.nodeModules.fs.readFileSync(filePath)
+            } else {
+                /*
+                Since we already have a Data.Range.json file, then we know from when we should
+                read event files from other nodes.
+                */
+            }
 
-                    let eventsList = JSON.parse(fileContent)
+            async function loadFileFromGithubRepository(fileName, filePath, owner) {
 
-                    for (let j = 0; j < eventsList.length; j++) {
-                        let storedEvent = eventsList[j]
+                const completePath = filePath + '/' + fileName + '.json'
+                const repo = 'My-Network-Nodes-Data'
+                const branch = 'main'
+                const URL = "https://raw.githubusercontent.com/" + owner + "/" + repo + "/" + branch + "/" + completePath
+                /*
+                This function helps a caller to use await syntax while the called
+                function uses callbacks, specifically for retrieving files.
+                */
+                let promise = new Promise((resolve, reject) => {
 
-                        try {
-                            let event = NT.projects.socialTrading.modules.event.newSocialTradingModulesEvent()
-                            event.initialize(storedEvent)
-                            event.run()
+                    const axios = SA.nodeModules.axios
+                    axios
+                        .get(URL)
+                        .then(res => {
+                            resolve(res.data)
+                        })
+                        .catch(error => {
+                            resolve()
+                        })
+                })
 
-                            SA.projects.socialTrading.globals.memory.maps.EVENTS.set(storedEvent.eventId, event)
-                            SA.projects.socialTrading.globals.memory.arrays.EVENTS.push(event)
-                            indexLastSavedEvent = SA.projects.socialTrading.globals.memory.arrays.EVENTS.length - 1
-                        } catch (err) {
-                            if (err.stack !== undefined) {
-                                console.log('[ERROR] Client Interface -> err.stack = ' + err.stack)
+                return promise
+            }
+        }
+
+        async function loadEventsFromStorage() {
+
+            return new Promise(promiseWork)
+
+            function promiseWork(resolve, reject) {
+
+                SA.projects.foundations.utilities.filesAndDirectories.getAllFilesInDirectoryAndSubdirectories('./My-Network-Nodes-Data/Nodes/' + thisObject.p2pNetworkNodeCodeName + '/', onFiles)
+
+                function onFiles(fileList) {
+
+                    for (let i = 0; i < fileList.length; i++) {
+                        let filePath = './My-Network-Nodes-Data/Nodes/' + thisObject.p2pNetworkNodeCodeName + '/' + fileList[i]
+
+                        for (let k = 0; k < 5; k++) {
+                            filePath = filePath.replace('\\', '/')
+                        }
+
+                        let fileContent = SA.nodeModules.fs.readFileSync(filePath)
+
+                        let eventsList = JSON.parse(fileContent)
+
+                        for (let j = 0; j < eventsList.length; j++) {
+                            let storedEvent = eventsList[j]
+
+                            try {
+                                let event = NT.projects.socialTrading.modules.event.newSocialTradingModulesEvent()
+                                event.initialize(storedEvent)
+                                event.run()
+
+                                SA.projects.socialTrading.globals.memory.maps.EVENTS.set(storedEvent.eventId, event)
+                                SA.projects.socialTrading.globals.memory.arrays.EVENTS.push(event)
+                                indexLastSavedEvent = SA.projects.socialTrading.globals.memory.arrays.EVENTS.length - 1
+                            } catch (err) {
+                                if (err.stack !== undefined) {
+                                    console.log('[ERROR] Client Interface -> err.stack = ' + err.stack)
+                                }
+                                let errorMessage = err.message
+                                if (errorMessage === undefined) { errorMessage = err }
+                                console.log('Could not apply the event from storage. -> errorMessage = ' + errorMessage)
                             }
-                            let errorMessage = err.message
-                            if (errorMessage === undefined) { errorMessage = err }
-                            console.log('Could not apply the event from storage. -> errorMessage = ' + errorMessage)
                         }
                     }
+                    resolve()
                 }
-                resolve()
             }
         }
     }

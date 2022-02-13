@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Используйте этот узел для ссылки на узел Asset в одной из иерархий Assets, чтобы установить Asset Contribution Claim. Это заявление означает, что вы заявляете, что работали над этим Asset, создавая или улучшая его, и ожидаете соответствующего вознаграждения!",
                 "updated": 1639133533054
+            },
+            {
+                "language": "TR",
+                "text": "Bir Varlık Katkı Talebi oluşturmak için Varlıklar (Assets) hiyerarşisinden birindeki bir Varlık düğümüne başvurmak için bu düğümü kullanın. Bu iddia, o Varlık (Asset) üzerinde çalıştığınızı, onu yarattığınızı veya geliştirdiğinizi ve buna göre ödüllendirilmeyi beklediğinizi beyan ettiğiniz anlamına gelir!",
+                "updated": 1644497237856
             }
         ]
     },

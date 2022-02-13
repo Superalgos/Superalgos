@@ -20,6 +20,7 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
     }
 
     let indexLastSavedEvent = -1
+    let gitCommandRunning = false
 
     return thisObject
 
@@ -362,6 +363,8 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
         }
 
         async function doGit() {
+            if (gitCommandRunning === true) { return }
+            gitCommandRunning = true
             const options = {
                 baseDir: process.cwd() + '/My-Network-Nodes-Data',
                 binary: 'git',
@@ -373,6 +376,7 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
             await git.add('./*')
             await git.commit(commitMessage)
             await git.push('origin')
+            gitCommandRunning = false
         }
     }
 }

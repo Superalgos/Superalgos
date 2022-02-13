@@ -1,4 +1,4 @@
-const getSocialPersonaId = async (req,res)=>{
+const getSocialPersonaId = async (req, res) => {
     let response = {};
     try {
         let socialPersona = SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_DEFAULT_SOCIAL_PERSONA);
@@ -9,10 +9,10 @@ const getSocialPersonaId = async (req,res)=>{
         response.userProfileHandle = socialPersona.userProfileHandle;
     } catch (error) {
         console.log(error);
-        response = { error: "Could not fetch Social Persona"}
+        response = {error: "Could not fetch Social Persona"}
     }
     return response;
-    
+
 }
 
 const paginateProfiles = async (initialIndex, pagination, res) => {
@@ -68,7 +68,7 @@ const followProfile = async (userProfileId, eventType, res) => {
     }
 };
 
-const loadProfile =  async (socialPersonaId, res) => {
+const loadProfile = async (socialPersonaId, res) => {
 
     try {
         let profileMessage = {
@@ -86,7 +86,7 @@ const loadProfile =  async (socialPersonaId, res) => {
             JSON.stringify(query)
         )
 
-        let response =  {}
+        let response = {}
         response.data = result.profileData;
         response.result = result.result;
 
@@ -97,7 +97,7 @@ const loadProfile =  async (socialPersonaId, res) => {
     }
 }
 
-const saveProfile =  async (body, res) => {
+const saveProfile = async (body, res) => {
 
     try {
         let profileMessage = {
@@ -121,7 +121,7 @@ const saveProfile =  async (body, res) => {
     }
 }
 
-const createProfile =  async (body, res) => {
+const createProfile = async (body, res) => {
 
     try {
         let profileMessage = {
@@ -129,7 +129,7 @@ const createProfile =  async (body, res) => {
             storageProviderName: "Github",
             storageProviderUsername: body.username,
             storageProviderToken: body.token,
-            userAppType:"Social Trading Desktop App"
+            userAppType: "Social Trading Desktop App"
         }
 
         let query = {
@@ -147,13 +147,13 @@ const createProfile =  async (body, res) => {
     }
 }
 
-const listSocialEntities =  async (req, res) => {
+const listSocialEntities = async (req, res) => {
 
     try {
         let profileMessage = {
             profileType: SA.projects.socialTrading.globals.profileTypes.LIST_SOCIAL_ENTITIES,
             socialEntityType: "Social Persona",
-            userAppType:"Social Trading Desktop App"
+            userAppType: "Social Trading Desktop App"
         }
 
         let query = {
@@ -171,14 +171,14 @@ const listSocialEntities =  async (req, res) => {
     }
 }
 
-const createSocialPersona =  async (body, res) => {
+const createSocialPersona = async (body, res) => {
 
     try {
         let profileMessage = {
             profileType: SA.projects.socialTrading.globals.profileTypes.CREATE_SOCIAL_ENTITY,
-            socialEntityHandle:body.name,
+            socialEntityHandle: body.name,
             socialEntityType: "Social Persona",
-            userAppType:"Social Trading Desktop App"
+            userAppType: "Social Trading Desktop App"
         }
 
         let query = {
@@ -195,8 +195,6 @@ const createSocialPersona =  async (body, res) => {
         console.log(error);
     }
 }
-
-
 
 
 module.exports = {

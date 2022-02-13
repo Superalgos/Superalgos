@@ -1,6 +1,8 @@
-Typography{
+/*
+Typography {
     font-size: 1rem !important;
 }
+*/
 
 .sidebar {
     position: relative;
@@ -25,19 +27,19 @@ Typography{
 .sidebarMini {
 }
 
-.sidebarContainer{
+.sidebarContainer {
     align-items: flex-start !important;
 }
 
-.sidebarMiniContainer{
+.sidebarMiniContainer {
     margin-top: 40px;
 }
 
 
 .sidebarProfileCard {
     width: 100%;
-    width: -moz-available;          /* WebKit-based browsers will ignore this. */
-    width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+    width: -moz-available; /* WebKit-based browsers will ignore this. */
+    width: -webkit-fill-available; /* Mozilla-based browsers will ignore this. */
 
     display: flex;
     flex-direction: row;
@@ -45,9 +47,11 @@ Typography{
     position: absolute;
     bottom: 0;
 }
+
 .sidebarProfileCardContent {
     padding: 0.5rem !important;
 }
+
 .avatar {
     align-self: center;
     height: 3rem !important;

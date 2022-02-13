@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Используйте этот узел, чтобы ссылаться на узел Feature в одной из иерархий Features, чтобы установить Feature Contribution Claim. Это означает, что вы заявляете, что работали над этим Feature, создавая или улучшая ее, и ожидаете соответствующего вознаграждения!",
                 "updated": 1639134017230
+            },
+            {
+                "language": "TR",
+                "text": "Bir Özellik Katkı Talebi oluşturmak için Özellikler (Features) hiyerarşisinden birindeki bir Özellik (Feature) düğümüne başvurmak için bu düğümü kullanın. Bu iddia, o Özellik üzerinde çalıştığınızı, onu yarattığınızı veya geliştirdiğinizi ve buna göre ödüllendirilmeyi beklediğinizi beyan ettiğiniz anlamına gelir!",
+                "updated": 1644497527852
             }
         ]
     },

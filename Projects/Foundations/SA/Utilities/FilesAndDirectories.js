@@ -88,6 +88,7 @@ exports.newFoundationsUtilitiesFilesAndDirectories = function () {
 
     function mkDirByPathSync(targetDir, { isRelativeToScript = false } = {}) {
         /* Function to create folders of missing folders at any path. */
+        /* If the directory is not being created, check that you are including a / at the end of the path */
         const path = SA.nodeModules.path
 
         targetDir = targetDir.substring(0, targetDir.lastIndexOf('/') + 1);

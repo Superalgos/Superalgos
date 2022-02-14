@@ -16,8 +16,8 @@
     "paragraphs": [
         {
             "style": "List",
-            "text": "Hit Ctrl + F8 to capture a static PNG image.",
-            "updated": 1611490790992,
+            "text": "PNG panorama capture: ",
+            "updated": 1644354572461,
             "translations": [
                 {
                     "language": "DE",
@@ -27,26 +27,53 @@
             ]
         },
         {
+            "style": "Text",
+            "text": "1. Put the charts on the datetime you wish to start the panorama (the chronological start date). Adjust the rate scale in a manner that shows whatever you wish to capture along the intended date range you wish to capture.",
+            "updated": 1644354857462
+        },
+        {
+            "style": "Text",
+            "text": "2. Hit Ctrl + F7 to start the capture.",
+            "updated": 1644355571587
+        },
+        {
+            "style": "Text",
+            "text": "3. Hit the right arrow key → to pan the chart up to the end datetime.",
+            "updated": 1644355673808
+        },
+        {
+            "style": "Text",
+            "text": "4. Hit Ctrl + F7 again. A PNG file should download immediately...",
+            "updated": 1644355582352
+        },
+        {
             "style": "List",
-            "text": "Hit Ctrl + F9 to start capturing a GIF video, and hit the same key combination again to end the capture. Once the capture ends, it takes some time to process the capture and generate the final file.",
+            "text": "PNG screen capture: Hit Ctrl + F8 to capture a static PNG image.",
+            "updated": 1644354534622
+        },
+        {
+            "style": "List",
+            "text": "GIF video capture: Hit Ctrl + F9 to start capturing a GIF video, and hit the same key combination again to end the capture. Once the capture ends, it takes some time to process the capture and generate the final file.",
             "translations": [
                 {
                     "language": "DE",
                     "text": "Drücken Sie Ctrl + F9, um die Aufnahme eines GIF-Videos zu starten, und drücken Sie die gleiche Tastenkombination erneut, um die Aufnahme zu beenden. Sobald die Aufnahme beendet ist, dauert es einige Zeit, bis die Aufnahme verarbeitet und die endgültige Datei erstellt ist.",
                     "updated": 1640724366288
                 }
-            ]
+            ],
+            "updated": 1644354392126
         },
         {
             "style": "List",
-            "text": "Hit Ctrl + F10 to start capturing a WEBM video, and hit the same key combination again to end the capture. WEBM videos are processed instantly.",
+            "text": "WEBM video capture: Hit Ctrl + F10 to start capturing a WEBM video, and hit the same key combination again to end the capture. WEBM videos are processed instantly.",
             "translations": [
                 {
                     "language": "DE",
                     "text": "Drücken Sie Ctrl + F10, um die Aufnahme eines WEBM-Videos zu starten, und drücken Sie dieselbe Tastenkombination erneut, um die Aufnahme zu beenden. WEBM-Videos werden sofort verarbeitet.",
                     "updated": 1640724417583
                 }
-            ]
+            ],
+            "updated": 1644354547081
         },
         {
             "style": "Text",

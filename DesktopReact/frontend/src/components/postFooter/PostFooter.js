@@ -1,6 +1,6 @@
 import "./PostFooter.css"
 import React, {useEffect, useState} from 'react';
-import {IconButton, Menu, MenuItem, SpeedDial, SpeedDialAction, Stack} from "@mui/material";
+import {IconButton, Menu, MenuItem, SpeedDial, SpeedDialAction} from "@mui/material";
 import Badge from "@mui/material/Badge";
 import {
     AccessibilityNewOutlined,
@@ -17,10 +17,7 @@ import styled from "@emotion/styled";
 import {dialStyle} from "./reactionsStyle";
 import {reactedPost} from "../../api/post.httpService";
 import {STATUS_OK} from "../../api/httpConfig";
-import {useDispatch} from "react-redux";
-import {setModalPost} from "../../store/slices/post.slice";
 import FooterReplyModal from "../footerReplyModal/FooterReplyModal";
-import UserProfileModal from "../userProfileModal/UserProfileModal";
 import RepostModal from "../repost/RepostModal";
 
 // todo need proper style, and handle from css file
@@ -170,78 +167,78 @@ const PostFooter = ({postId, reactions, actualReaction, postData}) => { // props
 
     return (
         <div className="postFooterContainer">
-                <div className="postFooterContainerSpeedDial">
-                    <SpeedDial
-                        FabProps={{ /*Access to props of SpeedDial*/
-                            style: {...dialStyle}
+            <div className="postFooterContainerSpeedDial">
+                <SpeedDial
+                    FabProps={{ /*Access to props of SpeedDial*/
+                        style: {...dialStyle}
+                    }}
+                    onOpen={toggle}
+                    onClose={toggle}
+                    color="secondary"
+                    ariaLabel="SpeedDial"
+                    icon={<StyledBadge
+                        color="primary"
+                        badgeContent={likeBadgeValue}>
+                        <ThumbUp
+                            color="action"
+                            fontSize="small"
+                            onClick={handleReactions}>
+                        </ThumbUp>
+                    </StyledBadge>}
+                    direction="right">
+                    {speedDialIsOpened && (actionsNav.map(e => {
+                        const {id, name, badgeCounter, icon} = e;
+                        return FooterButton(String(id), name, icon, badgeCounter)
+                    }))}
+                </SpeedDial>
+            </div>
+            <div className="footerCommentContainer">
+                <div className="postFooterComment">
+                    <IconButton className="commentIconButton" size="small"
+                                onClick={HandleCommentContainer}>
+                        <MessageOutlined/>
+                    </IconButton>
+                    {replyModal ?
+                        <FooterReplyModal
+                            post={postData}
+                            show={replyModal}
+                            close={HandleCommentContainer}/> : null} {/* todo pass postData to the modal from props */}
+                </div>
+                <div className="postFooterRepost"> {/*todo not implemented yet*/}
+                    <IconButton className="repostIconButton"
+                                id="basic-button"
+                                aria-controls={openRepost ? 'basic-menu' : undefined}
+                                aria-haspopup="true"
+                                aria-expanded={openRepost ? 'true' : undefined}
+                                onClick={handleClick} size="small">
+                        <Autorenew/>
+                    </IconButton>
+                    <Menu
+                        id="basic-menu"
+                        anchorEl={repost}
+                        open={openRepost}
+                        onClose={handleClose}
+                        MenuListProps={{
+                            'aria-labelledby': 'basic-button',
                         }}
-                        onOpen={toggle}
-                        onClose={toggle}
-                        color="secondary"
-                        ariaLabel="SpeedDial"
-                        icon={<StyledBadge
-                            color="primary"
-                            badgeContent={likeBadgeValue}>
-                            <ThumbUp
-                                color="action"
-                                fontSize="small"
-                                onClick={handleReactions}>
-                            </ThumbUp>
-                        </StyledBadge>}
-                        direction="right">
-                        {speedDialIsOpened && (actionsNav.map(e => {
-                                const {id, name, badgeCounter, icon} = e;
-                                return FooterButton(String(id), name, icon, badgeCounter)
-                            }))}
-                    </SpeedDial>
+                        anchorOrigin={{
+                            vertical: 'top',
+                            horizontal: 'left',
+                        }}
+                        transformOrigin={{
+                            vertical: 'top',
+                            horizontal: 'left',
+                        }}
+                    >
+                        <MenuItem onClick={handleRepost}>Repost</MenuItem>
+                        <MenuItem onClick={quoteRepost}>Quote Repost</MenuItem>
+                    </Menu>
+                    {repostQuoteModal ? (
+                        <RepostModal show={repostQuoteModal} close={handleClickCallback}
+                                     postId={postId} postData={postData}
+                        />) : null}
                 </div>
-                <div className="footerCommentContainer">
-                    <div className="postFooterComment">
-                        <IconButton className="commentIconButton" size="small"
-                                    onClick={HandleCommentContainer}>
-                            <MessageOutlined/>
-                        </IconButton>
-                        {replyModal ?
-                            <FooterReplyModal
-                                post={postData}
-                                show={replyModal}
-                                close={HandleCommentContainer}/> : null} {/* todo pass postData to the modal from props */}
-                    </div>
-                    <div className="postFooterRepost"> {/*todo not implemented yet*/}
-                        <IconButton className="repostIconButton"
-                                    id="basic-button"
-                                    aria-controls={openRepost ? 'basic-menu' : undefined}
-                                    aria-haspopup="true"
-                                    aria-expanded={openRepost ? 'true' : undefined}
-                                    onClick={handleClick} size="small">
-                            <Autorenew/>
-                        </IconButton>
-                        <Menu
-                            id="basic-menu"
-                            anchorEl={repost}
-                            open={openRepost}
-                            onClose={handleClose}
-                            MenuListProps={{
-                                'aria-labelledby': 'basic-button',
-                            }}
-                            anchorOrigin={{
-                                vertical: 'top',
-                                horizontal: 'left',
-                            }}
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'left',
-                            }}
-                        >
-                            <MenuItem onClick={handleRepost}>Repost</MenuItem>
-                            <MenuItem onClick={quoteRepost}>Quote Repost</MenuItem>
-                        </Menu>
-                        {repostQuoteModal ? (
-                            <RepostModal show={repostQuoteModal} close={handleClickCallback}
-                            postId={postId} postData={postData}
-                            />) : null}
-                    </div>
-                </div>
+            </div>
         </div>
     );
 };

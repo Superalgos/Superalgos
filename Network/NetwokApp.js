@@ -70,7 +70,10 @@ exports.newNetworkApp = function newNetworkApp() {
                 thisObject.p2pNetworkNode.node.networkServices.socialGraph !== undefined
             ) {
                 thisObject.socialGraphNetworkService = NT.projects.socialTrading.modules.socialGraphNetworkService.newSocialTradingModulesSocialGraphNetworkService()
-                await thisObject.socialGraphNetworkService.initialize()
+                await thisObject.socialGraphNetworkService.initialize(
+                    thisObject.p2pNetworkNode,
+                    thisObject.p2pNetworkReachableNodes
+                )
                 console.log('Social Graph Network Service ................................................. Running')
             }
 
@@ -119,7 +122,7 @@ TODO this breaks the network if uncommented with a complete p2p node tree setted
                 */
                 thisObject.httpInterface = NT.projects.network.modules.httpInterface.newNetworkModulesHttpInterface()
                 thisObject.httpInterface.initialize()
-                console.log('Network Node Http Interface .................................................. Listening at port ' + NT.networkApp.p2pNetworkNode.node.config.webPort)
+                console.log('Network Node Http Interface .................................................. Listening at port ' + NT.networkApp.p2pNetworkNode.node.networkInterfaces.httpNetworkInterface.config.httpPort)
             }
         }
     }

@@ -279,7 +279,7 @@
 
             function checkIfSessionMustStop() {
 
-                if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type === 'Backtesting Session') {
+                if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type === 'Backtesting Portfolio Session') {
                     /*
                     Backtests needs only one execution of this process to complete.
                     */

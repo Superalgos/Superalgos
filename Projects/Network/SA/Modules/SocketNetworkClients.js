@@ -235,11 +235,7 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
             function onMenssageFunction(response) {
                 try {
                     if (response.result === 'Ok' || response.result === 'Warning') {
-                        if (response.data !== undefined) {
-                            resolve(response.data)
-                        } else {
-                            resolve(response)
-                        }
+                        resolve(response.data)
                     } else {
                         console.log('[ERROR] Socket Network Clients -> onMenssageFunction -> response.message = ' + response.message)
                         reject(response.message)
@@ -283,13 +279,7 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
             This can only happen when this module is running at an APP like 
             the Desktop App, Server App, Platform App, or Task Server App.
             */
-            let payload
-            try {
-                payload = JSON.parse(messageHeader.payload)
-            } catch (err) {
-                console.log('[WARN] Socket Network Clients -> Payload Not Correct JSON Format.')
-            }
-            switch (payload.networkService) {
+            switch (messageHeader.networkService) {
                 case 'Social Graph': {
                     if (thisObject.p2pNetworkClient.socialGraphNetworkServiceClient !== undefined) {
                         thisObject.p2pNetworkClient.socialGraphNetworkServiceClient.p2pNetworkInterface.messageReceived(

@@ -18,7 +18,7 @@ exports.newSocialTradingModulesServiceInterface = function newSocialTradingModul
 
     }
 
-    async function initialize() {
+    function initialize() {
 
     }
 

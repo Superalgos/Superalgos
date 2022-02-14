@@ -15,7 +15,7 @@ exports.newSocialTradingModulesPeerInterface = function newSocialTradingModulesP
 
     }
 
-    async function initialize() {
+    function initialize() {
 
     }
 

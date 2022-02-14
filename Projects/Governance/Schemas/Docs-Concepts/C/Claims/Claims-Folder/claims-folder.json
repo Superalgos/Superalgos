@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Различные типы узлов Claims Folder служат в качестве организационных устройств. Они также позволяют отображать целые разделы иерархии определений проекта для одновременного размещения нескольких требований.",
                 "updated": 1639129539766
+            },
+            {
+                "language": "TR",
+                "text": "Claims Folder düğümlerinin farklı türleri, kurumsal aygıtlar olarak hizmet eder. Aynı anda birden fazla alanda hak talebinde bulunmak için proje tanımı hiyerarşilerinin ( Project Definition Hierarchies) tüm bölümlerinin eşlenmesine de izin verir.",
+                "updated": 1644560797343
             }
         ]
     },
@@ -35,25 +40,58 @@
                     "language": "RU",
                     "text": "Иерархии Project Definition Hierarchies имеют четыре типа узлов классов, которые служат организационными устройствами:",
                     "updated": 1639129605807
+                },
+                {
+                    "language": "TR",
+                    "text": "Proje Tanımı Hiyerarşileri, kurumsal cihazlar olarak hizmet veren dört tür Sınıf düğümüne sahiptir:",
+                    "updated": 1644560824475
                 }
             ]
         },
         {
             "style": "List",
             "text": "Asset Class",
-            "updated": 1630257910724
+            "updated": 1630257910724,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Asset Class  - Varlık Sınıfı",
+                    "updated": 1644560852752
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Feature Class"
+            "text": "Feature Class",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Feature Class - Özellik Sınıfı",
+                    "updated": 1644560894630
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Position Class"
+            "text": "Position Class",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Position Class - Pozisyon Sınıfı",
+                    "updated": 1644560889038
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Pool Class"
+            "text": "Pool Class",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Pool Class - Havuz Sınıfı",
+                    "updated": 1644560883800
+                }
+            ]
         },
         {
             "style": "Text",
@@ -69,21 +107,47 @@
                     "language": "RU",
                     "text": "Точно так же программа Claims Program включает соответствующий набор организационных устройств:",
                     "updated": 1639129659809
+                },
+                {
+                    "language": "TR",
+                    "text": "Benzer şekilde, Talepler Programında (Claims Program) eşleşen bir dizi kurumsal cihaz bulunur:",
+                    "updated": 1644560920726
                 }
             ]
         },
         {
             "style": "List",
             "text": "Asset Claims Folder",
-            "updated": 1630258015447
+            "updated": 1630258015447,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Asset Claims Folder - Varlık Talepler Düğümü",
+                    "updated": 1644560937718
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Feature Claims Folder"
+            "text": "Feature Claims Folder",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Feature Claims Folder - Özellik Talepler Düğümü",
+                    "updated": 1644560947288
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Position Claims Folder"
+            "text": "Position Claims Folder",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Position Claims Folder - Pozisyon Talepler Düğümü",
+                    "updated": 1644560961519
+                }
+            ]
         },
         {
             "style": "Important",
@@ -99,6 +163,11 @@
                     "language": "RU",
                     "text": "Обратите внимание, что вы не можете предъявить претензии ко всему пулу. Вы можете подавать заявки только на подробные определения. Вот почему в этом отношении нет ни папок заявлений пула, ни заявлений пула.",
                     "updated": 1639129706760
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Havuzun (Pool) tamamına hak talebinde bulunamayacağınıza dikkat edin. Yalnızca ayrıntılı tanımlar üzerinde hak talebinde bulunabilirsiniz. Bu nedenle, bu konuda havuz talep klasörü veya havuz talebi yoktur.",
+                    "updated": 1644561000484
                 }
             ]
         },
@@ -116,6 +185,11 @@
                     "language": "RU",
                     "text": "Вы можете использовать эти узлы папок для организации ваших требований в произвольном порядке, но вы также можете использовать их более изощренно!",
                     "updated": 1639129749359
+                },
+                {
+                    "language": "TR",
+                    "text": "Taleplerinizi istediğiniz gibi düzenlemek için bu klasör düğümlerden faydalanabilir,dahası bunları daha karmaşık bir şekilde de organize edebilirsiniz.",
+                    "updated": 1644568339066
                 }
             ]
         },
@@ -133,6 +207,11 @@
                     "language": "RU",
                     "text": "Используйте узел папки утверждений Claims Folder, чтобы установить ссылку с соответствующим типом узла Class. Затем используйте опцию Install Missing Claims в меню папки утверждений, чтобы сопоставить весь класс! Процесс создает папку Claims Folder для каждого класса и утверждение для каждого Asset, Feature или Position определенной в каждом классе.",
                     "updated": 1639129892887
+                },
+                {
+                    "language": "TR",
+                    "text": "Karşılık gelen Sınıf düğümü (Class Node) türüyle bir referans oluşturmak için bir Talep Klasörü (Claims Folder) düğümü kullanın. Ardından, tüm Sınıfı eşlemek için Talepler Klasörü (Claims Folder) menüsündeki Eksik Talepleri Yükle (Install Missing Claims) seçeneğini kullanın! Bu işlem her Sınıf için bir Talep Klasörü ve her Sınıfta tanımlanan her Varlık, Özellik veya Konum için bir talep oluşturur.",
+                    "updated": 1644568534681
                 }
             ]
         },
@@ -149,6 +228,11 @@
                     "language": "RU",
                     "text": "Если что-то изменится в определениях, вы всегда можете вернуться, чтобы снова запустить процесс Install Missing Claims. Процесс перестроит структуры с соответствующими утверждениями и папками.",
                     "updated": 1639129989719
+                },
+                {
+                    "language": "TR",
+                    "text": "Tanımlarda bir şey değişirse, her zaman geri dönüp Eksik Talepleri Yükle (Install Missing Claims) işlemini tekrar çalıştırabilirsiniz. İşlem, yapıyı uygun talepler ve klasörlerle yeniden eşitleyecektir.",
+                    "updated": 1644568596079
                 }
             ]
         }

@@ -11,7 +11,6 @@ const externalScripts = [
     "https://code.jquery.com/ui/1.13.0/jquery-ui.js"
 ];
 const projectPluginMap = require('./Plugins/project-plugin-map.json')
-const createShortcut = require('./Launch-Scripts/create-shortcut')
 
 // Check system is set up correctly 
 systemCheck();
@@ -25,9 +24,8 @@ if (process.argv.includes("noShortcuts")) {
 } else {
     // Run create-shortcuts script
     try {
-        // const { fork } = require('child_process')
-        // fork('./Launch-Scripts/create-shortcut.js')
-        createShortcut()
+        const { fork } = require('child_process')
+        fork('./Launch-Scripts/create-shortcut.js')
     } catch (err) {
         console.log('')
         console.log(err)

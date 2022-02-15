@@ -15,10 +15,10 @@
 }
 
 h4 {
-    margin-block-start: 0!important;
+    margin-block-start: 0 !important;
 }
 
-.postHeaderContainer{
+.postHeaderContainer {
     display: flex;
     align-items: center;
     padding: 0.5rem 0 0.5rem 0;

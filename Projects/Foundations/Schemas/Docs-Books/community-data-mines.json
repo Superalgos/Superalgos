@@ -57,13 +57,17 @@
             "style": "Chapter",
             "text": "X->Foundations->Topic->Sparta Data Mine->"
         },
-        {
+		{
             "style": "Chapter",
-            "text": "XI->Foundations->Topic->Zeus Data Mine->"
+            "text": "XI->Foundations->Topic->Turtles Data Mine->"
         },
         {
             "style": "Chapter",
-            "text": "XII->Foundations->Topic->CoinGecko API Map and Mine->"
+            "text": "XII->Foundations->Topic->Zeus Data Mine->"
+        },
+        {
+            "style": "Chapter",
+            "text": "XIII->Foundations->Topic->CoinGecko API Map and Mine->"
         }
     ]
 }

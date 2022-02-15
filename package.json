@@ -18,7 +18,10 @@
     "startDesktop": "node desktop",
     "installDesktopReact": "cd ./DesktopReact && npm ci",
     "startLocalDesktopReact": "start npm run startNetwork && cd ./DesktopReact && start npm run startDesktopReactBackend && start npm run startDesktopReactFrontend",
-    "startDesktopReact": "cd ./DesktopReact && start npm run startDesktopReactBackend && start npm run startDesktopReactFrontend"
+    "startDesktopReact": "cd ./DesktopReact && start npm run startDesktopReactBackend && start npm run startDesktopReactFrontend",
+    "clearJest": "./node_modules/.bin/jest --clearCache",
+    "test": "./node_modules/.bin/jest",
+    "test:watch": "./node_modules/.bin/jest --watch"
   },
   "dependencies": {
     "@discordjs/rest": "^0.1.0-canary.0",
@@ -39,6 +42,7 @@
     "http": "0.0.1-security",
     "https": "^1.0.0",
     "ip": "^1.1.5",
+    "jest": "^27.5.0",
     "lookpath": "^1.2.2",
     "node-fetch": "^2.6.6",
     "open": "^8.4.0",
@@ -57,5 +61,20 @@
   "devDependencies": {
     "electron": "^15.1.0",
     "electron-builder": "^22.14.5"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "verbose": true,
+    "transform": {
+      "^.+\\.[m|t|j]s?$": "babel-jest"
+    },
+    "testMatch": [
+      "**/__tests__/**/?(*.)(test).js?(x)",
+      "**/__tests__/?(*.)(test).js?(x)"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "json"
+    ]
   }
 }

@@ -6,7 +6,6 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
     let thisObject = {
         id: undefined,
         socket: undefined,
-        isConnected: undefined,
         callerRole: undefined,
         p2pNetworkClient: undefined,
         p2pNetworkNode: undefined,
@@ -29,7 +28,6 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
         thisObject.socket.close()
         thisObject.socket = undefined
         thisObject.id = undefined
-        thisObject.isConnected = undefined
         thisObject.callerRole = undefined
         thisObject.p2pNetworkNode = undefined
         thisObject.p2pNetworkClient = undefined
@@ -216,7 +214,11 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
 
             if (thisObject.socket.readyState !== 1) { // 1 means connected and ready.
                 console.log('[ERROR] Socket Network Clients -> sendMessage -> Cannot send message while connection is closed.')
-                reject('Websockets Connection Not Ready.')
+                let response = {
+                    result: 'Error',
+                    message: 'Websockets Connection Not Ready.'
+                }
+                resolve(response)
                 return
             }
 
@@ -233,7 +235,11 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
             function onMenssageFunction(response) {
                 try {
                     if (response.result === 'Ok' || response.result === 'Warning') {
-                        resolve(response.data)
+                        if (response.data !== undefined) {
+                            resolve(response.data)
+                        } else {
+                            resolve(response)
+                        }
                     } else {
                         console.log('[ERROR] Socket Network Clients -> onMenssageFunction -> response.message = ' + response.message)
                         reject(response.message)
@@ -277,7 +283,13 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
             This can only happen when this module is running at an APP like 
             the Desktop App, Server App, Platform App, or Task Server App.
             */
-            switch (messageHeader.networkService) {
+            let payload
+            try {
+                payload = JSON.parse(messageHeader.payload)
+            } catch (err) {
+                console.log('[WARN] Socket Network Clients -> Payload Not Correct JSON Format.')
+            }
+            switch (payload.networkService) {
                 case 'Social Graph': {
                     if (thisObject.p2pNetworkClient.socialGraphNetworkServiceClient !== undefined) {
                         thisObject.p2pNetworkClient.socialGraphNetworkServiceClient.p2pNetworkInterface.messageReceived(

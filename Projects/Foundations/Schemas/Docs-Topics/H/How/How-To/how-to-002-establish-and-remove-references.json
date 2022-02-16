@@ -26,6 +26,11 @@
                 "language": "EL",
                 "text": "Για να δημιουργήσετε μια αναφορά, κάντε δεξί κλικ στον πρώτο κόμβο και σύρετέ τον κοντά στον κόμβο προορισμού. Για να αφαιρέσετε μια αναφορά, χρησιμοποιήστε το κουμπί αποσύνδεσης στο μενού.",
                 "updated": 1641831587275
+            },
+            {
+                "language": "DE",
+                "text": "Um eine Referenz herzustellen, klicken Sie mit der rechten Maustaste auf den ersten Knoten und ziehen ihn in die Nähe des Zielknotens. Um eine Referenz zu entfernen, verwenden Sie die Schaltfläche Delink im Menü.",
+                "updated": 1644783792693
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "EL",
                     "text": "Κατά τη δημιουργία μιας αναφοράς, οι γκρι δακτύλιοι δείχνουν με ποιους κόμβους μπορείτε να δημιουργήσετε την αναφορά. Σε περίπτωση που υπάρχουν πολλοί κόμβοι που θα δέχονταν την αναφορά, αυτός που βρίσκεται πιο κοντά στον κόμβο από τον οποίο προέρχεται η αναφορά επισημαίνεται με ένα χρυσό δακτύλιο. Η απελευθέρωση του κουμπιού του ποντικιού δημιουργεί την αναφορά με τον επισημασμένο κόμβο.",
                     "updated": 1641831637932
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie eine Referenz erstellen, zeigen graue Ringe an, mit welchen Knoten Sie die Referenz erstellen können. Falls es mehrere Knoten gibt, die die Referenz akzeptieren würden, wird derjenige, der näher an dem Knoten liegt, von dem die Referenz ausgeht, mit einem goldenen Ring hervorgehoben. Wenn Sie die Maustaste loslassen, wird die Referenz mit dem markierten Knoten hergestellt.",
+                    "updated": 1644783853747
                 }
             ]
         },
@@ -91,6 +101,11 @@
                     "language": "EL",
                     "text": "Η αναφορά αντιπροσωπεύεται οπτικά με μια αμυδρή γκρίζα διακεκομμένη γραμμή.",
                     "updated": 1641831664279
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Referenz wird visuell durch eine schwache graue gepunktete Linie dargestellt.",
+                    "updated": 1644783877948
                 }
             ],
             "updated": 1637691076887
@@ -113,6 +128,11 @@
                     "language": "EL",
                     "text": "Μπορείτε να ενεργοποιήσετε και να απενεργοποιήσετε αυτές τις γκρίζες γραμμές χρησιμοποιώντας: Ctrl + Shift + Alt + Key-R",
                     "updated": 1641831690145
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können diese grauen Linien ein- und ausschalten mit: Ctrl + Shift + Alt + Key-R",
+                    "updated": 1644783983928
                 }
             ]
         },
@@ -141,6 +161,11 @@
                     "language": "EL",
                     "text": "Για να αφαιρέσετε μια αναφορά ή να αποσυνδέσετε δύο κόμβους, χρησιμοποιήστε το κουμπί αποσύνδεσης στον κόμβο από τον οποίο προέρχεται η αναφορά.",
                     "updated": 1641831718648
+                },
+                {
+                    "language": "DE",
+                    "text": "Um eine Referenz zu entfernen oder zwei Nodes zu entkoppeln, verwenden Sie die Schaltfläche Delink auf dem Node, von dem die Referenz ausgeht.",
+                    "updated": 1644784081442
                 }
             ]
         },
@@ -167,6 +192,11 @@
                     "language": "EL",
                     "text": "Τι γίνεται αν οι Kόμβοι είναι μακριά ή σε διαφορετικές Iεραρχίες;",
                     "updated": 1641831759449
+                },
+                {
+                    "language": "DE",
+                    "text": "Was ist, wenn die Nodes weit entfernt oder in verschiedenen Hierarchien sind?",
+                    "updated": 1644784122391
                 }
             ]
         },
@@ -199,6 +229,11 @@
                     "language": "EL",
                     "text": "Η διαδικασία είναι ακριβώς η ίδια. Το μόνο που χρειάζεται να κάνετε είναι να καταλάβετε μερικά κόλπα, ώστε να μπορείτε να μετακινήσετε έναν από τους κόμβους μέχρι εκεί που βρίσκεται ο δεύτερος κόμβος.",
                     "updated": 1641831786250
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Vorgang ist genau derselbe. Sie müssen nur ein paar Tricks beherrschen, damit Sie den einen Node dorthin verschieben können, wo sich der zweite Node befindet.",
+                    "updated": 1644784166212
                 }
             ]
         },

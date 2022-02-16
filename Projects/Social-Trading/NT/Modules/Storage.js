@@ -20,6 +20,7 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
     }
 
     let indexLastSavedEvent = -1
+    let gitCommandRunning = false
 
     return thisObject
 
@@ -144,7 +145,7 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
 
                 async function promiseWork(resolve, reject) {
                     const repo = 'My-Network-Nodes-Data'
-                    const { exec } = require("child_process")
+                    const {exec} = require("child_process")
                     const path = require("path")
 
                     deleteTemporaryFiles()
@@ -207,7 +208,7 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
 
             function deleteTemporaryFiles() {
                 try {
-                    SA.nodeModules.fs.rmSync('./Temp/', { recursive: true })
+                    SA.nodeModules.fs.rmSync('./Temp/', {recursive: true})
                 } catch (err) {
                     /*
                     not a big deal.
@@ -257,7 +258,9 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                                     console.log('[ERROR] Client Interface -> err.stack = ' + err.stack)
                                 }
                                 let errorMessage = err.message
-                                if (errorMessage === undefined) { errorMessage = err }
+                                if (errorMessage === undefined) {
+                                    errorMessage = err
+                                }
                                 console.log('Could not apply the event from storage. -> errorMessage = ' + errorMessage + ' -> event.id = ' + event.id)
                             }
                         }
@@ -270,98 +273,109 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
 
     async function saveEventsAtStorage() {
 
-        saveOneMinuteOfEvents()
-        doGit()
+        await saveOneMinuteOfEvents()
+        await doGit()
 
         function saveOneMinuteOfEvents() {
-            /*
-            Here we will save all the events that were not saved before,
-            in one minute batched files.
-            */
-            let lastMinute = Math.trunc((new Date()).valueOf() / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS) - 1
-            let lastLastMinute = lastMinute - 1
-            let lastTimestamp = lastMinute * SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS
-            let lastLastTimestamp = lastLastMinute * SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS
-            let eventsFromLastMinute = []
-            let eventsFromLastLastMinute = []
-            let dontMoveIndexForward = false
+            return new Promise(promiseWork)
 
-            for (let i = indexLastSavedEvent + 1; i < SA.projects.socialTrading.globals.memory.arrays.EVENTS.length; i++) {
-                let event = SA.projects.socialTrading.globals.memory.arrays.EVENTS[i]
-                let eventMinute = Math.trunc(event.timestamp / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS)
+            async function promiseWork(resolve, reject) {
+
+
                 /*
-                We will save events only of the last last closed minute.
+                Here we will save all the events that were not saved before,
+                in one minute batched files.
                 */
-                let eventToSave = {
-                    eventId: event.eventId,
-                    eventType: event.eventType,
-                    originSocialPersonaId: event.originSocialPersonaId,
-                    targetSocialPersonaId: event.targetSocialPersonaId,
-                    originSocialTradingBotId: event.originSocialTradingBotId,
-                    targetSocialTradingBotId: event.targetSocialTradingBotId,
-                    originPostHash: event.originPostHash,
-                    targetPostHash: event.targetPostHash,
-                    timestamp: event.timestamp,
-                    fileKeys: event.fileKeys,
-                    botAsset: event.botAsset,
-                    botExchange: event.botExchange,
-                    botEnabled: event.botEnabled
-                }
-                if (
-                    eventMinute === lastMinute
-                ) {
-                    eventsFromLastMinute.push(eventToSave)
-                    dontMoveIndexForward = true
-                }
-                if (
-                    eventMinute === lastLastMinute
-                ) {
-                    eventsFromLastLastMinute.push(eventToSave)
-                    if (dontMoveIndexForward === false) {
-                        indexLastSavedEvent = i
+                let lastMinute = Math.trunc((new Date()).valueOf() / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS) - 1
+                let lastLastMinute = lastMinute - 1
+                let lastTimestamp = lastMinute * SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS
+                let lastLastTimestamp = lastLastMinute * SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS
+                let eventsFromLastMinute = []
+                let eventsFromLastLastMinute = []
+                let dontMoveIndexForward = false
+
+                for (let i = indexLastSavedEvent + 1; i < SA.projects.socialTrading.globals.memory.arrays.EVENTS.length; i++) {
+                    let event = SA.projects.socialTrading.globals.memory.arrays.EVENTS[i]
+                    let eventMinute = Math.trunc(event.timestamp / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS)
+                    /*
+                    We will save events only of the last last closed minute.
+                    */
+                    let eventToSave = {
+                        eventId: event.eventId,
+                        eventType: event.eventType,
+                        originSocialPersonaId: event.originSocialPersonaId,
+                        targetSocialPersonaId: event.targetSocialPersonaId,
+                        originSocialTradingBotId: event.originSocialTradingBotId,
+                        targetSocialTradingBotId: event.targetSocialTradingBotId,
+                        originPostHash: event.originPostHash,
+                        targetPostHash: event.targetPostHash,
+                        timestamp: event.timestamp,
+                        fileKeys: event.fileKeys,
+                        botAsset: event.botAsset,
+                        botExchange: event.botExchange,
+                        botEnabled: event.botEnabled
+                    }
+                    if (
+                        eventMinute === lastMinute
+                    ) {
+                        eventsFromLastMinute.push(eventToSave)
+                        dontMoveIndexForward = true
+                    }
+                    if (
+                        eventMinute === lastLastMinute
+                    ) {
+                        eventsFromLastLastMinute.push(eventToSave)
+                        if (dontMoveIndexForward === false) {
+                            indexLastSavedEvent = i
+                        }
                     }
                 }
-            }
 
-            saveEventsFile(eventsFromLastLastMinute, lastLastTimestamp)
-            saveEventsFile(eventsFromLastMinute, lastTimestamp)
-            saveDataRangeFile()
+                saveEventsFile(eventsFromLastLastMinute, lastLastTimestamp)
+                saveEventsFile(eventsFromLastMinute, lastTimestamp)
+                saveDataRangeFile()
 
-            function saveEventsFile(eventsToSave, timestamp) {
+                function saveEventsFile(eventsToSave, timestamp) {
 
-                const fileContent = JSON.stringify(eventsToSave, undefined, 4)
-                const fileName = "Events" + ".json"
+                    const fileContent = JSON.stringify(eventsToSave, undefined, 4)
+                    const fileName = "Events" + ".json"
 
-                let filePath = './My-Network-Nodes-Data/Nodes/' + thisObject.p2pNetworkNode.node.config.codeName + '/' + SA.projects.foundations.utilities.filesAndDirectories.pathFromDatetime(timestamp)
+                    let filePath = './My-Network-Nodes-Data/Nodes/' + thisObject.p2pNetworkNode.node.config.codeName + '/' + SA.projects.foundations.utilities.filesAndDirectories.pathFromDatetime(timestamp)
 
-                SA.projects.foundations.utilities.filesAndDirectories.mkDirByPathSync(filePath + '/')
-                SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, fileContent)
-            }
-
-            function saveDataRangeFile() {
-                const dataRange = {
-                    begin: 0,
-                    end: 0
-                }
-                firstEvent = SA.projects.socialTrading.globals.memory.arrays.EVENTS[0]
-                if (firstEvent !== undefined) {
-                    dataRange.begin = Math.trunc(firstEvent.timestamp / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS) * SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS
-                    dataRange.end = (Math.trunc((new Date()).valueOf() / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS) - 1) * SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS
-                } else {
-                    return
+                    SA.projects.foundations.utilities.filesAndDirectories.mkDirByPathSync(filePath + '/')
+                    SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, fileContent)
                 }
 
-                const fileContent = JSON.stringify(dataRange, undefined, 4)
-                const fileName = "Data.Range" + ".json"
+                function saveDataRangeFile() {
+                    const dataRange = {
+                        begin: 0,
+                        end: 0
+                    }
+                    firstEvent = SA.projects.socialTrading.globals.memory.arrays.EVENTS[0]
+                    if (firstEvent !== undefined) {
+                        dataRange.begin = Math.trunc(firstEvent.timestamp / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS) * SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS
+                        dataRange.end = (Math.trunc((new Date()).valueOf() / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS) - 1) * SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS
+                    } else {
+                        return
+                    }
 
-                let filePath = './My-Network-Nodes-Data/Nodes/' + thisObject.p2pNetworkNode.node.config.codeName + '/'
+                    const fileContent = JSON.stringify(dataRange, undefined, 4)
+                    const fileName = "Data.Range" + ".json"
 
-                SA.projects.foundations.utilities.filesAndDirectories.mkDirByPathSync(filePath + '/')
-                SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, fileContent)
+                    let filePath = './My-Network-Nodes-Data/Nodes/' + thisObject.p2pNetworkNode.node.config.codeName + '/'
+
+                    SA.projects.foundations.utilities.filesAndDirectories.mkDirByPathSync(filePath + '/')
+                    SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, fileContent)
+                    resolve()
+                }
             }
         }
 
         async function doGit() {
+            if (gitCommandRunning === true) {
+                return
+            }
+            gitCommandRunning = true
             const options = {
                 baseDir: process.cwd() + '/My-Network-Nodes-Data',
                 binary: 'git',
@@ -370,9 +384,13 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
             const commitMessage = 'New Events'
             const git = SA.nodeModules.simpleGit(options)
 
+            let status = await git.status();
+            if (!status.files.some(file => file.path.includes('My-Network-Nodes-Data'))) return
+
             await git.add('./*')
             await git.commit(commitMessage)
             await git.push('origin')
+            gitCommandRunning = false
         }
     }
 }

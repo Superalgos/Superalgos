@@ -97,8 +97,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "\"Tüm proje veri görevlerini çalıştır\" (Run All Project Data Tasks) düğmesine tıklayın! Düğmeye ikinci kez tıklayarak isteği onaylayın.",
-                    "updated": 1635850977185
+                    "text": "\"Tüm proje veri görevlerini çalıştır\" (Run All Project Data Tasks) düğmesine tıklayın! Düğmeye ikinci kez tıklamak onayladığınız anlamına gelir ve işlemi başlatmış olursunuz",
+                    "updated": 1644849740065
                 }
             ]
         },
@@ -144,8 +144,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Yaklaşık 30 saniye içinde, Veri Görevleri (Data Tasks) düğümünün altında, 1 Borsa Veri Görevi (Exchange Data Tasks)  düğümünün çalıştığını belirten bir durum bildirimi görmelisiniz.",
-                    "updated": 1635851348844
+                    "text": "Yaklaşık 30 saniye içinde, Veri Görevleri (Data Tasks) düğümünün altında, Borsa Veri Görevi     (Exchange Data Tasks) düğümünün çalıştığını belirten bir durum bildirimi görmelisiniz.",
+                    "updated": 1644849789734
                 }
             ],
             "updated": 1622190035816

@@ -59,8 +59,8 @@
             },
             {
                 "language": "TR",
-                "text": "Raspberry Pi gibi minimalist donanım, Superalgos İstemcisini ( Client ) hem veri hem de ticaret görevlerini yürütmek için idare edebilirken, bazıları aktif çalışma için çok küçük olabilir!",
-                "updated": 1635578710092
+                "text": "Raspberry Pi gibi minimalist donanım, Superalgos İstemcisini ( Client ) hem veri hem de ticaret görevlerini yürütmek için idare edebilirken, bazı makine ve donanımlar aktif çalışma için yeterli olmayabilir!",
+                "updated": 1644848540119
             }
         ]
     },
@@ -113,8 +113,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "İstemciyi ( Client ) küçük fiziksel veya sanal donanımda çalıştırmanın arkasındaki temel fikir, üretim dağıtımlarında maliyet verimliliğini en üst düzeye çıkarmaktır. Bu tür bağlamlarda, kullanıcı arayüzü ( UI ) minimumda kullanılır.",
-                    "updated": 1635578789059
+                    "text": "İstemciyi ( Client ) küçük fiziksel veya sanal donanımda çalıştırmanın arkasındaki temel fikir, üretim dağıtımlarında maliyet verimliliğini en üst düzeye çıkarmaktır. Bu tür durumlarda, kullanıcı arayüzü ( UI ) minimum düzeyde kullanılır.",
+                    "updated": 1644848608661
                 }
             ]
         },

@@ -1,8 +1,8 @@
-FROM node:16-alpine
+FROM node:17-alpine3.14
 WORKDIR /app
 COPY . .
 RUN apk add --no-cache --virtual .build-deps make g++ \
-    && apk add --no-cache python3 \
+    && apk add --no-cache git bash python3 \
     && node setup noShortcuts \
     && node tf_setup \
     && mkdir -p ./Platform/My-Data-Storage ./Platform/My-Log-Files ./Platform/My-Workspaces \

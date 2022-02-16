@@ -35,8 +35,8 @@
             },
             {
                 "language": "TR",
-                "text": "Şu anda , tüm işlemler %100 olmalıdır. Bu olduğunda, veri madenciliği operasyonuna \"güncel\" diyoruz.",
-                "updated": 1636015455848
+                "text": "Şu anda, tüm işlemler %100 olmalıdır. Eğer değil ise tamamlanana kadar beklemelisiniz. Tamamlandığında, veri madenciliği operasyonuna \"güncel\" diyoruz.",
+                "updated": 1644910145574
             },
             {
                 "language": "RU",
@@ -127,8 +127,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Etrafınıza bakın ve tüm işlemlerin %100 olup olmadığını görün",
-                    "updated": 1636015521214
+                    "text": "Etrafınıza bakın ve tüm işlemlerin %100 olup olmadığını kontgrol edin.",
+                    "updated": 1644910164470
                 },
                 {
                     "language": "RU",
@@ -172,8 +172,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Canlı Alım Satım Oturumu ( Live Trading Session ) yürütmek için, Alım Satım Botunun ( Trading Bot ) canlı alım satım kararları vermek üzere Alım Satım Sisteminizin ( Trading System ) kurallarını uygulayabilmesi için, gerçek zamanlı olarak işlenen borsadan sürekli bir bilgi akışına ihtiyacınız vardır.",
-                    "updated": 1636016072081
+                    "text": "Canlı Alım Satım Oturumu ( Live Trading Session ) yürütmek için, Alım Satım Botunun ( Trading Bot ) canlı alım satım kararları vermek üzere Alım Satım Sisteminizin ( Trading System ) kurallarını uygulayabilmesi için, gerçek zamanlı olarak borsadan sürekli bir bilgi akışına ihtiyacı vardır.",
+                    "updated": 1644910195601
                 },
                 {
                     "language": "RU",

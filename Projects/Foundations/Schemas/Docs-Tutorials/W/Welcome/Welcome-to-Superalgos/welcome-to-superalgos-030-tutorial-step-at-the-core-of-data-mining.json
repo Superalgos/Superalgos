@@ -82,8 +82,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Şimdiye kadar, veri madenciliği operasyonunuzdaki her bir botu kontrol etmek için kullanabileceğiniz altı farklı cihaz hakkında bilgi edindiniz. En üst düzeyde, Veri Görevleri (Data Tasks) düğümü, Ağ Düğümü'ndeki (Network Node) tüm veri madenciliği botlarını kontrol eder.",
-                    "updated": 1636015350802
+                    "text": "Şimdiye kadar, veri madenciliği operasyonunuzdaki her bir botu kontrol etmek için kullanabileceğiniz altı farklı cihaz hakkında bilgi edindiniz. En üst düzeyde, Veri Görevleri (Data Tasks) düğümü, LAN Network Node düğümü'ndeki tüm veri madenciliği botlarını kontrol eder. ",
+                    "updated": 1644909959448
                 },
                 {
                     "language": "RU",

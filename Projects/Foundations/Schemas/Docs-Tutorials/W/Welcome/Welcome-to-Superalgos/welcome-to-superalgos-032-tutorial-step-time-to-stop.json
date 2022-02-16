@@ -35,8 +35,8 @@
             },
             {
                 "language": "TR",
-                "text": "Henüz bir Canlı İşlem Oturumu ( Live Trading Session ) düzenlemeyeceğiz, bu nedenle veri madenciliğimizi bu noktada çalışır durumda tutmanın bir anlamı yok.",
-                "updated": 1636016140799
+                "text": "Henüz bir Canlı İşlem Oturumu ( Live Trading Session ) düzenlemeyeceğiz, bu nedenle veri madenciliğimizi bu noktada çalışır durumda tutmanın bir anlamı yok. ",
+                "updated": 1644910339264
             },
             {
                 "language": "RU",
@@ -129,8 +129,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Geçmiş verileri işlemek için: Bir Geriye Dönük Test Oturumu (Backtesting Sesion ) yürütmek veya yeni göstergeleri işlemek için belirli bir Piyasanın ( Market ) bir tarih saat aralığını işlemek isteyebilirsiniz.",
-                    "updated": 1636016235514
+                    "text": "Geçmiş verileri işlemek için: Bir Geriye Dönük Test Oturumu (Backtesting Sesion ) yürütmek veya yeni göstergeleri işlemek için belirli bir işlem çifti için ( Market ) bir tarih saat aralığını işlemek isteyebilirsiniz.",
+                    "updated": 1644910440492
                 },
                 {
                     "language": "RU",
@@ -175,8 +175,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Canlı bir oturum yürütmek için: Kağıt Alım Satım Oturumu (Paper Trading Session ), İleriye Yönelik Test Oturumu (Forward Testing Session ) ve Canlı Alım Satım Oturumu ( Live Trading Session ) gibi farklı türlerdeki oturumların tümü canlı bir piyasa akışına ihtiyaç duyar.",
-                    "updated": 1636016605221
+                    "text": "Canlı bir oturum yürütmek için: Paper Trading Session , İleriye Yönelik Test Oturumu (Forward Testing Session ) ve Canlı Alım Satım Oturumu ( Live Trading Session ) gibi farklı türlerdeki oturumların tümü canlı bir piyasa akışına ihtiyaç duyar.",
+                    "updated": 1644910465496
                 },
                 {
                     "language": "RU",

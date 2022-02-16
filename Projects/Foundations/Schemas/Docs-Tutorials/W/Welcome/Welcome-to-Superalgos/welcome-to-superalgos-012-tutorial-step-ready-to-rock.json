@@ -47,8 +47,8 @@
             },
             {
                 "language": "TR",
-                "text": "Veri Görevleri düğümü ( Data Tasks ), bu LAN Ağ Düğümü ( LAN Network Node ) için tanımlanan tüm veri madenciliği görevlerini kontrol eder.",
-                "updated": 1640627348348
+                "text": "Veri Görevleri düğümü, ( Data Tasks ), LAN Ağ Düğümü ( LAN Network Node ) için tanımlanan tüm veri madenciliği görevlerini kontrol eder.",
+                "updated": 1644849084980
             }
         ],
         "updated": 1636910229969
@@ -143,8 +143,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Borsa'dan BTC/USDT Piyasası ( Market ) için veri almak üzere bir veri madenciliği operasyonu çalıştıracağız.",
-                    "updated": 1640627207922
+                    "text": "Borsa'dan BTC/USDT işlem çifti ( Market ) için veri almak üzere bir veri madenciliği operasyonu çalıştıracağız.",
+                    "updated": 1644849324942
                 }
             ],
             "updated": 1640350823953
@@ -190,8 +190,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Mevcut bir açık kaynak stratejisiyle bir Geri Test Oturumu ( Backtesting Session ) çalıştıracağız.",
-                    "updated": 1635579517849
+                    "text": "Mevcut bir açık kaynak stratejisiyle bir Geri BackTest Oturumu ( Backtesting Session ) çalıştıracağız.",
+                    "updated": 1644849345417
                 }
             ],
             "updated": 1616414607531

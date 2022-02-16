@@ -35,8 +35,8 @@
             },
             {
                 "language": "TR",
-                "text": "Daha önce bahsetmiştim, bu çalışma alanında iki çizelge var. Superalgos'ta bu çizelgelerin her birine bir Zaman Makinesi ( Time Machine ) diyoruz.",
-                "updated": 1636035055393
+                "text": "Daha önce bahsetmiştim, bu çalışma alanında iki grafik var. Superalgos'ta bu grafiklerin her birine bir Zaman Makinesi ( Time Machine ) diyoruz.",
+                "updated": 1644911532637
             },
             {
                 "language": "RU",
@@ -157,8 +157,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Sol tarafta beliren ve verilerin hangi borsalar ve pazarlarla ilişkili olduğunu gösteren etikete dikkat edin. Tek bir zaman makinesi birden fazla pazardan ve birden fazla borsadan veri tutabilir!",
-                    "updated": 1636035233840
+                    "text": "Sol tarafta beliren ve verilerin hangi borsalar ve işlem çiftiyle ilişkili olduğunu gösteren etikete dikkat edin. Tek bir zaman makinesi birden fazla birden fazla borsadan birden fazla işlem çiftine ait veri tutabilir!",
+                    "updated": 1644912059757
                 },
                 {
                     "language": "RU",

@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Time Machines and Timeline Charts - это устройства, которые отображают графическую информацию в окне Viewport.",
                 "updated": 1639374797512
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Zaman makineleri ve zaman çizelgesi çizelgeleri, Viewport'ta grafiksel bilgi veren cihazlardır.",
+                "updated": 1644590199879
             }
         ]
     },
@@ -61,6 +66,11 @@
                     "language": "RU",
                     "text": "Масштабы и менеджеры слоев мы рассмотрим на отдельных страницах!",
                     "updated": 1639378766238
+                },
+                {
+                    "language": "TR",
+                    "text": "Ölçekleri ve katman yöneticilerini ayrı sayfalarda ele alacağız!",
+                    "updated": 1644590237303
                 }
             ]
         }

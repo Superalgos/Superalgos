@@ -179,11 +179,13 @@ exports.newPortfolioManagementBotModulesPortfolioSimulation = function (processI
                 Run the Portfolio System logic.
                 */
                 await portfolioSystemModuleObject.run()
+                portfolioSystemModuleObject.runUserDefinedCode('first');
                 /*
                 Managed Trading Bots
                 */
                 await portfolioManagedTradingBotsModuleObject.waitForManagedTradingBotsToAskTheirQuestions()
                 portfolioManagedTradingBotsModuleObject.moveTradingEnginesIntoPortfolioEngine()
+                portfolioSystemModuleObject.runUserDefinedCode('last');
                 /*
                 We check if we need to stop before appending the records so that the stop
                 reason is also properly recorded. 

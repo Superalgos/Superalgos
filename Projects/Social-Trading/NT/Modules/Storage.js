@@ -145,7 +145,7 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
 
                 async function promiseWork(resolve, reject) {
                     const repo = 'My-Network-Nodes-Data'
-                    const { exec } = require("child_process")
+                    const {exec} = require("child_process")
                     const path = require("path")
 
                     deleteTemporaryFiles()
@@ -208,7 +208,7 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
 
             function deleteTemporaryFiles() {
                 try {
-                    SA.nodeModules.fs.rmSync('./Temp/', { recursive: true })
+                    SA.nodeModules.fs.rmSync('./Temp/', {recursive: true})
                 } catch (err) {
                     /*
                     not a big deal.
@@ -258,7 +258,9 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                                     console.log('[ERROR] Client Interface -> err.stack = ' + err.stack)
                                 }
                                 let errorMessage = err.message
-                                if (errorMessage === undefined) { errorMessage = err }
+                                if (errorMessage === undefined) {
+                                    errorMessage = err
+                                }
                                 console.log('Could not apply the event from storage. -> errorMessage = ' + errorMessage + ' -> event.id = ' + event.id)
                             }
                         }
@@ -370,7 +372,9 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
         }
 
         async function doGit() {
-            if (gitCommandRunning === true) { return }
+            if (gitCommandRunning === true) {
+                return
+            }
             gitCommandRunning = true
             const options = {
                 baseDir: process.cwd() + '/My-Network-Nodes-Data',
@@ -379,6 +383,9 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
             }
             const commitMessage = 'New Events'
             const git = SA.nodeModules.simpleGit(options)
+
+            let status = await git.status();
+            if (!status.files.some(file => file.path.includes('My-Network-Nodes-Data'))) return
 
             await git.add('./*')
             await git.commit(commitMessage)

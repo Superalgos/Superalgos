@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Используйте эту команду для обновления локальной установки Superalgos до последней доступной версии.",
                 "updated": 1640235456216
+            },
+            {
+                "language": "TR",
+                "text": "Yerel Superalgos kurulumunuzu mevcut en son sürüme güncellemek için bu komutu kullanın.",
+                "updated": 1644223335480
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "language": "RU",
                     "text": "Синтаксис",
                     "updated": 1640235466825
+                },
+                {
+                    "language": "TR",
+                    "text": "Söz Dizimi",
+                    "updated": 1644223350415
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "RU",
                     "text": "Примеры",
                     "updated": 1640235474571
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnekler",
+                    "updated": 1644223365611
                 }
             ]
         },

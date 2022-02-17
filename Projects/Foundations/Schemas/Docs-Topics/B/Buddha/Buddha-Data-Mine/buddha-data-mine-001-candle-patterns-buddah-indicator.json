@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Индикатор имеет алгоритм распознавания паттернов, классифицирующий свечи в несколько групп, таких как Classic Candles, Marubozu Candles, Spinning Top Candles, Doji Candles, и группирующие паттерны в последовательности из одной, двух и трех свечей.",
                 "updated": 1643350003693
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Gösterge, mumları birkaç gruba ayıran bir model tanıma algoritmasına sahiptir, örneğin: Klasik Mumlar, Marubozu Mumları, Dönen Üst Mumlar, Doji Mumları ve Gruplandırma Modelleri bir, iki ve üç mum dizisi halinde gruplandırılmıştır.",
+                "updated": 1644492787128
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "RU",
                     "text": "Свечные паттерны на графиках",
                     "updated": 1643350011819
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafiklerdeki Mum Desenleri",
+                    "updated": 1644492831695
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "RU",
                     "text": "Прежде чем мы сможем определить сложные свечные паттерны, необходимо определить, сгруппировать и параметризовать основные свечи. Паттерны могут состоять из одной или нескольких свечей. По этой причине индикатор Candle Patterns имеет слой для базовых свечей и слой для каждой группы паттернов.",
                     "updated": 1643350029984
+                },
+                {
+                    "language": "TR",
+                    "text": "Ayrıntılı mum modellerini tanımlamadan önce, temel mumlar tanımlanmalı, gruplandırılmalı ve parametrelendirilmelidir. Desenler bir veya daha fazla mumdan oluşabilir. Bu nedenle, Mum Desenleri göstergesi ( Candle Patterns indicator ), temel mumlar için bir katman ve her bir desen grubu için bir katman içerir.",
+                    "updated": 1644493344351
                 }
             ]
         },
@@ -66,6 +81,11 @@
                     "language": "RU",
                     "text": "Теоретически, свечные модели могут способствовать прогнозированию ценового действия. Само по себе появление определенного паттерна не обязательно может рассматриваться как сигнал. Однако в сочетании с другими инструментами технического анализа и при правильном рассмотрении контекста свечные модели могут дать ценную информацию.",
                     "updated": 1643350054479
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Teoride, mum kalıpları fiyat hareketinin tahmin edilmesine katkıda bulunabilir. Kendi başına, belirli bir kalıbın ortaya çıkması mutlaka bir sinyal olarak görülmeyebilir. Bununla birlikte, diğer Teknik Analiz araçlarıyla birleştirildiğinde ve bağlam uygun şekilde düşünüldüğünde, mum kalıpları değerli bilgiler sağlayabilir.",
+                    "updated": 1644493381392
                 }
             ]
         },
@@ -77,6 +97,11 @@
                     "language": "DE",
                     "text": "Basiskerze",
                     "updated": 1642436941603
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel Mumlar (Basic Candles)",
+                    "updated": 1644493398768
                 }
             ]
         },
@@ -93,6 +118,11 @@
                     "language": "RU",
                     "text": "Отправной точкой для поиска свечных паттернов является установление стандартных критериев для названия каждой свечи. Поскольку свечи состоят из четырех цен, это порождает большое количество возможных комбинаций. Например, могут быть свечи с одной, двумя или без теней, которые могут быть большими или маленькими относительно тела свечи, которая сама может бы��ь большой или маленькой по отношению к другим свечам, и так далее.",
                     "updated": 1643350084664
+                },
+                {
+                    "language": "TR",
+                    "text": "Mum modellerini aramak için başlangıç noktası, her bir mumu adlandırmak için standart kriterler oluşturmaktır. Mumlar dört fiyattan oluştuğu için bu, çok sayıda olası kombinasyona yol açar. Örneğin, mumun gövdesine göre büyük veya küçük olabilen, diğer mumlara göre büyük veya küçük olabilen bir, iki veya gölgesiz mumlar olabilir, vb.",
+                    "updated": 1644493441955
                 }
             ]
         },
@@ -109,6 +139,11 @@
                     "language": "RU",
                     "text": "На слое Basic Candles есть две синие линии и одна оранжевая.",
                     "updated": 1643350099234
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel Mumlar katmanında iki mavi çizgi ve bir turuncu çizgi bulunur.",
+                    "updated": 1644493459290
                 }
             ]
         },
@@ -125,6 +160,11 @@
                     "language": "RU",
                     "text": "Синяя линия в нижней части соединяет минимум цены каждой свечи.",
                     "updated": 1643350222048
+                },
+                {
+                    "language": "TR",
+                    "text": "Alttaki mavi çizgi, her bir mumun düşük fiyatını birbirine bağlar.",
+                    "updated": 1644493499129
                 }
             ]
         },
@@ -141,6 +181,11 @@
                     "language": "RU",
                     "text": "Синяя линия сверху является результатом усреднения длины последних десяти свечей и добавления ее к минимальному значению текущей свечи.",
                     "updated": 1643350149935
+                },
+                {
+                    "language": "TR",
+                    "text": "Üstteki mavi çizgi, son on mumun uzunluğunun ortalamasının alınmasından ve mevcut mumun düşük değerine eklenmesinden kaynaklanır.",
+                    "updated": 1644493518963
                 }
             ]
         },
@@ -157,6 +202,11 @@
                     "language": "RU",
                     "text": "Оранжевая линия в середине рассчитывается путем умножения расстояния между двумя синими линиями на произвольный sizeFactor.",
                     "updated": 1643350194973
+                },
+                {
+                    "language": "TR",
+                    "text": "Ortadaki turuncu çizgi, iki mavi çizgi arasındaki mesafenin isteğe bağlı bir sizeFactor çarpılmasıyla hesaplanır.",
+                    "updated": 1644493607353
                 }
             ]
         },
@@ -178,6 +228,11 @@
                     "language": "RU",
                     "text": "Поэтому считается, что диапазон между синими линиями представляет собой среднюю длину свечей. Оранжевая линия посередине служит для определения того, является ли свеча короткой или длинной по отношению к другим свечам. Если максимум свечи находится выше оранжевой линии, то считается, что это Long-свеча, в противном случае - Short-свеча.",
                     "updated": 1643350283173
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu nedenle, mavi çizgiler arasındaki aralığın, mumların ortalama uzunluğunu temsil ettiği söylenir. Ortadaki turuncu çizgi, bir mumun diğer mumlara göre kısa mı yoksa uzun mu olduğunu belirlemeye yarar. Bir mumun yüksekliği turuncu çizginin üzerindeyse, Uzun mum, aksi takdirde Kısa mum olduğu söylenir.",
+                    "updated": 1644493643471
                 }
             ]
         },
@@ -194,6 +249,11 @@
                     "language": "RU",
                     "text": "Соответствующая панель слоев имеет следующие свойства для каждой свечи:",
                     "updated": 1643350293783
+                },
+                {
+                    "language": "TR",
+                    "text": "Karşılık gelen katman paneli, her bir mum için aşağıdaki özellikleri içerir:",
+                    "updated": 1644493670322
                 }
             ]
         },
@@ -211,6 +271,11 @@
                     "language": "RU",
                     "text": "| Indicator Properties | Description |\n| Name | Название основной свечи. |\n| Size | Относительный размер свечи: Short или Long. |\n| Upper Shadow % | Процент, который занимает верхняя тень в общей длине свечи. |\n| Body % | Процент, который составляет тело в общей длине свечи. |\n| Lower Shadow % | Процент, который составляет нижняя тень в общей длине свечи. |\n| Nbodies | Количество предыдущих свечей, используемых для расчета среднего значения тела. |\n| dojiFactor % | Ограничение на размер тела, выраженное в процентах от общей длины для того, чтобы свеча считалась доджи. |\n| sizeFactor % | Коэффициент, используемый для расчета оранжевой линии, которая определяет относительный размер свечей, выраженный в процентах от средней длины нескольких последних свечей. |\n| Nlengths | Количество предыдущих свечей, используемых для расчета средней длины свечи. |\n| Average Size Method | Метод, используемый для расчета среднего значения общей длины предыдущих свечей. |",
                     "updated": 1643350476122
+                },
+                {
+                    "language": "TR",
+                    "text": "| Gösterge Özellikleri | Açıklama |\n| İsim | Temel mumun adı. |\n| Boyut | Mumun göreceli boyutu: Kısa veya Uzun. |\n| Üst Gölge % (Upper Shadow %) | Mumun toplam uzunluğunda üst gölgenin kapladığı yüzde. |\n| Gövde % (Body %) | Gövdenin mumun toplam uzunluğunda temsil ettiği yüzde. |\n| Alt Gölge % (Lower Shadow %) | Alt gölgenin mumun toplam uzunluğunda temsil ettiği yüzde. |\n| Nbodies | Vücut ortalamasını hesaplamak için kullanılan önceki mumların sayısı. |\n| dojiFaktörü % (dojiFactor %) | Bir mumun doji olarak kabul edilebilmesi için toplam uzunluğunun yüzdesi olarak ifade edilen gövde boyutu sınırı. |\n| sizeFaktörü % (sizeFactor %) | Son birkaç mumun ortalama uzunluğunun yüzdesi olarak ifade edilen, göreli mum boyutunu belirleyen turuncu çizgiyi hesaplamak için kullanılan bir faktör. |\n| N uzunluklar (Nlengths) | Ortalama mum uzunluklarını hesaplamak için kullanılan önceki mumların sayısı. |\n| Ortalama Boyut Yöntemi (Average Size Method) | Önceki mumların toplam uzunluklarının ortalamasını hesaplamak için kullanılan yöntem. |",
+                    "updated": 1644494019054
                 }
             ]
         },
@@ -227,6 +292,11 @@
                     "language": "RU",
                     "text": "Ниже приведен полный список основных свечей, сгруппированных по семействам в соответствии с определенными характеристиками, которые их объединяют.",
                     "updated": 1643350496114
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıda, ailelerin ortak özelliklerine göre gruplandırılmış temel mumların tam listesi bulunmaktadır.",
+                    "updated": 1644494095754
                 }
             ]
         },
@@ -244,6 +314,11 @@
                     "language": "RU",
                     "text": "Обычно в литературе белый и черный цвета используются для обозначения бычьих и медвежьих свечей соответственно. В нашем случае белый цвет был заменен на зеленый, а черный - на красный.",
                     "updated": 1643350953857
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Genellikle - literatürde - beyaz ve siyah renkler sırasıyla yükseliş ve düşüş mumlarını ifade etmek için kullanılır. Bizim durumumuzda beyaz, yeşile ve siyahtan kırmızıya değiştirildi.",
+                    "updated": 1644494126160
                 }
             ]
         },
@@ -255,6 +330,11 @@
                     "language": "DE",
                     "text": "Klassische Kerzen",
                     "updated": 1642087064446
+                },
+                {
+                    "language": "TR",
+                    "text": "Klasik Mumlar",
+                    "updated": 1644494144606
                 }
             ]
         },
@@ -271,6 +351,11 @@
                     "language": "RU",
                     "text": "Эти свечи имеют следующие общие характеристики:",
                     "updated": 1643350962870
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu mumlar aşağıdaki ortak özelliklere sahiptir:",
+                    "updated": 1644494164691
                 }
             ]
         },
@@ -287,6 +372,11 @@
                     "language": "RU",
                     "text": "Обе тени присутствуют.",
                     "updated": 1643350972042
+                },
+                {
+                    "language": "TR",
+                    "text": "Her iki gölge de mevcut.",
+                    "updated": 1644494206461
                 }
             ]
         },
@@ -303,6 +393,11 @@
                     "language": "RU",
                     "text": "Каждая тень короче тела.",
                     "updated": 1643350979473
+                },
+                {
+                    "language": "TR",
+                    "text": "Her gölge vücuttan daha kısadır.",
+                    "updated": 1644494219045
                 }
             ]
         },
@@ -319,6 +414,11 @@
                     "language": "RU",
                     "text": "Цена открытия отличается от цены закрытия.",
                     "updated": 1643350989032
+                },
+                {
+                    "language": "TR",
+                    "text": "Açılış fiyatı kapanış fiyatından farklıdır.",
+                    "updated": 1644494228806
                 }
             ]
         },
@@ -335,6 +435,11 @@
                     "language": "RU",
                     "text": "В соответствии со своими особенностями они называются следующим образом:",
                     "updated": 1643351001011
+                },
+                {
+                    "language": "TR",
+                    "text": "Özelliklerine göre şu şekilde isimlendirilirler:",
+                    "updated": 1644494255291
                 }
             ]
         },
@@ -356,6 +461,11 @@
                     "language": "RU",
                     "text": "Basic candle name: короткая зеленая свеча, короткая красная свеча.",
                     "updated": 1643351021895
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel mum adı: kısa yeşil mum, kısa kırmızı mum.",
+                    "updated": 1644494753807
                 }
             ]
         },
@@ -373,6 +483,11 @@
                     "language": "RU",
                     "text": "Particular Characteristics: бычий или медвежий, относительный размер: короткий.",
                     "updated": 1643351034127
+                },
+                {
+                    "language": "TR",
+                    "text": "Belirli Özellikler: yükseliş veya düşüş, göreceli boyut: kısa.",
+                    "updated": 1644494774907
                 }
             ]
         },
@@ -395,6 +510,11 @@
                     "language": "RU",
                     "text": "Basic candle name: зеленая свеча, красная свеча.",
                     "updated": 1643351063238
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel mum adı: yeşil mum, kırmızı mum.",
+                    "updated": 1644494791317
                 }
             ]
         },
@@ -412,6 +532,11 @@
                     "language": "RU",
                     "text": "Particular Characteristics: бычий или медвежий, относительный размер: длинный.",
                     "updated": 1643351072355
+                },
+                {
+                    "language": "TR",
+                    "text": "Belirli Özellikler: yükseliş veya düşüş eğilimi, göreceli boyut: uzun.",
+                    "updated": 1644494824777
                 }
             ]
         },
@@ -434,6 +559,11 @@
                     "language": "RU",
                     "text": "Basic candle name: длинная зеленая свеча, длинная красная свеча.",
                     "updated": 1643351087951
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel mum adı: uzun yeşil mum, uzun kırmızı mum.",
+                    "updated": 1644494848618
                 }
             ]
         },
@@ -451,6 +581,11 @@
                     "language": "RU",
                     "text": "Particular Characteristics: бычий или медвежий, относительный размер: тело как минимум в три раза выше, чем среднее значение предыдущих тел.",
                     "updated": 1643351098867
+                },
+                {
+                    "language": "TR",
+                    "text": "Belirli Özellikler: yükseliş veya düşüş eğilimi, göreceli boyut: gövde, önceki gövdelerin ortalamasından en az üç kat daha yüksektir.",
+                    "updated": 1644494859619
                 }
             ]
         },
@@ -462,6 +597,11 @@
                     "language": "DE",
                     "text": "Marubozu Kerzen",
                     "updated": 1642431931810
+                },
+                {
+                    "language": "TR",
+                    "text": "Marubozu Mumları",
+                    "updated": 1644494884101
                 }
             ]
         },
@@ -478,6 +618,11 @@
                     "language": "RU",
                     "text": "Эти свечи имеют следующие общие характеристики:",
                     "updated": 1643351106536
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu mumlar aşağıdaki ortak özelliklere sahiptir:",
+                    "updated": 1644494916041
                 }
             ]
         },
@@ -494,6 +639,11 @@
                     "language": "RU",
                     "text": "Отсутствие хотя бы одной тени.",
                     "updated": 1643351113550
+                },
+                {
+                    "language": "TR",
+                    "text": "En az bir gölge eksikliği.",
+                    "updated": 1644494928493
                 }
             ]
         },
@@ -510,6 +660,11 @@
                     "language": "RU",
                     "text": "Если у него есть одна тень, она должна быть короче тела.",
                     "updated": 1643351124248
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir gölgesi varsa, vücuttan daha kısa olmalıdır.",
+                    "updated": 1644494938771
                 }
             ]
         },
@@ -526,6 +681,11 @@
                     "language": "RU",
                     "text": "Цена открытия отличается от цены закрытия.",
                     "updated": 1643351132681
+                },
+                {
+                    "language": "TR",
+                    "text": "Açılış fiyatı kapanış fiyatından farklıdır.",
+                    "updated": 1644494947864
                 }
             ]
         },
@@ -542,6 +702,11 @@
                     "language": "RU",
                     "text": "Относительный размер: короткий или длинный.",
                     "updated": 1643351167803
+                },
+                {
+                    "language": "TR",
+                    "text": "Göreceli Boyut (Relative Size): Kısa veya Uzun.",
+                    "updated": 1644494975061
                 }
             ]
         },
@@ -558,6 +723,11 @@
                     "language": "RU",
                     "text": "В соответствии со своими особенностями они называются следующим образом:В соответствии со своими особенностями они называются следующим образом:",
                     "updated": 1643351176396
+                },
+                {
+                    "language": "TR",
+                    "text": "Özelliklerine göre şu şekilde isimlendirilirler:",
+                    "updated": 1644495013322
                 }
             ]
         },
@@ -580,6 +750,11 @@
                     "language": "RU",
                     "text": "Basic candle name: зеленый марубодзу, красный марубодзу.",
                     "updated": 1643351191752
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel mum adı: yeşil marubozu, kırmızı marubozu.",
+                    "updated": 1644495030317
                 }
             ]
         },
@@ -597,6 +772,11 @@
                     "language": "RU",
                     "text": "Particular Characteristics: бычьи или медвежьи, без теней.",
                     "updated": 1643351203716
+                },
+                {
+                    "language": "TR",
+                    "text": "Belirli Özellikler: boğa veya düşüş, gölge yok.",
+                    "updated": 1644495068573
                 }
             ]
         },
@@ -619,6 +799,11 @@
                     "language": "RU",
                     "text": "Basic candle name: открытие зеленого марубодзу.",
                     "updated": 1643351215419
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel mum adı: yeşil marubozu açmak.",
+                    "updated": 1644495094448
                 }
             ]
         },
@@ -636,6 +821,11 @@
                     "language": "RU",
                     "text": "Particular Characteristics: бычий, нет нижней тени.",
                     "updated": 1643351230241
+                },
+                {
+                    "language": "TR",
+                    "text": "Belirli Özellikler: boğa, alt gölge yok.",
+                    "updated": 1644495103480
                 }
             ]
         },
@@ -658,6 +848,11 @@
                     "language": "RU",
                     "text": "Basic candle name: закрытие зеленого марубодзу.",
                     "updated": 1643351243392
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel mum adı: kapanış yeşil marubozu.",
+                    "updated": 1644495123105
                 }
             ]
         },
@@ -675,6 +870,11 @@
                     "language": "RU",
                     "text": "Particular Characteristics: бычий, верхняя тень отсутствует.",
                     "updated": 1643351251462
+                },
+                {
+                    "language": "TR",
+                    "text": "Belirli Özellikler: boğa, üst gölge yok.",
+                    "updated": 1644495133062
                 }
             ]
         },
@@ -697,6 +897,11 @@
                     "language": "RU",
                     "text": "Basic candle name: открытие красного марубодзу.",
                     "updated": 1643351261305
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel mum adı: açılış kırmızı marubozu.",
+                    "updated": 1644495151052
                 }
             ]
         },
@@ -714,6 +919,11 @@
                     "language": "RU",
                     "text": "Particular Characteristics: медвежий, нет верхней тени.",
                     "updated": 1643351268857
+                },
+                {
+                    "language": "TR",
+                    "text": "Belirli Özellikler: düşüş eğilimi, üst gölge yok.",
+                    "updated": 1644495165601
                 }
             ]
         },
@@ -736,6 +946,11 @@
                     "language": "RU",
                     "text": "Basic candle name: закрытие красного марубодзу.",
                     "updated": 1643351279585
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel mum adı: kapanış kırmızı marubozu.",
+                    "updated": 1644495198384
                 }
             ]
         },
@@ -753,6 +968,11 @@
                     "language": "RU",
                     "text": "Particular Characteristics: медвежий, нет нижней тени.",
                     "updated": 1643351286842
+                },
+                {
+                    "language": "TR",
+                    "text": "Belirli Özellikler: düşüş eğilimi, alt gölge yok.",
+                    "updated": 1644495207819
                 }
             ]
         },
@@ -765,6 +985,11 @@
                     "language": "DE",
                     "text": "Spinning Top Kerzen",
                     "updated": 1642598697484
+                },
+                {
+                    "language": "TR",
+                    "text": "Topaç Üst Mumlar",
+                    "updated": 1644495403701
                 }
             ]
         },
@@ -781,6 +1006,11 @@
                     "language": "RU",
                     "text": "Эти свечи имеют следующие общие характеристики:",
                     "updated": 1643351294457
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu mumlar aşağıdaki ortak özelliklere sahiptir:",
+                    "updated": 1644495273212
                 }
             ]
         },
@@ -797,6 +1027,11 @@
                     "language": "RU",
                     "text": "Имеют хотя бы одну тень.",
                     "updated": 1643351314327
+                },
+                {
+                    "language": "TR",
+                    "text": "En az bir gölgeniz olsun.",
+                    "updated": 1644495295034
                 }
             ]
         },
@@ -813,6 +1048,11 @@
                     "language": "RU",
                     "text": "По крайней мере, одна тень больше тела.",
                     "updated": 1643351322073
+                },
+                {
+                    "language": "TR",
+                    "text": "En az bir gölge vücuttan daha büyüktür.",
+                    "updated": 1644495303160
                 }
             ]
         },
@@ -829,6 +1069,11 @@
                     "language": "RU",
                     "text": "Цена открытия отличается от цены закрытия.",
                     "updated": 1643351330011
+                },
+                {
+                    "language": "TR",
+                    "text": "Açılış fiyatı kapanış fiyatından farklıdır.",
+                    "updated": 1644495310599
                 }
             ]
         },
@@ -845,6 +1090,11 @@
                     "language": "RU",
                     "text": "В соответствии со своими особенностями они называются следующим образом:",
                     "updated": 1643351338118
+                },
+                {
+                    "language": "TR",
+                    "text": "Özel özelliklerine göre aşağıdaki gibi adlandırılırlar:",
+                    "updated": 1644495318622
                 }
             ]
         },
@@ -867,6 +1117,11 @@
                     "language": "RU",
                     "text": "Basic candle name: зелёный волчок, красный волчок.",
                     "updated": 1643351627043
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel mum adı: yeşil topaç, kırmızı topaç.",
+                    "updated": 1644495365068
                 }
             ]
         },
@@ -884,6 +1139,11 @@
                     "language": "RU",
                     "text": "Particular Characteristics: бычий или медвежий, относительный размер: короткий или длинный. Если относительный размер длинный, то ни одна из теней не может превышать трехкратный размер тела.",
                     "updated": 1643351642739
+                },
+                {
+                    "language": "TR",
+                    "text": "Belirli Özellikler: yükseliş veya düşüş eğilimi, göreceli boyut: kısa veya uzun. Göreceli boyutu uzunsa, gölgelerin hiçbiri gövdenin üç katını aşamaz.",
+                    "updated": 1644495445341
                 }
             ]
         },
@@ -906,6 +1166,11 @@
                     "language": "RU",
                     "text": "Basic candle name: большая волна.",
                     "updated": 1643351718815
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel mum adı: yüksek dalga.",
+                    "updated": 1644495465607
                 }
             ]
         },
@@ -923,6 +1188,11 @@
                     "language": "RU",
                     "text": "Particular Characteristics: бычья или медвежья, относительный размер: длинная. Длина хотя бы одной тени как минимум в 3 раза больше тела.",
                     "updated": 1643351730618
+                },
+                {
+                    "language": "TR",
+                    "text": "Belirli Özellikler: yükseliş veya düşüş eğilimi, göreceli boyut: uzun. En az bir gölgenin uzunluğu vücuttan en az 3 kat daha büyüktür.",
+                    "updated": 1644495482524
                 }
             ]
         },
@@ -935,6 +1205,11 @@
                     "language": "DE",
                     "text": "Doji Kerzen",
                     "updated": 1642600079742
+                },
+                {
+                    "language": "TR",
+                    "text": "Doji Mumları",
+                    "updated": 1644495494565
                 }
             ]
         },
@@ -951,6 +1226,11 @@
                     "language": "RU",
                     "text": "Эти свечи имеют следующие общие характеристики:Эти свечи имеют следующие общие характеристики:",
                     "updated": 1643351737813
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu mumlar aşağıdaki ortak özelliklere sahiptir:",
+                    "updated": 1644495515844
                 }
             ]
         },
@@ -967,6 +1247,11 @@
                     "language": "RU",
                     "text": "Не имеющие тела или очень маленькие, если это разрешено.",
                     "updated": 1643351776864
+                },
+                {
+                    "language": "TR",
+                    "text": "Bedensiz veya izin veriliyorsa çok küçük bedenli olun.",
+                    "updated": 1644495541743
                 }
             ]
         },
@@ -983,6 +1268,11 @@
                     "language": "RU",
                     "text": "В соответствии со своими особенностями они называются следующим образом:",
                     "updated": 1643351783775
+                },
+                {
+                    "language": "TR",
+                    "text": "Özelliklerine göre şu şekilde isimlendirilirler:",
+                    "updated": 1644495557432
                 }
             ]
         },
@@ -1005,6 +1295,11 @@
                     "language": "RU",
                     "text": "Basic candle name: Доджи с четырьмя ценами",
                     "updated": 1643351799094
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel mum adı: Dört Fiyat Doji",
+                    "updated": 1644495783945
                 }
             ]
         },
@@ -1022,6 +1317,11 @@
                     "language": "RU",
                     "text": "Particular Characteristics: Без теней. Относительный размер: короткий.",
                     "updated": 1643351819043
+                },
+                {
+                    "language": "TR",
+                    "text": "Belirli Özellikler: Gölge yok. Göreceli Boyut: Kısa.",
+                    "updated": 1644495792670
                 }
             ]
         },
@@ -1044,6 +1344,11 @@
                     "language": "RU",
                     "text": "Basic candle name: Звезда доджи",
                     "updated": 1643351845911
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel mum adı: Yıldız Doji",
+                    "updated": 1644495843115
                 }
             ]
         },
@@ -1061,6 +1366,11 @@
                     "language": "RU",
                     "text": "Particular Characteristics: Тело расположено почти посередине (между 60% и 40% от общей длины). Относительный размер: короткий.",
                     "updated": 1643351865644
+                },
+                {
+                    "language": "TR",
+                    "text": "Belirli Özellikler: Vücut neredeyse orta menzilde (toplam uzunluğun %60'ı ile %40'ı arasında) bulunur. Göreceli Boyut: Kısa.",
+                    "updated": 1644495868018
                 }
             ]
         },
@@ -1083,6 +1393,11 @@
                     "language": "RU",
                     "text": "Basic candle name: Длинноногий доджи",
                     "updated": 1643351881336
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel mum adı: Uzun Bacaklı Doji",
+                    "updated": 1644495891184
                 }
             ]
         },
@@ -1100,6 +1415,11 @@
                     "language": "RU",
                     "text": "Particular Characteristics: Тело расположено почти посередине (между 60% и 40% от общей длины). Относительный размер: длинный.",
                     "updated": 1643351895984
+                },
+                {
+                    "language": "TR",
+                    "text": "Belirli Özellikler: Vücut neredeyse orta menzilde (toplam uzunluğun %60'ı ile %40'ı arasında) bulunur. Göreceli Boyut: Uzun.",
+                    "updated": 1644495909885
                 }
             ]
         },
@@ -1122,6 +1442,11 @@
                     "language": "RU",
                     "text": "Basic candle name: Стрекоза доджи",
                     "updated": 1643351932621
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel mum adı: Dragonfly Doji",
+                    "updated": 1644495950549
                 }
             ]
         },
@@ -1139,6 +1464,11 @@
                     "language": "RU",
                     "text": "Particular Characteristics: Верхняя тень короче 1% от общей длины свечи. Относительный размер: длинная.",
                     "updated": 1643351949367
+                },
+                {
+                    "language": "TR",
+                    "text": "Belirli Özellikler: Üst gölge, toplam mum uzunluğunun %1'inden kısa. Göreceli Boyut: Uzun.",
+                    "updated": 1644495987674
                 }
             ]
         },
@@ -1161,6 +1491,11 @@
                     "language": "RU",
                     "text": "Basic candle name: Надгробный доджи",
                     "updated": 1643351970443
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel mum adı: Mezar taşı Doji",
+                    "updated": 1644496026682
                 }
             ]
         },
@@ -1178,6 +1513,11 @@
                     "language": "RU",
                     "text": "Particular Characteristics: Нижняя тень короче 1% от общей длины свечи. Относительный размер: длинная.",
                     "updated": 1643351986295
+                },
+                {
+                    "language": "TR",
+                    "text": "Belirli Özellikler: alt gölge, toplam mum uzunluğunun %1'inden kısa. Göreceli Boyut: Uzun.",
+                    "updated": 1644496058393
                 }
             ]
         },
@@ -1195,6 +1535,11 @@
                     "language": "DE",
                     "text": "Name der Basiskerze: Generischer Doji",
                     "updated": 1642600929149
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel mum adı: Genel Doji",
+                    "updated": 1644496202515
                 }
             ]
         },
@@ -1212,11 +1557,16 @@
                     "language": "RU",
                     "text": "Particular Characteristics: Все свечи дожи, которые не соответствуют 5 вышеупомянутым.",
                     "updated": 1643352009605
+                },
+                {
+                    "language": "TR",
+                    "text": "Belirli Özellikler: Yukarıda belirtilen 5'e uymayan tüm doji mumları.",
+                    "updated": 1644496222066
                 }
             ]
         },
         {
-            "style": "Text",
+            "style": "Note",
             "text": " Note: It is worth noting that this initial set of definitions is what may be found in the general literature. However, the indicator may be expanded to identify other types of candles. We welcome ideas and contributions in that regard.",
             "updated": 1611666624611,
             "translations": [
@@ -1229,12 +1579,24 @@
                     "language": "RU",
                     "text": "Примечание: стоит отметить, что этот первоначальный набор определений - это то, что можно найти в общей литературе. Однако индикатор может быть расширен для определения других типов свечей. Мы приветствуем идеи и вклад в этом отношении.",
                     "updated": 1643352070347
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bu ilk tanım dizisinin genel literatürde bulunabileceğini belirtmekte fayda var. Bununla birlikte, gösterge diğer mum türlerini tanımlamak için genişletilebilir. Bu konudaki fikir ve katkılara açığız.",
+                    "updated": 1644496249795
                 }
             ]
         },
         {
             "style": "Title",
-            "text": "One-Candle Patterns"
+            "text": "One-Candle Patterns",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Tek Mumlu Desenler",
+                    "updated": 1644496327756
+                }
+            ]
         },
         {
             "style": "Text",
@@ -1249,6 +1611,11 @@
                     "language": "RU",
                     "text": "Односвечные паттерны состоят из одной базовой свечи в определенном рыночном контексте. Сопоставление типа основной свечи с анализом контекста с точки зрения текущего тренда, на который указывает 10-периодная экспоненциальная скользящая средняя (EMA), может помочь предсказать развороты или продолжения.",
                     "updated": 1643352100878
+                },
+                {
+                    "language": "TR",
+                    "text": "Tek Mum Kalıpları, belirli bir piyasa bağlamında tek bir temel mumdan oluşur. Temel mum türünü, 10 dönemlik üstel hareketli ortalama (EMA) ile gösterildiği gibi mevcut eğilim açısından bağlam analiziyle eşleştirmek, geri dönüşleri veya devamları tahmin etmeye yardımcı olabilir.",
+                    "updated": 1644496360803
                 }
             ]
         },
@@ -1270,6 +1637,11 @@
                     "language": "RU",
                     "text": "На слое темной линией нарисована EMA 10. Кроме того, под и над односвечными паттернами расположены зеленые и красные стрелки, указывающие на положение, в котором появляется паттерн.",
                     "updated": 1643352116688
+                },
+                {
+                    "language": "TR",
+                    "text": "Katman, koyu bir çizgiyle çizilmiş bir EMA 10'a sahiptir. Ayrıca, tek mum desenlerinin altında ve üstünde, desenin göründüğü konumu gösteren yeşil ve kırmızı oklar bulunur.",
+                    "updated": 1644496384121
                 }
             ]
         },
@@ -1286,6 +1658,11 @@
                     "language": "RU",
                     "text": "Если свеча зеленого цвета и направлена вверх, паттерн указывает на \"Бычий разворот\" или \"Бычье продолжение\" при тренде вниз или вверх соответственно. Если свеча красная и направлена вниз, то это указывает на прогноз \"Медвежий разворот\" или \"Медвежье продолжение\" при тренде вверх или вниз соответственно.",
                     "updated": 1643352140913
+                },
+                {
+                    "language": "TR",
+                    "text": "Mum yeşilse ve yukarıyı gösteriyorsa, model sırasıyla aşağı veya yukarı trend olduğunda bir \"Ters Boğa\" veya bir \"Boğa Devam\" tahminini gösterir. Mum kırmızıysa ve aşağıyı gösteriyorsa, trend sırasıyla yukarı veya aşağı olduğunda bir \"Ayı Tersine Dönme\" veya \"Ayı Devam Etme\" tahminini gösterir.",
+                    "updated": 1644496414493
                 }
             ]
         },
@@ -1302,6 +1679,11 @@
                     "language": "RU",
                     "text": "Панель обладает следующими свойствами:",
                     "updated": 1643352152433
+                },
+                {
+                    "language": "TR",
+                    "text": "Panelde aşağıdaki özellikler bulunur:",
+                    "updated": 1644496432977
                 }
             ]
         },
@@ -1319,6 +1701,11 @@
                     "language": "RU",
                     "text": "| Indicator Properties | Description |\n| Pattern Name | Название паттерна. |\n| Trend Direction | Рыночный тренд, на котором сформировался паттерн, на что указывает EMA 10. |\n| Forecast | Прогноз, который дает паттерн, формирующийся в текущем тренде. |\n| Trend Line Method | Метод, используемый для расчета скользящей средней, которая представляет собой линию тренда. |\n| Trend Line Period | Количество периодов, используемых для расчета скользящей средней. |\n| Trend Line Value | Текущее значение скользящей средней. |",
                     "updated": 1643352234309
+                },
+                {
+                    "language": "TR",
+                    "text": "| Gösterge Özellikleri | Açıklama |\n| Desen Adı | Desenin adı. |\n| Trend Yönü | EMA 10 tarafından belirtildiği gibi, modelin üzerinde oluştuğu piyasa eğilimi. |\n| Tahmin | Mevcut trendde oluşan model tarafından verilen tahmin. |\n| Trend Çizgisi Yöntemi | Eğilim çizgisini temsil eden hareketli ortalamayı hesaplamak için kullanılan yöntem. |\n| Trend Çizgisi Dönemi | Hareketli ortalamayı hesaplamak için kullanılan dönem sayısı. |\n| Trend Çizgisi Değeri | Hareketli ortalamanın mevcut değeri. |",
+                    "updated": 1644496456486
                 }
             ]
         },
@@ -1329,7 +1716,14 @@
         {
             "style": "Title",
             "text": "Two-Candles Patterns",
-            "updated": 1611666789921
+            "updated": 1611666789921,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İki Mumlu Desenler",
+                    "updated": 1644496502621
+                }
+            ]
         },
         {
             "style": "Text",
@@ -1344,6 +1738,11 @@
                     "language": "RU",
                     "text": "Двухсвечные паттерны строятся из двух базовых свечей.",
                     "updated": 1643352246375
+                },
+                {
+                    "language": "TR",
+                    "text": "İki Mumlu Desenler, iki temel mumdan yapılır.",
+                    "updated": 1644496534555
                 }
             ]
         },
@@ -1361,6 +1760,11 @@
                     "language": "RU",
                     "text": "Те же понятия относительно контекста тренда, которые обсуждались для односвечных паттернов, применимы ко всем паттернам с двумя и более свечами.",
                     "updated": 1643352257691
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Tek mumlu desenler için tartışılan trendin bağlamıyla ilgili aynı kavramlar, iki veya daha fazla mumlu tüm desenler için geçerlidir.",
+                    "updated": 1644496576067
                 }
             ]
         },
@@ -1382,6 +1786,11 @@
                     "language": "RU",
                     "text": "При анализе паттернов из более чем одной свечи важно понимать следующие понятия:",
                     "updated": 1643352269640
+                },
+                {
+                    "language": "TR",
+                    "text": "Birden fazla mumun modellerini analiz ederken, aşağıdaki kavramları anlamak önemlidir:",
+                    "updated": 1644496595461
                 }
             ]
         },
@@ -1398,6 +1807,11 @@
                     "language": "RU",
                     "text": "Первая свеча в паттерне - это первая свеча, которая формируется в хронологическом порядке, и так далее для последующих свечей.",
                     "updated": 1643352281848
+                },
+                {
+                    "language": "TR",
+                    "text": "Desendeki ilk mum, kronolojik olarak oluşturulan ilk mumdur ve sonraki mumlar için bu şekilde devam eder.",
+                    "updated": 1644496614916
                 }
             ]
         },
@@ -1414,6 +1828,11 @@
                     "language": "RU",
                     "text": "Первая свеча в паттерне является свечой, определяющей тренд паттерна. По этой причине значение и направление трендовой линии паттерна соответствуют трендовой линии первой свечи.",
                     "updated": 1643352294656
+                },
+                {
+                    "language": "TR",
+                    "text": "Desendeki ilk mum, desenin trendini tanımlayan mumdur. Bu nedenle, ilk mumun trend çizgisine karşılık gelen formasyonun trend çizgisinin değeri ve yönü.",
+                    "updated": 1644496629940
                 }
             ]
         },
@@ -1430,6 +1849,11 @@
                     "language": "RU",
                     "text": "Стрелка нарисована на последней свече, которая формирует паттерн.",
                     "updated": 1643352305868
+                },
+                {
+                    "language": "TR",
+                    "text": "Deseni oluşturan son mumun üzerine ok çizilir.",
+                    "updated": 1644496643011
                 }
             ]
         },
@@ -1447,12 +1871,24 @@
                     "language": "RU",
                     "text": "Три концепции, описанные выше, применимы ко всем паттернам с двумя свечами или более",
                     "updated": 1643352316186
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Yukarıda açıklanan üç kavram, iki veya daha fazla mum içeren tüm desenler için geçerlidir.",
+                    "updated": 1644496657846
                 }
             ]
         },
         {
             "style": "Title",
-            "text": "Three-Candles Patterns"
+            "text": "Three-Candles Patterns",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Üç Mumlu Desenler",
+                    "updated": 1644496678612
+                }
+            ]
         },
         {
             "style": "Text",
@@ -1467,6 +1903,11 @@
                     "language": "RU",
                     "text": "Паттерны Three-Candles строятся из трех базовых свечей.",
                     "updated": 1643352366673
+                },
+                {
+                    "language": "TR",
+                    "text": "Üç Mumlu Desenler üç temel mumdan yapılmıştır.",
+                    "updated": 1644496718951
                 }
             ]
         },
@@ -1488,6 +1929,11 @@
                     "language": "RU",
                     "text": "Продукты и свойства свечных паттернов",
                     "updated": 1643352385039
+                },
+                {
+                    "language": "TR",
+                    "text": "Mum Desenleri Ürünler ve Özellikler",
+                    "updated": 1644496768865
                 }
             ]
         },
@@ -1500,6 +1946,11 @@
                     "language": "DE",
                     "text": "| Produktname | Produktvariable | Eigenschaftsvariablen |\n| Basic Candles | basicCandle | name, size, direction, upperShadow, body, lowerShadow, length, meanBody, meanLength |\n| One-Candle Patterns | oneCandlePattern | name, trend, forecast, trendLine |\n| Two-Candles Patterns | twoCandlePattern | name, trend, forecast, trendLine |\n| Three-Candles Patterns | threeCandlePattern | name, trend, forecast, trendLine |",
                     "updated": 1642604025049
+                },
+                {
+                    "language": "TR",
+                    "text": "| Ürün Adı | Ürün Değişkeni | Özellik Değişkenleri |\n| Temel Mumlar | temelMum | ad, boyut, yön, üst Gölge, gövde, alt Gölge, uzunluk, ortalamaBody, ortalamaUzunluk |\n| Tek Mum Desenleri | birMum Deseni | isim, trend, tahmin, trendLine |\n| İki Mum Desenleri | ikiMum Deseni | isim, trend, tahmin, trendLine |\n| Üç Mum Desenleri | üçMumDesen | isim, trend, tahmin, trendLine |",
+                    "updated": 1644496815614
                 }
             ]
         },
@@ -1517,6 +1968,11 @@
                     "language": "RU",
                     "text": "Примеры:",
                     "updated": 1643352406975
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnekler : ",
+                    "updated": 1644496839351
                 }
             ]
         },
@@ -1538,6 +1994,11 @@
                     "language": "RU",
                     "text": "Является ли Long Green Candle названием текущей основной свечи?",
                     "updated": 1643352425861
+                },
+                {
+                    "language": "TR",
+                    "text": "Mevcut temel mumun adı Uzun Yeşil Mum mu?",
+                    "updated": 1644496865843
                 }
             ]
         },
@@ -1559,12 +2020,24 @@
                     "language": "RU",
                     "text": "Верхняя тень длиннее тела?",
                     "updated": 1643352434209
+                },
+                {
+                    "language": "TR",
+                    "text": "Üst gölge vücuttan uzun mu?",
+                    "updated": 1644496886190
                 }
             ]
         },
         {
             "style": "Subtitle",
-            "text": "Basic Candles"
+            "text": "Basic Candles",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Temel Mumlar",
+                    "updated": 1644496897591
+                }
+            ]
         },
         {
             "style": "Table",
@@ -1580,13 +2053,25 @@
                     "language": "RU",
                     "text": "| Variable | Description | Possible Values |\n| name | The name that has been assigned to the basic candle. | Short Green Candle, Short Red Candle, Green Candle, Red Candle, Long Green Candle, Long Red Candle, Green Marubozu, Opening Green Marubozu, Closing Green Marubozu, Red Marubozu, Opening Red Marubozu, Closing Red Marubozu, Red Spinning Top, Green Spinning Top, High Wave, Four-Price Doji, Star Doji, Long-Legged Doji, Dragonfly Doji, Gravestone Doji, Generic Doji |\n| size | Относительный размер свечи | short, long |\n| direction | Показывает, бычья это свеча или медвежья. | bullish, bearish |\n| upperShadow | Длина верхней тени ||\n| body | Длина тела ||\n| lowerShadow | Длина нижней тени ||\n| length | Общая длина свечи (candle.max - candle.min) ||\n| meanBody | Скользящее среднее значение длины тел предыдущих свечей ||\n| meanLength | Скользящее среднее значение общей длины предыдущих свечей ||",
                     "updated": 1643352726551
+                },
+                {
+                    "language": "TR",
+                    "text": "| Değişken | Açıklama | Olası Değerler |\n| isim | Temel muma atanan isim. | Kısa Yeşil Mum, Kısa Kırmızı Mum, Yeşil Mum, Kırmızı Mum, Uzun Yeşil Mum, Uzun Kırmızı Mum, Yeşil Marubozu, Açılış Yeşil Marubozu, Kapanış Yeşil Marubozu, Kırmızı Marubozu, Açılış Kırmızı Marubozu, Kapanış Kırmızı Marubozu, Kırmızı Topaç, Yeşil Eğirme Üst, Yüksek Dalga, Dört Fiyat Doji, Yıldız Doji, Uzun Bacak Doji, Yusufçuk Doji, Mezar Taşı Doji, Genel Doji |\n| boyut | Mumun göreli boyutu | kısa, uzun |\n| yön | Yükseliş mi yoksa düşüş eğilimi mi olduğunu gösterir | yükseliş, düşüş |\n| üstGölge | Üst gölgenin uzunluğu |\n|| gövde | Vücudun uzunluğu |\n|| altGölge | Alt gölgenin uzunluğu |\n|| uzunluk | Mumun toplam uzunluğu (candle.max - mum.min) |\n|| ortalamaGövde | Önceki mumların gövdelerinin uzunluğunun hareketli ortalaması |\n|| ortalama Uzunluk | Önceki mumların toplam uzunluğunun hareketli ortalaması |\n|",
+                    "updated": 1644496954671
                 }
             ]
         },
         {
             "style": "Subtitle",
             "text": "One-Candle Patterns",
-            "updated": 1611667454262
+            "updated": 1611667454262,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Tek Mumlu Desenler",
+                    "updated": 1644496974410
+                }
+            ]
         },
         {
             "style": "Table",
@@ -1602,13 +2087,25 @@
                     "language": "RU",
                     "text": "| Variable | Description | Predefined Values |\n| name | Название, присвоенное паттерну | Bearish Strong Line, Bearish Belt Hold, Hanging Man, Shooting Star, Bullish Belt Hold, Hammer, Bullish Strong Line |\n| trend | Рыночная тенденция, в ходе которой сформировался паттерн | Uptrend, Downtrend |\n| forecast | Именно возможный сценарий будущего представляет собой формирование этого паттерна | Bullish Continuation, Bullish Reversal, Bearish Continuation, Bearish Reversal |\n| trendLine | Значение скользящей средней, представляющей линию тренда, на которой сформировался паттерн ||",
                     "updated": 1643352700289
+                },
+                {
+                    "language": "TR",
+                    "text": "| Değişken | Açıklama | Önceden Tanımlanmış Değerler |\n| isim | Modele atanan ad | Güçlü Ayı Çizgisi, Ayı Kuşağı Tutuşu, Asılı Adam, Kayan Yıldız, Boğa Kuşağı Tutuşu, Çekiç, Güçlü Ayı Çizgisi |\n| eğilim | Modelin oluştuğu piyasa trendi | Yükseliş Eğilimi, Düşüş Eğilimi |\n| tahmin | Bu kalıbın oluşumunu temsil eden olası gelecek senaryosudur | Boğa Devamı, Boğa Ters Çevirme, Ayı Devamı, Ters Ayı |\n| trendLine | Modelin oluştuğu trend çizgisini temsil eden Hareketli Ortalama değeri |\n|",
+                    "updated": 1644496987518
                 }
             ]
         },
         {
             "style": "Subtitle",
             "text": "Two-Candles Patterns",
-            "updated": 1611667605300
+            "updated": 1611667605300,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İki Mumlu Desenler",
+                    "updated": 1644497005098
+                }
+            ]
         },
         {
             "style": "Table",
@@ -1624,13 +2121,25 @@
                     "language": "RU",
                     "text": "| Variable | Description | Predefined Values |\n| name | Это название, которое было присвоено паттерну на основе конфигурации свечей, входящих в его состав | Last Engulfing Bottom, Bearish Engulfing, Bearish Harami, Bearish Harami Cross, Bearish Tasuki Line, Descending Hawk, Tweezers Top, Two-Candle Shooting Star, Last Engulfing Top, Bullish Engulfing, Bullish Harami, Bullish Harami Cross, Bullish Tasuki Line, Tweezers Bottom |\n| trend | Рыночная тенденция, в ходе которой сформировался паттерн | Uptrend, Downtrend |\n| forecast | Именно возможный сценарий будущего представляет собой формирование этого паттерна | Bullish Continuation, Bullish Reversal, Bearish Continuation, Bearish Reversal |\n| trendLine | Значение скользящей средней, представляющей линию тренда, на которой сформировался паттерн ||",
                     "updated": 1643352798727
+                },
+                {
+                    "language": "TR",
+                    "text": "| Değişken | Açıklama | Önceden Tanımlanmış Değerler |\n| isim | Onu oluşturan mumların konfigürasyonuna göre kalıba atanan isimdir | Son Yutan Alt, Yutulan Ayı, Harami Ayı, Haç Harami Ayı, Tasuki Çizgisi Ayı, Azalan Şahin, Cımbız Tepesi, İki Mum Kayan Yıldız, Son Yutan Tepe, Yutan Boğa, Harami Boğa, Haç Harami Boğa, Tasuki Çizgisi Boğa, Cımbız Alt |\n| eğilim | Modelin oluştuğu piyasa trendi | Yükseliş Eğilimi, Düşüş Eğilimi |\n| tahmin | Bu kalıbın oluşumunu temsil eden olası gelecek senaryosudur | Boğa Devamı, Boğa Ters Çevirme, Ayı Devamı, Ters Ayı |\n| trendLine | Modelin oluştuğu trend çizgisini temsil eden Hareketli Ortalama değeri |\n|",
+                    "updated": 1644497018105
                 }
             ]
         },
         {
             "style": "Subtitle",
             "text": "Three-Candles Patterns",
-            "updated": 1611667798063
+            "updated": 1611667798063,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Üç Mumlu Desenler",
+                    "updated": 1644497039086
+                }
+            ]
         },
         {
             "style": "Text",
@@ -1645,6 +2154,11 @@
                     "language": "RU",
                     "text": "В следующей таблице подробно описаны переменные, которые могут быть использованы в условиях торговых стратегий:",
                     "updated": 1643352815323
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki tablo, ticaret stratejileri koşullarında kullanılabilecek değişkenleri detaylandırmaktadır:",
+                    "updated": 1644497059047
                 }
             ]
         },
@@ -1662,6 +2176,11 @@
                     "language": "RU",
                     "text": "| Variable | Description | Predefined Values |\n| name | Это название, которое было присвоено паттерну на основе конфигурации свечей, входящих в его состав | Advance Block, Deliberation, Identical Three Crows, Three Inside Down, Three Outside Down, Three Inside Up, Three Outside Up |\n| trend | Рыночная тенденция, в ходе которой сформировался паттерн | Uptrend, Downtrend |\n| forecast | Именно возможный сценарий будущего представляет собой формирование этого паттерна | Bullish Continuation, Bullish Reversal, Bearish Continuation, Bearish Reversal |\n| trendLine | Значение скользящей средней, представляющей линию тренда, на которой сформировался паттерн ||",
                     "updated": 1643352873488
+                },
+                {
+                    "language": "TR",
+                    "text": "| Değişken | Açıklama | Önceden Tanımlanmış Değerler |\n| isim | Onu oluşturan mumların konfigürasyonuna göre kalıba atanan isimdir | İlerleme Blok, Müzakere, Aynı Üç Karga, Üç İçeriden Aşağı, Üç Dışarıdan Aşağı, Üç İçeriden Yukarı, Üç Dışarıdan Yukarı |\n| trend | Modelin oluştuğu piyasa trendi | Yükseliş Eğilimi, Düşüş Eğilimi |\n| forecast | Bu kalıbın oluşumunu temsil eden olası gelecek senaryosudur | Boğa Devamı, Boğa Ters Çevirme, Ayı Devamı, Ters Ayı |\n| trendLine | Modelin oluştuğu trend çizgisini temsil eden Hareketli Ortalama değeri |\n|",
+                    "updated": 1644497145595
                 }
             ]
         },
@@ -1674,6 +2193,11 @@
                     "language": "DE",
                     "text": "Berechnungsparameter",
                     "updated": 1642606596182
+                },
+                {
+                    "language": "TR",
+                    "text": "Hesaplama Parametreleri",
+                    "updated": 1644497163866
                 }
             ]
         },
@@ -1685,6 +2209,11 @@
                     "language": "DE",
                     "text": "Basis Kerzen",
                     "updated": 1642606606299
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel Mumlar",
+                    "updated": 1644497177196
                 }
             ]
         },
@@ -1701,6 +2230,11 @@
                     "language": "RU",
                     "text": "В следующей таблице подробно описаны параметры, которые могут быть настроены в коде индикаторных изделий:",
                     "updated": 1643352886515
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki tablo, gösterge ürünlerinin kodunda konfigüre edilebilecek parametreleri detaylandırmaktadır:",
+                    "updated": 1644497203997
                 }
             ]
         },
@@ -1718,6 +2252,11 @@
                     "language": "RU",
                     "text": "| Parameter | Description | Default Value | Normal Values |\n| Nbodies | Количество тел предыдущих свечей, используемое для расчета \"meanBody\". | 10 | 5 to 20 |\n| dojiFactor | Это максимальный процент, допустимый для тела по отношению к длине для того, чтобы свеча была включена в семейство Doji | 3 | 0 to 5 |\n| sizeFactor | Это процент от \"средней длины\", используемый для определения \"размера\" свечи (оранжевая линия на графике). | 75 | 60 to 80 |\n| Nlengths | Количество предыдущих длин свечей, используемых для расчета \"meanLength\". | 20 | 10 to 25 |\n| sizeMethod | Метод, используемый для вычисления \"meanLength\" | EMA | SMA or EMA |",
                     "updated": 1643352968314
+                },
+                {
+                    "language": "TR",
+                    "text": "| parametre | Açıklama | Varsayılan Değer | Normal Değerler |\n| Nbodies  | \"meanBody\" hesaplamak için kullanılan önceki mum gövdelerinin sayısı | 10 | 5 ila 20 |\n| dojiFactor | Doji ailesine dahil edilecek mumun uzunluğuna göre gövde için izin verilen maksimum yüzdedir | 3 | 0 ila 5 |\n| sizeFactor  | Bir mumun \"boyutunu\" belirlemek için kullanılan \"ortalama Uzunluk\" yüzdesidir (grafikte turuncu çizgi) | 75 | 60 ila 80 |\n| Nlengths | “MeanLength”i hesaplamak için kullanılan önceki mum uzunluklarının sayısı | 20 | 10 ila 25 |\n| sizeMethod | “MeanLength”i hesaplamak için kullanılan yöntem | EMA | SMA veya EMA |",
+                    "updated": 1644497292588
                 }
             ]
         },
@@ -1735,6 +2274,11 @@
                     "language": "RU",
                     "text": "Чтобы изменить вышеуказанные параметры, откройте определение продукта Basic Candles, откройте JavaScript-код цикла процедуры и найдите параметры в первой части кода.",
                     "updated": 1643352987866
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Yukarıda belirtilen parametreleri değiştirmek için Temel Mumlar ürün tanımını açın, Prosedür Döngüsünün ( Procedure Loop ) JavaScript Kodunu açın ve kodun ilk kısmındaki parametreleri bulun.",
+                    "updated": 1644498015752
                 }
             ]
         },
@@ -1747,6 +2291,11 @@
                     "language": "DE",
                     "text": "Kerzenmuster",
                     "updated": 1642607497670
+                },
+                {
+                    "language": "TR",
+                    "text": "Mum Desenleri",
+                    "updated": 1644498047103
                 }
             ]
         },
@@ -1763,6 +2312,11 @@
                     "language": "RU",
                     "text": "В следующей таблице подробно описаны параметры, которые могут быть настроены в коде индикаторных изделий:",
                     "updated": 1643353032204
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki tablo, gösterge ürünlerinin kodunda konfigüre edilebilecek parametreleri detaylandırmaktadır:",
+                    "updated": 1644498063241
                 }
             ]
         },
@@ -1780,6 +2334,11 @@
                     "language": "RU",
                     "text": "| Parameter | Description | Default Value | Normal Values |\n| N | Это период скользящей средней, используемый для расчета линии тренда | 10 | 5 to 20 |\n| trendMethod | Метод, используемый для расчета трендовой линии Moving Average | EMA | SMA or EMA |",
                     "updated": 1643353015095
+                },
+                {
+                    "language": "TR",
+                    "text": "| Parametre | Açıklama | Varsayılan Değer | Normal Değerler |\n| N | Trend çizgisini hesaplamak için kullanılan hareketli ortalamanın periyodudur | 10 | 5 ila 20 |\n| trendMethod | Trend çizgisini hesaplamak için kullanılan yöntem Hareketli Ortalama | EMA | SMA veya EMA |",
+                    "updated": 1644498103499
                 }
             ]
         },
@@ -1797,6 +2356,11 @@
                     "language": "RU",
                     "text": "Теория, лежащая в основе свечных моделей",
                     "updated": 1643353076561
+                },
+                {
+                    "language": "TR",
+                    "text": "Mum Modellerinin Arkasındaki Teori",
+                    "updated": 1644498135070
                 }
             ]
         },
@@ -1813,6 +2377,11 @@
                     "language": "RU",
                     "text": "Введение",
                     "updated": 1643353083163
+                },
+                {
+                    "language": "TR",
+                    "text": "Tanıtım",
+                    "updated": 1644498191584
                 }
             ]
         },
@@ -1829,28 +2398,68 @@
                     "language": "RU",
                     "text": "Свечные модели - это универсальный инструмент, который трейдеры исп��льзуют для визуальной оценки настроений участников рынка. Логика, реализованная в этом индикаторе, была почерпнута из содержания следующих работ:",
                     "updated": 1643353099486
+                },
+                {
+                    "language": "TR",
+                    "text": "Mum Desenleri, tüccarların piyasa katılımcılarının duyarlılığını görsel olarak tahmin etmek için kullandıkları çok yönlü bir araçtır. Bu göstergede uygulanan mantık, aşağıdaki eserlerdeki içerikten damıtılmıştır:",
+                    "updated": 1644498244058
                 }
             ]
         },
         {
             "style": "List",
-            "text": "“Candlestick Charting Explained” - Author: Greg Morris"
+            "text": "“Candlestick Charting Explained” - Author: Greg Morris",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "“Candlestick Charting Explained” - Yazar: Greg Morris",
+                    "updated": 1644498279817
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "“Technical Analysis of The Financial Markets” - Author: John J. Murphy"
+            "text": "“Technical Analysis of The Financial Markets” - Author: John J. Murphy",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "“Technical Analysis of The Financial Markets” - Yazar: John J. Murphy",
+                    "updated": 1644498286620
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "“Encyclopedia of Candlestick Charts” - Author: Thomas N. Bulkowski"
+            "text": "“Encyclopedia of Candlestick Charts” - Author: Thomas N. Bulkowski",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "“Encyclopedia of Candlestick Charts” - Yazar: Thomas N. Bulkowski",
+                    "updated": 1644498299585
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "“Encyclopedia of Chart Patterns” - Author: Thomas N. Bulkowski"
+            "text": "“Encyclopedia of Chart Patterns” - Author: Thomas N. Bulkowski",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "“Encyclopedia of Chart Patterns” - Yazar: Thomas N. Bulkowski",
+                    "updated": 1644498311867
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "“Japanese Candlestick Charting Techniques” - Author: Steve Nison"
+            "text": "“Japanese Candlestick Charting Techniques” - Author: Steve Nison",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "“Japanese Candlestick Charting Techniques” - Yazar: Steve Nison",
+                    "updated": 1644498318429
+                }
+            ]
         },
         {
             "style": "Text",
@@ -1865,6 +2474,11 @@
                     "language": "RU",
                     "text": "Вы также можете посетить следующие источники:",
                     "updated": 1643353117593
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki kaynakları da ziyaret etmek isteyebilirsiniz:",
+                    "updated": 1644498333096
                 }
             ]
         },
@@ -1874,7 +2488,14 @@
         },
         {
             "style": "List",
-            "text": "Investopedia: Introduction to Technical Analysis Price Patterns"
+            "text": "Investopedia: Introduction to Technical Analysis Price Patterns",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Investopedia: Teknik Analize Giriş Fiyat Modelleri",
+                    "updated": 1644498376689
+                }
+            ]
         },
         {
             "style": "List",
@@ -1893,6 +2514,11 @@
                     "language": "RU",
                     "text": "Составные части свечи",
                     "updated": 1643353136120
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Mumun Parçaları",
+                    "updated": 1644498414533
                 }
             ]
         },
@@ -1909,6 +2535,11 @@
                     "language": "RU",
                     "text": "Давайте начнем с того, что договоримся о базовой лексике для описания свечей.",
                     "updated": 1643353148827
+                },
+                {
+                    "language": "TR",
+                    "text": "Mumları tanımlamak için temel sözcükler üzerinde anlaşarak başlayalım.",
+                    "updated": 1644498821569
                 }
             ]
         },
@@ -1925,6 +2556,11 @@
                     "language": "RU",
                     "text": "Первая цена, от которой начинает формироваться свеча, - это цена открытия. Последняя цена, от которой свеча заканчивает формирование, - это цена закрытия. Расстояние между обеими ценами называется телом. Волатильность рынка может привести к колебаниям цены за пределами обеих цен во время формирования свечи, создавая тени. Верхняя тень - это линия, которая связывает максимальную цену с телом. Нижняя тень - это линия, которая связывает минимальную цену с телом.",
                     "updated": 1643353166037
+                },
+                {
+                    "language": "TR",
+                    "text": "Mumun oluşmaya başladığı ilk fiyat, açılış fiyatıdır. Mumun oluşumunu tamamladığı son fiyat, kapanış fiyatıdır. Her iki fiyat arasındaki mesafeye gövde denir. Piyasa oynaklığı, mum oluşumu sırasında fiyatın her iki fiyatın üzerinde dalgalanmasına neden olarak gölgeler oluşturabilir. Üst gölge, maksimum fiyatı gövdeye bağlayan çizgidir. alt gölge, minimum fiyatı gövdeye bağlayan çizgidir.",
+                    "updated": 1644498861903
                 }
             ]
         },
@@ -1941,6 +2577,11 @@
                     "language": "RU",
                     "text": "Что касается цвета:",
                     "updated": 1643353173026
+                },
+                {
+                    "language": "TR",
+                    "text": "Renkle ilgili:",
+                    "updated": 1644498877865
                 }
             ]
         },
@@ -1957,6 +2598,11 @@
                     "language": "RU",
                     "text": "Когда цена закрытия больше цены открытия, тело свечи окрашивается в зеленый цвет. Это указывает на то, что свеча является бычьей.",
                     "updated": 1643353183545
+                },
+                {
+                    "language": "TR",
+                    "text": "Kapanış fiyatı açılış fiyatından büyük olduğunda, mumun gövdesi yeşildir. Bu, yükseliş mumu olduğunu gösterir.",
+                    "updated": 1644498892957
                 }
             ]
         },
@@ -1973,6 +2619,11 @@
                     "language": "RU",
                     "text": "Когда цена закрытия меньше цены открытия, тело свечи окрашивается в красный цвет. Это указывает на то, что свеча является медвежьей.",
                     "updated": 1643353194351
+                },
+                {
+                    "language": "TR",
+                    "text": "Kapanış fiyatı açılış fiyatından düşük olduğunda mumun gövdesi kırmızıdır. Bu, düşüş mumu olduğunu gösterir.",
+                    "updated": 1644498910362
                 }
             ]
         },
@@ -1989,6 +2640,11 @@
                     "language": "RU",
                     "text": "Тело свечи Доджи",
                     "updated": 1643353205311
+                },
+                {
+                    "language": "TR",
+                    "text": "Doji Mumlarının Gövdesi",
+                    "updated": 1644498922054
                 }
             ]
         },
@@ -2005,6 +2661,11 @@
                     "language": "RU",
                     "text": "Японская теория свечей определяет свечу доджи как свечу, в которой цена закрытия равна цене открытия. Другими словами, свеча доджи не должна иметь тела. На практике необходимо учитывать следующие аспекты:",
                     "updated": 1643353229456
+                },
+                {
+                    "language": "TR",
+                    "text": "Japon mum teorisi, bir doji mumunu, kapanış fiyatının açılış fiyatına eşit olduğu mum olarak tanımlar. Başka bir deyişle, bir doji mumunun gövdesi olmamalıdır. Uygulamada, aşağıdaki hususlar dikkate alınmalıdır:",
+                    "updated": 1644498940220
                 }
             ]
         },
@@ -2021,6 +2682,11 @@
                     "language": "RU",
                     "text": "Волатильность цен",
                     "updated": 1643353236771
+                },
+                {
+                    "language": "TR",
+                    "text": "Fiyat dalgalanması",
+                    "updated": 1644498978363
                 }
             ]
         },
@@ -2037,6 +2703,11 @@
                     "language": "RU",
                     "text": "Точность, с которой регистрируются цены",
                     "updated": 1643353250278
+                },
+                {
+                    "language": "TR",
+                    "text": "Fiyatların kaydedildiği hassasiyet",
+                    "updated": 1644498986013
                 }
             ]
         },
@@ -2053,6 +2724,11 @@
                     "language": "RU",
                     "text": "Эти два фактора делают очень маловероятным точное совпадение обеих цен, и на практике всегда есть тело, даже если оно очень маленькое. По этой причине мы определяем диапазон неопределенности длины тела, чтобы определить, является ли свеча дожи или нет. По умолчанию мы предполагаем, что тело дожи может быть равно или меньше 3% от общей длины свечи. Это и есть dojiFactor.",
                     "updated": 1643353267341
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu iki faktör, her iki fiyatın da tam olarak eşleşmesini pek olası kılmaz ve - pratikte - çok küçük olsa bile her zaman bir gövde vardır. Bu nedenle, bir mumun doji olup olmadığını belirlemek için vücut uzunluğunda bir belirsizlik aralığı tanımlarız. Varsayılan olarak, dojinin gövdesinin mumun toplam uzunluğunun %3'üne eşit veya daha az olabileceğini varsayıyoruz. Bu dojiFactor 'dür.",
+                    "updated": 1644499084200
                 }
             ]
         },
@@ -2069,6 +2745,11 @@
                     "language": "RU",
                     "text": "Относительный размер: короткий или длинный",
                     "updated": 1643353277525
+                },
+                {
+                    "language": "TR",
+                    "text": "Göreceli Boyut: Kısa veya Uzun",
+                    "updated": 1644499104600
                 }
             ]
         },
@@ -2085,6 +2766,11 @@
                     "language": "RU",
                     "text": "Очень важно понять эту концепцию, поскольку в процессе изучения и идентификации свечных моделей мы должны различать размер каждой конкретной свечи, то есть какие из них длинные, а какие короткие. Интуитивно это кажется простым, но перевод логики в алгоритм требует определения того, какие инструменты будут использоваться и как они будут параметризованы.",
                     "updated": 1643353295219
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu kavramı anlamak çok önemlidir, çünkü mum kalıplarının incelenmesi ve tanımlanması sırasında her bir mumun boyutunu, yani hangilerinin uzun ve hangilerinin kısa olduğunu ayırt etmemiz gerekir. Sezgisel olarak, bu basit görünüyor, ancak mantığı bir algoritmaya çevirmek, hangi araçların kullanılacağını ve bunların nasıl parametrelendirileceğini tanımlamayı gerektiriyor.",
+                    "updated": 1644499125878
                 }
             ]
         },
@@ -2101,6 +2787,11 @@
                     "language": "RU",
                     "text": "Для начала нам необходимо определить, что является длинной, а что короткой, поскольку длинная свеча в одном рыночном контексте может быть короткой в другом контексте. Когда мы смотрим на график, наше зрение может обманывать нас, поскольку контекст вокруг свечи включает в себя как прошлые, так и будущие свечи. Однако когда наш алгоритм работает на живой сессии, он может видеть только прошлые свечи.",
                     "updated": 1643353317758
+                },
+                {
+                    "language": "TR",
+                    "text": "Başlamak için, neyin uzun neyin kısa olduğuna karar vermek için bazı referanslar belirlememiz gerekiyor, çünkü bazı piyasa koşullarında uzun bir mum başka bir bağlamda kısa olabilir. Bir grafiğe baktığımızda, bir mumun etrafındaki bağlam hem geçmiş hem de gelecek mumları içerdiğinden görüşümüz bizi yanıltabilir. Ancak, algoritmamız canlı bir oturum üzerinde çalışırken, geçmişte yalnızca mumları görebilir.",
+                    "updated": 1644499141016
                 }
             ]
         },
@@ -2117,6 +2808,11 @@
                     "language": "RU",
                     "text": "Из этого можно сделать вывод, что в качестве точки отсчета следует использовать среднее значение размера определенного количества прошлых свечей. Этот метод вытекает из здравого смысла, и поэтому он широко используется в литературе. Некоторые авторы различаются в своих критериях, усредняя только тела или усредняя общую длину, включая также тени.",
                     "updated": 1643353336675
+                },
+                {
+                    "language": "TR",
+                    "text": "Referans çerçevesi olarak belirli sayıda geçmiş mumun boyutunun ortalamasının kullanılması gerektiği sonucuna varılabilir. Bu yöntem sağduyudan kaynaklanmaktadır ve bu nedenle literatürde yaygın olarak kullanıldığı gözlenen yöntemdir. Bazı yazarlar, yalnızca gövdelerin ortalamasını alma veya gölgeler de dahil olmak üzere toplam uzunlukların ortalamasını alma kriterlerinde farklılık gösterir.",
+                    "updated": 1644499157401
                 }
             ]
         },
@@ -2133,6 +2829,11 @@
                     "language": "RU",
                     "text": "По этой причине мы сделали доступными оба критерия:",
                     "updated": 1643353345310
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu nedenle, her iki kriteri de kullanılabilir hale getirdik:",
+                    "updated": 1644499171297
                 }
             ]
         },
@@ -2149,6 +2850,11 @@
                     "language": "RU",
                     "text": "Среднее тело: Bulkowski использует этот критерий для обнаружения свечей типа Long Green Candle и Long Red Candle. Поскольку они представляют собой особый случай, который возникает, когда размер тела расширяется более чем в три раза по сравнению со средним значением тела предыдущей свечи.",
                     "updated": 1643353375484
+                },
+                {
+                    "language": "TR",
+                    "text": "Vücut ortalaması: Bulkowski, Uzun Yeşil Mum ve Uzun Kırmızı Mum türündeki mumları tespit etmek için bu kriteri kullanır. Çünkü bunlar, bir önceki mumun vücut ortalamasına kıyasla gövde boyutunun üç kattan fazla uzadığı zaman meydana gelen özel bir durum olduğundan.",
+                    "updated": 1644499197062
                 }
             ]
         },
@@ -2165,6 +2871,11 @@
                     "language": "RU",
                     "text": "Средняя длина: этот критерий используется в общем случае для всех основных свечей, поскольку он также включает свечи доджи, которые не имеют тела (или имеют очень маленькое тело); при использовании предыдущего критерия они всегда будут иметь короткую длину, что не является тем, что мы ищем.",
                     "updated": 1643353439010
+                },
+                {
+                    "language": "TR",
+                    "text": "Uzunluk ortalaması: Bu kriter, gövdesi olmayan (veya çok küçük gövdeleri olan) doji mumlarını da içerdiğinden, tüm temel mumlar için genel olarak kullanılır; önceki kriter ile her zaman Kısa olarak boyutlandırılırlardı, ki bu bizim aradığımız şey değil.",
+                    "updated": 1644499211375
                 }
             ]
         },
@@ -2181,6 +2892,11 @@
                     "language": "RU",
                     "text": "Оценка моделей",
                     "updated": 1643353578369
+                },
+                {
+                    "language": "TR",
+                    "text": "Model Doğrulama",
+                    "updated": 1644499255531
                 }
             ]
         },
@@ -2197,6 +2913,11 @@
                     "language": "RU",
                     "text": "Чтобы найти свечные паттерны на графике, необходимо проанализировать рыночный контекст, в котором появляются основные свечи и как они связаны друг с другом. Для этого необходимо знать следующие понятия:",
                     "updated": 1643353488355
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafikte mum modellerini bulmak için, temel mumların göründüğü piyasa bağlamını ve bunların birbirleriyle nasıl ilişkili olduğunu analiz etmek gerekir. Bu nedenle aşağıdaki kavramlar gereklidir:",
+                    "updated": 1644499269096
                 }
             ]
         },
@@ -2213,6 +2934,11 @@
                     "language": "RU",
                     "text": "Линия тренда: Чтобы определить, находятся ли цены в восходящем или нисходящем тренде, необходима опорная линия тренда, которой обычно является скользящая средняя.",
                     "updated": 1643353501295
+                },
+                {
+                    "language": "TR",
+                    "text": "Trend Çizgisi (Trend Line): Fiyatların Yükseliş Eğiliminde mi yoksa Düşüş Eğiliminde mi olduğunu belirlemek için, genellikle hareketli bir ortalama olan bir referans eğilim çizgisi gereklidir.",
+                    "updated": 1644499298218
                 }
             ]
         },
@@ -2229,6 +2955,11 @@
                     "language": "RU",
                     "text": "Минимальное количество свечей тренда: Это минимальное количество свечей, которые должны находиться на одной и той же линии тренда для подтверждения паттерна. По умолчанию используется 3 свечи.",
                     "updated": 1643353515112
+                },
+                {
+                    "language": "TR",
+                    "text": "Minimum Trend Mumları: Bir kalıbı doğrulamak için aynı trend çizgisinde olması gereken minimum mum sayısıdır. Varsayılan olarak 3 mum kullanılacaktır.",
+                    "updated": 1644499313267
                 }
             ]
         },
@@ -2245,6 +2976,11 @@
                     "language": "RU",
                     "text": "Прогноз:",
                     "updated": 1643353522745
+                },
+                {
+                    "language": "TR",
+                    "text": "Tahmin etmek:",
+                    "updated": 1644499331466
                 }
             ]
         },
@@ -2261,6 +2997,11 @@
                     "language": "RU",
                     "text": "Бычий разворот: При нисходящем тренде паттерн считается действительным, если тело первой свечи находится ниже линии тренда.",
                     "updated": 1643353535812
+                },
+                {
+                    "language": "TR",
+                    "text": "Ters Boğa: Bir düşüş trendinde, ilk mumun gövdesi trend çizgisinin altında olduğunda bir model geçerli kabul edilir.",
+                    "updated": 1644499343743
                 }
             ]
         },
@@ -2277,6 +3018,11 @@
                     "language": "RU",
                     "text": "Бычье продолжение: При восходящем тренде паттерн считается действительным, если цены открытия всех свечей паттерна находятся выше линии тренда.",
                     "updated": 1643353545839
+                },
+                {
+                    "language": "TR",
+                    "text": "Boğa Devamı: Bir yükseliş trendinde, tüm formasyon mumlarının en azından açık fiyatları trend çizgisinin üzerinde olduğunda bir formasyon geçerli kabul edilir.",
+                    "updated": 1644499358534
                 }
             ]
         },
@@ -2293,6 +3039,11 @@
                     "language": "RU",
                     "text": "Медвежий разворот: При восходящем тренде паттерн считается действительным, если тело первой свечи находится выше линии тренда.",
                     "updated": 1643353553575
+                },
+                {
+                    "language": "TR",
+                    "text": "Ters Ayı: Bir yükseliş trendinde, ilk mumun gövdesi trend çizgisinin üzerinde olduğunda bir model geçerli kabul edilir.",
+                    "updated": 1644499371739
                 }
             ]
         },
@@ -2309,6 +3060,11 @@
                     "language": "RU",
                     "text": "Медвежье продолжение: При нисходящем тренде модель считается действительной, если цены открытия всех свечей находятся ниже нисходящего тренда.",
                     "updated": 1643353562109
+                },
+                {
+                    "language": "TR",
+                    "text": "Ayı Devamlılığı: Bir düşüş trendinde, tüm mumların en azından açık fiyatları düşüş trendinin altında olduğunda bir model geçerli kabul edilir.",
+                    "updated": 1644499383330
                 }
             ]
         },

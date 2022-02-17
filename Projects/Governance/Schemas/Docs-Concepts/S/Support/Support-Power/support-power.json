@@ -2,7 +2,14 @@
     "type": "Support Power",
     "definition": {
         "text": "Support Power is the Token Power that goes into the Support Program, and determines how strong your participation is in the program.",
-        "updated": 1624782284784
+        "updated": 1624782284784,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Сила поддержки (Support Power) - это сила токенов, которая идет на программу поддержки (Support Program) и определяет, насколько сильным будет ваше участие в программе.",
+                "updated": 1645083573063
+            }
+        ]
     },
     "paragraphs": [
         {

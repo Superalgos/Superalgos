@@ -1,6 +1,6 @@
 const path = require("path")
 const fs = require("fs")
-const { exec, execSync } = require("child_process")
+const { execSync } = require("child_process")
 const os = require("os")
 
 const createShortcut = () => {
@@ -10,7 +10,6 @@ const createShortcut = () => {
     let name = dirs[dirs.length - 2]
 
     // Windows Shortcuts
-    console.log(os.platform())
     if (os.platform() == "win32") {
         // Paths and Icon for Windows shortcuts
         let target = path.join( __dirname, "launch-windows.bat")
@@ -24,7 +23,7 @@ const createShortcut = () => {
         for (let dir of shortcutPaths) {
             let command = `$ws = New-Object -ComObject WScript.Shell; $s = $ws.CreateShortcut("${dir}"); $S.TargetPath = "${target}"; $S.IconLocation = "${icon}"; $S.Save()`
 
-            exec( command,
+            execSync(command,
                 {
                     shell: "powershell.exe",
                     execArgv: "-ExecutionPolicy Bypass -NoLogo -NonInteractive -NoProfile -Command"
@@ -35,7 +34,7 @@ const createShortcut = () => {
                         console.log("There was an error installing a shortcut: ")
                         console.log('')
                         console.log( error )
-                        return
+                        return false
                     } else {
                         console.log('')
                         console.log("Shortcut added successfully!")
@@ -45,10 +44,13 @@ const createShortcut = () => {
             })
         }
 
+        return "Shortcuts created for windows system"
+
     // Linux Shortcuts
     } else if (os.platform() == "linux") {
         // Check for Ubuntu
         let version = os.version()
+
         if (version.includes("Ubuntu")) {
             // Paths and Icon for Ubuntu shortcuts
             let icon = path.join( __dirname,"..", "/Projects/Foundations/Icons/superalgos.png")
@@ -65,31 +67,35 @@ const createShortcut = () => {
                 Terminal=true
                 Icon=${icon}
                 Categories=Application;`,
-            );
+            )
 
             // Set shortcut as executable
             fs.chmodSync( `${name}.desktop`, "775" )
 
             // Place shortcut in proper folders
             let command = `cp ${name}.desktop ~/Desktop/${name}.desktop & cp ${name}.desktop ~/.local/share/applications/${name}.desktop`
-                exec( command,
+                execSync( command,
                     function ( error, stdout ){
                         if (error) {
                             console.log('')
                             console.log("There was an error installing a shortcut: ")
                             console.log('')
                             console.log( error )
-                            return
+                            return false
                         } else {
-                            console.log('');
+                            console.log('')
                             console.log("Shortcuts added successfully!")
                         }
                         // Remove temporary .desktop file
                         fs.unlinkSync( `${name}.desktop` )
-                });
+                })
+            
+            return "Shortcuts created for Ubuntu" 
+
 
         } else {
             console.log( "Automatic shortcut creation is not yet supported on your flavor of linux.  If you would like to see this feature add, message @harrellbm on telegram or discord to ask how you can help!")
+            return 'Linux shortcuts supported for Ubuntu only'
         }
 
     // Mac Shortcuts
@@ -111,34 +117,46 @@ const createShortcut = () => {
             )
 
             // Place shortcut in proper folders
-            execSync( createShortcutCommand,{ timeout: 30000})
+            execSync( createShortcutCommand,{
+                timeout: 30000
+            })
 
             // Remove temporary .command file
             fs.unlinkSync( `${name}.command` )
 
             //Install fileicon utility
-            execSync(installFileIconcommand, {stdio: 'inherit', timeout: 30000})
+            execSync(installFileIconcommand, {
+                stdio: 'inherit', 
+                timeout: 30000
+            })
 
             //change Icon
-            execSync(changeIconCommand, {stdio: 'inherit', timeout: 30000})
+            execSync(changeIconCommand, {
+                stdio: 'inherit', 
+                timeout: 30000
+            })
 
             //Un-Install fileicon utility
-            execSync(unInstallFileIconcommand, {stdio: 'inherit', timeout: 30000})
+            execSync(unInstallFileIconcommand, {
+                stdio: 'inherit', 
+                timeout: 30000
+            })
         } catch (error) {
             console.log('')
             console.log("There was an error installing a shortcut: ")
             console.log('')
             console.log( error )
-            return
+            return false
         }
 
         console.log("Shortcuts added successfully!")
+        return 'Shortcuts created for Mac'
 
     // Misc Operating System
     } else {
         console.log("Automatic shortcut creation is not currently supported on your operating system.  If you would like to see your operating system added please reachout on discord or telegram to let the devs know.")
+        return 'Shortcuts not supported on your system'
     }
-    return true
 }
 
 module.exports = createShortcut

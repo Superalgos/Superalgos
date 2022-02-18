@@ -4,12 +4,26 @@
     "type": "Messari API Mine",
     "definition": {
         "text": "This data mine processes data fetched from the Messsari API Map.",
-        "updated": 1623067039445
+        "updated": 1623067039445,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Эта шахта данных обрабатывает данные, полученные из Messsari API Map.",
+                "updated": 1643528093561
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
-            "text": "Bot Products"
+            "text": "Bot Products",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты бота",
+                    "updated": 1643528104189
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -18,12 +32,26 @@
         },
         {
             "style": "Text",
-            "text": "Saves raw API data into Superalgos compatible Multi-Time-Frame-Daily and Multi-Time-Frame-Market files."
+            "text": "Saves raw API data into Superalgos compatible Multi-Time-Frame-Daily and Multi-Time-Frame-Market files.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сохраняет необработанные данные API в совместимые с Superalgos файлы Multi-Time-Frame-Daily и Multi-Time-Frame-Market.",
+                    "updated": 1643528116945
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The News, All-Time-High, Market Data, Supply, and Blockchain Stats indicator bots process this raw data into organized datasets listed below.",
-            "updated": 1624242648230
+            "updated": 1624242648230,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Индикаторные боты News, All-Time-High, Market Data, Supply и Blockchain Stats обрабатывают эти необработанные данные в упорядоченные наборы данных, перечисленные ниже.",
+                    "updated": 1643528196809
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -32,36 +60,85 @@
         },
         {
             "style": "Text",
-            "text": "Collects fetched news stories into a Single-File data type format."
+            "text": "Collects fetched news stories into a Single-File data type format.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Собирает собранные новостные материалы в формат данных типа Single-File.",
+                    "updated": 1643528209766
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Processed Values:"
+            "text": "Processed Values:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Обработанные значения:",
+                    "updated": 1643528217761
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Timestamp: Date of news article.",
-            "updated": 1624240769484
+            "updated": 1624240769484,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Timestamp: Дата выхода статьи.",
+                    "updated": 1643528224567
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Record Id: Id of stored article.",
-            "updated": 1624240785646
+            "updated": 1624240785646,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Record Id: Id сохраненной статьи.",
+                    "updated": 1643528254606
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Author: Author of article.",
-            "updated": 1624240805619
+            "updated": 1624240805619,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Author: Автор статьи.",
+                    "updated": 1643528260376
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Title: Title of article.",
-            "updated": 1624240813730
+            "updated": 1624240813730,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Title: Название статьи.",
+                    "updated": 1643528269000
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Content: Content of article.",
-            "updated": 1624240824784
+            "updated": 1624240824784,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Content: Содержание статьи.",
+                    "updated": 1643528274766
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -70,41 +147,97 @@
         },
         {
             "style": "Text",
-            "text": "Saves all time high data for the all time high indicator."
+            "text": "Saves all time high data for the all time high indicator.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сохраняет данные о всех временных максимумах для индикатора All Time High (исторический максимум).",
+                    "updated": 1643528498468
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Processed Values:"
+            "text": "Processed Values:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Обработанные значения:",
+                    "updated": 1643528291951
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Date At: date of All Time High.",
-            "updated": 1624241332137
+            "updated": 1624241332137,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Date At: дата All Time High.",
+                    "updated": 1643528303641
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Percent Down: current percentage down from All Time High. ",
-            "updated": 1624241304869
+            "updated": 1624241304869,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Percent Down: текущий процент снижения с All Time High.",
+                    "updated": 1643528357145
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Days Since: days since All Time High.",
-            "updated": 1624241273440
+            "updated": 1624241273440,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Days Since: количество дней с момента All Time High.",
+                    "updated": 1643528452257
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Rate: price of All Time High.",
-            "updated": 1624241211105
+            "updated": 1624241211105,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Rate: цена All Time High.",
+                    "updated": 1643528466238
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Begin: beginning of time frame watched.",
-            "updated": 1624241248025
+            "updated": 1624241248025,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Begin: начало просмотренного периода.",
+                    "updated": 1643528484733
+                }
+            ]
         },
         {
             "style": "List",
             "text": "End: end of time frame watched.",
-            "updated": 1624241225641
+            "updated": 1624241225641,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "End: окончание срока наблюдения.",
+                    "updated": 1643528508066
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -112,51 +245,121 @@
         },
         {
             "style": "Text",
-            "text": "Saves a variety of market data for the current asset."
+            "text": "Saves a variety of market data for the current asset.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сохраняет различные рыночные данные для текущего актива.",
+                    "updated": 1643528515946
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Processed Values:"
+            "text": "Processed Values:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Обработанные значения:",
+                    "updated": 1643528522083
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Percent Change BTC Last 24 Hs: Percentage change in BTC last 24 hours.",
-            "updated": 1624241638719
+            "updated": 1624241638719,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Percent Change BTC Last 24 Hs: Процентное изменение BTC за последние 24 часа.",
+                    "updated": 1643528529690
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Percent Change USD Last 24 Hs: Percentage change in USD last 24 hours.",
-            "updated": 1624241649011
+            "updated": 1624241649011,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Percent Change USD Last 24 Hs: Процентное изменение в USD за последние 24 часа.",
+                    "updated": 1643528540554
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Real Volume Last 24 Hs: Filtered volume for the last 24 hours.",
-            "updated": 1624241668532
+            "updated": 1624241668532,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Real Volume Last 24 Hs: Отфильтрованный объем за последние 24 часа.",
+                    "updated": 1643528547579
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Volume Last 24 Hs: Unfiltered volume for the last 24 hours.",
-            "updated": 1624241682794
+            "updated": 1624241682794,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Volume Last 24 Hs: Нефильтрованный объем за последние 24 часа.",
+                    "updated": 1643528555973
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Price BTC: market price in BTC.",
-            "updated": 1624242008573
+            "updated": 1624242008573,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Price BTC: рыночная цена в BTC.",
+                    "updated": 1643528564281
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Price USD: market price in USD.",
-            "updated": 1624242014651
+            "updated": 1624242014651,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Price USD: рыночная цена в USD.",
+                    "updated": 1643528573732
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Begin: beginning of time frame watched.",
-            "updated": 1624241567685
+            "updated": 1624241567685,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Begin: начало просмотренного периода.",
+                    "updated": 1643528591155
+                }
+            ]
         },
         {
             "style": "List",
             "text": "End: end of time frame watched.",
-            "updated": 1624241578193
+            "updated": 1624241578193,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "End: конец наблюдаемого периода.",
+                    "updated": 1643528610675
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -166,54 +369,131 @@
         {
             "style": "Text",
             "text": "Saves a variety of supply data for the current asset.",
-            "updated": 1623068637139
+            "updated": 1623068637139,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сохраняет различные данные о поставках для текущего актива.",
+                    "updated": 1643528619418
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Processed Values:"
+            "text": "Processed Values:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Обработанные значения:",
+                    "updated": 1643528632560
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Stock to Flow: Stock to Flow is calculated by taking the Liquid Supply today and dividing by the projected 12month increase in Liquid Supply. This is essentially the inverse of Current Inflation. The value is null for assets with fixed or decreasing Liquid Supply.",
-            "updated": 1624242248604
+            "updated": 1624242248604,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Stock to Flow: Stock to Flow рассчитывается путем взятия сегодняшнего Liquid Supply и деления на прогнозируемый 12-месячный рост Liquid Supply. По сути, это обратная величина текущей инфляции Current Inflation. Значение равно нулю для активов с фиксированным или уменьшающимся запасом ликвидности.",
+                    "updated": 1643528685659
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Circulating: Circulating Supply refers to tokens that exist on-chain, and which are not known to be encumbered by any contracts (programmatic or legal).",
-            "updated": 1624242227545
+            "updated": 1624242227545,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Circulating: Circulating Supply (Циркулирующее предложение) относится к токенам, которые существуют на цепи и которые, как известно, не обременены никакими контрактами (программными или юридическими).",
+                    "updated": 1643528722619
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Liquid: Liquid Supply refers to tokens that exist on-chain, and which are not known to be encumbered by any contracts (programmatic or legal).",
-            "updated": 1624242205773
+            "updated": 1624242205773,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Liquid: Liquid Supply (Текущее предложение) относится к токенам, которые существуют на цепочке, и которые, как известно, не обременены никакими контрактами - ни программными, ни юридическими.",
+                    "updated": 1643528759470
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Plus 10 Issued Percent: The percent of the Year+10 supply that's currently liquid on the market today.",
-            "updated": 1624242154694
+            "updated": 1624242154694,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Plus 10 Issued Percent: Процент предложения \"Год+10\", который сегодня ликвиден на рынке.",
+                    "updated": 1643528772946
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Y Plus 10: The expected supply 10 years from now.",
-            "updated": 1624242113724
+            "updated": 1624242113724,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Y Plus 10: Ожидаемое предложение через 10 лет.",
+                    "updated": 1643528780693
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Y 2050 Percent Issued: The percentage of the Y2050 supply which has already been issued.",
-            "updated": 1624242089617
+            "updated": 1624242089617,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Y 2050 Percent Issued: Процент уже выпущенного объема предложения Y2050.",
+                    "updated": 1643528796367
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Y 2050: The expected supply on Jan 1 2050.",
-            "updated": 1624242070725
+            "updated": 1624242070725,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Y 2050: Ожидаемое предложение на 1 января 2050 года.",
+                    "updated": 1643528805292
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Begin: beginning of time frame watched."
+            "text": "Begin: beginning of time frame watched.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Begin: начало просмотренного периода.",
+                    "updated": 1643528814468
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "End: end of time frame watched."
+            "text": "End: end of time frame watched.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "End: конец просмотренного периода.",
+                    "updated": 1643528825098
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -222,88 +502,214 @@
         {
             "style": "Text",
             "text": "Saves a variety of blockchain statistics data for the current asset.",
-            "updated": 1623068649438
+            "updated": 1623068649438,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сохраняет различные данные статистики блокчейна для текущего актива.",
+                    "updated": 1643528832546
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Processed Values:"
+            "text": "Processed Values:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Обработанные значения:",
+                    "updated": 1643528838655
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Supply Moved Off Chain: Amount of supply moved off chain for the last 24 hours.",
-            "updated": 1624244551956
+            "updated": 1624244551956,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Supply Moved Off Chain: Объем предложения, перемещенного из цепочки за последние 24 часа.",
+                    "updated": 1643528870432
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Count of Block Added: Count of block added for the last 24 hours.",
-            "updated": 1624244570277
+            "updated": 1624244570277,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Count of Block Added: Количество добавленных блоков за последние 24 часа.Количество добавленных блоков за последние 24 часа.",
+                    "updated": 1643528877512
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Kilobytes Added: Amount of killobytes added to the chain for the last 24 hours.",
-            "updated": 1624244730899
+            "updated": 1624244730899,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Kilobytes Added: Количество килобайт, добавленных в цепочку за последние 24 часа.",
+                    "updated": 1643528886603
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Average Difficulty: Average difficulty of mined blocks for the last 24 hours.",
-            "updated": 1624244692433
+            "updated": 1624244692433,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Average Difficulty: Средняя сложность добытых блоков за последние 24 часа.",
+                    "updated": 1643528893614
+                }
+            ]
         },
         {
             "style": "List",
             "text": "New Issuance: Amount of new issued coins for the last 24 hours.",
-            "updated": 1624244620831
+            "updated": 1624244620831,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "New Issuance: Количество новых выпущенных монет за последние 24 часа.",
+                    "updated": 1643528901372
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Count of Payments: Count of payments for the last 24 hours.",
-            "updated": 1624244507982
+            "updated": 1624244507982,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Count of Payments: Количество платежей за последние 24 часа.",
+                    "updated": 1643528915049
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Count of Tx: Transaction count for the last 24 hours.",
-            "updated": 1624244487398
+            "updated": 1624244487398,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Count of Tx: Количество транзакций за последние 24 часа.",
+                    "updated": 1643528922921
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Count of Active Addresses: Active addresses for the last 24 hours.",
-            "updated": 1624244461681
+            "updated": 1624244461681,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Count of Active Addresses: Активные адреса за последние 24 часа.",
+                    "updated": 1643528935092
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Median Tx Fee: Median transaction fee for the last 24 hours.",
-            "updated": 1624244438804
+            "updated": 1624244438804,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Median Tx Fee: Медианная комиссия за транзакцию за последние 24 часа.",
+                    "updated": 1643528943354
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Median Tx Value: Median transaction value for the last 24 hours.",
-            "updated": 1624244431209
+            "updated": 1624244431209,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Median Tx Value: Медианная стоимость сделки за последние 24 часа.",
+                    "updated": 1643528950079
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Sum of Fees: Total of fees for the last 24 hours.",
-            "updated": 1624244409373
+            "updated": 1624244409373,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Sum of Fees: Общая сумма сборов за последние 24 часа.",
+                    "updated": 1643528957182
+                }
+            ]
         },
         {
             "style": "List",
             "text": "NVT: NVT is computed by dividing the Network Value (= Market Value) by the total transactions volume in USD over the past 24 hours.",
-            "updated": 1624244424162
+            "updated": 1624244424162,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "NVT: NVT рассчитывается путем деления стоимости сети (= рыночной стоимости) на общий объем сделок в USD за последние 24 часа.",
+                    "updated": 1643528975774
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Transaction Volume: Transaction volume for the last 24 hours.",
-            "updated": 1624244414022
+            "updated": 1624244414022,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Transaction Volume: Объем транзакций за последние 24 часа.",
+                    "updated": 1643528983395
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Begin: beginning of time frame watched."
+            "text": "Begin: beginning of time frame watched.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Begin: начало периода наблюдения.",
+                    "updated": 1643528993726
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "End: end of time frame watched."
+            "text": "End: end of time frame watched.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "End: конец наблюдаемого периода.",
+                    "updated": 1643529015834
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Indicators"
+            "text": "Indicators",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Индикаторы",
+                    "updated": 1643529030318
+                }
+            ]
         },
         {
             "style": "List",

@@ -292,7 +292,7 @@ function newCircularMenuItem() {
 
     function containerPhysics() {
         if (thisObject.type === 'Icon & Text') {
-            thisObject.container.frame.width = 220 * UI.projects.foundations.spaces.floatingSpace.settings.node.menuItem.widthPercentage / 100
+            thisObject.container.frame.width = 237 * UI.projects.foundations.spaces.floatingSpace.settings.node.menuItem.widthPercentage / 100
         } else {
             thisObject.container.frame.width = 50 * UI.projects.foundations.spaces.floatingSpace.settings.node.menuItem.widthPercentage / 100
         }
@@ -375,7 +375,7 @@ function newCircularMenuItem() {
             }
 
             if (thisObject.label === undefined) {
-                thisObject.payload.uiObject.setInfoMessage(text)
+                thisObject.payload.uiObject.setQuickInfo(text)
             }
             isMouseOver = true
         } else {
@@ -386,6 +386,7 @@ function newCircularMenuItem() {
 
     function onMouseNotOver(point) {
         isMouseOver = false
+        thisObject.payload.uiObject.resetQuickInfo()
         MENU_ITEM_ON_FOCUS = undefined
     }
 

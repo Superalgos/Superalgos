@@ -4,26 +4,61 @@
     "type": "BTC-USDT - BB Top Bounce - BBTB",
     "definition": {
         "text": "A trading system based on the bounce off the upper Bollinger Band idea, designed to accumulate Bitcoin, targeting a big range of market situations.",
-        "updated": 1611678251886
+        "updated": 1611678251886,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Özet: Çok çeşitli piyasa durumlarını hedefleyen, Bitcoin biriktirmek için tasarlanmış, üst Bollinger Bandı fikrinden sıçramaya dayalı bir ticaret sistemi.",
+                "updated": 1644670782372
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "BB Top Bounce was released in May 2020. This page explains the trading system and analyzes its performance.",
-            "updated": 1611678265942
+            "updated": 1611678265942,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "BB Top Bounce, Mayıs 2020'de yayınlandı. Bu sayfa ticaret sistemini açıklar ve performansını analiz eder.",
+                    "updated": 1644670802493
+                }
+            ]
         },
         {
             "style": "Important",
-            "text": "Since the release of this strategy, the structure of the BTC-USDT market changed dramatically, rendering this Trading System unusable. The issue is that the system implements rigid volatility filters. The current environment shows much higher volatility than in the past, preventing the strategies from trading. At this point, you may use this system as a demo only, backtesting ranges before 2021. If you wish to experiment and revise this system, you may try removing the volatility filters and implementing new ones, if desired."
+            "text": "Since the release of this strategy, the structure of the BTC-USDT market changed dramatically, rendering this Trading System unusable. The issue is that the system implements rigid volatility filters. The current environment shows much higher volatility than in the past, preventing the strategies from trading. At this point, you may use this system as a demo only, backtesting ranges before 2021. If you wish to experiment and revise this system, you may try removing the volatility filters and implementing new ones, if desired.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Önemli: Bu stratejinin yayınlanmasından bu yana, BTC-USDT piyasasının yapısı önemli ölçüde değişti ve bu Ticaret Sistemini ( Trading System ) kullanılamaz hale getirdi. Sorun, sistemin katı oynaklık filtreleri uygulamasıdır. Mevcut ortam, geçmişe göre çok daha yüksek oynaklık göstererek stratejilerin ticaret yapmasını engelliyor. Bu noktada, bu sistemi yalnızca demo olarak kullanabilirsiniz, 2021 öncesi aralıkları geriye dönük test edebilirsiniz. Bu sistemi denemek ve revize etmek isterseniz, volatilite filtrelerini kaldırmayı ve istenirse yenilerini uygulamayı deneyebilirsiniz.",
+                    "updated": 1644670881033
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The trading system conforms to the Superalgos Trading Protocol, therefore, it may function as a fully automated trading system. People not interested in trading automation may still obtain the strategy’s rules (situations, conditions, and formulas) from the design space and use the set of rules as they see fit."
+            "text": "The trading system conforms to the Superalgos Trading Protocol, therefore, it may function as a fully automated trading system. People not interested in trading automation may still obtain the strategy’s rules (situations, conditions, and formulas) from the design space and use the set of rules as they see fit.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ticaret sistemi Superalgos Ticaret Protokolüne uygundur, bu nedenle tam otomatik bir ticaret sistemi olarak işlev görebilir. Ticaret otomasyonu ile ilgilenmeyen kişiler yine de stratejinin kurallarını (durumlar, koşullar ve formüller) tasarım alanından alabilir ve uygun gördükleri şekilde kurallar dizisini kullanabilirler.",
+                    "updated": 1644670895414
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "BB Top Bounce is available on the BB-Top-Bounce.json plugin workspace shipping with Superalgos.",
-            "updated": 1611678276521
+            "updated": 1611678276521,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Not: BB Top Bounce, Superalgos ile birlikte gönderilen BB-Top-Bounce.json eklenti çalışma alanında mevcuttur.",
+                    "updated": 1644670912525
+                }
+            ]
         },
         {
             "style": "Include",
@@ -33,70 +68,182 @@
         {
             "style": "Title",
             "text": "BBTB Performance in Backtests (Binance)",
-            "updated": 1611678342250
+            "updated": 1611678342250,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Geri Testlerde BBTB Performansı (Binance)",
+                    "updated": 1644670933734
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The following was the performance in backtests at the time of publishing:"
+            "text": "The following was the performance in backtests at the time of publishing:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Aşağıdakiler, yayınlandığı sırada geriye dönük testlerdeki performanstı:",
+                    "updated": 1644670941695
+                }
+            ]
         },
         {
             "style": "Table",
             "text": "| Details | Jan 2018 - Apr 2020 | 2020 Jan-Apr | 2019 | 2018 |\n| Trades: | 77 | 8 | 26 | 42 |\n| Hits: | 67 | 6 | 25 | 35 |\n| Fails: | 10 | 2 | 1 | 7 |\n| Hit Ratio: | 87 % | 75 % | 96 % | 83 % |\n| ROI: | 4,870 % | 140 % | 268 % | 453 % |",
-            "updated": 1611678486882
+            "updated": 1611678486882,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "| Ayrıntılar | Ocak 2018 - Nisan 2020 | 2020 Ocak-Nisan | 2019 | 2018 |\n| Ticaret: | 77 | 8 | 26 | 42 |\n| Hit: | 67 | 6 | 25 | 35 |\n| Başarısız: | 10 | 2 | 1 | 7 |\n| İsabet Oranı: | %87 | %75 | %96 | %83 |\n| yatırım getirisi: | 4.870 % | 140 % | 268 % | 453 % |",
+                    "updated": 1644670954630
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Notes on Backtests Performance",
-            "updated": 1611678514454
+            "updated": 1611678514454,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Backtests Performansına İlişkin Notlar",
+                    "updated": 1644671027531
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The table above shows the results for different periods tested independently."
+            "text": "The table above shows the results for different periods tested independently.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yukarıdaki tablo, bağımsız olarak test edilen farklı dönemler için sonuçları göstermektedir.",
+                    "updated": 1644671052190
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Each backtest starts with an initial capital. With the default configuration, the system reinvests accumulated profits on every trade (positionSize = balanceBaseAsset)."
+            "text": "Each backtest starts with an initial capital. With the default configuration, the system reinvests accumulated profits on every trade (positionSize = balanceBaseAsset).",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Her geriye dönük test bir başlangıç sermayesi ile başlar. Varsayılan yapılandırma ile sistem, her işlemde birikmiş karları yeniden yatırır (positionSize = BalanceBaseAsset).",
+                    "updated": 1644671064068
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "ROI is calculated over the initial capital for each backtest, and the result is rounded to the closest integer."
+            "text": "ROI is calculated over the initial capital for each backtest, and the result is rounded to the closest integer.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "ROI, her geriye dönük test için başlangıç sermayesi üzerinden hesaplanır ve sonuç en yakın tam sayıya yuvarlanır.",
+                    "updated": 1644671075222
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Because the system reinvests accumulated profits, the sum of ROI in different periods is not the same as ROI for all periods run in one single test (first column)."
+            "text": "Because the system reinvests accumulated profits, the sum of ROI in different periods is not the same as ROI for all periods run in one single test (first column).",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Sistem birikmiş karları yeniden yatırdığı için, farklı dönemlerdeki ROI'nin toplamı, tek bir testte yürütülen tüm dönemler için ROI ile aynı değildir (ilk sütun).",
+                    "updated": 1644671083167
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Assumptions"
+            "text": "Assumptions",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Varsayımlar",
+                    "updated": 1644671101917
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Slippage: 0.1 % in all orders."
+            "text": "Slippage: 0.1 % in all orders.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Kayma: Tüm siparişlerde %0,1.",
+                    "updated": 1644671112834
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Fees: 0.1 % in all orders."
+            "text": "Fees: 0.1 % in all orders.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ücretler: Tüm siparişlerde %0,1.",
+                    "updated": 1644671128385
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Technical Sheet",
-            "updated": 1611678591094
+            "updated": 1611678591094,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Teknik döküman",
+                    "updated": 1644671145545
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Market"
+            "text": "Market",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Pazar",
+                    "updated": 1644671155359
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "USDT-BTC, with BTC as the base asset."
+            "text": "USDT-BTC, with BTC as the base asset.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "USDT-BTC, temel varlık olarak BTC ile.",
+                    "updated": 1644671167193
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Strategy Goal"
+            "text": "Strategy Goal",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Strateji Hedefi",
+                    "updated": 1644671175663
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Accumulate bitcoin in a wide range of market situations, with a moderate approach to risk to trade as frequently as possible."
+            "text": "Accumulate bitcoin in a wide range of market situations, with a moderate approach to risk to trade as frequently as possible.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Mümkün olduğunca sık ticaret yapma riskine ılımlı bir yaklaşımla, çok çeşitli piyasa durumlarında bitcoin biriktirin.",
+                    "updated": 1644671185932
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -104,67 +251,172 @@
         },
         {
             "style": "Text",
-            "text": "Split the goal into two fundamental notions:"
+            "text": "Split the goal into two fundamental notions:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hedefi iki temel kavrama bölün:",
+                    "updated": 1644671224683
+                }
+            ]
         },
         {
             "style": "List",
             "text": "1. Target specific market situations: Each strategy in the trading system is specialized in a particular market situation. This allows describing different trading opportunities with very specific conditions for the take position event, and managing the trade taking into account the specific context.",
-            "updated": 1611678642237
+            "updated": 1611678642237,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "1. Spesifik piyasa durumlarını hedefleyin: Ticaret sistemindeki her strateji, belirli bir piyasa durumunda uzmanlaşmıştır. Bu, pozisyon alma olayı için çok özel koşullarla farklı ticaret fırsatlarını tanımlamaya ve belirli bağlamı dikkate alarak ticareti yönetmeye izin verir.",
+                    "updated": 1644671232677
+                }
+            ]
         },
         {
             "style": "List",
             "text": "2. Filter out dubious opportunities: Opportunities occurring in specific market situations usually perform poorly and may be filtered out to avoid fails and preserve capital.",
-            "updated": 1611678652510
+            "updated": 1611678652510,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "2. Şüpheli fırsatları filtreleyin: Belirli piyasa durumlarında ortaya çıkan fırsatlar genellikle düşük performans gösterir ve başarısızlıkları önlemek ve sermayeyi korumak için filtrelenebilir.",
+                    "updated": 1644671244427
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Trading Idea"
+            "text": "Trading Idea",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ticaret Fikri",
+                    "updated": 1644671267320
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The main trading idea is to identify bounces off the top band of the Bollinger Bands (BB) on the 1-hour chart to take short positions on bitcoin as the price leaves the top band and heads for the lower band."
+            "text": "The main trading idea is to identify bounces off the top band of the Bollinger Bands (BB) on the 1-hour chart to take short positions on bitcoin as the price leaves the top band and heads for the lower band.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ana ticaret fikri, fiyat üst bandı terk edip alt banda yönelirken bitcoin üzerinde kısa pozisyonlar almak için 1 saatlik grafikte Bollinger Bantlarının (BB) üst bandındaki sıçramaları belirlemektir.",
+                    "updated": 1644671278075
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Most trades are expected to be short, while others have the potential to run longer while under the management stage."
+            "text": "Most trades are expected to be short, while others have the potential to run longer while under the management stage.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Çoğu işlemin kısa olması beklenirken, diğerleri yönetim aşamasındayken daha uzun çalışma potansiyeline sahiptir.",
+                    "updated": 1644671286006
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Position Size"
+            "text": "Position Size",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Pozisyon Boyutu",
+                    "updated": 1644671301188
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The positionSize is set to balanceBaseAsset by default. This means that the trading system takes positions with the whole balance, that is, the initialBalance as defined in the configuration of the base asset parameter of the trading session, plus all accumulated profits if any. You may change this formula as you see fit."
+            "text": "The positionSize is set to balanceBaseAsset by default. This means that the trading system takes positions with the whole balance, that is, the initialBalance as defined in the configuration of the base asset parameter of the trading session, plus all accumulated profits if any. You may change this formula as you see fit.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "PositionSize varsayılan olarak BalanceBaseAsset olarak ayarlanmıştır. Bu, işlem sisteminin tüm bakiyeyle, yani işlem seansının temel varlık parametresinin yapılandırmasında tanımlandığı gibi başlangıç Bakiyesi artı varsa tüm birikmiş karlarla pozisyon aldığı anlamına gelir. Bu formülü uygun gördüğünüz gibi değiştirebilirsiniz.",
+                    "updated": 1644671309637
+                }
+            ]
         },
         {
             "style": "Important",
             "text": "Please take enough time to consider the implications of the above statement and make your own judgment about what setting may be appropriate for you.",
-            "updated": 1611678674857
+            "updated": 1611678674857,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Lütfen yukarıdaki ifadenin sonuçlarını değerlendirmek için yeterli zaman ayırın ve sizin için hangi ayarın uygun olabileceği konusunda kendi kararınızı verin.",
+                    "updated": 1644671327918
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Trading Frequency"
+            "text": "Trading Frequency",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İşlem Sıklığı",
+                    "updated": 1644671358761
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The strategy is designed with the one-hour time frame as the main decision-making instance, meaning that it makes trigger and take position decisions upon the closing of the one-hour candle. That said, when running live on Superalgos, it should be run on the 1-minute time frame to allow quick reactions when evaluating take profit and stop loss targets."
+            "text": "The strategy is designed with the one-hour time frame as the main decision-making instance, meaning that it makes trigger and take position decisions upon the closing of the one-hour candle. That said, when running live on Superalgos, it should be run on the 1-minute time frame to allow quick reactions when evaluating take profit and stop loss targets.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Strateji, ana karar verme örneği olarak bir saatlik zaman çerçevesi ile tasarlanmıştır, yani bir saatlik mumun kapanması üzerine tetikleme yapar ve pozisyon kararları alır. Bununla birlikte, Superalgos'ta canlı yayınlanırken, kar al ve zararı durdur hedeflerini değerlendirirken hızlı tepkilere izin vermek için 1 dakikalık zaman çerçevesinde çalıştırılmalıdır.",
+                    "updated": 1644671366898
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The average trading frequency according to backtests is of around 1 trade every 11 days."
+            "text": "The average trading frequency according to backtests is of around 1 trade every 11 days.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Geriye dönük testlere göre ortalama işlem sıklığı, her 11 günde bir yaklaşık 1 işlemdir.",
+                    "updated": 1644671374959
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Required Bots"
+            "text": "Required Bots",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Gerekli Botlar",
+                    "updated": 1644672146118
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The following bots must be running and up to date to run paper trading, forward testing, and live trading sessions:"
+            "text": "The following bots must be running and up to date to run paper trading, forward testing, and live trading sessions:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Kağıt ticareti, ileriye dönük testler ve canlı ticaret oturumları yürütmek için aşağıdaki botların çalışıyor ve güncel olması gerekir:",
+                    "updated": 1644672176077
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Candles Data Mine:",
-            "updated": 1622559136531
+            "updated": 1622559136531,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Mumlar Veri Madeni (Candles Data Mine):",
+                    "updated": 1644672209117
+                }
+            ]
         },
         {
             "style": "List",
@@ -172,23 +424,58 @@
         },
         {
             "style": "List",
-            "text": "Candles & Volumes"
+            "text": "Candles & Volumes",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Mumlar ve Hacimler",
+                    "updated": 1644672226061
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Bollinger Data Mine:"
+            "text": "Bollinger Data Mine:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bollinger Veri Madeni(Bollinger Data Mine):",
+                    "updated": 1644672247144
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Bollinger Bands & Percentage Bandwith"
+            "text": "Bollinger Bands & Percentage Bandwith",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bollinger Bantları ve Yüzde Bant Genişliği",
+                    "updated": 1644672256554
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Bollinger Channels & SubChannels"
+            "text": "Bollinger Channels & SubChannels",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bollinger Kanalları ve alt Kanallar",
+                    "updated": 1644672270910
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Sparta Data Mine:"
+            "text": "Sparta Data Mine:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Sparta Veri Madeni (Sparta Data Mine):",
+                    "updated": 1644672288663
+                }
+            ]
         },
         {
             "style": "List",
@@ -200,43 +487,113 @@
         },
         {
             "style": "Title",
-            "text": "Implementation"
+            "text": "Implementation",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Uygulama",
+                    "updated": 1644672353149
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The trading system has eight different strategies, each specializing in a specific market situation. This section analyzes the principles governing each stage, taking the first strategy in the system as an example. The rest of the strategies in the system behave similarly, the main differences being:"
+            "text": "The trading system has eight different strategies, each specializing in a specific market situation. This section analyzes the principles governing each stage, taking the first strategy in the system as an example. The rest of the strategies in the system behave similarly, the main differences being:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ticaret sistemi, her biri belirli bir piyasa durumunda uzmanlaşmış sekiz farklı stratejiye sahiptir. Bu bölüm, sistemdeki ilk stratejiyi örnek alarak her aşamayı yöneten ilkeleri analiz eder. Sistemdeki geri kalan stratejiler benzer şekilde davranır, ana farklar şunlardır:",
+                    "updated": 1644672362021
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Some of the conditions that define the take position event, in particular the ones representing the Market Structure Analysis and Filters (see below)."
+            "text": "Some of the conditions that define the take position event, in particular the ones representing the Market Structure Analysis and Filters (see below).",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Pozisyon alma olayını tanımlayan koşullardan bazıları, özellikle Piyasa Yapısı Analizi ve Filtrelerini temsil edenler (aşağıya bakınız).",
+                    "updated": 1644672369922
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The specific conditions used to switch take profit management phases."
+            "text": "The specific conditions used to switch take profit management phases.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Al kar yönetimi aşamalarını değiştirmek için kullanılan özel koşullar.",
+                    "updated": 1644672378925
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Trigger Stage"
+            "text": "Trigger Stage",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Tetik Aşaması",
+                    "updated": 1644672403092
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Trigger On vs. Take Position"
+            "text": "Trigger On vs. Take Position",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Açık Tetik ve Konum Al",
+                    "updated": 1644672424313
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The conditions at the take position event and the trigger-on event are the same. Therefore, when a strategy is triggered, it also takes a position."
+            "text": "The conditions at the take position event and the trigger-on event are the same. Therefore, when a strategy is triggered, it also takes a position.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Pozisyon alma olayındaki ve tetikleme olayındaki koşullar aynıdır. Bu nedenle, bir strateji tetiklendiğinde aynı zamanda bir pozisyon alır.",
+                    "updated": 1644672433021
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Trading Idea"
+            "text": "Trading Idea",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ticaret Fikri",
+                    "updated": 1644672440139
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The trading idea is described by the first three conditions in the take position event, which are common to all strategies:"
+            "text": "The trading idea is described by the first three conditions in the take position event, which are common to all strategies:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Alım satım fikri, tüm stratejiler için ortak olan pozisyon alma olayındaki ilk üç koşulla tanımlanır:",
+                    "updated": 1644672447769
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Previous Breakup:"
+            "text": "Previous Breakup:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Önceki Ayrılma:",
+                    "updated": 1644672473552
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -245,11 +602,25 @@
         },
         {
             "style": "Text",
-            "text": "The condition describes the closing above the upper Bollinger Band of the previous candle."
+            "text": "The condition describes the closing above the upper Bollinger Band of the previous candle.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Koşul, önceki mumun üst Bollinger Bandının üzerindeki kapanışı tanımlar.",
+                    "updated": 1644672491969
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Current Close In:"
+            "text": "Current Close In:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Mevcut Kapanış:",
+                    "updated": 1644672500840
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -258,11 +629,25 @@
         },
         {
             "style": "Text",
-            "text": "The condition describes the closing below the upper Bollinger Band of the current candle."
+            "text": "The condition describes the closing below the upper Bollinger Band of the current candle.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Durum, mevcut mumun üst Bollinger Bandının altındaki kapanışı tanımlar.",
+                    "updated": 1644672517146
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Current Red Candle:"
+            "text": "Current Red Candle:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Mevcut Kırmızı Mum:",
+                    "updated": 1644672525117
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -270,39 +655,102 @@
         },
         {
             "style": "Text",
-            "text": "The condition serves to confirm that the re-entry happened with a candle closing lower than the opening price—an early indication of a potential short-term reversal."
+            "text": "The condition serves to confirm that the re-entry happened with a candle closing lower than the opening price—an early indication of a potential short-term reversal.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Koşul, yeniden girişin açılış fiyatından daha düşük bir mum kapanışı ile gerçekleştiğini doğrulamaya yarar; bu, potansiyel bir kısa vadeli geri dönüşün erken bir göstergesidir.",
+                    "updated": 1644672548109
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In short, these first three conditions describe the fact that the price went above the Bollinger Bands and eventually returned within the bands, which may be a sign that it may bounce back in the direction of the lower band."
+            "text": "In short, these first three conditions describe the fact that the price went above the Bollinger Bands and eventually returned within the bands, which may be a sign that it may bounce back in the direction of the lower band.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Kısacası, bu ilk üç koşul, fiyatın Bollinger Bantlarının üzerine çıktığını ve sonunda bantlar içinde geri döndüğü gerçeğini tanımlar; bu, alt bant yönünde geri dönebileceğinin bir işareti olabilir.",
+                    "updated": 1644672555714
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Market Structure Analysis"
+            "text": "Market Structure Analysis",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Pazar ( Market ) Yapısı Analizi",
+                    "updated": 1644672631898
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The logic for segmenting the market in the particular structures targeted by each of the strategies derives exclusively from studying which market situations produced the best hit ratios while testing the trading idea with symmetrical stop loss and take profit targets. That is, it is purely an empirical approach on what worked best during the span of the dataset tested—from January 2018 until April 2020."
+            "text": "The logic for segmenting the market in the particular structures targeted by each of the strategies derives exclusively from studying which market situations produced the best hit ratios while testing the trading idea with symmetrical stop loss and take profit targets. That is, it is purely an empirical approach on what worked best during the span of the dataset tested—from January 2018 until April 2020.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Stratejilerin her biri tarafından hedeflenen belirli yapılarda piyasayı bölümlere ayırma mantığı, yalnızca ticaret fikrini simetrik zararı durdur ve kârı al hedefleriyle test ederken hangi piyasa durumlarının en iyi isabet oranlarını ürettiğini incelemekten kaynaklanır. Yani, test edilen veri kümesi boyunca Ocak 2018'den Nisan 2020'ye kadar en iyi neyin işe yaradığına dair tamamen deneysel bir yaklaşımdır.",
+                    "updated": 1644672641942
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The criteria the trading system uses to analyze the market structure at the time the opportunity arises (as described by the trading idea) is based on the Bollinger Channels and Bollinger Subchannels indicators. These two indicators describe what is the direction (up or down) and the relative slope (side, gentle, medium, steep or extreme) of the 20-periods simple moving average (SMA)."
+            "text": "The criteria the trading system uses to analyze the market structure at the time the opportunity arises (as described by the trading idea) is based on the Bollinger Channels and Bollinger Subchannels indicators. These two indicators describe what is the direction (up or down) and the relative slope (side, gentle, medium, steep or extreme) of the 20-periods simple moving average (SMA).",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ticaret sisteminin, fırsatın ortaya çıktığı andaki piyasa yapısını analiz etmek için kullandığı kriterler (ticaret fikri tarafından açıklandığı gibi), Bollinger Kanalları ve Bollinger alt Kanalları göstergelerine dayanmaktadır. Bu iki gösterge, 20 dönemlik basit hareketli ortalamanın (SMA) yönünün (yukarı veya aşağı) ve göreli eğiminin (yan, hafif, orta, dik veya aşırı) ne olduğunu açıklar.",
+                    "updated": 1644672660694
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In essence, each strategy specializes in specific market structures as defined by three or four conditions that describe what is going on with the market in two or more time frames."
+            "text": "In essence, each strategy specializes in specific market structures as defined by three or four conditions that describe what is going on with the market in two or more time frames.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Özünde, her strateji, iki veya daha fazla zaman diliminde piyasada neler olup bittiğini tanımlayan üç veya dört koşulla tanımlanan belirli piyasa yapılarında uzmanlaşmıştır.",
+                    "updated": 1644672671875
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In particular, the fourth condition in each strategy defines the main characteristic of the specific market situation that the strategy specializes in."
+            "text": "In particular, the fourth condition in each strategy defines the main characteristic of the specific market situation that the strategy specializes in.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Özellikle, her stratejideki dördüncü koşul, stratejinin uzmanlaştığı belirli piyasa durumunun temel özelliğini tanımlar.",
+                    "updated": 1644672681073
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "For example, in the case of strategy S1 - 3H Down:"
+            "text": "For example, in the case of strategy S1 - 3H Down:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Örneğin, strateji S1 - 3H Down durumunda:",
+                    "updated": 1644672702932
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "3H - Down:"
+            "text": "3H - Down:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "3H - Aşağı:",
+                    "updated": 1644672712858
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -310,15 +758,36 @@
         },
         {
             "style": "Text",
-            "text": "The condition defines that the Bollinger Channel direction at the 3-hours time frame is Down."
+            "text": "The condition defines that the Bollinger Channel direction at the 3-hours time frame is Down.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Koşul, 3 saatlik zaman diliminde Bollinger Kanalı yönünün Aşağı olduğunu tanımlar.",
+                    "updated": 1644672738662
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The rest of the conditions that define the market structure that strategy S1 - H3 Down specializes in are:"
+            "text": "The rest of the conditions that define the market structure that strategy S1 - H3 Down specializes in are:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "S1 - H3 Down stratejisinin uzmanlaştığı piyasa yapısını tanımlayan diğer koşullar şunlardır:",
+                    "updated": 1644672747010
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "3H - Medium, Steep or Extreme:"
+            "text": "3H - Medium, Steep or Extreme:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "3H - Orta, Dik veya Aşırı(3H - Medium, Steep or Extreme):",
+                    "updated": 1644672768591
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -327,15 +796,36 @@
         },
         {
             "style": "Text",
-            "text": "The condition defines that the 3H sub channel (20-periods moving average) slope must be medium, steep or extreme."
+            "text": "The condition defines that the 3H sub channel (20-periods moving average) slope must be medium, steep or extreme.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Koşul, 3H alt kanalının (20 dönemlik hareketli ortalama) eğiminin orta, dik veya aşırı olması gerektiğini tanımlar.",
+                    "updated": 1644672790929
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Combined with the previous condition, the above means that—at the 3H time frame—there is a downward trend, with a relatively high slope."
+            "text": "Combined with the previous condition, the above means that—at the 3H time frame—there is a downward trend, with a relatively high slope.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Önceki koşulla birleştiğinde, yukarıdakiler, 3H zaman çerçevesinde, nispeten yüksek bir eğime sahip bir düşüş eğilimi olduğu anlamına gelir.",
+                    "updated": 1644672798274
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "24H - Gentle:"
+            "text": "24H - Gentle:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "24H - Yumuşak(24H - Gentle):",
+                    "updated": 1644672814403
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -343,31 +833,80 @@
         },
         {
             "style": "Text",
-            "text": "The condition defines that the 24H sub channel has a gentle slope."
+            "text": "The condition defines that the 24H sub channel has a gentle slope.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Koşul, 24H alt kanalının hafif bir eğime sahip olduğunu tanımlar.",
+                    "updated": 1644672840288
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "These three conditions define the market structure that this particular strategy targets. Notice how the last condition, 24H - Gentle does not make a distinction whether the channel is going up or down. It simply requires that, whatever the trend is at the 24H chart, it must be gentle in slope."
+            "text": "These three conditions define the market structure that this particular strategy targets. Notice how the last condition, 24H - Gentle does not make a distinction whether the channel is going up or down. It simply requires that, whatever the trend is at the 24H chart, it must be gentle in slope.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bu üç koşul, bu özel stratejinin hedeflediği pazar yapısını tanımlar. Son koşul olan 24H - Gentle'ın kanalın yukarı veya aşağı gitmesi arasında nasıl bir ayrım yapmadığına dikkat edin. Sadece, 24 saatlik grafikte trend ne olursa olsun, eğimin yumuşak olması gerektiğini gerektirir.",
+                    "updated": 1644672847741
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The rest of the strategies in the trading system define the market structure in which each operate in a similarly."
+            "text": "The rest of the strategies in the trading system define the market structure in which each operate in a similarly.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ticaret sistemindeki geri kalan stratejiler, her birinin benzer şekilde faaliyet gösterdiği piyasa yapısını tanımlar.",
+                    "updated": 1644672857103
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Filters"
+            "text": "Filters",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Filtreler",
+                    "updated": 1644672901865
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The last few conditions in the take position event of each strategy may be filters. Filters describe particular market situations in which the trading idea has been found to perform poorly and thus are excluded, effectively deciding not to trade in such situations, even when the market situation may be the one the strategy specializes in."
+            "text": "The last few conditions in the take position event of each strategy may be filters. Filters describe particular market situations in which the trading idea has been found to perform poorly and thus are excluded, effectively deciding not to trade in such situations, even when the market situation may be the one the strategy specializes in.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Her stratejinin pozisyon alma olayındaki son birkaç koşul filtre olabilir. Filtreler, ticaret fikrinin kötü performans gösterdiği ve bu nedenle hariç tutulduğu belirli piyasa durumlarını tanımlar ve bu gibi durumlarda, pazar durumu stratejinin uzmanlaştığı durum olsa bile, etkin bir şekilde ticaret yapmamaya karar verir.",
+                    "updated": 1644672908217
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "For example, in the case of strategy S1 - 3H Down, the following filter is applied:"
+            "text": "For example, in the case of strategy S1 - 3H Down, the following filter is applied:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Örneğin, S1 - 3H Down stratejisi durumunda, aşağıdaki filtre uygulanır:",
+                    "updated": 1644672916071
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Filter 1: 08H Deviation > 200 < 1500:"
+            "text": "Filter 1: 08H Deviation > 200 < 1500:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Filtre 1: 08H Sapma > 200 < 1500:",
+                    "updated": 1644672924812
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -376,20 +915,48 @@
         },
         {
             "style": "Text",
-            "text": "The condition dictates that in case the deviation of the Bollinger Bands at the 8H chart is lower than 200 or higher than 1500, the strategy will not take a postion."
+            "text": "The condition dictates that in case the deviation of the Bollinger Bands at the 8H chart is lower than 200 or higher than 1500, the strategy will not take a postion.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Koşul, 8H grafiğindeki Bollinger Bantlarının sapmasının 200'den düşük veya 1500'den yüksek olması durumunda stratejinin bir pozisyon almayacağını belirtir.",
+                    "updated": 1644672949819
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The deviation of the Bollinger Bands is an indication of volatility, therefore, Filter 1 dictates that when volatility is very low or very high, the opportunity shall not be taken."
+            "text": "The deviation of the Bollinger Bands is an indication of volatility, therefore, Filter 1 dictates that when volatility is very low or very high, the opportunity shall not be taken.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bollinger Bantlarının sapması, oynaklığın bir göstergesidir, bu nedenle Filtre 1, oynaklık çok düşük veya çok yüksek olduğunda fırsatın kullanılmayacağını belirtir.",
+                    "updated": 1644672957304
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Let’s unpack the syntax so that non-coders may easily understand it…"
+            "text": "Let’s unpack the syntax so that non-coders may easily understand it…",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Kodlamayanların kolayca anlayabilmesi için söz dizimini açalım…",
+                    "updated": 1644673005459
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The core idea of the condition is...",
-            "updated": 1611678938095
+            "updated": 1611678938095,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Durumun temel fikri şudur...",
+                    "updated": 1644672980140
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -398,32 +965,81 @@
         },
         {
             "style": "Text",
-            "text": "However, if used in this format, the condition would evaluate true when the deviation is lower than 200 or higher than 1500, which is the opposite of what is intended."
+            "text": "However, if used in this format, the condition would evaluate true when the deviation is lower than 200 or higher than 1500, which is the opposite of what is intended.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bununla birlikte, bu biçimde kullanılırsa, sapma 200'den düşük veya 1500'den yüksek olduğunda, amaçlananın tersi olan koşul doğru olarak değerlendirilir.",
+                    "updated": 1644673034108
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "To reverse the logic so that the condition may act as a filter, a simple if () {} else {} statement is used. This piece of code is evaluated as follows: if the statement between brackets evaluates true, then the code between the first set of curly brackets is returned, else, the code in the second set of curly brackets is returned."
+            "text": "To reverse the logic so that the condition may act as a filter, a simple if () {} else {} statement is used. This piece of code is evaluated as follows: if the statement between brackets evaluates true, then the code between the first set of curly brackets is returned, else, the code in the second set of curly brackets is returned.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Koşulun bir filtre görevi görmesi için mantığı tersine çevirmek için basit bir if () {} else {} ifadesi kullanılır. Bu kod parçası şu şekilde değerlendirilir: parantezler arasındaki ifade doğru olarak değerlendirilirse, ilk küme parantezleri arasındaki kod, yoksa ikinci küme parantezleri arasındaki kod döndürülür.",
+                    "updated": 1644673041646
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "So, if the condition is meant to prevent the taking of the position when it evaluates true, then the code must return false when the condition evaluates true, and true when the condition evaluates false."
+            "text": "So, if the condition is meant to prevent the taking of the position when it evaluates true, then the code must return false when the condition evaluates true, and true when the condition evaluates false.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bu nedenle, koşul, doğru olarak değerlendirdiğinde konumun alınmasını engellemeyi amaçlıyorsa, koşul doğru olarak değerlendirildiğinde kod false, koşul yanlış olarak değerlendirdiğinde ise doğru döndürmelidir.",
+                    "updated": 1644673049733
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Any number of filters may be used, and different strategies may use different filters. However, all of them are built with the logic described above, using if () {} else {} statements to reverse the logic of the condition."
+            "text": "Any number of filters may be used, and different strategies may use different filters. However, all of them are built with the logic described above, using if () {} else {} statements to reverse the logic of the condition.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Herhangi bir sayıda filtre kullanılabilir ve farklı stratejiler farklı filtreler kullanabilir. Ancak bunların tümü, koşulun mantığını tersine çevirmek için if () {} else {} deyimleri kullanılarak yukarıda açıklanan mantıkla oluşturulmuştur.",
+                    "updated": 1644673057591
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Open Stage"
+            "text": "Open Stage",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Açık Aşama(Open Stage)",
+                    "updated": 1644673110162
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Initial Stop"
+            "text": "Initial Stop",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İlk Durdurma",
+                    "updated": 1644673136129
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The initial stop is set at 3% above the position rate...",
-            "updated": 1611679041860
+            "updated": 1611679041860,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İlk durdurma, konum oranının %3 üzerine ayarlanmıştır...",
+                    "updated": 1644673144012
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -432,12 +1048,26 @@
         },
         {
             "style": "Subtitle",
-            "text": "Initial Take Profit"
+            "text": "Initial Take Profit",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İlk Kar Al",
+                    "updated": 1644673269472
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Initial take profit is set 5% below the position rate...",
-            "updated": 1611679059515
+            "updated": 1611679059515,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İlk alım karı, pozisyon oranının %5 altında belirlenir...",
+                    "updated": 1644673277102
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -445,40 +1075,103 @@
         },
         {
             "style": "Subtitle",
-            "text": "Position Size"
+            "text": "Position Size",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Pozisyon Boyutu",
+                    "updated": 1644673292986
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The positionSize is set to balanceBaseAsset by default. This means that the trading system takes positions with the whole balance, that is, the initialBalance as defined in the configuration of the base asset parameter of the trading session, plus all accumulated profits if any."
+            "text": "The positionSize is set to balanceBaseAsset by default. This means that the trading system takes positions with the whole balance, that is, the initialBalance as defined in the configuration of the base asset parameter of the trading session, plus all accumulated profits if any.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "PositionSize varsayılan olarak BalanceBaseAsset olarak ayarlanmıştır. Bu, işlem sisteminin tüm bakiyeyle, yani işlem seansının temel varlık parametresinin yapılandırmasında tanımlandığı gibi başlangıç Bakiyesi artı varsa tüm birikmiş karlarla pozisyon aldığı anlamına gelir.",
+                    "updated": 1644673299943
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "You may change this formula to fit your specific goals and risk management style."
+            "text": "You may change this formula to fit your specific goals and risk management style.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bu formülü, belirli hedeflerinize ve risk yönetim tarzınıza uyacak şekilde değiştirebilirsiniz.",
+                    "updated": 1644673307276
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Manage Stage"
+            "text": "Manage Stage",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Aşamayı Yönet",
+                    "updated": 1644673331068
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The logic behind the management of trades varies between strategies, and is one of the key strategy design elements of the trading system. Being able to apply different management rules to trades that occur in diverse market situations is a highly valuable feature."
+            "text": "The logic behind the management of trades varies between strategies, and is one of the key strategy design elements of the trading system. Being able to apply different management rules to trades that occur in diverse market situations is a highly valuable feature.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İşlemlerin yönetiminin arkasındaki mantık, stratejiler arasında farklılık gösterir ve ticaret sisteminin temel strateji tasarım öğelerinden biridir. Farklı piyasa durumlarında meydana gelen işlemlere farklı yönetim kurallarını uygulayabilmek oldukça değerli bir özelliktir.",
+                    "updated": 1644673338520
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "That said, the management is based on the same principles across the trading system, and what may vary across strategies are the specific conditions that implement the switching of phases."
+            "text": "That said, the management is based on the same principles across the trading system, and what may vary across strategies are the specific conditions that implement the switching of phases.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bununla birlikte, yönetim, ticaret sistemi genelinde aynı ilkelere dayanmaktadır ve stratejiler arasında farklılık gösterebilecek olan şey, aşamaların değiştirilmesini uygulayan özel koşullardır.",
+                    "updated": 1644673365605
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The following is the overall description of the principles. You may look into the specific rules by analyzing the move to phase events of each strategy."
+            "text": "The following is the overall description of the principles. You may look into the specific rules by analyzing the move to phase events of each strategy.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Aşağıda ilkelerin genel açıklaması yer almaktadır. Her stratejinin aşamaya geçiş olaylarını analiz ederek belirli kuralları inceleyebilirsiniz.",
+                    "updated": 1644673374395
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Stop Loss Management"
+            "text": "Stop Loss Management",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Zararı Durdurma Yönetimi",
+                    "updated": 1644673407574
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The intial formula is overriden when a candle closes 3% below the position rate...",
-            "updated": 1611679099625
+            "updated": 1611679099625,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bir mum pozisyon oranının %3 altında kapandığında ilk formül geçersiz kılınır...",
+                    "updated": 1644673443144
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -488,7 +1181,14 @@
         {
             "style": "Text",
             "text": "There is only one additional phase to manage the stop loss, which sets a trailling stop 2% above the 20-periods moving average...",
-            "updated": 1611679146316
+            "updated": 1611679146316,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Durdurma kaybını yönetmek için yalnızca bir ek aşama vardır, bu da 20 dönemlik hareketli ortalamanın %2 üzerinde bir takip eden durdurma belirler...",
+                    "updated": 1644673455943
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -501,12 +1201,26 @@
         },
         {
             "style": "Callout",
-            "text": "Let’s unpack the syntax, including the if () {} else {} statement you are already familiar with…"
+            "text": "Let’s unpack the syntax, including the if () {} else {} statement you are already familiar with…",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Halihazırda aşina olduğunuz if () {} else {} ifadesi de dahil olmak üzere söz dizimini açalım…",
+                    "updated": 1644673519330
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "In this case, the condition being evaluated is...",
-            "updated": 1611679223835
+            "updated": 1611679223835,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bu durumda, değerlendirilmekte olan koşul...",
+                    "updated": 1644673528115
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -515,19 +1229,47 @@
         },
         {
             "style": "Text",
-            "text": "... which intends to determine if the price 2% above the moving average is lower than the current value for the stop loss. In case the statement is true, then the same statement is set as the valid formula to calculate the trailing stop. In case the statement is false, then the stop loss value is left as is."
+            "text": "... which intends to determine if the price 2% above the moving average is lower than the current value for the stop loss. In case the statement is true, then the same statement is set as the valid formula to calculate the trailing stop. In case the statement is false, then the stop loss value is left as is.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "... hareketli ortalamanın %2 üzerindeki fiyatın, stop loss için mevcut değerden düşük olup olmadığını belirlemeyi amaçlar. İfadenin doğru (true) olması durumunda, takip eden durağı hesaplamak için aynı ifade geçerli formül olarak ayarlanır. İfadenin yanlış (false) olması durumunda zararı durdur değeri olduğu gibi bırakılır.",
+                    "updated": 1644673622381
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In other words, the new stop loss set for the current candle can never be higher than the one set for the previous candle. That is, the stop loss may not increase—it either decreases or stays the same."
+            "text": "In other words, the new stop loss set for the current candle can never be higher than the one set for the previous candle. That is, the stop loss may not increase—it either decreases or stays the same.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Diğer bir deyişle, mevcut mum için belirlenen yeni zarar durdurma ayarı, hiçbir zaman önceki mum için belirlenenden daha yüksek olamaz. Yani, stop loss artmayabilir - ya azalır ya da aynı kalır.",
+                    "updated": 1644673648820
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Take Profit Management"
+            "text": "Take Profit Management",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Kâr Yönetimini Al",
+                    "updated": 1644673682249
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The initial formula is overriden when the following two conditions in the next phase event validate true:"
+            "text": "The initial formula is overriden when the following two conditions in the next phase event validate true:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bir sonraki aşama olayında aşağıdaki iki koşul doğrulandığında ilk formül geçersiz kılınır:",
+                    "updated": 1644673715861
+                }
+            ]
         },
         {
             "style": "List",
@@ -539,7 +1281,14 @@
         },
         {
             "style": "Text",
-            "text": "The 7-periods exponential moving average (EMA) must go below the position rate."
+            "text": "The 7-periods exponential moving average (EMA) must go below the position rate.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "7 dönemlik üstel hareketli ortalama (EMA) pozisyon oranının altına düşmelidir.",
+                    "updated": 1644673733222
+                }
+            ]
         },
         {
             "style": "List",
@@ -551,19 +1300,47 @@
         },
         {
             "style": "Text",
-            "text": "The position must be more than two-periods long."
+            "text": "The position must be more than two-periods long.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Pozisyon, iki periyoddan uzun olmalıdır.",
+                    "updated": 1644673770324
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The management of take profit targets is handled with three different phases:"
+            "text": "The management of take profit targets is handled with three different phases:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Kâr al hedeflerinin yönetimi üç farklı aşamada gerçekleştirilir:",
+                    "updated": 1644673779131
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Manage Phase"
+            "text": "Manage Phase",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Aşamayı Yönet",
+                    "updated": 1644673793543
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "It is the phase that kicks in once the initial take profit next phase event validates true. The formula for the manage phase is:"
+            "text": "It is the phase that kicks in once the initial take profit next phase event validates true. The formula for the manage phase is:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İlk kar al sonraki aşama olayı doğrulandığında başlayan aşamadır. Yönetim aşamasının formülü şudur:",
+                    "updated": 1644673807758
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -572,19 +1349,47 @@
         },
         {
             "style": "Text",
-            "text": "This means that the take profit target is set 3% below the 7-periods EMA when the resulting value is at least 3% below the position rate. If that is not the case, then the take profit target is set 3% below the position rate."
+            "text": "This means that the take profit target is set 3% below the 7-periods EMA when the resulting value is at least 3% below the position rate. If that is not the case, then the take profit target is set 3% below the position rate.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bu, elde edilen değer pozisyon oranının en az %3 altında olduğunda, kar al hedefinin 7 dönemlik EMA'nın %3 altına ayarlandığı anlamına gelir. Eğer durum böyle değilse, o zaman kar al hedefi pozisyon oranının %3 altına ayarlanır.",
+                    "updated": 1644673856636
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The logic behind this formula is that some room should be allowed for the trade to develop, but still, profit shall be taken at 3% if a downward trend does not emerge. If price ranges above the position rate, then the target remains at 3%, pretty much like with the initial setting. If a sudden move or a wick drops to at least 3% below the take position rate, then the take position target is likely to be hit. However, if price starts dropping organically, then the 7 EMA will soon drop below the position rate and the formula will result in a value that is lower than 3% below the position rate, thus, allowing the trade to develop in the expected direction."
+            "text": "The logic behind this formula is that some room should be allowed for the trade to develop, but still, profit shall be taken at 3% if a downward trend does not emerge. If price ranges above the position rate, then the target remains at 3%, pretty much like with the initial setting. If a sudden move or a wick drops to at least 3% below the take position rate, then the take position target is likely to be hit. However, if price starts dropping organically, then the 7 EMA will soon drop below the position rate and the formula will result in a value that is lower than 3% below the position rate, thus, allowing the trade to develop in the expected direction.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bu formülün arkasındaki mantık, ticaretin gelişmesi için bir miktar alana izin verilmesi gerektiğidir, ancak yine de düşüş eğilimi ortaya çıkmazsa %3 oranında kar alınacaktır. Fiyat, pozisyon oranının üzerindeyse, hedef, ilk ayarda olduğu gibi, %3'te kalır. Ani bir hareket veya fitil, pozisyon alma oranının en az %3 altına düşerse, pozisyon alma hedefinin vurulması muhtemeldir. Ancak, fiyat organik olarak düşmeye başlarsa, 7 EMA yakında pozisyon oranının altına düşecek ve formül pozisyon oranının %3'ten daha düşük bir değerle sonuçlanacak ve böylece ticaretin beklenen yönde gelişmesine izin verecek.",
+                    "updated": 1644673866744
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Close Phase"
+            "text": "Close Phase",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Aşamayı Kapat",
+                    "updated": 1644673894489
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The close phase is the phase that is activated every time there is an indication the market may turn against the trade. The take profit formula for this phase is:"
+            "text": "The close phase is the phase that is activated every time there is an indication the market may turn against the trade. The take profit formula for this phase is:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Kapanış aşaması, piyasanın ticaret aleyhine dönebileceğine dair bir gösterge olduğu her zaman etkinleştirilen aşamadır. Bu aşama için kar al formülü:",
+                    "updated": 1644673905174
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -593,15 +1398,36 @@
         },
         {
             "style": "Text",
-            "text": "This means that the take profit target is set to the lower Bollinger Band when the value is at least 3% below the position rate, otherwise, it is set 3% below the position rate."
+            "text": "This means that the take profit target is set to the lower Bollinger Band when the value is at least 3% below the position rate, otherwise, it is set 3% below the position rate.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bu, değer pozisyon oranının en az %3 altında olduğunda kâr al hedefinin alt Bollinger Bandına ayarlandığı, aksi takdirde pozisyon oranının %3 altına ayarlandığı anlamına gelir.",
+                    "updated": 1644673940415
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Run Phase"
+            "text": "Run Phase",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Aşama Çalıştır",
+                    "updated": 1644673979563
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "This is the phase that is activated every time there is an indication that a downtrend may accelerate, favoring the trade and letting it run freely. The take profit formula for this phase is:"
+            "text": "This is the phase that is activated every time there is an indication that a downtrend may accelerate, favoring the trade and letting it run freely. The take profit formula for this phase is:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bu, bir düşüş trendinin hızlanabileceğine, ticareti destekleyebileceğine ve serbestçe çalışmasına izin verebileceğine dair bir gösterge olduğu her zaman etkinleştirilen aşamadır. Bu aşama için kar al formülü:",
+                    "updated": 1644673987019
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -610,15 +1436,36 @@
         },
         {
             "style": "Text",
-            "text": "The take profit target is set 20% below the 7 EMA if the value is at least 3% below the position rate, which is the most likely scenario, and to 3% below the position rate in case it is not. As hinted earlier, the goal of this phase is to let the trade run freely, still with the trailing stop securing profits 2% above the 7 EMA."
+            "text": "The take profit target is set 20% below the 7 EMA if the value is at least 3% below the position rate, which is the most likely scenario, and to 3% below the position rate in case it is not. As hinted earlier, the goal of this phase is to let the trade run freely, still with the trailing stop securing profits 2% above the 7 EMA.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Kar al hedefi, değer en olası senaryo olan pozisyon oranının en az %3 altındaysa 7 EMA'nın %20 altına, olmaması durumunda ise pozisyon oranının %3 altına ayarlanır. Daha önce de ima edildiği gibi, bu aşamanın amacı, 7 EMA'nın %2 üzerinde kar sağlayan son durak ile ticaretin serbestçe çalışmasına izin vermektir.",
+                    "updated": 1644674010414
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Switching Phases"
+            "text": "Switching Phases",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Aşamaları Değiştirmek",
+                    "updated": 1644674021932
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In general terms, the Manage Phase may switch to both the Close Phase and the Run Phase discretionarily. The Close Phase may cancel the close intention and go back to the Manage Phase, or even go straight to the Run Phase if the market situation demands it. And the Run phase may cancel the run and go back to the Manage Phase."
+            "text": "In general terms, the Manage Phase may switch to both the Close Phase and the Run Phase discretionarily. The Close Phase may cancel the close intention and go back to the Manage Phase, or even go straight to the Run Phase if the market situation demands it. And the Run phase may cancel the run and go back to the Manage Phase.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Genel anlamda, Yönetim Aşaması isteğe bağlı olarak hem Kapatma Aşamasına hem de Çalıştırma Aşamasına geçebilir. Kapatma Aşaması, kapatma niyetini iptal edebilir ve Yönetim Aşamasına geri dönebilir, hatta piyasa durumu gerektiriyorsa doğrudan Çalıştırma Aşamasına gidebilir. Ve Çalıştırma aşaması, çalıştırmayı iptal edebilir ve Yönetim Aşamasına geri dönebilir.",
+                    "updated": 1644674043608
+                }
+            ]
         },
         {
             "style": "Png",
@@ -628,19 +1475,47 @@
         {
             "style": "Text",
             "text": "The specific conditions for switching from one phase to another phase may vary in each strategy. You may review each particular case to get the details, but conceptually, this is how it works:",
-            "updated": 1611680120628
+            "updated": 1611680120628,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bir aşamadan diğerine geçiş için özel koşullar her stratejide farklılık gösterebilir. Ayrıntıları almak için her bir vakayı inceleyebilirsiniz, ancak kavramsal olarak şu şekilde çalışır:",
+                    "updated": 1644674073873
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Move to Close Phase Event: A convergence between EMA 7 and EMA 14 signals that the downward move is losing steam, thus a switch to the close phase for a tighter take profit target is in order. The close phase may cancel when the convergence recedes and divergence is spotted."
+            "text": "Move to Close Phase Event: A convergence between EMA 7 and EMA 14 signals that the downward move is losing steam, thus a switch to the close phase for a tighter take profit target is in order. The close phase may cancel when the convergence recedes and divergence is spotted.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Kapanış Aşamasına Geçme Olayı: EMA 7 ve EMA 14 arasındaki bir yakınsama, aşağı yönlü hareketin güç kaybettiğini gösterir, bu nedenle daha sıkı bir kâr alma hedefi için kapanış aşamasına geçiş yapılması gerekir. Yakınsama gerilediğinde ve sapma tespit edildiğinde, kapatma aşaması iptal edilebilir.",
+                    "updated": 1644674081625
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Move to Run Phase Event: A divergence between EMA 7 and EMA 14, confirmed by a divergence between EMA 14 and EMA 21 indicates that the downward trend is deepening and gaining momentum, thus, allowing the trade to run is the best bet, always with a tight top trailing behind the EMA 7. A run may cancel when the divergence recedes and convergence is spotted."
+            "text": "Move to Run Phase Event: A divergence between EMA 7 and EMA 14, confirmed by a divergence between EMA 14 and EMA 21 indicates that the downward trend is deepening and gaining momentum, thus, allowing the trade to run is the best bet, always with a tight top trailing behind the EMA 7. A run may cancel when the divergence recedes and convergence is spotted.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Çalışma Aşamasına Geçiş Etkinliği: EMA 7 ve EMA 14 arasındaki bir sapma, EMA 14 ve EMA 21 arasındaki bir sapma ile onaylanır, düşüş eğiliminin derinleştiğini ve ivme kazandığını gösterir, bu nedenle ticaretin devam etmesine izin vermek her zaman en iyi bahistir. EMA 7'nin arkasında sıkı bir üst kısım. Ayrışma azaldığında ve yakınsama tespit edildiğinde bir koşu iptal edilebilir.",
+                    "updated": 1644674089400
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Warning and Disclaimer"
+            "text": "Warning and Disclaimer",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Uyarı ve Sorumluluk Reddi",
+                    "updated": 1644674107494
+                }
+            ]
         },
         {
             "style": "Include",

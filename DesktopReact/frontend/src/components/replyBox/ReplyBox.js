@@ -1,14 +1,16 @@
+import React, {useState} from "react";
+import {useSelector} from 'react-redux';
 import {Avatar, Button, Stack, TextField} from "@mui/material";
 import pic from "../../images/superalgos.png";
-import React, {useState} from "react";
 import {createReply} from "../../api/post.httpService";
-import "./ReplyBox.css"
 import {STATUS_OK} from "../../api/httpConfig";
+import "./ReplyBox.css"
 
 
 const ReplyBox = ({postHash, targetSocialPersonaId, closeModal}) => {
     /*** Variables */
     const [reply, setReply] = useState('');
+    const {profilePic} = useSelector(state => state.profile.actualUser);
 
 
     /*** Methods */
@@ -17,8 +19,6 @@ const ReplyBox = ({postHash, targetSocialPersonaId, closeModal}) => {
     }
 
     const onButtonClick = async () => {
-        console.log("replying")
-        console.log(postHash)
         let {status} = await createReply({
             postText: reply,
             postHash,
@@ -31,7 +31,7 @@ const ReplyBox = ({postHash, targetSocialPersonaId, closeModal}) => {
     }
 
     return <Stack direction="row" className="reply" /*justifyContent="space-between"*/>
-        <Avatar src={pic} className="avatar"/>
+        <Avatar src={profilePic || pic}/>
         <TextField className="replyText"
                    id="outlined-multiline-flexible"
                    label="Post your reply"

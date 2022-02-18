@@ -34,6 +34,16 @@
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "networkInterfaces",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Network Interfaces",
+            "relatedUiObject": "Network Interfaces",
+            "relatedUiObjectProject": "Network"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "availableStorage",
             "actionFunction": "payload.executeAction",
             "label": "Add Available Storage",
@@ -55,7 +65,7 @@
         "config": true
     },
     "initialValues": {
-        "config": "{ \n\"codeName\": \"\", \n\"host\": \"localhost\", \n\"webPort\": \"31248\", \n\"webSocketsPort\": \"18042\"\n}"
+        "config": "{ \n\"codeName\": \"\", \n\"host\": \"localhost\" \n}"
     },
     "addLeftIcons": true,
     "level": 1,
@@ -81,6 +91,13 @@
             "name": "networkServices",
             "type": "node",
             "childType": "Network Services",
+            "project": "Network",
+            "autoAdd": true
+        },
+        {
+            "name": "networkInterfaces",
+            "type": "node",
+            "childType": "Network Interfaces",
             "project": "Network",
             "autoAdd": true
         },

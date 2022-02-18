@@ -5,6 +5,10 @@ const router = express.Router();
 
 router
     .route('')
+    .post(postController.createPost);
+
+router
+    .route('')
     .get(postController.getPosts);
 
 router
@@ -16,14 +20,14 @@ router
     .get(postController.getFeed);
 
 router
-    .route('')
-    .post(postController.createPost);
+    .route('/reactions')
+    .post(postController.postReactions)
 
 router
     .route('/replies')
     .get(postController.getReplies);
 
-    router
+router
     .route('/replies')
     .post(postController.createReply);
 

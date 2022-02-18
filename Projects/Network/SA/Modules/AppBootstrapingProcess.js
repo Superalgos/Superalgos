@@ -8,9 +8,8 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
     2. Load User Profiles
     3. Identify all P2P Network Nodes.
     4. Identify the node representing the Identity of the current running App.
-    5. Setting up the User Social Profiles.
-    6. Setting up Storage Containers.
-    7. TODO: Calculate Profiles Rankings.    
+    5. Setting up Storage Containers.
+    6. TODO: Calculate Profiles Rankings.    
 
     */
     let thisObject = {
@@ -171,9 +170,6 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                                 networkClient.config !== undefined
                             ) {
                                 if (networkClient.config.host === undefined) {
-                                    return
-                                }
-                                if (networkClient.config.webSocketsPort === undefined) {
                                     return
                                 }
 

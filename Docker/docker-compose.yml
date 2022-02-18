@@ -14,4 +14,6 @@ services:
       - ../Platform/My-Data-Storage:/app/Platform/My-Data-Storage
       - ../Platform/My-Log-Files:/app/Platform/My-Log-Files
       - ../Platform/My-Workspaces:/app/Platform/My-Workspaces
+      - ../Platform/My-Network-Nodes-Data:/app/Platform/My-Network-Nodes-Data
+      - ../Platform/My-Social-Trading-Data:/app/Platform/My-Social-Trading-Data
     restart: on-failure

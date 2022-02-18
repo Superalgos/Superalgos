@@ -36,6 +36,11 @@
                 "language": "RU",
                 "text": "Допустим, вы хотите протестировать стратегию с разными наборами параметров, поэтому вы можете сделать резервную копию узла Trading Parameters!",
                 "updated": 1640867716088
+            },
+            {
+                "language": "ID",
+                "text": "Katakanlah kamu ingin menguji strategi dengan set parameter yang berbeda, sehingga kamu mengambil cadangan dari node Trading Parameters!",
+                "updated": 1644516038588
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "RU",
                     "text": "Сделайте резервную копию! Теперь, когда у вас есть резервная копия всех торговых параметров, вы можете изменить любой из них, зная, что вы всегда можете вернуться к резервной копии! Если вы работаете в Chrome, резервная копия должна быть видна в левом нижнем углу окна браузера.",
                     "updated": 1640867747483
+                },
+                {
+                    "language": "ID",
+                    "text": "Cobalah cadangkan! Sekarang kamu memiliki cadangan semua Trading Parameters, Kamu dapat mengubah salah satu dari mereka mengetahui bahwa kamu selalu dapat kembali ke cadanganmu! Jika kamu menggunakan Chrome, hasil cadangan terlihat di sudut kiri bawah jendela browser.",
+                    "updated": 1644516179151
                 }
             ]
         },
@@ -105,6 +115,11 @@
                     "language": "RU",
                     "text": "Теперь перетащите файл резервной копии и бросьте его в пространство проектирования! Вот так можно восстановить резервную копию!",
                     "updated": 1640867780647
+                },
+                {
+                    "language": "ID",
+                    "text": "Sekarang seret file cadangan dan letakkan di Design Space! Begitulah cara kamu mengembalikan hasil cadanganmu!",
+                    "updated": 1644516227078
                 }
             ]
         },
@@ -139,6 +154,11 @@
                     "language": "RU",
                     "text": "Легко, правда? В следующем шаге я покажу вам, как вернуться к использованию оригинальной версии!",
                     "updated": 1640867801136
+                },
+                {
+                    "language": "ID",
+                    "text": "Mudah bukan? Pada step berikutnya, aku akan menunjukkan kepadamu bagaimana kembali ke versi aslinya!",
+                    "updated": 1644516298490
                 }
             ]
         }

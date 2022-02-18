@@ -52,6 +52,11 @@
                     "language": "RU",
                     "text": "Узнайте больше о том, как токен перетекает в эти программы Token Power Flows!",
                     "updated": 1638980741139
+                },
+                {
+                    "language": "TR",
+                    "text": "Token Gücünün (Token Power Flows) bu programlara nasıl dağıldığı hakkında daha fazla bilgi edinin!",
+                    "updated": 1644482064269
                 }
             ]
         },
@@ -73,6 +78,11 @@
                     "language": "RU",
                     "text": "Каждая из программ Community Building Programs имеет связанный пул вознаграждений Rewards Pool и бонусный пул Bonus Pool в разделе Governance Programs > Community Building Programs иерархии пулов Superalgos.",
                     "updated": 1638981148166
+                },
+                {
+                    "language": "TR",
+                    "text": "Topluluk Oluşturma Programlarının (Community Building Programs) her birinin, Superalgos Havuzları (Superalgos Pools) hiyerarşisinin Yönetişim Programları Governance Programs) > Topluluk Oluşturma Programları bölümünde ilişkili bir Ödül Havuzu (Reward Pool) ve bir Bonus Havuzu (Bonus Pool) vardır.",
+                    "updated": 1644482195393
                 }
             ]
         },
@@ -95,6 +105,11 @@
                     "language": "RU",
                     "text": "Стимулы, связанные с Bonus Pool, объясняются в узле Tokens Bonus.",
                     "updated": 1638980907612
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Bonus Havuzuna (Bonus Pool) dahil olan teşvikler, Token Bonusu (Token Bonus) düğümünde açıklanmıştır.",
+                    "updated": 1644482495324
                 }
             ]
         },
@@ -117,6 +132,11 @@
                     "language": "RU",
                     "text": "Давайте рассмотрим, как распределяется каждый Rewards Pool в случае программ построения сообщества. В целом, Referral Program, Support Program и Mentorship Program имеют следующие общие правила:",
                     "updated": 1638981126342
+                },
+                {
+                    "language": "TR",
+                    "text": "Topluluk Oluşturma Programları söz konusu olduğunda her Ödül Havuzunun nasıl dağıtıldığını inceleyelim. Genel olarak, Yönlendirme Programı (Referral Program), Destek Programı (Support Program) ve Mentorluk Programının (Mentorship Program) tümü aşağıdaki ortak kurallara sahiptir:",
+                    "updated": 1644482743309
                 }
             ]
         },
@@ -139,6 +159,11 @@
                     "language": "RU",
                     "text": "Когда на ваш профиль ссылаются другие пользователи через их узлы User Referrer, User Supporter или User Mentor, они передают вам 10% ресурсов реферала, поддержки или наставничества, доступных в узле. Это ваша входящее полномочие Incoming Power в соответствующей программе.",
                     "updated": 1638983130593
+                },
+                {
+                    "language": "TR",
+                    "text": "Profilinize başkaları tarafından Kullanıcı Yönlendiricisi (User Referrer), Kullanıcı Destekçisi (User Supporter) veya Kullanıcı Mentörü 8User Mentor) düğümleri aracılığıyla başvurulduğunda, onlar düğümde size sunulan Yönlendirme Gücünün (Referral Power), Destek Gücünün (Support Power) veya Mentorluk Gücünün (Mentorship Power) %10'unu size iletirler. Bu, ilgili programdaki Gelen Gücünüzdür (Incoming Power).",
+                    "updated": 1644482946637
                 }
             ]
         },
@@ -161,6 +186,11 @@
                     "language": "RU",
                     "text": "Ваша входящее полномочие Incoming Power добавляется к вашим собственным полномочиям Own Power в соответствующей программе, чтобы вы могли передавать больше возможностей другим профилям пользователей. Как и в обратном случае, когда вы ссылаетесь на другие профили пользователей, вы передаете 10% полномочий, которая достигает узла, устанавливающего ссылку.",
                     "updated": 1638983214934
+                },
+                {
+                    "language": "TR",
+                    "text": "Gelen Gücünüz (Incoming Power) , diğer Kullanıcı Profillerine daha fazla yetki aktarabilmeniz için ilgili programda Kendi Gücünüze eklenir. Tersi durumda, diğer Kullanıcı Profillerine referans verdiğinizde, gücünüzün %10'unu aktarırsınız.",
+                    "updated": 1644483687890
                 }
             ]
         },
@@ -183,6 +213,11 @@
                     "language": "RU",
                     "text": "Эта передача 10% полномочий от одного пользователя к другому приводит к вознаграждению за цепочки сотрудничества.",
                     "updated": 1638981420656
+                },
+                {
+                    "language": "TR",
+                    "text": "Gücün %10'unun bir kullanıcıdan diğerine bu geçişi, işbirliği zincirlerini ödüllendirme etkisine sahiptir.",
+                    "updated": 1644483707374
                 }
             ]
         },
@@ -205,6 +240,11 @@
                     "language": "RU",
                     "text": "Например, Алиса рассказывает своему другу Бобу о Superalgos. Когда Боб в конечном итоге настраивает свой профиль пользователя, он объявляет Алису своим рефералом. Это означает, что Алиса получает 10% от реферального полномочия Referral Power, которую Боб передает своему узлу User Referrer. Затем Боб приводит своего друга Чарли в Superalgos. Чарли создает свой профиль и объявляет Боба своим рефералом. Итак, теперь Боб получает 10% реферального полномочия, которую Чарли направляет на его узел User Referrer.",
                     "updated": 1638983297180
+                },
+                {
+                    "language": "TR",
+                    "text": "Örneğin Cem, arkadaşı Bülent'e'Superalgos'u anlatır. Bülent Kullanıcı Profilini (User Profile) oluşturduğunda, Cem'i yönlendiren kişi olarak ilan eder. Bu, Cem'in, Bülent'in Kullanıcı Yönlendiren (User Referrer) düğümüne yönlendirdiği Yönlendirme Gücünün %10'unu aldığı anlamına gelir. Ardından Bülent, arkadaşı Alptuğ'u Superalgos'a getirir. Alptuğ profilini oluşturur ve Bülent'i yönlendiren kişi olarak ilan eder.Bülent'te, Alptuğ'un Kullanıcı Yönlendiren düğümüne yönlendirdiği Yönlendirme Gücünün %10'unu alır. Alpuğ, Gabriel'e Superalgos'u anlatıp davet ettiğinde ise yine aynı süreç devam eder...",
+                    "updated": 1644484419227
                 }
             ]
         },
@@ -227,6 +267,11 @@
                     "language": "RU",
                     "text": "Вы видите, что происходит с входящим реферальным полномочием Referral Power Алисы? Вот и все! Она получает 10% полномочий Боба, включая 10% полномочий Чарли и так далее!",
                     "updated": 1638983372019
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Cem'in Gelen Yönlendirme Gücüne ne olduğunu görebiliyor musunuz? Budur! Alptuğ'un gücünün %10'u da dahil olmak üzere Bülent'in'gücünün %10'unu alır!",
+                    "updated": 1644484612990
                 }
             ]
         },
@@ -248,6 +293,11 @@
                     "language": "RU",
                     "text": "Практически то же самое происходит с Support Program и Mentorship Program.",
                     "updated": 1638981842735
+                },
+                {
+                    "language": "TR",
+                    "text": "Hemen hemen aynı şey Destek Programı ve Mentorluk Programı için de geçerlidir.",
+                    "updated": 1644484633076
                 }
             ]
         },
@@ -297,6 +347,11 @@
                     "language": "RU",
                     "text": "Конфигурация",
                     "updated": 1638982031084
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırma",
+                    "updated": 1644484765972
                 }
             ]
         }

@@ -2,14 +2,12 @@
     display: flex;
     justify-content: center;
     align-items: stretch;
-    height: 98vh;
-    max-height: 98vh;
+    max-height: 100vh;
 }
 
-.appContainer{
-    /*justify-content: space-around;*/
+.appContainer {
 }
 
-.middleSection{
+.middleSection {
     width: 40rem;
 }

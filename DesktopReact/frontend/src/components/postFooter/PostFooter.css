@@ -1,35 +1,27 @@
 .postFooterContainer {
     display: flex;
-    justify-content: flex-start;
-    width: 100%;
-    padding-top: 0.50rem;
-    padding-bottom: 0.50rem;
-}
-.postFooterContainerStack{
-    display: flex;
-    justify-content: flex-start;
-    padding-left: 10px;
+    justify-content: center;
     width: 100%;
 }
 
 .postFooterContainerSpeedDial { /* size of the reaction div */
-    width: 45%;
+    width: 30%;
+    position: relative;
 }
 
 .footerCommentContainer {
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    width: 36%;
 }
 
 .postFooterComment {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 17%;
 }
 
-.commentIconButton{
+.commentIconButton {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -39,13 +31,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 17%;
 }
 
-.repostIconButton{
+.repostIconButton {
 }
 
-.reactionsButtons{
+.reactionsButtons {
     position: relative !important;
     min-height: 0.5rem;
     width: 1.8rem !important;
@@ -53,16 +44,15 @@
     box-shadow: none !important;
     margin: 0.20rem !important;
 }
-/* below code is speed dial selectors for reaction icons. need clean up, not achieved the action intended.
-    needs to be relative position (just above the current position, 40px aprox)
-*/
-.MuiSpeedDial-actions{
+
+.MuiSpeedDial-actions {
     margin-left: -45px !important;
-    bottom: 40px;
-    left: -40px;
-    pointer-events: auto !important;
+    bottom: 30px;
+    left: -43px;
+    pointer-events: auto !important; /* without this, the div component container of reactions wont be focusable */
     border-radius: 20px;
     background-clip: content-box;
-    background-color: white;
-    position: inherit;
+    position: absolute;
+    padding-left: 0px !important;
+    background-color: lightgray !important;
 }

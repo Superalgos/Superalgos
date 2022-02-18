@@ -1,39 +1,71 @@
 import "./UserProfile.css"
 import React, {useEffect, useState} from 'react';
-import UserProfileHeader from "../userProfileHeader/UserProfileHeader";
+import {useSelector} from 'react-redux'
+import {useLocation} from 'react-router-dom'
 import {Alert, Snackbar, Stack} from "@mui/material";
+import UserProfileHeader from "../userProfileHeader/UserProfileHeader";
+import Post from "../post/Post";
 import PostsFeed from "../postsFeed/PostsFeed";
 import {getPosts} from "../../api/post.httpService";
+import {getProfile} from "../../api/profile.httpService";
 import {STATUS_OK} from "../../api/httpConfig";
-import Post from "../post/Post";
 
 const UserProfile = () => {
     const [posts, setPosts] = useState([]);
     const [postLoading, setPostLoading] = useState(true);
     const [openSnack, setSnackOpen] = useState(false);
+    const [externalProfile, setExternalProfile] = useState();
+    const actualUser = useSelector(state => state.profile.actualUser)
+    const {search} = useLocation();
+    const urlSearchParams = React.useMemo(() => new URLSearchParams(search), [search]);
+    const queryParams = {
+        externalProfile: urlSearchParams.get("p"),
+    }
 
     useEffect(() => {
+        const loadExternalprofile = async () => {
+            const {
+                data,
+                result
+            } = await getProfile({socialPersonaId: queryParams.externalProfile}).then(response => response.json())
+            if (result === STATUS_OK) {
+                setExternalProfile(data);
+            }
+        }
+        if (queryParams.externalProfile) {
+            loadExternalprofile();
+        } else {
+            setExternalProfile(null)
+        }
         loadPosts();
-    }, []);
+    }, [queryParams.externalProfile]);
+
+    const drawPosts = (rawPosts) => {
+        const mappedPosts = rawPosts.map((post) => {
+            const postData = {
+                postText: post.postText,
+                originPostHash: post.originPostHash,
+                reactions: post.reactions,
+                postType: post.postType,
+                repliesCount: post.repliesCount,
+                creator: {
+                    name: actualUser.name,
+                    profilePic: actualUser.profilePic,
+                    originSocialPersonaId: actualUser.originSocialPersonaId,
+                    username: actualUser.userProfileHandle
+                }
+            }
+            return <Post key={post.originPostHash} id={post.originPostHash}
+                         postData={postData}/>
+        });
+        setPosts(mappedPosts)
+    }
 
     const loadPosts = async () => {
         setPostLoading(true)
-        // let queryParams = userId ? {userId: userId} : undefined;
-        let {
-            data, result
-        } = await getPosts().then(response => response.json());
+        const {data, result} = await getPosts().then(response => response.json());
         if (result === STATUS_OK) {
-            let mappedPosts = data.map((post, index) => {
-/*
-                if (post.eventType !== 10) {
-                    /!* TODO add other post types*!/
-                    return;
-                }
-*/
-                return <Post key={post.originPostHash} id={post.originPostHash}
-                             postData={post}/>
-            });
-            setPosts(mappedPosts);
+            drawPosts(data);
         }
         setPostLoading(false);
     }
@@ -49,8 +81,13 @@ const UserProfile = () => {
                alignItems="center"
                spacing={1}
                className="middleSection">
-            <UserProfileHeader/>
-            <PostsFeed posts={posts} loading={postLoading}/>
+            <UserProfileHeader user={externalProfile ? externalProfile : actualUser}
+                               isExternalProfile={!!externalProfile}/>
+            {
+                !externalProfile
+                    ? <PostsFeed posts={posts} loading={postLoading}/>
+                    : <></>
+            }
         </Stack>
         <Snackbar open={openSnack} autoHideDuration={6000} onClose={handleSnackClose}>
             <Alert onClose={handleSnackClose} severity="info" sx={{width: '100%'}}>

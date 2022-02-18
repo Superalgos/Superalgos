@@ -43,7 +43,16 @@
     margin-bottom: 0.4rem !important;
     margin-right: 1.25rem !important;
     height: 1.5rem;
-    width: 8.3rem;
+    width: 8.6rem;
+    border-radius: 20px !important;
+}
+
+.followButtonExternalProfile {
+    margin-bottom: 0.4rem !important;
+    margin-right: 1.25rem !important;
+    height: 1.5rem;
+    width: 8.6rem;
+    border-radius: 20px !important;
 }
 
 .stats {
@@ -83,7 +92,7 @@
     color: #6b6b6b;
 }
 
-.profileIcons{ /* css not working in component icons. Used a workaround. Help xD */
+.profileIcons {
     width: 15px;
     height: 15px;
     vertical-align: text-top;

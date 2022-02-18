@@ -100,9 +100,6 @@ function newWorkspacesSystemActionUndoRedo() {
                     case 'Add Missing Crypto Exchanges':
                     case 'Add Missing Assets':
                     case 'Add Missing Markets':
-                    //doesn’t work:
-                    //case 'Install Market':
-                    //case 'Uninstall Market':
                     case 'Add All Data Products':
                     case 'Add All Data Mine Products':
                     case 'Add All Learning Mine Products':
@@ -136,7 +133,7 @@ function newWorkspacesSystemActionUndoRedo() {
                     case 'Add Missing Children':
                     /* Workspaces actions */
                     case 'Add Missing Workspace Projects':
-                    case 'Add Specified Workspace Project':
+                    case 'Add Specified Project':
                         undoStack[i].nodeClones = []
                         for (let newUiObject of undoStack[i].newUiObjects) {
                             node = await UI.projects.workspaces.spaces.designSpace.workspace.getNodeById(newUiObject.id)
@@ -291,7 +288,7 @@ function newWorkspacesSystemActionUndoRedo() {
 
                     case 'Snap saved node to position':
                         node = await UI.projects.workspaces.spaces.designSpace.workspace.getNodeById(undoStack[i].nodeId)
-                    case 'Drag Node':
+                    case 'Move Node':
                         previousPosition = {
                             x: node.payload.position.x,
                             y: node.payload.position.y
@@ -405,9 +402,6 @@ function newWorkspacesSystemActionUndoRedo() {
                     case 'Add Missing Crypto Exchanges':
                     case 'Add Missing Assets':
                     case 'Add Missing Markets':
-                    //doesn’t work:
-                    //case 'Install Market':
-                    //case 'Uninstall Market':
                     case 'Add All Data Products':
                     case 'Add All Data Mine Products':
                     case 'Add All Learning Mine Products':
@@ -441,7 +435,7 @@ function newWorkspacesSystemActionUndoRedo() {
                     case 'Add Missing Children':
                     /* Workspaces actions */
                     case 'Add Missing Workspace Projects':
-                    case 'Add Specified Workspace Project':
+                    case 'Add Specified Project':
                         for (let nodeClone of redoStack[i].nodeClones) {
                             node = (nodeClone.cleaned !== true) ?
                                 nodeClone :
@@ -598,7 +592,7 @@ function newWorkspacesSystemActionUndoRedo() {
 
                     case 'Snap saved node to position':
                         node = await UI.projects.workspaces.spaces.designSpace.workspace.getNodeById(redoStack[i].nodeId)
-                    case 'Drag Node':
+                    case 'Move Node':
                         let previousPosition = {
                             x: node.payload.position.x,
                             y: node.payload.position.y

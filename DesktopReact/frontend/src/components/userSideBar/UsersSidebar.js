@@ -7,10 +7,10 @@ const UsersSidebar = () => {
     const drawerWidth = 240;
     const showMoreCallback = () => console.log("clicked show more");
     return (
-        <Drawer
-            variant="permanent"
-            PaperProps={{style: {position: "relative"}}}
-            sx={{display: {xs: 'none', sm: 'none', md: 'block'}}}>
+        <Drawer className="usersSidebarContainer"
+                variant="permanent"
+                PaperProps={{style: {position: "relative"}}}
+                sx={{display: {xs: 'none', sm: 'none', md: 'block'}}}>
             <Stack
                 direction="column"
                 justifyContent="flex-start"

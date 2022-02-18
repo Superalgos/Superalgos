@@ -70,7 +70,10 @@ exports.newNetworkApp = function newNetworkApp() {
                 thisObject.p2pNetworkNode.node.networkServices.socialGraph !== undefined
             ) {
                 thisObject.socialGraphNetworkService = NT.projects.socialTrading.modules.socialGraphNetworkService.newSocialTradingModulesSocialGraphNetworkService()
-                await thisObject.socialGraphNetworkService.initialize()
+                await thisObject.socialGraphNetworkService.initialize(
+                    thisObject.p2pNetworkNode,
+                    thisObject.p2pNetworkReachableNodes
+                )
                 console.log('Social Graph Network Service ................................................. Running')
             }
 
@@ -85,18 +88,42 @@ exports.newNetworkApp = function newNetworkApp() {
         }
 
         function setupNetworkInterfaces() {
-            /*
-             Other Network Nodes and Client Apps will communicate with this Network Node via it's Websocket Interface.
-             */
-            thisObject.webSocketsInterface = NT.projects.network.modules.webSocketsInterface.newNetworkModulesWebSocketsInterface()
-            thisObject.webSocketsInterface.initialize()
-            console.log('Network Node Web Sockets Interface ........................................... Listening at port ' + NT.networkApp.p2pNetworkNode.node.config.webSocketsPort)
-            /*
-            Other Network Nodes and Client Apps will communicate with this Network Node via it's HTTP Interface.
-            */
-            thisObject.httpInterface = NT.projects.network.modules.httpInterface.newNetworkModulesHttpInterface()
-            thisObject.httpInterface.initialize()
-            console.log('Network Node Http Interface .................................................. Listening at port ' + NT.networkApp.p2pNetworkNode.node.config.webPort)
+            if (
+                thisObject.p2pNetworkNode.node.networkInterfaces !== undefined &&
+                thisObject.p2pNetworkNode.node.networkInterfaces.websocketsNetworkInterface !== undefined
+            ) {
+                /*
+                 Other Network Nodes and Client Apps will communicate with this Network Node via it's Websocket Interface.
+                 */
+                thisObject.webSocketsInterface = NT.projects.network.modules.webSocketsInterface.newNetworkModulesWebSocketsInterface()
+                thisObject.webSocketsInterface.initialize()
+                console.log('Network Node Web Sockets Interface ........................................... Listening at port ' + NT.networkApp.p2pNetworkNode.node.networkInterfaces.websocketsNetworkInterface.config.webSocketsPort)
+            }
+/*
+TODO this breaks the network if uncommented with a complete p2p node tree setted up
+            if (
+                thisObject.p2pNetworkNode.node.networkInterfaces !== undefined &&
+                thisObject.p2pNetworkNode.node.networkInterfaces.webrtcNetworkInterface !== undefined
+            ) {
+                /!*
+                 Other Network Nodes and Client Apps will communicate with this Network Node via it's WebRTC Interface.
+                 *!/
+                thisObject.webSocketsInterface = NT.projects.network.modules.webSocketsInterface.newNetworkModulesWebRTCInterface()
+                thisObject.webSocketsInterface.initialize()
+                console.log('Network Node Web Sockets Interface ........................................... Interface Node Id ' + '')
+            }
+*/
+            if (
+                thisObject.p2pNetworkNode.node.networkInterfaces !== undefined &&
+                thisObject.p2pNetworkNode.node.networkInterfaces.httpNetworkInterface !== undefined
+            ) {
+                /*
+                Other Network Nodes and Client Apps will communicate with this Network Node via it's HTTP Interface.
+                */
+                thisObject.httpInterface = NT.projects.network.modules.httpInterface.newNetworkModulesHttpInterface()
+                thisObject.httpInterface.initialize()
+                console.log('Network Node Http Interface .................................................. Listening at port ' + NT.networkApp.p2pNetworkNode.node.networkInterfaces.httpNetworkInterface.config.httpPort)
+            }
         }
     }
 }

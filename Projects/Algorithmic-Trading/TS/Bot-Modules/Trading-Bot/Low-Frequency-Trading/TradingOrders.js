@@ -1270,7 +1270,13 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
 
                 passed = tradingSystem.checkConditions(situation, passed)
 
+                if (event.askPortfolioEventsManager !== undefined) {
+                    let response = await portfolioManagerClientModuleObject.askPortfolioEventsManager(event, passed)
+                    passed = response.passed
+                }
+
                 tradingSystem.values.push([situation.id, passed])
+
                 if (passed) {
                     tradingSystem.highlights.push(situation.id)
                     tradingSystem.highlights.push(event.id)

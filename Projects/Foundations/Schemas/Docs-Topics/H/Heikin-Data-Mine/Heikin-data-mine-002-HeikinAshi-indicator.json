@@ -4,18 +4,39 @@
     "type": "Heikin Ashi Candles - Heikin Indicator",
     "definition": {
         "text": "This indicator produces the Heikin Ashi style candles.",
-        "updated": 1611661320849
+        "updated": 1611661320849,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Этот индикатор создает свечи в стиле Heikin Ashi.",
+                "updated": 1643521379498
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Heikin Ashi On the Charts",
-            "updated": 1611661332955
+            "updated": 1611661332955,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Heikin Ashi на графиках",
+                    "updated": 1643521395303
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Heikin Ashi means \"average bar\" in Japanese. It is useful for making candlestick chart more readable and trends easier to analyse.",
-            "updated": 1611764485658
+            "updated": 1611764485658,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Heikin Ashi в переводе с японского означает \"средний бар\". Он полезен для того, чтобы сделать свечной график более читаемым, а тренды - более удобными для анализа.",
+                    "updated": 1643521407730
+                }
+            ]
         },
         {
             "style": "Png",
@@ -24,35 +45,76 @@
         },
         {
             "style": "Text",
-            "text": "Above: The Heikin Ashi Candle."
+            "text": "Above: The Heikin Ashi Candle.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Выше: Свечи Heikin Ashi.",
+                    "updated": 1643521424569
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The Heikin Ashi candle shares some characteristics of standard candles as it contains the same parameters of open, close, maximum and mimimun."
+            "text": "The Heikin Ashi candle shares some characteristics of standard candles as it contains the same parameters of open, close, maximum and mimimun.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свечи Heikin Ashi имеют некоторые общие характеристики со стандартными свечами, поскольку содержат те же параметры открытия, закрытия, максимума и минимума.",
+                    "updated": 1643521448389
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The calculation of the open and close parameters differ from standard candles as they are calculated as follows:"
+            "text": "The calculation of the open and close parameters differ from standard candles as they are calculated as follows:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Расчет параметров открытия и закрытия отличается от стандартных свечей, так как они рассчитываются следующим образом:",
+                    "updated": 1643521458159
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Close; Average price of the current bar: 0.25 * (Open + Close + Maximum + Minimum)"
+            "text": "Close; Average price of the current bar: 0.25 * (Open + Close + Maximum + Minimum)",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Закрытие; Средняя цена текущего бара: 0,25 * ( Открытие + Закрытие + Максимум + Минимум)",
+                    "updated": 1643521490964
+                }
+            ]
         },
-		{
+        {
             "style": "List",
-            "text": "Open; The Midpoint of the previous bar: 0.5 * (Previous.Open + Previous.Close)"
-        },		
-
-		{
+            "text": "Open; The Midpoint of the previous bar: 0.5 * (Previous.Open + Previous.Close)",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Открытие; Средняя точка предыдущего бара: 0.5 * ( Предыдущее.Открытие + Предыдущее.Закрытие)",
+                    "updated": 1643521514477
+                }
+            ]
+        },
+        {
             "style": "Text",
-            "text": "Heikin Ashi candles look smoother as they are essentially taking an average of the price movement, and they tend to stay the same color during a continuing trend."
+            "text": "Heikin Ashi candles look smoother as they are essentially taking an average of the price movement, and they tend to stay the same color during a continuing trend.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свечи Heikin Ashi выглядят более гладкими, поскольку они, по сути, представляют собой среднее значение движения цены, и, как правило, остаются одного цвета во время продолжающегося тренда.",
+                    "updated": 1643521526444
+                }
+            ]
         },
         {
             "style": "Png",
             "text": "PNGs/Foundations/Docs/indicators/heikin-standard-on-the-chart.png",
             "updated": 1611673329568
         },
-		{
+        {
             "style": "Text",
             "text": "Above: The Standard Candle."
         }

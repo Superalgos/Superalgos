@@ -1,11 +1,16 @@
 import {GET, httpRequest, POST} from './httpConfig'
 
+
+function getSocialPersona() {
+    return httpRequest('/users/social-persona', GET)
+}
+
 function getProfiles() {
     return httpRequest('/users/profiles', GET);
 }
 
-function getProfile(queryParams) {
-    return httpRequest('/users/profile', GET, undefined, queryParams)
+function getProfile(socialPersonaId) {
+    return httpRequest('/users/profile', GET, undefined, socialPersonaId)
 }
 
 function getPaginationProfiles(initialPaginationIndex, pagination) {
@@ -20,9 +25,11 @@ function updateProfile(profileData) {
     return httpRequest('/users/profile', POST, profileData)
 }
 
+
 export {
     getProfiles,
     getProfile,
     updateProfile,
-    getPaginationProfiles
+    getPaginationProfiles,
+    getSocialPersona
 }

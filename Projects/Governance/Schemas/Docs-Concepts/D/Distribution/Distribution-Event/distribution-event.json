@@ -8,6 +8,11 @@
                 "language": "ES",
                 "text": "El Superalgos Project distribuye sus tokens nativos de Superalgos SA después de cada lanzamiento para recompensar las contribuciones e incentivar los comportamientos deseables. El evento de distribución representa el momento en el tiempo y el acto de ejecutar el proceso que distribuye los tokens fdesde la Treasury Account ( Cuenta del tesoro) a la Governance Address asociada con cada User Profile  que participa en la gobernanza.",
                 "updated": 1637851695478
+            },
+            {
+                "language": "RU",
+                "text": "Проект Superalgos распределяет свои собственные токены Superalgos SA после каждого релиза, чтобы вознаградить вклады и стимулировать желаемое поведение. Событие распределения (Distribution Event) представляет собой момент времени и акт запуска процесса, который распределяет токены со счета казначейства (Treasury Account) на адрес управления (Governance Address), связанный с каждым профилем пользователя, участвующим в управлении.",
+                "updated": 1645082663327
             }
         ]
     },
@@ -26,6 +31,11 @@
                     "language": "ES",
                     "text": "El Superalgos Project anuncia cada lanzamiento a través de todos los canales oficiales, incluido el canal de Anuncios de Telegram y el Blog de Superalgos Medium.",
                     "updated": 1637851873356
+                },
+                {
+                    "language": "RU",
+                    "text": "Проект Superalgos объявляет о каждом релизе через все официальные каналы, включая канал объявлений Telegram и блог Superalgos Medium.",
+                    "updated": 1645082679811
                 }
             ]
         },
@@ -37,6 +47,11 @@
                     "language": "ES",
                     "text": "En el momento del anuncio, se abre una ventana de tiempo para que la Community participe en la gobernanza.. En este punto, la ventana tiene un tramo indeterminado. Los usuarios pueden configurar sus perfiles de usuario hasta que se cierre la ventana.",
                     "updated": 1637851833645
+                },
+                {
+                    "language": "RU",
+                    "text": "В момент объявления открывается временное окно для участия Сообщества в управлении. На данный момент это окно имеет неопределенный срок. Пользователи могут настраивать свои профили пользователей до закрытия окна.",
+                    "updated": 1645082705250
                 }
             ]
         },
@@ -48,6 +63,11 @@
                     "language": "ES",
                     "text": "Una vez que se cierra la ventana, no se aceptan más modificaciones en las jerarquías de gobierno hasta que tenga lugar el Evento de distribución.",
                     "updated": 1637851866405
+                },
+                {
+                    "language": "RU",
+                    "text": "После закрытия окна дальнейшие изменения в иерархиях управления не принимаются до тех пор, пока не произойдет событие распределения.",
+                    "updated": 1645082731472
                 }
             ]
         }

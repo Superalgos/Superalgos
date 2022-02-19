@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "Limit order es la sección de la estructura de datos que realiza un seguimiento de las propiedades de un Limit Order específico, como se define en el trading system.",
                 "updated": 1624455855139
+            },
+            {
+                "language": "RU",
+                "text": "Лимитный ордер - это раздел структуры данных, который отслеживает свойства конкретного лимитного ордера, определенного в торговой системе.",
+                "updated": 1645168214097
             }
         ]
     },
@@ -17,7 +22,14 @@
         },
         {
             "style": "Text",
-            "text": "Each limit order defined in the trading system must reference the data structure of a limit order in the trading engine."
+            "text": "Each limit order defined in the trading system must reference the data structure of a limit order in the trading engine.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Каждый лимитный ордер, определенный в торговой системе, должен ссылаться на структуру данных лимитного ордера в торговом движке.",
+                    "updated": 1645168231810
+                }
+            ]
         }
     ]
 }

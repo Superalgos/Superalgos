@@ -2,12 +2,26 @@
     "type": "Data Feature",
     "definition": {
         "text": "Each individual feature of the set of input features.",
-        "updated": 1615895420029
+        "updated": 1615895420029,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Каждый отдельный показатель из набора входных показателей.",
+                "updated": 1645247204608
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "Right click and select the pencil button to enter edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
+                    "updated": 1645247209568
+                }
+            ]
         }
     ]
 }

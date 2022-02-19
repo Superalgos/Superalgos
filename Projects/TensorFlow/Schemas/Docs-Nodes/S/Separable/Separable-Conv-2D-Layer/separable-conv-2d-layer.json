@@ -2,21 +2,49 @@
     "type": "Separable Conv 2D Layer",
     "definition": {
         "text": "Depthwise separable 2D convolution. Separable convolution consists of first performing a depthwise spatial convolution (which acts on each input channel separately) followed by a pointwise convolution which mixes together the resulting output channels. The depthMultiplier argument controls how many output channels are generated per input channel in the depthwise step.",
-        "updated": 1613218940003
+        "updated": 1613218940003,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Глубинная сепарабельная двумерная свертка. Разделяемая свертка состоит из выполнения сначала пространственной свертки по глубине (которая действует на каждый входной канал отдельно), а затем точечной свертки, которая смешивает результирующие выходные каналы. Аргумент depthMultiplier управляет тем, сколько выходных каналов генерируется на каждый входной канал на этапе свертки по глубине.",
+                "updated": 1645249830157
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Intuitively, separable convolutions can be understood as a way to factorize a convolution kernel into two smaller kernels, or as an extreme version of an Inception block.",
-            "updated": 1613218949720
+            "updated": 1613218949720,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Интуитивно разделимые свертки можно понимать как способ факторизации ядра свертки на два меньших ядра, или как экстремальную версию блока Inception.",
+                    "updated": 1645249843216
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Input shape: 4D tensor with shape: [batch, channels, rows, cols] if data_format='channelsFirst' or 4D tensor with shape: [batch, rows, cols, channels] if data_format='channelsLast'."
+            "text": "Input shape: 4D tensor with shape: [batch, channels, rows, cols] if data_format='channelsFirst' or 4D tensor with shape: [batch, rows, cols, channels] if data_format='channelsLast'.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Input shape: 4D тензор с формой: [batch, channels, rows, cols], если data_format='channelsFirst' или 4D тензор с формой: [batch, rows, cols, channels], если data_format='channelsLast'.",
+                    "updated": 1645249856510
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Output shape: 4D tensor with shape: [batch, filters, newRows, newCols] if data_format='channelsFirst' or 4D tensor with shape: [batch, newRows, newCols, filters] if data_format='channelsLast'. rows and cols values might have changed due to padding."
+            "text": "Output shape: 4D tensor with shape: [batch, filters, newRows, newCols] if data_format='channelsFirst' or 4D tensor with shape: [batch, newRows, newCols, filters] if data_format='channelsLast'. rows and cols values might have changed due to padding.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Output shape: 4D тензор с формой: [batch, filters, newRows, newCols], если data_format='channelsFirst'или 4D тензор с формой: [batch, newRows, newCols, filters], если data_format='channelsLast'. значения строк и столбцов могли измениться из-за вставки.",
+                    "updated": 1645249866170
+                }
+            ]
         }
     ]
 }

@@ -2,13 +2,27 @@
     "type": "User Defined Variable",
     "definition": {
         "text": "The User-Defined-Variable is a mutable storage container for whatever arbitrary data the user may want to manage while running a Trading System.",
-        "updated": 1622299578764
+        "updated": 1622299578764,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "User Defined Variable - это изменяемый контейнер для хранения произвольных данных, которыми пользователь может захотеть управлять во время работы торговой системы.",
+                "updated": 1645180287242
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "These variables can be easily set or get by using the Copy Node Path in the node's popup modal.",
-            "updated": 1622299861437
+            "updated": 1622299861437,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Эти переменные можно легко установить или получить с помощью Copy Node Path во всплывающем меню узла.",
+                    "updated": 1645180312370
+                }
+            ]
         }
     ]
 }

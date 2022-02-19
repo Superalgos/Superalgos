@@ -2,7 +2,8 @@
 
 ### Unit Testing
 
-* `setup.js`
+* `Launch-Scripts/runSetup.js`
+* `Launch-Scripts/runSetupTF.js`
 * `setupPlugins.js`
 
 # Done 

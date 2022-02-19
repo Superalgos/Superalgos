@@ -83,7 +83,7 @@ const runSetup = () => {
             {
                 cwd: dir
             },
-            function (error, stdout) {
+            (error, stdout) => {
                 if (error) {
                     console.log('')
                     console.log('There was an error installing some dependencies error: ')
@@ -116,6 +116,7 @@ const runSetup = () => {
                 console.error(`Error downloading ${url}: HTTP response code ${response.statusCode}.`)
                 return false
             }
+            console.log(response)
             const writeStream = fs.createWriteStream(dest)
             response.pipe(writeStream)
             writeStream.on('error', () => console.error('Error writing to ' + path.resolve(dest)))
@@ -143,7 +144,9 @@ const runSetup = () => {
         }
 
 
-    })    
+    })
+
+    return 'Setup complete'
 }
 
 module.exports = {

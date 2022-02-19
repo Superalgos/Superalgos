@@ -1,6 +1,6 @@
 const child_process = require('child_process')
 const os = require('os')
-const systemCheck = require('../../Launch-Scripts/system-check')
+const systemCheck = require('../../Launch-Scripts/systemCheck')
 
 // FYI the mock below must be repeated as done in the 'it' blocks for each
 // use case. jest mocks do not allow reference to out of scope anything so 

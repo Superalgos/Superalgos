@@ -1,4 +1,4 @@
-const createShortcut = require('../../Launch-Scripts/create-shortcut')
+const createShortcut = require('../../Launch-Scripts/createShortcut')
 const child_process = require('child_process')
 const os = require('os')
 

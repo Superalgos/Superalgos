@@ -5,6 +5,6 @@ const {
 
 describe('setUpstreamAndOrigin', () => {
     it('should return true', async () => {
-        expect(true).toEqual(false)
+        expect(runSetup()).toEqual(false)
     })
 })

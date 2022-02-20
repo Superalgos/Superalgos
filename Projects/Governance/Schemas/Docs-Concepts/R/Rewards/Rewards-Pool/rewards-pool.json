@@ -8,6 +8,11 @@
                 "language": "ES",
                 "text": "Un grupo de recompensas asigna tokens para recompensar las contribuciones a los Governance Programs. Cada programa que cuenta con un nodo Tokens Awarded Distribuye recompensas de una Rewards Pool definido bajo la sección de Governance Programs de la jerarquía Superalgos Pools . Las recompensas representan el valor de sus contribuciones a cada uno de los programas. Cada programa calcula las recompensas de una manera particular y muestra el resultado en el nodo Tokens Awarded.",
                 "updated": 1637845109838
+            },
+            {
+                "language": "RU",
+                "text": "Пул вознаграждений (Rewards Pool) распределяет токены для вознаграждения вкладов в определенные программы управления. Каждая программа, в которой имеется узел Tokens Awarded, распределяет вознаграждения из пула вознаграждений (Rewards Pool), определенного в разделе Governance Programs иерархии Superalgos Pools. Вознаграждения представляют собой стоимость вашего вклада в каждую из программ. Каждая программа рассчитывает вознаграждения определенным образом и отображает результат в узле Tokens Awarded.",
+                "updated": 1645083331823
             }
         ]
     },

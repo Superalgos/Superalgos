@@ -1,5 +1,5 @@
 {
-    "type": "Pair",
+    "type": "Swap Pair",
     "menuItems": [
         {
             "action": "Configure",
@@ -44,7 +44,7 @@
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
             "workDoneLabel": "Done",
-            "relatedUiObject": "Market",
+            "relatedUiObject": "Pair",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Decentralized-Exchanges"
         },
@@ -85,5 +85,5 @@
     "attachingRules": {
         "compatibleTypes": "->Swap Pairs->"
     },
-    "propertyNameAtParent": "pairs"
+    "propertyNameAtParent": "swapPair"
 }

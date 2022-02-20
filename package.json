@@ -20,8 +20,9 @@
     "startLocalDesktopReact": "start npm run startNetwork && cd ./DesktopReact && start npm run startDesktopReactBackend && start npm run startDesktopReactFrontend",
     "startDesktopReact": "cd ./DesktopReact && start npm run startDesktopReactBackend && start npm run startDesktopReactFrontend",
     "clearJest": "./node_modules/.bin/jest --clearCache",
-    "unitTest": "./node_modules/.bin/jest",
-    "unitTest:watch": "./node_modules/.bin/jest --watch"
+    "unitTest": "./node_modules/.bin/jest --silent",
+    "unitTest:watch": "./node_modules/.bin/jest --silent --watch",
+    "unitTest:verbose": "./node_modules/.bin/jest"
   },
   "dependencies": {
     "@discordjs/rest": "^0.1.0-canary.0",
@@ -71,6 +72,10 @@
     "testMatch": [
       "**/__tests__/**/?(*.)(test).js?(x)",
       "**/__tests__/?(*.)(test).js?(x)"
+    ],
+    "testPathIgnorePatterns": [
+      "node_modules",
+      "__tests__/http_mocks"
     ],
     "moduleFileExtensions": [
       "js",

@@ -4,10 +4,8 @@ const process = require('process')
 const { exec } = require('child_process')
 const https = require('https')
 const externalScriptsDir = path.join(process.cwd(), 'Platform', 'WebServer', 'externalScripts')
-const externalScripts = [
-    'https://code.jquery.com/jquery-3.6.0.js',
-    'https://code.jquery.com/ui/1.13.0/jquery-ui.js'
-]
+const env = require('../Environment').newEnvironment()
+const externalScriptsURLs = env.EXTERNAL_SCRIPTS
 const projectPluginMap = require('../Plugins/project-plugin-map.json')
 
 const setUpstreamAndOrigin = async (dir, repo = 'Superalgos') => {
@@ -108,7 +106,7 @@ const runSetup = () => {
     console.log('Downloading external scripts …')
     console.log('')
 
-    for (let url of externalScripts) {
+    for (let url of externalScriptsURLs) {
         const filename = url.split('/').pop()
         const dest = path.join(externalScriptsDir, filename)
         https.get(url, response => {
@@ -116,7 +114,7 @@ const runSetup = () => {
                 console.error(`Error downloading ${url}: HTTP response code ${response.statusCode}.`)
                 return false
             }
-            console.log(response)
+            // console.log(response)
             const writeStream = fs.createWriteStream(dest)
             response.pipe(writeStream)
             writeStream.on('error', () => console.error('Error writing to ' + path.resolve(dest)))

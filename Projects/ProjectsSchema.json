@@ -741,6 +741,19 @@
                     "onMouseOverIndex": 5,
                     "onMouseClickIndex": 4,
                     "onMouseDownIndex": 4
+                },
+                {
+                    "name": "Contributions Space",
+                    "folderName": "Contributions-Space",
+                    "propertyName": "contributionsSpace",
+                    "functionName": "newFoundationsContributionsSpace",
+                    "initializationIndex": 15,
+                    "animationPhysicsIndex": 15,
+                    "animationDrawIndex": 15,
+                    "onMouseWheelIndex": 8,
+                    "onMouseOverIndex": 6,
+                    "onMouseClickIndex": 5,
+                    "onMouseDownIndex": 5
                 }
             ]
         },

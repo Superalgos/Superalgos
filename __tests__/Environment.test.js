@@ -1,8 +1,14 @@
 const env = require("../Environment")
 const path = require("path")
 
+let basePath
+if (process.env.PACKAGED_PATH) {
+    basePath = process.env.PACKAGED_PATH
+} else {
+    basePath = path.dirname(__dirname)
+}
 
-const projectPluginMap = require(path.join(basePath, './Plugins/project-plugin-map.json'))
+const projectPluginMap = require(path.join(basePath, 'Plugins/project-plugin-map.json'))
 
 const expectedObject = {
     DEMO_MODE: false,

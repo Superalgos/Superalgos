@@ -1,5 +1,6 @@
 const path = require("path")
 
+let basePath
 if (process.env.PACKAGED_PATH) {
     basePath = process.env.PACKAGED_PATH
 } else {

@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Superalgos позволяет пользователям настраивать мощные операции интеллектуального анализа данных. На этой странице представлены рабочие процессы, участвующие в интеллектуальном анализе данных.",
                 "updated": 1639382432870
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Superalgos, kullanıcıların güçlü veri madenciliği operasyonları kurmasını sağlar. Bu sayfa, veri madenciliğine dahil olan iş akışlarını tanıtacaktır.",
+                "updated": 1645364827361
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "RU",
                     "text": "Как правило, данные поступают из Интернета в систему Superalgos. Попав внутрь, он обрабатывается и повторно обрабатывается и, наконец, потребляется торговыми стратегиями.",
                     "updated": 1639382456057
+                },
+                {
+                    "language": "TR",
+                    "text": "Genel olarak, veriler İnternetten Superalgos sistemine akar. İçeri girdikten sonra işlenir ve yeniden işlenir ve son olarak ticaret stratejileri tarafından tüketilir.",
+                    "updated": 1645364858482
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "RU",
                     "text": "По мере того, как все больше пользователей присоединяются, чтобы вносить свой вклад и создавать больше ресурсов, которыми они делятся с сообществом, возможности системы интеллектуального анализа данных будут расширяться.",
                     "updated": 1639382490493
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Daha fazla kullanıcı katkıda bulunup ve toplulukla paylaştıklarında daha fazla varlık oluşturmak için atladıkça, sistemin veri madenciliği yetenekleri genişleyecektir.",
+                    "updated": 1645364969251
                 }
             ]
         },
@@ -66,6 +81,11 @@
                     "language": "RU",
                     "text": "Два основных рабочих процесса с данными Main Data Workflows",
                     "updated": 1639382574950
+                },
+                {
+                    "language": "TR",
+                    "text": "İki Temel Veri İş Akışı",
+                    "updated": 1645365002711
                 }
             ]
         },
@@ -87,6 +107,11 @@
                     "language": "RU",
                     "text": "Sensor Bot Workflow: Данные поступают в систему через Sensor Bot. В этом основном рабочем процессе результирующий набор данных служит входными данными для бота Indicator Bot, который будет его обрабатывать.",
                     "updated": 1639382685536
+                },
+                {
+                    "language": "TR",
+                    "text": "Sensör Botu İş Akışı: Veriler bir Sensör Botu ( Sensor Bot ) aracılığıyla sisteme gelir. Bu ana iş akışında, elde edilen veri kümesi, onu daha fazla işleyecek bir Gösterge Botu ( Indicator Bot ) için bir girdi görevi görür.",
+                    "updated": 1645365070892
                 }
             ]
         },
@@ -103,6 +128,11 @@
                     "language": "RU",
                     "text": "Почему? Поскольку данные поступают в формате, который еще не стандартизирован для использования в торговых стратегиях или построения графиков на графиках (за исключением Webhooks, которые записывают данные в типе однофайлового набора данных, который может использоваться плоттерами и торговыми стратегиями).",
                     "updated": 1639382710361
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Neden? Çünkü veriler, ticaret stratejileri tarafından tüketilmek üzere standartlaştırılmamış veya henüz grafiklerde işaretlenmemiş bir biçimde gelir (çiziciler ve ticaret stratejileri tarafından tüketilebilen Tek Dosyalı Veri Kümesi ( Single-File Dataset ) türünde verileri kaydeden Web kancaları hariç).",
+                    "updated": 1645365139034
                 }
             ]
         },
@@ -120,6 +150,11 @@
                     "language": "RU",
                     "text": "API Data Fetcher Bot Workflow: В этом основном рабочем процессе результирующий набор данных служит входными данными для бота Indicator Bot, который будет его обрабатывать.",
                     "updated": 1639382770553
+                },
+                {
+                    "language": "TR",
+                    "text": "API Veri Alıcısı Botu İş Akışı: Veriler, bir API Veri Alıcısı Botu ( API Data Fetcher Bot ) aracılığıyla sisteme ulaşır. Bu ana iş akışında, elde edilen veri kümesi, onu daha fazla işleyecek bir Gösterge Botu ( Indicator Bot ) için bir girdi görevi görür.",
+                    "updated": 1645365270367
                 }
             ]
         },
@@ -137,6 +172,11 @@
                     "language": "RU",
                     "text": "Данные, поступающие из внешнего источника, считаются необработанными данными Raw Data. Оба этих двух рабочих процесса производят необработанные данные, которые должны обрабатываться ботами Indicator Bots.",
                     "updated": 1639382929172
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Harici bir kaynaktan gelen veriler Ham Veri ( Raw Data ) olarak kabul edilir. Bu 2 iş akışının her ikisi de Gösterge Botları ( Indicator Bot ) tarafından sindirilmesi gereken Ham Veriler üretir.",
+                    "updated": 1645365332925
                 }
             ]
         },
@@ -149,6 +189,11 @@
                     "language": "DE",
                     "text": "Rohdaten -> Indicator-Bots",
                     "updated": 1634580556564
+                },
+                {
+                    "language": "TR",
+                    "text": "Ham Veri -> Gösterge Botları",
+                    "updated": 1645365356394
                 }
             ]
         },
@@ -165,6 +210,11 @@
                     "language": "RU",
                     "text": "Боты Indicator bot имеют две разные цели::",
                     "updated": 1639382906500
+                },
+                {
+                    "language": "TR",
+                    "text": "Gösterge botlarının iki farklı amacı vardır:",
+                    "updated": 1645365365523
                 }
             ],
             "updated": 1634580879323
@@ -183,6 +233,11 @@
                     "language": "RU",
                     "text": "Стандартизация наборов данных: они используются для стандартизации необработанных данных, извлеченных из Интернета ботами Sensor Bot или API Data Fetcher Bot. После стандартизации данных их можно будет запустить с помощью других ботов Indicator Bot, которые извлекут из них все соки. После стандартизации данные также могут быть нанесены на график и использованы в торговых стратегиях. Путем стандартизации мы конкретно имеем в виду преобразование данных в тип набора данных, который можно использовать для построения графиков или подачи обучающих и торговых роботов. Эти типы наборов данных Dataset Type - Multi-Time-Frame-Daily и Multi-Time-Frame-Market.",
                     "updated": 1639383368304
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri Kümelerini Standardize Etme: İnternet'ten bir Sensör Botu ( Sensor Bot ) veya bir API Veri Alıcı Botu  ( API Data Fetcher Bot ) tarafından çıkarılan ham verilerin standardizasyonu için kullanılırlar. Veriler standart hale getirildikten sonra, bunların suyunu çıkaracak olan diğer Gösterge Botları ( Indicator Bot ) aracılığıyla çalıştırılabilir. Standartlaştırıldıktan sonra, veriler Ticaret Stratejileri tarafından da çizilebilir ve tüketilebilir. Standartlaştırarak, özellikle verileri, çizelgeleri çizmek veya Öğrenme ve Ticaret Botlarını beslemek için kullanılabilecek bir Veri Kümesi ( Dataset ) türüne dönüştürmekten bahsediyoruz. Bu Veri Kümesi türleri, Çok Zamanlı-Çerçeve-Günlük ve Çok Zamanlı-Çerçeve-Market'tir ( Multi-Time-Frame-Daily and Multi-Time-Frame-Market ).",
+                    "updated": 1645365547301
                 }
             ]
         },
@@ -200,6 +255,11 @@
                     "language": "RU",
                     "text": "Обработка данных: это означает обработку данных любым способом, который имеет смысл для пользователей. Многие пользователи используют боты Indicator Bot для расчета стандартных индикаторов, другие рассчитывают нестандартные данные, даже можно реализовать идеи о том, что может быть полезно извлечь из определенного набора данных. Система открыта и позволяет пользователям делать именно это, играть с данными, преобразовывая их так, как они хотят.",
                     "updated": 1639383479790
+                },
+                {
+                    "language": "TR",
+                    "text": "Verileri İşle: Bu, verilerin kullanıcılar için anlamlı olan herhangi bir şekilde işlenmesi anlamına gelir. Birçok kullanıcı, standart göstergeleri hesaplamak için Gösterge Botlarını kullanır, diğerleri standart olmayan şeyleri hesaplar, hatta belirli bir veri kümesinden nelerin çıkarılmasının yararlı olabileceğine dair fikirler uygulanabilir. Sistem açıktır ve kullanıcıların tam da bunu yapmasına, verilerle istedikleri gibi dönüştürerek oynamasına olanak tanır.",
+                    "updated": 1645365581068
                 }
             ]
         },
@@ -212,6 +272,11 @@
                     "language": "DE",
                     "text": "Indicators -> Plotter",
                     "updated": 1634583699357
+                },
+                {
+                    "language": "TR",
+                    "text": "Göstergeler -> Çiziciler",
+                    "updated": 1645365602298
                 }
             ]
         },
@@ -229,6 +294,11 @@
                     "language": "RU",
                     "text": "Плоттеры Plotters - это инструменты для пользователей, а не для ботов. Плоттеры будут отображать информацию набора данных в диаграммах на основе определения плоттера. Это позволяет пользователям визуально обнаруживать закономерности в наборах данных и генерировать идеи. Эти идеи могут затем помочь пользователю решить, как обрабатывать данные дальше или передать данные обучающемуся боту или торговому боту.",
                     "updated": 1639383564172
+                },
+                {
+                    "language": "TR",
+                    "text": "Çiziciler, botlar için değil, kullanıcılar için araçlardır. Çiziciler, çizicinin tanımına dayalı olarak bir Veri Kümesinin ( Dataset ) bilgilerini grafiklerde işleyecektir. Bu, kullanıcıların veri kümelerindeki kalıpları görsel olarak keşfetmelerine ve fikirler üretmelerine olanak tanır. Bu fikirler daha sonra kullanıcının verileri nasıl daha fazla işleyeceğine karar vermesine veya verileri bir Öğrenme Botuna ( Learning Bot ) veya bir Ticaret Botuna ( Trading Bot ) nasıl besleyeceğine karar vermesine yardımcı olabilir.",
+                    "updated": 1645365796551
                 }
             ]
         },
@@ -245,6 +315,11 @@
                     "language": "RU",
                     "text": "Плоттеры могут считывать данные только из определенных типов наборов данных Dataset types, вы узнаете, какие из них позже в этом разделе.",
                     "updated": 1639383606356
+                },
+                {
+                    "language": "TR",
+                    "text": "Önemli: Çiziciler yalnızca belirli Veri Kümesi ( Dataset ) türlerinden verileri okuyabilir, hangilerini bu Konuda daha sonra öğreneceksiniz.",
+                    "updated": 1645365894530
                 }
             ]
         },
@@ -262,6 +337,11 @@
                     "language": "RU",
                     "text": "Indicators -> Learning Bots (в разработке)",
                     "updated": 1639383633997
+                },
+                {
+                    "language": "TR",
+                    "text": "Göstergeler -> Öğrenme Botları (geliştirilme aşamasında)",
+                    "updated": 1645365910820
                 }
             ]
         },
@@ -279,6 +359,11 @@
                     "language": "RU",
                     "text": "Обучающиеся боты Learning Bots имеют доступ к добытым данным, которые они используют для обучения своих моделей ИИ (Искуственный интеллект). После обучения эти модели ИИ могут использоваться в торговых стратегиях для запроса прогнозов и действий в соответствии с ними.",
                     "updated": 1639383746828
+                },
+                {
+                    "language": "TR",
+                    "text": "Öğrenme Botları, Yapay Zeka Modellerini eğitmek için kullandıkları mayınlı verilere erişime sahiptir. Bu Yapay Zeka Modellerini eğitildikten sonra, ticaret stratejileri tarafından tahminler talep etmek ve bunlara göre hareket etmek için kullanılabilir.",
+                    "updated": 1645365975278
                 }
             ]
         },
@@ -291,6 +376,11 @@
                     "language": "DE",
                     "text": "Indikatoren -> Trading Bots",
                     "updated": 1634585651731
+                },
+                {
+                    "language": "TR",
+                    "text": "Göstergeler -> Ticaret Botları",
+                    "updated": 1645365995779
                 }
             ]
         },
@@ -308,6 +398,11 @@
                     "language": "RU",
                     "text": "Торговые боты Trading bots - конечный потребитель данных. Они используют полученные данные для принятия торговых решений на основе своих определений. Конечная цель всей операции интеллектуального анализа данных - переваривать данные, чтобы они были легко доступны для торговых стратегий.",
                     "updated": 1639383796247
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret ( Trading ) botları, verilerin nihai tüketicisidir. Aldıkları verileri tanımlarına göre alım satım kararları vermek için kullanırlar. Tüm Veri Madenciliği operasyonunun nihai amacı, ticaret stratejileri için kolayca erişilebilir olması için verileri sindirmektir.",
+                    "updated": 1645366024456
                 }
             ]
         }

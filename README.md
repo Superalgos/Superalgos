@@ -1,4 +1,4 @@
-# Superalgos 1.1.1
+# Superalgos 1.2.0
 
 ![contributors](https://img.shields.io/github/contributors-anon/Superalgos/Superalgos?label=Contributors)
 ![pull-activity](https://img.shields.io/github/issues-pr-closed-raw/Superalgos/Superalgos?color=blueviolet)
@@ -550,7 +550,7 @@ journalctl -u superalgos -f
 
 ### Workspace Refactoring for Version 1
 
-Verion 1.1.1 carries with it a reorganization of the codebase where several projects where extracted from Foundations : Data-Mining, Algorithmic Trading, Machine Learning and Community Plugins.
+Verion 1.2.0 carries with it a reorganization of the codebase where several projects where extracted from Foundations : Data-Mining, Algorithmic Trading, Machine Learning and Community Plugins.
 
 This means that these projects can now have a project leader and a team working on them.
 

@@ -58,7 +58,7 @@ function newCanvas() {
             UI.projects.foundations.spaces.chartingSpace.finalize()
             UI.projects.foundations.spaces.floatingSpace.finalize()
             UI.projects.foundations.spaces.codeEditorSpace.finalize()
-            UI.projects.foundations.spaces.contributionsSpace.finalize()
+            UI.projects.contributions.spaces.contributionsSpace.finalize()
             thisObject.shorcutNumbers = undefined
 
             if (browserCanvas.removeEventListener) {
@@ -413,7 +413,7 @@ function newCanvas() {
         }
 
         /* When the Contributios Space is Visible, we do not process key down events of the Designer Space. */
-        if (UI.projects.foundations.spaces.contributionsSpace.isVisible === true) {
+        if (UI.projects.contributions.spaces.contributionsSpace.isVisible === true) {
             return
         }
 

@@ -1,4 +1,4 @@
-function newFoundationsContributionsSpace() {
+function newContributionsContributionsSpace() {
     const MODULE_NAME = 'Contributions Space'
 
     let thisObject = {
@@ -53,7 +53,7 @@ function newFoundationsContributionsSpace() {
 
         resize()
 
-        thisObject.editorPage = newFoundationsContributionsPage()
+        thisObject.editorPage = newContributionsContributionsPage()
         thisObject.editorPage.initialize()
 
         setupSidePanelTab()

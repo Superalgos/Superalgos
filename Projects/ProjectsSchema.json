@@ -669,9 +669,9 @@
                     "animationPhysicsIndex": 1,
                     "animationDrawIndex": 0,
                     "onMouseWheelIndex": 6,
-                    "onMouseOverIndex": 7,
-                    "onMouseClickIndex": 7,
-                    "onMouseDownIndex": 7
+                    "onMouseOverIndex": 6,
+                    "onMouseClickIndex": 6,
+                    "onMouseDownIndex": 6
                 },
                 {
                     "name": "Top Space",
@@ -721,8 +721,8 @@
                     "animationDrawIndex": 1,
                     "onMouseWheelIndex": 5,
                     "onMouseOverIndex": 4,
-                    "onMouseClickIndex": 6,
-                    "onMouseDownIndex": 6
+                    "onMouseClickIndex": 5,
+                    "onMouseDownIndex": 4
                 },
                 {
                     "name": "Side Space",
@@ -754,19 +754,6 @@
                     "onMouseWheelIndex": 7,
                     "onMouseOverIndex": 5,
                     "onMouseClickIndex": 4,
-                    "onMouseDownIndex": 4
-                },
-                {
-                    "name": "Contributions Space",
-                    "folderName": "Contributions-Space",
-                    "propertyName": "contributionsSpace",
-                    "functionName": "newFoundationsContributionsSpace",
-                    "initializationIndex": 15,
-                    "animationPhysicsIndex": 15,
-                    "animationDrawIndex": 15,
-                    "onMouseWheelIndex": 8,
-                    "onMouseOverIndex": 6,
-                    "onMouseClickIndex": 5,
                     "onMouseDownIndex": 5
                 }
             ]
@@ -2305,5 +2292,37 @@
             "functionLibraries": []
         },
         "SA": {}
+    },
+    {
+        "name": "Contributions",
+        "propertyName": "contributions",
+        "UI": {
+            "nodeActionFunctions": [],
+            "systemActionFunctions": [],
+            "functionLibraries": [],
+            "globals": [],
+            "utilities": [],
+            "spaces": [
+                {
+                    "name": "Contributions Space",
+                    "folderName": "Contributions-Space",
+                    "propertyName": "contributionsSpace",
+                    "functionName": "newContributionsContributionsSpace",
+                    "initializationIndex": 15,
+                    "animationPhysicsIndex": 15,
+                    "animationDrawIndex": 15,
+                    "onMouseWheelIndex": 0,
+                    "onMouseOverIndex": 0,
+                    "onMouseClickIndex": 0,
+                    "onMouseDownIndex": 0
+                }
+            ]
+        },
+        "SA": {
+            "utilities": []
+        },
+        "TS": {},
+        "PL": {},
+        "plugins": []
     }
 ]

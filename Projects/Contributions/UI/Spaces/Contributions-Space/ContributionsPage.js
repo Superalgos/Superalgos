@@ -1,4 +1,4 @@
-function newFoundationsContributionsPage() {
+function newContributionsContributionsPage() {
     let thisObject = {
         repoStatus: undefined,
         render: render,

@@ -69,12 +69,11 @@
       "^.+\\.[m|t|j]s?$": "babel-jest"
     },
     "testMatch": [
-      "**/__tests__/**/?(*.)(test).js?(x)",
-      "**/__tests__/?(*.)(test).js?(x)"
+      "**/.tests/**/?(*.)(test).js?(x)",
+      "**/.tests/?(*.)(test).js?(x)"
     ],
     "testPathIgnorePatterns": [
-      "node_modules",
-      "__tests__/http_mocks"
+      "node_modules"
     ],
     "moduleFileExtensions": [
       "js",

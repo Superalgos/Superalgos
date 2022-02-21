@@ -7,7 +7,6 @@ const {
 
 describe('setUpstreamAndOrigin', () => {
     it('should return true', async () => {
-      // expect(false).toEqual(false)
         expect(testHttp()).toEqual(false)
     })
 })

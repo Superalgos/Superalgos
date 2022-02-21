@@ -18,6 +18,7 @@ const testHttp = async () => {
   })
 }
 
+// export piece by piece for ease of testing & re-usability
 const setUpstreamAndOrigin = async (dir, repo = 'Superalgos') => {
     // initialize simpleGit
     const options = {

@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Вы будете получать ошибку этого типа каждый раз, когда узел Node, который, как ожидается, будет ссылаться на какой-либо другой узел, и ссылка не была найдена. Обычно вы можете избежать ошибок такого типа, настроив ожидаемую ссылку.",
                 "updated": 1638552874457
+            },
+            {
+                "language": "DE",
+                "text": "Ein Fehler dieser Art tritt immer dann auf, wenn bei einem Node, von dem erwartet wird, dass er auf einen anderen Node verweist, kein Verweis gefunden wurde. Sie können diese Art von Fehlern normalerweise vermeiden, indem Sie den erwarteten Verweis einrichten.",
+                "updated": 1645478124633
             }
         ]
     },

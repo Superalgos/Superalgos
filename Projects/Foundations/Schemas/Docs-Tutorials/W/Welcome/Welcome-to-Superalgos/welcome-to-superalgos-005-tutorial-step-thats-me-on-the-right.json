@@ -35,8 +35,8 @@
             },
             {
                 "language": "TR",
-                "text": "Öğreticiler sistem içinde tanımlanmıştır, böylece dilerseniz daha fazlasını oluşturabilirsiniz! Ama bu Tanrısal gücü daha sonra tartışacağız. Önce temellere odaklanalım!",
-                "updated": 1633121322983,
+                "text": "Öğreticiler sistem içinde tanımlanmıştır, ancak dilerseniz daha fazlasını oluşturabilirsiniz! Ama bu Tanrısal gücü daha sonra tartışacağız. Önce temellere odaklanalım!",
+                "updated": 1644846391466,
                 "style": "Definition"
             },
             {
@@ -89,8 +89,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Superalgos doğası gereği görsel bir araçtır. Sistem, simgelerle temsil edilen, birbirine bağlı düğümlerin hiyerarşik yapılarındaki bilgileri temsil eder. Sağınızda gördüğünüz şey, bu hiyerarşilerden biridir - özellikle bir Öğretici hiyerarşisi. Bu durumda, \"öğretici\" düğüm türüdür ve \"Superalgos'a Hoş Geldiniz!\" düğümün adıdır.",
-                    "updated": 1633121451310,
+                    "text": "Superalgos doğası gereği görsel bir araçtır. Sistem, simgelerle temsil edilen, birbirine bağlı düğümlerin hiyerarşik yapılarındaki bilgileri temsil eder. Sağınızda gördüğünüz şey, bu hiyerarşilerden biri olan Öğretici (Tutorial) hiyerarşisi. Bu örnekte, \"Tutorial\" düğüm türüdür ve \"Welcome To Superalgos!\" da düğümün adıdır.",
+                    "updated": 1644846502693,
                     "style": "Text"
                 },
                 {
@@ -167,8 +167,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Fare imlecinizi Eğitim \" Tutorial \" düğümünün üzerine getirin ve ne olduğunu görün! Vay! Güzel değil mi?Daha fazla düğme!",
-                    "updated": 1635577498974
+                    "text": "Fare imlecinizi Eğitim \" Tutorial \" düğümünün üzerine getirin ve ne olduğunu görün! Vay! Güzel değil mi? Çok daha fazla düğme ortaya çıktı!",
+                    "updated": 1644846559259
                 }
             ]
         }

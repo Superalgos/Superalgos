@@ -2,7 +2,14 @@
     "type": "Delegate Power",
     "definition": {
         "text": "Delegate Power is the Token Power that goes into the Delegation Program. Only 10% of the Delegate Power flowing into a User Delegate node reaches the recipient User Profile.",
-        "updated": 1630423869047
+        "updated": 1630423869047,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Delegate Power (Делегированная сила) - это Token Power (\"Сила токена\"), которая поступает в программу делегирования (Delegation Program). Только 10% делегированной силы, поступающей в узел User Delegate, достигает профиля пользователя-получателя.",
+                "updated": 1645082271261
+            }
+        ]
     },
     "paragraphs": [
         {

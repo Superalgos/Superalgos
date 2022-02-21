@@ -1,0 +1,159 @@
+{
+    "topic": "Delta Data Mine",
+    "pageNumber": 2,
+    "type": "Money Flow Index (MFI) - Delta Indicator",
+    "definition": {
+        "text": "This indicator produces the money flow index oscillator indicator.",
+        "updated": 1611661320849,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Dieser Indikator erzeugt den Geldflussindex Oszillator Indikator.",
+                "updated": 1644721869204
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Money Flow Index On the Charts",
+            "updated": 1611661332955,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Money Flow Index auf den Charts",
+                    "updated": 1644721883213
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "According to Investopedia, the Money Flow Index (MFI) is a technical oscillator that uses price and volume data for identifying overbought or oversold signals in an asset. It can also be used to spot divergences which warn of a trend change in price. The oscillator moves between 0 and 100. ",
+            "updated": 1611764485658,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Laut Investopedia ist der Money Flow Index (MFI) ein technischer Oszillator, der Preis- und Volumendaten verwendet, um überkaufte oder überverkaufte Signale bei einem Vermögenswert zu erkennen. Er kann auch verwendet werden, um Abweichungen zu erkennen, die vor einem Trendwechsel im Preis warnen. Der Oszillator bewegt sich zwischen 0 und 100.",
+                    "updated": 1644721899098
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Unlike conventional oscillators such as the Relative Strength Index (RSI), the Money Flow Index incorporates both price and volume data, as opposed to just price. For this reason, some analysts call MFI the volume-weighted RSI.",
+            "updated": 1611764485658,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Im Gegensatz zu herkömmlichen Oszillatoren wie dem Relative Strength Index (RSI) berücksichtigt der Money Flow Index sowohl Preis- als auch Volumendaten und nicht nur den Preis. Aus diesem Grund bezeichnen einige Analysten den MFI als den volumengewichteten RSI.",
+                    "updated": 1644721916374
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Delta-MFI.png",
+            "updated": 1611661370646
+        },
+        {
+            "style": "Text",
+            "text": "The MFI generates overbought or oversold signals using both price and volume data.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der MFI erzeugt überkaufte oder überverkaufte Signale, indem er sowohl Preis- als auch Volumendaten verwendet.",
+                    "updated": 1644721938974
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "An MFI reading above 80 is considered overbought and an MFI reading below 20 is considered oversold, although levels of 90 and 10 are also used as thresholds. A divergence between the indicator and price action is noteworthy.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ein MFI-Wert über 80 gilt als überkauft und ein MFI-Wert unter 20 als überverkauft, obwohl auch Werte von 90 und 10 als Schwellenwerte verwendet werden. Eine Abweichung zwischen dem Indikator und der Kursentwicklung ist bemerkenswert.",
+                    "updated": 1644721957356
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The overbought and oversold parameters can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Initialization under “Money Flow Index (MFI)” Product Definition.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Parameter \"überkauft\" und \"überverkauft\" können geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Initialization unter \"Money Flow Index (MFI)\" Product Definition gesucht und geöffnet wird.",
+                    "updated": 1644721975232
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Delta-MFI-Params.png",
+            "updated": 1611673329568
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Produkte und Eigenschaften",
+                    "updated": 1644721987654
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die folgenden Eigenschaften sind für den Zugriff verfügbar:",
+                    "updated": 1644722000410
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Money Flow Index | MFI | value, oversold, overbought |",
+            "updated": 1636853769,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| Money Flow Index | MFI | value, oversold, overbought |",
+                    "updated": 1644722032781
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Examples:",
+            "updated": 1611661674316,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiele:",
+                    "updated": 1644722054822
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at04hs.MFI.value > chart.at04hs.MFI.overbought",
+            "updated": 1636853769
+        },
+        {
+            "style": "Text",
+            "text": "MFI enters the overbought area (default >80)",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "MFI tritt in den überkauften Bereich ein (Standard >80)",
+                    "updated": 1644722067856
+                }
+            ]
+        }
+    ]
+}

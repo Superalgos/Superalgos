@@ -14,7 +14,8 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
         run: run,
         updateChart: updateChart,
         initialize: initialize,
-        finalize: finalize
+        finalize: finalize,
+        runUserDefinedCode: runUserDefinedCode
     }
 
     /*
@@ -223,6 +224,16 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
             if (err.stack !== undefined) {
                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[ERROR] runExecution -> err = ' + err.stack)
             }
+        }
+    }
+
+    function runUserDefinedCode(whenToRun) {
+        if (portfolioSystem.userDefinedPortfolioCode == undefined || portfolioSystem.userDefinedPortfolioCode.config == undefined) { return; }
+        if (
+            (whenToRun === 'first' && portfolioSystem.userDefinedPortfolioCode.config.runBeforeCheckIns == true) ||
+            (whenToRun === 'last' && portfolioSystem.userDefinedPortfolioCode.config.runAfterCheckOuts == true)
+        ) {
+            portfolioSystem.evalUserCode(portfolioSystem.userDefinedPortfolioCode, 'User Defined Portfolio Code');
         }
     }
 

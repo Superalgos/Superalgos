@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "В этом рабочем пространстве представлена ​​коллекция узлов Crypto Exchange, соответствующих биржам, которые были или в настоящее время тестируются. Используйте это рабочее пространство, если вы собираетесь тестировать новые биржи.",
                 "updated": 1639055927749
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu çalışma alanı, test edilmiş veya şu anda test edilmekte olan borsalara karşılık gelen Crypto Exchange düğümlerinin koleksiyonunu içerir. Yeni değişimleri test etmeyi düşünüyorsanız bu çalışma alanını kullanın.",
+                "updated": 1644675616580
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "language": "RU",
                     "text": "Рабочий процесс тестирования",
                     "updated": 1639055942440
+                },
+                {
+                    "language": "TR",
+                    "text": "İş Akışının Test Edilmesi",
+                    "updated": 1644675668619
                 }
             ]
         },
@@ -44,6 +54,11 @@
                     "language": "RU",
                     "text": "Иерархия Crypto Ecosystem включает пять различных узлов Crypto Exchanges, отражающих статус тестов каждой из бирж.",
                     "updated": 1639055959487
+                },
+                {
+                    "language": "TR",
+                    "text": "Kripto Ekosistem hiyerarşisi ( Crypto Ecosystem hierarchy ), her bir borsanın testlerinin durumunu yansıtan beş farklı Kripto Borsası ( Crypto Exchanges ) düğümüne sahiptir.",
+                    "updated": 1644675741676
                 }
             ]
         },
@@ -61,6 +76,11 @@
                     "language": "RU",
                     "text": "Untested: Биржи, для которых нет зарегистрированной истории испытаний.",
                     "updated": 1639055978955
+                },
+                {
+                    "language": "TR",
+                    "text": "Test edilmemiş: Kayıtlı test geçmişi olmayan değişimler.",
+                    "updated": 1644675763900
                 }
             ]
         },
@@ -78,6 +98,11 @@
                     "language": "RU",
                     "text": "Testing Queue: Биржи, которые в настоящее время тестируют разработчики.",
                     "updated": 1639055996774
+                },
+                {
+                    "language": "TR",
+                    "text": "Test Kuyruğu: Geliştiricilerin şu anda test etmekte olduğu değiş tokuşlar.",
+                    "updated": 1644675796511
                 }
             ]
         },
@@ -95,6 +120,11 @@
                     "language": "RU",
                     "text": "Failed OHLCVs Tests: Биржи, которые были протестированы, но не смогли предоставить данные OHLCV ожидаемым образом. Биржи из этого списка в данный момент недоступны. Могут потребоваться дополнительные усилия, чтобы заставить их работать.",
                     "updated": 1639056083021
+                },
+                {
+                    "language": "TR",
+                    "text": "Başarısız OHLCV Testleri: Test edilmiş ancak OHLCV verilerini beklenen şekilde sunamayan değişimler. Bu kuyruktaki takaslar şu anda kullanılamaz. Onları işe koymak için daha fazla çaba gerekebilir.",
+                    "updated": 1644675803371
                 }
             ]
         },
@@ -112,6 +142,11 @@
                     "language": "RU",
                     "text": "Trading Tests Pending: Биржи, прошедшие тесты OHLCV (могут предоставлять данные так, как этого ожидает Superalgos) и ожидают реальных торговых тестов.",
                     "updated": 1639056105477
+                },
+                {
+                    "language": "TR",
+                    "text": "İşlem Testleri Beklemede: OHLCV testlerini geçen (Superalgos'un beklediği şekilde veri sunabilen) ve canlı işlem testlerini bekleyen borsalar.",
+                    "updated": 1644675826681
                 }
             ]
         },
@@ -129,6 +164,11 @@
                     "language": "RU",
                     "text": "Tested: Биржи, которые были протестированы для интеллектуального анализа данных и торговли в реальном времени, и каждый должен иметь возможность использовать их без проблем.",
                     "updated": 1639056175209
+                },
+                {
+                    "language": "TR",
+                    "text": "Test Edildi: Veri madenciliği ve canlı ticaret için test edilmiş ve herkesin güçlük çekmeden kullanabilmesi gereken borsalar.",
+                    "updated": 1644675838112
                 }
             ]
         },

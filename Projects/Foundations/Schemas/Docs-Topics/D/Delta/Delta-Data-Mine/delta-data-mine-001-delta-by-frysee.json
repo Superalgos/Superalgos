@@ -1,0 +1,46 @@
+{
+    "topic": "Delta Data Mine",
+    "pageNumber": 1,
+    "type": "Delta By frysee",
+    "definition": {
+        "text": "This data mine includes trend indicators such as Money Flow Index (MFI) and Wilder's Relative Strength Index (W-RSI) ",
+        "updated": 1611685345604,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Diese Datenmine enthält Trendindikatoren wie den Money Flow Index (MFI) und den Wilder's Relative Strength Index (W-RSI)",
+                "updated": 1644721781381
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The Delta data mine is brought to you by...",
+            "updated": 1611685372883,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Delta-Datenmine wird Ihnen präsentiert von...",
+                    "updated": 1644721793902
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "@frysee->github.com/frysee/",
+            "updated": 1611685413223
+        },
+        {
+            "style": "Success",
+            "text": "Collaborate with this data mine and report issues directly at the Superalgos repository.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Arbeiten Sie mit dieser Datenmine zusammen und melden Sie Probleme direkt an das Superalgos Repository.",
+                    "updated": 1644721811654
+                }
+            ]
+        }
+    ]
+}

@@ -26,6 +26,11 @@
                 "language": "RU",
                 "text": "Подождите, пока изменения будут загружены на GitHub.com и будет создан запрос на извлечение (Pull Request). Когда операция будет завершена, вы получите новое сообщение.",
                 "updated": 1638270557307
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Değişiklikler GitHub.com'a yüklenirken ve bir Çekme İsteği oluşturulurken bekleyin. İşlem tamamlandığında yeni bir mesaj alacaksınız.",
+                "updated": 1644414907635
             }
         ]
     },
@@ -50,6 +55,11 @@
                     "language": "RU",
                     "text": "Что дальше?",
                     "updated": 1638270571840
+                },
+                {
+                    "language": "TR",
+                    "text": "Sırada ne var?",
+                    "updated": 1644415134233
                 }
             ]
         },
@@ -78,6 +88,11 @@
                     "language": "RU",
                     "text": "Никаких дополнительных действий от вас не требуется. Кто-то рассмотрит ваш запрос на слияние и объединит его с последней версией программного обеспечения, если все будет в порядке. Если ваши изменения отклонены по какой-либо причине, вам нужно будет решить проблему на Github.com.",
                     "updated": 1638270591020
+                },
+                {
+                    "language": "TR",
+                    "text": "Başka bir işlem yapmanıza gerek yoktur. Birisi, Çekme Talebinizi gözden geçirecek ve her şeyin yolunda olması durumunda onu yazılımın en son sürümüyle birleştirecektir. Değişiklikleriniz herhangi bir nedenle reddedilirse, sorunu Github.com adresinden takip etmeniz gerekecektir.",
+                    "updated": 1644415174709
                 }
             ]
         },
@@ -106,6 +121,11 @@
                     "language": "RU",
                     "text": "Если вы отправите больше вкладов, а ваш последний Pull Request находится на рассмотрении, они будут автоматически добавлены к открытому Pull Request.",
                     "updated": 1638270815257
+                },
+                {
+                    "language": "TR",
+                    "text": "Çekme Talebi incelenirken daha fazla katkı gönderirseniz, bunlar otomatik olarak açık Çekme Talebine eklenecektir.",
+                    "updated": 1644415192809
                 }
             ]
         },
@@ -134,6 +154,11 @@
                     "language": "RU",
                     "text": "Вы должны получить электронное письмо от Github.com, когда изменения будут объединены, или если рецензент оставит комментарии или отклонит изменения. Вы можете управлять настройками подписки на электронную почту на GitHub.com.",
                     "updated": 1638270850375
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Değişiklikler birleştirildiğinde veya gözden geçiren yorum yaptığında veya değişiklikleri reddettiğinde Github.com'dan bir e-posta almalısınız. E-posta abonelik ayarlarınızı GitHub.com'da yönetebilirsiniz.",
+                    "updated": 1644415221512
                 }
             ]
         }

@@ -96,6 +96,35 @@ const loadProfile = async (socialPersonaId, res) => {
         console.log(error);
     }
 }
+const loadProfileData = async (socialPersonaId, res) => {
+
+    try {
+        let profileMessage = {
+            profileType: SA.projects.socialTrading.globals.profileTypes.GET_USER_PROFILE_INFO,
+            originSocialPersonaId: socialPersonaId
+        }
+
+        let query = {
+            networkService: 'Social Graph',
+            requestType: 'Profile',
+            profileMessage: JSON.stringify(profileMessage)
+        }
+
+        const result = await webAppInterface.sendMessage(
+            JSON.stringify(query)
+        )
+        console.log(result)
+
+        // let response = {}
+        // response.data = result.profileData;
+        // response.result = result.result;
+
+        return response
+
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 const saveProfile = async (body, res) => {
 
@@ -196,6 +225,32 @@ const createSocialPersona = async (body, res) => {
     }
 }
 
+const getSocialStats = async (body) => {
+
+    try {
+
+        let queryMessage = {
+            queryType: SA.projects.socialTrading.globals.queryTypes.SOCIAL_PERSONA_STATS,
+            originSocialPersonaId: body?.originSocialPersonaId,
+            targetSocialPersonaId: body?.targetSocialPersonaId,
+        }
+
+        let query = {
+            networkService: 'Social Graph',
+            requestType: 'Query',
+            queryMessage: JSON.stringify(queryMessage)
+        }
+
+        return await webAppInterface.sendMessage(
+            JSON.stringify(query)
+        )
+
+    } catch (error) {
+        console.log(error);
+    }
+
+}
+
 
 module.exports = {
     followProfile,
@@ -205,6 +260,8 @@ module.exports = {
     getSocialPersonaId,
     createProfile,
     listSocialEntities,
-    createSocialPersona
+    createSocialPersona,
+    loadProfileData,
+    getSocialStats
 };
 

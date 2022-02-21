@@ -25,6 +25,10 @@ function updateProfile(profileData) {
     return httpRequest('/users/profile', POST, profileData)
 }
 
+function createProfile(profileData) {
+    return httpRequest('/users/create-profile', POST, profileData)
+}
+
 
 export {
     getProfiles,

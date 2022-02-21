@@ -19,6 +19,11 @@ const loadProfile = async (req, res) => {
     res.send(result);
 };
 
+const loadProfileData = async (req, res) => {
+    const result = await userService.loadProfileData(req.query.socialPersonaId);
+    res.send(result);
+};
+
 
 const saveProfile = async (req, res) => {
     const result = await userService.saveProfile(req.body);
@@ -46,6 +51,11 @@ const createSocialPersona = async (req, res) => {
     res.send(result);
 };
 
+const getSocialStats = async (req, res) => {
+    const result = await userService.getSocialStats(req.body);
+    res.send(result);
+};
+
 
 module.exports = {
     follow,
@@ -55,9 +65,7 @@ module.exports = {
     getSocialPersonaId,
     createProfile,
     listSocialEntities,
-    createSocialPersona
+    createSocialPersona,
+    loadProfileData,
+    getSocialStats
 };
-
-
-
-

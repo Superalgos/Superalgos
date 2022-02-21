@@ -103,7 +103,8 @@ function newFoundationsContributionsSpace() {
     }
 
     function onOpening() {
-        thisObject.isVisible = true
+         thisObject.editorPage.reset()
+         thisObject.isVisible = true
     }
 
     function onClosing() {

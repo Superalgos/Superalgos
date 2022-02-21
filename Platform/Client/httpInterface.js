@@ -1366,6 +1366,98 @@ exports.newHttpInterface = function newHttpInterface() {
                             break
                         }
 
+                        case 'Discard': {
+                            // We discard active changes for a specific file
+                            try {
+                                requestPath.splice(0,3)
+                                const repo = requestPath.splice(0, 1).toString().replace('-Plugins','')
+                                const filePath = requestPath.toString().replaceAll(",", "/")
+
+                                let error
+
+                                discard().catch(errorResp)
+
+                                // This error responce needs to be made compatible with the contributions space or depricated
+                                function errorResp(e) {
+                                    error = e
+                                    console.error(error)
+                                    let docs = {
+                                        project: 'Foundations',
+                                        category: 'Topic',
+                                        type: 'Switching Branches - Current Branch Not Changed',
+                                        anchor: undefined,
+                                        placeholder: {}
+                                    }
+
+                                    respondWithDocsObject(docs, error)
+                                }
+
+
+                                async function discard() {
+                                    const { lookpath } = SA.nodeModules.lookpath
+                                    const gitpath = await lookpath('git');
+                                    if (gitpath === undefined) {
+                                        console.log('[ERROR] `git` not installed.')
+                                    } else {
+                                        let status
+
+                                        // status should return the global ok responce 
+                                        status = await doGit(repo).catch(errorResp)
+
+                                        // Now we send the responce back to the UI
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(status), httpResponse)
+                                    }
+                                }
+
+                                async function doGit(repo = 'Superalgos') {
+                                    const simpleGit = SA.nodeModules.simpleGit
+                                    const options = {
+                                        binary: 'git',
+                                        maxConcurrentProcesses: 6,
+                                    }
+                                    // main app repo should be the working directory
+                                    if (repo === 'Superalgos') options.baseDir = process.cwd()
+                                    // if repo is not main app repo, assume it is a plugin, in ./Plugins.
+                                    else options.baseDir = SA.nodeModules.path.join(process.cwd(), 'Plugins', repo)
+                                    
+                                    const git = simpleGit(options)
+                                    let status
+                                    try {
+
+                                        // Discard change in file
+                                        await git.checkout([filePath]).catch(errorResp)
+                                        // Make sure changes have been discarded
+                                       status = await git.diff([filePath]).catch(errorResp)
+
+                                       if (status === '') {
+                                           status = global.DEFAULT_OK_RESPONSE
+                                       } else {
+                                           console.log('[ERROR} There are still differences found for this file')
+                                           console.log (status)
+                                       }
+
+                                    } catch (err) {
+                                        console.log('[ERROR] Error while discarding changes to ' + filepath)
+                                        console.log(err.stack)
+                                        error = err
+                                    }
+                                    return status
+                                }
+
+                            } catch (err) {
+                                console.log('[ERROR] httpInterface -> App -> Status -> Method call produced an error.')
+                                console.log('[ERROR] httpInterface -> App -> Status -> err.stack = ' + err.stack)
+
+                                let error = {
+                                    result: 'Fail Because',
+                                    message: err.message,
+                                    stack: err.stack
+                                }
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
+                            }
+                            break
+                        }
+
                         case 'FixAppSchema': {
                             /*
                             We will use this process when we have moved APP SCHEMA files from one project to another, and we need to fix the

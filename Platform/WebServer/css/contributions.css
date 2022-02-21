@@ -26,6 +26,16 @@
     cursor: pointer;
 }
 
+.contributions-top-buttons:active {
+    font-size: 150%;
+    border: 4px solid #0295aa;
+    border-radius: 5px;
+    background-color: transparent;
+    color: #10aa1d;
+    padding: 10px;
+    margin: 4px 0 0 1px;
+}
+
 .contributions-common-style-container{
     /*background-color: white;*/
     font: 400 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
@@ -44,10 +54,20 @@
     padding: 10px;
     margin: 4px 0 0 1px;
     }
+
 .contributions-button:hover {
     background-color: #b11a0f;
     color:whitesmoke;
     cursor: pointer;
+    }
+
+.contributions-button:active {
+    border: 1px groove #365558;
+    border-radius: 20px;
+    background-color: rgb(99, 94, 94);
+    color: whitesmoke;
+    padding: 10px;
+    margin: 4px 0 0 1px;
     }
 
 .repo-title{

@@ -5,7 +5,8 @@ function newFoundationsContributionsPage() {
         reset:reset,
         initialize: initialize,
         finalize: finalize,
-        getStatus: getStatus
+        getStatus: getStatus,
+        discardChange: discardChange
     }
 
     // add needed variables here let monacoInitialized = false
@@ -49,6 +50,8 @@ function newFoundationsContributionsPage() {
         HTML += '<div class="contributions-common-style-container" id="contributions">'
         HTML += '<div class="contributions-top-buttons-div"><button class="contributions-top-buttons">Contribute</button><button class="contributions-top-buttons">Update</button><button class="contributions-top-buttons">Reset</button></div>'
         
+        let fileNamesRepoAndPath = []
+        let fileName
         for (const stat of thisObject.repoStatus) {
             // Overall diff in repo
             HTML += '<div class="repo-title"><span class="docs-h3">' + stat[0] + '</span>' + '<span><span>Files Changed: ' + JSON.stringify(stat[1].changed) + ' </span><span class="insertion"> Insertions: ' + JSON.stringify(stat[1].insertions) +' </span><span class="deletion"> Deletions: ' + JSON.stringify(stat[1].deletions) + ' </span></span></div><hr>'
@@ -57,10 +60,11 @@ function newFoundationsContributionsPage() {
             for (const file of stat[1].files) {
                 
                 fileName = file.file.split("/").pop()
-                HTML += '<div class="file-Object"><div><strong>File: </Strong>' + fileName + '</div>' 
+                fileNamesRepoAndPath.push([fileName, stat[0], file.file])
+                HTML += '<div id="' + fileName + '" class="file-Object"><div><strong>File: </Strong>' + fileName + '</div>' 
                 HTML += '<div><strong>Path: </Strong>' + file.file + '</div>' 
                 HTML += '<div> <span class="insertion"> Insertions: ' + JSON.stringify(file.insertions) + '</span> <span class="deletion"> Deletions: ' + JSON.stringify(file.deletions) +  '</span> <span class="total-changes">Total Changes: ' + JSON.stringify(file.changes) + '</span></div>'
-                HTML += '<button class="contributions-button">Discard Changes</button></div>'
+                HTML += '<button id="' + fileName + '-button" class="contributions-button">Discard Changes</button></div>'
             }
         }
         
@@ -69,6 +73,11 @@ function newFoundationsContributionsPage() {
 
         HTML += footer()
         document.getElementById('contributions-content-div').innerHTML = HTML
+
+        for(const file of fileNamesRepoAndPath) {
+            document.getElementById(file[0] + '-button').addEventListener('click', function() {discardChange(file[1], file[2])})
+        }
+        
 
     }
 
@@ -105,6 +114,29 @@ function newFoundationsContributionsPage() {
                 thisObject.repoStatus = data
                 // Render information by rebuilding html
                 buildEditorHTML()
+                        
+            } else {
+                // will need to open docs space to display this error 
+                UI.projects.education.spaces.docsSpace.navigateTo(
+                    data.docs.project,
+                    data.docs.category,
+                    data.docs.type,
+                    data.docs.anchor,
+                    undefined,
+                    data.docs.placeholder
+                    )               
+                }
+            }
+    }
+
+    function discardChange(repo, filePath) {
+        httpRequest(undefined, 'App/Discard/' + repo + "/" + filePath, onResponse)
+        
+        function onResponse(err, data) {
+            /* Lets check the result of the call through the http interface */
+            data = JSON.parse(data)
+            if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                reset()
                 console.log("this is the reponse", data)
         
             } else {

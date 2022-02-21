@@ -2,7 +2,14 @@
     "type": "Direct Proportion",
     "definition": {
         "text": "When the relationship between two quantities is such that if we increase one, the other will also increase, and if we decrease one the other quantity will also decrease, then the two quantities are said to be in a direct proportion",
-        "updated": 1630140935167
+        "updated": 1630140935167,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Когда связь между двумя величинами такова, что если мы увеличим одну из них, то другая также увеличится, а если мы уменьшим одну из них, то другая величина также уменьшится, тогда говорят, что эти две величины находятся в прямой пропорции (Direct Proportion).",
+                "updated": 1645082519741
+            }
+        ]
     },
     "paragraphs": [
         {

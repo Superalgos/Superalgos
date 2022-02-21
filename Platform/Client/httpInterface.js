@@ -252,15 +252,114 @@ exports.newHttpInterface = function newHttpInterface() {
                 }
                     break
                 case 'DEX':
-                    SA.projects.foundations.utilities.httpRequests.getRequestBodyAsync(httpRequest, httpResponse)
-                        .then(body => {
-                            let config = JSON.parse(body)
-                            //stuff
-                            console.log(config)
-                        })
-                        .catch(err => {
-                            console.error(err)
-                        })
+                    switch (requestPath[2]) {
+                        case 'CreateNewWallet':
+                            console.log('creating new wallet')
+                            let dexWallet = SA.projects.decentralizedExchanges.modules.wallets.newDecentralizedExchangesModulesWallets()
+                            dexWallet.initialize()
+                            .then(() => {
+                                dexWallet.createWallet()
+                                .then(wallet => {
+                                    responseBody = JSON.stringify({
+                                        address: wallet.address,
+                                        mnemonic: wallet.mnemonic.phrase,
+                                        privateKey: wallet.privateKey,
+                                        publicKey: wallet.publicKey
+                                    })
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(responseBody, httpResponse)
+                                })
+                                .catch(err => {
+                                    console.error(err)
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                })
+                            })
+                            .catch(err => {
+                                console.error(err)
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                            })
+                            break
+                        case 'ImportWalletFromMnemonic':
+                            console.log('importing wallet from mnemonic')
+                            SA.projects.foundations.utilities.httpRequests.getRequestBodyAsync(httpRequest, httpResponse)
+                            .then(body => {
+                                let config = JSON.parse(body)
+                                let dexWallet = SA.projects.decentralizedExchanges.modules.wallets.newDecentralizedExchangesModulesWallets()
+                                dexWallet.initialize()
+                                .then(() => {
+                                    dexWallet.importWalletFromMnemonic(config.mnemonic)
+                                    .then(wallet => {
+                                        responseBody = JSON.stringify({
+                                            address: wallet.address
+                                        })
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(responseBody, httpResponse)
+                                    })
+                                    .catch(err => {
+                                        console.error(err)
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                    })
+                                })
+                                .catch(err => {
+                                    console.error(err)
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                })
+                            })
+                            .catch(err => {
+                                console.error(err)
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                            })
+                            break
+                        case 'ImportWalletFromPrivateKey':
+                            console.log('importing wallet from private key')
+                            SA.projects.foundations.utilities.httpRequests.getRequestBodyAsync(httpRequest, httpResponse)
+                            .then(body => {
+                                let config = JSON.parse(body)
+                                let dexWallet = SA.projects.decentralizedExchanges.modules.wallets.newDecentralizedExchangesModulesWallets()
+                                dexWallet.initialize()
+                                .then(() => {
+                                    dexWallet.importWalletFromPrivateKey(config.privateKey)
+                                    .then(wallet => {
+                                        responseBody = JSON.stringify({
+                                            address: wallet.address,
+                                            publicKey: wallet.publicKey
+                                        })
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(responseBody, httpResponse)
+                                    })
+                                    .catch(err => {
+                                        console.error(err)
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                    })
+                                })
+                                .catch(err => {
+                                    console.error(err)
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                })
+                            })
+                            .catch(err => {
+                                console.error(err)
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                            })
+                            break
+                        case 'GetTokens':
+                            console.log('adding missing tokens to wallet assets.')
+                            SA.projects.foundations.utilities.httpRequests.getRequestBodyAsync(httpRequest, httpResponse)
+                            .then(body => {
+                                let config = JSON.parse(body)
+                                if (config.network === 'bsc') {
+                                    SA.projects.decentralizedExchanges.utilities.bsc.getTokens()
+                                        .then(response => {
+                                            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
+                                        })
+                                    .catch(err => {
+                                        console.error(err)
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                    })
+                                }
+                            })
+                            .catch(err => {
+                                console.error(err)
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                            })
+                        }
                     break
                 case 'Social-Bots':
                     switch (requestPath[2]) {

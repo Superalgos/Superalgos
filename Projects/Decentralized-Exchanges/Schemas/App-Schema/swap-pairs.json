@@ -3,19 +3,19 @@
     "menuItems": [
         {
             "action": "Add UI Object",
-            "label": "Add Pair",
-            "relatedUiObject": "Pair",
+            "label": "Add Swap Pair",
+            "relatedUiObject": "Swap Pair",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Decentralized-Exchanges"
         },
         {
             "action": "Add Missing Pairs",
-            "label": "Add Missing Pairs",
+            "label": "Add Missing Swap Pairs",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
             "workDoneLabel": "Request Sent",
-            "relatedUiObject": "Pairs",
+            "relatedUiObject": "Swap Pair",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Decentralized-Exchanges"
         },
@@ -33,14 +33,14 @@
     "addLeftIcons": true,
     "level": 3,
     "attachingRules": {
-        "compatibleTypes": "->Decentralized Exchange->"
+        "compatibleTypes": "->Defi Wallet->"
     },
     "propertyNameAtParent": "swapPairs",
     "childrenNodesProperties": [
         {
-            "name": "pairs",
+            "name": "swapPair",
             "type": "array",
-            "childType": "Pairs"
+            "childType": "Swap Pair"
         }
     ]
 }

@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "В этом рабочем пространстве представлен пример создания нового бота для извлечения данных через API.",
                 "updated": 1639057382639
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu çalışma alanı, yeni bir API Veri Getirme Botunun nasıl oluşturulacağına dair bir örnek içerir.",
+                "updated": 1644676722601
             }
         ]
     },

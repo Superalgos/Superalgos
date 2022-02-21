@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "В рабочем пространстве представлены базовые настройки, позволяющие начать изучение интеграции проекта TensorFlow Project.",
                 "updated": 1639056680770
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Çalışma alanı, TensorFlow Projesinin entegrasyonunu keşfetmeye başlamak için temel kurulumu içerir.",
+                "updated": 1644676284948
             }
         ]
     },

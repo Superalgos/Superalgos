@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "В этом рабочем пространстве есть учебное пособие, которое научит вас работать с разными рынками.",
                 "updated": 1639057107984
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu çalışma alanında, farklı pazarlarla nasıl çalışacağınızı öğreten bir eğitim bulunmaktadır.",
+                "updated": 1644676635755
             }
         ]
     },
@@ -33,7 +38,14 @@
         },
         {
             "style": "Text",
-            "text": "Install a New Market Tutorial"
+            "text": "Install a New Market Tutorial",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yeni Bir Pazar Kurulum Eğitimi ( Install a New Market Tutorial )",
+                    "updated": 1644676689975
+                }
+            ]
         },
         {
             "style": "Title",

@@ -36,6 +36,11 @@
                 "language": "RU",
                 "text": "Теперь нам нужно прикрепить резервную копию узла Trading Parameters к сессии бэктестинга. Как это сделать?",
                 "updated": 1640867967343
+            },
+            {
+                "language": "ID",
+                "text": "Sekarang kita perlu menempelkan cadangan node Trading Parameters ke Backtesting Session. Bagaimana kita melakukannya?",
+                "updated": 1644516835119
             }
         ]
     },
@@ -70,6 +75,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши на узле Trading Parameters и подтяните его ближе к узлу Backtesting Session! Отпустите, когда увидите оранжевое кольцо вокруг узла Backtesting Session!",
                     "updated": 1640868014417
+                },
+                {
+                    "language": "ID",
+                    "text": "Klik kanan pada node Trading Parameters dan tarik lebih dekat ke node  Backtesting Session! Lepaskan ketika kamu melihat cincin oranye di sekitar node  Backtesting Session!",
+                    "updated": 1644516930065
                 }
             ]
         },
@@ -104,6 +114,11 @@
                     "language": "RU",
                     "text": "Вот и все! Резервная копия узла Trading Parameters восстановлена и снова используется.",
                     "updated": 1640868043620
+                },
+                {
+                    "language": "ID",
+                    "text": "Itu dia! Cadangan node Trading Parameters dipulihkan dan digunakan kembali.",
+                    "updated": 1644517021415
                 }
             ]
         },
@@ -138,6 +153,11 @@
                     "language": "RU",
                     "text": "Обратите внимание, что вы можете удалить второй узел Trading Parameters, если хотите, или оставить его сбоку для последующего использования.",
                     "updated": 1640868060462
+                },
+                {
+                    "language": "ID",
+                    "text": "Diperhatikan bahwa kamu dapat menghapus node Trading Parameters kedua jika diinginkan, atau kamu dapat menyimpannya di samping untuk digunakan nanti.",
+                    "updated": 1644517081487
                 }
             ]
         }

@@ -1,12 +1,12 @@
 function newFoundationsFunctionLibraryDependenciesFilter() {
     /* 
-    A Dependency Filter is list of Indicators a Strategy depends 
-    on, that is later used to filter out all the other indicators
+    A Dependency Filter is list of Indicators and Studies a Strategy depends 
+    on, that is later used to filter out all the other indicators and studies
     the Trading Bot depends on.
 
     The function will scan a node branch, most likely a Trading System,
     looking into the code property of each node. It will analyze it's
-    content and try to make a list of all indicators mentioned at the code 
+    content and try to make a list of all indicators and studies mentioned at the code 
     text and at which time frames they are mentioned.
 
     It is important to note that all nodes that are not of the type

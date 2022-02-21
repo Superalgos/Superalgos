@@ -139,9 +139,10 @@ function newFoundationsFunctionLibraryTaskFunctions() {
             'Sensor Bot Instance->' +
             'API Data Fetcher Bot Instance->' +
             'Indicator Bot Instance->' +
+            'Study Bot Instance->' +
             'Trading Bot Instance->' +
             'Learning Bot Instance->' +
-            'Sensor Process Instance->Time Frames Filter->API Data Fetcher Process Instance->Indicator Process Instance->Trading Process Instance->Portfolio Process Instance->Learning Process Instance->' +
+            'Sensor Process Instance->Time Frames Filter->API Data Fetcher Process Instance->Indicator Process Instance->Study Process Instance->Trading Process Instance->Portfolio Process Instance->Learning Process Instance->' +
             'Execution Started Event->' +
             'Key Reference->Exchange Account Key->' +
             'Task Manager->' +
@@ -188,6 +189,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
             'Sensor Bot->' +
             'API Data Fetcher Bot->' +
             'Indicator Bot->' +
+            'Study Bot->' +
             'Trading Bot->' +
             'Portfolio Bot->' +
             'Learning Bot->' +
@@ -224,8 +226,8 @@ function newFoundationsFunctionLibraryTaskFunctions() {
             'Market Data Tasks->Market Trading Tasks->Market Portfolio Tasks->Market Learning Tasks->Market->' +
             'Data Mine Tasks->Trading Mine Tasks->Portfolio Mine Tasks->Learning Mine Tasks->' +
             'Task Manager->Managed Tasks->Task Reference->Task->' +
-            'Indicator Bot Instance->Sensor Bot Instance->API Data Fetcher Bot Instance->Trading Bot Instance->Portfolio Bot Instance->Learning Bot Instance->' +
-            'Indicator Process Instance->Sensor Process Instance->API Data Fetcher Process Instance->Trading Process Instance->Portfolio Process Instance->Learning Process Instance->' +
+            'Indicator Bot Instance->Study Bot Instance->Sensor Bot Instance->API Data Fetcher Bot Instance->Trading Bot Instance->Portfolio Bot Instance->Learning Bot Instance->' +
+            'Indicator Process Instance->Study Process Instance->Sensor Process Instance->API Data Fetcher Process Instance->Trading Process Instance->Portfolio Process Instance->Learning Process Instance->' +
             'Paper Trading Session->Forward Testing Session->Backtesting Session->Live Trading Session->Backtesting Portfolio Session->Live Portfolio Session->Back Learning Session->Live Learning Session->' +
             'API Map Reference->' +
             'Market->' +
@@ -234,8 +236,8 @@ function newFoundationsFunctionLibraryTaskFunctions() {
         let networkDefinition = UI.projects.visualScripting.nodeActionFunctions.protocolNode.getProtocolNode(lanNetworkNode.payload.parentNode, false, true, true, false, false, networkLightingPath)
 
         let managedTasksLightingPath = '->Task->Managed Tasks->Portfolio Bot Instance->' +
-            'Task Reference->Task->Sensor Bot Instance->API Data Fetcher Bot->Indicator Bot Instance->Trading Bot Instance->Learning Bot Instance->' +
-            'Sensor Process Instance->Time Frames Filter->API Data Fetcher Process Instance->Indicator Process Instance->Trading Process Instance->Learning Process Instance->' +
+            'Task Reference->Task->Sensor Bot Instance->API Data Fetcher Bot->Indicator Bot Instance->Study Bot Instance->Trading Bot Instance->Learning Bot Instance->' +
+            'Sensor Process Instance->Time Frames Filter->API Data Fetcher Process Instance->Indicator Process Instance->Study Process Instance->Trading Process Instance->Learning Process Instance->' +
             'Execution Started Event->Key Reference->Exchange Account Key->' +
             'Task Manager->' +
             'Data Mine Tasks->Trading Mine Tasks->Learning Mine Tasks->Portfolio Mine Tasks->' +
@@ -979,6 +981,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
             addTasksForBotArray(mine.sensorBots)
             addTasksForBotArray(mine.apiDataFetcherBots)
             addTasksForBotArray(mine.indicatorBots)
+            addTasksForBotArray(mine.studyBots)
             addTasksForBotArray(mine.tradingBots)
             addTasksForBotArray(mine.portfolioBots)
             addTasksForBotArray(mine.learningBots)
@@ -1013,6 +1016,15 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                             let task = addTask(taskManager)
 
                             botInstance = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(task, 'Indicator Bot Instance')
+                            botInstance.name = bot.name
+
+                            addProcessInstance(task, bot, botInstance)
+                            break
+                        }
+                        case 'Study Bot': {
+                            let task = addTask(taskManager)
+
+                            botInstance = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(task, 'Study Bot Instance')
                             botInstance.name = bot.name
 
                             addProcessInstance(task, bot, botInstance)
@@ -1104,6 +1116,11 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                                 }
                                 case 'Indicator Bot': {
                                     processInstance = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(botInstance, 'Indicator Process Instance')
+                                    UI.projects.visualScripting.nodeActionFunctions.attachDetach.referenceAttachNode(processInstance, process)
+                                    break
+                                }
+                                case 'Study Bot': {
+                                    processInstance = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(botInstance, 'Study Process Instance')
                                     UI.projects.visualScripting.nodeActionFunctions.attachDetach.referenceAttachNode(processInstance, process)
                                     break
                                 }

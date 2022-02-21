@@ -6,8 +6,8 @@ function newFoundationsContributionsSpace() {
         container: undefined,
         editorPage: undefined,
         isVisible: undefined,
+        config: undefined,
         reset: reset,
-        openSpaceArea: openSpaceArea,
         physics: physics,
         draw: draw,
         getContainer: getContainer,
@@ -70,12 +70,6 @@ function newFoundationsContributionsSpace() {
             browserResizedEventSubscriptionId = canvas.eventHandler.listenToEvent('Browser Resized', resize)
         }
 
-    }
-
-    function openSpaceArea(originatingNode, codeEditorType) {
-
-        thisObject.sidePanelTab.open()
-        thisObject.editorPage.render(originatingNode, codeEditorType)
     }
 
     function reset() {
@@ -239,5 +233,4 @@ function newFoundationsContributionsSpace() {
             }
         }
     }
-
 }

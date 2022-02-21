@@ -1,3 +1,5 @@
+const { NULL } = require("simple-git/src/lib/utils")
+
 exports.newHttpInterface = function newHttpInterface() {
 
     /*
@@ -1105,6 +1107,101 @@ exports.newHttpInterface = function newHttpInterface() {
                             break
                         }
 
+                        case 'Status': {
+                            // We check the current status of changes made in the local repo
+                            try {
+                                let error
+
+                                status().catch(errorResp)
+
+                                // This error responce needs to be made compatible with the contributions space or depricated
+                                function errorResp(e) {
+                                    error = e
+                                    console.error(error)
+                                    let docs = {
+                                        project: 'Foundations',
+                                        category: 'Topic',
+                                        type: 'Switching Branches - Current Branch Not Changed',
+                                        anchor: undefined,
+                                        placeholder: {}
+                                    }
+
+                                    respondWithDocsObject(docs, error)
+                                }
+
+
+                                async function status() {
+                                    const { lookpath } = SA.nodeModules.lookpath
+                                    const gitpath = await lookpath('git');
+                                    if (gitpath === undefined) {
+                                        console.log('[ERROR] `git` not installed.')
+                                    } else {
+                                        let repoStatus = []
+                                        let status
+
+                                        // status is an array that holds the repo name and diff summary in an array
+                                        status = await doGit().catch(errorResp)
+                                        repoStatus.push(status)
+
+                                        // here status is returned as an array of arrays with repo name and diff summary
+                                        status = await Promise.all(Object.values(global.env.PROJECT_PLUGIN_MAP).map(v => {
+                                            return doGit(v.dir, v.repo)
+                                        })).catch(errorResp)
+                                        repoStatus = repoStatus.concat(status)
+
+                                        // Now we send all the summaries to the UI
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(repoStatus), httpResponse)
+                                    }
+                                }
+
+                                async function doGit(dir, repo = 'Superalgos') {
+                                    const simpleGit = SA.nodeModules.simpleGit
+                                    const options = {
+                                        binary: 'git',
+                                        maxConcurrentProcesses: 6,
+                                    }
+                                    // main app repo should be the working directory
+                                    if (repo === 'Superalgos') options.baseDir = dir || process.cwd()
+                                    // if repo is not main app repo, assume it is a plugin, in ./Plugins.
+                                    else options.baseDir = SA.nodeModules.path.join(process.cwd(), 'Plugins', dir)
+                                    const git = simpleGit(options)
+                                    let diffObj
+                                    try {
+                                        // get the summary of current changes in the current repo
+                                        diffObj = await git.diffSummary(responce).catch(errorResp)
+
+                                        function responce(err, diffSummary) {
+                                            if (err !== null) {
+                                                console.log('[ERROR] Error while gathering diff summary for ' + repo)
+                                                console.log(err.stack)
+                                                error = err
+                                            } else {
+                                                return diffSummary
+                                            }
+                                        }
+
+                                    } catch (err) {
+                                        console.log('[ERROR] Error while gathering diff summary for ' + repo)
+                                        console.log(err.stack)
+                                        error = err
+                                    }
+                                    return [repo, diffObj];
+                                }
+
+                            } catch (err) {
+                                console.log('[ERROR] httpInterface -> App -> Status -> Method call produced an error.')
+                                console.log('[ERROR] httpInterface -> App -> Status -> err.stack = ' + err.stack)
+
+                                let error = {
+                                    result: 'Fail Because',
+                                    message: err.message,
+                                    stack: err.stack
+                                }
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
+                            }
+                            break
+                        }
+
                         case 'Checkout': {
                             try {
                                 const currentBranch = unescape(requestPath[3])
@@ -1133,7 +1230,9 @@ exports.newHttpInterface = function newHttpInterface() {
                                     if (gitpath === undefined) {
                                         console.log('[ERROR] `git` not installed.')
                                     } else {
+                                        // Checkout branch from main repo
                                         await doGit().catch(errorResp)
+                                        // Checkout branch from each plugin repo
                                         await Promise.all(Object.values(global.env.PROJECT_PLUGIN_MAP).map(v => {
                                             return doGit(v.dir, v.repo)
                                         })).catch(errorResp)

@@ -655,9 +655,9 @@
                     "animationPhysicsIndex": 1,
                     "animationDrawIndex": 0,
                     "onMouseWheelIndex": 6,
-                    "onMouseOverIndex": 6,
-                    "onMouseClickIndex": 5,
-                    "onMouseDownIndex": 5
+                    "onMouseOverIndex": 7,
+                    "onMouseClickIndex": 7,
+                    "onMouseDownIndex": 7
                 },
                 {
                     "name": "Top Space",

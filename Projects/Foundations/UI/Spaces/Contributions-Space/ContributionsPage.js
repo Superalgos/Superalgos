@@ -1,10 +1,11 @@
 function newFoundationsContributionsPage() {
     let thisObject = {
-        editorType: undefined,
+        repoStatus: undefined,
         render: render,
         reset:reset,
         initialize: initialize,
-        finalize: finalize
+        finalize: finalize,
+        getStatus: getStatus
     }
 
     // add needed variables here let monacoInitialized = false
@@ -13,13 +14,13 @@ function newFoundationsContributionsPage() {
 
 
     function initialize() {
-        buildEditorHTML()
+        getStatus()
     }
 
 
     function finalize() {
         // garbage collect variables here
-        thisObject.editorType = undefined
+        thisObject.repoStatus = undefined
 
     }
 
@@ -30,21 +31,30 @@ function newFoundationsContributionsPage() {
 
     function render(editorType) {
 
-        thisObject.editorType = editorType
+        //thisObject.editorType = editorType
     }
 
     function buildEditorHTML() {
         let HTML = ''
 
         HTML += `<section id="contributions-editor-page" class="contributions-editor-page">`
+
+        //Page Header
         HTML += '<div class="governance-report-page-header">'
         HTML += '<div class="governance-image-logo-report-page"><img src="Images/superalgos-logo.png" width=200></div>'
         HTML += '</div>'
-        HTML += `<div class="docs-title-table"><div class="docs-table-cell"><h2 class="docs-h2"> Code Editor</h2></div><div id="projectImageDiv" class="docs-image-container"><img src="Icons/Foundations/javascript-code.png" width="50" height="50"></div></div>`
-        HTML += `<div id="code-path"></div>`
-        HTML += `<div id="no-content" style="margin:auto;text-align:center;"><h2>Nothing to edit...</h2><h3>Try opening a node config or node code</h3></div>`
-        HTML += '<div class="editor" id="editor"></div>'
+        HTML += `<div class="docs-title-table"><div class="docs-table-cell"><h2 class="docs-h2"> Contributions Editor</h2></div><div id="projectImageDiv" class="docs-image-container"><img src="Icons/Foundations/github.png" width="50" height="50"></div></div>`
+        
+        // Page content
+        HTML += '<div class="contributions-editor" id="contributions">'
+        
+        for (const stat of thisObject.repoStatus) {
+            HTML += '<div>' + stat + '</div>'
+        }
+        
+        HTML +='</div>'
         HTML += `</section>`
+
         HTML += footer()
         document.getElementById('contributions-content-div').innerHTML = HTML
 
@@ -71,5 +81,31 @@ function newFoundationsContributionsPage() {
         HTML += '</div>' // Container Ends
 
         return HTML
+    }
+
+    function getStatus() {
+        httpRequest(undefined, 'App/Status', onResponse)
+        
+        function onResponse(err, data) {
+            /* Lets check the result of the call through the http interface */
+            data = JSON.parse(data)
+            if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                thisObject.repoStatus = data
+                // Render information by rebuilding html
+                buildEditorHTML()
+                console.log("this is the reponse", data)
+        
+            } else {
+                // will need to open docs space to display this error 
+                UI.projects.education.spaces.docsSpace.navigateTo(
+                    data.docs.project,
+                    data.docs.category,
+                    data.docs.type,
+                    data.docs.anchor,
+                    undefined,
+                    data.docs.placeholder
+                    )               
+                }
+            }
     }
 }

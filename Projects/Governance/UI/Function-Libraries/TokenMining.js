@@ -115,8 +115,8 @@ function newGovernanceFunctionLibraryTokenMining() {
         }
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
-            for (let j = 0; j < UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_ASSETS.length; j++) {
-                let asset = UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_ASSETS[j]
+            for (let j = 0; j < UI.projects.governance.globals.saToken.SA_TOKEN_BSC_LIQUIDITY_ASSETS.length; j++) {
+                let asset = UI.projects.governance.globals.saToken.SA_TOKEN_BSC_LIQUIDITY_ASSETS[j]
                 if (userProfile.tokenPowerSwitch === undefined) { continue }
                 let program = UI.projects.governance.utilities.validations.onlyOneProgramBasedOnConfigProperty(userProfile, "Liquidity Program", 'asset', asset)
                 if (program === undefined) { continue }

@@ -35,8 +35,8 @@
             },
             {
                 "language": "TR",
-                "text": "Her düğümde bir menü bulunur. Sol altta üzerinde \"+\" simgesinin bulunduğu buton, mevcut düğümü genişletir ya da daraltır. Böylece düğümün altındaki öğelere ulaşabilirsiniz.",
-                "updated": 1633267521331,
+                "text": "Her düğümde bir menü bulunur. Sol altta üzerinde \"+\" simgesinin bulunduğu buton, mevcut düğümü genişletir ya da daraltır. Böylece düğümün altındaki öğelere (alt düğümlere) ulaşabilirsiniz.",
+                "updated": 1644846589471,
                 "style": "Definition"
             },
             {
@@ -142,8 +142,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Öğretici (Tutorial) düğümün birkaç çocuğu vardır ve bunların birkaç çocuğu daha vardır.",
-                    "updated": 1633267652469,
+                    "text": "Öğretici (Tutorial) düğümün birkaç alt düğümü vardır ve bunların birkaç alt düğümü daha vardır.",
+                    "updated": 1644846612105,
                     "style": "Text"
                 },
                 {

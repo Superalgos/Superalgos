@@ -96,8 +96,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Kısacası patron sensin!",
-                    "updated": 1635952544111
+                    "text": "Patron sensin!",
+                    "updated": 1644906503039
                 }
             ]
         },
@@ -138,8 +138,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Herhangi bir noktada bir öğreticiyi durdurabilir ve adımları veya tüm konuları atlayabilirsiniz. Dersi tekrar almaya hazır olduğunuzda, tasarım alanının alt kısmında bizi bulun. Kaldığınız yerden veya atladığınız ilk adımdan başlamak için menüde Sürdür'ü seçin. Baştan başlamak için Oynat'ı seçin!",
-                    "updated": 1635952588337
+                    "text": "Herhangi bir noktada bir öğreticiyi durdurabilir ve adımları veya tüm konuları atlayabilirsiniz. Dersi tekrar almaya hazır olduğunuzda, tasarım alanının alt kısmında bizi bulun. Kaldığınız yerden veya atladığınız ilk adımdan başlamak için menüde Sürdür'ü (Resume) seçin. Baştan başlamak için Oynat'ı (Play) seçin!",
+                    "updated": 1644908281439
                 }
             ]
         },
@@ -185,8 +185,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Hadi deneyelim! Aşağıdaki Durdur düğmesini tıklayın ve ben gittiğimde menümü açın ve Devam Et'i seçin.",
-                    "updated": 1635952612454
+                    "text": "Hadi deneyelim! Aşağıdaki Durdur düğmesini tıklayın ve ben gittiğimde menüyü tekrar açın ve Devam Et'i (Resume) seçin.",
+                    "updated": 1644908308806
                 }
             ]
         }

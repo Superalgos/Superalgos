@@ -10,20 +10,8 @@
         },
         {
             "action": "Add UI Object",
-            "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "swapPairs",
-            "label": "Add Swap Pairs",
-            "relatedUiObject": "Swap Pairs",
-            "actionFunction": "payload.executeAction",
-            "actionProject": "Visual-Scripting",
-            "relatedUiObjectProject": "Decentralized-Exchanges"
-        },
-        {
-            "action": "Add UI Object",
-            "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "defiWallets",
-            "label": "Add DeFi Wallets",
-            "relatedUiObject": "DeFi Wallets",
+            "label": "Add DeFi Wallet",
+            "relatedUiObject": "DeFi Wallet",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Decentralized-Exchanges"
@@ -46,23 +34,17 @@
         "config": true
     },
     "initialValues": {
-        "config": "{\n\t\"codeName\": \"Type the name of the exchange\"\n}"
+        "config": "{\n\t\"codeName\": \"name_of_exchange\",\n\t\"network\": \"name_of_network\"\n}"
     },
     "attachingRules": {
         "compatibleTypes": "->Crypto Exchanges->"
     },
-    "propertyNameAtParent": "decentralizedExchanges",
+    "propertyNameAtParent": "decentralizedExchange",
     "childrenNodesProperties": [
         {
-            "name": "swapPairs",
-            "type": "node",
-            "childType": "Swap Pairs",
-            "autoAdd": true
-        },
-        {
-            "name": "defiWallets",
-            "type": "node",
-            "childType": "DeFi Wallets",
+            "name": "defiWallet",
+            "type": "array",
+            "childType": "DeFi Wallet",
             "autoAdd": true
         }
     ],

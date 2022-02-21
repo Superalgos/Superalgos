@@ -20,6 +20,11 @@
                 "language": "DE",
                 "text": "Die App prüft den von Ihnen ausgewählten current branch des Superalgos Repositorys auf eine neue Version. Warte einen Moment!",
                 "updated": 1638037210492
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Uygulama, yeni bir sürüm için Superalgos deposunun seçili mevcut dalını kontrol ediyor. Bekle!",
+                "updated": 1644415582460
             }
         ]
     },
@@ -43,6 +48,11 @@
                     "language": "RU",
                     "text": "Вскоре вы получите уведомление, информирующее вас о том, была ли найдена новая версия, или о том, что версия, которую вы используете, является последней доступной!",
                     "updated": 1640089290172
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Yakında yeni bir sürümün bulunup bulunmadığını veya çalıştırdığınız sürümün mevcut en son sürüm olup olmadığını bildiren bir bildirim alacaksınız!",
+                    "updated": 1644415602346
                 }
             ]
         }

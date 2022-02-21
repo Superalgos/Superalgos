@@ -4,7 +4,14 @@
     "type": "CoinGecko API Map and Mine",
     "definition": {
         "text": "This API Map and Data Mine taps into the CoinGecko API to pull statistics about the current assets being used from the CoinGecko API.",
-        "updated": 1622686884874
+        "updated": 1622686884874,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Özet: Bu API Haritası ( API Map ) ve Veri Madeni ( Data Mine ), CoinGecko API'sinden kullanılan mevcut varlıklarla ilgili istatistikleri almak için CoinGecko API'sinden yararlanır.",
+                "updated": 1644591160754
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -15,7 +22,14 @@
         {
             "style": "Success",
             "text": "Additional collaborators are welcome!",
-            "updated": 1622686914590
+            "updated": 1622686914590,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İpucu: Ek ortak çalışanlar kabul edilir!",
+                    "updated": 1644591182015
+                }
+            ]
         }
     ]
 }

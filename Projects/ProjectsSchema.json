@@ -169,17 +169,31 @@
                 {
                     "name": "Decentralized Exchanges Functions",
                     "propertyName": "decentralizedExchangesFunctions",
-                    "functionName": "newFoundationsFunctionLibraryDecentralizedExchangesFunctions"
+                    "functionName": "newDecentralizedExchangesFunctionLibraryDecentralizedExchangesFunctions"
                 }
             ],
             "systemActionFunctions": [],
             "functionLibraries": []
         },
-        "SA":{},
-        "TS": {
-            "functionLibraries": [],
-            "botModules": []
+        "SA": {
+            "modules": [
+                {
+                    "name": "Wallets",
+                    "propertyName": "wallets",
+                    "functionName": "newDecentralizedExchangesModulesWallets",
+                    "fileName": "Wallets.js"
+                }
+            ],
+            "utilities": [
+                {
+                    "name": "Bsc",
+                    "propertyName": "bsc",
+                    "functionName": "newDecentralizedExchangesUtilitiesBsc",
+                    "fileName": "Bsc.js"
+                }
+            ]
         },
+        "TS": {},
         "plugins": [],
         "tasks": []
     },

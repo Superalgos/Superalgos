@@ -43,16 +43,24 @@ function newFoundationsContributionsPage() {
         HTML += '<div class="governance-report-page-header">'
         HTML += '<div class="governance-image-logo-report-page"><img src="Images/superalgos-logo.png" width=200></div>'
         HTML += '</div>'
-        HTML += `<div class="docs-title-table"><div class="docs-table-cell"><h2 class="docs-h3"> Contributions Editor</h2></div><div id="projectImageDiv" class="docs-image-container"><img src="Icons/Foundations/github.png" width="50" height="50"></div></div>`
+        HTML += `<div class="docs-title-table"><div class="docs-table-cell"><h2 class="docs-h2"> Contributions Editor</h2></div><div id="projectImageDiv" class="docs-image-container"><img src="Icons/Foundations/github.png" width="50" height="50"></div></div>`
         
         // Page content
         HTML += '<div class="contributions-common-style-container" id="contributions">'
+        HTML += '<div class="contributions-top-buttons-div"><button class="contributions-top-buttons">Contribute</button><button class="contributions-top-buttons">Update</button><button class="contributions-top-buttons">Reset</button></div>'
         
         for (const stat of thisObject.repoStatus) {
-            HTML += '<div class="docs-h2">' + stat[0] + '</div>'
-            HTML += '<div>Changed: ' + JSON.stringify(stat[1].changed) + '\n Deletions: ' + JSON.stringify(stat[1].deletions) + '\n Insertions: ' + JSON.stringify(stat[1].insertions) +'\n </div>'
+            // Overall diff in repo
+            HTML += '<div class="repo-title"><span class="docs-h3">' + stat[0] + '</span>' + '<span><span>Files Changed: ' + JSON.stringify(stat[1].changed) + ' </span><span class="insertion"> Insertions: ' + JSON.stringify(stat[1].insertions) +' </span><span class="deletion"> Deletions: ' + JSON.stringify(stat[1].deletions) + ' </span></span></div><hr>'
+           
+            // File diff object 
             for (const file of stat[1].files) {
-                HTML += '<div>File: ' + JSON.stringify(file.file) + ' Changes: ' + JSON.stringify(file.changes) + ' Deletions: ' + JSON.stringify(file.deletions) + ' Insertions: ' + JSON.stringify(file.insertions) +'</div>'
+                
+                fileName = file.file.split("/").pop()
+                HTML += '<div class="file-Object"><div><strong>File: </Strong>' + fileName + '</div>' 
+                HTML += '<div><strong>Path: </Strong>' + file.file + '</div>' 
+                HTML += '<div> <span class="insertion"> Insertions: ' + JSON.stringify(file.insertions) + '</span> <span class="deletion"> Deletions: ' + JSON.stringify(file.deletions) +  '</span> <span class="total-changes">Total Changes: ' + JSON.stringify(file.changes) + '</span></div>'
+                HTML += '<button class="contributions-button">Discard Changes</button></div>'
             }
         }
         

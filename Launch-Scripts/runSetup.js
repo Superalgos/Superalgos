@@ -8,6 +8,16 @@ const env = require('../Environment').newEnvironment()
 const externalScriptsURLs = env.EXTERNAL_SCRIPTS
 const projectPluginMap = require('../Plugins/project-plugin-map.json')
 
+const testHttp = async () => {
+  https.get('https://catfact.ninja/fact', response => {
+      if (response.statusCode !== 200) {
+          console.error(`Error downloading ${url}: HTTP response code ${response.statusCode}.`)
+          return false
+      }
+      return response
+  })
+}
+
 const setUpstreamAndOrigin = async (dir, repo = 'Superalgos') => {
     // initialize simpleGit
     const options = {
@@ -149,5 +159,6 @@ const runSetup = () => {
 
 module.exports = {
     runSetup,
-    setUpstreamAndOrigin
+    setUpstreamAndOrigin,
+    testHttp
 }

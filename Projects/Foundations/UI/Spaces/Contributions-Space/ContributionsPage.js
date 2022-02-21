@@ -43,13 +43,17 @@ function newFoundationsContributionsPage() {
         HTML += '<div class="governance-report-page-header">'
         HTML += '<div class="governance-image-logo-report-page"><img src="Images/superalgos-logo.png" width=200></div>'
         HTML += '</div>'
-        HTML += `<div class="docs-title-table"><div class="docs-table-cell"><h2 class="docs-h2"> Contributions Editor</h2></div><div id="projectImageDiv" class="docs-image-container"><img src="Icons/Foundations/github.png" width="50" height="50"></div></div>`
+        HTML += `<div class="docs-title-table"><div class="docs-table-cell"><h2 class="docs-h3"> Contributions Editor</h2></div><div id="projectImageDiv" class="docs-image-container"><img src="Icons/Foundations/github.png" width="50" height="50"></div></div>`
         
         // Page content
-        HTML += '<div class="contributions-editor" id="contributions">'
+        HTML += '<div class="contributions-common-style-container" id="contributions">'
         
         for (const stat of thisObject.repoStatus) {
-            HTML += '<div>' + stat + '</div>'
+            HTML += '<div class="docs-h2">' + stat[0] + '</div>'
+            HTML += '<div>Changed: ' + JSON.stringify(stat[1].changed) + '\n Deletions: ' + JSON.stringify(stat[1].deletions) + '\n Insertions: ' + JSON.stringify(stat[1].insertions) +'\n </div>'
+            for (const file of stat[1].files) {
+                HTML += '<div>File: ' + JSON.stringify(file.file) + ' Changes: ' + JSON.stringify(file.changes) + ' Deletions: ' + JSON.stringify(file.deletions) + ' Insertions: ' + JSON.stringify(file.insertions) +'</div>'
+            }
         }
         
         HTML +='</div>'

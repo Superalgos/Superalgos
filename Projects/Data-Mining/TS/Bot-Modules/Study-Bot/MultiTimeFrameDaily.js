@@ -25,7 +25,7 @@
         statusDependenciesModule = pStatusDependencies;
         dataDependenciesModule = pStatusDependenciesModule;
 
-        indicatorOutputModule = TS.projects.dataMining.botModules.indicatorOutput.newDataMiningBotModulesIndicatorOutput(processIndex)
+        indicatorOutputModule = TS.projects.dataMining.botModules.indicatorOutput.newDataMiningBotModulesStudyOutput(processIndex)
         indicatorOutputModule.initialize(callBackFunction)
     }
 
@@ -319,6 +319,45 @@
                         }
                     }
 
+                    let currentDate = new Date(TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).DAILY_FILES_PROCESS_DATETIME)
+                    let studyProcessDate = TS.projects.foundations.utilities.dateTimeFunctions.removeTime(currentDate)
+                    /*
+                    At this section we are going to create the main objects that are going to be available for user code.
+        
+                    chart, market and exchang
+                    */
+                    let chart = {}
+                    let market = {}
+                    let exchange = {}
+
+                    let multiTimeFrameDataFiles = new Map()
+                    let currentTimeFrame = {}
+
+                    if (await TS.projects.foundations.functionLibraries.dataDependenciesFunctions.processDailyFiles(
+                        processIndex,
+                        multiTimeFrameDataFiles,
+                        dataDependenciesModule,
+                        currentTimeFrame,
+                        timeFrameLabel,
+                        studyProcessDate
+                    ) === false) {
+                        callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
+                        return
+                    }
+
+                    TS.projects.foundations.functionLibraries.dataDependenciesFunctions.buildDataStructures(
+                        processIndex,
+                        dataDependenciesModule,
+                        multiTimeFrameDataFiles,
+                        currentTimeFrame,
+                        chart,
+                        market,
+                        exchange,
+                        callBackFunction
+                    )
+                    /*
+                    From here, it is almost the same code than for an Indicator.
+                    */
                     if (TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.framework.validPeriods !== undefined) {
                         let validPeriod = false;
                         for (let i = 0; i < TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.framework.validPeriods.length; i++) {
@@ -472,6 +511,9 @@
                         function generateOutput() {
 
                             indicatorOutputModule.start(
+                                chart,
+                                market,
+                                exchange,
                                 dataFiles,
                                 timeFrame,
                                 timeFrameLabel,

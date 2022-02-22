@@ -30,6 +30,9 @@
     }
 
     function start(
+        chart,
+        market,
+        exchange,
         dataFiles,
         timeFrame,
         timeFrameLabel,
@@ -104,7 +107,10 @@
                     interExecutionMemory,
                     processingDailyFiles,
                     currentDay,
-                    outputDatasetNode.referenceParent.parentNode.config.parameters
+                    outputDatasetNode.referenceParent.parentNode.config.parameters,
+                    chart,
+                    market,
+                    exchange,
                 )
 
                 /* Add the calculated properties */
@@ -137,7 +143,7 @@
                 contextSummary.dataset = outputDatasetNode.referenceParent.config.codeName
                 contextSummary.product = outputDatasetNode.referenceParent.parentNode.config.codeName
 
-                let botNode = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Indicator Bot')
+                let botNode = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Study Bot')
                 contextSummary.bot = botNode.config.codeName
                 let dataMineNode = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Data Mine')
                 contextSummary.dataMine = dataMineNode.config.codeName

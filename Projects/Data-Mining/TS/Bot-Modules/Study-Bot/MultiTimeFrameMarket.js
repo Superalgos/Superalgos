@@ -24,7 +24,7 @@
         statusDependenciesModule = pStatusDependencies
         dataDependenciesModule = pStatusDependenciesModule
 
-        indicatorOutputModule = TS.projects.dataMining.botModules.indicatorOutput.newDataMiningBotModulesIndicatorOutput(processIndex)
+        indicatorOutputModule = TS.projects.dataMining.botModules.indicatorOutput.newDataMiningBotModulesStudyOutput(processIndex)
         indicatorOutputModule.initialize(callBackFunction)
     }
 
@@ -65,7 +65,42 @@
                             }
                         }
                     }
+                    /*
+                    At this section we are going to create the main objects that are going to be available for user code.
+        
+                    chart, market and exchang
+                    */
+                    let chart = {}
+                    let market = {}
+                    let exchange = {}
 
+                    let multiTimeFrameDataFiles = new Map()
+                    let currentTimeFrame = {}
+
+                    if (await TS.projects.foundations.functionLibraries.dataDependenciesFunctions.processMarketFiles(
+                        processIndex,
+                        multiTimeFrameDataFiles,
+                        dataDependenciesModule,
+                        currentTimeFrame,
+                        timeFrameLabel
+                    ) === false) {
+                        callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
+                        return
+                    }
+
+                    TS.projects.foundations.functionLibraries.dataDependenciesFunctions.buildDataStructures(
+                        processIndex,
+                        dataDependenciesModule,
+                        multiTimeFrameDataFiles,
+                        currentTimeFrame,
+                        chart,
+                        market,
+                        exchange,
+                        callBackFunction
+                    )
+                    /*
+                    From here, it is almost the same code than for an Indicator.
+                    */
                     let dependencyIndex = 0;
                     dataFiles = new Map;
 
@@ -118,6 +153,9 @@
 
                         function generateOutput() {
                             indicatorOutputModule.start(
+                                chart,
+                                market,
+                                exchange,
                                 dataFiles,
                                 timeFrame,
                                 timeFrameLabel,

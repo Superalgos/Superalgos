@@ -310,7 +310,10 @@
         interExecutionMemory,
         processingDailyFiles,
         currentDay,
-        parametersDefinition
+        parametersDefinition,
+        chart,
+        market,
+        exchange,
     ) {
 
         /*

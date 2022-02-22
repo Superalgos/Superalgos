@@ -180,8 +180,13 @@ exports.newFoundationsFunctionLibrariesDataDependenciesFunctions = function () {
                         }
 
                         let dataFile = JSON.parse(response.text)
-                        let trimmedDataFile = trimDataFile(dataFile, datasetModule.node.parentNode.record)
-                        dataFiles.set(dependency.id, trimmedDataFile)
+
+                        if(initialDatetime !== undefined && finalDatetime !== undefined  ) {
+                            let trimmedDataFile = trimDataFile(dataFile, datasetModule.node.parentNode.record)
+                            dataFiles.set(dependency.id, trimmedDataFile)
+                        } else {
+                            dataFiles.set(dependency.id, trimmedDdataFileataFile)
+                        }
 
                         function trimDataFile(dataFile, recordDefinition) {
                             /* 

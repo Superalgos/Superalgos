@@ -1,12 +1,14 @@
 function newContributionsContributionsPage() {
     let thisObject = {
         repoStatus: undefined,
-        render: render,
+        githubUsername: undefined,
+        githubToken: undefined,
         reset:reset,
         initialize: initialize,
         finalize: finalize,
         getStatus: getStatus,
-        discardChange: discardChange
+        discardChange: discardChange,
+        getCreds: getCreds
     }
 
     // add needed variables here let monacoInitialized = false
@@ -15,6 +17,7 @@ function newContributionsContributionsPage() {
 
 
     function initialize() {
+        getCreds()
         getStatus()
     }
 
@@ -22,17 +25,14 @@ function newContributionsContributionsPage() {
     function finalize() {
         // garbage collect variables here
         thisObject.repoStatus = undefined
+        thisObject.githubUsername = undefined
+        thisObject.githubToken = undefined
 
     }
 
     function reset() {
         finalize()
         initialize()
-    }
-
-    function render(editorType) {
-
-        //thisObject.editorType = editorType
     }
 
     function buildEditorHTML() {
@@ -48,7 +48,7 @@ function newContributionsContributionsPage() {
         
         // Page content
         HTML += '<div class="contributions-common-style-container" id="contributions">'
-        HTML += '<div class="credentials-title">Github Credentials</div><div class="credentials-box"><input type="text" class="credentials-input"></input><input type="text" class="credentials-input"></input></div><hr>'
+        HTML += '<div class="credentials-title">Github Credentials</div><div class="credentials-box"><input id="username-input" type="text" class="credentials-input"></input><input id="token-input" type="password" class="credentials-input"></input><button id="credentials-save-button" class="credentials-save-button">Save</button></div><hr>'
         HTML += '<div class="contributions-top-buttons-div"><button class="contributions-top-buttons">Contribute</button><button class="contributions-top-buttons">Update</button><button class="contributions-top-buttons">Reset</button></div>'
         
         let fileNamesRepoAndPath = []
@@ -75,6 +75,21 @@ function newContributionsContributionsPage() {
         HTML += footer()
         document.getElementById('contributions-content-div').innerHTML = HTML
 
+        //Load github credentials into input fields 
+        if (thisObject.githubUsername === undefined) {
+            thisObject.githubUsername = "Enter your Github Username here"
+        }      
+
+        if (thisObject.githubToken === undefined) {
+            thisObject.githubUsername = "Enter your Github Token here"
+        }    
+        document.getElementById('username-input').value = thisObject.githubUsername
+        document.getElementById('token-input').value = thisObject.githubToken
+
+        // Attache listener to Credentials save button
+        document.getElementById('credentials-save-button').addEventListener('click', saveCreds)
+
+        // Attach event listeners for all Discard buttons
         for(const file of fileNamesRepoAndPath) {
             document.getElementById(file[0] + '-button').addEventListener('click', function() {discardChange(file[1], file[2])})
         }
@@ -138,8 +153,54 @@ function newContributionsContributionsPage() {
             data = JSON.parse(data)
             if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
                 reset()
-                console.log("this is the reponse", data)
         
+            } else {
+                // will need to open docs space to display this error 
+                UI.projects.education.spaces.docsSpace.navigateTo(
+                    data.docs.project,
+                    data.docs.category,
+                    data.docs.type,
+                    data.docs.anchor,
+                    undefined,
+                    data.docs.placeholder
+                    )               
+                }
+            }
+    }
+
+    function getCreds() {
+        httpRequest(undefined, 'App/GetCreds', onResponse)
+        
+        function onResponse(err, data) {
+            /* Lets check the result of the call through the http interface */
+            data = JSON.parse(data)
+            if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                // Save creds in objects
+                thisObject.githubUsername = data.githubUsername
+                thisObject.githubToken = data.githubToken
+
+            } else {
+                // will need to open docs space to display this error 
+                UI.projects.education.spaces.docsSpace.navigateTo(
+                    data.docs.project,
+                    data.docs.category,
+                    data.docs.type,
+                    data.docs.anchor,
+                    undefined,
+                    data.docs.placeholder
+                    )               
+                }
+            }
+    }
+
+    function saveCreds() {
+        httpRequest(undefined, 'App/SaveCreds/' + thisObject.githubUsername + '/' + thisObject.githubToken, onResponse)
+        
+        function onResponse(err, data) {
+            /* Lets check the result of the call through the http interface */
+            if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                console.log("everything is saved!")
+
             } else {
                 // will need to open docs space to display this error 
                 UI.projects.education.spaces.docsSpace.navigateTo(

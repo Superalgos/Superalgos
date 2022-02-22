@@ -900,6 +900,55 @@ exports.newHttpInterface = function newHttpInterface() {
                     }
                     switch (requestPath[2]) { // switch by command
 
+                        case 'GetCreds': {
+                            // We check the current status of changes made in the local repo
+                            try {
+                                let error
+
+                                getCreds().catch(errorResp)
+
+                                // This error responce needs to be made compatible with the contributions space or depricated
+                                function errorResp(e) {
+                                    error = e
+                                    console.error(error)
+                                    let docs = {
+                                        project: 'Foundations',
+                                        category: 'Topic',
+                                        type: 'Switching Branches - Current Branch Not Changed',
+                                        anchor: undefined,
+                                        placeholder: {}
+                                    }
+
+                                    respondWithDocsObject(docs, error)
+                                }
+
+                                async function getCreds() {
+                                    let secretsDiv = global.env.PATH_TO_SECRETS
+                                    if (SA.nodeModules.fs.existsSync(secretsDiv)) {
+                                        let rawFile = SA.nodeModules.fs.readFileSync(secretsDiv + '/githubCredentials.json') 
+                                        githubCredentials = JSON.parse(rawFile)
+
+                                        // Now we send the credentials to the UI
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(githubCredentials), httpResponse)
+                                    }
+                                }
+
+                            } catch (err) {
+                                console.log('[ERROR] httpInterface -> App -> Status -> Method call produced an error.')
+                                console.log('[ERROR] httpInterface -> App -> Status -> err.stack = ' + err.stack)
+
+                                let error = {
+                                    result: 'Fail Because',
+                                    message: err.message,
+                                    stack: err.stack
+                                }
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
+                            }
+                            break
+                        }
+
+                        // implement SaveCreds here
+
                         case 'Contribute': {
                             try {
                                 let commitMessage = unescape(requestPath[3])
@@ -1518,7 +1567,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     if (repo === 'Superalgos') options.baseDir = process.cwd()
                                     // if repo is not main app repo, assume it is a plugin, in ./Plugins.
                                     else options.baseDir = SA.nodeModules.path.join(process.cwd(), 'Plugins', repo)
-                                    
+
                                     const git = simpleGit(options)
                                     let status
                                     try {

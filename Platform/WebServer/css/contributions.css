@@ -33,6 +33,30 @@
     padding: 0 11px;
     }
 
+.credentials-save-button {
+    height: 45px;
+    border: 2px solid #0295aa;
+    border-radius: 20px;
+    background-color: #365558;
+    color: white;
+    padding: 10px;
+}
+
+.credentials-save-button:hover {
+    background-color: #10aa1d;
+    color:whitesmoke;
+    cursor: pointer;
+    border: 2px solid #365558;
+    }
+
+.credentials-save-button:active {
+    border: 2px solid #0295aa;
+    border-radius: 30px;
+    background-color: #365558;
+    color: white;
+    padding: 10px;
+    }
+
 .contributions-top-buttons-div {
     display:flex;
     justify-content: flex-start;
@@ -59,10 +83,11 @@
 .contributions-top-buttons:active {
     font-size: 150%;
     border: 4px solid #0295aa;
-    border-radius: 5px;
+    border-radius: 10px;
     background-color: #0295aa;
     padding: 10px;
     margin: 4px 0 0 1px;
+    color: whitesmoke;
 }
 
 .contributions-common-style-container{

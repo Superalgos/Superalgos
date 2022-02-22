@@ -71,6 +71,7 @@
                     "text": "Hierarchien, die als Plugins in den Arbeitsbereich eingebunden sind, werden nicht auf Arbeitsbereichsebene gespeichert. Änderungen, die in diesen Hierarchien vorgenommen werden, bleiben daher nicht erhalten. Wenn Sie ein Plugin ändern und in Zukunft mit der geänderten Version weiterarbeiten möchten, müssen Sie das Plugin entweder klonen oder sichern und stattdessen mit der resultierenden Kopie arbeiten.",
                     "updated": 1641764949101
                 },
+                {
                     "language": "TR",
                     "text": "Çalışma alanına eklenti olarak dahil edilen hiyerarşiler, çalışma alanı düzeyinde kaydedilmez. Bu nedenle, bu hiyerarşilerde yapılan değişiklikler kalıcı değildir. Bir eklentiyi değiştirmek ve gelecekte değiştirilmiş sürümle çalışmaya devam etmek istiyorsanız, eklentiyi klonlamalı veya yedeklemeli ve bu kopya üzerinde çalışmalısınız.",
                     "updated": 1644583244190

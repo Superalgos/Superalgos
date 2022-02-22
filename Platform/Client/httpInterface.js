@@ -1,5 +1,3 @@
-const { NULL } = require("simple-git/src/lib/utils")
-
 exports.newHttpInterface = function newHttpInterface() {
 
     /*

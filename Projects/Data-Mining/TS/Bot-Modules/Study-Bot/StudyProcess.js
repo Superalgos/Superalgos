@@ -15,8 +15,7 @@
         try {
 
             let multiTimeFrameDataFiles = new Map()
-            TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).ENGINE_MODULE_OBJECT = TS.projects.algorithmicTrading.botModules.tradingEngine.newAlgorithmicTradingBotModulesTradingEngine(processIndex)
-            let tradingOutputModuleObject = TS.projects.algorithmicTrading.botModules.tradingOutput.newAlgorithmicTradingBotModulesTradingOutput(processIndex)
+            let studyOutputModuleObject = TS.projects.dataMining.botModules.studyOutput.newDataMiningBotModulesStudyOutput(processIndex)
 
             let currentTimeFrame = {}
 
@@ -36,29 +35,6 @@
                     callBackFunction
                 ) !== true) { return }
 
-            if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_FIRST_LOOP === true && TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_RESUMING === false) {
-                /* 
-                Here is where the Trading Engine and Trading Systems received are moved to the simulation state.
-                */
-                TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingEngine = TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_NODE
-                TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingSystem = TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SYSTEM_NODE
-            }
-
-            /* We set up the Trading Engine Module. */
-            TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).ENGINE_MODULE_OBJECT.initialize()
-
-            /* Initializing the Trading Process Date */
-            if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_FIRST_LOOP === true && TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_RESUMING === false) {
-                /* 
-                This function is going to be called many times by the Trading Bot Loop.
-                Only during the first execution and when the User is not resuming the execution
-                of a stopped session / task; we are going to initialize the Process Date Time.
-                This variable tell us which day we are standing at, specially while working
-                with Daily Files. From this Date is that we are going to load the Daily Files.
-                */
-                TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingEngine.tradingCurrent.tradingEpisode.processDate.value =
-                    TS.projects.foundations.utilities.dateTimeFunctions.removeTime(TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeRange.config.initialDatetime).valueOf()
-            }
 
             /* 
             This is the Date that is going to be used across the execution of this Trading Process. 
@@ -256,7 +232,7 @@
             }
 
             async function outputManagement() {
-                await tradingOutputModuleObject.start(
+                await studyOutputModuleObject.start(
                     chart,
                     market,
                     exchange,

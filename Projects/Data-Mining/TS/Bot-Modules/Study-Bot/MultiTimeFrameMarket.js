@@ -1,4 +1,4 @@
-﻿exports.newDataMiningIndicatorMultiTimeFrameMarket = function (processIndex) {
+﻿exports.newDataMiningStudyMultiTimeFrameMarket = function (processIndex) {
     const MODULE_NAME = "Multi Time Frame Market"
     /*
     This module deals with Market Files, that are data files for Time Frames of 1 hour and above.

@@ -1110,14 +1110,14 @@
                 {
                     "name": "Multi Time Frame Market",
                     "propertyName": "multiTimeFrameMarket",
-                    "functionName": "newDataMiningBotModulesMultiTimeFrameMarket",
+                    "functionName": "newDataMiningIndicatorMultiTimeFrameMarket",
                     "fileName": "MultiTimeFrameMarket.js",
                     "folderName": "Indicator-Bot"
                 },
                 {
                     "name": "Multi Time Frame Daily",
                     "propertyName": "multiTimeFrameDaily",
-                    "functionName": "newDataMiningBotModulesMultiTimeFrameDaily",
+                    "functionName": "newDataMiningIndicatorMultiTimeFrameDaily",
                     "fileName": "MultiTimeFrameDaily.js",
                     "folderName": "Indicator-Bot"
                 },
@@ -1158,11 +1158,18 @@
                     "botType": "Study Bot"
                 },
                 {
-                    "name": "Study Process",
-                    "propertyName": "studyProcess",
-                    "functionName": "newDataMiningBotModulesStudyProcess",
-                    "fileName": "StudyProcess.js",
-                    "folderName": "Study-Bot/StudyProcess"
+                    "name": "Multi Time Frame Market",
+                    "propertyName": "multiTimeFrameMarket",
+                    "functionName": "newDataMiningStudyMultiTimeFrameMarket",
+                    "fileName": "MultiTimeFrameMarket.js",
+                    "folderName": "Study-Bot"
+                },
+                {
+                    "name": "Multi Time Frame Daily",
+                    "propertyName": "multiTimeFrameDaily",
+                    "functionName": "newDataMiningStudyMultiTimeFrameDaily",
+                    "fileName": "MultiTimeFrameDaily.js",
+                    "folderName": "Study-Bot"
                 },
                 {
                     "name": "Study Output",

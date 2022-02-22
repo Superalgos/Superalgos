@@ -1,4 +1,4 @@
-﻿exports.newDataMiningIndicatorMultiTimeFrameDaily = function (processIndex) {
+﻿exports.newDataMiningStudyMultiTimeFrameDaily = function (processIndex) {
     const MODULE_NAME = "Multi Time Frame Daily"
     /*
     This module deals with Daily Files, that are data files for Time Frames below 1 hour.

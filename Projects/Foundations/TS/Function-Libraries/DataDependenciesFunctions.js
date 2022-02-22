@@ -185,7 +185,7 @@ exports.newFoundationsFunctionLibrariesDataDependenciesFunctions = function () {
                             let trimmedDataFile = trimDataFile(dataFile, datasetModule.node.parentNode.record)
                             dataFiles.set(dependency.id, trimmedDataFile)
                         } else {
-                            dataFiles.set(dependency.id, trimmedDdataFileataFile)
+                            dataFiles.set(dependency.id, dataFile)
                         }
 
                         function trimDataFile(dataFile, recordDefinition) {

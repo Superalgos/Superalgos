@@ -19,10 +19,10 @@
 
     return thisObject;
 
-    function initialize(pStatusDependencies, pStatusDependenciesModule, callBackFunction) {
+    function initialize(pStatusDependencies, pDataDependenciesModule, callBackFunction) {
 
         statusDependenciesModule = pStatusDependencies
-        dataDependenciesModule = pStatusDependenciesModule
+        dataDependenciesModule = pDataDependenciesModule
 
         indicatorOutputModule = TS.projects.dataMining.botModules.indicatorOutput.newDataMiningBotModulesIndicatorOutput(processIndex)
         indicatorOutputModule.initialize(callBackFunction)

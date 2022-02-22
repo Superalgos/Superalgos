@@ -15,25 +15,25 @@
     let statusDependenciesModule
     let dataDependenciesModule
     let dataFiles = new Map
-    let indicatorOutputModule
+    let studyOutputModule
     let bootstrappingTheProcess = false
     let beginingOfMarket
 
     return thisObject;
 
-    function initialize(pStatusDependencies, pStatusDependenciesModule, callBackFunction) {
+    function initialize(pStatusDependencies, pDataDependenciesModule, callBackFunction) {
         statusDependenciesModule = pStatusDependencies;
-        dataDependenciesModule = pStatusDependenciesModule;
+        dataDependenciesModule = pDataDependenciesModule;
 
-        indicatorOutputModule = TS.projects.dataMining.botModules.indicatorOutput.newDataMiningBotModulesStudyOutput(processIndex)
-        indicatorOutputModule.initialize(callBackFunction)
+        studyOutputModule = TS.projects.dataMining.botModules.studyOutput.newDataMiningBotModulesStudyOutput(processIndex)
+        studyOutputModule.initialize(callBackFunction)
     }
 
     function finalize() {
         dataFiles = undefined
         statusDependenciesModule = undefined
         dataDependenciesModule = undefined
-        indicatorOutputModule = undefined
+        studyOutputModule = undefined
         fileStorage = undefined
         thisObject = undefined
     }
@@ -197,7 +197,7 @@
                         contextVariables.lastFile = new Date(
                             contextVariables.dateBeginOfMarket.getUTCFullYear() + "-" +
                             (contextVariables.dateBeginOfMarket.getUTCMonth() + 1) + "-" +
-                            contextVariables.dateBeginOfMarket.getUTCDate() + " " + "00:00" +
+                            (contextVariables.dateBeginOfMarket.getUTCDate() + 1) + " " + "00:00" + // We will start from the second day of the market so that the previousDay is with data.
                             SA.projects.foundations.globals.timeConstants.GMT_SECONDS
                         )
 
@@ -303,7 +303,7 @@
                     timeFramesLoopBody()
                 }
 
-                function timeFramesLoopBody() {
+                async function timeFramesLoopBody() {
 
                     const timeFrame = TS.projects.foundations.globals.timeFrames.dailyTimeFramesArray()[n][0]
                     const timeFrameLabel = TS.projects.foundations.globals.timeFrames.dailyTimeFramesArray()[n][1]
@@ -355,6 +355,10 @@
                         exchange,
                         callBackFunction
                     )
+                    /*
+                    If Execution was halted that distroyed this object, then we can not continue execution.
+                    */
+                    if (thisObject === undefined) { return }
                     /*
                     From here, it is almost the same code than for an Indicator.
                     */
@@ -510,7 +514,7 @@
 
                         function generateOutput() {
 
-                            indicatorOutputModule.start(
+                            studyOutputModule.start(
                                 chart,
                                 market,
                                 exchange,

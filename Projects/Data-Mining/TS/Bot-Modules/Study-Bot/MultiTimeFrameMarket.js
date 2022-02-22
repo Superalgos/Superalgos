@@ -15,17 +15,17 @@
     let statusDependenciesModule
     let dataDependenciesModule
     let dataFiles = new Map()
-    let indicatorOutputModule
+    let studyOutputModule
 
     return thisObject;
 
-    function initialize(pStatusDependencies, pStatusDependenciesModule, callBackFunction) {
+    function initialize(pStatusDependencies, pDataDependenciesModule, callBackFunction) {
 
         statusDependenciesModule = pStatusDependencies
-        dataDependenciesModule = pStatusDependenciesModule
+        dataDependenciesModule = pDataDependenciesModule
 
-        indicatorOutputModule = TS.projects.dataMining.botModules.indicatorOutput.newDataMiningBotModulesStudyOutput(processIndex)
-        indicatorOutputModule.initialize(callBackFunction)
+        studyOutputModule = TS.projects.dataMining.botModules.studyOutput.newDataMiningBotModulesStudyOutput(processIndex)
+        studyOutputModule.initialize(callBackFunction)
     }
 
     function finalize() {
@@ -33,7 +33,7 @@
         dataFiles = undefined
         statusDependenciesModule = undefined
         dataDependenciesModule = undefined
-        indicatorOutputModule = undefined
+        studyOutputModule = undefined
         thisObject = undefined
     }
 
@@ -51,7 +51,7 @@
                     timeFramesLoopBody()
                 }
 
-                function timeFramesLoopBody() {
+                async function timeFramesLoopBody() {
                     const timeFrame = TS.projects.foundations.globals.timeFrames.marketTimeFramesArray()[n][0]
                     const timeFrameLabel = TS.projects.foundations.globals.timeFrames.marketTimeFramesArray()[n][1]
 
@@ -98,6 +98,10 @@
                         exchange,
                         callBackFunction
                     )
+                    /*
+                    If Execution was halted that distroyed this object, then we can not continue execution.
+                    */
+                    if (thisObject === undefined) {return}
                     /*
                     From here, it is almost the same code than for an Indicator.
                     */
@@ -152,7 +156,7 @@
                         }
 
                         function generateOutput() {
-                            indicatorOutputModule.start(
+                            studyOutputModule.start(
                                 chart,
                                 market,
                                 exchange,

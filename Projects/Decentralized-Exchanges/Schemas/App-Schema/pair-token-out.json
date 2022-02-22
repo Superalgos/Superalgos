@@ -16,10 +16,10 @@
     "addLeftIcons": true,
     "level": 3,
     "referencingRules": {
-        "compatibleTypes": "->Wallet Token->"
+        "compatibleTypes": "->Token->"
     },
     "attachingRules": {
-        "compatibleTypes": "->Pair->"
+        "compatibleTypes": "->Swap Pair->"
     },
     "alternativeIcons": "Use Reference Parent",
     "title": [

@@ -2,7 +2,14 @@
     "type": "Staking Power",
     "definition": {
         "text": "Staking Power is the Token Power that goes into the Staking Program, and determines how much power you intend to stake.",
-        "updated": 1624782372538
+        "updated": 1624782372538,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Staking Power - это сила токенов (Token Power), которая участвует в программе Staking Program и определяет, сколько силы вы собираетесь вложить в свой счет для хранения.",
+                "updated": 1645083524105
+            }
+        ]
     },
     "paragraphs": [
         {

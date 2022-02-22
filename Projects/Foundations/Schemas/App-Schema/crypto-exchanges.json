@@ -51,6 +51,12 @@
             "type": "array",
             "childType": "Crypto Exchange",
             "autoAdd": true
+        },
+        {
+            "name": "decentralizedExchange",
+            "type": "array",
+            "childType": "Decentralized Exchange",
+            "autoAdd": true
         }
     ]
 }

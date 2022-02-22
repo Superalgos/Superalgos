@@ -1,9 +1,8 @@
-﻿exports.newDataMiningBotModulesIndicatorOutput = function (processIndex) {
+﻿exports.newDataMiningBotModulesStudyOutput = function (processIndex) {
     /*
-    This module coordinates the actions to be taken to generate an indicator output.
-    It is used from both Multi-Time-Frame-Market and Multi-Time-Frame-Daily frameworks.
+    This module coordinates the actions to be taken to generate a study output.
     */
-    const MODULE_NAME = "Indicator Output";
+    const MODULE_NAME = "Study Output";
 
     let thisObject = {
         initialize: initialize,

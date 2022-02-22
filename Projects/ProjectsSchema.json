@@ -1148,6 +1148,28 @@
                     "functionName": "newDataMiningBotModulesCheckWebhook",
                     "fileName": "CheckWebhook.js",
                     "folderName": "Sensor-Bot/Webhooks"
+                },
+                {
+                    "name": "Single Market Study Bot",
+                    "propertyName": "singleMarketStudyBot",
+                    "functionName": "newDataMiningBotModulesSingleMarketStudyBot",
+                    "fileName": "SingleMarketStudyBot.js",
+                    "folderName": "Study-Bot",
+                    "botType": "Study Bot"
+                },
+                {
+                    "name": "Study Process",
+                    "propertyName": "studyProcess",
+                    "functionName": "newDataMiningBotModulesStudyProcess",
+                    "fileName": "StudyProcess.js",
+                    "folderName": "Study-Bot/StudyProcess"
+                },
+                {
+                    "name": "Study Output",
+                    "propertyName": "studyOutput",
+                    "functionName": "newDataMiningBotModulesStudyOutput",
+                    "fileName": "StudyOutput.js",
+                    "folderName": "Study-Bot"
                 }
             ]
         },

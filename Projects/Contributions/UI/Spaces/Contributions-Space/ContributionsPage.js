@@ -48,6 +48,7 @@ function newContributionsContributionsPage() {
         
         // Page content
         HTML += '<div class="contributions-common-style-container" id="contributions">'
+        HTML += '<div class="credentials-title">Github Credentials</div><div class="credentials-box"><input type="text" class="credentials-input"></input><input type="text" class="credentials-input"></input></div><hr>'
         HTML += '<div class="contributions-top-buttons-div"><button class="contributions-top-buttons">Contribute</button><button class="contributions-top-buttons">Update</button><button class="contributions-top-buttons">Reset</button></div>'
         
         let fileNamesRepoAndPath = []

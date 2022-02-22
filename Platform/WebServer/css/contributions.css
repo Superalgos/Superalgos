@@ -5,9 +5,39 @@
     margin: 20 25 20 30px;
 }
 
+.credentials-title{
+    font-weight: 500;
+    font-size: 150%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.credentials-box {
+    display:flex;
+    justify-content: space-evenly;
+    margin-bottom: 25px;
+    }
+
+.credentials-input {
+    border: 1px solid #0295aa;
+    background-color: white;
+    border-radius: 30px;
+    width: 41%;
+    height: 45px;
+    margin: 0 20px;
+    font-size: 100%;
+    color: #6b6b6b; 
+    outline: none;
+    caret-color: #6b6b6b;
+    vertical-align: middle;
+    padding: 0 11px;
+    }
+
 .contributions-top-buttons-div {
     display:flex;
-    justify-content: space-around;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-top: 25px;
 }
 
 .contributions-top-buttons{
@@ -30,8 +60,7 @@
     font-size: 150%;
     border: 4px solid #0295aa;
     border-radius: 5px;
-    background-color: transparent;
-    color: #10aa1d;
+    background-color: #0295aa;
     padding: 10px;
     margin: 4px 0 0 1px;
 }
@@ -98,6 +127,8 @@
 .total-changes {
     margin-left: 5px;
 }
+
+
 /*.editor{
     height: 70vh;
     overflow: hidden;

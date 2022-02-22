@@ -14,6 +14,11 @@
                 "updated": 1644582475185
             },
             {
+                "language": "EL",
+                "text": "Η ιεραρχία των πρόσθετων καθορίζει ποιά πρόσθετα θα συμπεριληφθούν στον τρέχοντα χώρο εργασίας. Στο πλαίσιο αυτής της ιεραρχίας, τα πρόσθετα είναι αρχεία JSON που διαθέτουν την περιγραφή μιας ιεραρχίας όπως ένα εξορυκτήριο δεδομένων, ένα εξορυκτήριο συναλλαγών, μια μηχανή συναλλαγών ή ένα σύστημα συναλλαγών.",
+                "updated": 1641828795260
+            },
+            {
                 "language": "DE",
                 "text": "Die Plugin-Hierarchie definiert, welche Plugins in den aktuellen Arbeitsbereich aufgenommen werden sollen. Im Kontext dieser Hierarchie sind Plugins JSON-Dateien mit der Beschreibung einer Hierarchie, z. B. einer Data Mine, Trading Mine, Trading Engine oder eines Trading Systems.",
                 "updated": 1641764838784

@@ -194,12 +194,18 @@ function newContributionsContributionsPage() {
     }
 
     function saveCreds() {
+        // Gather new creds from the UI
+        thisObject.githubUsername = document.getElementById('username-input').value
+        thisObject.githubToken = document.getElementById('token-input').value
+
         httpRequest(undefined, 'App/SaveCreds/' + thisObject.githubUsername + '/' + thisObject.githubToken, onResponse)
         
         function onResponse(err, data) {
             /* Lets check the result of the call through the http interface */
-            if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                console.log("everything is saved!")
+            data = JSON.parse(data)
+            if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                console.log("Everything is Saved!")
+                // Implement some kind of animation to tell the user things are saved here
 
             } else {
                 // will need to open docs space to display this error 

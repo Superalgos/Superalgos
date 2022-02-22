@@ -899,7 +899,7 @@ exports.newHttpInterface = function newHttpInterface() {
                     switch (requestPath[2]) { // switch by command
 
                         case 'GetCreds': {
-                            // We check the current status of changes made in the local repo
+                            // We load saved Github credentials
                             try {
                                 let error
 
@@ -945,7 +945,70 @@ exports.newHttpInterface = function newHttpInterface() {
                             break
                         }
 
-                        // implement SaveCreds here
+                        case 'SaveCreds': {
+                            // We save Github credentials sent from the UI
+                            try {
+                                requestPath.splice(0,3)
+                                const username = requestPath.splice(0, 1).toString()
+                                const token = requestPath.toString()
+
+                                let creds = {
+                                    "githubUsername": username,
+                                    "githubToken": token
+                                }
+                                
+                                console.log(creds)
+                                let error
+
+                                saveCreds().catch(errorResp)
+
+                                // This error responce needs to be made compatible with the contributions space or depricated
+                                function errorResp(e) {
+                                    error = e
+                                    console.error(error)
+                                    let docs = {
+                                        project: 'Foundations',
+                                        category: 'Topic',
+                                        type: 'Switching Branches - Current Branch Not Changed',
+                                        anchor: undefined,
+                                        placeholder: {}
+                                    }
+
+                                    respondWithDocsObject(docs, error)
+                                }
+
+                                async function saveCreds() {
+                                    let secretsDir = global.env.PATH_TO_SECRETS
+                                    
+                                    // Make sure My-Secrets has been created. If not create it now
+                                    if (!SA.nodeModules.fs.existsSync(secretsDir)) {
+                                        SA.nodeModules.fs.mkdirSync(secretsDir)
+                                    }
+
+                                    // Now write creds to file
+                                    if (SA.nodeModules.fs.existsSync(secretsDir)) {
+                                        
+                                       SA.nodeModules.fs.writeFileSync(secretsDir + '/githubCredentials.json', JSON.stringify(creds)) 
+                                    }
+                                }
+
+                            } catch (err) {
+                                console.log('[ERROR] httpInterface -> App -> SaveCreds -> Method call produced an error.')
+                                console.log('[ERROR] httpInterface -> App -> SaveCreds -> err.stack = ' + err.stack)
+
+                                let error = {
+                                    result: 'Fail Because',
+                                    message: err.message,
+                                    stack: err.stack
+                                }
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
+                                break
+                            }
+
+                            // If everything goes well respond back with success
+                            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                            break
+                        }                        
 
                         case 'Contribute': {
                             try {

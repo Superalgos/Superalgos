@@ -36,6 +36,11 @@
                 "language": "RU",
                 "text": "Клоны (Clones) отличаются от резервных копий тем, что эта функция предназначена для дублирования структур данных таким образом, чтобы копии были похожи на оригинал.",
                 "updated": 1640871161447
+            },
+            {
+                "language": "ID",
+                "text": "Clones berbeda dari cadangan karena fitur ini dirancang untuk mereplikasi struktur data sehingga salinannya menyerupai aslinya.",
+                "updated": 1645032537742
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "RU",
                     "text": "Внимательно прочитайте эту страницу!",
                     "updated": 1640871176011
+                },
+                {
+                    "language": "ID",
+                    "text": "Baca halaman ini dengan seksama!",
+                    "updated": 1645032555279
                 }
             ]
         },
@@ -105,6 +115,11 @@
                     "language": "RU",
                     "text": "Подведем итоги:",
                     "updated": 1640871203037
+                },
+                {
+                    "language": "ID",
+                    "text": "Kesimpulan:",
+                    "updated": 1645032582326
                 }
             ]
         },
@@ -139,6 +154,11 @@
                     "language": "RU",
                     "text": "Клоны ведут себя одинаково независимо от того, присутствует ли оригинал при восстановлении или нет.",
                     "updated": 1640871216699
+                },
+                {
+                    "language": "ID",
+                    "text": "Clones berperilaku dengan cara yang sama apakah aslinya ada pada restorasi atau tidak.",
+                    "updated": 1645032619979
                 }
             ]
         },
@@ -172,6 +192,11 @@
                     "language": "RU",
                     "text": "Входящие ссылки всегда отбрасываются.",
                     "updated": 1640871225609
+                },
+                {
+                    "language": "ID",
+                    "text": "Referensi Incoming selalu dibuang.",
+                    "updated": 1645032707209
                 }
             ]
         },
@@ -206,6 +231,11 @@
                     "language": "RU",
                     "text": "Не стесняйтесь потратить время на самостоятельное тестирование функции Clones! Мы переходим к другим темам без лишних слов!",
                     "updated": 1640871251574
+                },
+                {
+                    "language": "ID",
+                    "text": "Jangan ragu untuk meluangkan waktu untuk menguji fitur Clones! Kita akan beralih ke topik lain tanpa basa-basi lagi!",
+                    "updated": 1645032739232
                 }
             ]
         }

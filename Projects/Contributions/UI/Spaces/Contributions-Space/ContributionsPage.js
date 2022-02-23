@@ -3,6 +3,7 @@ function newContributionsContributionsPage() {
         repoStatus: undefined,
         githubUsername: undefined,
         githubToken: undefined,
+        commandStatus: '',
         reset:reset,
         initialize: initialize,
         finalize: finalize,
@@ -50,7 +51,8 @@ function newContributionsContributionsPage() {
         HTML += '<div class="contributions-common-style-container" id="contributions">'
         // Github Credentials
         HTML += '<div><span class="credentials-title">Github Credentials</span><button id="credentials-collapse" type="button" class="contributions-collapsible-element"></button></div><div id="credentials-box" class="credentials-box"><input id="username-input" type="text" class="credentials-input"></input><input id="token-input" type="password" class="credentials-input"></input><button id="credentials-save-button" class="credentials-save-button">Save</button></div><hr>'
-        HTML += '<div class="contributions-top-buttons-div"><button class="contributions-top-buttons">Contribute All</button><button class="contributions-top-buttons">Update</button><button class="contributions-top-buttons">Reset</button></div>'
+        // Main buttons
+        HTML += '<div class="contributions-top-buttons-div"><button class="contributions-top-buttons">Contribute All</button><button id="update" class="contributions-top-buttons">Update</button><button class="contributions-top-buttons">Reset</button><div id="command-status">' + thisObject.commandStatus + '</div></div>'
         
         // Repo Handling 
         let fileNamesRepoAndPath = []
@@ -102,6 +104,9 @@ function newContributionsContributionsPage() {
 
         // Attach listener to Credentials save button
         document.getElementById('credentials-save-button').addEventListener('click', saveCreds)
+
+        //Attach listeners and animation to Main Buttons 
+        document.getElementById('update').addEventListener('click', update)
 
         // Attach event listeners for all Discard buttons
         for(const file of fileNamesRepoAndPath) {
@@ -234,4 +239,56 @@ function newContributionsContributionsPage() {
                 }
             }
     }
+
+    function update() {
+
+        httpRequest(undefined, 'App/Update/' +  UI.projects.education.spaces.docsSpace.currentBranch, onResponse)
+        
+        function onResponse(err, data) {
+            /* Lets check the result of the call through the http interface */
+            data = JSON.parse(data)
+            console.log(data, err, GLOBAL.DEFAULT_OK_RESPONSE)
+            if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                console.log("Everything is Updated!")
+                // Implement some kind of animation to tell the user things are Updated here
+
+            } else if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.CUSTOM_OK_RESPONSE.result) {
+                console.log("Everything is Updated!")
+                // Display success animation 
+                // Note: command status is used to keep displaying success message as the animation loop runs 
+                thisObject.commandStatus = "Done!"
+                document.getElementById("command-status").innerHTML = "Done!"
+                
+                // Clear animation after time
+                setTimeout(function () {
+                    thisObject.commandStatus = ''
+                    document.getElementById("command-status").innerHTML = ""
+                }, 6000)
+
+            } else {
+                // will need to open docs space to display this error 
+                UI.projects.education.spaces.docsSpace.navigateTo(
+                    data.docs.project,
+                    data.docs.category,
+                    data.docs.type,
+                    data.docs.anchor,
+                    undefined,
+                    data.docs.placeholder
+                    )               
+            }
+        }
+    }
+
+    /*httpRequest(
+                undefined,
+                'App/Contribute/' +
+                message + '/' +
+                config.username + '/' +
+                config.token + '/' +
+                UI.projects.education.spaces.docsSpace.currentBranch + '/' +
+                UI.projects.education.spaces.docsSpace.contributionsBranch
+                , onResponse)
+
+            UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Message - Creating Pull Request')
+    */
 }

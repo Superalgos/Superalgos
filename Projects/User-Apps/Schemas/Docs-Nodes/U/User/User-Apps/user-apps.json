@@ -12,7 +12,14 @@
         },
         {
             "style": "Text",
-            "text": "These apps are used to access the Superalgos Peer to Peer Network."
+            "text": "These apps are used to access the Superalgos Peer to Peer Network.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Эти приложения используются для доступа к одноранговой сети Superalgos.",
+                    "updated": 1645254021386
+                }
+            ]
         },
         {
             "style": "Text",

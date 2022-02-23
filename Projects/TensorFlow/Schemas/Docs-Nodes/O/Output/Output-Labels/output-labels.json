@@ -2,12 +2,26 @@
     "type": "Output Labels",
     "definition": {
         "text": "Output labels are the things we're predicting—the y variable in simple linear regression. The label could be the future price of wheat, the kind of animal shown in a picture, the meaning of an audio clip, or just about anything.",
-        "updated": 1615896247619
+        "updated": 1615896247619,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Выходные метки - это то, что мы прогнозируем - переменная y в простой линейной регрессии. Меткой может быть будущая цена на пшеницу, вид животного, изображенного на фотографии, смысл аудиоклипа или практически все, что угодно.",
+                "updated": 1645249203437
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "Right click and select the pencil button to enter edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
+                    "updated": 1645249208384
+                }
+            ]
         }
     ]
 }

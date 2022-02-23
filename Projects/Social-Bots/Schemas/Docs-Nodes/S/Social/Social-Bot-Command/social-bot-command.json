@@ -2,46 +2,109 @@
     "type": "Social Bot Command",
     "definition": {
         "text": "The Social Bot Command node is used to configure slash commands to be interpreted and executed by Superalgos.",
-        "updated": 1622960246688
+        "updated": 1622960246688,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Social Bot Command используется для настройки слэш-команд, которые будут интерпретироваться и выполняться Superalgos.",
+                "updated": 1645194196847
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Overview",
-            "updated": 1622959780422
+            "updated": 1622959780422,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Обзор",
+                    "updated": 1645194203815
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The Social Bot Command node is used to configure slash commands which when triggered by a user from the messaging application will be interpreted and executed by Superalgos.",
-            "updated": 1622960239968
+            "updated": 1622960239968,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узел Social Bot Command используется для настройки слэш-команд, которые при запуске пользователем из приложения для обмена сообщениями будут интерпретированы и выполнены Superalgos.",
+                    "updated": 1645194214666
+                }
+            ]
         },
         {
             "style": "List",
             "text": "The configuration of the Social Bot Command node defines the slash command that is registered.",
-            "updated": 1622960297679
+            "updated": 1622960297679,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация узла Social Bot Command определяет слэш-команду, которая регистрируется.",
+                    "updated": 1645194222335
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The child Formula node defines the string which is evaluated and sent when the command is received."
+            "text": "The child Formula node defines the string which is evaluated and sent when the command is received.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Дочерний узел Formula определяет строку, которая вычисляется и отправляется при получении команды.",
+                    "updated": 1645194236338
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The formula can contain any of the node paths from your Trading Engine and these can be entered exactly as the are within your Trading Strategy.",
-            "updated": 1622960375754
+            "updated": 1622960375754,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Формула может содержать любые пути узлов из вашего торгового движка, и они могут быть введены точно так же, как и в вашей торговой стратегии.",
+                    "updated": 1645194251131
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Example"
+            "text": "Example",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пример",
+                    "updated": 1645194256370
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The below example will set up the slash command \"/counters\" which will send a message with the current Trading Episode Counters when received.",
-            "updated": 1622958631363
+            "updated": 1622958631363,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В приведенном ниже примере будет задана слэш-команда \"/counters\", которая при получении отправит сообщение с текущими счетчиками торговых эпизодов.",
+                    "updated": 1645194269893
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Social Bot Command Configuration:",
-            "updated": 1622959504089
+            "updated": 1622959504089,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Social Bot Command:",
+                    "updated": 1645194313445
+                }
+            ]
         },
         {
             "style": "Json",
@@ -51,7 +114,14 @@
         {
             "style": "Text",
             "text": "Child Node Formula:",
-            "updated": 1622959506802
+            "updated": 1622959506802,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Формула дочернего узла:",
+                    "updated": 1645194322951
+                }
+            ]
         },
         {
             "style": "Json",
@@ -61,11 +131,25 @@
         {
             "style": "Title",
             "text": "Examples",
-            "updated": 1622959793276
+            "updated": 1622959793276,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Примеры",
+                    "updated": 1645194329649
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Below are several example formulas and suggested command names."
+            "text": "Below are several example formulas and suggested command names.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ниже приведены несколько примеров формул и предлагаемые имена команд.",
+                    "updated": 1645194340170
+                }
+            ]
         },
         {
             "style": "Subtitle",

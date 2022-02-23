@@ -1,0 +1,85 @@
+{
+    "type": "Portfolio Bot",
+    "definition": {
+        "text": "A portfolio bot is a computer program that—based on datasets exposed as products by other bots (counting sensors, indicators and even other portfolio bots)—applies the portfolio logic defined on a Portfolio System to, on one side, generate a complete portfolio simulation (outputting datasets that include trades, the action of strategies, validation of conditions, etc.), and on the other side, manage the execution of orders when on a forward testing or live portfolio session.",
+        "updated": 1609861419818,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Un Portfolio Bot es un programa informático que, basado en conjuntos de datos expuestos como productos por otros bots (sensores de conteo, indicadores e incluso otros portfolio bots ), aplica la lógica portfolio definida en un Portfolio System  para, por un lado, generar una simulación de portfolio completa (generando conjuntos de datos que incluyen operaciones, la acción de estrategias, validación de condiciones, etc.) y, por otro lado, gestiona la ejecución de órdenes en una sesión ya sea en vivo o no.",
+                "updated": 1624375084844
+            },
+            {
+                "language": "RU",
+                "text": "Portfolio Bot - это компьютерная программа, которая на основе данных, полученных от других ботов (датчиков подсчета, индикаторов и даже других портфельных ботов), применяет портфельную логику, определенную в Portfolio System, чтобы, с одной стороны, создать полную симуляцию портфеля (выводя данные, включающие сделки, действия стратегий, проверку условий и т.д.), а с другой стороны, управлять исполнением ордеров во время форвардного тестирования или реальной портфельной сессии.",
+                "updated": 1645184556534
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "In Superalgos, a portfolio bot is a computer program designed to leverage the Superalgos infrastructure to provide smart portfolio features to users building, testing, and deploying portfolio systems. As such, a portfolio bot does not feature portfolio logic in and of itself. Instead, it executes the logic defined in portfolio systems.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В Superalgos портфельный бот - это компьютерная программа, разработанная для использования инфраструктуры Superalgos с целью предоставления интеллектуальных портфельных функций пользователям, создающим, тестирующим и развертывающим портфельные системы. Как таковой, портфельный бот не содержит логику портфеля как таковую. Вместо этого он выполняет логику, определенную в портфельных системах.",
+                    "updated": 1645184578691
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Put in other words, when Superalgos users define portfolio systems and the portfolio strategies within, they are not building a portfolio bot. Instead, they are defining a set of instructions that a portfolio bot will then interpret and execute.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Другими словами, когда пользователи Superalgos определяют портфельные системы и портфельные стратегии в них, они не создают портфельного бота. Вместо этого они определяют набор инструкций, которые портфельный бот будет интерпретировать и выполнять.",
+                    "updated": 1645184595285
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Portfolio bots have access to every piece of infrastructure built in Superalgos. One of the noteworthy sections of the infrastructure relevant to portfolio bots are portfolio mines themselves. Portfolio bots may be quite complex pieces of software. To name two of the most prominent characteristics: the bot needs to consider multiple dimensions of information and needs to be highly reliable, as its activity entails monetary transactions.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Портфельные боты имеют доступ ко всем объектам инфраструктуры, построенным в Superalgos. Одним из заслуживающих внимания разделов инфраструктуры, имеющих отношение к портфельным ботам, являются сами узлы Portfolio Mine. Портфельные боты могут быть довольно сложным программным обеспечением. Назовем две наиболее заметные характеристики: бот должен учитывать множество аспектов информации и должен быть очень надежным, поскольку его деятельность связана с денежными операциями.",
+                    "updated": 1645184738585
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Portfolio mines make building portfolio bots a more accessible feat, providing a framework to produce compartmentalized definitions for the bots' processes and products, just like data mines do for sensors and indicators.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узлы Portfolio Mine делают создание портфельных ботов более доступным делом, предоставляя основу для создания разделенных определений для процессов и продуктов ботов, подобно тому, как Data Mines делают это для датчиков и индикаторов.",
+                    "updated": 1645184711164
+                }
+            ]
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Portfolio Bot Configuration",
+            "updated": 1609861438022,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Portfolio Bot",
+                    "updated": 1645184754340
+                }
+            ]
+        }
+    ]
+}

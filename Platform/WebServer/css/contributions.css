@@ -108,6 +108,20 @@
     caret-color: transparent;
     }
 
+.contributions-input {
+    border: 1px solid #0295aa;
+    background-color: white;
+    border-radius: 30px;
+    width: 84%;
+    height: 45px;
+    margin: 0 20px;
+    font-size: 100%;
+    color: #6b6b6b; 
+    outline: none;
+    caret-color: #6b6b6b;
+    vertical-align: middle;
+    padding: 0 11px;
+    }
 .contributions-button{
     border: 1px groove #365558;
     border-radius: 20px;

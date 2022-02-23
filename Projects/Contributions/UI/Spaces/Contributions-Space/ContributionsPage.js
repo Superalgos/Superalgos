@@ -48,14 +48,17 @@ function newContributionsContributionsPage() {
         
         // Page content
         HTML += '<div class="contributions-common-style-container" id="contributions">'
-        HTML += '<div class="credentials-title">Github Credentials</div><div class="credentials-box"><input id="username-input" type="text" class="credentials-input"></input><input id="token-input" type="password" class="credentials-input"></input><button id="credentials-save-button" class="credentials-save-button">Save</button></div><hr>'
-        HTML += '<div class="contributions-top-buttons-div"><button class="contributions-top-buttons">Contribute</button><button class="contributions-top-buttons">Update</button><button class="contributions-top-buttons">Reset</button></div>'
+        // Github Credentials
+        HTML += '<div><span class="credentials-title">Github Credentials</span><button id="credentials-collapse" type="button" class="contributions-collapsible-element"></button></div><div id="credentials-box" class="credentials-box"><input id="username-input" type="text" class="credentials-input"></input><input id="token-input" type="password" class="credentials-input"></input><button id="credentials-save-button" class="credentials-save-button">Save</button></div><hr>'
+        HTML += '<div class="contributions-top-buttons-div"><button class="contributions-top-buttons">Contribute All</button><button class="contributions-top-buttons">Update</button><button class="contributions-top-buttons">Reset</button></div>'
         
+        // Repo Handling 
         let fileNamesRepoAndPath = []
         let fileName
         for (const stat of thisObject.repoStatus) {
             // Overall diff in repo
-            HTML += '<div class="repo-title"><span class="docs-h3">' + stat[0] + '</span>' + '<span><span>Files Changed: ' + JSON.stringify(stat[1].changed) + ' </span><span class="insertion"> Insertions: ' + JSON.stringify(stat[1].insertions) +' </span><span class="deletion"> Deletions: ' + JSON.stringify(stat[1].deletions) + ' </span></span></div><hr>'
+            HTML += '<div class="repo-title"><span class="docs-h3">' + stat[0] + '</span>' + '<span><span>Files Changed: ' + JSON.stringify(stat[1].changed) + ' </span><span class="insertion"> Insertions: ' + JSON.stringify(stat[1].insertions) +' </span><span class="deletion"> Deletions: ' + JSON.stringify(stat[1].deletions) + ' </span></span></div>'
+            HTML += '<div class="contribute-box"><input id="' + stat[0] + '-input" type="text" class="credentials-input" placeholder="Type a commit message for these changes here" spellcheck="false" autocapitalize="false"></input><button id="' + stat[0] + '-contribute-button" class="credentials-save-button">Contribute</button></div><hr>'
            
             // File diff object 
             for (const file of stat[1].files) {
@@ -86,7 +89,18 @@ function newContributionsContributionsPage() {
         document.getElementById('username-input').value = thisObject.githubUsername
         document.getElementById('token-input').value = thisObject.githubToken
 
-        // Attache listener to Credentials save button
+        // Make credentials elements collapsable 
+        document.getElementById('credentials-collapse').addEventListener("click", function() {
+            this.classList.toggle("contributrions-collapsible-active");
+            var content = document.getElementById('credentials-box')
+            if (content.style.display === "flex") {
+              content.style.display = "none";
+            } else {
+              content.style.display = "flex";
+            }
+          })
+
+        // Attach listener to Credentials save button
         document.getElementById('credentials-save-button').addEventListener('click', saveCreds)
 
         // Attach event listeners for all Discard buttons

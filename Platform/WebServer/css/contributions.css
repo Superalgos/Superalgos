@@ -13,11 +13,19 @@
 }
 
 .credentials-box {
-    display:flex;
+    display:none;
     justify-content: space-evenly;
     margin-bottom: 25px;
+    align-items: center;
     }
 
+.contribute-box {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 18px;
+    align-items: center;
+    }
+    
 .credentials-input {
     border: 1px solid #0295aa;
     background-color: white;
@@ -153,12 +161,37 @@
     margin-left: 5px;
 }
 
-
-/*.editor{
-    height: 70vh;
-    overflow: hidden;
-}
-
-#code-path {
-    margin-bottom: 15px;
-}*/
+/* Style the button that is used to open and close the docs-collapsible-element content */
+.contributions-collapsible-element {
+    background-color: #eee;
+    cursor: pointer;
+    text-align: left;
+    font-size: 100%;
+    padding: 0 9px 0 0;
+    margin: 4px 0 10px 10px;
+    transition: 0.1s;
+    border: 1px solid #31708f;
+    border-radius: 15px;
+    background-color: white;
+    vertical-align: middle;
+    box-sizing: border-box;
+    }
+    
+.contributions-collapsible-element:hover {
+    border: 1px solid #0295aa;
+    background-color: #eff;
+    }
+    
+.contributions-collapsible-element:after {
+    content: '\02795'; /* Unicode character for "plus" sign (+) */
+    font-size: 60%;
+    color: #31708f;
+    margin-left: 8px;
+    float: right;
+    vertical-align: middle;
+    line-height: 30px;
+    }
+    
+.contributrions-collapsible-active:after {
+    content: "\2796"; /* Unicode character for "minus" sign (-) */
+    }

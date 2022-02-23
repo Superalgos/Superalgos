@@ -2,13 +2,27 @@
     "type": "Dtype",
     "definition": {
         "text": "The data-type for this layer. Defaults to 'float32'. This argument is only applicable to input layers (the first layer of a model).",
-        "updated": 1613243770062
+        "updated": 1613243770062,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Тип данных для этого слоя. По умолчанию имеет значение 'float32'. Этот аргумент применим только к входным слоям (первый слой модели).",
+                "updated": 1645247492960
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Subtitle",
             "text": "Possible Values",
-            "updated": 1613243792602
+            "updated": 1613243792602,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Возможные значения",
+                    "updated": 1645247500275
+                }
+            ]
         },
         {
             "style": "Javascript",

@@ -4,11 +4,25 @@
         {
             "style": "Note",
             "text": "Superalgos organizes the data structures in the Network by Project to ensure scalability.",
-            "updated": 1609667577916
+            "updated": 1609667577916,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Superalgos организует структуры данных в Network по проектам для обеспечения масштабируемости.",
+                    "updated": 1645169767378
+                }
+            ]
         }
     ],
     "definition": {
         "text": "The Project Learning Products node is an organizational device grouping all Learning Products corresponding to the same Project.",
-        "updated": 1609668175533
+        "updated": 1609668175533,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Project Learning Products - это организационное устройство, объединяющее все Learning Products, соответствующие одному проекту.",
+                "updated": 1645169741300
+            }
+        ]
     }
 }

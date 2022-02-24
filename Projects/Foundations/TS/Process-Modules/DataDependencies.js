@@ -75,7 +75,6 @@ exports.newFoundationsProcessModulesDataDependencies = function (processIndex) {
                 callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
                 return
             }
-
             /*
             Store here the default exchange and market.
             */
@@ -88,14 +87,12 @@ exports.newFoundationsProcessModulesDataDependencies = function (processIndex) {
             /* Session based dependency thisObject.filters */
             let receivedDependencyFilters = TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).DEPENDENCY_FILTER
             if (receivedDependencyFilters !== undefined) {
-
                 /*
                 Javascript Maps can not travel stringified at ta JSON object, so we receive
                 these maps in an Array format, and here we will just convert them to Maps,
                 that is how we need them.
                 */
                 arrayToMap(receivedDependencyFilters.market.list, thisObject.filters.market.list)
-
                 arrayToMap(receivedDependencyFilters.exchange.list, thisObject.filters.exchange.list)
                 arrayToMap(receivedDependencyFilters.exchange.markets, thisObject.filters.exchange.markets)
                 arrayToMap(receivedDependencyFilters.exchange.products, thisObject.filters.exchange.products)
@@ -116,22 +113,15 @@ exports.newFoundationsProcessModulesDataDependencies = function (processIndex) {
             Learning Simulation.
             */
             thisObject.filters.market.list.set(thisObject.defaultMarket, true)
-
             thisObject.filters.exchange.list.set(thisObject.defaultExchange, true)
             thisObject.filters.exchange.markets.set(thisObject.defaultExchange + '-' + thisObject.defaultMarket, true)
-
             /*
              For each dependency declared at the curatedDependencyNodeArray, we will initialize a
              DataSet as part of this initialization process.
              */
             let alreadyCalledBack = false
-
             /*
-<<<<<<< HEAD
             The current curatedDependencyNodeArray that we have includes all the dependencies daclared in the Data Mine | Trading Mine | Portfolio Mine | Learning Mine
-=======
-            The current curatedDependencyNodeArray that we have includes all the dependencies declared in the Data Mine | Trading Mine | Learning Mine
->>>>>>> upstream/develop
             process dependencies, minus the ones without reference parent, meaning that references Data Mines that are
             not present at the workspace. From all the remaining dependencies there will be others that we need to
             filter out, and they are the ones which the user does not have a data product anywhere on the network where
@@ -144,7 +134,6 @@ exports.newFoundationsProcessModulesDataDependencies = function (processIndex) {
 
             let exchangeList = Array.from(thisObject.filters.exchange.list.keys())
             let marketList = Array.from(thisObject.filters.market.list.keys())
-
             /*
             For each Exchange / Market we will add the datasets objects to our collection.
             */

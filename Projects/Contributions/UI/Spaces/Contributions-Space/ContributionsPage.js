@@ -106,6 +106,7 @@ function newContributionsContributionsPage() {
         document.getElementById('credentials-save-button').addEventListener('click', saveCreds)
 
         //Attach listeners and animation to Main Buttons 
+        document.getElementById('contribute-all').addEventListener('click', contributeAll)
         document.getElementById('update').addEventListener('click', update)
         document.getElementById('reset').addEventListener('click', resetRepo)
 
@@ -247,6 +248,46 @@ function newContributionsContributionsPage() {
            
         setCommandStatus("Resetting Repository....") 
         httpRequest(undefined, 'App/Reset/' + UI.projects.education.spaces.docsSpace.currentBranch, onResponse)
+        
+        function onResponse(err, data) {
+            /* Lets check the result of the call through the http interface */
+            data = JSON.parse(data)
+            console.log(data, err, GLOBAL.DEFAULT_OK_RESPONSE)
+            if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                console.log("Everything is reset!")
+                reset()
+                setCommandStatus("Everything has been Reset!") 
+    
+                } else {
+                    setCommandStatus("Something went wrong! Check the console")          
+                }
+            }
+    }
+
+    function contributeAll() {
+        let messageToSend = ''
+        let messages = document.getElementsByClassName('contributions-input')
+        let repoName
+        let messString
+        for (let message of messages) {
+            //Only deal with filled commit lines
+            messString = message.value
+            if (messString.length > 0) {
+                repoName = message.id
+                messageToSend +=  repoName.replace('-input', '') + ': ' + messString + '\n'
+            }
+        }
+           
+        setCommandStatus("Contributing all changes....") 
+        httpRequest(
+            undefined,
+            'App/Contribute/' +
+            messageToSend + '/' +
+            thisObject.githubUsername.username + '/' +
+            thisObject.githubToken.token + '/' +
+            UI.projects.education.spaces.docsSpace.currentBranch + '/' +
+            UI.projects.education.spaces.docsSpace.contributionsBranch
+            , onResponse)
         
         function onResponse(err, data) {
             /* Lets check the result of the call through the http interface */

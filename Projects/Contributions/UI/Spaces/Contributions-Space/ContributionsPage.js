@@ -283,8 +283,8 @@ function newContributionsContributionsPage() {
             undefined,
             'App/Contribute/' +
             messageToSend + '/' +
-            thisObject.githubUsername.username + '/' +
-            thisObject.githubToken.token + '/' +
+            thisObject.githubUsername + '/' +
+            thisObject.githubToken + '/' +
             UI.projects.education.spaces.docsSpace.currentBranch + '/' +
             UI.projects.education.spaces.docsSpace.contributionsBranch
             , onResponse)

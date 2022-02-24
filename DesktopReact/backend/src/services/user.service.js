@@ -30,16 +30,15 @@ const paginateProfiles = async (initialIndex, pagination, res) => {
             queryMessage: JSON.stringify(queryMessage)
         }
         return webAppInterface.sendMessage(
-            JSON.stringify(query)
-        )
+            JSON.stringify(query))
             .then(rta => rta)
             .catch(e => {
                 console.log('catch from webapi', e)
                 return (e)
             })
-    } catch (e) {
-        console.log('error here')
-        return (e)
+    } catch (error) {
+        console.log(error);
+        return {status: 'Ko', message: error};
     }
 
 }
@@ -94,8 +93,10 @@ const loadProfile = async (socialPersonaId, res) => {
 
     } catch (error) {
         console.log(error);
+        return {status: 'Ko', message: error};
     }
 }
+
 const loadProfileData = async (socialPersonaId, res) => {
 
     try {
@@ -119,10 +120,11 @@ const loadProfileData = async (socialPersonaId, res) => {
         // response.data = result.profileData;
         // response.result = result.result;
 
-        return response
+        return {status: 'Ko', message: 'functionality not implemented'}
 
     } catch (error) {
         console.log(error);
+        return {status: 'Ko', message: error};
     }
 }
 
@@ -147,6 +149,7 @@ const saveProfile = async (body, res) => {
 
     } catch (error) {
         console.log(error);
+        return {status: 'Ko', message: error};
     }
 }
 
@@ -173,6 +176,7 @@ const createProfile = async (body, res) => {
 
     } catch (error) {
         console.log(error);
+        return {status: 'Ko', message: error};
     }
 }
 
@@ -197,6 +201,7 @@ const listSocialEntities = async (req, res) => {
 
     } catch (error) {
         console.log(error);
+        return {status: 'Ko', message: error};
     }
 }
 
@@ -222,6 +227,7 @@ const createSocialPersona = async (body, res) => {
 
     } catch (error) {
         console.log(error);
+        return {status: 'Ko', message: error};
     }
 }
 
@@ -247,6 +253,7 @@ const getSocialStats = async (body) => {
 
     } catch (error) {
         console.log(error);
+        return {status: 'Ko', message: error};
     }
 
 }

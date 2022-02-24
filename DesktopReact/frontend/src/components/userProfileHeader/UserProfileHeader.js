@@ -37,7 +37,7 @@ const UserProfileHeader = ({user, isExternalProfile}) => {
                     />
                 </div>
                 {
-                    !isExternalProfile
+                    /*!isExternalProfile*/ true
                         ? <Button className="editProfileButton" variant="outlined" onClick={handleClickCallback}>
                             Edit profile
                         </Button>

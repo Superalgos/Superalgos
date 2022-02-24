@@ -4,7 +4,7 @@ import {setActualProfile} from "../../store/slices/Profile.slice";
 import {updateProfile} from "../../api/profile.httpService";
 import UserProfileModalView from './UserProfileModalView'
 import {STATUS_OK} from "../../api/httpConfig";
-import {validateFileSize} from "../../utils/helper";
+import {toBase64, validateFileSize} from "../../utils/helper";
 
 const UserProfileModal = ({user, close}) => {
     const loadedSocialPersona = useSelector(state => state.profile.socialPersona)
@@ -33,12 +33,6 @@ const UserProfileModal = ({user, close}) => {
     }, []);
     let editor = "";
 
-    const toBase64 = file => new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = () => resolve(reader.result);
-        reader.onerror = error => reject(error);
-    });
 
     const selectProfilePic = async (e) => {
         let profilePic = e.target.files[0];

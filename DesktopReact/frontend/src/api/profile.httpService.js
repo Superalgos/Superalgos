@@ -29,11 +29,17 @@ function createProfile(profileData) {
     return httpRequest('/users/create-profile', POST, profileData)
 }
 
+function getProfileData(profileData) {
+    return httpRequest('/users/profileData', POST, profileData)
+}
+
 
 export {
     getProfiles,
     getProfile,
     updateProfile,
     getPaginationProfiles,
-    getSocialPersona
+    getSocialPersona,
+    createProfile,
+    getProfileData
 }

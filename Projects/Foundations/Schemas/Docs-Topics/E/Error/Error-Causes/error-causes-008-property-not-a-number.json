@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Этот тип ошибки означает, что свойство в конфигурации узла Node должно быть числом, а значение там - нет. Чтобы избежать ошибок этого типа, проверьте конфигурацию узла и убедитесь, что указанное свойство действительно является числом.",
                 "updated": 1638553367666
+            },
+            {
+                "language": "DE",
+                "text": "Diese Art von Fehler bedeutet, dass eine Eigenschaft in der Konfiguration eines Nodes als Zahl erwartet wird, aber der Wert dort keine Zahl ist. Um diese Art von Fehlern zu vermeiden, überprüfen Sie die Konfiguration des Nodes und stellen Sie sicher, dass die genannte Eigenschaft tatsächlich eine Zahl ist.",
+                "updated": 1645478521051
             }
         ]
     },

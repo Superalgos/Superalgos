@@ -898,8 +898,121 @@ exports.newHttpInterface = function newHttpInterface() {
                     }
                     switch (requestPath[2]) { // switch by command
 
+                        case 'GetCreds': {
+                            // We load saved Github credentials
+                            try {
+                                let error
+
+                                getCreds().catch(errorResp)
+
+                                // This error responce needs to be made compatible with the contributions space or depricated
+                                function errorResp(e) {
+                                    error = e
+                                    console.error(error)
+                                    let docs = {
+                                        project: 'Foundations',
+                                        category: 'Topic',
+                                        type: 'Switching Branches - Current Branch Not Changed',
+                                        anchor: undefined,
+                                        placeholder: {}
+                                    }
+
+                                    respondWithDocsObject(docs, error)
+                                }
+
+                                async function getCreds() {
+                                    let secretsDiv = global.env.PATH_TO_SECRETS
+                                    if (SA.nodeModules.fs.existsSync(secretsDiv)) {
+                                        let rawFile = SA.nodeModules.fs.readFileSync(secretsDiv + '/githubCredentials.json') 
+                                        githubCredentials = JSON.parse(rawFile)
+
+                                        // Now we send the credentials to the UI
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(githubCredentials), httpResponse)
+                                    }
+                                }
+
+                            } catch (err) {
+                                console.log('[ERROR] httpInterface -> App -> Status -> Method call produced an error.')
+                                console.log('[ERROR] httpInterface -> App -> Status -> err.stack = ' + err.stack)
+
+                                let error = {
+                                    result: 'Fail Because',
+                                    message: err.message,
+                                    stack: err.stack
+                                }
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
+                            }
+                            break
+                        }
+
+                        case 'SaveCreds': {
+                            // We save Github credentials sent from the UI
+                            try {
+                                requestPath.splice(0,3)
+                                const username = requestPath.splice(0, 1).toString()
+                                const token = requestPath.toString()
+
+                                let creds = {
+                                    "githubUsername": username,
+                                    "githubToken": token
+                                }
+                                
+                                console.log(creds)
+                                let error
+
+                                saveCreds().catch(errorResp)
+
+                                // This error responce needs to be made compatible with the contributions space or depricated
+                                function errorResp(e) {
+                                    error = e
+                                    console.error(error)
+                                    let docs = {
+                                        project: 'Foundations',
+                                        category: 'Topic',
+                                        type: 'Switching Branches - Current Branch Not Changed',
+                                        anchor: undefined,
+                                        placeholder: {}
+                                    }
+
+                                    respondWithDocsObject(docs, error)
+                                }
+
+                                async function saveCreds() {
+                                    let secretsDir = global.env.PATH_TO_SECRETS
+                                    
+                                    // Make sure My-Secrets has been created. If not create it now
+                                    if (!SA.nodeModules.fs.existsSync(secretsDir)) {
+                                        SA.nodeModules.fs.mkdirSync(secretsDir)
+                                    }
+
+                                    // Now write creds to file
+                                    if (SA.nodeModules.fs.existsSync(secretsDir)) {
+                                        
+                                       SA.nodeModules.fs.writeFileSync(secretsDir + '/githubCredentials.json', JSON.stringify(creds)) 
+                                    }
+                                }
+
+                            } catch (err) {
+                                console.log('[ERROR] httpInterface -> App -> SaveCreds -> Method call produced an error.')
+                                console.log('[ERROR] httpInterface -> App -> SaveCreds -> err.stack = ' + err.stack)
+
+                                let error = {
+                                    result: 'Fail Because',
+                                    message: err.message,
+                                    stack: err.stack
+                                }
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
+                                break
+                            }
+
+                            // If everything goes well respond back with success
+                            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                            break
+                        }                        
+
                         case 'Contribute': {
                             try {
+                                // We create a pull request of all active changes
                                 let commitMessage = unescape(requestPath[3])
                                 const username = unescape(requestPath[4])
                                 const token = unescape(requestPath[5])
@@ -1097,6 +1210,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                         case 'Update': {
                             try {
+                                // We update the local repo from remote
                                 const currentBranch = unescape(requestPath[3])
                                 update()
 
@@ -1204,8 +1318,104 @@ exports.newHttpInterface = function newHttpInterface() {
                             break
                         }
 
+                        case 'Status': {
+                            // We check the current status of changes made in the local repo
+                            try {
+                                let error
+
+                                status().catch(errorResp)
+
+                                // This error responce needs to be made compatible with the contributions space or depricated
+                                function errorResp(e) {
+                                    error = e
+                                    console.error(error)
+                                    let docs = {
+                                        project: 'Foundations',
+                                        category: 'Topic',
+                                        type: 'Switching Branches - Current Branch Not Changed',
+                                        anchor: undefined,
+                                        placeholder: {}
+                                    }
+
+                                    respondWithDocsObject(docs, error)
+                                }
+
+
+                                async function status() {
+                                    const { lookpath } = SA.nodeModules.lookpath
+                                    const gitpath = await lookpath('git');
+                                    if (gitpath === undefined) {
+                                        console.log('[ERROR] `git` not installed.')
+                                    } else {
+                                        let repoStatus = []
+                                        let status
+
+                                        // status is an array that holds the repo name and diff summary in an array
+                                        status = await doGit().catch(errorResp)
+                                        repoStatus.push(status)
+
+                                        // here status is returned as an array of arrays with repo name and diff summary
+                                        status = await Promise.all(Object.values(global.env.PROJECT_PLUGIN_MAP).map(v => {
+                                            return doGit(v.dir, v.repo)
+                                        })).catch(errorResp)
+                                        repoStatus = repoStatus.concat(status)
+
+                                        // Now we send all the summaries to the UI
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(repoStatus), httpResponse)
+                                    }
+                                }
+
+                                async function doGit(dir, repo = 'Superalgos') {
+                                    const simpleGit = SA.nodeModules.simpleGit
+                                    const options = {
+                                        binary: 'git',
+                                        maxConcurrentProcesses: 6,
+                                    }
+                                    // main app repo should be the working directory
+                                    if (repo === 'Superalgos') options.baseDir = dir || process.cwd()
+                                    // if repo is not main app repo, assume it is a plugin, in ./Plugins.
+                                    else options.baseDir = SA.nodeModules.path.join(process.cwd(), 'Plugins', dir)
+                                    const git = simpleGit(options)
+                                    let diffObj
+                                    try {
+                                        // get the summary of current changes in the current repo
+                                        diffObj = await git.diffSummary(responce).catch(errorResp)
+
+                                        function responce(err, diffSummary) {
+                                            if (err !== null) {
+                                                console.log('[ERROR] Error while gathering diff summary for ' + repo)
+                                                console.log(err.stack)
+                                                error = err
+                                            } else {
+                                                return diffSummary
+                                            }
+                                        }
+
+                                    } catch (err) {
+                                        console.log('[ERROR] Error while gathering diff summary for ' + repo)
+                                        console.log(err.stack)
+                                        error = err
+                                    }
+                                    return [repo, diffObj];
+                                }
+
+                            } catch (err) {
+                                console.log('[ERROR] httpInterface -> App -> Status -> Method call produced an error.')
+                                console.log('[ERROR] httpInterface -> App -> Status -> err.stack = ' + err.stack)
+
+                                let error = {
+                                    result: 'Fail Because',
+                                    message: err.message,
+                                    stack: err.stack
+                                }
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
+                            }
+                            break
+                        }
+
                         case 'Checkout': {
                             try {
+                                // We check out the specified git branch
                                 const currentBranch = unescape(requestPath[3])
                                 let error
 
@@ -1232,7 +1442,9 @@ exports.newHttpInterface = function newHttpInterface() {
                                     if (gitpath === undefined) {
                                         console.log('[ERROR] `git` not installed.')
                                     } else {
+                                        // Checkout branch from main repo
                                         await doGit().catch(errorResp)
+                                        // Checkout branch from each plugin repo
                                         await Promise.all(Object.values(global.env.PROJECT_PLUGIN_MAP).map(v => {
                                             return doGit(v.dir, v.repo)
                                         })).catch(errorResp)
@@ -1306,6 +1518,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                         case 'Branch': {
                             try {
+                                // We get the current git branch
                                 branch()
 
                                 async function branch() {
@@ -1365,6 +1578,218 @@ exports.newHttpInterface = function newHttpInterface() {
                             }
                             break
                         }
+
+                        case 'Discard': {
+                            // We discard active changes for a specific file
+                            try {
+                                requestPath.splice(0,3)
+                                const repo = requestPath.splice(0, 1).toString().replace('-Plugins','')
+                                const filePath = requestPath.toString().replaceAll(",", "/")
+
+                                let error
+
+                                discard().catch(errorResp)
+
+                                // This error responce needs to be made compatible with the contributions space or depricated
+                                function errorResp(e) {
+                                    error = e
+                                    console.error(error)
+                                    let docs = {
+                                        project: 'Foundations',
+                                        category: 'Topic',
+                                        type: 'Switching Branches - Current Branch Not Changed',
+                                        anchor: undefined,
+                                        placeholder: {}
+                                    }
+
+                                    respondWithDocsObject(docs, error)
+                                }
+
+
+                                async function discard() {
+                                    const { lookpath } = SA.nodeModules.lookpath
+                                    const gitpath = await lookpath('git');
+                                    if (gitpath === undefined) {
+                                        console.log('[ERROR] `git` not installed.')
+                                    } else {
+                                        let status
+
+                                        // status should return the global ok responce 
+                                        status = await doGit(repo).catch(errorResp)
+
+                                        // Now we send the responce back to the UI
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(status), httpResponse)
+                                    }
+                                }
+
+                                async function doGit(repo = 'Superalgos') {
+                                    const simpleGit = SA.nodeModules.simpleGit
+                                    const options = {
+                                        binary: 'git',
+                                        maxConcurrentProcesses: 6,
+                                    }
+                                    // main app repo should be the working directory
+                                    if (repo === 'Superalgos') options.baseDir = process.cwd()
+                                    // if repo is not main app repo, assume it is a plugin, in ./Plugins.
+                                    else options.baseDir = SA.nodeModules.path.join(process.cwd(), 'Plugins', repo)
+
+                                    const git = simpleGit(options)
+                                    let status
+                                    try {
+
+                                        // Discard change in file
+                                        await git.checkout([filePath]).catch(errorResp)
+                                        // Make sure changes have been discarded
+                                       status = await git.diff([filePath]).catch(errorResp)
+
+                                       if (status === '') {
+                                           status = global.DEFAULT_OK_RESPONSE
+                                       } else {
+                                           console.log('[ERROR} There are still differences found for this file')
+                                           console.log (status)
+                                       }
+
+                                    } catch (err) {
+                                        console.log('[ERROR] Error while discarding changes to ' + filepath)
+                                        console.log(err.stack)
+                                        error = err
+                                    }
+                                    return status
+                                }
+
+                            } catch (err) {
+                                console.log('[ERROR] httpInterface -> App -> Status -> Method call produced an error.')
+                                console.log('[ERROR] httpInterface -> App -> Status -> err.stack = ' + err.stack)
+
+                                let error = {
+                                    result: 'Fail Because',
+                                    message: err.message,
+                                    stack: err.stack
+                                }
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
+                            }
+                            break
+                        }
+
+                        case 'Reset': {
+                            try {
+                                // We reset the local repo to the upstream repo
+                                const currentBranch = unescape(requestPath[3])
+                                let error
+
+                                reset().catch(errorResp)
+
+                                // This error responce needs to be made compatible with the contributions space or depricated
+                                function errorResp(e) {
+                                    error = e
+                                    console.error(error)
+                                    let docs = {
+                                        project: 'Foundations',
+                                        category: 'Topic',
+                                        type: 'Switching Branches - Current Branch Not Changed',
+                                        anchor: undefined,
+                                        placeholder: {}
+                                    }
+
+                                    respondWithDocsObject(docs, error)
+                                }
+
+
+                                async function reset() {
+                                    const { lookpath } = SA.nodeModules.lookpath
+                                    const gitpath = await lookpath('git');
+                                    if (gitpath === undefined) {
+                                        console.log('[ERROR] `git` not installed.')
+                                    } else {
+                                        // Reset main repo
+                                        await doGit().catch(errorResp)
+                                        // Reset each plugin repo
+                                        await Promise.all(Object.values(global.env.PROJECT_PLUGIN_MAP).map(v => {
+                                            return doGit(v.dir, v.repo)
+                                        })).catch(errorResp)
+
+                                        if (error === undefined) {
+                                            // Run node setup to prepare instance after reset 
+                                            await runNodeSetup()
+                                            // Return to UI that Branch is successfully changed
+                                            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                                        } else {
+                                            errorResp(error)
+                                        }
+                                    }
+                                }
+
+                                async function doGit(dir, repo = 'Superalgos') {
+                                    const simpleGit = SA.nodeModules.simpleGit
+                                    const options = {
+                                        binary: 'git',
+                                        maxConcurrentProcesses: 6,
+                                    }
+                                    // main app repo should be the working directory
+                                    if (repo === 'Superalgos') options.baseDir = dir || process.cwd()
+                                    // if repo is not main app repo, assume it is a plugin, in ./Plugins.
+                                    else options.baseDir = SA.nodeModules.path.join(process.cwd(), 'Plugins', dir)
+                                    const git = simpleGit(options)
+                                    try {
+
+                                        // Check to see if upstream repo has been set
+                                        let remotes = await git.getRemotes(true).catch(errorResp);
+                                        let isUpstreamSet
+                                        for (let remote in remotes) {
+                                        if (remotes[remote].name === 'upstream') {
+                                            isUpstreamSet = true
+                                        } else {
+                                            isUpstreamSet = false
+                                            }
+                                        }
+
+                                        // If upstream has not been set. Set it now
+                                        if (isUpstreamSet === false) {
+                                            await git.addRemote('upstream', `https://github.com/Superalgos/${repo}`).catch(errorResp);
+                                        }
+
+                                        // Pull branch from upstream repo
+                                        await git.pull('upstream', currentBranch).catch(errorResp);
+                                        // Reset branch to match upstream repo
+                                        let upstreamLocation = `upstream/${currentBranch}`
+                                        await git.reset('hard', [upstreamLocation]).catch(errorResp)
+
+                                    } catch (err) {
+                                        console.log('[ERROR] Error changing current branch to ' + currentBranch)
+                                        console.log(err.stack)
+                                        error = err
+                                    }
+                                }
+
+                                async function runNodeSetup() {
+                                    console.log("Running Node setup to adjust for new Branch")
+                                    const process = SA.nodeModules.process
+                                    const childProcess = SA.nodeModules.childProcess
+
+                                    let dir = process.cwd()
+                                    let command = "node setup noShortcuts";
+                                    let stdout = childProcess.execSync(command,
+                                        {
+                                            cwd: dir
+                                        }).toString();
+
+                                    console.log("Node Setup has completed with the following result:", stdout)
+                                }
+
+                            } catch (err) {
+                                console.log('[ERROR] httpInterface -> App -> Update -> Method call produced an error.')
+                                console.log('[ERROR] httpInterface -> App -> Update -> err.stack = ' + err.stack)
+
+                                let error = {
+                                    result: 'Fail Because',
+                                    message: err.message,
+                                    stack: err.stack
+                                }
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
+                            }
+                            break
+                        }
+
 
                         case 'FixAppSchema': {
                             /*

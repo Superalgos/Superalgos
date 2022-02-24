@@ -13,6 +13,16 @@
                 "language": "DE",
                 "text": "Nachdem wir nun Aussagen zum 1H-Chart implementiert haben, müssen wir unsere Testparameter überarbeiten!",
                 "updated": 1639390052067
+            },
+            {
+                "language": "TR",
+                "text": "Artık 1H grafiğiyle ilgili ifadeleri uyguladığımıza göre, test parametrelerimizi gözden geçirmemiz gerekiyor!",
+                "updated": 1641663851562
+            },
+            {
+                "language": "RU",
+                "text": "Теперь, когда мы внедрили условные выражения, связанные с графиком 1H, нам необходимо пересмотреть параметры тестирования!",
+                "updated": 1642661968815
             }
         ]
     },
@@ -25,6 +35,16 @@
                     "language": "DE",
                     "text": "Nehmen Sie die folgenden Änderungen an diesen Parametern vor:",
                     "updated": 1639390058323
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu parametrelerde aşağıdaki değişiklikleri yapın:",
+                    "updated": 1641663864914
+                },
+                {
+                    "language": "RU",
+                    "text": "Внесите следующие изменения в эти параметры:",
+                    "updated": 1642661981784
                 }
             ]
         },
@@ -36,6 +56,16 @@
                     "language": "DE",
                     "text": "Zeitbereich: Ändern Sie die initialDateTime auf 2020-02-01, damit wir die Fehler während der ersten 19 Tage des Januars vermeiden.",
                     "updated": 1639390078099
+                },
+                {
+                    "language": "TR",
+                    "text": "Zaman aralığı(Time Range): Ocak ayının ilk 19. gününde hatalardan kaçınmak için ilk DateTime(initialDateTime) değerini 2020-02-01 olarak değiştirin.",
+                    "updated": 1641663876587
+                },
+                {
+                    "language": "RU",
+                    "text": "Time Range: измените initialDateTime на 2020-02-01, чтобы избежать ошибок в течение первых 19 дней января.",
+                    "updated": 1642662007279
                 }
             ]
         },
@@ -47,6 +77,16 @@
                     "language": "DE",
                     "text": "Time Frame: Ändern Sie die Bezeichnung in 01-hs, um sie an die aktuellen Definitionen anzupassen. ",
                     "updated": 1639390119493
+                },
+                {
+                    "language": "TR",
+                    "text": "Zaman Çerçevesi(Time Frame): Geçerli tanımlara uyması için adı 01-hs olarak değiştirin.",
+                    "updated": 1641663889810
+                },
+                {
+                    "language": "RU",
+                    "text": "Time Frame: измените обозначение на 01-hs, чтобы адаптироваться к текущим определениям.",
+                    "updated": 1642662035158
                 }
             ]
         },
@@ -58,6 +98,16 @@
                     "language": "DE",
                     "text": "Die übrigen Parameter werden noch nicht behandelt, da wir die Open Stage, die sich mit der Ausführung befasst, noch nicht definiert haben.",
                     "updated": 1639390131732
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Yürütme ile ilgili olan Açık Aşamayı tanımlamadığımızdan, parametrelerin geri kalanını henüz ele almıyoruz.",
+                    "updated": 1641663899893
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы пока не рассматриваем остальные параметры, так как не определили Open Stage - этап, связанный с исполнением.",
+                    "updated": 1642662091794
                 }
             ]
         }

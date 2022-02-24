@@ -2,12 +2,26 @@
     "type": "Production Mode",
     "definition": {
         "text": "Production Mode will remove model validation, NaN checks, and other correctness checks in favor of performance.",
-        "updated": 1613062862838
+        "updated": 1613062862838,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Режим Production Mode удаляет проверку модели, проверку NaN и другие проверки корректности в пользу производительности.",
+                "updated": 1645249556328
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "Right click and select the pencil button to enter edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
+                    "updated": 1645249561844
+                }
+            ]
         }
     ]
 }

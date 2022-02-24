@@ -1,0 +1,14 @@
+{
+    "type": "Trading Strategy Signals",
+    "definition": {
+        "text": "The Trading Strategy Signals node houses the definitions for all the individual signal elements coming out of the signal provider's Trading System.",
+        "updated": 1644031133736
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1644031149374
+        }
+    ]
+}

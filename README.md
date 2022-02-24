@@ -1,4 +1,4 @@
-# Superalgos 1.1.1
+# Superalgos 1.2.0
 
 ![contributors](https://img.shields.io/github/contributors-anon/Superalgos/Superalgos?label=Contributors)
 ![pull-activity](https://img.shields.io/github/issues-pr-closed-raw/Superalgos/Superalgos?color=blueviolet)
@@ -218,8 +218,7 @@ For this to work you will need to [use NVM to install and control node] (https:/
 - __This is necessary before proceeding.__ 
 
 ```sh
-sudo apt \
-remove nodejs -y && \
+sudo apt remove nodejs -y
 ```
 
 ```sh
@@ -257,13 +256,13 @@ _Make sure things are up to date and packages not needed are removed_
 
 
 ```sh
-sudo apt update \
+sudo apt update &&\
 sudo apt upgrade && \
 apt autoremove -y
 ```
 
 ```sh
-cd
+cd Superalgos
 ```
 
 into the directory of SuperAlgos
@@ -346,8 +345,6 @@ That should take you inside the Superalgos folder created by the `git clone` com
 node setup
 ```
 
-By default, desktop shortcuts are created if they can be. Currently, Mac OS shortcuts are not created. Linux installations may require extra steps to view and use the shortcuts.
-
 Available Options:
 
 ```sh
@@ -356,7 +353,7 @@ usage: node setup <options>
 
 | Option | Description |
 | --- | --- |
-| `noShortcuts` | Do not install desktop shortcuts |
+| `shortcuts` | create desktop shortcuts |
 | `tensorflow` | Include the TensorFlow dependencies |
 
 > **NOTE FOR WINDOWS USERS INSTALLING TENSORFLOW DEPENDENCIES:**
@@ -365,7 +362,7 @@ usage: node setup <options>
 
 > **NOTE FOR USERS INSTALLING MULTIPLE INSTANCES OF SUPERALGOS ON THE SAME MACHINE:**
 > 
-> In order to avoid name conflicts between shortcuts, make sure to rename each Superalgos directory before running `node setup`.
+> In order to avoid name conflicts between shortcuts, make sure to rename each Superalgos directory before running `node setup shortcuts`.
 
 > **NOTE FOR USERS INSTALLING ON LINUX:**
 > 
@@ -386,7 +383,7 @@ If you are having difficulty running the node setup command here are a few commo
 
 #### Enable Desktop Shortcut in Ubuntu
 
-The majority of shortcuts that are automatically installed will work out of the box. Desktop shortcuts on Ubuntu, however, require a few additional steps to set up. First, desktop icons need to be enabled within the Tweaks app.
+The majority of shortcuts that are installed will work out of the box. Desktop shortcuts on Ubuntu, however, require a few additional steps to set up. First, desktop icons need to be enabled within the Tweaks app.
 
 - Check if Tweaks is installed.
 - If not go to Ubuntu Software.
@@ -403,6 +400,20 @@ Finally, you will need to enable the desktop shortcut. Right click Superalgos.de
 ![allow-launching](https://user-images.githubusercontent.com/55707292/117553933-fcfc5b80-b019-11eb-872c-4fad81b184d2.gif)
 
 Now both launcher and desktop shortcuts will launch Superalgos like any other program on your computer.
+
+### Install Community Plugins 
+
+Before using the software, you will need to install the Plugins built by the community. To do so, just run this command from the Superalgos main folder:
+
+```sh
+node setupPlugins <Your-Github-Username> <Your-Github-Token>
+```
+
+This script is going to fork all Community Plugins repositories into your own Github Account, and then it will clone each of these repositories into your local Superalgos/Plugins folder. The process is designed in a way that if someday a new type of plugins is added, you just need to run this command again and it will fork the new repo and clone it. This script will also find any missing forks needed and clone them too. You are safe running this script whenever you think is good.
+
+If you are having some mess with your plugins repos, you can delete individual folders inside Superalgos/Plugins and run this script to fix the problems for you. 
+
+If you are having issues with any of your plugin forks at your Github account, you can delete that fork and run this script again to fix the problem. 
 
 ### Installation Notes
 
@@ -441,7 +452,7 @@ Partner exchanges have custom workspaces for the onboarding of their users. The 
 
 > **NOTE:** This method launches the platform with the fallback workspace only. If you wish to launch with a partner exchange workspace, use the Command Line method instead.
 
-If you ran `node setup` with no options above, then you should see a desktop icon which you can double click to launch the Superalgos application. A terminal window will show the server is running, and a browser window will open with the WebUI.
+If you ran `node setup shortcuts`, then you should see a desktop icon which you can double click to launch the Superalgos application. A terminal window will show the server is running, and a browser window will open with the WebUI.
 
 #### Using the Command Line
 
@@ -537,7 +548,7 @@ journalctl -u superalgos -f
 
 ### Workspace Refactoring for Version 1
 
-Verion 1.1.1 carries with it a reorganization of the codebase where several projects where extracted from Foundations : Data-Mining, Algorithmic Trading, Machine Learning and Community Plugins.
+Verion 1.2.0 carries with it a reorganization of the codebase where several projects where extracted from Foundations : Data-Mining, Algorithmic Trading, Machine Learning and Community Plugins.
 
 This means that these projects can now have a project leader and a team working on them.
 

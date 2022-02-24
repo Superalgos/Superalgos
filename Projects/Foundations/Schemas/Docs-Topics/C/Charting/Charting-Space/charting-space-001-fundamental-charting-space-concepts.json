@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Пространство диаграмм Charting Space обеспечивает отличный контроль над визуализацией информации, сгенерированной в других иерархиях.",
                 "updated": 1639374317686
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Grafik alanı, diğer hiyerarşilerde oluşturulan bilgilerin nasıl görselleştirildiği üzerinde büyük kontrol sağlar.",
+                "updated": 1644588539325
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "RU",
                     "text": "Концептуально Superalgos делает акцент на визуальном восприятии. Не только потому, что приятно видеть данные в графическом представлении, но и потому, что наши возможности анализа расширяются, когда мы включаем в смесь органы чувств. Способность человека мыслить абстрактно может быть более или менее развита у разных людей. Но ясно одно: наш мыслительный процесс выигрывает от способности видеть.",
                     "updated": 1639374285848
+                },
+                {
+                    "language": "TR",
+                    "text": "Kavramsal olarak, Superalgos görsel deneyime odaklanır.Sadece verileri grafiksel bir sunumda görmek güzel olduğu için değil, aynı zamanda karışıma duyuları dahil ettiğimizde analiz yeteneklerimiz genişlediği için. İnsanın soyut düşünme kapasitesi bireyler arasında az ya da çok gelişmiş olabilir, ancak bir şey açıktır: düşünce sürecimiz görebilmekten yararlanır.",
+                    "updated": 1644588671342
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "RU",
                     "text": "Charting Space задуман таким образом, чтобы обеспечить беспрецедентный уровень гибкости и контроля над графическим отображением информации. Все, что вы видите в виде диаграмм при перемещении ползунка вниз, настраивается в иерархии пространства диаграмм с использованием информации, доступной в других иерархиях.",
                     "updated": 1639374442968
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafik Alanı ( Charting Space ), benzeri görülmemiş düzeyde bir esneklik sağlamak ve bilgilerin grafiksel olarak görüntülenme şekli üzerinde kontrol sağlamak için tasarlanmıştır. Kaydırıcıyı aşağı çektiğinizde grafikler şeklinde gördüğünüz her şey, diğer hiyerarşilerde bulunan bilgileri kullanırken grafik alanı hiyerarşisinde yapılandırılır.",
+                    "updated": 1644588734783
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "RU",
                     "text": "Другими словами, вы используете иерархию пространства диаграмм для создания Time Machines and Timeline Charts, а также для настройки их масштабов и т. д., Но информация, поступающая в эти диаграммы, поступает от ботов, работающих в сетевой иерархии. Эти боты получают биржевую и рыночную информацию из иерархии Crypto Ecosystem через ссылки, а их исходный код определен в иерархии Data Mine.",
                     "updated": 1639375175939
+                },
+                {
+                    "language": "TR",
+                    "text": "Başka bir deyişle, Zaman Makineleri ( Time Machine ) ve Zaman Çizelgesi Grafikleri oluşturmak ve bunların ölçeklerini vb. yapılandırmak için grafik alanı hiyerarşisini kullanırsınız, ancak bu çizelgeleri besleyen bilgiler Ağ hiyerarşisinde çalışan botlardan gelir. Bu botlar, referanslar aracılığıyla Kripto Ekosistem ( Crypto Ecosystem ) hiyerarşisinden borsa ve piyasa bilgilerini alır ve kaynak kodları Veri Madenlerinde ( Data Mines ) tanımlanır.",
+                    "updated": 1644589780200
                 }
             ]
         },
@@ -83,6 +103,11 @@
                     "language": "RU",
                     "text": "Вышеупомянутое означает, что для получения информации для визуализации вам сначала нужно запустить сенсорных и индикаторных ботов. Мы называем это интеллектуальным анализом данных \"data mining\", и это делается из раздела интеллектуального анализа данных сетевой иерархии.",
                     "updated": 1639375802928
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarıdaki, görselleştirilecek bilgilere sahip olmak için önce sensör ve gösterge botlarını çalıştırmanız gerektiği anlamına gelir. Biz buna veri madenciliği diyoruz ve bu ağ hiyerarşisinin veri madenciliği bölümünden yapılıyor.",
+                    "updated": 1644589821030
                 }
             ]
         },
@@ -98,8 +123,13 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Рабочие области, поставляемые с системой, содержат несколько конфигураций бирж, рынков и графиков, которые вы можете сразу же начать использовать. Чтобы настроить свои собственные диаграммы, вам нужно будет изучить основы Charting Space, и это именно та информация, которая представлена ​​на этих страницах.",
+                    "text": "Рабочие пространства, поставляемые с системой, содержат несколько конфигураций бирж, рынков и графиков, которые вы можете сразу же начать использовать. Чтобы настроить свои собственные диаграммы, вам нужно будет изучить основы Charting Space, и это именно та информация, которая представлена ​​на этих страницах.",
                     "updated": 1639375755148
+                },
+                {
+                    "language": "TR",
+                    "text": "The workspaces shipping with the system feature several configurations of exchanges, markets, and charts that you Sistemle birlikte gönderilen çalışma alanları, hemen kullanmaya başlayabileceğiniz çeşitli borsa, piyasa ve çizelge konfigürasyonlarına sahiptir. Kendi çizelgelerinizi yapılandırmak için, Grafik Alanının ( Charting Space ) temellerini öğrenmeniz gerekecek ve bu, bu sayfalarda ele alınan bilgiler tam olarak budur.",
+                    "updated": 1644589881567
                 }
             ]
         }

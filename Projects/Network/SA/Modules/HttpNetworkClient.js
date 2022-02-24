@@ -41,46 +41,68 @@ exports.newNetworkModulesHttpNetworkClient = function newNetworkModulesHttpNetwo
         function uses callbacks, specifically for retrieving files.
         */
         let promise = new Promise((resolve, reject) => {
-
-            const axios = SA.nodeModules.axios  
+            const TIMEOUT_FOR_NETWORK_NODE_TO_RESPOND = 10000
+            let promiseStatus = 'Pending'
+            setTimeout(checkPromise, TIMEOUT_FOR_NETWORK_NODE_TO_RESPOND)
+            message.callerRole = "Network Client"
+            const axios = SA.nodeModules.axios
             axios
-                .post('http://' + thisObject.host + ':' + thisObject.port + '/New-Signal', message)
+                .post('http://' + thisObject.host + ':' + thisObject.port + '/New-Message', message)
                 .then(res => {
                     //console.log(`statusCode: ${res.status}`)
                     //console.log('Response Received from P2P Network Node: ' + JSON.stringify(res.data))
                     // TODO : Do something when Network Node could not process this signal.
+                    promiseStatus = 'Resolved'
                     resolve()
                 })
                 .catch(error => {
                     console.error('[ERROR] Error trying to send message to the P2P Network node via its http interface -> Error = ' + error)
+                    promiseStatus = 'Rejected'
                     reject()
                 })
+            function checkPromise() {
+                if (promiseStatus === 'Pending') {
+                    reject()
+                }
+            }
         })
 
         return promise
     }
 
-    async function sendTestMessage() {
+    async function sendTestMessage(networkServide) {
         /*
         This function us to check if a network node is online and will 
         receive an http request when needed.
         */
         let promise = new Promise((resolve, reject) => {
-
+            const TIMEOUT_FOR_NETWORK_NODE_TO_RESPOND = 10000
+            let promiseStatus = 'Pending'
+            setTimeout(checkPromise, TIMEOUT_FOR_NETWORK_NODE_TO_RESPOND)
             const axios = SA.nodeModules.axios
             axios
-                .post('http://' + thisObject.host + ':' + thisObject.port + '/Ping')
+                .post('http://' + thisObject.host + ':' + thisObject.port + '/Ping/' + networkServide)
                 .then(res => {
                     if (res.data.indexOf("Pong") >= 0) {
-                        console.log('Http Client Detected Network Node is Online .................................. Connected to ' + thisObject.p2pNetworkNode.userProfile.userProfileHandle + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
+                        console.log('Http Client Detected Network Node is Online .................................. Connected to ' + thisObject.p2pNetworkNode.userProfile.config.codeName + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
+                        promiseStatus = 'Resolved'
                         resolve()
                     } else {
+                        promiseStatus = 'Rejected'
                         reject()
                     }
                 })
                 .catch(error => {
+                    promiseStatus = 'Rejected'
                     reject()
                 })
+
+            function checkPromise() {
+                if (promiseStatus === 'Pending') {
+                    reject()
+                }
+            }
+
         })
         return promise
     }

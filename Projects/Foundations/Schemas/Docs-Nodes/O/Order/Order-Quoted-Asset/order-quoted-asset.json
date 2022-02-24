@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Узел Order Quoted Asset отслеживает эволюцию определенных свойств ордеров, выраженных в котируемом активе.",
                 "updated": 1640345799809
+            },
+            {
+                "language": "TR",
+                "text": "Order Quoted Asset düğümü, kote edilen varlıkta verilen siparişlerin belirli özelliklerinin gelişimini takip eder.",
+                "updated": 1642403797238
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Подробнее о том, как ведутся счета для базового актива и котируемого актива, можно узнать на странице базового актива и котируемого актива в разделе документации Trading Engine.",
                     "updated": 1640345816338
+                },
+                {
+                    "language": "TR",
+                    "text": "Belgelerin Trading Engine bölümündeki temel varlık ve kote varlık sayfasında temel varlık ve kote varlık hesaplarının nasıl tutulduğu hakkında daha fazla bilgi edinin.",
+                    "updated": 1642403816588
                 }
             ]
         }

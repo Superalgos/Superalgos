@@ -1,0 +1,142 @@
+{
+    "type": "Incoming Signals",
+    "definition": {
+        "text": "This node defines the location within a Trading System at which an incoming Signal will be made available.",
+        "updated": 1642908082390,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Этот узел определяет местоположение в торговой системе, в котором будет доступен входящий сигнал.",
+                "updated": 1645253043877
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1644033472430
+        },
+        {
+            "style": "Text",
+            "text": "In other words, an Incoming Signal node receives the signal information and then injects this data into a specific part of a trading system.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Другими словами, узел входящего сигнала получает сигнальную информацию, а затем вводит эти данные в определенную часть торговой системы.",
+                    "updated": 1645253052853
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "Types of Signals",
+            "updated": 1644031213358
+        },
+        {
+            "style": "Text",
+            "text": "There are three types of signals that can be received:",
+            "updated": 1644031263460
+        },
+        {
+            "style": "Subtitle",
+            "text": "Candle Sync Signals"
+        },
+        {
+            "style": "Text",
+            "text": "Keeping the bots of provider and recipient on the same candle is vital for trading signals to actually be useful. Therefore, Candle Sync signals are the foundational use of the Incoming Signal node. It communicates the candle on which the current incoming signal belongs. This allows your bots to identify the exact same candle on which the provider sent the signal allowing yours and the provider's bot to stay in sync.",
+            "updated": 1644031371664
+        },
+        {
+            "style": "Text",
+            "text": "Receiving a candle sync signal can be achieved by attaching an Incoming Signal node to a Trading System node. Then adding a child Outgoing Signal Reference node. Then establishing a reference from the Incoming Signal Reference node to the Trading System Signal node held under the Social Trading Bot of the provider.",
+            "updated": 1644031444290
+        },
+        {
+            "style": "Subtitle",
+            "text": "Event Signals"
+        },
+        {
+            "style": "Text",
+            "text": "Event signals allow the signal provider to send information concerning trading system events. Examples of such events are the Trigger On Event, Trigger Off Event, Take Position Event, etc."
+        },
+        {
+            "style": "Text",
+            "text": "Receiving event signals is very straightforward.  Follow these steps:",
+            "updated": 1644032291516
+        },
+        {
+            "style": "List",
+            "text": "Find the event which you would like to receive from the provider's Social Trading Bot. "
+        },
+        {
+            "style": "List",
+            "text": "Add an Incoming Signals node to the appropriate event within your trading system. "
+        },
+        {
+            "style": "List",
+            "text": "Attach a child Incoming Signal Reference node. "
+        },
+        {
+            "style": "List",
+            "text": "Establish a reference from the Incoming Signal Reference node to the appropriate Trading Strategy Signals node under the Provider's Social Trading Bot."
+        },
+        {
+            "style": "Text",
+            "text": "Finally configure how you would like your Trading System to interpret the signal information:",
+            "updated": 1644032784344
+        },
+        {
+            "style": "Note",
+            "text": "Signals do not force your trading system to do anything. It is completely up to you how you use the information from the signal.",
+            "updated": 1644032473486
+        },
+        {
+            "style": "Text",
+            "text": "To use signal information set up the logic to interpret the signal in the Javascript Code node of the Event's Condition node.",
+            "updated": 1644032665526
+        },
+        {
+            "style": "Text",
+            "text": "Here is a basic example the registers true when the event signal is received."
+        },
+        {
+            "style": "Javascript",
+            "text": "if (signals !== undefined && signals.length > 0) {\n    true\n} else {\n    false\n}",
+            "updated": 1644031762933
+        },
+        {
+            "style": "Subtitle",
+            "text": "Formula Signals"
+        },
+        {
+            "style": "Text",
+            "text": "Formula Signals allow the signal provider to send information coming out of trading system formulas. Examples of such formulas are, Target Rate, Order Rate, Target Size In Base Asset, etc.",
+            "updated": 1644033087358
+        },
+        {
+            "style": "Text",
+            "text": "Receiving a formula signal is the same as receiving an event signal with a few differences on how to set up the logic to interpret the incoming signal data.",
+            "updated": 1644032871795
+        },
+        {
+            "style": "Text",
+            "text": "To use Formula Signal data set up the logic within the associated Formula node of that part of the Trading System.",
+            "updated": 1644033077095
+        },
+        {
+            "style": "Text",
+            "text": "Here is a basic example of receiving this data and putting it into variable called lastSignalFormulaValue:",
+            "updated": 1644033160906
+        },
+        {
+            "style": "Javascript",
+            "text": " let lastSignalFormulaValue = 0\nfor (let i = 0; i < signals.length; i++) {\n    let signal = signals[i]\n    lastSignalFormulaValue = signal.source.tradingSystem.node.formula.value\n}\nlastSignalFormulaValue",
+            "updated": 1644033260794
+        },
+        {
+            "style": "Note",
+            "text": "Formula Signals that provide context data will need to be handled by assigning additional values to additional variables."
+        }
+    ]
+}

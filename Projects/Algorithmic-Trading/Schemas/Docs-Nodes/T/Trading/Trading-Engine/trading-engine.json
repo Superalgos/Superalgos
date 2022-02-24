@@ -17,6 +17,16 @@
                 "language": "TR",
                 "text": "Ticaret motoru hiyerarşisi, ticaret botu tarafından çalışma zamanı bilgilerini yüksek düzeyde erişilebilir ve ulaşılabilir tutmak için kullanılan veri yapısıdır.",
                 "updated": 1639221739186
+            },
+            {
+                "language": "EL",
+                "text": "Η ιεραρχία της μηχανής συναλλαγών είναι η δομή δεδομένων που χρησιμοποιείται από το bot συναλλαγών για να διατηρεί τις πληροφορίες χρόνου εκτέλεσης εξαιρετικά προσιτές και διαθέσιμες σε άλλους.",
+                "updated": 1641828391175
+            },
+            {
+                "language": "DE",
+                "text": "Die Trading-Engine-Hierarchie ist die Datenstruktur, die vom Trading-Bot verwendet wird, um Laufzeitinformationen in hohem Maße zugänglich zu halten und anderen zugänglich zu machen.",
+                "updated": 1641762224081
             }
         ]
     },
@@ -33,6 +43,21 @@
                     "language": "RU",
                     "text": "Вы будете использовать эту иерархию для двух основных целей:",
                     "updated": 1638338966721
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu hiyerarşiyi iki ana amaç için kullanacaksınız:",
+                    "updated": 1642504350982
+                },
+                {
+                    "language": "EL",
+                    "text": "Θα χρησιμοποιήσετε αυτήν την ιεραρχία για δύο κύριους σκοπούς:",
+                    "updated": 1641828406302
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie werden diese Hierarchie für zwei Hauptzwecke verwenden:",
+                    "updated": 1641762230499
                 }
             ]
         },
@@ -44,6 +69,21 @@
                     "language": "RU",
                     "text": "Чтобы позволить вашим торговым системам получить доступ к информации, обрабатываемой торговым ботом. Это позволяет стратегиям отслеживать и реагировать на текущие и прошлые события, в том числе связанные с обменом, такие как размещенные или исполненные заявки, во время работы бота.",
                     "updated": 1638339042173
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret sistemlerinizin ticaret botu tarafından işlenen bilgilere erişmesine izin vermek. Bu, stratejilerin, bot çalışırken verilen veya doldurulan siparişler gibi değiş tokuşla ilgili olanlar da dahil olmak üzere mevcut ve geçmiş olayları takip etmesine ve bunlara tepki vermesine olanak tanır.",
+                    "updated": 1642504373870
+                },
+                {
+                    "language": "EL",
+                    "text": "Για να επιτρέψετε στα συστήματα συναλλαγών σας να έχουν πρόσβαση στις πληροφορίες που επεξεργάζεται το ρομπότ συναλλαγών. Αυτό επιτρέπει στις στρατηγικές να παρακολουθούν και να αντιδρούν σε τρέχοντα και προηγούμενα γεγονότα — συμπεριλαμβανομένων εκείνων που αφορούν το ανταλλακτήριο, όπως εντολές που έχουν υποβληθεί ή εκπληρωθεί — καθώς δουλεύει το ρομπότ.",
+                    "updated": 1641828420690
+                },
+                {
+                    "language": "DE",
+                    "text": "Um Ihren Trading Systems den Zugriff auf die vom Trading-Bot verarbeiteten Informationen zu ermöglichen. Auf diese Weise können Strategien aktuelle und vergangene Ereignisse verfolgen und darauf reagieren - auch solche, die die Börse betreffen, wie z. B. erteilte oder ausgeführte Aufträge - während der Bot läuft.",
+                    "updated": 1641762287280
                 }
             ]
         },
@@ -55,6 +95,21 @@
                     "language": "RU",
                     "text": "Для отслеживания действий торгового бота через визуальную среду Design Space и панели над графиками. Анализируя информацию о времени выполнения, вы можете получить подробное представление о том, что происходит, когда и почему в течение торговой сессии.",
                     "updated": 1638339093835
+                },
+                {
+                    "language": "TR",
+                    "text": "Tasarım alanı görsel ortamı ve çizelgeler üzerindeki paneller aracılığıyla alım satım botunun eylemlerini takip etmek. Çalışma zamanı bilgilerini analiz ederek, bir alım satım seansı boyunca ne olduğu, ne zaman ve neden olduğu hakkında ayrıntılı bir anlayış elde edebilirsiniz.",
+                    "updated": 1642504426556
+                },
+                {
+                    "language": "EL",
+                    "text": "Για να παρακολουθείτε τις ενέργειες του ρομπότ συναλλαγών μέσω του οπτικού περιβάλλοντος χώρου σχεδίασης και των πλαισίων πάνω από τα γραφήματα. Αναλύοντας πληροφορίες χρόνου εκτέλεσης, μπορείτε να αποκτήσετε μια λεπτομερή κατανόηση του τι συμβαίνει, πότε και γιατί, κατά τη διάρκεια μιας συνεδρίας συναλλαγών.",
+                    "updated": 1641828441945
+                },
+                {
+                    "language": "DE",
+                    "text": "Um die Aktionen des Trading Bots über die visuelle Umgebung des Design Space und die Panels über den Charts zu verfolgen. Durch die Analyse von Laufzeitinformationen können Sie ein detailliertes Verständnis dafür gewinnen, was während einer Handelssitzung wann und warum passiert.",
+                    "updated": 1641762350905
                 }
             ]
         },
@@ -66,6 +121,16 @@
                     "language": "RU",
                     "text": "Часто задаваемые вопросы",
                     "updated": 1638339158409
+                },
+                {
+                    "language": "TR",
+                    "text": "Sıkça Sorulan Sorular",
+                    "updated": 1642504438443
+                },
+                {
+                    "language": "DE",
+                    "text": "Frequently Asked Questions (FAQ)",
+                    "updated": 1641762408664
                 }
             ]
         },
@@ -77,6 +142,21 @@
                     "language": "RU",
                     "text": "Может ли Trading Engine использоваться совместно двумя торговыми ботами?",
                     "updated": 1638339236191
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Ticaret Motoru iki Ticaret Botu arasında paylaşılabilir mi?",
+                    "updated": 1642504459878
+                },
+                {
+                    "language": "EL",
+                    "text": "Μπορεί μια μηχανή συναλλαγών να μοιράζεται μεταξύ δύο Ρομπότ Συναλλαγών;",
+                    "updated": 1641828462197
+                },
+                {
+                    "language": "DE",
+                    "text": "Kann eine Trading Engine von zwei Trading Bots gemeinsam genutzt werden?",
+                    "updated": 1641762418467
                 }
             ]
         },
@@ -89,6 +169,21 @@
                     "language": "RU",
                     "text": "Один и тот же торговый движок можно использовать в нескольких торговых сессиях, потому что это просто представление структуры данных на основе узлов.",
                     "updated": 1638339266880
+                },
+                {
+                    "language": "TR",
+                    "text": "Aynı ticaret motoru, bir veri yapısının yalnızca düğüm tabanlı bir temsili olduğundan, birden fazla ticaret oturumunda kullanılabilir.",
+                    "updated": 1642504933300
+                },
+                {
+                    "language": "EL",
+                    "text": "Η ίδια μηχανή συναλλαγών μπορεί να χρησιμοποιηθεί από πολλαπλές συνεδρίες συναλλαγών, επειδή είναι απλώς μια αναπαράσταση μιας δομής δεδομένων που βασίζεται σε κόμβους.",
+                    "updated": 1641828487715
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein und dieselbe Trading Engine kann von mehreren Handelssitzungen verwendet werden, da es sich lediglich um eine knotenbasierte Darstellung einer Datenstruktur handelt.",
+                    "updated": 1641762435736
                 }
             ]
         },
@@ -101,6 +196,21 @@
                     "language": "RU",
                     "text": "Каждый раз, когда запускается задача Task, снимок этой структуры данных вместе со снимком сети и определениями ботов в их Data Mine отправляется из UI на сервер задач Task Server, а оттуда используется запущенным ботом. Это означает, что второй бот может получить тот же снимок состояния Trading Engine, и он никогда не узнает, были ли другие боты загружены той же информацией или нет.",
                     "updated": 1638339437677
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Görev her çalıştırıldığında, Veri Madeni'ndeki (Data Mine) Ağ ve Bot tanımlarının bir anlık görüntüsü ile birlikte bu veri yapısının bir anlık görüntüsü UI'den Görev Sunucusuna (Task Manager) gönderilir ve oradan çalışan Bot tarafından tüketilir. Bu, ikinci bir Botun aynı Ticaret Motoru anlık görüntüsünü alabileceği ve diğer botların aynı bilgilerle beslenip beslenmediğini asla bilemeyeceği anlamına gelir.",
+                    "updated": 1642505103739
+                },
+                {
+                    "language": "EL",
+                    "text": "Κάθε φορά που εκτελείται μια Task (Εργασία), ένα στιγμιότυπο αυτής της δομής δεδομένων, μαζί με ένα στιγμιότυπο των ορισμών του Δικτύου και των Ρομπότ στο Data Mine (Εξορυκτήριο Δεδομένων) τους αποστέλλεται από τη UI (διεπαφή χρήστη) στον Task Server (Διακομιστή Εργασιών) και από εκεί χρησιμοποιείται από το Ρομπότ που εκτελείται. Αυτό σημαίνει ότι ένα δεύτερο Ρομπότ μπορεί να λάβει το ίδιο στιγμιότυπο της Μηχανής Συναλλαγών και δεν θα μάθει ποτέ εάν άλλα ρομπότ τροφοδοτήθηκαν με τις ίδιες πληροφορίες ή όχι.",
+                    "updated": 1641828540851
+                },
+                {
+                    "language": "DE",
+                    "text": "Jedes Mal, wenn ein Task ausgeführt wird, wird ein Schnappschuss dieser Datenstruktur zusammen mit einem Schnappschuss des Netzwerks und der Bots-Definitionen in ihrer Datenmine von der Benutzeroberfläche an den Task-Server gesendet und von dort aus von dem laufenden Bot konsumiert. Das bedeutet, dass ein zweiter Bot denselben Snapshot der Trading Engine erhalten kann, ohne dass er weiß, ob andere Bots mit denselben Informationen gefüttert wurden oder nicht.",
+                    "updated": 1641762482468
                 }
             ]
         },
@@ -112,6 +222,16 @@
                     "language": "RU",
                     "text": "Нужно ли мне что-то менять в Trading Engine?",
                     "updated": 1638339586902
+                },
+                {
+                    "language": "TR",
+                    "text": "Trading Engine'de bir şeyi değiştirmem gerekiyor mu?",
+                    "updated": 1642505117563
+                },
+                {
+                    "language": "DE",
+                    "text": "Muss ich etwas an der Trading Engine ändern?",
+                    "updated": 1641762505521
                 }
             ]
         },
@@ -123,6 +243,21 @@
                     "language": "RU",
                     "text": "Вам не нужно ничего физически менять внутри Trading Engine через UI. Trading Engine - это визуальное представление структуры данных, которую торговая система использует, так сказать, для хранения своих значений.",
                     "updated": 1638339666496
+                },
+                {
+                    "language": "TR",
+                    "text": "UI aracılığıyla ticaret motorunun içindeki hiçbir şeyi fiziksel olarak değiştirmeniz gerekmez. Ticaret motoru, ticaret sisteminin değerlerini depolamak için kullandığı veri yapısının görsel bir temsilidir.",
+                    "updated": 1642505145310
+                },
+                {
+                    "language": "EL",
+                    "text": "Δεν χρειάζεται να αλλάξετε φυσικά τίποτα στη μηχανή συναλλαγών μέσω της UI (Διεπαφής Χρήστη). Η μηχανή συναλλαγών είναι μια οπτική αναπαράσταση της δομής δεδομένων που χρησιμοποιεί το σύστημα συναλλαγών για να αποθηκεύσει τις αξίες του, ας το πούμε έτσι.",
+                    "updated": 1641828598544
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie müssen nichts an der Trading Engine über die Benutzeroberfläche ändern. Die Trading Engine ist sozusagen eine visuelle Darstellung der Datenstruktur, die das Handelssystem zum Speichern seiner Werte verwendet.",
+                    "updated": 1641762524677
                 }
             ]
         },
@@ -134,6 +269,16 @@
                     "language": "RU",
                     "text": "Могу ли я изменить значения в Trading Engine?",
                     "updated": 1638339692515
+                },
+                {
+                    "language": "TR",
+                    "text": "Trading Engine içindeki değerleri değiştirebilir miyim?",
+                    "updated": 1642505156525
+                },
+                {
+                    "language": "DE",
+                    "text": "Kann ich die Werte innerhalb der Trading Engine ändern?",
+                    "updated": 1641762556586
                 }
             ]
         },
@@ -146,6 +291,21 @@
                     "language": "RU",
                     "text": "Вы получаете доступ к Trading Engine из своей торговой системы, если в ней есть что-то, что вы хотели бы изменить. В этом вся цель узла User Defined Code.",
                     "updated": 1638339838848
+                },
+                {
+                    "language": "TR",
+                    "text": "Değiştirmek istediğiniz bir şey varsa, Ticaret Motoruna (Trading Engine) ticaret sisteminizden (Trading System) erişirsiniz. Kullanıcı Tanımlı Kod (User Defined Code) düğümünün tüm amacı budur.",
+                    "updated": 1642505339750
+                },
+                {
+                    "language": "EL",
+                    "text": "Έχετε πρόσβαση στη Μηχανή Συναλλαγών μέσα από το σύστημα συναλλαγών σας, εάν υπάρχει κάτι εκεί που θέλετε να αλλάξετε. Αυτός είναι ολόκληρος ο σκοπός του κόμβου User Defined Code (Κώδικας που Ορίζεται από το Χρήστη).",
+                    "updated": 164182863984
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie greifen von Ihrem Handelssystem aus auf die Trading Engine zu, wenn Sie dort etwas ändern möchten. Dies ist der Zweck User Defined Code Node.",
+                    "updated": 1641762598864
                 }
             ]
         }

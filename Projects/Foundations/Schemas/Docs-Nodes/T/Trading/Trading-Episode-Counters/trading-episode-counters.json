@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Узел Trading Episode Counters содержит счетчики экземпляров объектов, которые появляются в течение всего эпизода.",
                 "updated": 1640346430378
+            },
+            {
+                "language": "TR",
+                "text": "Bölüm sayaçları düğümü, bölüm süresi boyunca var olan nesnelerin örneklerinin sayaçlarını içerir.",
+                "updated": 1641909964699
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст.",
                     "updated": 1640346437962
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle.",
+                    "updated": 1641909977852
                 }
             ]
         }

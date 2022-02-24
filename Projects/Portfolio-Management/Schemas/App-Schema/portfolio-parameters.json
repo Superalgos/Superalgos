@@ -1,0 +1,87 @@
+{
+    "type": "Portfolio Parameters",
+    "menuItems": [
+        {
+            "action": "Add Missing Children",
+            "label": "Add Missing Parameters",
+            "relatedUiObject": "Portfolio Parameters",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Portfolio-Management"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Backtesting Portfolio Session->Live Portfolio Session->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "timeRange",
+            "type": "node",
+            "childType": "Time Range",
+            "project": "Foundations",
+            "autoAdd": true
+        },
+        {
+            "name": "timeFrame",
+            "type": "node",
+            "childType": "Time Frame",
+            "project": "Foundations",
+            "autoAdd": true
+        },
+        {
+            "name": "slippage",
+            "type": "node",
+            "childType": "Slippage",
+            "project": "Foundations",
+            "autoAdd": true
+        },
+        {
+            "name": "feeStructure",
+            "type": "node",
+            "childType": "Fee Structure",
+            "project": "Foundations",
+            "autoAdd": true
+        },
+        {
+            "name": "snapshots",
+            "type": "node",
+            "childType": "Snapshots",
+            "project": "Foundations",
+            "autoAdd": true
+        },
+        {
+            "name": "heartbeats",
+            "type": "node",
+            "childType": "Heartbeats",
+            "project": "Foundations",
+            "autoAdd": true
+        },
+        {
+            "name": "managedAssets",
+            "type": "node",
+            "childType": "Managed Assets",
+            "project": "Portfolio-Management",
+            "autoAdd": true
+        },
+        {
+            "name": "userDefinedParameters",
+            "type": "node",
+            "childType": "User Defined Parameters",
+            "project": "Foundations",
+            "autoAdd": true
+        }
+    ],
+    "propertyNameAtParent": "portfolioParameters"
+}

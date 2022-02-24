@@ -18,6 +18,16 @@
                 "language": "DE",
                 "text": "Überprüfen Sie, ob die Production Trading Tasks für den entsprechenden Market erfolgreich erstellt wurden.",
                 "updated": 1636468982204
+            },
+            {
+                "language": "TR",
+                "text": "İlgili borsa ( Market ) için Üretim Ticareti Görevlerinin ( Production Trading Tasks ) başarıyla oluşturulduğunu doğrulayın.",
+                "updated": 1642159043622
+            },
+            {
+                "language": "RU",
+                "text": "Убедитесь, что задачи Production Trading Tasks для соответствующего Market были успешно созданы.",
+                "updated": 1643091091604
             }
         ]
     },
@@ -30,6 +40,16 @@
                     "language": "ES",
                     "text": "Busca las siguientes estructuras de datos:",
                     "updated": 1629249556254
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki veri yapılarını bulun:",
+                    "updated": 1642159228791
+                },
+                {
+                    "language": "RU",
+                    "text": "Найдите следующие структуры данных:",
+                    "updated": 1643091098661
                 }
             ]
         },
@@ -46,6 +66,16 @@
                     "language": "DE",
                     "text": "Ein Market Trading Tasks Knoten für den neuen Markt.",
                     "updated": 1636469204941
+                },
+                {
+                    "language": "TR",
+                    "text": "Yeni borsa için bir Borsa Ticaret Görevleri ( Market Trading Tasks ) düğümü.",
+                    "updated": 1642159341863
+                },
+                {
+                    "language": "RU",
+                    "text": "Узел Market Trading Tasks для нового рынка.",
+                    "updated": 1643091109445
                 }
             ]
         },
@@ -57,6 +87,16 @@
                     "language": "DE",
                     "text": "Ein Knoten Trading Mine Tasks für jede im Arbeitsbereich enthaltene Handelsmine.",
                     "updated": 1636469220146
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışma alanına dahil edilen her ticaret madeni için bir Ticaret Madeni Görevleri ( Trading Mine Tasks ) düğümü.",
+                    "updated": 1642159563317
+                },
+                {
+                    "language": "RU",
+                    "text": "Один узел Trading Mine Tasks для каждого Trading Mine, включенного в рабочее пространство (Workspace).",
+                    "updated": 1643091145503
                 }
             ]
         },
@@ -73,6 +113,16 @@
                     "language": "DE",
                     "text": "Ein Task Manager pro Trading Mine und eine Task mit einer Live Trading Session für jedes Trading System im Arbeitsbereich.",
                     "updated": 1640710000128
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Madeni ( Trading Mine ) başına bir Görev Yöneticisi ( Task Manager ) ve çalışma alanındaki her Ticaret Sistemi ( Trading System ) için Canlı Ticaret Oturumu ( Live Trading Session ) içeren bir Görev ( Task ).",
+                    "updated": 1642159983578
+                },
+                {
+                    "language": "RU",
+                    "text": "Один менеджер задач (Task Manager) на каждый Trading Mine и одна задача (Task) с Live Trading Session для каждой торговой системы в рабочем пространстве (Workspace).",
+                    "updated": 1643091215122
                 }
             ],
             "updated": 1640709691528

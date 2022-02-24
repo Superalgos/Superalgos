@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Özet: Herhangi bir noktada sadece bir tanesi ticaret yapabilirken, neden bir ticaret sistemi içinde birden fazla stratejiye sahip olmak isteyeyim?",
                 "updated": 1640695829178
+            },
+            {
+                "language": "RU",
+                "text": "Зачем мне иметь несколько стратегий в торговой системе, если одновременно может торговать только одна из них?",
+                "updated": 1640884479971
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "Can alıcı soruyu cevaplamadan önce, birkaç örneğe bakalım. Tradeing System Weak-Hands Buster (WHB v2) içindeki iki stratejiye bir göz atın!",
                     "updated": 1640781477384
+                },
+                {
+                    "language": "RU",
+                    "text": "Прежде чем ответить на этот животрепещущий вопрос, давайте рассмотрим пару примеров. Взгляните на две стратегии торговой системы Weak-hands Buster (WHB v2)!",
+                    "updated": 1640884499162
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": "Trigger Stage'deki Trigger On Event tanımlarını keşfedin ve iki stratejinin farkına varabilecek misin bir bak.",
                     "updated": 1640696826020
+                },
+                {
+                    "language": "RU",
+                    "text": "Изучите определения события Trigger On Event на этапе Trigger Stage и посмотрите, заметите ли вы разницу между ними.",
+                    "updated": 1640884544708
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "TR",
                     "text": "İpucu: Her stratejinin adında bir ipucu var!",
                     "updated": 1640698040386
+                },
+                {
+                    "language": "RU",
+                    "text": "В названии каждой стратегии есть подсказка!",
+                    "updated": 1640884555767
                 }
             ]
         }

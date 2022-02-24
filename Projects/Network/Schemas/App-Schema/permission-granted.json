@@ -1,0 +1,42 @@
+{
+    "type": "Permission Granted",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{}"
+    },
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Permissioned P2P Network->Permission Group->"
+    },
+    "referencingRules": {
+        "compatibleTypes": "->User Profile->"
+    },
+    "propertyNameAtParent": "permissionsGranted",
+    "childrenNodesProperties": [
+    ],
+    "title": [
+        "Use Reference Parent"
+    ]
+}

@@ -4,21 +4,49 @@
     "type": "Chaikin Oscillator",
     "definition": {
         "text": "The Chaikin Indicator applies MACD to the accumulation-distribution line rather than closing price.\n",
-        "updated": 1617876911680
+        "updated": 1617876911680,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Chaikin Indicator применяет MACD к линии накопления-распределения, а не к цене закрытия.",
+                "updated": 1643524392540
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Subtitle",
-            "text": "What is the Chaikin Oscillator?"
+            "text": "What is the Chaikin Oscillator?",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Что такое Chaikin Oscillator?",
+                    "updated": 1643524403141
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The Chaikin oscillator is named for its creator Marc Chaikin. The oscillator measures the accumulation-distribution line of moving average convergence-divergence (MACD). To calculate the Chaikin oscillator, subtract a 10-day exponential moving average (EMA) of the accumulation-distribution line from a 3-day EMA of the accumulation-distribution line. This measures momentum predicted by oscillations around the accumulation-distribution line.",
-            "updated": 1617875532630
+            "updated": 1617875532630,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Chaikin Oscillator назван в честь его создателя Марка Чайкина. Осциллятор измеряет линию накопления-распределения скользящей средней конвергенции-дивергенции (MACD). Чтобы рассчитать осциллятор Чайкина, вычтите 10-дневную экспоненциальную скользящую среднюю (EMA) линии накопления-распределения из 3-дневной EMA линии накопления-распределения. Это измеряет импульс, предсказанный колебаниями вокруг линии накопления-распределения.",
+                    "updated": 1643524457676
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "A cross above the accumulation-distribution line indicates that market players are accumulating shares, securities or contracts, which is typically bullish."
+            "text": "A cross above the accumulation-distribution line indicates that market players are accumulating shares, securities or contracts, which is typically bullish.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пересечение над линией накопления-распределения указывает на то, что участники рынка накапливают акции, ценные бумаги или контракты, что, как правило, является \"бычьим\" фактором.",
+                    "updated": 1643524481724
+                }
+            ]
         },
         {
             "style": "Png",
@@ -27,48 +55,125 @@
         {
             "style": "Subtitle",
             "text": "How is the Chaikin Oscillator calculated?",
-            "updated": 1617875610441
+            "updated": 1617875610441,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как рассчитывается осциллятор Чайкина?",
+                    "updated": 1643524489450
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Calculate the Money Flow Multiplier (N)."
+            "text": "Calculate the Money Flow Multiplier (N).",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Рассчитайте Money Flow Multiplier (N) (\"Множитель денежного потока\").",
+                    "updated": 1643524660353
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Multiply the Money Flow Multiplier (N) by volume to calculate Money Flow Volume (N)."
+            "text": "Multiply the Money Flow Multiplier (N) by volume to calculate Money Flow Volume (N).",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Умножьте Money Flow Multiplier (N) на объем, чтобы рассчитать Money Flow Volume (N) (\"Объем денежного потока\").",
+                    "updated": 1643524653611
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "List a running total of N to draw the accumulation-distribution line (ADL)."
+            "text": "List a running total of N to draw the accumulation-distribution line (ADL).",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Перечислите текущий итог N для построения линии накопления-распределения (ADL).",
+                    "updated": 1643524672084
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Compute the difference between 10 period and 3 period exponential moving averages to calculate the Chaikin oscillator."
+            "text": "Compute the difference between 10 period and 3 period exponential moving averages to calculate the Chaikin oscillator.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вычислите разницу между 10-периодной и 3-периодной экспоненциальными скользящими средними для расчета осциллятора Чайкина.",
+                    "updated": 1643524689201
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Example of How to Use the Chaikin Oscillator"
+            "text": "Example of How to Use the Chaikin Oscillator",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пример использования осциллятора Чайкина",
+                    "updated": 1643524695486
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The purpose of the Chaikin oscillator is to identify underlying momentum during fluctuations in accumulation-distribution. Specifically, it applies the MACD indicator to accumulation-distribution rather than closing prices."
+            "text": "The purpose of the Chaikin oscillator is to identify underlying momentum during fluctuations in accumulation-distribution. Specifically, it applies the MACD indicator to accumulation-distribution rather than closing prices.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Целью осциллятора Чайкина является определение базового импульса во время колебаний накопления-распределения. В частности, он применяет индикатор MACD к накоплению-распределению, а не к ценам закрытия.",
+                    "updated": 1643524707398
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "For example, a trader wants to determine whether a stock price is more likely to go up or to fall and MACD is trending higher. The Chaikin oscillator generates a bullish divergence when it crosses above a baseline. The baseline is called the accumulation-distribution line. A cross above that line indicates that traders are accumulating, which is typically bullish."
+            "text": "For example, a trader wants to determine whether a stock price is more likely to go up or to fall and MACD is trending higher. The Chaikin oscillator generates a bullish divergence when it crosses above a baseline. The baseline is called the accumulation-distribution line. A cross above that line indicates that traders are accumulating, which is typically bullish.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Например, трейдер хочет определить, будет ли цена акции с большей вероятностью расти или падать, а MACD имеет тенденцию к росту. Осциллятор Чайкина генерирует бычью дивергенцию, когда пересекает базовую линию. Базовая линия называется линией накопления-распределения. Пересечение выше этой линии указывает на то, что трейдеры накапливают средства, что, как правило, является \"бычьим\" трендом.",
+                    "updated": 1643524728170
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The Chaikin oscillator utilizes two primary buy and sell signals. First, a positive divergence is confirmed with a center-line crossover above the accumulation-distribution line. signaling a potential buying opportunity.. Second, a negative divergence is confirmed with a center-line crossover below the accumulation-distribution line., signaling a potential selling opportunity"
+            "text": "The Chaikin oscillator utilizes two primary buy and sell signals. First, a positive divergence is confirmed with a center-line crossover above the accumulation-distribution line. signaling a potential buying opportunity.. Second, a negative divergence is confirmed with a center-line crossover below the accumulation-distribution line., signaling a potential selling opportunity",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Осциллятор Чайкина использует два основных сигнала на покупку и продажу. Во-первых, положительная дивергенция подтверждается пересечением центральной линии выше линии накопления-распределения, что сигнализирует о потенциальной возможности покупки. Во-вторых, отрицательная дивергенция подтверждается пересечением центральной линии ниже линии накопления-распределения, что сигнализирует о потенциальной возможности продажи.",
+                    "updated": 1643524741934
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "A positive divergence signals a stock price is likely to rise, given the increase in accumulation. A negative divergence signals a stock price is likely to fall, given the increase in distribution."
+            "text": "A positive divergence signals a stock price is likely to rise, given the increase in accumulation. A negative divergence signals a stock price is likely to fall, given the increase in distribution.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Положительная дивергенция сигнализирует о том, что цена акций, скорее всего, будет расти, учитывая рост накопления. Отрицательная дивергенция сигнализирует о том, что цена акций, скорее всего, упадет, учитывая рост распределения.",
+                    "updated": 1643524752987
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Products, Properties & Examples",
-            "updated": 1617967853007
+            "updated": 1617967853007,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты, свойства и примеры",
+                    "updated": 1643524760143
+                }
+            ]
         },
         {
             "style": "Table",

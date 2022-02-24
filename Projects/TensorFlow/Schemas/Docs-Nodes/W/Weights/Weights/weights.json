@@ -2,12 +2,26 @@
     "type": "Weights",
     "definition": {
         "text": "Initial weight values of the layer.",
-        "updated": 1613244009359
+        "updated": 1613244009359,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Начальные значения веса слоя.",
+                "updated": 1645084358783
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "Right click and select the pencil button to enter edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
+                    "updated": 1645252838182
+                }
+            ]
         }
     ]
 }

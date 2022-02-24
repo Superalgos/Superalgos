@@ -74,27 +74,46 @@ function newGovernanceUtilitiesCommonTables() {
         */
         for (let j = 0; j < nodes.length; j++) {
             let node = nodes[j]
-            let name = ''
+
+            let weightPower
+            if (node.payload.votingProgram !== undefined) { 
+                weightPower = node.payload.votingProgram.votes
+             } else {
+                weightPower = 0
+             }
+
+            /*
+            Display node name and path
+            */
+            let name = '<b>' + node.name + '</b>'
+            let nodePath = []
             if (node.payload.parentNode !== undefined) {
                 if (node.payload.parentNode.payload.parentNode !== undefined) {
                     if (node.payload.parentNode.payload.parentNode.payload.parentNode !== undefined) {
                         if (node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode !== undefined) {
-                            name = name + node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.name + ' - '
+                            nodePath.push(node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.name)
                         }
-                        name = name + node.payload.parentNode.payload.parentNode.payload.parentNode.name + ' - '
+                        nodePath.push(node.payload.parentNode.payload.parentNode.payload.parentNode.name)
                     }
-                    name = name + node.payload.parentNode.payload.parentNode.name + ' - '
+                    nodePath.push(node.payload.parentNode.payload.parentNode.name)
                 }
-                name = name + node.payload.parentNode.name + ' - '
+                nodePath.push(node.payload.parentNode.name)
             }
-            name = name + node.name
+            if (nodePath.length) {
+                name = name + ' ('
+                for (let i = 0; i < nodePath.length; i++) {
+                    name = name + nodePath[i]
+                    if (i < (nodePath.length - 1)) { name = name + ' - ' }
+                }
+                name = name + ')'   
+            }
 
             let tableRecord = {
                 "name": name,
                 "tokensReward": node.payload.tokens | 0,
                 "rewardInBTC": UI.projects.governance.utilities.conversions.estimateSATokensInBTC(node.payload.tokens | 0),
                 "weight": node.payload.weight,
-                "weightPower": node.payload.votingProgram.votes | 0
+                "weightPower": weightPower
             }
 
             if (UI.projects.governance.utilities.filters.applyFilters(filters, filtersObject, tableRecord) === true) {

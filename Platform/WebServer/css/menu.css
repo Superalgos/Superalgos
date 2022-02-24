@@ -92,3 +92,16 @@ il > ul > il > ul > il {
     transition: opacity 0.1s;
     opacity: 0;
 }
+
+.label {
+    height: 20px;
+    margin: 0px 3px 3px 0px;
+    padding: 3px 10px;
+    background:rgb(0, 0, 0, 0.5);
+    color: rgb(200 200 200);
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    font-style: italic;
+    cursor: default;
+}

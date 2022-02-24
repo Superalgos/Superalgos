@@ -25,12 +25,34 @@ function newGovernanceNodeActionSwitch() {
                 }
             case 'Install Missing Votes':
                 {
-                    UI.projects.governance.nodeActionFunctions.votes.installMissingVotes(action.node, action.rootNodes)
+                    let newUiObjects = await UI.projects.governance.nodeActionFunctions.votes.installMissingVotes(action.node, action.rootNodes)
+
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                     break
                 }
             case 'Install Missing Claims':
                 {
-                    UI.projects.governance.nodeActionFunctions.claims.installMissingClaims(action.node, action.rootNodes)
+                    let newUiObjects = await UI.projects.governance.nodeActionFunctions.claims.installMissingClaims(action.node, action.rootNodes)
+                    
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                     break
                 }
             case 'Build Profile Wallet':

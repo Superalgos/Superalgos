@@ -7,32 +7,151 @@
             "project": "Foundations",
             "name": ""
         },
-        "text": "Encapsulates different data providers able to read datasets organized in different ways."
+        "text": "Encapsulates different data providers able to read datasets organized in different ways.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Kapselt verschiedene Datenanbieter, die in der Lage sind, auf unterschiedliche Weise organisierte Datensätze zu lesen.",
+                "updated": 1641736740604
+            },
+            {       
+                "language": "RU",
+                "text": "Охватывает различные поставщики данных, способные читать наборы данных, организованные различными способами.",
+                "updated": 1640931972681
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Farklı şekillerde organize edilmiş veri kümelerini okuyabilen farklı veri sağlayıcılarını kapsar.",
+                "updated": 1643203732890
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The system defines these types of data providers:"
+            "text": "The system defines these types of data providers:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das System definiert diese Arten von Datenanbietern:",
+                    "updated": 1641736749444
+                },
+                {           
+                    "language": "RU",
+                    "text": "Система определяет эти типы поставщиков данных:",
+                    "updated": 1640931983253
+                },
+                {
+                    "language": "TR",
+                    "text": "Sistem, aşağıdaki veri sağlayıcı türlerini tanımlar:",
+                    "updated": 1643203749608
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Market Files: For time-frames of 1 hour and above, it is convenient to have a single file with all the data of the whole market."
+            "text": "Market Files: For time-frames of 1 hour and above, it is convenient to have a single file with all the data of the whole market.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Market Files: Für Zeitrahmen von 1 Stunde und mehr ist es praktisch, eine einzige Datei mit allen Daten des gesamten Marktes zu haben.",
+                    "updated": 1641736760116
+                },
+                {            
+                    "language": "RU",
+                    "text": "Market Files: Для тайм-фреймов от 1 часа и выше удобно иметь один файл со всеми данными всего рынка.",
+                    "updated": 1640932002246
+                },
+                {
+                    "language": "TR",
+                    "text": "Piyasa Dosyaları ( Market Files ): 1 saat ve üzeri zaman dilimleri için tüm piyasanın tüm verilerini içeren tek bir dosyanın olması uygundur.",
+                    "updated": 1643203792573
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Daily Files: For time-frames below 1 hour, up to 1 minute, it is convenient to split market data into one file per day."
+            "text": "Daily Files: For time-frames below 1 hour, up to 1 minute, it is convenient to split market data into one file per day.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Daily Files: Für Zeitrahmen unter 1 Stunde, bis zu 1 Minute, ist es sinnvoll, die Marktdaten in eine Datei pro Tag aufzuteilen.",
+                    "updated": 1641736768188
+                },
+                {   
+                    "language": "RU",
+                    "text": "Daily Files: Для тайм-фреймов менее 1 часа, вплоть до 1 минуты, удобно разбивать рыночные данные на один файл в день.",
+                    "updated": 1640932020478
+                },
+                {
+                    "language": "TR",
+                    "text": "Günlük Dosyalar ( Daily Files ): 1 saatin altında ve 1 dakikaya kadar olan zaman dilimleri için piyasa verilerini günde bir dosyaya bölmek uygundur.",
+                    "updated": 1643203841421
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Single File: Sometimes a process may generate a single file irrespective of the time-frame."
+            "text": "Single File: Sometimes a process may generate a single file irrespective of the time-frame.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Single File: Manchmal kann ein Prozess eine einzige Datei erzeugen, unabhängig vom Zeitrahmen.",
+                    "updated": 1641736776487
+                },
+                {           
+                    "language": "RU",
+                    "text": "Single File: Sиногда процесс может генерировать один файл независимо от таймфрейма.",
+                    "updated": 1640932041402
+                },
+                {
+                    "language": "TR",
+                    "text": "Tek Dosya ( Single File ): Bazen bir süreç, zaman çerçevesinden bağımsız olarak tek bir dosya oluşturabilir.",
+                    "updated": 1643203879207
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Files Sequence: Some processes may produce a sequence of files."
+            "text": "Files Sequence: Some processes may produce a sequence of files.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Einige Prozesse können eine Reihe von Dateien erzeugen.",
+                    "updated": 1641736788142
+                },
+                {
+                    "language": "RU",
+                    "text": "Files Sequence: Некоторые процессы могут создавать последовательность файлов.",
+                    "updated": 1640932053595
+                },
+                {
+                    "language": "TR",
+                    "text": "Dosya Sırası ( Files Sequence ): Bazı işlemler bir dizi dosya üretebilir.",
+                    "updated": 1643203920163
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "Daily Files are managed by a File Cursor which dynamically loads the files of one day and its neighboring days."
+            "text": "Daily Files are managed by a File Cursor which dynamically loads the files of one day and its neighboring days.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Tägliche Dateien werden von einem Dateicursor verwaltet, der dynamisch die Dateien eines Tages und seiner Nachfolgetage lädt.",
+                    "updated": 1641736822077
+                },
+                {           
+                    "language": "RU",
+                    "text": "Daily Files управляются File Cursor, который динамически загружает файлы одного дня и соседних с ним дней.",
+                    "updated": 1640932087275
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Günlük Dosyalar, bir günün ve buna komşu günlerin dosyalarını dinamik olarak yükleyen bir Dosya İmleci tarafından yönetilir.",
+                    "updated": 1643203950579
+                }
+            ]
         }
     ]
 }

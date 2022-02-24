@@ -618,6 +618,9 @@ function newEducationUtilitiesDocs() {
             .replaceAll(',', ' ,')
             .replaceAll('.', ' .')
             .replaceAll('!', ' !')
+            .replaceAll('?', ' ?')
+            .replaceAll('<b>', '<b> ')
+            .replaceAll('</b>', ' </b>')
         let allWords = cleanText.split(' ')
         let words = []
         for (let i = 0; i < allWords.length; i++) {
@@ -689,7 +692,10 @@ function newEducationUtilitiesDocs() {
             .replaceAll(' .', '.')
             .replaceAll(' ,', ',')
             .replaceAll(' !', '!')
+            .replaceAll(' ?', '?')
             .replaceAll('  ', ' ')
+            .replaceAll('<b> ', '<b>')
+            .replaceAll(' </b>', '</b>')
         return taggedText
     }
 

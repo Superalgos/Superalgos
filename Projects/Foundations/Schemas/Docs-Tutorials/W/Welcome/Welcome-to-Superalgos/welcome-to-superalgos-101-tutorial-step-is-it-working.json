@@ -24,8 +24,8 @@
             },
             {
                 "language": "DE",
-                "text": "Der eindeutigste Weg, um zu überprüfen, ob die Dinge gut funktionieren, ist, sich bei Binance anzumelden und Ihren Bestellverlauf für BTC/USDT zu überprüfen.",
-                "updated": 1634245336699
+                "text": "Der eindeutigste Weg, um zu überprüfen, ob die Dinge gut funktionieren, ist, sich bei der Börse anzumelden und Ihre Auftragshistorie für BTC/USDT zu überprüfen. ",
+                "updated": 1642152645770
             },
             {
                 "language": "TR",
@@ -36,6 +36,11 @@
                 "language": "ID",
                 "text": "Salah satu cara untuk memverifikasi apakah semuanya berfungsi dengan baik adalah masuk ke exchange dan memeriksa riwayat pesanan kamu untuk BTC / USDT .",
                 "updated": 1640595940733
+            },
+            {
+                "language": "RU",
+                "text": "Однозначным способом проверить, все ли работает нормально, является вход на биржу и проверка истории ордеров на BTC/USDT.",
+                "updated": 1642771874432
             }
         ]
     },
@@ -58,8 +63,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Gehen Sie zu Binance und schauen Sie sich an, was los ist!",
-                    "updated": 1634245342910
+                    "text": "Gehen Sie auf die Weboberfläche der Börse und sehen Sie sich an, was dort los ist! ",
+                    "updated": 1642152672719
                 },
                 {
                     "language": "TR",
@@ -70,6 +75,11 @@
                     "language": "ID",
                     "text": "Pergi ke exchange's website interface dan lihat apa yang terjadi!",
                     "updated": 1640595981515
+                },
+                {
+                    "language": "RU",
+                    "text": "Зайдите в веб-интерфейс биржи и посмотрите, что происходит!",
+                    "updated": 1642771885326
                 }
             ],
             "updated": 1640291072820
@@ -104,6 +114,11 @@
                     "language": "ID",
                     "text": "Kapan saja, kamu akan melihat satu open order dan sejumlah canceled orders muncul dalam riwayat pesananmu, seperti dalam video pada langkah berikutnya!",
                     "updated": 1640596048300
+                },
+                {
+                    "language": "RU",
+                    "text": "В любой момент времени вы должны видеть один открытый ордер и несколько отмененных ордеров, которые накапливаются в вашей истории ордеров, почти как в видео на следующем шаге!",
+                    "updated": 1642771902012
                 }
             ]
         }

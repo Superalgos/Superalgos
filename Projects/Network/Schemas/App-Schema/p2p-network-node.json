@@ -11,6 +11,46 @@
             "actionFunction": "uiObject.configEditor.activate"
         },
         {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "p2pNetworkReference",
+            "actionFunction": "payload.executeAction",
+            "label": "Add P2P Network Reference",
+            "relatedUiObject": "P2P Network Reference",
+            "relatedUiObjectProject": "Network"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "networkServices",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Network Services",
+            "relatedUiObject": "Network Services",
+            "relatedUiObjectProject": "Network"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "networkInterfaces",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Network Interfaces",
+            "relatedUiObject": "Network Interfaces",
+            "relatedUiObjectProject": "Network"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "availableStorage",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Available Storage",
+            "relatedUiObject": "Available Storage",
+            "relatedUiObjectProject": "Open-Storage"
+        },
+        {
             "action": "Delete UI Object",
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
@@ -25,14 +65,49 @@
         "config": true
     },
     "initialValues": {
-        "config": "{ \n\"host\": \"localhost\", \n\"webPort\": \"34248\", \n\"webSocketsPort\": \"18041\"\n}"
+        "config": "{ \n\"codeName\": \"\", \n\"host\": \"localhost\" \n}"
     },
-    "isTitleAllwaysVisible": true,
     "addLeftIcons": true,
     "level": 1,
     "attachingRules": {
-        "compatibleTypes": "->P2P Network->"
+        "compatibleTypes": "->P2P Network Nodes->"
     },
-    "childrenNodesProperties": [],
+    "childrenNodesProperties": [
+        {
+            "name": "signingAccount",
+            "type": "node",
+            "childType": "Signing Account",
+            "project": "Governance",
+            "autoAdd": false
+        },
+        {
+            "name": "p2pNetworkReference",
+            "type": "node",
+            "childType": "P2P Network Reference",
+            "project": "Network",
+            "autoAdd": true
+        },
+        {
+            "name": "networkServices",
+            "type": "node",
+            "childType": "Network Services",
+            "project": "Network",
+            "autoAdd": true
+        },
+        {
+            "name": "networkInterfaces",
+            "type": "node",
+            "childType": "Network Interfaces",
+            "project": "Network",
+            "autoAdd": true
+        },
+        {
+            "name": "availableStorage",
+            "type": "node",
+            "childType": "Available Storage",
+            "project": "Open-Storage",
+            "autoAdd": false
+        }
+    ],
     "propertyNameAtParent": "p2pNetworkNodes"
 }

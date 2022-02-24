@@ -37,79 +37,13 @@
             ]
         },
         {
-            "style": "Title",
-            "text": "The Quest for Quality",
-            "updated": 1617710819169,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Стремление к качеству",
-                    "updated": 1640268543507
-                }
-            ]
-        },
-        {
-            "style": "Text",
-            "text": "At Superalgos, we take pride in the quality of the product we are building. Documentation and tutorials are crucial parts of Superalgos.",
-            "updated": 1617732636344,
-            "translations": [
-                {
-                    "language": "ES",
-                    "text": "En Superalgos, nosotros nos sentimos orgullosos de la calidad del producto que estamos construyendo. La documentación y los tutoriales son una parte crucial de Superalgos.",
-                    "updated": 1640113065328
-                },
-                {
-                    "language": "RU",
-                    "text": "В Superalgos мы гордимся качеством создаваемого нами продукта. Документация и учебники - важнейшие составляющие Superalgos.",
-                    "updated": 1640268561692
-                }
-            ]
-        },
-        {
-            "style": "Text",
-            "text": "That said, we understand that it takes time and effort to get to a quality product, thus iterating on early prototypes and implementing early-stage feedback is a good way to achieve the desired quality standards.",
-            "updated": 1617732666027,
-            "translations": [
-                {
-                    "language": "ES",
-                    "text": "Dicho esto, nosotros entendemos que se requiere de tiempo y esfuerzo para obtener un producto de calidad por lo tanto, interactuar sobre los primeros prototipos e implementar la retroalimentación en las primeras etapas es una buena manera de lograr el objetivo deseado de los estándares de cualidad.",
-                    "updated": 1640113076479
-                },
-                {
-                    "language": "RU",
-                    "text": "Тем не менее, мы понимаем, что для создания качественного продукта требуется время и усилия, поэтому повторение ранних прототипов и внедрение обратной связи на ранней стадии - хороший способ достичь желаемых стандартов качества.",
-                    "updated": 1640268636448
-                }
-            ]
-        },
-        {
-            "style": "Success",
-            "text": "When you build a tutorial for Superalgos, you become the maintainer of the tutorial. It is your responsibility to keep the tutorial up to date with the system, and to implement the feedback users may share! Your tutorial must become the ultimate resource to learn the topics it covers. ",
-            "updated": 1620645983606,
-            "translations": [
-                {
-                    "language": "ES",
-                    "text": "Cuando construye un tutorial para Superalgos, se convierte en quien mantiene el tutorial. Es su responsabilidad, mantener el tutorial actualizado con el sistema, e implementar los comentarios que los usuarios pueden compartir! Su tutorial debe convertirse en la fuente fundamental para aprender el tópico con el cual está relacionado.",
-                    "updated": 1640113096575
-                },
-                {
-                    "language": "RU",
-                    "text": "Когда вы создаете учебник для Superalgos, вы становитесь его сопровождающим. Это ваша ответственность - поддерживать учебник в актуальном состоянии и внедрять отзывы, которыми могут поделиться пользователи! Ваш учебник должен стать основным ресурсом для изучения тем, которые он охватывает.",
-                    "updated": 1640268670183
-                }
-            ]
+            "style": "Include",
+            "text": "Foundations->Concept->Reusable Documenting Snippets->The Quest for Quality",
+            "updated": 1642954690025
         },
         {
             "style": "Title",
-            "text": "The Associated Workspace",
-            "updated": 1617712309440,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Ассоциированное рабочее пространство",
-                    "updated": 1640268703993
-                }
-            ]
+            "text": "The Associated Workspace"
         },
         {
             "style": "Text",
@@ -192,15 +126,7 @@
         },
         {
             "style": "Title",
-            "text": "Tutorial Series & Planning",
-            "updated": 1617712970783,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Серия уроков и планирование",
-                    "updated": 1640268933652
-                }
-            ]
+            "text": "Tutorial Series & Planning"
         },
         {
             "style": "Text",
@@ -322,15 +248,7 @@
         },
         {
             "style": "Title",
-            "text": "The Target Audience",
-            "updated": 1617713465981,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Целевая аудитория",
-                    "updated": 1640269245929
-                }
-            ]
+            "text": "The Target Audience"
         },
         {
             "style": "Text",
@@ -402,15 +320,7 @@
         },
         {
             "style": "Title",
-            "text": "Communication Resources",
-            "updated": 1617720397017,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Коммуникационные ресурсы",
-                    "updated": 1640269483853
-                }
-            ]
+            "text": "Communication Resources"
         },
         {
             "style": "Text",
@@ -447,77 +357,13 @@
             ]
         },
         {
-            "style": "Title",
-            "text": "Use Precise Language",
-            "updated": 1620645613169,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Используйте точные формулировки",
-                    "updated": 1640269618503
-                }
-            ]
-        },
-        {
-            "style": "Text",
-            "text": "The ultimate goal of tutorials is to provide users with a hands-on learning experience covering topics in detail. In general terms, we know that a tutorial is good — or has reached a mature state — when users ask no questions about it in the Support Group.",
-            "updated": 1620645730740,
-            "translations": [
-                {
-                    "language": "ES",
-                    "text": "La meta final de los tutoriales es proveer a los usuarios con una experiencia de aprendizaje práctica que cubra el tópico al detalle. En términos generales, sabemos que un tutorial es bueno — o que ha alcanzado su estado maduro — cuando los usuarios no hacen preguntas acerca de ellos en el Support Group.",
-                    "updated": 1640111822806
-                },
-                {
-                    "language": "RU",
-                    "text": "Конечная цель учебников - предоставить пользователям возможность практического обучения с подробным изложением тем. В общем, мы знаем, что учебник хорош или достиг зрелого состояния, если пользователи не задают вопросов о нем в группе поддержки Support Group.",
-                    "updated": 1640269682009
-                }
-            ]
-        },
-        {
-            "style": "Text",
-            "text": "Be precise and unequivocal with language. Read your writing over and over in search of phrases that may not be easily understood, or that may be interpreted in different ways. Improve the sentences to make them as clear as possible. Remember, the less clear your writing is, the more questions we have in the Support Group.",
-            "updated": 1620645812565,
-            "translations": [
-                {
-                    "language": "ES",
-                    "text": "Sea preciso, exacto con el lenguaje. Lea lo que ha escrito una y otra vez en búsqueda de frases que pueden no ser entendidas fácilmente, o que puedan ser interpretadas de diferentes maneras. Mejore las oraciones para hacerlas lo más claras posibles. Recuerde, mientras menos clara sea su escritura, más preguntas  tendremos  nosotros en el Support Group.",
-                    "updated": 1640113692593
-                },
-                {
-                    "language": "RU",
-                    "text": "Будьте точны и однозначны в формулировках. Перечитывайте свои письма снова и снова в поисках фраз, которые могут быть не совсем понятны, или которые могут быть истолкованы по-разному. Улучшите предложения, чтобы сделать их как можно более понятными. Помните, что чем менее понятно вы пишете, тем больше вопросов возникает в Support Group.",
-                    "updated": 1640269764238
-                }
-            ]
-        },
-        {
-            "style": "Success",
-            "text": "Be prepared to iterate over and over until the tutorial stabilizes. That will happen when there are no more questions about the topic in the Support Group!",
-            "translations": [
-                {
-                    "language": "ES",
-                    "text": "Esté preparado para interactuar una y otra vez hasta que el tutorial se estabilice. Eso sucederá cuando no haya más preguntas acerca del tópico en el Support Group!",
-                    "updated": 1640113776665
-                },
-                {
-                    "language": "RU",
-                    "text": "Будьте готовы повторять итерации снова и снова, пока учебник не стабилизируется. Это произойдет, когда в группе поддержки больше не будет вопросов по этой теме!",
-                    "updated": 1640269845667
-                }
-            ]
+            "style": "Include",
+            "text": "Foundations->Concept->Reusable Documenting Snippets->Use Precise Language",
+            "updated": 1642954727527
         },
         {
             "style": "Title",
-            "text": "Consistent Use of Space and Styles",
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Согласованное использование пространства и стилей",
-                    "updated": 1640269881222
-                }
-            ]
+            "text": "Consistent Use of Space and Styles"
         },
         {
             "style": "Text",
@@ -675,116 +521,13 @@
             ]
         },
         {
-            "style": "Subtitle",
-            "text": "Alternating Colors",
-            "updated": 1617906135945,
-            "translations": [
-                {
-                    "language": "ES",
-                    "text": "Alternating Colors  ( Alternando colores)",
-                    "updated": 1640111782340
-                },
-                {
-                    "language": "RU",
-                    "text": "Чередование цветов",
-                    "updated": 1640270393606
-            
-                }
-            ]
-        },
-        {
-            "style": "Text",
-            "text": "Colorful tutorial steps look great, while a white pages full of text feel too much like non-interactive documentation. Makes sure you break the monotony with the four different styles of boxes:",
-            "updated": 1617906625458,
-            "translations": [
-                {
-                    "language": "ES",
-                    "text": "Pasos de tutoriales coloridos se ven muy bien, mientras que las páginas blancas llenas de texto se sienten como documentación muy poco interactiva. Asegúrese de romper la monotonía  con los cuatro estilos diferentes de boxes.",
-                    "updated": 1633438835567
-                },
-                {
-                    "language": "RU",
-                    "text": "Красочные шаги учебника выглядят великолепно, в то время как белые страницы, заполненные текстом, слишком похожи на неинтерактивную документацию. Разнообразить однообразное оформление можно с помощью четырех различных стилей коробок:",
-                    "updated": 1640270463123
-                }
-            ]
-        },
-        {
-            "style": "Success",
-            "text": "This is great for additional tips.",
-            "translations": [
-                {
-                    "language": "ES",
-                    "text": "Esto es genial para tips adicionales.",
-                    "updated": 1633438870414
-                },
-                {
-                    "language": "RU",
-                    "text": "Это отличный вариант для дополнительных советов.",
-                    "updated": 1640270551869
-                }
-            ]
-        },
-        {
-            "style": "Note",
-            "text": "Use this every once in a while to break up otherwise large sections of plain text.",
-            "translations": [
-                {
-                    "language": "ES",
-                    "text": "Use este cada tanto para romper secciones grandes de puro texto.",
-                    "updated": 1633439032601
-                },
-                {
-                    "language": "RU",
-                    "text": "Используйте это время от времени, чтобы разбить большие участки обычного текста.",
-                    "updated": 1640271438229
-                }
-            ]
-        },
-        {
-            "style": "Important",
-            "text": "Leave this box for the truly important stuff. Things you don't want users to overlook or forget.",
-            "updated": 1617906591147,
-            "translations": [
-                {
-                    "language": "ES",
-                    "text": "Deje esta box para cosas verdaderamente importantes. Cosas que no quiere que los usuarios se pasen por alto o se olviden.",
-                    "updated": 1633439143351
-                },
-                {
-                    "language": "RU",
-                    "text": "Оставьте это поле для действительно важных вещей. Для тех вещей, которые вы не хотите, чтобы пользователи упустили из виду или забыли.",
-                    "updated": 1640271496452
-                }
-            ]
-        },
-        {
-            "style": "Warning",
-            "text": "And this one, save it for real warnings. Things that may represent a threat or risk.",
-            "updated": 1617906578635,
-            "translations": [
-                {
-                    "language": "ES",
-                    "text": "Y esta otra, guárdela para advertencias reales. Cosas que pueden representar una amenaza o un riesgo.",
-                    "updated": 1633439239739
-                },
-                {
-                    "language": "RU",
-                    "text": "А вот это оставьте для настоящих предупреждений. О том, что может представлять угрозу или риск.",
-                    "updated": 1640271534088
-                }
-            ]
+            "style": "Include",
+            "text": "Foundations->Concept->Reusable Documenting Snippets->Alternating Colors",
+            "updated": 1642954766494
         },
         {
             "style": "Title",
-            "text": "Use of Docs Pages",
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Использование страниц",
-                    "updated": 1640271575560
-                }
-            ]
+            "text": "Use of Docs Pages"
         },
         {
             "style": "Text",
@@ -952,66 +695,9 @@
             ]
         },
         {
-            "style": "Title",
-            "text": "Tooltips",
-            "updated": 1617731886888,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Всплывающие подсказки",
-                    "updated": 1640272216207
-                }
-            ]
-        },
-        {
-            "style": "Text",
-            "text": "The system recognizes the name of all entities that have a Docs Page when the name of the entity is written in title case. When that happens, the system automatically creates a tooltip for the phrase. This is a valuable resource, as it provides context that you don't need to explain.",
-            "updated": 1617731953773,
-            "translations": [
-                {
-                    "language": "ES",
-                    "text": "El sistema reconoce el nombre de todas las entidades que tienen una página de documentos cuando el nombre de la entidad se escribe en mayúsculas y minúsculas. Cuando eso sucede, el sistema crea automáticamente una información sobre herramientas para la frase. Este es un recurso valioso, ya que proporciona un contexto que no necesita explicar.",
-                    "updated": 1640109235581
-                },
-                {
-                    "language": "RU",
-                    "text": "Система распознает имена всех объектов, у которых есть страница документов Docs Page, когда имя объекта написано в регистре заголовка. Когда это происходит, система автоматически создает всплывающую подсказку для фразы. Это ценный ресурс, поскольку он предоставляет контекст, который вам не нужно объяснять.",
-                    "updated": 1640272283985
-                }
-            ]
-        },
-        {
-            "style": "Text",
-            "text": "Make sure you use this resource wisely, as too many tooltips on a single tutorial page may be overwhelming, and probably irrelevant.",
-            "translations": [
-                {
-                    "language": "ES",
-                    "text": "Asegúrese de utilizar este recurso con prudencia, ya que demasiada información sobre herramientas en una sola página de tutorial puede resultar abrumadora y probablemente irrelevante.",
-                    "updated": 1640109266196
-                },
-                {
-                    "language": "RU",
-                    "text": "Используйте этот ресурс с умом, поскольку слишком большое количество подсказок на одной странице учебника может быть чрезмерным и, возможно, неактуальным.",
-                    "updated": 1640272314967
-                }
-            ]
-        },
-        {
-            "style": "Success",
-            "text": "When you believe the tooltip is relevant, then write the name of the entity in title case. If the tooltip is not relevant, then write the name of the entity in lower case.",
-            "updated": 1617733407351,
-            "translations": [
-                {
-                    "language": "ES",
-                    "text": "Cuando crea que la información sobre herramientas es relevante, escriba el nombre de la entidad en mayúsculas y minúsculas. Si la información sobre herramientas no es relevante, escriba el nombre de la entidad en minúsculas.",
-                    "updated": 1640109287587
-                },
-                {
-                    "language": "RU",
-                    "text": "Если вы считаете, что подсказка уместна, напишите название сущности в заглавном регистре. Если подсказка не имеет значения, напишите название сущности в нижнем регистре.",
-                    "updated": 1640272351376
-                }
-            ]
+            "style": "Include",
+            "text": "Foundations->Concept->Reusable Documenting Snippets->Tooltips",
+            "updated": 1642954808337
         },
         {
             "style": "Title",
@@ -1238,57 +924,12 @@
             ]
         },
         {
-            "style": "Title",
-            "text": "Titles",
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Заголовки",
-                    "updated": 1640274028937
-                }
-            ]
+            "style": "Include",
+            "text": "Foundations->Concept->Reusable Documenting Snippets->Title Case",
+            "updated": 1642954849746
         },
         {
-            "style": "Text",
-            "text": "Always use proper title case for titles. But, what exactly is proper title case? Let's agree to the standard propose in this blog post:",
-            "updated": 1617902503383,
-            "translations": [
-                {
-                    "language": "ES",
-                    "text": "Utilice siempre mayúsculas y minúsculas adecuadas para los títulos. Pero, ¿qué es exactamente el caso de título adecuado? Aceptemos la propuesta estándar en esta publicación de blog:",
-                    "updated": 1640109742566
-                },
-                {
-                    "language": "RU",
-                    "text": "Всегда используйте правильный регистр заголовков. Но что именно является правильным регистром заголовка? Давайте договоримся о стандартном варианте, предложенном в этой статье блога:",
-                    "updated": 1640274069802
-                }
-            ]
-        },
-        {
-            "style": "Link",
-            "text": "Capitalization of titles 101->www.grammarcheck.net/capitalization-in-titles-101/",
-            "updated": 1617902444077
-        },
-        {
-            "style": "Success",
-            "text": "Titles look best when they span a single line. Use two-line titles only if strictly necessary!",
-            "updated": 1617902549247,
-            "translations": [
-                {
-                    "language": "ES",
-                    "text": "Los títulos se ven mejor cuando ocupan una sola línea. ¡Utilice títulos de dos líneas solo si es estrictamente necesario!",
-                    "updated": 1640109761257
-                },
-                {
-                    "language": "RU",
-                    "text": "Заголовки лучше всего смотрятся, когда они занимают одну строку. Используйте двустрочные заголовки только в случае крайней необходимости!",
-                    "updated": 1640274087733
-                }
-            ]
-        },
-        {
-            "style": "Subtitle",
+            "style": "Block",
             "text": "Unique Identifiers",
             "updated": 1617905396529,
             "translations": [
@@ -1303,6 +944,10 @@
                     "updated": 1640274101948
                 }
             ]
+        },
+        {
+            "style": "Subtitle",
+            "text": "Unique Identifiers"
         },
         {
             "style": "Important",
@@ -1377,94 +1022,13 @@
             ]
         },
         {
-            "style": "Title",
-            "text": "Proper English",
-            "updated": 1617733994160,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Правильный английский",
-                    "updated": 1640274300910
-                }
-            ]
-        },
-        {
-            "style": "Text",
-            "text": "There are at least two reasons why it's desirable to have spell and grammar-checked tutorials:",
-            "updated": 1617734204593,
-            "translations": [
-                {
-                    "language": "ES",
-                    "text": "Hay al menos dos razones por las que es deseable contar con tutoriales con revisión ortográfica y gramatical:",
-                    "updated": 1640109910214
-                },
-                {
-                    "language": "RU",
-                    "text": "Есть как минимум две причины, по которым желательно иметь учебники с проверкой орфографии и грамматики:",
-                    "updated": 1640274316991
-                }
-            ]
-        },
-        {
-            "style": "List",
-            "text": "Proper language speaks to the quality of the product.",
-            "translations": [
-                {
-                    "language": "ES",
-                    "text": "El lenguaje adecuado habla de la calidad del producto.",
-                    "updated": 1640109891642
-                },
-                {
-                    "language": "RU",
-                    "text": "Грамотное изложение говорит о качестве продукта.",
-                    "updated": 1640274377484
-                }
-            ]
-        },
-        {
-            "style": "List",
-            "text": "Users who don't speak English may be using online translators, which perform well only when they have a proper source.",
-            "translations": [
-                {
-                    "language": "ES",
-                    "text": "Los usuarios que no hablan inglés pueden estar usando traductores en línea, que funcionan bien solo cuando tienen una fuente adecuada.",
-                    "updated": 1640109880071
-                },
-                {
-                    "language": "RU",
-                    "text": "Пользователи, не владеющие английским языком, могут использовать онлайн-переводчики, которые хорошо работают только при правильном исходном тексте.",
-                    "updated": 1640274534629
-                }
-            ]
-        },
-        {
-            "style": "Important",
-            "text": "Always use a grammar and spell-checker to make sure your tutorial is as correct as it may be!",
-            "updated": 1617734220351,
-            "translations": [
-                {
-                    "language": "ES",
-                    "text": "¡Utilice siempre un corrector gramatical y ortográfico para asegurarse de que su tutorial sea lo más correcto posible!",
-                    "updated": 1640109928532
-                },
-                {
-                    "language": "RU",
-                    "text": "Всегда используйте грамматику и средство проверки правописания, чтобы убедиться, что ваше руководство настолько правильное, насколько это возможно!",
-                    "updated": 1640274556531
-                }
-            ]
+            "style": "Include",
+            "text": "Foundations->Concept->Reusable Documenting Snippets->Proper English",
+            "updated": 1642954912526
         },
         {
             "style": "Title",
-            "text": "The First Page",
-            "updated": 1621874343005,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Первая страница",
-                    "updated": 1640274568878
-                }
-            ]
+            "text": "The First Page"
         },
         {
             "style": "Text",
@@ -1567,7 +1131,7 @@
         },
         {
             "style": "List",
-            "text": "If the tutorial requires prior knowledge beyond the tutorials in the Getting Started Plugin Workspace, devote a step to explaining what prior knowledge is required so that users may complete the relevant tutorials first.",
+            "text": "If the tutorial requires prior knowledge beyond the Getting Started Tutorials Plugin Workspace, devote a step to explaining what prior knowledge is required so that users may complete the relevant tutorials first.",
             "translations": [
                 {
                     "language": "ES",
@@ -1579,7 +1143,8 @@
                     "text": "Если учебник требует предварительных знаний, выходящих за рамки учебников Getting Started Plugin Workspace, посвятите отдельный шаг объяснению того, какие предварительные знания требуются, чтобы пользователи могли сначала пройти соответствующие учебники.",
                     "updated": 1640275151211
                 }
-            ]
+            ],
+            "updated": 1642955219046
         },
         {
             "style": "List",

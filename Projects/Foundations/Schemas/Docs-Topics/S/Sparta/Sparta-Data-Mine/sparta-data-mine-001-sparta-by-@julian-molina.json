@@ -4,13 +4,27 @@
     "type": "Sparta By @julian-molina",
     "definition": {
         "text": "The set of indicators built in the Sparta data mine include Simple Moving Average (SMA), Exponential Moving Average (EMA), Relative Strength Index (RSI), and Moving Average convergence Divergence (MACD).",
-        "updated": 1611685345604
+        "updated": 1611685345604,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Набор индикаторов, построенных в источнике данных Sparta, включает простую скользящую среднюю (SMA), экспоненциальную скользящую среднюю (EMA), индекс относительной силы (RSI) и дивергенцию схождения скользящих средних (MACD).",
+                "updated": 1643529332850
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "The Sparta data mine is brought to you by...",
-            "updated": 1611685372883
+            "updated": 1611685372883,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Источник данных Sparta предоставлена вам...",
+                    "updated": 1643529351836
+                }
+            ]
         },
         {
             "style": "Link",
@@ -19,7 +33,14 @@
         },
         {
             "style": "Success",
-            "text": "Collaborate with this data mine and report issues directly at the Superalgos repository."
+            "text": "Collaborate with this data mine and report issues directly at the Superalgos repository.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сотрудничайте по улучшению этого источника данных и сообщайте о проблемах непосредственно в хранилище Superalgos.",
+                    "updated": 1643529449557
+                }
+            ]
         }
     ]
 }

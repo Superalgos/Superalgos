@@ -13,6 +13,16 @@
                 "language": "DE",
                 "text": "Dies ist das Stage Quoted Asset Bit der Strategy Open Stage. Wenn sich die tatsächliche Größe ändert, was passiert dann mit der platzierten Größe?",
                 "updated": 1639418660843
+            },
+            {
+                "language": "TR",
+                "text": "Bu, Strateji Açık Aşamasının ( Strategy Open Stage ) Aşama Kote Varlık ( Stage Quoted Asset ) bitidir. Gerçek boyut ( Size ) değişirse, Yerleştirilen Boyuta ne olur?",
+                "updated": 1641802744284
+            },
+            {
+                "language": "RU",
+                "text": "Это кусочек Stage Quoted Asset этапа Strategy Open. Если фактический размер меняется, что происходит с Size Placed?",
+                "updated": 1642944853200
             }
         ]
     },
@@ -26,6 +36,16 @@
                     "language": "DE",
                     "text": "Berühren Sie den dritten Fehler am 28. Februar und lesen Sie!",
                     "updated": 1639418669687
+                },
+                {
+                    "language": "TR",
+                    "text": "28 Şubat'taki üçüncü hataya dokunun ve okuyun!",
+                    "updated": 1641802763541
+                },
+                {
+                    "language": "RU",
+                    "text": "Выберите третью ошибку 28 февраля и прочитайте!",
+                    "updated": 1642944867444
                 }
             ]
         },
@@ -37,6 +57,16 @@
                     "language": "DE",
                     "text": "Im Zusammenhang mit der Open Stage oder der Close Stage ist die platzierte Größe eine Variable, die die gesamte platzierte Größe während der Stage akkumuliert, sie muss also ebenfalls angepasst werden!",
                     "updated": 1639418676868
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Açık sahne veya kapalı sahne bağlamında, yerleştirilen boyut, sahne sırasında yerleştirilen toplam boyutu toplayan bir değişkendir, bu nedenle de ayarlanması gerekir!",
+                    "updated": 1641802773676
+                },
+                {
+                    "language": "RU",
+                    "text": "В контексте стадии открытия или стадии закрытия, размещенный размер - это переменная, которая накапливает общий размер, размещенный во время этой стадии, поэтому она также должна быть скорректирована!",
+                    "updated": 1642944920373
                 }
             ]
         }

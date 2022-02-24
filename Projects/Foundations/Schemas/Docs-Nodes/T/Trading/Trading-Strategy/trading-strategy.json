@@ -18,6 +18,11 @@
                 "language": "RU",
                 "text": "Торговая стратегия - это описание набора действий или событий, которые выполняются поэтапно. События инициируются после подтверждения точных условий, описывающих конкретные рыночные ситуации. Торговые стратегии предназначены для достижения конкретной цели в рамках более широкого плана торговой системы посредством открытия позиций и управления ими.",
                 "updated": 1639657330162
+            },
+            {
+                "language": "DE",
+                "text": "Eine Handelsstrategie ist die Beschreibung einer Reihe von Aktionen oder Ereignissen, die schrittweise ablaufen. Die Ereignisse werden ausgelöst, wenn bestimmte Bedingungen erfüllt sind, die eine bestimmte Marktsituation beschreiben. Handelsstrategien dienen dazu, ein bestimmtes Ziel im Rahmen des allgemeinen Plans eines Handelssystems durch das Eingehen und Verwalten von Positionen zu erreichen.",
+                "updated": 1641598524137
             }
         ]
     },
@@ -34,6 +39,16 @@
                     "language": "RU",
                     "text": "Определение стратегии можно проанализировать в трех разделах:",
                     "updated": 1639657343425
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir stratejinin tanımı üç bölümde incelenebilir:",
+                    "updated": 1642515974398
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Definition einer Strategie kann in drei Abschnitte aufgegliedert werden:",
+                    "updated": 1641599039622
                 }
             ]
         },
@@ -45,6 +60,16 @@
                     "language": "RU",
                     "text": "Стратегия - это набор действий, выполняемых поэтапно.",
                     "updated": 1639657353906
+                },
+                {
+                    "language": "TR",
+                    "text": "Strateji, aşamalar halinde gerçekleşen bir dizi eylemdir.",
+                    "updated": 1642515988721
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine Strategie ist eine Reihe von Maßnahmen, die in mehreren Stufen stattfinden...",
+                    "updated": 1641599457444
                 }
             ]
         },
@@ -61,6 +86,16 @@
                     "language": "RU",
                     "text": "В то время как этапы разыгрываются последовательно, при выполнении возникают совпадения. То есть этап не нужно закрывать, чтобы открыть следующий этап. Структура устанавливает четкое разделение концепций, воплощенных на каждом этапе, для облегчения процесса определения и разработки торговой системы. Но правда в том, что как на концептуальном уровне, так и во время исполнения, границы между этапами довольно размыты.",
                     "updated": 1639657431753
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşamalar sırayla oynanırken, yürütme sırasında çakışmalar olur. Yani bir sonraki aşamanın açılması için bir aşamanın kapatılması gerekmez. Çerçeve, bir ticaret sisteminin tanımlanması ve geliştirilmesi sürecini kolaylaştırmak için her aşamada somutlaşan kavramların net bir şekilde ayrılmasını sağlar. Ancak gerçek şu ki, hem kavramsal düzeyde hem de uygulama sırasında aşamalar arasındaki çizgiler oldukça bulanıktır.",
+                    "updated": 1642516044027
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Etappen werden zwar in einer Reihenfolge abgespielt, aber bei der Ausführung kommt es zu Überschneidungen. Das heißt, eine Phase muss nicht abgeschlossen sein, damit die nächste Phase eröffnet werden kann. Das Framework sieht eine klare Trennung der Konzepte vor, die in jeder Phase enthalten sind, um den Prozess der Definition und Entwicklung eines Handelssystems zu erleichtern. In Wahrheit sind die Grenzen zwischen den einzelnen Phasen sowohl auf der konzeptionellen Ebene als auch während der Ausführung ziemlich unscharf.",
+                    "updated": 1641599340243
                 }
             ]
         },
@@ -72,6 +107,16 @@
                     "language": "RU",
                     "text": "предназначен для достижения конкретной цели в рамках более широкого плана",
                     "updated": 1639657460656
+                },
+                {
+                    "language": "TR",
+                    "text": "daha geniş bir plan dahilinde belirli bir amaca ulaşmak için tasarlanmış",
+                    "updated": 1642516069098
+                },
+                {
+                    "language": "DE",
+                    "text": "...zur Erreichung eines bestimmten Ziels im Rahmen eines umfassenderen Plans...",
+                    "updated": 1641599470210
                 }
             ]
         },
@@ -83,6 +128,16 @@
                     "language": "RU",
                     "text": "Ваш инвестиционный план или торговая карьера может иметь любое количество целей (например: накопление определенного актива, диверсификация по корзине монет, цели годовой прибыли и т. д.). Если вы попытаетесь достичь более одной цели с помощью одной стратегии, вы рано или поздно столкнетесь с проблемами. Это может быть выполнимо, но стратегия, безусловно, будет более сложной, чем это необходимо или желательно. В любом случае логично проанализировать каждую цель отдельно, чтобы вы могли разработать (по крайней мере) одну четкую и понятную стратегию для каждой цели.",
                     "updated": 1639657518059
+                },
+                {
+                    "language": "TR",
+                    "text": "Yatırım planınızın veya ticaret kariyerinizin herhangi bir sayıda hedefi olabilir (örneğin: belirli bir varlığı biriktirmek, bir madeni para sepetini çeşitlendirmek, yıllık kar hedefleri vb.). Tek bir strateji ile birden fazla hedefe ulaşmaya çalışırsanız, er ya da geç sorunlarla karşılaşırsınız. Yapılabilir olabilir, ancak strateji kesinlikle gerekli veya istenenden daha karmaşık olacaktır. Her durumda, yapılacak mantıklı şey, her bir hedef için (en azından) bir açık, basit strateji tasarlayabilmeniz için her hedefi ayrı ayrı analiz etmektir.",
+                    "updated": 1642516112503
+                },
+                {
+                    "language": "DE",
+                    "text": "Ihr Investitionsplan oder Ihre Handelskarriere kann eine beliebige Anzahl von Zielen haben (z.B.: Anhäufung eines bestimmten Vermögens, Diversifizierung auf einen Korb von Münzen, jährliche Gewinnziele, usw.). Wenn Sie versuchen, mehr als ein Ziel mit einer einzigen Strategie zu erreichen, werden Sie früher oder später auf Probleme stoßen. Es mag machbar sein, aber die Strategie wäre sicherlich komplexer als notwendig oder wünschenswert. In jedem Fall ist es logisch, jedes Ziel einzeln zu analysieren, um für jedes Ziel (zumindest) eine klare, überschaubare Strategie zu entwickeln.",
+                    "updated": 1641599963515
                 }
             ]
         },
@@ -94,6 +149,16 @@
                     "language": "RU",
                     "text": "Одно из преимуществ автоматизации торговли - это возможность разрабатывать и развертывать неограниченное количество стратегий. В то же время Superalgos позволяет управлять сложностью, разбивая и структурируя концепции на небольшие единицы: торговая система содержит стратегии, которые содержат этапы, которые содержат конкретные определения.",
                     "updated": 1639657542835
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret otomasyonunun sağladığı avantajlardan biri, sınırsız sayıda strateji geliştirme ve uygulama kapasitesidir. Aynı zamanda, Superalgos, kavramları küçük birimlere bölerek ve yapılandırarak karmaşıklığın yönetimine izin verir: bir ticaret sistemi, belirli tanımları içeren aşamaları içeren stratejiler içerir.",
+                    "updated": 1642516132480
+                },
+                {
+                    "language": "DE",
+                    "text": "Einer der Vorteile der Handelsautomatisierung ist die Möglichkeit, eine unbegrenzte Anzahl von Strategien zu entwickeln und einzusetzen. Gleichzeitig ermöglicht Superalgos die Verwaltung der Komplexität, indem es die Konzepte in kleine Einheiten zerlegt und strukturiert: Ein Handelssystem enthält Strategien, die wiederum Phasen enthalten, die wiederum spezifische Definitionen enthalten.",
+                    "updated": 1641600045186
                 }
             ]
         },
@@ -105,6 +170,16 @@
                     "language": "RU",
                     "text": "Понимание важности простоты поможет вам разработать надежный и расширяемый арсенал ботов. Простота - ключ к устойчивости.",
                     "updated": 1639657559068
+                },
+                {
+                    "language": "TR",
+                    "text": "İşleri basit tutmanın önemli olduğunu anlamak, sağlam ve genişletilebilir bir bot cephaneliği geliştirmenize yardımcı olacaktır. Sadelik, sürdürülebilirliğin anahtarıdır.",
+                    "updated": 1642516150356
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Erkenntnis, dass es wichtig ist, die Dinge einfach zu halten, wird Ihnen helfen, ein robustes und erweiterbares Arsenal an Bots zu entwickeln. Einfachheit ist der Schlüssel zur Nachhaltigkeit.",
+                    "updated": 1641600136920
                 }
             ]
         },
@@ -116,6 +191,16 @@
                     "language": "RU",
                     "text": "Другими словами, инфраструктура, предоставляемая Superalgos, делает возможным гиперспециализацию стратегий. Не стремитесь торговать во всех рыночных ситуациях, используя одну и ту же стратегию. Вместо этого разработайте стратегию для каждой рыночной ситуации, которой вы хотите торговать.",
                     "updated": 1639657584380
+                },
+                {
+                    "language": "TR",
+                    "text": "Başka bir deyişle, Superalgos tarafından sağlanan altyapı, stratejilerin aşırı uzmanlaşmasına olanak tanır. Aynı strateji ile her türlü piyasa durumunda işlem yapmayı hedeflemeyin. Bunun yerine, ticaret yapmak istediğiniz her piyasa durumu için bir strateji geliştirin.",
+                    "updated": 1642516170362
+                },
+                {
+                    "language": "DE",
+                    "text": "Mit anderen Worten: Die von Superalgos bereitgestellte Infrastruktur ermöglicht die Hyperspezialisierung von Strategien. Versuchen Sie nicht, in allen möglichen Marktsituationen mit ein und derselben Strategie zu handeln. Entwickeln Sie stattdessen eine Strategie für jede Marktsituation, in der Sie handeln möchten.",
+                    "updated": 1641600165692
                 }
             ]
         },
@@ -127,6 +212,16 @@
                     "language": "RU",
                     "text": "через открытие и управление позициями",
                     "updated": 1639657631465
+                },
+                {
+                    "language": "TR",
+                    "text": "pozisyon almak ve yönetmek yoluyla",
+                    "updated": 1642516199214
+                },
+                {
+                    "language": "DE",
+                    "text": "...durch Eröffnung und Verwaltung von Positionen",
+                    "updated": 1641599718398
                 }
             ]
         },
@@ -138,6 +233,16 @@
                     "language": "RU",
                     "text": "Определение стратегии указывает на понятие позиции. Позиция - это процесс, при котором базовый актив обменивается на котируемый и который - через некоторое время, когда позиция развивается и достигаются цели - обменивает котируемый актив обратно на базовый актив.",
                     "updated": 1639657654202
+                },
+                {
+                    "language": "TR",
+                    "text": "Stratejinin tanımı, bir pozisyon kavramına işaret eder. Pozisyon, temel varlığı kote edilen varlıkla değiştiren ve bir süre sonra pozisyon geliştikçe ve hedeflere ulaşıldığında, kote edilen varlığı temel varlıkla değiştiren bir süreçtir.",
+                    "updated": 1642516222330
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Definition von Strategie verweist auf das Konzept einer Position. Eine Position ist ein Prozess, bei dem der Basiswert gegen den notierten Vermögenswert ausgetauscht wird und nach einer gewissen Zeit, wenn sich die Position entwickelt und die Ziele erreicht sind, der notierte Vermögenswert wieder gegen den Basiswert ausgetauscht wird.",
+                    "updated": 1641600273692
                 }
             ]
         },
@@ -149,6 +254,16 @@
                     "language": "RU",
                     "text": "Фреймворк, реализованный в протоколе Superalgos, оптимизирован для работы с такой концепцией.",
                     "updated": 1639657667076
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos Protokolünde uygulanan çerçeve, böyle bir konseptle çalışmak üzere optimize edilmiştir.",
+                    "updated": 1642516235528
+                },
+                {
+                    "language": "DE",
+                    "text": "Das im Superalgos-Protokoll implementierte Framework ist für die Arbeit mit einem solchen Konzept optimiert.",
+                    "updated": 1641600302225
                 }
             ]
         },
@@ -160,6 +275,16 @@
                     "language": "RU",
                     "text": "Однако Superpages достаточно гибка, чтобы позволить вам отказаться от этой жесткой интерпретации концепции позиции. Например, вы можете разрабатывать стратегии создания рынка, стратегию балансирования портфелей или разрабатывать всевозможные идеи, которые не обязательно вписываются в эту часть определения.",
                     "updated": 1639657715265
+                },
+                {
+                    "language": "TR",
+                    "text": "Ancak Superalgos, pozisyon kavramının bu zor yorumunu geçersiz kılmanıza izin verecek kadar esnektir.Örneğin, pazar oluşturma stratejileri, portföyleri dengelemek için bir strateji tasarlayabilir veya tanımın bu bölümüne mutlaka uymayan her türlü fikri geliştirebilirsiniz.",
+                    "updated": 1642516311269
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos ist jedoch flexibel genug, um Ihnen die Möglichkeit zu geben, diese harte Interpretation des Konzepts einer Position außer Kraft zu setzen. Sie können zum Beispiel Market-Making-Strategien oder eine Strategie zum Ausgleich von Portfolios entwerfen oder alle möglichen Ideen entwickeln, die nicht unbedingt in diesen Teil der Definition passen.",
+                    "updated": 1641600318185
                 }
             ]
         }

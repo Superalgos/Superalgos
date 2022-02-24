@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Trading System Errors!",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "bullet-error"
+            "name": "Bullet/bullet-error",
+            "project": "Foundations"
         },
         "text": "When writing conditions and formulas, you may make mistakes. Remember conditions must evaluate to true or false and formulas to a number?",
         "translations": [
@@ -18,6 +18,11 @@
                 "language": "RU",
                 "text": "При написании условий и формул вы можете допустить ошибки. Помните, что условия должны оцениваться как true или false, а формулы - как число?",
                 "updated": 1640631034056
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Koşullar ve formüller yazarken hata yapabilirsiniz. Koşulların doğru veya yanlış olarak değerlendirilmesi gerektiğini ve formüllerin bir sayı olarak değerlendirilmesi gerektiğini hatırlıyor musunuz?",
+                "updated": 1642514186871
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "RU",
                     "text": "Если это не так, вы получите ошибку! Включение этого слоя при создании и тестировании стратегии просто необходимо!",
                     "updated": 1640631063987
+                },
+                {
+                    "language": "TR",
+                    "text": "Peki, yapmazlarsa, <bir hata alırsınız! Bir strateji oluşturmak ve test etmek için ileri geri giderken bu katmanı açmak bir zorunluluktur!",
+                    "updated": 1642514252905
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "RU",
                     "text": "В этой торговой системе нет ошибок, но я просто подбросил фальшивую, чтобы вы могли увидеть, как они появляются! Посмотрите на формулу слева!",
                     "updated": 1640631088375
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu ticaret sisteminde hata yok, ancak nasıl rapor edildiğini görebilmeniz için sadece sahte bir tane yerleştirdim! Soldaki Formüle (Formula) bakın!",
+                    "updated": 1642514406373
                 }
             ]
         },
@@ -60,13 +75,18 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Now, what if the section of the hierarchy was collapsed? Would you still be able to see error messages?Let's run a quick test! Collapse the Initial Targets node!",
-                    "updated": 1639145512639
+                    "text": "Was wäre nun, wenn der Abschnitt der Hierarchie eingeklappt wäre? Würden Sie dann immer noch Fehlermeldungen sehen können? Lassen Sie uns einen kurzen Test durchführen! Klappen Sie den Knoten Initial Targets zu!",
+                    "updated": 1641763129918
                 },
                 {
                     "language": "RU",
                     "text": "Теперь, что если секция иерархии была свернута? Сможете ли вы по-прежнему видеть сообщения об ошибках? Давайте проведем быстрый тест! Сверните узел Initial Targets!",
                     "updated": 1640631111246
+                },
+                {
+                    "language": "TR",
+                    "text": "Şimdi, hiyerarşinin bölümü çökerse ne olur? Hala hata mesajlarını görebilecek misiniz? Hızlı bir test yapalım! İlk Hedefler (Initial Targets) düğümünü daraltın!",
+                    "updated": 1642514362129
                 }
             ]
         }

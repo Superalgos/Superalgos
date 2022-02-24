@@ -13,6 +13,16 @@
                 "language": "DE",
                 "text": "In unserem ersten Backtest wurde die Strategie ausgelöst, nachdem die Tageskerze vom 26. Februar geschlossen wurde. Das sollte sich auch dieses Mal nicht ändern!",
                 "updated": 1639390509550
+            },
+            {
+                "language": "TR",
+                "text": "İlk geriye dönük testimizde, strateji 26 Şubat'ta günlük mum kapandıktan sonra tetiklendi. Bu sefer de değişmemeli!",
+                "updated": 1641664175979
+            },
+            {
+                "language": "RU",
+                "text": "В нашем первом бэктесте стратегия сработала после закрытия дневной свечи 26 февраля. В этом случае ситуация не должна измениться!",
+                "updated": 1642662397951
             }
         ]
     },
@@ -25,6 +35,16 @@
                     "language": "DE",
                     "text": "Schauen Sie nach! Die Strategie wird ausgelöst, sobald die letzte stündliche Kerze des 26. Februar schließt!",
                     "updated": 1639390516723
+                },
+                {
+                    "language": "TR",
+                    "text": "Dikkatli bak! Strateji, 26 Şubat'ta son saatlik mum kapanır kapanmaz tetiklenecek!",
+                    "updated": 1641664186263
+                },
+                {
+                    "language": "RU",
+                    "text": "Взгляните! Стратегия срабатывает, как только закрывается последняя часовая свеча от 26 февраля!",
+                    "updated": 1642662412949
                 }
             ]
         },
@@ -36,6 +56,16 @@
                     "language": "DE",
                     "text": "Natürlich hat die Auslösung nichts mit dem Schließen der stündlichen Kerze zu tun, sondern damit, dass die Tageskerze (die zur gleichen Zeit schließt) beide Auslösebedingungen als wahr true bestätigt. Es spielt keine Rolle, welchen Chart Sie betrachten oder in welchem Zeitrahmen die Handelssitzung abläuft. Der Trading-Bot validiert jede Aussage für den definierten Zeitrahmen.",
                     "updated": 1639390657711
+                },
+                {
+                    "language": "TR",
+                    "text": "Elbette, tetikleyicinin saatlik mumun kapanmasıyla hiçbir ilgisi yoktur, ancak gün mumunun (aynı anda kapanır) her iki tetikleme koşulunu da doğru olarak onaylamasıyla ilgilidir. Hangi grafiğe baktığınız veya işlem seansının hangi zaman diliminde gerçekleştiği önemli değildir. Ticaret botu, tanımlanan zaman çerçevesi için her ifadeyi doğrular.",
+                    "updated": 1641664196193
+                },
+                {
+                    "language": "RU",
+                    "text": "Конечно, срабатывание не связано с закрытием часовой свечи, но с дневной свечой (которая закрывается в то же время), подтверждающей истинность (true) обоих условий срабатывания. Не имеет значения, на какой график вы смотрите и на каком таймфрейме проходит торговая сессия. Торговый бот проверяет каждое из условий на определенном таймфрейме.",
+                    "updated": 1642662531513
                 }
             ]
         }

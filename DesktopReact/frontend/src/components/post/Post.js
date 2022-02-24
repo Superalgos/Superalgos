@@ -1,83 +1,70 @@
 import "./Post.css"
-import React, {useEffect, useState} from 'react';
-import {Avatar, Card, Collapse, Stack, Typography} from "@mui/material";
+import React, {useState} from 'react';
+import {useDispatch} from 'react-redux'
+import {Avatar, Typography} from "@mui/material";
 import pic from "../../images/superalgos.png"
-import PostFooter from "../PostFooter/PostFooter";
 import {useNavigate, useParams} from "react-router-dom";
-import {useDispatch, useSelector} from 'react-redux'
-import {setSelectedPost} from '../../store/slices/post.slice'
-import {ArrowBackOutlined} from "@mui/icons-material";
+import PostFooter from "../postFooter/PostFooter";
 
 const Post = ({postData}) => {
     const {postId: postIdParameter} = useParams();
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const selectedPost = useSelector(state => state.post.selectedPost);
-    const [post, setPost] = useState({});
-    const [collapse, setCollapse] = useState();
+    const [collapse, setCollapse] = useState(true);
+    const [postUser, setPostUser] = useState({})
     const ToggleCollapse = () => setCollapse(!collapse);
 
-    useEffect(() => {
-        if (postData) {
-            setPost(postData);
-            if (selectedPost) {
-                dispatch(setSelectedPost({}));
-            }
-        } else {
-            if (selectedPost)
-                setPost(selectedPost);
-        }
-    }, [])
-
-    if (!post.emitterUserProfile) {
-        return <></>
-    }
 
     const {
-        emitterUserProfile: {userProfileHandle: userName},
-        postText: postBody,
-        eventId: postId,
-        emitterPost: {reactions: reactions}
-    } = post;
+        postText,
+        originPostHash,
+        reactions,
+        postType,
+        repliesCount,
+        creator: {
+            name,
+            username,
+            profilePic,
+            originSocialPersonaId
+        }
+    } = postData;
 
     const handlePostClick = (e) => {
-        /*
-                if (postIdParameter !== postId) {
-                    e.preventDefault()
-                    dispatch(setSelectedPost(postData))
-                    navigate(`/post/${postId}`) //todo implement reply feed
-                }
-
-         */
+        if (postIdParameter !== originPostHash) {
+            e.preventDefault()
+            navigate(`/post?post=${originPostHash}&user=${originSocialPersonaId}`) //todo implement reply feed
+        }
     }
+
     return (
         <div className="postWrapper">
-            <Collapse in={false}> {/* todo Not working, check state */}
-                <div className="editProfileHeader">
-                    <div className="editProfileCloseBtn">
-                        <ArrowBackOutlined/> {/* todo need onClick to go back to home */}
-                    </div>
-                    <div className="editProfileHeaderTitleAndBtn">
-                        <Typography className="editProfileTitle" variant="h5">
-                            Back
+            <div className="post">
+                <div className="grid-container">
+                    <div className="postHeader" onClick={handlePostClick}>
+                        <Typography className="postName">
+                            {name ? name : 'userProfileHandle'}
+                        </Typography>
+                        <Typography className="postUserName">
+                            @{username ? username : 'userProfileHandle'}
                         </Typography>
                     </div>
+                    <div className="postAvatar">
+                        <div className="postAvatarContainer">
+                            <Avatar src={profilePic || pic} className="avatar"/>
+                        </div>
+                    </div>
+                    <div className="postBodyContainer" onClick={handlePostClick}>
+                        <div className="postBody">
+                            {postText ? postText.toString() : ''}
+                        </div>
+                    </div>
+                    <div className="postFooter">
+                        <PostFooter postData={postData} postId={originPostHash} reactions={reactions}
+                                    actualReaction={reactions}/>
+                    </div>
                 </div>
-            </Collapse>
-            <Card className="post">
-                <Stack direction="row" onClick={handlePostClick} stateCallback={ToggleCollapse}>
-                    <Stack className="postAvatarContainer">
-                        <Avatar src={pic}/>
-                    </Stack>
-                    <Stack className="postUserName">
-                        {userName}
-                    </Stack>
-                </Stack>
-                <Stack className="postBody">
-                    {postBody ? postBody.toString() : ''}
-                </Stack>
-                <PostFooter postId={postId} reactions={reactions} actualReaction={reactions}/>
-            </Card></div>
+            </div>
+        </div>
     );
 };
 

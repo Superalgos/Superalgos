@@ -2,7 +2,14 @@
     "type": "Project Definition Hierarchies",
     "definition": {
         "text": "These are the Pools, Assets, Features, and Positions hierarchies used to produce granular definitions of the Superalgos Project to be used for governance.",
-        "updated": 1630259293946
+        "updated": 1630259293946,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Это иерархии Pools, Assets, Features и Positions, используемые для создания детальных определений проекта Superalgos, которые будут использоваться для управления.",
+                "updated": 1645083068237
+            }
+        ]
     },
     "paragraphs": [
         {

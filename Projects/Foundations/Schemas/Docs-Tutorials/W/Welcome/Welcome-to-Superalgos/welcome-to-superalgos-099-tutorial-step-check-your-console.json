@@ -35,6 +35,11 @@
                 "language": "ID",
                 "text": "Jika kamu tidak melihat error pada Trading Process Instance, kemungkinan semuanya berjalan dengan baik!",
                 "updated": 1640576908731
+            },
+            {
+                "language": "RU",
+                "text": "Если вы не видите никаких ошибок на экземпляре торгового процесса, скорее всего, все работает нормально!",
+                "updated": 1642771724304
             }
         ]
     },
@@ -69,6 +74,11 @@
                     "language": "ID",
                     "text": "Namun, kamu mungkin ingin melihat console application kamu dan melihat apakah kamu melihat sesuatu yang tidak normal.",
                     "updated": 1640576964490
+                },
+                {
+                    "language": "RU",
+                    "text": "Тем не менее, вы можете взглянуть на свое консольное приложение и посмотреть, не заметите ли вы чего-нибудь необычного.",
+                    "updated": 1642771736433
                 }
             ]
         },
@@ -102,6 +112,11 @@
                     "language": "ID",
                     "text": "Lihatlah console app-mu!",
                     "updated": 1640576979252
+                },
+                {
+                    "language": "RU",
+                    "text": "Посмотрите на свое консольное приложение!",
+                    "updated": 1642771803756
                 }
             ]
         },
@@ -135,6 +150,11 @@
                     "language": "ID",
                     "text": "Kamu harus dapat melihat eksekusi bergantian dari Candles-Volume dan indikator Resistances-And-Support, dengan Low-Frequency Trading Bot.",
                     "updated": 1640577043848
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы должны видеть чередующиеся исполнения индикаторов Candles-Volumes и Resistances-And-Support с помощью бота Low-Frequency Trading Bot.",
+                    "updated": 1642771836331
                 }
             ]
         }

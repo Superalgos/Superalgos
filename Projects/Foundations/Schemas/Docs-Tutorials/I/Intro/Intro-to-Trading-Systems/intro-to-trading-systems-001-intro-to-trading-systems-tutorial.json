@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Bu öğretici, size ticaret sistemlerinin nasıl oluşturulacağını öğreten bir dizi öğreticinin ilkidir. Seri, birden fazla konuyu derinlemesine ele alır ve temel ticaret bilgilerini belirli Superalgos uygulamalarıyla eşleştirmeyi amaçlayan bir ilerlemeye götürür. Bu ilk eğitim teorik kavramları kapsar, Superalgos'ta alım satım sistemlerinin nasıl yapılandırıldığını açıklar ve sistemde yerleşik alım satım çerçevesinden en iyi şekilde yararlanmak için stratejilerinizi nasıl çerçevelemeniz gerektiğini vurgular.",
                 "updated": 1640690079795
+            },
+            {
+                "language": "RU",
+                "text": "Этот учебник является первым в серии учебников, которые научат вас создавать торговые системы. Серия углубляется во множество тем и проводит вас через последовательность, которая призвана соотнести базовые знания о торговле с конкретными реализациями Superalgos. В этом первом уроке рассматриваются теоретические концепции, объясняется, как построены торговые системы в Superalgos, и подчеркивается, как нужно строить свои стратегии, чтобы извлечь максимальную пользу из торговой платформы, встроенной в систему.",
+                "updated": 1640878603688
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "DE",
                     "text": "Über dieses Tutorial:",
                     "updated": 1635726127122
+                },
+                {
+                    "language": "RU",
+                    "text": "Об этом учебнике",
+                    "updated": 1640878612936
                 }
             ]
         },

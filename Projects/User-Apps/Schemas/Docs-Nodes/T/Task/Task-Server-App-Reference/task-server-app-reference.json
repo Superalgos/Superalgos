@@ -1,0 +1,28 @@
+{
+    "type": "Task Server App Reference",
+    "definition": {
+        "text": "The Task Server App Reference node holds the reference to a Task Server App node defined under a User Profile.",
+        "updated": 1644029524117,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Task Server App Reference содержит ссылку на узел Task Server App, определенный в профиле пользователя.",
+                "updated": 1645183674796
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Connecting to a Task Server App allows the current Task node to identify itself on the Superalgos Peer to Peer network.",
+            "updated": 1644029748910,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Подключение к Task Server App позволяет текущему узлу Task идентифицировать себя в сети Superalgos Peer to Peer.",
+                    "updated": 1645183687408
+                }
+            ]
+        }
+    ]
+}

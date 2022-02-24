@@ -14,14 +14,16 @@
             "label": "Copy Node Path",
             "iconPathOn": "copy-path",
             "iconPathOff": "copy-path",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Copy Node Value",
             "label": "Copy Node Value",
             "iconPathOn": "copy-value",
             "iconPathOff": "copy-value",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",

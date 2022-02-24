@@ -35,6 +35,11 @@
                 "language": "ID",
                 "text": "Ok teman-ku... Sudah waktunya untuk kesepakatan yang sebenarnya! Apakah kamu siap untuk Live Trading Session skala kecil?",
                 "updated": 1640574501752
+            },
+            {
+                "language": "RU",
+                "text": "Ладно, друг мой... Пришло время для настоящего дела! Готов ли ты к небольшой реальной торговой сессии (Live Trading Session)?",
+                "updated": 1642769755730
             }
         ]
     },
@@ -69,6 +74,11 @@
                     "language": "ID",
                     "text": "Aku akan membantu kamu dengan tiga persyaratan utama :",
                     "updated": 1640574534310
+                },
+                {
+                    "language": "RU",
+                    "text": "Я помогу вам выполнить три основных требования:",
+                    "updated": 1642769779975
                 }
             ]
         },
@@ -102,6 +112,11 @@
                     "language": "ID",
                     "text": "Periksa parametermu, khususnya, putuskan berapa banyak modal yang ingin kamu tetapkan untuk sesi tersebut.",
                     "updated": 1640574582598
+                },
+                {
+                    "language": "RU",
+                    "text": "Проверьте свои параметры, в частности, решите, сколько капитала вы хотите выделить на сессию.",
+                    "updated": 1642769796252
                 }
             ]
         },
@@ -135,6 +150,11 @@
                     "language": "ID",
                     "text": "Siapkan Exchange Account Key sehingga aplikasi dapat mengakses akunmu di exchange.",
                     "updated": 1640574621307
+                },
+                {
+                    "language": "RU",
+                    "text": "Настройте ключ учетной записи биржи (\"Exchange Account Key\"), чтобы приложение могло получить доступ к вашей учетной записи на бирже.",
+                    "updated": 1642769821837
                 }
             ]
         },
@@ -169,6 +189,11 @@
                     "language": "ID",
                     "text": "Pastikan umpan data langsung, yaitu data mining operation dengan indikator yang diperlukan oleh Trading System harus berjalan dan up to date.",
                     "updated": 1640574700178
+                },
+                {
+                    "language": "RU",
+                    "text": "Убедитесь, что живой поток данных, т.е. операция по поиску данных с индикаторами, которые требуются торговой системе, работает и обновляется.",
+                    "updated": 1642769863710
                 }
             ]
         },
@@ -203,6 +228,11 @@
                     "language": "ID",
                     "text": "Jika kamu tidak siap untuk melakukan  live trading dengan alasan apa pun, jangan khawatir, teruskan saja. Kamu setidaknya akan belajar cara kerjanya!",
                     "updated": 1640574747735
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы по каким-то причинам не готовы к реальной торговле, не волнуйтесь, просто продолжайте. Вы, по крайней мере, узнаете, как все работает!",
+                    "updated": 1642769880588
                 }
             ]
         }

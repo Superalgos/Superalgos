@@ -14,6 +14,16 @@
                 "language": "DE",
                 "text": "Werfen Sie einen Blick auf diese Seite über den \" Execution Algorithm \"! Lesen Sie auch den Abschnitt über die Konfiguration!",
                 "updated": 1639398534498
+            },
+            {
+                "language": "TR",
+                "text": "Yürütme Algoritması ( Execution Algorithm ) ile ilgili bu sayfaya bir bakın! Ayrıca yapılandırma bölümünü de okuyun!",
+                "updated": 1641746583219
+            },
+            {
+                "language": "RU",
+                "text": "Ознакомьтесь с этой страницей об алгоритме исполнения (Execution Algorithm)! Прочитайте также раздел Configuration!",
+                "updated": 1642779707740
             }
         ]
     },
@@ -26,6 +36,16 @@
                     "language": "DE",
                     "text": "Für unseren Test - und für die meisten einfachen Strategien - brauchen wir nur einen Ausführungsalgorithmus.",
                     "updated": 1639398542318
+                },
+                {
+                    "language": "TR",
+                    "text": "Testimiz ve basit stratejilerin çoğu için sadece bir yürütme algoritmasına ihtiyacımız var.",
+                    "updated": 1641746605654
+                },
+                {
+                    "language": "RU",
+                    "text": "Для нашего теста - и для большинства простых стратегий - достаточно одного алгоритма исполнения.",
+                    "updated": 1642779718135
                 }
             ]
         },
@@ -37,6 +57,16 @@
                     "language": "DE",
                     "text": "Wenn Sie mit dem Lesen fertig sind, werfen Sie einen Blick auf die Konfiguration des Algorithmus!",
                     "updated": 1639398548509
+                },
+                {
+                    "language": "TR",
+                    "text": "Okumayı bitirdiğinizde, algoritmanın nasıl yapılandırıldığına bir bakın!",
+                    "updated": 1641746615204
+                },
+                {
+                    "language": "RU",
+                    "text": "Как только вы закончите читать, посмотрите на конфигурацию алгоритма!",
+                    "updated": 1642779727669
                 }
             ]
         },
@@ -48,6 +78,16 @@
                     "language": "DE",
                     "text": "Beachten Sie, dass dem Algorithmus standardmäßig 100 % der Größe der Stufe zugewiesen wird.",
                     "updated": 1639398554644
+                },
+                {
+                    "language": "TR",
+                    "text": "Varsayılan olarak, algoritmaya seviye boyutunun %100'ü atanır.",
+                    "updated": 1641746623477
+                },
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание, что по умолчанию, алгоритму присваивается 100 % от размера этапа.",
+                    "updated": 1642779759775
                 }
             ]
         },
@@ -59,6 +99,16 @@
                     "language": "DE",
                     "text": "Dies ist der erste Fall, in dem die Zielgröße, die wir zuvor definiert haben, zum Tragen kommt!",
                     "updated": 1639398562678
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Daha önce tanımladığımız hedef ilk kez devreye giriyor!",
+                    "updated": 1641746633320
+                },
+                {
+                    "language": "RU",
+                    "text": "Это первый случай, когда целевой размер, который мы определили ранее, появляется на сцене!",
+                    "updated": 1642779769746
                 }
             ]
         }

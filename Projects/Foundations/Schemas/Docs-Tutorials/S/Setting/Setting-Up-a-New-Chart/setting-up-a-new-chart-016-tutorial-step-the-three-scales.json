@@ -24,6 +24,11 @@
                 "language": "DE",
                 "text": "Haben Sie die drei Knoten bemerkt, die automatisch zu Ihrer Time Machine hinzugefügt wurden?",
                 "updated": 1639107451557
+            },
+            {
+                "language": "TR",
+                "text": "Zaman makine'nize ( Time Machine ) otomatik olarak üç düğümün eklendiğini fark ettiniz mi?",
+                "updated": 1642585841756
             }
         ]
     },
@@ -47,6 +52,11 @@
                     "language": "DE",
                     "text": "Das sind die Skalen! Jedes Mal, wenn Sie eine Zeitmaschine hinzufügen, wird diese mit drei Skalen ausgestattet (Rate Scale, Time Scale und Time Frame ). Dies sind die gleichen Skalen, die Sie für die Interaktion mit Diagrammen im Charting Space verwendet haben.",
                     "updated": 1639107664371
+                },
+                {
+                    "language": "TR",
+                    "text": "Terazi bunlar! Her zaman makinesi eklediğinizde, üç ölçekle birlikte gelir (Hız Ölçeği, Zaman Ölçeği ve Zaman Çerçevesi) (Rate Scale, Time Scale, and Time Frame Scale). Bunlar, Grafik Alanında ( Charting Space ) grafiklerle etkileşim kurmak için kullandığınız ölçeklerin aynısıdır.",
+                    "updated": 1642586031141
                 }
             ]
         },
@@ -68,6 +78,11 @@
                     "language": "DE",
                     "text": "In einem anderen Tutorial werden wir uns mit der Anpassung dieser Skalen befassen, um komplexere Chart-Setups zu erreichen. Im Moment ist es jedoch wichtig, dass Sie wissen, dass Ihre Zeitmaschine alle drei Skalen benötigt, um korrekt zu funktionieren.",
                     "updated": 1639108735086
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Başka bir öğreticide, daha karmaşık grafik kurulumları elde etmek için bu ölçekleri ayarlamaya bakacağız. Ancak şimdilik, zaman makinenizin doğru çalışması için üç teraziye de ihtiyacı olduğunu bilmek önemlidir.",
+                    "updated": 1642586190741
                 }
             ]
         },

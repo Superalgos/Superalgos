@@ -24,6 +24,11 @@
                 "language": "DE",
                 "text": "Wir sind fast am Ziel! Ziehen Sie Ihre Time Machine hierher zurück und stellen Sie die letzte Verbindung her.",
                 "updated": 1639498943943
+            },
+            {
+                "language": "TR",
+                "text": "Neredeyse geldik! Zaman Makinenizi ( Time Machine ) buraya sürükleyin ve son bağlantıyı yapın.",
+                "updated": 1642879107582
             }
         ]
     },
@@ -46,6 +51,11 @@
                     "language": "DE",
                     "text": "Unter dem Knoten Session Reference sehen Sie den Knoten Trading Mine Products, den wir suchen.",
                     "updated": 1639499012773
+                },
+                {
+                    "language": "TR",
+                    "text": "Oturum Referansı (Session Reference) düğümünün altında, ihtiyacımız olan Ticaret Maden Ürünleri ( Trading Mine Products ) düğümünü göreceksiniz.",
+                    "updated": 1642879358751
                 }
             ]
         },
@@ -61,13 +71,18 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Теперь создайте ссылку между вашим новым менеджером слоев (Layer Manager) и Trading Mind Products узлом названным: \"Lightning Strike Backtesting Session\"",
-                    "updated": 1639084056858
+                    "text": "Теперь создайте ссылку между новым менеджером слоев и узлом Trading Mine Products с меткой \"Lightning Strike Backtesting Session\". ",
+                    "updated": 1641833421710
                 },
                 {
                     "language": "DE",
                     "text": "Erstellen Sie nun einen Verweis zwischen Ihrem neuen Layer Manager und dem Knoten Trading Mind Products mit der Bezeichnung \"Lightning Strike Backtesting Session\".",
                     "updated": 1639499079633
+                },
+                {
+                    "language": "TR",
+                    "text": "Şimdi yeni Katman Yöneticiniz ( Layer Manager ) ile \"Lightning Strike Backtesting Session\" etiketli Ticaret Madeni Ürünleri ( Trading Mine Products ) düğümü arasında bir referans oluşturun.",
+                    "updated": 1642879583490
                 }
             ]
         },
@@ -89,6 +104,11 @@
                     "language": "DE",
                     "text": "Wenn Sie es richtig angeschlossen haben, sollte der Name Candles über dem Ebenenmanager erscheinen.",
                     "updated": 1639499137116
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Doğru şekilde bağladıysanız, katman yöneticisinin üzerinde Mumlar (Candles) adı görünmelidir.",
+                    "updated": 1642879641465
                 }
             ]
         },

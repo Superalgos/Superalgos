@@ -13,6 +13,16 @@
                 "language": "DE",
                 "text": "Das Konzept der Positionsverwaltung hat eine enorme Tiefe, und Superalgos bietet dafür robuste und flexible Werkzeuge!",
                 "updated": 1639400014179
+            },
+            {
+                "language": "TR",
+                "text": "Pozisyon yönetim kavramının muazzam bir derinliği vardır ve Superalgos bunun için sağlam ve esnek araçlar sunar!",
+                "updated": 1641748646950
+            },
+            {
+                "language": "RU",
+                "text": "Концепция управления позициями имеет огромную глубину, и Superalgos предлагает надежные и гибкие инструменты для этого!",
+                "updated": 1642941786265
             }
         ]
     },
@@ -25,6 +35,16 @@
                     "language": "DE",
                     "text": "Wir brauchen an dieser Stelle jedoch nicht ins Detail zu gehen, denn für unseren Test müssen wir nur die ersten Ziele festlegen.",
                     "updated": 1639400020435
+                },
+                {
+                    "language": "TR",
+                    "text": "Ancak, bu noktada ayrıntılara girmemize gerek yok çünkü testimiz için yalnızca ilk hedefleri belirlememiz gerekiyor.",
+                    "updated": 1641748664450
+                },
+                {
+                    "language": "RU",
+                    "text": "Однако на данном этапе нам не нужно вдаваться в подробности, поскольку для нашего теста нам достаточно установить начальные цели.",
+                    "updated": 1642941801924
                 }
             ]
         },
@@ -36,6 +56,16 @@
                     "language": "DE",
                     "text": "Anfängliche Ziele werden in Phase #1 festgelegt",
                     "updated": 1639400038785
+                },
+                {
+                    "language": "TR",
+                    "text": "İlk hedefler (Initial targets) Aşama ( Phase  ) # 1'de belirlenir",
+                    "updated": 1641748676225
+                },
+                {
+                    "language": "RU",
+                    "text": "Первоначальные цели установлены на Phase #1",
+                    "updated": 1642941870567
                 }
             ]
         },
@@ -47,6 +77,16 @@
                     "language": "DE",
                     "text": "Später werden Sie lernen, dass Sie Ihre Positionen in Phasen verwalten können, jede mit ihren eigenen Formeln und Ereignissen, um zu anderen Phasen hin und her zu wechseln.",
                     "updated": 1639400050908
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Daha sonra pozisyonlarınızı, her biri kendi formülleri ve diğer aşamalara geçmek için olaylarla aşamalar halinde yönetebileceğinizi öğreneceksiniz.",
+                    "updated": 1641748685358
+                },
+                {
+                    "language": "RU",
+                    "text": "Позже вы узнаете, что можно управлять позициями по фазам, каждая из которых имеет свои формулы и события для переключения на другие фазы.",
+                    "updated": 1642941881330
                 }
             ]
         }

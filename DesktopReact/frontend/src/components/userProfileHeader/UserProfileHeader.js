@@ -1,63 +1,61 @@
 import React, {useState} from 'react';
-import {Button, Card, CardContent, CardMedia, Typography} from "@mui/material";
+import {Button, CardContent, CardMedia, Typography} from "@mui/material";
 import "./UserProfileHeader.css"
-import UserProfileModal from "./UserProfileModal";
+import UserProfileModal from "../userProfileModal/UserProfileModal";
 import {DateRangeOutlined, LocationOnOutlined} from "@mui/icons-material";
 import pfp from "../../images/superalgos.png";
-import {useSelector} from "react-redux";
+import {followUser} from "../../api/follow.httpService";
+import {STATUS_OK} from "../../api/httpConfig";
 
-const UserProfileHeader = ({ updateProfileCallback}) => {
-
-    const user = useSelector(state => state.profile);
-    console.log(user)
-
+const UserProfileHeader = ({user, isExternalProfile}) => {
     const profileIcons = { // todo need proper style, and handle from css file
         width: "15px", height: "15px", verticalAlign: "text-top"
     }
-
     const [modal, setModal] = useState(false);
-
+    const [followed, setFollowed] = useState(false);
     const handleClickCallback = () => setModal(!modal);
 
-
+    const followCallback = async () => {
+        const eventType = followed ? 16 : 15;/* TODO use constant */
+        const {result} = await followUser(user.socialPersonaId, eventType).then(response => response.json());
+        setFollowed(value => ((result === STATUS_OK) ? (!value) : (value)));
+    }
 
     return (
-        <Card className="profileSection">
-            {user.bannerPic ? (<CardMedia className="banner"
-                                          component="img"
-                                          src={`${user.bannerPic}`}
-                                          alt="PP"
-            />) : (<CardMedia className="banner"
-                              component="img"
-                              image={pfp}
-                              alt="PP"
-            />)}
+        <div className="profileSection">
+            <CardMedia className="banner"
+                       component="img"
+                       src={user.bannerPic || pfp}
+                       alt="PP"
+            />
             <div className="profileCard">
                 <div className="profilePicBG">
-                    {user.profilePic ? (<CardMedia className="profileAvatar"
-                                                   component="img"
-                                                   src={`${user.profilePic}`}
-                                                   alt="ProfilePic"
-                    />) : (<CardMedia className="profileAvatar"
-                                      component="img"
-                                      image={pfp}
-                                      alt="ProfilePic"
-                    />)}
+                    <CardMedia className="profileAvatar"
+                               component="img"
+                               src={user.profilePic || pfp}
+                               alt="ProfilePic"
+                    />
                 </div>
-                <Button className="editProfileButton"
-                        variant="outlined"
-                        onClick={handleClickCallback}>
-                    Edit profile
-                </Button>
-                {modal ? (<UserProfileModal user={user} show={modal} close={handleClickCallback}
-                                            updateProfileCallback={updateProfileCallback}/>) : null}
+                {
+                    !isExternalProfile
+                        ? <Button className="editProfileButton" variant="outlined" onClick={handleClickCallback}>
+                            Edit profile
+                        </Button>
+                        : <Button className="followButtonExternalProfile" disableElevation variant="outlined"
+                                  onClick={followCallback}>
+                            {followed ? 'Unfollow' : 'Follow'}
+                        </Button>
+                }
+
+                {/* {modal ? (<UserProfileModal user={user} show={modal} close={handleClickCallback}/>) : null} */}
+                {modal ? (<UserProfileModal user={user} show={modal} close={handleClickCallback}/>) : null}
             </div>
             <div>
                 <CardContent className="userSection">
                     {user.name ? (<Typography className="username" variant="h5">{user.name}</Typography>) : null}
-                    {user.username ? (<Typography className="userHandle" variant="subtitle2">
-                        @{user.username}
-                    </Typography>) : null}
+                    <Typography className="userHandle" variant="subtitle2">
+                        @{user.userProfileHandle}
+                    </Typography>
                     {user.web ? (<Typography className="stats" variant="subtitle2">
                         {user.web}
                     </Typography>) : null}
@@ -66,7 +64,7 @@ const UserProfileHeader = ({ updateProfileCallback}) => {
                     </Typography>) : null}
                     {user.joined ? (<Typography className="joinDate" variant="subtitle2">
                         <DateRangeOutlined sx={{...profileIcons}}/>
-                        {user.joined}
+                        {new Date(user.joined).toLocaleDateString()}
                     </Typography>) : null}
                     {user.location ? (<Typography className="location" variant="subtitle2">
                         <LocationOnOutlined sx={{...profileIcons}}/>
@@ -77,7 +75,7 @@ const UserProfileHeader = ({ updateProfileCallback}) => {
                     </Typography>) : null}
                 </CardContent>
             </div>
-        </Card>);
+        </div>);
 };
 
 export default UserProfileHeader;

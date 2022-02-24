@@ -2,12 +2,26 @@
     "type": "Conv 2D Layer",
     "definition": {
         "text": "2D convolution layer (e.g. spatial convolution over images). This layer creates a convolution kernel that is convolved with the layer input to produce a tensor of outputs.",
-        "updated": 1613218624550
+        "updated": 1613218624550,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Слой двумерной свертки (например, пространственная свертка изображений). Этот слой создает ядро свертки, которое свертывается с входом слоя для получения тензора выходов.",
+                "updated": 1645196038370
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "Right click and select the pencil button to enter edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
+                    "updated": 1645196043331
+                }
+            ]
         }
     ]
 }

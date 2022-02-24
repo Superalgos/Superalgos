@@ -24,6 +24,11 @@
                 "language": "DE",
                 "text": "Die Zukunft hält noch mehr bereit. Aber es ist noch viel zu tun!",
                 "updated": 1639102618123
+            },
+            {
+                "language": "TR",
+                "text": "Daha fazlası gelecekte bizi bekliyor. Ama hala yapacak çok şey var!",
+                "updated": 1642583152983
             }
         ]
     },
@@ -47,6 +52,11 @@
                     "language": "DE",
                     "text": "Schließlich werden Dashboards verwendet, um mehrere Time Machines in nützlichen Konfigurationen innerhalb des Charting Space zusammenzubringen. Stellen Sie sich mehrere Diagramme vor, die in komplizierten, nebeneinander liegenden Anzeigen konfiguriert sind! Aber im Moment helfen sie uns, den Überblick zu behalten.",
                     "updated": 1639102647785
+                },
+                {
+                    "language": "TR",
+                    "text": "Son olarak, panolar, birden çok Zaman Makinesini, grafik alanı ( Charting Space ) içinde yararlı konfigürasyonlarda bir araya getirmek için kullanılır. Karmaşık yan yana ekranlarda yapılandırılmış birden fazla grafik hayal edin! Ama şimdilik, izlememize yardımcı oluyorlar.",
+                    "updated": 1642583309596
                 }
             ]
         },
@@ -69,6 +79,11 @@
                     "language": "DE",
                     "text": "Superalgos ist ein Gemeinschaftsprojekt. Wenn Sie ein Entwickler sind, der diese Funktion gerne zum Leben erwecken möchte, können Sie helfen, sie zu verwirklichen!",
                     "updated": 1639102720708
+                },
+                {
+                    "language": "TR",
+                    "text": "Önemli: Superalgos bir topluluk projesidir. Bu özelliği canlı olarak görmek isteyen bir geliştiriciyseniz, bunun gerçekleşmesine yardımcı olabilirsiniz!",
+                    "updated": 1642583380888
                 }
             ]
         }

@@ -4,21 +4,69 @@
     "type": "Bollinger Bands (BB - %B) - Bollinger Indicator",
     "definition": {
         "text": "The indicator produces the Bollinger Bands (BB) and Percentage Bandwidth (%B), both in standard settings.",
-        "updated": 1610387450406
+        "updated": 1610387450406,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Dieser Indikator erzeugt die Bollinger Bänder (BB) und die prozentuale Bandbreite (%B), beide in Standardeinstellungen.",
+                "updated": 1641654780032
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Gösterge, her ikisi de standart ayarlarda Bollinger Bantları (BB) ve Yüzde Bant Genişliği (%B) üretir.",
+                "updated": 1644417469276
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "On the Charts",
-            "updated": 1610384466638
+            "updated": 1610384466638,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "In den Diagrammen",
+                    "updated": 1641654792034
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafiklerde",
+                    "updated": 1644417493736
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Bollinger Bands"
+            "text": "Bollinger Bands",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bollinger Bänder",
+                    "updated": 1641654803315
+                },
+                {
+                    "language": "TR",
+                    "text": "Bollinger Bantları",
+                    "updated": 1644417563056
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "This is the traditional Bollinger Bands indicator. Bollinger Bands have a moving average, in our case calculated with the last 20 periods (the line in the middle of the bands). We are plotting the moving average with one color when it is going up, and with a different color when it’s going down. The upper band is at 2 Standard Deviations from the moving average, pretty much like the lower band, also at 2 Standard Deviations. These are the most widely used Bollinger Bands settings."
+            "text": "This is the traditional Bollinger Bands indicator. Bollinger Bands have a moving average, in our case calculated with the last 20 periods (the line in the middle of the bands). We are plotting the moving average with one color when it is going up, and with a different color when it’s going down. The upper band is at 2 Standard Deviations from the moving average, pretty much like the lower band, also at 2 Standard Deviations. These are the most widely used Bollinger Bands settings.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dies ist der traditionelle Bollinger Band-Indikator. Bollinger Bänder haben einen gleitenden Durchschnitt, in unserem Fall berechnet mit den letzten 20 Perioden (die Linie in der Mitte der Bänder). Wir stellen den gleitenden Durchschnitt in einer Farbe dar, wenn er steigt, und in einer anderen Farbe, wenn er sinkt. Das obere Band liegt bei 2 Standardabweichungen vom gleitenden Durchschnitt, ganz ähnlich wie das untere Band, das ebenfalls bei 2 Standardabweichungen liegt. Dies sind die am häufigsten verwendeten Bollinger-Band-Einstellungen.",
+                    "updated": 1641654854488
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu, geleneksel Bollinger Bantları göstergesidir. Bollinger Bantları, bizim durumumuzda son 20 periyotla (bantların ortasındaki çizgi) hesaplanan hareketli bir ortalamaya sahiptir. Hareketli ortalamayı yukarı çıkarken bir renkle, aşağı inerken farklı bir renkle çiziyoruz. Üst bant, hareketli ortalamadan 2 Standart Sapmada, alt bantta olduğu gibi, yine 2 Standart Sapmada. Bunlar en yaygın olarak kullanılan Bollinger Bantları ayarlarıdır.",
+                    "updated": 1644417617506
+                }
+            ]
         },
         {
             "style": "Gif",
@@ -27,11 +75,35 @@
         },
         {
             "style": "Subtitle",
-            "text": "Percentage Bandwidth"
+            "text": "Percentage Bandwidth",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Prozentuale Bandbreite",
+                    "updated": 1641654867908
+                },
+                {
+                    "language": "TR",
+                    "text": "Yüzde Bant Genişliği",
+                    "updated": 1644417689659
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "This is a well-known indicator that derives from the Bollinger Bands. In a nutshell, it tells you how close the price is either to the upper band or the lower band at any point in time. When the price is in the middle of the bands (it is calculated with the close value of each candle), then %B is in the middle of its chart, at value 50. When the price touches the upper band, then %B is at 100, and finally when the price is at the lower band, then %B is at 0."
+            "text": "This is a well-known indicator that derives from the Bollinger Bands. In a nutshell, it tells you how close the price is either to the upper band or the lower band at any point in time. When the price is in the middle of the bands (it is calculated with the close value of each candle), then %B is in the middle of its chart, at value 50. When the price touches the upper band, then %B is at 100, and finally when the price is at the lower band, then %B is at 0.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dies ist ein bekannter Indikator, der sich von den Bollinger Bändern ableitet. Kurz gesagt zeigt er an, wie nahe der Kurs zu einem beliebigen Zeitpunkt entweder am oberen oder am unteren Band liegt. Wenn sich der Kurs in der Mitte der Bänder befindet (er wird mit dem Schlusswert jeder Kerze berechnet), liegt %B in der Mitte des Diagramms bei einem Wert von 50. Wenn der Kurs das obere Band berührt, liegt der %B-Wert bei 100, und wenn der Kurs das untere Band erreicht hat, liegt der %B-Wert bei 0.",
+                    "updated": 1641654925559
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu, Bollinger Bantlarından türeyen iyi bilinen bir göstergedir. Özetle, fiyatın herhangi bir zamanda üst banda veya alt banda ne kadar yakın olduğunu söyler. Fiyat bantların ortasındayken (her bir mumun kapanış değeri ile hesaplanır),% B grafiğinin ortasında, 50 değerindedir. Fiyat üst banda değdiğinde %B 100, son olarak fiyat alt banda değdiğinde %B 0 olur.",
+                    "updated": 1644417764565
+                }
+            ]
         },
         {
             "style": "Gif",
@@ -40,7 +112,19 @@
         },
         {
             "style": "Text",
-            "text": "The chart features lines at %B values 30 and 70 since those are the most common values for traders to forecast when a reversal may happen. In our chart, %B is the one represented at #1. We’ve found useful to add a moving average to smooth volatility a bit and to be able to ask—at any time—if it is going up or down. The moving average calculated with the last 5 %B values is plotted as line #2. Finally, we’ve also added a property called Bandwidth, which represents the separation of the upper band from the lower band. It is a measure of volatility and is plotted at #3."
+            "text": "The chart features lines at %B values 30 and 70 since those are the most common values for traders to forecast when a reversal may happen. In our chart, %B is the one represented at #1. We’ve found useful to add a moving average to smooth volatility a bit and to be able to ask—at any time—if it is going up or down. The moving average calculated with the last 5 %B values is plotted as line #2. Finally, we’ve also added a property called Bandwidth, which represents the separation of the upper band from the lower band. It is a measure of volatility and is plotted at #3.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das Diagramm zeigt Linien bei den %B-Werten 30 und 70, da dies die gebräuchlichsten Werte für Händler sind, um vorauszusagen, wann ein Umschwung eintreten könnte. In unserem Diagramm ist %B der Wert, der auf Platz 1 steht. Wir haben es als nützlich empfunden, einen gleitenden Durchschnitt hinzuzufügen, um die Volatilität etwas zu glätten und jederzeit abfragen zu können, ob es aufwärts oder abwärts geht. Der mit den letzten 5 %B-Werten berechnete gleitende Durchschnitt wird als Linie #2 dargestellt. Schließlich haben wir auch eine Eigenschaft namens Bandbreite hinzugefügt, die den Abstand zwischen dem oberen Band und dem unteren Band angibt. Sie ist ein Maß für die Volatilität und wird in Zeile 3 dargestellt.",
+                    "updated": 1641655030197
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafik, %30 ve 70 %B değerlerinde çizgiler içerir, çünkü bunlar tüccarlar için bir geri dönüşün ne zaman olabileceğini tahmin etmek için en yaygın değerlerdir. Grafiğimizde %B, #1'de temsil edilendir. Oynaklığı biraz yumuşatmak ve herhangi bir zamanda yukarı mı yoksa aşağı mı gittiğini sorabilmek için hareketli bir ortalama eklemeyi faydalı bulduk. Son 5 %B değerleriyle hesaplanan hareketli ortalama, 2. satır olarak çizilir. Son olarak, üst bandın alt banttan ayrılmasını temsil eden Bant Genişliği adlı bir özellik de ekledik. Bu bir oynaklık ölçüsüdür ve #3'te çizilir.",
+                    "updated": 1644417842487
+                }
+            ]
         },
         {
             "style": "Gif",
@@ -53,41 +137,124 @@
         },
         {
             "style": "Title",
-            "text": "Products & Properties"
+            "text": "Products & Properties",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Produkte & Eigenschaften",
+                    "updated": 1641655068336
+                },
+                {
+                    "language": "TR",
+                    "text": "Ürünler ve Özellikler",
+                    "updated": 1644417861505
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Bollinger Bands"
+            "text": "Bollinger Bands",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bollinger bantları",
+                    "updated": 1644417874018
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The product bollingerBand features four different properties that you may use."
+            "text": "The product bollingerBand features four different properties that you may use.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das Produkt bollingerBand verfügt über vier verschiedene Eigenschaften, die Sie nutzen können.",
+                    "updated": 1641655112917
+                },
+                {
+                    "language": "TR",
+                    "text": "bollingerBand ürünü, kullanabileceğiniz dört farklı özelliğe sahiptir.",
+                    "updated": 1644417928300
+                }
+            ]
         },
         {
             "style": "Table",
             "text": "| Product Name | Product Variable | Property Variables |\n| Bollinger Bands | bollingerBand | movingAverage, standardDeviation, deviation, direction |",
-            "updated": 1610384742825
+            "updated": 1610384742825,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "| Ürün Adı | Ürün Değişkeni | Özellik Değişkenleri |\n| Bollinger Bantları | bollingerBand | hareketliOrtalama, standartSapma, sapma, yön |",
+                    "updated": 1644417992047
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "bollingerBand.movingAverage: The value of the current moving average (20 periods)."
+            "text": "bollingerBand.movingAverage: The value of the current moving average (20 periods).",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "bollingerBand.movingAverage: Der Wert des aktuellen gleitenden Durchschnitts (20 Perioden).",
+                    "updated": 1641655143346
+                },
+                {
+                    "language": "TR",
+                    "text": "bollingerBand.movingAverage: Mevcut hareketli ortalamanın değeri (20 periyot).",
+                    "updated": 1644418016201
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "bollingerBand.standardDeviation: The value of current the standard deviation."
+            "text": "bollingerBand.standardDeviation: The value of current the standard deviation.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "bollingerBand.standardDeviation: Der Wert der aktuellen Standardabweichung.",
+                    "updated": 1641655160586
+                },
+                {
+                    "language": "TR",
+                    "text": "bollingerBand.standardDeviation: Mevcut standart sapmanın değeri.",
+                    "updated": 1644418034002
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "bollingerBand.deviation: bollingerBand.standardDeviation * 2"
+            "text": "bollingerBand.deviation: bollingerBand.standardDeviation * 2",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "bollingerBand.deviation: bollinger Band standart Sapma * 2",
+                    "updated": 1644418090955
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "bollingerBand.direction:"
+            "text": "bollingerBand.direction:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "bollinger Bant Yönü:",
+                    "updated": 1644418116591
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "\"Down\": ",
-            "updated": 1610384819019
+            "updated": 1610384819019,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "\"Aşağı\":",
+                    "updated": 1644418129833
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -96,7 +263,14 @@
         {
             "style": "Text",
             "text": "\"Up\":",
-            "updated": 1610384830529
+            "updated": 1610384830529,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "\"Yukarı\":",
+                    "updated": 1644418143823
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -105,7 +279,14 @@
         {
             "style": "Text",
             "text": "\"Side\": ",
-            "updated": 1610384838620
+            "updated": 1610384838620,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "\"Yan\":",
+                    "updated": 1644418161479
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -114,28 +295,95 @@
         },
         {
             "style": "Subtitle",
-            "text": "Percentage Bandwidth"
+            "text": "Percentage Bandwidth",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Prozentuale Bandbreite",
+                    "updated": 1641655177724
+                },
+                {
+                    "language": "TR",
+                    "text": "Yüzde Bant Genişliği",
+                    "updated": 1644418175502
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The product percentageBandwidth features four different properties that you may use."
+            "text": "The product percentageBandwidth features four different properties that you may use.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das Produkt percentageBandwidth verfügt über vier verschiedene Eigenschaften, die Sie nutzen können.",
+                    "updated": 1641655240593
+                },
+                {
+                    "language": "TR",
+                    "text": "Ürün yüzdesi Bant Genişliği, kullanabileceğiniz dört farklı özelliğe sahiptir.",
+                    "updated": 1644418201056
+                }
+            ]
         },
         {
             "style": "Table",
             "text": "| Product Name | Product Variable | Property Variables |\n| Percentage Bandwidth | percentageBandwidth | value, movingAverage, bandwidth, direction |",
-            "updated": 1610384984134
+            "updated": 1610384984134,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "| Ürün Adı | Ürün Değişkeni | Özellik Değişkenleri |\n| Yüzde Bant Genişliği | yüzdeBant genişliği | değer, hareketliAverage, bant genişliği, yön |",
+                    "updated": 1644418229720
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "percentageBandwidth.value: A numeric value between 0 and 100; the current value of the percentage bandwidth."
+            "text": "percentageBandwidth.value: A numeric value between 0 and 100; the current value of the percentage bandwidth.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "percentageBandwidth.value: Ein numerischer Wert zwischen 0 und 100; der aktuelle Wert der prozentualen Bandbreite.",
+                    "updated": 1641655259349
+                },
+                {
+                    "language": "TR",
+                    "text": "percentageBandwidth.value: 0 ile 100 arasında sayısal bir değer; yüzde bant genişliğinin geçerli değeri.",
+                    "updated": 1644418273592
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "percentageBandwidth.movingAverage: A numeric value between 0 and 100; the current value of the percentage bandwidth moving average."
+            "text": "percentageBandwidth.movingAverage: A numeric value between 0 and 100; the current value of the percentage bandwidth moving average.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "percentageBandwidth.movingAverage: Ein numerischer Wert zwischen 0 und 100; der aktuelle Wert des gleitenden Durchschnitts der prozentualen Bandbreite.",
+                    "updated": 1641655278677
+                },
+                {
+                    "language": "TR",
+                    "text": "percentageBandwidth.movingAverage: 0 ile 100 arasında sayısal bir değer; yüzde bant genişliği hareketli ortalamanın mevcut değeri.",
+                    "updated": 1644418311135
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "percentageBandwidth.bandwidth: A numeric value between 0 and 100; the current bandwidth."
+            "text": "percentageBandwidth.bandwidth: A numeric value between 0 and 100; the current bandwidth.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "percentageBandwidth.bandwidth: Ein numerischer Wert zwischen 0 und 100; die aktuelle Bandbreite.",
+                    "updated": 1641655294131
+                },
+                {
+                    "language": "TR",
+                    "text": "percentageBandwidth.bandwidth: 0 ile 100 arasında sayısal bir değer; mevcut bant genişliği.",
+                    "updated": 1644418338833
+                }
+            ]
         },
         {
             "style": "Text",

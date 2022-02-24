@@ -1,72 +1,65 @@
-const getProfiles = async (req, res) => {
-
+const getSocialPersonaId = async (req, res) => {
+    let response = {};
     try {
-        let queryMessage = {
-            queryType: SA.projects.socialTrading.globals.queryTypes.UNFOLLOWED_USER_PROFILES,
-            emitterUserProfileId: undefined,
-            initialIndex: SA.projects.socialTrading.globals.queryConstants.INITIAL_INDEX_FIRST,
-            amountRequested: 3,
+        let socialPersona = SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_DEFAULT_SOCIAL_PERSONA);
+        response.nodeCodeName = socialPersona.nodeCodeName;
+        response.nodeId = socialPersona.nodeId;
+        response.blockchainAccount = socialPersona.blockchainAccount;
+        response.userProfileId = socialPersona.userProfileId;
+        response.userProfileHandle = socialPersona.userProfileHandle;
+    } catch (error) {
+        console.log(error);
+        response = {error: "Could not fetch Social Persona"}
+    }
+    return response;
+
+}
+
+const paginateProfiles = async (initialIndex, pagination, res) => {
+    try {
+        const queryMessage = {
+            queryType: SA.projects.socialTrading.globals.queryTypes.UNFOLLOWED_SOCIAL_PERSONAS,
+            originSocialPersonaId: undefined,
+            initialIndex: initialIndex ? initialIndex : 0,
+            amountRequested: pagination ? pagination : 3,
             direction: SA.projects.socialTrading.globals.queryConstants.DIRECTION_UP
         }
-
-        let query = {
+        const query = {
+            networkService: 'Social Graph',
             requestType: 'Query',
             queryMessage: JSON.stringify(queryMessage)
         }
-
-        return await webAppInterface.messageReceived(
+        return webAppInterface.sendMessage(
             JSON.stringify(query)
-        );
-    } catch (e) {
-        console.log(e);
-        return [];
-    }
-};
-
-const paginateProfiles = async(initialIndex, pagination, res) => {
-        try{
-            const queryMessage = {
-                queryType: SA.projects.socialTrading.globals.queryTypes.UNFOLLOWED_USER_PROFILES,
-                emitterUserProfileId: undefined,
-                initialIndex: initialIndex ? initialIndex : 0 ,
-                amountRequested: pagination ? pagination : 3,
-                direction: SA.projects.socialTrading.globals.queryConstants.DIRECTION_UP
-            }
-            const  query = {
-                requestType: 'Query',
-                queryMessage: JSON.stringify(queryMessage)
-            }
-            return webAppInterface.messageReceived(
-                JSON.stringify(query)
-            )
+        )
             .then(rta => rta)
-            .catch(e =>{
+            .catch(e => {
                 console.log('catch from webapi', e)
-                return(e)
+                return (e)
             })
-        }catch(e) {
-            console.log('error here')
-            return (e)
-        }
-        
-}
+    } catch (e) {
+        console.log('error here')
+        return (e)
+    }
 
+}
 
 const followProfile = async (userProfileId, eventType, res) => {
     try {
         let eventMessage = {
             eventType: eventType,
             eventId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-            targetUserProfileId: userProfileId,
+            targetSocialPersonaId: userProfileId,
             timestamp: (new Date()).valueOf()
         }
 
         let event = {
+            networkService: 'Social Graph',
             requestType: 'Event',
             eventMessage: JSON.stringify(eventMessage)
         }
 
-        return await webAppInterface.messageReceived(
+        return await webAppInterface.sendMessage(
             JSON.stringify(event)
         );
     } catch (e) {
@@ -75,63 +68,143 @@ const followProfile = async (userProfileId, eventType, res) => {
     }
 };
 
-
-const editProfile = async (body, res) => {
+const loadProfile = async (socialPersonaId, res) => {
 
     try {
-        let eventMessage = {
-            eventType: SA.projects.socialTrading.globals.eventTypes.NEW_USER_PROFILE,
-            emitterUserProfileId: undefined,
-            eventId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-            body:body,
-            timestamp: (new Date()).valueOf()
+        let profileMessage = {
+            profileType: SA.projects.socialTrading.globals.profileTypes.LOAD_SOCIAL_ENTITY,
+            originSocialPersonaId: socialPersonaId
         }
-    
+
         let query = {
-            requestType: 'Event',
-            eventMessage: JSON.stringify(eventMessage)
+            networkService: 'Social Graph',
+            requestType: 'Profile',
+            profileMessage: JSON.stringify(profileMessage)
         }
-    
-        return await webAppInterface.messageReceived(
+
+        const result = await webAppInterface.sendMessage(
             JSON.stringify(query)
         )
-        
+
+        let response = {}
+        response.data = result.profileData;
+        response.result = result.result;
+
+        return response
+
     } catch (error) {
         console.log(error);
     }
-};
+}
 
-const getProfile = async (userProfileId, username,res) => {
+const saveProfile = async (body, res) => {
 
     try {
-        let queryMessage = {
-            queryType: SA.projects.socialTrading.globals.queryTypes.USER_PROFILE_DATA,
-            emitterUserProfileId: undefined,
-            userProfileId: userProfileId,
-            username:username
-        }
-    
-        let query = {
-            requestType: 'Query',
-            queryMessage: JSON.stringify(queryMessage)
+        let profileMessage = {
+            profileType: SA.projects.socialTrading.globals.profileTypes.SAVE_SOCIAL_ENTITY,
+            profileData: JSON.stringify(body),
+            originSocialPersonaId: body.originSocialPersonaId
         }
 
-        const result = await webAppInterface.messageReceived(
+        let query = {
+            networkService: 'Social Graph',
+            requestType: 'Profile',
+            profileMessage: JSON.stringify(profileMessage)
+        }
+
+        return await webAppInterface.sendMessage(
             JSON.stringify(query)
         )
-        return result
-        
+
     } catch (error) {
         console.log(error);
     }
-};
+}
+
+const createProfile = async (body, res) => {
+
+    try {
+        let profileMessage = {
+            profileType: SA.projects.socialTrading.globals.profileTypes.CREATE_USER_PROFILE,
+            storageProviderName: "Github",
+            storageProviderUsername: body.username,
+            storageProviderToken: body.token,
+            userAppType: "Social Trading Desktop App"
+        }
+
+        let query = {
+            networkService: 'Social Graph',
+            requestType: 'Profile',
+            profileMessage: JSON.stringify(profileMessage)
+        }
+
+        return await webAppInterface.sendMessage(
+            JSON.stringify(query)
+        )
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+const listSocialEntities = async (req, res) => {
+
+    try {
+        let profileMessage = {
+            profileType: SA.projects.socialTrading.globals.profileTypes.LIST_SOCIAL_ENTITIES,
+            socialEntityType: "Social Persona",
+            userAppType: "Social Trading Desktop App"
+        }
+
+        let query = {
+            networkService: 'Social Graph',
+            requestType: 'Profile',
+            profileMessage: JSON.stringify(profileMessage)
+        }
+
+        return await webAppInterface.sendMessage(
+            JSON.stringify(query)
+        )
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+const createSocialPersona = async (body, res) => {
+
+    try {
+        let profileMessage = {
+            profileType: SA.projects.socialTrading.globals.profileTypes.CREATE_SOCIAL_ENTITY,
+            socialEntityHandle: body.name,
+            socialEntityType: "Social Persona",
+            userAppType: "Social Trading Desktop App"
+        }
+
+        let query = {
+            networkService: 'Social Graph',
+            requestType: 'Profile',
+            profileMessage: JSON.stringify(profileMessage)
+        }
+
+        return await webAppInterface.sendMessage(
+            JSON.stringify(query)
+        )
+
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 
 module.exports = {
-    getProfiles,
     followProfile,
     paginateProfiles,
-    editProfile,
-    getProfile
+    loadProfile,
+    saveProfile,
+    getSocialPersonaId,
+    createProfile,
+    listSocialEntities,
+    createSocialPersona
 };
 

@@ -16,9 +16,19 @@
                 "updated": 1636700031937
             },
             {
+                "language": "RU",
+                "text": "По правде говоря, мой гостеприимный друг научил вас многим базовым операциям, которые необходимо знать, чтобы ориентироваться и чувствовать себя комфортно в данном интерфейсе...",
+                "updated": 1640858784410
+            },
+            {
                 "language": "ID",
                 "text": "Sebenarnya, temanku telah mengajari kamu banyak operasi dasar yang perlu kamu ketahui untuk berputar-putar dan merasa nyaman dengan interface bot...",
                 "updated": 1641093294776
+            },
+            {
+                "language": "DE",
+                "text": "Um fair zu sein, mein Freund hat Ihnen viele der grundlegenden Vorgänge beigebracht, die Sie wissen müssen, um sich zu bewegen und sich mit der Benutzeroberfläche vertraut zu machen...",
+                "updated": 1641741037433
             }
         ]
     },
@@ -34,9 +44,19 @@
                     "updated": 1636700088723
                 },
                 {
+                    "language": "RU",
+                    "text": "Со мной вы завершите свое базовое обучение! Как только вы закончите этот учебник, вы будете готовы начать учиться строить свою собственную торговую систему (Trading System)... Ведь именно в этом все дело, не так ли?",
+                    "updated": 1640858835665
+                },
+                {
                     "language": "ID",
                     "text": "Bersamaku, Kamu akan menyelesaikan edukasi dasar-mu! Setelah Kamu menyelesaikan tutorial ini, Kamu akan siap untuk mulai belajar bagaimana membangun Trading System -mu sendiri... Lagipula tujuan ini semua untuk itu, benar?",
                     "updated": 1641093411250
+                },
+                {
+                    "language": "DE",
+                    "text": "Mit mir werden Sie Ihre Grundausbildung vervollständigen! Sobald Sie dieses Tutorial beendet haben, werden Sie bereit sein, zu lernen, wie Sie Ihr eigenes Trading System aufbauen können... Darum geht es doch schließlich, oder?",
+                    "updated": 1641741051150
                 }
             ]
         },
@@ -51,9 +71,19 @@
                     "updated": 1636700135746
                 },
                 {
+                    "language": "RU",
+                    "text": "Мы сосредоточимся на завершении обзора интерфейса, разберемся с рабочими пространствами, резервным копированием, плагинами и многим другим!",
+                    "updated": 1640858865509
+                },
+                {
                     "language": "ID",
                     "text": "Kita akan fokus menyelesaikan pratinjau interface, berurusan dengan workspaces, backups, plugins, dan banyak lagi!",
                     "updated": 1641093480726
+                },
+                {
+                    "language": "DE",
+                    "text": "Wir werden uns darauf konzentrieren, den Überblick über die Benutzeroberfläche zu vervollständigen, uns mit Workspaces, Backups, Plugins und mehr zu beschäftigen!",
+                    "updated": 1641741061083
                 }
             ]
         },
@@ -63,9 +93,19 @@
             "updated": 1615311356804,
             "translations": [
                 {
+                    "language": "RU",
+                    "text": "Давайте приступим к делу!",
+                    "updated": 1640858878888
+                },
+                {
                     "language": "ID",
                     "text": "Mari kita lanjutkan!",
                     "updated": 1641093517301
+                },
+                {
+                    "language": "DE",
+                    "text": "Legen wir los!",
+                    "updated": 1641741068396
                 }
             ]
         }

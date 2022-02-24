@@ -76,6 +76,10 @@ function newVisualScriptingFunctionLibraryReferenceAttachDetach() {
     // Establish the reference between node and it's reference parent
     function completeAttachment(node, attachToNode) {
         node.payload.referenceParent = attachToNode
+        if (attachToNode.payload.referenceChildren === undefined) {
+            attachToNode.payload.referenceChildren = new Map()
+        }
+        attachToNode.payload.referenceChildren.set(node.id, node)
     }
 
     // Detach the reference between node and it's reference parent
@@ -85,6 +89,9 @@ function newVisualScriptingFunctionLibraryReferenceAttachDetach() {
                 if (node.payload.referenceParent.payload !== undefined) {
                     if (node.payload.referenceParent.payload.uiObject !== undefined) {
                         node.payload.referenceParent.payload.uiObject.isShowing = false
+                    }
+                    if (node.payload.referenceParent.payload.referenceChildren !== undefined) {
+                        node.payload.referenceParent.payload.referenceChildren.delete(node.id)
                     }
                 }
             }

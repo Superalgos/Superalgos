@@ -31,6 +31,16 @@
                 "language": "TR",
                 "text": "Diyelim ki farklı parametre setleriyle bir stratejiyi test etmek istiyorsunuz, bu nedenle İşlem Parametreleri düğümünün yedeğini alabilirsiniz!",
                 "updated": 1636790169192
+            },
+            {
+                "language": "RU",
+                "text": "Допустим, вы хотите протестировать стратегию с разными наборами параметров, поэтому вы можете сделать резервную копию узла Trading Parameters!",
+                "updated": 1640867716088
+            },
+            {
+                "language": "ID",
+                "text": "Katakanlah kamu ingin menguji strategi dengan set parameter yang berbeda, sehingga kamu mengambil cadangan dari node Trading Parameters!",
+                "updated": 1644516038588
             }
         ]
     },
@@ -61,6 +71,16 @@
                     "language": "TR",
                     "text": "Devam edin ve yedeği alın! Artık tüm İşlem Parametrelerinin ( Trading Parameter ) bir yedeğine sahip olduğunuza göre, her zaman yedeğinize geri dönebileceğinizi bilerek herhangi birini değiştirebilirsiniz! Chrome kullanıyorsanız, yedekleme, tarayıcı penceresinin sol alt köşesinde görünmelidir.",
                     "updated": 1636790152231
+                },
+                {
+                    "language": "RU",
+                    "text": "Сделайте резервную копию! Теперь, когда у вас есть резервная копия всех торговых параметров, вы можете изменить любой из них, зная, что вы всегда можете вернуться к резервной копии! Если вы работаете в Chrome, резервная копия должна быть видна в левом нижнем углу окна браузера.",
+                    "updated": 1640867747483
+                },
+                {
+                    "language": "ID",
+                    "text": "Cobalah cadangkan! Sekarang kamu memiliki cadangan semua Trading Parameters, Kamu dapat mengubah salah satu dari mereka mengetahui bahwa kamu selalu dapat kembali ke cadanganmu! Jika kamu menggunakan Chrome, hasil cadangan terlihat di sudut kiri bawah jendela browser.",
+                    "updated": 1644516179151
                 }
             ]
         },
@@ -90,6 +110,16 @@
                     "language": "TR",
                     "text": "Şimdi yedekleme dosyasını sürükleyin ve Tasarım Alanına ( Design Space ) bırakın! Bir yedeği bu şekilde geri yüklersiniz!",
                     "updated": 1636790223553
+                },
+                {
+                    "language": "RU",
+                    "text": "Теперь перетащите файл резервной копии и бросьте его в пространство проектирования! Вот так можно восстановить резервную копию!",
+                    "updated": 1640867780647
+                },
+                {
+                    "language": "ID",
+                    "text": "Sekarang seret file cadangan dan letakkan di Design Space! Begitulah cara kamu mengembalikan hasil cadanganmu!",
+                    "updated": 1644516227078
                 }
             ]
         },
@@ -119,6 +149,16 @@
                     "language": "TR",
                     "text": "Kolay değil mi? Bir sonraki adımda, orijinal sürümü kullanmaya nasıl geri döneceğinizi göstereceğim!",
                     "updated": 1636790201614
+                },
+                {
+                    "language": "RU",
+                    "text": "Легко, правда? В следующем шаге я покажу вам, как вернуться к использованию оригинальной версии!",
+                    "updated": 1640867801136
+                },
+                {
+                    "language": "ID",
+                    "text": "Mudah bukan? Pada step berikutnya, aku akan menunjukkan kepadamu bagaimana kembali ke versi aslinya!",
+                    "updated": 1644516298490
                 }
             ]
         }

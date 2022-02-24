@@ -15,6 +15,7 @@ function newPluginsFunctionLibraryPluginsFunctions() {
         addMissingPluginLearningEngines: addMissingPluginLearningEngines,
         addMissingPluginTutorials: addMissingPluginTutorials,
         addMissingPluginApiMaps: addMissingPluginApiMaps,
+        addMissingPluginP2PNetworks: addMissingPluginP2PNetworks, 
         enableSavingWithWorkspace: enableSavingWithWorkspace,
         disableSavingWithWorkspace: disableSavingWithWorkspace,
         savePluginFile: savePluginFile,
@@ -24,6 +25,7 @@ function newPluginsFunctionLibraryPluginsFunctions() {
     return thisObject
 
     function addMissingPluginProjects(node, rootNodes) {
+        let newUiObjects = []
         for (let k = 0; k < PROJECTS_SCHEMA.length; k++) {
             let projectDefinition = PROJECTS_SCHEMA[k]
             let project = projectDefinition.name
@@ -33,11 +35,14 @@ function newPluginsFunctionLibraryPluginsFunctions() {
                 let config = JSON.parse(child.config)
                 config.codeName = project
                 child.config = JSON.stringify(config)
+                newUiObjects.push(child)
             }
         }
+        return newUiObjects
     }
 
     function addMissingPluginTypes(node, rootNodes) {
+        let newUiObjects = []
         let project = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(node.payload, 'codeName')
         if (project === undefined || project === "") { return }
         for (let k = 0; k < PROJECTS_SCHEMA.length; k++) {
@@ -48,13 +53,15 @@ function newPluginsFunctionLibraryPluginsFunctions() {
                 let pluginType = "Plugin" + " " + projectDefinition.plugins[i]
 
                 if (UI.projects.visualScripting.utilities.nodeChildren.isMissingChildrenByType(node, pluginType) === true) {
-                    UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(node, pluginType, undefined, 'Community-Plugins')
+                    let child = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(node, pluginType, undefined, 'Community-Plugins')
+                    newUiObjects.push(child)
                 }
             }
         }
+        return newUiObjects
     }
 
-    function addMissingPluginDataMines(node, rootNodes) {
+    async function addMissingPluginDataMines(node, rootNodes) {
         let projectName = UI.projects.communityPlugins.utilities.plugins.getProjectName(node)
         if (projectName === "" || projectName === undefined) {
             if (node.payload.parentNode !== undefined) {
@@ -63,14 +70,14 @@ function newPluginsFunctionLibraryPluginsFunctions() {
             }
         }
 
-        UI.projects.communityPlugins.utilities.plugins.getPluginFileNames(projectName, 'Data-Mines', onNamesArrived)
+        let response = await httpRequestAsync(undefined, 'PluginFileNames/' + projectName + '/Data-Mines')
+        let fileNames = JSON.parse(response.message)
+        let newUiObjects = UI.projects.communityPlugins.utilities.plugins.addMissingPluginFiles(node, fileNames, 'Data-Mines', 'Data Mine', 'Data-Mining')
 
-        function onNamesArrived(fileNames) {
-            UI.projects.communityPlugins.utilities.plugins.addMissingPluginFiles(node, fileNames, 'Data-Mines', 'Data Mine', 'Data-Mining')
-        }
+        return newUiObjects
     }
 
-    function addSpecifiedPluginDataMine(node, rootNodes) {
+    async function addSpecifiedPluginDataMine(node, rootNodes, historyObject) {
         let action = { node: node }
 
         let projectName = UI.projects.communityPlugins.utilities.plugins.getProjectName(node)
@@ -81,22 +88,27 @@ function newPluginsFunctionLibraryPluginsFunctions() {
             }
         }
 
-        UI.projects.communityPlugins.utilities.plugins.getPluginFileNames(projectName, 'Data-Mines', onNamesArrived)
+        let response = await httpRequestAsync(undefined, 'PluginFileNames/' + projectName + '/Data-Mines')
+        let fileNames = JSON.parse(response.message)
+        let eventSubscriptionId = node.payload.uiObject.container.eventHandler.listenToEvent('listSelectorClicked', onListSelect)
+        node.payload.uiObject.listSelector.activate(action, fileNames, eventSubscriptionId)
 
-        function onNamesArrived(fileNames) {
-            let eventSubscriptionId = node.payload.uiObject.container.eventHandler.listenToEvent('listSelectorClicked', onListSelect)
-            node.payload.uiObject.listSelector.activate(action, fileNames, eventSubscriptionId)
+        function onListSelect(event) {
+            let selectedArray = []
+            selectedArray.push(event.selectedNode)
+            let newUiObjects = UI.projects.communityPlugins.utilities.plugins.addMissingPluginFiles(node, selectedArray, 'Data-Mines', 'Data Mine', 'Data-Mining')
+            node.payload.uiObject.container.eventHandler.stopListening('listSelectorClicked')
 
-            function onListSelect(event) {
-                let selectedArray = []
-                selectedArray.push(event.selectedNode)
-                UI.projects.communityPlugins.utilities.plugins.addMissingPluginFiles(node, selectedArray, 'Data-Mines', 'Data Mine', 'Data-Mining')
-                node.payload.uiObject.container.eventHandler.stopListening('listSelectorClicked')
+            if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                historyObject.newUiObjects = newUiObjects
+                UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
             }
         }
     }
 
-    function addMissingPluginTradingMines(node, rootNodes) {
+    async function addMissingPluginTradingMines(node, rootNodes) {
         let projectName = UI.projects.communityPlugins.utilities.plugins.getProjectName(node)
         if (projectName === "" || projectName === undefined) {
             if (node.payload.parentNode !== undefined) {
@@ -105,14 +117,14 @@ function newPluginsFunctionLibraryPluginsFunctions() {
             }
         }
 
-        UI.projects.communityPlugins.utilities.plugins.getPluginFileNames(projectName, 'Trading-Mines', onNamesArrived)
-
-        function onNamesArrived(fileNames) {
-            UI.projects.communityPlugins.utilities.plugins.addMissingPluginFiles(node, fileNames, 'Trading-Mines', 'Trading Mine', 'Algorithmic-Trading')
-        }
+        let response = await httpRequestAsync(undefined, 'PluginFileNames/' + projectName + '/Trading-Mines')
+        let fileNames = JSON.parse(response.message)
+        let newUiObjects = UI.projects.communityPlugins.utilities.plugins.addMissingPluginFiles(node, fileNames, 'Trading-Mines', 'Trading Mine', 'Algorithmic-Trading')
+        
+        return newUiObjects
     }
 
-    function addMissingPluginTradingSystems(node, rootNodes) {
+    async function addMissingPluginTradingSystems(node, rootNodes) {
         let projectName = UI.projects.communityPlugins.utilities.plugins.getProjectName(node)
         if (projectName === "" || projectName === undefined) {
             if (node.payload.parentNode !== undefined) {
@@ -121,14 +133,14 @@ function newPluginsFunctionLibraryPluginsFunctions() {
             }
         }
 
-        UI.projects.communityPlugins.utilities.plugins.getPluginFileNames(projectName, 'Trading-Systems', onNamesArrived)
+        let response = await httpRequestAsync(undefined, 'PluginFileNames/' + projectName + '/Trading-Systems')
+        let fileNames = JSON.parse(response.message)
+        let newUiObjects = UI.projects.communityPlugins.utilities.plugins.addMissingPluginFiles(node, fileNames, 'Trading-Systems', 'Trading System', 'Algorithmic-Trading')
 
-        function onNamesArrived(fileNames) {
-            UI.projects.communityPlugins.utilities.plugins.addMissingPluginFiles(node, fileNames, 'Trading-Systems', 'Trading System', 'Algorithmic-Trading')
-        }
+        return newUiObjects
     }
 
-    function addMissingPluginTradingEngines(node, rootNodes) {
+    async function addMissingPluginTradingEngines(node, rootNodes) {
         let projectName = UI.projects.communityPlugins.utilities.plugins.getProjectName(node)
         if (projectName === "" || projectName === undefined) {
             if (node.payload.parentNode !== undefined) {
@@ -137,14 +149,14 @@ function newPluginsFunctionLibraryPluginsFunctions() {
             }
         }
 
-        UI.projects.communityPlugins.utilities.plugins.getPluginFileNames(projectName, 'Trading-Engines', onNamesArrived)
-
-        function onNamesArrived(fileNames) {
-            UI.projects.communityPlugins.utilities.plugins.addMissingPluginFiles(node, fileNames, 'Trading-Engines', 'Trading Engine', 'Algorithmic-Trading')
-        }
+        let response = await httpRequestAsync(undefined, 'PluginFileNames/' + projectName + '/Trading-Engines')
+        let fileNames = JSON.parse(response.message)
+        let newUiObjects = UI.projects.communityPlugins.utilities.plugins.addMissingPluginFiles(node, fileNames, 'Trading-Engines', 'Trading Engine', 'Algorithmic-Trading')
+        
+        return newUiObjects
     }
 
-    function addMissingPluginPortfolioMines(node, rootNodes) {
+    async function addMissingPluginPortfolioMines(node, rootNodes) {
         let projectName = UI.projects.communityPlugins.utilities.plugins.getProjectName(node)
         if (projectName === "" || projectName === undefined) {
             if (node.payload.parentNode !== undefined) {
@@ -153,14 +165,14 @@ function newPluginsFunctionLibraryPluginsFunctions() {
             }
         }
 
-        UI.projects.communityPlugins.utilities.plugins.getPluginFileNames(projectName, 'Portfolio-Mines', onNamesArrived)
-
-        function onNamesArrived(fileNames) {
-            UI.projects.communityPlugins.utilities.plugins.addMissingPluginFiles(node, fileNames, 'Portfolio-Mines', 'Portfolio Mine', 'Portfolio-Management')
-        }
+        let response = await httpRequestAsync(undefined, 'PluginFileNames/' + projectName + '/Portfolio-Mines')
+        let fileNames = JSON.parse(response.message)
+        let newUiObjects = UI.projects.communityPlugins.utilities.plugins.addMissingPluginFiles(node, fileNames, 'Portfolio-Mines', 'Portfolio Mine', 'Portfolio-Management')
+        
+        return newUiObjects
     }
 
-    function addMissingPluginPortfolioSystems(node, rootNodes) {
+    async function addMissingPluginPortfolioSystems(node, rootNodes) {
         let projectName = UI.projects.communityPlugins.utilities.plugins.getProjectName(node)
         if (projectName === "" || projectName === undefined) {
             if (node.payload.parentNode !== undefined) {
@@ -169,14 +181,14 @@ function newPluginsFunctionLibraryPluginsFunctions() {
             }
         }
 
-        UI.projects.communityPlugins.utilities.plugins.getPluginFileNames(projectName, 'Portfolio-Systems', onNamesArrived)
-
-        function onNamesArrived(fileNames) {
-            UI.projects.communityPlugins.utilities.plugins.addMissingPluginFiles(node, fileNames, 'Portfolio-Systems', 'Portfolio System', 'Portfolio-Management')
-        }
+        let response = await httpRequestAsync(undefined, 'PluginFileNames/' + projectName + '/Portfolio-Systems')
+        let fileNames = JSON.parse(response.message)
+        let newUiObjects = UI.projects.communityPlugins.utilities.plugins.addMissingPluginFiles(node, fileNames, 'Portfolio-Systems', 'Portfolio System', 'Portfolio-Management')
+        
+        return newUiObjects
     }
 
-    function addMissingPluginPortfolioEngines(node, rootNodes) {
+    async function addMissingPluginPortfolioEngines(node, rootNodes) {
         let projectName = UI.projects.communityPlugins.utilities.plugins.getProjectName(node)
         if (projectName === "" || projectName === undefined) {
             if (node.payload.parentNode !== undefined) {
@@ -185,14 +197,14 @@ function newPluginsFunctionLibraryPluginsFunctions() {
             }
         }
 
-        UI.projects.communityPlugins.utilities.plugins.getPluginFileNames(projectName, 'Portfolio-Engines', onNamesArrived)
-
-        function onNamesArrived(fileNames) {
-            UI.projects.communityPlugins.utilities.plugins.addMissingPluginFiles(node, fileNames, 'Portfolio-Engines', 'Portfolio Engine', 'Portfolio-Management')
-        }
+        let response = await httpRequestAsync(undefined, 'PluginFileNames/' + projectName + '/Portfolio-Engines')
+        let fileNames = JSON.parse(response.message)
+        let newUiObjects = UI.projects.communityPlugins.utilities.plugins.addMissingPluginFiles(node, fileNames, 'Portfolio-Engines', 'Portfolio Engine', 'Portfolio-Management')
+        
+        return newUiObjects
     }
 
-    function addMissingPluginLearningMines(node, rootNodes) {
+    async function addMissingPluginLearningMines(node, rootNodes) {
         let projectName = UI.projects.communityPlugins.utilities.plugins.getProjectName(node)
         if (projectName === "" || projectName === undefined) {
             if (node.payload.parentNode !== undefined) {
@@ -201,14 +213,14 @@ function newPluginsFunctionLibraryPluginsFunctions() {
             }
         }
 
-        UI.projects.communityPlugins.utilities.plugins.getPluginFileNames(projectName, 'Learning-Mines', onNamesArrived)
-
-        function onNamesArrived(fileNames) {
-            UI.projects.communityPlugins.utilities.plugins.addMissingPluginFiles(node, fileNames, 'Learning-Mines', 'Learning Mine', 'Machine-Learning')
-        }
+        let response = await httpRequestAsync(undefined, 'PluginFileNames/' + projectName + '/Learning-Mines')
+        let fileNames = JSON.parse(response.message)
+        let newUiObjects = UI.projects.communityPlugins.utilities.plugins.addMissingPluginFiles(node, fileNames, 'Learning-Mines', 'Learning Mine', 'Machine-Learning')
+        
+        return newUiObjects
     }
 
-    function addMissingPluginLearningSystems(node, rootNodes) {
+    async function addMissingPluginLearningSystems(node, rootNodes) {
         let projectName = UI.projects.communityPlugins.utilities.plugins.getProjectName(node)
         if (projectName === "" || projectName === undefined) {
             if (node.payload.parentNode !== undefined) {
@@ -217,14 +229,14 @@ function newPluginsFunctionLibraryPluginsFunctions() {
             }
         }
 
-        UI.projects.communityPlugins.utilities.plugins.getPluginFileNames(projectName, 'Learning-Systems', onNamesArrived)
-
-        function onNamesArrived(fileNames) {
-            UI.projects.communityPlugins.utilities.plugins.addMissingPluginFiles(node, fileNames, 'Learning-Systems', 'Learning System', 'Machine-Learning')
-        }
+        let response = await httpRequestAsync(undefined, 'PluginFileNames/' + projectName + '/Learning-Systems')
+        let fileNames = JSON.parse(response.message)
+        let newUiObjects = UI.projects.communityPlugins.utilities.plugins.addMissingPluginFiles(node, fileNames, 'Learning-Systems', 'Learning System', 'Machine-Learning')
+        
+        return newUiObjects
     }
 
-    function addMissingPluginLearningEngines(node, rootNodes) {
+    async function addMissingPluginLearningEngines(node, rootNodes) {
         let projectName = UI.projects.communityPlugins.utilities.plugins.getProjectName(node)
         if (projectName === "" || projectName === undefined) {
             if (node.payload.parentNode !== undefined) {
@@ -233,14 +245,14 @@ function newPluginsFunctionLibraryPluginsFunctions() {
             }
         }
 
-        UI.projects.communityPlugins.utilities.plugins.getPluginFileNames(projectName, 'Learning-Engines', onNamesArrived)
-
-        function onNamesArrived(fileNames) {
-            UI.projects.communityPlugins.utilities.plugins.addMissingPluginFiles(node, fileNames, 'Learning-Engines', 'Learning Engine', 'Machine-Learning')
-        }
+        let response = await httpRequestAsync(undefined, 'PluginFileNames/' + projectName + '/Learning-Engines')
+        let fileNames = JSON.parse(response.message)
+        let newUiObjects = UI.projects.communityPlugins.utilities.plugins.addMissingPluginFiles(node, fileNames, 'Learning-Engines', 'Learning Engine', 'Machine-Learning')
+        
+        return newUiObjects
     }
 
-    function addMissingPluginTutorials(node, rootNodes) {
+    async function addMissingPluginTutorials(node, rootNodes) {
         let projectName = UI.projects.communityPlugins.utilities.plugins.getProjectName(node)
         if (projectName === "" || projectName === undefined) {
             if (node.payload.parentNode !== undefined) {
@@ -249,14 +261,14 @@ function newPluginsFunctionLibraryPluginsFunctions() {
             }
         }
 
-        UI.projects.communityPlugins.utilities.plugins.getPluginFileNames(projectName, 'Tutorials', onNamesArrived)
-
-        function onNamesArrived(fileNames) {
-            UI.projects.communityPlugins.utilities.plugins.addMissingPluginFiles(node, fileNames, 'Tutorials', 'Tutorial', 'Education')
-        }
+        let response = await httpRequestAsync(undefined, 'PluginFileNames/' + projectName + '/Tutorials')
+        let fileNames = JSON.parse(response.message)
+        let newUiObjects = UI.projects.communityPlugins.utilities.plugins.addMissingPluginFiles(node, fileNames, 'Tutorials', 'Tutorial', 'Education')
+        
+        return newUiObjects
     }
 
-    function addMissingPluginApiMaps(node, rootNodes) {
+    async function addMissingPluginApiMaps(node, rootNodes) {
         let projectName = UI.projects.communityPlugins.utilities.plugins.getProjectName(node)
         if (projectName === "" || projectName === undefined) {
             if (node.payload.parentNode !== undefined) {
@@ -265,11 +277,27 @@ function newPluginsFunctionLibraryPluginsFunctions() {
             }
         }
 
-        UI.projects.communityPlugins.utilities.plugins.getPluginFileNames(projectName, 'API-Maps', onNamesArrived)
+        let response = await httpRequestAsync(undefined, 'PluginFileNames/' + projectName + '/API-Maps')
+        let fileNames = JSON.parse(response.message)
+        let newUiObjects = UI.projects.communityPlugins.utilities.plugins.addMissingPluginFiles(node, fileNames, 'API-Maps', 'API Map', 'Foundations')
+        
+        return newUiObjects
+    }
 
-        function onNamesArrived(fileNames) {
-            UI.projects.communityPlugins.utilities.plugins.addMissingPluginFiles(node, fileNames, 'API-Maps', 'API Map', 'Foundations')
+    async function addMissingPluginP2PNetworks(node, rootNodes) {
+        let projectName = UI.projects.communityPlugins.utilities.plugins.getProjectName(node)
+        if (projectName === "" || projectName === undefined) {
+            if (node.payload.parentNode !== undefined) {
+                node.payload.parentNode.payload.uiObject.setErrorMessage("Config codeName must have the name of the project.")
+                return
+            }
         }
+
+        let response = await httpRequestAsync(undefined, 'PluginFileNames/' + projectName + '/P2P-Networks')
+        let fileNames = JSON.parse(response.message)
+        let newUiObjects = UI.projects.communityPlugins.utilities.plugins.addMissingPluginFiles(node, fileNames, 'P2P-Networks', 'P2P Network', 'Network')
+        
+        return newUiObjects
     }
 
     function enableSavingWithWorkspace(node, rootNodes, callBackFunction) {

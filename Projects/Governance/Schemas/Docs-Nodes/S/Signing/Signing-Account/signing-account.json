@@ -1,0 +1,124 @@
+{
+    "type": "Signing Account",
+    "definition": {
+        "text": "Signing Accounts store unique hash IDs that allow users to idenify themselves on the Superalgos peer to peer Network.",
+        "updated": 1643078472785,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узлы Signing Account хранят уникальные хэш-идентификаторы, которые позволяют пользователям идентифицировать себя в одноранговой сети Superalgos.",
+                "updated": 1645182141983
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1643078714411
+        },
+        {
+            "style": "Text",
+            "text": "It is important that signals, and any other communication, are transmitted securely across the Superalgos Peer to Peer Network. Signing Accounts are the center of security within the Superalgos network.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Важно, чтобы сигналы и любые другие сообщения передавались безопасно в сети Superalgos Peer to Peer. Учетные записи подписи являются центром безопасности в сети Superalgos.",
+                    "updated": 1645182155794
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "In order to achieve this and ensure that the signals received have not been tampered with, every communication across the network is signed using a private key signature. This means that even if the message travels through many hops, the recipient can verify the signature.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы достичь этого и гарантировать, что полученные сигналы не были подделаны, каждое сообщение в сети подписывается с помощью подписи закрытого ключа. Это означает, что даже если сообщение проходит через множество переходов, получатель может проверить подпись.",
+                    "updated": 1645182173504
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "This is true for trading signals and messages, as well as confirming the identity of every app or node connected to the network. Every entity that connects to the network must be identified by its unique signature in order to ensure the entities communicating with each other are truly who they say they are.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это касается торговых сигналов и сообщений, а также подтверждения личности каждого приложения или узла, подключенного к сети. Каждый объект, подключающийся к сети, должен быть идентифицирован своей уникальной подписью, чтобы убедиться, что объекты, общающиеся друг с другом, действительно те, за кого они себя выдают.",
+                    "updated": 1645182198914
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "This identity confirmation happens on two levels. The first is an initial verification between entities before any communication happens. The second is checking the validity of the private key signature every time a signal is received. As mentioned above, each app (like the desktop app, mobile app, server app, platform app, or network node) needs to run with a network identity, which is called a Signing Account.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Подтверждение личности происходит на двух уровнях. Первый - это первоначальная проверка между субъектами до начала любого взаимодействия. Второй - проверка достоверности подписи закрытого ключа при каждом получении сигнала. Как упоминалось выше, каждое приложение (например, настольное приложение, мобильное приложение, серверное приложение, приложение платформы или сетевой узел) должно работать с сетевой идентификацией, которая называется учетной записью подписи.",
+                    "updated": 1645182221089
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "In the case of signals, the sender signs each message using their private key. Then the recipient’s bots look at the Signing Account node held within the sender’s profile to verify that the generated hash is correct.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В случае с сигналами отправитель подписывает каждое сообщение, используя свой закрытый ключ. Затем боты получателя просматривают узел Signing Account, находящийся в профиле отправителя, чтобы убедиться в правильности сгенерированного хэша.",
+                    "updated": 1645182240864
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The Signing Account node is how the private key signature is verified. Within the Config of the Signing account is stored the necessary hashes the recipient uses to check if the incoming message has indeed been signed using the original private key.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узел Signing Account - это то, как проверяется подпись закрытого ключа. В конфигурации подписывающего аккаунта хранятся необходимые хэши, которые получатель использует для проверки того, действительно ли входящее сообщение было подписано с использованием оригинального закрытого ключа.",
+                    "updated": 1645182257097
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The way this information is available to all recipients is that all these Signing Account nodes (along with the other definition nodes for each app or bot) are stored within the governance profile. Since governance profiles are public parts of the Superalgos ecosystem these definitions are accessible for all users of the Platform.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Доступность этой информации для всех получателей заключается в том, что все эти узлы учетной записи подписи (наряду с другими узлами определений для каждого приложения или бота) хранятся в профиле управления. Поскольку профили управления являются публичными частями экосистемы Superalgos, эти определения доступны всем пользователям платформы.",
+                    "updated": 1645182279495
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Signing accounts are very specific. Each app, network node and Social Trading Bots (which are collections of signals) has its own Signing Account node. This means that your profile identity has its own private key. Each app has its own private key. Each Social Trading Bot has its own Private key, etc. This makes it possible to only store the private keys needed by a particular device.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Подписные аккаунты очень специфичны. Каждое приложение, узел сети и социальные торговые боты (которые представляют собой коллекции сигналов) имеют свой узел учетной записи. Это означает, что идентификатор вашего профиля имеет свой собственный закрытый ключ. Каждое приложение имеет свой собственный закрытый ключ. Каждый социальный торговый бот имеет свой собственный закрытый ключ и т.д. Это позволяет хранить только те закрытые ключи, которые необходимы конкретному устройству.",
+                    "updated": 1645182325686
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "For example, say you are running a trading bot using a raspberry pi. That pi will need to have a task server signing account set up so that the pi can identify itself on the Superalgos network. Using this identity the pi can then send and receive signals over the network. Only the private key for the task server needs to be stored on that machine. Meaning that there is absolutely no possibility of your main governance private key or other private keys being compromised. Each machine only has access to what it needs and nothing more. This is especially important in protecting the main private key of a governance profile since that is the key which holds access to that profile's token holdings.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Например, допустим, вы запускаете торгового бота с помощью Raspberry Pi. На этом Pi должна быть установлена учетная запись сервера задач, чтобы он мог идентифицировать себя в сети Superalgos. Используя эту идентификацию, Pi может отправлять и получать сигналы по сети. Только закрытый ключ для сервера задач должен храниться на этой машине. Это означает, что нет абсолютно никакой возможности компрометации закрытого ключа главного управления или других закрытых ключей. Каждая машина имеет доступ только к тому, что ей необходимо, и не более того. Это особенно важно для защиты главного закрытого ключа профиля управления, поскольку именно этот ключ обеспечивает доступ к токенам этого профиля.",
+                    "updated": 1645182387828
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

@@ -31,6 +31,16 @@
                 "language": "TR",
                 "text": "Ana düğüm açısı ayarını iptal ettiğinizde , düğüm ebeveynine ve kardeşlerine göre herhangi bir açıyı almakta serbesttir!",
                 "updated": 1636747810405
+            },
+            {
+                "language": "RU",
+                "text": "Когда вы выбираете опцию отмены настройки Angle to Parent, узел может принимать любой угол относительно своего родителя и родственников!",
+                "updated": 1640866365932
+            },
+            {
+                "language": "ID",
+                "text": "Pada saat memilih opsi untuk membatalkan pengaturan Angle to Parent, node sendiri sangat mudah untuk diatur tergantung parent dan saudaranya!",
+                "updated": 1643473689963
             }
         ]
     },
@@ -61,6 +71,16 @@
                     "language": "TR",
                     "text": "İşlem Parametreleri ( Trading Parameters ) düğümünün menüsüne girin, düğüm açısı ayarını iptal etme seçeneğini seçin ve düğümü herhangi bir yöne hareket ettirin!",
                     "updated": 1636747904764
+                },
+                {
+                    "language": "RU",
+                    "text": "Войдите в меню узла Trading Parameters, выберите опцию отмены настройки Angle to Parent и переместите узел в любом направлении!",
+                    "updated": 1640866392715
+                },
+                {
+                    "language": "ID",
+                    "text": "Masuk ke menu node Trading Parameters, pilih opsi untuk membatalkan pengaturan Angle to Parent, dan pindahkan node ke segala arah!",
+                    "updated": 1643434201967
                 }
             ]
         },
@@ -90,6 +110,16 @@
                     "language": "TR",
                     "text": "Gördüğünüz gibi, düğüm bıraktığınız yerde kalıyor ve ebeveynine bağlanan noktalı çizgi sarıya dönüyor. Hem ana düğüme olan açının hem de uzaklığın keyfi hale geldiğine dikkat edin.",
                     "updated": 1636747945735
+                },
+                {
+                    "language": "RU",
+                    "text": "Как видите, узел остается там, где его оставили, а пунктирная линия, соединяющая его с родительским узлом, становится желтой. Обратите внимание, что и угол к родительскому узлу, и расстояние стали произвольными.",
+                    "updated": 1640866416691
+                },
+                {
+                    "language": "ID",
+                    "text": "Seperti yang kamu lihat, node bertahan saat kamu meninggalkannya, dan garis putus menjadi kuning yang terkoneksi dengan parent-nya. Perhatikan kedua sisi node parent dan jarak menjadi leluasa.",
+                    "updated": 1643352704204
                 }
             ]
         }

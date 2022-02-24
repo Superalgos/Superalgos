@@ -1,0 +1,93 @@
+{
+    "type": "Liquidity Program",
+    "definition": {
+        "text": "The Liquidity Program Node claims Governance Rewards for liquidity provided to the Superalgos Token. Spawn one Liquidity Program Node for each asset you have paired with the Superalgos Token at a supported exchange.",
+        "updated": 1644173825884,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Die Liquidity Program Node beansprucht Governance Rewards für die Bereitstellung von Liquidität für das Superalgos Token. Erzeugen Sie eine Liquidity Program Node für jedes Asset, das Sie auf einer unterstützten Börse in einem Liquidity Pool mit dem Superalgos Token halten.",
+                "updated": 1644743181334
+            },
+            {
+                "language": "RU",
+                "text": "Узел Liquidity Program претендует на вознаграждение за управление ликвидностью, предоставленной токену Superalgos. Создайте один узел Liquidity Program Node для каждого актива, сопряженного с токеном Superalgos на поддерживаемой бирже.\n",
+                "updated": 1645181273865
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The Liquidity Program offers Governance Rewards for liquidity pools on supported decentralized exchanges where the Superalgos Token is paired with one of these assets:",
+            "updated": 1644172888405,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Im Liquidity Program werden Governance Rewards gewährt, wenn sich das Superalgos Token auf einer unterstützten Börse in einem Liquidity Pool mit einem der folgenden Assets befindet:",
+                    "updated": 1644743312408
+                },
+                {
+                    "language": "RU",
+                    "text": "Программа ликвидности предлагает вознаграждения за управление пулами ликвидности на поддерживаемых децентрализованных биржах, где токен Superalgos работает в паре с одним из этих активов:",
+                    "updated": 1645181287253
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "BTCB"
+        },
+        {
+            "style": "List",
+            "text": "BNB"
+        },
+        {
+            "style": "List",
+            "text": "BUSD"
+        },
+        {
+            "style": "List",
+            "text": "ETH"
+        },
+        {
+            "style": "Callout",
+            "text": "Spawn one Liquidity Program Node for each asset you have pooled with the Superalgos Token. Click \"Configure\" and enter the code of the paired asset to the node configuration.",
+            "updated": 1644173239186,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Fügen Sie eine Liquidity Program Node für jedes Asset hinzu, das Sie in einem Liquidity Pool mit dem Superalgos Token halten. Klicken Sie dann auf \"Configure\" und geben Sie das Kürzel des Assets ein, das sich mit dem Superalgos Token im Liquidity Pool befindet.",
+                    "updated": 1644743545534
+                },
+                {
+                    "language": "RU",
+                    "text": "Создайте по одному узлу Liquidity Program Node для каждого актива, объединенного с токеном Superalgos. Нажмите \"Configure\" и введите код парного актива в конфигурацию узла.",
+                    "updated": 1645181304223
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "If you hold the same liquidity pool on multiple supported exchanges, do not add additional nodes per exchange. The balances of all supported exchanges are automatically summarized under the asset.",
+            "updated": 1644173429132,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie denselben Liquidity Pool auf mehreren unterstützten Börsen halten, fügen Sie keine zusätzlichen Liquidity Program Nodes je Börse hinzu. Guthaben aller unterstützten Börsen werden automatisch unter dem Asset aufsummiert.",
+                    "updated": 1644743657782
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы держите один и тот же пул ликвидности на нескольких поддерживаемых биржах, не добавляйте дополнительные узлы на каждую биржу. Остатки на всех поддерживаемых биржах автоматически суммируются под активом.",
+                    "updated": 1645181318536
+                }
+            ]
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Liquidity Programs->Supported Exchanges",
+            "updated": 1644173703312
+        }
+    ]
+}

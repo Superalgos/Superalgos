@@ -6,7 +6,6 @@ import reducers from "./store";
 import Root from "./components/Root";
 
 
-
 ReactDOM.render(
     <React.StrictMode>
         <Provider store={reducers}>

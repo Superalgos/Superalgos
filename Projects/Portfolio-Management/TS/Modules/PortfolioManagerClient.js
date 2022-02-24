@@ -1,6 +1,8 @@
 exports.newPortfolioManagementModulesPortfolioManagerClient = function (processIndex) {
     /*
-    This object represents a proxy of the Profile Manager. It is used to send 
+    This code runs inside the Trading Bots. 
+
+    This object represents a proxy of the Portfolio Manager. It is used to send 
     requests to the Event and Formula Managers and receive their answers.
     */
     let thisObject = {
@@ -41,13 +43,14 @@ exports.newPortfolioManagementModulesPortfolioManagerClient = function (processI
         return await portfolioManagerEventsClient.sendMessage(message, 5000)
     }
 
-    async function candleExit(candle) {
+    async function candleExit(candle, tradingEngine) {
         let message = {
             type: "Check Out Candle",
             candle: {
                 begin: candle.begin,
                 end: candle.end
-            }
+            },
+            tradingEngine: tradingEngine
         }
         return await portfolioManagerEventsClient.sendMessage(message)
     }

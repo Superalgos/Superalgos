@@ -1,7 +1,14 @@
 {
     "type": "Template Script",
     "definition": {
-        "text": "The template script node holds the definitions concerned with the scope of a particular structure of nodes."
+        "text": "The template script node holds the definitions concerned with the scope of a particular structure of nodes.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Template Script (\"Шаблонный скрипт\") содержит определения, относящиеся к области действия определенной структуры узлов.",
+                "updated": 1645179013804
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,11 +17,25 @@
         },
         {
             "style": "Text",
-            "text": "As such, a template script features all the components required to deal with such scope only."
+            "text": "As such, a template script features all the components required to deal with such scope only.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Таким образом, шаблонный скрипт содержит все компоненты, необходимые только для работы с такой областью.",
+                    "updated": 1645178975536
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In the particular Masters super script implementation, each template script in the Setup Markets master script features a structure of nodes to be created in a specific location, and the associated JavaScript code deals with implementing such structure of nodes and establishing the corresponding references."
+            "text": "In the particular Masters super script implementation, each template script in the Setup Markets master script features a structure of nodes to be created in a specific location, and the associated JavaScript code deals with implementing such structure of nodes and establishing the corresponding references.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В конкретной реализации суперскрипта Masters каждый шаблонный сценарий в мастер-скрипте Setup Markets содержит структуру узлов, которые должны быть созданы в определенном месте, а соответствующий код JavaScript занимается реализацией такой структуры узлов и созданием соответствующих ссылок.",
+                    "updated": 1645179039041
+                }
+            ]
         }
     ]
 }

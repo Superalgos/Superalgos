@@ -7,16 +7,67 @@
             "project": "Foundations",
             "name": ""
         },
-        "text": "This is a simple implementation of a web sockets server. It essentially allows the UI or any of the other services to communicate with the Events Server via WS."
+        "text": "This is a simple implementation of a web sockets server. It essentially allows the UI or any of the other services to communicate with the Events Server via WS.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Dies ist eine einfache Implementierung eines Web-Sockets-Servers. Er ermöglicht es der Benutzeroberfläche oder anderen Diensten, über WS mit dem Eventserver zu kommunizieren.",
+                "updated": 1641729694113
+            },
+            {
+                "language": "RU",
+                "text": "Это простая реализация сервера веб-сокетов. Он позволяет пользовательскому интерфейсу или любой другой службе взаимодействовать с сервером событий (Events Server) через WS.",
+                "updated": 1640929765459
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu basit bir web soket sunucusu uygulamasıdır. Kullanıcı arabiriminin veya diğer herhangi bir hizmetin, WS aracılığıyla olay sunucusu (Events Server) ile etkileşime girmesine olanak tanır.",
+                "updated": 1643027151926
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The system does not allow different processes to talk to each other via WS. All they can do is talk to the Events Server to subscribe to events or to emit events."
+            "text": "The system does not allow different processes to talk to each other via WS. All they can do is talk to the Events Server to subscribe to events or to emit events.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das System erlaubt es den verschiedenen Prozessen nicht, über WS miteinander zu kommunizieren. Sie können lediglich mit dem Eventserver kommunizieren, um Ereignisse zu abonnieren oder auszusenden.",
+                    "updated": 1641729703046
+                },
+                {
+                    "language": "RU",
+                    "text": "Система не позволяет различным процессам общаться друг с другом через WS. Все, что они могут делать, это общаться с сервером Events Server для подписки на события или для отправки событий.",
+                    "updated": 1640929821617
+                },
+                {
+                    "language": "TR",
+                    "text": "Sistem, farklı süreçlerin WS üzerinden birbirleriyle iletişim kurmasına izin vermiyor. Yapabilecekleri tek şey, olaylara abone olmak veya olaylar göndermek için Olay Sunucusu ile konuşmaktır.",
+                    "updated": 1643027184630
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "The Web Socket Server enables this indirect communication mechanism between all processes and the UI running on a single machine, as well as communication between processes running on different machines."
+            "text": "The Web Socket Server enables this indirect communication mechanism between all processes and the UI running on a single machine, as well as communication between processes running on different machines.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Web Socket Server ermöglicht diesen indirekten Kommunikationsmechanismus zwischen allen Prozessen und der Benutzeroberfläche, die auf einem einzigen Rechner laufen, sowie die Kommunikation zwischen Prozessen, die auf verschiedenen Rechnern laufen.",
+                    "updated": 1641729708873
+                },
+                {
+                    "language": "RU",
+                    "text": "Web Socket Server обеспечивает этот механизм непрямой связи между всеми процессами и пользовательским интерфейсом, запущенными на одной машине, а также связь между процессами, запущенными на разных машинах.",
+                    "updated": 1640929843569
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Web Soket Sunucusu, aynı makinede çalışan tüm süreçler ve kullanıcı arayüzü arasındaki dolaylı iletişimin yanı sıra farklı makinelerde çalışan süreçler arasındaki iletişim için bu mekanizmayı sağlar.",
+                    "updated": 1643027222979
+                }
+            ]
         }
     ]
 }

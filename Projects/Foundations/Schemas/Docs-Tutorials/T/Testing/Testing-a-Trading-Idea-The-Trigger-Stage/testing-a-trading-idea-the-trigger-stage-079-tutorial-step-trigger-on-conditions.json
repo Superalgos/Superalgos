@@ -13,6 +13,16 @@
                 "language": "DE",
                 "text": "Die Trigger-On-Bedingungen erfordern, dass die Richtung des Unterkanals abwärts gerichtet ist und die Steigung an der aktuellen 24-Stunden-Kerze nicht seitlich ist!",
                 "updated": 1639391535632
+            },
+            {
+                "language": "TR",
+                "text": "Tetikleme koşulları, alt kanalın yönünün aşağı olmasını ve mevcut 24 saatlik mumdaki eğimin yan olmamasını gerektirir!",
+                "updated": 1641666063759
+            },
+            {
+                "language": "RU",
+                "text": "Условия срабатывания требуют, чтобы направление субканала было Down, а наклон не был Side на текущей свече 24H!",
+                "updated": 1642664058898
             }
         ]
     },
@@ -25,6 +35,16 @@
                     "language": "DE",
                     "text": "Wir betrachten die 1H-Kerzen zwischen 9 und 14 Uhr am 28. Februar. Das sind die Kerzen, bei denen die Strategie auslöst und die Position einnimmt. Prüfen Sie selbst!",
                     "updated": 1639391542025
+                },
+                {
+                    "language": "TR",
+                    "text": "28 Şubat'ta sabah 9 ile akşam 2 arasında 1H mumlarına bakıyoruz. Bunlar stratejinin tetiklendiği ve pozisyon aldığı mumlardır. Sizde kontrol edin!",
+                    "updated": 1641666075509
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы рассматриваем свечи 1H между 9 и 14 часами, 28 февраля. Это свечи, на которых срабатывает стратегия и занимает позицию. Проверьте сами!",
+                    "updated": 1642664080825
                 }
             ]
         },
@@ -36,6 +56,16 @@
                     "language": "DE",
                     "text": "Was ist die aktuelle Tageskerze? Denken Sie daran, was Sie vorhin über die Bewertung von geschlossenen Kerzen gelernt haben!",
                     "updated": 1639391550506
+                },
+                {
+                    "language": "TR",
+                    "text": "Mevcut gün mumu nedir? Kapalı mumları derecelendirme hakkında daha önce öğrendiklerinizi hatırlayın!",
+                    "updated": 1641666085346
+                },
+                {
+                    "language": "RU",
+                    "text": "Какова текущая дневная свеча? Вспомните, что вы узнали ранее об оценке закрытых свечей!",
+                    "updated": 1642664107552
                 }
             ]
         },
@@ -47,6 +77,16 @@
                     "language": "DE",
                     "text": "Die aktuelle Tageskerze ist diejenige, die zuletzt geschlossen wurde: die Kerze vom 27. Februar, denn die Kerze vom 28. Februar hat noch nicht geschlossen! Gehen Sie zum 24-Stunden-Chart und bestätigen Sie, dass der Unterkanal am 27. Februar nach unten und nicht zur Seite zeigt!",
                     "updated": 1639391557611
+                },
+                {
+                    "language": "TR",
+                    "text": "Günün mevcut mumu en son kapatılan mumdur: 27 Şubat mumu, çünkü 28 Şubat mumu henüz kapanmamıştır! 24 saatlik grafiğe gidin ve 27 Şubat'ta alt kanalın yan tarafı değil aşağıyı gösterdiğini onaylayın!",
+                    "updated": 1641666096125
+                },
+                {
+                    "language": "RU",
+                    "text": "Текущей дневной свечой является та, которая закрылась последней: свеча 27 февраля, потому что свеча 28 февраля еще не закрылась! Перейдите на график 24H и убедитесь, что 27 февраля субканал был Down, а не Side!",
+                    "updated": 1642664144104
                 }
             ]
         }

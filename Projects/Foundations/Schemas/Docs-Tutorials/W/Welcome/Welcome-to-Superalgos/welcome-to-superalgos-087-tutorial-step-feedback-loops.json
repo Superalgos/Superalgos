@@ -35,6 +35,11 @@
                 "language": "ID",
                 "text": "Mari kita lihat contoh lain untuk membiarkan constant feedback loop dipahami sebelum kita melanjutkan!",
                 "updated": 1640574155481
+            },
+            {
+                "language": "RU",
+                "text": "Давайте рассмотрим еще один пример, чтобы понятие постоянного цикла обратной связи стало понятнее, прежде чем мы двинемся дальше!",
+                "updated": 1642769647449
             }
         ]
     },
@@ -69,6 +74,11 @@
                     "language": "ID",
                     "text": "Ini adalah data structure di mana informasi tentang limit buy orders disimpan.",
                     "updated": 1640574196992
+                },
+                {
+                    "language": "RU",
+                    "text": "Это структура данных, в которой хранится информация о лимитных ордерах на покупку.",
+                    "updated": 1642769659606
                 }
             ]
         },
@@ -102,6 +112,11 @@
                     "language": "ID",
                     "text": "Pergi ke Trading Engine layers manager di charts (penghitungan kedua dari kiri). Scroll ke bawah dan nyalakan Limit Buy Orders layer. Sekarang geser mouse pointer ke beberapa buy orders dan periksa efeknya pada node pada design space.",
                     "updated": 1640574308968
+                },
+                {
+                    "language": "RU",
+                    "text": "Перейдите в менеджер слоев Trading Engine на графиках (второй счетчик слева). Прокрутите вниз и включите слой Limit Buy Orders. Теперь проведите указателем мыши по нескольким ордерам на покупку и проверьте эффект на узлах в пространстве проектирования.",
+                    "updated": 1642769679451
                 }
             ]
         },
@@ -135,6 +150,11 @@
                     "language": "ID",
                     "text": "Bisakah kamu membayangkan implikasi dari memiliki tingkat kontrol ini atas data yang dikelola oleh trading bot?",
                     "updated": 1640574395517
+                },
+                {
+                    "language": "RU",
+                    "text": "Можете ли вы представить себе последствия такого уровня контроля над данными, которыми управляет торговый бот?",
+                    "updated": 1642769694731
                 }
             ]
         }

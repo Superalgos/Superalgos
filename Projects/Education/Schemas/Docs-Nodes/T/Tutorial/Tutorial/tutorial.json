@@ -25,6 +25,11 @@
                 "language": "TR",
                 "text": "Öğretici hiyerarşisi, bir öğretici oluşturan Eğitim Konusu ( Tutorial Topic ) ve Eğitim Adımı  ( Tutorial Step ) düğümlerinin ücretsiz bir düzenlemesini içerir. Ana eğitim düğümü de dahil olmak üzere hiyerarşideki her düğüm, hem Tasarım Alanının ( Design Space ) hem de Grafik Alanının ( Charting Space ) üzerine bindirilebilecek bir HTML sayfasını temsil eder.",
                 "updated": 1639118504076
+            },
+            {
+                "language": "EL",
+                "text": "Η ιεραρχία χαρακτηριστικών του οδηγού εκμάθησης περιλαμβάνει μια ελεύθερη διάταξη των κόμβων του Tutorial Topic (Θέμα Οδηγού Εκμάθησης) και του Tutorial Step (Βήματος Εκμάθησης) που συνθέτουν τον Οδηγό Εκμάθησης. Κάθε κόμβος στην ιεραρχία, συμπεριλαμβανομένου του γονικού εκπαιδευτικού κόμβου, αντιπροσωπεύει μια σελίδα HTML που μπορεί να επικαλύπτεται πάνω από το Design Space (Χώρο Σχεδίασης) και το Charting Space (Χώρο Χαρτογράφησης).",
+                "updated": 1641829121689
             }
         ]
     },
@@ -53,6 +58,11 @@
                     "language": "ES",
                     "text": "Los nodos de la jerarquía se pueden organizar libremente, lo que significa que puede haber tantos temas de tutoriales y pasos de tutoriales como se desee. Los temas del tutorial pueden contener pasos del tutorial, pero también otros temas del tutorial. Esto permite que los temas anidados se utilicen como subtemas.",
                     "updated": 1640105879962
+                },
+                {
+                    "language": "EL",
+                    "text": "Οι κόμβοι στην ιεραρχία μπορούν να τακτοποιηθούν ελεύθερα, πράγμα που σημαίνει ότι μπορεί να υπάρχουν όσα θέματα και βήματα εκμάθησης επιθυμείτε. Τα θέματα εκμάθησης μπορεί να περιέχουν βήματα εκμάθησης αλλά και άλλα θέματα εκμάθησης. Αυτό επιτρέπει στα ένθετα θέματα να χρησιμοποιούνται ως υποθέματα.",
+                    "updated": 1641828948138
                 }
             ]
         },
@@ -76,6 +86,11 @@
                     "language": "ES",
                     "text": "El sistema, como de costumbre, evalúa la jerarquía en el sentido de las agujas del reloj comenzando desde el nodo a la derecha del nodo Tutorial principal, y va al nodo más profundo de cada rama antes de pasar al siguiente.",
                     "updated": 1640105915190
+                },
+                {
+                    "language": "EL",
+                    "text": "Το σύστημα – ως συνήθως – αξιολογεί την ιεραρχία κατά τη φορά των δεικτών του ρολογιού ξεκινώντας από τον κόμβο στα δεξιά του γονικού κόμβου Εκμάθησης και πηγαίνει στον βαθύτερο κόμβο κάθε κλάδου πριν μεταβεί στον επόμενο.",
+                    "updated": 1641828970425
                 }
             ]
         },
@@ -99,6 +114,11 @@
                     "language": "ES",
                     "text": "En términos generales, todos los tipos de nodos se comportan de manera similar en el sentido de que cada nodo, independientemente del tipo preciso, representa un paso tutorial en sí mismo. Es decir, todos los nodos, incluido el nodo Tutorial de nivel superior, el nodo Tutorial Topic ( tópico del tutorial) y el nodo Tutorial Step ( del paso del tutorial) puede mostrar una página de contenido como un paso del tutorial. Las diferencias sutiles se señalarán cuando sea apropiado.",
                     "updated": 1640106060056
+                },
+                {
+                    "language": "EL",
+                    "text": "Σε γενικές γραμμές, όλοι οι τύποι κόμβων συμπεριφέρονται παρόμοια με την έννοια ότι κάθε κόμβος, ανεξάρτητα από τον ακριβή τύπο, αντιπροσωπεύει από μόνος του ένα εκπαιδευτικό βήμα. Δηλαδή, όλοι οι κόμβοι, συμπεριλαμβανομένου του κόμβου Εκμάθησης ανώτατου επιπέδου, του Tutorial Topic (Θέμα Οδηγού Εκμάθησης) και του Tutorial Step (Βήματος Εκμάθησης), ενδέχεται να εμφανίζουν μια σελίδα περιεχομένου ως βήμα στον οδηγό εκμάθησης. Οι λεπτές διαφορές επισημαίνονται όπου χρειάζεται.",
+                    "updated": 1641829010230
                 }
             ]
         },
@@ -122,6 +142,11 @@
                     "language": "ES",
                     "text": "La similitud clave entre todos los tipos de nodos en la jerarquía es que todos ellos pueden extraer contenido de la colección de páginas del tutorial en los Documentos. Es decir, cada nodo en la jerarquía apunta a una Página de Documentos, y es esa página en Documentos la que presenta el contenido que se muestra para el paso dado. El puntero se especifica en la configuración de cada nodo (ver la propiedad docs).",
                     "updated": 1640106138431
+                },
+                {
+                    "language": "EL",
+                    "text": "Η βασική ομοιότητα μεταξύ όλων των τύπων κόμβων στην ιεραρχία είναι ότι όλοι μπορούν να αντλούν περιεχόμενο από τη συλλογή σελίδων του Docs Page (Σελίδα Εγγράφων). Δηλαδή, κάθε κόμβος στην ιεραρχία δείχνει σε μια Σελίδα Εγγράφων και είναι αυτή η σελίδα στα Έγγραφα που παρουσιάζει το περιεχόμενο που εμφανίζεται για το συγκεκριμένο βήμα. Ο δείκτης καθορίζεται στη διαμόρφωση κάθε κόμβου (δείτε την ιδιότητα εγγράφων).",
+                    "updated": 1641829040767
                 }
             ]
         },
@@ -555,7 +580,7 @@
             "translations": [
                 {
                     "language": "RU",
-                    "text": "\"slider\": \"toBottom\" // Открывает область графиков",
+                    "text": "\"slider\": \"toBottom\" // Открывает пространство графиков",
                     "updated": 1638342112119
                 }
             ]

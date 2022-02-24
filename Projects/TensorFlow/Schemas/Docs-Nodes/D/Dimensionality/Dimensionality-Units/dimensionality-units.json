@@ -9,6 +9,11 @@
                 "text": "Positive integer, dimensionality of the output space. In other words, the amount of neurons at the Artificial Neural Network layer.",
                 "updated": 1613805816485,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Положительное целое число, размерность выходного пространства.",
+                "updated": 1645247418904
             }
         ]
     },
@@ -16,7 +21,14 @@
         {
             "style": "Subtitle",
             "text": "Possible Values",
-            "updated": 1613243500472
+            "updated": 1613243500472,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Возможные значения",
+                    "updated": 1645247424771
+                }
+            ]
         },
         {
             "style": "Javascript",

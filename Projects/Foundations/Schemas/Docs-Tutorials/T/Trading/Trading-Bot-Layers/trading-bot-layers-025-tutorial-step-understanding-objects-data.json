@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Understanding Objects Data",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "bullet-warning"
+            "name": "Bullet/bullet-warning",
+            "project": "Foundations"
         },
         "text": "The data available in Simulation Objects represent the state of affairs at the moment the object is closed, or at the current time if it hasn't closed yet!",
         "translations": [
@@ -18,6 +18,11 @@
                 "language": "RU",
                 "text": "Данные, доступные в объектах Simulation Objects, представляют собой состояние дел на момент закрытия объекта или в текущий момент времени, если он еще не закрылся!",
                 "updated": 1640630285533
+            },
+            {
+                "language": "TR",
+                "text": "Simülasyon Nesnelerinde bulunan veriler, nesnenin kapalı olduğu andaki veya henüz kapanmamışsa o andaki işlerin durumunu temsil eder!",
+                "updated": 1642503670183
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "RU",
                     "text": "В отличие от этого, слои в менеджерах слоев Trading Engine и Trading System представляют значение узлов на свече, о которой сигнализирует указатель мыши.",
                     "updated": 1640630315927
+                },
+                {
+                    "language": "TR",
+                    "text": "Buna karşılık, Trading Engine ve Trading System katman yöneticilerindeki katmanlar, fare işaretçisi tarafından işaret edilen mumdaki düğümlerin değerini temsil eder.",
+                    "updated": 1642503860156
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "RU",
                     "text": "Это фундаментальное различие, которое вы должны понимать, поскольку в противном случае вы можете неправильно интерпретировать информацию, представленную объектами Simulation Objects. Я объясню наиболее важные последствия в следующих нескольких шагах!",
                     "updated": 1640630343420
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu, anlamanız gereken temel bir farktır, aksi takdirde Simulation Objects tarafından sunulan bilgileri yanlış yorumlayabilirsiniz. Önümüzdeki birkaç adımda en önemli sonuçları açıklayacağım!",
+                    "updated": 1642504035985
                 }
             ]
         }

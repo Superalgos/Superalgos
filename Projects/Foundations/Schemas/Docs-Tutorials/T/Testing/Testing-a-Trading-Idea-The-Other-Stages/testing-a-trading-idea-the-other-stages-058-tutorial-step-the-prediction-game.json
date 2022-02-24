@@ -13,6 +13,16 @@
                 "language": "DE",
                 "text": "Wir gehen davon aus, dass die Idee mindestens zweimal pro Monat gehandelt wird, mit einer Trefferquote von 50 %. Das war unsere Vorhersage! Wie haben wir abgeschnitten?",
                 "updated": 1639418929482
+            },
+            {
+                "language": "TR",
+                "text": "Fikrin, %50 isabet oranıyla ayda en az iki kez alınıp satılacağını varsayıyoruz. Öngörümüz buydu! Nasıl yaptık?",
+                "updated": 1641806536883
+            },
+            {
+                "language": "RU",
+                "text": "Мы ожидаем, что эта идея будет торговаться не менее двух раз в месяц с коэффициентом попадания 50%. Таков был наш прогноз! Что мы сделали?",
+                "updated": 1642945549117
             }
         ]
     },
@@ -25,6 +35,16 @@
                     "language": "DE",
                     "text": "Trading frequency: Im Testzeitraum gab es weniger als zwei Monate mit Abwärtstrends und insgesamt 9 Trades. Was die Handelshäufigkeit angeht, hat die Idee den Test bestanden.",
                     "updated": 1639418937652
+                },
+                {
+                    "language": "TR",
+                    "text": "Alım satım sıklığı(Trading frequency): Test döneminde iki aydan az düşüş trendi ve toplam 9 alım satım vardı. Alım satım sıklığına gelince, fikir testi geçti.",
+                    "updated": 1641806728029
+                },
+                {
+                    "language": "RU",
+                    "text": "Частота торговли: В тестируемом периоде нисходящих трендов было менее двух месяцев и всего 9 сделок. С точки зрения частоты торговли идея прошла тест.",
+                    "updated": 1642945563090
                 }
             ]
         },
@@ -36,6 +56,16 @@
                     "language": "DE",
                     "text": "Trefferquote (Hit ratio): Wir haben insgesamt 9 Trades, mit 2 Treffern und 7 Fehlschlägen, genau genommen. Das ist eine Trefferquote von 22 %. Streng genommen hat die Idee den Test also nicht bestanden.",
                     "updated": 1639418944474
+                },
+                {
+                    "language": "TR",
+                    "text": "İsabet oranı(Hit ratio): Kesin olarak konuşursak, 2 isabet ve 7 başarısızlık ile toplam 9 işlemimiz var. Bu %22'lik bir isabet oranıdır. Açıkçası, fikir testi geçemedi.",
+                    "updated": 1641806787760
+                },
+                {
+                    "language": "RU",
+                    "text": "Коэффициент попадания: Всего у нас 9 сделок, из них 2 попадания и 7 провалов, строго говоря. Это 22% попадания. Строго говоря, идея не прошла тест.",
+                    "updated": 1642945574741
                 }
             ]
         },
@@ -47,6 +77,16 @@
                     "language": "DE",
                     "text": "Gibt es Raum für Nuancen in unserer Analyse? Sollten wir über die harten Zahlen hinwegsehen?",
                     "updated": 1639418952754
+                },
+                {
+                    "language": "TR",
+                    "text": "Analizimizde ince ayrıntılara yer var mı?",
+                    "updated": 1641807439607
+                },
+                {
+                    "language": "RU",
+                    "text": "Есть ли место для нюансов в нашем анализе? Должны ли мы смотреть на цифры сквозь пальцы?",
+                    "updated": 1642945587153
                 }
             ]
         }

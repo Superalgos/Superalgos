@@ -13,6 +13,16 @@
                 "language": "DE",
                 "text": "Das System weiß nicht, welche Anordnung von Ausführungsalgorithmen und Aufträgen Sie erstellen werden!",
                 "updated": 1639399241608
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Sistem, hangi yürütme algoritmalarını ve emirlerini oluşturacağınızı bilmiyor!",
+                "updated": 1641747148087
+            },
+            {
+                "language": "RU",
+                "text": "Система не знает, какое распределение алгоритмов исполнения и ордеров вы собираетесь создать!",
+                "updated": 1642941509760
             }
         ]
     },
@@ -25,6 +35,16 @@
                     "language": "DE",
                     "text": "Aus diesem Grund weiß es auch nicht, welche Art von Datenstruktur Sie in der Handelsmaschine benötigen, um alle Ihre Aufträge zu verwalten!",
                     "updated": 1639399244616
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu nedenle, tüm siparişlerinizi yönetmek için ticaret makinesinde ne tür bir veri yapısına ihtiyacınız olduğunu bilmiyor!",
+                    "updated": 1641747159223
+                },
+                {
+                    "language": "RU",
+                    "text": "По этой причине он не знает, какая структура данных понадобится в торговом движке для отслеживания всех ваших ордеров!",
+                    "updated": 1642941528607
                 }
             ]
         },
@@ -36,6 +56,16 @@
                     "language": "DE",
                     "text": "Zur Zeit ist ein manueller Prozess erforderlich, um Superalgos mitzuteilen, welche Aufträge Sie im Auge behalten müssen und wo die Informationen gespeichert werden sollen! Und das ist es, was wir als nächstes tun müssen!",
                     "updated": 1639399255224
+                },
+                {
+                    "language": "TR",
+                    "text": "Şu anda Superalgos'a hangi işleri takip edeceğini ve bilgileri nerede tutacağını söylemek için manuel bir süreç gerekiyor! Ve bundan sonra yapmamız gereken şey bu!",
+                    "updated": 1641747171662
+                },
+                {
+                    "language": "RU",
+                    "text": "На данный момент существует ручной процесс, в ходе которого необходимо сообщить Superalgos, какие ордера необходимо отслеживать, и где должна храниться информация! И это то, что мы должны сделать дальше!",
+                    "updated": 1642941553893
                 }
             ]
         },
@@ -47,6 +77,16 @@
                     "language": "DE",
                     "text": "Keine Sorge, das ist keine große Sache! Wie so oft dauert es länger, es zu erklären, als es zu tun!",
                     "updated": 1639399261655
+                },
+                {
+                    "language": "TR",
+                    "text": "Endişelenme, önemli bir şey değil! Çoğu zaman olduğu gibi, açıklamak anlatmaktan daha uzun sürer!",
+                    "updated": 1641747182802
+                },
+                {
+                    "language": "RU",
+                    "text": "Не волнуйтесь, ничего страшного! Как это часто бывает, объяснять дольше, чем делать!",
+                    "updated": 1642941566165
                 }
             ]
         }

@@ -1,6 +1,6 @@
 {
   "name": "superalgos",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Superalgos is a free, open-source crypto trading bot",
   "license": "Apache License 2.0",
   "homepage": "https://www.superalgos.org/",
@@ -16,8 +16,12 @@
     "postinstall": "electron-builder install-app-deps",
     "startNetwork": "node network",
     "startDesktop": "node desktop",
-    "installDesktopReact" : "cd ./DesktopReact && npm install",
-    "startDesktopReact": "start npm run startNetwork && cd ./DesktopReact && start npm run startDesktopReactBackend && start npm run startDesktopReactFrontend"
+    "installDesktopReact": "cd ./DesktopReact && npm ci",
+    "startLocalDesktopReact": "start npm run startNetwork && cd ./DesktopReact && start npm run startDesktopReactBackend && start npm run startDesktopReactFrontend",
+    "startDesktopReact": "cd ./DesktopReact && start npm run startDesktopReactBackend && start npm run startDesktopReactFrontend",
+    "clearJest": "./node_modules/.bin/jest --clearCache",
+    "test": "./node_modules/.bin/jest",
+    "test:watch": "./node_modules/.bin/jest --watch"
   },
   "dependencies": {
     "@discordjs/rest": "^0.1.0-canary.0",
@@ -34,10 +38,11 @@
     "electron-updater": "^4.6.1",
     "ethereumjs-common": "^1.5.2",
     "ethereumjs-tx": "^2.1.2",
-    "ethers": "^5.5.1",
+    "ethers": "^5.5.3",
     "http": "0.0.1-security",
     "https": "^1.0.0",
     "ip": "^1.1.5",
+    "jest": "^27.5.0",
     "lookpath": "^1.2.2",
     "node-fetch": "^2.6.6",
     "open": "^8.4.0",
@@ -56,5 +61,20 @@
   "devDependencies": {
     "electron": "^15.1.0",
     "electron-builder": "^22.14.5"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "verbose": true,
+    "transform": {
+      "^.+\\.[m|t|j]s?$": "babel-jest"
+    },
+    "testMatch": [
+      "**/__tests__/**/?(*.)(test).js?(x)",
+      "**/__tests__/?(*.)(test).js?(x)"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "json"
+    ]
   }
 }

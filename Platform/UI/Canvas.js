@@ -54,10 +54,11 @@ function newCanvas() {
             UI.projects.education.spaces.tutorialSpace.finalize()
             UI.projects.education.spaces.docsSpace.finalize()
             //thisObject.chatSpace.finalize()
-            UI.projects.foundations.spaces.sideSpace.finalize()
+            UI.projects.foundations.sdsfsgfdpaces.sideSpace.finalize()
             UI.projects.foundations.spaces.chartingSpace.finalize()
             UI.projects.foundations.spaces.floatingSpace.finalize()
             UI.projects.foundations.spaces.codeEditorSpace.finalize()
+            UI.projects.contributions.spaces.contributionsSpace.finalize()
             thisObject.shorcutNumbers = undefined
 
             if (browserCanvas.removeEventListener) {
@@ -411,6 +412,11 @@ function newCanvas() {
             return
         }
 
+        /* When the Contributios Space is Visible, we do not process key down events of the Designer Space. */
+        if (UI.projects.contributions.spaces.contributionsSpace.isVisible === true) {
+            return
+        }
+
         thisObject.mouse.event = event
         thisObject.mouse.action = 'key down'
 
@@ -716,6 +722,12 @@ function newCanvas() {
                 nodeOnFocus.payload.uiObject.valueAtAngle = false
                 nodeOnFocus.payload.uiObject.setValue('Shortcut Key: Ctrl + Alt + ' + nodeOnFocus.payload.uiObject.shortcutKey)
             }
+        }
+        if (event.ctrlKey === true && event.shiftKey === false && event.metaKey === false && event.key === 'z') {
+            newWorkspacesSystemActionSwitch().executeAction({name: 'undo'})
+        }
+        if (event.ctrlKey === true && event.shiftKey === false && event.metaKey === false && event.key === 'y') {
+            newWorkspacesSystemActionSwitch().executeAction({name: 'redo'})
         }
     }
 

@@ -1,68 +1,74 @@
 import "./UserProfile.css"
 import React, {useEffect, useState} from 'react';
+import {useSelector} from 'react-redux'
+import {useLocation} from 'react-router-dom'
+import {Alert, Snackbar, Stack} from "@mui/material";
 import UserProfileHeader from "../userProfileHeader/UserProfileHeader";
-import {Alert, Skeleton, Snackbar, Stack} from "@mui/material";
+import Post from "../post/Post";
 import PostsFeed from "../postsFeed/PostsFeed";
 import {getPosts} from "../../api/post.httpService";
-import {STATUS_OK} from "../../api/httpConfig";
-import Post from "../post/Post";
-import {useParams} from "react-router-dom";
 import {getProfile} from "../../api/profile.httpService";
-import {useDispatch} from "react-redux";
-import {setProfile} from "../../store/slices/Profile.slice";
+import {STATUS_OK} from "../../api/httpConfig";
 
 const UserProfile = () => {
-    let {userId} = useParams();
-
-    const dispatch = useDispatch();
     const [posts, setPosts] = useState([]);
     const [postLoading, setPostLoading] = useState(true);
-    const [profileLoading, setProfileLoading] = useState(true);
     const [openSnack, setSnackOpen] = useState(false);
+    const [externalProfile, setExternalProfile] = useState();
+    const actualUser = useSelector(state => state.profile.actualUser)
+    const {search} = useLocation();
+    const urlSearchParams = React.useMemo(() => new URLSearchParams(search), [search]);
+    const queryParams = {
+        externalProfile: urlSearchParams.get("p"),
+    }
 
     useEffect(() => {
-        loadUser();
+        const loadExternalprofile = async () => {
+            const {
+                data,
+                result
+            } = await getProfile({socialPersonaId: queryParams.externalProfile}).then(response => response.json())
+            if (result === STATUS_OK) {
+                setExternalProfile(data);
+            }
+        }
+        if (queryParams.externalProfile) {
+            loadExternalprofile();
+        } else {
+            setExternalProfile(null)
+        }
         loadPosts();
-    }, []);
+    }, [queryParams.externalProfile]);
+
+    const drawPosts = (rawPosts) => {
+        const mappedPosts = rawPosts.map((post) => {
+            const postData = {
+                postText: post.postText,
+                originPostHash: post.originPostHash,
+                reactions: post.reactions,
+                postType: post.postType,
+                repliesCount: post.repliesCount,
+                creator: {
+                    name: actualUser.name,
+                    profilePic: actualUser.profilePic,
+                    originSocialPersonaId: actualUser.originSocialPersonaId,
+                    username: actualUser.userProfileHandle
+                }
+            }
+            return <Post key={post.originPostHash} id={post.originPostHash}
+                         postData={postData}/>
+        });
+        setPosts(mappedPosts)
+    }
 
     const loadPosts = async () => {
         setPostLoading(true)
-        let queryParams = userId ? {userId: userId} : undefined;
-        let {
-            data, result
-        } = await getPosts(queryParams).then(response => response.json());
+        const {data, result} = await getPosts().then(response => response.json());
         if (result === STATUS_OK) {
-            let mappedPosts = data.map((post, index) => {
-                if (post.eventType !== 10) {
-                    /* TODO add other post types*/
-                    return;
-                }
-                return <Post key={index} id={index}
-                             postData={post}/>
-            });
-            setPosts(mappedPosts);
+            drawPosts(data);
         }
         setPostLoading(false);
     }
-
-    const loadUser = async () => {
-        setProfileLoading(true);
-        let queryParams /*= {userProfileId: undefined}*/;
-        let {
-            data, result
-        } = await getProfile().then(response => response.json());
-        console.log({data, result})
-        if (result === STATUS_OK) {
-            dispatch(setProfile(data))
-        }
-        setProfileLoading(false);
-    }
-
-
-    const updateProfileCallback = () => {
-        setSnackOpen(true)
-        setTimeout(() => loadUser(), 60000);
-    };
 
     const handleSnackClose = (event, reason) => {
         if (reason === 'clickaway') return;
@@ -75,9 +81,13 @@ const UserProfile = () => {
                alignItems="center"
                spacing={1}
                className="middleSection">
-            {profileLoading ? (<Skeleton variant="rectangular" width="100%" height="23rem"/>) : (
-                <UserProfileHeader updateProfileCallback={updateProfileCallback}/>)}
-            <PostsFeed posts={posts} loading={postLoading}/>
+            <UserProfileHeader user={externalProfile ? externalProfile : actualUser}
+                               isExternalProfile={!!externalProfile}/>
+            {
+                !externalProfile
+                    ? <PostsFeed posts={posts} loading={postLoading}/>
+                    : <></>
+            }
         </Stack>
         <Snackbar open={openSnack} autoHideDuration={6000} onClose={handleSnackClose}>
             <Alert onClose={handleSnackClose} severity="info" sx={{width: '100%'}}>

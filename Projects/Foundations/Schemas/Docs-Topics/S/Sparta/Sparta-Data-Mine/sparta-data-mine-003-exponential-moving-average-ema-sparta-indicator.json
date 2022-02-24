@@ -4,17 +4,38 @@
     "type": "Exponential Moving Average (EMA) - Sparta Indicator",
     "definition": {
         "text": "The indicator produces the Exponential Moving Average in multiple settings, including the popular 20, 50, 100, and 200, as well as less frequent base 7 and base 11 SMAs.",
-        "updated": 1611661783066
+        "updated": 1611661783066,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Индикатор выдает экспоненциальную скользящую среднюю в нескольких вариантах, включая популярные 20, 50, 100 и 200, а также менее распространенные SMA на базе 7 и 11.",
+                "updated": 1643529587015
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Exponential Moving Average On the Charts",
-            "updated": 1611661800711
+            "updated": 1611661800711,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Экспоненциальная скользящая средняя на графиках",
+                    "updated": 1643529593060
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "According to Investopedia, “An exponential moving average (EMA) is a type of moving average (MA) that places a greater weight and significance on the most recent data points. The exponential moving average is also referred to as the exponentially weighted moving average. An exponentially weighted moving average reacts more significantly to recent price changes than a simple moving average (SMA), which applies an equal weight to all observations in the period.”"
+            "text": "According to Investopedia, “An exponential moving average (EMA) is a type of moving average (MA) that places a greater weight and significance on the most recent data points. The exponential moving average is also referred to as the exponentially weighted moving average. An exponentially weighted moving average reacts more significantly to recent price changes than a simple moving average (SMA), which applies an equal weight to all observations in the period.”",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Согласно Investopedia, \"экспоненциальная скользящая средняя (EMA) - это тип скользящей средней (MA), которая придает больший вес и значение самым последним точкам данных. Экспоненциальную скользящую среднюю также называют экспоненциально взвешенной скользящей средней. Экспоненциально взвешенная скользящая средняя реагирует на последние изменения цены более существенно, чем простая скользящая средняя (SMA), которая применяет равный вес ко всем наблюдениям за период.\"",
+                    "updated": 1643529603822
+                }
+            ]
         },
         {
             "style": "Gif",
@@ -23,19 +44,47 @@
         },
         {
             "style": "Text",
-            "text": "The same explanations offered for SMAs apply to EMAs."
+            "text": "The same explanations offered for SMAs apply to EMAs.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Те же объяснения, что и для SMA, применимы и к EMA.",
+                    "updated": 1643529612306
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Exponential Moving Average Products & Properties"
+            "text": "Exponential Moving Average Products & Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты и свойства Exponential Moving Average",
+                    "updated": 1643529626094
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The products and periods available in EMA map exactly the products and periods available in SMA. To use EMA you simply need to replace the S with an E. That said, for your reference, this is the complete list…"
+            "text": "The products and periods available in EMA map exactly the products and periods available in SMA. To use EMA you simply need to replace the S with an E. That said, for your reference, this is the complete list…",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты и периоды, доступные в EMA, в точности соответствуют продуктам и периодам, доступным в SMA. Чтобы использовать EMA, вам просто нужно заменить S на E. Для справки, вот полный список...",
+                    "updated": 1643529636487
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Like with SMAs, there are three products pre-configured to start calculating as soon as you start the corresponding task, each with different period configurations:"
+            "text": "Like with SMAs, there are three products pre-configured to start calculating as soon as you start the corresponding task, each with different period configurations:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как и в случае с SMA, есть три продукта, предварительно настроенные на начало расчетов сразу после запуска соответствующей задачи, каждый с различными конфигурациями периодов:",
+                    "updated": 1643529645525
+                }
+            ]
         },
         {
             "style": "Table",
@@ -45,7 +94,14 @@
         {
             "style": "Text",
             "text": "There are four more products available but they will not be calculated unless you create the corresponding data outputs and reference them to the corresponding data sets:",
-            "updated": 1611661993834
+            "updated": 1611661993834,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Имеются еще четыре продукта, но они не будут рассчитаны, пока вы не создадите соответствующие выходы данных и не свяжете их с соответствующими наборами данных:",
+                    "updated": 1643529654851
+                }
+            ]
         },
         {
             "style": "Table",
@@ -55,7 +111,14 @@
         {
             "style": "Text",
             "text": "Examples:",
-            "updated": 1611662085941
+            "updated": 1611662085941,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Примеры:",
+                    "updated": 1643529668847
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -64,7 +127,14 @@
         },
         {
             "style": "Text",
-            "text": "May the trend be reversing? Checking if a fast 5-hours exponential moving average goes below the slower 25-hours EMA."
+            "text": "May the trend be reversing? Checking if a fast 5-hours exponential moving average goes below the slower 25-hours EMA.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Может ли тренд развернуться? Проверка, если быстрая 5-часовая экспоненциальная скользящая средняя опускается ниже более медленной 25-часовой EMA.",
+                    "updated": 1643529684968
+                }
+            ]
         }
     ]
 }

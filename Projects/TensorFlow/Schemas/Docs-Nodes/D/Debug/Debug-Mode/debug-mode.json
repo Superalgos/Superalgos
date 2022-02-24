@@ -2,12 +2,26 @@
     "type": "Debug Mode",
     "definition": {
         "text": "Debug Mode will log to the console every operation that is executed, as well as runtime performance information like memory footprint and total kernel execution time. Note that this will greatly slow down your application, do not use this in production.",
-        "updated": 1613062911672
+        "updated": 1613062911672,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Режим отладки будет записывать в консоль каждую выполненную операцию, а также информацию о производительности во время выполнения, такую как объем памяти и общее время выполнения ядра. Обратите внимание, что это сильно замедлит работу вашего приложения, не используйте это в производстве.",
+                "updated": 1645247289425
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "Right click and select the pencil button to enter edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
+                    "updated": 1645247294567
+                }
+            ]
         }
     ]
 }

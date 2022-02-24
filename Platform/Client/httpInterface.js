@@ -1762,7 +1762,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                 }
 
                                 async function runNodeSetup() {
-                                    console.log("Running Node setup to adjust for new Branch")
+                                    console.log("Running Node setup to adjust for reset")
                                     const process = SA.nodeModules.process
                                     const childProcess = SA.nodeModules.childProcess
 

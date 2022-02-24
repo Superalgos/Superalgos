@@ -246,7 +246,7 @@ function newContributionsContributionsPage() {
     function resetRepo() {
            
         setCommandStatus("Resetting Repository....") 
-        httpRequest(undefined, 'App/Reset/' + thisObject.githubUsername + '/' + thisObject.githubToken + '/' +  UI.projects.education.spaces.docsSpace.currentBranch, onResponse)
+        httpRequest(undefined, 'App/Reset/' + UI.projects.education.spaces.docsSpace.currentBranch, onResponse)
         
         function onResponse(err, data) {
             /* Lets check the result of the call through the http interface */

@@ -2,13 +2,27 @@
     "type": "Bias Constraint",
     "definition": {
         "text": "Constraint for the bias vector.",
-        "updated": 1613244677505
+        "updated": 1613244677505,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Ограничение для вектора смещения.",
+                "updated": 1645195719158
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Subtitle",
             "text": "Possible Values",
-            "updated": 1613244686071
+            "updated": 1613244686071,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Возможные значения",
+                    "updated": 1645195724767
+                }
+            ]
         },
         {
             "style": "Javascript",

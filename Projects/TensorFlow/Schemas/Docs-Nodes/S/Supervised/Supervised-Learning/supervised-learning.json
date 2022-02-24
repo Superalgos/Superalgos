@@ -20,7 +20,14 @@
         {
             "style": "Text",
             "text": "A supervised learning algorithm analyzes the training data and produces an inferred function, which can be used for mapping new examples. An optimal scenario will allow for the algorithm to correctly determine the class labels for unseen instances. This requires the learning algorithm to generalize from the training data to unseen situations in a \"reasonable\" way (see inductive bias).",
-            "updated": 1613197051912
+            "updated": 1613197051912,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Алгоритм контролируемого обучения анализирует обучающие данные и производит выведенную функцию, которую можно использовать для сопоставления новых примеров. Оптимальный сценарий позволит алгоритму правильно определить метки классов для невидимых примеров. Это требует от алгоритма обучения \"разумного\" обобщения от обучающих данных к невидимым ситуациям (см. индуктивная предвзятость).",
+                    "updated": 1645250207057
+                }
+            ]
         }
     ]
 }

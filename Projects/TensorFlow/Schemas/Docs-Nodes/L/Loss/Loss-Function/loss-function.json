@@ -2,12 +2,26 @@
     "type": "Loss Function",
     "definition": {
         "text": "Machines learn by means of a loss function. It's a method of evaluating how well specific algorithm models the given data. If predictions deviates too much from actual results, loss function would cough up a very large number.",
-        "updated": 1615895725952
+        "updated": 1615895725952,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Машины обучаются с помощью функции потерь. Это метод оценки того, насколько хорошо конкретный алгоритм моделирует заданные данные. Если прогнозы слишком сильно отклоняются от реальных результатов, функция потерь выдаст очень большое число.",
+                "updated": 1645248498916
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "Right click and select the pencil button to enter edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
+                    "updated": 1645248504298
+                }
+            ]
         }
     ]
 }

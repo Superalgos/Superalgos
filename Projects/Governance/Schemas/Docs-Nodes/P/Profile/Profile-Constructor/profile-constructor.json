@@ -8,6 +8,11 @@
                 "language": "TR",
                 "text": "Profil Constructor, bir Kullanıcı Profili oluşturmak için kullanılan bir cihazdır.",
                 "updated": 1644494972755
+            },
+            {
+                "language": "RU",
+                "text": "Profile Constructor - это устройство, используемое для создания профиля пользователя.",
+                "updated": 1645181979389
             }
         ]
     },
@@ -21,6 +26,11 @@
                     "language": "TR",
                     "text": "Profil Oluşturucunun kullanımı, Kullanıcı Profilinizi Oluşturma (Building Your Profile) Eğitiminde açıklanmış ve Kullanıcı Profili 8UserProfile) konusunun Profilinizi Oluşturma sayfasında ele alınmıştır.",
                     "updated": 1644495124309
+                },
+                {
+                    "language": "RU",
+                    "text": "Использование конструктора профиля объясняется в учебном пособии \"Creating Your User Profile Tutorial\", а также рассматривается на странице Building Your Profile в теме User Profile.",
+                    "updated": 1645182019541
                 }
             ]
         }

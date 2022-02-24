@@ -2,7 +2,14 @@
     "type": "Incoming Signals",
     "definition": {
         "text": "This node defines the location within a Trading System at which an incoming Signal will be made available.",
-        "updated": 1642908082390
+        "updated": 1642908082390,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Этот узел определяет местоположение в торговой системе, в котором будет доступен входящий сигнал.",
+                "updated": 1645253043877
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -12,7 +19,14 @@
         },
         {
             "style": "Text",
-            "text": "In other words, an Incoming Signal node receives the signal information and then injects this data into a specific part of a trading system."
+            "text": "In other words, an Incoming Signal node receives the signal information and then injects this data into a specific part of a trading system.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Другими словами, узел входящего сигнала получает сигнальную информацию, а затем вводит эти данные в определенную часть торговой системы.",
+                    "updated": 1645253052853
+                }
+            ]
         },
         {
             "style": "Title",

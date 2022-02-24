@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Используйте две независимые установки Superalgos параллельно, но помните о возможных проблемах.",
                 "updated": 1640250510762
+            },
+            {
+                "language": "DE",
+                "text": "Betreiben Sie zwei unabhängige Installationen von Superalgos parallel, aber achten Sie auf mögliche Probleme.",
+                "updated": 1645480792262
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Superalgos по своей сути очень прост и понятен. Это большое преимущество данного программного обеспечения, которое позволяет вам делать буквально все, что вы захотите. Один из многих больших вопросов, с которым мы сталкиваемся в сообществе, - как запустить несколько экземпляров SA одновременно. Это вполне достижимо, и это действительно просто, но, пожалуйста, читайте все внимательно, потому что это не лишено недостатков. Итак, прежде всего, давайте посмотрим, как настроить SA для достижения этой цели, а в конце этого руководства вы узнаете, какие моменты следует учитывать.",
                     "updated": 1640250638187
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos ist in seiner Essenz sehr einfach und geradlinig. Das ist der große Vorteil dieser Software, mit der Sie buchstäblich tun können, was Sie wollen. Eine der vielen großen Fragen, mit denen wir in der Gemeinschaft konfrontiert sind, ist die, wie man mehrere Instanzen von SA gleichzeitig betreiben kann. Das ist durchaus möglich und in der Tat ist es sehr einfach, aber bitte lesen Sie alles sorgfältig durch, denn dies ist nicht frei von Nachteilen. Schauen wir uns also zunächst an, wie man SA konfiguriert, um diese Funktion zu erreichen, und am Ende dieser Anleitung finden Sie, welche Aspekte zu beachten sind.",
+                    "updated": 1645480832243
                 }
             ]
         },
@@ -35,13 +45,25 @@
                     "language": "RU",
                     "text": "В основном Superalgos состоит из двух различных частей, UI и CLI, которые живут вместе. Для связи с нами они используют 3 различных параметра, определенных в файле Environment.js (см. значения по умолчанию ниже):",
                     "updated": 1640250694989
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Grunde besteht Superalgos aus zwei verschiedenen Teilen, der UI und der CLI, die zusammen leben. Um mit uns zu kommunizieren, verwenden sie 3 verschiedene Parameter, die in der Datei Environment.js definiert sind (siehe Standardwerte unten) und die folgenden sind:",
+                    "updated": 1645480860596
                 }
             ]
         },
         {
             "style": "List",
             "text": "IP Address -> WEB_SERVER_URL localhost\n",
-            "updated": 1620714659625
+            "updated": 1620714659625,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "IP-Adresse -> WEB_SERVER_URL localhost",
+                    "updated": 1645480887782
+                }
+            ]
         },
         {
             "style": "List",
@@ -62,6 +84,11 @@
                     "language": "RU",
                     "text": "Поэтому будет достаточно просто изменить эти параметры, чтобы получить желаемый результат. Но обратите внимание, что изменение значений в файле Environment.js может оказаться недостаточным. Superalgos сохраняет эти значения не только как глобальные переменные, но и как прямые значения, когда вы сохраняете рабочее пространство, например. Затем вы должны обязательно изменить эти параметры во всех ваших установленных SA. Один из способов быстро добиться этого - использовать программу типа VSCode, которая позволяет выполнить поиск и замену во всем каталоге.",
                     "updated": 1640250785859
+                },
+                {
+                    "language": "DE",
+                    "text": "Es genügt daher, diese Parameter zu ändern, um das gewünschte Ergebnis zu erzielen. Beachten Sie jedoch, dass es nicht ausreichen könnte, die Werte in der Datei Environment.js zu ändern. Superalgos speichert diese Werte nicht nur als globale Variablen, sondern auch als direkte Werte, wenn Sie z. B. einen Arbeitsbereich speichern. Sie müssen dann sicherstellen, dass Sie diese Parameter in allen Ihren SA-Installationen ändern. Eine Möglichkeit, dies schnell zu erreichen, ist die Verwendung einer Software wie VSCode, mit der Sie in einem ganzes Verzeichnis \"Suchen und Ersetzen\" können.",
+                    "updated": 1645481008409
                 }
             ]
         },
@@ -79,6 +106,11 @@
                     "language": "RU",
                     "text": "На скриншоте выше вы можете видеть две разные установки SA, запущенные одновременно. Чтобы избежать конфликтов, рекомендуется изменить не только используемые порты, но и заменить 'localhost' на IP вашей локальной сети. В Windows вы можете узнать, какой IP назначен вашей машине, с помощью простой команды CLI. Просто введите ipconfig, и вы получите подробную информацию о вашей локальной сети, как показано на следующем снимке экрана. Адрес IPv4 - это ваш локальный IP:",
                     "updated": 1640250827021
+                },
+                {
+                    "language": "DE",
+                    "text": "Auf dem obigen Screenshot sehen Sie zwei verschiedene SA-Installationen, die gleichzeitig laufen. Um jegliche Art von Konflikten zu vermeiden, wird empfohlen, nicht nur die verwendeten Ports zu ändern, sondern auch \"localhost\" durch die IP Ihres lokalen Netzwerks zu ersetzen. Unter Windows können Sie mit einem einfachen CLI-Befehl herausfinden, welche IP Ihrem Rechner zugewiesen ist. Geben Sie einfach ipconfig ein und Sie erhalten Details über Ihr lokales Netzwerk wie im folgenden Screenshot. Die IPv4-Adresse ist Ihre lokale IP:",
+                    "updated": 1645481058401
                 }
             ]
         },
@@ -96,6 +128,11 @@
                     "language": "RU",
                     "text": "Используя VSCode или любой другой редактор, который позволяет импортировать всю папку Supealgos, легко выполнить поиск и замену. Только не забудьте заменить точное совпадение, чтобы избежать ошибок и замены того, что не должно быть заменено, например, вложенных значений в json-файлах.",
                     "updated": 1640250862510
+                },
+                {
+                    "language": "DE",
+                    "text": "Mit VSCode oder einem anderen Editor, mit dem Sie den gesamten Superalgos-Ordner importieren können, ist es einfach, zu suchen und zu ersetzen. Achten Sie nur darauf, die genaue Übereinstimmung zu ersetzen, um Fehler zu vermeiden und nicht am Ende etwas zu ersetzen, das nicht ersetzt werden sollte, wie verschachtelte Werte in json-Dateien.",
+                    "updated": 1645481144601
                 }
             ]
         },
@@ -113,6 +150,11 @@
                     "language": "RU",
                     "text": "После изменения всех трех параметров можно запускать Superalgos. Первым шагом теперь будет переход к узлу Network и убедиться, что значения обновлены. На скриншоте ниже вы можете видеть, что localhost и WebPort имеют обновленные значения по сравнению со значениями по умолчанию (произвольное значение 192.168.0.2 для IP и 34444 для WebPort), но не WebSocketPort, который имеет значение по умолчанию 18041. Эта оплошность приведет к ошибкам в Superalgos.",
                     "updated": 1640250929567
+                },
+                {
+                    "language": "DE",
+                    "text": "Sobald alle 3 Parameter geändert sind, können Sie Superalgos starten. Der erste Schritt besteht nun darin, zum Node Network zu navigieren und sicherzustellen, dass die Werte aktualisiert werden. Im Screenshot unten sehen Sie, dass die Werte für localhost und WebPort gegenüber den Standardwerten aktualisiert wurden (willkürlich auf 192.168.0.2 für IP und 34444 für den WebPort gesetzt), nicht aber der WebSocketPort, der den Standardwert 18041 hat. Dieser Fehler wird zu Fehlern in Superalgos führen.",
+                    "updated": 1645481208620
                 }
             ]
         },
@@ -130,6 +172,11 @@
                     "language": "RU",
                     "text": "После того как все правильно настроено, вы можете запустить две независимые установки Superalgos параллельно. Эти две установки независимы и могут запускать разные ветки или разные рабочие пространства:",
                     "updated": 1640250964250
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn alles richtig eingerichtet ist, können Sie nun zwei unabhängige Installationen von Superalgos parallel laufen lassen. Die beiden Installationen sind unabhängig und können verschiedene Branches oder verschiedene Workspaces betreiben:",
+                    "updated": 1645481273032
                 }
             ]
         },
@@ -147,6 +194,11 @@
                     "language": "RU",
                     "text": "Одним из недостатков такой конфигурации являются возможные проблемы, если вы захотите внести свой вклад в Superalgos. Например, на следующем снимке экрана видно, что простая команда git checkout представит вам список измененных файлов, которые, вероятно, вы не захотите использовать для внесения вклада:",
                     "updated": 1640250989946
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein nachteiliger Aspekt, der bei einer solchen Konfiguration zu beachten ist, sind mögliche Probleme, wenn Sie zu Superalgos beitragen wollen. Im folgenden Screenshot können Sie zum Beispiel sehen, dass ein einfacher git checkout-Befehl Ihnen eine Liste von geänderten Dateien präsentiert, die Sie wahrscheinlich nicht für einen Beitrag verwenden wollen:",
+                    "updated": 1645481330372
                 }
             ]
         },
@@ -164,6 +216,11 @@
                     "language": "RU",
                     "text": "Поэтому рекомендуется тщательно решить, как обращаться с установкой SA при изменении на произвольные параметры.",
                     "updated": 1640251071463
+                },
+                {
+                    "language": "DE",
+                    "text": "Es ist daher ratsam, sorgfältig zu entscheiden, wie eine SA-Installation bei der Umstellung auf beliebige Parameter gehandhabt werden soll.",
+                    "updated": 1645481351849
                 }
             ]
         },

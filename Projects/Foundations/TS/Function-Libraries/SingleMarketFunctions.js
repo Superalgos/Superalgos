@@ -93,6 +93,9 @@
 
             let botNode = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Indicator Bot')
             if (botNode === undefined) {
+                botNode = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Study Bot')
+            }
+            if (botNode === undefined) {
                 botNode = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Trading Bot')
             }
             if (botNode === undefined) {
@@ -310,7 +313,10 @@
         interExecutionMemory,
         processingDailyFiles,
         currentDay,
-        parametersDefinition
+        parametersDefinition,
+        chart,
+        market,
+        exchange,
     ) {
 
         /*

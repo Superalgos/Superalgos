@@ -277,12 +277,12 @@
 
                                             switch (TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.framework.name) {
                                                 case 'Multi-Time-Frame-Market': {
-                                                    processFramework = TS.projects.dataMining.botModules.multiTimeFrameMarket.newDataMiningBotModulesMultiTimeFrameMarket(processIndex)
+                                                    processFramework = TS.projects.dataMining.botModules.multiTimeFrameMarket.newDataMiningIndicatorMultiTimeFrameMarket(processIndex)
                                                     intitializeProcessFramework()
                                                     break;
                                                 }
                                                 case 'Multi-Time-Frame-Daily': {
-                                                    processFramework = TS.projects.dataMining.botModules.multiTimeFrameDaily.newDataMiningBotModulesMultiTimeFrameDaily(processIndex)
+                                                    processFramework = TS.projects.dataMining.botModules.multiTimeFrameDaily.newDataMiningIndicatorMultiTimeFrameDaily(processIndex)
                                                     intitializeProcessFramework()
                                                     break;
                                                 }

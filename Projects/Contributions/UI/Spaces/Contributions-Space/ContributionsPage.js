@@ -254,6 +254,7 @@ function newContributionsContributionsPage() {
             console.log(data, err, GLOBAL.DEFAULT_OK_RESPONSE)
             if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
                 console.log("Everything is reset!")
+                reset()
                 setCommandStatus("Everything has been Reset!") 
     
                 } else {

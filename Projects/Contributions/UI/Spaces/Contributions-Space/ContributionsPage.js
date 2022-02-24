@@ -52,7 +52,7 @@ function newContributionsContributionsPage() {
         // Github Credentials
         HTML += '<div><span class="credentials-title">Github Credentials</span><button id="credentials-collapse" type="button" class="contributions-collapsible-element"></button></div><div id="credentials-box" class="credentials-box"><input id="username-input" type="text" class="credentials-input"></input><input id="token-input" type="password" class="credentials-input"></input><button id="credentials-save-button" class="credentials-save-button">Save</button></div><hr>'
         // Main buttons
-        HTML += '<div class="contributions-top-buttons-div"><button class="contributions-top-buttons">Contribute All</button><button id="update" class="contributions-top-buttons">Update</button><button class="contributions-top-buttons">Reset</button><div id="command-status" class="command-status">' + thisObject.commandStatus + '</div></div>'
+        HTML += '<div class="contributions-top-buttons-div"><button id="contribute-all" class="contributions-top-buttons">Contribute All</button><button id="update" class="contributions-top-buttons">Update</button><button id="reset" class="contributions-top-buttons">Reset</button><div id="command-status" class="command-status">' + thisObject.commandStatus + '</div></div>'
         
         // Repo Handling 
         let fileNamesRepoAndPath = []
@@ -107,6 +107,8 @@ function newContributionsContributionsPage() {
 
         //Attach listeners and animation to Main Buttons 
         document.getElementById('update').addEventListener('click', update)
+        document.getElementById('reset').addEventListener('click', resetRepo)
+
 
         // Attach event listeners for all Discard buttons
         for(const file of fileNamesRepoAndPath) {
@@ -231,12 +233,9 @@ function newContributionsContributionsPage() {
         function onResponse(err, data) {
             /* Lets check the result of the call through the http interface */
             data = JSON.parse(data)
-            if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
+            if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.CUSTOM_OK_RESPONSE.result) {
+                //TODO: need to iterate through returned message in data result to give more specific result messages 
                 setCommandStatus("Updated Succesfully!") 
-                // Implement some kind of animation to tell the user things are Updated here
-
-            } else if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.CUSTOM_OK_RESPONSE.result) {
-                setCommandStatus("Already Up to Date!") 
                 
             } else {
                 setCommandStatus("Something went wrong! Check the Console")          
@@ -245,7 +244,8 @@ function newContributionsContributionsPage() {
     }
 
     function resetRepo() {
-            
+           
+        setCommandStatus("Resetting Repository....") 
         httpRequest(undefined, 'App/Reset/' + thisObject.githubUsername + '/' + thisObject.githubToken + '/' +  UI.projects.education.spaces.docsSpace.currentBranch, onResponse)
         
         function onResponse(err, data) {
@@ -253,35 +253,13 @@ function newContributionsContributionsPage() {
             data = JSON.parse(data)
             console.log(data, err, GLOBAL.DEFAULT_OK_RESPONSE)
             if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                console.log("Everything is reset from default responces!")
-                    // Implement some kind of animation to tell the user things are Updated here
-    
-                } else if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.CUSTOM_OK_RESPONSE.result) {
-                    console.log("Everything is Ureset special responce")
-                    // Display success animation 
-                    // Note: command status is used to keep displaying success message as the animation loop runs 
-                    thisObject.commandStatus = "Done!"
-                    document.getElementById("command-status").innerHTML = "Done!"
-                    
-                    // Clear animation after time
-                    setTimeout(function () {
-                        thisObject.commandStatus = ''
-                        document.getElementById("command-status").innerHTML = ""
-                    }, 6000)
+                console.log("Everything is reset!")
+                setCommandStatus("Everything has been Reset!") 
     
                 } else {
-                    // will need to open docs space to display this error 
-                    UI.projects.education.spaces.docsSpace.navigateTo(
-                        data.docs.project,
-                        data.docs.category,
-                        data.docs.type,
-                        data.docs.anchor,
-                        undefined,
-                        data.docs.placeholder
-                        )               
+                    setCommandStatus("Something went wrong! Check the console")          
                 }
             }
-
     }
 
     /*

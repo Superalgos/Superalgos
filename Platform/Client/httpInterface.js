@@ -1012,6 +1012,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                         case 'Contribute': {
                             try {
+                                // We create a pull request of all active changes
                                 let commitMessage = unescape(requestPath[3])
                                 const username = unescape(requestPath[4])
                                 const token = unescape(requestPath[5])
@@ -1209,6 +1210,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                         case 'Update': {
                             try {
+                                // We update the local repo from remote
                                 const currentBranch = unescape(requestPath[3])
                                 update()
 
@@ -1413,6 +1415,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                         case 'Checkout': {
                             try {
+                                // We check out the specified git branch
                                 const currentBranch = unescape(requestPath[3])
                                 let error
 
@@ -1515,6 +1518,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                         case 'Branch': {
                             try {
+                                // We get the current git branch
                                 branch()
 
                                 async function branch() {
@@ -1666,6 +1670,126 @@ exports.newHttpInterface = function newHttpInterface() {
                             }
                             break
                         }
+
+                        case 'Reset': {
+                            try {
+                                // We reset the local repo to the upstream repo
+                                const currentBranch = unescape(requestPath[3])
+                                let error
+
+                                reset().catch(errorResp)
+
+                                // This error responce needs to be made compatible with the contributions space or depricated
+                                function errorResp(e) {
+                                    error = e
+                                    console.error(error)
+                                    let docs = {
+                                        project: 'Foundations',
+                                        category: 'Topic',
+                                        type: 'Switching Branches - Current Branch Not Changed',
+                                        anchor: undefined,
+                                        placeholder: {}
+                                    }
+
+                                    respondWithDocsObject(docs, error)
+                                }
+
+
+                                async function reset() {
+                                    const { lookpath } = SA.nodeModules.lookpath
+                                    const gitpath = await lookpath('git');
+                                    if (gitpath === undefined) {
+                                        console.log('[ERROR] `git` not installed.')
+                                    } else {
+                                        // Reset main repo
+                                        await doGit().catch(errorResp)
+                                        // Reset each plugin repo
+                                        await Promise.all(Object.values(global.env.PROJECT_PLUGIN_MAP).map(v => {
+                                            return doGit(v.dir, v.repo)
+                                        })).catch(errorResp)
+
+                                        if (error === undefined) {
+                                            // Run node setup to prepare instance after reset 
+                                            await runNodeSetup()
+                                            // Return to UI that Branch is successfully changed
+                                            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                                        } else {
+                                            errorResp(error)
+                                        }
+                                    }
+                                }
+
+                                async function doGit(dir, repo = 'Superalgos') {
+                                    const simpleGit = SA.nodeModules.simpleGit
+                                    const options = {
+                                        binary: 'git',
+                                        maxConcurrentProcesses: 6,
+                                    }
+                                    // main app repo should be the working directory
+                                    if (repo === 'Superalgos') options.baseDir = dir || process.cwd()
+                                    // if repo is not main app repo, assume it is a plugin, in ./Plugins.
+                                    else options.baseDir = SA.nodeModules.path.join(process.cwd(), 'Plugins', dir)
+                                    const git = simpleGit(options)
+                                    try {
+
+                                        // Check to see if upstream repo has been set
+                                        let remotes = await git.getRemotes(true).catch(errorResp);
+                                        let isUpstreamSet
+                                        for (let remote in remotes) {
+                                        if (remotes[remote].name === 'upstream') {
+                                            isUpstreamSet = true
+                                        } else {
+                                            isUpstreamSet = false
+                                            }
+                                        }
+
+                                        // If upstream has not been set. Set it now
+                                        if (isUpstreamSet === false) {
+                                            await git.addRemote('upstream', `https://github.com/Superalgos/${repo}`).catch(errorResp);
+                                        }
+
+                                        // Pull branch from upstream repo
+                                        await git.pull('upstream', currentBranch).catch(errorResp);
+                                        // Reset branch to match upstream repo
+                                        let upstreamLocation = `upstream/${currentBranch}`
+                                        await git.reset('hard', [upstreamLocation]).catch(errorResp)
+
+                                    } catch (err) {
+                                        console.log('[ERROR] Error changing current branch to ' + currentBranch)
+                                        console.log(err.stack)
+                                        error = err
+                                    }
+                                }
+
+                                async function runNodeSetup() {
+                                    console.log("Running Node setup to adjust for new Branch")
+                                    const process = SA.nodeModules.process
+                                    const childProcess = SA.nodeModules.childProcess
+
+                                    let dir = process.cwd()
+                                    let command = "node setup noShortcuts";
+                                    let stdout = childProcess.execSync(command,
+                                        {
+                                            cwd: dir
+                                        }).toString();
+
+                                    console.log("Node Setup has completed with the following result:", stdout)
+                                }
+
+                            } catch (err) {
+                                console.log('[ERROR] httpInterface -> App -> Update -> Method call produced an error.')
+                                console.log('[ERROR] httpInterface -> App -> Update -> err.stack = ' + err.stack)
+
+                                let error = {
+                                    result: 'Fail Because',
+                                    message: err.message,
+                                    stack: err.stack
+                                }
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
+                            }
+                            break
+                        }
+
 
                         case 'FixAppSchema': {
                             /*

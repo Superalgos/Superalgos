@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Bollinger Veri Madeni ( Data Mine ), Bollinger Bantları (BB), Yüzde Bant Genişliği (%B), Bollinger Kanalları ve Bollinger Alt Kanalları göstergelerini içerir.",
                 "updated": 1644417428398
+            },
+            {
+                "language": "RU",
+                "text": "В Bollinger Data Mine представлены индикаторы Bollinger Bands (BB), Percentage Bandwidth (%B), Bollinger Channels и Bollinger Subchannels.",
+                "updated": 1645605947624
             }
         ]
     },

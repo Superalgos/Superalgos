@@ -4,25 +4,60 @@
     "type": "TS LF Trading Bot Warning - Simulating - Slippage Added",
     "definition": {
         "text": "Slippage was calculated based on the Trading Parameters and added to the Order Rate to calculate the Actual Rate. Slippage was added because the order is a Market Buy Order.",
-        "updated": 1611923342547
+        "updated": 1611923342547,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Проскальзывание было рассчитано на основе торговых параметров и добавлено к Order Rate для расчета Actual Rate. Проскальзывание было добавлено, поскольку ордер является рыночным ордером на покупку.",
+                "updated": 1645630273077
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Success",
             "text": "This is not an error and may be normal behavior. The trading bot created this warning to let you know that this happened so that you may keep track of all the details of the trade should you need to. This page provides information that should help you understand the context of the warning.",
-            "updated": 1611923351551
+            "updated": 1611923351551,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это не является ошибкой и может быть нормальным поведением. Торговый бот создал это предупреждение, чтобы сообщить вам, что это произошло, чтобы вы могли отследить все детали сделки, если вам это понадобится. На этой странице представлена информация, которая должна помочь вам понять контекст предупреждения.",
+                    "updated": 1645630278916
+                }
+            ]
         },
         {
             "style": "Warning",
-            "text": "Slippage Added"
+            "text": "Slippage Added",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Добавлено проскальзывание",
+                    "updated": 1645630284725
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Context Info"
+            "text": "Context Info",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Контекстная информация",
+                    "updated": 1645630289361
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Find below the values of variables relevant to the warning at the time the warning was created. They may prove of use to understand what happened."
+            "text": "Find below the values of variables relevant to the warning at the time the warning was created. They may prove of use to understand what happened.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ниже приведены значения переменных, относящихся к предупреждению на момент его создания. Они могут оказаться полезными для понимания того, что произошло.",
+                    "updated": 1645630294348
+                }
+            ]
         },
         {
             "style": "Placeholder",
@@ -34,11 +69,25 @@
         },
         {
             "style": "Title",
-            "text": "Learn More"
+            "text": "Learn More",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узнать больше",
+                    "updated": 1645630308108
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "To learn more about this topic, please read the following page:"
+            "text": "To learn more about this topic, please read the following page:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы узнать больше об этой теме, прочтите следующую страницу:",
+                    "updated": 1645630316381
+                }
+            ]
         },
         {
             "style": "List",

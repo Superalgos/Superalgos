@@ -52,7 +52,7 @@ function newContributionsContributionsPage() {
         // Github Credentials
         HTML += '<div><span class="credentials-title">Github Credentials</span><button id="credentials-collapse" type="button" class="contributions-collapsible-element"></button></div><div id="credentials-box" class="credentials-box"><input id="username-input" type="text" class="credentials-input"></input><input id="token-input" type="password" class="credentials-input"></input><button id="credentials-save-button" class="credentials-save-button">Save</button></div><hr>'
         // Main buttons
-        HTML += '<div class="contributions-top-buttons-div"><button class="contributions-top-buttons">Contribute All</button><button id="update" class="contributions-top-buttons">Update</button><button class="contributions-top-buttons">Reset</button><div id="command-status">' + thisObject.commandStatus + '</div></div>'
+        HTML += '<div class="contributions-top-buttons-div"><button class="contributions-top-buttons">Contribute All</button><button id="update" class="contributions-top-buttons">Update</button><button class="contributions-top-buttons">Reset</button><div id="command-status" class="command-status">' + thisObject.commandStatus + '</div></div>'
         
         // Repo Handling 
         let fileNamesRepoAndPath = []
@@ -139,6 +139,19 @@ function newContributionsContributionsPage() {
         return HTML
     }
 
+    function setCommandStatus(message) {
+        // Display success message
+        // Note: command status is used to keep displaying success message as the animation loop runs 
+        thisObject.commandStatus = message
+        document.getElementById("command-status").innerHTML = message
+                
+        // Clear animation after time
+        setTimeout(function () {
+            thisObject.commandStatus = ''
+            document.getElementById("command-status").innerHTML = ""
+        }, 6000)
+    }
+
     function getStatus() {
         httpRequest(undefined, 'App/Status', onResponse)
         
@@ -151,38 +164,7 @@ function newContributionsContributionsPage() {
                 buildEditorHTML()
                         
             } else {
-                // will need to open docs space to display this error 
-                UI.projects.education.spaces.docsSpace.navigateTo(
-                    data.docs.project,
-                    data.docs.category,
-                    data.docs.type,
-                    data.docs.anchor,
-                    undefined,
-                    data.docs.placeholder
-                    )               
-                }
-            }
-    }
-
-    function discardChange(repo, filePath) {
-        httpRequest(undefined, 'App/Discard/' + repo + "/" + filePath, onResponse)
-        
-        function onResponse(err, data) {
-            /* Lets check the result of the call through the http interface */
-            data = JSON.parse(data)
-            if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                reset()
-        
-            } else {
-                // will need to open docs space to display this error 
-                UI.projects.education.spaces.docsSpace.navigateTo(
-                    data.docs.project,
-                    data.docs.category,
-                    data.docs.type,
-                    data.docs.anchor,
-                    undefined,
-                    data.docs.placeholder
-                    )               
+                setCommandStatus("Something went wrong! Check the Console")               
                 }
             }
     }
@@ -199,15 +181,7 @@ function newContributionsContributionsPage() {
                 thisObject.githubToken = data.githubToken
 
             } else {
-                // will need to open docs space to display this error 
-                UI.projects.education.spaces.docsSpace.navigateTo(
-                    data.docs.project,
-                    data.docs.category,
-                    data.docs.type,
-                    data.docs.anchor,
-                    undefined,
-                    data.docs.placeholder
-                    )               
+                setCommandStatus("Something went wrong! Check the Console")           
                 }
             }
     }
@@ -217,69 +191,101 @@ function newContributionsContributionsPage() {
         thisObject.githubUsername = document.getElementById('username-input').value
         thisObject.githubToken = document.getElementById('token-input').value
 
+        setCommandStatus("Saving....")  
         httpRequest(undefined, 'App/SaveCreds/' + thisObject.githubUsername + '/' + thisObject.githubToken, onResponse)
         
         function onResponse(err, data) {
             /* Lets check the result of the call through the http interface */
             data = JSON.parse(data)
             if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                console.log("Everything is Saved!")
-                // Implement some kind of animation to tell the user things are saved here
+                setCommandStatus("Credentials saved successfully!")  
 
             } else {
-                // will need to open docs space to display this error 
-                UI.projects.education.spaces.docsSpace.navigateTo(
-                    data.docs.project,
-                    data.docs.category,
-                    data.docs.type,
-                    data.docs.anchor,
-                    undefined,
-                    data.docs.placeholder
-                    )               
+                setCommandStatus("Something went wrong! Check the Console")  
+                }
+            }
+    }
+    
+    function discardChange(repo, filePath) {
+
+        setCommandStatus("Discarding")  
+        httpRequest(undefined, 'App/Discard/' + repo + "/" + filePath, onResponse)
+        
+        function onResponse(err, data) {
+            /* Lets check the result of the call through the http interface */
+            data = JSON.parse(data)
+            if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                reset()
+                setCommandStatus("Changes discarded")  
+        
+            } else {
+                setCommandStatus("Something went wrong! Check the Console")             
                 }
             }
     }
 
     function update() {
-
+        setCommandStatus("Updating....")  
         httpRequest(undefined, 'App/Update/' +  UI.projects.education.spaces.docsSpace.currentBranch, onResponse)
+        
+        function onResponse(err, data) {
+            /* Lets check the result of the call through the http interface */
+            data = JSON.parse(data)
+            if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                setCommandStatus("Updated Succesfully!") 
+                // Implement some kind of animation to tell the user things are Updated here
+
+            } else if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.CUSTOM_OK_RESPONSE.result) {
+                setCommandStatus("Already Up to Date!") 
+                
+            } else {
+                setCommandStatus("Something went wrong! Check the Console")          
+            }
+        }
+    }
+
+    function resetRepo() {
+            
+        httpRequest(undefined, 'App/Reset/' + thisObject.githubUsername + '/' + thisObject.githubToken + '/' +  UI.projects.education.spaces.docsSpace.currentBranch, onResponse)
         
         function onResponse(err, data) {
             /* Lets check the result of the call through the http interface */
             data = JSON.parse(data)
             console.log(data, err, GLOBAL.DEFAULT_OK_RESPONSE)
             if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                console.log("Everything is Updated!")
-                // Implement some kind of animation to tell the user things are Updated here
-
-            } else if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.CUSTOM_OK_RESPONSE.result) {
-                console.log("Everything is Updated!")
-                // Display success animation 
-                // Note: command status is used to keep displaying success message as the animation loop runs 
-                thisObject.commandStatus = "Done!"
-                document.getElementById("command-status").innerHTML = "Done!"
-                
-                // Clear animation after time
-                setTimeout(function () {
-                    thisObject.commandStatus = ''
-                    document.getElementById("command-status").innerHTML = ""
-                }, 6000)
-
-            } else {
-                // will need to open docs space to display this error 
-                UI.projects.education.spaces.docsSpace.navigateTo(
-                    data.docs.project,
-                    data.docs.category,
-                    data.docs.type,
-                    data.docs.anchor,
-                    undefined,
-                    data.docs.placeholder
-                    )               
+                console.log("Everything is reset from default responces!")
+                    // Implement some kind of animation to tell the user things are Updated here
+    
+                } else if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.CUSTOM_OK_RESPONSE.result) {
+                    console.log("Everything is Ureset special responce")
+                    // Display success animation 
+                    // Note: command status is used to keep displaying success message as the animation loop runs 
+                    thisObject.commandStatus = "Done!"
+                    document.getElementById("command-status").innerHTML = "Done!"
+                    
+                    // Clear animation after time
+                    setTimeout(function () {
+                        thisObject.commandStatus = ''
+                        document.getElementById("command-status").innerHTML = ""
+                    }, 6000)
+    
+                } else {
+                    // will need to open docs space to display this error 
+                    UI.projects.education.spaces.docsSpace.navigateTo(
+                        data.docs.project,
+                        data.docs.category,
+                        data.docs.type,
+                        data.docs.anchor,
+                        undefined,
+                        data.docs.placeholder
+                        )               
+                }
             }
-        }
+
     }
 
-    /*httpRequest(
+    /*
+    httpRequest(
                 undefined,
                 'App/Contribute/' +
                 message + '/' +
@@ -288,7 +294,5 @@ function newContributionsContributionsPage() {
                 UI.projects.education.spaces.docsSpace.currentBranch + '/' +
                 UI.projects.education.spaces.docsSpace.contributionsBranch
                 , onResponse)
-
-            UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Message - Creating Pull Request')
-    */
+        */
 }

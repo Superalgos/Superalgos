@@ -70,6 +70,7 @@
     justify-content: flex-start;
     gap: 10px;
     margin-top: 25px;
+    align-items: baseline;
 }
 
 .contributions-top-buttons{
@@ -96,6 +97,12 @@
     padding: 10px;
     margin: 4px 0 0 1px;
     color: whitesmoke;
+}
+
+.command-status {
+    font-size: 150%;
+    font-weight: 500;
+    margin-left: 10px;
 }
 
 .contributions-common-style-container{

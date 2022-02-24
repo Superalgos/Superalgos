@@ -13,63 +13,66 @@
                 "language": "TR",
                 "text": "Topluluk Veri Madenleri kitabı, Topluluk tarafından katkıda bulunulan veri madenlerinin ve göstergelerinin bir özetidir.",
                 "updated": 1639836670009
+            },
+            {
+                "language": "RU",
+                "text": "Книга \"Community Data Mines\" - это сборник иcточников данных и их показателей, предоставленных сообществом.",
+                "updated": 1645086028105
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Chapter",
-            "text": "I->Foundations->Topic->Alpha Data Mine",
-            "updated": 1611686360926
+            "text": "I->Foundations->Topic->Alpha Data Mine"
         },
         {
             "style": "Chapter",
-            "text": "II->Foundations->Topic->Buddha Data Mine->",
-            "updated": 1611686389041
-        },
-		{
-            "style": "Chapter",
-            "text": "III->Foundations->Topic->Delta Data Mine->",
-            "updated": 1611686389041
+            "text": "II->Foundations->Topic->Buddha Data Mine->"
         },
         {
             "style": "Chapter",
-            "text": "IV->Foundations->Topic->Heikin Data Mine->",
-            "updated": 1611686401703
+            "text": "III->Foundations->Topic->Delta Data Mine->"
         },
         {
             "style": "Chapter",
-            "text": "V->Foundations->Topic->Masters Data Mine->",
-            "updated": 1611686401703
-        },
-		{
-            "style": "Chapter",
-            "text": "VI->Foundations->Topic->Omega One Data Mine->",
-            "updated": 1611686413735
-        },
-		{
-            "style": "Chapter",
-            "text": "VII->Foundations->Topic->Pluvtech Data Mine->",
-            "updated": 1611686413735
+            "text": "IV->Foundations->Topic->Heikin Data Mine->"
         },
         {
             "style": "Chapter",
-            "text": "VIII->Foundations->Topic->Sparta Data Mine->",
-            "updated": 1611686413735
+            "text": "V->Foundations->Topic->Masters Data Mine->"
         },
         {
             "style": "Chapter",
-            "text": "IX->Foundations->Topic->Zeus Data Mine->",
-            "updated": 1611686424488
+            "text": "VI->Foundations->Topic->Omega One Data Mine->"
         },
         {
             "style": "Chapter",
-            "text": "X->Foundations->Topic->CoinGecko API Map and Mine->",
-            "updated": 1622690513016
+            "text": "VII->Foundations->Topic->Pluvtech Data Mine->"
         },
         {
             "style": "Chapter",
-            "text": "XI->Foundations->Topic->quantum Data Mine->"
+            "text": "VIII->Foundations->Topic->Polus Data Mine->"
+        },
+        {
+            "style": "Chapter",
+            "text": "IX->Foundations->Topic->quantum Data Mine->"
+        },
+        {
+            "style": "Chapter",
+            "text": "X->Foundations->Topic->Sparta Data Mine->"
+        },
+        {
+            "style": "Chapter",
+            "text": "XI->Foundations->Topic->Turtles Data Mine->"
+        },
+        {
+            "style": "Chapter",
+            "text": "XII->Foundations->Topic->Zeus Data Mine->"
+        },
+        {
+            "style": "Chapter",
+            "text": "XIII->Foundations->Topic->CoinGecko API Map and Mine->"
         }
     ]
 }

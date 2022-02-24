@@ -25,11 +25,16 @@ function newPluginsUtilitiesPlugins() {
     }
 
     function addMissingPluginFiles(node, fileNames, pluginFolder, nodeType, project) {
+        let newUiObjects = []
         for (let i = 0; i < fileNames.length; i++) {
             let fileName = fileNames[i]
             fileName = fileName.replace('.json', '')
-            addMissingPluginFile(node, fileName, pluginFolder, nodeType, project, false)
+            let child = addMissingPluginFile(node, fileName, pluginFolder, nodeType, project, false)
+            if (child !== undefined && child.payload.parentNode === node) {
+                newUiObjects.push(child)
+            }
         }
+        return newUiObjects
     }
 
     function addMissingPluginFile(node, fileName, pluginFolder, nodeType, project, saveWithWorkspace) {
@@ -96,6 +101,9 @@ function newPluginsUtilitiesPlugins() {
             }
             case 'User Profile': {
                 return 'User-Profiles'
+            }
+            case 'P2P Network': {
+                return 'P2P-Networks'
             }
         }
     }

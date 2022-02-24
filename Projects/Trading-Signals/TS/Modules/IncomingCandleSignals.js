@@ -23,22 +23,14 @@ exports.newTradingSignalsModulesIncomingCandleSignals = function (processIndex) 
         keysByCandle = undefined
     }
 
-    async function signalReceived(signal) {
-        /*
-        We will run some validations to be sure the signal received is legit.
-        */
-        let response = SA.projects.tradingSignals.utilities.signalValidations.validateSignatures(signal)
-        if (response !== undefined) {
-            console.log('[WARN] Signal received could not be accepted -> cause = ' + response.message)
-            return
-        }
+    async function signalReceived(signalMessage) {
         /*
         What we have just received are not Trading Signals, but a Signal Meesage
         that represents the File Key needed to locate and open a file with all the
         trading signals stored at the open internet. To get the trading signals
         we will ask them to the Open Storage.
         */
-        let fileContent = await TS.projects.foundations.globals.taskConstants.OPEN_STORAGE_CLIENT.loadFile(signal.fileKey)
+        let fileContent = await TS.projects.foundations.globals.taskConstants.OPEN_STORAGE_CLIENT.loadFile(signalMessage.fileKey)
         if (fileContent === undefined) { return } // Happens when the signal was already loaded / processed.
         let file = JSON.parse(fileContent)
         let candleSignalsToLoad = file.content

@@ -14,6 +14,16 @@
                 "language": "ID",
                 "text": "Jika kamu ingin mendukung orang-orang yang membangun Superalgos, membeli beberapa token di PancakeSwap adalah cara yang harus ditempuh! Inilah sebabnya...",
                 "updated": 1640599300653
+            },
+            {
+                "language": "DE",
+                "text": "Wenn Sie die Leute, die Superalgos bauen, unterstützen wollen, ist der Kauf von Token bei PancakeSwap der richtige Weg! Das ist der Grund...",
+                "updated": 1641740815578
+            },
+            {
+                "language": "RU",
+                "text": "Если вы хотите поддержать людей, создающих Superalgos, то покупка токенов в PancakeSwap - это то, что вам нужно! Вот почему...",
+                "updated": 1642773631008
             }
         ]
     },
@@ -27,6 +37,16 @@
                     "language": "ID",
                     "text": "Superalgos adalah proyek crypto milik masyarakat. Token asli digunakan untuk memberi insentif pada kontribusi, yang berarti bahwa proyek mendistribusikan token secara eksklusif di antara para kontributor. Setiap dolar yang kamu habiskan untuk membeli Superalgos SA Token langsung ke orang-orang yang membawakan kamu software yang luar biasa ini!",
                     "updated": 1640599360537
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos ist ein gemeinschaftlich betriebenes Krypto-Projekt. Der native Token wird verwendet, um Anreize für Beiträge zu schaffen, was bedeutet, dass das Projekt den Token ausschließlich unter den Mitwirkenden verteilt. Jeder Dollar, den Sie für den Kauf des Superalgos SA Token ausgeben, geht direkt an die Leute, die Ihnen dieses großartige Stück Software liefern!",
+                    "updated": 1641740825089
+                },
+                {
+                    "language": "RU",
+                    "text": "Superalgos - это криптопроект, принадлежащий сообществу. Собственный токен используется для стимулирования вкладов, что означает, что проект распределяет токены исключительно среди вкладчиков. Каждый доллар, который вы потратите на покупку токена Superalgos SA, пойдет непосредственно тем, кто создал это потрясающее программное обеспечение!",
+                    "updated": 1642773662355
                 }
             ]
         },

@@ -4,11 +4,25 @@
         {
             "style": "Important",
             "text": "The infrastructure for Machine Learning algorithms is currently being implemented.",
-            "updated": 1609668116148
+            "updated": 1609668116148,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В настоящее время внедряется инфраструктура для алгоритмов машинного обучения.",
+                    "updated": 1645168001221
+                }
+            ]
         }
     ],
     "definition": {
         "text": "Learning Mines Data is the section of the Data Storage that&mdash;once implemented&mdash;will hold the Data Products produced by Learning Bots.",
-        "updated": 1609668090547
+        "updated": 1609668090547,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Learning Mines Data - это раздел хранилища данных, в котором после внедрения будут храниться продукты данных, созданные обучающими ботами.",
+                "updated": 1645167986376
+            }
+        ]
     }
 }

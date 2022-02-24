@@ -14,6 +14,11 @@
                 "language": "ID",
                 "text": "Hal utama initialBalance diatur ke 5 USDT, yang merupakan ukuran transaksi minimum yang didukung oleh exchange.",
                 "updated": 1640575251466
+            },
+            {
+                "language": "RU",
+                "text": "По умолчанию initialBalance установлен на 10 USDT, что является минимальным размером транзакции, поддерживаемым биржей.",
+                "updated": 1642770126371
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "language": "ID",
                     "text": "Saldo awal initialBalance didefinisikan dalam konfigurasi Session Quoted Asset. Lihat dan putuskan sendiri jika kamu ingin mengubahnya!",
                     "updated": 1640575274140
+                },
+                {
+                    "language": "RU",
+                    "text": "Значение initialBalance определяется в конфигурации Session Quoted Asset. Проверьте его и решите для себя, хотите ли вы его изменить!",
+                    "updated": 1642770139851
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "language": "ID",
                     "text": "Tidak perlu mengubah konfigurasi untuk menyelesaikan tutorial ini, tetapi kamu bebas melakukannya jika mau!",
                     "updated": 1640575307830
+                },
+                {
+                    "language": "RU",
+                    "text": "Нет необходимости менять конфигурацию для завершения этого урока, но вы можете сделать это, если хотите!",
+                    "updated": 1642770152053
                 }
             ]
         }

@@ -36,6 +36,11 @@
                 "language": "ID",
                 "text": "Superalgos Admins, the Core Team, and Community Mods tidak akan pernah menghubungi kamu secara langsung kecuali kamu menghubungi mereka terlebih dahulu!",
                 "updated": 1640600512829
+            },
+            {
+                "language": "RU",
+                "text": "Администраторы Superalgos, основная команда (Core Team) и модераторы сообщества (Community Mods) никогда не будут связываться с вами напрямую, если вы сами не обратитесь к ним!",
+                "updated": 1642774566147
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "ID",
                     "text": "Scammers mengintai! Waspadalah! Bukan berita bahwa kelompok terkait trading menarik semua jenis scammers, dan kami sadar bahwa mereka menghubungi orang-orang di kelompok kami yang mencoba segala macam trik. Kami tidak akan pernah meminta API keys, koin, atau uang tunai. Faktanya, kami tidak akan pernah meminta kamu untuk mempercayai kami dengan cara apa pun! Kami ingin memperjelas bahwa jika seseorang menghubungi kamu secara langsung mengaku bekerja dengan atau untuk proyek, itu adalah penipuan. Silakan laporkan scammers dalam Community group sehingga mereka dapat dilarang, dan untuk meningkatkan kesadaran akan masalah tersebut, tetapi juga memblokir mereka dan melaporkannya ke Telegram jika opsi tersedia.",
                     "updated": 1640600616757
+                },
+                {
+                    "language": "RU",
+                    "text": "Мошенники затаились! Остерегайтесь! Не новость, что группы, связанные с торговлей, привлекают всевозможных мошенников, и мы знаем, что они связываются с людьми в наших группах, пытаясь использовать всевозможные уловки. Мы никогда не попросим у вас ключи API, монеты или наличные. Более того, мы никогда не будем просить вас доверять нам в чем-либо! Мы хотим пояснить, что если кто-то обращается к вам напрямую, утверждая, что работает с проектом или для него, то это мошенничество. Пожалуйста, сообщайте о мошенниках в группе сообщества, чтобы их могли забанить, и чтобы повысить осведомленность о проблеме, но также блокируйте их и сообщайте о них в Telegram, если такая возможность доступна.",
+                    "updated": 1642774613419
                 }
             ]
         }

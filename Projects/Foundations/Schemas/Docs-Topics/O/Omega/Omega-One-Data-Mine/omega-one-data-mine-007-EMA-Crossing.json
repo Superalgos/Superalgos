@@ -4,19 +4,33 @@
     "type": "EMA Crossing",
     "definition": {
         "text": "This indicator contains two exponential moving average (EMA) products. For more information on the EMA indicator, see the EMA documentation in the Sparta data mine.",
-        "updated": 1617958214490
+        "updated": 1617958214490,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Этот индикатор содержит два экспоненциальных скользящих средних (EMA). Для получения дополнительной информации об индикаторе EMA см. документацию по EMA в источнике данных Sparta.",
+                "updated": 1643526081299
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "This indicator uses 2 separate EMA signals:",
-            "updated": 1617958138349
+            "updated": 1617958138349,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Этот индикатор использует 2 отдельных сигнала EMA:",
+                    "updated": 1643526088329
+                }
+            ]
         },
-       {
+        {
             "style": "List",
             "text": "EMA 1 length: 12"
-        },		
-		{
+        },
+        {
             "style": "List",
             "text": "EMA 2 length: 48"
         },
@@ -27,46 +41,116 @@
         {
             "style": "Subtitle",
             "text": "Change the input to optimise it for your use case!",
-            "updated": 1617953879921
+            "updated": 1617953879921,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Измените входные данные, чтобы оптимизировать их для вашего случая использования!",
+                    "updated": 1643526098183
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Most of Omega indicators can use different period values. To change periods:",
-            "updated": 1617955135049
+            "updated": 1617955135049,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Большинство индикаторов Omega могут использовать различные значения периодов. Чтобы изменить периоды:",
+                    "updated": 1643526104134
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Locate the Data Mine and expand it."
+            "text": "Locate the Data Mine and expand it.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Найдите Data Mine и разверните его.",
+                    "updated": 1643526113699
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Expand the Indicator Bot node."
+            "text": "Expand the Indicator Bot node.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Разверните узел Indicator Bot.",
+                    "updated": 1643526121276
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Find the Product Definition -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code."
+            "text": "Find the Product Definition -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Найдите Product Definition -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code.",
+                    "updated": 1643526130256
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Edit the Procedure Javascript Code node."
+            "text": "Edit the Procedure Javascript Code node.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Отредактируйте узел Procedure Javascript Code.",
+                    "updated": 1643526139971
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Put the text marker in the edit box, and press Arrow Up until you reach the top of the code."
+            "text": "Put the text marker in the edit box, and press Arrow Up until you reach the top of the code.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Поместите текстовый маркер в поле редактирования и нажимайте на стрелку вверх, пока не достигнете верхней части кода.",
+                    "updated": 1643526170361
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Look for \"User defined values\".",
-            "updated": 1617954642138
+            "updated": 1617954642138,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Найдите \"User defined values\".",
+                    "updated": 1643526180454
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Enter the values of your choice."
+            "text": "Enter the values of your choice.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Введите значения по своему выбору.",
+                    "updated": 1643526185326
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "Remember that you have to delete existing data for the indicator in the Data-Storage folder, and re-start the Data Tasks needed for the indicator in the Network node before you can see any changes.",
-            "updated": 1617954918128
+            "updated": 1617954918128,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Помните, что необходимо удалить существующие данные для индикатора в папке Data-Storage и заново запустить Data Tasks, необходимые для индикатора, в узле Network, прежде чем вы сможете увидеть какие-либо изменения.",
+                    "updated": 1643526190762
+                }
+            ]
         },
         {
             "style": "Png",
@@ -76,7 +160,14 @@
         {
             "style": "Subtitle",
             "text": "Products, Properties & Examples",
-            "updated": 1617967853007
+            "updated": 1617967853007,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты, свойства и примеры",
+                    "updated": 1643526197339
+                }
+            ]
         },
         {
             "style": "Table",

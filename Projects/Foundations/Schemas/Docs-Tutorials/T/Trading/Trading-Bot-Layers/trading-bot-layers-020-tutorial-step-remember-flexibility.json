@@ -18,6 +18,11 @@
                 "language": "RU",
                 "text": "Следствием предыдущего шага является то, что не все будет иметь для вас смысл!",
                 "updated": 1640627534299
+            },
+            {
+                "language": "TR",
+                "text": "Bir önceki adımın doğal sonucu olarak , her şey size mantıklı gelmeyebilir!",
+                "updated": 1642403940663
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "RU",
                     "text": "Superalgos разработан и построен по принципу гибкости. Разные пользователи, разные подходы к торговле, разные стратегии - у всех разные потребности!",
                     "updated": 1640627586981
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos, esneklik göz önünde bulundurularak tasarlanmış ve üretilmiştir. Farklı kullanıcılar, farklı alım satım yaklaşımları, farklı stratejiler, hepsinin farklı ihtiyaçları olabilir!",
+                    "updated": 1642403980645
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "RU",
                     "text": "Система не знает, каково ваше намерение. Она предоставляет набор инструментов, которые нужно использовать с умом, чтобы они имели смысл!",
                     "updated": 1640627600923
+                },
+                {
+                    "language": "TR",
+                    "text": "Sistem niyetinizin ne olduğunu bilrmez. Sadece mantıklı olmaları için akıllıca kullanmanız gereken bir dizi araç sağlar!",
+                    "updated": 1642404017664
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "RU",
                     "text": "Научитесь обращать внимание на ту информацию, которая имеет для вас значение, и отбрасывать то, что не имеет!",
                     "updated": 1640627615295
+                },
+                {
+                    "language": "TR",
+                    "text": "Sizi ilgilendiren bilgilere dikkat etmeyi öğrenin ve ilgilendirmeyen bilgilerin görünmesini engellemekten (katmanları kapatarak) çekinmeyin!",
+                    "updated": 1642404156839
                 }
             ]
         }

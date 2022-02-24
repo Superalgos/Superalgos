@@ -35,8 +35,8 @@
             },
             {
                 "language": "TR",
-                "text": "Biliyorum! Rastgele bir noktaya zum yapmak, grafiği ekranınızla kare şeklinde konumlandırmak pek mümkün değil, değil mi? Endişelenme... bu numarayı dene!",
-                "updated": 1636036151336
+                "text": "Biliyorum! Rastgele bir noktaya zoom yapmak, grafiği ekranınızda konumlandırmak pek mümkün değil, değil mi? Endişelenme... bu numarayı dene!",
+                "updated": 1644915994920
             },
             {
                 "language": "RU",
@@ -106,8 +106,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Uzaklaştır: en uzak uzaklaştırma konumuna gitmek için fare tekerleğini kullanın; sadece bu konumdan sonraki komut çalışacaktır!",
-                    "updated": 1636036274866
+                    "text": "Uzaklaştır: Grafiği uzaklaştırmak için fare tekerleğini kullanın.",
+                    "updated": 1644916086212
                 },
                 {
                     "language": "RU",
@@ -146,8 +146,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Bir kez çift tıklayın: bu, grafiği ortalar ve sizi belirli bir yakınlaştırma düzeyine götürür; sol üst köşede grafiğin adına ve sekmesine uyacak şekilde bir kenar boşluğu bırakılır.",
-                    "updated": 1636037063264
+                    "text": "Bir kez çift tıklayın: Bu, grafiği ortalar ve sizi belirli bir yakınlaştırma düzeyine götürür; sol üst köşede grafiğin adına ve sekmesine uyacak şekilde bir kenar boşluğu bırakılır.",
+                    "updated": 1644916096511
                 },
                 {
                     "language": "RU",
@@ -187,8 +187,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Tekrar çift tıklayın: bu sizi grafikte daha ileri götürür, grafiğin ekrana tam olarak oturduğu ve Katman Yöneticilerinin ortaya çıktığı yakınlaştırma düzeyine gidersiniz.",
-                    "updated": 1636037090275
+                    "text": "Tekrar çift tıklayın: Bu sizi grafikte daha ileri götürür, grafiğin ekrana tam olarak oturduğu ve Katman Yöneticilerinin ortaya çıktığı yakınlaştırma düzeyine gidersiniz.",
+                    "updated": 1644916107427
                 },
                 {
                     "language": "RU",

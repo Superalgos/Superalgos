@@ -251,6 +251,116 @@ exports.newHttpInterface = function newHttpInterface() {
                     }
                 }
                     break
+                case 'DEX':
+                    switch (requestPath[2]) {
+                        case 'CreateNewWallet':
+                            console.log('creating new wallet')
+                            let dexWallet = SA.projects.decentralizedExchanges.modules.wallets.newDecentralizedExchangesModulesWallets()
+                            dexWallet.initialize()
+                            .then(() => {
+                                dexWallet.createWallet()
+                                .then(wallet => {
+                                    responseBody = JSON.stringify({
+                                        address: wallet.address,
+                                        mnemonic: wallet.mnemonic.phrase,
+                                        privateKey: wallet.privateKey,
+                                        publicKey: wallet.publicKey
+                                    })
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(responseBody, httpResponse)
+                                })
+                                .catch(err => {
+                                    console.error(err)
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                })
+                            })
+                            .catch(err => {
+                                console.error(err)
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                            })
+                            break
+                        case 'ImportWalletFromMnemonic':
+                            console.log('importing wallet from mnemonic')
+                            SA.projects.foundations.utilities.httpRequests.getRequestBodyAsync(httpRequest, httpResponse)
+                            .then(body => {
+                                let config = JSON.parse(body)
+                                let dexWallet = SA.projects.decentralizedExchanges.modules.wallets.newDecentralizedExchangesModulesWallets()
+                                dexWallet.initialize()
+                                .then(() => {
+                                    dexWallet.importWalletFromMnemonic(config.mnemonic)
+                                    .then(wallet => {
+                                        responseBody = JSON.stringify({
+                                            address: wallet.address
+                                        })
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(responseBody, httpResponse)
+                                    })
+                                    .catch(err => {
+                                        console.error(err)
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                    })
+                                })
+                                .catch(err => {
+                                    console.error(err)
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                })
+                            })
+                            .catch(err => {
+                                console.error(err)
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                            })
+                            break
+                        case 'ImportWalletFromPrivateKey':
+                            console.log('importing wallet from private key')
+                            SA.projects.foundations.utilities.httpRequests.getRequestBodyAsync(httpRequest, httpResponse)
+                            .then(body => {
+                                let config = JSON.parse(body)
+                                let dexWallet = SA.projects.decentralizedExchanges.modules.wallets.newDecentralizedExchangesModulesWallets()
+                                dexWallet.initialize()
+                                .then(() => {
+                                    dexWallet.importWalletFromPrivateKey(config.privateKey)
+                                    .then(wallet => {
+                                        responseBody = JSON.stringify({
+                                            address: wallet.address,
+                                            publicKey: wallet.publicKey
+                                        })
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(responseBody, httpResponse)
+                                    })
+                                    .catch(err => {
+                                        console.error(err)
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                    })
+                                })
+                                .catch(err => {
+                                    console.error(err)
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                })
+                            })
+                            .catch(err => {
+                                console.error(err)
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                            })
+                            break
+                        case 'GetTokens':
+                            console.log('adding missing tokens to wallet assets.')
+                            SA.projects.foundations.utilities.httpRequests.getRequestBodyAsync(httpRequest, httpResponse)
+                            .then(body => {
+                                let config = JSON.parse(body)
+                                if (config.network === 'bsc') {
+                                    SA.projects.decentralizedExchanges.utilities.bsc.getTokens()
+                                        .then(response => {
+                                            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
+                                        })
+                                    .catch(err => {
+                                        console.error(err)
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                    })
+                                }
+                            })
+                            .catch(err => {
+                                console.error(err)
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                            })
+                        }
+                    break
                 case 'Social-Bots':
                     switch (requestPath[2]) {
                         case 'Discord-Test-Message':
@@ -276,7 +386,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                             SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                                         })
                                 })
-                                .catch (err => {
+                                .catch(err => {
                                     console.error(err)
                                 })
                             break
@@ -296,7 +406,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                             SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                                         })
                                 })
-                                .catch (err => {
+                                .catch(err => {
                                     console.error(err)
                                 })
                             break
@@ -316,7 +426,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                             SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                                         })
                                 })
-                                .catch (err => {
+                                .catch(err => {
                                     console.error(err)
                                 })
                             break
@@ -418,7 +528,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     let filePath = global.env.PATH_TO_SECRETS + '/'
                                     let fileName = "SigningAccountsSecrets.json"
 
-                                    createNewDir(filePath)
+                                    SA.projects.foundations.utilities.filesAndDirectories.createNewDir(filePath)
                                     SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, body)
 
                                     console.log('[SUCCESS] ' + filePath + '/' + fileName + '  created.')
@@ -709,9 +819,9 @@ exports.newHttpInterface = function newHttpInterface() {
 
                             function createPrefixDirectories(filePath, schemaTextToUse) {
                                 let firstLetter = schemaTextToUse.substring(0, 1)
-                                createNewDir(filePath + '/' + firstLetter)
+                                SA.projects.foundations.utilities.filesAndDirectories.createNewDir(filePath + '/' + firstLetter)
                                 let extraWord = schemaTextToUse.split(' ')[0]
-                                createNewDir(filePath + '/' + firstLetter + '/' + extraWord)
+                                SA.projects.foundations.utilities.filesAndDirectories.createNewDir(filePath + '/' + firstLetter + '/' + extraWord)
                                 return filePath + '/' + firstLetter + '/' + extraWord + '/' + cleanFileName(schemaTextToUse)
                             }
 
@@ -735,7 +845,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                         schemaDocument.updated = undefined
                                         schemaDocument.created = undefined
                                         let fileContent = JSON.stringify(schemaDocument, undefined, 4)
-                                        createNewDir(newFilepath)
+                                        SA.projects.foundations.utilities.filesAndDirectories.createNewDir(newFilepath)
                                         fs.writeFileSync(newFilepath + '/' + fileName, fileContent)
                                         if (created === true) {
                                             console.log('[SUCCESS] ' + newFilepath + '/' + fileName + '  created.')
@@ -780,6 +890,7 @@ exports.newHttpInterface = function newHttpInterface() {
                 }
                     break
                 case 'App': {
+                    const GITHUB_API_WAITING_TIME = 3000
                     // If running the electron app do not try to get git tool. I don't allow it.
                     if (process.env.SA_MODE === 'gitDisable') {
                         console.log('[WARN] No contributions on binary distributions. Do manual installation')
@@ -787,8 +898,121 @@ exports.newHttpInterface = function newHttpInterface() {
                     }
                     switch (requestPath[2]) { // switch by command
 
+                        case 'GetCreds': {
+                            // We load saved Github credentials
+                            try {
+                                let error
+
+                                getCreds().catch(errorResp)
+
+                                // This error responce needs to be made compatible with the contributions space or depricated
+                                function errorResp(e) {
+                                    error = e
+                                    console.error(error)
+                                    let docs = {
+                                        project: 'Foundations',
+                                        category: 'Topic',
+                                        type: 'Switching Branches - Current Branch Not Changed',
+                                        anchor: undefined,
+                                        placeholder: {}
+                                    }
+
+                                    respondWithDocsObject(docs, error)
+                                }
+
+                                async function getCreds() {
+                                    let secretsDiv = global.env.PATH_TO_SECRETS
+                                    if (SA.nodeModules.fs.existsSync(secretsDiv)) {
+                                        let rawFile = SA.nodeModules.fs.readFileSync(secretsDiv + '/githubCredentials.json') 
+                                        githubCredentials = JSON.parse(rawFile)
+
+                                        // Now we send the credentials to the UI
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(githubCredentials), httpResponse)
+                                    }
+                                }
+
+                            } catch (err) {
+                                console.log('[ERROR] httpInterface -> App -> Status -> Method call produced an error.')
+                                console.log('[ERROR] httpInterface -> App -> Status -> err.stack = ' + err.stack)
+
+                                let error = {
+                                    result: 'Fail Because',
+                                    message: err.message,
+                                    stack: err.stack
+                                }
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
+                            }
+                            break
+                        }
+
+                        case 'SaveCreds': {
+                            // We save Github credentials sent from the UI
+                            try {
+                                requestPath.splice(0,3)
+                                const username = requestPath.splice(0, 1).toString()
+                                const token = requestPath.toString()
+
+                                let creds = {
+                                    "githubUsername": username,
+                                    "githubToken": token
+                                }
+                                
+                                console.log(creds)
+                                let error
+
+                                saveCreds().catch(errorResp)
+
+                                // This error responce needs to be made compatible with the contributions space or depricated
+                                function errorResp(e) {
+                                    error = e
+                                    console.error(error)
+                                    let docs = {
+                                        project: 'Foundations',
+                                        category: 'Topic',
+                                        type: 'Switching Branches - Current Branch Not Changed',
+                                        anchor: undefined,
+                                        placeholder: {}
+                                    }
+
+                                    respondWithDocsObject(docs, error)
+                                }
+
+                                async function saveCreds() {
+                                    let secretsDir = global.env.PATH_TO_SECRETS
+                                    
+                                    // Make sure My-Secrets has been created. If not create it now
+                                    if (!SA.nodeModules.fs.existsSync(secretsDir)) {
+                                        SA.nodeModules.fs.mkdirSync(secretsDir)
+                                    }
+
+                                    // Now write creds to file
+                                    if (SA.nodeModules.fs.existsSync(secretsDir)) {
+                                        
+                                       SA.nodeModules.fs.writeFileSync(secretsDir + '/githubCredentials.json', JSON.stringify(creds)) 
+                                    }
+                                }
+
+                            } catch (err) {
+                                console.log('[ERROR] httpInterface -> App -> SaveCreds -> Method call produced an error.')
+                                console.log('[ERROR] httpInterface -> App -> SaveCreds -> err.stack = ' + err.stack)
+
+                                let error = {
+                                    result: 'Fail Because',
+                                    message: err.message,
+                                    stack: err.stack
+                                }
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
+                                break
+                            }
+
+                            // If everything goes well respond back with success
+                            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                            break
+                        }                        
+
                         case 'Contribute': {
                             try {
+                                // We create a pull request of all active changes
                                 let commitMessage = unescape(requestPath[3])
                                 const username = unescape(requestPath[4])
                                 const token = unescape(requestPath[5])
@@ -810,7 +1034,9 @@ exports.newHttpInterface = function newHttpInterface() {
                                     if (gitpath === undefined) {
                                         console.log('[ERROR] `git` not installed.')
                                     } else {
-                                        await doGit()
+                                        await doGit().catch(e => {
+                                            error = e
+                                        })
                                         if (error !== undefined) {
 
                                             let docs = {
@@ -825,7 +1051,9 @@ exports.newHttpInterface = function newHttpInterface() {
                                             return
                                         }
 
-                                        await doGithub()
+                                        await doGithub().catch(e => {
+                                            error = e
+                                        })
                                         if (error !== undefined) {
 
                                             let docs = {
@@ -846,31 +1074,53 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                 async function doGit() {
                                     const simpleGit = SA.nodeModules.simpleGit
-                                    const options = {
+                                    let options = {
                                         baseDir: process.cwd(),
                                         binary: 'git',
                                         maxConcurrentProcesses: 6,
                                     }
-                                    const git = simpleGit(options)
+                                    let repoURL = 'https://github.com/Superalgos/Superalgos'
+                                    console.log('[INFO] Starting process of uploading changes (if any) to ' + repoURL)
+                                    let git = simpleGit(options)
 
-                                    try {
-                                        await git.add('./*')
-                                        await git.commit(commitMessage)
-                                        await git.push('origin', currentBranch)
-                                    } catch (err) {
-                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> Method call produced an error.')
-                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> err.stack = ' + err.stack)
-                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> commitMessage = ' + commitMessage)
-                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> currentBranch = ' + currentBranch)
-                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> contributionsBranch = ' + contributionsBranch)
-                                        console.log('')
-                                        console.log('Troubleshooting Tips:')
-                                        console.log('')
-                                        console.log('1. Make sure that you have set up your Github Username and Token at the APIs -> Github API node at the workspace.')
-                                        console.log('2. Make sure you are running the latest version of Git available for your OS.')
-                                        console.log('3. Make sure that you have cloned your Superalgos repository fork, and not the main Superalgos repository.')
-                                        console.log('4. If your fork is old, you might need to do an app.update and also a node setup at every branch. If you just reforked all is good.')
-                                        error = err
+                                    await pushFiles(git) // Main Repo
+
+                                    for (const propertyName in global.env.PROJECT_PLUGIN_MAP) {
+                                        /*
+                                        Upload the Plugins
+                                        */
+                                        options = {
+                                            baseDir: SA.nodeModules.path.join(process.cwd(), 'Plugins', global.env.PROJECT_PLUGIN_MAP[propertyName].dir),
+                                            binary: 'git',
+                                            maxConcurrentProcesses: 6,
+                                        }
+                                        git = simpleGit(options)
+                                        repoURL = 'https://github.com/Superalgos/' + global.env.PROJECT_PLUGIN_MAP[propertyName].repo
+                                        console.log('[INFO] Starting process of uploading changes (if any) to ' + repoURL)
+                                        await pushFiles(git)
+                                    }
+
+                                    async function pushFiles(git) {
+                                        try {
+                                            await git.add('./*')
+                                            await git.commit(commitMessage)
+                                            await git.push('origin', currentBranch)
+                                        } catch (err) {
+                                            console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> Method call produced an error.')
+                                            console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> err.stack = ' + err.stack)
+                                            console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> commitMessage = ' + commitMessage)
+                                            console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> currentBranch = ' + currentBranch)
+                                            console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> contributionsBranch = ' + contributionsBranch)
+                                            console.log('')
+                                            console.log('Troubleshooting Tips:')
+                                            console.log('')
+                                            console.log('1. Make sure that you have set up your Github Username and Token at the APIs -> Github API node at the workspace.')
+                                            console.log('2. Make sure you are running the latest version of Git available for your OS.')
+                                            console.log('3. Make sure that you have cloned your Superalgos repository fork, and not the main Superalgos repository.')
+                                            console.log('4. If your fork is old, you might need to do an app.update and also a node setup at every branch. If you just reforked all is good.')
+
+                                            error = err
+                                        }
                                     }
                                 }
 
@@ -883,33 +1133,57 @@ exports.newHttpInterface = function newHttpInterface() {
                                         userAgent: 'Superalgos ' + SA.version
                                     })
 
-                                    const repo = 'Superalgos'
+                                    let repo = 'Superalgos'
                                     const owner = 'Superalgos'
                                     const head = username + ':' + contributionsBranch
                                     const base = currentBranch
                                     const title = 'Contribution: ' + commitMessage
 
-                                    try {
-                                        await octokit.pulls.create({
-                                            owner,
-                                            repo,
-                                            title,
-                                            head,
-                                            base,
-                                        });
-                                    } catch (err) {
-                                        if (err.stack.indexOf('A pull request already exists') >= 0) {
-                                            return
-                                        } else {
-                                            console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> Method call produced an error.')
-                                            console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> err.stack = ' + err.stack)
-                                            console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> commitMessage = ' + commitMessage)
-                                            console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> username = ' + username)
-                                            console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> token starts with = ' + token.substring(0, 10) + '...')
-                                            console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
-                                            console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> currentBranch = ' + currentBranch)
-                                            console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> contributionsBranch = ' + contributionsBranch)
-                                            error = err
+                                    await createPullRequest(repo)
+
+                                    for (const propertyName in global.env.PROJECT_PLUGIN_MAP) {
+                                        /*
+                                        Upload the Plugins
+                                        */
+                                        await createPullRequest(global.env.PROJECT_PLUGIN_MAP[propertyName].repo)
+                                    }
+
+                                    async function createPullRequest(repo) {
+                                        try {
+                                            console.log(' ')
+                                            console.log('[INFO] Checking if we need to create Pull Request at repository ' + repo)
+                                            await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                            await octokit.pulls.create({
+                                                owner,
+                                                repo,
+                                                title,
+                                                head,
+                                                base,
+                                            });
+                                            console.log('[INFO] A pull request has been succesfully created. ')
+                                        } catch (err) {
+                                            if (
+                                                err.stack.indexOf('A pull request already exists') >= 0 ||
+                                                err.stack.indexOf('No commits between') >= 0
+                                            ) {
+                                                if (err.stack.indexOf('A pull request already exists') >= 0) {
+                                                    console.log('[WARN] A pull request already exists. If any, commits would added to the existing Pull Request. ')
+                                                }
+                                                if (err.stack.indexOf('No commits between') >= 0) {
+                                                    console.log('[WARN] No commits detected. Pull request not created. ')
+                                                }
+                                                return
+                                            } else {
+                                                console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> Method call produced an error.')
+                                                console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> err.stack = ' + err.stack)
+                                                console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> commitMessage = ' + commitMessage)
+                                                console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> username = ' + username)
+                                                console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> token starts with = ' + token.substring(0, 10) + '...')
+                                                console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
+                                                console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> currentBranch = ' + currentBranch)
+                                                console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> contributionsBranch = ' + contributionsBranch)
+                                                error = err
+                                            }
                                         }
                                     }
                                 }
@@ -936,6 +1210,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                         case 'Update': {
                             try {
+                                // We update the local repo from remote
                                 const currentBranch = unescape(requestPath[3])
                                 update()
 
@@ -971,17 +1246,57 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                 async function doGit() {
                                     const simpleGit = SA.nodeModules.simpleGit
-                                    const options = {
-                                        baseDir: process.cwd(),
-                                        binary: 'git',
-                                        maxConcurrentProcesses: 6,
-                                    }
-                                    const git = simpleGit(options)
-
-                                    let message
                                     try {
-                                        message = await git.pull('https://github.com/Superalgos/Superalgos', currentBranch)
+                                        /*
+                                        Update the Main Superalgos Repository.
+                                        */
+                                        let reposUpdated = false
+                                        let options = {
+                                            baseDir: process.cwd(),
+                                            binary: 'git',
+                                            maxConcurrentProcesses: 6,
+                                        }
+                                        let git = simpleGit(options)
+                                        let repoURL = 'https://github.com/Superalgos/Superalgos'
+                                        console.log('[INFO] Downloading from ' + repoURL)
+                                        let message = await git.pull(repoURL, currentBranch)
+
+                                        if (message.error === undefined) {
+                                            addToReposUpdated(message, 'Superalgos')
+
+                                            for (const propertyName in global.env.PROJECT_PLUGIN_MAP) {
+                                                /*
+                                                Update the Plugins
+                                                */
+                                                options = {
+                                                    baseDir: SA.nodeModules.path.join(process.cwd(), 'Plugins', global.env.PROJECT_PLUGIN_MAP[propertyName].dir),
+                                                    binary: 'git',
+                                                    maxConcurrentProcesses: 6,
+                                                }
+                                                git = simpleGit(options)
+                                                repoURL = 'https://github.com/Superalgos/' + global.env.PROJECT_PLUGIN_MAP[propertyName].repo
+                                                console.log('[INFO] Downloading from ' + repoURL)
+                                                message = await git.pull(repoURL, currentBranch)
+                                                if (message.error === undefined) {
+                                                    addToReposUpdated(message, global.env.PROJECT_PLUGIN_MAP[propertyName].repo)
+                                                }
+                                            }
+                                        }
+
+                                        message = {
+                                            reposUpdated: reposUpdated
+                                        }
                                         return { message: message }
+
+                                        function addToReposUpdated(message, repo) {
+                                            if (message.summary.changes + message.summary.deletions + message.summary.insertions > 0) {
+                                                reposUpdated = true
+                                                console.log('[INFO] Your local repository ' + repo + ' was successfully updated. ')
+                                            } else {
+                                                console.log('[INFO] Your local repository ' + repo + ' was already up-to-date. ')
+                                            }
+                                        }
+
                                     } catch (err) {
                                         console.log('[ERROR] Error updating ' + currentBranch)
                                         console.log(err.stack)
@@ -1003,12 +1318,123 @@ exports.newHttpInterface = function newHttpInterface() {
                             break
                         }
 
+                        case 'Status': {
+                            // We check the current status of changes made in the local repo
+                            try {
+                                let error
+
+                                status().catch(errorResp)
+
+                                // This error responce needs to be made compatible with the contributions space or depricated
+                                function errorResp(e) {
+                                    error = e
+                                    console.error(error)
+                                    let docs = {
+                                        project: 'Foundations',
+                                        category: 'Topic',
+                                        type: 'Switching Branches - Current Branch Not Changed',
+                                        anchor: undefined,
+                                        placeholder: {}
+                                    }
+
+                                    respondWithDocsObject(docs, error)
+                                }
+
+
+                                async function status() {
+                                    const { lookpath } = SA.nodeModules.lookpath
+                                    const gitpath = await lookpath('git');
+                                    if (gitpath === undefined) {
+                                        console.log('[ERROR] `git` not installed.')
+                                    } else {
+                                        let repoStatus = []
+                                        let status
+
+                                        // status is an array that holds the repo name and diff summary in an array
+                                        status = await doGit().catch(errorResp)
+                                        repoStatus.push(status)
+
+                                        // here status is returned as an array of arrays with repo name and diff summary
+                                        status = await Promise.all(Object.values(global.env.PROJECT_PLUGIN_MAP).map(v => {
+                                            return doGit(v.dir, v.repo)
+                                        })).catch(errorResp)
+                                        repoStatus = repoStatus.concat(status)
+
+                                        // Now we send all the summaries to the UI
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(repoStatus), httpResponse)
+                                    }
+                                }
+
+                                async function doGit(dir, repo = 'Superalgos') {
+                                    const simpleGit = SA.nodeModules.simpleGit
+                                    const options = {
+                                        binary: 'git',
+                                        maxConcurrentProcesses: 6,
+                                    }
+                                    // main app repo should be the working directory
+                                    if (repo === 'Superalgos') options.baseDir = dir || process.cwd()
+                                    // if repo is not main app repo, assume it is a plugin, in ./Plugins.
+                                    else options.baseDir = SA.nodeModules.path.join(process.cwd(), 'Plugins', dir)
+                                    const git = simpleGit(options)
+                                    let diffObj
+                                    try {
+                                        // get the summary of current changes in the current repo
+                                        diffObj = await git.diffSummary(responce).catch(errorResp)
+
+                                        function responce(err, diffSummary) {
+                                            if (err !== null) {
+                                                console.log('[ERROR] Error while gathering diff summary for ' + repo)
+                                                console.log(err.stack)
+                                                error = err
+                                            } else {
+                                                return diffSummary
+                                            }
+                                        }
+
+                                    } catch (err) {
+                                        console.log('[ERROR] Error while gathering diff summary for ' + repo)
+                                        console.log(err.stack)
+                                        error = err
+                                    }
+                                    return [repo, diffObj];
+                                }
+
+                            } catch (err) {
+                                console.log('[ERROR] httpInterface -> App -> Status -> Method call produced an error.')
+                                console.log('[ERROR] httpInterface -> App -> Status -> err.stack = ' + err.stack)
+
+                                let error = {
+                                    result: 'Fail Because',
+                                    message: err.message,
+                                    stack: err.stack
+                                }
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
+                            }
+                            break
+                        }
+
                         case 'Checkout': {
                             try {
+                                // We check out the specified git branch
                                 const currentBranch = unescape(requestPath[3])
                                 let error
 
-                                checkout()
+                                checkout().catch(errorResp)
+
+                                function errorResp(e) {
+                                    error = e
+                                    console.error(error)
+                                    let docs = {
+                                        project: 'Foundations',
+                                        category: 'Topic',
+                                        type: 'Switching Branches - Current Branch Not Changed',
+                                        anchor: undefined,
+                                        placeholder: {}
+                                    }
+
+                                    respondWithDocsObject(docs, error)
+                                }
+
 
                                 async function checkout() {
                                     const { lookpath } = SA.nodeModules.lookpath
@@ -1016,7 +1442,12 @@ exports.newHttpInterface = function newHttpInterface() {
                                     if (gitpath === undefined) {
                                         console.log('[ERROR] `git` not installed.')
                                     } else {
-                                        await doGit()
+                                        // Checkout branch from main repo
+                                        await doGit().catch(errorResp)
+                                        // Checkout branch from each plugin repo
+                                        await Promise.all(Object.values(global.env.PROJECT_PLUGIN_MAP).map(v => {
+                                            return doGit(v.dir, v.repo)
+                                        })).catch(errorResp)
 
                                         if (error === undefined) {
                                             // Run node setup to prepare instance for branch change
@@ -1024,49 +1455,30 @@ exports.newHttpInterface = function newHttpInterface() {
                                             // Return to UI that Branch is successfully changed
                                             SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                                         } else {
-                                            let docs = {
-                                                project: 'Foundations',
-                                                category: 'Topic',
-                                                type: 'Switching Branches - Current Branch Not Changed',
-                                                anchor: undefined,
-                                                placeholder: {}
-                                            }
-
-                                            respondWithDocsObject(docs, error)
+                                            errorResp(error)
                                         }
                                     }
                                 }
 
-                                async function doGit() {
+                                async function doGit(dir, repo = 'Superalgos') {
                                     const simpleGit = SA.nodeModules.simpleGit
                                     const options = {
-                                        baseDir: process.cwd(),
                                         binary: 'git',
                                         maxConcurrentProcesses: 6,
                                     }
+                                    // main app repo should be the working directory
+                                    if (repo === 'Superalgos') options.baseDir = dir || process.cwd()
+                                    // if repo is not main app repo, assume it is a plugin, in ./Plugins.
+                                    else options.baseDir = SA.nodeModules.path.join(process.cwd(), 'Plugins', dir)
                                     const git = simpleGit(options)
                                     try {
-                                        await git.checkout(currentBranch)
+                                        await git.checkout(currentBranch).catch(errorResp)
 
-                                        // Check to see it main repo has been set as upstream
-                                        let remotes = await git.getRemotes();
-                                        let isUpstreamSet
-                                        for (let remote in remotes) {
-                                            if (remotes[remote].name === 'upstream') {
-                                                isUpstreamSet = true
-                                            } else {
-                                                isUpstreamSet = false
-                                            }
-                                        }
-                                        // If upstream has not been set. Set it now
-                                        if (isUpstreamSet === false) {
-                                            await git.addRemote('upstream', 'https://github.com/Superalgos/Superalgos');
-                                        }
                                         // Pull branch from main repo
-                                        await git.pull('upstream', currentBranch);
+                                        await git.pull('upstream', currentBranch).catch(errorResp);
                                         // Reset branch to match main repo
                                         let upstreamLocation = `upstream/${currentBranch}`
-                                        await git.reset('hard', [upstreamLocation])
+                                        await git.reset('hard', [upstreamLocation]).catch(errorResp)
 
                                     } catch (err) {
                                         console.log('[ERROR] Error changing current branch to ' + currentBranch)
@@ -1106,6 +1518,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                         case 'Branch': {
                             try {
+                                // We get the current git branch
                                 branch()
 
                                 async function branch() {
@@ -1166,6 +1579,201 @@ exports.newHttpInterface = function newHttpInterface() {
                             break
                         }
 
+                        case 'Discard': {
+                            // We discard active changes for a specific file
+                            try {
+                                requestPath.splice(0,3)
+                                const repo = requestPath.splice(0, 1).toString().replace('-Plugins','')
+                                const filePath = requestPath.toString().replaceAll(",", "/")
+
+                                let error
+
+                                discard().catch(errorResp)
+
+                                // This error responce needs to be made compatible with the contributions space or depricated
+                                function errorResp(e) {
+                                    error = e
+                                    console.error(error)
+                                    let docs = {
+                                        project: 'Foundations',
+                                        category: 'Topic',
+                                        type: 'Switching Branches - Current Branch Not Changed',
+                                        anchor: undefined,
+                                        placeholder: {}
+                                    }
+
+                                    respondWithDocsObject(docs, error)
+                                }
+
+
+                                async function discard() {
+                                    const { lookpath } = SA.nodeModules.lookpath
+                                    const gitpath = await lookpath('git');
+                                    if (gitpath === undefined) {
+                                        console.log('[ERROR] `git` not installed.')
+                                    } else {
+                                        let status
+
+                                        // status should return the global ok responce 
+                                        status = await doGit(repo).catch(errorResp)
+
+                                        // Now we send the responce back to the UI
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(status), httpResponse)
+                                    }
+                                }
+
+                                async function doGit(repo = 'Superalgos') {
+                                    const simpleGit = SA.nodeModules.simpleGit
+                                    const options = {
+                                        binary: 'git',
+                                        maxConcurrentProcesses: 6,
+                                    }
+                                    // main app repo should be the working directory
+                                    if (repo === 'Superalgos') options.baseDir = process.cwd()
+                                    // if repo is not main app repo, assume it is a plugin, in ./Plugins.
+                                    else options.baseDir = SA.nodeModules.path.join(process.cwd(), 'Plugins', repo)
+
+                                    const git = simpleGit(options)
+                                    let status
+                                    try {
+
+                                        // Discard change in file
+                                        await git.checkout([filePath]).catch(errorResp)
+                                        // Make sure changes have been discarded
+                                       status = await git.diff([filePath]).catch(errorResp)
+
+                                       if (status === '') {
+                                           status = global.DEFAULT_OK_RESPONSE
+                                       } else {
+                                           console.log('[ERROR} There are still differences found for this file')
+                                           console.log (status)
+                                       }
+
+                                    } catch (err) {
+                                        console.log('[ERROR] Error while discarding changes to ' + filepath)
+                                        console.log(err.stack)
+                                        error = err
+                                    }
+                                    return status
+                                }
+
+                            } catch (err) {
+                                console.log('[ERROR] httpInterface -> App -> Status -> Method call produced an error.')
+                                console.log('[ERROR] httpInterface -> App -> Status -> err.stack = ' + err.stack)
+
+                                let error = {
+                                    result: 'Fail Because',
+                                    message: err.message,
+                                    stack: err.stack
+                                }
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
+                            }
+                            break
+                        }
+
+                        case 'Reset': {
+                            try {
+                                // We reset the local repo to the upstream repo
+                                const currentBranch = unescape(requestPath[3])
+                                let error
+
+                                reset().catch(errorResp)
+
+                                // This error responce needs to be made compatible with the contributions space or depricated
+                                function errorResp(e) {
+                                    error = e
+                                    console.error(error)
+                                    let docs = {
+                                        project: 'Foundations',
+                                        category: 'Topic',
+                                        type: 'Switching Branches - Current Branch Not Changed',
+                                        anchor: undefined,
+                                        placeholder: {}
+                                    }
+
+                                    respondWithDocsObject(docs, error)
+                                }
+
+
+                                async function reset() {
+                                    const { lookpath } = SA.nodeModules.lookpath
+                                    const gitpath = await lookpath('git');
+                                    if (gitpath === undefined) {
+                                        console.log('[ERROR] `git` not installed.')
+                                    } else {
+                                        // Reset main repo
+                                        await doGit().catch(errorResp)
+                                        // Reset each plugin repo
+                                        await Promise.all(Object.values(global.env.PROJECT_PLUGIN_MAP).map(v => {
+                                            return doGit(v.dir, v.repo)
+                                        })).catch(errorResp)
+
+                                        if (error === undefined) {
+                                            // Return to UI that reset was successful
+                                            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                                        } else {
+                                            errorResp(error)
+                                        }
+                                    }
+                                }
+
+                                async function doGit(dir, repo = 'Superalgos') {
+                                    const simpleGit = SA.nodeModules.simpleGit
+                                    const options = {
+                                        binary: 'git',
+                                        maxConcurrentProcesses: 6,
+                                    }
+                                    // main app repo should be the working directory
+                                    if (repo === 'Superalgos') options.baseDir = dir || process.cwd()
+                                    // if repo is not main app repo, assume it is a plugin, in ./Plugins.
+                                    else options.baseDir = SA.nodeModules.path.join(process.cwd(), 'Plugins', dir)
+                                    const git = simpleGit(options)
+                                    try {
+
+                                        // Check to see if upstream repo has been set
+                                        let remotes = await git.getRemotes(true).catch(errorResp);
+                                        let isUpstreamSet
+                                        for (let remote in remotes) {
+                                        if (remotes[remote].name === 'upstream') {
+                                            isUpstreamSet = true
+                                        } else {
+                                            isUpstreamSet = false
+                                            }
+                                        }
+
+                                        // If upstream has not been set. Set it now
+                                        if (isUpstreamSet === false) {
+                                            await git.addRemote('upstream', `https://github.com/Superalgos/${repo}`).catch(errorResp);
+                                        }
+
+                                        // Pull branch from upstream repo
+                                        await git.pull('upstream', currentBranch).catch(errorResp);
+                                        // Reset branch to match upstream repo
+                                        let upstreamLocation = `upstream/${currentBranch}`
+                                        await git.reset('hard', [upstreamLocation]).catch(errorResp)
+
+                                    } catch (err) {
+                                        console.log('[ERROR] Error changing current branch to ' + currentBranch)
+                                        console.log(err.stack)
+                                        error = err
+                                    }
+                                }
+
+                            } catch (err) {
+                                console.log('[ERROR] httpInterface -> App -> Update -> Method call produced an error.')
+                                console.log('[ERROR] httpInterface -> App -> Update -> err.stack = ' + err.stack)
+
+                                let error = {
+                                    result: 'Fail Because',
+                                    message: err.message,
+                                    stack: err.stack
+                                }
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
+                            }
+                            break
+                        }
+
+
                         case 'FixAppSchema': {
                             /*
                             We will use this process when we have moved APP SCHEMA files from one project to another, and we need to fix the
@@ -1221,8 +1829,8 @@ exports.newHttpInterface = function newHttpInterface() {
                                                 allAppSchemasFilePaths.push(fileToRead)
                                                 allAppSchemasFileProjects.push(project)
                                             } catch (err) {
-                                                console.log('[ERROR] sendSchema -> Error Parsing JSON File: ' + fileToRead + ' .Error = ' + err.stack)
-                                                return
+                                                console.log('[WARN] sendSchema -> Error Parsing JSON File: ' + fileToRead + ' .Error = ' + err.stack)
+                                                continue
                                             }
                                         }
                                         PROJECTS_MAP.set(project, SCHEMA_MAP)
@@ -1292,11 +1900,11 @@ exports.newHttpInterface = function newHttpInterface() {
                                         }
 
                                         //if (wasUpdated === true) {
-                                            //let fileContent = JSON.stringify(schemaDocument, undefined, 4)
-                                            //let filePath = allAppSchemasFilePaths[i]
-                                            //console.log('Saving File at ' + filePath)
-                                            //console.log(fileContent)
-                                            //fs.writeFileSync(filePath, fileContent)
+                                        //let fileContent = JSON.stringify(schemaDocument, undefined, 4)
+                                        //let filePath = allAppSchemasFilePaths[i]
+                                        //console.log('Saving File at ' + filePath)
+                                        //console.log(fileContent)
+                                        //fs.writeFileSync(filePath, fileContent)
                                         //}
                                     }
                                 } catch (err) {
@@ -1397,6 +2005,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                 case 'createGithubFork': {
 
                                     let serverResponse = await PL.servers.GITHUB_SERVER.createGithubFork(
+                                        params.username,
                                         params.token
                                     )
 
@@ -1436,17 +2045,20 @@ exports.newHttpInterface = function newHttpInterface() {
                                         let error
 
                                         await checkFork()
+                                        await checkFork('Governance-Plugins')
                                         await updateUser()
 
-                                        async function checkFork() {
+                                        async function checkFork(repo = 'Superalgos') {
                                             let serverResponse = await PL.servers.GITHUB_SERVER.createGithubFork(
-                                                params.token
+                                                username,
+                                                token,
+                                                repo
                                             )
-        
+
                                             SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
-                                            
-                                            if(error != undefined) {
-                                                console.log('[ERROR] httpInterface -> Gov -> createFork -> You already have a fork. Good for you!')
+
+                                            if (error != undefined) {
+                                                console.log(`[ERROR] httpInterface -> Gov -> createFork -> You already have a ${repo} fork. Good for you!`)
                                             }
                                         }
 
@@ -1480,7 +2092,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                                 userAgent: 'Superalgos ' + SA.version
                                             })
 
-                                            const repo = 'Superalgos'
+                                            const repo = 'Governance-Plugins'
                                             const owner = 'Superalgos'
                                             const head = username + ':' + contributionsBranch
                                             //const base = currentBranch
@@ -1491,8 +2103,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                                 base = currentBranch
                                             }
                                             const title = 'Governance: ' + mess
-                                            const path = 'Projects/Governance/Plugins/User-Profiles/' + username + '.json';
-
+                                            const path = 'User-Profiles/' + username + '.json';
                                             const sha = await getSHA(path);
 
                                             if (sha === undefined) {
@@ -1508,15 +2119,14 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                             let buff = new Buffer.from(file, 'utf-8');
                                             let encodedFile = buff.toString('base64');
-
                                             try {
                                                 await octokit.repos.createOrUpdateFileContents({
                                                     owner: username,
-                                                    repo: "Superalgos",
-                                                    path,
+                                                    repo: repo,
+                                                    path: path,
                                                     message: title,
                                                     content: encodedFile,
-                                                    sha,
+                                                    sha: sha,
                                                     branch: base
                                                 });
                                             } catch (err) {
@@ -1534,7 +2144,6 @@ exports.newHttpInterface = function newHttpInterface() {
                                                     error = err
                                                 }
                                             }
-
                                             try {
                                                 await octokit.pulls.create({
                                                     owner,
@@ -1560,7 +2169,6 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                             }
 
-
                                         }
 
                                         async function getSHA(path) {
@@ -1571,7 +2179,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                                 const { repository } = await graphql(
                                                     '{  ' +
-                                                    '  repository(name: "SuperAlgos", owner: "' + username + '") {' +
+                                                    '  repository(name: "Governance-Plugins", owner: "' + username + '") {' +
                                                     '    object(expression: "develop:' + path + '") {' +
                                                     '      ... on Blob {' +
                                                     '        oid' +
@@ -1880,9 +2488,8 @@ exports.newHttpInterface = function newHttpInterface() {
                                     try {
                                         schemaDocument = JSON.parse(fileContent)
                                     } catch (err) {
-                                        console.log('[ERROR] sendSchema -> Error Parsing JSON File: ' + fileToRead + ' .Error = ' + err.stack)
-                                        SA.projects.foundations.utilities.httpResponses.respondWithContent("[]", httpResponse)
-                                        return
+                                        console.log('[WARN] sendSchema -> Error Parsing JSON File: ' + fileToRead + ' .Error = ' + err.stack)
+                                        continue
                                     }
                                     schemaArray.push(schemaDocument)
                                 }
@@ -2048,7 +2655,8 @@ exports.newHttpInterface = function newHttpInterface() {
                             let project = requestPath[2]
                             let folder = requestPath[3]
                             let fileName = requestPath[4]
-                            let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Plugins/' + folder
+                            let pluginName = global.env.PROJECT_PLUGIN_MAP[project].dir || project
+                            let filePath = global.env.PATH_TO_PLUGINS + '/' + pluginName + '/' + folder
                             let fileContent = JSON.stringify(plugin, undefined, 4)
                             const fs = SA.nodeModules.fs
                             fs.writeFileSync(filePath + '/' + fileName + '.json', fileContent)
@@ -2098,7 +2706,9 @@ exports.newHttpInterface = function newHttpInterface() {
                         readPluginWorkspaces()
 
                         function readPluginWorkspaces() {
-                            let dirPath = global.env.PATH_TO_PROJECTS + '/' + project + '/Plugins/Workspaces'
+                            let pluginName = project
+                            if (global.env.PROJECT_PLUGIN_MAP[project] && global.env.PROJECT_PLUGIN_MAP[project].dir) pluginName = global.env.PROJECT_PLUGIN_MAP[project].dir
+                            let dirPath = global.env.PATH_TO_PLUGINS + '/' + pluginName + '/Workspaces'
                             try {
                                 let fs = SA.nodeModules.fs
                                 fs.readdir(dirPath, onDirRead)
@@ -2343,16 +2953,6 @@ exports.newHttpInterface = function newHttpInterface() {
             }
             if (err.message !== undefined) {
                 console.log('[ERROR] onHttpRequest -> err.message = ' + err.message)
-            }
-        }
-    }
-
-    function createNewDir(path) {
-        try {
-            SA.nodeModules.fs.mkdirSync(path, { recursive: true })
-        } catch (err) {
-            if (err.message.indexOf('file already exists') < 0) {
-                throw (err)
             }
         }
     }

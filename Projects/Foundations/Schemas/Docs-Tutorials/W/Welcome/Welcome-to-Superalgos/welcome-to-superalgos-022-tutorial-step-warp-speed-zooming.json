@@ -96,8 +96,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Bazen Tasarım Alanının ( Design Space )ekranınızın izin verdiğinden daha büyük bölümlerini görselleştirmek isteyebilirsiniz.",
-                    "updated": 1635951580747
+                    "text": "Bazen Tasarım Alanının ( Design Space ) ekranınızın izin verdiğinden daha büyük bölümlerini görselleştirmek isteyebilirsiniz.",
+                    "updated": 1644906413958
                 }
             ]
         },
@@ -144,8 +144,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Windows'ta Ctrl'ye basın ve fare tekerleği le büyürün küçültün. Yada Mac'te ⌘ ve - veya +'yı kullanın.",
-                    "updated": 1635951641013
+                    "text": "Windows'ta Ctrl'ye basın ve fare tekerleği ile büyültün ya da küçültün. Yada Mac'te  ⌘  ve - veya +'yı kullanın.",
+                    "updated": 1644906450647
                 }
             ]
         },
@@ -190,7 +190,7 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Chrome указывает уровень масштабирования в правом верхнем углу. Когда Вы увеличиваете или уменьшаете масштаб, пространство дизайна центрируется на экране. Используйте карту пространства дизайна, чтобы вернуться туда, где Вы были.",
+                    "text": "Chrome указывает уровень масштабирования в правом верхнем углу. Когда Вы увеличиваете или уменьшаете масштаб, пространство проектирования центрируется на экране. Используйте карту пространства проектирования, чтобы вернуться туда, где Вы были.",
                     "updated": 1635610570380,
                     "style": "Success"
                 },

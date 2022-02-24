@@ -35,14 +35,14 @@
             },
             {
                 "language": "RU",
-                "text": "Я не буду вдаваться в подробности по мере продвижения, но если Вам нужна дополнительная информауия об узле, кнопка Help в меню приведет Вас прямо к его документации.",
+                "text": "Я не буду вдаваться в подробности по мере продвижения, но если вам нужна дополнительная информауия об узле, кнопка Help в меню приведет Вас прямо к его документации.",
                 "updated": 1635613175051,
                 "style": "Definition"
             },
             {
                 "language": "TR",
-                "text": "Devam ederken her ayrıntıya girmeyeceğim, ancak bir düğüm hakkında daha fazla bilgiye ihtiyacınız varsa, menüdeki yardım düğmesi (Düğümü geniletiğinizde görebilirsiniz) sizi doğrudan belgelerine götürür.",
-                "updated": 1636012819082
+                "text": "Şu anda her ayrıntıya girmeyeceğim, ancak bir düğüm hakkında daha fazla bilgiye ihtiyacınız varsa, menüdeki yardım düğmesi (Düğümü genişletiğinizde görebilirsiniz) sizi doğrudan o düğüm ile ilgili yardım belgelerine götürür.",
+                "updated": 1644908660606
             },
             {
                 "language": "NL",
@@ -128,8 +128,8 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Difinition: описывает, что представляет собой узел и его функции.",
-                    "updated": 1635613299355,
+                    "text": "Definition: описывает, что представляет собой узел и его функции.",
+                    "updated": 1641809048495,
                     "style": "List"
                 },
                 {

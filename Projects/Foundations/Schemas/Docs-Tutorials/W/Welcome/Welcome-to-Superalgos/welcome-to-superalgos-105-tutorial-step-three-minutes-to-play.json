@@ -36,6 +36,11 @@
                 "language": "ID",
                 "text": "Aku akan memberi kamu beberapa menit untuk bermain-main dengan  live session-mu, dan ketika kamu siap, kita akan beralih ke hal-hal lain!",
                 "updated": 1640597996644
+            },
+            {
+                "language": "RU",
+                "text": "Я дам вам несколько минут, чтобы поиграть с вашей реальной сессией, а когда вы будете готовы, мы перейдем к другим вещам!",
+                "updated": 1642772745853
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "ID",
                     "text": "Luangkan waktu untuk memproses apa yang telah kamu pelajari sejauh ini...",
                     "updated": 1640598037251
+                },
+                {
+                    "language": "RU",
+                    "text": "Уделите некоторое время тому, что вы узнали на данный момент...",
+                    "updated": 1642772758774
                 }
             ]
         },
@@ -105,6 +115,11 @@
                     "language": "ID",
                     "text": "Setelah kamu siap untuk melanjutkan, jangan ragu untuk menghentikan Live Trading Session dan Data Tasks. Kamu dapat membiarkan session berjalan jika kamu mau, tetapi aku tidak akan mempercayai uang hasil jerih payahku untuk strategi demo tanpa batas!",
                     "updated": 1640598134026
+                },
+                {
+                    "language": "RU",
+                    "text": "Как только вы будете готовы двигаться дальше, не забудьте остановить сеанс реальной торговли и задачи данных. Вы можете оставить сессию запущенной, если хотите, но я бы не стал доверять свои с трудом заработанные деньги демо-стратегии на неопределенный срок!",
+                    "updated": 1642772797095
                 }
             ]
         },
@@ -139,6 +154,11 @@
                     "language": "ID",
                     "text": "Masih ada beberapa hal lagi yang ingin aku tunjukkan sebelum aku membiarkan kamu pergi! Bersabarlah!",
                     "updated": 1640598171441
+                },
+                {
+                    "language": "RU",
+                    "text": "Есть еще несколько вещей, которые я хочу показать вам, прежде чем отпущу вас! Потерпите!",
+                    "updated": 1642772811285
                 }
             ]
         }

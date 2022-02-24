@@ -13,6 +13,16 @@
                 "language": "DE",
                 "text": "Das, mein Freund, ist die richtige Frage, die man stellen sollte! Es ist nicht... Was ist los? sondern... Was übersehe ich?!",
                 "updated": 1639388912243
+            },
+            {
+                "language": "TR",
+                "text": "Kendimize soracağımız soru şu olmalı.Bu değil...Ne oluyor?Ancak...Neyi kaçırıyorum?",
+                "updated": 1641662573894
+            },
+            {
+                "language": "RU",
+                "text": "Это, мой друг, правильный вопрос! Это не... Что не так? А... Что я упустил?!",
+                "updated": 1642659245640
             }
         ]
     },
@@ -25,6 +35,16 @@
                     "language": "DE",
                     "text": "Wie ich bereits sagte, müssen viele Informationen an der richtigen Stelle zusammenkommen, damit die Dinge in einer komplexen Welt einen Sinn ergeben, und der algorithmische Handel ist komplex!",
                     "updated": 1639388924178
+                },
+                {
+                    "language": "TR",
+                    "text": "Daha önce de söylediğim gibi, karmaşık bir dünyada bir şeylerin anlamlı olması için birçok bilginin doğru yerde bir araya gelmesi gerekiyor ve algoritmik ticaret biraz karmaşık!",
+                    "updated": 1641662596791
+                },
+                {
+                    "language": "RU",
+                    "text": "Как я уже говорил ранее, многие части информации должны попасть в нужное место, чтобы все имело смысл в сложном мире, а алгоритмическая торговля сложна!",
+                    "updated": 1642659267870
                 }
             ]
         },
@@ -36,6 +56,16 @@
                     "language": "DE",
                     "text": "Um bei der Entwicklung von Strategien erfolgreich zu sein, müssen Sie die Intuition entwickeln, sich diese Frage zu stellen, wenn die Dinge nicht so laufen, wie Sie wollen!",
                     "updated": 1639388931778
+                },
+                {
+                    "language": "TR",
+                    "text": "Strateji geliştirmede başarılı olmak için, işler istediğiniz gibi gitmediğinde kendinize soru sorma sezgisini geliştirmeniz gerekir!",
+                    "updated": 1641662606998
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы преуспеть в построении стратегий, вы должны развить интуицию и задавать себе этот вопрос всякий раз, когда дела идут не так, как вам хотелось бы!",
+                    "updated": 1642659307201
                 }
             ]
         },
@@ -47,6 +77,16 @@
                     "language": "DE",
                     "text": "Lassen Sie sich aber nicht entmutigen! Ich zeige Ihnen alle Tricks, die ich kenne, damit Sie den Algo-Handel meistern!",
                     "updated": 1639388940032
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Sakın cesaretiniz kırılmasın! Algo-ticaretinde ustalaşmanıza yardımcı olacak bildiğim tüm püf noktalarını size göstereceğim!",
+                    "updated": 1641662619624
+                },
+                {
+                    "language": "RU",
+                    "text": "Но не расстраивайтесь! Я покажу вам все известные мне приемы, чтобы вы освоили алготрейдинг!",
+                    "updated": 1642659340526
                 }
             ]
         }

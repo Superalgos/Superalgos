@@ -1,0 +1,70 @@
+{
+    "topic": "Polus Data Mine",
+    "pageNumber": "11",
+    "type": "Relative Vigor Index",
+    "definition": {
+        "text": "The Relative Vigor Index (RVI) is a momentum indicator similar to the Stochastic indicator. The RVI compares candle open and closes to determine the output trend, instead of the Stochastic's comparison of a candle's close to minimum."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Info:"
+        },
+        {
+            "style": "Text",
+            "text": "From Investopedia: The Relative Vigor Index (RVI) is a momentum indicator used in technical analysis that measures the strength of a trend by comparing a security's closing price to its trading range while smoothing the results using a simple moving average (SMA)."
+        },
+        {
+            "style": "Link",
+            "text": "Investopedia: RVI->www.investopedia.com/terms/r/relative_vigor_index.asp"
+        },
+		{
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-RVI.png"
+        },
+		{
+            "style": "Text",
+            "text": "The length of the calculation for the RVI can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \u2019RVI\u2019 Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-RVI-params.png"
+        },
+		{
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| RVI | RVI | rvi, signal |"
+        },
+		{
+            "style": "Text",
+            "text": "Example:"
+        },
+		{
+            "style": "Text",
+            "text": "A simple strategy could be built to open a trade when the RVI crosses the signal line upwards:"
+        },
+		{
+            "style": "Javascript",
+            "text": "chart.at01hs.RVI.rvi > chart.at01hs.RVI.signal && \nchart.at01hs.RVI.previous.rvi < chart.at01hs.RVI.previous.signal"
+        },
+		{
+            "style": "Text",
+            "text": "The RVI is prone to false signals in rangebound markets, so it is recommended to set longer lookback periods (at the cost of increasing lag), or to combine with a directional indicator such as ADX, RSI, or a divergence detector."
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@ThomasHuault (Telegram)->t.me/ThomasHuault"
+        }
+    ]
+}

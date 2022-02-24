@@ -1,0 +1,23 @@
+.sidebarProfileCard {
+    position: absolute !important;
+    bottom: 0 !important;
+
+    display: flex !important;
+    flex-direction: row !important;
+
+    width: 100% !important;
+    width: -moz-available !important; /* WebKit-based browsers will ignore this. */
+    width: -webkit-fill-available !important; /* Mozilla-based browsers will ignore this. */
+}
+
+.sidebarProfileAvatar {
+    align-self: center;
+    height: 3rem !important;
+    width: 3rem !important;
+    margin: 0 0.2rem;
+    border-radius: 50%;
+}
+
+.sidebarProfileCardContent {
+    padding: 0.5rem !important;
+}

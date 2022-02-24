@@ -37,6 +37,11 @@
                 "language": "ID",
                 "text": "Aku harap kamu menikmati tutorial ini! Apakah kamu ingin menunjukkan rasa terima kasih kamu dengan memberikan bintang kepada repo Superalgos?",
                 "updated": 1640600157931
+            },
+            {
+                "language": "RU",
+                "text": "Надеюсь, вам понравилось это руководство! Хотите выразить свою благодарность, дав звезду репозиторию Superalgos?",
+                "updated": 1642774243489
             }
         ]
     },
@@ -73,6 +78,11 @@
                     "language": "ID",
                     "text": "Pengguna yang datang sebelum kamu meluangkan waktu dan upaya dalam menyusun tutorial sehingga kamu dapat memiliki pengalaman yang lebih baik! Memberi bintang pada repo kami adalah cara yang bagus untuk mengucapkan terima kasih! Bintang meningkatkan peringkat pada pencarian Github. Semakin banyak bintang, semakin mudah bagi pengembang untuk menemukan dan akhirnya berkontribusi pada Superalgos! Memberi bintang pada repo juga melayani kepentingan kamu sendiri!",
                     "updated": 1640600208044
+                },
+                {
+                    "language": "RU",
+                    "text": "Пользователи, которые были до вас, вкладывали время и усилия в создание руководств, чтобы вы могли получить лучший опыт! Поставить звезду нашему репозиторию - хороший способ сказать спасибо! Звезды улучшают рейтинг в поиске Github. Чем больше звезд, тем легче разработчикам найти Superalgos и в конечном итоге внести в него свой вклад! Присвоение звезды репозиторию служит и вашим собственным интересам!",
+                    "updated": 1642774283314
                 }
             ]
         },
@@ -108,6 +118,11 @@
                     "language": "ID",
                     "text": "Jika belum, silakan buka repositori kami dan klik tombol Star di sudut kanan atas!",
                     "updated": 1640600230051
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы еще не сделали этого, пожалуйста, зайдите в наш репозиторий и нажмите на звездочку в правом верхнем углу!",
+                    "updated": 1642774316045
                 }
             ]
         },

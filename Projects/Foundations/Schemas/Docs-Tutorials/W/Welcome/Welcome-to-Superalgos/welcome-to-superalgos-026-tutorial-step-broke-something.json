@@ -41,8 +41,8 @@
             },
             {
                 "language": "TR",
-                "text": "Bir düğümü silmek veya bir konfigürasyonu değiştirmek gibi bir şeyi bozarsanız ve sonuçla nasıl başa çıkacağınızı bilmiyorsanız...",
-                "updated": 1636013094366
+                "text": "Bir düğümü silerek veya bir konfigürasyonu değiştirerek bir şeyi bozarsanız ve ortaya çıkan bu sonuçla nasıl başa çıkacağınızı bilmiyorsanız...",
+                "updated": 1644909160666
             },
             {
                 "language": "NL",
@@ -76,20 +76,20 @@
                 },
                 {
                     "language": "DE",
-                    "text": "... können Sie ganz einfach mit dem ursprünglichen Getting Started Tutorials Plugin Workspace neu beginnen!",
-                    "updated": 1634166463236,
+                    "text": "... können Sie ganz einfach mit dem ursprünglichen Plugin Workspace der Getting Started Tutorials oder dem Partner Exchange workspace, den Sie möglicherweise verwenden, neu beginnen!",
+                    "updated": 1642150404435,
                     "style": "Callout"
                 },
                 {
                     "language": "RU",
-                    "text": "... Вы можете легко начать все сначала с исходного рабочего пространства Getting Started Tutorials Plugin Workspace!",
-                    "updated": 1635628049167,
+                    "text": " ... вы можете легко начать заново с оригинального рабочего пространства плагина Getting Started Tutorials Plugin Workspace или рабочего пространства Partner Exchange, которое вы, возможно, используете! ",
+                    "updated": 1641809270756,
                     "style": "Callout"
                 },
                 {
                     "language": "TR",
-                    "text": "...orijinal Başlangıç Eğitimleri Eklentisi (Getting Started Tutorials ) Çalışma Alanı veya tercih ettiğiniz Borsa  çalışma alanı ile kolayca yeniden başlayabilirsiniz! ",
-                    "updated": 1640627544260
+                    "text": "...orijinal Başlangıç Eğitimleri Eklentisi (Getting Started Tutorials ) Çalışma Alanı veya tercih ettiğiniz diğer çalışma alanı ile kolayca yeniden başlayabilirsiniz!",
+                    "updated": 1644909188541
                 },
                 {
                     "language": "NL",
@@ -123,14 +123,14 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Klicken Sie am linken Rand auf \"Workspaces\", suchen und klicken Sie auf das \"Getting Started Tutorials Plugin\"! Der ursprüngliche Plugin Workspace wird geladen und das Tutorial beginnt von neuem.",
-                    "updated": 1634166835790,
+                    "text": "Ziehen Sie in einem solchen Fall einfach die Registerkarte \"Workspaces\" auf der linken Seite, scrollen Sie, finden Sie \"Plugin Workspace\" und klicken Sie darauf! Der ursprüngliche Plugin-Workspace wird geladen und das Tutorial wird wieder angezeigt, frisch von Anfang an! ",
+                    "updated": 1642150611897,
                     "style": "Text"
                 },
                 {
                     "language": "RU",
-                    "text": "В таком случае просто потяните вкладку с левой стороны, прокрутите, найдите плагин Getting Started Tutorials  и нажмите на него! Загрузится исходный Plugin Workspace и учебное пособие появится снова, с самого начала!",
-                    "updated": 1635629001422,
+                    "text": "В таком случае просто потяните за вкладку слева, прокрутите, найдите рабочее пространство и нажмите на него! Загрузится исходное рабочее пространство плагина, и учебник появится снова, с самого начала! ",
+                    "updated": 1641809314049,
                     "style": "Text"
                 },
                 {
@@ -159,14 +159,14 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Plugin-Workspaces gehören zum Lieferumfang. Sie können diese zu Ihrem eigenen machen oder neue Arbeitsbereiche erstellen.",
-                    "updated": 1634166969189,
+                    "text": "Plugin-Workspaces werden mit dem System ausgeliefert. Sie werden später lernen, auch Ihre eigenen zu erstellen! ",
+                    "updated": 1642150629213,
                     "style": "Success"
                 },
                 {
                     "language": "RU",
-                    "text": "Plugin Workspaces поставляются вместе с системой. Давайте посмотрим, как вы можете сделать их своими собственными или создать новые рабочие пространства!",
-                    "updated": 1635629610043,
+                    "text": "Подключаемые рабочие пространства (Plugin Workspaces) поставляются вместе с системой. Позже вы научитесь создавать и свои собственные!",
+                    "updated": 1641809388018,
                     "style": "Success"
                 },
                 {

@@ -4,7 +4,14 @@
     "type": "MACD R2 indicator",
     "definition": {
         "text": "This indicator produces the MACD R2 buy and sell signals",
-        "updated": 1611661320849
+        "updated": 1611661320849,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Этот индикатор выдает сигналы на покупку и продажу MACD R2",
+                "updated": 1643523145260
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -15,16 +22,37 @@
         {
             "style": "Text",
             "text": "The MACD R2, or refinement 2, further recduces false signals by doing the the following:",
-            "updated": 1611764485658
+            "updated": 1611764485658,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "MACD R2, или уточнение 2, дополнительно уменьшает количество ложных сигналов, делая следующее:",
+                    "updated": 1643523155387
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Wait for three (3) periods after the crossover to take a position, if during that period another crossover happens then it waits for another crossover"
+            "text": "Wait for three (3) periods after the crossover to take a position, if during that period another crossover happens then it waits for another crossover",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Выжидает три (3) периода после пересечения, чтобы занять позицию, если в течение этого периода происходит другое пересечение, то ждет другого пересечения.",
+                    "updated": 1643523208647
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Checks the difference between the MACD line and the Signal, if the difference is larger than predetermined value (standard set to 2%) then it indicates a buy signal"
-        },		
+            "text": "Checks the difference between the MACD line and the Signal, if the difference is larger than predetermined value (standard set to 2%) then it indicates a buy signal",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Проверяет разницу между линией MACD и сигналом, если разница больше заданного значения (стандартное значение 2%), то это указывает на сигнал покупки",
+                    "updated": 1643523252174
+                }
+            ]
+        },
         {
             "style": "Png",
             "text": "PNGs/Foundations/Docs/indicators/MACDR2-on-the-chart.png",
@@ -32,7 +60,14 @@
         },
         {
             "style": "Text",
-            "text": "The opposite is true for the sell indications, it is of course possible to alter these settings in the data mine. The underlying calculations uses the standard MACD settings, 12-26-9"
+            "text": "The opposite is true for the sell indications, it is of course possible to alter these settings in the data mine. The underlying calculations uses the standard MACD settings, 12-26-9",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Противоположное верно для индикаторов продажи, конечно, можно изменить эти настройки в Data Mine. В базовых расчетах используются стандартные настройки MACD, 12-26-9",
+                    "updated": 1643523301810
+                }
+            ]
         }
     ]
 }

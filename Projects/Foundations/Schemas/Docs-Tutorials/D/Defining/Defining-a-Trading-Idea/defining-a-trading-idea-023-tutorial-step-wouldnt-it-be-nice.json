@@ -15,6 +15,11 @@
                 "updated": 1639253233680
             },
             {
+                "language": "RU",
+                "text": "Как здорово было бы уметь предсказывать продолжение спада, когда тренд уже установился?",
+                "updated": 1640891568625
+            },
+            {
                 "language": "TR",
                 "text": "Summary: Özet: Trend zaten belirlendikten sonra bir düşüşün devamını tahmin edebilmek ne kadar havalı olurdu?",
                 "updated": 1640949310633
@@ -32,6 +37,11 @@
                     "updated": 1639253247472
                 },
                 {
+                    "language": "RU",
+                    "text": "Предсказать разворот устоявшегося тренда - очень сложная задача. Анализ, который мы только что провели для 10 апреля, является хорошим примером: хотя пробой на часовом и 4-х часовом таймфреймах ознаменовал разворот тренда в среднесрочной перспективе, долгосрочный тренд остался нетронутым.",
+                    "updated": 1640891705535
+                },
+                {
                     "language": "TR",
                     "text": "İyi kurulmuş bir trendin tersine döneceğini tahmin etmek çok zor bir iştir. Az önce 10 Nisan için yaptığımız analiz iyi bir örnek: 1H ve 4H zaman dilimlerindeki kırılma orta vadede bir trendin tersine dönmesini işaret ederken, uzun vadeli trend bozulmadan kaldı.",
                     "updated": 1640948801348
@@ -43,11 +53,16 @@
             "text": "A safer approach to trading is predicting the continuation of a trend that is already established! <br/><br/>Remember Rule 8? Closes outside the Bollinger Bands are initially continuation signals!",
             "translations": [
                 {
+                    "language": "RU",
+                    "text": "Более безопасный подход к торговле - это прогнозирование продолжения уже установившегося тренда! Помните 8-е правило? Закрытия за пределами полос Боллинджера изначально являются сигналами продолжения!",
+                    "updated": 1640891768184
+                },
+                {
                     "language": "DE",
                     "text": "Ein sicherer Ansatz für den Handel ist die Vorhersage der Fortsetzung eines Trends, der sich bereits etabliert hat!<br><br>Erinnern Sie sich an Regel 8? Schlusskurse außerhalb der Bollinger Bänder sind zunächst Signale für die Fortsetzung des Trends!",
                     "updated": 1640903079150
-                  },
-                  {
+                },
+                {
                     "language": "TR",
                     "text": "Ticarete daha güvenli bir yaklaşım, halihazırda kurulmuş olan bir trendin devamını tahmin etmektir!     Kural 8'i hatırlıyor musun? Bollinger Bantlarının dışındaki kapanışlar başlangıçta devam sinyalleridir!",
                     "updated": 1640949333106

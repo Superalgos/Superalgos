@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Помогая поддерживать документацию в актуальном состоянии, улучшая доступность информации, добавляя пояснения или просто исправляя опечатки и грамматические ошибки, улучшается взаимодействие с пользователем и снижается входной барьер для новых пользователей.",
                 "updated": 1637942357657
+            },
+            {
+                "language": "DE",
+                "text": "Wenn Sie dabei helfen, die Docs (eine Art Bibliothek aus Tutorials, Dokumentation, Hilfestellungen) auf dem neuesten Stand zu halten, die Vermittlung von Informationen zu verbessern, Erklärungen zu ergänzen oder einfach nur Tipp- und Grammatikfehler zu korrigieren, verbessert das die Benutzerfreundlichkeit und senkt die Einstiegshürden für neue Benutzer.",
+                "updated": 1642541252464
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Согласование",
                     "updated": 1637942404826
+                },
+                {
+                    "language": "DE",
+                    "text": "Koordination",
+                    "updated": 1642541260678
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "RU",
                     "text": "Присоединяйтесь к группе Docs Group, чтобы координировать усилия с другими участниками:",
                     "updated": 1637942446024
+                },
+                {
+                    "language": "DE",
+                    "text": "Treten Sie der Docs Group (Docs Gruppe) bei, um Ihre Arbeit mit anderen Mitwirkenden (contributor) zu koordinieren:",
+                    "updated": 1642541313002
                 }
             ]
         },
@@ -52,48 +67,17 @@
                     "language": "RU",
                     "text": "Пожалуйста, представьтесь и познакомьтесь с группой, которая в настоящее время выполняет работу. Основные усилия по координации включают планирование документации по новой функциональности или обсуждение того, какие разделы нуждаются в доработке.",
                     "updated": 1637942497193
+                },
+                {
+                    "language": "DE",
+                    "text": "Bitte stellen Sie sich vor und machen Sie sich mit der Gruppe vertraut, die derzeit die Arbeit erledigt. Die Hauptkoordinationsarbeit besteht in der Planung der Dokumentation neuer Funktionen oder in der Diskussion darüber, welche Abschnitte der Dokumentation überarbeitet werden müssen.",
+                    "updated": 1642541356043
                 }
             ]
         },
         {
             "style": "Include",
             "text": "Foundations->Concept->Reusable Snippets->Contributions Reminder"
-        },
-        {
-            "style": "Title",
-            "text": "Learn How the Docs Work",
-            "updated": 1613811876102,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Узнайте, как работают Документы",
-                    "updated": 1637942671745
-                }
-            ]
-        },
-        {
-            "style": "Text",
-            "text": "You probably have an idea of how the Docs work from using the app and doing the first few tutorials. If you intend to contribute the occasional small fixes on existing pages, you probably know enough to start contributing!",
-            "updated": 1613827243519,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Вы, вероятно, имеете представление о том, как работать с документацией, после использования приложения и выполнения первых нескольких руководств. Если вы намерены вносить случайные мелкие исправления на существующие страницы, вы знаете достаточно, чтобы начать вносить свой вклад!",
-                    "updated": 1637942790124
-                }
-            ]
-        },
-        {
-            "style": "Text",
-            "text": "However, if you wish to get involved in documenting new functionality, reorganizing topics, arranging books, and so on, you should read The Docs Explained book.",
-            "updated": 1613819297682,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Однако, если вы хотите заняться документированием новых функций, реорганизацией тем, систематизацией книг и т. д., вам следует прочитать книгу The Docs Explained.",
-                    "updated": 1637942922140
-                }
-            ]
         },
         {
             "style": "Title",
@@ -104,6 +88,11 @@
                     "language": "RU",
                     "text": "Логистика и лучшие практики",
                     "updated": 1637942944760
+                },
+                {
+                    "language": "DE",
+                    "text": "Logistik und beste Praktiken",
+                    "updated": 1642541488372
                 }
             ]
         },
@@ -116,18 +105,28 @@
                     "language": "RU",
                     "text": "В любой момент времени над документами могут работать несколько человек. Чтобы свести к минимуму возникновение конфликтов во время слияния ваших вкладов в репозиторий Superalgos, настоятельно рекомендуются следующие методы.",
                     "updated": 1637942969293
+                },
+                {
+                    "language": "DE",
+                    "text": "Es kann sein, dass mehrere Personen zu einem beliebigen Zeitpunkt an den Docs mitarbeiten. Um das Auftreten von Konflikten zum Zeitpunkt des Zusammenführens Ihrer Beiträge (merging) in das Superalgos-Repository zu minimieren, werden die folgenden Praktiken dringend empfohlen.",
+                    "updated": 1642541533730
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Update your app frequently so that you incorporate recent changes other users may have submitted.",
-            "updated": 1613817514502,
+            "text": "Update your app frequently so that you incorporate recent changes other users may have submitted. Use the app.update command for that as explained above.",
+            "updated": 1642541786272,
             "translations": [
                 {
                     "language": "RU",
                     "text": "Регулярно обновляйте свое приложение, чтобы включать недавние изменения, которые могли быть отправлены другими пользователями.",
                     "updated": 1637943003592
+                },
+                {
+                    "language": "DE",
+                    "text": "Aktualisieren Sie Ihre Anwendung häufig, damit Sie die neuesten Änderungen, die andere Benutzer eingereicht haben, einbeziehen können. Verwenden Sie dazu den Befehl app.update, wie oben beschrieben.",
+                    "updated": 1642541904627
                 }
             ]
         },
@@ -140,6 +139,11 @@
                     "language": "RU",
                     "text": "Не храните изменения локально слишком долго. Разделите свою работу и отправляйте свои вклады каждый день.",
                     "updated": 1637943048901
+                },
+                {
+                    "language": "DE",
+                    "text": "Behalten Sie Änderungen nicht zu lange lokal. Teilen Sie Ihre Arbeit auf und reichen Sie Ihre Beiträge jeden Tag ein. (app.contribute wie unten erklärt)",
+                    "updated": 1642541944707
                 }
             ]
         },
@@ -152,6 +156,11 @@
                     "language": "RU",
                     "text": "Когда вы запускаете команду App Contribute Command, на вашей вилке создается запрос на извлечение. Сопровождающие репозитория Superalgos изучат вашу заявку и определят, можно ли ее объединить как есть, или требует ли работа каких-либо корректировок.",
                     "updated": 1637943204172
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie den App Contribute-Befehl ausführen, wird ein Pull Request bei Ihrer fork (Spaltung) erstellt. Die Betreuer des Superalgos-Projekt repo werden Ihren Beitrag prüfen und entscheiden, ob er so wie er ist zusammengeführt werden kann (auch merging genannt) oder ob die Arbeit Anpassungen erfordert.",
+                    "updated": 1642542058345
                 }
             ]
         },
@@ -164,6 +173,11 @@
                     "language": "RU",
                     "text": "Следите за своими вкладами, пока они не будут объединены.",
                     "updated": 1637943225091
+                },
+                {
+                    "language": "DE",
+                    "text": "Behalten Sie den Überblick über Ihre contributions (Beiträge), bis sie merged (zusammengeführt) wurden.",
+                    "updated": 1642542095692
                 }
             ]
         },
@@ -176,6 +190,11 @@
                     "language": "RU",
                     "text": "Оставайтесь отзывчивыми, если есть какие-либо отзывы или запросы от сопровождающих.",
                     "updated": 1637943250510
+                },
+                {
+                    "language": "DE",
+                    "text": "Bleiben Sie ansprechbar, wenn es Rückmeldungen oder Anfragen von den Betreuern gibt.",
+                    "updated": 1642542121016
                 }
             ]
         },
@@ -188,8 +207,27 @@
                     "language": "RU",
                     "text": "Будьте внимательны к электронным письмам, которые вы можете получать от GitHub.com",
                     "updated": 1637943273499
+                },
+                {
+                    "language": "DE",
+                    "text": "Achten Sie auf E-Mails, die Sie möglicherweise von GitHub.com erhalten",
+                    "updated": 1642542132582
                 }
             ]
+        },
+        {
+            "style": "Title",
+            "text": "Learn All About the Docs and the Art of Documenting",
+            "updated": 1642956868092
+        },
+        {
+            "style": "Text",
+            "text": "You probably have an idea of how the Docs work from using the app and doing the first few tutorials. If you intend to contribute the occasional small fixes on existing pages, you probably know enough to start contributing!"
+        },
+        {
+            "style": "Callout",
+            "text": "However, if you wish to get involved in documenting new functionality, reorganizing topics, arranging books, and so on, you should definitely read The Docs Explained book. Pay special attention to the last chapter: The Art of Documenting.",
+            "updated": 1642956969472
         },
         {
             "style": "Text",

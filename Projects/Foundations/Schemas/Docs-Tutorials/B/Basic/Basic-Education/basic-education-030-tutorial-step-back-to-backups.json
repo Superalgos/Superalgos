@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "Artık referansları anladığınıza göre, daha derine inebilir ve  Yedekler ( Backups ) ile Klonlar ( Clones ) arasındaki farka bakabiliriz.",
                 "updated": 1639564320216
+            },
+            {
+                "language": "RU",
+                "text": "Теперь, когда вы понимаете, что такое ссылки, мы можем углубиться в резервное копирование и, возможно, даже обсудить его отличие от клонирования!",
+                "updated": 1640870580637
             }
         ]
     },
@@ -61,6 +66,11 @@
                     "language": "TR",
                     "text": "Okuman gereken daha çok sayfa var! Lütfen bu sayfayı dikkatlice okuyun ve bilgileri öğrendiğinizden emin olun.",
                     "updated": 1639564382848
+                },
+                {
+                    "language": "RU",
+                    "text": "Вам предстоит еще немного почитать! Пожалуйста, внимательно прочитайте эту страницу и дайте информации усвоиться!",
+                    "updated": 1640870608708
                 }
             ]
         },
@@ -85,6 +95,11 @@
                     "language": "DE",
                     "text": "Zusammengefasst:",
                     "updated": 1634585604403
+                },
+                {
+                    "language": "RU",
+                    "text": "В заключение:",
+                    "updated": 1640870631959
                 }
             ]
         },
@@ -114,6 +129,11 @@
                     "language": "TR",
                     "text": "Giden referanslar (Outgoing references): Her zaman olduğu gibi tutulurlar.",
                     "updated": 1639564508215
+                },
+                {
+                    "language": "RU",
+                    "text": "Исходящие ссылки: Они всегда сохраняются в целости и сохранности.",
+                    "updated": 1640870642228
                 }
             ]
         },
@@ -143,6 +163,11 @@
                     "language": "TR",
                     "text": "Gelen referanslar (Incoming references): Yalnızca yedeklemeyi geri yüklemeden önce orijinal yapı silindiğinde tutulurlar.",
                     "updated": 1639567244914
+                },
+                {
+                    "language": "RU",
+                    "text": "Входящие ссылки: Они сохраняются только в том случае, если исходная структура удалена перед восстановлением резервной копии.",
+                    "updated": 1640870667600
                 }
             ]
         },
@@ -172,6 +197,11 @@
                     "language": "TR",
                     "text": "Dahili referanslar (Internal references): Yalnızca orijinal yapı ilk silindiğinde tutulurlar.",
                     "updated": 1639567329284
+                },
+                {
+                    "language": "RU",
+                    "text": "Внутренние ссылки: Они остаются внутренними, только если сначала удаляется исходная структура.",
+                    "updated": 1640870680340
                 }
             ]
         }

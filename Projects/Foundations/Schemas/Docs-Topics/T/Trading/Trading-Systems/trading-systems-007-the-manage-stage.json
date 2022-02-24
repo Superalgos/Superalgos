@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Стадия управления Manage Stage - это этап, на котором вы определяете, как осуществляется управление позициями с момента принятия решения о занятии позиции до момента принятия решения о выходе из позиции.",
                 "updated": 1639846779111
+            },
+            {
+                "language": "TR",
+                "text": "Yönetim Aşaması (Manage Stage), pozisyon alma kararının verildiği andan pozisyondan ayrılma kararının alındığı ana kadar pozisyonların nasıl yönetildiğini tanımladığınız yerdir.",
+                "updated": 1642428295236
             }
         ]
     },

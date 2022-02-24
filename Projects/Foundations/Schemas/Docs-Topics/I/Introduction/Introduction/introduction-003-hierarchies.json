@@ -20,6 +20,11 @@
                 "language": "EL",
                 "text": "Η ιεραρχία είναι μια δομή δεδομένων που αντιπροσωπεύει μια γενική έννοια ανώτατου επιπέδου, με αποτέλεσμα μια μακρά αλυσίδα κόμβων, συνήθως με πολλές διακλαδώσεις. Το σύστημα διαχειρίζεται διαφορετικούς τύπους ιεραρχιών, καθένας από αυτούς με μια συγκεκριμένη εστίαση.",
                 "updated": 1638970331511
+            },
+            {
+                "language": "DE",
+                "text": "Eine Hierarchie ist eine Datenstruktur, die ein übergreifendes, übergeordnetes Konzept darstellt, das in einer langen Kette von Nodes resultiert, in der Regel mit vielen Verzweigungen. Das System verwaltet verschiedene Arten von Hierarchien, die jeweils einen bestimmten Schwerpunkt haben.",
+                "updated": 1641760405719
             }
         ]
     },
@@ -31,13 +36,18 @@
             "translations": [
                 {
                     "language": "RU",
-                    "text": "В пространстве дизайна головной или родительский узел каждой иерархии представлен соответствующим значком, окруженным вездесущим белым кольцом, чтобы их было легче найти в рабочей области.",
+                    "text": "В пространстве проектирования головной или родительский узел каждой иерархии представлен соответствующим значком, окруженным вездесущим белым кольцом, чтобы их было легче найти в рабочем пространстве.",
                     "updated": 1638271513449
                 },
                 {
                     "language": "EL",
                     "text": "Στον χώρο σχεδίασης, η κεφαλή ή ο γονικός κόμβος κάθε ιεραρχίας αντιπροσωπεύεται από το αντίστοιχο εικονίδιο που περιβάλλεται από έναν πάντα παρόντα λευκό δακτύλιο, έτσι ώστε να είναι ευκολότερος ο εντοπισμός τους εντός του χώρου εργασίας.",
                     "updated": 1638970391081
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Design Space wird der Kopf oder der übergeordnete Node jeder Hierarchie durch das entsprechende Symbol dargestellt, das von einem immer vorhandenen weißen Ring umgeben ist, so dass sie im Workspace leichter zu finden sind.",
+                    "updated": 1641760501185
                 }
             ]
         },
@@ -48,20 +58,32 @@
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Иерархии, включенные в рабочую область как плагины, не сохраняются на уровне рабочей области. Таким образом, изменения, внесенные в эти иерархии, не сохраняются. Если вы хотите изменить плагин и продолжить работу с измененной версией в будущем, вы должны либо клонировать, либо сделать резервную копию плагина и вместо этого работать с полученной копией.",
+                    "text": "Иерархии, включенные в рабочее пространство как плагины, не сохраняются на уровне рабочего пространства. Таким образом, изменения, внесенные в эти иерархии, не сохраняются. Если вы хотите изменить плагин и продолжить работу с измененной версией в будущем, вы должны либо клонировать, либо сделать резервную копию плагина и вместо этого работать с полученной копией.",
                     "updated": 1638271545874
                 },
                 {
                     "language": "EL",
                     "text": "Οι ιεραρχίες που περιλαμβάνονται στον χώρο εργασίας ως πρόσθετα δεν αποθηκεύονται σε επίπεδο χώρου εργασίας. Ως εκ τούτου, οι αλλαγές που έγιναν σε αυτές τις ιεραρχίες δεν παραμένουν. Εάν θέλετε να τροποποιήσετε ένα πρόσθετο και να συνεχίσετε να εργάζεστε με την τροποποιημένη έκδοση στο μέλλον, πρέπει είτε να κλωνοποιήσετε είτε να δημιουργήσετε αντίγραφα ασφαλείας του πρόσθετου και να εργαστείτε στο αντίγραφο που προκύπτει.",
                     "updated": 1638970488797
+                },
+                {
+                    "language": "DE",
+                    "text": "Hierarchien, die als Plugin in einen Workspace eingebunden sind, werden nicht auf Workspace-Ebene gespeichert. Änderungen, die in diesen Hierarchien vorgenommen werden, bleiben daher nicht erhalten. Wenn Sie ein Plugin ändern und in Zukunft mit der geänderten Version weiterarbeiten möchten, müssen Sie das Plugin entweder klonen oder sichern und stattdessen mit der resultierenden Kopie arbeiten.",
+                    "updated": 1641760717804
                 }
             ]
         },
         {
             "style": "Title",
             "text": "Foundations Project",
-            "updated": 1609945005370
+            "updated": 1609945005370,
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Foundations Project (Θεμέλια Έργου)",
+                    "updated": 1641829322472
+                }
+            ]
         },
         {
             "style": "Include",
@@ -76,7 +98,14 @@
         {
             "style": "Title",
             "text": "Design Space",
-            "updated": 1609945819410
+            "updated": 1609945819410,
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Design Space (Σχεδιαστικός Χώρος)",
+                    "updated": 1641829340807
+                }
+            ]
         },
         {
             "style": "Include",
@@ -90,7 +119,14 @@
         },
         {
             "style": "Title",
-            "text": "Crypto Ecosystem"
+            "text": "Crypto Ecosystem",
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Crypto Ecosystem (Οικοσύστημα Κρύπτο)",
+                    "updated": 1641829398687
+                }
+            ]
         },
         {
             "style": "Include",
@@ -105,7 +141,14 @@
         {
             "style": "Title",
             "text": "LAN Network",
-            "updated": 1609945037649
+            "updated": 1609945037649,
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "LAN Network (Τοπικό Δίκτυο)",
+                    "updated": 1641829428671
+                }
+            ]
         },
         {
             "style": "Include",
@@ -120,7 +163,14 @@
         {
             "style": "Title",
             "text": "Charting Space",
-            "updated": 1609945048562
+            "updated": 1609945048562,
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Charting Space (Χώρος Χαρτογράφησης)",
+                    "updated": 1641829459703
+                }
+            ]
         },
         {
             "style": "Include",
@@ -135,7 +185,14 @@
         {
             "style": "Title",
             "text": "Trading System",
-            "updated": 1609945101604
+            "updated": 1609945101604,
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Trading System (Σύστημα Συναλλαγών)",
+                    "updated": 1641829478309
+                }
+            ]
         },
         {
             "style": "Include",
@@ -149,7 +206,14 @@
         },
         {
             "style": "Title",
-            "text": "Trading Mine"
+            "text": "Trading Mine",
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Trading Mine (Εξορυκτήριο Συναλλαγών)",
+                    "updated": 1641829495848
+                }
+            ]
         },
         {
             "style": "Include",
@@ -164,7 +228,14 @@
         {
             "style": "Title",
             "text": "Trading Engine",
-            "updated": 1609945113032
+            "updated": 1609945113032,
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Trading Engine (Μηχανή Συναλλαγών)",
+                    "updated": 1641829513089
+                }
+            ]
         },
         {
             "style": "Include",
@@ -179,7 +250,14 @@
         {
             "style": "Title",
             "text": "Data Mine",
-            "updated": 1609945134789
+            "updated": 1609945134789,
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Data Mine (Εξόρυξη Δεδομένων)",
+                    "updated": 1641829567621
+                }
+            ]
         },
         {
             "style": "Include",
@@ -194,7 +272,14 @@
         {
             "style": "Title",
             "text": "Plugins",
-            "updated": 1609945527199
+            "updated": 1609945527199,
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Plugins (Πρόσθετα)",
+                    "updated": 1641829590336
+                }
+            ]
         },
         {
             "style": "Include",
@@ -209,7 +294,14 @@
         {
             "style": "Title",
             "text": "Tutorial",
-            "updated": 1609946064589
+            "updated": 1609946064589,
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Tutorial (Οδηγός Εκμάθησης)",
+                    "updated": 1641829607889
+                }
+            ]
         },
         {
             "style": "Include",
@@ -224,7 +316,14 @@
         {
             "style": "Title",
             "text": "Super Scripts",
-            "updated": 1609945544452
+            "updated": 1609945544452,
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Super Scripts (Σούπερ Σενάρια)",
+                    "updated": 1641829613351
+                }
+            ]
         },
         {
             "style": "Include",

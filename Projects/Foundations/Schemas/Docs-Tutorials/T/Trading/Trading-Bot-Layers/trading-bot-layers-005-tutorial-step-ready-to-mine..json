@@ -19,6 +19,11 @@
                 "language": "RU",
                 "text": "Мы проведем небольшой сбор данных, чтобы затем запустить быструю сессию бэктестинга и рассмотреть полученную симуляцию...",
                 "updated": 1640544797329
+            },
+            {
+                "language": "TR",
+                "text": "Biraz veri madenciliği yapacağız, böylece daha sonra hızlı bir Geri Test Oturumu (Backtesting Session) çalıştırabilir ve ortaya çıkan simülasyonu keşfedebiliriz...",
+                "updated": 1641718617305
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "language": "RU",
                     "text": "Сенсорный бот будет работать на рынке BTC/USDT (Binance) с 1 января 2020 года вместе с индикаторами, необходимыми для торговой системы Weak-hands Buster.",
                     "updated": 1640544832506
+                },
+                {
+                    "language": "TR",
+                    "text": "Sensör botu, Weak-hands-Buster Ticaret Sisteminin (Trading System) gerektirdiği göstergelerle birlikte 1 Ocak 2020'den itibaren BTC/USDT işlem çiftinde çalışacak.",
+                    "updated": 1641718719958
                 }
             ]
         },
@@ -55,6 +65,11 @@
                     "language": "RU",
                     "text": "Если у вас есть данные по этому рынку / бирже, но в другом временном диапазоне, это может повлиять на ваши данные! Прочтите документацию по сенсорному боту, чтобы узнать, как это сделать! Если данные, которые у вас есть, не важны, не бойтесь двигаться дальше!",
                     "updated": 1640544916873
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu işlem çifti/borsa ile ilgili fakat farklı bir zaman aralığında verileriniz varsa, bu durum verilerinizi etkileyebilir! Nasıl yapılacağını öğrenmek için sensör botu belgelerini okuyun! Sahip olduğunuz veriler önemli değilse, devam edin!",
+                    "updated": 1641718794868
                 }
             ]
         }

@@ -4,8 +4,8 @@
     "type": "Tutorial Step - The Rest of the Crew!",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "bot-layers"
+            "name": "Layer/bot-layers",
+            "project": "Foundations"
         },
         "text": "The rest of the layers are virtually self-explanatory once you understand the standard workings... so, I'll be brief!",
         "translations": [
@@ -18,6 +18,11 @@
                 "language": "RU",
                 "text": "Остальные слои практически не требуют пояснений, как только вы поймете стандартную схему работы... поэтому я буду краток!",
                 "updated": 1640631657429
+            },
+            {
+                "language": "TR",
+                "text": "Standart işleyişi anladığınızda, katmanların geri kalanı neredeyse kendi kendini açıklayıcıdır... o yüzden kısa keseceğim!",
+                "updated": 1642518394960
             }
         ]
     },
@@ -36,6 +41,11 @@
                     "language": "RU",
                     "text": "Status: для узлов, у которых он есть!",
                     "updated": 1640631674856
+                },
+                {
+                    "language": "TR",
+                    "text": "Status: Bir tane olan düğümler için!",
+                    "updated": 1642518430187
                 }
             ]
         },
@@ -53,6 +63,11 @@
                     "language": "RU",
                     "text": "Progress: для узлов, которые могут содержать индикацию прогресса!",
                     "updated": 1640631688274
+                },
+                {
+                    "language": "TR",
+                    "text": "Progress: İlerleme belirtisi gösterebilecek düğümler için!",
+                    "updated": 1642518469644
                 }
             ]
         },
@@ -70,6 +85,11 @@
                     "language": "RU",
                     "text": "Running: для узлов, которые вычисляются в определенные моменты времени!",
                     "updated": 1640631706806
+                },
+                {
+                    "language": "TR",
+                    "text": "Running: Zaman içinde belirli noktalarda değerlendirilen düğümler için!",
+                    "updated": 1642518493741
                 }
             ]
         },
@@ -87,6 +107,11 @@
                     "language": "RU",
                     "text": "Announcements: для уведомлений, установленных в торговой системе, в настоящее время транслируется через Telegram!",
                     "updated": 1640631735981
+                },
+                {
+                    "language": "TR",
+                    "text": "Announcements: Şu anda Telegram üzerinden yayınlanan ticaret sisteminde kurulan duyurular için!",
+                    "updated": 1642518509730
                 }
             ]
         },
@@ -104,6 +129,11 @@
                     "language": "RU",
                     "text": "Warnings: когда происходит что-то необычное, но это не считается ошибкой! Это, если хотите, более подробный режим.",
                     "updated": 1640631774014
+                },
+                {
+                    "language": "TR",
+                    "text": "Warnings: Olağandışı bir şey olduğunda, ancak bir hata olarak kabul edilmediğinde!",
+                    "updated": 1642518535066
                 }
             ]
         },
@@ -121,6 +151,11 @@
                     "language": "RU",
                     "text": "Warnings: когда происходит что-то необычное, но это не считается ошибкой! Это, так сказать, подробный режим.",
                     "updated": 1640631851496
+                },
+                {
+                    "language": "TR",
+                    "text": "System Info: bir tür ayrıntılı mod gibi birçok düğümde görüntülenebilir.",
+                    "updated": 1642518560613
                 }
             ]
         }

@@ -22,3 +22,16 @@ package-lock.json
 dist
 /nbproject/private/
 Platform/WebServer/externalScripts
+*.backup
+Plugins/Algorithmic-Trading
+Plugins/Data-Mining
+Plugins/Foundations
+Plugins/Governance
+Plugins/Machine-Learning
+Plugins/Network
+Plugins/Portfolio-Management
+Plugins/TensorFlow
+Plugins/Trading-Signals
+tmp
+Superalgos.desktop
+.dccache

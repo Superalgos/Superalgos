@@ -20,9 +20,9 @@
     },
     "paragraphs": [
         {
-            "style": "Text",
-            "text": "There is no page describing a topic. Instead, the Docs Topic Name is used to group a set of related pages under a certain topic.",
-            "updated": 1613755651132,
+            "style": "Important",
+            "text": "Notice that topics are not pages in and of themselves. Instead, the Docs Topic Name is a property of a Docs Page.",
+            "updated": 1643046467558,
             "translations": [
                 {
                     "language": "DE",
@@ -35,6 +35,11 @@
                     "updated": 1638463626687
                 }
             ]
+        },
+        {
+            "style": "Text",
+            "text": "In other words, there is no page describing a topic. Instead, the Docs Topic Name is used to group a set of related pages under a certain topic.",
+            "updated": 1644143474077
         }
     ]
 }

@@ -225,242 +225,785 @@ function newFoundationsNodeActionSwitch() {
                 break
             case 'Add Missing Project Data Tasks':
                 {
-                    UI.projects.foundations.nodeActionFunctions.taskFunctions.addMissingProjectDataTasks(action.node, action.rootNodes)
+                    let newUiObjects = await UI.projects.foundations.nodeActionFunctions.taskFunctions.addMissingProjectDataTasks(action.node, action.rootNodes)
+
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Add Missing Exchange Data Tasks':
                 {
-                    UI.projects.foundations.nodeActionFunctions.taskFunctions.addMissingExchangeDataTasks(action.node, action.rootNodes)
+                    let newUiObjects = await UI.projects.foundations.nodeActionFunctions.taskFunctions.addMissingExchangeDataTasks(action.node, action.rootNodes)
+
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Add Missing Market Data Tasks':
                 {
-                    UI.projects.foundations.nodeActionFunctions.taskFunctions.addMissingMarketDataTasks(action.node)
+                    let newUiObjects = await UI.projects.foundations.nodeActionFunctions.taskFunctions.addMissingMarketDataTasks(action.node)
+
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Add Missing Data Mine Tasks':
                 {
-                    UI.projects.foundations.nodeActionFunctions.taskFunctions.addMissingDataMineTasks(action.node, action.rootNodes)
+                    let newUiObjects = await UI.projects.foundations.nodeActionFunctions.taskFunctions.addMissingDataMineTasks(action.node, action.rootNodes)
+
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Add Missing Project Trading Tasks':
                 {
-                    UI.projects.foundations.nodeActionFunctions.taskFunctions.addMissingProjectTradingTasks(action.node, action.rootNodes)
+                    let newUiObjects = await UI.projects.foundations.nodeActionFunctions.taskFunctions.addMissingProjectTradingTasks(action.node, action.rootNodes)
+
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Add Missing Exchange Trading Tasks':
                 {
-                    UI.projects.foundations.nodeActionFunctions.taskFunctions.addMissingExchangeTradingTasks(action.node, action.rootNodes)
+                    let newUiObjects = await UI.projects.foundations.nodeActionFunctions.taskFunctions.addMissingExchangeTradingTasks(action.node, action.rootNodes)
+
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Add Missing Market Trading Tasks':
                 {
-                    UI.projects.foundations.nodeActionFunctions.taskFunctions.addMissingMarketTradingTasks(action.node)
+                    let newUiObjects = await UI.projects.foundations.nodeActionFunctions.taskFunctions.addMissingMarketTradingTasks(action.node)
+
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Add Missing Trading Mine Tasks':
                 {
-                    UI.projects.foundations.nodeActionFunctions.taskFunctions.addMissingTradingMineTasks(action.node, action.rootNodes)
+                    let newUiObjects = await UI.projects.foundations.nodeActionFunctions.taskFunctions.addMissingTradingMineTasks(action.node, action.rootNodes)
+
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Add Missing Project Portfolio Tasks':
                 {
-                    UI.projects.foundations.nodeActionFunctions.taskFunctions.addMissingProjectPortfolioTasks(action.node, action.rootNodes)
+                    let newUiObjects = await UI.projects.foundations.nodeActionFunctions.taskFunctions.addMissingProjectPortfolioTasks(action.node, action.rootNodes)
+
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Add Missing Exchange Portfolio Tasks':
                 {
-                    UI.projects.foundations.nodeActionFunctions.taskFunctions.addMissingExchangePortfolioTasks(action.node, action.rootNodes)
+                    let newUiObjects = await UI.projects.foundations.nodeActionFunctions.taskFunctions.addMissingExchangePortfolioTasks(action.node, action.rootNodes)
+
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Add Missing Market Portfolio Tasks':
                 {
-                    UI.projects.foundations.nodeActionFunctions.taskFunctions.addMissingMarketPortfolioTasks(action.node)
+                    let newUiObjects = await UI.projects.foundations.nodeActionFunctions.taskFunctions.addMissingMarketPortfolioTasks(action.node)
+
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Add Missing Portfolio Mine Tasks':
                 {
-                    UI.projects.foundations.nodeActionFunctions.taskFunctions.addMissingPortfolioMineTasks(action.node, action.rootNodes)
+                    let newUiObjects = await UI.projects.foundations.nodeActionFunctions.taskFunctions.addMissingPortfolioMineTasks(action.node, action.rootNodes)
+
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Add Missing Project Learning Tasks':
                 {
-                    UI.projects.foundations.nodeActionFunctions.taskFunctions.addMissingProjectLearningTasks(action.node, action.rootNodes)
+                    let newUiObjects = await UI.projects.foundations.nodeActionFunctions.taskFunctions.addMissingProjectLearningTasks(action.node, action.rootNodes)
+
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Add Missing Exchange Learning Tasks':
                 {
-                    UI.projects.foundations.nodeActionFunctions.taskFunctions.addMissingExchangeLearningTasks(action.node, action.rootNodes)
+                    let newUiObjects = await UI.projects.foundations.nodeActionFunctions.taskFunctions.addMissingExchangeLearningTasks(action.node, action.rootNodes)
+
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Add Missing Market Learning Tasks':
                 {
-                    UI.projects.foundations.nodeActionFunctions.taskFunctions.addMissingMarketLearningTasks(action.node)
+                    let newUiObjects = await UI.projects.foundations.nodeActionFunctions.taskFunctions.addMissingMarketLearningTasks(action.node)
+
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Add Missing Learning Mine Tasks':
                 {
-                    UI.projects.foundations.nodeActionFunctions.taskFunctions.addMissingLearningMineTasks(action.node, action.rootNodes)
+                    let newUiObjects = await UI.projects.foundations.nodeActionFunctions.taskFunctions.addMissingLearningMineTasks(action.node, action.rootNodes)
+
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Add All Tasks':
                 {
-                    UI.projects.foundations.nodeActionFunctions.taskFunctions.addAllTasks(action.node, action.rootNodes)
+                    let newUiObjects = await UI.projects.foundations.nodeActionFunctions.taskFunctions.addAllTasks(action.node, action.rootNodes)
+
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Add Missing Crypto Exchanges':
                 {
-                    UI.projects.foundations.nodeActionFunctions.cryptoEcosystemFunctions.addMissingExchanges(action.node)
+                    let newUiObjects = await UI.projects.foundations.nodeActionFunctions.cryptoEcosystemFunctions.addMissingExchanges(action.node)
+
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Add Missing Assets':
                 {
-                    UI.projects.foundations.nodeActionFunctions.cryptoEcosystemFunctions.addMissingAssets(action.node)
+                    let newUiObjects = await UI.projects.foundations.nodeActionFunctions.cryptoEcosystemFunctions.addMissingAssets(action.node)
+
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Add Missing Markets':
                 {
-                    UI.projects.foundations.nodeActionFunctions.cryptoEcosystemFunctions.addMissingMarkets(action.node)
+                    let newUiObjects = await UI.projects.foundations.nodeActionFunctions.cryptoEcosystemFunctions.addMissingMarkets(action.node)
+
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Install Market':
                 {
+                    /* inefficient brute-force method */
+                    let nodeClones = []
+                    for (let rootNode of action.rootNodes) {
+                        if (rootNode.type === 'LAN Network' || rootNode.type === 'Charting Space') {
+                            let nodeClone = UI.projects.visualScripting.nodeActionFunctions.nodeCloning.getNodeClone(rootNode, false)
+                            nodeClones.push(nodeClone)
+                        }
+                    }
+                    let historyObject = {
+                        action: action,
+                        nodeClones: nodeClones
+                    }
+
                     UI.projects.foundations.nodeActionFunctions.cryptoEcosystemFunctions.installMarket(action.node, action.rootNodes)
+
+                    if (action.isInternal === false) {
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Uninstall Market':
                 {
+                    let nodeClones = []
+                    for (let rootNode of action.rootNodes) {
+                        if (rootNode.type === 'LAN Network' || rootNode.type === 'Charting Space') {
+                            let nodeClone = UI.projects.visualScripting.nodeActionFunctions.nodeCloning.getNodeClone(rootNode, false)
+                            nodeClones.push(nodeClone)
+                        }
+                    }
+                    let historyObject = {
+                        action: action,
+                        nodeClones: nodeClones
+                    }
+
                     UI.projects.foundations.nodeActionFunctions.cryptoEcosystemFunctions.uninstallMarket(action.node, action.rootNodes)
+
+                    if (action.isInternal === false) {
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Add All Data Products':
                 {
-                    UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addAllDataProducts(action.node)
+                    let newUiObjects = await UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addAllDataProducts(action.node)
+
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Add All Data Mine Products':
                 {
-                    UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addAllDataMineProducts(action.node, action.rootNodes)
+                    let newUiObjects = await UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addAllDataMineProducts(action.node, action.rootNodes)
+
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Add All Learning Mine Products':
                 {
-                    UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addAllLearningMineProducts(action.node, action.rootNodes)
+                    let newUiObjects = await UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addAllLearningMineProducts(action.node, action.rootNodes)
+
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Add All Trading Mine Products':
                 {
-                    UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addAllTradingMineProducts(action.node, action.rootNodes)
+                    let newUiObjects = await UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addAllTradingMineProducts(action.node, action.rootNodes)
+
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Add Missing Trading Session References':
                 {
-                    UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addMissingTradingSessionReferences(action.node, action.rootNodes)
+                    let newUiObjects = await UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addMissingTradingSessionReferences(action.node, action.rootNodes)
+
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Add All Portfolio Mine Products':
                 {
-                    UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addAllPortfolioMineProducts(action.node, action.rootNodes)
+                    let newUiObjects = await UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addAllPortfolioMineProducts(action.node, action.rootNodes)
+
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Add Missing Portfolio Session References':
                 {
-                    UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addMissingPortfolioSessionReferences(action.node, action.rootNodes)
+                    let newUiObjects = await UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addMissingPortfolioSessionReferences(action.node, action.rootNodes)
+
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Add Missing Learning Session References':
                 {
-                    UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addMissingLearningSessionReferences(action.node, action.rootNodes)
+                    let newUiObjects = await UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addMissingLearningSessionReferences(action.node, action.rootNodes)
+
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Add Missing Market Data Products':
                 {
-                    UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addMissingMarketDataProducts(action.node, action.rootNodes)
+                    let newUiObjects = await UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addMissingMarketDataProducts(action.node, action.rootNodes)
+
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Add Missing Market Trading Products':
                 {
-                    UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addMissingMarketTradingProducts(action.node, action.rootNodes)
+                    let newUiObjects = await UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addMissingMarketTradingProducts(action.node, action.rootNodes)
+
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Add Missing Market Portfolio Products':
                 {
-                    UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addMissingMarketPortfolioProducts(action.node, action.rootNodes)
+                    let newUiObjects = await UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addMissingMarketPortfolioProducts(action.node, action.rootNodes)
+
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Add Missing Market Learning Products':
                 {
-                    UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addMissingMarketLearningProducts(action.node, action.rootNodes)
+                    let newUiObjects = await UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addMissingMarketLearningProducts(action.node, action.rootNodes)
+
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Add Missing Exchange Learning Products':
                 {
-                    UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addMissingExchangeLearningProducts(action.node, action.rootNodes)
+                    let newUiObjects = await UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addMissingExchangeLearningProducts(action.node, action.rootNodes)
+
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Add Missing Exchange Trading Products':
                 {
-                    UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addMissingExchangeTradingProducts(action.node, action.rootNodes)
+                    let newUiObjects = await UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addMissingExchangeTradingProducts(action.node, action.rootNodes)
+
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Add Missing Exchange Portfolio Products':
                 {
-                    UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addMissingExchangePortfolioProducts(action.node, action.rootNodes)
+                    let newUiObjects = await UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addMissingExchangePortfolioProducts(action.node, action.rootNodes)
+
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Add Missing Exchange Data Products':
                 {
-                    UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addMissingExchangeDataProducts(action.node, action.rootNodes)
+                    let newUiObjects = await UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addMissingExchangeDataProducts(action.node, action.rootNodes)
+
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Add Missing Project Learning Products':
                 {
-                    UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addMissingProjectLearningProducts(action.node, action.rootNodes)
+                    let newUiObjects = await UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addMissingProjectLearningProducts(action.node, action.rootNodes)
+
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Add Missing Project Trading Products':
                 {
-                    UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addMissingProjectTradingProducts(action.node, action.rootNodes)
+                    let newUiObjects = await UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addMissingProjectTradingProducts(action.node, action.rootNodes)
+
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Add Missing Project Portfolio Products':
                 {
-                    UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addMissingProjectPortfolioProducts(action.node, action.rootNodes)
+                    let newUiObjects = await UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addMissingProjectPortfolioProducts(action.node, action.rootNodes)
+
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Add Missing Project Data Products':
                 {
-                    UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addMissingProjectDataProducts(action.node, action.rootNodes)
+                    let newUiObjects = await UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addMissingProjectDataProducts(action.node, action.rootNodes)
+
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Add All Layer Panels':
                 {
-                    UI.projects.foundations.nodeActionFunctions.chartingSpaceFunctions.addAllLayerPanels(action.node)
+                    let newUiObjects = await UI.projects.foundations.nodeActionFunctions.chartingSpaceFunctions.addAllLayerPanels(action.node)
+
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Add All Layer Polygons':
                 {
-                    UI.projects.foundations.nodeActionFunctions.chartingSpaceFunctions.addAllLayerPolygons(action.node)
+                    let newUiObjects = await UI.projects.foundations.nodeActionFunctions.chartingSpaceFunctions.addAllLayerPolygons(action.node)
+
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Add All Mine Layers':
                 {
-                    UI.projects.foundations.nodeActionFunctions.chartingSpaceFunctions.addAllMineLayers(action.node, action.rootNodes)
+                    let newUiObjects = await UI.projects.foundations.nodeActionFunctions.chartingSpaceFunctions.addAllMineLayers(action.node, action.rootNodes)
+
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Add Missing Time Machines':
                 {
-                    UI.projects.foundations.nodeActionFunctions.chartingSpaceFunctions.addMissingTimeMachines(action.node, action.rootNodes)
+                    let newUiObjects = await UI.projects.foundations.nodeActionFunctions.chartingSpaceFunctions.addMissingTimeMachines(action.node, action.rootNodes)
+
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Add Missing Dashboards':
                 {
-                    UI.projects.foundations.nodeActionFunctions.chartingSpaceFunctions.addMissingDashboards(action.node, action.rootNodes)
+                    let newUiObjects = await UI.projects.foundations.nodeActionFunctions.chartingSpaceFunctions.addMissingDashboards(action.node, action.rootNodes)
+
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Add Missing Project Dashboards':
                 {
-                    UI.projects.foundations.nodeActionFunctions.chartingSpaceFunctions.addMissingProjectDashboards(action.node, action.rootNodes)
+                    let newUiObjects = await UI.projects.foundations.nodeActionFunctions.chartingSpaceFunctions.addMissingProjectDashboards(action.node, action.rootNodes)
+
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Send Webhook Test Message':
@@ -475,12 +1018,34 @@ function newFoundationsNodeActionSwitch() {
                 break
             case 'Push Code to Javascript Code':
                 {
+                    let historyObject = {
+                        action: action,
+                        previousJsCode: action.node.javascriptCode.code
+                    }
+                    
                     action.node.javascriptCode.code = action.node.code
+
+                    if (action.isInternal === false) {
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Fetch Code to Javascript Code':
                 {
+                    let historyObject = {
+                        action: action,
+                        previousCode: action.node.code
+                    }
+                    
                     action.node.code = action.node.javascriptCode.code
+
+                    if (action.isInternal === false) {
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Open Documentation':
@@ -499,44 +1064,121 @@ function newFoundationsNodeActionSwitch() {
                 break
             case 'Switch To Forward Testing':
                 {
+                    let historyObject = {
+                        action: action,
+                        previousNodeType: action.node.type
+                    }
+                    
                     action.node.type = "Forward Testing Session"
                     UI.projects.foundations.spaces.floatingSpace.uiObjectConstructor.createUiObject(true, action.node.payload)
+
+                    if (action.isInternal === false) {
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Switch To Live Trading':
                 {
+                    let historyObject = {
+                        action: action,
+                        previousNodeType: action.node.type
+                    }
+                    
                     action.node.type = "Live Trading Session"
                     UI.projects.foundations.spaces.floatingSpace.uiObjectConstructor.createUiObject(true, action.node.payload)
+
+                    if (action.isInternal === false) {
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Switch To Paper Trading':
                 {
+                    let historyObject = {
+                        action: action,
+                        previousNodeType: action.node.type
+                    }
+                    
                     action.node.type = "Paper Trading Session"
                     UI.projects.foundations.spaces.floatingSpace.uiObjectConstructor.createUiObject(true, action.node.payload)
+
+                    if (action.isInternal === false) {
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Switch To Backtesting Portfolio':
                 {
+                    let historyObject = {
+                        action: action,
+                        previousNodeType: action.node.type
+                    }
+                    
                     action.node.type = "Backtesting Portfolio Session"
                     UI.projects.foundations.spaces.floatingSpace.uiObjectConstructor.createUiObject(true, action.node.payload)
+
+                    if (action.isInternal === false) {
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Switch To Live Portfolio':
                 {
+                    let historyObject = {
+                        action: action,
+                        previousNodeType: action.node.type
+                    }
+                    
                     action.node.type = "Live Portfolio Session"
                     UI.projects.foundations.spaces.floatingSpace.uiObjectConstructor.createUiObject(true, action.node.payload)
+
+                    if (action.isInternal === false) {
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Switch To Paper Portfolio':
                 {
+                    let historyObject = {
+                        action: action,
+                        previousNodeType: action.node.type
+                    }
+                    
                     action.node.type = "Paper Portfolio Session"
                     UI.projects.foundations.spaces.floatingSpace.uiObjectConstructor.createUiObject(true, action.node.payload)
+
+                    if (action.isInternal === false) {
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Switch To Backtesting':
                 {
+                    let historyObject = {
+                        action: action,
+                        previousNodeType: action.node.type
+                    }
+                    
                     action.node.type = "Backtesting Session"
                     UI.projects.foundations.spaces.floatingSpace.uiObjectConstructor.createUiObject(true, action.node.payload)
+                
+                    if (action.isInternal === false) {
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Save node to be moved':
@@ -546,12 +1188,51 @@ function newFoundationsNodeActionSwitch() {
                 break
             case 'Snap saved node to position':
                 {
+                    let historyObject = {
+                        action: action,
+                        nodeId: UI.projects.foundations.spaces.floatingSpace.floatingObjetSaved.payload.node.id,
+                        previousPosition: {
+                            x: UI.projects.foundations.spaces.floatingSpace.floatingObjetSaved.payload.position.x,
+                            y: UI.projects.foundations.spaces.floatingSpace.floatingObjetSaved.payload.position.y
+                        }
+                    }
+                    
                     UI.projects.foundations.spaces.floatingSpace.moveFloatingObject(action.node.payload.position)
+                    
+                    if (action.isInternal === false) {
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Install Product':
                 {
+                    /* way too inefficient, do not undo/redo */
+                    /* let nodeClones = []
+                    for (let rootNode of action.rootNodes) {
+                        if (
+                            rootNode.type === 'LAN Network' ||
+                            rootNode.type === 'Charting Space' ||
+                            rootNode.type === 'Portfolio Mine' ||
+                            rootNode.type === 'Trading Mine'
+                            ) {
+                                let nodeClone = UI.projects.visualScripting.nodeActionFunctions.nodeCloning.getNodeClone(rootNode, false)
+                                nodeClones.push(nodeClone)
+                            }
+                        }
+                    let historyObject = {
+                        action: action,
+                        nodeClones: nodeClones
+                    } */
+                        
                     UI.projects.foundations.nodeActionFunctions.productFunctions.installProduct(action.node, action.rootNodes)
+
+                    /* if (action.isInternal === false) {
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    } */
                 }
                 break
 

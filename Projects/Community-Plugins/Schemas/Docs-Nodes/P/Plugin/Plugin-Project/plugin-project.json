@@ -1,7 +1,14 @@
 {
     "type": "Plugin Project",
     "definition": {
-        "text": "In the context of a multi-project platform, the plugin project node represents the project to which the defined plugins correspond to."
+        "text": "In the context of a multi-project platform, the plugin project node represents the project to which the defined plugins correspond to.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "В контексте мультипроектной платформы узел Plugin Project представляет проект, которому соответствуют определенные плагины.",
+                "updated": 1645165391690
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -11,17 +18,38 @@
         {
             "style": "Title",
             "text": "Plugin Project Configuration",
-            "updated": 1609869540204
+            "updated": 1609869540204,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Plugin Project",
+                    "updated": 1645165407394
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609869554268
+            "updated": 1609869554268,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1645165416243
+                }
+            ]
         },
         {
             "style": "List",
             "text": "codeName is the name of the Project, as implemented in the code.",
-            "updated": 1609869592120
+            "updated": 1609869592120,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "codeName - имя проекта, как он реализован в коде.",
+                    "updated": 1645165463837
+                }
+            ]
         }
     ]
 }

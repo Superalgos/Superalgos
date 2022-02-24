@@ -15,6 +15,11 @@
                 "updated": 1639253648661
             },
             {
+                "language": "RU",
+                "text": "Основные правила входа были в центре внимания анализа, который мы провели на графиках, но давайте добавим еще пару соображений.",
+                "updated": 1640892252577
+            },
+            {
                 "language": "TR",
                 "text": "Ana giriş kuralları, grafiklerde yaptığımız analizin odak noktasıydı, ancak birkaç husus daha ekleyelim.",
                 "updated": 1640952128338
@@ -32,6 +37,11 @@
                     "updated": 1639253663877
                 },
                 {
+                    "language": "RU",
+                    "text": "Мы обнаружили, что пробой на часовом графике может предсказать среднесрочный разворот при дневном восходящем тренде, а при дневном нисходящем тренде - ускорение нисходящего движения. Однако мы также заметили несколько пробоев, которые не дали ни того, ни другого. Это означает, что мы должны воспринимать пробой как сигнал, а не как подтверждение само по себе.",
+                    "updated": 1640892285096
+                },
+                {
                     "language": "TR",
                     "text": "1H grafiğindeki bir dökümün, günlük bir yükseliş trendindeyken orta vadeli bir geri dönüşü ve - günlük bir düşüş trendindeyken - gerilemenin hızlanmasını öngörebileceğini bulduk. Ancak, aynı zamanda üretmeyen birkaç arıza da fark ettik. Bu, arızayı kendi başına bir onay olarak değil, bir sinyal olarak almamız gerektiği anlamına gelir.",
                     "updated": 1640952193325
@@ -46,6 +56,11 @@
                     "language": "DE",
                     "text": "Unsere Bestätigung ist ein zweiter Durchbruch in Folge im 1H-Chart!",
                     "updated": 1639253669972
+                },
+                {
+                    "language": "RU",
+                    "text": "Наше подтверждение - второй последовательный пробой на часовом графике!",
+                    "updated": 1640892307292
                 },
                 {
                     "language": "TR",

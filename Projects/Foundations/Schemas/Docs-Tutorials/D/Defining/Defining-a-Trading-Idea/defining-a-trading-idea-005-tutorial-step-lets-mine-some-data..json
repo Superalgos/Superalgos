@@ -20,6 +20,11 @@
                 "updated": 1639251547741
             },
             {
+                "language": "RU",
+                "text": "Теперь, когда вы понимаете последствия проведения операции по добыче данных, давайте приступим к делу!",
+                "updated": 1640888062641
+            },
+            {
                 "language": "TR",
                 "text": "Artık bu veri madenciliği operasyonunu yürütmenin sonuçlarını anladığınıza göre, başlayalım!",
                 "updated": 1640863987889
@@ -43,6 +48,11 @@
                     "updated": 1639251562329
                 },
                 {
+                    "language": "RU",
+                    "text": "Выберите \" Run All Project Data Tasks\" в меню узла Data Tasks!",
+                    "updated": 1640888078457
+                },
+                {
                     "language": "TR",
                     "text": "Veri Görevleri ( Data Tasks ) düğüm menüsünde \"Tüm Proje Veri Görevlerini ( Project Data Tasks ) Çalıştır\"ı seçin!",
                     "updated": 1640864070221
@@ -62,6 +72,11 @@
                     "language": "DE",
                     "text": "Wenn Sie dieses Tutorial nach anderen Tutorials machen, haben Sie vielleicht schon einen Teil der benötigten Daten, was die Sache beschleunigen kann! In jedem Fall brauchen Sie nicht zu warten, bis die Datenerfassung zum jetzigen Zeitpunkt abgeschlossen ist... Sie können mit dem Lernprogramm fortfahren!",
                     "updated": 1639251571526
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы изучаете этот учебник после изучения других учебников, есть вероятность того, что у вас уже есть часть необходимых данных, что может ускорить процесс! В любом случае, нет необходимости ждать, пока добыча данных дойдет до настоящего времени... вы можете продолжать заниматься по этому учебнику!",
+                    "updated": 1640888209034
                 },
                 {
                     "language": "TR",

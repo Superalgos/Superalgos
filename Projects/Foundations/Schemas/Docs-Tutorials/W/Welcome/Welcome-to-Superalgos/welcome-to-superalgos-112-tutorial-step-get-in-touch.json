@@ -24,8 +24,8 @@
             },
             {
                 "language": "DE",
-                "text": "Komm vorbei, um Hallo zu sagen, Hilfe zu bekommen und die Community kennenzulernen! Ihr könnt dem neuen <a href=\"https://discord.gg/CGeKC6WQQb\" target=\"_blank\" style=\"color: blue;\">Discord-Server</a> oder den ursprünglichen Telegram-Gruppen unten beitreten, wo alles begann!",
-                "updated": 1634247458200
+                "text": "Kommt vorbei, um Hallo zu sagen, Hilfe zu bekommen und die Community kennenzulernen! Du kannst dem neuen Discord Server oder den ursprünglichen Telegram Gruppen unten beitreten, wo alles begann! ",
+                "updated": 1642152845242
             },
             {
                 "language": "TR",
@@ -36,6 +36,11 @@
                 "language": "ID",
                 "text": "Mampir untuk menyapa, mendapatkan bantuan, dan bertemu Komunitas! Kamu dapat bergabung dengan Discord Server baru atau grup Telegram asli di bawah ini, di mana semuanya dimulai!",
                 "updated": 1640600271999
+            },
+            {
+                "language": "RU",
+                "text": "Заходите к нам, чтобы поздороваться, получить помощь и познакомиться с сообществом! Вы можете присоединиться к новому серверу Discord или к оригинальным группам Telegram, с которых все началось!",
+                "updated": 1642774338978
             }
         ]
     },
@@ -65,6 +70,11 @@
                     "language": "ID",
                     "text": "Announcements Channel — Dapatkan berita resmi lebih awal!",
                     "updated": 1640600306704
+                },
+                {
+                    "language": "RU",
+                    "text": "Announcements Channel — Получайте официальные новости первыми!",
+                    "updated": 1642774354099
                 }
             ]
         },
@@ -86,6 +96,11 @@
                     "language": "ID",
                     "text": "Community Group — Mari biacara tentang Superalgos!",
                     "updated": 1640600316779
+                },
+                {
+                    "language": "RU",
+                    "text": "Community Group — Давайте поговорим о Superalgos!",
+                    "updated": 1642774367244
                 }
             ]
         },
@@ -108,6 +123,11 @@
                     "language": "ID",
                     "text": "Develop Group — Bertemu dengan developers lainnya!",
                     "updated": 1640600339329
+                },
+                {
+                    "language": "RU",
+                    "text": "Develop Group — Познакомьтесь с другими разработчиками!",
+                    "updated": 1642774376138
                 }
             ]
         },
@@ -130,6 +150,11 @@
                     "language": "ID",
                     "text": "Support Group — Butuh bantuan untuk memulai?",
                     "updated": 1640600354723
+                },
+                {
+                    "language": "RU",
+                    "text": "Support Group — Нужна помощь в начале работы?",
+                    "updated": 1642774386257
                 }
             ]
         },
@@ -152,6 +177,11 @@
                     "language": "ID",
                     "text": "Token Group — mari bicara tentang Governance dan token!",
                     "updated": 1640600372583
+                },
+                {
+                    "language": "RU",
+                    "text": "Token Group — Давайте поговорим об управлении и токенах!",
+                    "updated": 1642774423070
                 }
             ]
         },
@@ -174,6 +204,11 @@
                     "language": "ID",
                     "text": "UX-UI Group — Apakah kamu bisa design?",
                     "updated": 1640600382396
+                },
+                {
+                    "language": "RU",
+                    "text": "UX-UI Group — Вы умеете проектировать?",
+                    "updated": 1642774431885
                 }
             ]
         },
@@ -196,6 +231,11 @@
                     "language": "ID",
                     "text": "Docs Group — Bantu kami mengembangkan Docs!",
                     "updated": 1640600445662
+                },
+                {
+                    "language": "RU",
+                    "text": "Docs Group — Помогает нам улучшить документацию (Docs)!",
+                    "updated": 1642774462655
                 }
             ]
         },
@@ -224,6 +264,11 @@
                     "language": "ID",
                     "text": "Klik untuk menemukan tautan undangan di panel Docs !",
                     "updated": 1640600471322
+                },
+                {
+                    "language": "RU",
+                    "text": "Нажмите, чтобы найти ссылку на приглашение в панели Docs!",
+                    "updated": 1642774511995
                 }
             ]
         }

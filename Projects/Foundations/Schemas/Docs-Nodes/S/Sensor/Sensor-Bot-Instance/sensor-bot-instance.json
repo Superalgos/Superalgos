@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Bir sensör botu modeli, bir veri madeninde tanımlandığı şekliyle bir Sensör Botuna ( Sensor Bot ) referanstır. Bot örneği, tanımlanan süreçleri çalıştırır ve tanımlanan veri ürünlerini oluşturur.",
                 "updated": 1639120855061
+            },
+            {
+                "language": "DE",
+                "text": "Eine Sensor-Bot-Instanz ist eine Referenz auf einen Sensor Bot, wie er in einer Data Mine definiert ist. Die Instanz des Bots führt die definierten Prozesse aus und erzeugt die definierten Datenprodukte.",
+                "updated": 1641595942810
             }
         ]
     },
@@ -29,6 +34,16 @@
                     "language": "RU",
                     "text": "Экземпляр сенсорного бота не содержит определений того, что делает бот. Вместо этого его экземпляр процесса ссылается на определение процесса в соответствующем элементе Data Mine. Таким образом экземпляр сенсорного бота получает информацию о том, что ему нужно делать после запуска.",
                     "updated": 1638362981003
+                },
+                {
+                    "language": "TR",
+                    "text": "Sensör bot örneği, botun ne yaptığına dair hiçbir tanım içermez. Bunun yerine, süreç örneği, ilgili veri madenindeki bir süreç tanımına başvurur. Sensör bot örneği, çalıştırıldığında ne yapması gerektiğine dair bilgileri bu şekilde elde eder.",
+                    "updated": 1641720148485
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Sensor-Bot-Instanz enthält keine Definitionen darüber, was der Bot tut. Stattdessen verweist seine Prozessinstanz auf eine Prozessdefinition in der entsprechenden Data Mine. Auf diese Weise erhält die Sensor-Bot-Instanz die Informationen darüber, was sie tun muss, sobald sie ausgeführt wird.",
+                    "updated": 1641596013184
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "RU",
                     "text": "Конфигурация экземпляра Sensor Bot",
                     "updated": 1638363050476
+                },
+                {
+                    "language": "DE",
+                    "text": "Sensor Bot Instance Konfiguration",
+                    "updated": 1641596028333
                 }
             ]
         },
@@ -56,6 +76,11 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1638363065891
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1641596102079
                 }
             ]
         },
@@ -68,6 +93,16 @@
                     "language": "RU",
                     "text": "startDate - желаемая дата начала информационного продукта, создаваемого экземпляром сенсорного бота, в формате ГГГГ-ММ-ДД. Экземпляр сенсорного бота запрашивает у своего источника данных данные, начиная с настроенного startDate.",
                     "updated": 1638363105886
+                },
+                {
+                    "language": "TR",
+                    "text": "startDate, sensör bot örneğinin oluşturduğu veri ürününün YYYY-AA-GG formatında istenen başlangıç tarihidir. Sensör botu örneği, yapılandırılmış startDate 'den başlayarak veri kaynağını sorgular.",
+                    "updated": 1641720417724
+                },
+                {
+                    "language": "DE",
+                    "text": "startDate ist das gewünschte Startdatum des Datenprodukts, das die Sensor-Bot-Instanz erstellt, im Format JJJJ-MM-TT. Die Sensor-Bot-Instanz fragt ihre Datenquelle nach Daten ab, die am eingestellten startDate beginnen.",
+                    "updated": 1641596151581
                 }
             ]
         },
@@ -79,6 +114,16 @@
                     "language": "RU",
                     "text": "Фактическая дата начала набора данных зависит от внешних факторов: A. Рынок может начаться позже. B. Обмен может ограничить, насколько далеко могут быть получены данные в прошлом. В обоих случаях сенсорный бот автоматически определяет дату, наиболее близкую к желаемой дате начала, с которой возможно начать, и действует соответствующим образом.",
                     "updated": 1638363164773
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri setinin başladığı tarih, dış faktörlere bağlıdır: Mesela sizin belirlediğiniz tarihten daha sonraki bir tarihte piyasaya girmiş olabilir ya da borsa, geçmişteki verilerin ne kadar geriden itibaren alınabileceğini sınırlayabilir. Her iki durumda da sensör bot, başlaması mümkün olan istenen başlangı tarihine en yakın tarihi otomatik olarak bulur ve ona göre hareket eder.",
+                    "updated": 1641720617994
+                },
+                {
+                    "language": "DE",
+                    "text": "Das tatsächliche Datum, an dem der Datensatz beginnt, hängt von externen Faktoren ab: A. Der Markt kann zu einem späteren Zeitpunkt beginnen. B. Die Börse kann begrenzen, wie weit in der Vergangenheit liegende Daten abgerufen werden können. In beiden Fällen findet der Sensor-Bot automatisch das Datum, das dem gewünschten Startdatum* am nächsten liegt und mit dem man beginnen kann, und geht entsprechend vor.",
+                    "updated": 1641596245454
                 }
             ]
         },
@@ -91,6 +136,16 @@
                     "language": "RU",
                     "text": "В случае изменения startDate после того, как бот-сенсор начал создавать информационный продукт, либо для более ранней, либо для более поздней даты, датчик повторно оценивает возможность запуска в новую дату. Фактическая дата может измениться, а может и не измениться. Тем не менее, бот-сенсор отбрасывает существующие данные и начинает заново с недавно обнаруженной даты. Другими словами, если startDate изменяется, сенсорный бот запускается заново.",
                     "updated": 1638363265494
+                },
+                {
+                    "language": "TR",
+                    "text": "Başlangıç Tarihinin, sensör botunun daha erken veya daha sonraki bir tarih için bir veri ürünü oluşturmaya başladıktan sonra değiştirilmesi durumunda, sensör yeni tarihte başlamanın fizibilitesini yeniden değerlendirir. Tarihi değiştirseniz de değiştirmesenizde , tarihi tekrardan yazdığınızda bot mevcut veri ürününü göz ardı eder ve yeni tarihten itibaren yeniden başlar. Diğer bir deyişle startDate değiştirilirse sensör bot baştan başlar.",
+                    "updated": 1641720806498
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn das startDate geändert wird, nachdem der Sensor-Bot mit der Erstellung eines Datenprodukts begonnen hat, entweder für ein früheres oder späteres Datum, bewertet der Sensor erneut, ob es möglich ist, mit dem neuen Datum zu beginnen. Das tatsächliche Datum kann sich ändern oder auch nicht; in jedem Fall verwirft der Sensor-Bot das vorhandene Datenprodukt und beginnt mit dem neu ermittelten Datum von vorne. Mit anderen Worten: Wenn das startDate geändert wird, beginnt der Sensor-Bot von vorn.",
+                    "updated": 1641596338395
                 }
             ]
         },
@@ -103,6 +158,16 @@
                     "language": "RU",
                     "text": "Обратите внимание, что приведенное выше запускает цепную реакцию между всеми индикаторными ботами, которые имеют зависимость данных с выходным набором данных сенсорного бота. Кроме того, если фактическая дата изменится, все индикаторы, которые определяют дату начала рынка, глядя на дату, обнаруженную ботом-сенсором, должны отбросить свои существующие данные и начать заново с новой даты.",
                     "updated": 1638363316803
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarıdakilerin, sensör botunun çıktı veri seti ile veri bağımlılığı olan tüm gösterge botları arasında zincirleme bir reaksiyon başlattığına dikkat edin. Ayrıca fiili tarihin değişmesi durumunda sensör bot tarafından keşfedilen tarihe bakarak piyasanın başlangıç tarihini belirleyen tüm göstergelerin mevcut veri ürünlerini atıp yeni tarihten başlaması gerekmektedir.",
+                    "updated": 1641720861356
+                },
+                {
+                    "language": "DE",
+                    "text": "Beachten Sie, dass dies eine Kettenreaktion bei allen Indikator-Bots auslöst, die mit dem Ausgangsdatensatz des Sensor-Bots in einer Datenabhängigkeit stehen. Wenn sich das tatsächliche Datum ändert, müssen alle Indikatoren, die das Startdatum des Marktes anhand des vom Sensor-Bot ermittelten Datums bestimmen, ihre bestehenden Datenprodukte verwerfen und mit dem neuen Datum neu beginnen.",
+                    "updated": 1641596393138
                 }
             ]
         },
@@ -114,6 +179,16 @@
                     "language": "RU",
                     "text": "Вы не запускаете и не останавливаете экземпляр сенсорного бота напрямую. Вместо этого вы запускаете или останавливаете соответствующую задачу Task.",
                     "updated": 1638363344907
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir sensör bot örneğini doğrudan başlatmaz veya durdurmazsınız. Bunun yerine, ilgili görevi başlatır veya durdurursunuz.",
+                    "updated": 1641720885421
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie starten oder stoppen eine Sensor-Bot-Instanz nicht direkt. Stattdessen starten oder stoppen Sie den entsprechenden Task.",
+                    "updated": 1641596440527
                 }
             ]
         }

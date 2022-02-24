@@ -94,19 +94,19 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Wenn Sie von einem entfernten Rechner aus auf den Client zugreifen, müssen Sie die Netzwerkknoten-konfiguration anpassen, bevor Sie fortfahren.",
-                    "updated": 1634161862309,
+                    "text": "Wenn Sie von einem entfernten Rechner aus auf den Client zugreifen, müssen Sie die Konfiguration des LAN-Netzwerkknotens anpassen.",
+                    "updated": 1642149728190,
                     "style": "Text"
                 },
                 {
                     "language": "RU",
-                    "text": "Если Вы получаете доступ к Client с удаленного устройства, то необходимо отрегулировать конфигурацию the LAN Network Node перед тем, как Вы продолжите. ",
-                    "updated": 1637439381746
+                    "text": "Если Вы получаете доступ к Client с удаленного устройства, то необходимо отрегулировать конфигурацию узел LAN Network Node перед тем, как Вы продолжите.",
+                    "updated": 1641803204715
                 },
                 {
                     "language": "TR",
-                    "text": "İstemciye ( Client ) uzak bir makineden erişiyorsanız, devam etmeden önce Ağ Düğümü ( Node )  yapılandırmasını ayarlamanız gerekir.",
-                    "updated": 1635579070105
+                    "text": "İstemciye (Client) uzak bir makineden erişiyorsanız, \"LAN Network Node\" düğümünün yapılandırmasını ayarlamanız gerekir.",
+                    "updated": 1644848777652
                 }
             ],
             "updated": 1636909673978
@@ -154,19 +154,19 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Klicken Sie auf Konfigurieren in der oberen rechten Ecke des Netzwerkknoten-Menüs.",
-                    "updated": 1634161879485,
+                    "text": "Klicken Sie auf Konfigurieren in der oberen rechten Ecke des Menüs LAN-Network Node. ",
+                    "updated": 1642149757458,
                     "style": "List"
                 },
                 {
                     "language": "RU",
-                    "text": "Нажмите Configure в правом верхнем углу в меню the  LAN Network Node.",
-                    "updated": 1637439430465
+                    "text": "Нажмите Configure в правом верхнем углу в меню узла LAN Network Node.",
+                    "updated": 1641803230835
                 },
                 {
                     "language": "TR",
-                    "text": "Ağ Düğümü menüsünün sağ üst köşesindeki Yapılandır'a ( Configure ) tıklayın.",
-                    "updated": 1635579264884
+                    "text": "Ağ Düğümü menüsünün sağ üst köşesindeki Yapılandır'a ( Configure ) tıklayın. ",
+                    "updated": 1644848838505
                 }
             ]
         },
@@ -206,19 +206,19 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Ändern Sie den Host-Parameter für die IP-Adresse des Rechners, auf dem das Backend läuft.",
-                    "updated": 1634161891685,
+                    "text": "Ändern Sie den Parameter host für die IP-Adresse des Rechners, auf dem das Backend läuft. ",
+                    "updated": 1642149771703,
                     "style": "List"
                 },
                 {
                     "language": "TR",
-                    "text": "Arka ucu çalıştıran makinenin IP adresi için ana bilgisayar parametresini değiştirin. Ters proxy kullanıyorsanız, \"webSocketsExternalURL\": \"wss://mydomain.com:443\" yapılandırma parametresini manuel olarak eklemelisiniz.",
-                    "updated": 1635579170033
+                    "text": "Arka ucu çalıştıran makinenin IP adresi için ana bilgisayar parametresini değiştirin.",
+                    "updated": 1644848902048
                 },
                 {
                     "language": "RU",
-                    "text": "Измените гостевой параметр для IP-адреса устройства, на котором выполняется серверная часть.",
-                    "updated": 1637439456800
+                    "text": "Измените параметр host на IP-адрес устройства, на котором выполняется серверная часть.",
+                    "updated": 1641803399273
                 }
             ],
             "updated": 1636909829414
@@ -286,8 +286,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Beenden Sie die Konfiguration, indem Sie den Mauszeiger aus der Konfigurationsblase bewegen! Wenn die Konfiguration korrekt ist, sollte die Fehlermeldung im Netzwerkknoten in einer Minute verschwinden!",
-                    "updated": 1634161900103,
+                    "text": "Schließen Sie nun den Editor. Wenn die Konfiguration korrekt ist, sollte die Fehlermeldung in einer Minute verschwinden! ",
+                    "updated": 1642149788915,
                     "style": "List"
                 },
                 {
@@ -297,8 +297,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Fare işaretçisini yapılandırma balonundan kaldırarak yapılandırmadan çıkın! Yapılandırma doğruysa, Ağ Düğümü'ndeki hata mesajı bir dakika içinde kaybolmalıdır!",
-                    "updated": 1635579204588
+                    "text": "Şimdi düzenleyiciyi kapatın. Yapılandırma doğruysa, hata mesajı bir dakika içinde kaybolacaktır!",
+                    "updated": 1644848933672
                 }
             ],
             "updated": 1636910042545

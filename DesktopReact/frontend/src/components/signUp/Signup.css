@@ -1,0 +1,83 @@
+.signupContainer {
+    padding: 0.5rem;
+    width: auto;
+    text-align: -webkit-center;
+    display: flex;
+    height: 95vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.signupCardContainer {
+    min-width: 20rem;
+    max-width: 40rem;
+    width: -webkit-fill-available;
+    width: -moz-available;
+}
+
+.signupCardContent {
+    height: 20rem;
+}
+
+.signupHeader {
+    width: 100%;
+}
+
+.signupBody {
+    height: -webkit-fill-available;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.signupTitleContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.signupTitle {
+
+}
+
+.signupInputBoxesContainer { /* if the content of the inputBox changes the height, uncomment this */
+    /*height: 5.625rem;*/
+}
+
+.signupFormControl {
+    width: 100%;
+    margin: 0.5rem 0 !important;
+}
+
+.signupFooter {
+    padding-top: 10px;
+}
+
+.banner {
+    height: 10rem;
+}
+
+.profileCard {
+    margin-top: -5rem;
+    display: flex;
+    flex-direction: row;
+    height: 8rem;
+    justify-content: space-between;
+    align-items: flex-end;
+    vertical-align: center;
+}
+
+.profilePicBG {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*background: none no-repeat scroll 0 0 #fff;*/
+    position: relative;
+    height: 8rem !important;
+    width: 8rem !important;
+    border-radius: 50%;
+}
+
+.signupPicButton {
+    border-radius: 20px !important;
+}

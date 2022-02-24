@@ -13,6 +13,16 @@
                 "language": "DE",
                 "text": "Dieses Ereignis ist selbsterklärend und funktioniert wie die anderen Ereignisse, mit denen Sie bereits vertraut sind, mit Situationen und Bedingungen.",
                 "updated": 1639398777456
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu etkinlik, açıklayıcı bir etkinliktir,durum ve koşullar konusunda zaten bildiğiniz diğer etkinlikler gibi çalışır.",
+                "updated": 1641746800496
+            },
+            {
+                "language": "RU",
+                "text": "Это событие не требует пояснений и работает как остальные события, с которыми вы уже знакомы, с ситуациями и условиями.",
+                "updated": 1642780119368
             }
         ]
     },
@@ -25,6 +35,16 @@
                     "language": "DE",
                     "text": "Obwohl die Entscheidung, eine Position einzugehen, in der Trigger Stage getroffen wird, bietet das Ereignis \"Create Order Event\" eine detaillierte Kontrolle über jede Order, so dass Sie entscheiden können, zu welchem Zeitpunkt oder in welcher Marktsituation sie platziert werden soll.",
                     "updated": 1639398826656
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir pozisyona girme kararı Tetikleme Aşamasında ( Trigger Stage ) verilse de, Emir Yarat Olayı ( Create Order Event ), ne zaman veya hangi piyasa durumunda verilmesi gerektiğine karar verebilmeniz için her bir emir üzerinde ayrıntılı kontrol sağlar.",
+                    "updated": 1641746811988
+                },
+                {
+                    "language": "RU",
+                    "text": "Хотя решение о занятии позиции принимается на этапе Trigger Stage, событие Create Order Event предлагает детальный контроль над каждым ордером, чтобы вы могли решить, в какой именно момент или в какой рыночной ситуации его разместить.",
+                    "updated": 1642780150149
                 }
             ]
         },
@@ -36,6 +56,16 @@
                     "language": "DE",
                     "text": "In unserem Fall werden wir die Order sofort nach dem Auslösen des Ereignisses \" Take Position Event \" einnehmen platzieren. Geben Sie also im JavaScript-Code-Knoten der einen Bedingung, die standardmäßig mit der Order erstellt wird, den Wert true ein. Dies bewirkt, dass die Bedingung true zurückgibt, sobald sie ausgewertet wird.",
                     "updated": 1639398839259
+                },
+                {
+                    "language": "TR",
+                    "text": "Bizim durumumuzda, Pozisyon Al Olayı ( Take Position Event ) tetiklendikten hemen sonra emri vereceğiz. Bu nedenle, JavaScript kod düğümünde, siparişle birlikte varsayılan olarak oluşturulan bir koşul için true değerini girin. Bu, koşulun değerlendirildiği anda doğru dönmesine neden olur.",
+                    "updated": 1641746828455
+                },
+                {
+                    "language": "RU",
+                    "text": "В нашем случае мы разместим ордер сразу после срабатывания события Take Position Event, поэтому введите true в узле JavaScript Code одного условия, созданного по умолчанию вместе с ордером. Это заставит условие вернуть true, как только оно будет обработано.",
+                    "updated": 1642780261348
                 }
             ]
         }

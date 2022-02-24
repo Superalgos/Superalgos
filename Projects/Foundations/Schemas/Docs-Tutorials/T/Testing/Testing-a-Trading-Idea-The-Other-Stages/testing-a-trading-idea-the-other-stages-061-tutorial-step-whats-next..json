@@ -13,6 +13,16 @@
                 "language": "DE",
                 "text": "Im nächsten Tutorial werden wir an dieser Idee weiterarbeiten und einige weitere grundlegende Überlegungen einbeziehen, die wir bisher ausgelassen haben.",
                 "updated": 1639419054035
+            },
+            {
+                "language": "TR",
+                "text": "Bir sonraki öğreticide, şimdiye kadar dışarıda bıraktığımız bazı temel hususlar da dahil olmak üzere bu fikir üzerinde çalışmaya devam edeceğiz.",
+                "updated": 1641810745676
+            },
+            {
+                "language": "RU",
+                "text": "В следующем учебнике мы продолжим работу над этой идеей, включив в нее еще несколько фундаментальных соображений, оставленных до сих пор без внимания.",
+                "updated": 1642945870198
             }
         ]
     },
@@ -25,6 +35,16 @@
                     "language": "DE",
                     "text": "Außerdem werden wir die Idee in einem günstigeren Umfeld testen, d. h. in einem echten Bärenmarkt, damit wir ihr Potenzial besser einschätzen können.",
                     "updated": 1639419064627
+                },
+                {
+                    "language": "TR",
+                    "text": "Ayrıca, potansiyelini daha iyi değerlendirebilmemiz için fikri daha uygun bir ortamda, yani gerçek bir ayı piyasasında test edeceğiz.",
+                    "updated": 1641810903685
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы также собираемся проверить эту идею в более благоприятных условиях, то есть на реальном медвежьем рынке, чтобы лучше оценить ее потенциал.",
+                    "updated": 1642945883129
                 }
             ]
         },
@@ -36,6 +56,16 @@
                     "language": "DE",
                     "text": "An dieser Stelle haben Sie die Grundlagen der Entwicklung und des Testens von Strategien kennengelernt. Auch wenn mit der Zeit weitere Tutorials zur Verfügung stehen werden, hält Sie nichts davon ab, an die Grenzen zu gehen und selbst weiter zu lernen! Die Dokumentation ist Ihr Freund und deckt die Funktionsweise von Superalgos in einer Tiefe ab, die Tutorials nicht erreichen können!",
                     "updated": 1639419072089
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bu noktada, strateji oluşturma ve test etmenin temellerini ele aldınız. Sonunda daha fazla öğretici mevcut olacak olsa da, sınırları zorlamanızı ve kendi başınıza öğrenmeye devam etmenizi hiçbir şey durduramaz! Belgeler sizin arkadaşınızdır ve Superalgos'un işleyişini öğreticilerin ulaşamayacağı bir derinlikte kapsar!",
+                    "updated": 1641811081565
+                },
+                {
+                    "language": "RU",
+                    "text": "На данном этапе вы изучили самые основы построения и тестирования стратегий. Хотя со временем появятся новые учебники, ничто не мешает вам расширить границы и продолжать учиться самостоятельно! Документация - ваш друг, и она охватывает работу Superalgos на такой глубине, до которой не могут дотянуться учебники!",
+                    "updated": 1642945910618
                 }
             ]
         }

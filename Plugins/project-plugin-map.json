@@ -1,0 +1,38 @@
+{
+  "Governance": {
+     "dir": "Governance",
+     "repo": "Governance-Plugins"
+   },
+  "Foundations": {
+     "dir": "Foundations",
+     "repo": "Foundations-Plugins"
+   },
+  "Algorithmic-Trading": {
+     "dir": "Algorithmic-Trading",
+     "repo": "Algorithmic-Trading-Plugins"
+   },
+  "TensorFlow": {
+     "dir": "TensorFlow",
+     "repo": "TensorFlow-Plugins"
+   },
+  "Trading-Signals": {
+     "dir": "Trading-Signals",
+     "repo": "Trading-Signals-Plugins"
+   },
+  "Portfolio-Management": {
+     "dir": "Portfolio-Management",
+     "repo": "Portfolio-Management-Plugins"
+   },
+  "Machine-Learning": {
+     "dir": "Machine-Learning",
+     "repo": "Machine-Learning-Plugins"
+   },
+  "Data-Mining": {
+     "dir": "Data-Mining",
+     "repo": "Data-Mining-Plugins"
+   },
+  "Network": {
+     "dir": "Network",
+     "repo": "Network-Plugins"
+   }
+}

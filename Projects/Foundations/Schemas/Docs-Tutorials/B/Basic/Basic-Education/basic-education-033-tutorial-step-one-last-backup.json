@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "Üçüncü örneği deneyelim! plygon düğümünden Grafik Noktaları ( Chart Points ) düğümünün altındaki noktalara akan referanslara dikkat edin!",
                 "updated": 1639723270170
+            },
+            {
+                "language": "RU",
+                "text": "Давайте попробуем третий пример! Обратите внимание на ссылки, идущие от вершин полигонов к точкам в узле Chart Points!",
+                "updated": 1640870975645
             }
         ]
     },
@@ -61,6 +66,11 @@
                     "language": "TR",
                     "text": "Shapes düğümünün yedeğini alın ve orijinali silmeden yan tarafa geri yükleyin (çalışma alanına sürükleyrek bırakın). Bunu yaptıktan sonra bu sefer aynı işlemi ojinal düğümü silerek tekrarlayın.",
                     "updated": 1639723389534
+                },
+                {
+                    "language": "RU",
+                    "text": "Сделайте резервную копию узла Shapes и восстановите ее сбоку, не удаляя оригинал. Затем повторите, но удалите оригинал перед восстановлением резервной копии!",
+                    "updated": 1640870996301
                 }
             ]
         },
@@ -89,6 +99,11 @@
                     "language": "TR",
                     "text": "İlk durumda, referansların harici referanslara dönüşen orijinal noktaları gösterdiğine dikkat edin! Aksine, ikinci durumda, referanslar dahili kalır!",
                     "updated": 1639724259925
+                },
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание, что в первом случае ссылки указывают на исходные точки, превращаясь во внешние ссылки! А во втором случае, наоборот, ссылки остаются внутренними!",
+                    "updated": 1640871024817
                 }
             ]
         },
@@ -118,6 +133,11 @@
                     "language": "TR",
                     "text": "Referansların yalnızca ilk önce orijinal yapıyı sildiğinizde dahili kaldığını unutmayın!",
                     "updated": 1639724279947
+                },
+                {
+                    "language": "RU",
+                    "text": "Помните, что ссылки остаются внутренними только тогда, когда вы сначала удалите исходную структуру!",
+                    "updated": 1640871038731
                 }
             ]
         }

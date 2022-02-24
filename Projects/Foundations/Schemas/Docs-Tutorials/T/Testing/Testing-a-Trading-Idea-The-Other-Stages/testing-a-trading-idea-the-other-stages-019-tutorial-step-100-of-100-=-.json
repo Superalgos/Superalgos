@@ -13,6 +13,16 @@
                 "language": "DE",
                 "text": "Wie Sie sehen können, ist der Prozentsatz percentageOfAlgorithmSize auch standardmäßig 100 %, und das ist, was wir für den Test verwenden werden.",
                 "updated": 1639398651532
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Gördüğünüz gibi, Algoritma Boyutunun yüzdesi (percentageOfAlgorithmSize) de varsayılan olarak %100'dür ve test için bunu kullanacağız.",
+                "updated": 1641746725232
+            },
+            {
+                "language": "RU",
+                "text": "Как вы можете видеть, процентное значение percentOfAlgorithmSize также по умолчанию равно 100%, и именно его мы будем использовать для теста.",
+                "updated": 1642779979383
             }
         ]
     },
@@ -25,6 +35,16 @@
                     "language": "DE",
                     "text": "Das heißt, wir werden einen einzigen Auftrag einrichten, um die Position einzugeben. Der Auftrag wird 100 % dessen verarbeiten, was dem Algorithmus zugewiesen ist, der wiederum 100 % dessen verarbeitet, was der Stage zugewiesen ist. Und wir weisen der Bühne 100 % des Restbetrags zu! Mit anderen Worten, wir platzieren eine Market-Sell-Order in der Größe des Saldos, um jede Position einzugehen.",
                     "updated": 1639398713885
+                },
+                {
+                    "language": "TR",
+                    "text": "Yani, pozisyona girmek için tek bir emir ayarlayacağız. Sıra, algoritmaya atananların %100'ünü işleyecek ve bu da sahneye atananların %100'ünü işleyecektir. Ve dengenin ( Balance ) %100'ünü sahneye atadık! Başka bir deyişle, her bir pozisyona girmek için Bakiye boyutunda bir piyasa satış emri vereceğiz.",
+                    "updated": 1641746739815
+                },
+                {
+                    "language": "RU",
+                    "text": "То есть, мы установим один ордер на вход в позицию. Ордер будет обрабатывать 100% того, что назначено алгоритму, который, в свою очередь, обрабатывает 100% того, что назначено этапу. И мы назначили этапу 100% баланса! Другими словами, мы выставим один рыночный ордер на продажу размером Balance для входа в каждую позицию.",
+                    "updated": 1642780035916
                 }
             ]
         },
@@ -36,6 +56,16 @@
                     "language": "DE",
                     "text": "Ich habe Ihnen gesagt, dass wir es einfach halten werden! Wie Sie sehen können, müssen Sie nur den Algo und die Order erstellen und die Standardeinstellungen verwenden!",
                     "updated": 1639398727470
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: size basit tutacağımızı söylemiştim! Bu, mümkün olan en basit emir yürütme düzenlemesidir ve gördüğünüz gibi, algoritma ve emri oluşturmanız ve varsayılan ayarları kullanmanız yeterlidir!",
+                    "updated": 1641746758288
+                },
+                {
+                    "language": "RU",
+                    "text": "Я же говорил тебе, что мы сделаем все просто! Это самая простая из возможных схем исполнения ордеров, и, как вы можете видеть, вам просто нужно создать алгоритм и ордер и использовать настройки по умолчанию!",
+                    "updated": 1642780102410
                 }
             ]
         }

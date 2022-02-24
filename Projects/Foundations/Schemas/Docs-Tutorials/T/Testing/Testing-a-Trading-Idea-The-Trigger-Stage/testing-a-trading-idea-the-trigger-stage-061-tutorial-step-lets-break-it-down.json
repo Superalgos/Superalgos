@@ -13,6 +13,16 @@
                 "language": "DE",
                 "text": "Wir werden die Anweisung Schritt für Schritt durchgehen und sie in die richtige Syntax bringen!",
                 "updated": 1639389564281
+            },
+            {
+                "language": "TR",
+                "text": "İfadeyi adım adım inceleyeceğiz ve doğru sözdizimine getireceğiz!",
+                "updated": 1641663516896
+            },
+            {
+                "language": "RU",
+                "text": "Мы пройдем пошагово через утверждение и приведем его к правильному синтаксису!",
+                "updated": 1642660856072
             }
         ]
     },
@@ -26,6 +36,16 @@
                     "language": "DE",
                     "text": "Denken Sie daran, dass die Zeit zuerst kommt: im 1H-Diagramm!",
                     "updated": 1639389574772
+                },
+                {
+                    "language": "TR",
+                    "text": "Unutmayın, zaman önce gelir: 1H diyagramında!",
+                    "updated": 1641663535365
+                },
+                {
+                    "language": "RU",
+                    "text": "Помните, время идет первым: в графике 1H!",
+                    "updated": 1642660878963
                 }
             ]
         },
@@ -42,6 +62,16 @@
                     "language": "DE",
                     "text": "Der Schluss der Kerze ist kleiner als:",
                     "updated": 1639389583113
+                },
+                {
+                    "language": "TR",
+                    "text": "Mumun kapanışı şundan daha azdır:",
+                    "updated": 1641663552553
+                },
+                {
+                    "language": "RU",
+                    "text": "Закрытие свечи меньше, чем:",
+                    "updated": 1642660897026
                 }
             ]
         },
@@ -58,6 +88,11 @@
                     "language": "DE",
                     "text": "Der gleitende Durchschnitt minus die Abweichung, wobei für jede Anweisung ein Zeitrahmen definiert wird:",
                     "updated": 1639389589076
+                },
+                {
+                    "language": "RU",
+                    "text": "Скользящая средняя минус отклонение, с таймфреймом, определенным для каждого показания:",
+                    "updated": 1642660947764
                 }
             ]
         },

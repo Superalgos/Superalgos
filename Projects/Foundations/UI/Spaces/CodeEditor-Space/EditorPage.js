@@ -64,7 +64,7 @@ function newFoundationsCodeEditorEditorPage() {
     function initMonacoEditor() {
         if (monacoEditor === undefined) {
             document.getElementById('no-content').remove()
-            document.getElementById('code-path').insertAdjacentHTML('afterend', `<div class="docs-summary"><b>Notes:</b> Changes are saved automatically</div>`)
+            document.getElementById('code-path').insertAdjacentHTML('afterend', `<div class="docs-summary"><b>Note:</b> Changes are saved automatically</div>`)
             monacoEditor = monaco.editor.create(document.querySelector('#editor'), {
                 model: null,
                 theme: 'vs-dark',

@@ -2,25 +2,49 @@
     "type": "Current projects",
     "definition": {
         "text": "The table below contains all current projects to which you can add new docs-articles. Feel free to add projects if they are missing.",
-        "updated": 1638112235073
+        "updated": 1638112235073,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "В таблице ниже приведены все текущие проекты, в которые вы можете добавлять новые docs-статьи. Не стесняйтесь добавлять проекты, если они отсутствуют.",
+                "updated": 1645078982515
+            }
+        ]
     },
     "paragraphs": [
         {
+            "style": "Block",
+            "text": "current projects",
+            "updated": 1642463944441
+        },
+        {
             "style": "Table",
-            "text": "|Project|Project Explanation|\n|Algorithmic-Trading|Project Explanation|\n|Community-Plugins|Project Explanation|\n|Data-Mining|Project Explanation|\n|Education|This Project is about building up and maintaining the Docs (-Articles)|\n|Ethereum|Project Explanation|\n|Foundations|Project Explanation|\n|Governance|Manages and organizes the Superalgos Project (All of us, the community)|\n|Machine-Learning|Project Explanation|\n|Network|Project Explanation|\n|Social-Bots|Project Explanation|\n|Social-Trading|Project Explanation|\n|TensorFlow|Project Explanation|\n|Visual-Scripting|Project Explanation|",
-            "updated": 1638116155258,
+            "text": "\n||Project|Project Explanation||\n|Algorithmic-Trading|Project Explanation|\n|Community-Plugins|Project Explanation|\n|Data-Mining|Project Explanation|\n|Education|This Project is about building up and maintaining the Docs (-Articles)|\n|Ethereum|Project Explanation|\n|Foundations|Project Explanation|\n|Governance|Manages and organizes the Superalgos Project (All of us, the community)|\n|Machine-Learning|Project Explanation|\n|Network|Project Explanation|\n|Social-Bots|Project Explanation|\n|Social-Trading|Project Explanation|\n|TensorFlow|Project Explanation|\n|Visual-Scripting|Project Explanation|\n|",
+            "updated": 1642462788711,
             "translations": [
                 {
                     "language": "DE",
                     "text": "|Project|Project Explanation|\n|Algorithmic-Trading|Project Explanation|\n|Community-Plugins|Project Explanation|\n|Data-Mining|Project Explanation|\n|Education|This Project is about building up and maintaining the Docs (-Articles)|\n|Ethereum|Project Explanation|\n|Foundations|Project Explanation|\n|Governance|Manages and organizes the Superalgos Project (All of us, the community)|\n|Machine-Learning|Project Explanation|\n|Network|Project Explanation|\n|Social-Bots|Project Explanation|\n|Social-Trading|Project Explanation|\n|TensorFlow|Project Explanation|\n|Visual-Scripting|Project Explanation|",
                     "updated": 1638115499301
+                },
+                {
+                    "language": "RU",
+                    "text": "|Проект|Пояснение к проекту|\n|Algorithmic-Trading|Пояснение к проекту|\n|Community-Plugins|Пояснение к проекту|\n|Data-Mining|Пояснение к проекту|\n|Education|Этот проект предназначен для создания и поддержки документации (-статей).|\n|Ethereum|Пояснение к проекту|\n|Foundations|Пояснение к проекту|\n|Governance|Управление и организация проекта Superalgos (Все мы, сообщество)|\n|Machine-Learning|Пояснение к проекту|\n|Network|Пояснение к проекту|\n|Social-Bots|Пояснение к проекту|\n|Social-Trading|Пояснение к проекту|\n|TensorFlow|Пояснение к проекту|\n|Visual-Scripting|Пояснение к проекту|",
+                    "updated": 1645079437516
                 }
             ]
         },
         {
             "style": "Text",
             "text": "Created and maintained by gitforkgit. Feel free to add more specific explanations and if needed new projects.",
-            "updated": 1640215168911
+            "updated": 1640215168911,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Создан и поддерживается gitforkgit. Не стесняйтесь добавлять более конкретные описания и, при необходимости, новые проекты.",
+                    "updated": 1645079493020
+                }
+            ]
         },
         {
             "style": "Text",

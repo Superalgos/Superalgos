@@ -35,8 +35,8 @@
             },
             {
                 "language": "TR",
-                "text": "Menünün geri kalanını göstermeden önce, başka bir hiyerarşiye bir göz atalım: \"Ağ.\"   (Lan Network)",
-                "updated": 1639118613577,
+                "text": "Menünün geri kalanını göstermeden önce, başka bir hiyerarşiye bir göz atalım: \"Ağ.\" (Lan Network)",
+                "updated": 1644848110578,
                 "style": "Definition"
             },
             {
@@ -53,8 +53,8 @@
             },
             {
                 "language": "RU",
-                "text": "Прежде, чем я покажу Вам остальную часть меню, давайте посмотрим на другую иерархию - Network.\n",
-                "updated": 1635510334014
+                "text": "Прежде, чем я покажу вам остальную часть меню, давайте посмотрим на другую иерархию - LAN Network.\n",
+                "updated": 1641801636027
             }
         ],
         "updated": 1640343243633
@@ -90,8 +90,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Ağ hiyerarşisi, sistemin kontrol odasıdır.Burası Veri Görevlerinizi ( Data Task ), Ticaret Görevlerini Test Etme ( Testing Trading Tasks ) ve Ticaret Görevlerinizi ( Production Trading Tasks ) kontrol ettiğiniz yerdir.",
-                    "updated": 1639118839690,
+                    "text": "Ağ hiyerarşisi, sistemin kontrol odasıdır.Burası Veri Görevlerinizi ( Data Task ), Ticaret Görevlerini Test Etme   (Testing Trading Tasks) ve Ticaret Görevlerinizi (Production Trading Tasks) kontrol ettiğiniz yerdir",
+                    "updated": 1644848447271,
                     "style": "Text"
                 },
                 {
@@ -102,14 +102,14 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Die Netzwerkhierarchie ist der Kontrollraum des Systems. Von hier aus steuern Sie Ihre Data Tasks, Testing Trading Tasks und Production Trading Tasks.",
-                    "updated": 1634160438707,
+                    "text": "Die LAN Netzwerkhierarchie ist der Kontrollraum des Systems. Hier steuern Sie Ihre Data Tasks, Testing Trading Tasks und Production Trading Aufgaben.",
+                    "updated": 1642149600351,
                     "style": "Text"
                 },
                 {
                     "language": "RU",
-                    "text": "Сетевая иерархия - это управленческая комната системы. Именно здесь Вы управляете своими Data Tasks, Testing Trading Tasks, and Production Trading Tasks операциями.",
-                    "updated": 1635510485010
+                    "text": "Иерархия LAN Network - это управленческая комната системы. Именно здесь Вы управляете своими Data Tasks, Testing Trading Tasks, and Production Trading Tasks операциями.",
+                    "updated": 1641801801269
                 }
             ],
             "updated": 1640343257331
@@ -269,7 +269,7 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Но прежде чем мы начнем, у меня к Вам есть небольшой вопрос: получаете ли Вы доступ к Client удаленно?",
+                    "text": "Но прежде чем мы начнем, у меня к вам есть небольшой вопрос: получаете ли Вы доступ к Client удаленно?",
                     "updated": 1635511033016
                 }
             ]

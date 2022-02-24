@@ -4,17 +4,68 @@
     "type": "Stochastic - Alpha Indicator",
     "definition": {
         "text": "The indicator features the typical stochastic setting of 14, 3, 3.",
-        "updated": 1611654181677
+        "updated": 1611654181677,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Der Indikator weist die typische stochastische Einstellung von 14, 3, 3 auf.",
+                "updated": 1641918327898
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Gösterge tipik stokastik 14, 3, 3 ayarına sahiptir.",
+                "updated": 1643292778763
+            },
+            {
+                "language": "RU",
+                "text": "Индикатор имеет стандартную настройку Stochastic 14, 3, 3.",
+                "updated": 1643349766167
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Stochastic On the Charts",
-            "updated": 1611654194522
+            "updated": 1611654194522,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Stochastik in den Diagrammen",
+                    "updated": 1641918371760
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafiklerde Stokastik",
+                    "updated": 1643292793118
+                },
+                {
+                    "language": "RU",
+                    "text": "Stochastic на графиках",
+                    "updated": 1643349753299
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "According to Investopedia, “A stochastic oscillator is a momentum indicator comparing a particular closing price of a security to a range of its prices over a certain period of time. It is used to generate overbought and oversold trading signals, utilizing a 0-100 bounded range of values.”"
+            "text": "According to Investopedia, “A stochastic oscillator is a momentum indicator comparing a particular closing price of a security to a range of its prices over a certain period of time. It is used to generate overbought and oversold trading signals, utilizing a 0-100 bounded range of values.”",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Laut Investopedia \"ist ein stochastischer Oszillator ein Momentum-Indikator, der einen bestimmten Schlusskurs eines Wertpapiers mit einer Spanne seiner Kurse über einen bestimmten Zeitraum vergleicht. Er wird verwendet, um überkaufte und überverkaufte Handelssignale zu generieren, indem er einen begrenzten Wertebereich von 0-100 verwendet.\"",
+                    "updated": 1641918443795
+                },
+                {
+                    "language": "TR",
+                    "text": "Investopedia'ya göre, \\\"Stokastik bir osilatör, bir menkul kıymetin belirli bir kapanış fiyatını belirli bir süre boyunca bir dizi fiyatıyla karşılaştıran bir momentum göstergesidir. Sınırlı bir aralık sağlayarak aşırı alım ve aşırı satımda alım satım sinyalleri oluşturmak için kullanılır. 0-100 arası değerler kullanılmıştır.",
+                    "updated": 1643292807886
+                },
+                {
+                    "language": "RU",
+                    "text": "Согласно Investopedia, \"стохастический осциллятор - это индикатор импульса, сравнивающий конкретную цену закрытия ценной бумаги с диапазоном ее цен за определенный период времени. Он используется для создания торговых сигналов перекупленности и перепроданности, используя ограниченный диапазон значений 0-100\".",
+                    "updated": 1643349788640
+                }
+            ]
         },
         {
             "style": "Png",
@@ -23,24 +74,104 @@
         },
         {
             "style": "Text",
-            "text": "The chart for this indicator shows a fast line and slow line oscillating in a range between 0 and 100. The fast line displays the current close price in relation to the high/low range of the previous period. The slow line is a simple moving average of the fast line. Major signals provided by the stochastic indicator are overbought and oversold conditions. The default area for oversold is below 20 and for overbought above 80. Divergences between price action and stochastic records can also be helpful to identify upcoming trend reversals."
+            "text": "The chart for this indicator shows a fast line and slow line oscillating in a range between 0 and 100. The fast line displays the current close price in relation to the high/low range of the previous period. The slow line is a simple moving average of the fast line. Major signals provided by the stochastic indicator are overbought and oversold conditions. The default area for oversold is below 20 and for overbought above 80. Divergences between price action and stochastic records can also be helpful to identify upcoming trend reversals.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das Diagramm für diesen Indikator zeigt eine schnelle Linie und eine langsame Linie, die in einem Bereich zwischen 0 und 100 oszillieren. Die schnelle Linie zeigt den aktuellen Schlusskurs im Verhältnis zum Höchst-/Tiefstkurs des vorangegangenen Zeitraums an. Die langsame Linie ist ein einfacher gleitender Durchschnitt der schnellen Linie. Die wichtigsten Signale, die der Stochastik-Indikator liefert, sind überkaufte und überverkaufte Bedingungen. Der Standardbereich für überkaufte Bedingungen liegt unter 20 und für überkaufte Bedingungen über 80. Abweichungen zwischen der Kursentwicklung und den Stochastik-Aufzeichnungen können ebenfalls hilfreich sein, um bevorstehende Trendumkehrungen zu erkennen.",
+                    "updated": 1641918605479
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu göstergenin grafiği, 0 ile 100 arasında salınan hızlı bir çizgi ve yavaş bir çizgi gösterir. Hızlı satır, önceki dönemin en yüksek/düşük fiyatına göre mevcut kapanış fiyatını gösterir. Yavaş çizgi, hızlı çizginin basit hareketli ortalamasıdır. Stokastik gösterge tarafından sağlanan ana sinyaller aşırı alım ve aşırı satım koşullarıdır. Aşırı alım koşulları için varsayılan aralık 20'nin altında ve aşırı alım koşulları için 80'in üzerindedir. Fiyat hareketi ile stokastik kayıtlar arasındaki tutarsızlıklar, yakın trend dönüşlerini tespit etmede de yardımcı olabilir.",
+                    "updated": 1643292820193
+                },
+                {
+                    "language": "RU",
+                    "text": "На графике этого индикатора отображаются быстрая линия и медленная линия, колеблющиеся в диапазоне от 0 до 100. Быстрая линия отображает текущую цену закрытия по отношению к диапазону high/low предыдущего периода. Медленная линия представляет собой простую скользящую среднюю быстрой линии. Основными сигналами, подаваемыми индикатором стохастик, являются состояния перекупленности и перепроданности. По умолчанию зона перепроданности находится ниже 20, а перекупленности - выше 80. Расхождения между ценовым действием и стохастическими показателями также могут быть полезны для определения предстоящих разворотов тренда.",
+                    "updated": 1643349830205
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Stochastic Products & Properties"
+            "text": "Stochastic Products & Properties",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Stochastische Produkte und Eigenschaften",
+                    "updated": 1641918638514
+                },
+                {
+                    "language": "TR",
+                    "text": "Stokastik Ürünler ve Özellikler",
+                    "updated": 1643292850373
+                },
+                {
+                    "language": "RU",
+                    "text": "Продукты и свойства Stochastic",
+                    "updated": 1643349853731
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Stochastic provides one product with a popular default setting."
+            "text": "Stochastic provides one product with a popular default setting.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Stochastic bietet ein Produkt mit einer beliebten Standardeinstellung an.",
+                    "updated": 1641918705035
+                },
+                {
+                    "language": "TR",
+                    "text": "Stokastik, popüler bir varsayılan ayara sahip bir ürün sağlar.",
+                    "updated": 1643292871525
+                },
+                {
+                    "language": "RU",
+                    "text": "Stochastic предоставляет один продукт с популярной настройкой по умолчанию.",
+                    "updated": 1643349863182
+                }
+            ]
         },
         {
             "style": "Table",
             "text": "| Product Setting | Product Variable | Properties |\n| Stochastic (14, 3, 3) | stoch1433 | fastLine, slowLine |",
-            "updated": 1611654306810
+            "updated": 1611654306810,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produkteinstellung | Produktvariable | Eigenschaften |\n| Stochastic (14, 3, 3) | stoch1433 | fastLine, slowLine |",
+                    "updated": 1641918730179
+                },
+                {
+                    "language": "TR",
+                    "text": "| Ürün Ayarı | Ürün Değişkeni | Özellikleri |\n| Stochastic (14, 3, 3) | stoch1433 | fastLine, slowLine |",
+                    "updated": 1643292890453
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Examples:"
+            "text": "Examples:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiele:",
+                    "updated": 1641918805957
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnek:",
+                    "updated": 1643292901980
+                },
+                {
+                    "language": "RU",
+                    "text": "Примеры:",
+                    "updated": 1643349869335
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -49,7 +180,24 @@
         },
         {
             "style": "Text",
-            "text": "Checking for overbought condition and the fast line lower than the slow line, indicating trend reversal."
+            "text": "Checking for overbought condition and the fast line lower than the slow line, indicating trend reversal.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Prüfung auf einen überkauften Zustand und darauf, ob die schnelle Linie niedriger als die langsame Linie ist, was auf eine Trendumkehr hindeutet.",
+                    "updated": 1641918815775
+                },
+                {
+                    "language": "TR",
+                    "text": "Trendin tersine döndüğünü gösteren aşırı alım durumu ve yavaş çizgiden daha düşük hızlı çizgi kontrol ediliyor.",
+                    "updated": 1643292917229
+                },
+                {
+                    "language": "RU",
+                    "text": "Проверяем состояние перекупленности и наличие быстрой линии ниже медленной линии, что указывает на разворот тренда.",
+                    "updated": 1643349884686
+                }
+            ]
         }
     ]
 }

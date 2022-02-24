@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "Ya Düğümler birbirinden çok uzaktaysa, hatta belki farklı hiyerarşilerdeyse? Birkaç püf noktası öğrenmek için videoyu izleyin!",
                 "updated": 1639488625000
+            },
+            {
+                "language": "RU",
+                "text": "Что делать, если узлы находятся далеко друг от друга, возможно, даже в разных иерархиях? Посмотрите видео, чтобы узнать несколько приемов!",
+                "updated": 1640869528063
             }
         ]
     },
@@ -61,6 +66,11 @@
                     "language": "TR",
                     "text": "Bu UI ( User Interface ) hileleri hayatınızı kolaylaştırabilir:",
                     "updated": 1639488655612
+                },
+                {
+                    "language": "RU",
+                    "text": "Эти приемы пользовательского интерфейса могут облегчить вам жизнь:",
+                    "updated": 1640869539046
                 }
             ]
         },
@@ -82,13 +92,18 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Heften Sie den Knoten, den Sie verschieben möchten, an den Entwurfsraum, damit Sie ihn an jedem beliebigen Punkt loslassen können, um die Entwurfsraumkarte auf Richtungen zu überprüfen.",
-                    "updated": 1634334621202
+                    "text": "Stecken Sie den Knoten, den Sie verschieben wollen, in den Entwurfsbereich, damit er dort bleibt, wo Sie ihn ablegen!",
+                    "updated": 1641741319676
                 },
                 {
                     "language": "TR",
                     "text": "Tasarım alanı boyunca hareket ettireceğiniz düğümü sabitleyin, böylece hareket ettirdiğiniz düğümü tasarım alanında herhangi bir noktada bıraktığınızda sabit kalacaktır.",
                     "updated": 1639558424076
+                },
+                {
+                    "language": "RU",
+                    "text": "Закрепите узел, который вы собираетесь переместить, в пространстве проектирования, чтобы он остался там, куда вы его переместите!",
+                    "updated": 1640869565155
                 }
             ],
             "updated": 1640097977030
@@ -112,29 +127,70 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Ziehen Sie den Knoten mit Ctrl / Cmd + Pfeiltasten über den Bildschirm, nachdem Sie ihn mit der Maus angeklickt haben. Halten Sie die Tasten gedrückt und der Knoten fliegt!",
-                    "updated": 1634334644137
+                    "text": "Klicken Sie auf die Schaltfläche \"Save node to be moved\" auf dem Knoten, den Sie verschieben möchten. ",
+                    "updated": 1641741355901
                 },
                 {
                     "language": "TR",
                     "text": "Farenin sağ tuşu ile üzerine tıkladıktan sonra düğümü ekran boyunca sürüklemek için Windows'ta Ctrl  + ok tuşları, Mac'te ise Cmd + ok tuşlarını kullanın.",
                     "updated": 1639558498078
+                },
+                {
+                    "language": "RU",
+                    "text": "Нажмите кнопку \"Save node to be moved\" на узле, который вы хотите переместить.",
+                    "updated": 1640869596572
                 }
             ]
         },
         {
             "style": "List",
             "text": "Use the design space map to zoom out and click near the node to which you wish to travel. ",
-            "updated": 1640098364795
+            "updated": 1640098364795,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Verkleinern Sie die Karte des Designraums und klicken Sie in die Nähe des Knotens, zu dem Sie reisen möchten.",
+                    "updated": 1641741272856
+                },
+                {
+                    "language": "RU",
+                    "text": "Используйте карту пространства проектирования для уменьшения масштаба и щелкните рядом с узлом, к которому вы хотите переместиться.",
+                    "updated": 1640869613645
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Click \"Snap saved node to postion\" and the node you saved will magically appear on top of the node you are at!",
-            "updated": 1640098421986
+            "updated": 1640098421986,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie auf \"Gespeicherten Knoten an Position fangen\", und der gespeicherte Knoten erscheint auf magische Weise über dem Knoten, an dem Sie sich befinden!",
+                    "updated": 1641741282424
+                },
+                {
+                    "language": "RU",
+                    "text": "Нажмите \" Snap saved node to postion\", и сохраненный вами узел волшебным образом появится поверх узла, на котором вы находитесь!",
+                    "updated": 1640869638264
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Remove the pin once the reference is established so that the node goes back to its place."
+            "text": "Remove the pin once the reference is established so that the node goes back to its place.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Entfernen Sie die Stecknadel, sobald der Bezug hergestellt ist, damit der Knoten an seinen Platz zurückkehrt.",
+                    "updated": 1641741288724
+                },
+                {
+                    "language": "RU",
+                    "text": "Удалите штифт после установления ссылки, чтобы узел вернулся на свое место.",
+                    "updated": 1640870003951
+                }
+            ]
         }
     ]
 }

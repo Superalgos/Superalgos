@@ -13,6 +13,16 @@
                 "language": "DE",
                 "text": "Nehmen wir uns ein paar Minuten Zeit, um diese Position zu analysieren und insbesondere zu untersuchen, was die einzelnen Phasen ausmacht...",
                 "updated": 1639418370671
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu pozisyonu analiz etmek ve özellikle bireysel aşamaları neyin oluşturduğunu incelemek için birkaç dakikanızı ayıralım...",
+                "updated": 1641802184199
+            },
+            {
+                "language": "RU",
+                "text": "Давайте уделим несколько минут анализу этой позиции, в частности, рассмотрим, чем отличается каждый этап...",
+                "updated": 1642943954014
             }
         ]
     },
@@ -26,6 +36,16 @@
                     "language": "DE",
                     "text": "Trigger Stage: Eröffnet am 27. Februar um 0 Uhr, weil der 24-Stunden-Bollinger-Sub-Channel nach unten und nicht zur Seite gedreht hat. Prüfen Sie, ob das der Fall ist! Die Stage schließt am 28. Februar um 9 Uhr, nachdem der zweite Breakdown das Take Position Event auslöst.",
                     "updated": 1639418386548
+                },
+                {
+                    "language": "TR",
+                    "text": "Tetik Aşaması(Trigger Stage): 27 Şubat gece yarısı 24 saatlik Bollinger alt kanalının yanlara değil, kapanması nedeniyle açıldı. Durum böyle mi kontrol edin! Sahne, ikinci vakanın pozisyon alma olayını ( Take Position Event ) tetikledikten sonra 28 Şubat'ta sabah 9'da kapanıyor.",
+                    "updated": 1641802197125
+                },
+                {
+                    "language": "RU",
+                    "text": "Trigger Stage: Открывается 27 февраля на 0 hs, потому что 24H Bollinger SubChannel развернулся вниз, а не в сторону. Проверьте, так ли это! Этап закроется 28 февраля в 9 часов, после того как второй пробой вызовет событие Take Position.",
+                    "updated": 1642943977053
                 }
             ]
         },
@@ -37,6 +57,16 @@
                     "language": "DE",
                     "text": "Open Stage: Eröffnet, wenn die Trigger Stage schließt, und schließt eine Stunde später (!?), nachdem der Marktverkaufsauftrag erteilt wurde.",
                     "updated": 1639418398689
+                },
+                {
+                    "language": "TR",
+                    "text": "Açık Aşama(Open Stage): Tetik Aşaması kapandığında açılır ve piyasa satış emri verildikten bir saat sonra (!?) kapanır.",
+                    "updated": 1641802208099
+                },
+                {
+                    "language": "RU",
+                    "text": "Open Stage: Открывается при закрытии стадии срабатывания и закрывается через час (!?) после размещения рыночного ордера на продажу.",
+                    "updated": 1642943998462
                 }
             ]
         },
@@ -48,6 +78,16 @@
                     "language": "DE",
                     "text": "Eine Stunde später? Ja! Denken Sie daran, dass wir die Simulation auf dem Zeitrahmen von 1 Stunde laufen lassen! Wir werden diese Angelegenheit später noch eingehend besprechen!",
                     "updated": 1639418407571
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bir saat sonra mı? Evet! Simülasyonu 1 saatlik zaman diliminde yürüttüğümüzü unutmayın! Bu konuyu daha sonra ayrıntılı olarak tartışacağız!",
+                    "updated": 1641802218129
+                },
+                {
+                    "language": "RU",
+                    "text": "Через час? Да! Помните, что мы запускаем симуляцию на таймфрейме 1H! Позже мы обсудим этот вопрос более подробно!",
+                    "updated": 1642944023848
                 }
             ]
         }

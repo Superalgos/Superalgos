@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Теперь вы находитесь в новой текущей ветке (Current Branch), но приложение все еще выполняет код предыдущей ветки. Чтобы завершить этот процесс, необходимо перезапустить Superalgos Client и перезагрузить пользовательский интерфейс UI.",
                 "updated": 1640236393288
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Şu anda yeni Mevcut Şubede duruyorsunuz, ancak Uygulama hala önceki şubenin kodunu çalıştırıyor. Bu işlemi bitirmek için Superalgos İstemcisini yeniden başlatmanız ve kullanıcı arayüzünü ( UI ) yeniden yüklemeniz gerekir.",
+                "updated": 1644420090358
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Также помните, что если на той же машине, где находится клиент Superalgos, запущены задачи, они все еще выполняют код предыдущей ветки. Их тоже нужно перезапустить после перезапуска клиента.",
                     "updated": 1640236412812
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Ayrıca, Superalgos İstemcisinin bulunduğu makinede çalışan görevleriniz varsa, bunların hala önceki şube kodunu çalıştırdığını unutmayın. İstemciyi ( Client ) yeniden başlattıktan sonra onları da yeniden başlatmanız gerekir.",
+                    "updated": 1644420079691
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Даже если вы сейчас находитесь в другой ветке, это не означает, что эта ветка обновлена последними изменениями, внесенными другими участниками. Чтобы обновить ее, выполните команду App Update Command.",
                     "updated": 1640236431902
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Şu anda farklı bir şubede duruyor olsanız bile, bu şubenin diğer katkıda bulunanlar tarafından yapılan en son değişikliklerle güncel olduğu anlamına gelmez. Güncellemek için lütfen Uygulama Güncelleme Komutunu ( App Update Command ) çalıştırın.",
+                    "updated": 1644420138965
                 }
             ]
         },
@@ -46,6 +61,11 @@
                     "language": "RU",
                     "text": "Это изменение не затрагивает другие узлы, на которых работает Superalgos. Затронут только тот узел, который вы подключаете к пользовательскому интерфейсу.",
                     "updated": 1640236455833
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bu değişiklik, Superalgos çalıştıran diğer düğümleri etkilemez. Etkilenen tek kişi, kullanıcı arayüzüne ( UI ) bağladığınızdır.",
+                    "updated": 1644420191869
                 }
             ]
         }

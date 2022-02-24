@@ -41,14 +41,14 @@
             },
             {
                 "language": "RU",
-                "text": "Да! Вы можете использовать клавиатуру тоже! Вам понравится это в путешествиях на большие расстояния в дизайнерсоки пространстве.",
-                "updated": 1635608556366,
+                "text": "Да! Вы можете использовать клавиатуру тоже! Вам понравится это в путешествиях на большие расстояния в пространстве проектирования.",
+                "updated": 1641808631433,
                 "style": "Definition"
             },
             {
                 "language": "TR",
-                "text": "Evet! Klavyenizi de kullanabilirsiniz! Tasarım alanında uzun mesafeli seyahatler için buna bayılacaksınız!. Mouse tuşuna basılı bir şekilde CTRl + ← → ↑ ↓ tuş kombinasyonun kullanarak düğümleri daha hızlı şekillde ve uzun mesafelere taşıyabilirsiniz.",
-                "updated": 1635945735067
+                "text": "Düğümleri biryerden bir yere taşımak için klavyenizi de kullanabilirsiniz! Tasarım alanında uzun mesafeli seyahatler için buna bayılacaksınız!. Mouse tuşuna basılı bir şekilde CTRl + ← → ↑ ↓ tuş kombinasyonun kullanarak düğümleri daha hızlı şekilde ve uzun mesafelere taşıyabilirsiniz.",
+                "updated": 1644850514289
             }
         ]
     },
@@ -96,8 +96,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Düzenli veya aceleci arkadaşlar Ctrl key plus arrow keys: ← → ↑ ↓ kombinasyonunu kulanabilir :)",
-                    "updated": 1635945715510
+                    "text": "Düzenli veya aceleci arkadaşlar Ctrl + ← → ↑ ↓ kombinasyonunu kulanabilir.",
+                    "updated": 1644850552309
                 }
             ]
         },
@@ -144,8 +144,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Tuşları basılı tutmanın sizi uçurucağına dikkat edin!",
-                    "updated": 1635945760749
+                    "text": "Tuşlara basılı tutarak düğümü sürüklemenin, sizi tasarım alanında uçuracağına dikkat edin!",
+                    "updated": 1644850601057
                 }
             ]
         },
@@ -192,8 +192,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Elbette Mac kullananlar Ctrl'yi Cmd ile değiştirmeli",
-                    "updated": 1635945810777
+                    "text": "Elbette Mac kullananlar Ctrl + Cmd kombinasyonunu kullanmalılar.",
+                    "updated": 1644850625993
                 }
             ]
         }

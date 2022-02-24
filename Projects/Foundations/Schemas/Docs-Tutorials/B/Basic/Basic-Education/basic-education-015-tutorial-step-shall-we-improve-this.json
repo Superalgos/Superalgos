@@ -31,6 +31,16 @@
                 "language": "TR",
                 "text": "Bu özelliği denerseniz, her bir ayarın davranışının net veya tahmin edilebilir olmadığını fark edeceksiniz.",
                 "updated": 1636752597353
+            },
+            {
+                "language": "RU",
+                "text": "Если вы поэкспериментируете с этой функцией, вы заметите, что поведение каждого из параметров не является четким или предсказуемым.",
+                "updated": 1640867163097
+            },
+            {
+                "language": "ID",
+                "text": "Jika kamu bereksperimen dengan fitur ini, kamu akan melihat bahwa perilaku masing-masing pengaturan tidak jelas atau dapat diprediksi.",
+                "updated": 1644514987929
             }
         ]
     },
@@ -61,6 +71,16 @@
                     "language": "TR",
                     "text": "Bu özelliğin mevcut uygulaması optimal değildir ve bazı seçeneklerin davranışını tahmin etmek zordur. Bir geliştiriciyseniz, mevcut kodu tekrarlamak ve bu özelliği daha kullanılabilir bir duruma getirmek için bu harika bir fırsat olabilir!",
                     "updated": 1636752636392
+                },
+                {
+                    "language": "RU",
+                    "text": "Текущая реализация этой функции не является оптимальной, и поведение некоторых опций трудно предсказать. Если вы являетесь разработчиком, это может быть отличной возможностью поправить существующий код и довести эту функцию до более пригодного для использования состояния!",
+                    "updated": 1640867222434
+                },
+                {
+                    "language": "ID",
+                    "text": "Implementasi fitur ini saat tidak optimal sekarang, dan perilaku beberapa opsi sulit diprediksi. Jika kamu seorang developer, ini mungkin merupakan peluang besar untukmu ikut serta pada kode yang ada dan membawa fitur ini ke kondisi yang lebih dapat digunakan!",
+                    "updated": 1644515128068
                 }
             ]
         },
@@ -90,6 +110,16 @@
                     "language": "TR",
                     "text": "Bu özelliği denemekten çekinmeyin, ancak büyük olasılıkla varsayılan ayara geri dönmek isteyeceksiniz!",
                     "updated": 1636752653398
+                },
+                {
+                    "language": "RU",
+                    "text": "Не стесняйтесь опробовать эту функцию, но, скорее всего, вы захотите вернуться к настройкам по умолчанию!",
+                    "updated": 1640867244021
+                },
+                {
+                    "language": "ID",
+                    "text": "Jangan ragu untuk mencoba fitur ini, tetapi kemungkinan besar kamu ingin kembali ke pengaturan awal!",
+                    "updated": 1644514785088
                 }
             ]
         }

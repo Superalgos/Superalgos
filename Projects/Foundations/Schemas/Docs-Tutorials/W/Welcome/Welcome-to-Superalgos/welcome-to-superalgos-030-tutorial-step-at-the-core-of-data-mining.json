@@ -40,8 +40,8 @@
             },
             {
                 "language": "RU",
-                "text": "Ядром операции интеллектуального анализа данных являются задачи, над которыми работают боты. Одна Task управляет одним ботом, а Task Manager может управлять несколькими задачами.\n",
-                "updated": 1636193443379
+                "text": "Основу процесса добычи данных составляют задачи Task, управляющие ботами. Одна задача управляет одним ботом, а менеджер задач (Task Manager) может управлять несколькими задачами",
+                "updated": 1641810257263
             },
             {
                 "language": "NL",
@@ -76,19 +76,19 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Inzwischen haben Sie sechs verschiedene Geräte kennengelernt, die Sie zur Steuerung der einzelnen Bots in Ihrem Data Mining-Vorgang verwenden können. Auf der höchsten Ebene steuert der Knoten Data Tasks alle Data-Mining-Bots im Netzwerkknoten.",
-                    "updated": 1634168489908,
+                    "text": "Inzwischen haben Sie sechs verschiedene Geräte kennengelernt, die Sie zur Steuerung der einzelnen Bots in Ihrem Data Mining-Betrieb verwenden können. Auf der höchsten Ebene steuert der Knoten Data Tasks alle Data-Mining-Bots im LAN-Netzwerkknoten.",
+                    "updated": 1642150974844,
                     "style": "Text"
                 },
                 {
                     "language": "TR",
-                    "text": "Şimdiye kadar, veri madenciliği operasyonunuzdaki her bir botu kontrol etmek için kullanabileceğiniz altı farklı cihaz hakkında bilgi edindiniz. En üst düzeyde, Veri Görevleri (Data Tasks) düğümü, Ağ Düğümü'ndeki (Network Node) tüm veri madenciliği botlarını kontrol eder.",
-                    "updated": 1636015350802
+                    "text": "Şimdiye kadar, veri madenciliği operasyonunuzdaki her bir botu kontrol etmek için kullanabileceğiniz altı farklı cihaz hakkında bilgi edindiniz. En üst düzeyde, Veri Görevleri (Data Tasks) düğümü, LAN Network Node düğümü'ndeki tüm veri madenciliği botlarını kontrol eder. ",
+                    "updated": 1644909959448
                 },
                 {
                     "language": "RU",
-                    "text": "К настоящему времени Вы узнали о шести различных устройствах, которые Вы можете использовать для управления каждым ботом в своей операции и нтеллектуального анализа данных. На самом высоком уровне узел Data Tasks  управляет всеми ботами интеллектуального анализа данных в Network Node.",
-                    "updated": 1636193596507
+                    "text": "К этому моменту вы уже узнали о шести различных устройствах, которые можно использовать для управления каждым ботом в вашей работе по добыче данных. На самом высшем уровне узел Data Tasks управляет всеми ботами по добыче данных в узле LAN Network.",
+                    "updated": 1641810345063
                 },
                 {
                     "language": "NL",
@@ -178,8 +178,8 @@
                 },
                 {
                     "language": "RU",
-                    "text": "На самом низком уровне отдельная Task управляет одним ботом. Промежуточные узлы - это организационные узлы, которые помогают поддерживать порядок в работе и позволяют осуществлять детальный контроль над различными разделами.",
-                    "updated": 1636193720622
+                    "text": "На самом низком уровне отдельная задача Task управляет одним ботом. Промежуточные узлы - это организационные узлы, которые помогают поддерживать порядок в работе и позволяют осуществлять детальный контроль над различными разделами.",
+                    "updated": 1641810401098
                 },
                 {
                     "language": "NL",

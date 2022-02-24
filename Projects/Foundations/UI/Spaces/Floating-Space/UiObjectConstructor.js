@@ -228,7 +228,8 @@ function newUiObjectConstructor() {
         menuItemsInitialValues.push(
             {
                 action: 'Pin / Unpin',
-                actionFunction: floatingObject.pinToggle,
+                actionFunction: floatingObject.payload.executeAction,
+                actionProject: 'Visual-Scripting',
                 actionStatus: floatingObject.getPinStatus,
                 currentStatus: false,
                 label: undefined,
@@ -244,7 +245,8 @@ function newUiObjectConstructor() {
         menuItemsInitialValues.push(
             {
                 action: 'Change Tension Level',
-                actionFunction: floatingObject.angleToParentToggle,
+                actionFunction: floatingObject.payload.executeAction,
+                actionProject: 'Visual-Scripting',
                 actionStatus: floatingObject.getAngleToParent,
                 currentStatus: true,
                 label: undefined,
@@ -259,7 +261,8 @@ function newUiObjectConstructor() {
         menuItemsInitialValues.push(
             {
                 action: 'Change Distance to Parent',
-                actionFunction: floatingObject.distanceToParentToggle,
+                actionFunction: floatingObject.payload.executeAction,
+                actionProject: 'Visual-Scripting',
                 actionStatus: floatingObject.getDistanceToParent,
                 currentStatus: true,
                 label: undefined,
@@ -274,7 +277,8 @@ function newUiObjectConstructor() {
         menuItemsInitialValues.push(
             {
                 action: 'Change Arrangement Style',
-                actionFunction: floatingObject.arrangementStyleToggle,
+                actionFunction: floatingObject.payload.executeAction,
+                actionProject: 'Visual-Scripting',
                 actionStatus: floatingObject.getArrangementStyle,
                 currentStatus: true,
                 label: undefined,
@@ -289,7 +293,8 @@ function newUiObjectConstructor() {
         menuItemsInitialValues.push(
             {
                 action: 'Freeze / Unfreeze',
-                actionFunction: floatingObject.freezeToggle,
+                actionFunction: floatingObject.payload.executeAction,
+                actionProject: 'Visual-Scripting',
                 actionStatus: floatingObject.getFreezeStatus,
                 currentStatus: true,
                 label: undefined,
@@ -399,23 +404,6 @@ function newUiObjectConstructor() {
         )
         menuItemsInitialValues.push(
             {
-                action: 'Parent Detach',
-                askConfirmation: true,
-                confirmationLabel: "Confirm to Detach",
-                actionFunction: floatingObject.payload.executeAction,
-                actionProject: 'Visual-Scripting',
-                label: undefined,
-                visible: true,
-                iconPathOn: 'detach-node',
-                iconPathOff: 'detach-node',
-                rawRadius: 12,
-                targetRadius: 0,
-                currentRadius: 0,
-                ring: 3
-            }
-        )
-        menuItemsInitialValues.push(
-            {
                 action: 'Reference Detach',
                 askConfirmation: true,
                 confirmationLabel: "Confirm to Detach",
@@ -448,8 +436,41 @@ function newUiObjectConstructor() {
                 }
             )
         }
-
         menuItemsInitialValues.push(
+            {
+                action: 'Highlight Referencing Nodes',
+                actionFunction: floatingObject.payload.executeAction,
+                actionProject: 'Visual-Scripting',
+                actionStatus: floatingObject.payload.uiObject.getHighlightReferenceChildrenStatus,
+                label: undefined,
+                visible: true,
+                iconPathOn: 'highlight-referencing-nodes-on',
+                iconPathOff: 'highlight-referencing-nodes-off',
+                iconProject: 'Visual-Scripting',
+                rawRadius: 12,
+                targetRadius: 0,
+                currentRadius: 0,
+                ring: 3
+            }
+        )
+        menuItemsInitialValues.push(
+            {
+                action: 'Parent Detach',
+                askConfirmation: true,
+                confirmationLabel: "Confirm to Detach",
+                actionFunction: floatingObject.payload.executeAction,
+                actionProject: 'Visual-Scripting',
+                label: undefined,
+                visible: true,
+                iconPathOn: 'detach-node',
+                iconPathOff: 'detach-node',
+                rawRadius: 12,
+                targetRadius: 0,
+                currentRadius: 0,
+                ring: 4
+            }
+        )
+    menuItemsInitialValues.push(
             {
                 action: 'Open Documentation',
                 actionFunction: floatingObject.payload.executeAction,

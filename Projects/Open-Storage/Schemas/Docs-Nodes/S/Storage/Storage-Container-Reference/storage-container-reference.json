@@ -1,0 +1,14 @@
+{
+    "type": "Storage Container Reference",
+    "definition": {
+        "text": "The Storage Container Reference node stores a reference to a particular Open storage location for use by the current hierarchy.",
+        "updated": 1643982270274
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1643982359586
+        }
+    ]
+}

@@ -24,6 +24,11 @@
                 "language": "DE",
                 "text": "In Superalgos kontrollieren Sie den Datenfluss. Apropos Kontrolle!",
                 "updated": 1639274966504
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos'ta veri akışını siz kontrol edersiniz. Kontrolden bahsedelim!",
+                "updated": 1642592703933
             }
         ]
     },
@@ -47,6 +52,11 @@
                     "language": "DE",
                     "text": "Fällt Ihnen eine Ähnlichkeit mit den anderen Teilen von Superalgos auf, die Sie gesehen haben? Ja, das ist richtig! Die Hierarchie ist gegliedert nach Project, Exchange, Market und Data Mine. Dies ist die gleiche grundlegende Organisation, die Sie bei allen Daten hier in Superalgos finden werden.",
                     "updated": 1639275064649
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos'un diğer bölümleriyle bir benzerlik fark ettiniz mi? Evet, bu doğru! Hiyerarşi Proje ( Project ), Borsa ( Exchange ), Pazar ( Market ) ve Veri Madeni'ne ( Data Mine ) göre düzenleniyor. Bu, Superalgos'taki tüm verilerle bulacağınız temel kuruluştur.",
+                    "updated": 1642593065706
                 }
             ]
         },
@@ -69,6 +79,11 @@
                     "language": "DE",
                     "text": "Diese Granularität bedeutet, dass Sie auf Data Products in jeder beliebigen Kombination zugreifen können. Möchten Sie Daten von zwei verschiedenen Börsen für denselben Markt sehen? Das ist ohne Weiteres möglich. Möchten Sie Daten von zwei ähnlichen Märkten nebeneinander sehen? Ein Kinderspiel! Die Kombinationen von Daten, die Sie in Ihren Charts anzeigen können, sind Ihrer Fantasie überlassen.",
                     "updated": 1639275171014
+                },
+                {
+                    "language": "TR",
+                    "text": "Önemli: Bu ayrıntı düzeyi, Veri Ürünlerine herhangi bir kombinasyonda erişebileceğiniz anlamına gelir. Aynı pazar için iki farklı borsadan veri görmek ister misiniz? Kolaylıkla mümkün. Birbirine benzer iki pazarın verilerini yan yana görmek ister misiniz? Çok kolay! Grafiklerinizde görüntüleyebileceğiniz veri kombinasyonları hayal gücünüze kalmış.",
+                    "updated": 1642593164226
                 }
             ]
         }

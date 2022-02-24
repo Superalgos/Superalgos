@@ -13,6 +13,16 @@
                 "language": "DE",
                 "text": " Es gibt wahrscheinlich so viele Möglichkeiten, einen Trend zu bestimmen, wie Händler den Planeten Erde bewohnen! Es ist eine Frage des Stils und meist subjektiv!",
                 "updated": 1639262329481
+            },
+            {
+                "language": "RU",
+                "text": "Существует, наверное, столько же способов определения тренда, сколько трейдеров населяет планету Земля! Это вопрос стиля и в основном субъективный!",
+                "updated": 1640935379900
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Muhtemelen dünyada yaşayan tüccarlar gibi bir eğilim belirlemenin birçok yolu vardır! Bu bir tarz meselesi ve çoğunlukla öznel!",
+                "updated": 1641653161688
             }
         ]
     },
@@ -25,6 +35,16 @@
                     "language": "DE",
                     "text": "Wir werden einen willkürlichen und recht einfachen Ansatz wählen, der auf dem gleitenden 20-Perioden-Durchschnitt (MA) basiert, der in den Bollinger-Bands integriert ist.",
                     "updated": 1639262362976
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы воспользуемся произвольным и довольно простым подходом, основанным на 20-периодной скользящей средней (MA), встроенной в Bollinger Bands.",
+                    "updated": 1640935395220
+                },
+                {
+                    "language": "TR",
+                    "text": "Bollinger Bantlarında oluşturulmuş 20 dönemlik hareketli ortalamaya (MA) dayalı, keyfi ve oldukça basit bir yaklaşım izleyeceğiz.",
+                    "updated": 1641653171354
                 }
             ]
         },
@@ -37,6 +57,16 @@
                     "language": "DE",
                     "text": "Gehen Sie zum Bollinger Data Layer Manager und aktivieren Sie den Layer \"Bollinger Channels Objects\"!",
                     "updated": 1639262459995
+                },
+                {
+                    "language": "RU",
+                    "text": "Перейдите в менеджер слоев (Layer Manager) Bollinger Data и включите слой \" Bollinger Channels Objects\"!",
+                    "updated": 1640935510144
+                },
+                {
+                    "language": "TR",
+                    "text": "Bollinger Veri Katmanı Yöneticisine ( Bollinger Data Layer Manager ) gidin ve \"Bollinger Kanal Nesneleri\" ( Layer ) Katmanını açın!",
+                    "updated": 1641653199650
                 }
             ]
         },
@@ -48,6 +78,16 @@
                     "language": "DE",
                     "text": "Dieser Indikator leitet die Richtung des MA ab und zeichnet einen grünen Kanal, wenn der MA nach oben geht und einen roten Kanal, wenn er nach unten geht.",
                     "updated": 1639262472467
+                },
+                {
+                    "language": "RU",
+                    "text": "Этот индикатор определяет направление МА и рисует зеленый канал, когда МА идет вверх, и красный канал, когда она идет вниз.",
+                    "updated": 1640935526295
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bu gösterge MA'nın yönünü alır ve MA yukarı çıkarken yeşil bir kanal, aşağı inerken kırmızı bir kanal çizer.",
+                    "updated": 1641653214188
                 }
             ]
         }

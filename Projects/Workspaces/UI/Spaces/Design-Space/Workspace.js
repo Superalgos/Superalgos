@@ -28,6 +28,10 @@ function newWorkspace() {
         getNodeById: getNodeById,
         stopAllRunningTasks: stopAllRunningTasks,
         executeAction: executeAction,
+        buildSystemMenu: buildSystemMenu,
+        undoStack: undefined,
+        redoStack: undefined,
+        undoStackOnHold: undefined,
         physics: physics,
         draw: draw,
         spawn: spawn,
@@ -42,6 +46,10 @@ function newWorkspace() {
 
     thisObject.workspaceNode = {}
     thisObject.workspaceNode.rootNodes = []
+    thisObject.undoStack = []
+    thisObject.redoStack = []
+    // history elements for code and config edit are held here until actual changes are made:
+    thisObject.undoStackOnHold = []
 
     let savingWorkspaceIntervalId
     let workingAtTask = 0
@@ -249,6 +257,12 @@ function newWorkspace() {
                             let subMenu = await systemActionSwitch.executeAction(item.submenuConstructorFunction)
                             addMenuItem(subMenu)
                             html = html + '</ul></il>'
+                        /* for a label-only item */
+                        } else if (
+                            item.label !== undefined &&
+                            item.action === undefined && item.subMenu === undefined && item.submenuConstructorFunction === undefined
+                            ) {
+                            html = html + '<il class="label">' + item.label + '</il>'
                         }
                     }
                 }
@@ -427,6 +441,7 @@ function newWorkspace() {
                     UI.projects.education.spaces.docsSpace.sidePanelTab.close()
                     UI.projects.workspaces.spaces.workspaceSpace.sidePanelTab.close()
                     UI.projects.foundations.spaces.codeEditorSpace.sidePanelTab.close()
+                    UI.projects.contributions.spaces.contributionsSpace.sidePanelTab.close()
                     UI.projects.foundations.spaces.floatingSpace.inMapMode = true
                     workingAtTask = 2
                     break
@@ -491,6 +506,8 @@ function newWorkspace() {
                             thisObject.workspaceNode = loadedWorkspaceNode
                             thisObject.workspaceNode.project = 'Foundations'
                             loadedWorkspaceNode = undefined
+                            thisObject.undoStack = []
+                            thisObject.redoStack = []
                             /* rebuild the system menu for the new workspace, as present project heads might have changed */
                             buildSystemMenu()
                             workingAtTask = 6
@@ -795,7 +812,7 @@ function newWorkspace() {
             }
 
             thisObject.workspaceNode.rootNodes.push(droppedNode)
-            executeAction({ node: droppedNode, name: 'Create UI Object', project: 'Visual-Scripting', extraParameter: positionOffset })
+            executeAction({ isInternal: false, node: droppedNode, name: 'Create UI Object', project: 'Visual-Scripting', extraParameter: positionOffset })
             executeAction({ name: 'Connect Children to Reference Parents', project: 'Visual-Scripting' })
 
             // Recreate autocomplete models

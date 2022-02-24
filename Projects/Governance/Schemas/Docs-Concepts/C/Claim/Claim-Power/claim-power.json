@@ -6,8 +6,8 @@
         "translations": [
             {
                 "language": "RU",
-                "text": "Claim Power (Сила требования, претензии) - это Token Power, который используется в программе Claims Program, и определяет количество токенов, которые вы претендуете на любой из существующих типов требований: Position Contribution Claim, Feature Contribution Claim, and Asset Contribution Claim.",
-                "updated": 1640325380338
+                "text": "Сила претензий (Claim Power) - это сила токенов (Token Power), которая используется в программе по заявкам (Claims Program) и определяет количество токенов, на которые вы претендуете с помощью любого из существующих типов заявок: Position Contribution Claim, Feature Contribution Claim и Asset Contribution Claim.",
+                "updated": 1645081110211
             }
         ]
     },
@@ -24,8 +24,8 @@
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Claim Power (Сила требования, претензии) - это Token Power, который используется в программе Claims Program, и определяет количество токенов, которые вы претендуете на любой из существующих типов требований: Position Contribution Claim, Feature Contribution Claim, and Asset Contribution Claim.",
-                    "updated": 1640325393169
+                    "text": "Claim Power - это Token Power, которая используется в программе Claims Program, и определяет количество токенов, которые вы требуете с помощью любого из существующих типов претензий: Position Contribution Claim, Feature Contribution Claim и Asset Contribution Claim.",
+                    "updated": 1645081188898
                 }
             ]
         }

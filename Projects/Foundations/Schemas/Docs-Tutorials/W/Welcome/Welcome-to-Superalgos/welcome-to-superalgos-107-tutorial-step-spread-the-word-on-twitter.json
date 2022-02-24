@@ -36,6 +36,11 @@
                 "language": "ID",
                 "text": "Membuat keributan di Twitter akan membantu membawa lebih banyak traders ke proyek. Semakin banyak traders yang membangun software  menjadi pendorong evolusi terbaik!",
                 "updated": 1640598993861
+            },
+            {
+                "language": "RU",
+                "text": "Поднятие шумихи в Twitter поможет привлечь в проект больше трейдеров. Больше трейдеров, расширяющих границы программного обеспечения, - лучший двигатель эволюции!",
+                "updated": 1642773566837
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "ID",
                     "text": "Semakin banyak traders menggunakan Superalgos, semakin mereka akan mendorong Komunitas untuk mengembangkan fitur yang lebih maju! Inilah yang perlu kamu lakukan :",
                     "updated": 1640599027497
+                },
+                {
+                    "language": "RU",
+                    "text": "Чем больше трейдеров используют Superalgos, тем больше они будут стимулировать сообщество к разработке все более совершенных функций! Вот что вам нужно сделать:",
+                    "updated": 1642773579683
                 }
             ]
         },
@@ -105,6 +115,11 @@
                     "language": "ID",
                     "text": "Pergi ke Twitter page, follow kami, dan retweet cuitan terbaru kami. Pastikan kamu memberi tag pada traders yang kamu ikuti!",
                     "updated": 1640599119470
+                },
+                {
+                    "language": "RU",
+                    "text": "Зайдите на нашу страницу в Twitter, следуйте за нами и сделайте ретвит нашего последнего твита. Не забудьте отметить трейдеров, за которыми вы следите!",
+                    "updated": 1642773601542
                 }
             ]
         },
@@ -139,6 +154,11 @@
                     "language": "ID",
                     "text": "Itu dia! Bukan masalah besar, benar? Kami menghargai bantuanmu dan berharap kamu melakukan trading yang bahagia dan makmur!",
                     "updated": 1640599156494
+                },
+                {
+                    "language": "RU",
+                    "text": "Вот и все! Ничего сложного, правда? Мы ценим вашу помощь и желаем вам счастливой и процветающей торговли!",
+                    "updated": 1642773611397
                 }
             ]
         }

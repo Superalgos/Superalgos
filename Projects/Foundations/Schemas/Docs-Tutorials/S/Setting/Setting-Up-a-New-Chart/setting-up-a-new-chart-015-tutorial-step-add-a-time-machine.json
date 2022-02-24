@@ -24,6 +24,11 @@
                 "language": "DE",
                 "text": "Sieh dich an! Du machst große Fortschritte. Jetzt müssen wir die Time Machine hinzufügen!",
                 "updated": 1639105447823
+            },
+            {
+                "language": "TR",
+                "text": "Kendine bak! Büyük ilerleme kaydediyorsun. Şimdi bu Zaman Makinesini ( Time Machine ) ekleyelim!",
+                "updated": 1642585079436
             }
         ]
     },
@@ -47,6 +52,11 @@
                     "language": "DE",
                     "text": "Bewegen Sie den Mauszeiger über Ihr Dashboard und klicken Sie auf <I>Add Time Machine.</I>",
                     "updated": 1639105565980
+                },
+                {
+                    "language": "TR",
+                    "text": "Gösterge Tablosunun ( Dashboard ) üzerine gelin ve Zaman Makinesi (Time Machine) Ekle'ye tıklayın.",
+                    "updated": 1642585203245
                 }
             ]
         },
@@ -68,6 +78,11 @@
                     "language": "DE",
                     "text": "Bei der Benennung einer Time Machine ist es hilfreich, sich auf das Trading System und die Art der Trading Session zu beziehen, die mit dem Diagramm verbunden werden soll. Bei uns wäre das so:",
                     "updated": 1639105695455
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Zaman Makinesini (Time Machine) adlandırırken, grafikle ilişkilendirilecek ticaret sistemine ( Trading System ) ve ticret oturumunun (Trading Session) türüne atıfta bulunmak yararlıdır. Bizim için şöyle olurdu:",
+                    "updated": 1642585528769
                 }
             ]
         },
@@ -95,6 +110,11 @@
                     "language": "DE",
                     "text": "Weitere hilfreiche Informationen, die Sie zur Beschriftung Ihrer Diagramme verwenden können, sind die Börse, das Marktpaar und der Netzwerkknoten, der mit den dargestellten Informationen verbunden ist.",
                     "updated": 1639105764252
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafikleri etiketlemek için kullanabileceğiniz diğer faydalı bilgiler, görüntülenen bilgilerle ilişkili borsa, piyasa çifti ve ağ düğümünü içerebilir.",
+                    "updated": 1642585583868
                 }
             ]
         },

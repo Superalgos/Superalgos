@@ -31,6 +31,16 @@
                 "language": "TR",
                 "text": "Şimdi beni takip et! Stratejiyi farklı parametrelerle gerçekten test etmeyeceğiz... sadece bir kullanım senaryosunu simüle ediyoruz!",
                 "updated": 1636790394665
+            },
+            {
+                "language": "RU",
+                "text": "Теперь следуйте моему примеру! На самом деле мы не собираемся тестировать стратегию с различными параметрами... мы просто симулируем вариант использования!",
+                "updated": 1640867830629
+            },
+            {
+                "language": "ID",
+                "text": "Sekarang ikuti petunjukku! Kita tidak benar-benar akan menguji strategi dengan parameter yang berbeda... kita hanya mensimulasikan contoh!",
+                "updated": 1644516411526
             }
         ]
     },
@@ -61,6 +71,16 @@
                     "language": "TR",
                     "text": "Alım Satım Parametrelerini ( Trading Parameters ) değiştirdiğimizi varsayalım ve şimdi orijinal olanları kullanmaya geri dönmek istiyoruz. Hiyerarşiden ayrılmış tasarım alanında yedeğimiz zaten var ve mevcut İşlem Parametreleri düğümünü yedekle değiştirmemiz gerekiyor.",
                     "updated": 1636790758208
+                },
+                {
+                    "language": "RU",
+                    "text": "Представим, что мы изменили торговые параметры и теперь хотим вернуться к использованию исходных. У нас уже есть резервная копия в пространстве проектирования - отделенная от иерархии - и нам нужно заменить существующий узел Trading Parameters на резервный.",
+                    "updated": 1640867857899
+                },
+                {
+                    "language": "ID",
+                    "text": "Mari kita berpura-pura memodifikasi Trading Parameters dan sekarang kita ingin kembali menggunakan yang asli. Kita sudah memiliki cadangan di design space - terlepas dari hierarki - dan kita perlu mengganti node Trading Parameters dengan cadangan yang ada.",
+                    "updated": 1644516533756
                 }
             ]
         },
@@ -90,6 +110,16 @@
                     "language": "TR",
                     "text": "Şu anda kullanımda olan - Geri Test Oturumu düğümüne ( Backtesting Session Node ) bağlı olan - İşlem Parametreleri ( Trading Parameter ) düğümüne gidin ve Düğümü Ayır ( Detach Node ) düğmesine çift tıklayın. Düğüm hiyerarşiden ayrılıyor! Şimdi yana kaydırabilirsiniz!",
                     "updated": 1636790630805
+                },
+                {
+                    "language": "RU",
+                    "text": "Перейдите к узлу Trading Parameters, который используется в данный момент - тот, который присоединен к узлу Backtesting Session - и дважды щелкните на кнопке Detach Node. Узел отделяется от иерархии! Теперь вы можете переместить его в сторону!",
+                    "updated": 1640867887986
+                },
+                {
+                    "language": "ID",
+                    "text": "Buka node Trading Parameters yang saat ini digunakan - yang terpasang pada node Backtesting Session - dan klik dua kali tombol Detach Node. Node telah terpisah dari hierarki! kamu sekarang dapat memindahkannya ke samping!",
+                    "updated": 1644516667771
                 }
             ]
         }

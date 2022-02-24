@@ -4,7 +4,19 @@
     "type": "Bollinger by @luis_fernando_molina",
     "definition": {
         "text": "The Bollinger Data Mine features the Bollinger Bands (BB), Percentage Bandwidth (%B), Bollinger Channels, and Bollinger Subchannels indicators.",
-        "updated": 1622481705188
+        "updated": 1622481705188,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Die Bollinger Data Mine bietet die Indikatoren Bollinger Bands (BB), Percentage Bandwidth (%B), Bollinger Channels und Bollinger Subchannels.",
+                "updated": 1641726607267
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bollinger Veri Madeni ( Data Mine ), Bollinger Bantları (BB), Yüzde Bant Genişliği (%B), Bollinger Kanalları ve Bollinger Alt Kanalları göstergelerini içerir.",
+                "updated": 1644417428398
+            }
+        ]
     },
     "paragraphs": [
         {

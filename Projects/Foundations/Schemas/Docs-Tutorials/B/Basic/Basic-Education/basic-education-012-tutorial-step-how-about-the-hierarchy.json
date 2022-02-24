@@ -31,6 +31,16 @@
                 "language": "TR",
                 "text": "Ebeveyn düğüme olan uzaklığın ebeveynin ebeveynine olan mesafesine göre olmasının nedeni, uzun düğüm yapılarını etkileyebilmeniz içindir!",
                 "updated": 1636750239895
+            },
+            {
+                "language": "RU",
+                "text": "Таким образом, расстояние до родительского узла относительно расстояния родительского узла до его родителя позволяет воздействовать на длинные структуры узлов!",
+                "updated": 1640866787529
+            },
+            {
+                "language": "ID",
+                "text": "Alasan kenapa jarak ke node parent-nya relatif ke jarak antara parent dengan parent agar kamu bisa mempengaruhi struktur panjang dari node!",
+                "updated": 1643354222281
             }
         ]
     },
@@ -61,6 +71,16 @@
                     "language": "TR",
                     "text": "Ağ düğümünün Ebeveyne Uzaklık ( Distance To Parent ) düğmesine bir kez tıklayın!",
                     "updated": 1636750278445
+                },
+                {
+                    "language": "RU",
+                    "text": "Нажмите один раз на кнопку Distance to Parent  узла Network!",
+                    "updated": 1640866845765
+                },
+                {
+                    "language": "ID",
+                    "text": "Klik sekali pada tombol Distance to Parent dari node Network!",
+                    "updated": 1643354241738
                 }
             ]
         },
@@ -90,6 +110,16 @@
                     "language": "TR",
                     "text": "Vayyy! Gördün mü? Bu araçlar, hiyerarşiler üzerinde görsel olarak tam kontrol sahibi olmanızı sağlar!",
                     "updated": 1636751755132
+                },
+                {
+                    "language": "RU",
+                    "text": "Ух ты! Видите? Эти инструменты позволяют вам полностью контролировать то, как вы визуально организуете иерархии!",
+                    "updated": 1640866862862
+                },
+                {
+                    "language": "ID",
+                    "text": "Wow! Lihat? alat ini memperbolehkan kamu untuk mengontrol penuh atas bagaimana kamu mengatur visualisasi hirarki!",
+                    "updated": 1643473999623
                 }
             ]
         },
@@ -119,6 +149,16 @@
                     "language": "TR",
                     "text": "Ticaret Görevlerini Test Etme ( Testing Trading Tasks ) düğümündeki Ebeveyne Mesafe (Distance To Parent) ayarını iptal etmeyi deneyin! Gördüğünüz gibi, ebeveyn düğüme herhangi bir uzaklık ayarlayabilirsiniz, Ancak ebeveyne olan açı sabit kalır.",
                     "updated": 1636751865776
+                },
+                {
+                    "language": "RU",
+                    "text": "Попробуйте отменить настройку Distance to Parent в узле Testing Trading Tasks! Как видите, вы можете задать любое произвольное расстояние до родительского узла, но угол к нему остается фиксированным.",
+                    "updated": 1640866885334
+                },
+                {
+                    "language": "ID",
+                    "text": "Coba batalkan aturan Distance to Parent di node Testing Trading Tasks! Seperti yang terlihat, kamu bisa leluasa mengatur jarak dari node parent-nya. Tetapi sudut ke parent-nya tetap.",
+                    "updated": 1643354269938
                 }
             ]
         }

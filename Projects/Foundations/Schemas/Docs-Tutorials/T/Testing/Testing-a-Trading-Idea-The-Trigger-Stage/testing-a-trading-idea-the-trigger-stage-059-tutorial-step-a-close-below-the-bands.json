@@ -13,6 +13,16 @@
                 "language": "DE",
                 "text": "Wie beschreibt man eine Kerze, die unterhalb des unteren Bandes schließt? Schauen wir uns an, wie das untere Band beschrieben wird!",
                 "updated": 1639389314889
+            },
+            {
+                "language": "TR",
+                "text": "Özet:Alt bandın altında kapanan bir mumu nasıl tanımlarsınız? Alt bandın nasıl tanımlandığına bakalım!",
+                "updated": 1641662918760
+            },
+            {
+                "language": "RU",
+                "text": "Как описать закрытие свечи ниже нижней полосы? Давайте посмотрим, как описывается нижняя полоса!",
+                "updated": 1642660544027
             }
         ]
     },
@@ -25,6 +35,16 @@
                     "language": "DE",
                     "text": "In der Beschreibung der Bollinger Bänder wird erklärt, dass sich das obere und das untere Band jeweils zwei Standardabweichungen über bzw. unter dem gleitenden Durchschnitt (MA) befinden. Wir kennen den MA, wie er in der Eigenschaft movingAverage angeboten wird. Die Standardabweichung wird in der Eigenschaft  standardDeviation angeboten.",
                     "updated": 1639389399902
+                },
+                {
+                    "language": "TR",
+                    "text": "Bollinger Bantlarının açıklaması, üst ve alt bantların sırasıyla hareketli ortalamanın (MA) üstünde ve altında iki standart sapma olduğunu açıklar. MA'yı moveAverage kapasitesinde sunulduğu için biliyoruz. Standart sapma, standardDeviation özelliğinde sunulur.",
+                    "updated": 1641662933434
+                },
+                {
+                    "language": "RU",
+                    "text": "Описание полос Боллинджера объясняет, что верхняя и нижняя полосы расположены на два стандартных отклонения выше и ниже скользящей средней (MA) соответственно. Мы знаем MA, которая предлагается в свойстве movingAverage. Стандартное отклонение предлагается в свойстве standardDeviation.",
+                    "updated": 1642660569247
                 }
             ]
         },
@@ -36,6 +56,16 @@
                     "language": "DE",
                     "text": "Das untere Band befindet sich zwei Standardabweichungen unterhalb des MA. Dann ist das untere Band gleich dem MA minus der Standardabweichung mal zwei.",
                     "updated": 1639389325538
+                },
+                {
+                    "language": "TR",
+                    "text": "alt bant, MA'nın altında iki standart sapmadır. Daha sonra alt bant, MA eksi standart sapma çarpı iki'ye eşittir.",
+                    "updated": 1641662944330
+                },
+                {
+                    "language": "RU",
+                    "text": "Нижняя полоса располагается на два стандартных отклонения ниже МА. Тогда нижняя полоса равна МА минус стандартное отклонение, умноженное на два.",
+                    "updated": 1642660586039
                 }
             ]
         }

@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "Umarım yedeklemelerin inceliklerini ve her bir kurtarma durumunda referansların nasıl etkilendiğini anlamışsınızdır!",
                 "updated": 1639727234077
+            },
+            {
+                "language": "RU",
+                "text": "Надеюсь, вам удалось разобраться в тонкостях резервного копирования и понять, как влияют ссылки в каждом конкретном случае восстановления!",
+                "updated": 1640871055748
             }
         ]
     },
@@ -61,6 +66,11 @@
                     "language": "TR",
                     "text": "Her durumu ezberlemenize gerek yok. Bunun yerine, referansları içeren temel mekanizmayı anlarsanız, her durumdaki davranışı tahmin edebilirsiniz!",
                     "updated": 1639727308270
+                },
+                {
+                    "language": "RU",
+                    "text": "Вам не нужно запоминать отдельные случаи. Вместо этого, если вы понимаете основной механизм, связанный со ссылками, вы можете сделать вывод о поведении в каждом конкретном случае!",
+                    "updated": 1640871076346
                 }
             ]
         },
@@ -90,6 +100,11 @@
                     "language": "TR",
                     "text": "Her düğümün belirli bir kimliği ( ID ) olduğunu unutmayın! Bir referans oluşturulduğunda, dahil olan her iki düğümün de benzersiz bir ID'si  oluşur. Giden referanslar düğümün ID'sine bağlı değildir, ancak gelen referanslar bağlıdır! Yedeklenen düğüm aynı ID ile geri yüklenebilirse, gelen referanslar devam eder; aksi takdirde değişirler veya kaybolurlar!",
                     "updated": 1639727420761
+                },
+                {
+                    "language": "RU",
+                    "text": "Помните, что каждый узел имеет определенный идентификатор ID! Когда устанавливается ссылка, оба участвующих узла имеют уникальный ID. Исходящие ссылки не зависят от ID узла, но входящие ссылки зависят! Если резервный узел может быть восстановлен с тем же ID, то входящие ссылки сохранятся; в противном случае они изменятся или будут потеряны!",
+                    "updated": 1640871118732
                 }
             ]
         }

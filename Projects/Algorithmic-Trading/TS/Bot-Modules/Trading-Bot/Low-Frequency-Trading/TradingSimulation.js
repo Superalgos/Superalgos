@@ -121,6 +121,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
             that still can change. So effectively will be processing all closed candles.
             */
             for (let i = initialCandle; i < candles.length - 1; i++) {
+ 
                 /* Next Candle */
                 let candle = TS.projects.simulation.functionLibraries.simulationFunctions.setCurrentCandle(
                     tradingEngine.tradingCurrent.tradingEpisode.candle,
@@ -137,7 +138,8 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                 await TS.projects.simulation.functionLibraries.simulationFunctions.syncronizeLoopCandleEntryPortfolioManager(
                     portfolioManagerClientModuleObject,
                     tradingSystem,
-                    candle
+                    candle,
+                    processIndex
                 )
                 /* We emit a heart beat so that the UI can now where we are at the overall process. */
                 TS.projects.simulation.functionLibraries.simulationFunctions.heartBeat(
@@ -190,7 +192,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                 had the chance to check for the status of placed orders or even cancel
                 the ones that needed cancellation.
                 */
-                let breakLoop = TS.projects.simulation.functionLibraries.simulationFunctions.checkIfWeNeedToStopTheSimulation(
+                let breakLoop = TS.projects.simulation.functionLibraries.simulationFunctions.earlyCheckIfWeNeedToStopTheSimulation(
                     tradingEpisodeModuleObject,
                     sessionParameters,
                     tradingEngine.tradingCurrent.tradingEpisode,
@@ -198,7 +200,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                 )
 
                 if (breakLoop === false) {
-                    breakLoop = TS.projects.algorithmicTrading.functionLibraries.tradingFunctions.checkIfWeNeedToStopTheSimulation(
+                    breakLoop = TS.projects.algorithmicTrading.functionLibraries.tradingFunctions.earlyCheckIfWeNeedToStopTheSimulation(
                         tradingEpisodeModuleObject,
                         sessionParameters,
                         tradingSystem,
@@ -225,6 +227,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                     await TS.projects.simulation.functionLibraries.simulationFunctions.syncronizeLoopCandleExitPortfolioManager(
                         portfolioManagerClientModuleObject,
                         tradingSystem,
+                        tradingEngine,
                         candle
                     )
                     break
@@ -252,12 +255,13 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                 await TS.projects.simulation.functionLibraries.simulationFunctions.syncronizeLoopCandleExitPortfolioManager(
                     portfolioManagerClientModuleObject,
                     tradingSystem,
+                    tradingEngine,
                     candle
                 )
                 /*
                 Check if we need to stop.
                 */
-                breakLoop = TS.projects.simulation.functionLibraries.simulationFunctions.checkIfWeNeedToStopAfterBothCycles(
+                breakLoop = TS.projects.simulation.functionLibraries.simulationFunctions.laterCheckIfWeNeedToStopTheSimulation(
                     tradingEpisodeModuleObject,
                     tradingEngine.tradingCurrent.tradingEpisode,
                     sessionParameters,

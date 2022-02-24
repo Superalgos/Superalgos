@@ -4,21 +4,64 @@
     "type": "Candles Volumes - Candles Indicator",
     "definition": {
         "text": "The indicator processes one-minute candles into candles and volumes information for all time frames.",
-        "updated": 1610398384051
+        "updated": 1610398384051,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Dieser Indikator verarbeitet Ein-Minuten-Kerzen zu Kerzen und Volumeninformationen für alle Time Frames.",
+                "updated": 1641654308119
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Gösterge, bir dakikalık mumları tüm zaman dilimleri için mum ve hacim bilgilerine dönüştürür.",
+                "updated": 1644500451861
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "On the Charts",
-            "updated": 1610398373620
+            "updated": 1610398373620,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "In den Diagrammen",
+                    "updated": 1641654317697
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafiklerde",
+                    "updated": 1644500466557
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Candle"
+            "text": "Candle",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Mum",
+                    "updated": 1644500478133
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Typical candlesticks."
+            "text": "Typical candlesticks.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Typische Kerzen.",
+                    "updated": 1641654330857
+                },
+                {
+                    "language": "TR",
+                    "text": "Tipik mum çubukları.",
+                    "updated": 1644500491024
+                }
+            ]
         },
         {
             "style": "Gif",
@@ -27,11 +70,30 @@
         },
         {
             "style": "Subtitle",
-            "text": "Volume"
+            "text": "Volume",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hacim",
+                    "updated": 1644500524821
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "We innovated a bit placing the buy volume at the bottom (in green), and the sell volume at the top (in red)."
+            "text": "We innovated a bit placing the buy volume at the bottom (in green), and the sell volume at the top (in red).",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wir haben eine kleine Neuerung vorgenommen, indem wir das Kaufvolumen unten (in grün) und das Verkaufsvolumen oben (in rot) platziert haben.",
+                    "updated": 1641654356349
+                },
+                {
+                    "language": "TR",
+                    "text": "Alış hacmini en alta (yeşil) ve satış hacmini en üste (kırmızı) yerleştirerek biraz yenilik yaptık.",
+                    "updated": 1644500531184
+                }
+            ]
         },
         {
             "style": "Gif",
@@ -44,45 +106,145 @@
         },
         {
             "style": "Title",
-            "text": "Products & Properties"
+            "text": "Products & Properties",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Produkte & Eigenschaften",
+                    "updated": 1641654378691
+                },
+                {
+                    "language": "TR",
+                    "text": "Ürünler ve Özellikler",
+                    "updated": 1644501001575
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Candle"
+            "text": "Candle",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Mum",
+                    "updated": 1644501035277
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The product candle features five different properties."
+            "text": "The product candle features five different properties.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das Produkt Kerze weist fünf verschiedene Eigenschaften auf.",
+                    "updated": 1641654420839
+                },
+                {
+                    "language": "TR",
+                    "text": "Ürün mumu beş farklı özelliğe sahiptir.",
+                    "updated": 1644501042148
+                }
+            ]
         },
         {
             "style": "Table",
             "text": "| Product Name | Product Variable | Property Variables |\n| Candles | candle | min, max, open, close, direction |",
-            "updated": 1610398497568
+            "updated": 1610398497568,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "| Ürün Adı | Ürün Değişkeni | Özellik Değişkenleri |\n| mumlar | mum | min, max, aç, kapat, yön |",
+                    "updated": 1644501060505
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "candle.min: The minimum price of the last closed candle (low)."
+            "text": "candle.min: The minimum price of the last closed candle (low).",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "candle.min: Mindestpreis der zuletz geschlossenen Kerze (low).",
+                    "updated": 1641654471255
+                },
+                {
+                    "language": "TR",
+                    "text": "mum.min: Son kapatılan mumun minimum fiyatı (düşük).",
+                    "updated": 1644501101561
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "candle.max: The maximum price of the last closed candle (high)."
+            "text": "candle.max: The maximum price of the last closed candle (high).",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "candle.max: Höchstpreis der zuletzt geschlossenen Kerze (high).",
+                    "updated": 1641654486431
+                },
+                {
+                    "language": "TR",
+                    "text": "mum.max: Son kapatılan mumun maksimum fiyatı (yüksek).",
+                    "updated": 1644501110181
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "candle.open: The price at which the last closed candle opened."
+            "text": "candle.open: The price at which the last closed candle opened.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "candle.open: Eröffnungspreis der zuletzt geschlossenen Kerze.",
+                    "updated": 1641654513496
+                },
+                {
+                    "language": "TR",
+                    "text": "mum.open: Son kapatılan mumun açıldığı fiyat.",
+                    "updated": 1644501126798
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "candle.close: The price at which the last closed candle closed."
+            "text": "candle.close: The price at which the last closed candle closed.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "candle.close: Schlusspreis der zuletzt geschlossenen Kerze.",
+                    "updated": 1641654526981
+                },
+                {
+                    "language": "TR",
+                    "text": "mum.close: Son kapatılan mumun kapandığı fiyat.",
+                    "updated": 1644501141974
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "candle.direction:"
+            "text": "candle.direction:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "mum.yön ( candle.direction ):",
+                    "updated": 1644501177384
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "\"Down\": ",
-            "updated": 1610398542509
+            "updated": 1610398542509,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "\"Aşağı\":",
+                    "updated": 1644501195876
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -91,7 +253,14 @@
         {
             "style": "Text",
             "text": "\"Up\": ",
-            "updated": 1610398557109
+            "updated": 1610398557109,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "\"Yukarı\":",
+                    "updated": 1644501205270
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -100,7 +269,14 @@
         {
             "style": "Text",
             "text": "\"Side\": ",
-            "updated": 1610398582953
+            "updated": 1610398582953,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "\"Yan\":",
+                    "updated": 1644501241456
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -110,7 +286,19 @@
         {
             "style": "Text",
             "text": "Full example:",
-            "updated": 1625193592583
+            "updated": 1625193592583,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Komplettes Beispiel:",
+                    "updated": 1641654546121
+                },
+                {
+                    "language": "TR",
+                    "text": "Tam örnek:",
+                    "updated": 1644501254120
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -120,16 +308,47 @@
         {
             "style": "Table",
             "text": "| Product Name | Product Variable | Property Variables |\n| Candles | candles |  |",
-            "updated": 1625193681925
+            "updated": 1625193681925,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "| Ürün Adı | Ürün Değişkeni | Özellik Değişkenleri |\n| mumlar | mumlar |\n|",
+                    "updated": 1644501267379
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The candles property returns an array of all candles that have been loaded into memory. You can access specific candles using it's index.  ",
-            "updated": 1625193832157
+            "updated": 1625193832157,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Eigenschaft candles gibt ein Array aller Kerzen zurück, die in den Speicher geladen wurden. Sie können auf bestimmte Kerzen über ihren Index zugreifen.",
+                    "updated": 1641654583116
+                },
+                {
+                    "language": "TR",
+                    "text": "Mumlar özelliği, belleğe yüklenen tüm mumların bir dizisini döndürür. İndeksini kullanarak belirli mumlara erişebilirsiniz.",
+                    "updated": 1644501285559
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "For example:"
+            "text": "For example:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Zum Beispiel:",
+                    "updated": 1641654594583
+                },
+                {
+                    "language": "TR",
+                    "text": "Örneğin:",
+                    "updated": 1644501296501
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -138,28 +357,90 @@
         {
             "style": "Text",
             "text": "From there you may access the specific data held within each candle.",
-            "updated": 1625193896081
+            "updated": 1625193896081,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Von dort aus können Sie auf die spezifischen Daten der einzelnen Kerzen zugreifen.",
+                    "updated": 1641654610677
+                },
+                {
+                    "language": "TR",
+                    "text": "Buradan, her bir mum içinde tutulan belirli verilere erişebilirsiniz.",
+                    "updated": 1644501313534
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Volume"
+            "text": "Volume",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hacim",
+                    "updated": 1644501326137
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The product volume features two properties."
+            "text": "The product volume features two properties.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das Produkt volume verfügt über zwei Eigenschaften.",
+                    "updated": 1641654634143
+                },
+                {
+                    "language": "TR",
+                    "text": "Ürün hacmi iki özelliğe sahiptir.",
+                    "updated": 1644501337063
+                }
+            ]
         },
         {
             "style": "Table",
             "text": "| Product Name | Product Variable | Property Variables |\n| Volumes | volume | buy, sell |",
-            "updated": 1610398633204
+            "updated": 1610398633204,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "| Ürün Adı | Ürün Değişkeni | Özellik Değişkenleri |\n| Ciltler | hacim | al, sat |",
+                    "updated": 1644501347364
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "volume.buy: The buy volume of the last closed candle."
+            "text": "volume.buy: The buy volume of the last closed candle.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "volume.buy: Kaufvolumen der zuletzt geschlossenen Kerze.",
+                    "updated": 1641654668312
+                },
+                {
+                    "language": "TR",
+                    "text": "volume.buy: Son kapatılan mumun alış hacmi.",
+                    "updated": 1644501362937
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "volume.sell: The sell volume of the last closed candle."
+            "text": "volume.sell: The sell volume of the last closed candle.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "volume.sell: Verkaufsvolumen der zuletzt geschlossenen Kerze.",
+                    "updated": 1641654682407
+                },
+                {
+                    "language": "TR",
+                    "text": "volume.sell: Son kapatılan mumun satış hacmi.",
+                    "updated": 1644501376843
+                }
+            ]
         }
     ]
 }

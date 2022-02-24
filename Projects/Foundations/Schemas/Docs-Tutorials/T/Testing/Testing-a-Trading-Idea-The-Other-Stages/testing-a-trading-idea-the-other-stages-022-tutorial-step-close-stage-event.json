@@ -13,6 +13,16 @@
                 "language": "DE",
                 "text": "Wir werden auch das Ereignis \" Close Stage Event \" nicht verwenden, also löschen Sie auch dieses!",
                 "updated": 1639399088049
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Ayrıca Aşamayı Kapat Etkinliğini ( Close Stage Event ) de kullanmayacağız, o yüzden onu da silin!",
+                "updated": 1641747022710
+            },
+            {
+                "language": "RU",
+                "text": "Мы не собираемся использовать событие Close Stage Event, поэтому удалите и его!",
+                "updated": 1642941297394
             }
         ]
     },
@@ -25,6 +35,16 @@
                     "language": "DE",
                     "text": "Die Open Stage wird automatisch geschlossen, wenn die Zielgröße erreicht ist oder wenn die Stop Loss- oder Take Profit-Ziele erreicht sind. In unserem Fall erwarten wir, dass Ersteres geschieht, da wir eine einzelne Marktorder verwenden, um die Position zu übernehmen, und diese platziert wird, sobald das Take-Position-Ereignis ausgelöst wird. Es ist davon auszugehen, dass die Order sofort ausgeführt wird.",
                     "updated": 1639399098711
+                },
+                {
+                    "language": "TR",
+                    "text": "Açık Aşama, hedef boyuta ulaşıldığında veya Zarar Durdur veya Kâr Al hedeflerine ulaşıldığında otomatik olarak kapatılır. Bizim durumumuzda, pozisyonu almak için tek bir piyasa emri kullandığımız için birincisinin olmasını bekliyoruz ve Pozisyon Al olayı tetiklenir tetiklenmez yerleştirilecektir. Siparişin hemen yerine getirileceği varsayılabilir.",
+                    "updated": 1641747036413
+                },
+                {
+                    "language": "RU",
+                    "text": "Этап открытия закрывается автоматически после заполнения целевого размера или при достижении целей стоп-лосс или тейк-профит. В нашем случае мы ожидаем, что произойдет именно первое, поскольку мы используем один рыночный ордер для взятия позиции, и он размещается сразу после того, как срабатывает событие взятия позиции. Можно с уверенностью предположить, что ордер будет исполнен немедленно.",
+                    "updated": 1642941327609
                 }
             ]
         },
@@ -36,6 +56,16 @@
                     "language": "DE",
                     "text": "Das Ereignis \"Close Stage\" bietet - wieder einmal - eine zusätzliche Ebene der Kontrolle! Wenn die Position beispielsweise mit mehreren Aufträgen übernommen wird, können Sie unter bestimmten Umständen die Auftragserteilung stoppen.",
                     "updated": 1639399104451
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşamayı Kapat etkinliği (close stage) - bir kez daha - ek bir kontrol seviyesi sunuyor! Örneğin, birden fazla emirle pozisyon devralınmışsa, belirli koşullar altında emir vermeyi durdurabilirsiniz.",
+                    "updated": 1641747049186
+                },
+                {
+                    "language": "RU",
+                    "text": "Событие этапа закрытия предлагает - опять же - дополнительный уровень контроля! Например, когда позиция занята несколькими ордерами, вы можете захотеть прекратить размещение ордеров при определенных обстоятельствах.",
+                    "updated": 1642941367529
                 }
             ]
         }

@@ -1,6 +1,6 @@
-﻿exports.newDataMiningBotModulesSingleMarketIndicatorBot = function (processIndex) {
+﻿exports.newDataMiningBotModulesSingleMarketStudyBot = function (processIndex) {
 
-    const MODULE_NAME = "Single Market Indicator Bot";
+    const MODULE_NAME = "Single Market Study Bot";
 
     let thisObject = {
         initialize: initialize,
@@ -277,22 +277,12 @@
 
                                             switch (TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.framework.name) {
                                                 case 'Multi-Time-Frame-Market': {
-                                                    processFramework = TS.projects.dataMining.botModules.multiTimeFrameMarket.newDataMiningIndicatorMultiTimeFrameMarket(processIndex)
+                                                    processFramework = TS.projects.dataMining.botModules.multiTimeFrameMarket.newDataMiningStudyMultiTimeFrameMarket(processIndex)
                                                     intitializeProcessFramework()
                                                     break;
                                                 }
                                                 case 'Multi-Time-Frame-Daily': {
-                                                    processFramework = TS.projects.dataMining.botModules.multiTimeFrameDaily.newDataMiningIndicatorMultiTimeFrameDaily(processIndex)
-                                                    intitializeProcessFramework()
-                                                    break;
-                                                }
-                                                case 'From-One-Min-To-Multi-Time-Frame-Market': {
-                                                    processFramework = TS.projects.dataMining.botModules.fromOneMinToMultiTimeFrameMarket.newDataMiningBotModulesFromOneMinToMultiTimeFrameMarket(processIndex)
-                                                    intitializeProcessFramework()
-                                                    break;
-                                                }
-                                                case 'From-One-Min-To-Multi-Time-Frame-Daily': {
-                                                    processFramework = TS.projects.dataMining.botModules.fromOneMinToMultiTimeFrameDaily.newDataMiningBotModulesFromOneMinToMultiTimeFrameDaily(processIndex)
+                                                    processFramework = TS.projects.dataMining.botModules.multiTimeFrameDaily.newDataMiningStudyMultiTimeFrameDaily(processIndex)
                                                     intitializeProcessFramework()
                                                     break;
                                                 }
@@ -708,7 +698,7 @@
                         }
 
                         function onContinue() {
-                            /* Indicator bots are going to be executed after a configured period of time after the last execution ended. This is to avoid overlapping executions. */
+                            /* Study bots are going to be executed after a configured period of time after the last execution ended. This is to avoid overlapping executions. */
                             switch (nextWaitTime) {
                                 case 'Normal': {
                                     TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,

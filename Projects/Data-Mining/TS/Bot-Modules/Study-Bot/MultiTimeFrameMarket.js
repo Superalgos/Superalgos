@@ -1,4 +1,4 @@
-﻿exports.newDataMiningIndicatorMultiTimeFrameMarket = function (processIndex) {
+﻿exports.newDataMiningStudyMultiTimeFrameMarket = function (processIndex) {
     const MODULE_NAME = "Multi Time Frame Market"
     /*
     This module deals with Market Files, that are data files for Time Frames of 1 hour and above.
@@ -15,7 +15,7 @@
     let statusDependenciesModule
     let dataDependenciesModule
     let dataFiles = new Map()
-    let indicatorOutputModule
+    let studyOutputModule
 
     return thisObject;
 
@@ -24,8 +24,8 @@
         statusDependenciesModule = pStatusDependencies
         dataDependenciesModule = pDataDependenciesModule
 
-        indicatorOutputModule = TS.projects.dataMining.botModules.indicatorOutput.newDataMiningBotModulesIndicatorOutput(processIndex)
-        indicatorOutputModule.initialize(callBackFunction)
+        studyOutputModule = TS.projects.dataMining.botModules.studyOutput.newDataMiningBotModulesStudyOutput(processIndex)
+        studyOutputModule.initialize(callBackFunction)
     }
 
     function finalize() {
@@ -33,7 +33,7 @@
         dataFiles = undefined
         statusDependenciesModule = undefined
         dataDependenciesModule = undefined
-        indicatorOutputModule = undefined
+        studyOutputModule = undefined
         thisObject = undefined
     }
 
@@ -51,7 +51,7 @@
                     timeFramesLoopBody()
                 }
 
-                function timeFramesLoopBody() {
+                async function timeFramesLoopBody() {
                     const timeFrame = TS.projects.foundations.globals.timeFrames.marketTimeFramesArray()[n][0]
                     const timeFrameLabel = TS.projects.foundations.globals.timeFrames.marketTimeFramesArray()[n][1]
 
@@ -65,7 +65,46 @@
                             }
                         }
                     }
+                    /*
+                    At this section we are going to create the main objects that are going to be available for user code.
+        
+                    chart, market and exchang
+                    */
+                    let chart = {}
+                    let market = {}
+                    let exchange = {}
 
+                    let multiTimeFrameDataFiles = new Map()
+                    let currentTimeFrame = {}
+
+                    if (await TS.projects.foundations.functionLibraries.dataDependenciesFunctions.processMarketFiles(
+                        processIndex,
+                        multiTimeFrameDataFiles,
+                        dataDependenciesModule,
+                        currentTimeFrame,
+                        timeFrameLabel
+                    ) === false) {
+                        callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
+                        return
+                    }
+
+                    TS.projects.foundations.functionLibraries.dataDependenciesFunctions.buildDataStructures(
+                        processIndex,
+                        dataDependenciesModule,
+                        multiTimeFrameDataFiles,
+                        currentTimeFrame,
+                        chart,
+                        market,
+                        exchange,
+                        callBackFunction
+                    )
+                    /*
+                    If Execution was halted that distroyed this object, then we can not continue execution.
+                    */
+                    if (thisObject === undefined) {return}
+                    /*
+                    From here, it is almost the same code than for an Indicator.
+                    */
                     let dependencyIndex = 0;
                     dataFiles = new Map;
 
@@ -117,7 +156,10 @@
                         }
 
                         function generateOutput() {
-                            indicatorOutputModule.start(
+                            studyOutputModule.start(
+                                chart,
+                                market,
+                                exchange,
                                 dataFiles,
                                 timeFrame,
                                 timeFrameLabel,

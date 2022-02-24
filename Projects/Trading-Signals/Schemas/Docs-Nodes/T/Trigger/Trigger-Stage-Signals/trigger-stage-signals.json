@@ -2,7 +2,14 @@
     "type": "Trigger Stage Signals",
     "definition": {
         "text": "The Trigger Stage Signals node houses the definitions for all the individual signal elements coming out of the signal provider's Trigger Stage.",
-        "updated": 1644033594305
+        "updated": 1644033594305,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Trigger Stage Signals содержит определения всех отдельных элементов сигналов, выходящих из Trigger Stage поставщика сигналов.",
+                "updated": 1645253573326
+            }
+        ]
     },
     "paragraphs": [
         {

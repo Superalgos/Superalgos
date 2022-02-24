@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Торговый бот использует инфраструктуру Superalgos для предоставления пользователям расширенных торговых возможностей.",
                 "updated": 1640096039404
+            },
+            {
+                "language": "DE",
+                "text": "Ein Trading-Bot nutzt die Superalgos-Infrastruktur, um den Benutzern fortschrittliche Handelsfunktionen zu bieten.",
+                "updated": 1645480627393
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "RU",
                     "text": "Низкочастотный (Low-Frequency) торговый бот - единственный торговый бот, поставляемый с Superalgos на данный момент. Он доступен в рамках программы Masters Trading Mine. Бот представляет собой надежную реализацию, использующую все элементы инфраструктуры, предоставляемые Superalgos, для обеспечения многофункционального автоматического торгового помощника.",
                     "updated": 1640096754832
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Low-Frequency Trading Bot ist der einzige Trading Bot, der zur Zeit mit Superalgos ausgeliefert wird. Er wird von der Masters Trading Mine zur Verfügung gestellt. Der Bot ist eine robuste Implementierung, die jedes Teil der Infrastruktur von Superalgos nutzt, um einen funktionsreichen automatisierten Handelsassistenten bereitzustellen.",
+                    "updated": 1645480664828
                 }
             ]
         }

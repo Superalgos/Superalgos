@@ -1,7 +1,14 @@
 {
     "type": "Text",
     "definition": {
-        "text": "The text node allows overlaying text on the charts, controlling its position, size, appearance, and when it shall be rendered."
+        "text": "The text node allows overlaying text on the charts, controlling its position, size, appearance, and when it shall be rendered.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Text позволяет накладывать текст на графики, контролировать его положение, размер, внешний вид и время отображения.",
+                "updated": 1645179186001
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,7 +17,14 @@
         },
         {
             "style": "Text",
-            "text": "The node's offspring control the different aspects of how, where, and when text shall be rendered over the charts."
+            "text": "The node's offspring control the different aspects of how, where, and when text shall be rendered over the charts.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Потомки узла управляют различными аспектами того, как, где и когда текст будет отображаться на графиках.",
+                    "updated": 1645179198147
+                }
+            ]
         }
     ]
 }

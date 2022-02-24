@@ -2,12 +2,26 @@
     "type": "Label Formula",
     "definition": {
         "text": "A user defined formula that defines which data will be fed to a certain Data Label.",
-        "updated": 1615896316212
+        "updated": 1615896316212,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Заданная пользователем формула, определяющая, какие данные будут подаваться на определенную метку данных.",
+                "updated": 1645248375938
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "Right click and select the pencil button to enter edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
+                    "updated": 1645248381649
+                }
+            ]
         }
     ]
 }

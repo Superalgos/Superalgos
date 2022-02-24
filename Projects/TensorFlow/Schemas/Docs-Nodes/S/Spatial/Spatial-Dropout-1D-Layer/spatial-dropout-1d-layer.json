@@ -2,17 +2,38 @@
     "type": "Spatial Dropout 1D Layer",
     "definition": {
         "text": "Spatial 1D version of Dropout.",
-        "updated": 1613214223035
+        "updated": 1613214223035,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Пространственная одномерная версия Dropout.",
+                "updated": 1645249981656
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "This Layer type performs the same function as the Dropout layer, but it drops entire 1D feature maps instead of individual elements. For example, if an input example consists of 3 timesteps and the feature map for each timestep has a size of 4, a spatialDropout1d layer may zero out the feature maps of the 1st timesteps and 2nd timesteps completely while sparing all feature elements of the 3rd timestep.",
-            "updated": 1613214250740
+            "updated": 1613214250740,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Этот тип слоя выполняет ту же функцию, что и слой Dropout, но обнуляет не отдельные элементы, а целые одномерные карты признаков. Например, если входной пример состоит из 3 временных этапов и карта особенностей для каждого временного этапа имеет размер 4, слой spatialDropout1d может полностью обнулить карты особенностей 1-го и 2-го временных этапов, сохранив все элементы особенностей 3-го временного этапа.",
+                    "updated": 1645250003117
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If adjacent frames (timesteps) are strongly correlated (as is normally the case in early convolution layers), regular dropout will not regularize the activation and will otherwise just result in merely an effective learning rate decrease. In this case, spatialDropout1d will help promote independence among feature maps and should be used instead."
+            "text": "If adjacent frames (timesteps) are strongly correlated (as is normally the case in early convolution layers), regular dropout will not regularize the activation and will otherwise just result in merely an effective learning rate decrease. In this case, spatialDropout1d will help promote independence among feature maps and should be used instead.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если соседние кадры (временные интервалы) сильно коррелированы (как это обычно бывает в ранних слоях свертки), обычное выпадение не приведет к регуляризации активации и в противном случае приведет лишь к снижению эффективной скорости обучения. В этом случае spatialDropout1d будет способствовать независимости карт признаков и должен быть использован вместо него.",
+                    "updated": 1645250029714
+                }
+            ]
         }
     ]
 }

@@ -2,12 +2,26 @@
     "type": "Output Layer",
     "definition": {
         "text": "The \"final\" layer of an Artificial Neural Network. The layer containing the answer(s).",
-        "updated": 1613209100738
+        "updated": 1613209100738,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "\"Конечный\" слой искусственной нейронной сети. Слой, содержащий ответ(ы).",
+                "updated": 1645249231755
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "Right click and select the pencil button to enter edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
+                    "updated": 1645249236482
+                }
+            ]
         }
     ]
 }

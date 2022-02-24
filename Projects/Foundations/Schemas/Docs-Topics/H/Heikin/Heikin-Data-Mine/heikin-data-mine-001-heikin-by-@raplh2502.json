@@ -1,0 +1,61 @@
+{
+    "topic": "Heikin Data Mine",
+    "pageNumber": 1,
+    "type": "Heikin By @Raplh2502",
+    "definition": {
+        "text": "This data mine includes the Heikin Ashi candle style, as well as a Heikin Ashi based Supertrend indicator.",
+        "updated": 1611685345604,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Этот источник данных включает свечной стиль Heikin Ashi, а также основанный на Heikin Ashi индикатор Supertrend.",
+                "updated": 1643521285362
+            },
+            {
+                "language": "DE",
+                "text": "Diese Datenmine enthält den Heikin Ashi Kerzenstil sowie einen Heikin Ashi basierten Supertrend-Indikator.",
+                "updated": 1644722728393
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The Heikin data mine is brought to you by...",
+            "updated": 1611685372883,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Источник данных Heikin предоставил вам...",
+                    "updated": 1643521344255
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Heikin Datenmine wird Ihnen präsentiert von...",
+                    "updated": 1644722741972
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "@Raplh2502->github.com/Raplh2502/",
+            "updated": 1611685413223
+        },
+        {
+            "style": "Success",
+            "text": "Collaborate with this data mine and report issues directly at the Superalgos repository.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сотрудничайте с этим источником данных и сообщайте о проблемах непосредственно в репозиторий Superalgos.",
+                    "updated": 1643521369046
+                },
+                {
+                    "language": "DE",
+                    "text": "Arbeiten Sie mit dieser Datenmine zusammen und melden Sie Probleme direkt an das Superalgos Repository.",
+                    "updated": 1644722754571
+                }
+            ]
+        }
+    ]
+}

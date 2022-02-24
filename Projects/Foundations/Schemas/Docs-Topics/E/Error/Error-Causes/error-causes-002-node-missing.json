@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Вы будете получать этот тип ошибок каждый раз, когда ожидается, что узел Node будет дочерним по отношению к другому узлу, но он не найден. Чтобы избежать ошибок этого типа, добавьте отсутствующий узел как дочерний для узла, на котором возникает ошибка этого типа.",
                 "updated": 1638553091492
+            },
+            {
+                "language": "DE",
+                "text": "Diese Art von Fehlern tritt immer dann auf, wenn ein Node als Kind eines anderen Nodes erwartet wird, aber nicht gefunden wird. Um diese Art von Fehlern zu vermeiden, fügen Sie den fehlenden Node als untergeordnetes Element des Nodes hinzu, bei dem diese Art von Fehler auftaucht.",
+                "updated": 1645478252283
             }
         ]
     },

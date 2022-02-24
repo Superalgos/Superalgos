@@ -1,7 +1,14 @@
 {
     "type": "User Account",
     "definition": {
-        "text": "A user account represents a single account with the corresponding exchange, holding the definitions of user assets, including keys and balances."
+        "text": "A user account represents a single account with the corresponding exchange, holding the definitions of user assets, including keys and balances.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "User Account представляет собой единый счет с соответствующей биржей, хранящий определения активов пользователя, включая ключи и балансы.",
+                "updated": 1645180032411
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -12,7 +19,14 @@
         {
             "style": "Text",
             "text": "For exchanges that support multiple accounts or subaccounts, use one User Account for each of them.",
-            "updated": 1609777221616
+            "updated": 1609777221616,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для бирж, поддерживающих несколько счетов или субсчетов, используйте одну учетную запись пользователя для каждого из них.",
+                    "updated": 1645180043077
+                }
+            ]
         }
     ]
 }

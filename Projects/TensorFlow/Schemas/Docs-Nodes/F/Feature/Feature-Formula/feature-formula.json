@@ -2,12 +2,26 @@
     "type": "Feature Formula",
     "definition": {
         "text": "A formula that allows users to specify an input value of a Data Feature, using any of the Data Structures provided by Superalgos to access indicators.",
-        "updated": 1615896367911
+        "updated": 1615896367911,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Формула, которая позволяет пользователям указать входное значение характеристики данных, используя любую из структур данных, предоставляемых Superalgos для доступа к показателям.",
+                "updated": 1645247949249
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "Right click and select the pencil button to enter edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
+                    "updated": 1645247957722
+                }
+            ]
         }
     ]
 }

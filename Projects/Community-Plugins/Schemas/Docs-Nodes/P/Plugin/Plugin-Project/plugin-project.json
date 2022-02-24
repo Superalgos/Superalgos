@@ -7,6 +7,10 @@
                 "language": "TR",
                 "text": "Çoklu proje platformu bağlamında, Plugin Project düğümü, tanımlanan eklentilerin karşılık geldiği projeyi temsil eder.",
                 "updated": 1645082914078
+              {
+                "language": "RU",
+                "text": "В контексте мультипроектной платформы узел Plugin Project представляет проект, которому соответствуют определенные плагины.",
+                "updated": 1645165391690
             }
         ]
     },
@@ -24,6 +28,10 @@
                     "language": "TR",
                     "text": "Plugin Project Yapılandırması",
                     "updated": 1645082923185
+                  {
+                    "language": "RU",
+                    "text": "Конфигурация Plugin Project",
+                    "updated": 1645165407394
                 }
             ]
         },
@@ -36,6 +44,10 @@
                     "language": "TR",
                     "text": "Özellikler",
                     "updated": 1645082938811
+                  {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1645165416243
                 }
             ]
         },
@@ -48,6 +60,10 @@
                     "language": "TR",
                     "text": "codeName, kodda yazıldığı şekliyle Projenin adıdır.",
                     "updated": 1645082989766
+                  {
+                    "language": "RU",
+                    "text": "codeName - имя проекта, как он реализован в коде.",
+                    "updated": 1645165463837
                 }
             ]
         }

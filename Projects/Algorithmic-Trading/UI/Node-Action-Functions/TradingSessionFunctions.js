@@ -329,7 +329,7 @@ function newAlgorithmicTradingFunctionLibraryTradingSessionFunctions() {
         }
 
         if (result.taskManager.payload.parentNode.payload.parentNode.payload.referenceParent === undefined) {
-            node.payload.uiObject.setErrorMessage('Session needs to have a Default Market.')
+            node.payload.uiObject.setErrorMessage('Task needs to have a Default Market.')
             return
         }
 

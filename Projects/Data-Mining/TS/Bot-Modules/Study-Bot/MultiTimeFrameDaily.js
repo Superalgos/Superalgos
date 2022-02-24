@@ -1,4 +1,4 @@
-﻿exports.newDataMiningIndicatorMultiTimeFrameDaily = function (processIndex) {
+﻿exports.newDataMiningStudyMultiTimeFrameDaily = function (processIndex) {
     const MODULE_NAME = "Multi Time Frame Daily"
     /*
     This module deals with Daily Files, that are data files for Time Frames below 1 hour.
@@ -15,7 +15,7 @@
     let statusDependenciesModule
     let dataDependenciesModule
     let dataFiles = new Map
-    let indicatorOutputModule
+    let studyOutputModule
     let bootstrappingTheProcess = false
     let beginingOfMarket
 
@@ -25,15 +25,15 @@
         statusDependenciesModule = pStatusDependencies;
         dataDependenciesModule = pDataDependenciesModule;
 
-        indicatorOutputModule = TS.projects.dataMining.botModules.indicatorOutput.newDataMiningBotModulesIndicatorOutput(processIndex)
-        indicatorOutputModule.initialize(callBackFunction)
+        studyOutputModule = TS.projects.dataMining.botModules.studyOutput.newDataMiningBotModulesStudyOutput(processIndex)
+        studyOutputModule.initialize(callBackFunction)
     }
 
     function finalize() {
         dataFiles = undefined
         statusDependenciesModule = undefined
         dataDependenciesModule = undefined
-        indicatorOutputModule = undefined
+        studyOutputModule = undefined
         fileStorage = undefined
         thisObject = undefined
     }
@@ -197,7 +197,7 @@
                         contextVariables.lastFile = new Date(
                             contextVariables.dateBeginOfMarket.getUTCFullYear() + "-" +
                             (contextVariables.dateBeginOfMarket.getUTCMonth() + 1) + "-" +
-                            contextVariables.dateBeginOfMarket.getUTCDate() + " " + "00:00" +
+                            (contextVariables.dateBeginOfMarket.getUTCDate() + 1) + " " + "00:00" + // We will start from the second day of the market so that the previousDay is with data.
                             SA.projects.foundations.globals.timeConstants.GMT_SECONDS
                         )
 
@@ -303,7 +303,7 @@
                     timeFramesLoopBody()
                 }
 
-                function timeFramesLoopBody() {
+                async function timeFramesLoopBody() {
 
                     const timeFrame = TS.projects.foundations.globals.timeFrames.dailyTimeFramesArray()[n][0]
                     const timeFrameLabel = TS.projects.foundations.globals.timeFrames.dailyTimeFramesArray()[n][1]
@@ -319,6 +319,49 @@
                         }
                     }
 
+                    let currentDate = new Date(TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).DAILY_FILES_PROCESS_DATETIME)
+                    let studyProcessDate = TS.projects.foundations.utilities.dateTimeFunctions.removeTime(currentDate)
+                    /*
+                    At this section we are going to create the main objects that are going to be available for user code.
+        
+                    chart, market and exchang
+                    */
+                    let chart = {}
+                    let market = {}
+                    let exchange = {}
+
+                    let multiTimeFrameDataFiles = new Map()
+                    let currentTimeFrame = {}
+
+                    if (await TS.projects.foundations.functionLibraries.dataDependenciesFunctions.processDailyFiles(
+                        processIndex,
+                        multiTimeFrameDataFiles,
+                        dataDependenciesModule,
+                        currentTimeFrame,
+                        timeFrameLabel,
+                        studyProcessDate
+                    ) === false) {
+                        callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
+                        return
+                    }
+
+                    TS.projects.foundations.functionLibraries.dataDependenciesFunctions.buildDataStructures(
+                        processIndex,
+                        dataDependenciesModule,
+                        multiTimeFrameDataFiles,
+                        currentTimeFrame,
+                        chart,
+                        market,
+                        exchange,
+                        callBackFunction
+                    )
+                    /*
+                    If Execution was halted that distroyed this object, then we can not continue execution.
+                    */
+                    if (thisObject === undefined) { return }
+                    /*
+                    From here, it is almost the same code than for an Indicator.
+                    */
                     if (TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.framework.validPeriods !== undefined) {
                         let validPeriod = false;
                         for (let i = 0; i < TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.framework.validPeriods.length; i++) {
@@ -471,7 +514,10 @@
 
                         function generateOutput() {
 
-                            indicatorOutputModule.start(
+                            studyOutputModule.start(
+                                chart,
+                                market,
+                                exchange,
                                 dataFiles,
                                 timeFrame,
                                 timeFrameLabel,

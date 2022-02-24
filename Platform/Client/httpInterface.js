@@ -1709,9 +1709,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                         })).catch(errorResp)
 
                                         if (error === undefined) {
-                                            // Run node setup to prepare instance after reset 
-                                            await runNodeSetup()
-                                            // Return to UI that Branch is successfully changed
+                                            // Return to UI that reset was successful
                                             SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                                         } else {
                                             errorResp(error)
@@ -1759,21 +1757,6 @@ exports.newHttpInterface = function newHttpInterface() {
                                         console.log(err.stack)
                                         error = err
                                     }
-                                }
-
-                                async function runNodeSetup() {
-                                    console.log("Running Node setup to adjust for new Branch")
-                                    const process = SA.nodeModules.process
-                                    const childProcess = SA.nodeModules.childProcess
-
-                                    let dir = process.cwd()
-                                    let command = "node setup noShortcuts";
-                                    let stdout = childProcess.execSync(command,
-                                        {
-                                            cwd: dir
-                                        }).toString();
-
-                                    console.log("Node Setup has completed with the following result:", stdout)
                                 }
 
                             } catch (err) {

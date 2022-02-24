@@ -2,13 +2,27 @@
     "type": "Kernel Initializer",
     "definition": {
         "text": "Initializer for the kernel weights matrix.",
-        "updated": 1613244248363
+        "updated": 1613244248363,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Инициализатор для матрицы весов ядра.",
+                "updated": 1645248285640
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Subtitle",
             "text": "Possible Values",
-            "updated": 1613244268885
+            "updated": 1613244268885,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Возможные значения",
+                    "updated": 1645248293605
+                }
+            ]
         },
         {
             "style": "Javascript",

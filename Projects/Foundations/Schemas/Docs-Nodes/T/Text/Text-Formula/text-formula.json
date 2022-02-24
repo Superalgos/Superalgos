@@ -1,7 +1,14 @@
 {
     "type": "Text Formula",
     "definition": {
-        "text": "The text formula determines the content that shall be rendered over the charts."
+        "text": "The text formula determines the content that shall be rendered over the charts.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Text Formula определяет содержимое, которое будет отображаться на графиках.",
+                "updated": 1645179348944
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,7 +17,14 @@
         },
         {
             "style": "Text",
-            "text": "The text formula may use any of the variables available to the plotter, and may produce either a numeric or a text string result."
+            "text": "The text formula may use any of the variables available to the plotter, and may produce either a numeric or a text string result.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Текстовая формула может использовать любую из переменных, доступных плоттеру, и может давать результат в виде числовой или текстовой строки.",
+                    "updated": 1645179358997
+                }
+            ]
         }
     ]
 }

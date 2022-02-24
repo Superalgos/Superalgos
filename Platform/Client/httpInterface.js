@@ -1767,13 +1767,14 @@ exports.newHttpInterface = function newHttpInterface() {
                                     const childProcess = SA.nodeModules.childProcess
 
                                     let dir = process.cwd()
+                                    console.log(" this is our directory", dir)
                                     let command = "node setup noShortcuts";
-                                    let stdout = childProcess.execSync(command,
+                                    /*let stdout = childProcess.execSync(command,
                                         {
                                             cwd: dir
                                         }).toString();
 
-                                    console.log("Node Setup has completed with the following result:", stdout)
+                                    console.log("Node Setup has completed with the following result:", stdout)*/
                                 }
 
                             } catch (err) {

@@ -1378,6 +1378,8 @@ exports.newHttpInterface = function newHttpInterface() {
                                     const git = simpleGit(options)
                                     let diffObj
                                     try {
+                                        // Clear the index to make sure we pick up all active changes
+                                        await git.reset('mixed')
                                         // get the summary of current changes in the current repo
                                         diffObj = await git.diffSummary(responce).catch(errorResp)
 

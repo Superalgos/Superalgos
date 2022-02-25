@@ -137,7 +137,6 @@ const SignupView = ({
                                                         blank</FormHelperText>
                                                 ) : null}
                                             </FormControl>
-                                            {JSON.stringify(errorState)}
                                             <Typography> You can see <Link
                                                 href='https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token'>here</Link> how
                                                 to generate the appropriate token</Typography>
@@ -224,8 +223,8 @@ const SignupView = ({
                             </Button>}
                             <Box sx={{flex: '1 1 auto'}}/>
                             <Button onClick={activeStep === 0 ? (handleNext) : saveProfile}
-                                    disabled={(errorState.gitUsername && errorState.gitToken & activeStep === 0) || (errorState.name && activeStep === 1)}
-                                    startIcon={activeStep === 0 ? (<LoginOutlined/>) : null}
+                                    disabled={((errorState.gitUsername || errorState.gitToken) && activeStep === 0) || (errorState.name && activeStep === 1)}
+                                    startIcon={activeStep === 1 ? (<LoginOutlined/>) : null}
                             >
                                 {activeStep === steps.length - 1 ? 'Sign Up' : 'Next'}
                             </Button>

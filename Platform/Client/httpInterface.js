@@ -1078,7 +1078,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                 }
 
                                 function getCommitMessage(repoName, messageArray) {
-                                    let messageToSend
+                                    let messageToSend = ''
                                     for (let message of messageArray) {
                                         if (message[0] === repoName) {
                                             messageToSend = message[1]

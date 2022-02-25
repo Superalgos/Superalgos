@@ -1081,7 +1081,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     let messageToSend
                                     for (let message of messageArray) {
                                         if (message[0] === repoName) {
-                                            messageToSend = message[1]
+                                            messageToSend = string(message[1])
                                         }
                                     }
                                     return messageToSend    

@@ -1333,19 +1333,15 @@ exports.newHttpInterface = function newHttpInterface() {
                                         userAgent: 'Superalgos ' + SA.version
                                     })
 
-                                    let repo = 'Superalgos'
                                     const owner = 'Superalgos'
                                     const head = username + ':' + contributionsBranch
                                     const base = currentBranch
                                     const title = 'Contribution: ' + commitMessage
 
-                                    await createPullRequest(repo)
-
-                                    for (const propertyName in global.env.PROJECT_PLUGIN_MAP) {
-                                        /*
-                                        Upload the Plugins
-                                        */
-                                        await createPullRequest(global.env.PROJECT_PLUGIN_MAP[propertyName].repo)
+                                    if (repoName === 'Superalgos') {
+                                        await createPullRequest(repoName)
+                                    } else {
+                                        await createPullRequest(global.env.PROJECT_PLUGIN_MAP[repoName].repo)
                                     }
 
                                     async function createPullRequest(repo) {

@@ -272,29 +272,29 @@ function newContributionsContributionsPage() {
     }
 
     function contributeAll() {
-        let messageMap = new Map()
+        let messageArray = []
         let messages = document.getElementsByClassName('contributions-input')
         let repoName
         for (let message of messages) {
             //Only deal with filled commit lines
             if (message.value.length > 0) {
-                repoName = message.id.replace('-input', '')
+                repoName = message.id.replace('-input', '').replace('-Plugins', '')
                 console.log('Contributiong to' + repoName + ': ' + message.value + '\n')
-                messageMap.set(repoName, message.value)
+                messageArray.push([repoName, message.value])
             }
         }
 
         // Fall back commit message if nothing is entered 
-        if (messageMap.size === 0) {
+        if (messageArray.size === 0) {
             let messageToSend = "This is my contribution to Superalgos"
-            messageMap.set(repoName, messageToSend)
+            messageArray.set(repoName, messageToSend)
         }
            
         setCommandStatus("Contributing all changes....") 
         httpRequest(
             undefined,
             'App/Contribute/' +
-            messageMap + '/' +
+            JSON.stringify([...messageArray]) + '/' +
             thisObject.githubUsername + '/' +
             thisObject.githubToken + '/' +
             UI.projects.education.spaces.docsSpace.currentBranch + '/' +

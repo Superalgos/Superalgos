@@ -1108,15 +1108,15 @@
                     "folderName": "Indicator-Bot/Bollinger-Bands"
                 },
                 {
-                    "name": "Multi Time Frame Market",
-                    "propertyName": "multiTimeFrameMarket",
+                    "name": "Indicator Multi Time Frame Market",
+                    "propertyName": "indicatorMultiTimeFrameMarket",
                     "functionName": "newDataMiningIndicatorMultiTimeFrameMarket",
                     "fileName": "MultiTimeFrameMarket.js",
                     "folderName": "Indicator-Bot"
                 },
                 {
-                    "name": "Multi Time Frame Daily",
-                    "propertyName": "multiTimeFrameDaily",
+                    "name": "Indicator Multi Time Frame Daily",
+                    "propertyName": "indicatorMultiTimeFrameDaily",
                     "functionName": "newDataMiningIndicatorMultiTimeFrameDaily",
                     "fileName": "MultiTimeFrameDaily.js",
                     "folderName": "Indicator-Bot"
@@ -1158,15 +1158,15 @@
                     "botType": "Study Bot"
                 },
                 {
-                    "name": "Multi Time Frame Market",
-                    "propertyName": "multiTimeFrameMarket",
+                    "name": "Study Multi Time Frame Market",
+                    "propertyName": "studyMultiTimeFrameMarket",
                     "functionName": "newDataMiningStudyMultiTimeFrameMarket",
                     "fileName": "MultiTimeFrameMarket.js",
                     "folderName": "Study-Bot"
                 },
                 {
-                    "name": "Multi Time Frame Daily",
-                    "propertyName": "multiTimeFrameDaily",
+                    "name": "Study Multi Time Frame Daily",
+                    "propertyName": "studyMultiTimeFrameDaily",
                     "functionName": "newDataMiningStudyMultiTimeFrameDaily",
                     "fileName": "MultiTimeFrameDaily.js",
                     "folderName": "Study-Bot"

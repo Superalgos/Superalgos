@@ -1020,10 +1020,15 @@ exports.newHttpInterface = function newHttpInterface() {
                                 const contributionsBranch = unescape(requestPath[7])
                                 let error
 
-                                /* Unsaving # */
-                                for (let i = 0; i < 10; i++) {
-                                    commitMessage = commitMessage.replace('_SLASH_', '/')
-                                    commitMessage = commitMessage.replace('_HASHTAG_', '#')
+                                // rebuild array of commit messages if committing from contribturions space
+                                if (commitMessage.charAt(0) === '[' && commitMessage.charAt(commitMessage.length -1) === ']'){
+                                    commitMessage = JSON.parse(commitMessage)
+                                } else { // else handle string from command line
+                                    /* Unsaving # */
+                                    for (let i = 0; i < 10; i++) {
+                                        commitMessage = commitMessage.replace('_SLASH_', '/')
+                                        commitMessage = commitMessage.replace('_HASHTAG_', '#')
+                                    }
                                 }
 
                                 contribute()
@@ -1072,6 +1077,16 @@ exports.newHttpInterface = function newHttpInterface() {
                                     }
                                 }
 
+                                function getCommitMessage(repoName, messageArray) {
+                                    let messageToSend = ''
+                                    for (let message of messageArray) {
+                                        if (message[0] === repoName) {
+                                            messageToSend = message[1]
+                                        }
+                                    }
+                                    return messageToSend    
+                                }
+
                                 async function doGit() {
                                     const simpleGit = SA.nodeModules.simpleGit
                                     let options = {
@@ -1080,6 +1095,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                         maxConcurrentProcesses: 6,
                                     }
                                     let repoURL = 'https://github.com/Superalgos/Superalgos'
+                                    let repoName = 'Superalgos'
                                     console.log('[INFO] Starting process of uploading changes (if any) to ' + repoURL)
                                     let git = simpleGit(options)
 
@@ -1096,19 +1112,32 @@ exports.newHttpInterface = function newHttpInterface() {
                                         }
                                         git = simpleGit(options)
                                         repoURL = 'https://github.com/Superalgos/' + global.env.PROJECT_PLUGIN_MAP[propertyName].repo
+                                        repoName = global.env.PROJECT_PLUGIN_MAP[propertyName].repo.replace('-Plugins', '')
                                         console.log('[INFO] Starting process of uploading changes (if any) to ' + repoURL)
                                         await pushFiles(git)
                                     }
 
                                     async function pushFiles(git) {
                                         try {
+                                            await git.pull('origin', currentBranch)
                                             await git.add('./*')
-                                            await git.commit(commitMessage)
+
+                                            // If contributing from contributrions space gather the correct commit message
+                                            let messageToSend
+                                            if (commitMessage instanceof Array) {
+                                                    messageToSend = getCommitMessage(repoName, commitMessage)
+
+                                            } else { // Else just send the commit message string from command line
+                                                messageToSend = commitMessage
+
+                                            }
+                                            await git.commit(messageToSend)
+
                                             await git.push('origin', currentBranch)
                                         } catch (err) {
                                             console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> Method call produced an error.')
                                             console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> err.stack = ' + err.stack)
-                                            console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> commitMessage = ' + commitMessage)
+                                            console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> commitMessage = ' + messageToSend)
                                             console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> currentBranch = ' + currentBranch)
                                             console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> contributionsBranch = ' + contributionsBranch)
                                             console.log('')
@@ -1134,10 +1163,21 @@ exports.newHttpInterface = function newHttpInterface() {
                                     })
 
                                     let repo = 'Superalgos'
+                                    let repoName = 'Superalgos'
                                     const owner = 'Superalgos'
                                     const head = username + ':' + contributionsBranch
                                     const base = currentBranch
-                                    const title = 'Contribution: ' + commitMessage
+
+                                    // If contributing from contributrions space gather the correct commit message
+                                    let messageToSend
+                                    if (commitMessage instanceof Array) {
+                                        messageToSend = getCommitMessage(repoName, commitMessage)
+
+                                    } else { // Else just send the commit message string from command line
+                                        messageToSend = commitMessage
+
+                                    }
+                                    let title = 'Contribution: ' + messageToSend
 
                                     await createPullRequest(repo)
 
@@ -1145,7 +1185,17 @@ exports.newHttpInterface = function newHttpInterface() {
                                         /*
                                         Upload the Plugins
                                         */
-                                        await createPullRequest(global.env.PROJECT_PLUGIN_MAP[propertyName].repo)
+                                        
+                                        if (commitMessage instanceof Map) {
+                                            repoName = global.env.PROJECT_PLUGIN_MAP[propertyName].repo.replace('-Plugins', '')
+                                            messageToSend = getCommitMessage(repoName, commitMessage)
+                                        } else { // Else just send the commit message string from command line
+                                            messageToSend = commitMessage
+                                        }
+                                        title = 'Contribution: ' + messageToSend
+
+                                        repo = global.env.PROJECT_PLUGIN_MAP[propertyName].repo
+                                        await createPullRequest(repo)
                                     }
 
                                     async function createPullRequest(repo) {
@@ -1233,7 +1283,6 @@ exports.newHttpInterface = function newHttpInterface() {
                                     if (gitpath === undefined) {
                                         console.log('[ERROR] `git` not installed.')
                                     } else {
-                                        console.log(repoName, 'this is our repo')
                                        await doGit().catch(e => {
                                             error = e
                                         })
@@ -1295,7 +1344,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                             maxConcurrentProcesses: 6,
                                         }
                                         git = simpleGit(options)
-                                        repoURL = 'https://github.com/Superalgos/' + global.env.PROJECT_PLUGIN_MAP[propertyName].repo
+                                        repoURL = 'https://github.com/Superalgos/' + global.env.PROJECT_PLUGIN_MAP[repoName].repo
                                         console.log('[INFO] Starting process of uploading changes (if any) to ' + repoURL)
                                         await pushFiles(git)
                                     }

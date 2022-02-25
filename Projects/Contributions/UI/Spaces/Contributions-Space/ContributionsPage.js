@@ -61,7 +61,7 @@ function newContributionsContributionsPage() {
         for (const stat of thisObject.repoStatus) {
             // Overall diff in repo
             HTML += '<div class="repo-title"><span class="docs-h3">' + stat[0] + '</span>' + '<span><span>Files Changed: ' + JSON.stringify(stat[1].changed) + ' </span><span class="insertion"> Insertions: ' + JSON.stringify(stat[1].insertions) +' </span><span class="deletion"> Deletions: ' + JSON.stringify(stat[1].deletions) + ' </span></span></div>'
-            HTML += '<div class="contribute-box"><input id="' + stat[0] + '-input" type="text" class="contributions-input" placeholder="Type a commit message for these changes here" spellcheck="false" autocapitalize="false"></input><button id="' + stat[0] + '-contribute-button" class="credentials-save-button">Contribute</button></div><hr>'
+            HTML += '<div class="contribute-box"><input id="' + stat[0] + '-input" type="text" class="contributions-input" placeholder="Type a commit message for these changes here" spellcheck="false" autocapitalize="false"></input><button id="' + stat[0] + '-contribute-button" class="credentials-save-button">Contribute</button></div>'
             repoNames.push(stat[0])
 
             // File diff object 
@@ -74,6 +74,7 @@ function newContributionsContributionsPage() {
                 HTML += '<div> <span class="insertion"> Insertions: ' + JSON.stringify(file.insertions) + '</span> <span class="deletion"> Deletions: ' + JSON.stringify(file.deletions) +  '</span> <span class="total-changes">Total Changes: ' + JSON.stringify(file.changes) + '</span></div>'
                 HTML += '<button id="' + fileName + '-button" class="contributions-button">Discard Changes</button></div>'
             }
+            HTML += '<hr>'
         }
         
         HTML +='</div>'
@@ -88,7 +89,7 @@ function newContributionsContributionsPage() {
         }      
 
         if (thisObject.githubToken === undefined) {
-            thisObject.githubUsername = "Enter your Github Token here"
+            thisObject.githubToken = "Enter your Github Token here"
         }    
         document.getElementById('username-input').value = thisObject.githubUsername
         document.getElementById('token-input').value = thisObject.githubToken
@@ -272,30 +273,35 @@ function newContributionsContributionsPage() {
     }
 
     function contributeAll() {
-        let messageToSend = ''
+        let messageArray = []
         let messages = document.getElementsByClassName('contributions-input')
         let repoName
-        let messString
         for (let message of messages) {
             //Only deal with filled commit lines
-            messString = message.value
-            if (messString.length > 0) {
-                repoName = message.id
-                console.log('Contributiong to' + repoName.replace('-input', '') + ': ' + messString + '\n')
-                messageToSend += messString
+            if (message.value.length > 0) {
+                repoName = message.id.replace('-input', '').replace('-Plugins', '')
+                console.log('Contributiong to' + repoName + ': ' + message.value + '\n')
+                messageArray.push([repoName, message.value])
             }
         }
 
         // Fall back commit message if nothing is entered 
-        if (messageToSend === '') {
-            messageToSend = "This is my contribution to Superalgos"
+        if (messageArray.size === 0) {
+            let messageToSend = "This is my contribution to Superalgos"
+            messageArray.set(repoName, messageToSend)
         }
-           
+        
+        // Make sure Github credentials have been filled out
+        if (thisObject.githubUsername === "Enter your Github Username here" || thisObject.githubToken === "Enter your Github Token here") {
+            setCommandStatus("No Github Credentials! Please add them and try again.") 
+            return
+        }
+
         setCommandStatus("Contributing all changes....") 
         httpRequest(
             undefined,
             'App/Contribute/' +
-            messageToSend + '/' +
+            JSON.stringify([...messageArray]) + '/' +
             thisObject.githubUsername + '/' +
             thisObject.githubToken + '/' +
             UI.projects.education.spaces.docsSpace.currentBranch + '/' +
@@ -320,15 +326,21 @@ function newContributionsContributionsPage() {
         let messageToSend = ''
         let message = document.getElementById(repoName + '-input')
         
-        console.log('Contributiong to' + repoName + ': ' + message.value)
+        console.log('Contributing to ' + repoName + ': ' + message.value)
 
-        if (message.length > 0) {
+        if (message.value.length > 0) {
             messageToSend = message.value
         }
         
         // Fall back commit message if nothing is entered 
         if (messageToSend === '') {
             messageToSend = "This is my contribution to Superalgos"
+        }
+
+        // Make sure Github credentials have been filled out
+        if (thisObject.githubUsername === "Enter your Github Username here" || thisObject.githubToken === "Enter your Github Token here") {
+            setCommandStatus("No Github Credentials! Please add them and try again.") 
+            return
         }
            
         setCommandStatus("Contributing changes....") 
@@ -357,15 +369,4 @@ function newContributionsContributionsPage() {
             }
     }
 
-    /*
-    httpRequest(
-                undefined,
-                'App/Contribute/' +
-                message + '/' +
-                config.username + '/' +
-                config.token + '/' +
-                UI.projects.education.spaces.docsSpace.currentBranch + '/' +
-                UI.projects.education.spaces.docsSpace.contributionsBranch
-                , onResponse)
-        */
 }

@@ -9,10 +9,11 @@ exports.newFoundationsGlobalsTaskConstants = function () {
         PROJECT_DEFINITION_NODE: undefined,
         PROJECTS_SCHEMA: undefined,
         EVENT_SERVER_CLIENT_MODULE_OBJECT: undefined,   // This is an instance of the Event Server Client pointing to the localhost server
-        P2P_NETWORK: undefined,   
+        P2P_NETWORK: undefined,
         TASK_HEARTBEAT_INTERVAL_HANDLER: undefined,
         MANAGED_TASKS: undefined,
-        MANAGED_SESSIONS_REFERENCES: undefined         // If there are managed sessions we will store them here.
+        MANAGED_SESSIONS_REFERENCES: undefined,         // If there are managed sessions we will store them here.
+        DEPENDENCY_FILTERS: undefined                   // This is an array of dependency filters object used to load certain data dependencies at runtime.
     }
 
     return thisObject

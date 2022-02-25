@@ -404,7 +404,7 @@ function newPlotter() {
             if (fileCursor === undefined) {
                 records = []
                 return
-            }    // We need to wait until there is a fileCursor available or maybe this indicator does not produce data for the current Time Frame
+            }    // We need to wait until there is a fileCursor available or maybe this indicator or study does not produce data for the current Time Frame
             if (fileCursor.files.size === 0) { return } // We need to wait until there are files in the cursor
 
             let daysOnSides = getSideDays(timeFrame)
@@ -452,7 +452,7 @@ function newPlotter() {
             if (marketFile === undefined) {
                 records = []
                 return
-            }    // Initialization not complete yet or this indicator does not produce data for the current time frame
+            }    // Initialization not complete yet or this indicator or study does not produce data for the current time frame
 
             let daysOnSides = getSideDays(timeFrame)
 

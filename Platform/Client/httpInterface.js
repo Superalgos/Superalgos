@@ -1112,7 +1112,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                         }
                                         git = simpleGit(options)
                                         repoURL = 'https://github.com/Superalgos/' + global.env.PROJECT_PLUGIN_MAP[propertyName].repo
-                                        repoName = global.env.PROJECT_PLUGIN_MAP[propertyName].repo
+                                        repoName = global.env.PROJECT_PLUGIN_MAP[propertyName].repo.replace('-Plugins', '')
                                         console.log('[INFO] Starting process of uploading changes (if any) to ' + repoURL)
                                         await pushFiles(git)
                                     }
@@ -1125,7 +1125,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                             // If contributing from contributrions space gather the correct commit message
                                             let messageToSend
                                             if (commitMessage instanceof Array) {
-                                                    messageToSend = getCommitMessage(repoName.replace('-Plugins', ''), commitMessage)
+                                                    messageToSend = getCommitMessage(repoName, commitMessage)
 
                                             } else { // Else just send the commit message string from command line
                                                 messageToSend = commitMessage
@@ -1184,7 +1184,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                         /*
                                         Upload the Plugins
                                         */
-                                        repo = global.env.PROJECT_PLUGIN_MAP[propertyName].repo
+                                        repo = global.env.PROJECT_PLUGIN_MAP[propertyName].repo.replace('-Plugins', '')
                                         if (commitMessage instanceof Map) {
                                             messageToSend = getCommitMessage(repo, commitMessage)
                                         } else { // Else just send the commit message string from command line

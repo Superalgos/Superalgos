@@ -1302,6 +1302,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                     async function pushFiles(git) {
                                         try {
+                                            await git.pull('origin', currentBranch)
                                             await git.add('./*')
                                             await git.commit(commitMessage)
                                             await git.push('origin', currentBranch)

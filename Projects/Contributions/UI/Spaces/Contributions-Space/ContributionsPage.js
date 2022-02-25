@@ -56,12 +56,14 @@ function newContributionsContributionsPage() {
         
         // Repo Handling 
         let fileNamesRepoAndPath = []
+        let repoNames = []
         let fileName
         for (const stat of thisObject.repoStatus) {
             // Overall diff in repo
             HTML += '<div class="repo-title"><span class="docs-h3">' + stat[0] + '</span>' + '<span><span>Files Changed: ' + JSON.stringify(stat[1].changed) + ' </span><span class="insertion"> Insertions: ' + JSON.stringify(stat[1].insertions) +' </span><span class="deletion"> Deletions: ' + JSON.stringify(stat[1].deletions) + ' </span></span></div>'
             HTML += '<div class="contribute-box"><input id="' + stat[0] + '-input" type="text" class="contributions-input" placeholder="Type a commit message for these changes here" spellcheck="false" autocapitalize="false"></input><button id="' + stat[0] + '-contribute-button" class="credentials-save-button">Contribute</button></div><hr>'
-           
+            repoNames.push(stat[0])
+
             // File diff object 
             for (const file of stat[1].files) {
                 
@@ -110,6 +112,11 @@ function newContributionsContributionsPage() {
         document.getElementById('update').addEventListener('click', update)
         document.getElementById('reset').addEventListener('click', resetRepo)
 
+
+        // Attach event listeners to all single project contribute buttons
+        for (const repo of repoNames) {
+            document.getElementById(repo + '-contribute-button').addEventListener('click', function () {contributeSingleRepo(repo)})
+        }
 
         // Attach event listeners for all Discard buttons
         for(const file of fileNamesRepoAndPath) {
@@ -299,9 +306,50 @@ function newContributionsContributionsPage() {
             /* Lets check the result of the call through the http interface */
             data = JSON.parse(data)
             if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                console.log("Everything is reset!")
+                console.log("Everything has beene Contributed!")
                 reset()
                 setCommandStatus("Everything has been Contributed!") 
+    
+                } else {
+                    setCommandStatus("Something went wrong! Check the console")          
+                }
+            }
+    }
+
+    function contributeSingleRepo(repoName) {
+        let messageToSend = ''
+        let message = document.getElementById(repoName + '-input')
+        
+        console.log('Contributiong to' + repoName + ': ' + message.value)
+
+        if (message.length > 0) {
+            messageToSend = message.value
+        }
+        
+        // Fall back commit message if nothing is entered 
+        if (messageToSend === '') {
+            messageToSend = "This is my contribution to Superalgos"
+        }
+           
+        setCommandStatus("Contributing changes....") 
+        httpRequest(
+            undefined,
+            'App/ContributeSingleRepo/' +
+            messageToSend + '/' +
+            thisObject.githubUsername + '/' +
+            thisObject.githubToken + '/' +
+            UI.projects.education.spaces.docsSpace.currentBranch + '/' +
+            UI.projects.education.spaces.docsSpace.contributionsBranch + '/' +
+            repoName.replace('-Plugins', '')
+            , onResponse)
+        
+        function onResponse(err, data) {
+            /* Lets check the result of the call through the http interface */
+            data = JSON.parse(data)
+            if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                console.log("Changes Contributed!")
+                reset()
+                setCommandStatus("Changes Contributed!") 
     
                 } else {
                     setCommandStatus("Something went wrong! Check the console")          

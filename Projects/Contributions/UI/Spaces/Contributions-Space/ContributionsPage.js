@@ -211,7 +211,7 @@ function newContributionsContributionsPage() {
     
     function discardChange(repo, filePath) {
 
-        setCommandStatus("Discarding")  
+        setCommandStatus("Discarding....")  
         httpRequest(undefined, 'App/Discard/' + repo + "/" + filePath, onResponse)
         
         function onResponse(err, data) {
@@ -274,8 +274,14 @@ function newContributionsContributionsPage() {
             messString = message.value
             if (messString.length > 0) {
                 repoName = message.id
-                messageToSend +=  repoName.replace('-input', '') + ': ' + messString + '\n'
+                console.log('Contributiong to' + repoName.replace('-input', '') + ': ' + messString + '\n')
+                messageToSend += messString
             }
+        }
+
+        // Fall back commit message if nothing is entered 
+        if (messageToSend === '') {
+            messageToSend = "This is my contribution to Superalgos"
         }
            
         setCommandStatus("Contributing all changes....") 
@@ -292,11 +298,10 @@ function newContributionsContributionsPage() {
         function onResponse(err, data) {
             /* Lets check the result of the call through the http interface */
             data = JSON.parse(data)
-            console.log(data, err, GLOBAL.DEFAULT_OK_RESPONSE)
             if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
                 console.log("Everything is reset!")
                 reset()
-                setCommandStatus("Everything has been Reset!") 
+                setCommandStatus("Everything has been Contributed!") 
     
                 } else {
                     setCommandStatus("Something went wrong! Check the console")          

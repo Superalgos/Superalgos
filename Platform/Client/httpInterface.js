@@ -1020,7 +1020,10 @@ exports.newHttpInterface = function newHttpInterface() {
                                 const contributionsBranch = unescape(requestPath[7])
                                 let error
 
-                                if (!commitMessage instanceof Map) {
+                                // rebuild array of commit messages if committing from contribturions space
+                                if (commitMessage.charAt(0) === '[' && commitMessage.charAt(commitMessage.length -1) === ']'){
+                                    commitMessage = JSON.parse(commitMessage)
+                                } else { // else handle string from command line
                                     /* Unsaving # */
                                     for (let i = 0; i < 10; i++) {
                                         commitMessage = commitMessage.replace('_SLASH_', '/')
@@ -1074,6 +1077,16 @@ exports.newHttpInterface = function newHttpInterface() {
                                     }
                                 }
 
+                                function getCommitMessage(repoName, messageArray) {
+                                    let messageToSend
+                                    for (let message of messageArray) {
+                                        if (message[0] === repoName) {
+                                            messageToSend = message[1]
+                                        }
+                                    }
+                                    return messageToSend    
+                                }
+
                                 async function doGit() {
                                     const simpleGit = SA.nodeModules.simpleGit
                                     let options = {
@@ -1111,10 +1124,12 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                             // If contributing from contributrions space gather the correct commit message
                                             let messageToSend
-                                            if (commitMessage instanceof Map) {
-                                                messageToSend = commitMessage.get(repoName)
+                                            if (commitMessage instanceof Array) {
+                                                    messageToSend = getCommitMessage(repoName.replace('-Plugins', ''), commitMessage)
+
                                             } else { // Else just send the commit message string from command line
                                                 messageToSend = commitMessage
+
                                             }
                                             await git.commit(messageToSend)
 
@@ -1154,10 +1169,12 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                     // If contributing from contributrions space gather the correct commit message
                                     let messageToSend
-                                    if (commitMessage instanceof Map) {
-                                        messageToSend = commitMessage.get(repo)
+                                    if (commitMessage instanceof Array) {
+                                        messageToSend = getCommitMessage(repo, commitMessage)
+
                                     } else { // Else just send the commit message string from command line
                                         messageToSend = commitMessage
+
                                     }
                                     let title = 'Contribution: ' + messageToSend
 
@@ -1167,14 +1184,15 @@ exports.newHttpInterface = function newHttpInterface() {
                                         /*
                                         Upload the Plugins
                                         */
+                                        repo = global.env.PROJECT_PLUGIN_MAP[propertyName].repo
                                         if (commitMessage instanceof Map) {
-                                            messageToSend = commitMessage.get(repo)
+                                            messageToSend = getCommitMessage(repo, commitMessage)
                                         } else { // Else just send the commit message string from command line
                                             messageToSend = commitMessage
                                         }
                                         title = 'Contribution: ' + messageToSend
-                                        
-                                        await createPullRequest(global.env.PROJECT_PLUGIN_MAP[propertyName].repo)
+
+                                        await createPullRequest(repo)
                                     }
 
                                     async function createPullRequest(repo) {

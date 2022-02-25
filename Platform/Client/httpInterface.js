@@ -1079,7 +1079,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                 function getCommitMessage(repoName, messageArray) {
                                     let messageToSend
-                                    for (message of messageArray) {
+                                    for (let message of messageArray) {
                                         if (message[0] === repoName) {
                                             messageToSend = message[1]
                                         }
@@ -1186,7 +1186,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                         */
                                         repo = global.env.PROJECT_PLUGIN_MAP[propertyName].repo
                                         if (commitMessage instanceof Map) {
-                                            messageToSend = messageToSend = getCommitMessage(repo, commitMessage)
+                                            messageToSend = getCommitMessage(repo, commitMessage)
                                         } else { // Else just send the commit message string from command line
                                             messageToSend = commitMessage
                                         }

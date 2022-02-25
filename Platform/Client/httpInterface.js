@@ -1171,7 +1171,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     // If contributing from contributrions space gather the correct commit message
                                     let messageToSend
                                     if (commitMessage instanceof Array) {
-                                        messageToSend = getCommitMessage(repo, commitMessage)
+                                        messageToSend = getCommitMessage(repoName, commitMessage)
 
                                     } else { // Else just send the commit message string from command line
                                         messageToSend = commitMessage

@@ -1251,7 +1251,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                             return
                                         }
 
-                                       /* await doGithub().catch(e => {
+                                       await doGithub().catch(e => {
                                             error = e
                                         })
                                         if (error !== undefined) {
@@ -1267,7 +1267,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                             respondWithDocsObject(docs, error)
                                             return
-                                        }*/
+                                        }
                                         SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                                     }
                                 }

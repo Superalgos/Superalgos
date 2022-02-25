@@ -22,8 +22,10 @@
     return thisObject;
 
     function initialize(pStatusDependencies, pDataDependenciesModule, callBackFunction) {
-        statusDependenciesModule = pStatusDependencies;
-        dataDependenciesModule = pDataDependenciesModule;
+        statusDependenciesModule = pStatusDependencies
+        dataDependenciesModule = pDataDependenciesModule
+
+        TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).ARE_WE_PROCESSING_DAILY_FILES = true
 
         studyOutputModule = TS.projects.dataMining.botModules.studyOutput.newDataMiningBotModulesStudyOutput(processIndex)
         studyOutputModule.initialize(callBackFunction)
@@ -332,6 +334,20 @@
 
                     let multiTimeFrameDataFiles = new Map()
                     let currentTimeFrame = {}
+                    /*
+                    When we are at Daily Files, we still want to have access to Market Files, that is why
+                    we execute the following function.
+                    */
+                    if (await TS.projects.foundations.functionLibraries.dataDependenciesFunctions.processMarketFiles(
+                        processIndex,
+                        multiTimeFrameDataFiles,
+                        dataDependenciesModule,
+                        currentTimeFrame,
+                        timeFrameLabel
+                    ) === false) {
+                        callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
+                        return
+                    }
 
                     if (await TS.projects.foundations.functionLibraries.dataDependenciesFunctions.processDailyFiles(
                         processIndex,
@@ -390,6 +406,15 @@
                             return
                         }
 
+                        if (dependency.referenceParent.config.codeName !== "Multi-Time-Frame-Daily") {
+                            /*
+                            With Study Bots, this code must support now that a Daily process supports dependencies to Market files, 
+                            so we need to filter out these dependencies here.
+                            */
+                            dependencyControlLoop()
+                            return
+                        }
+
                         let datasetModule = dataDependenciesModule.dataSetsModulesArray[dependencyIndex]
                         let previousFile
                         let currentFile
@@ -405,12 +430,7 @@
                             let dateForPath = previousDay.getUTCFullYear() + '/' +
                                 SA.projects.foundations.utilities.miscellaneousFunctions.pad(previousDay.getUTCMonth() + 1, 2) + '/' +
                                 SA.projects.foundations.utilities.miscellaneousFunctions.pad(previousDay.getUTCDate(), 2)
-                            let filePath
-                            if (dependency.referenceParent.config.codeName === "Multi-Time-Frame-Daily") {
-                                filePath = dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName + "/" + timeFrameLabel + "/" + dateForPath;
-                            } else {
-                                filePath = dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName + "/" + dateForPath;
-                            }
+                            let filePath = dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName + "/" + timeFrameLabel + "/" + dateForPath;
                             let fileName = "Data.json"
 
                             datasetModule.getTextFile(filePath, fileName, onFileReceived)
@@ -457,12 +477,7 @@
                             let dateForPath = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).DAILY_FILES_PROCESS_DATETIME.getUTCFullYear() + '/' +
                                 SA.projects.foundations.utilities.miscellaneousFunctions.pad(TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).DAILY_FILES_PROCESS_DATETIME.getUTCMonth() + 1, 2) + '/' +
                                 SA.projects.foundations.utilities.miscellaneousFunctions.pad(TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).DAILY_FILES_PROCESS_DATETIME.getUTCDate(), 2)
-                            let filePath
-                            if (dependency.referenceParent.config.codeName === "Multi-Time-Frame-Daily") {
-                                filePath = dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName + "/" + timeFrameLabel + "/" + dateForPath;
-                            } else {
-                                filePath = dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName + "/" + dateForPath;
-                            }
+                            let filePath = dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName + "/" + timeFrameLabel + "/" + dateForPath;
                             let fileName = "Data.json";
 
                             datasetModule.getTextFile(filePath, fileName, onFileReceived)

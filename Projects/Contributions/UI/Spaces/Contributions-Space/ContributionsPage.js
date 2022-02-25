@@ -272,30 +272,29 @@ function newContributionsContributionsPage() {
     }
 
     function contributeAll() {
-        let messageToSend = ''
+        let messageMap = new Map()
         let messages = document.getElementsByClassName('contributions-input')
         let repoName
-        let messString
         for (let message of messages) {
             //Only deal with filled commit lines
-            messString = message.value
-            if (messString.length > 0) {
-                repoName = message.id
-                console.log('Contributiong to' + repoName.replace('-input', '') + ': ' + messString + '\n')
-                messageToSend += messString
+            if (message.value.length > 0) {
+                repoName = message.id.replace('-input', '')
+                console.log('Contributiong to' + repoName + ': ' + message.value + '\n')
+                messageMap.set(repoName, message.value)
             }
         }
 
         // Fall back commit message if nothing is entered 
-        if (messageToSend === '') {
-            messageToSend = "This is my contribution to Superalgos"
+        if (messageMap.size === 0) {
+            let messageToSend = "This is my contribution to Superalgos"
+            messageMap.set(repoName, messageToSend)
         }
            
         setCommandStatus("Contributing all changes....") 
         httpRequest(
             undefined,
             'App/Contribute/' +
-            messageToSend + '/' +
+            messageMap + '/' +
             thisObject.githubUsername + '/' +
             thisObject.githubToken + '/' +
             UI.projects.education.spaces.docsSpace.currentBranch + '/' +
@@ -320,9 +319,9 @@ function newContributionsContributionsPage() {
         let messageToSend = ''
         let message = document.getElementById(repoName + '-input')
         
-        console.log('Contributiong to' + repoName + ': ' + message.value)
+        console.log('Contributing to ' + repoName + ': ' + message.value)
 
-        if (message.length > 0) {
+        if (message.value.length > 0) {
             messageToSend = message.value
         }
         
@@ -357,15 +356,4 @@ function newContributionsContributionsPage() {
             }
     }
 
-    /*
-    httpRequest(
-                undefined,
-                'App/Contribute/' +
-                message + '/' +
-                config.username + '/' +
-                config.token + '/' +
-                UI.projects.education.spaces.docsSpace.currentBranch + '/' +
-                UI.projects.education.spaces.docsSpace.contributionsBranch
-                , onResponse)
-        */
 }

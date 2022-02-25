@@ -1163,6 +1163,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     })
 
                                     let repo = 'Superalgos'
+                                    let repoName = 'Superalgos'
                                     const owner = 'Superalgos'
                                     const head = username + ':' + contributionsBranch
                                     const base = currentBranch
@@ -1184,14 +1185,16 @@ exports.newHttpInterface = function newHttpInterface() {
                                         /*
                                         Upload the Plugins
                                         */
-                                        repo = global.env.PROJECT_PLUGIN_MAP[propertyName].repo.replace('-Plugins', '')
+                                        
                                         if (commitMessage instanceof Map) {
-                                            messageToSend = getCommitMessage(repo, commitMessage)
+                                            repoName = global.env.PROJECT_PLUGIN_MAP[propertyName].repo.replace('-Plugins', '')
+                                            messageToSend = getCommitMessage(repoName, commitMessage)
                                         } else { // Else just send the commit message string from command line
                                             messageToSend = commitMessage
                                         }
                                         title = 'Contribution: ' + messageToSend
 
+                                        repo = global.env.PROJECT_PLUGIN_MAP[propertyName].repo
                                         await createPullRequest(repo)
                                     }
 

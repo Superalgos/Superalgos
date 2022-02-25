@@ -89,7 +89,7 @@ function newContributionsContributionsPage() {
         }      
 
         if (thisObject.githubToken === undefined) {
-            thisObject.githubUsername = "Enter your Github Token here"
+            thisObject.githubToken = "Enter your Github Token here"
         }    
         document.getElementById('username-input').value = thisObject.githubUsername
         document.getElementById('token-input').value = thisObject.githubToken
@@ -290,7 +290,13 @@ function newContributionsContributionsPage() {
             let messageToSend = "This is my contribution to Superalgos"
             messageArray.set(repoName, messageToSend)
         }
-           
+        
+        // Make sure Github credentials have been filled out
+        if (thisObject.githubUsername === "Enter your Github Username here" || thisObject.githubToken === "Enter your Github Token here") {
+            setCommandStatus("No Github Credentials! Please add them and try again.") 
+            return
+        }
+
         setCommandStatus("Contributing all changes....") 
         httpRequest(
             undefined,
@@ -329,6 +335,12 @@ function newContributionsContributionsPage() {
         // Fall back commit message if nothing is entered 
         if (messageToSend === '') {
             messageToSend = "This is my contribution to Superalgos"
+        }
+
+        // Make sure Github credentials have been filled out
+        if (thisObject.githubUsername === "Enter your Github Username here" || thisObject.githubToken === "Enter your Github Token here") {
+            setCommandStatus("No Github Credentials! Please add them and try again.") 
+            return
         }
            
         setCommandStatus("Contributing changes....") 

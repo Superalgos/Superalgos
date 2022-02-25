@@ -1081,7 +1081,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     let messageToSend
                                     for (let message of messageArray) {
                                         if (message[0] === repoName) {
-                                            messageToSend = string(message[1])
+                                            messageToSend = message[1]
                                         }
                                     }
                                     return messageToSend    
@@ -1125,7 +1125,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                             // If contributing from contributrions space gather the correct commit message
                                             let messageToSend
                                             if (commitMessage instanceof Array) {
-                                                    messageToSend = getCommitMessage(repoName, commitMessage)
+                                                    messageToSend = getCommitMessage(repoName.replace('-Plugins', ''), commitMessage)
 
                                             } else { // Else just send the commit message string from command line
                                                 messageToSend = commitMessage

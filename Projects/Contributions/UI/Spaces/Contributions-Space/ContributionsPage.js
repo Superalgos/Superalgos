@@ -320,9 +320,9 @@ function newContributionsContributionsPage() {
         let messageToSend = ''
         let message = document.getElementById(repoName + '-input')
         
-        console.log('Contributiong to' + repoName + ': ' + message.value)
+        console.log('Contributing to ' + repoName + ': ' + message.value)
 
-        if (message.length > 0) {
+        if (message.value.length > 0) {
             messageToSend = message.value
         }
         

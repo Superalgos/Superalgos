@@ -22,6 +22,11 @@
                 "language": "RU",
                 "text": "Документация изначально написана на английском языке. Сделать Superalgos более доступным - это ключевая задача по развитию сообщества и пользовательской базы. Перевод учебных пособий и документации по программному обеспечению на другие языки, кроме английского, имеет огромное значение!",
                 "updated": 1637925514224
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Dokümanlar orijinalinde İngilizce olarak yazılmıştır. Superalgos'u daha erişilebilir kılmak, Topluluğu ( Community ) ve kullanıcı tabanını büyütmek için önemli bir çabadır. Öğreticileri ve yazılım belgelerini İngilizce dışındaki dillere çevirmek çok değerlidir!",
+                "updated": 1645295757822
             }
         ]
     },
@@ -47,6 +52,11 @@
                     "language": "RU",
                     "text": "Прочтите о внесении вклада в документацию",
                     "updated": 1637925850525
+                },
+                {
+                    "language": "TR",
+                    "text": "Dokümanlara Katkıda Bulunma Hakkında Okuyun",
+                    "updated": 1645295782463
                 }
             ]
         },
@@ -71,6 +81,11 @@
                     "language": "RU",
                     "text": "Переводы - это частный случай участия в развитии документации. Пожалуйста, прочтите сначала страницу How to Contribute to the Docs и вернитесь сюда, чтобы получить подробную информацию о том, как мы работаем с переводами, в частности.",
                     "updated": 1637925714099
+                },
+                {
+                    "language": "TR",
+                    "text": "Çeviriler, Dokümanlar'a katkıda bulunmanın özel bir durumudur. Lütfen önce Dokümanlara Nasıl Katkıda Bulunulur sayfasını okuyun ve özellikle çevirileri nasıl ele aldığımızla ilgili ayrıntılar için buraya geri gelin.",
+                    "updated": 1645295793112
                 }
             ]
         },
@@ -95,6 +110,11 @@
                     "language": "RU",
                     "text": "О переводе на другие языки",
                     "updated": 1637925777545
+                },
+                {
+                    "language": "TR",
+                    "text": "Çeviriler Hakkında",
+                    "updated": 1645295822133
                 }
             ]
         },
@@ -131,6 +151,11 @@
                     "language": "RU",
                     "text": "Система хранит содержимое каждой страницы Docs Page в одном файле, независимо от того, сколько переводов может существовать для каждой страницы.",
                     "updated": 1640267455508
+                },
+                {
+                    "language": "TR",
+                    "text": "Sistem, her sayfa için kaç çeviri olabileceğine bakılmaksızın, her Doküman Sayfasının ( Docs Page ) içeriğini tek bir dosyada saklar.",
+                    "updated": 1645295917358
                 }
             ]
         },
@@ -155,6 +180,11 @@
                     "language": "RU",
                     "text": "На самом деле, переводы существуют на уровне каждого абзаца. Это означает, что для каждого абзаца на странице может быть столько переводов, сколько поддерживаемых языков.",
                     "updated": 1640267476761
+                },
+                {
+                    "language": "TR",
+                    "text": "Aslında her paragraf düzeyinde çeviriler var. Bu, bir sayfadaki her paragraf için desteklenen diller kadar çeviri olabileceği anlamına gelir.",
+                    "updated": 1645295935257
                 }
             ]
         },
@@ -173,6 +203,11 @@
                     "language": "RU",
                     "text": "Вышесказанное не влияет непосредственно на вашу работу, но это стоит отметить, потому что это означает, что многие участники могут работать над одной и той же страницей в любой момент времени. Отсюда вытекает необходимость постоянного обновления и частой подачи материалов.",
                     "updated": 1640267505495
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Yukarıdakiler çalışmanızı doğrudan etkilemez, ancak birçok katkıda bulunanın herhangi bir zamanda aynı sayfada çalışabileceği anlamına geldiği için dikkate değer. Bu nedenle, sürekli güncelleme ve sık sık katkı gönderme ihtiyacı doğar.",
+                    "updated": 1645295986402
                 }
             ]
         },
@@ -191,6 +226,11 @@
                     "language": "RU",
                     "text": "Что бы вы ни переводили, будьте осторожны, чтобы не перевести ключевые слова. Они предоставляют возможность перейти на страницу документа по соответствующему ключевому слову, щелкнув по ключевым словам. Их можно узнать по пунктирной линии под ними и по тому, что они начинаются с заглавной буквы. Например, Node. Но это также могут быть короткие фразы, которые связаны с заголовком статьи в документах. Вы можете перевести их, поставив () после ключевых слов, чтобы новым пользователям Superalgos было легче освоиться.",
                     "updated": 1640267621613
+                },
+                {
+                    "language": "TR",
+                    "text": "Önemli: Ne çevirirseniz çevirin, anahtar kelimeleri çevirmemeye dikkat edin. Anahtar kelimelere tıklayarak ilgili anahtar kelimenin dokümanlar sayfasına atlama imkanı sunarlar. Bunları altlarındaki kesikli çizgiden ve büyük harfle başlamalarından tanıyabilirsiniz. Örneğin Düğüm ( Node ) . Ancak, bir dokümanlar makalesinin başlığıyla bağlantılı kısa ifadeler de olabilir. Yeni Superalgos kullanıcılarının daha kolay bir başlangıç yapması için onları anahtar kelimelerin arkasına () koyarak çevirebilirsiniz.",
+                    "updated": 1645296035699
                 }
             ]
         },
@@ -209,6 +249,11 @@
                     "language": "RU",
                     "text": "Примеры ключевых слов/фраз, которые не следует переводить:",
                     "updated": 1640267637755
+                },
+                {
+                    "language": "TR",
+                    "text": "Çevrilmemesi gereken anahtar kelime/-ifade örnekleri:",
+                    "updated": 1645296052441
                 }
             ]
         },
@@ -222,6 +267,11 @@
                     "text": "|Schlüsselwörter|Schlüssel-Phrasen|\n|Nodes|How to Contribute to the Docs|\n|Tutorial|Docs Save Command|\n|Community|Docs Group|\n|Client|Docs Page|\n|...|...|",
                     "updated": 1634065598815,
                     "style": "Table"
+                },
+                {
+                    "language": "TR",
+                    "text": "|Anahtar sözcükler|Anahtar sözcükler|\n|Düğümler - Nodes|Dokümanlara Nasıl Katkıda Bulunulur|\n|Öğretici - Tutorial|Belgeler Kaydetme Komutu|\n|Topluluk - Community|Belgeler Grubu|\n|İstemci - Client|Belgeler Sayfası|\n|...|...|",
+                    "updated": 1645296147509
                 }
             ]
         },
@@ -246,6 +296,11 @@
                     "language": "RU",
                     "text": "Передовые методы:",
                     "updated": 1640267715959
+                },
+                {
+                    "language": "TR",
+                    "text": "En İyi Uygulamalar:",
+                    "updated": 1645296240811
                 }
             ]
         },
@@ -281,6 +336,11 @@
                     "language": "RU",
                     "text": "Как объясняется на странице How to Contribute to the Docs, вы должны переключить вашу ветку Contributions Branch и вашу текущую ветку Current Branch на ветку develop. Не забудьте перезапустить приложение после переключения.",
                     "updated": 1640267770012
+                },
+                {
+                    "language": "TR",
+                    "text": "Belgelere Nasıl Katkıda Bulunulur ( How to Contribute to the Docs  ) sayfasında açıklandığı gibi, Katkılar Şubenizi ve Mevcut Şubenizi geliştirme şubesine değiştirmelisiniz. Geçişten sonra uygulamayı yeniden başlatmayı unutmayın.",
+                    "updated": 1645296401277
                 }
             ]
         },
@@ -305,6 +365,11 @@
                     "language": "RU",
                     "text": "Убедитесь, что ваша система обновлена, выполнив команду app.update в панели поиска/командной строке в верхней части вкладки Docs.",
                     "updated": 1640267806652
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu Dokümanların üst kısmındaki Arama Çubuğu/Komut Satırında bulunan app.update komutunu çalıştırarak sisteminizin güncel olduğundan emin olun.",
+                    "updated": 1645296422245
                 }
             ]
         },
@@ -328,6 +393,11 @@
                     "language": "RU",
                     "text": "Затем переключитесь на язык, на который вы хотите перевести.",
                     "updated": 1640267823722
+                },
+                {
+                    "language": "TR",
+                    "text": "Ardından, çevirmek istediğiniz dile geçin.",
+                    "updated": 1645296431960
                 }
             ]
         },
@@ -352,6 +422,11 @@
                     "language": "RU",
                     "text": "Чтобы перевести абзац, щелкните правой кнопкой мыши для редактирования содержимого и замените английский текст своим переводом. Вот и все!",
                     "updated": 1640267841990
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir paragrafı çevirmek için içeriği düzenlemek için sağ tıklayın ve İngilizce metni kendi çevirinizle değiştirin. Bu kadar!",
+                    "updated": 1645296448939
                 }
             ]
         },
@@ -376,6 +451,11 @@
                     "language": "RU",
                     "text": "Возможно, вам будет проще писать свои переводы в отдельном текстовом редакторе, где вы можете использовать программы проверки орфографии и грамматики. После того, как вы перепроверили свой перевод, вы можете вернуться в Superalgos, чтобы заменить каждый абзац переведенной версией.",
                     "updated": 1640267865011
+                },
+                {
+                    "language": "TR",
+                    "text": "Çevirilerinizi, yazım ve dil bilgisi denetimi yazılımını kullanabileceğiniz ayrı bir metin düzenleyicide yazmayı daha kolay bulabilirsiniz. Çevirinizi iki kez kontrol ettikten sonra, her paragrafı çevrilmiş sürümle değiştirmek için Superalgos'a geri dönebilirsiniz.",
+                    "updated": 1645296476486
                 }
             ]
         },
@@ -395,6 +475,11 @@
                     "text": "Recuerde que las traducciones existen al nivel de cada párrafo. Siempre asegúrese de que la traducción que introduzca corresponda con el párrafo adecuado. TEsto es impotante porque si el pàrrafo es actualizado en la versión en Inglés, todas las traducciones recibirán un aviso de que ese parrafo en particular puede necesitar actualización.",
                     "updated": 1633278353289,
                     "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Çevirilerin her paragraf düzeyinde bulunduğunu unutmayın. Girdiğiniz çevirinin her zaman doğru paragrafla eşleştiğinden emin olun. Bu önemlidir, çünkü bir paragraf İngilizce sürümde güncellenirse, tüm çeviriler söz konusu paragrafın güncelliğini yitirmiş olabileceğine dair bir uyarı alır.",
+                    "updated": 1645296505895
                 }
             ]
         },
@@ -419,6 +504,11 @@
                     "language": "RU",
                     "text": "Участвуйте в работе группы Superalgos Docs Group. Сообщите людям, с какой частью документов или с каким учебником вы будете работать. Эта базовая координация поможет избежать конфликтов, когда несколько пользователей одновременно работают над одними и теми же страницами.",
                     "updated": 1640267903661
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos Dokümanlar Grubuna ( Docs Group ) katılın. İnsanlara Dokümanlar'ın hangi bölümüyle veya hangi Öğretici ( Tutorial ) ile çalışacağınızı bildirin. Bu temel koordinasyon, aynı anda birden fazla kullanıcı aynı sayfalarda çalıştığında çakışmaları önlemeye yardımcı olacaktır.",
+                    "updated": 1645296562427
                 }
             ]
         },
@@ -443,6 +533,11 @@
                     "language": "RU",
                     "text": "Вы можете начать с перевода страницы Docs in [Язык], на которую вы попадаете после переключения языка.",
                     "updated": 1640267945804
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Dili değiştirdikten sonra geldiğiniz [Dil] sayfasındaki Dokümanların çevirisiyle başlayabilirsiniz.",
+                    "updated": 1645296580388
                 }
             ]
         },
@@ -461,6 +556,11 @@
                     "language": "RU",
                     "text": "Вы хотите добавить важную информацию, которая отсутствует?",
                     "updated": 1640267959814
+                },
+                {
+                    "language": "TR",
+                    "text": "Eksik olan önemli bir bilgiyi eklemek mi istiyorsunuz?",
+                    "updated": 1645296647329
                 }
             ]
         },
@@ -479,6 +579,11 @@
                     "language": "RU",
                     "text": "измените язык в нижнем колонтитуле на английский, поскольку он является языком оригинала. Нажмите на кружок English в нижнем колонтитуле.",
                     "updated": 1640267980117
+                },
+                {
+                    "language": "TR",
+                    "text": "Altbilgideki dilinizi, köken dili olduğu için ingilizce olarak değiştirin. Altbilgideki İngilizce Çembere tıklayın.",
+                    "updated": 1645296662825
                 }
             ]
         },
@@ -497,6 +602,11 @@
                     "language": "RU",
                     "text": "перейдите на страницу документов, к которой вы хотите что-то добавить.",
                     "updated": 1640268009106
+                },
+                {
+                    "language": "TR",
+                    "text": "bir şey eklemek istediğiniz dokümanlar sayfasına gidin.",
+                    "updated": 1645296672972
                 }
             ]
         },
@@ -515,6 +625,11 @@
                     "language": "RU",
                     "text": "найдите абзац, после которого вы хотите добавить абзац (неважно, в каком стиле), щелкните на нем правой кнопкой мыши, перейдите в конец последнего предложения абзаца и нажмите \"Enter\". Если вы перешли на новую строку, щелкните правой кнопкой мыши на другом существующем абзаце. Так вы создадите разрыв строки. Теперь вы должны увидеть новый абзац. Если это не помогло, повторите процедуру, но напишите что-нибудь в новой строке, что угодно.",
                     "updated": 1640268047132
+                },
+                {
+                    "language": "TR",
+                    "text": "kendine bir paragraf bul, sonra paragrafı eklemek istersen (hangi stil olursa olsun) üzerine sağ tıkla paragrafın son cümlesinin sonuna git ve \"Enter\" tuşuna bas. Yeni bir satıra geçtiyseniz, mevcut başka bir paragrafa sağ tıklayın. Bir satır sonu oluşturduğunuz için. Şimdi yeni bir paragraf görmelisiniz. Bu işe yaramazsa, prosedürü tekrarlayın, ancak yeni satıra bir şey yazın, herhangi bir şey.",
+                    "updated": 1645296686182
                 }
             ]
         },
@@ -533,6 +648,11 @@
                     "language": "RU",
                     "text": "Теперь вы можете снова щелкнуть правой кнопкой мыши на новом абзаце и использовать все возможности редактирования, например, изменить стиль.",
                     "updated": 1640268064123
+                },
+                {
+                    "language": "TR",
+                    "text": "Artık yeni paragrafa tekrar sağ tıklayıp stili değiştirmek gibi tüm düzenleme Özelliklerini kullanabilirsiniz.",
+                    "updated": 1645296694403
                 }
             ]
         },
@@ -551,6 +671,11 @@
                     "language": "RU",
                     "text": "Не забудьте переключить язык обратно после того, как вы сохраните изменения командой docs.save или app.contribute. В противном случае вы можете забыть об этом и позже перевести оригинальный английский текст на свой язык, что может вызвать проблемы.",
                     "updated": 1640268136755
+                },
+                {
+                    "language": "TR",
+                    "text": "Değişiklikleri belgeledikten ve kaydettikten ve veya değişiklikleri uygulamaya kattıktan sonra dilinizi geri almayı unutmayın. Aksi takdirde onu unutabilir ve daha sonra orijinal İngilizce metni kendi dilinize çevirerek sorunlara neden olabilirsiniz.",
+                    "updated": 1645296702228
                 }
             ]
         },
@@ -575,6 +700,11 @@
                     "language": "RU",
                     "text": "Перевод учебных пособий",
                     "updated": 1640268150093
+                },
+                {
+                    "language": "TR",
+                    "text": "Öğreticileri Çevirme:",
+                    "updated": 1645296747253
                 }
             ]
         },
@@ -599,6 +729,11 @@
                     "language": "RU",
                     "text": "При переводе страниц учебников возникают определенные трудности, которые необходимо учитывать: прежде всего, это ограниченное пространство в окне учебника. Это означает, что необходимо помнить о длине переводимого текста и проверять каждый шаг учебника, чтобы убедиться, что перевод вписывается в имеющееся пространство.",
                     "updated": 1640268175910
+                },
+                {
+                    "language": "TR",
+                    "text": "Öğretici sayfaları ( ( Tutorial ) , çeviri yaparken dikkate almamız gereken belirli zorlukları sunar: birincisi ve en önemlisi, öğretici penceresinde mevcut alanın sınırlı olmasıdır. Bu, çevrilen metnin uzunluğuna dikkat olmanız gerektiği ve çevirinin kullanılabilir alana uyduğundan emin olmak için öğretici adımların her birini test etmeniz gerektiği anlamına gelir.",
+                    "updated": 1645296819614
                 }
             ]
         },
@@ -617,6 +752,11 @@
                     "language": "RU",
                     "text": "Вы заметите, что если вы откроете вкладку Docs во время работы учебника, то автоматически загрузится страница соответствующего шага учебника, чтобы вы могли ее отредактировать. Это очень удобно, так как вы можете перевести страницу и посмотреть, как она выглядит в окне учебника в реальном времени. Это рекомендуемый способ.",
                     "updated": 1640268232423
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir öğretici çalışırken Dokümanlar'ı açarsanız, Dokümanlar ilgili öğretici adımının sayfasını otomatik olarak yükler, böylece düzenleyebilirsiniz. Bu oldukça yararlıdır, çünkü sayfayı çevirebilir ve öğretici penceresinde gerçek zamanlı olarak nasıl göründüğünü görebilirsiniz. Bu önerilen yoldur.",
+                    "updated": 1645296847016
                 }
             ]
         },
@@ -652,6 +792,11 @@
                     "language": "RU",
                     "text": "Однако это не всегда так. Некоторые обучающие шаги настроены на закрытие Docs или редактора, и когда вы открываете Docs вручную, страница обучающего шага не загружается автоматически. В таких случаях необходимо найти название страницы, которое должно совпадать с названием шага учебника, чтобы можно было открыть страницу вручную.",
                     "updated": 1640268365512
+                },
+                {
+                    "language": "TR",
+                    "text": "Önemli: Ancak, bu her zaman böyle değildir. Bazı eğitim adımları Dokümanları veya düzenleyiciyi kapatacak şekilde yapılandırılmıştır ve Dokümanları manuel olarak açtığınızda eğitim adımı sayfası otomatik olarak yüklenmez. Bu gibi durumlarda, sayfaya manuel olarak erişebilmeniz için eğitim adımının başlığıyla eşleşmesi gereken sayfa adını aramanız gerekir.",
+                    "updated": 1645296882856
                 }
             ]
         }

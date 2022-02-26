@@ -17,16 +17,10 @@ const createShortcut = require('./Launch-Scripts/create-shortcut')
 systemCheck();
 
 // Handle adding shortcuts
-if (process.argv.includes("noShortcuts")) {
-    // Cancel running script if flag provided
-    console.log('');
-    console.log('noShortcuts ................................................... Setting up without shortcuts.')
-
-} else {
+if (process.argv.includes("shortcuts")) {
     // Run create-shortcuts script
     try {
-        // const { fork } = require('child_process')
-        // fork('./Launch-Scripts/create-shortcut.js')
+        console.log('\nshortcuts ................................................... Creating desktop shortcuts.\n')
         createShortcut()
     } catch (err) {
         console.log('')
@@ -222,4 +216,3 @@ nodeInstPromise.then(() => {
         }
     }
 })
-

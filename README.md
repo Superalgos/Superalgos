@@ -345,8 +345,6 @@ That should take you inside the Superalgos folder created by the `git clone` com
 node setup
 ```
 
-By default, desktop shortcuts are created if they can be. Currently, Mac OS shortcuts are not created. Linux installations may require extra steps to view and use the shortcuts.
-
 Available Options:
 
 ```sh
@@ -355,7 +353,7 @@ usage: node setup <options>
 
 | Option | Description |
 | --- | --- |
-| `noShortcuts` | Do not install desktop shortcuts |
+| `shortcuts` | create desktop shortcuts |
 | `tensorflow` | Include the TensorFlow dependencies |
 
 > **NOTE FOR WINDOWS USERS INSTALLING TENSORFLOW DEPENDENCIES:**
@@ -364,7 +362,7 @@ usage: node setup <options>
 
 > **NOTE FOR USERS INSTALLING MULTIPLE INSTANCES OF SUPERALGOS ON THE SAME MACHINE:**
 > 
-> In order to avoid name conflicts between shortcuts, make sure to rename each Superalgos directory before running `node setup`.
+> In order to avoid name conflicts between shortcuts, make sure to rename each Superalgos directory before running `node setup shortcuts`.
 
 > **NOTE FOR USERS INSTALLING ON LINUX:**
 > 
@@ -385,7 +383,7 @@ If you are having difficulty running the node setup command here are a few commo
 
 #### Enable Desktop Shortcut in Ubuntu
 
-The majority of shortcuts that are automatically installed will work out of the box. Desktop shortcuts on Ubuntu, however, require a few additional steps to set up. First, desktop icons need to be enabled within the Tweaks app.
+The majority of shortcuts that are installed will work out of the box. Desktop shortcuts on Ubuntu, however, require a few additional steps to set up. First, desktop icons need to be enabled within the Tweaks app.
 
 - Check if Tweaks is installed.
 - If not go to Ubuntu Software.
@@ -454,7 +452,7 @@ Partner exchanges have custom workspaces for the onboarding of their users. The 
 
 > **NOTE:** This method launches the platform with the fallback workspace only. If you wish to launch with a partner exchange workspace, use the Command Line method instead.
 
-If you ran `node setup` with no options above, then you should see a desktop icon which you can double click to launch the Superalgos application. A terminal window will show the server is running, and a browser window will open with the WebUI.
+If you ran `node setup shortcuts`, then you should see a desktop icon which you can double click to launch the Superalgos application. A terminal window will show the server is running, and a browser window will open with the WebUI.
 
 #### Using the Command Line
 

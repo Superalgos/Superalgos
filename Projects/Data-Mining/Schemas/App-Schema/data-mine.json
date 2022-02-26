@@ -37,6 +37,14 @@
         },
         {
             "action": "Add UI Object",
+            "label": "Add Study Bot",
+            "relatedUiObject": "Study Bot",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Data-Mining"
+        },
+        {
+            "action": "Add UI Object",
             "label": "Add Plotter",
             "relatedUiObject": "Plotter",
             "relatedUiObjectProject": "Foundations",
@@ -79,6 +87,11 @@
             "name": "indicatorBots",
             "type": "array",
             "childType": "Indicator Bot"
+        },
+        {
+            "name": "studyBots",
+            "type": "array",
+            "childType": "Study Bot"
         },
         {
             "name": "plotters",

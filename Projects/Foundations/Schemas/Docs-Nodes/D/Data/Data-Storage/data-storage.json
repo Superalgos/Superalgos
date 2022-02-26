@@ -2,7 +2,14 @@
     "type": "Data Storage",
     "definition": {
         "text": "The data storage hierarchy holds references to all the data bots have produced.",
-        "updated": 1640023232674
+        "updated": 1640023232674,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Иерархия Data Storage содержит ссылки на все данные, созданные ботами.",
+                "updated": 1645166180045
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -12,11 +19,25 @@
         },
         {
             "style": "Text",
-            "text": "Think of this hierarchy like a treasure chest. Inside this chest is kept all the valuable datasets generated within this workspace in one convenient place so that it can be used across the system by other bots, trading systems, etc."
+            "text": "Think of this hierarchy like a treasure chest. Inside this chest is kept all the valuable datasets generated within this workspace in one convenient place so that it can be used across the system by other bots, trading systems, etc.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Представьте эту иерархию как сундук с сокровищами. Внутри этого сундука хранятся все ценные наборы данных, созданные в этом рабочем пространстве, в одном удобном месте, чтобы их можно было использовать в системе другими ботами, торговыми системами и т.д.",
+                    "updated": 1645166200792
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The main types of data held under this hierarchy are:"
+            "text": "The main types of data held under this hierarchy are:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Основными типами данных, хранящихся в рамках этой иерархии, являются:",
+                    "updated": 1645166208505
+                }
+            ]
         },
         {
             "style": "List",
@@ -37,7 +58,14 @@
         {
             "style": "Text",
             "text": "As you look down the hierarchy you will see that data is organized according Mine Type, Project, Exchange, and Market. This helps to keep the vast array of data used within Superalgos accessibly and understandable.  The nodes under this hierarchy that hold specific sets of data are:",
-            "updated": 1640023886022
+            "updated": 1640023886022,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Просматривая иерархию, вы увидите, что данные организованы в соответствии с типом источника, проекта, биржи и рынка. Это помогает сохранить огромный массив данных, используемых в Superalgos, доступным и понятным. Узлы в этой иерархии, содержащие определенные наборы данных, следующие:",
+                    "updated": 1645166254193
+                }
+            ]
         },
         {
             "style": "List",

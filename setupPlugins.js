@@ -7,6 +7,24 @@ async function run() {
     let ENVIRONMENT_MODULE = ENVIRONMENT.newEnvironment()
     global.env = ENVIRONMENT_MODULE
 
+    // Save github credentials for later
+    const credentials = {
+        "githubUsername": username,
+        "githubToken": token
+    }
+    const fs = require("fs")
+    let secretsDir = "./My-Secrets"
+    // Make sure My-Secrets has been created
+    if (!fs.existsSync(secretsDir)) {
+        fs.mkdirSync(secretsDir)
+    }
+    fs.writeFile(secretsDir + "/githubCredentials.json", JSON.stringify(credentials), function(err) {
+        if(err) {
+            console.log('[ERROR] Github Credentials were not saved correctly ' + err)
+        }
+    } )
+
+
     await forkPluginRepos(username, token)
     clonePluginRepos(username)
 

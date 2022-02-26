@@ -2,12 +2,26 @@
     "type": "Input Shape",
     "definition": {
         "text": "The first layer in the model needs an inputShape. Make sure you exclude the batch size when providing the inputShape. For example, if you plan to feed the model tensors of shape [B, 784], where B can be any batch size, specify inputShape as [784] when creating the model.",
-        "updated": 1613220197721
+        "updated": 1613220197721,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Первый слой в модели нуждается в inputShape. Обязательно исключите размер партии при указании inputShape. Например, если вы планируете подавать в модель тензоры формы [B, 784], где B может быть любым размером партии, укажите inputShape как [784] при создании модели.",
+                "updated": 1645248215707
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "Right click and select the pencil button to enter edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
+                    "updated": 1645248220738
+                }
+            ]
         }
     ]
 }

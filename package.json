@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "node platform minMemo noBrowser",
-    "presetup": "git checkout develop && git pull upstream develop && git submodule update --init Plugins/*",
+    "presetup": "git checkout develop && git pull upstream develop",
     "setup": "node setup noShortcuts && node tf_setup.js",
     "postsetup": "npm start",
     "dist": "electron-builder -c build/electron-builder.json",

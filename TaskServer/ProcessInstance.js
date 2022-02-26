@@ -41,6 +41,9 @@
             */
             let CONSTANTS_BY_PROCESS_INDEX = {}
             TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.set(processIndex, CONSTANTS_BY_PROCESS_INDEX)
+            if (TS.projects.foundations.globals.taskConstants.DEPENDENCY_FILTERS !== undefined) {
+                TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).DEPENDENCY_FILTER = TS.projects.foundations.globals.taskConstants.DEPENDENCY_FILTERS[processIndex]
+            }
             /*
             We also need to initialize this here.
             */

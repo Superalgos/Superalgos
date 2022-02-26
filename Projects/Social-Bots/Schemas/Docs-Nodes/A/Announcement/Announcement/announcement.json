@@ -4,31 +4,73 @@
         {
             "style": "Text",
             "text": "The Announcement node is used to configure the default text content of the message which will be sent by any Social Bots configured under the Trading Session.",
-            "updated": 1619262133229
+            "updated": 1619262133229,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узел Announcement используется для настройки текстового содержания сообщения по умолчанию, которое будет отправлено всеми социальными ботами, настроенными в рамках торговой сессии.",
+                    "updated": 1645185086382
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The Announcement node can also optionally contain children nodes to define more specific announcement formula (content) and announcement conditions.",
-            "updated": 1619262375139
+            "updated": 1619262375139,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узел Announcement может также содержать дочерние узлы для определения более конкретной формулы (содержания) объявления и условий объявления.",
+                    "updated": 1645185101945
+                }
+            ]
         },
         {
             "style": "List",
             "text": "An Announcement Formula child node contains the Javascript text string formula which defines the content of the message that will be sent.",
-            "updated": 1619261939276
+            "updated": 1619261939276,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Дочерний узел Announcement Formula содержит формулу текстовой строки Javascript, которая определяет содержимое сообщения, которое будет отправлено.",
+                    "updated": 1645185161762
+                }
+            ]
         },
         {
             "style": "List",
             "text": "An Announcement Condition child node defines the condition when the message will be sent.",
-            "updated": 1619261952452
+            "updated": 1619261952452,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Дочерний узел Announcement Condition определяет условие, при котором будет отправлено сообщение.",
+                    "updated": 1645185195141
+                }
+            ]
         },
         {
             "style": "Warning",
             "text": "If the announcement formula child node is <u>not configured</u>, or; if there is an <u>error evaluating</u> the announcement formula or announcement condition then the default text configuration of the parent announcement node itself is sent instead.",
-            "updated": 1619262444866
+            "updated": 1619262444866,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если дочерний узел Announcement Formula не настроен, или если произошла ошибка при вычислении формулы объявления или условия объявления, то вместо него отправляется текстовая конфигурация по умолчанию самого родительского узла объявления.",
+                    "updated": 1645185276713
+                }
+            ]
         }
     ],
     "definition": {
         "text": "An Announcement node is used to define the content and conditions with which messages are sent by Social Bots.",
-        "updated": 1619262332641
+        "updated": 1619262332641,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Announcement используется для определения содержания и условий, на которых социальные боты отправляют сообщения.",
+                "updated": 1645185075984
+            }
+        ]
     }
 }

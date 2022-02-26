@@ -1,0 +1,43 @@
+{
+    "topic": "Tested Exchanges ",
+    "pageNumber": "17",
+    "type": " Huobi Global Test Status ",
+    "definition": {
+        "text": "Passed all spot trading tests but has limited historical data",
+        "updated": 1645696820601
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Properties",
+            "updated": 1645189476344
+        },
+        {
+            "style": "List",
+            "text": "1-min OHLCVs Capability: Yes. The ability to fetch historic data for backtesting purposes has been verified."
+        },
+        {
+            "style": "List",
+            "text": "Market History: From the day you start mining",
+            "updated": 1645696750049
+        },
+        {
+            "style": "List",
+            "text": "Trading Capability: Yes. The ability to run strategies in live-trading mode has been verified.",
+            "updated": 1645696769190
+        },
+        {
+            "style": "List",
+            "text": "Comments: First Level KYC needed when signing up."
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        },
+        {
+            "style": "Javascript",
+            "text": "{\n     \"codeName\": \"huobi\"\n}",
+            "updated": 1645696846518
+        }
+    ]
+}

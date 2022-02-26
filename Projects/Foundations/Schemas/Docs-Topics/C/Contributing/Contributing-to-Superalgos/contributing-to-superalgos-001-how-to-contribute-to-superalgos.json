@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Эта тема охватывает логистику и детали того, как вносить различные виды ресурсов в проект, включая Trading System, Data Mine, иконки, документацию, переводы, учебники и так далее.",
                 "updated": 1640258487287
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu konu, Ticaret Sistemi ( Trading System ), Veri Madeni ( Data Mine ), simgeler, belgeler, çeviriler, öğreticiler vb. dahil olmak üzere farklı türdeki varlıkların projeye nasıl katkıda bulunacağının lojistiğini ve ayrıntılarını kapsar.",
+                "updated": 1645289547783
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "RU",
                     "text": "Просмотрите приведенное ниже оглавление, чтобы найти документацию о том, как внести тот вид ценностей, который у вас на примете.",
                     "updated": 1640258583992
+                },
+                {
+                    "language": "TR",
+                    "text": "Aklınızdaki varlık türüne nasıl katkıda bulunacağınıza ilişkin belgeleri bulmak için aşağıdaki içindekiler tablosunu tarayın.",
+                    "updated": 1645289599650
                 }
             ]
         },
@@ -45,6 +55,11 @@
                     "language": "ES",
                     "text": "Si no hay una explicación sobre el tipo de activo que desea contribuir, comuníquese con el equipo en el Superalgos Community Group!",
                     "updated": 1636726430146
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Katkıda bulunmak istediğiniz varlığın türü hakkında herhangi bir açıklama yoksa, lütfen Superalgos Topluluk Grubundaki ( Community Group ) ekibe ulaşın!",
+                    "updated": 1645289649757
                 }
             ]
         }

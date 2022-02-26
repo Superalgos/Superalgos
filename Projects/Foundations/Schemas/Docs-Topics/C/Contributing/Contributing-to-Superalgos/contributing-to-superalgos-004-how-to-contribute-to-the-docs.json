@@ -15,6 +15,11 @@
                 "language": "DE",
                 "text": "Wenn Sie dabei helfen, die Docs (eine Art Bibliothek aus Tutorials, Dokumentation, Hilfestellungen) auf dem neuesten Stand zu halten, die Vermittlung von Informationen zu verbessern, Erklärungen zu ergänzen oder einfach nur Tipp- und Grammatikfehler zu korrigieren, verbessert das die Benutzerfreundlichkeit und senkt die Einstiegshürden für neue Benutzer.",
                 "updated": 1642541252464
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Dokümanları güncel tutmaya yardımcı olmak, bilgilerin dağıtımını iyileştirmek, açıklamaları genişletmek veya basitçe yazım hatalarını ve dil bilgisi hatalarını düzeltmek, daha iyi bir kullanıcı deneyimi sağlar ve yeni kullanıcılar için giriş engellerini azaltır.",
+                "updated": 1645294391998
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "DE",
                     "text": "Koordination",
                     "updated": 1642541260678
+                },
+                {
+                    "language": "TR",
+                    "text": "Koordinasyon",
+                    "updated": 1645294407756
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "DE",
                     "text": "Treten Sie der Docs Group (Docs Gruppe) bei, um Ihre Arbeit mit anderen Mitwirkenden (contributor) zu koordinieren:",
                     "updated": 1642541313002
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışmaları diğer katkıda bulunanlarla koordine etmek için Dokümanlar Grubuna ( Docs Group ) katılın:",
+                    "updated": 1645294435488
                 }
             ]
         },
@@ -72,6 +87,11 @@
                     "language": "DE",
                     "text": "Bitte stellen Sie sich vor und machen Sie sich mit der Gruppe vertraut, die derzeit die Arbeit erledigt. Die Hauptkoordinationsarbeit besteht in der Planung der Dokumentation neuer Funktionen oder in der Diskussion darüber, welche Abschnitte der Dokumentation überarbeitet werden müssen.",
                     "updated": 1642541356043
+                },
+                {
+                    "language": "TR",
+                    "text": "Lütfen kendinizi tanıtın ve şu anda işi yapan gruba ayak uydurun. Ana koordinasyon çabaları, yeni işlevlerin dokümantasyonunu planlamayı veya Dokümanların hangi bölümlerinin revizyona ihtiyacı olduğunu tartışmayı içerir.",
+                    "updated": 1645294481132
                 }
             ]
         },
@@ -93,6 +113,11 @@
                     "language": "DE",
                     "text": "Logistik und beste Praktiken",
                     "updated": 1642541488372
+                },
+                {
+                    "language": "TR",
+                    "text": "Lojistik ve En İyi Uygulama",
+                    "updated": 1645294547860
                 }
             ]
         },
@@ -110,6 +135,11 @@
                     "language": "DE",
                     "text": "Es kann sein, dass mehrere Personen zu einem beliebigen Zeitpunkt an den Docs mitarbeiten. Um das Auftreten von Konflikten zum Zeitpunkt des Zusammenführens Ihrer Beiträge (merging) in das Superalgos-Repository zu minimieren, werden die folgenden Praktiken dringend empfohlen.",
                     "updated": 1642541533730
+                },
+                {
+                    "language": "TR",
+                    "text": "Dokümanlar'a herhangi bir zamanda katkıda bulunan birkaç kişi olabilir. Katkılarınızı Superalgos deposuna birleştirirken çakışmaların oluşmasını en aza indirmek için aşağıdaki uygulamalar şiddetle tavsiye edilir.",
+                    "updated": 1645294558503
                 }
             ]
         },
@@ -127,6 +157,11 @@
                     "language": "DE",
                     "text": "Aktualisieren Sie Ihre Anwendung häufig, damit Sie die neuesten Änderungen, die andere Benutzer eingereicht haben, einbeziehen können. Verwenden Sie dazu den Befehl app.update, wie oben beschrieben.",
                     "updated": 1642541904627
+                },
+                {
+                    "language": "TR",
+                    "text": "Diğer kullanıcıların göndermiş olabileceği son değişiklikleri dahil etmek için uygulamanızı sık sık güncelleyin. Bunun için yukarıda açıklandığı gibi app.update komutunu kullanın.",
+                    "updated": 1645294605320
                 }
             ]
         },
@@ -144,6 +179,11 @@
                     "language": "DE",
                     "text": "Behalten Sie Änderungen nicht zu lange lokal. Teilen Sie Ihre Arbeit auf und reichen Sie Ihre Beiträge jeden Tag ein. (app.contribute wie unten erklärt)",
                     "updated": 1642541944707
+                },
+                {
+                    "language": "TR",
+                    "text": "Değişiklikleri yerel olarak çok uzun süre saklamayın. Çalışmanızı bölün ve katkılarınızı her gün gönderin.",
+                    "updated": 1645294617127
                 }
             ]
         },
@@ -161,6 +201,11 @@
                     "language": "DE",
                     "text": "Wenn Sie den App Contribute-Befehl ausführen, wird ein Pull Request bei Ihrer fork (Spaltung) erstellt. Die Betreuer des Superalgos-Projekt repo werden Ihren Beitrag prüfen und entscheiden, ob er so wie er ist zusammengeführt werden kann (auch merging genannt) oder ob die Arbeit Anpassungen erfordert.",
                     "updated": 1642542058345
+                },
+                {
+                    "language": "TR",
+                    "text": "App Contribute Command Komutunu çalıştırdığınızda, çatalınızda bir Çekme İsteği oluşturulur. Superalgos depo sahipleri, gönderiminizi inceleyecek ve olduğu gibi birleştirilip birleştirilemeyeceğine veya işin herhangi bir ayarlama gerektirip gerektirmediğine karar verecektir.",
+                    "updated": 1645294645976
                 }
             ]
         },
@@ -178,6 +223,11 @@
                     "language": "DE",
                     "text": "Behalten Sie den Überblick über Ihre contributions (Beiträge), bis sie merged (zusammengeführt) wurden.",
                     "updated": 1642542095692
+                },
+                {
+                    "language": "TR",
+                    "text": "Birleştirilene kadar katkılarınızı takip edin.",
+                    "updated": 1645294663424
                 }
             ]
         },
@@ -195,6 +245,11 @@
                     "language": "DE",
                     "text": "Bleiben Sie ansprechbar, wenn es Rückmeldungen oder Anfragen von den Betreuern gibt.",
                     "updated": 1642542121016
+                },
+                {
+                    "language": "TR",
+                    "text": "Bakımcılardan herhangi bir geri bildirim veya istek varsa yanıt vermeye devam edin.",
+                    "updated": 1645294677070
                 }
             ]
         },
@@ -212,22 +267,48 @@
                     "language": "DE",
                     "text": "Achten Sie auf E-Mails, die Sie möglicherweise von GitHub.com erhalten",
                     "updated": 1642542132582
+                },
+                {
+                    "language": "TR",
+                    "text": "GitHub.com'dan alabileceğiniz e-postalara dikkat edin",
+                    "updated": 1645294685462
                 }
             ]
         },
         {
             "style": "Title",
             "text": "Learn All About the Docs and the Art of Documenting",
-            "updated": 1642956868092
+            "updated": 1642956868092,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Dokümanlar ve Dokümantasyon Sanatı Hakkında Her Şeyi Öğrenin",
+                    "updated": 1645294719507
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "You probably have an idea of how the Docs work from using the app and doing the first few tutorials. If you intend to contribute the occasional small fixes on existing pages, you probably know enough to start contributing!"
+            "text": "You probably have an idea of how the Docs work from using the app and doing the first few tutorials. If you intend to contribute the occasional small fixes on existing pages, you probably know enough to start contributing!",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Muhtemelen uygulamayı kullanarak ve ilk birkaç öğreticiyi yaparak Dokümanların nasıl çalıştığına dair bir fikriniz vardır. Mevcut sayfalarda zaman zaman küçük düzeltmelere katkıda bulunmayı düşünüyorsanız, muhtemelen katkıda bulunmaya başlamak için yeterince şey biliyorsunuzdur!",
+                    "updated": 1645294827113
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "However, if you wish to get involved in documenting new functionality, reorganizing topics, arranging books, and so on, you should definitely read The Docs Explained book. Pay special attention to the last chapter: The Art of Documenting.",
-            "updated": 1642956969472
+            "updated": 1642956969472,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ancak yeni işlevlerin belgelenmesi, konuların yeniden düzenlenmesi, kitapların düzenlenmesi vb. işlere dahil olmak istiyorsanız Dokümantasyon Açıklamalı kitabını ( The Docs Explained ) mutlaka okumalısınız. Son bölüme özellikle dikkat edin: Dokümantasyon Sanatı.",
+                    "updated": 1645295654831
+                }
+            ]
         },
         {
             "style": "Text",

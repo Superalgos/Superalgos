@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Pool представляет собой высокоуровневый контейнер вознаграждений за токены (Token Rewards). Узел может получать весовые голоса (Weight Votes) и направлять Token Rewards в другие иерархии через ссылки. Вкладчики могут направлять весовые голоса на узлы пула, чтобы повлиять на то, сколько токенов будет направлено и распределено в иерархии, на которую ссылаются.",
                 "updated": 1640283628150
+            },
+            {
+                "language": "TR",
+                "text": "Bir Havuz, Jeton Ödüllerinin (Token Rewards) üst düzey bir kapsayıcısını temsil eder. Düğüm Ağırlık Oyları (Weight Votes) alabilir ve Token Ödüllerini referanslar aracılığıyla diğer hiyerarşilere yönlendirebilir. Katkıda bulunanlar, başvurulan hiyerarşiye kaç jetonun yönlendirileceğini ve dağıtılacağını etkilemek için Ağırlık Oylarını Havuz düğümlerine yönlendirebilir.",
+                "updated": 1645191481982
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "RU",
                     "text": "Узлы пула могут быть вложены на произвольных уровнях и могут быть расположены под узлами Pool Class или непосредственно под другими узлами пула. Когда они ссылаются на другую иерархию, определение организации проекта продолжается в указанной иерархии.",
                     "updated": 1640283676988
+                },
+                {
+                    "language": "TR",
+                    "text": "Havuz düğümleri isteğe bağlı düzeylerde yuvalanabilir ve Havuz Sınıfı (Pool Class) düğümleri altında veya doğrudan diğer Havuz düğümleri altında düzenlenebilir. Başka bir hiyerarşiye atıfta bulunduklarında, Proje organizasyonunun tanımı söz konusu hiyerarşide devam eder.",
+                    "updated": 1645191519178
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "RU",
                     "text": "Когда вы направляете весовые голоса на узел пула, вы фактически увеличиваете вес пула в конечном распределении токенов на количество голосов, которые вы направляете на него. Пул получит часть токенов, назначенных иерархии пулов, пропорционально общему количеству входящих весовых голосов. Если у пула нет входящих весовых голосов, он получает ноль токенов.",
                     "updated": 1640283731616
+                },
+                {
+                    "language": "TR",
+                    "text": "Ağırlık Oylarını (Weight Votes) bir Havuz düğümüne yönlendirdiğinizde, jetonların nihai dağıtımında havuzun ağırlığını, ona yönlendirdiğiniz oy sayısına göre etkin bir şekilde artırırsınız. Havuz, gelen Ağırlık Oylarının (Weight Votes) toplam sayısıyla orantılı olarak Havuzlar hiyerarşisine atanan jetonların bir kısmını alacaktır. Bir Havuzun gelen Ağırlık Oyu yoksa, sıfır jeton alır.",
+                    "updated": 1645191579070
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "RU",
                     "text": "Узлы пула с входящими весовыми голосами отображают следующую информацию:",
                     "updated": 1640283759126
+                },
+                {
+                    "language": "TR",
+                    "text": "Gelen Ağırlık Oylarına (incoming Weight Votes) sahip havuz düğümleri aşağıdaki bilgileri görüntüler:",
+                    "updated": 1645191614633
                 }
             ]
         },
@@ -58,6 +78,11 @@
                     "language": "RU",
                     "text": "Number of Votes: общее количество весовых голосов, направленных на узел.",
                     "updated": 1640283780907
+                },
+                {
+                    "language": "TR",
+                    "text": "Number of Votes (Oy Sayısı): düğüme yönlendirilen toplam Ağırlık Oylarının sayısı.",
+                    "updated": 1645191668518
                 }
             ]
         },
@@ -69,6 +94,11 @@
                     "language": "RU",
                     "text": "Number of Tokens Awarded: общее количество токенов, которые пул получает за голоса, которые у него есть.",
                     "updated": 1640283801204
+                },
+                {
+                    "language": "TR",
+                    "text": "Number of Tokens Awarded (Ödül Jeton Sayısı): Havuzun sahip olduğu oylar sonrasında aldığı toplam jeton sayısı.",
+                    "updated": 1645191759237
                 }
             ]
         },
@@ -80,6 +110,11 @@
                     "language": "RU",
                     "text": "Weight: общий вес пула выражается в процентах от общего веса голосов, направленных на всю иерархию.",
                     "updated": 1640283847440
+                },
+                {
+                    "language": "TR",
+                    "text": "Weight (Ağırlık): Havuzun toplam ağırlığı, tüm hiyerarşiye yönlendirilen toplam Ağırlık Oylarının yüzdesi olarak ifade edilir.",
+                    "updated": 1645191789791
                 }
             ]
         },
@@ -92,6 +127,11 @@
                     "language": "RU",
                     "text": "Обратите внимание, что узел Pool получает Token Rewards, распределенные по иерархии, к которой он принадлежит. Вышеупомянутое значение Weight относится к указанной иерархии, а не обязательно к иерархии верхнего уровня Superalgos Pools.",
                     "updated": 1640283899498
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Havuz düğümünün ait olduğu hiyerarşiye tahsis edilen Token Ödüllerini aldığına dikkat edin. Yukarıda bahsedilen Ağırlık (Weight) değeri, söz konusu hiyerarşi ile ilgilidir ve sadece üst düzey Superalgos Havuzları hiyerarşisi ile ilgili olmayabilir.",
+                    "updated": 1645191868462
                 }
             ]
         },
@@ -103,6 +143,11 @@
                     "language": "RU",
                     "text": "Мы упоминали, что узлы Pool могут передавать Token Rewards другим иерархиям, которые, в свою очередь, еще больше разбивают определения того, куда идут токены. Мы рассмотрим эти иерархии на следующих нескольких страницах.",
                     "updated": 1640283933300
+                },
+                {
+                    "language": "TR",
+                    "text": "Havuz düğümlerinin Token Ödüllerini (Token Rewards) diğer hiyerarşilere aktarabileceğinden bahsetmiştik, bu da jetonların nereye gittiğine ilişkin tanımları daha da bozar. Önümüzdeki birkaç sayfada bu hiyerarşileri keşfedeceğiz.",
+                    "updated": 1645191915879
                 }
             ]
         },
@@ -118,6 +163,11 @@
                     "language": "RU",
                     "text": "Конфигурация",
                     "updated": 1640283944121
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırma",
+                    "updated": 1645191927181
                 }
             ]
         }

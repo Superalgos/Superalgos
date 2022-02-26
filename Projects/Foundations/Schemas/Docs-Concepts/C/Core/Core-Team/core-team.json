@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Core Team - это группа людей, которым поручено запустить проект Superalgos. Их миссия - делать все, что нужно для успеха проекта.",
                 "updated": 1638281221178
+            },
+            {
+                "language": "TR",
+                "text": "Çekirdek Ekip, Superalgos Projesini başlatmakla görevli kişilerden oluşan gruptur. Görevleri, projenin başarılı olması için ne gerekiyorsa yapmaktır.",
+                "updated": 1645099634088
             }
         ]
     },

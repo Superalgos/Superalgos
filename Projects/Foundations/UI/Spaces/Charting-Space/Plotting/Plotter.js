@@ -495,8 +495,8 @@ function newPlotter() {
             thisObject.container.eventHandler.raiseEvent('Current Record Changed', undefined)
 
             for (let i = 0; i < records.length; i++) {
-                let record = records[i] //records[records.length - 1 - i] // NOTE: Order intentionally reverted to prevent pannels showing the last record which overlap / shadow all the others (think episodes in daily)
-
+                let record = records[i] 
+                
                 if (checkOutOfScreen(i, record) !== true) { continue }
 
                 let atMousePosition = false

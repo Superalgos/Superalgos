@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Этот процесс подробно описывает, как использовать интегрированную среду разработки (IDE) для выявления и исправления ошибок в коде Superalgos и помочь внести свой вклад!",
                 "updated": 1640280338543
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu süreç, Superalgos kodundaki hataları belirlemek,düzeltmek ve katkıda bulunmaya yardımcı olmak için Entegre Geliştirme Ortamının (IDE) nasıl kullanılacağını ayrıntılarıyla anlatır!",
+                "updated": 1645357277102
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "В следующих шагах мы покажем концепцию отладки с помощью Visual Studio Code. Вы можете использовать любую другую интегрированную среду разработки (IDE), с которой вам удобно работать.",
                     "updated": 1640280361880
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Aşağıdaki adımlar için Visual Studio Code kullanarak hata ayıklama kavramını göstereceğiz. Kendinizi rahat hissettiğiniz diğer herhangi bir Entegre Geliştirme Ortamını (IDE) kullanabilirsiniz.",
+                    "updated": 1645357314785
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "language": "RU",
                     "text": "\"Наша самая большая слабость заключается в том, что мы сдаемся. Самый верный путь к успеху - это попробовать еще раз\". -Томас Эдисон",
                     "updated": 1640280385387
+                },
+                {
+                    "language": "TR",
+                    "text": "\"En büyük zayıflığımız pes etmekte yatar. Başarılı olmanın en kesin yolu her zaman bir kez daha denemektir.\" -Thomas Edison",
+                    "updated": 1645357336413
                 }
             ]
         },
@@ -55,6 +70,11 @@
                     "language": "RU",
                     "text": "Итак, вы столкнулись с проблемой при создании индикатора, увидели ошибку в консоли или столкнулись с задачей Task, которая просто не запускается. Захватите кофе и средство от комаров - мы отправляемся на охоту за жуками!",
                     "updated": 1640280431147
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu nedenle, gösterge oluşturma sorunlarıyla karşılaştınız, konsolda bir hata gördünüz veya çalışmayan bir Görevle ( Task ) karşılaştınız. Biraz kahve ve sivrisinek kovucu alın - böcek avına çıkıyoruz!",
+                    "updated": 1645357406860
                 }
             ]
         },
@@ -67,6 +87,11 @@
                     "language": "RU",
                     "text": "Первым шагом будет загрузка Microsoft Visual Studio Code, которую можно получить бесплатно по ссылке ниже:",
                     "updated": 1640280445725
+                },
+                {
+                    "language": "TR",
+                    "text": "İlk adım, Microsoft Visual Studio Code'u indirmektir, bu, aşağıdaki bağlantıda ücretsiz olarak mevcut:",
+                    "updated": 1645357436466
                 }
             ]
         },
@@ -89,6 +114,11 @@
                     "language": "RU",
                     "text": "После установки Visual Studio Code нажмите Next (\"Далее\"), чтобы пройти процесс настройки, чтобы получить доступ к каталогу Superalgos.",
                     "updated": 1640280492128
+                },
+                {
+                    "language": "TR",
+                    "text": "Visual Studio Code'u yükledikten sonra, Superalgos dizinine erişebilmeniz için onu yapılandırma sürecinden geçmek için İleri'ye tıklayın.",
+                    "updated": 1645357534427
                 }
             ]
         }

@@ -1020,10 +1020,15 @@ exports.newHttpInterface = function newHttpInterface() {
                                 const contributionsBranch = unescape(requestPath[7])
                                 let error
 
-                                /* Unsaving # */
-                                for (let i = 0; i < 10; i++) {
-                                    commitMessage = commitMessage.replace('_SLASH_', '/')
-                                    commitMessage = commitMessage.replace('_HASHTAG_', '#')
+                                // rebuild array of commit messages if committing from contribturions space
+                                if (commitMessage.charAt(0) === '[' && commitMessage.charAt(commitMessage.length -1) === ']'){
+                                    commitMessage = JSON.parse(commitMessage)
+                                } else { // else handle string from command line
+                                    /* Unsaving # */
+                                    for (let i = 0; i < 10; i++) {
+                                        commitMessage = commitMessage.replace('_SLASH_', '/')
+                                        commitMessage = commitMessage.replace('_HASHTAG_', '#')
+                                    }
                                 }
 
                                 contribute()
@@ -1072,6 +1077,16 @@ exports.newHttpInterface = function newHttpInterface() {
                                     }
                                 }
 
+                                function getCommitMessage(repoName, messageArray) {
+                                    let messageToSend = ''
+                                    for (let message of messageArray) {
+                                        if (message[0] === repoName) {
+                                            messageToSend = message[1]
+                                        }
+                                    }
+                                    return messageToSend    
+                                }
+
                                 async function doGit() {
                                     const simpleGit = SA.nodeModules.simpleGit
                                     let options = {
@@ -1080,6 +1095,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                         maxConcurrentProcesses: 6,
                                     }
                                     let repoURL = 'https://github.com/Superalgos/Superalgos'
+                                    let repoName = 'Superalgos'
                                     console.log('[INFO] Starting process of uploading changes (if any) to ' + repoURL)
                                     let git = simpleGit(options)
 
@@ -1096,12 +1112,246 @@ exports.newHttpInterface = function newHttpInterface() {
                                         }
                                         git = simpleGit(options)
                                         repoURL = 'https://github.com/Superalgos/' + global.env.PROJECT_PLUGIN_MAP[propertyName].repo
+                                        repoName = global.env.PROJECT_PLUGIN_MAP[propertyName].repo.replace('-Plugins', '')
                                         console.log('[INFO] Starting process of uploading changes (if any) to ' + repoURL)
                                         await pushFiles(git)
                                     }
 
                                     async function pushFiles(git) {
                                         try {
+                                            await git.pull('origin', currentBranch)
+                                            await git.add('./*')
+
+                                            // If contributing from contributrions space gather the correct commit message
+                                            let messageToSend
+                                            if (commitMessage instanceof Array) {
+                                                    messageToSend = getCommitMessage(repoName, commitMessage)
+
+                                            } else { // Else just send the commit message string from command line
+                                                messageToSend = commitMessage
+
+                                            }
+                                            await git.commit(messageToSend)
+
+                                            await git.push('origin', currentBranch)
+                                        } catch (err) {
+                                            console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> Method call produced an error.')
+                                            console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> err.stack = ' + err.stack)
+                                            console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> commitMessage = ' + messageToSend)
+                                            console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> currentBranch = ' + currentBranch)
+                                            console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> contributionsBranch = ' + contributionsBranch)
+                                            console.log('')
+                                            console.log('Troubleshooting Tips:')
+                                            console.log('')
+                                            console.log('1. Make sure that you have set up your Github Username and Token at the APIs -> Github API node at the workspace.')
+                                            console.log('2. Make sure you are running the latest version of Git available for your OS.')
+                                            console.log('3. Make sure that you have cloned your Superalgos repository fork, and not the main Superalgos repository.')
+                                            console.log('4. If your fork is old, you might need to do an app.update and also a node setup at every branch. If you just reforked all is good.')
+
+                                            error = err
+                                        }
+                                    }
+                                }
+
+                                async function doGithub() {
+
+                                    const { Octokit } = SA.nodeModules.octokit
+
+                                    const octokit = new Octokit({
+                                        auth: token,
+                                        userAgent: 'Superalgos ' + SA.version
+                                    })
+
+                                    let repo = 'Superalgos'
+                                    let repoName = 'Superalgos'
+                                    const owner = 'Superalgos'
+                                    const head = username + ':' + contributionsBranch
+                                    const base = currentBranch
+
+                                    // If contributing from contributrions space gather the correct commit message
+                                    let messageToSend
+                                    if (commitMessage instanceof Array) {
+                                        messageToSend = getCommitMessage(repoName, commitMessage)
+
+                                    } else { // Else just send the commit message string from command line
+                                        messageToSend = commitMessage
+
+                                    }
+                                    let title = 'Contribution: ' + messageToSend
+
+                                    await createPullRequest(repo)
+
+                                    for (const propertyName in global.env.PROJECT_PLUGIN_MAP) {
+                                        /*
+                                        Upload the Plugins
+                                        */
+                                        
+                                        if (commitMessage instanceof Map) {
+                                            repoName = global.env.PROJECT_PLUGIN_MAP[propertyName].repo.replace('-Plugins', '')
+                                            messageToSend = getCommitMessage(repoName, commitMessage)
+                                        } else { // Else just send the commit message string from command line
+                                            messageToSend = commitMessage
+                                        }
+                                        title = 'Contribution: ' + messageToSend
+
+                                        repo = global.env.PROJECT_PLUGIN_MAP[propertyName].repo
+                                        await createPullRequest(repo)
+                                    }
+
+                                    async function createPullRequest(repo) {
+                                        try {
+                                            console.log(' ')
+                                            console.log('[INFO] Checking if we need to create Pull Request at repository ' + repo)
+                                            await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                            await octokit.pulls.create({
+                                                owner,
+                                                repo,
+                                                title,
+                                                head,
+                                                base,
+                                            });
+                                            console.log('[INFO] A pull request has been succesfully created. ')
+                                        } catch (err) {
+                                            if (
+                                                err.stack.indexOf('A pull request already exists') >= 0 ||
+                                                err.stack.indexOf('No commits between') >= 0
+                                            ) {
+                                                if (err.stack.indexOf('A pull request already exists') >= 0) {
+                                                    console.log('[WARN] A pull request already exists. If any, commits would added to the existing Pull Request. ')
+                                                }
+                                                if (err.stack.indexOf('No commits between') >= 0) {
+                                                    console.log('[WARN] No commits detected. Pull request not created. ')
+                                                }
+                                                return
+                                            } else {
+                                                console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> Method call produced an error.')
+                                                console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> err.stack = ' + err.stack)
+                                                console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> commitMessage = ' + commitMessage)
+                                                console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> username = ' + username)
+                                                console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> token starts with = ' + token.substring(0, 10) + '...')
+                                                console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
+                                                console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> currentBranch = ' + currentBranch)
+                                                console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> contributionsBranch = ' + contributionsBranch)
+                                                error = err
+                                            }
+                                        }
+                                    }
+                                }
+
+                            } catch (err) {
+                                console.log('[ERROR] httpInterface -> App -> Contribute -> Method call produced an error.')
+                                console.log('[ERROR] httpInterface -> App -> Contribute -> err.stack = ' + err.stack)
+                                console.log('[ERROR] httpInterface -> App -> Contribute -> commitMessage = ' + commitMessage)
+                                console.log('[ERROR] httpInterface -> App -> Contribute -> username = ' + username)
+                                console.log('[ERROR] httpInterface -> App -> Contribute -> token starts with = ' + token.substring(0, 10) + '...')
+                                console.log('[ERROR] httpInterface -> App -> Contribute -> token ends with = ' + '...' + token.substring(token.length - 10))
+                                console.log('[ERROR] httpInterface -> App -> Contribute -> currentBranch = ' + currentBranch)
+                                console.log('[ERROR] httpInterface -> App -> Contribute -> contributionsBranch = ' + contributionsBranch)
+
+                                let error = {
+                                    result: 'Fail Because',
+                                    message: err.message,
+                                    stack: err.stack
+                                }
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
+                            }
+                            break
+                        }
+
+                        case 'ContributeSingleRepo': {
+                            try {
+                                // We create a pull request for the active changes of a particular repo
+                                let commitMessage = unescape(requestPath[3])
+                                const username = unescape(requestPath[4])
+                                const token = unescape(requestPath[5])
+                                const currentBranch = unescape(requestPath[6])
+                                const contributionsBranch = unescape(requestPath[7])
+                                const repoName = unescape(requestPath[8])
+                                let error
+
+                                /* Unsaving # */
+                                for (let i = 0; i < 10; i++) {
+                                    commitMessage = commitMessage.replace('_SLASH_', '/')
+                                    commitMessage = commitMessage.replace('_HASHTAG_', '#')
+                                }
+
+                                contributeSingleRepo()
+
+                                async function contributeSingleRepo() {
+                                    const { lookpath } = SA.nodeModules.lookpath
+                                    const gitpath = await lookpath('git')
+                                    if (gitpath === undefined) {
+                                        console.log('[ERROR] `git` not installed.')
+                                    } else {
+                                       await doGit().catch(e => {
+                                            error = e
+                                        })
+                                        if (error !== undefined) {
+
+                                            let docs = {
+                                                project: 'Foundations',
+                                                category: 'Topic',
+                                                type: 'App Error - Contribution Not Sent',
+                                                anchor: undefined,
+                                                placeholder: {}
+                                            }
+
+                                            respondWithDocsObject(docs, error)
+                                            return
+                                        }
+
+                                       await doGithub().catch(e => {
+                                            error = e
+                                        })
+                                        if (error !== undefined) {
+
+                                            let docs = {
+                                                project: 'Foundations',
+                                                category: 'Topic',
+                                                type: 'App Error - Contribution Not Sent',
+                                                anchor: undefined,
+                                                placeholder: {}
+                                            }
+                                            console.log('respond with docs ')
+
+                                            respondWithDocsObject(docs, error)
+                                            return
+                                        }
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                                    }
+                                }
+
+                                async function doGit() {
+                                    const simpleGit = SA.nodeModules.simpleGit
+                                    let options = {
+                                        baseDir: process.cwd(),
+                                        binary: 'git',
+                                        maxConcurrentProcesses: 6,
+                                    }
+
+                                    // Check if we are commiting to main repo 
+                                    if (repoName === 'Superalgos') {
+                                    let repoURL = 'https://github.com/Superalgos/Superalgos'
+                                    console.log('[INFO] Starting process of uploading changes (if any) to ' + repoURL)
+                                    let git = simpleGit(options)
+
+                                    await pushFiles(git) // Main Repo
+                                    } else {
+                                        // Assume we are commiting to a plugins repo 
+                                        options = {
+                                            baseDir: SA.nodeModules.path.join(process.cwd(), 'Plugins', global.env.PROJECT_PLUGIN_MAP[repoName].dir),
+                                            binary: 'git',
+                                            maxConcurrentProcesses: 6,
+                                        }
+                                        git = simpleGit(options)
+                                        repoURL = 'https://github.com/Superalgos/' + global.env.PROJECT_PLUGIN_MAP[repoName].repo
+                                        console.log('[INFO] Starting process of uploading changes (if any) to ' + repoURL)
+                                        await pushFiles(git)
+                                    }
+
+                                    async function pushFiles(git) {
+                                        try {
+                                            await git.pull('origin', currentBranch)
                                             await git.add('./*')
                                             await git.commit(commitMessage)
                                             await git.push('origin', currentBranch)
@@ -1133,19 +1383,15 @@ exports.newHttpInterface = function newHttpInterface() {
                                         userAgent: 'Superalgos ' + SA.version
                                     })
 
-                                    let repo = 'Superalgos'
                                     const owner = 'Superalgos'
                                     const head = username + ':' + contributionsBranch
                                     const base = currentBranch
                                     const title = 'Contribution: ' + commitMessage
 
-                                    await createPullRequest(repo)
-
-                                    for (const propertyName in global.env.PROJECT_PLUGIN_MAP) {
-                                        /*
-                                        Upload the Plugins
-                                        */
-                                        await createPullRequest(global.env.PROJECT_PLUGIN_MAP[propertyName].repo)
+                                    if (repoName === 'Superalgos') {
+                                        await createPullRequest(repoName)
+                                    } else {
+                                        await createPullRequest(global.env.PROJECT_PLUGIN_MAP[repoName].repo)
                                     }
 
                                     async function createPullRequest(repo) {

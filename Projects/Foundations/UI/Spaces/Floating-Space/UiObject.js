@@ -779,6 +779,12 @@ function newUiObject() {
                 lastHeartBeat = undefined
                 thisObject.isRunning = false
                 valueCounter = 0
+
+                let event = {
+                    type: 'Secondary Action Already Executed'
+                }
+                stop(onRunningCallBackFunction, event, true)
+                console.log('[WARN] Then node ' + payload.node.name + ' was automatically stopped because no heartbeat was received within one minute.')
             }
         } else {
             thisObject.isRunning = false
@@ -1219,7 +1225,7 @@ function newUiObject() {
             answer to the command to stop. In those cases, we will stop execute the onStopped function anyways so as to 
             return the UI to its default state.
             */
-            setTimeout(returnToDefaultState, 15000)
+            setTimeout(returnToDefaultState, 10000)
             function returnToDefaultState() {
                 if (wasStopped === false) {
                     completeStop(callBackFunction, event)

@@ -1,4 +1,4 @@
-﻿exports.newDataMiningBotModulesMultiTimeFrameDaily = function (processIndex) {
+﻿exports.newDataMiningIndicatorMultiTimeFrameDaily = function (processIndex) {
     const MODULE_NAME = "Multi Time Frame Daily"
     /*
     This module deals with Daily Files, that are data files for Time Frames below 1 hour.
@@ -21,9 +21,9 @@
 
     return thisObject;
 
-    function initialize(pStatusDependencies, pStatusDependenciesModule, callBackFunction) {
+    function initialize(pStatusDependencies, pDataDependenciesModule, callBackFunction) {
         statusDependenciesModule = pStatusDependencies;
-        dataDependenciesModule = pStatusDependenciesModule;
+        dataDependenciesModule = pDataDependenciesModule;
 
         indicatorOutputModule = TS.projects.dataMining.botModules.indicatorOutput.newDataMiningBotModulesIndicatorOutput(processIndex)
         indicatorOutputModule.initialize(callBackFunction)

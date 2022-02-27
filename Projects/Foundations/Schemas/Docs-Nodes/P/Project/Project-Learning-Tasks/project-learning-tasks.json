@@ -4,11 +4,25 @@
         {
             "style": "Important",
             "text": "The infrastructure for Machine Learning algorithms is currently being implemented.",
-            "updated": 1609666515089
+            "updated": 1609666515089,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В настоящее время внедряется инфраструктура для алгоритмов машинного обучения.",
+                    "updated": 1645169807649
+                }
+            ]
         }
     ],
     "definition": {
         "text": "The Project Learning Tasks node is an organizational device grouping all Learning Tasks corresponding to the same Project.",
-        "updated": 1609667823768
+        "updated": 1609667823768,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Project Learning Tasks - это организационное устройство, объединяющее все задачи обучения, соответствующие одному проекту.",
+                "updated": 1645169797988
+            }
+        ]
     }
 }

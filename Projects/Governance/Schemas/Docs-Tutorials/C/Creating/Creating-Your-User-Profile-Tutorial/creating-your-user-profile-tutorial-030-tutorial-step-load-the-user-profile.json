@@ -25,6 +25,11 @@
                 "language": "DE",
                 "text": "Wissen Sie, wer Ihr Empfehler ist? Hat Ihr Referrer ein Benutzerprofil? Wie können Sie das richtige Profil finden und laden?",
                 "updated": 1640079953874
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Yönlendirenin kim olduğunu biliyor musun? Yönlendiren kişinin Kullanıcı Profili (User Profile) var mı? Doğru profili nasıl bulur ve yüklersiniz?",
+                "updated": 1645092385492
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "DE",
                     "text": "Folgen Sie dem Leitfaden auf der rechten Seite, um die Antworten zu finden!",
                     "updated": 1640079960019
+                },
+                {
+                    "language": "TR",
+                    "text": "Cevapları bulmak için sağdaki kılavuzu takip edin!",
+                    "updated": 1645092405252
                 }
             ]
         },
@@ -72,6 +82,11 @@
                     "language": "DE",
                     "text": "Ich habe Sie zu dem in der Anleitung erwähnten Dummy-Profil geführt, um es Ihnen leichter zu machen!",
                     "updated": 1640079967268
+                },
+                {
+                    "language": "TR",
+                    "text": "İşinizi kolaylaştırmak için sizi rehberde bahsedilen Dummy profiline getirdim!",
+                    "updated": 1645092431093
                 }
             ]
         },
@@ -95,6 +110,11 @@
                     "language": "DE",
                     "text": "Beachte übrigens, dass die Profile von Community Mods und Core Team Mitgliedern bereits geladen sind!",
                     "updated": 1640079976555
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu arada, Topluluk Modlarının (Community Mods) ve Çekirdek Ekip (Core Team) üyelerinin profillerinin zaten yüklenmiş olduğuna dikkat edin!",
+                    "updated": 1645092477222
                 }
             ]
         }

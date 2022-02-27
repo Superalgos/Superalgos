@@ -670,8 +670,8 @@
                     "animationDrawIndex": 0,
                     "onMouseWheelIndex": 6,
                     "onMouseOverIndex": 6,
-                    "onMouseClickIndex": 5,
-                    "onMouseDownIndex": 5
+                    "onMouseClickIndex": 6,
+                    "onMouseDownIndex": 6
                 },
                 {
                     "name": "Top Space",
@@ -721,8 +721,8 @@
                     "animationDrawIndex": 1,
                     "onMouseWheelIndex": 5,
                     "onMouseOverIndex": 4,
-                    "onMouseClickIndex": 6,
-                    "onMouseDownIndex": 6
+                    "onMouseClickIndex": 5,
+                    "onMouseDownIndex": 4
                 },
                 {
                     "name": "Side Space",
@@ -754,7 +754,7 @@
                     "onMouseWheelIndex": 7,
                     "onMouseOverIndex": 5,
                     "onMouseClickIndex": 4,
-                    "onMouseDownIndex": 4
+                    "onMouseDownIndex": 5
                 }
             ]
         },
@@ -1108,16 +1108,16 @@
                     "folderName": "Indicator-Bot/Bollinger-Bands"
                 },
                 {
-                    "name": "Multi Time Frame Market",
-                    "propertyName": "multiTimeFrameMarket",
-                    "functionName": "newDataMiningBotModulesMultiTimeFrameMarket",
+                    "name": "Indicator Multi Time Frame Market",
+                    "propertyName": "indicatorMultiTimeFrameMarket",
+                    "functionName": "newDataMiningIndicatorMultiTimeFrameMarket",
                     "fileName": "MultiTimeFrameMarket.js",
                     "folderName": "Indicator-Bot"
                 },
                 {
-                    "name": "Multi Time Frame Daily",
-                    "propertyName": "multiTimeFrameDaily",
-                    "functionName": "newDataMiningBotModulesMultiTimeFrameDaily",
+                    "name": "Indicator Multi Time Frame Daily",
+                    "propertyName": "indicatorMultiTimeFrameDaily",
+                    "functionName": "newDataMiningIndicatorMultiTimeFrameDaily",
                     "fileName": "MultiTimeFrameDaily.js",
                     "folderName": "Indicator-Bot"
                 },
@@ -1148,6 +1148,35 @@
                     "functionName": "newDataMiningBotModulesCheckWebhook",
                     "fileName": "CheckWebhook.js",
                     "folderName": "Sensor-Bot/Webhooks"
+                },
+                {
+                    "name": "Single Market Study Bot",
+                    "propertyName": "singleMarketStudyBot",
+                    "functionName": "newDataMiningBotModulesSingleMarketStudyBot",
+                    "fileName": "SingleMarketStudyBot.js",
+                    "folderName": "Study-Bot",
+                    "botType": "Study Bot"
+                },
+                {
+                    "name": "Study Multi Time Frame Market",
+                    "propertyName": "studyMultiTimeFrameMarket",
+                    "functionName": "newDataMiningStudyMultiTimeFrameMarket",
+                    "fileName": "MultiTimeFrameMarket.js",
+                    "folderName": "Study-Bot"
+                },
+                {
+                    "name": "Study Multi Time Frame Daily",
+                    "propertyName": "studyMultiTimeFrameDaily",
+                    "functionName": "newDataMiningStudyMultiTimeFrameDaily",
+                    "fileName": "MultiTimeFrameDaily.js",
+                    "folderName": "Study-Bot"
+                },
+                {
+                    "name": "Study Output",
+                    "propertyName": "studyOutput",
+                    "functionName": "newDataMiningBotModulesStudyOutput",
+                    "fileName": "StudyOutput.js",
+                    "folderName": "Study-Bot"
                 }
             ]
         },
@@ -2292,5 +2321,37 @@
             "functionLibraries": []
         },
         "SA": {}
+    },
+    {
+        "name": "Contributions",
+        "propertyName": "contributions",
+        "UI": {
+            "nodeActionFunctions": [],
+            "systemActionFunctions": [],
+            "functionLibraries": [],
+            "globals": [],
+            "utilities": [],
+            "spaces": [
+                {
+                    "name": "Contributions Space",
+                    "folderName": "Contributions-Space",
+                    "propertyName": "contributionsSpace",
+                    "functionName": "newContributionsContributionsSpace",
+                    "initializationIndex": 15,
+                    "animationPhysicsIndex": 15,
+                    "animationDrawIndex": 15,
+                    "onMouseWheelIndex": 0,
+                    "onMouseOverIndex": 0,
+                    "onMouseClickIndex": 0,
+                    "onMouseDownIndex": 0
+                }
+            ]
+        },
+        "SA": {
+            "utilities": []
+        },
+        "TS": {},
+        "PL": {},
+        "plugins": []
     }
 ]

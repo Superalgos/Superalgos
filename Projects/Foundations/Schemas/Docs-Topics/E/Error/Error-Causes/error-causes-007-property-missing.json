@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Этот тип ошибки означает, что свойство в конфигурации узла Node ожидается, но не было найдено там. Чтобы избежать ошибок этого типа, проверьте конфигурацию узла и добавьте недостающее свойство.",
                 "updated": 1638553317334
+            },
+            {
+                "language": "DE",
+                "text": "Diese Art von Fehler bedeutet, dass eine Eigenschaft in der Konfiguration eines Nodes erwartet, aber dort nicht gefunden wurde. Um diese Art von Fehlern zu vermeiden, überprüfen Sie die Konfiguration des Nodes und fügen Sie die fehlende Eigenschaft hinzu.",
+                "updated": 1645478433142
             }
         ]
     },

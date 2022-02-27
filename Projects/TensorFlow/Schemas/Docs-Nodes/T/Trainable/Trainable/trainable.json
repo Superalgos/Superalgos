@@ -2,13 +2,27 @@
     "type": "Trainable",
     "definition": {
         "text": "Whether the weights of this layer are updatable by training. Defaults to true.",
-        "updated": 1613243947387
+        "updated": 1613243947387,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Обновляются ли веса этого слоя в процессе обучения. По умолчанию имеет значение true.",
+                "updated": 1645252483468
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Subtitle",
             "text": "Possible Values",
-            "updated": 1613243963146
+            "updated": 1613243963146,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Возможные значения",
+                    "updated": 1645252489490
+                }
+            ]
         },
         {
             "style": "Javascript",

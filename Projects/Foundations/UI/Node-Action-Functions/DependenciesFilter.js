@@ -1,12 +1,12 @@
 function newFoundationsFunctionLibraryDependenciesFilter() {
     /* 
-    A Dependency Filter is list of Indicators a Strategy depends 
-    on, that is later used to filter out all the other indicators
+    A Dependency Filter is list of Indicators and Studies a Strategy depends 
+    on, that is later used to filter out all the other indicators and studies
     the Trading Bot depends on.
 
     The function will scan a node branch, most likely a Trading System,
     looking into the code property of each node. It will analyze it's
-    content and try to make a list of all indicators mentioned at the code 
+    content and try to make a list of all indicators and studies mentioned at the code 
     text and at which time frames they are mentioned.
 
     It is important to note that all nodes that are not of the type
@@ -18,7 +18,12 @@ function newFoundationsFunctionLibraryDependenciesFilter() {
 
     return thisObject
 
-    function createDependencyFilter(defaultExchange, defaultMarket, tradingSystem, userDefinedParameters) {
+    function createDependencyFilter(
+        defaultExchange,
+        defaultMarket,
+        startingNode,
+        userDefinedParameters
+    ) {
         let filters = {
             market: {
                 list: new Map()
@@ -31,9 +36,9 @@ function newFoundationsFunctionLibraryDependenciesFilter() {
             }
         }
 
-        if (userDefinedParameters === undefined) { userDefinedParameters = "{}"}
+        if (userDefinedParameters === undefined) { userDefinedParameters = "{}" }
         let sessionParameters = JSON.parse(userDefinedParameters)
-        recursiveFilter(tradingSystem, sessionParameters)
+        recursiveFilter(startingNode, sessionParameters)
 
         /* Transform the Map into arrays */
         filters.market.list = Array.from(filters.market.list.keys())
@@ -46,7 +51,7 @@ function newFoundationsFunctionLibraryDependenciesFilter() {
         return filters
 
         function recursiveFilter(node, sessionParameters) {
-            if (node.type === 'Javascript Code' || node.type === 'Formula' || node.type === 'Feature Formula' || node.type === 'Data Formula') {
+            if (node.type === 'Procedure Javascript Code' || node.type === 'Javascript Code' || node.type === 'Formula' || node.type === 'Feature Formula' || node.type === 'Data Formula') {
                 filter(node.code, sessionParameters)
             }
 
@@ -101,9 +106,9 @@ function newFoundationsFunctionLibraryDependenciesFilter() {
             code = code.replaceAll('>', '')
             code = code.replaceAll('=', '')
             code = code.replaceAll('\n', ' ')
-                /*
-                We will analyze each instruction of the code.
-                */
+            /*
+            We will analyze each instruction of the code.
+            */
 
             let instructionsArray = code.split(' ')
             let userVariableCount = (code.match(/\[sessionParameters.userDefinedParameters.config./g) || []).length
@@ -138,18 +143,19 @@ function newFoundationsFunctionLibraryDependenciesFilter() {
             }
             for (let i = 0; i < instructionsArray.length; i++) {
                 let instruction = instructionsArray[i]
-                    /*
-                    The first kind of instruction we will handle are the ones
-                    related to the chart structure. For that we need the 
-                    instruction to start with the keyword 'chart'.
-                    */
+                /*
+                The first kind of instruction we will handle are the ones
+                related to the chart structure. For that we need the 
+                instruction to start with the keyword 'chart'.
+                */
                 if (instruction.indexOf('chart') === 0) { // Example: chart.at01hs.popularSMA.sma200 - chart.at01hs.popularSMA.sma100  < 10
                     let parts = instruction.split('.')
                     let timeFrame = parts[1]
                     let product = parts[2]
-                        /*
-                        From the instruction syntax we will get the timeFrame
-                        */
+                    if (timeFrame === undefined || product === undefined) { continue }
+                    /*
+                    From the instruction syntax we will get the timeFrame
+                    */
                     if (timeFrame !== 'atAnyTimeFrame') {
                         timeFrame = timeFrame.substring(2, 4) + '-' + timeFrame.substring(4, 7)
                     }
@@ -171,9 +177,10 @@ function newFoundationsFunctionLibraryDependenciesFilter() {
                     let quotedAsset = parts[2]
                     let timeFrame = parts[4]
                     let product = parts[5]
-                        /*
-                        From the instruction syntax we will get the timeFrame
-                        */
+                    if (baseAsset === undefined || quotedAsset === undefined || timeFrame === undefined || product === undefined) { continue }
+                    /*
+                    From the instruction syntax we will get the timeFrame
+                    */
                     if (timeFrame !== 'atAnyTimeFrame') {
                         timeFrame = timeFrame.substring(2, 4) + '-' + timeFrame.substring(4, 7)
                     }
@@ -187,7 +194,7 @@ function newFoundationsFunctionLibraryDependenciesFilter() {
                 /*
                 The third kind of instruction we will handle are the ones
                 related to the exchange data structure. For that we need
-                the instruction to start with the keyword 'market'
+                the instruction to start with the keyword 'exchange'
                 */
                 if (instruction.indexOf('exchange') === 0) { // Example: exchange.binance.market.BTC.USDT.chart.at01hs.popularSMA.sma200 - exchange.poloniex.market.ETC.USDT.chart.at01hs.popularSMA.sma100  < 10
                     let parts = instruction.split('.')
@@ -196,9 +203,10 @@ function newFoundationsFunctionLibraryDependenciesFilter() {
                     let quotedAsset = parts[4]
                     let timeFrame = parts[6]
                     let product = parts[7]
-                        /*
-                        From the instruction syntax we will get the timeFrame
-                        */
+                    if (exchange === undefined || baseAsset === undefined || quotedAsset === undefined || timeFrame === undefined || product === undefined) { continue }
+                    /*
+                    From the instruction syntax we will get the timeFrame
+                    */
                     if (timeFrame !== 'atAnyTimeFrame') {
                         timeFrame = timeFrame.substring(2, 4) + '-' + timeFrame.substring(4, 7)
                     }

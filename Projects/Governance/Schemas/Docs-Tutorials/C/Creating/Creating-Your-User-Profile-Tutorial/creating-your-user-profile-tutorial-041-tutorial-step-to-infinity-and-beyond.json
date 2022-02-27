@@ -25,6 +25,11 @@
                 "language": "DE",
                 "text": "Los geht's! Wir werden den Befehl <i>app.contribute</i> verwenden, um Ihr Profil einzureichen.",
                 "updated": 1640082340841
+            },
+            {
+                "language": "TR",
+                "text": "Hadi başlayalım! Profilinizi göndermek için app.contribute komutunu kullanacağız.",
+                "updated": 1645104660981
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "DE",
                     "text": "Kopieren Sie den Befehl und ersetzen Sie den Platzhalter durch Ihren Github-Benutzernamen, fügen Sie ihn in das Suchfeld ein und klicken Sie auf Enter.",
                     "updated": 1640082358682
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki komutu kopyalayın, arama kutusuna yapıştırın ve \"add your name\" kısmını  Github kullanıcı adınızla değiştirerek Enter'a tıklayın.",
+                    "updated": 1645104765848
                 }
             ]
         },
@@ -89,6 +99,11 @@
                     "language": "DE",
                     "text": "Wenn alles korrekt eingerichtet ist, sollten Sie eine Nachricht sehen, die besagt, dass Ihr Pull Request eingereicht wurde. Dies bedeutet, dass Ihr Profil an das Haupt-Repository von Superalgos gesendet wurde und innerhalb weniger Stunden automatisch zusammengeführt wird!",
                     "updated": 1640082370088
+                },
+                {
+                    "language": "TR",
+                    "text": "Her şey doğru ayarlanmışsa, Pull Request'inizin gönderildiğini belirten bir mesaj görmelisiniz. Bu, profilinizin ana Superalgos deposuna gönderildiği ve birkaç saat içinde otomatik olarak birleştirileceği anlamına gelir!",
+                    "updated": 1645105046961
                 }
             ]
         },

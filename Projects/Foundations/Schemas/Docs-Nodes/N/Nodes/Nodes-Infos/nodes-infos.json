@@ -1,3 +1,26 @@
 {
-    "type": "Nodes Infos"
+    "type": "Nodes Infos",
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER для написания новых абзацев. ESC для выхода из режима редактирования. Затем вы можете использовать docs.save для сохранения изменений и app.contribute для отправки их в основной репозиторий.",
+                    "updated": 1645169176084
+                }
+            ]
+        }
+    ],
+    "definition": {
+        "text": "Right click and select the pencil button to edit this tex. Replace it with a definition / summary. Hit ESC to exit edit mode.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы отредактировать этот текст. Замените его на определение / резюме. Нажмите ESC, чтобы выйти из режима редактирования.",
+                "updated": 1645169170996
+            }
+        ]
+    }
 }

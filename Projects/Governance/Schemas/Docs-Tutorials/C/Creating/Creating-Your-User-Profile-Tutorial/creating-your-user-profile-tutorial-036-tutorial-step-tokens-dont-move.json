@@ -24,6 +24,11 @@
                 "language": "DE",
                 "text": "Wenn wir über Token Power Flows sprechen, ist es wichtig klarzustellen, dass Token nirgendwo hingehen! Es ist Token Power, die fließt!",
                 "updated": 1640081480599
+            },
+            {
+                "language": "TR",
+                "text": "Token Power Flows'dan bahsederken, jetonlarınızın hiçbir yere gitmediğini söyleyelim. Giden sadece Token Gücünüzdür!",
+                "updated": 1645101621540
             }
         ]
     },
@@ -47,6 +52,11 @@
                     "language": "DE",
                     "text": "Token in Ihrer Governance-Adresse verlassen niemals Ihre Adresse! Es gibt keine Kosten für die Teilnahme an der Governance! Das Guthaben in Ihrer Adresse verleiht Ihrem Benutzerprofil Token Power, und es ist diese Abstraktion, die in der Hierarchie nach unten fließt, nicht die tatsächlichen Token.",
                     "updated": 1640081494857
+                },
+                {
+                    "language": "TR",
+                    "text": "Yönetim Adresinizdeki jetonlar adresinizden asla kaybolmaz! Yönetime katılmanın sıfır maliyeti vardır! Adresinizdeki bakiye, Kullanıcı Profilinize Token Gücü verir ve hiyerarşide aşağı doğru akan gerçek Tokenler değil, bu tokenlerden gelen gücünüzdür.",
+                    "updated": 1645101689739
                 }
             ]
         },
@@ -69,6 +79,11 @@
                     "language": "DE",
                     "text": "Erinnern Sie mich daran, Ihnen zu zeigen, wie Sie mit Token Power Flows spielen können, bevor wir das Tutorial abschließen! Aber lassen Sie uns zu den Community Building Programs zurückkehren, bevor wir uns verirren!",
                     "updated": 1640081505208
+                },
+                {
+                    "language": "TR",
+                    "text": "Öğreticiyi tamamlamadan önce Token Power Flows ile nasıl oynanacağını göstermemi bana hatırlat! Ama yolumuzu kaybetmeden önce Topluluk Oluşturma Programlarına (Community Building Programs) geri dönelim!",
+                    "updated": 1645101763408
                 }
             ]
         }

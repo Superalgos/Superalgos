@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Определение процесса - это компиляция конфигураций, зависимостей и ссылок, составляющих процесс.",
                 "updated": 1639658401131
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Süreç tanımı, bir süreci oluşturan konfigürasyonların, bağımlılıkların ve referansların derlenmesidir.",
+                "updated": 1645971055752
             }
         ]
     },
@@ -60,7 +65,14 @@
         {
             "style": "Subtitle",
             "text": "Output Dataset Folder",
-            "updated": 1611408893086
+            "updated": 1611408893086,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Çıkış Veri Seti Klasörü",
+                    "updated": 1645971100347
+                }
+            ]
         },
         {
             "style": "Include",
@@ -75,7 +87,14 @@
         {
             "style": "Subtitle",
             "text": "Output Dataset",
-            "updated": 1611408932688
+            "updated": 1611408932688,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Çıkış Veri Seti",
+                    "updated": 1645971123062
+                }
+            ]
         },
         {
             "style": "Include",
@@ -90,7 +109,14 @@
         {
             "style": "Title",
             "text": "Process Dependencies",
-            "updated": 1611409011999
+            "updated": 1611409011999,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Süreç Bağımlılıkları",
+                    "updated": 1645971142885
+                }
+            ]
         },
         {
             "style": "Include",
@@ -121,6 +147,11 @@
                     "language": "DE",
                     "text": "Status Abhängigkeit:",
                     "updated": 1635250380628
+                },
+                {
+                    "language": "TR",
+                    "text": "Durum Bağımlılığı",
+                    "updated": 1645971159080
                 }
             ]
         },
@@ -137,7 +168,14 @@
         {
             "style": "Subtitle",
             "text": "Data Dependency",
-            "updated": 1611409226728
+            "updated": 1611409226728,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Veri Bağımlılığı",
+                    "updated": 1645971177962
+                }
+            ]
         },
         {
             "style": "Include",
@@ -152,7 +190,14 @@
         {
             "style": "Subtitle",
             "text": "Data Mine Data Dependencies",
-            "updated": 1611409321781
+            "updated": 1611409321781,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Veri Madeni Veri Bağımlılıkları",
+                    "updated": 1645971199977
+                }
+            ]
         },
         {
             "style": "Include",
@@ -173,6 +218,11 @@
                     "language": "DE",
                     "text": "Bot-Daten-Abhängigkeiten",
                     "updated": 1635250399600
+                },
+                {
+                    "language": "TR",
+                    "text": "Bot Veri Bağımlılıkları",
+                    "updated": 1645971215332
                 }
             ]
         },
@@ -195,6 +245,11 @@
                     "language": "DE",
                     "text": "Daten Abhängigkeits (Dependency) Folder",
                     "updated": 1635250428583
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri Bağımlılığı Klasörü",
+                    "updated": 1645971230301
                 }
             ]
         },
@@ -217,6 +272,11 @@
                     "language": "DE",
                     "text": "Statusbericht",
                     "updated": 1635250449950
+                },
+                {
+                    "language": "TR",
+                    "text": "Durum Raporu",
+                    "updated": 1645971244366
                 }
             ]
         },
@@ -237,7 +297,14 @@
         {
             "style": "Title",
             "text": "Execution Started Event",
-            "updated": 1611409586862
+            "updated": 1611409586862,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yürütme Başladı Etkinliği",
+                    "updated": 1645971282776
+                }
+            ]
         },
         {
             "style": "Include",
@@ -252,7 +319,14 @@
         {
             "style": "Title",
             "text": "Execution Finished Event",
-            "updated": 1611409630398
+            "updated": 1611409630398,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yürütme Bitiş Etkinliği",
+                    "updated": 1645971318580
+                }
+            ]
         },
         {
             "style": "Include",

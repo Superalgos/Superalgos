@@ -4,12 +4,18 @@ function newContributionsContributionsPage() {
         githubUsername: undefined,
         githubToken: undefined,
         commandStatus: '',
-        reset:reset,
+
         initialize: initialize,
         finalize: finalize,
+        reset:reset,
+        setCommandStatus: setCommandStatus,
         getStatus: getStatus,
+        getCreds: getCreds,
         discardChange: discardChange,
-        getCreds: getCreds
+        update: update,
+        resetRepo: resetRepo,
+        contributeAll: contributeAll,
+        contributeSingleRepo: contributeSingleRepo
     }
 
     // add needed variables here let monacoInitialized = false

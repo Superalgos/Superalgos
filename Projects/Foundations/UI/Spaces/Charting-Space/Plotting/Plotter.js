@@ -55,6 +55,8 @@ function newPlotter() {
     let onDisplaceEventSubscriptionId
     let scaleChangedEventSubscriptionId
 
+    let imageNameMap = new Map()
+
     let logged = false
     return thisObject
 
@@ -87,6 +89,7 @@ function newPlotter() {
             mustRecalculateDataPoints = undefined
             atMousePositionFillStyles = undefined
             atMousePositionStrokeStyles = undefined
+            imageNameMap = undefined
         } catch (err) {
             if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack.stack) }
         }
@@ -495,8 +498,8 @@ function newPlotter() {
             thisObject.container.eventHandler.raiseEvent('Current Record Changed', undefined)
 
             for (let i = 0; i < records.length; i++) {
-                let record = records[i] 
-                
+                let record = records[i]
+
                 if (checkOutOfScreen(i, record) !== true) { continue }
 
                 let atMousePosition = false
@@ -802,6 +805,13 @@ function newPlotter() {
                         let offsetY = 0
                         let imagePosition = { x: 0, y: 0 }
                         if (image.config.codeName !== undefined) { imageName = image.config.codeName }
+                        if (image.imageFormula !== undefined) {
+                            imageName = imageNameMap.get(image.imageFormula.code)
+                            if (imageName === undefined) {
+                                imageName = eval(image.imageFormula.code)
+                                imageNameMap.set(image.imageFormula.code, imageName)
+                            }
+                        }
                         if (image.config.size !== undefined) { imageSize = image.config.size }
                         if (image.imagePosition.config.offsetX !== undefined) { offsetX = image.imagePosition.config.offsetX }
                         if (image.imagePosition.config.offsetY !== undefined) { offsetY = image.imagePosition.config.offsetY }

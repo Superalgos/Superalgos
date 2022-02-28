@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Все наборы данных Dataset любого типа, созданные ботами в системе Superalgos, считаются продуктами данных бота, который их создал. Почему именно продукты? Потому что пользователи смогут продавать эти наборы данных в форме подписок после внедрения сети Superalgos Network.",
                 "updated": 1639580535218
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Superalgos sistemi içinde botlar tarafından oluşturulan herhangi bir türdeki tüm Veri Kümeleri, onları üreten Bot'un veri ürünleri olarak kabul edilir. Neden ürünler? Çünkü kullanıcılar Superalgos Network'ün hayata geçmesiyle birlikte bu veri setlerini abonelik şeklinde satabilecekler.",
+                "updated": 1645963738338
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "RU",
                     "text": "В будущем пользователи смогут предлагать продукты остальным пользователям в сети Superalgos Network / Superalgos Marketplace. Один бот может производить столько продуктов, сколько пожелает разработчик бота. Каждый продукт может содержать один или несколько наборов данных.",
                     "updated": 1639580575824
+                },
+                {
+                    "language": "TR",
+                    "text": "Gelecekte, kullanıcılar Superalgos Network / Superalgos Marketplace içindeki diğer kullanıcılara ürünler sunabilecekler. Tek bir bot, bot tasarımcısının istediği kadar ürün üretebilir. Her ürün bir veya daha fazla veri kümesi içerebilir.",
+                    "updated": 1645963801144
                 }
             ]
         }

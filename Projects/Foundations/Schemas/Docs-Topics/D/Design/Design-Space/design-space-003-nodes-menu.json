@@ -15,6 +15,11 @@
                 "language": "EL",
                 "text": "Κάθε κόμβος έχει ένα μενού που περιλαμβάνει πολλά χαρακτηριστικά διάταξης, σχέσης και παραγωγικότητας.",
                 "updated": 1639395489303
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Her düğümün çeşitli düzenleme, ilişki ve üretkenlik özelliklerini içeren bir menüsü vardır.",
+                "updated": 1645976201400
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "EL",
                     "text": "Περνώντας τον δείκτη του ποντικιού πάνω από κόμβους ανοίγει το αναδυόμενο μενού. Σε αυτήν την περίπτωση, ο κόμβος είναι στο επίκεντρο.",
                     "updated": 1639395621261
+                },
+                {
+                    "language": "TR",
+                    "text": "Fare işaretçisini düğümlerin üzerine getirmek bir menünün açılmasına neden olur. Bu durumda, düğüm odaklanmıştır.",
+                    "updated": 1645976228569
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "EL",
                     "text": "Χαρακτηριστικά Διάταξης",
                     "updated": 1639395645961
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme Özellikleri",
+                    "updated": 1645976238087
                 }
             ]
         },
@@ -66,6 +81,11 @@
                     "language": "EL",
                     "text": "Ο χώρος σχεδιασμού λειτουργεί υπό το παράδειγμα ενός αυτο-οργανωμένου χώρου εργασίας στον οποίο οι κόμβοι τείνουν να βρίσκουν τη θέση τους καθοδηγούμενοι από ορισμένες ιδιότητες διάταξης που μπορείτε να ελέγξετε από το μενού του κόμβου.",
                     "updated": 1639395945691
+                },
+                {
+                    "language": "TR",
+                    "text": "Tasarım alanı, düğümlerin, düğüm menüsünden kontrol edebileceğiniz belirli düzenleme özellikleri tarafından yönlendirilen yerlerini bulma eğiliminde olduğu, kendi kendini organize eden bir çalışma alanı paradigması altında işlev görür.",
+                    "updated": 1645976258907
                 }
             ]
         },
@@ -83,6 +103,11 @@
                     "language": "EL",
                     "text": "Επίπεδο Ελευθερίας",
                     "updated": 1639395962460
+                },
+                {
+                    "language": "TR",
+                    "text": "Serbestlik Seviyesi",
+                    "updated": 1645976273674
                 }
             ]
         },
@@ -120,6 +145,11 @@
                     "language": "EL",
                     "text": "Ορατότητα",
                     "updated": 1639396077496
+                },
+                {
+                    "language": "TR",
+                    "text": "Görünürlük",
+                    "updated": 1645976302494
                 }
             ]
         },
@@ -147,6 +177,11 @@
                     "language": "EL",
                     "text": "Γωνία Από Το Γονικό Κόμβο",
                     "updated": 1639396140227
+                },
+                {
+                    "language": "TR",
+                    "text": "Ana Düğüm Açısı",
+                    "updated": 1645976353570
                 }
             ]
         },
@@ -189,6 +224,11 @@
                     "language": "EL",
                     "text": "Απόσταση Από Τον Γονικό Κόμβο",
                     "updated": 1639396116864
+                },
+                {
+                    "language": "TR",
+                    "text": "Ana Düğüme Uzaklık",
+                    "updated": 1645976377550
                 }
             ]
         },
@@ -241,6 +281,11 @@
                     "language": "EL",
                     "text": "Στυλ Διάταξης",
                     "updated": 1639396163794
+                },
+                {
+                    "language": "TR",
+                    "text": "Aranjman Stili",
+                    "updated": 1645976404672
                 }
             ]
         },
@@ -258,6 +303,11 @@
                     "language": "EL",
                     "text": "Οι ακόλουθες επιλογές επηρεάζουν τον τρόπο με τον οποίο ένας κόμβος είναι διατεταγμένος γύρω ή σε σχέση με τον γονέα του.",
                     "updated": 1639396183660
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki seçenekler, bir düğümün üst öğesi etrafında veya ona göre nasıl düzenlendiğini etkiler.",
+                    "updated": 1645976418997
                 }
             ]
         },
@@ -275,6 +325,11 @@
                     "language": "EL",
                     "text": "Η τρέχουσα εφαρμογή αυτής της δυνατότητας δεν είναι η βέλτιστη και η συμπεριφορά ορισμένων από αυτές τις επιλογές είναι δύσκολο να προβλεφθεί. Εάν είστε προγραμματιστής, αυτή μπορεί να είναι μια καλή ευκαιρία να επαναλάβετε τον υπάρχοντα κώδικα και να μεταφέρετε αυτήν τη δυνατότητα σε μια πιο χρήσιμη κατάσταση.",
                     "updated": 1639396221213
+                },
+                {
+                    "language": "TR",
+                    "text": "Önemli: Bu özelliğin mevcut uygulaması optimal değildir ve bu seçeneklerden bazılarının davranışını tahmin etmek zordur. Bir geliştiriciyseniz, bu, mevcut kodu yinelemek ve bu özelliği daha kullanılabilir bir duruma getirmek için iyi bir fırsat olabilir.",
+                    "updated": 1645976426667
                 }
             ]
         },
@@ -322,6 +377,11 @@
                     "language": "EL",
                     "text": "Σχέσεις και Αναφορές",
                     "updated": 1639396268992
+                },
+                {
+                    "language": "TR",
+                    "text": "İlişkiler ve Referanslar",
+                    "updated": 1645976443988
                 }
             ]
         },
@@ -339,6 +399,11 @@
                     "language": "EL",
                     "text": "Αποσύνδεση Κόμβου",
                     "updated": 1639396287543
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğümü Ayır",
+                    "updated": 1645976476120
                 }
             ]
         },
@@ -356,6 +421,11 @@
                     "language": "RU",
                     "text": "Убрать ссылочную связь",
                     "updated": 1638352744558
+                },
+                {
+                    "language": "TR",
+                    "text": "Bağlantıyı Kaldırma Düğümü",
+                    "updated": 1645976497789
                 }
             ]
         },
@@ -377,6 +447,11 @@
                     "language": "EL",
                     "text": "Χαρακτηριστικά Παραγωγικότητας",
                     "updated": 1639396307234
+                },
+                {
+                    "language": "TR",
+                    "text": "Üretkenlik Özellikler",
+                    "updated": 1645976520265
                 }
             ]
         },
@@ -393,6 +468,11 @@
                     "language": "EL",
                     "text": "Εφεδρική Οντότητα",
                     "updated": 1639396326102
+                },
+                {
+                    "language": "TR",
+                    "text": "Varlık Yedekleme",
+                    "updated": 1645976551695
                 }
             ]
         },
@@ -415,6 +495,11 @@
                     "language": "EL",
                     "text": "Κλωνοποίηση Οντότητας",
                     "updated": 1639396362175
+                },
+                {
+                    "language": "TR",
+                    "text": "Varlık Klonlama",
+                    "updated": 1645976568956
                 }
             ]
         },
@@ -436,6 +521,11 @@
                     "language": "EL",
                     "text": "Κοινή Χρήση Οντότητας",
                     "updated": 1639396411354
+                },
+                {
+                    "language": "TR",
+                    "text": "Varlığı Paylaş",
+                    "updated": 1645976582676
                 }
             ]
         },
@@ -457,6 +547,11 @@
                     "language": "EL",
                     "text": "Διαγραφή Οντότητας",
                     "updated": 1639396429512
+                },
+                {
+                    "language": "TR",
+                    "text": "Varlığı Silme",
+                    "updated": 1645976597160
                 }
             ]
         },

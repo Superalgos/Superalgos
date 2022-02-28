@@ -148,7 +148,7 @@ function newFoundationsFunctionLibraryDependenciesFilter() {
                 related to the chart structure. For that we need the 
                 instruction to start with the keyword 'chart'.
                 */
-                if (instruction.indexOf('chart') === 0) { // Example: chart.at01hs.popularSMA.sma200 - chart.at01hs.popularSMA.sma100  < 10
+                if (instruction.indexOf('chart.') === 0) { // Example: chart.at01hs.popularSMA.sma200 - chart.at01hs.popularSMA.sma100  < 10
                     let parts = instruction.split('.')
                     let timeFrame = parts[1]
                     let product = parts[2]
@@ -170,7 +170,7 @@ function newFoundationsFunctionLibraryDependenciesFilter() {
                 related to the market data structure. For that we need
                 the instruction to start with the keyword 'market'
                 */
-                if (instruction.indexOf('market') === 0) { // Example: market.BTC.USDT.chart.at01hs.popularSMA.sma200 - market.ETC.USDT.chart.at01hs.popularSMA.sma100  < 10
+                if (instruction.indexOf('market.') === 0) { // Example: market.BTC.USDT.chart.at01hs.popularSMA.sma200 - market.ETC.USDT.chart.at01hs.popularSMA.sma100  < 10
                     let parts = instruction.split('.')
                     let baseAsset = parts[1]
                     let quotedAsset = parts[2]
@@ -217,7 +217,7 @@ function newFoundationsFunctionLibraryDependenciesFilter() {
                 related to the exchange data structure. For that we need
                 the instruction to start with the keyword 'exchange'
                 */
-                if (instruction.indexOf('exchange') === 0) { // Example: exchange.binance.market.BTC.USDT.chart.at01hs.popularSMA.sma200 - exchange.poloniex.market.ETC.USDT.chart.at01hs.popularSMA.sma100  < 10
+                if (instruction.indexOf('exchange.') === 0) { // Example: exchange.binance.market.BTC.USDT.chart.at01hs.popularSMA.sma200 - exchange.poloniex.market.ETC.USDT.chart.at01hs.popularSMA.sma100  < 10
                     let parts = instruction.split('.')
                     let exchange = parts[1]
                     let baseAsset = parts[3]
@@ -246,7 +246,7 @@ function newFoundationsFunctionLibraryDependenciesFilter() {
 
                     let allTimeFramesArray = dailyTimeFramesArray.concat(marketTimeFramesArray)
                     for (let i = 0; i < allTimeFramesArray.length; i++) {
-                        let timeFrame = "at" + allTimeFramesArray[i][1].replace("-", "")
+                        let timeFrame = allTimeFramesArray[i][1]
                         filters.exchange.timeFrames.set(exchange + '-' + baseAsset + '-' + quotedAsset + '-' + product + '-' + timeFrame, true)
                     }
                 }

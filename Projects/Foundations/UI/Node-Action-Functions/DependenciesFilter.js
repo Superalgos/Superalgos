@@ -160,7 +160,7 @@ function newFoundationsFunctionLibraryDependenciesFilter() {
                         timeFrame = timeFrame.substring(2, 4) + '-' + timeFrame.substring(4, 7)
                     }
                     filters.market.list.set(defaultMarket, true)
-                    filters.exchange.timeFrames.set(defaultExchange + '-' + defaultMarket + '-' + product + '-' + timeFrame, true)
+                    addTimeFrames(defaultExchange, baseAsset, quotedAsset, product, timeFrame)
                     filters.exchange.products.set(defaultExchange + '-' + defaultMarket + '-' + product, true)
                     filters.exchange.markets.set(defaultExchange + '-' + defaultMarket, true)
                     filters.exchange.list.set(defaultExchange, true)
@@ -183,21 +183,30 @@ function newFoundationsFunctionLibraryDependenciesFilter() {
                     if (timeFrame !== 'atAnyTimeFrame') {
                         timeFrame = timeFrame.substring(2, 4) + '-' + timeFrame.substring(4, 7)
                     }
-                    if (baseAsset === 'anyBaseAsset' && quotedAsset === 'anyQuotedAsset') {
+                    if (baseAsset === 'anyBaseAsset' || quotedAsset === 'anyQuotedAsset') {
                         let cryptoEcosystem = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Crypto Ecosystem')
                         let markets = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(cryptoEcosystem, 'Market')
-                        for (let i = 0; i < markets[i]; i++) {
+                        for (let i = 0; i < markets.length; i++) {
                             let market = markets[i] 
-                            baseAsset = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(market.baseAsset.payload.referenceParent, 'codeName')  
-                            quotedAsset = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(market.quotedAsset.payload.referenceParent, 'codeName')  
-                            addMarket(baseAsset, quotedAsset)
+                            let marketBaseAsset = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(market.baseAsset.payload.referenceParent.payload, 'codeName')  
+                            let marketQuotedAsset = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(market.quotedAsset.payload.referenceParent.payload, 'codeName')  
+
+                            if (baseAsset !== 'anyBaseAsset' && baseAsset !== marketBaseAsset) {
+                                continue
+                            }
+
+                            if (quotedAsset !== 'anyQuotedAsset' && quotedAsset !== marketQuotedAsset) {
+                                continue
+                            }
+
+                            addMarket(marketBaseAsset, marketQuotedAsset)
                         }
                     } else {
                         addMarket(baseAsset, quotedAsset)
                     }
                     function addMarket(baseAsset, quotedAsset) {
                         filters.market.list.set(baseAsset + '-' + quotedAsset, true)
-                        filters.exchange.timeFrames.set(defaultExchange + '-' + baseAsset + '-' + quotedAsset + '-' + product + '-' + timeFrame, true)
+                        addTimeFrames(defaultExchange, baseAsset, quotedAsset, product, timeFrame)
                         filters.exchange.products.set(defaultExchange + '-' + baseAsset + '-' + quotedAsset + '-' + product, true)
                         filters.exchange.markets.set(defaultExchange + '-' + baseAsset + '-' + quotedAsset, true)
                         filters.exchange.list.set(defaultExchange, true)
@@ -223,10 +232,23 @@ function newFoundationsFunctionLibraryDependenciesFilter() {
                         timeFrame = timeFrame.substring(2, 4) + '-' + timeFrame.substring(4, 7)
                     }
                     filters.market.list.set(baseAsset + '-' + quotedAsset, true)
-                    filters.exchange.timeFrames.set(exchange + '-' + baseAsset + '-' + quotedAsset + '-' + product + '-' + timeFrame, true)
+                    addTimeFrames(exchange, baseAsset, quotedAsset, product, timeFrame)
                     filters.exchange.products.set(exchange + '-' + baseAsset + '-' + quotedAsset + '-' + product, true)
                     filters.exchange.markets.set(exchange + '-' + baseAsset + '-' + quotedAsset, true)
                     filters.exchange.list.set(exchange, true)
+                }
+
+                function addTimeFrames(exchange, baseAsset, quotedAsset, product, timeFrame) {
+                    if (timeFrame !== 'atAnyTimeFrame') {
+                        filters.exchange.timeFrames.set(exchange + '-' + baseAsset + '-' + quotedAsset + '-' + product + '-' + timeFrame, true)
+                        return
+                    }
+
+                    let allTimeFramesArray = dailyTimeFramesArray.concat(marketTimeFramesArray)
+                    for (let i = 0; i < allTimeFramesArray.length; i++) {
+                        let timeFrame = "at" + allTimeFramesArray[i][1].replace("-", "")
+                        filters.exchange.timeFrames.set(exchange + '-' + baseAsset + '-' + quotedAsset + '-' + product + '-' + timeFrame, true)
+                    }
                 }
             }
         }

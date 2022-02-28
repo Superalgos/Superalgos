@@ -21,6 +21,11 @@
                 "language": "DE",
                 "text": "Die Leitung (Governance) des Superalgos Projekts ist auf alle Mitglieder der Gemeinschaft verteilt, die sich beteiligen möchten. Sie können sich auf vielfältige Weise engagieren, die Entwicklung in die gewünschten Richtungen vorantreiben und dazu beitragen, eine gesunde Gemeinschaft zu fördern.",
                 "updated": 1640090118430
+            },
+            {
+                "language": "TR",
+                "text": "Topluluğun katılmaya istekli tüm üyeleri Superalgos Projesi'nin yönetimine katılabilir.. Farklı davranışlar sergileyebilir, gelişmeyi istenen yönlere yönlendirmeye yardımcı olabilir ve sağlıklı bir topluluk oluşturmaya katkıda bulunabilirsiniz.",
+                "updated": 1645179786810
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "DE",
                     "text": "Um an der Governance teilzunehmen, nutzen die Community Mitglieder ihren Besitz an Superalgos SA-Token und üben ihren Einfluss proportional zu ihrer Token Power und ihrem Ansehen aus. Der kombinierte Einfluss aller Token Inhaber, die an der Governance teilnehmen, bestimmt u.a.:",
                     "updated": 1640090236733
+                },
+                {
+                    "language": "TR",
+                    "text": "Yönetime katılmak için topluluk üyeleri, Token Güçleri (token Power) ve İtibarlarıyla (Reputation) orantılı etki uygulayarak Superalgos SA Token varlıklarını kullanır. Yönetime katılan tüm token sahiplerinin birleşik etkisi, diğer şeylerin yanı sıra şunları belirler:",
+                    "updated": 1645179849592
                 }
             ]
         },
@@ -67,6 +77,11 @@
                     "language": "DE",
                     "text": "Welche Positionen, Features, Assets (Vermögenswerte) oder Projektentwicklungsaktivitäten im Allgemeinen gefördert werden und wie.",
                     "updated": 1640090276629
+                },
+                {
+                    "language": "TR",
+                    "text": "Genel olarak hangi Pozisyonlar (Positions), Özellikler, (Features) Varlıklar (Assets) veya proje geliştirme faaliyetleri teşvik edilmeli? Ayrıca nasıl teşvik edileceğine de yine topluluk belirler.",
+                    "updated": 1645179984732
                 }
             ]
         },
@@ -89,6 +104,11 @@
                     "language": "DE",
                     "text": "Welche contributors (Mitwirkenden) für welche Beiträge (Contributions) entschädigt werden.",
                     "updated": 1640090324111
+                },
+                {
+                    "language": "TR",
+                    "text": "Katkıda bulunanların hangileri ve ödüllendirilir?",
+                    "updated": 1645180023053
                 }
             ]
         },
@@ -111,6 +131,11 @@
                     "language": "DE",
                     "text": "Welche Programme werden finanziert (funded) und wie.",
                     "updated": 1640090348770
+                },
+                {
+                    "language": "TR",
+                    "text": "Hangi programların nasıl ödüllendirleceği..",
+                    "updated": 1645180212675
                 }
             ]
         },
@@ -133,6 +158,11 @@
                     "language": "DE",
                     "text": "Sie können Ihren Einfluss dynamisch ausüben, da Sie Ihre Token Power jederzeit umleiten können. Die Verteilung von Token Power bei jeder Veröffentlichung der Software — verbunden mit dem entsprechenden Superalgos SA Token Distribution Event — bestimmt, wie die für die Freigabe zugewiesenen Token verteilt werden.",
                     "updated": 1640090459852
+                },
+                {
+                    "language": "TR",
+                    "text": "Token Gücünüzü (Token Power) istediğiniz herhangi bir anda yeniden yönlendirebileceğiniz için etkinizi dinamik olarak kullanabilirsiniz. Yazılımın her sürümünde Token Gücünün dağıtımı - ilgili Superalgos SA Token Dağıtım Olayına bağlı olarak (Superalgos SA Token Distribution Event) - sürüme tahsis edilen jetonların nasıl dağıtılacağını belirler.",
+                    "updated": 1645180682060
                 }
             ]
         },
@@ -155,6 +185,11 @@
                     "language": "DE",
                     "text": "Das Governance Projekt ist als flexibles System konzipiert, das es der Gemeinschaft (Community) ermöglicht, ihren Einfluss dynamisch in beliebige Richtungen zu lenken. So kann sich die Governance mit dem Projekt weiterentwickeln. Es fördert auch die zulassungsfreie Innovation, da die Mitwirkenden neue Entwicklungsbereiche vorschlagen und die Gemeinschaft um Anreize für eine Expansion in neue Richtungen bitten können.",
                     "updated": 1640090626226
+                },
+                {
+                    "language": "TR",
+                    "text": "Yönetişim Projesi (Governance Project) , katkı sağlayanların topluluğu kendi istedikleri yönde dinamik olarak yönlendirmesine izin veren esnek bir sistem olarak tasarlanmıştır. Yönetişimin, projeyle birlikte gelişmesine izin verir. Ayrıca, Katkıda Bulunanlar yeni gelişim alanları önerebileceği ve Topluluğu yeni özellikler için teşvik ederek harekete geçirebileceği için inovasyonu da teşvik eder.",
+                    "updated": 1645180801209
                 }
             ]
         },
@@ -177,6 +212,11 @@
                     "language": "DE",
                     "text": "Eine Gemeinschaft, die sich an der Governance beteiligt, ist entscheidend für die Entwicklung des Projekts, daher wird die Teilnahme gefördert. Mit anderen Worten, Sie werden Superalgos SA Token verdienen, wenn Sie an der Governance von Superalgos teilnehmen.",
                     "updated": 1640090694058
+                },
+                {
+                    "language": "TR",
+                    "text": "Yönetişim ile ilgilenen bir Topluluk, projenin gelişimi için çok önemlidir, bu nedenle katılım teşvik edilir. Başka bir deyişle, Superalgos'un yönetiminde yer alırsanız Superalgos SA Jetonları kazanırsınız",
+                    "updated": 1645180847564
                 }
             ]
         },
@@ -193,6 +233,11 @@
                     "language": "DE",
                     "text": "Governance Infrastruktur",
                     "updated": 1640090713411
+                },
+                {
+                    "language": "TR",
+                    "text": "Yönetim Altyapısı",
+                    "updated": 1645180858117
                 }
             ]
         },
@@ -215,6 +260,11 @@
                     "language": "DE",
                     "text": "Das Governance System wird innerhalb von Superalgos als Governance Projekt implementiert, wobei dieselben visuellen Skripting Ressourcen, hierarchischen Datenstrukturen und Konzepte wie References (Referenzen) verwendet werden, die das Ihnen bekannte Superalgos Paradigma ausmachen.",
                     "updated": 1640090785950
+                },
+                {
+                    "language": "TR",
+                    "text": "Yönetişim sistemi, Superalgos içinde Yönetişim Projesi olarak uygulanır ve aynı görsel komut dosyası oluşturma kaynakları, hiyerarşik veri yapıları ve aşina olduğunuz Superalgos paradigmasını oluşturan Referanslar (References) gibi kavramlardan yararlanılır.",
+                    "updated": 1645180911539
                 }
             ]
         },
@@ -237,6 +287,11 @@
                     "language": "DE",
                     "text": "Daher erfordert Governance nicht die Verwendung von ismart contracts zur Durchsetzung unveränderlicher Regeln. Im Gegenteil: In Superalgos ist Governance ein sich ständig weiterentwickelnder Begriff, ganz ähnlich wie der Rest des Projekts.",
                     "updated": 1640090834545
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu nedenle yönetişim, değişmez kuralları uygulamak için akıllı sözleşmelerin kullanılmasını gerektirmez. Aksine, Superalgos'ta yönetişim, neredeyse projenin geri kalanı gibi, sürekli gelişen bir kavramdır.",
+                    "updated": 1645180942115
                 }
             ]
         },
@@ -253,13 +308,18 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Эта гибкость является важной особенностью, которая позволит нам развивать систему управления, адаптировать лежащую в ее основе теорию игр и исправлять любые эксплойты, которые со временем могут обнаружить злоумышленники.",
+                    "text": "Эта гибкость является важной особенностью, которая позволит нам развивать систему управления, адаптировать лежащую в ее основе теори�� игр и исправлять любые эксплойты, которые со временем могут обнаружить злоумышленники.",
                     "updated": 1638976297717
                 },
                 {
                     "language": "DE",
                     "text": "Diese Flexibilität ist ein entscheidendes Merkmal, das es uns ermöglicht, das Governance System weiterzuentwickeln, die ihm zugrunde liegende Spieltheorie anzupassen und etwaige Schwachstellen zu korrigieren, die böswillige Akteure im Laufe der Zeit finden könnten.",
                     "updated": 1640090893997
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu esneklik, yönetişim sistemini geliştirmemize, arkasındaki oyun teorisini uyarlamamıza ve kötü aktörlerin zaman içinde bulabileceği herhangi bir istismarı düzeltmemize izin verecek çok önemli bir özelliktir.",
+                    "updated": 1645180981608
                 }
             ]
         },
@@ -283,6 +343,11 @@
                     "language": "DE",
                     "text": "Governance wird über mehrere Governance Workspaces definiert, welche die Benutzer laden und mitgestalten können. Diese Workspaces enthalten die Definitionen mehrerer Hierarchien, die die Beziehung zwischen allen Konzepten, die die Governance betreffen, festlegen.",
                     "updated": 1640090976041
+                },
+                {
+                    "language": "TR",
+                    "text": "Yönetim, kullanıcıların yükleyebileceği ve katkıda bulunabileceği birden çok Yönetim Çalışma Alanında tanımlanır. Bu çalışma alanları, yönetişimi etkileyen tüm kavramların ilişkisini belirleyen çeşitli hiyerarşilerin tanımlarını içerir.",
+                    "updated": 1645181079634
                 }
             ]
         },
@@ -306,6 +371,11 @@
                     "language": "DE",
                     "text": "Um an der Governance teilzunehmen, müssen die Nutzer ein Nutzerprofil Plugin (User Profile plugin) erstellen und einreichen (submit User Profile), in dem sie angeben, wie sie den Einfluss, der sich aus ihrem Besitz von Superalgos SA-Token ergibt, ausüben wollen. Der Einfluss (influence) und die Beteiligung werden durch verschiedene Arten von Programmen (programs), Abstimmungen (votes) und Forderungen (claims) definiert.",
                     "updated": 1640091176753
+                },
+                {
+                    "language": "TR",
+                    "text": "Yönetişime katılmak için, kullanıcıların Superalgos SA Token varlıkları tarafından verilen etkiyi nasıl kullanmayı düşündüklerini tanımlayan bir Kullanıcı Profili eklentisi kurması ve göndermesi gerekir. Etki ve katılım, farklı programlar, oylar ve iddialar aracılığıyla tanımlanır.",
+                    "updated": 1645181116888
                 }
             ]
         },
@@ -329,6 +399,11 @@
                     "language": "DE",
                     "text": "Das Governance System berechnet votes (Stimmen) und claims (Forderungen) in Echtzeit und zeigt auf der UI (Benutzeroberfläche) eine Vorschau auf die mögliche Verteilung an.",
                     "updated": 1640091253170
+                },
+                {
+                    "language": "TR",
+                    "text": "Yönetim Sistemi, oyları ve talepleri gerçek zamanlı olarak hesaplar ve kullanıcı arayüzünde (UI) dağıtımın nasıl görünebileceğinin bir önizlemesini gösterir.",
+                    "updated": 1645181142971
                 }
             ]
         },
@@ -354,6 +429,11 @@
                     "language": "DE",
                     "text": "Transparenz und Überprüfbarkeit",
                     "updated": 1640091322728
+                },
+                {
+                    "language": "TR",
+                    "text": "Şeffaflık ve Denetlenebilirlik",
+                    "updated": 1645181165366
                 }
             ]
         },
@@ -376,6 +456,11 @@
                     "language": "DE",
                     "text": "Da alle Definitionen, die sich auf die Governance auswirken, als Plugins mit der Software geliefert werden, ist der Prozess transparent und überprüfbar.",
                     "updated": 1640091390258
+                },
+                {
+                    "language": "TR",
+                    "text": "Yönetişimi etkileyen tüm tanımlar yazılımla birlikte eklentiler olarak geldiği için süreç şeffaf ve denetlenebilir durumdadır.",
+                    "updated": 1645181186384
                 }
             ]
         },
@@ -399,6 +484,11 @@
                     "language": "DE",
                     "text": "Jeder Nutzer kann jederzeit die entsprechenden Plugin-Workspaces laden und den Einfluss aller beteiligten Superalgos SA Token-Inhaber visualisieren.",
                     "updated": 1640091410436
+                },
+                {
+                    "language": "TR",
+                    "text": "Herhangi bir kullanıcı, herhangi bir noktada ilgili Eklenti Çalışma Alanlarını (Plugin Workspaces) yükleyebilir ve katılan tüm Superalgos SA Token sahipleri tarafından etkinin nasıl uygulandığını görselleştirebilir.",
+                    "updated": 1645181237991
                 }
             ]
         },
@@ -421,6 +511,11 @@
                     "language": "DE",
                     "text": "Jeder Benutzer kann alle vom Governance Projekt verwalteten Metriken in den auf der Registerkarte \"Governance\" angezeigten Tabellen überprüfen.",
                     "updated": 1640091440873
+                },
+                {
+                    "language": "TR",
+                    "text": "Herhangi bir kullanıcı, Yönetişim Sekmesinde görüntülenen tablolarda Yönetişim Projesi tarafından yönetilen tüm metrikleri doğrulayabilir.",
+                    "updated": 1645181268950
                 }
             ]
         },
@@ -443,6 +538,11 @@
                     "language": "DE",
                     "text": "Jeder Benutzer kann eine Simulation des Verteilungsprozesses (distribution process) der Superalgos SA Token durchführen und überprüfen, wie die Token für die nächste Version verteilt werden.",
                     "updated": 1640091509488
+                },
+                {
+                    "language": "TR",
+                    "text": "Herhangi bir kullanıcı, Superalgos SA Token dağıtım sürecinin bir simülasyonunu çalıştırabilir ve bir sonraki sürüme tahsis edilen tokenların nasıl dağıtılacağını doğrulayabilir.",
+                    "updated": 1645181355911
                 }
             ]
         },
@@ -466,6 +566,11 @@
                     "language": "DE",
                     "text": "Jeder Benutzer kann (von GitHub) historische Versionen der Software abrufen und laden und eine Simulation des Superalgos SA Token Distribution Events durchführen, um zu überprüfen, wie die Token in vergangenen Versionen verteilt wurden. Beachten Sie, dass in diesem Fall die absolute Anzahl der Stimmen möglicherweise nicht gültig ist, da die Token Bestände variiert haben; jedoch kann jeder Benutzer die relative Verteilung überprüfen.",
                     "updated": 1640091579834
+                },
+                {
+                    "language": "TR",
+                    "text": "Herhangi bir kullanıcı (GitHub'dan) yazılımın geçmiş sürümlerini edinebilir ve yükleyebilir ve jetonların geçmiş sürümlerde nasıl dağıtıldığını doğrulamak için Superalgos SA Token Distribution Event simülasyonunu çalıştırabilir. Bu durumda, tokenlar değişeceği için mutlak oy sayısının geçerli olmayabileceğine dikkat edin; ancak, herhangi bir kullanıcı göreli dağılımı doğrulayabilir.",
+                    "updated": 1645181637581
                 }
             ]
         }

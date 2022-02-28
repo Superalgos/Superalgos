@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Некоторые узлы могут приобретать значение во время выполнения. Этот тип ошибки появляется, когда ожидается, что такой узел Node будет иметь какое-то значение, но его нет. Неопределенный означает отсутствие значения любого типа.",
                 "updated": 1638553197812
+            },
+            {
+                "language": "DE",
+                "text": "Einige Nodes können zur Laufzeit einen Wert erhalten. Diese Art von Fehler tritt auf, wenn von einem solchen Node ein Wert erwartet wird, er aber keinen hat. Undefiniert bedeutet, dass es überhaupt keinen Wert irgendeines Typs gibt.",
+                "updated": 1645478383177
             }
         ]
     },

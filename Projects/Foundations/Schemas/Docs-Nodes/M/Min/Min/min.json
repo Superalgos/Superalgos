@@ -1,7 +1,14 @@
 {
     "type": "Min",
     "definition": {
-        "text": "Min is the minimum rate registered by the exchange during the period between the datetimes of the begin and end properties, as provided by the exchange."
+        "text": "Min is the minimum rate registered by the exchange during the period between the datetimes of the begin and end properties, as provided by the exchange.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Min - минимальный курс, зарегистрированный биржей в период между датами свойств begin и end, как это предусмотрено биржей.",
+                "updated": 1645168730353
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,7 +17,14 @@
         },
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text."
+            "text": "Right click and Edit to enter edit mode and change this text.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст.",
+                    "updated": 1645168738693
+                }
+            ]
         }
     ]
 }

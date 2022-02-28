@@ -2,7 +2,14 @@
     "type": "Mentorship Power",
     "definition": {
         "text": "Mentorship Power is the Token Power that goes into the Mentorship Program, and determines how strong your participation is in the program.",
-        "updated": 1624782256616
+        "updated": 1624782256616,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Сила наставничества (Mentorship Power) - это сила токена (Token Power), которая используется в программе наставничества и определяет, насколько сильным будет ваше участие в программе.",
+                "updated": 1645083031964
+            }
+        ]
     },
     "paragraphs": [
         {

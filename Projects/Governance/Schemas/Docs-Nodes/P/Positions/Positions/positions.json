@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Иерархия Positions используется для определения различных должностей или ролей, которые вкладчики могут занимать в организационной структуре проекта. Участники могут утверждать, что они работали на определенной должности или роли. Когда утверждение о вкладе в должность (Position Contribution Claim) поддерживается голосованием за утверждение о должности (Position Claim Vote), вкладчик получает токены в соответствии с относительным весом должности.",
                 "updated": 1640284122100
+            },
+            {
+                "language": "TR",
+                "text": "Pozisyonlar hiyerarşisi, Katkıda Bulunanların projenin organizasyon şemasında üstlenebileceği farklı pozisyonları veya rolleri tanımlamak için kullanılır. Katkıda bulunanlar, belirli bir pozisyonda veya rolde çalıştıklarını iddia edebilirler. Bir Pozisyon Katkı Talebi (Position Contribution Claim), Pozisyon Talebi Oyuyla ( Position Claim Vote) desteklendiğinde, Katkıda bulunan, pozisyonun göreli ağırlığına göre  token'lar alır.",
+                "updated": 1645190931614
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "RU",
                     "text": "Иерархии должностей получают Token Rewards от узлов Pool, ссылающихся на данную иерархию. Это токены, доступные для распределения между различными должностями в иерархии.",
                     "updated": 1640284186267
+                },
+                {
+                    "language": "TR",
+                    "text": "Pozisyon hiyerarşileri, söz konusu hiyerarşiyi referans alan Havuz düğümlerinden Jeton Ödüllerini alır. Bunlar, hiyerarşideki farklı pozisyonlar arasında dağıtım için konulan jetonlardır.",
+                    "updated": 1645191060048
                 }
             ]
         },
@@ -52,6 +62,11 @@
                     "language": "RU",
                     "text": "Любая должность и узел Position Class в иерархии может получать Weight Votes, чтобы определить, как распределяются Token Rewards в иерархии. Количество токенов, присуждаемых каждой должности, зависит от относительного веса должности, определяемого количеством Weight Votes, которые получает каждая должность от пользователей.",
                     "updated": 1640284269143
+                },
+                {
+                    "language": "TR",
+                    "text": "Hiyerarşi içindeki herhangi bir Pozisyon (Position) ve Pozisyon Sınıfı (Position Class) düğümü, hiyerarşideki Token Ödüllerinin nasıl dağıtıldığını belirlemek için Ağırlık Oyları (Weight Votes) alabilir. Her bir Pozisyona kaç jeton verildiği, her pozisyonun kullanıcılardan aldığı Ağırlık Oylarının (Weight Votes) sayısı ile belirlenen pozisyonun göreceli ağırlığına bağlıdır.",
+                    "updated": 1645191157625
                 }
             ]
         }

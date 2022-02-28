@@ -67,6 +67,16 @@
                     "action": "Add UI Object",
                     "disableIfPropertyIsDefined": true,
                     "propertyToCheckFor": "bot",
+                    "label": "Add Study Bot Instance",
+                    "relatedUiObject": "Study Bot Instance",
+                    "actionFunction": "payload.executeAction",
+                    "actionProject": "Visual-Scripting",
+                    "relatedUiObjectProject": "Foundations"
+                },
+                {
+                    "action": "Add UI Object",
+                    "disableIfPropertyIsDefined": true,
+                    "propertyToCheckFor": "bot",
                     "label": "Add Trading Bot Instance",
                     "relatedUiObject": "Trading Bot Instance",
                     "actionFunction": "payload.executeAction",
@@ -167,6 +177,11 @@
             "name": "bot",
             "type": "node",
             "childType": "Indicator Bot Instance"
+        },
+        {
+            "name": "bot",
+            "type": "node",
+            "childType": "Study Bot Instance"
         },
         {
             "name": "bot",

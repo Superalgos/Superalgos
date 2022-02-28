@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Status Dependency - это еще один тип отношений между ботами. Иногда боты не зависят от наборов данных Dataset, созданных другими ботами, но они напрямую зависят от состяния других ботов.",
                 "updated": 1639577373124
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Durum Bağımlılıkları, Botlar arasındaki başka bir ilişki türüdür. Bazen botlar, diğer botlar tarafından üretilen Veri Kümelerine bağlı değildir, ancak doğrudan diğer botların durumuna bağlıdır.",
+                "updated": 1645903790625
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "RU",
                     "text": "Дерево Status Dependency",
                     "updated": 1639573425555
+                },
+                {
+                    "language": "TR",
+                    "text": "Durum Bağımlılığı Ağacı",
+                    "updated": 1645903804584
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "RU",
                     "text": "Зависимости от состояния работают с использованием той же идеи дерева, что и зависимости выполнения и данных Data Dependency. Любой бот может иметь от нуля до множества зависимостей от состояний. Для каждой зависимости от состояния процесс бота во время выполнения загружает файл отчета о состоянии зависимого бота и извлекает оттуда необходимую информацию.",
                     "updated": 1639577506769
+                },
+                {
+                    "language": "TR",
+                    "text": "Durum bağımlılıkları, yürütme ve veri bağımlılıkları ile aynı ağaç fikrini kullanarak çalışır. Herhangi bir Bot, sıfırdan birçok durum bağımlılığına sahip olabilir. Her Durum Bağımlılığı ( Status Dependency ) için, Bot'un çalışma zamanındaki süreci, bağımlı Bot'un Durum Raporu dosyasını yükleyecek ve buradan ihtiyaç duyduğu bilgileri çıkaracaktır.",
+                    "updated": 1645903855500
                 }
             ]
         },
@@ -66,6 +81,11 @@
                     "language": "RU",
                     "text": "Боты, производящие необработанные данные Raw Data, обычно не зависят от состояния других ботов и обычно являются корнем дерева зависимостей от состояний.",
                     "updated": 1639577577470
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Ham Veri ( Raw Data ) üreten Botlar, genellikle başka bir Bot'un durumuna bağlı değildir ve genellikle bir durum bağımlılığı ağacının köküdür.",
+                    "updated": 1645903906741
                 }
             ]
         },
@@ -82,6 +102,11 @@
                     "language": "RU",
                     "text": "Хороший способ понять, зачем нужны эти зависимости, - это на примере:",
                     "updated": 1639577662015
+                },
+                {
+                    "language": "TR",
+                    "text": "Durum Bağımlılıklarının neden gerekli olduğunu anlamanın iyi bir yolu bir örnektir:",
+                    "updated": 1645903975267
                 }
             ]
         },
@@ -99,6 +124,11 @@
                     "language": "RU",
                     "text": "Индикаторный бот Bollinger-Bands зависит от набора данных Candles-Volumes для расчета полос Боллинджера, но он зависит от бота Exchange Raw Data Sensor Bot, чтобы знать, где начинается рынок, то есть дата первого фрагмента данных. Эта информация является частью информации о состоянии, которую бот Exchange Raw Data Sensor Bot хранит в своем отчете о состоянии Status Report.",
                     "updated": 1639576511235
+                },
+                {
+                    "language": "TR",
+                    "text": "Gösterge Botu ( Indicator Bot ) Bollinger Bantları, Bollinger Bantlarını hesaplamak için Mum-Hacimler Veri Kümesine bağlıdır, ancak ilk veri parçasının tarihi olan piyasanın nerede başladığını bilmek için Borsa Ham Veri Sensör Botuna ( Raw Data Sensor Bot ) bağlıdır. Bu bilgi, Exchange Ham Veri Sensörü Botunun Durum Raporunda tuttuğu Durum ( Status ) bilgisinin bir parçasıdır.",
+                    "updated": 1645904481833
                 }
             ]
         },
@@ -116,6 +146,11 @@
                     "language": "RU",
                     "text": "Классификация по полезности",
                     "updated": 1639576544621
+                },
+                {
+                    "language": "TR",
+                    "text": "Faydaya Göre Sınıflandırma",
+                    "updated": 1645904510560
                 }
             ]
         },
@@ -133,6 +168,11 @@
                     "language": "RU",
                     "text": "Status Dependency можно классифицировать по ее полезности. Это упрощает процессам обработку их в коде. В настоящее время существует три разных утилиты:",
                     "updated": 1639576606153
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Durum Bağımlılığı ( Status Dependency ) , yardımcı programına göre sınıflandırılabilir. Bu, işlemlerin bunları kodda işlemesini kolaylaştırır. Şu anda üç farklı yardımcı program vardır:",
+                    "updated": 1645904567628
                 }
             ]
         },
@@ -150,6 +190,11 @@
                     "language": "RU",
                     "text": "Self Reference: используется для загрузки отчета о состоянии бота, чтобы извлечь из него данные или изменить его.",
                     "updated": 1639577893344
+                },
+                {
+                    "language": "TR",
+                    "text": "Kendi Kendine Referans: Bu, bottan veri çıkarmak veya değiştirmek için bir botun Durum Raporunu ( Status Report ) yüklemek için kullanılır.",
+                    "updated": 1645904634786
                 }
             ]
         },
@@ -167,6 +212,11 @@
                     "language": "RU",
                     "text": "Market Starting Point: Начальная точка рынка: это означает, что указанный отчет о состоянии должен использоваться для извлечения информации о том, где начинается рынок.",
                     "updated": 1639577876702
+                },
+                {
+                    "language": "TR",
+                    "text": "Piyasa ( Market ) Başlangıç Noktası (Point ): Bu, referans alınan Durum Raporunun ( Status Report ), piyasanın başladığı yerin bilgisini çıkarmak için kullanılacağı anlamına gelir.",
+                    "updated": 1645904759655
                 }
             ]
         },
@@ -183,6 +233,11 @@
                     "language": "RU",
                     "text": "Market Ending Point: это означает, что упомянутый отчет о состоянии должен использоваться для извлечения информации о том, где заканчивается рынок, то есть о дате окончания рынка.",
                     "updated": 1639577911127
+                },
+                {
+                    "language": "TR",
+                    "text": "Piyasa ( Market )  Bitiş Noktası (Point ): Bu, referans alınan Durum Raporunun piyasanın nerede bittiği, yani piyasanın hangi tarihte bittiği bilgisini çıkarmak için kullanılacağı anlamına gelir.",
+                    "updated": 1645904804527
                 }
             ]
         },
@@ -200,6 +255,11 @@
                     "language": "RU",
                     "text": "Процесс бота не может обновлять Status Report, принадлежащий другим ботам!",
                     "updated": 1639577953867
+                },
+                {
+                    "language": "TR",
+                    "text": "Önemli: Bir Bot'un sürecinin, diğer Botlara ait Durum Raporunu ( Status Report ) güncellemesine izin verilmez!",
+                    "updated": 1645904833311
                 }
             ]
         },

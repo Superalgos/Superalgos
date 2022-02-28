@@ -20,6 +20,11 @@
                 "language": "DE",
                 "text": "Verwenden Sie diese Hierarchie, um das Aussehen, die Handhabung und das Verhalten des Design Space zu steuern.",
                 "updated": 1642888984904
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Tasarım Alanının ( Design Space ) görünümünü, hissini ve davranışını kontrol etmek için bu hiyerarşiyi kullanın.",
+                "updated": 1645975857879
             }
         ]
     },
@@ -53,6 +58,11 @@
                     "language": "EL",
                     "text": "Στυλ Χώρου",
                     "updated": 1639092835221
+                },
+                {
+                    "language": "TR",
+                    "text": "Uzay Stili",
+                    "updated": 1645975888350
                 }
             ]
         },
@@ -69,6 +79,11 @@
                     "language": "EL",
                     "text": "Ρυθμίσεις Χώρου",
                     "updated": 1639092905448
+                },
+                {
+                    "language": "TR",
+                    "text": "Alan Ayarları",
+                    "updated": 1645975908534
                 }
             ]
         },

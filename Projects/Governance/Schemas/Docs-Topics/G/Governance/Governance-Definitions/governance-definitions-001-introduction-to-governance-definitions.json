@@ -20,6 +20,11 @@
                 "language": "DE",
                 "text": "Damit die Contributors (Mitwirkenden) an der Governance (Verwaltung) teilnehmen können, muss das Projekt genau definiert werden, da diese Definitionen die Votes und Claims (Stimmen und Forderungen) der Contributors akzeptieren können.",
                 "updated": 1640644243649
+            },
+            {
+                "language": "TR",
+                "text": "Katkıda Bulunanların yönetime katılabilmeleri için projenin kapsamlı bir şekilde tanımlanması gerekir, çünkü bu tanımlar Katkıda bulunanların oylarını ve taleplerini kabul eder.",
+                "updated": 1645186964966
             }
         ]
     },
@@ -43,6 +48,11 @@
                     "language": "DE",
                     "text": "Das Governance-Projekt ist so konzipiert, dass das Projekt sehr detailliert beschrieben werden kann. Dies ist eines der Merkmale, die eine umfassende Zusammenarbeit (collaboration) ermöglichen, da sich so verschiedene Personen mit sehr spezifischen Bereichen des Projekts befassen können.",
                     "updated": 1640644301702
+                },
+                {
+                    "language": "TR",
+                    "text": "Yönetişim Projesi (The Governance Project), projenin son derece ayrıntılı bir şekilde tanımlanmasına izin verecek şekilde tasarlanmıştır. Bu, farklı kişilerin projenin çok özel alanlarına dahil olmasına izin verdiği için büyük bir işbirliğini mümkün kılan özelliklerden biridir.",
+                    "updated": 1645187003866
                 }
             ]
         },
@@ -64,6 +74,11 @@
                     "language": "DE",
                     "text": "In der Regel werden Governance-Definitionen von führenden Contributors erstellt, die wichtige Bereiche des Projekts leiten. Sie sind am besten geeignet, die von ihnen geleiteten Bereiche zu definieren, da sie über profunde Kenntnisse der bestehenden Infrastruktur und der development roadmap (Entwicklungsplans) verfügen.",
                     "updated": 1640644398010
+                },
+                {
+                    "language": "TR",
+                    "text": "Genellikle, yönetişim tanımları, projenin önemli alanlarına öncülük eden en çok katkıda bulunanlar tarafından üretilir. Mevcut altyapı ve geliştirme yol haritası hakkında derin bilgiye sahip olduklarından, liderlik ettikleri alanları tanımlamaya en uygun olanlardır.",
+                    "updated": 1645187045169
                 }
             ]
         },
@@ -85,6 +100,11 @@
                     "language": "DE",
                     "text": "Regelmäßige Contributor neigen dazu, mit diesen Definitionen zu interagieren, um ihre votes (Stimmen) abzugeben und ihre claims (Forderungen) zu stellen.",
                     "updated": 1640644449935
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenli olarak katkıda bulunanlar, oylarını kullanmak ve iddialarını yükseltmek için bu tanımlarla etkileşime girme eğilimindedir.",
+                    "updated": 1645187060726
                 }
             ]
         }

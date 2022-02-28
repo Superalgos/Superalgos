@@ -28,7 +28,7 @@
     "propertyNameAtParent": "defiWallets",
     "childrenNodesProperties": [
         {
-            "name": "defiWallets",
+            "name": "defiWallet",
             "type": "array",
             "childType": "DeFi Wallet",
             "autoAdd": true

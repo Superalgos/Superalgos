@@ -1,6 +1,6 @@
 function newFoundationsFunctionLibraryDependenciesFilter() {
     /* 
-    A Dependency Filter is list of Indicators and Studies a Strategy depends 
+    A Dependency Filter is a list of Indicators and Studies a Strategy depends 
     on, that is later used to filter out all the other indicators and studies
     the Trading Bot depends on.
 
@@ -10,7 +10,7 @@ function newFoundationsFunctionLibraryDependenciesFilter() {
     text and at which time frames they are mentioned.
 
     It is important to note that all nodes that are not of the type
-    Javascript Code or Formula are going to be ignored.
+    Procedure Javascript, Javascript Code or Formula are going to be ignored.
     */
     let thisObject = {
         createDependencyFilter: createDependencyFilter

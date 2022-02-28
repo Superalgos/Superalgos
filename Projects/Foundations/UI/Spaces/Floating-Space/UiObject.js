@@ -779,12 +779,6 @@ function newUiObject() {
                 lastHeartBeat = undefined
                 thisObject.isRunning = false
                 valueCounter = 0
-
-                let event = {
-                    type: 'Secondary Action Already Executed'
-                }
-                stop(onRunningCallBackFunction, event, true)
-                console.log('[WARN] Then node ' + thisObject.payload.node.name + ' was automatically stopped because no heartbeat was received within one minute.')
             }
         } else {
             thisObject.isRunning = false

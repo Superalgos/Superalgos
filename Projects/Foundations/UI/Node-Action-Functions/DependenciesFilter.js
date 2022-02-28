@@ -160,7 +160,6 @@ function newFoundationsFunctionLibraryDependenciesFilter() {
                         timeFrame = timeFrame.substring(2, 4) + '-' + timeFrame.substring(4, 7)
                     }
                     filters.market.list.set(defaultMarket, true)
-
                     filters.exchange.timeFrames.set(defaultExchange + '-' + defaultMarket + '-' + product + '-' + timeFrame, true)
                     filters.exchange.products.set(defaultExchange + '-' + defaultMarket + '-' + product, true)
                     filters.exchange.markets.set(defaultExchange + '-' + defaultMarket, true)
@@ -184,12 +183,25 @@ function newFoundationsFunctionLibraryDependenciesFilter() {
                     if (timeFrame !== 'atAnyTimeFrame') {
                         timeFrame = timeFrame.substring(2, 4) + '-' + timeFrame.substring(4, 7)
                     }
-                    filters.market.list.set(baseAsset + '-' + quotedAsset, true)
-
-                    filters.exchange.timeFrames.set(defaultExchange + '-' + baseAsset + '-' + quotedAsset + '-' + product + '-' + timeFrame, true)
-                    filters.exchange.products.set(defaultExchange + '-' + baseAsset + '-' + quotedAsset + '-' + product, true)
-                    filters.exchange.markets.set(defaultExchange + '-' + baseAsset + '-' + quotedAsset, true)
-                    filters.exchange.list.set(defaultExchange, true)
+                    if (baseAsset === 'anyBaseAsset' && quotedAsset === 'anyQuotedAsset') {
+                        let cryptoEcosystem = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Crypto Ecosystem')
+                        let markets = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(cryptoEcosystem, 'Market')
+                        for (let i = 0; i < markets[i]; i++) {
+                            let market = markets[i] 
+                            baseAsset = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(market.baseAsset.payload.referenceParent, 'codeName')  
+                            quotedAsset = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(market.quotedAsset.payload.referenceParent, 'codeName')  
+                            addMarket(baseAsset, quotedAsset)
+                        }
+                    } else {
+                        addMarket(baseAsset, quotedAsset)
+                    }
+                    function addMarket(baseAsset, quotedAsset) {
+                        filters.market.list.set(baseAsset + '-' + quotedAsset, true)
+                        filters.exchange.timeFrames.set(defaultExchange + '-' + baseAsset + '-' + quotedAsset + '-' + product + '-' + timeFrame, true)
+                        filters.exchange.products.set(defaultExchange + '-' + baseAsset + '-' + quotedAsset + '-' + product, true)
+                        filters.exchange.markets.set(defaultExchange + '-' + baseAsset + '-' + quotedAsset, true)
+                        filters.exchange.list.set(defaultExchange, true)
+                    }
                 }
                 /*
                 The third kind of instruction we will handle are the ones
@@ -211,7 +223,6 @@ function newFoundationsFunctionLibraryDependenciesFilter() {
                         timeFrame = timeFrame.substring(2, 4) + '-' + timeFrame.substring(4, 7)
                     }
                     filters.market.list.set(baseAsset + '-' + quotedAsset, true)
-
                     filters.exchange.timeFrames.set(exchange + '-' + baseAsset + '-' + quotedAsset + '-' + product + '-' + timeFrame, true)
                     filters.exchange.products.set(exchange + '-' + baseAsset + '-' + quotedAsset + '-' + product, true)
                     filters.exchange.markets.set(exchange + '-' + baseAsset + '-' + quotedAsset, true)

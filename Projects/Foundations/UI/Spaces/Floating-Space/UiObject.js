@@ -784,7 +784,7 @@ function newUiObject() {
                     type: 'Secondary Action Already Executed'
                 }
                 stop(onRunningCallBackFunction, event, true)
-                console.log('[WARN] Then node ' + payload.node.name + ' was automatically stopped because no heartbeat was received within one minute.')
+                console.log('[WARN] Then node ' + thisObject.payload.node.name + ' was automatically stopped because no heartbeat was received within one minute.')
             }
         } else {
             thisObject.isRunning = false

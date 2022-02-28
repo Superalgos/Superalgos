@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Superalgos Pools - это иерархия верхнего уровня, с которой начинается определение всего проекта Superalgos Project. Он включает определение нескольких узлов Pool, описывающих основные области развития проекта, которые сообщество Community  желает стимулировать.",
                 "updated": 1639026348991
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos Havuzları (Superalgos Pools), tüm Superalgos Projesini tanımlayan en üst düzey hiyerarşidir. Topluluğun teşvik etmek istediği proje veya geliştirmenin ana alanlarını tanımlayan birkaç Havuz düğümünün tanımını içerir.",
+                "updated": 1645187632154
             }
         ]
     },
@@ -26,6 +31,11 @@
                     "language": "RU",
                     "text": "По сути, эта иерархия используется для определения того, как будут распределяться токены, выделенные для каждого выпуска.",
                     "updated": 1640282744077
+                },
+                {
+                    "language": "TR",
+                    "text": "Özünde, bu hiyerarşi, her bir sürüme tahsis edilen token'ların nasıl dağıtılacağını belirlemek için kullanılır.",
+                    "updated": 1645187662430
                 }
             ]
         },
@@ -37,6 +47,11 @@
                     "language": "RU",
                     "text": "Для выработки однозначных определений иерархия использует два конкретных ресурса:",
                     "updated": 1640282786007
+                },
+                {
+                    "language": "TR",
+                    "text": "Kesin tanımlar üretmek için hiyerarşi iki özel kaynak kullanır:",
+                    "updated": 1645187676957
                 }
             ]
         },
@@ -48,6 +63,11 @@
                     "language": "RU",
                     "text": "С одной стороны, структура данных, представленная иерархией, описывает организацию проекта, разбивая конкретные должности на конкретные пулы распределения. Это позволяет гранулярно распределять токены.",
                     "updated": 1640282870925
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir yandan, hiyerarşi tarafından temsil edilen veri yapısı, belirli sorumlulukları belirli dağıtım havuzlarına bölerek Projenin organizasyonunu tanımlar. Bu, token'ların ayrıntılı olarak tahsis edilmesini sağlar.",
+                    "updated": 1645187716764
                 }
             ]
         },
@@ -59,6 +79,11 @@
                     "language": "RU",
                     "text": "С другой стороны, каждый пул может принимать весовые голоса (Weight Votes) от профилей пользователей. Таким образом, Сообщество определяет, сколько токенов попадет в каждый пул распределения.",
                     "updated": 1640282963479
+                },
+                {
+                    "language": "TR",
+                    "text": "Öte yandan, her Havuz Kullanıcı Profillerinden Ağırlık Oyları alır. Topluluk, her dağıtım havuzuna kaç jetonun gideceğini bu şekilde belirler.",
+                    "updated": 1645187747011
                 }
             ]
         },
@@ -71,6 +96,11 @@
                     "language": "RU",
                     "text": "Кроме того, существует третий ресурс, характерный для иерархии Pool Hierarchy. Каждый пул может ссылаться на отдельную иерархию пулов, чтобы определения могли продолжаться на отдельной иерархии, которая может быть включена в качестве плагина в одно и то же или в отдельные рабочие пространства Governance Workspaces.",
                     "updated": 1640283021860
+                },
+                {
+                    "language": "TR",
+                    "text": "Ayrıca Havuz Hiyerarşisinin üçüncü bir kaynak özelliği daha vardır. Tanımların aynı veya ayrı Yönetişim Çalışma Alanlarında bir eklenti olarak dahil edilebilecek ayrı bir hiyerarşide devam edebilmesi için her Havuz ayrı bir Havuz hiyerarşisine başvurabilir.",
+                    "updated": 1645187795446
                 }
             ]
         },
@@ -83,6 +113,11 @@
                     "language": "RU",
                     "text": "Пул может также ссылаться на другие типы иерархий, а именно на Position, Assets и Features. Эти иерархии выводят гранулярность определения на совершенно новый уровень! Но об этом мы поговорим позже!",
                     "updated": 1640283058587
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Havuz (Pool) ayrıca Konumlar (Positions), Varlıklar (Assets) ve Özellikler (Features) gibi diğer hiyerarşi türlerine de başvurabilir. Bu hiyerarşiler, tanımın düzeyini tamamen yeni bir düzeye taşır! Ama bunlara daha sonra gireceğiz!",
+                    "updated": 1645187869527
                 }
             ]
         },
@@ -94,6 +129,11 @@
                     "language": "RU",
                     "text": "Этот ресурс позволяет фрагментировать определения того, как организован проект, для удобочитаемости, по организационным и логистическим причинам:",
                     "updated": 1640283129776
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu kaynak, okunabilirlik, organizasyonel ve lojistik nedenlerle projenin nasıl organize edildiğine ilişkin tanımların parçalara ayrılmasını sağlar:",
+                    "updated": 1645187889035
                 }
             ]
         },
@@ -105,6 +145,11 @@
                     "language": "RU",
                     "text": "единая иерархия, описывающая весь проект Superalgos Project и все остальные проекты в его рамках, стала бы слишком большой и громоздкой;",
                     "updated": 1640283169155
+                },
+                {
+                    "language": "TR",
+                    "text": "tüm Superalgos Projesini ve içindeki diğer tüm projeleri açıklayan tek bir hiyerarşi çok büyüyecek ve başa çıkılamaz olup hantallaşacaktır.",
+                    "updated": 1645187924124
                 }
             ]
         },
@@ -116,6 +161,11 @@
                     "language": "RU",
                     "text": "каждая иерархия может быть определена и поддерживаться разными людьми или командами;",
                     "updated": 1640283188312
+                },
+                {
+                    "language": "TR",
+                    "text": "her hiyerarşi farklı kişiler veya takımlar tarafından tanımlanabilir ve sürdürülebilir;",
+                    "updated": 1645187976148
                 }
             ]
         },
@@ -127,6 +177,11 @@
                     "language": "RU",
                     "text": "каждая иерархия может быть лучше визуализирована в различных рабочих пространствах, в которых они могут взаимодействовать с другими определениями и т.д.",
                     "updated": 1640283216080
+                },
+                {
+                    "language": "TR",
+                    "text": "her hiyerarşi, diğer tanımlarla etkileşime girebilecekleri farklı çalışma alanlarında daha iyi görselleştirilebilir; vb.",
+                    "updated": 1645188000041
                 }
             ]
         },

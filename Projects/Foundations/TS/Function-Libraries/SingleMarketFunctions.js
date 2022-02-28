@@ -453,6 +453,28 @@
                     let product = {}
                     product[variableName] = {}
 
+                    if (exchange !== undefined) {
+                        /* 
+                        Positioning Data Structure 
+                        
+                        We are going to be reusing a function that was originally designed for the Trading Bot, 
+                        so we will need to emulate an episode candle to feed a parameter of the next fuction.
+                        */
+                        let episodeCandle = {
+                            begin: {
+                                value: record.current.end
+                            },
+                            end: {
+                                value: record.current.begin
+                            }
+                        }
+                        TS.projects.simulation.functionLibraries.simulationFunctions.positionDataStructuresAtCurrentCandle(
+                            episodeCandle,
+                            exchange,
+                            processIndex
+                        )
+                    }
+
                     /* This is Loop Code */
                     try {
                         eval(dataBuildingProcedure.loop.procedureJavascriptCode.code)

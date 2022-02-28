@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Учебники являются основным образовательным ресурсом, доступным в Superalgos, и играют важную роль в процессе обучения новых пользователей. Вклад в создание учебников - это отличный способ помочь проекту расширить пользовательскую базу, и он высоко ценится!",
                 "updated": 1640268509443
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Öğreticiler Superalgos'ta bulunan en iyi eğitim kaynağıdır ve yeni kullanıcıların göreve sunulması sırasında çok önemli bir rol oynarlar. Katkıda bulunan öğreticiler, projenin kullanıcı tabanını büyütmesine yardımcı etmenin harika bir yoludur ve çok takdir edilir!",
+                "updated": 1645296933905
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "RU",
                     "text": "На этой странице обсуждаются лучшие методы создания и предоставления учебников Superalgos. Здесь не рассматривается фактическая механика создания учебников. Вместо этого она сосредоточена на том, что желательно.",
                     "updated": 1640268528110
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu sayfada, Superalgos eğitimlerini oluşturmak ve katkıda bulunmak için en iyi uygulamalar anlatılmaktadır. Yapı eğitimlerinin gerçek mekaniğini kapsamaz. Bunun yerine, neyin arzu edildiğine odaklanır.",
+                    "updated": 1645296990967
                 }
             ]
         },
@@ -43,7 +53,14 @@
         },
         {
             "style": "Title",
-            "text": "The Associated Workspace"
+            "text": "The Associated Workspace",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İlişkili Çalışma Alanı",
+                    "updated": 1645297076525
+                }
+            ]
         },
         {
             "style": "Text",
@@ -59,6 +76,11 @@
                     "language": "RU",
                     "text": "Чтобы обеспечить наилучший опыт, учебное пособие должно быть размещено в определенном рабочем пространстве, а рабочее пространство должно быть настроено специально для этого учебного пособия. Рабочее пространство должно быть чистым и содержать активы, необходимые для оптимального обучения. Лучше всего, чтобы рабочее пространство было чистым, простым и лишенным ненужных ресурсов.",
                     "updated": 1640268750436
+                },
+                {
+                    "language": "TR",
+                    "text": "Mümkün olan en iyi deneyimi sunmak için, bir öğretici belirli bir Çalışma Alanında ( Workspace ) yer almalı ve çalışma alanı öğreticiye hizmet edecek şekilde özel olarak uyarlanmalıdır. Çalışma alanı temiz olmalı ve öğrenme deneyiminin optimal olması için gereken varlıklara sahip olmalıdır. Çalışma alanını temiz, hafif ve gereksiz kaynaklardan arındırılmış tutmak en iyisidir.",
+                    "updated": 1645297122788
                 }
             ]
         },
@@ -71,6 +93,11 @@
                     "language": "RU",
                     "text": "Используйте рынок USDT/BTC в Binance.com",
                     "updated": 1640268767774
+                },
+                {
+                    "language": "TR",
+                    "text": "Binance.com'da USDT/BTC Pazarını kullanın",
+                    "updated": 1645297152658
                 }
             ]
         },
@@ -88,6 +115,11 @@
                     "language": "RU",
                     "text": "Если ваш учебник посвящен данным, лучше всего использовать те же биржи, рынки и диапазоны дат, которые уже используются в учебниках Getting Started Plugin Workspace. Таким образом, пользователи уже будут иметь необходимые данные и смогут легче пройти обучение.",
                     "updated": 1640268844627
+                },
+                {
+                    "language": "TR",
+                    "text": "Eğitiminiz verilerle ilgiliyse, Eklenti Çalışma Alanına ( Plugin Workspace ) Başlarken eğitimlerinde halihazırda kullanımda olan aynı borsa, pazar ve tarih aralıklarını kullanmak en iyisidir. Bu şekilde, kullanıcılar verilere zaten sahip olacak ve öğreticiyi daha kolay geçebilir.",
+                    "updated": 1645297237805
                 }
             ]
         },
@@ -105,6 +137,11 @@
                     "language": "RU",
                     "text": "Если по каким-либо причинам учебник должен иметь дело с другими рынками и/или биржами для доставки контента, тогда продолжайте и игнорируйте вышесказанное.",
                     "updated": 1640268870336
+                },
+                {
+                    "language": "TR",
+                    "text": " Not: Her ne sebeple olursa olsun, öğreticinin içeriği sunmak için diğer pazarlarla ve/veya borsalarla ilgilenmesi gerekiyorsa, devam edin ve yukarıdakileri göz ardı edin.",
+                    "updated": 1645297270857
                 }
             ]
         },
@@ -121,12 +158,24 @@
                     "language": "RU",
                     "text": "Обязательно включите шаг, позволяющий пользователям перейти на BinanceUS в случае необходимости, как в учебном пособии Welcome to Superalgos.",
                     "updated": 1640268916224
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Superalgos'a Hoş Geldiniz Eğitiminde ( Welcome to Superalgos Tutorial ) olduğu gibi, kullanıcıların ihtiyaç duymaları durumunda BinanceUS'a geçmelerine izin veren bir adım eklediğinizden emin olun.",
+                    "updated": 1645297368332
                 }
             ]
         },
         {
             "style": "Title",
-            "text": "Tutorial Series & Planning"
+            "text": "Tutorial Series & Planning",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Eğitim Serisi ve Planlama",
+                    "updated": 1645297394508
+                }
+            ]
         },
         {
             "style": "Text",
@@ -142,6 +191,11 @@
                     "language": "RU",
                     "text": "Некоторые темы обширны, имеют большое значение или требуют глубокого анализа. В таких случаях идеальным вариантом является планирование серии учебных пособий.",
                     "updated": 1640268959282
+                },
+                {
+                    "language": "TR",
+                    "text": "Bazı konular geniştir, sonuçları vardır veya kapsamlı bir şekilde ele alınması için nüanslı bir analiz gerektirir. Bu gibi durumlarda, bir dizi öğreticiyi planlamak idealdir.",
+                    "updated": 1645297425858
                 }
             ]
         },
@@ -159,6 +213,11 @@
                     "language": "RU",
                     "text": "Возьмем, к примеру, серию учебников в Trading System Design Tutorials Plugin Workspace:",
                     "updated": 1640269077954
+                },
+                {
+                    "language": "TR",
+                    "text": "Örneğin, İşlem Sistemi Tasarım Öğreticileri Eklentisi Çalışma Alanındaki ( Trading System Design Tutorials Plugin Workspace ) öğreticiler dizisini alın:",
+                    "updated": 1645297485094
                 }
             ]
         },
@@ -175,6 +234,11 @@
                     "language": "RU",
                     "text": "Первый учебник в серии дает широкое введение в тему, в основном в концептуальных терминах. Это позволяет пользователям увидеть общую картину и узнать, как структурированы концепции и почему они структурированы именно так, как они структурированы.",
                     "updated": 1640269102327
+                },
+                {
+                    "language": "TR",
+                    "text": "Serideki ilk öğretici, konuya çoğunlukla kavramsal terimlerle geniş bir giriş sağlar. Bu, kullanıcıların büyük resmi görmelerine ve kavramların nasıl yapılandırıldığını ve neden oldukları gibi yapılandırıldıklarını öğrenmelerine olanak tanır.",
+                    "updated": 1645297506496
                 }
             ]
         },
@@ -192,6 +256,11 @@
                     "language": "RU",
                     "text": "Во втором учебнике серии предлагается упражнение, для разработки и реализации которого потребуется еще несколько учебников. Иными словами, этот учебник закладывает основу для того, о чем пойдет речь в последующих сериях.",
                     "updated": 1640269131610
+                },
+                {
+                    "language": "TR",
+                    "text": "Serideki ikinci öğretici, geliştirmek ve uygulamak için birkaç öğretici daha gerektiren bir alıştırma önermektedir. Yani öğretici, dizinin neleri kapsayacağının temelini oluşturuyor.",
+                    "updated": 1645297524401
                 }
             ]
         },
@@ -209,6 +278,11 @@
                     "language": "RU",
                     "text": "Остальные учебные пособия серии разбирают предложенное ранее упражнение и с мельчайшими подробностями описывают его реализацию. В то же время они охватывают весь контекст и многие сопутствующие темы.",
                     "updated": 1640269169974
+                },
+                {
+                    "language": "TR",
+                    "text": "Dizideki kalan öğreticiler, daha önce önerilen alıştırmayı inceliyor ve uygulamayı ince bir ayrıntı düzeyiyle ele alıyor. Aynı zamanda, tüm bağlamı ve birçok yan konuyu kapsarlar.",
+                    "updated": 1645297554270
                 }
             ]
         },
@@ -226,6 +300,11 @@
                     "language": "RU",
                     "text": "Вся серия посвящена общей теме и шаг за шагом развивает ее от самых простых до самых сложных концепций. Серия учебников должна быть исчерпывающей и в конечном итоге охватывать всю тему. Она должна стать основным инструментом для изучения предмета!",
                     "updated": 1640269193931
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Serinin tamamı ortak bir temayı işliyor ve onu adım adım en basitten en karmaşık kavramlara doğru geliştiriyor. Bir eğitim dizisi kapsamlı olmalı ve nihayetinde tüm konuyu kapsamalıdır. Konu hakkında bilgi edinmek için nihai araç haline gelmelidir!",
+                    "updated": 1645297590879
                 }
             ]
         },
@@ -243,12 +322,24 @@
                     "language": "RU",
                     "text": "Посоветуйтесь с сопровождающими проекта, какие имена будут хорошими для каждого учебника в серии. Важно давать учебным пособиям понятные и понятные названия.",
                     "updated": 1640269229492
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Serideki her öğretici için iyi adların ne olacağını proje yöneticilerine danışın. Öğreticileri açık ve açıklayıcı adlarla adlandırmak önemlidir.",
+                    "updated": 1645297616448
                 }
             ]
         },
         {
             "style": "Title",
-            "text": "The Target Audience"
+            "text": "The Target Audience",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hedef Kitle",
+                    "updated": 1645297662218
+                }
+            ]
         },
         {
             "style": "Text",
@@ -264,6 +355,11 @@
                     "language": "RU",
                     "text": "Люди разные. У всех нас немного разные провода в голове, и все мы учимся по-разному. В этом смысле создание учебных пособий - непростая задача. Некоторым людям нравятся учебники, которые сразу переходят к делу и показывают, как решить очень конкретную проблему. Другие предпочитают учебные пособия, которые проникают в суть, объясняют каждую деталь и должным образом охватывают суть вопроса.",
                     "updated": 1640269326682
+                },
+                {
+                    "language": "TR",
+                    "text": "İnsanlar farklıdır. Hepimizin kafası biraz farklı çalışır ve hepimiz farklı şekilde öğreniriz. Bu anlamda, öğreticiler oluşturmak biraz zor. Bazı insanlar doğrudan konuya giden ve onlara çok özel bir sorunun nasıl çözüleceğini gösteren öğreticilerden hoşlanır. Diğerleri, özüne inen, her ayrıntıyı açıklayan ve bağlamı uygun şekilde kapsayan öğreticileri tercih eder.",
+                    "updated": 1645297755712
                 }
             ]
         },
@@ -281,6 +377,11 @@
                     "language": "RU",
                     "text": "На этом раннем этапе мы не можем позволить себе дублировать усилия и создавать разные учебники для разных типов учащихся. Мы должны выбрать тот метод, который лучше всего подходит для проекта.",
                     "updated": 1640269347480
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu erken aşamada, çabaları çoğaltmayı ve farklı türdeki öğrenciler için farklı öğreticiler oluşturmayı göze alamayız. Projeye en iyi hizmet eden yöntemi seçmeliyiz.",
+                    "updated": 1645297780414
                 }
             ]
         },
@@ -298,6 +399,11 @@
                     "language": "RU",
                     "text": "Мы решили сосредоточиться на создании всеобъемлющих учебников, которым может следовать каждый и которые никого не оставят позади. Мы считаем, что неторопливый учебник, охватывающий каждую деталь и уделяющий время объяснению всех нюансов, является правильным подходом на данном этапе. Создавая учебники таким образом, мы гарантируем, что те, кто готов потратить время на изучение системы, получат достаточно материала, чтобы быстро стать опытными пользователями.",
                     "updated": 1640269397281
+                },
+                {
+                    "language": "TR",
+                    "text": "Önemli: Herkesin takip edebileceği ve kimseyi geride bırakmayan kapsamlı eğitimler oluşturmaya odaklanmayı seçiyoruz. Yavaş ilerleyen, her ayrıntıyı kapsayan ve nüansı açıklamaya zaman ayıran bir eğitimin bu aşamada doğru yaklaşım olduğuna inanıyoruz. Öğreticileri bu şekilde oluşturarak, sistemi öğrenmek için zaman ayırmaya istekli olanların hızla ileri düzey kullanıcılar olmak için yeterli materyale sahip olmasını garanti ediyoruz.",
+                    "updated": 1645297802561
                 }
             ]
         },
@@ -315,12 +421,24 @@
                     "language": "RU",
                     "text": "Такие руководства могут немного раздражать тех, кто быстро учится, или тех, кто просто хочет получить ответ на конкретный вопрос. Но такие потребности уже удовлетворены базой знаний с возможностью поиска, содержащейся во вкладке Docs.",
                     "updated": 1640269464902
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu tür öğreticiler, hızlı öğrenenler veya yalnızca belirli bir sorunun yanıtlanmasını isteyen kişiler için biraz can sıkıcı olabilir. Ancak bu tür ihtiyaçlar, Dokümanlar'da bulunan aranabilir bilgi tabanı tarafından zaten karşılanmaktadır.",
+                    "updated": 1645297829350
                 }
             ]
         },
         {
             "style": "Title",
-            "text": "Communication Resources"
+            "text": "Communication Resources",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İletişim Kaynakları",
+                    "updated": 1645297838983
+                }
+            ]
         },
         {
             "style": "Text",
@@ -336,6 +454,11 @@
                     "language": "RU",
                     "text": "Давайте разберемся в некоторых особенностях создания учебников для Superalgos!",
                     "updated": 1640269498860
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos için öğreticiler oluşturmanın bazı özelliklerine bakalım!",
+                    "updated": 1645297875376
                 }
             ]
         },
@@ -353,6 +476,11 @@
                     "language": "RU",
                     "text": "Учебники Superalgos развивались в течение нескольких месяцев на основе отзывов первых пользователей. Мы чувствуем, что нашли оптимальный вариант, и начали вырабатывать свой стиль в использовании свободного пространства на каждом этапе обучения. Ниже приведены некоторые замечания, которые помогут вам создать учебники, соответствующие формату существующих учебников.",
                     "updated": 1640269597893
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos eğitimleri, ilk benimseyenlerden gelen birkaç aylık geri bildirimle gelişti. Tatlı bir nokta bulduğumuzu hissediyoruz ve her eğitim adımında mevcut alanı kullanma şeklimizde bir stil geliştirmeye başladık. Aşağıda, mevcut eğitimlerin biçimiyle eşleşen öğreticiler oluşturmanıza yardımcı olacak bazı notlar bulunmaktadır.",
+                    "updated": 1645297901612
                 }
             ]
         },
@@ -363,7 +491,14 @@
         },
         {
             "style": "Title",
-            "text": "Consistent Use of Space and Styles"
+            "text": "Consistent Use of Space and Styles",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Alan ve Stillerin Tutarlı Kullanımı",
+                    "updated": 1645297965519
+                }
+            ]
         },
         {
             "style": "Text",
@@ -378,6 +513,11 @@
                     "language": "RU",
                     "text": "Используйте различные разделы на странице и различные стили абзацев для последовательных целей. Это поможет пользователям привыкнуть к определенному формату, чтобы они знали, чего ожидать от каждого раздела страницы. Последовательность в подаче информации делает учебники более удобными для использования!",
                     "updated": 1640269901730
+                },
+                {
+                    "language": "TR",
+                    "text": "Tutarlı amaçlar için sayfadaki farklı bölümleri ve farklı paragraf stillerini kullanın. Bu, kullanıcıların sayfanın her bölümünden ne bekleyeceklerini bilmeleri için belirli bir biçime alışmalarına yardımcı olur. Bilginin iletilme biçimindeki tutarlılık, öğreticileri daha kullanışlı hale getirir!",
+                    "updated": 1645297979034
                 }
             ]
         },
@@ -389,6 +529,11 @@
                     "language": "RU",
                     "text": "Блок определения",
                     "updated": 1640269922736
+                },
+                {
+                    "language": "TR",
+                    "text": "Tanım Kutusu",
+                    "updated": 1645297995449
                 }
             ]
         },
@@ -406,6 +551,11 @@
                     "language": "RU",
                     "text": "Блок определения - это пространство справа от значка, под заголовком. Используйте это место, чтобы пояснить, о чем идет речь в данном шаге, то есть, чтобы рассказать историю, которую будет рассказывать шаг, или обеспечить некоторый базовый контекст.",
                     "updated": 1640269988109
+                },
+                {
+                    "language": "TR",
+                    "text": "Tanım kutusu, başlığın altında, simgenin sağındaki boşluktur. Adımın ne hakkında olduğunu tanıtmak, yani adımın anlatacağı hikayeyi kurmak veya bazı temel bağlamları sağlamak için bu alanı kullanın.",
+                    "updated": 1645298008152
                 }
             ]
         },
@@ -423,6 +573,11 @@
                     "language": "RU",
                     "text": "Чтобы правильно использовать блок определений, объясните контекст в четырех-пяти строках. Избегайте одной-двух строк или чего-либо более пяти.",
                     "updated": 1640270017216
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Tanım kutusunu doğru kullanmak için bağlamı dört ila beş satırda açıklayın. Bir veya iki satırdan veya beşten fazla satırdan kaçının.",
+                    "updated": 1645298057489
                 }
             ]
         },
@@ -434,6 +589,11 @@
                     "language": "RU",
                     "text": "Призыв к действиям",
                     "updated": 1640270041186
+                },
+                {
+                    "language": "TR",
+                    "text": "Eylem Çağrısı",
+                    "updated": 1645298082494
                 }
             ]
         },
@@ -451,6 +611,11 @@
                     "language": "RU",
                     "text": "Самым важным разделом любого шага является призыв к действию, то есть инструкция, которой должен следовать пользователь, чтобы продвинуться в обучении. Часто пользователи повторяют уроки или возвращаются на несколько шагов назад, чтобы убедиться, что они все сделали правильно.",
                     "updated": 1640270123759
+                },
+                {
+                    "language": "TR",
+                    "text": "Herhangi bir adımdaki en önemli bölüm, eylem çağrısı, yani kullanıcının öğreticide ilerlemek için izlemesi gereken talimattır. Çoğu zaman kullanıcılar, her şeyi doğru yaptıklarından emin olmak için öğreticileri yeniden yapar veya birkaç adım geri gider.",
+                    "updated": 1645298095827
                 }
             ]
         },
@@ -467,6 +632,11 @@
                     "language": "RU",
                     "text": "Для призыва к действию всегда используйте стиль callout - тот, который применен к этому абзацу! Аналогично, старайтесь не использовать этот стиль ни для чего другого. Если в конкретном шаге нет призыва к действию, то этот шаг вообще не должен быть оформлен в этом стиле!",
                     "updated": 1640270184122
+                },
+                {
+                    "language": "TR",
+                    "text": "Eylem çağrısı için her zaman bu paragrafa uygulanan açıklama stilini kullanın! Benzer şekilde, bu stili başka herhangi bir şey için kullanmaktan kaçının. Belirli bir adımın bir eylem çağrısı yoksa, adımın bu stili hiç içermemesi gerekir!",
+                    "updated": 1645298114511
                 }
             ]
         },
@@ -484,6 +654,11 @@
                     "language": "RU",
                     "text": "Каждый шаг учебника должен содержать один призыв к действию, то есть одну инструкцию, которую пользователь должен выполнить. Это идеальный сценарий. Могут быть исключения, например, когда мы просим пользователя прочитать страницу в Docs и сделать что-то еще в качестве основной инструкции.",
                     "updated": 1640270239442
+                },
+                {
+                    "language": "TR",
+                    "text": "Her öğretici adımın tek bir eylem çağrısı, yani kullanıcının gerçekleştirmesi gereken tek bir talimat olmalıdır. Bu ideal durum senaryosudur. Örneğin, kullanıcıdan Dokümanlar'daki bir sayfayı okumasını ve ana talimat olarak başka bir şey yapmasını istediğimizde istisnalar olabilir.",
+                    "updated": 1645298130349
                 }
             ]
         },
@@ -501,6 +676,11 @@
                     "language": "RU",
                     "text": "В общих чертах и по возможности старайтесь не давать пользователю более одной задачи на одном шаге. Вместо этого, если вы ожидаете, что пользователь выполнит несколько последовательных действий, постарайтесь разбить процесс на несколько шагов - столько, сколько потребуется.",
                     "updated": 1640270322688
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Genel anlamda ve mümkün olduğunda, kullanıcıya aynı adımda birden fazla görev vermekten kaçınmaya çalışın. Bunun yerine, kullanıcının birkaç ardışık eylem gerçekleştirmesini bekliyorsanız, süreci birden fazla adıma bölmeye çalışın - mümkün olduğu kadar çok.",
+                    "updated": 1645298149905
                 }
             ]
         },
@@ -517,6 +697,11 @@
                     "language": "RU",
                     "text": "В некоторых случаях вам может понадобиться, чтобы пользователь совершил очень простое действие, чтобы можно было выполнить основной призыв к действию. В таких случаях вы можете использовать блок определения, чтобы сообщить пользователю, как подготовиться к выполнению призыва к действию, представленного далее на странице.",
                     "updated": 1640270375251
+                },
+                {
+                    "language": "TR",
+                    "text": "Bazı durumlarda, ana harekete geçirici mesajın iletilebilmesi için kullanıcının çok basit bir işlem yapması gerekebilir. Bu gibi durumlarda, kullanıcıya sayfanın ilerleyen kısımlarında verilen eylem çağrısını yürütmeye nasıl hazırlanacağını anlatmak için tanım kutusunu kullanabilirsiniz.",
+                    "updated": 1645298168707
                 }
             ]
         },
@@ -527,7 +712,14 @@
         },
         {
             "style": "Title",
-            "text": "Use of Docs Pages"
+            "text": "Use of Docs Pages",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Doküman Sayfalarının Kullanımı",
+                    "updated": 1645298269689
+                }
+            ]
         },
         {
             "style": "Text",
@@ -543,6 +735,11 @@
                     "language": "RU",
                     "text": "Когда вам нужно, чтобы пользователь узнал о конкретной концепции, чтобы получить правильный контекст по теме, не дублируйте в учебнике информацию, которая существует в Docs. Дублирование информации - не лучшая идея, так как это усложняет поддержку документации и учебников.",
                     "updated": 1640271624404
+                },
+                {
+                    "language": "TR",
+                    "text": "Konuyla ilgili doğru bağlamı elde etmek için kullanıcının belirli bir kavram hakkında bilgi edinmesine ihtiyaç duyduğunuzda, Dokümanlar'da bulunan eğitim bilgilerini tekrarlamayın. Belgeleri ve öğreticileri korumayı zorlaştırdığından, bilgileri çoğaltmak iyi bir fikir değildir.",
+                    "updated": 1645298286953
                 }
             ]
         },
@@ -560,6 +757,11 @@
                     "language": "RU",
                     "text": "Правильным подходом будет попросить пользователя прочитать страницу или раздел страницы в документации. Это дает дополнительное преимущество - пользователь узнает, что в документации также рассматривается эта тема.",
                     "updated": 1640271660066
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Kullanıcıdan Dokümanlar'daki bir sayfayı veya sayfanın bir bölümünü okumasını istemek doğru yaklaşımdır. Bu, kullanıcının Dokümanlar'ın konuyu kapsadığını bilmesini sağlama avantajına da sahiptir.",
+                    "updated": 1645298311327
                 }
             ]
         },
@@ -577,6 +779,11 @@
                     "language": "RU",
                     "text": "Если вы обнаружили, что соответствующая страница в документации устарела, не охватывает тему с должной глубиной или, возможно, даже не существует, помощь в создании, дополнении и/или улучшении предоставления информации в документации будет не менее ценной, чем создание учебника! Длинные формы объяснений не очень подходят для учебников. Зато они хорошо подходят в документации!",
                     "updated": 1640271718287
+                },
+                {
+                    "language": "TR",
+                    "text": "Önemli: Dokümanlar'daki ilgili sayfanın güncel olmadığını, konuyu uygun derinlikte kapsamadığını veya belki de mevcut olmadığını fark ederseniz, bu sayfadaki bilgilerin oluşturulmasına, tamamlanmasına ve/veya sunumunun iyileştirilmesine yardımcı olur. Dokümanlar, öğreticiyi oluşturmak kadar değerlidir! Uzun formatlı açıklamalar öğreticilere pek uymuyor. Dokümanlar'a iyi uyuyorlar!",
+                    "updated": 1645298340158
                 }
             ]
         },
@@ -589,6 +796,11 @@
                     "language": "RU",
                     "text": "Интерактивность",
                     "updated": 1640271731763
+                },
+                {
+                    "language": "TR",
+                    "text": "Etkileşim",
+                    "updated": 1645298376053
                 }
             ]
         },
@@ -606,6 +818,11 @@
                     "language": "RU",
                     "text": "Суть учебников - и главное отличие от документов как учебного материала - в том, что они предоставляют возможность практического обучения. Учебники интерактивны, в то время как документы менее интерактивны!",
                     "updated": 1640271759540
+                },
+                {
+                    "language": "TR",
+                    "text": "Öğreticilerin tüm amacı - ve öğrenme materyali olarak Dokümanlar ile arasındaki temel fark - uygulamalı öğrenme fırsatı sunmalarıdır. Dokümanlar daha az etkileşimliyken öğreticiler etkileşimlidir!",
+                    "updated": 1645298393507
                 }
             ]
         },
@@ -623,6 +840,11 @@
                     "language": "RU",
                     "text": "Убедитесь, что вы используете это качество в полной мере, но при этом старайтесь соблюдать определенный баланс!",
                     "updated": 1640271797532
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu kaliteyi sonuna kadar kullandığınızdan emin olun, ancak aynı zamanda belirli bir dengeyi korumaya çalışın!",
+                    "updated": 1645298413848
                 }
             ]
         },
@@ -640,6 +862,11 @@
                     "language": "RU",
                     "text": "Если в учебнике речь идет об иерархии, группе узлов или конкретном узле, убедитесь, что шаг учебника ведет вас к этому месту в рабочем пространстве. Это добавляет визуальный элемент к объяснению и помогает пользователю ознакомиться с соответствующими структурами данных.",
                     "updated": 1640271835217
+                },
+                {
+                    "language": "TR",
+                    "text": "Öğretici bir hiyerarşi, bir grup düğüm veya belirli bir düğümden bahsediyorsa, öğretici adımının sizi Çalışma Alanında (  Workspace ) o yere götürdüğünden emin olun. Bu, açıklamaya görsel bir öğe ekler ve kullanıcının ilgili veri yapılarını tanımasına yardımcı olur.",
+                    "updated": 1645298507780
                 }
             ]
         },
@@ -657,6 +884,11 @@
                     "language": "RU",
                     "text": "Учебные пособия могут влиять на рабочее пространство различными способами, повторяя действия, которые может выполнять пользователь. Когда вы хотите, чтобы пользователь научился что-то делать, лучше попросить пользователя сделать это, вместо того, чтобы учебник делал это за пользователя.",
                     "updated": 1640271924959
+                },
+                {
+                    "language": "TR",
+                    "text": "Öğreticiler, kullanıcının yapabileceği eylemleri çoğaltarak Çalışma Alanını ( Workspace ) birçok yönden etkileyebilir. Kullanıcının bir şeyi yapmayı öğrenmesini istediğinizde, öğreticinin kullanıcı için yapmasını sağlamak yerine, kullanıcıdan yapmasını istemek en iyisidir.",
+                    "updated": 1645298541312
                 }
             ]
         },
@@ -674,6 +906,11 @@
                     "language": "RU",
                     "text": "С другой стороны, учебник должен позаботиться о выполнении определенных действий, которые не способствуют изучению чего-то, относящегося к контексту учебника. Непосредственное выполнение этих действий может помочь пользователю сосредоточиться на главном.",
                     "updated": 1640271948497
+                },
+                {
+                    "language": "TR",
+                    "text": "Öte yandan, öğretici, öğreticinin bağlamıyla ilgili bir şeyler öğrenmeye elverişli olmayan belirli şeyleri yapmaya özen göstermelidir. Bu eylemleri doğrudan gerçekleştirmek, kullanıcının en önemli şeye odaklanmasına yardımcı olabilir.",
+                    "updated": 1645298575607
                 }
             ]
         },
@@ -691,6 +928,11 @@
                     "language": "RU",
                     "text": "В некоторых случаях действия пользователей могут иметь определенные последствия. Демонстрация пользователям результатов их действий сразу после выполнения задания имеет большую образовательную ценность. Например, если пользователь настраивает новую машину времени Time Machine в учебном пособии о пространстве диаграмм Charting Space, покажите пользователям, как машина времени появляется в пространстве диаграмм сразу после ее создания. Если пользователи затем настраивают временную диаграмму Timeline Chart, которая ссылается на определенную источник данных Data Mine, покажите пользователям, как новая временная диаграмма появляется в Time Machine, и позвольте им убедиться, что ожидаемые менеджеры слоев находятся там. Не бойтесь ходить туда-сюда... в этом, в конце концов, и есть смысл!",
                     "updated": 1640272197087
+                },
+                {
+                    "language": "TR",
+                    "text": "Bazı durumlarda, kullanıcıların yaptığı eylemlerin belirli etkileri olabilir. Kullanıcılara, bir görevi tamamladıktan hemen sonra eylemlerinin sonucunu göstermek, büyük bir eğitim değerine sahiptir. Örneğin, kullanıcı Grafik Alanı ( Charting Space ) ile ilgili bir eğitimde yeni bir Zaman Makinesi ( Time Machine ) kuruyorsa, kullanıcılara zaman makinesinin oluşturulduktan hemen sonra grafik alanında nasıl göründüğünü gösterin. Kullanıcılar daha sonra belirli bir Veri Madeni'ne ( Data Mine ) referans veren bir Zaman Çizelgesi Grafiği ayarlarsa, kullanıcılara yeni Zaman Çizelgesi Grafiğinin ( Timeline Chart ) Zaman Makinesi içinde nasıl göründüğünü gösterin ve beklenen katman yöneticilerinin orada olduğunu doğrulamalarına izin verin. Bir ileri bir geri gitmekten korkmayın... işte bütün mesele bu!",
+                    "updated": 1645299003749
                 }
             ]
         },
@@ -713,6 +955,11 @@
                     "language": "RU",
                     "text": "Присвоение имен узлам",
                     "updated": 1640272370877
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğümlerin Adlandırılması",
+                    "updated": 1645299040627
                 }
             ]
         },
@@ -730,6 +977,11 @@
                     "language": "RU",
                     "text": "Superalgos - это сложная система. Очень желательно помочь пользователям выработать хорошие организационные навыки. Чем больше пользователей высшего уровня мы можем помочь сформировать, тем мощнее становится проект.",
                     "updated": 1640272438547
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos karmaşık bir sistemdir. Kullanıcıların iyi organizasyon alışkanlıkları geliştirmelerine yardımcı olmak son derece arzu edilir. Ne kadar çok üst düzey kullanıcı oluşturmamıza yardımcı olabilirsek, proje o kadar güçlü olur.",
+                    "updated": 1645299060135
                 }
             ]
         },
@@ -747,6 +999,11 @@
                     "language": "RU",
                     "text": "Когда пользователи создают новые структуры данных, хорошей практикой является присвоение имен соответствующим узлам. Это особенно важно для узлов, которые передают свои имена через ссылки на другие узлы.",
                     "updated": 1640272458955
+                },
+                {
+                    "language": "TR",
+                    "text": "Kullanıcılar yeni veri yapıları oluşturduğunda, ilgili düğümleri adlandırmalarını sağlamak iyi bir uygulamadır. Bu, adlarını diğer düğümlere referanslar yoluyla aktaran düğümler için özellikle önemlidir.",
+                    "updated": 1645299078415
                 }
             ]
         },
@@ -764,6 +1021,11 @@
                     "language": "RU",
                     "text": "Убедитесь, что ваше руководство прилагает дополнительные усилия и напоминает пользователям о необходимости присвоить названия таким узлам. Идеальным вариантом является предложение конкретного названия. Помните, что пользователь может не знать, что будет дальше или для чего будет использоваться узел в момент его создания, поэтому он может не знать, какое название может быть уместным. Но вы знаете, поэтому вы можете предложить название, соответствующее цели учебника.",
                     "updated": 1640272686177
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Eğitiminizin ekstra yol kat ettiğinden ve kullanıcılara bu tür düğümleri adlandırmalarını hatırlattığından emin olun. Belirli bir isim önermek idealdir. Kullanıcının daha sonra ne olacağını veya oluşturma sırasında düğümün ne için kullanıldığını bilemeyebileceğini, dolayısıyla ilgili adın ne olabileceğini bilemeyebileceğini unutmayın. Ancak bunu yaparsınız, bu nedenle öğreticinin amacı ile tutarlı bir ad önerebilirsiniz.",
+                    "updated": 1645299180600
                 }
             ]
         },
@@ -781,6 +1043,11 @@
                     "language": "RU",
                     "text": "Внешний вид и восприятие",
                     "updated": 1640272717527
+                },
+                {
+                    "language": "TR",
+                    "text": "Bak ve hisset",
+                    "updated": 1645299203738
                 }
             ]
         },
@@ -802,6 +1069,11 @@
                     "language": "RU",
                     "text": "Существует философский спор о том, является ли красота объективной или субъективной. Некоторые люди считают, что красота находится в глазах смотрящего, в то время как другие полагают, что существуют изначально красивые вещи.",
                     "updated": 1640272741532
+                },
+                {
+                    "language": "TR",
+                    "text": "Güzelliğin nesnel mi yoksa öznel mi olduğu konusunda felsefi bir tartışma vardır. Bazı insanlar güzelliğin bakanın gözünde olduğunu düşünürken, diğerleri doğal olarak güzel şeylerin olduğuna inanır.",
+                    "updated": 1645299217737
                 }
             ]
         },
@@ -819,6 +1091,11 @@
                     "language": "RU",
                     "text": "Как бы там ни было, мы хотим, чтобы общий вид и восприятие учебников были одинаковыми!",
                     "updated": 1640272778897
+                },
+                {
+                    "language": "TR",
+                    "text": "Durum ne olursa olsun, öğreticilerin genel görünümünün ve hissinin tutarlı olmasını istiyoruz!",
+                    "updated": 1645299229467
                 }
             ]
         },
@@ -836,6 +1113,11 @@
                     "language": "RU",
                     "text": "Вот список требований, которые помогают учебным пособиям быть единообразными в своем внешнем виде:",
                     "updated": 1640272834101
+                },
+                {
+                    "language": "TR",
+                    "text": "Eğiticilerin görünüm ve hislerinde tutarlı olmalarına yardımcı olacak gereksinimlerin bir listesi:",
+                    "updated": 1645299248227
                 }
             ]
         },
@@ -852,6 +1134,11 @@
                     "language": "RU",
                     "text": "Всегда используйте иконку для иллюстрации шага. Иногда подходящим значком является тот, который соответствует узлу, с которым работает пользователь. В других случаях вы можете использовать значки образно, играя с альтернативными значениями того, что может представлять рисунок.",
                     "updated": 1640272884347
+                },
+                {
+                    "language": "TR",
+                    "text": "Adımı göstermek için her zaman bir simge kullanın. Bazen uygun simge, kullanıcının birlikte çalıştığı düğüme karşılık gelen simgedir. Diğer zamanlarda simgeleri mecazi olarak kullanabilir, çizimin neyi temsil edebileceğinin alternatif anlamlarıyla oynayabilirsiniz.",
+                    "updated": 1645299302530
                 }
             ]
         },
@@ -869,6 +1156,11 @@
                     "language": "RU",
                     "text": "Избегайте страниц с шагами небольшим содержанием, они кажутся пустыми и кажутся странными. Вам не нужно заполнять пространство тарабарщиной или ненужной информацией. Вместо этого постарайтесь использовать пространство для предоставления контекста призыва к действию. Объясните, почему пользователя просят сделать то или иное действие. Дайте пользователю понять, что можно ожидать от этого действия и так далее.",
                     "updated": 1640273694929
+                },
+                {
+                    "language": "TR",
+                    "text": "Çok az içeriğe sahip adımlar boş görünüyor ve garip hissettiriyor. Alanı anlamsız veya gereksiz bilgilerle hissetmenize gerek yok. Bunun yerine, eylem çağrısı için bağlam sağlamak için alanı kullanmayı deneyin. Kullanıcıdan neden bunu yapmasının istendiğini açıklayın. Kullanıcıya eylemden ne beklenebileceğini bildirin vb.",
+                    "updated": 1645299442058
                 }
             ]
         },
@@ -886,6 +1178,11 @@
                     "language": "RU",
                     "text": "Как следствие вышесказанного, обратный случай также может быть проблематичным. То есть, когда содержимое едва умещается на странице и слишком близко подходит к ряду кнопок, закрепленных внизу каждого шага. Проблема заключается в том, что некоторые комбинации браузер / оперционная система отображают стили немного по-разному, и то, что может показаться близко к кнопкам в одной системе, может перекрывать их в другой. Постарайтесь выровнять хотя бы одну полную пустую строку, а лучше две.",
                     "updated": 1640273786793
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarıdakilerin bir sonucu olarak, bunun tersi durum da sorunlu olabilir. Diğer bir deyişle, içerik sayfaya zar zor sığdığında ve her adımın altında sabitlenmiş düğmeler satırına çok yaklaştığında. Sorun, bazı tarayıcıların/işletim sistemi kombinasyonlarının stilleri biraz farklı oluşturmasıdır ve bir sistemdeki düğmelere yakın görünen şey, sonraki düğmelerle çakışabilir. En az bir dolu boş satırı düzleştirmeye çalışın - tercihen iki.",
+                    "updated": 1645299487584
                 }
             ]
         },
@@ -903,6 +1200,11 @@
                     "language": "RU",
                     "text": "Не выделяйте два следующих друг за другом абзаца одним и тем же стилем. Единственное исключение - это списки. Даже стиль текста Docs не сформирован так, чтобы хорошо смотреться в качестве последовательных абзацев в контексте учебника (между абзацами нет прокладок).",
                     "updated": 1640273977383
+                },
+                {
+                    "language": "TR",
+                    "text": "Aynı stille iki ardışık paragraf ayarlamayın. Tek istisna madde işareti listeleri içindir. Dokümanlar Metin Stili ( Docs Text Style ) bile bir öğretici bağlamında ardışık paragraflar gibi iyi görünecek şekilde biçimlendirilmemiştir (paragraflar arasında dolgu yoktur).",
+                    "updated": 1645299579260
                 }
             ]
         },
@@ -920,6 +1222,11 @@
                     "language": "RU",
                     "text": "Оставьте пустой хотя бы одну строку перед кнопками в нижней части окна учебника. В противном случае в других браузерах содержимое может выйти за пределы окна.",
                     "updated": 1640274010295
+                },
+                {
+                    "language": "TR",
+                    "text": "Eğitim penceresinin altındaki düğmelerden önce en az bir satır boş bırakın. Aksi takdirde diğer tarayıcılarda içerik pencereden taşabilir.",
+                    "updated": 1645299608024
                 }
             ]
         },
@@ -947,7 +1254,14 @@
         },
         {
             "style": "Subtitle",
-            "text": "Unique Identifiers"
+            "text": "Unique Identifiers",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Benzersiz Tanımlayıcılar",
+                    "updated": 1645299629491
+                }
+            ]
         },
         {
             "style": "Important",
@@ -962,6 +1276,11 @@
                     "language": "RU",
                     "text": "Помните, что название шага учебника также является уникальным идентификатором соответствующей страницы Docs Page. Это означает, что система не допускает дублирования названий. Избегайте любой ценой называть страницы одним словом или короткой фразой. Давайте оставим эти уникальные имена для особых случаев, которые могут заслуживать использования таких специальных фраз.",
                     "updated": 1640274222418
+                },
+                {
+                    "language": "TR",
+                    "text": "Önemli: Bir eğitim adımının başlığının aynı zamanda ilgili Dokümanlar Sayfasının ( Docs Page ) benzersiz tanımlayıcısı olduğunu unutmayın. Bu, sistemin yinelenen başlıklara izin vermediği anlamına gelir. Her ne pahasına olursa olsun sayfaları tek kelime veya kısa kelime öbeklerinden sonra adlandırmaktan kaçının. Bu tür özel ifadelerin kullanılmasını hak edebilecek özel durumlar için bu benzersiz adları bırakalım.",
+                    "updated": 1645299732662
                 }
             ]
         },
@@ -979,13 +1298,25 @@
                     "language": "RU",
                     "text": "По этой же причине все заголовки должны начинаться со следующей фиксированной строки текста:",
                     "updated": 1640274241889
+                },
+                {
+                    "language": "TR",
+                    "text": "Aynı nedenle, tüm başlıklar aşağıdaki sabit metin dizisiyle başlamalıdır:",
+                    "updated": 1645299753514
                 }
             ]
         },
         {
             "style": "Json",
             "text": "Tutorial Step - ",
-            "updated": 1617905492001
+            "updated": 1617905492001,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Eğitim Adımı - ( Tutorial Step - )",
+                    "updated": 1645299781656
+                }
+            ]
         },
         {
             "style": "Text",
@@ -1001,6 +1332,11 @@
                     "language": "RU",
                     "text": "Вышеизложенное помогает зарезервировать некоторые фразы для контекстов, отличных от учебных пособий.",
                     "updated": 1640274262809
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarıdakiler, öğreticilerden farklı bağlamlar için bazı ifadelerin ayrılmasına yardımcı olur.",
+                    "updated": 1645299808471
                 }
             ]
         },
@@ -1018,6 +1354,11 @@
                     "language": "RU",
                     "text": "Не волнуйтесь! Ваши заголовки не будут выглядеть некрасиво в учебнике, так как система фильтрует префикс и не показывает его в окне учебника!",
                     "updated": 1640274286892
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Endişelenme! Başlıklarınız öğreticide çirkin görünmeyecek, çünkü sistem öneki filtreler ve öğretici penceresinde göstermez!",
+                    "updated": 1645299838708
                 }
             ]
         },
@@ -1028,7 +1369,14 @@
         },
         {
             "style": "Title",
-            "text": "The First Page"
+            "text": "The First Page",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İlk Sayfa",
+                    "updated": 1645299865294
+                }
+            ]
         },
         {
             "style": "Text",
@@ -1044,6 +1392,11 @@
                     "language": "RU",
                     "text": "Самая первая страница учебника - это страница, которая кратко описывает, о чем учебник, с помощью поля Summary. Страница должна иметь то же название, что и учебник, и заканчиваться словом 'Tutorial', поскольку введенное вами резюме будет служить подсказкой при упоминании учебника в Docs.",
                     "updated": 1640274677965
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir öğreticinin ilk sayfası, Özet alanını kullanarak öğreticinin ne hakkında olduğunu kısaca açıklayan bir sayfadır. Sayfa, öğreticiyle aynı ada sahip olmalı ve \"Öğretici\" kelimesiyle bitmelidir, çünkü girdiğiniz özet, Dokümanlar'da eğiticiden bahsedildiğinde bir ipucu görevi görecektir.",
+                    "updated": 1645299884193
                 }
             ]
         },
@@ -1060,6 +1413,11 @@
                     "language": "RU",
                     "text": "Например, первая страница учебника Welcome to Superalgos Tutorial - \"Welcome to Superalgos!\".",
                     "updated": 1640274893159
+                },
+                {
+                    "language": "TR",
+                    "text": "Örneğin, Superalgos'a Hoş Geldiniz! öğretici, Superalgos Eğitimine Hoş Geldiniz. ( Welcome to Superalgos Tutorial )",
+                    "updated": 1645299923085
                 }
             ]
         },
@@ -1077,6 +1435,11 @@
                     "language": "RU",
                     "text": "На странице должен быть заголовок About This Tutorial, в котором указывается, в каком рабочем пространстве доступен учебник, и кто является его сопровождающим, желательно с основной контактной информацией (имя пользователя Github, Telegram или Discord).",
                     "updated": 1640274941128
+                },
+                {
+                    "language": "TR",
+                    "text": "Sayfada, öğreticinin ( Tutorial ) hangi Çalışma Alanında ( Workspace ) mevcut olduğunu ve bakıcının kim olduğunu belirten, tercihen temel iletişim ayrıntılarıyla (Github, Telegram veya Discord kullanıcı adı) bir Bu Eğitim Hakkında başlığı bulunmalıdır.",
+                    "updated": 1645300017706
                 }
             ]
         },
@@ -1094,6 +1457,11 @@
                     "language": "RU",
                     "text": "Пример смотрите на странице Welcome to Superalgos Tutorial.",
                     "updated": 1640274960693
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Örnek için Superalgos Eğitimine Hoş Geldiniz sayfasına bakın.",
+                    "updated": 1645300044177
                 }
             ]
         },
@@ -1110,6 +1478,11 @@
                     "language": "RU",
                     "text": "Первые несколько шагов",
                     "updated": 1640274973359
+                },
+                {
+                    "language": "TR",
+                    "text": "İlk Birkaç Adım",
+                    "updated": 1645300093236
                 }
             ]
         },
@@ -1126,6 +1499,11 @@
                     "language": "RU",
                     "text": "Учебники должны начинаться с приветствия и четкого объяснения того, о чем идет речь, включая краткое описание того, что пользователь будет делать, следуя учебнику, и какие уроки он извлечет. Не нужно сжимать все в один шаг... два и даже три шага вполне подойдут.",
                     "updated": 1640275011930
+                },
+                {
+                    "language": "TR",
+                    "text": "Öğreticiler bir hoş geldiniz mesajıyla ve kullanıcının öğreticiyi takip ederken ne yapacağına ve hangi derslerin öğrenileceğine ilişkin kısa bir açıklama dahil olmak üzere öğreticinin ne hakkında olduğuna dair net bir açıklama ile başlamalıdır. Her şeyi tek bir adıma sıkıştırmaya gerek yok... iki hatta üç adım yeterlidir.",
+                    "updated": 1645300118943
                 }
             ]
         },
@@ -1142,6 +1520,11 @@
                     "language": "RU",
                     "text": "Если учебник требует предварительных знаний, выходящих за рамки учебников Getting Started Plugin Workspace, посвятите отдельный шаг объяснению того, какие предварительные знания требуются, чтобы пользователи могли сначала пройти соответствующие учебники.",
                     "updated": 1640275151211
+                },
+                {
+                    "language": "TR",
+                    "text": "Öğretici, Başlarken Öğreticiler Eklentisi Çalışma Alanının ( Getting Started Tutorials Plugin Workspace ) ötesinde bir ön bilgi gerektiriyorsa, kullanıcıların önce ilgili öğreticileri tamamlayabilmesi için hangi ön bilgilerin gerekli olduğunu açıklamaya bir adım ayırın.",
+                    "updated": 1645300183494
                 }
             ],
             "updated": 1642955219046
@@ -1160,6 +1543,11 @@
                     "language": "RU",
                     "text": "Вы также должны найти время, чтобы объяснить, что именно представлено в рабочем пространстве. Идея заключается в том, что пользователи должны как можно скорее ознакомиться с рабочим пространством, чтобы понять, чем оно может отличаться от других рабочих пространств, с которыми они могли сталкиваться ранее. Вы можете упомянуть, какие именно шахты вы будете использовать, уточнить, добавлены ли они в виде плагинов или нет, какие торговые системы и так далее. Вы можете пропустить обязательные иерархии, такие как Network или Trading Engine.",
                     "updated": 1640275278957
+                },
+                {
+                    "language": "TR",
+                    "text": "Ayrıca Çalışma Alanında ( Workspace ) nelerin öne çıktığını açıklamak için zaman ayırmalısınız. Buradaki fikir, kullanıcıların daha önce karşılaşmış olabilecekleri diğer çalışma alanlarından nasıl farklı olabileceğini anlamak için çalışma alanına mümkün olan en kısa sürede aşina olmaları gerektiğidir. Hangi madenleri kullanacağınızı belirtebilir, eklenti olarak eklenip eklenmediğini, hangi ticaret sistemlerini netleştirebilirsiniz. Ağ veya Ticaret Motoru ( Trading Engine ) gibi zorunlu hiyerarşileri atlayabilirsiniz.",
+                    "updated": 1645300284575
                 }
             ]
         },
@@ -1177,6 +1565,11 @@
                     "language": "RU",
                     "text": "Если вы установили какие-либо рынки, создали пользовательские графики, определенную настройку задач в иерархии Network или какую-либо специфическую структуру данных, которая отсутствует в стандартной установке рынка, обязательно объясните, что вы сделали и почему. Это может сбить пользователей с толку, если они найдут что-то и не будут знать, как они туда попали.",
                     "updated": 1640275329441
+                },
+                {
+                    "language": "TR",
+                    "text": "Herhangi bir pazar kurduysanız, özel grafikler oluşturduysanız, Ağ hiyerarşisinde belirli bir görev kurulumu veya varsayılan pazar kurulumunda bulunmayan herhangi bir belirli veri yapısı varsa, ne yaptığınızı ve nedenini açıkladığınızdan emin olun. Kullanıcıların bir şeyler bulması ve oraya nasıl geldiklerini bilmemeleri kafa karıştırıcı olabilir.",
+                    "updated": 1645300316716
                 }
             ]
         },
@@ -1193,6 +1586,11 @@
                     "language": "RU",
                     "text": "Последние несколько шагов",
                     "updated": 1640275341956
+                },
+                {
+                    "language": "TR",
+                    "text": "Son Birkaç Adım",
+                    "updated": 1645300344937
                 }
             ]
         },
@@ -1209,6 +1607,11 @@
                     "language": "RU",
                     "text": "Если в курсе есть еще несколько уроков, убедитесь, что вы оставляете пользователей прямо перед следующим уроком, приглашая их продолжить.",
                     "updated": 1640275438430
+                },
+                {
+                    "language": "TR",
+                    "text": "Seride daha fazla eğitim varsa, kullanıcıları bir sonraki derste bıraktığınızdan ve onları devam etmeye davet ettiğinizden emin olun.",
+                    "updated": 1645300355290
                 }
             ]
         },
@@ -1226,6 +1629,11 @@
                     "language": "RU",
                     "text": "Если остальные уроки серии еще не готовы, используйте последние несколько шагов, чтобы описать, что еще будет рассмотрено в этих уроках, и попросите пользователей оставаться с нами.",
                     "updated": 1640275561407
+                },
+                {
+                    "language": "TR",
+                    "text": "Dizideki diğer öğreticiler henüz hazır değilse, dizide başka nelerin ele alınacağını açıklamak için son birkaç adımı kullanın ve kullanıcılardan bizi izlemeye devam etmelerini isteyin.",
+                    "updated": 1645300367045
                 }
             ]
         },
@@ -1242,6 +1650,11 @@
                     "language": "RU",
                     "text": "Подведение итогов",
                     "updated": 1640275578036
+                },
+                {
+                    "language": "TR",
+                    "text": "Toparlama",
+                    "updated": 1645300444828
                 }
             ]
         },
@@ -1259,6 +1672,11 @@
                     "language": "RU",
                     "text": "Когда ваш учебник готов и прошел проверку сопровождающими проекта, вам нужно позаботиться о нескольких вещах, чтобы рабочее пространство и учебники можно было легко найти.",
                     "updated": 1640275603184
+                },
+                {
+                    "language": "TR",
+                    "text": "Eğitiminiz hazır olduğunda ve proje sahipleri tarafından gözden geçirildiğinde, çalışma alanı ve öğreticilerin kolayca bulunabilmesi için dikkat etmeniz gereken birkaç şey vardır.",
+                    "updated": 1645300454750
                 }
             ]
         },
@@ -1275,6 +1693,11 @@
                     "language": "RU",
                     "text": "Создайте страницу для рабочего пространства",
                     "updated": 1640275656941
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışma Alanı için Sayfa Oluşturun",
+                    "updated": 1645300472563
                 }
             ]
         },
@@ -1291,6 +1714,11 @@
                     "language": "RU",
                     "text": "Каждое рабочее пространство должно быть документировано, поэтому обязательно создайте для него страницу в теме 'Community Workspaces'.",
                     "updated": 1640275701507
+                },
+                {
+                    "language": "TR",
+                    "text": "Her çalışma alanı belgelenmelidir, bu nedenle 'Topluluk Çalışma Alanları' Konusunda çalışma alanı için bir sayfa oluşturduğunuzdan emin olun.",
+                    "updated": 1645300487606
                 }
             ]
         },
@@ -1308,6 +1736,11 @@
                     "language": "RU",
                     "text": "Пожалуйста, используйте ясное и описательное название и следуйте соглашению о присвоении имен, заканчивая название словами 'Plugin Workspace'. Не стесняйтесь советоваться о том, каким может быть хорошее название, с другими участниками в группе Docs Group.",
                     "updated": 1640275791724
+                },
+                {
+                    "language": "TR",
+                    "text": "Önemli: Lütfen açık ve açıklayıcı bir ad kullanın ve adı \"Eklenti Çalışma Alanı\" ile biten adlandırma kuralına uyun. Dokümanlar Grubundaki ( Docs Group ) diğer katkıda bulunanlarla iyi bir ismin ne olabileceğini danışmaktan çekinmeyin.",
+                    "updated": 1645300565401
                 }
             ]
         },
@@ -1320,6 +1753,11 @@
                     "language": "RU",
                     "text": "Список рабочих пространств плагинов и учебников",
                     "updated": 1640275910654
+                },
+                {
+                    "language": "TR",
+                    "text": "Eklenti Çalışma Alanları ve Öğreticilerin Listesi",
+                    "updated": 1645300619872
                 }
             ]
         },
@@ -1337,6 +1775,11 @@
                     "language": "RU",
                     "text": "Добавьте рабочее пространство и учебник в этот список: List of Plugin Workspaces and Tutorials, чтобы они отображались в книге First Steps Tutorials.",
                     "updated": 1640275953541
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışma alanını ve öğreticiyi bu listeye ekleyin: Eklenti Çalışma Alanları ve Öğreticiler Listesi ( List of Plugin Workspaces and Tutorials ), böylece İlk Adımlar Öğreticiler kitabında ( First Steps Tutorials ) görünecekler.",
+                    "updated": 1645300721010
                 }
             ]
         },
@@ -1353,6 +1796,11 @@
                     "language": "RU",
                     "text": "Посоветуйтесь с кураторами проекта, какое место в списке должно занять учебное пособие.",
                     "updated": 1640275976933
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Eğitimin listede alması gereken yeri proje yöneticilerine danışın.",
+                    "updated": 1645300764431
                 }
             ]
         },
@@ -1365,6 +1813,11 @@
                     "language": "RU",
                     "text": "Книга First Step Tutorials (\"Первые шаги в обучении\")",
                     "updated": 1640276136767
+                },
+                {
+                    "language": "TR",
+                    "text": "İlk Adım Öğreticiler Kitabı",
+                    "updated": 1645300779127
                 }
             ]
         },
@@ -1382,6 +1835,11 @@
                     "language": "RU",
                     "text": "Добавьте учебник в качестве главы в книгу First Steps Tutorials.",
                     "updated": 1640276028702
+                },
+                {
+                    "language": "TR",
+                    "text": "Öğreticiyi İlk Adımlar Öğreticiler kitabına ( First Steps Tutorials ) bir bölüm olarak ekleyin.",
+                    "updated": 1645300812079
                 }
             ]
         },

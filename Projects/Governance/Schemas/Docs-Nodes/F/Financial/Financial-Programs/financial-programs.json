@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Используйте этот узел для создания программы Staking Program и программы Delegation Program.",
                 "updated": 1638991768513
+            },
+            {
+                "language": "TR",
+                "text": "Staking Programını (Staking Program) ve Delegasyon Programını (Delegation Program) oluşturmak için bu düğümü kullanın.",
+                "updated": 1645183659194
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "RU",
                     "text": "Узнайте больше о том, как токен перетекает в эти программы Token Power Flows!",
                     "updated": 1638991799344
+                },
+                {
+                    "language": "TR",
+                    "text": "Token Gücünün bu programlara nasıl aktığı (Token Power Flows) hakkında daha fazla bilgi edinin!",
+                    "updated": 1645183691004
                 }
             ]
         },
@@ -40,6 +50,11 @@
                     "language": "RU",
                     "text": "Конфигурация",
                     "updated": 1638991816286
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırma",
+                    "updated": 1645183698212
                 }
             ]
         }

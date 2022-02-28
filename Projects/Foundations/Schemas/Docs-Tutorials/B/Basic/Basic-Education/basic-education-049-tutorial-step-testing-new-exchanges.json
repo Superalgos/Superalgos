@@ -36,6 +36,11 @@
                 "language": "RU",
                 "text": "Если вы являетесь разработчиком и предпочитаемый вами биржа не была протестирована, вы можете присоединиться к усилиям и помочь в тестировании!",
                 "updated": 1640875445774
+            },
+            {
+                "language": "ID",
+                "text": "Jika kamu seorang developer dan exchange pilihan kamu belum diuji, Kamu dapat bergabung dalam upaya dan membantu dalam pengujian!",
+                "updated": 1645559894532
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "RU",
                     "text": "Эта тема в документации объясняет, как отладить Sensor Bot, чтобы заставить его получать данные с биржи. Если биржа поддерживает основные функции, требуемые Superalgos, то в итоге у вас должно получиться решение!",
                     "updated": 1640875470175
+                },
+                {
+                    "language": "ID",
+                    "text": "Topik dalam Docs ini menjelaskan cara men-debug Sensor Bot untuk membuatnya mengambil data dari exchange. Jika exchange mendukung fitur dasar yang diperlukan oleh Superalgos, Kamu berakhir dengan mendapatkan solusi!",
+                    "updated": 1645559962595
                 }
             ]
         },
@@ -105,6 +115,11 @@
                     "language": "RU",
                     "text": "Поделиться решением с Сообществом - это ценный вклад. Каждый, кто придет следующим, тоже сможет насладиться любимой биржей!",
                     "updated": 1640875498456
+                },
+                {
+                    "language": "ID",
+                    "text": "Berbagi solusi dengan Komunitas adalah kontribusi yang berharga. Setiap orang yang datang berikutnya dapat menikmati exchange favorit mereka juga!",
+                    "updated": 1645559987882
                 }
             ]
         },
@@ -139,6 +154,11 @@
                     "language": "RU",
                     "text": "Мы настоятельно рекомендуем вам завершить обучение на Superalgos, пройдя все учебники, прежде чем приступать к настройке других бирж.",
                     "updated": 1640875514056
+                },
+                {
+                    "language": "ID",
+                    "text": "Kami sangat menyarankan kamu untuk menyelesaikan edukasimu di Superalgos dengan melakukan semua tutorial sebelum kamu terjun ke dalam pengaturan exchanges lainnya.",
+                    "updated": 1645560045273
                 }
             ]
         }

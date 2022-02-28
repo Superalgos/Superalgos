@@ -36,6 +36,11 @@
                 "language": "RU",
                 "text": "Давайте рассмотрим первый сценарий: типичный случай - когда вы хотите внести изменения в стратегию, поставляемую вместе с системой, чтобы начать с проверенной конфигурации!",
                 "updated": 1640874819658
+            },
+            {
+                "language": "ID",
+                "text": "Mari kita lihat skenario pertama: tipikal kasus dimana ketika kamu ingin memperkenalkan perubahan pada pengiriman strategi dengan sistem untuk memulai dengan pengaturan yang terbukti!",
+                "updated": 1645559252341
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "RU",
                     "text": "Допустим, вы готовы начать экспериментировать со стратегией. Вы хотите начать с существующей стратегии и внести в нее изменения, чтобы понять, как все работает. Вы не собираетесь вносить изменения. Вы просто хотите поиграть с ней и настроить ее по своему вкусу! Тогда сделайте следующее:",
                     "updated": 1640874894478
+                },
+                {
+                    "language": "ID",
+                    "text": "Katakanlah kamu siap untuk mulai bermain dengan strategi. Kamu ingin memulai dengan yang sudah ada dan memperkenalkan modifikasi untuk memahami cara kerja berbagai hal. Kamu tidak bermaksud berkontribusi terhadap perubahan. Kamu hanya ingin bermain dengannya dan menyetelnya sesuai keinginanmu! Kemudian, lakukan hal berikut:",
+                    "updated": 1645559301189
                 }
             ]
         },
@@ -105,6 +115,11 @@
                     "language": "RU",
                     "text": "Удалите узел Plugin File, соответствующий торговой системе, и восстановите оригинальный файл плагина (в папке \\Plugins\\Trading-Systems), как будто это была резервная копия: перетащите файл и перебросьте его в Design Space! Теперь стратегия живет в рабочем пространстве, и вы можете изменять и сохранять ее!",
                     "updated": 1640874934047
+                },
+                {
+                    "language": "ID",
+                    "text": "Delete node Plugin File yang sesuai dengan Trading System dan restore file plugin asli (di folder \\Plugins\\Trading-Systems folder) seolah-olah itu adalah cadangan: seret file dan letakkan di Design Space! Strategi-nya sekarang hidup di workspace dan kamu dapat memodifikasi dan menyimpannya!",
+                    "updated": 1645562741733
                 }
             ]
         }

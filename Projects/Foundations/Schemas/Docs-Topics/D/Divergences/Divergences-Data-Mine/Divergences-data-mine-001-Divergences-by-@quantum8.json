@@ -12,7 +12,37 @@
         },
         {
             "style": "List",
-            "text": " 1.) RSI Divergence"
+            "text": "1.) RSI Divergence",
+            "updated": 1646094526582
+        },
+        {
+            "style": "List",
+            "text": "2) Commodity Channel Index Indicator - CCI",
+            "updated": 1646094775135
+        },
+        {
+            "style": "List",
+            "text": "3) CCI Divergence"
+        },
+        {
+            "style": "List",
+            "text": "4) MFI Divergence"
+        },
+        {
+            "style": "List",
+            "text": "5) Awesome Oscillator Indicator"
+        },
+        {
+            "style": "List",
+            "text": "6) Awesome Oscillator Divergence"
+        },
+        {
+            "style": "List",
+            "text": "7) Klinger Volume Oscillator Indicator"
+        },
+        {
+            "style": "List",
+            "text": "8) Klinger Oscillator Divergence"
         },
         {
             "style": "Title",
@@ -22,7 +52,7 @@
             "style": "Link",
             "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
         },
-		{
+        {
             "style": "Text",
             "text": "@quantum8#7428 (discord)"
         }

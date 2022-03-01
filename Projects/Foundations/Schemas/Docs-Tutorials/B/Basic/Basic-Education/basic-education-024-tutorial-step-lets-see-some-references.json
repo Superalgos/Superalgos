@@ -36,6 +36,11 @@
                 "language": "RU",
                 "text": "Обратите внимание на два узла под Backtesting Session: Trading System Reference и Trading Engine Reference. Зачем нам нужны эти узлы?",
                 "updated": 1640869194213
+            },
+            {
+                "language": "ID",
+                "text": "Perhatikan dua node di bawah Backtesting Session: Trading System Reference dan Trading Engine Reference. Mengapa kita membutuhkan node ini?",
+                "updated": 1644948143992
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "RU",
                     "text": "Сессия бэктестинга должна ссылаться на торговую систему, чтобы получить правила для торговли. Она также должна ссылаться на торговый движок, чтобы он мог хранить информацию, относящуюся к торговой сессии. Но узел может установить только одну исходящую ссылку!",
                     "updated": 1640869229159
+                },
+                {
+                    "language": "ID",
+                    "text": "Backtesting Session perlu merujuk ke Trading System sehingga dapat memperoleh aturan untuk perdagangan. Itu juga harus merujuk Trading Engine sehingga dapat menyimpan informasi relatif terhadap sesi trading. Namun, sebuah node hanya dapat membuat satu referensi keluaran!",
+                    "updated": 1644948227170
                 }
             ]
         },
@@ -105,6 +115,11 @@
                     "language": "RU",
                     "text": "Вот почему эти узлы существуют: они являются вспомогательными для узла Backtesting Session, чтобы каждый из них мог ссылаться на один узел!",
                     "updated": 1640869242136
+                },
+                {
+                    "language": "ID",
+                    "text": "Itulah sebabnya node ini ada: mereka adalah bantuan untuk node Backtesting Session sehingga masing-masing dari mereka dapat merujuk satu node!",
+                    "updated": 1644948263209
                 }
             ]
         }

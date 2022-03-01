@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Стать достаточно опытным в работе с Superalgos до такой степени, чтобы вы могли внести ценный вклад, может быть длительным процессом. Программа наставничества стимулирует глубокое сотрудничество, обучение и формирование участников.",
                 "updated": 1638985712720
+            },
+            {
+                "language": "TR",
+                "text": "Değerli katkılar üretebileceğiniz noktaya kadar Superalgos'ta yeterince yetkin olmak uzun bir süreç olabilir. Mentorluk programı, derin işbirliğini, çıraklığı ve Katkıda Bulunanların oluşumunu teşvik eder.",
+                "updated": 1645100440566
             }
         ]
     },
@@ -40,6 +45,11 @@
                     "language": "RU",
                     "text": "С помощью этой программы вы можете зарабатывать токены Superalgos SA Token за каждого пользователя, которого вы наставляете, а также за пользователей, которых они наставляют!",
                     "updated": 1638985744682
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu programla, mentorluk yaptığınız her kullanıcı ve ayrıca onların mentorluk yaptıkları kullanıcılar için Superalgos SA Tokenları kazanabilirsiniz!",
+                    "updated": 1645100467479
                 }
             ]
         },
@@ -57,6 +67,11 @@
                     "language": "RU",
                     "text": "Для участия вы должны запустить программу наставничества Mentorship Program и объявить своих наставников. Для этого добавьте узел User Mentor и используйте его, чтобы установить ссылку на профиль пользователя человека, который вас наставлял. Если у вас более одного наставника, добавьте больше узлов User Mentor!",
                     "updated": 1638985805015
+                },
+                {
+                    "language": "TR",
+                    "text": "Katılmak için Mentorluk Programını oluşturmalı ve mentorlarınızı beyan etmelisiniz. Bunu yapmak için bir Kullanıcı Mentoru (User Mentor) düğümü ekleyin ve bunu size akıl hocalığı yapan kişinin Kullanıcı Profiline referans oluşturmak için kullanın. Birden fazla mentorunuz varsa, daha fazla User Mentor düğümü ekleyin!",
+                    "updated": 1645100511560
                 }
             ]
         },
@@ -73,6 +88,11 @@
                     "language": "RU",
                     "text": "Superalgos призван превратиться в крупномасштабное глобальное сотрудничество. Для этого проекту нужна постоянно растущая группа авторов!",
                     "updated": 1638985832260
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos'un büyük bir küresel işbirliğine dönüşmesi amaçlanıyor. Bunu yapmak için projenin sürekli büyüyen bir \"Katkıda Bulunanlar Grubuna\" ihtiyacı var!",
+                    "updated": 1645100537787
                 }
             ]
         },
@@ -96,6 +116,11 @@
                     "language": "RU",
                     "text": "Конфигурация",
                     "updated": 1638985856893
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırma",
+                    "updated": 1645100547874
                 }
             ]
         }

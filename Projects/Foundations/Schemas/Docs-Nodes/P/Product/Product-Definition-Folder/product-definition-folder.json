@@ -1,7 +1,14 @@
 {
     "type": "Product Definition Folder",
     "definition": {
-        "text": "A product definition folder is an organizational device used to create arrangements of product definitions, particularly useful when the bot has many products."
+        "text": "A product definition folder is an organizational device used to create arrangements of product definitions, particularly useful when the bot has many products.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Product Definition Folder - это организационное устройство, используемое для создания упорядоченных определений продуктов, особенно полезное, когда у бота много продуктов.",
+                "updated": 1645169628791
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,11 +17,25 @@
         },
         {
             "style": "Text",
-            "text": "In cases in which a single bot has many different products, product definitions folders may help organize those products, making their management easier. Folders may be nested like folders in the file system."
+            "text": "In cases in which a single bot has many different products, product definitions folders may help organize those products, making their management easier. Folders may be nested like folders in the file system.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В случаях, когда один бот имеет много различных продуктов, папки с определениями продуктов могут помочь организовать эти продукты, облегчая управление ими. Папки могут быть вложенными, как папки в файловой системе.",
+                    "updated": 1645169640554
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The use of product definition folders is optional, as product definitions may also exist outside of folders."
+            "text": "The use of product definition folders is optional, as product definitions may also exist outside of folders.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Использование папок с определениями продуктов является необязательным, поскольку определения продуктов могут существовать и вне папок.",
+                    "updated": 1645169652583
+                }
+            ]
         }
     ]
 }

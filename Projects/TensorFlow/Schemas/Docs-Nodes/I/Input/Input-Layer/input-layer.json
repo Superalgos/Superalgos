@@ -2,12 +2,26 @@
     "type": "Input Layer",
     "definition": {
         "text": "The first layer (the one that receives the input data) in an Artificial Neural Network.",
-        "updated": 1613209053300
+        "updated": 1613209053300,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Первый слой (тот, который получает входные данные) в искусственной нейронной сети (Artificial Neural Network).",
+                "updated": 1645248177620
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "Right click and select the pencil button to enter edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
+                    "updated": 1645248184440
+                }
+            ]
         }
     ]
 }

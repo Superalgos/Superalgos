@@ -31,6 +31,11 @@
                     "language": "RU",
                     "text": "Активы, определенные в узле Exchange Assets, могут затем использоваться для определения рынков или для определения холдингов, выраженных в этих активах в узле User Assets.",
                     "updated": 1638622172298
+                },
+                {
+                    "language": "TR",
+                    "text": "Borsa Varlıkları (Exchange Assets) düğümü altında tanımlanan varlıklar (Assets), daha sonra piyasaları tanımlamak veya Kullanıcı Varlıkları düğümü (User Assets) altında bu varlıklarda belirtilen varlıkları tanımlamak için kullanılabilir.",
+                    "updated": 1644572892180
                 }
             ]
         },
@@ -52,6 +57,11 @@
                     "language": "RU",
                     "text": "Конфигурация Asset",
                     "updated": 1638622102884
+                },
+                {
+                    "language": "TR",
+                    "text": "Varlık Yapılandırması",
+                    "updated": 1644573086313
                 }
             ]
         },
@@ -64,6 +74,11 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1638622111242
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1644573093446
                 }
             ]
         },
@@ -76,6 +91,11 @@
                     "language": "RU",
                     "text": "codeName - это тикер актива, указанный биржей (например, BTC, BTH, ETH, LTC, BNB, USDT, USD и т. д.)",
                     "updated": 1638622191695
+                },
+                {
+                    "language": "TR",
+                    "text": "codeName, borsa tarafından listelendiği şekliyle varlığın simgesidir (yani BTC, BTH, ETH, LTC, BNB, USDT, USD, vb.)",
+                    "updated": 1644574382589
                 }
             ]
         },
@@ -87,6 +107,11 @@
                     "language": "RU",
                     "text": "Когда настроенный актив находится в каталоге значков системы, стандартный значок актива заменяется логотипом соответствующего актива.",
                     "updated": 1638622213836
+                },
+                {
+                    "language": "TR",
+                    "text": "Konfigüre edilmiş bir varlığa ait logo, sistemin simge kataloğunda varsa, eklenen varlığın logosuyla değiştirilir.",
+                    "updated": 1644574517748
                 }
             ]
         }

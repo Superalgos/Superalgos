@@ -10,6 +10,11 @@
                 "updated": 1637851695478
             },
             {
+                "language": "TR",
+                "text": "Superalgos Projesi, katkıları ödüllendirmek ve istenen davranışları teşvik etmek için her sürümden sonra kendine ait Superalgos SA Tokens dağıtır. Dağıtım Etkinliği, Hazine Hesabından (Treasury Account) yönetişime katılan her Kullanıcı Profili ile ilişkili Yönetim Adresine jeton dağıtan süreci yürütme eylemini ve zamanını temsil eder.",
+                "updated": 1644578543030
+             },
+             {
                 "language": "RU",
                 "text": "Проект Superalgos распределяет свои собственные токены Superalgos SA после каждого релиза, чтобы вознаградить вклады и стимулировать желаемое поведение. Событие распределения (Distribution Event) представляет собой момент времени и акт запуска процесса, который распределяет токены со счета казначейства (Treasury Account) на адрес управления (Governance Address), связанный с каждым профилем пользователя, участвующим в управлении.",
                 "updated": 1645082663327
@@ -33,6 +38,11 @@
                     "updated": 1637851873356
                 },
                 {
+                    "language": "TR",
+                    "text": "Superalgos Projesi, her sürümü Telegram Duyuruları kanalı (Telegram Announcements) ve Superalgos Medium Blog da dahil olmak üzere tüm resmi kanallar aracılığıyla duyurur.",
+                    "updated": 1644578697103
+                },
+                {
                     "language": "RU",
                     "text": "Проект Superalgos объявляет о каждом релизе через все официальные каналы, включая канал объявлений Telegram и блог Superalgos Medium.",
                     "updated": 1645082679811
@@ -49,6 +59,11 @@
                     "updated": 1637851833645
                 },
                 {
+                    "language": "TR",
+                    "text": "Duyuru anında, Topluluğun yönetişime katılması için bir zaman belirlenir. Bu genelde 7 ile 8 günlük bir süreçtir. Kullanıcılar, bu süre zarfında Kullanıcı Profillerini ayarlayabilir.",
+                    "updated": 1644578812881
+                },
+                {
                     "language": "RU",
                     "text": "В момент объявления открывается временное окно для участия Сообщества в управлении. На данный момент это окно имеет неопределенный срок. Пользователи могут настраивать свои профили пользователей до закрытия окна.",
                     "updated": 1645082705250
@@ -63,6 +78,11 @@
                     "language": "ES",
                     "text": "Una vez que se cierra la ventana, no se aceptan más modificaciones en las jerarquías de gobierno hasta que tenga lugar el Evento de distribución.",
                     "updated": 1637851866405
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu zaman sone erdiğinde , Dağıtım Olayı gerçekleşene kadar yönetim hiyerarşilerinde başka değişiklik kabul edilmez.",
+                    "updated": 1644578840183
                 },
                 {
                     "language": "RU",

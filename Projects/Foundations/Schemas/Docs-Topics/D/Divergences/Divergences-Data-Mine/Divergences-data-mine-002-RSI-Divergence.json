@@ -1,5 +1,5 @@
 {
-    "topic": "Divergences Data Mine Data Mine",
+    "topic": "Divergences Data Mine",
     "pageNumber": "2",
     "type": "RSI Divergence",
     "definition": {
@@ -68,7 +68,7 @@
             "text": "PNGs/Foundations/Docs/indicators/Divergences-RSI-params-1.png"
         },		
 		{
-            "style": "Text",
+            "style": "Note",
             "text": "Keep in mind that the longer the pivot length, the greater the accuracy but the longer the lag for confirming the pivot peak/low."
         },	
 		{

@@ -36,6 +36,11 @@
                 "language": "RU",
                 "text": "Узлы, не привязанные к иерархии, не вычисляются. Они существуют в рабочем пространстве, но не влияют на работу системы на любом уровне.",
                 "updated": 1640868091127
+            },
+            {
+                "language": "ID",
+                "text": "Node yang tidak melekat pada hierarki tidak dihitung. Mereka ada di workspace, tetapi mereka tidak mempengaruhi cara kerja sistem di tingkat mana pun.",
+                "updated": 1644947080812
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "RU",
                     "text": "Это означает, что вы можете хранить столько структур узлов, отделенных от иерархий, сколько пожелаете, держа их под рукой для последующего использования или по любой другой причине.",
                     "updated": 1640868111832
+                },
+                {
+                    "language": "ID",
+                    "text": "Ini berarti bahwa kamu dapat menjaga sebanyak mungkin struktur node yang terlepas dari hierarki, selama yang kamu inginkan, menyimpannya untuk digunakan nanti, atau untuk alasan apa pun.",
+                    "updated": 1644947142354
                 }
             ]
         },
@@ -105,6 +115,11 @@
                     "language": "RU",
                     "text": "Распространенным сценарием является сохранение нескольких версий определенных определений при построении стратегий, чтобы вы могли протестировать набор правил и перейти к другим правилам для следующего запуска. Вы даже можете хранить несколько версий целых стратегий!",
                     "updated": 1640868133379
+                },
+                {
+                    "language": "ID",
+                    "text": "Skenario umum yaitu menjaga beberapa versi definisi tertentu saat membangun strategi, sehingga kamu dapat menguji seperangkat aturan dan beralih ke aturan lain untuk menjalankan berikutnya. Kamu bahkan dapat menyimpan beberapa versi dari seluruh strategi!",
+                    "updated": 1644947237970
                 }
             ]
         }

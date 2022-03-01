@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Узел Pool Class - это организационное устройство, используемое для расположения узлов Pool в подходящих иерархических структурах. Используйте этот узел для порождения других узлов Pool Class и узлов Pool.",
                 "updated": 1640283404045
+            },
+            {
+                "language": "TR",
+                "text": "Pool Class düğümü, Havuz düğümlerini uygun hiyerarşik yapılarda düzenlemek için kullanılan bir organizasyon cihazıdır. Diğer Pool Class düğümlerini ve Havuz (Pool) düğümlerini oluşturmak için bu düğümü kullanın.",
+                "updated": 1645191279319
             }
         ]
     },
@@ -26,6 +31,11 @@
                     "language": "RU",
                     "text": "Основная цель этого узла - помочь организовать узлы Pool наиболее подходящим образом.",
                     "updated": 1640283417419
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu düğümün temel amacı, Havuz düğümlerini en uygun şekilde düzenlemeye yardımcı olmaktır.",
+                    "updated": 1645191291747
                 }
             ]
         },
@@ -41,6 +51,11 @@
                     "language": "RU",
                     "text": "Конфигурация",
                     "updated": 1640283426409
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırma",
+                    "updated": 1645191298780
                 }
             ]
         },

@@ -24,6 +24,11 @@
                 "language": "DE",
                 "text": "Fast vergessen! Bevor Sie gehen, gebe ich Ihnen einen Crashkurs, damit Sie ein bisschen mit echter Token Power spielen können!",
                 "updated": 1640082755036
+            },
+            {
+                "language": "TR",
+                "text": "Neredeyse unuttum! Gitmeden önce, biraz gerçek Jeton Gücü (Token Power) ile oynaman için sana hızlandırılmış bir kurs vereceğim!",
+                "updated": 1645168190446
             }
         ]
     },
@@ -47,6 +52,11 @@
                     "language": "DE",
                     "text": "Wir schleichen uns in das Benutzerprofil des Hauptentwicklers, insbesondere in sein Delegation Program! Ihre Aufgabe: Delegieren Sie sich selbst etwas Token Power, damit Sie mit den Abläufen in Ihrem eigenen Profil spielen können!",
                     "updated": 1640082784254
+                },
+                {
+                    "language": "TR",
+                    "text": "Baş geliştiricinin Kullanıcı Profiline gizlice giriyoruz, özellikle Delegasyon Programında (Delegation Program)! Göreviniz: Kendi profilinizdeki token gücünüz ile oynayabilmeniz için kendinize biraz Jeton Gücü devredin!",
+                    "updated": 1645168252108
                 }
             ]
         },
@@ -68,6 +78,11 @@
                     "language": "DE",
                     "text": "Verwenden Sie den Knoten User Delegate auf der rechten Seite, um auf Ihr eigenes Benutzerprofil zu verweisen!",
                     "updated": 1640082804692
+                },
+                {
+                    "language": "TR",
+                    "text": "Kendi Kullanıcı Profilinize başvurmak için sağdaki User Delegate düğümünü kullanın!",
+                    "updated": 1645173721560
                 }
             ]
         },
@@ -90,6 +105,11 @@
                     "language": "DE",
                     "text": "Du kannst mit anderen Benutzerprofilen frei spielen.",
                     "updated": 1640082813232
+                },
+                {
+                    "language": "TR",
+                    "text": "Diğer Kullanıcı Profilleri ile özgürce oynayabilirsiniz.",
+                    "updated": 1645168379111
                 }
             ]
         },
@@ -112,6 +132,11 @@
                     "language": "DE",
                     "text": "Diese Profile werden nicht mit dem Workspace gespeichert.",
                     "updated": 1640082827690
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu profiller çalışma alanıyla birlikte kaydedilmez.",
+                    "updated": 1645168426220
                 }
             ]
         },
@@ -133,6 +158,11 @@
                     "language": "DE",
                     "text": "Selbst wenn Sie sie in das Repo einreichen würden, würden sie von unserem Bot abgelehnt werden, der kontrolliert, dass Profile nur von ihren Besitzern hochgeladen werden.",
                     "updated": 1640082839390
+                },
+                {
+                    "language": "TR",
+                    "text": "Bunları depoya göndermiş olsanız bile, profillerin yalnızca sahipleri tarafından yüklendiğini kontrol eden botumuz tarafından reddedilirler.",
+                    "updated": 1645168447442
                 }
             ]
         }

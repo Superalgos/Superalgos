@@ -1,0 +1,59 @@
+{
+    "topic": "Divergences Data Mine",
+    "pageNumber": 8,
+    "type": "Klinger Volume Oscillator Indicator",
+    "definition": {
+        "text": "This indicator produces the Klinger Volume Oscillator, as originally developed by Stephen Klinger. This indicator uses the key price compared to the prior bar's key price to assign volume as positive or negative value."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Klinger Volume Oscillator On the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "The Klinger Volume Oscillator (KVO) is an unbounded oscillator. According to Investopedia: it was developed to determine the long-term trend of money flow while remaining sensitive enough to detect short-term fluctuations. The indicator compares the volume flowing through securities with the security's price movements and then converts the result into an oscillator. The Klinger oscillator shows the difference between two moving averages which are based on more than price. "
+        },
+        {
+            "style": "Link",
+            "text": "Klinger Oscillator (investopedia)->www.investopedia.com/terms/k/klingeroscillator.asp"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Divergences-KVO-1.png"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the KVO can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"Klinger\" Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Divergences-KVO-1-params.png",
+            "updated": 1646101477819
+        },
+        {
+            "style": "Title",
+            "text": "Klinger Volume Oscillator Products & Properties"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Setting | Product Variable | Properties |\n| KlingerOsc | ko | value, signal |"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "A simple strategy can be built by entering a trade when the Oscillator value crosses 0 from below:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at02hs.ko.previous.value < 0 && chart.at02hs.ko.value > 0"
+        },
+        {
+            "style": "Text",
+            "text": "Like many other oscillators, this indicator is prone to false signals when the price action is trendless. Using the divergence can increase the probabilities of success, as well as combining with other indicators such as, the Stochastic, Parabolic SAR (PSAR), or an EMA crossover."
+        }
+    ]
+}

@@ -9,6 +9,11 @@
                 "updated": 1628037249031
             },
             {
+                "language": "TR",
+                "text": "Eklentiler hiyerarşisi, geçerli çalışma alanına hangi eklentilerin dahil edileceğini tanımlar. Bu hiyerarşi bağlamında eklentiler, veri madeni, ticaret madeni, ticaret motoru veya ticaret sistemi gibi bir hiyerarşiyi tanımlayan JSON dosyalarıdır.",
+                "updated": 1644582475185
+            },
+            {
                 "language": "EL",
                 "text": "Η ιεραρχία των πρόσθετων καθορίζει ποιά πρόσθετα θα συμπεριληφθούν στον τρέχοντα χώρο εργασίας. Στο πλαίσιο αυτής της ιεραρχίας, τα πρόσθετα είναι αρχεία JSON που διαθέτουν την περιγραφή μιας ιεραρχίας όπως ένα εξορυκτήριο δεδομένων, ένα εξορυκτήριο συναλλαγών, μια μηχανή συναλλαγών ή ένα σύστημα συναλλαγών.",
                 "updated": 1641828795260
@@ -38,6 +43,11 @@
                     "language": "DE",
                     "text": "Im Kontext eines community-gesteuerten Projekts ist ein Plugin ein Gerät, das dazu dient, von der Community generierte Intelligenz zu verbreiten. Das Projekt vertreibt mehrere Plugins, die von der Community beigesteuert werden.",
                     "updated": 1641764929240
+                },
+                {
+                    "language": "TR",
+                    "text": "Topluluk odaklı bir proje olarak, eklentiler, topluluk tarafından oluşturulan zekayı dağıtmaya hizmet eden bir cihazdır. Proje, topluluk tarafından sağlanan çeşitli eklentileri dağıtır.",
+                    "updated": 1644582550980
                 }
             ]
         },
@@ -60,6 +70,11 @@
                     "language": "DE",
                     "text": "Hierarchien, die als Plugins in den Arbeitsbereich eingebunden sind, werden nicht auf Arbeitsbereichsebene gespeichert. Änderungen, die in diesen Hierarchien vorgenommen werden, bleiben daher nicht erhalten. Wenn Sie ein Plugin ändern und in Zukunft mit der geänderten Version weiterarbeiten möchten, müssen Sie das Plugin entweder klonen oder sichern und stattdessen mit der resultierenden Kopie arbeiten.",
                     "updated": 1641764949101
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışma alanına eklenti olarak dahil edilen hiyerarşiler, çalışma alanı düzeyinde kaydedilmez. Bu nedenle, bu hiyerarşilerde yapılan değişiklikler kalıcı değildir. Bir eklentiyi değiştirmek ve gelecekte değiştirilmiş sürümle çalışmaya devam etmek istiyorsanız, eklentiyi klonlamalı veya yedeklemeli ve bu kopya üzerinde çalışmalısınız.",
+                    "updated": 1644583244190
                 }
             ]
         }

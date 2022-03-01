@@ -36,6 +36,11 @@
                 "language": "RU",
                 "text": "Текущее рабочее пространство - это рабочее пространство пользователя (User Workspace) или рабочее пространство плагина (Plugin Workspace), которое вы используете в данный момент.",
                 "updated": 1640873140025
+            },
+            {
+                "language": "ID",
+                "text": "Workspace saat ini adalah User Workspace atau Plugin Workspace yang kamu gunakan kapan saja.",
+                "updated": 1645034616173
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "RU",
                     "text": "Если вы закрываете и перезапускаете приложение или обновляете пользовательский интерфейс, система загружает рабочее пространство, которое использовалось в последний раз.",
                     "updated": 1640873164889
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika kamu menutup dan me-restart aplikasi, atau menyegarkan UI, sistem memuat workspace yang terakhir digunakan.",
+                    "updated": 1645034652877
                 }
             ]
         },
@@ -105,6 +115,11 @@
                     "language": "RU",
                     "text": "Войдите в меню узла Workspace, дважды щелкните по ярлыку \"Getting Started Tutorials\" и измените его на \"Basic Education\".",
                     "updated": 1640873189495
+                },
+                {
+                    "language": "ID",
+                    "text": "Akses menu node Workspace, klik dua kali pada label \"Getting Started Tutorials\" dan ubah menjadi \"Basic Education\".",
+                    "updated": 1645034772611
                 }
             ]
         },
@@ -139,6 +154,11 @@
                     "language": "RU",
                     "text": "Теперь нажмите Ctrl + Shift + Alt + Key-S",
                     "updated": 1640873199684
+                },
+                {
+                    "language": "ID",
+                    "text": "Sekarang tekan Ctrl + Shift + Alt + Key-S",
+                    "updated": 1645034781934
                 }
             ]
         },
@@ -173,6 +193,11 @@
                     "language": "RU",
                     "text": "Перейдите в папку My-Workspaces, чтобы убедиться, что новый файл находится там. Найдите его также на вкладке Workspaces!",
                     "updated": 1640873230589
+                },
+                {
+                    "language": "ID",
+                    "text": "Buka folder My-Workspaces untuk memverifikasi file baru apakah ada di sana. Temukan di workspaces tab juga!",
+                    "updated": 1645034841207
                 }
             ]
         }

@@ -243,8 +243,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Örneğin Cem, arkadaşı Bülent'e'Superalgos'u anlatır. Bülent Kullanıcı Profilini (User Profile) oluşturduğunda, Cem'i yönlendiren kişi olarak ilan eder. Bu, Cem'in, Bülent'in Kullanıcı Yönlendiren (User Referrer) düğümüne yönlendirdiği Yönlendirme Gücünün %10'unu aldığı anlamına gelir. Ardından Bülent, arkadaşı Alptuğ'u Superalgos'a getirir. Alptuğ profilini oluşturur ve Bülent'i yönlendiren kişi olarak ilan eder.Bülent'te, Alptuğ'un Kullanıcı Yönlendiren düğümüne yönlendirdiği Yönlendirme Gücünün %10'unu alır. Alpuğ, Gabriel'e Superalgos'u anlatıp davet ettiğinde ise yine aynı süreç devam eder...",
-                    "updated": 1644484419227
+                    "text": "Örneğin Alice, arkadaşı Bob'a'Superalgos'u anlatır. Bob Kullanıcı Profilini (User Profile) oluşturduğunda, Alice'i yönlendiren kişi olarak ilan eder. Bu, Alice'in, Bob'un Kullanıcı Yönlendiren (User Referrer) düğümüne yönlendirdiği Yönlendirme Gücünün %10'unu aldığı anlamına gelir. Ardından Bob, arkadaşı Charly'yi Superalgos'a getirir. Charly profilini oluşturur ve Bob'u yönlendiren kişi olarak ilan eder. Bob'ta, Charly'nin User Referrer düğümüne yönlendirdiği Yönlendirme Gücünün %10'unu alır. Charly, bir başka arkadaşına Superalgos'u anlatıp davet ettiğinde ise yine aynı süreç devam eder...",
+                    "updated": 1645083836645
                 }
             ]
         },
@@ -270,8 +270,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "İpucu: Cem'in Gelen Yönlendirme Gücüne ne olduğunu görebiliyor musunuz? Budur! Alptuğ'un gücünün %10'u da dahil olmak üzere Bülent'in'gücünün %10'unu alır!",
-                    "updated": 1644484612990
+                    "text": "İpucu: Alice'in Gelen Yönlendirme Gücüne ne olduğunu görebiliyor musunuz? Budur! Charly'nin gücünün %10'u da dahil olmak üzere Bob'in'gücünün %10'unu alır!",
+                    "updated": 1645100706118
                 }
             ]
         },
@@ -320,6 +320,11 @@
                     "language": "RU",
                     "text": "Входящее полномочие Incoming Power, которую вы получаете от других пользователей, находится в прямой пропорции Direct Proportion к количеству токенов, которые вы получаете из соответствующего пула вознаграждений Rewards Pool программы. Расчет основан на правиле Rule of Three, и результат отображается в узле Tokens Awarded соответствующей программы.",
                     "updated": 1638983423339
+                },
+                {
+                    "language": "TR",
+                    "text": "Diğer kullanıcılardan aldığınız Güç (Incoming Token Power), ilgili program Ödül Havuzundan (Rewards Pool) aldığınız jeton sayısıyla Doğrudan orantılıdır. Hesaplama, üç Kurala dayalıdır ve sonuç, ilgili programın Kazanılan Jetonlar (Tokens Awarded) düğümü altında görüntülenir.",
+                    "updated": 1645084536345
                 }
             ]
         },

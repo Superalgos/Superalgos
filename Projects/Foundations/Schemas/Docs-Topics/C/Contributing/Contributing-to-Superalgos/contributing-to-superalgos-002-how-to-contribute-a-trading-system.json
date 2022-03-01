@@ -4,7 +4,14 @@
     "type": "How to Contribute a Trading System",
     "definition": {
         "text": "To contribute a Trading System, you must provide the trading system file, a clean workspace, and proper documentation.",
-        "updated": 1613586065560
+        "updated": 1613586065560,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Özet: Bir Ticaret Sistemine ( Trading System ) katkıda bulunmak için ticaret sistemi dosyasını, temiz bir çalışma alanını ve uygun belgeleri sağlamanız gerekir.",
+                "updated": 1645289710295
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -20,6 +27,11 @@
                     "language": "RU",
                     "text": "Необходимые требования",
                     "updated": 1640259784664
+                },
+                {
+                    "language": "TR",
+                    "text": "Gereksinimler",
+                    "updated": 1645289798177
                 }
             ]
         },
@@ -32,6 +44,11 @@
                     "language": "RU",
                     "text": "Файл торговой системы",
                     "updated": 1640260160064
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Sistem Dosyası",
+                    "updated": 1645289806629
                 }
             ]
         },
@@ -44,6 +61,11 @@
                     "language": "RU",
                     "text": "Подготовьте чистую и аккуратную торговую систему. Организуйте и назовите стратегии, ситуации, условия, ордера и т.д. так, чтобы их было легче читать.",
                     "updated": 1640259864770
+                },
+                {
+                    "language": "TR",
+                    "text": "Temiz ve düzenli bir Ticaret Sistemi ( Trading System ) hazırlayın. Daha kolay okunabilmesi için stratejileri, durumları, koşulları, emirleri vb. düzenleyin ve adlandırın.",
+                    "updated": 1645289842547
                 }
             ]
         },
@@ -56,6 +78,11 @@
                     "language": "RU",
                     "text": "Добавьте файл торговой системы (Trading System) в качестве плагина в соответствующую папку.",
                     "updated": 1640259900999
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Sistemi ( Trading System ) dosyasını eklenti olarak uygun klasöre ekleyin.",
+                    "updated": 1645289908630
                 }
             ]
         },
@@ -76,6 +103,11 @@
                     "language": "RU",
                     "text": "Файл рабочего пространства",
                     "updated": 1640260172983
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışma Alanı Dosyası",
+                    "updated": 1645289924945
                 }
             ]
         },
@@ -88,6 +120,11 @@
                     "language": "RU",
                     "text": "Подготовьте чистое рабочее пространство (Workspace), содержащее только вашу торговую систему и необходимые источники данных.",
                     "updated": 1640259970805
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Sisteminizi ( Trading System ) ve yalnızca gerekli veri madenlerini içeren temiz bir Çalışma Alanı ( Workspace ) hazırlayın.",
+                    "updated": 1645290008446
                 }
             ]
         },
@@ -100,6 +137,11 @@
                     "language": "RU",
                     "text": "Установите Market и удалите ненужные Data Tasks, чтобы пользователи знали, какие индикаторы необходимы. Убедитесь, что вы также удалили ненужные узлы Data Storage.",
                     "updated": 1640260055041
+                },
+                {
+                    "language": "TR",
+                    "text": "Kullanıcıların hangi göstergelerin gerekli olduğunu bilmeleri için Market'i kurun ve gereksiz Veri Görevlerini kaldırın. Gereksiz Veri Depolama ( Data Storage ) düğümlerini de kaldırdığınızdan emin olun.",
+                    "updated": 1645290057109
                 }
             ]
         },
@@ -112,6 +154,11 @@
                     "language": "RU",
                     "text": "Добавьте файл рабочего пространства в качестве плагина в соответствующую папку.",
                     "updated": 1640260121098
+                },
+                {
+                    "language": "TR",
+                    "text": "Uygun klasöre bir çalışma alanı eklentisi olarak bir Çalışma Alanı ( Workspace ) dosyası ekleyin.",
+                    "updated": 1645290086131
                 }
             ]
         },
@@ -129,6 +176,11 @@
                     "language": "RU",
                     "text": "Документацию",
                     "updated": 1640260187066
+                },
+                {
+                    "language": "TR",
+                    "text": "Belgeler",
+                    "updated": 1645290124994
                 }
             ]
         },
@@ -141,6 +193,11 @@
                     "language": "RU",
                     "text": "Используйте страницу BB Top Bounce (BBTB) в качестве примера контента, который вы должны предоставить в качестве документации для торговой системы.",
                     "updated": 1640260236467
+                },
+                {
+                    "language": "TR",
+                    "text": "BB Top Bounce (BBTB) sayfasını, ticaret sistemi için belge olarak sağlamanız gereken içeriğe örnek olarak alın.",
+                    "updated": 1645290149543
                 }
             ]
         },
@@ -153,6 +210,11 @@
                     "language": "RU",
                     "text": "Название создаваемой страницы должно соответствовать следующему формату...",
                     "updated": 1640260257547
+                },
+                {
+                    "language": "TR",
+                    "text": "Oluşturduğunuz sayfanın adı aşağıdaki formatta olmalıdır...",
+                    "updated": 1645290160406
                 }
             ]
         },
@@ -169,6 +231,11 @@
                     "language": "RU",
                     "text": "Например:",
                     "updated": 1640260269285
+                },
+                {
+                    "language": "TR",
+                    "text": "Örneğin:",
+                    "updated": 1645290172863
                 }
             ]
         },
@@ -185,13 +252,25 @@
                     "language": "RU",
                     "text": "Вышеизложенное предполагает, что торговая система оптимизирована для определенного рынка. Даже если это не так, укажите рынок, который установлен в файле рабочего пространства.",
                     "updated": 1640260295972
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarıdakiler, Ticaret Sisteminin ( Trading System ) belirli bir Pazar ( Market ) için optimize edildiğini varsayar. Durum böyle olmasa bile Çalışma Alanı ( Workspace ) dosyasında kurulu olduğu marketi belirtin.",
+                    "updated": 1645290305986
                 }
             ]
         },
         {
             "style": "List",
             "text": "Create the page within the Community Trading Systems topic. You may edit the command below to fit your needs.",
-            "updated": 1613587940298
+            "updated": 1613587940298,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Sayfayı Topluluk Ticaret Sistemleri ( Community Trading ) konusunda oluşturun. Aşağıdaki komutu ihtiyaçlarınıza göre düzenleyebilirsiniz.",
+                    "updated": 1645290390795
+                }
+            ]
         },
         {
             "style": "Json",
@@ -207,6 +286,11 @@
                     "language": "RU",
                     "text": "Необязательный контент",
                     "updated": 1640263507623
+                },
+                {
+                    "language": "TR",
+                    "text": "Opsiyonel İçerik",
+                    "updated": 1645290422657
                 }
             ]
         },
@@ -219,6 +303,11 @@
                     "language": "RU",
                     "text": "Рассмотрите возможность создания интерактивного учебного пособия (Tutorial), в котором рассматривается реализация торговой системы и показывается, как она работает в симуляции (backtest). Это добавляет значительную ценность и, безусловно, стимулирует!",
                     "updated": 1640263605470
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Sisteminin ( Trading System ) uygulanmasından geçen ve bir simülasyonda (geriye dönük test) nasıl çalıştığını gösteren etkileşimli bir Öğretici ( Tutorial ) oluşturmayı düşünün. Bu önemli bir değer katar ve kesinlikle teşvik edilir!",
+                    "updated": 1645290506155
                 }
             ]
         }

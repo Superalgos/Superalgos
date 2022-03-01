@@ -36,6 +36,11 @@
                 "language": "RU",
                 "text": "Если вы еще не сделали этого, перейдите по ссылке из Trading System Reference в торговую систему Lightning Strike!",
                 "updated": 1640870261141
+            },
+            {
+                "language": "ID",
+                "text": "Jika belum, lakukanlah dan buat referensi dari Trading System Reference ke Lightning Strike Trading System!",
+                "updated": 1644949362631
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "RU",
                     "text": "Возможно, вы сочтете этот метод создания ссылки несколько неуклюжим или непрактичным. Если у вас есть идея получше или вы знаете, как ее улучшить, не стесняйтесь, откройте вопрос о запросе функции. Убедитесь, что вы учли следующее:",
                     "updated": 1640870284394
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu mungkin menemukan teknik ini untuk membuat referensi menjadi sedikit janggal atau tidak praktis. Jika kamu memiliki ide yang lebih baik atau tahu cara memperbaikinya, jangan ragu untuk membuka fitur request issue. Pastikan kamu mempertimbangkan yang berikut ini:",
+                    "updated": 1644949461178
                 }
             ]
         },
@@ -104,6 +114,11 @@
                     "language": "RU",
                     "text": "В сложном рабочем пространстве могут быть сотни узлов, которые могут принимать ссылку.",
                     "updated": 1640870320552
+                },
+                {
+                    "language": "ID",
+                    "text": "Di workspace yang kompleks, mungkin ada ratusan node yang mungkin dapat menerima referensi.",
+                    "updated": 1644949490752
                 }
             ]
         },
@@ -138,6 +153,11 @@
                     "language": "RU",
                     "text": "Ссылка должна быть однозначно установлена от конкретного узла к другому конкретному узлу.",
                     "updated": 1640870336304
+                },
+                {
+                    "language": "ID",
+                    "text": "Referensi harus dibuat secara tegas dari node tertentu ke node tertentu lainnya.",
+                    "updated": 1644949516370
                 }
             ]
         },
@@ -171,6 +191,11 @@
                     "language": "RU",
                     "text": "А пока позвольте заверить вас, что это не так уж и сложно, если сделать это несколько раз!",
                     "updated": 1640870349694
+                },
+                {
+                    "language": "ID",
+                    "text": "Sementara itu, izinkan aku meyakinkan kamu bahwa itu tidak sulit begitu kamu melakukannya beberapa kali!",
+                    "updated": 1644949547584
                 }
             ]
         },

@@ -37,6 +37,11 @@
                 "language": "RU",
                 "text": "Во втором сценарии: допустим, вы тестируете индикатор EMA, нашли ошибку и знаете, как ее исправить. Вы намерены внести исправление, чтобы все могли им воспользоваться!",
                 "updated": 1640874963360
+            },
+            {
+                "language": "ID",
+                "text": "Tentang skenario kedua: katakanlah kamu sedang menguji indikator EMA, menemukan bug dan tahu cara memperbaikinya. Kamu bermaksud berkontribusi untuk memperbaiki sehingga semua orang mendapat manfaat dari hal itu!",
+                "updated": 1645559461122
             }
         ]
     },
@@ -73,6 +78,11 @@
                     "language": "RU",
                     "text": "Этот индикаторный бот (Indicator Bot) является частью Sparta Data Mine, который обычно включается в качестве плагина в некоторые рабочие пространства плагинов. Чтобы изменить плагин из пользовательского интерфейса и сохранить изменения, у вас есть два способа:",
                     "updated": 1640875005766
+                },
+                {
+                    "language": "ID",
+                    "text": "Indikator Bot ini adalah bagian dari Sparta Data Mine, yang biasanya dimasukkan sebagai plugin di beberapa workspaces plugin. Untuk memodifikasi plugin dari dalam UI dan menyimpan perubahan, Kamu memiliki dua opsi :",
+                    "updated": 1645559526844
                 }
             ]
         },
@@ -95,6 +105,11 @@
                     "language": "RU",
                     "text": "Перейдите к соответствующему узлу Plugin File в иерархии Plugins и выберите в меню Enable Saving With Workspace. Теперь он будет обновляться каждый раз, когда вы сохраняете рабочее пространство, чтобы содержать изменения, которые вы могли внести!",
                     "updated": 1640875166906
+                },
+                {
+                    "language": "ID",
+                    "text": "Buka File Plugin yang sesuai dalam hierarki Plugin dan pilih Enable Saving With Workspace pada menu. Sekarang file plugin diperbarui setiap kali kamu menyimpan workspace untuk memasukkan perubahan yang mungkin telah kamu perkenalkan!",
+                    "updated": 1645559587333
                 }
             ]
         },
@@ -118,6 +133,11 @@
                     "language": "RU",
                     "text": "Или используйте опцию Save Plugin File, чтобы вручную сохранить файл плагина, когда захотите!",
                     "updated": 1640875192451
+                },
+                {
+                    "language": "ID",
+                    "text": "Atau gunakan opsi Save Plugin File untuk menyimpan file plugin secara manual kapan pun kamu mau!",
+                    "updated": 1645559620656
                 }
             ]
         }

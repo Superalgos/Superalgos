@@ -36,6 +36,11 @@
                 "language": "RU",
                 "text": "Сообщество также может внести свой вклад в создание торговых систем! На данный момент их всего несколько, но мы надеемся, что скоро появятся новые!",
                 "updated": 1640877429865
+            },
+            {
+                "language": "ID",
+                "text": "Community juga dapat berkontribusi pada Trading Systems! Pada titik ini, hanya ada beberapa, tetapi kami berharap lebih banyak akan segera muncul!",
+                "updated": 1645562277953
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "RU",
                     "text": "Поищите в документах торговые системы сообщества!",
                     "updated": 1640877498081
+                },
+                {
+                    "language": "ID",
+                    "text": "Cari dalam Docs untuk Community Trading Systems!",
+                    "updated": 1645562295619
                 }
             ]
         },
@@ -105,6 +115,11 @@
                     "language": "RU",
                     "text": "Стратегии, предложенные сообществом, полностью документированы, чтобы вы могли использовать их для обучения!",
                     "updated": 1640877513728
+                },
+                {
+                    "language": "ID",
+                    "text": "Strategies yang dikontribusi oleh Community sepenuhnya didokumentasikan sehingga kamu dapat menggunakannya untuk belajar!",
+                    "updated": 1645562334387
                 }
             ]
         },
@@ -139,6 +154,11 @@
                     "language": "RU",
                     "text": "Помните, что хотя торговые системы, поставляемые с Superalgos, могут быть полностью функциональными, они предоставляются только в образовательных целях! Вы несете полную ответственность за то, как вы их используете! Торговля - это рискованный бизнес!",
                     "updated": 1640877535554
+                },
+                {
+                    "language": "ID",
+                    "text": "Ingatlah bahwa sementara Trading Systems yang cocok dengan Superalgos dapat berfungsi penuh, mereka disediakan hanya untuk educational purposes! Kamu bertanggung jawab penuh atas cara kamu menggunakannya! Trading adalah bisnis yang berisiko!",
+                    "updated": 1645562423796
                 }
             ]
         }

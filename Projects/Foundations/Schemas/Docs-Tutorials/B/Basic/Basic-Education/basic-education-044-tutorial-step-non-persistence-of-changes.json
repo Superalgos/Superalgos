@@ -36,6 +36,11 @@
                 "language": "RU",
                 "text": "Помните, я говорил, что файл плагина загружается каждый раз, когда загружается рабочее пространство? Эта особенность имеет одно прямое последствие...",
                 "updated": 1640873897569
+            },
+            {
+                "language": "ID",
+                "text": "Ingat yang aku katakan bahwa file plugin dimuat setiap kali workspace dimuat? Namun fitur ini juga memiliki konsekuensi langsung...",
+                "updated": 1645558931129
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "RU",
                     "text": "Иерархии, размещенные в рабочем пространстве как подключаемые модули, по умолчанию не сохраняются вместе с рабочим пространством. В результате изменения, сделанные в этих иерархиях, не сохраняются, если только вы не сохраните их вручную или не включите автоматическое сохранение.",
                     "updated": 1640873929858
+                },
+                {
+                    "language": "ID",
+                    "text": "Hierarchies ditempatkan di workspace karena plugin tidak menyimpan dengan workspace secara default. Akibatnya, perubahan yang dibuat dalam Hierarchies tersebut tidak bertahan, kecuali jika kamu menyimpannya secara manual atau mengaktifkan penyimpanan otomatis.",
+                    "updated": 1645559008465
                 }
             ]
         },
@@ -105,6 +115,11 @@
                     "language": "RU",
                     "text": "Существует два основных сценария модификации плагинов:",
                     "updated": 1640874842604
+                },
+                {
+                    "language": "ID",
+                    "text": "Ada dua kasus penggunaan utama untuk memodifikasi plugin :",
+                    "updated": 1645559032065
                 }
             ]
         },
@@ -133,6 +148,11 @@
                     "language": "RU",
                     "text": "Вы хотите изменить плагин, чтобы сделать из него свой собственный и продолжать работать с измененной версией в будущем.",
                     "updated": 1640874013136
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu ingin memodifikasi plugin untuk menjadikannya milik kamu dan tetap bekerja dengan versi yang dimodifikasi di masa depan.",
+                    "updated": 1645559057482
                 }
             ]
         },
@@ -160,6 +180,11 @@
                     "language": "RU",
                     "text": "Вы хотите обновить и улучшить плагин, чтобы внести улучшения в проект.",
                     "updated": 1640874062937
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu ingin memperbarui dan meningkatkan plugin untuk berkontribusi dalam perbaikan proyek.",
+                    "updated": 1645559088893
                 }
             ]
         }

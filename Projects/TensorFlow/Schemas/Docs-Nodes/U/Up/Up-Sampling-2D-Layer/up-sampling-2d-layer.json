@@ -2,17 +2,38 @@
     "type": "Up Sampling 2D Layer",
     "definition": {
         "text": "Upsampling layer for 2D inputs. Repeats the rows and columns of the data by size[0] and size[1] respectively.",
-        "updated": 1613219000480
+        "updated": 1613219000480,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Слой апсемплинга для двумерных входных данных. Повторяет строки и столбцы данных на size[0] и size[1] соответственно.",
+                "updated": 1645252621465
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "List",
             "text": "Input shape: 4D tensor with shape: - If dataFormat is \"channelsLast\": [batch, rows, cols, channels] - If dataFormat is \"channelsFirst\": [batch, channels, rows, cols]",
-            "updated": 1613219012908
+            "updated": 1613219012908,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Input shape: 4D тензор с формой: - Если dataFormat - \"channelsLast\": [batch, rows, cols, channels] - Если dataFormat - \"channelsFirst\": [batch, channels, rows, cols].",
+                    "updated": 1645252634424
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Output shape: 4D tensor with shape: - If dataFormat is \"channelsLast\": [batch, upsampledRows, upsampledCols, channels] - If dataFormat is \"channelsFirst\": [batch, channels, upsampledRows, upsampledCols]"
+            "text": "Output shape: 4D tensor with shape: - If dataFormat is \"channelsLast\": [batch, upsampledRows, upsampledCols, channels] - If dataFormat is \"channelsFirst\": [batch, channels, upsampledRows, upsampledCols]",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Output shape: 4D тензор с формой: - Если dataFormat - \"channelsLast\": [batch, upsampledRows, upsampledCols, channels] - Если dataFormat - \"channelsFirst\": [batch, channels, upsampledRows, upsampledCols].",
+                    "updated": 1645252643985
+                }
+            ]
         }
     ]
 }

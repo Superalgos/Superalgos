@@ -25,6 +25,11 @@
                 "language": "DE",
                 "text": "Erinnern Sie sich an die dritte Voraussetzung, um Ihren Token Bonus zu verdienen? \"Sie müssen Token Power in das Programm einbringen\". Was hat es damit auf sich?",
                 "updated": 1640080530166
+            },
+            {
+                "language": "TR",
+                "text": "Jeton Bonusunuzu kazanmak için üçüncü şartı hatırlıyor musunuz? \"Token Power'ı programa sürmelisiniz\". ",
+                "updated": 1645100768833
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "DE",
                     "text": "Hier wird es wahrscheinlich zu kompliziert, aber ich werde versuchen, es einfach zu halten!",
                     "updated": 1640080538738
+                },
+                {
+                    "language": "TR",
+                    "text": "Muhtemelen burada yabani otların içine giriyoruz, ama bunu basit tutmaya çalışacağım!",
+                    "updated": 1645100782366
                 }
             ]
         },
@@ -71,6 +81,11 @@
                     "language": "DE",
                     "text": "Wenn Ihre Governance Address einige Token auf ihrem Guthaben hat, dann erhalten Sie die gleiche Menge Token Power in Ihrem Benutzerprofil.",
                     "updated": 1640080641384
+                },
+                {
+                    "language": "TR",
+                    "text": "Yönetim Adresinizin bakiyesinde jetonlar olduğunda, Kullanıcı Profilinizde aynı miktarda Jeton Gücü olduğunu görürsünüz.",
+                    "updated": 1645100836977
                 }
             ]
         },
@@ -94,6 +109,11 @@
                     "language": "DE",
                     "text": "Token Power fließt in der Hierarchie nach unten wie ein Fluss! Die Menge an Token Power, die Sie in jedes Governance-Programm einfließen lassen, bestimmt, wie stark Sie sich an dem Programm beteiligen möchten und wirkt sich auf die Token Rewards aus, die Sie daraus erhalten können.",
                     "updated": 1640080672410
+                },
+                {
+                    "language": "TR",
+                    "text": "Jeton Gücü (Token Power), hiyerarşide bir nehir gibi akar! Her bir Yönetişim Programına verdiğiniz Token Gücü miktarı, programa ne kadar güçlü bir şekilde katılmak istediğinizi belirler ve programdan alabileceğiniz Token Ödüllerini (Token Rewards) etkiler.",
+                    "updated": 1645100884033
                 }
             ]
         },
@@ -117,6 +137,11 @@
                     "language": "DE",
                     "text": "Standardmäßig fließt Token Power zu gleichen Teilen an alle Nachfolgeknoten! Sie können dies jedoch ändern!",
                     "updated": 1640080684513
+                },
+                {
+                    "language": "TR",
+                    "text": "Varsayılan olarak, Token Gücü tüm alt düğümlere eşit miktarlarda dağılır! Ama bunu değiştirebilirsiniz!",
+                    "updated": 1645100921670
                 }
             ]
         }

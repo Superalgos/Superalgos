@@ -2,13 +2,27 @@
     "type": "Batch Input Shape",
     "definition": {
         "text": "If defined, will be used to create an input layer to insert before this layer. If both Input Shape and batchInputShape are defined, Batch Input Shape will be used. This argument is only applicable to input layers (the first layer of a model).",
-        "updated": 1613243097313
+        "updated": 1613243097313,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Если определено, используется для создания входного слоя, который будет вставлен перед этим слоем. Если определены и Input Shape, и batchInputShape, будет использоваться Batch Input Shape. Этот аргумент применим только к входным слоям (первый слой модели).",
+                "updated": 1645195620848
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Subtitle",
             "text": "Possible Values",
-            "updated": 1613243125301
+            "updated": 1613243125301,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Возможные значения",
+                    "updated": 1645195626532
+                }
+            ]
         },
         {
             "style": "Javascript",

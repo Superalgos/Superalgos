@@ -36,6 +36,11 @@
                 "language": "RU",
                 "text": "В какой-то момент вам понадобится создать справочник, поэтому давайте проведем базовую подготовку, чтобы развить необходимые важные навыки!",
                 "updated": 1640869395851
+            },
+            {
+                "language": "ID",
+                "text": "Pada sisi tertentu, kamu perlu membuat referensi, jadi mari kita lakukan beberapa latihan dasar untuk mengembangkan keterampilan hebat yang diperlukan!",
+                "updated": 1644948619494
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "RU",
                     "text": "Дважды нажмите кнопку отсоединения в меню узла Trading System Reference!",
                     "updated": 1640869430370
+                },
+                {
+                    "language": "ID",
+                    "text": "Klik dua kali tombol delink pada menu node Trading System Reference!",
+                    "updated": 1644948646978
                 }
             ]
         },
@@ -105,6 +115,11 @@
                     "language": "RU",
                     "text": "Вы только что сломали ссылку! Но не волнуйтесь... мы восстановим ее в следующих шагах!",
                     "updated": 1640869454260
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu baru saja merusak referensi! Tapi jangan khawatir... kita akan membuatnya kembali di langkah selanjutnya!",
+                    "updated": 1644948684013
                 }
             ]
         },
@@ -139,6 +154,11 @@
                     "language": "RU",
                     "text": "Чтобы создать ссылку, выполните те же действия, что и для присоединения узла. То есть щелкните правой кнопкой мыши на узле, от которого будет исходить ссылка, перетащите его близко к узлу, с которым будет установлена ссылка, и отпустите кнопку, как только появится оранжевое кольцо!",
                     "updated": 1640869478583
+                },
+                {
+                    "language": "ID",
+                    "text": "Untuk membuat referensi, ikuti proses yang sama yang kamu gunakan untuk attach node. Yaitu, klik kanan pada node tempat referensi akan berasal, seret dekat ke simpul yang dengannya referensi akan dibuat, dan lepaskan klik setelah cincin oranye muncul!",
+                    "updated": 1644948783921
                 }
             ]
         },

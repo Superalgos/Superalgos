@@ -36,6 +36,11 @@
                 "language": "RU",
                 "text": "Найдите узел Plugin Trading Systems внутри проекта Algorithmic Trading и разверните его! Обратите внимание на узел Plugin File с именем Masters-Lightning-Strike...",
                 "updated": 1640873339208
+            },
+            {
+                "language": "ID",
+                "text": "Temukan node Plugin Trading Systems di dalam Algorithmic Trading project dan perluas! Perhatikan node File Plugin bernama Masters-Lightning-Strike...",
+                "updated": 1645035775451
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "RU",
                     "text": "Lightning Strike - это демонстрационная торговая система, с которой вы играли во время ознакомительного урока. Она была размещена в качестве плагина в этом рабочем пространстве!",
                     "updated": 1640873381518
+                },
+                {
+                    "language": "ID",
+                    "text": "Lightning Strike adalah demo Trading System yang telah kamu mainkan selama Welcome tutorial. Telah ditempatkan sebagai plugin di workspace ini!",
+                    "updated": 1645035830494
                 }
             ]
         },
@@ -105,6 +115,11 @@
                     "language": "RU",
                     "text": "Следуйте по оранжевой пунктирной линии вниз, пока не найдете узел, с которым она соединяется! Используйте клавиатурный трюк Ctrl + стрелки, чтобы идти быстрее!",
                     "updated": 1640873402729
+                },
+                {
+                    "language": "ID",
+                    "text": "Ikuti garis putus-putus oranye ke bawah sampai kamu menemukan node yang terhubung dengannya! Gunakan trik keyboard Ctrl + panah untuk lebih cepat!",
+                    "updated": 1645035901896
                 }
             ]
         },
@@ -139,6 +154,11 @@
                     "language": "RU",
                     "text": "Вот и все! Вы нашли узел торговой системы Lightning Strike. Если вы перетащите его в сторону, то ниже вы найдете узел Plugin File Position.",
                     "updated": 1640873457847
+                },
+                {
+                    "language": "ID",
+                    "text": "Itu dia! Kamu menemukan node Lightning Strike Trading System. Jika kamu menyeretnya ke samping, kamu akan menemukan node Plugin File Position di bawah ini.",
+                    "updated": 1645035965821
                 }
             ]
         }

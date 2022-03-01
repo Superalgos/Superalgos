@@ -2,13 +2,27 @@
     "type": "Reshape Layer",
     "definition": {
         "text": "Reshapes an input to a certain shape.",
-        "updated": 1613214077391
+        "updated": 1613214077391,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Придает входному сигналу определенную форму.",
+                "updated": 1645249732857
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "List",
             "text": "Input shape: Arbitrary, although all dimensions in the input shape must be fixed. Use the configuration inputShape when using this layer as the first layer in a model.",
-            "updated": 1613214162552
+            "updated": 1613214162552,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Input shape: Произвольный, хотя все размеры входной формы должны быть фиксированными. Используйте конфигурацию inputShape при использовании этого слоя в качестве первого слоя в модели.",
+                    "updated": 1645249743355
+                }
+            ]
         },
         {
             "style": "List",

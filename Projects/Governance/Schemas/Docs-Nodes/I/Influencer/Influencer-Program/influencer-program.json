@@ -2,12 +2,26 @@
     "type": "Influencer Program",
     "definition": {
         "text": "The Influencers Program is currently unavailable. It will be implemented at a later stage. Driving Token Power into this program has no effect, so you may as well use it somewhere else.",
-        "updated": 1630089551098
+        "updated": 1630089551098,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Программа Influencers Program в настоящее время недоступна. Она будет реализована позднее. Вкладывание Token Power в эту программу не имеет никакого эффекта, поэтому вы можете использовать его в другом месте.",
+                "updated": 1645181083584
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "Right click and select the pencil button to enter edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
+                    "updated": 1645181089032
+                }
+            ]
         }
     ]
 }

@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "В проектах могут определяться должности, которые люди могут занимать, участвуя в проекте.",
                 "updated": 1639039711837
+            },
+            {
+                "language": "TR",
+                "text": "Projeler, insanların projeye katkıda bulunurken üstlenebilecekleri pozisyonları tanımlayabilir.",
+                "updated": 1645189193611
             }
         ]
     },

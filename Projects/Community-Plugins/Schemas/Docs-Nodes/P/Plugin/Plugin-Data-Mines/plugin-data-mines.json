@@ -1,7 +1,14 @@
 {
     "type": "Plugin Data Mines",
     "definition": {
-        "text": "The plugin data mines node features the definitions of data mines to be included as plugins in the current workspace."
+        "text": "The plugin data mines node features the definitions of data mines to be included as plugins in the current workspace.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Plugin Data Mines содержит определения источников данных, которые должны быть включены в качестве подключаемых в текущее рабочее пространство.",
+                "updated": 1645164922926
+            }
+        ]
     },
     "paragraphs": [
         {

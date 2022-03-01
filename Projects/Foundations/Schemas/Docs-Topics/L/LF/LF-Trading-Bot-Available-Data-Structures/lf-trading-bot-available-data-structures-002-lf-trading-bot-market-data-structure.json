@@ -112,7 +112,11 @@
         {
             "style": "Json",
             "text": "market.ETH.USDT.chart.at24hs.bollingerBand.movingAverage",
-            "updated": 1612351804074
+            "updated": 1646057453271
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Concept->Dependency Filter->Explanation"
         }
     ]
 }

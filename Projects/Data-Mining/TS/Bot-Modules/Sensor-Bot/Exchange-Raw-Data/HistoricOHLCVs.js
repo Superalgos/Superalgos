@@ -13,7 +13,7 @@
     let fileStorage = TS.projects.foundations.taskModules.fileStorage.newFileStorage(processIndex);
     let statusDependencies
 
-    const MAX_OHLCVs_PER_EXECUTION = 10000000
+    let MAX_OHLCVs_PER_EXECUTION = 10000000
     const symbol = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + '/' + TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
     const ccxt = SA.nodeModules.ccxt
     /*
@@ -590,7 +590,7 @@
 			save the data more often allowing for the data mining to move forward.
                         Check if we don't have a maxRate parameter and use global parameter instead
                         */
-                        if (!maxRate) {
+                        if (maxRate) {
                             maxRate = MAX_OHLCVs_PER_EXECUTION
                         }
 

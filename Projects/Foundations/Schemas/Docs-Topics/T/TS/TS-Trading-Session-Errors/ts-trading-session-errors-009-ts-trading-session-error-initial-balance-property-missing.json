@@ -4,17 +4,38 @@
     "type": "TS Trading Session Error - Initial Balance Property Missing",
     "definition": {
         "text": "A property called initialBalance is expected at the Session Base Asset and Session Quoted Asset Node config.",
-        "updated": 1611335687259
+        "updated": 1611335687259,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "В конфигурации узла Session Base Asset и Session Quoted Asset ожидается свойство initialBalance.",
+                "updated": 1645628480415
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Success",
             "text": "Check the config at the Node reporting this error and make sure that this property exists.",
-            "updated": 1611392878438
+            "updated": 1611392878438,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Проверьте конфигурацию узла, сообщающего об ошибке, и убедитесь, что это свойство существует.",
+                    "updated": 1645628489260
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Property Missing"
+            "text": "Property Missing",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Отсутствие свойста",
+                    "updated": 1645628507415
+                }
+            ]
         },
         {
             "style": "Json",

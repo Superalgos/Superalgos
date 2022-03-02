@@ -32,7 +32,6 @@ Plugins/Network
 Plugins/Portfolio-Management
 Plugins/TensorFlow
 Plugins/Trading-Signals
-tmp
+tmp/
 Superalgos.desktop
 .dccache
-testscript.js

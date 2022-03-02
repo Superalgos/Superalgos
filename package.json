@@ -19,9 +19,9 @@
     "installDesktopReact": "cd ./DesktopReact && npm ci",
     "startLocalDesktopReact": "start npm run startNetwork && cd ./DesktopReact && start npm run startDesktopReactBackend && start npm run startDesktopReactFrontend",
     "startDesktopReact": "cd ./DesktopReact && start npm run startDesktopReactBackend && start npm run startDesktopReactFrontend",
-    "clearJest": "./node_modules/.bin/jest --clearCache",
-    "unitTest": "./node_modules/.bin/jest --silent",
-    "unitTest:watch": "./node_modules/.bin/jest --silent --watch",
+    "unitTest": "jest --silent",
+    "unitTest:debug": "DEBUG=nock.* jest",
+    "unitTest:watch": "jest --silent --watch",
     "unitTest:verbose": "./node_modules/.bin/jest"
   },
   "dependencies": {
@@ -29,6 +29,7 @@
     "@octokit/rest": "^18.12.0",
     "@reduxjs/toolkit": "^1.6.2",
     "@slack/web-api": "^6.5.1",
+    "axios": "^0.26.0",
     "ccxt": "^1.61.93",
     "child_process": "^1.0.2",
     "discord-api-types": "^0.25.2",
@@ -60,7 +61,8 @@
   "devDependencies": {
     "electron": "^15.1.0",
     "electron-builder": "^22.14.5",
-    "jest": "^27.5.1"
+    "jest": "^27.5.1",
+    "nock": "^13.2.4"
   },
   "jest": {
     "testEnvironment": "node",

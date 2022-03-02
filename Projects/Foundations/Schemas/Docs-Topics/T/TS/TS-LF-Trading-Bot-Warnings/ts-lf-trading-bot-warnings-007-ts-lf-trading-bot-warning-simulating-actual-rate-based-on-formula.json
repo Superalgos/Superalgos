@@ -4,25 +4,60 @@
     "type": "TS LF Trading Bot Warning - Simulating - Actual Rate Based On Formula",
     "definition": {
         "text": "The trading bot used the Formula defined in the Simulated Actual Rate node to calculate the Actual Rate, overriding the calculation based on Slippage as defined in the Trading Parameters.",
-        "updated": 1611923692781
+        "updated": 1611923692781,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Торговый бот использовал формулу, определенную в узле Simulated Actual Rate, для расчета Actual Rate, перекрывая расчет, основанный на проскальзывании, как определено в параметрах торговли (Trading Parameters).",
+                "updated": 1645630344834
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Success",
             "text": "This is not an error and may be normal behavior. The trading bot created this warning to let you know that this happened so that you may keep track of all the details of the trade should you need to. This page provides information that should help you understand the context of the warning.",
-            "updated": 1611923702802
+            "updated": 1611923702802,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это не является ошибкой и может быть нормальным поведением. Торговый бот создал это предупреждение, чтобы сообщить вам, что это произошло, чтобы вы могли отследить все детали сделки, если вам это понадобится. На этой странице представлена информация, которая должна помочь вам понять контекст предупреждения.",
+                    "updated": 1645630350997
+                }
+            ]
         },
         {
             "style": "Warning",
-            "text": "Actual Rate Based On Formula"
+            "text": "Actual Rate Based On Formula",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Фактическая ставка по формуле",
+                    "updated": 1645630381827
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Context Info"
+            "text": "Context Info",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Контекстная информация",
+                    "updated": 1645630387874
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Find below the values of variables relevant to the warning at the time the warning was created. They may prove of use to understand what happened."
+            "text": "Find below the values of variables relevant to the warning at the time the warning was created. They may prove of use to understand what happened.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ниже приведены значения переменных, относящихся к предупреждению на момент его создания. Они могут оказаться полезными для понимания того, что произошло.",
+                    "updated": 1645630393534
+                }
+            ]
         },
         {
             "style": "Placeholder",
@@ -34,11 +69,25 @@
         },
         {
             "style": "Title",
-            "text": "Learn More"
+            "text": "Learn More",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узнать больше",
+                    "updated": 1645630402894
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "To learn more about this topic, please read the following page:"
+            "text": "To learn more about this topic, please read the following page:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы узнать больше об этой теме, прочтите следующую страницу:",
+                    "updated": 1645630414918
+                }
+            ]
         },
         {
             "style": "List",

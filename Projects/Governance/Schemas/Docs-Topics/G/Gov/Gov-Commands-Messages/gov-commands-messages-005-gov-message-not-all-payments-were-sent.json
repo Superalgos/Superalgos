@@ -6,6 +6,11 @@
         "text": "The update pay run but no all the payments were sent. You need to check the process output to fix it and probably run it again.",
         "updated": 1615458687718,
         "translations": [
+            {
+                "language": "RU",
+                "text": "Обновление оплаты запущено, но не все платежи были отправлены. Вам нужно проверить вывод процесса, чтобы исправить это и, возможно, запустить его снова.",
+                "updated": 1645627085228
+            }
         ]
     },
     "paragraphs": [
@@ -14,6 +19,11 @@
             "text": "You are up-to-date. No need to reboot the Client or refresh the UI page.",
             "updated": 1610454271911,
             "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы находитесь в актуальном состоянии. Нет необходимости перезагружать клиент или обновлять страницу пользовательского интерфейса.",
+                    "updated": 1645627095231
+                }
             ]
         }
     ]

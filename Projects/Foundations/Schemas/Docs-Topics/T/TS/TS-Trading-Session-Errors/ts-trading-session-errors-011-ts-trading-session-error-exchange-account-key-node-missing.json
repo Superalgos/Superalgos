@@ -4,13 +4,27 @@
     "type": "TS Trading Session Error - Exchange Account Key Node Missing",
     "definition": {
         "text": "An Exchange Account Key Node is expected and needed in order to run a Live Trading Session or an Forward Testing Session.",
-        "updated": 1611392704049
+        "updated": 1611392704049,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Exchange Account Key Node ожидается и необходим для запуска реальной торговой сессии или сессии форвардного тестирования.",
+                "updated": 1645628595249
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Success",
             "text": "From the Key Reference Node where this error popped up, you need to reference an Account Exchange Key holding your keys to access your account at the Exchange.",
-            "updated": 1611392779124
+            "updated": 1611392779124,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Из узла Key Reference Node, где появилась эта ошибка, вам нужно сослаться на Account Exchange Key, содержащий ваши ключи для доступа к вашей учетной записи на бирже.",
+                    "updated": 1645628605637
+                }
+            ]
         }
     ]
 }

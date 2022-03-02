@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Gösterge, her ikisi de standart ayarlarda Bollinger Bantları (BB) ve Yüzde Bant Genişliği (%B) üretir.",
                 "updated": 1644417469276
+            },
+            {
+                "language": "RU",
+                "text": "Индикатор выдает Bollinger Bands (BB) и Percentage Bandwidth (%B), оба в стандартных настройках.",
+                "updated": 1645605990049
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Grafiklerde",
                     "updated": 1644417493736
+                },
+                {
+                    "language": "RU",
+                    "text": "На графиках",
+                    "updated": 1645605998783
                 }
             ]
         },
@@ -65,6 +75,11 @@
                     "language": "TR",
                     "text": "Bu, geleneksel Bollinger Bantları göstergesidir. Bollinger Bantları, bizim durumumuzda son 20 periyotla (bantların ortasındaki çizgi) hesaplanan hareketli bir ortalamaya sahiptir. Hareketli ortalamayı yukarı çıkarken bir renkle, aşağı inerken farklı bir renkle çiziyoruz. Üst bant, hareketli ortalamadan 2 Standart Sapmada, alt bantta olduğu gibi, yine 2 Standart Sapmada. Bunlar en yaygın olarak kullanılan Bollinger Bantları ayarlarıdır.",
                     "updated": 1644417617506
+                },
+                {
+                    "language": "RU",
+                    "text": "Это традиционный индикатор Bollinger Bands (Полосы Боллинджера). Полосы Боллинджера имеют скользящую среднюю, в нашем случае рассчитанную по последним 20 периодам (линия в середине полос). Мы рисуем скользящую среднюю одним цветом, когда она идет вверх, и другим цветом, когда она идет вниз. Верхняя полоса находится на уровне 2 стандартных отклонений от скользящей средней, как и нижняя полоса, также на уровне 2 стандартных отклонений. Это наиболее широко используемые настройки полос Боллинджера.",
+                    "updated": 1645606044162
                 }
             ]
         },
@@ -102,6 +117,11 @@
                     "language": "TR",
                     "text": "Bu, Bollinger Bantlarından türeyen iyi bilinen bir göstergedir. Özetle, fiyatın herhangi bir zamanda üst banda veya alt banda ne kadar yakın olduğunu söyler. Fiyat bantların ortasındayken (her bir mumun kapanış değeri ile hesaplanır),% B grafiğinin ortasında, 50 değerindedir. Fiyat üst banda değdiğinde %B 100, son olarak fiyat alt banda değdiğinde %B 0 olur.",
                     "updated": 1644417764565
+                },
+                {
+                    "language": "RU",
+                    "text": "Это хорошо известный индикатор, который берет свое начало от полос Боллинджера. В двух словах, он показывает, насколько близко цена находится либо к верхней, либо к нижней полосе в любой момент времени. Когда цена находится в середине полосы (она рассчитывается по значению закрытия каждой свечи), то %B находится в середине своего графика, на значении 50. Когда цена касается верхней полосы, то %B равен 100, и, наконец, когда цена находится в нижней полосе, то %B равен 0.",
+                    "updated": 1645606091165
                 }
             ]
         },
@@ -123,6 +143,11 @@
                     "language": "TR",
                     "text": "Grafik, %30 ve 70 %B değerlerinde çizgiler içerir, çünkü bunlar tüccarlar için bir geri dönüşün ne zaman olabileceğini tahmin etmek için en yaygın değerlerdir. Grafiğimizde %B, #1'de temsil edilendir. Oynaklığı biraz yumuşatmak ve herhangi bir zamanda yukarı mı yoksa aşağı mı gittiğini sorabilmek için hareketli bir ortalama eklemeyi faydalı bulduk. Son 5 %B değerleriyle hesaplanan hareketli ortalama, 2. satır olarak çizilir. Son olarak, üst bandın alt banttan ayrılmasını temsil eden Bant Genişliği adlı bir özellik de ekledik. Bu bir oynaklık ölçüsüdür ve #3'te çizilir.",
                     "updated": 1644417842487
+                },
+                {
+                    "language": "RU",
+                    "text": "На графике изображены линии на значениях %B 30 и 70, поскольку это наиболее распространенные значения, по которым трейдеры прогнозируют, когда может произойти разворот. На нашем графике %B - это значение, представленное под номером 1. Мы сочли полезным добавить скользящую среднюю, чтобы немного сгладить волатильность и иметь возможность в любой момент узнать, идет ли она вверх или вниз. Скользящее среднее, рассчитанное по последним 5 значениям %B, показано на линии №2. Наконец, мы также добавили свойство Bandwidth, которое представляет собой отделение верхней полосы от нижней. Оно является мерой волатильности и отображается на линии #3.",
+                    "updated": 1645606109170
                 }
             ]
         },
@@ -148,6 +173,11 @@
                     "language": "TR",
                     "text": "Ürünler ve Özellikler",
                     "updated": 1644417861505
+                },
+                {
+                    "language": "RU",
+                    "text": "Продукты и свойства",
+                    "updated": 1645606116787
                 }
             ]
         },
@@ -175,6 +205,11 @@
                     "language": "TR",
                     "text": "bollingerBand ürünü, kullanabileceğiniz dört farklı özelliğe sahiptir.",
                     "updated": 1644417928300
+                },
+                {
+                    "language": "RU",
+                    "text": "Продукт bollingerBand имеет четыре различных свойства, которые вы можете использовать.",
+                    "updated": 1645606128621
                 }
             ]
         },
@@ -203,6 +238,11 @@
                     "language": "TR",
                     "text": "bollingerBand.movingAverage: Mevcut hareketli ortalamanın değeri (20 periyot).",
                     "updated": 1644418016201
+                },
+                {
+                    "language": "RU",
+                    "text": "bollingerBand.movingAverage: Значение текущей скользящей средней (20 периодов).",
+                    "updated": 1645606144770
                 }
             ]
         },
@@ -219,6 +259,11 @@
                     "language": "TR",
                     "text": "bollingerBand.standardDeviation: Mevcut standart sapmanın değeri.",
                     "updated": 1644418034002
+                },
+                {
+                    "language": "RU",
+                    "text": "bollingerBand.standardDeviation: Значение текущего стандартного отклонения.",
+                    "updated": 1645606156423
                 }
             ]
         },
@@ -322,6 +367,11 @@
                     "language": "TR",
                     "text": "Ürün yüzdesi Bant Genişliği, kullanabileceğiniz dört farklı özelliğe sahiptir.",
                     "updated": 1644418201056
+                },
+                {
+                    "language": "RU",
+                    "text": "Продукт percentageBandwidth имеет четыре различных свойства, которые вы можете использовать.",
+                    "updated": 1645606187564
                 }
             ]
         },
@@ -350,6 +400,11 @@
                     "language": "TR",
                     "text": "percentageBandwidth.value: 0 ile 100 arasında sayısal bir değer; yüzde bant genişliğinin geçerli değeri.",
                     "updated": 1644418273592
+                },
+                {
+                    "language": "RU",
+                    "text": "percentageBandwidth.value: Числовое значение от 0 до 100; текущее значение процентной полосы пропускания.",
+                    "updated": 1645606214271
                 }
             ]
         },
@@ -366,6 +421,11 @@
                     "language": "TR",
                     "text": "percentageBandwidth.movingAverage: 0 ile 100 arasında sayısal bir değer; yüzde bant genişliği hareketli ortalamanın mevcut değeri.",
                     "updated": 1644418311135
+                },
+                {
+                    "language": "RU",
+                    "text": "percentageBandwidth.movingAverage: Числовое значение от 0 до 100; текущее значение процентной скользящей средней пропускной способности.",
+                    "updated": 1645606223775
                 }
             ]
         },
@@ -382,6 +442,11 @@
                     "language": "TR",
                     "text": "percentageBandwidth.bandwidth: 0 ile 100 arasında sayısal bir değer; mevcut bant genişliği.",
                     "updated": 1644418338833
+                },
+                {
+                    "language": "RU",
+                    "text": "percentageBandwidth.bandwidth: Числовое значение от 0 до 100; текущая полоса пропускания.",
+                    "updated": 1645606237768
                 }
             ]
         },

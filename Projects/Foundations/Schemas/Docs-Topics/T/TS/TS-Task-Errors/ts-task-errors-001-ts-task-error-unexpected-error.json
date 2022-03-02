@@ -3,12 +3,26 @@
     "pageNumber": "1",
     "type": "TS Task Error - Unexpected Error",
     "definition": {
-        "text": "Write here a summary for this topic page."
+        "text": "Write here a summary for this topic page.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Напишите здесь краткое содержание этой тематической страницы.",
+                "updated": 1645629555077
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER для написания новых абзацев. ESC для выхода из режима редактирования.",
+                    "updated": 1645629561016
+                }
+            ]
         },
         {
             "style": "Error",
@@ -17,15 +31,36 @@
         {
             "style": "Title",
             "text": "Error Info",
-            "updated": 1611151211050
+            "updated": 1611151211050,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Информация об ошибке",
+                    "updated": 1645629565491
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In the following section, you will find the information recorded when the error occurred."
+            "text": "In the following section, you will find the information recorded when the error occurred.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В следующем разделе вы найдете информацию, записанную при возникновении ошибки.",
+                    "updated": 1645629570657
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "You will only see the information if you opened this page as a result of the error actually occurring."
+            "text": "You will only see the information if you opened this page as a result of the error actually occurring.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы увидите информацию только в том случае, если вы открыли эту страницу в результате того, что ошибка действительно произошла.",
+                    "updated": 1645629576759
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -34,7 +69,14 @@
         {
             "style": "Text",
             "text": "The following is the Error Message of the Exception that occurred at the TS:",
-            "updated": 1610971326601
+            "updated": 1610971326601,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ниже приведено сообщение об ошибке исключения, произошедшего в TS:",
+                    "updated": 1645629582830
+                }
+            ]
         },
         {
             "style": "Placeholder",
@@ -49,7 +91,14 @@
         {
             "style": "Text",
             "text": "The following is the Error Stack of the Exception that occurred at the TS:",
-            "updated": 1610968631281
+            "updated": 1610968631281,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ниже приведен стек ошибок исключения, произошедшего в TS:",
+                    "updated": 1645629587424
+                }
+            ]
         },
         {
             "style": "Placeholder",
@@ -62,7 +111,14 @@
         },
         {
             "style": "Text",
-            "text": "The following is the Error Code of the Exception that occurred at the TS:"
+            "text": "The following is the Error Code of the Exception that occurred at the TS:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ниже приведен код ошибки исключения, произошедшего в TS:",
+                    "updated": 1645629593271
+                }
+            ]
         },
         {
             "style": "Placeholder",
@@ -75,7 +131,14 @@
         {
             "style": "Text",
             "text": "The following are all the Error details of the Exception that occurred at the TS:",
-            "updated": 1611257840235
+            "updated": 1611257840235,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ниже перечислены все детали ошибки исключения, произошедшего в TS:",
+                    "updated": 1645629599438
+                }
+            ]
         },
         {
             "style": "Placeholder",

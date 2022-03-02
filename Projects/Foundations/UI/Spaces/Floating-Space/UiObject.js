@@ -168,6 +168,8 @@ function newUiObject() {
     let warningRingDirectionAnimation = 1
     let infoRingDirectionAnimation = 1
 
+    let schemaDocument
+
     thisObject.isRunning = false
 
     return thisObject
@@ -213,6 +215,8 @@ function newUiObject() {
         errorDocs = undefined
         warningDocs = undefined
         infoDocs = undefined
+
+        schemaDocument = undefined
     }
 
     function finalizeEventsServerClient() {
@@ -239,6 +243,7 @@ function newUiObject() {
 
     function initialize(payload, menuItemsInitialValues) {
         thisObject.payload = payload
+        schemaDocument = getSchemaDocument(thisObject.payload.node)
 
         /* Initialize the Menu */
 
@@ -451,7 +456,6 @@ function newUiObject() {
             let nearbyFloatingObjects = thisObject.payload.floatingObject.nearbyFloatingObjects
             let compatibleTypes
 
-            let schemaDocument = getSchemaDocument(thisObject.payload.node)
             if (schemaDocument !== undefined) {
                 if (schemaDocument.attachingRules !== undefined) {
                     compatibleTypes = schemaDocument.attachingRules.compatibleTypes
@@ -474,7 +478,7 @@ function newUiObject() {
                 let nearbyNode = floatingObject.payload.node
                 if (compatibleTypes.indexOf('->' + nearbyNode.type + '->') >= 0) {
                     /* Discard App Schema defined objects with busy connection ports */
-                    schemaDocument = getSchemaDocument(thisObject.payload.node)
+ 
                     if (schemaDocument !== undefined) {
                         let mustContinue = false
                         let parentSchemaDocument = getSchemaDocument(nearbyNode)
@@ -597,7 +601,6 @@ function newUiObject() {
             let nearbyFloatingObjects = thisObject.payload.floatingObject.nearbyFloatingObjects
             let compatibleTypes
 
-            let schemaDocument = getSchemaDocument(thisObject.payload.node)
             if (schemaDocument !== undefined) {
                 if (schemaDocument.referencingRules !== undefined) {
                     compatibleTypes = schemaDocument.referencingRules.compatibleTypes
@@ -693,7 +696,7 @@ function newUiObject() {
 
         function highlightPhisycs() {
             highlightCounter--
-            if (highlightCounter < 0 || thisObject.payload.parentNode === undefined) {
+            if (highlightCounter < 0 || (thisObject.payload.parentNode === undefined && schemaDocument.isHierarchyHead !== true)) {
                 highlightCounter = 0
                 isHighlighted = false
             }
@@ -701,7 +704,7 @@ function newUiObject() {
 
         function runningAtBackendPhisycs() {
             runningAtBackendCounter--
-            if (runningAtBackendCounter < 0 || thisObject.payload.parentNode === undefined) {
+            if (runningAtBackendCounter < 0 || (thisObject.payload.parentNode === undefined && schemaDocument.isHierarchyHead !== true)) {
                 runningAtBackendCounter = 0
                 isRunningAtBackend = false
             }
@@ -709,7 +712,7 @@ function newUiObject() {
 
         function errorMessagePhisycs() {
             errorMessageCounter--
-            if (errorMessageCounter < 0 || thisObject.payload.parentNode === undefined) {
+            if (errorMessageCounter < 0 || (thisObject.payload.parentNode === undefined && schemaDocument.isHierarchyHead !== true)) {
                 errorMessageCounter = 0
                 thisObject.hasError = false
 
@@ -722,7 +725,7 @@ function newUiObject() {
 
         function warningMessagePhisycs() {
             warningMessageCounter--
-            if (warningMessageCounter < 0 || thisObject.payload.parentNode === undefined) {
+            if (warningMessageCounter < 0 || (thisObject.payload.parentNode === undefined && schemaDocument.isHierarchyHead !== true)) {
                 warningMessageCounter = 0
                 thisObject.hasWarning = false
 
@@ -735,7 +738,7 @@ function newUiObject() {
 
         function infoMessagePhisycs() {
             infoMessageCounter--
-            if (infoMessageCounter < 0 || thisObject.payload.parentNode === undefined) {
+            if (infoMessageCounter < 0 || (thisObject.payload.parentNode === undefined && schemaDocument.isHierarchyHead !== true)) {
                 infoMessageCounter = 0
                 thisObject.hasInfo = false
 
@@ -748,7 +751,7 @@ function newUiObject() {
 
         function valuePhisycs() {
             valueCounter--
-            if (valueCounter < 0 || thisObject.payload.parentNode === undefined) {
+            if (valueCounter < 0 || (thisObject.payload.parentNode === undefined && schemaDocument.isHierarchyHead !== true)) {
                 valueCounter = 0
                 hasValue = false
             }
@@ -756,7 +759,7 @@ function newUiObject() {
 
         function percentagePhisycs() {
             percentageCounter--
-            if (percentageCounter < 0 || thisObject.payload.parentNode === undefined) {
+            if (percentageCounter < 0 || (thisObject.payload.parentNode === undefined && schemaDocument.isHierarchyHead !== true)) {
                 percentageCounter = 0
                 hasPercentage = false
             }
@@ -764,7 +767,7 @@ function newUiObject() {
 
         function statusPhisycs() {
             statusCounter--
-            if (statusCounter < 0 || thisObject.payload.parentNode === undefined) {
+            if (statusCounter < 0 || (thisObject.payload.parentNode === undefined && schemaDocument.isHierarchyHead !== true)) {
                 statusCounter = 0
                 hasStatus = false
             }
@@ -786,7 +789,7 @@ function newUiObject() {
     }
 
     function childrenRunningPhysics() {
-        let schemaDocument = getSchemaDocument(thisObject.payload.node)
+
         if (schemaDocument.childrenNodesProperties === undefined) { return }
         let monitorChildrenRunning = false
         for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
@@ -1249,7 +1252,6 @@ function newUiObject() {
 
     function iconPhysics() {
         icon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.payload.node.type)
-        let schemaDocument = getSchemaDocument(thisObject.payload.node)
 
         /*
         If we want this object to have an alternative icon (defined on a list of possible icons) but
@@ -1669,7 +1671,6 @@ function newUiObject() {
         if (UI.projects.foundations.spaces.floatingSpace.inMapMode === true) {
             position = UI.projects.foundations.spaces.floatingSpace.transformPointToMap(position)
 
-            let schemaDocument = getSchemaDocument(thisObject.payload.node)
             if (schemaDocument.inMapMode !== undefined) {
                 if (schemaDocument.inMapMode.showNodeType === false) {
                     return
@@ -1695,7 +1696,7 @@ function newUiObject() {
             if (label !== undefined) {
 
                 if (UI.projects.foundations.spaces.floatingSpace.inMapMode === true) {
-                    let schemaDocument = getSchemaDocument(thisObject.payload.node)
+
                     if (schemaDocument !== undefined) {
                         if (schemaDocument.isHierarchyHead !== true && schemaDocument.isProjectHead !== true) {
                             return
@@ -2148,7 +2149,6 @@ function newUiObject() {
 
             browserCanvasContext.fill()
 
-            let schemaDocument = getSchemaDocument(thisObject.payload.node)
             if (schemaDocument === undefined) {
                 console.log('Node ' + thisObject.payload.node + ' without Schema Document at APP SCHEMA.')
                 return
@@ -2474,7 +2474,6 @@ function newUiObject() {
                 if (isRunningAtBackend === true || isReadyToReferenceAttach === true || isReadyToChainAttach === true) { additionalImageSize = 20 }
                 let totalImageSize = additionalImageSize + thisObject.payload.floatingObject.currentImageSize
 
-                let schemaDocument = getSchemaDocument(thisObject.payload.node)
                 if (schemaDocument === undefined) { return }
 
                 if (UI.projects.foundations.spaces.floatingSpace.inMapMode === true) {

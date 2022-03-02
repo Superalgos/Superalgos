@@ -456,6 +456,7 @@ function newUiObject() {
             let nearbyFloatingObjects = thisObject.payload.floatingObject.nearbyFloatingObjects
             let compatibleTypes
 
+            let schemaDocument = getSchemaDocument(thisObject.payload.node)
             if (schemaDocument !== undefined) {
                 if (schemaDocument.attachingRules !== undefined) {
                     compatibleTypes = schemaDocument.attachingRules.compatibleTypes
@@ -478,7 +479,7 @@ function newUiObject() {
                 let nearbyNode = floatingObject.payload.node
                 if (compatibleTypes.indexOf('->' + nearbyNode.type + '->') >= 0) {
                     /* Discard App Schema defined objects with busy connection ports */
- 
+                    schemaDocument = getSchemaDocument(thisObject.payload.node)
                     if (schemaDocument !== undefined) {
                         let mustContinue = false
                         let parentSchemaDocument = getSchemaDocument(nearbyNode)
@@ -601,6 +602,7 @@ function newUiObject() {
             let nearbyFloatingObjects = thisObject.payload.floatingObject.nearbyFloatingObjects
             let compatibleTypes
 
+            let schemaDocument = getSchemaDocument(thisObject.payload.node)
             if (schemaDocument !== undefined) {
                 if (schemaDocument.referencingRules !== undefined) {
                     compatibleTypes = schemaDocument.referencingRules.compatibleTypes
@@ -789,7 +791,7 @@ function newUiObject() {
     }
 
     function childrenRunningPhysics() {
-
+        let schemaDocument = getSchemaDocument(thisObject.payload.node)
         if (schemaDocument.childrenNodesProperties === undefined) { return }
         let monitorChildrenRunning = false
         for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
@@ -1252,6 +1254,7 @@ function newUiObject() {
 
     function iconPhysics() {
         icon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.payload.node.type)
+        let schemaDocument = getSchemaDocument(thisObject.payload.node)
 
         /*
         If we want this object to have an alternative icon (defined on a list of possible icons) but
@@ -1671,6 +1674,7 @@ function newUiObject() {
         if (UI.projects.foundations.spaces.floatingSpace.inMapMode === true) {
             position = UI.projects.foundations.spaces.floatingSpace.transformPointToMap(position)
 
+            let schemaDocument = getSchemaDocument(thisObject.payload.node)
             if (schemaDocument.inMapMode !== undefined) {
                 if (schemaDocument.inMapMode.showNodeType === false) {
                     return
@@ -1696,7 +1700,7 @@ function newUiObject() {
             if (label !== undefined) {
 
                 if (UI.projects.foundations.spaces.floatingSpace.inMapMode === true) {
-
+                    let schemaDocument = getSchemaDocument(thisObject.payload.node)
                     if (schemaDocument !== undefined) {
                         if (schemaDocument.isHierarchyHead !== true && schemaDocument.isProjectHead !== true) {
                             return
@@ -2149,6 +2153,7 @@ function newUiObject() {
 
             browserCanvasContext.fill()
 
+            let schemaDocument = getSchemaDocument(thisObject.payload.node)
             if (schemaDocument === undefined) {
                 console.log('Node ' + thisObject.payload.node + ' without Schema Document at APP SCHEMA.')
                 return
@@ -2474,6 +2479,7 @@ function newUiObject() {
                 if (isRunningAtBackend === true || isReadyToReferenceAttach === true || isReadyToChainAttach === true) { additionalImageSize = 20 }
                 let totalImageSize = additionalImageSize + thisObject.payload.floatingObject.currentImageSize
 
+                let schemaDocument = getSchemaDocument(thisObject.payload.node)
                 if (schemaDocument === undefined) { return }
 
                 if (UI.projects.foundations.spaces.floatingSpace.inMapMode === true) {

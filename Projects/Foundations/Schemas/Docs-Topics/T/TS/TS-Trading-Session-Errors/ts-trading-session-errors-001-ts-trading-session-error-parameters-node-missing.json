@@ -4,13 +4,27 @@
     "type": "TS Trading Session Error - Parameters Node Missing",
     "definition": {
         "text": "The Backtesting Session, Live Trading Session, Paper Trading Session and Forward Testing Session nodes are expected to have a child of type Trading Parameters, and in this case it could not be found.",
-        "updated": 1611322334493
+        "updated": 1611322334493,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узлы Backtesting Session, Live Trading Session, Paper Trading Session и Forward Testing Session должны иметь дочерний элемент типа Trading Parameters, а в данном случае его не удалось найти.",
+                "updated": 1645628048285
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Success",
             "text": "To fix this, add a Trading Parameters child and try again.",
-            "updated": 1611322031139
+            "updated": 1611322031139,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы исправить это, добавьте дочерний элемент Trading Parameters и повторите попытку.",
+                    "updated": 1645628058797
+                }
+            ]
         }
     ]
 }

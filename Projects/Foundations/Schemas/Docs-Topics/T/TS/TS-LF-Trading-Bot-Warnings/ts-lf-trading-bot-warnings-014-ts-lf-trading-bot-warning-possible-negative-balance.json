@@ -4,25 +4,60 @@
     "type": "TS LF Trading Bot Warning - Possible Negative Balance",
     "definition": {
         "text": "The trading bot recalculated the Order Size because the original size would leave a negative Balance. The Order Size was changed to the value of the remaining Balance.",
-        "updated": 1611921329969
+        "updated": 1611921329969,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Торговый бот пересчитал размер ордера, потому что первоначальный размер оставил бы отрицательный баланс. Размер ордера был изменен на величину оставшегося баланса.",
+                "updated": 1645631235880
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Success",
             "text": "This is not an error and may be normal behavior. The trading bot created this warning to let you know that this happened so that you may keep track of all the details of the trade should you need to. This page provides information that should help you understand the context of the warning.",
-            "updated": 1611921344038
+            "updated": 1611921344038,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это не является ошибкой и может быть нормальным поведением. Торговый бот создал это предупреждение, чтобы сообщить вам, что это произошло, чтобы вы могли отследить все детали сделки, если вам это понадобится. На этой странице представлена информация, которая должна помочь вам понять контекст предупреждения.",
+                    "updated": 1645631240278
+                }
+            ]
         },
         {
             "style": "Warning",
-            "text": "Possible Negative Balance"
+            "text": "Possible Negative Balance",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Возможный отрицательный баланс",
+                    "updated": 1645631253426
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Context Info"
+            "text": "Context Info",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Контекстная информация",
+                    "updated": 1645631258823
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Find below the values of variables relevant to the warning at the time the warning was created. They may prove of use to understand what happened."
+            "text": "Find below the values of variables relevant to the warning at the time the warning was created. They may prove of use to understand what happened.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ниже приведены значения переменных, относящихся к предупреждению на момент его создания. Они могут оказаться полезными для понимания того, что произошло.",
+                    "updated": 1645631263125
+                }
+            ]
         },
         {
             "style": "Placeholder",
@@ -35,11 +70,25 @@
         },
         {
             "style": "Title",
-            "text": "Learn More"
+            "text": "Learn More",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узнать больше",
+                    "updated": 1645631271302
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "To learn more about this topic, please read the following page:"
+            "text": "To learn more about this topic, please read the following page:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы узнать больше об этой теме, прочтите следующую страницу:",
+                    "updated": 1645631277221
+                }
+            ]
         },
         {
             "style": "List",

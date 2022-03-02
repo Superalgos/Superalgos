@@ -20,6 +20,11 @@
                 "language": "RU",
                 "text": "Относится к названию учебного пособия. Страницы с одинаковым Docs Tutorial Name принадлежат одному и тому же учебнику.",
                 "updated": 1638463696038
+            },
+            {
+                "language": "TR",
+                "text": "Eğitimin (Tutorial) adını ifade eder. Aynı Dokümanlar Eğitim Adına (Docs Tutorial Name) sahip sayfalar, aynı eğitime aittir.",
+                "updated": 1646208573349
             }
         ]
     },
@@ -43,6 +48,11 @@
                     "language": "RU",
                     "text": "Там нет страницы, описывающей учебник. Именно иерархия учебных пособий определяет, как организованы учебные пособия. Однако в контексте документов Docs Tutorial Name используется для группировки набора связанных страниц в рамках определенного учебника.",
                     "updated": 1638463813003
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir öğreticiyi (Tutorial) açıklayan bir sayfa yoktur. Öğreticilerin (Tutorial) nasıl düzenleneceğini belirleyen Tutorial hiyerarşisidir. Ancak, Dokümanlar bağlamında, Dokümanlar Eğitim Adı (Docs Tutorial Name), belirli bir öğretici altında bir dizi ilgili sayfayı gruplamak için kullanılır.",
+                    "updated": 1646209125001
                 }
             ]
         }

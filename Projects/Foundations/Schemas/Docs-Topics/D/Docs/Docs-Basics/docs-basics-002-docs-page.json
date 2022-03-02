@@ -21,6 +21,11 @@
                 "language": "RU",
                 "text": "Страница документации - это, в конечном итоге, файл JSON, хранящийся на диске.",
                 "updated": 1637932063212
+            },
+            {
+                "language": "TR",
+                "text": "Bir Dokümanlar Sayfası,bir  JSON dosyasıdır ve diskte depolanır.",
+                "updated": 1646205938813
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Документы - это набор страниц, каждая из которых сохраняется в виде файла JSON по следующему пути:",
                     "updated": 1637932134476
+                },
+                {
+                    "language": "TR",
+                    "text": "Dokümanlar, aşağıda gösterilen yolda kaydedilirler.",
+                    "updated": 1646205969754
                 }
             ]
         },
@@ -71,6 +81,11 @@
                     "language": "RU",
                     "text": "Ниже представлена ​​структура каталогов, в каждой папке указана категория страницы документов Docs Page Category:",
                     "updated": 1637932266217
+                },
+                {
+                    "language": "TR",
+                    "text": "Her klasörde bir Dokümanlar Sayfası Kategorisi bulunan bir dizin yapısı uygulanır:",
+                    "updated": 1646206077921
                 }
             ]
         },

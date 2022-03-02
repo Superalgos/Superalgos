@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Боты могут работать в своем собственном темпе или могут дождаться завершения работы других ботов перед запуском.",
                 "updated": 1639410936571
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Botlar kendi hızlarında yürütülebilir veya başlamadan önce diğer botların yürütmeyi bitirmesini bekleyebilirler.",
+                "updated": 1645901689642
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "RU",
                     "text": "Дерево выполнения ботов",
                     "updated": 1639411324023
+                },
+                {
+                    "language": "TR",
+                    "text": "Bot Yürütme Ağacı",
+                    "updated": 1645901713365
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "RU",
                     "text": "Один из полезных способов подумать об управлении запуском бота - это представить себе дерево. Корни поддерживают ствол, который поддерживает ветви. Точно так же Superalgos использует множество ботов для обработки данных, каждый из которых полагается на вывод последнего для формирования дерева. По мере прохождения данных через дерево необработанные данные обрабатываются и перерабатываются для создания все более и более сложных наборов данных.",
                     "updated": 1639411442575
+                },
+                {
+                    "language": "TR",
+                    "text": "Bot yürütmeyi yönetmeyi düşünmenin yararlı bir yolu, bir ağaç görüntüsünü düşünmektir. Kökler, dalları destekleyen gövdeyi destekler. Aynı şekilde, Superalgos, her biri bir ağaç oluşturmak için sonuncunun çıktısına dayanan verileri işlemek için bir çok bot kullanır. Veriler ağaçtan geçtikçe, daha ayrıntılı veri kümeleri oluşturmak için ham veriler işlenir ve yeniden işlenir.",
+                    "updated": 1645901764723
                 }
             ]
         },
@@ -66,6 +81,11 @@
                     "language": "RU",
                     "text": "Типы управления исполнением",
                     "updated": 1639411522267
+                },
+                {
+                    "language": "TR",
+                    "text": "Uygulama Yönetimi Türleri",
+                    "updated": 1645901798059
                 }
             ]
         },
@@ -77,6 +97,11 @@
                     "language": "RU",
                     "text": "Есть два типа управления исполнением:",
                     "updated": 1639411536035
+                },
+                {
+                    "language": "TR",
+                    "text": "İki tür uygulama yönetimi vardır:",
+                    "updated": 1645901817415
                 }
             ]
         },
@@ -94,6 +119,11 @@
                     "language": "RU",
                     "text": "Автономные боты: эти боты являются корнем дерева выполнения ботов. Они не зависят от запуска какого-либо другого бота, но используют конфигурацию его узла определения процесса Process Definition для запуска по заранее определенному расписанию (в большинстве случаев каждую минуту).",
                     "updated": 1639411632492
+                },
+                {
+                    "language": "TR",
+                    "text": "Bağımsız Botlar: Bu botlar, Bot Yürütme Ağacının köküdür. Çalıştırmak için başka herhangi bir bota bağımlı değildirler, ancak önceden tanımlanmış bir programda (çoğu durumda her dakikada bir) çalıştırmak için İşlem Tanımı düğümünün yapılandırmasını kullanırlar.",
+                    "updated": 1645901850394
                 }
             ]
         },
@@ -111,6 +141,11 @@
                     "language": "RU",
                     "text": "Обычно, когда бот производит необработанные данные, он работает как автономный бот.",
                     "updated": 1639411645983
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Genellikle bir bot ham veri ürettiğinde bağımsız bir bot olarak çalışır.",
+                    "updated": 1645901866388
                 }
             ]
         },
@@ -128,6 +163,11 @@
                     "language": "RU",
                     "text": "Боты, зависящие от выполнения: эти боты являются ветвями дерева выполнения ботов. Им нужно дождаться, пока другие боты закончат свое выполнение, чтобы начать.",
                     "updated": 1639411666962
+                },
+                {
+                    "language": "TR",
+                    "text": "Yürütmeye Bağlı Botlar: Bu botlar, Bot Yürütme Ağacının dallarıdır. Başlamak için diğer Botların yürütmelerini bitirmelerini beklemeleri gerekir.",
+                    "updated": 1645901889876
                 }
             ]
         },
@@ -145,6 +185,11 @@
                     "language": "RU",
                     "text": "Настройка автономного бота",
                     "updated": 1639411831237
+                },
+                {
+                    "language": "TR",
+                    "text": "Bağımsız Bot Yapılandırma",
+                    "updated": 1645901924987
                 }
             ]
         },
@@ -162,6 +207,11 @@
                     "language": "RU",
                     "text": "Это пример того, как настроить бота для работы в качестве автономного бота. В определении процесса бота свойство normalWaitTime имеет ненулевое значение, в данном случае 60 секунд.",
                     "updated": 1639411745185
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu, bir botun Bağımsız Bot olarak çalışacak şekilde nasıl yapılandırılacağına bir örnektir. Bir Botun İşlem Tanımı ( Process Definition ) içinde normalWaitTime özelliği, bu durumda 60 saniye olmak üzere sıfır olmayan bir değere sahiptir.",
+                    "updated": 1645901993540
                 }
             ]
         },
@@ -184,6 +234,11 @@
                     "language": "RU",
                     "text": "Настройка бота, зависящего от выполнения",
                     "updated": 1639411840073
+                },
+                {
+                    "language": "TR",
+                    "text": "Yürütmeye Bağlı Bot Yapılandırma",
+                    "updated": 1645902013443
                 }
             ]
         },
@@ -201,6 +256,11 @@
                     "language": "RU",
                     "text": "Чтобы настроить бота для работы в качестве бота, зависящего от выполнения, необходимо наличие двух вещей.",
                     "updated": 1639411854708
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir botu Yürütmeye Bağlı Bot olarak çalışacak şekilde yapılandırmak için iki şeyin yerinde olması gerekir.",
+                    "updated": 1645902035838
                 }
             ]
         },
@@ -218,6 +278,11 @@
                     "language": "RU",
                     "text": "Во-первых, в определении бота должно быть определено событие запуска Execution Started Event. После этого Execution Finished Event должно иметь ссылку на событие завершения Execution Finished Event того бота, которого он ожидает.",
                     "updated": 1639411981280
+                },
+                {
+                    "language": "TR",
+                    "text": "İlk olarak, bot'un tanımının tanımlanmış bir Yürütme Başlatılmış Olayı ( Execution Started Event ) olması gerekir. Bundan sonra, Yürütme Başladı Etkinliğinin, beklediği Botun Yürütme Bitirilmiş Etkinliğine ( Execution Finished Event ) bir referansı olması gerekir.",
+                    "updated": 1645902310402
                 }
             ]
         },
@@ -235,6 +300,11 @@
                     "language": "RU",
                     "text": "Во-вторых, для определения процесса Process Definition бота потребуется ноль в свойстве normalWaitTime. Это заставит бота немедленно запустить следующий цикл, но, поскольку определено событие начала выполнения Execution Started Event, оно заставит его ждать, пока бот, на который ссылается, не закончит работу.",
                     "updated": 1639412078151
+                },
+                {
+                    "language": "TR",
+                    "text": "İkinci olarak, Bot'un İşlem Tanımı ( Process Definition ), normalWaitTime özelliğinde sıfıra ihtiyaç duyacaktır. Bu, Bot'u bir sonraki döngüyü hemen çalıştırmaya zorlar, ancak tanımlanmış bir Yürütme Başlamış Olayı olduğundan ( Execution Started Event ) , bu onu başvurulan Bot bitene kadar bekletir.",
+                    "updated": 1645902392886
                 }
             ]
         },
@@ -257,6 +327,11 @@
                     "language": "RU",
                     "text": "С точки зрения развертывания зависимые боты могут физически располагаться на одной машине или на нескольких разных машинах. Superalgos выполняет синхронизацию на нескольких машинах.",
                     "updated": 1639412101011
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Dağıtım açısından bakıldığında, bağımlı botlar fiziksel olarak aynı makinede veya birden çok farklı makinede bulunabilir. Superalgos, çoklu makineler arasında senkronizasyonu yönetir.",
+                    "updated": 1645902438483
                 }
             ]
         }

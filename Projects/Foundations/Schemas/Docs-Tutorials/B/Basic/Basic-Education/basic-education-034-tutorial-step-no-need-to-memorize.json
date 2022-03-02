@@ -36,6 +36,11 @@
                 "language": "RU",
                 "text": "Надеюсь, вам удалось разобраться в тонкостях резервного копирования и понять, как влияют ссылки в каждом конкретном случае восстановления!",
                 "updated": 1640871055748
+            },
+            {
+                "language": "ID",
+                "text": "Aku harap kamu dapat memahami seluk-beluk cadangan dan bagaimana referensi dipengaruhi dalam setiap kasus restorasi tertentu!",
+                "updated": 1645032385805
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "RU",
                     "text": "Вам не нужно запоминать отдельные случаи. Вместо этого, если вы понимаете основной механизм, связанный со ссылками, вы можете сделать вывод о поведении в каждом конкретном случае!",
                     "updated": 1640871076346
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu tidak perlu menghafal kasus-kasus individual. Sebaliknya, jika kamu memahami mekanisme mendasar yang melibatkan referensi, maka kamu dapat menyimpulkan perilaku pada setiap kasus!",
+                    "updated": 1645032438839
                 }
             ]
         },
@@ -105,6 +115,11 @@
                     "language": "RU",
                     "text": "Помните, что каждый узел имеет определенный идентификатор ID! Когда устанавливается ссылка, оба участвующих узла имеют уникальный ID. Исходящие ссылки не зависят от ID узла, но входящие ссылки зависят! Если резервный узел может быть восстановлен с тем же ID, то входящие ссылки сохранятся; в противном случае они изменятся или будут потеряны!",
                     "updated": 1640871118732
+                },
+                {
+                    "language": "ID",
+                    "text": "Ingatlah bahwa setiap node memiliki ID tertentu! Ketika referensi dibuat, kedua node yang terlibat memiliki ID unik. Referensi Outgoing tidak tergantung pada ID node, tetapi referensi incoming melakukannya! Jika node yang dicadangkan dapat dipulihkan dengan ID yang sama, referensi yang masuk akan tetap ada; jika tidak, mereka akan berubah atau hilang!",
+                    "updated": 1645032505347
                 }
             ]
         }

@@ -1,0 +1,54 @@
+{
+    "topic": "Divergences Data Mine",
+    "pageNumber": 6,
+    "type": "Awesome Oscillator Indicator",
+    "definition": {
+        "text": "This indicator produces the Awesome Oscillator, as originally inventd by Bill Williams as a method for trading stocks, forex and commodities."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Awesome Oscillator On the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "The Awesome oscillator is an unbounded oscillator and is calculated by using the difference between two simple moving averages (SMA); one with a slow moving sma, typically 34 periods long, and the fast moving SMA of 5 period length. The SMA are calculated using the median price of (maximum + minimum)/2."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Divergences-AO-1.png"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the Awesome Oscillator can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"Awesome Oscillator\" Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Divergences-AO-params.png"
+        },
+        {
+            "style": "Title",
+            "text": "Awesome Oscillator Products & Properties"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Setting | Product Variable | Properties |\n| AwesomeOsc | ao | value |"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "A simple strategy can be built by entering a trade when the Oscillator value crosses 0 from below:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at02hs.ao.previous.value < 0 && chart.at02hs.ao.value > 0"
+        },
+        {
+            "style": "Text",
+            "text": "Other strategies for this indicator include the Saucer strategy, Twin Peaks, and the trendline cross."
+        }
+    ]
+}

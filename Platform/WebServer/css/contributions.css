@@ -1,0 +1,218 @@
+.contributions-editor-page {
+    font: 400 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    color: #365558;
+    line-height: 150%;
+    margin: 20 25 20 30px;
+}
+
+.credentials-title{
+    font-weight: 500;
+    font-size: 150%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.credentials-box {
+    display:none;
+    justify-content: space-evenly;
+    margin-bottom: 25px;
+    align-items: center;
+    }
+
+.contribute-box {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 18px;
+    align-items: center;
+    }
+    
+.credentials-input {
+    border: 1px solid #0295aa;
+    background-color: white;
+    border-radius: 30px;
+    width: 41%;
+    height: 45px;
+    margin: 0 20px;
+    font-size: 100%;
+    color: #6b6b6b; 
+    outline: none;
+    caret-color: #6b6b6b;
+    vertical-align: middle;
+    padding: 0 11px;
+    }
+
+.credentials-save-button {
+    height: 45px;
+    border: 2px solid #0295aa;
+    border-radius: 20px;
+    background-color: #365558;
+    color: white;
+    padding: 10px;
+}
+
+.credentials-save-button:hover {
+    background-color: #10aa1d;
+    color:whitesmoke;
+    cursor: pointer;
+    border: 2px solid #365558;
+    }
+
+.credentials-save-button:active {
+    border: 2px solid #0295aa;
+    border-radius: 30px;
+    background-color: #365558;
+    color: white;
+    padding: 10px;
+    }
+
+.contributions-top-buttons-div {
+    display:flex;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-top: 25px;
+    align-items: baseline;
+}
+
+.contributions-top-buttons{
+    font-size: 150%;
+    border: 4px solid #0295aa;
+    border-radius: 5px;
+    background-color: transparent;
+    color: #365558;
+    padding: 10px;
+    margin: 4px 0 0 1px;
+}
+
+.contributions-top-buttons:hover {
+    font-size: 150%;
+    border: 4px solid #324d50;
+    cursor: pointer;
+}
+
+.contributions-top-buttons:active {
+    font-size: 150%;
+    border: 4px solid #0295aa;
+    border-radius: 10px;
+    background-color: #0295aa;
+    padding: 10px;
+    margin: 4px 0 0 1px;
+    color: whitesmoke;
+}
+
+.command-status {
+    font-size: 150%;
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+.contributions-common-style-container{
+    /*background-color: white;*/
+    font: 400 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
+    color: #324d50; 
+    line-height: 150%;
+    margin: 20 30px;
+    margin: 0 25 20 30px;
+    caret-color: transparent;
+    }
+
+.contributions-input {
+    border: 1px solid #0295aa;
+    background-color: white;
+    border-radius: 30px;
+    width: 84%;
+    height: 45px;
+    margin: 0 20px;
+    font-size: 100%;
+    color: #6b6b6b; 
+    outline: none;
+    caret-color: #6b6b6b;
+    vertical-align: middle;
+    padding: 0 11px;
+    }
+.contributions-button{
+    border: 1px groove #365558;
+    border-radius: 20px;
+    background-color: rgb(99, 94, 94);
+    color: whitesmoke;
+    padding: 10px;
+    margin: 4px 0 0 1px;
+    }
+
+.contributions-button:hover {
+    background-color: #b11a0f;
+    color:whitesmoke;
+    cursor: pointer;
+    }
+
+.contributions-button:active {
+    border: 1px groove #365558;
+    border-radius: 20px;
+    background-color: rgb(99, 94, 94);
+    color: whitesmoke;
+    padding: 10px;
+    margin: 4px 0 0 1px;
+    }
+
+.repo-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline
+}
+
+.file-Object {
+    border: 1px solid #365558;
+    border-radius: 15px;
+    background-color: #323333;
+    color: whitesmoke;
+    padding: 10px;
+    margin: 2px;
+}
+
+.insertion {
+    margin-left: 5px;
+    color:#10aa1d
+}
+
+.deletion {
+    margin-left: 5px;
+    color:#b11a0f
+}
+
+.total-changes {
+    margin-left: 5px;
+}
+
+/* Style the button that is used to open and close the docs-collapsible-element content */
+.contributions-collapsible-element {
+    background-color: #eee;
+    cursor: pointer;
+    text-align: left;
+    font-size: 100%;
+    padding: 0 9px 0 0;
+    margin: 4px 0 10px 10px;
+    transition: 0.1s;
+    border: 1px solid #31708f;
+    border-radius: 15px;
+    background-color: white;
+    vertical-align: middle;
+    box-sizing: border-box;
+    }
+    
+.contributions-collapsible-element:hover {
+    border: 1px solid #0295aa;
+    background-color: #eff;
+    }
+    
+.contributions-collapsible-element:after {
+    content: '\02795'; /* Unicode character for "plus" sign (+) */
+    font-size: 60%;
+    color: #31708f;
+    margin-left: 8px;
+    float: right;
+    vertical-align: middle;
+    line-height: 30px;
+    }
+    
+.contributrions-collapsible-active:after {
+    content: "\2796"; /* Unicode character for "minus" sign (-) */
+    }

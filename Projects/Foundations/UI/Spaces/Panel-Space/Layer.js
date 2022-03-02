@@ -180,7 +180,7 @@ function newLayer() {
                 'Exchange Markets->Crypto Exchange->' +
                 'Product Definition->' +
                 'Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->' +
-                'Sensor Bot->API Data Fetcher Bot->Indicator Bot->Trading Bot->Portfolio Bot->Learning Bot->' +
+                'Sensor Bot->API Data Fetcher Bot->Indicator Bot->Study Bot->Trading Bot->Portfolio Bot->Learning Bot->' +
                 'Data Mine->Trading Mine->Portfolio Mine->Learning Mine->' +
                 'Dataset Definition->' +
                 'Record Definition->Record Property->Record Formula->' +
@@ -192,7 +192,7 @@ function newLayer() {
                 'Polygon->Polygon Condition->Polygon Body->Style->Style Condition->Style->' +
                 'Polygon Border->Style->Style Condition->Style->' +
                 'Polygon Vertex->Point->' +
-                'Image->Image Condition->Image Position->Point->' +
+                'Image->Image Condition->Image Position->Image Formula->Point->' +
                 'Text->Text Condition->Text Position->Point->Text Formula->Text Style->' +
                 'Plotter Panel->Plotter Panel Javascript Code->Panel Data->Data Formula->Text Style->' +
                 'Nodes Highlights->Nodes Values->Nodes Errors->Nodes Warnings->Nodes Infos->Nodes Status->Nodes Progress->Nodes Running->Nodes Announcements->Record Values->'
@@ -234,6 +234,9 @@ function newLayer() {
             }
             if (thisObject.bot === undefined) {
                 thisObject.bot = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Indicator Bot', undefined, false, true, true, true)
+            }
+            if (thisObject.bot === undefined) {
+                thisObject.bot = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Study Bot', undefined, false, true, true, true)
             }
             if (thisObject.bot === undefined) {
                 thisObject.bot = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Trading Bot', undefined, false, true, true, true)

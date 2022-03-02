@@ -444,18 +444,16 @@ function newGovernanceUserProfileSpace() {
                     blockchainAccount !== "" &&
                     userProfile.payload.blockchainTokens === undefined
                 ) {
-
-                    userProfile.payload.liquidityTokens = {
-                        BTCB: 0,
-                        BNB: 0,
-                        BUSD: 0,
-                        ETH: 0
+                    /* Obtain balance for each asset/liquidity pool configured in SaToken.js */
+                    let assetList = UI.projects.governance.globals.saToken.SA_TOKEN_BSC_LIQUIDITY_ASSETS
+                    let initValues = {}
+                    for (let tokenId of assetList) {
+                        initValues[tokenId] = 0
                     }
-
-                    getBPancakeTokens(userProfile, blockchainAccount, 'BTCB', UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_POOL_BTCB_CONTRACT_ADDRESS)
-                    getBPancakeTokens(userProfile, blockchainAccount, 'BNB', UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_POOL_BNB_CONTRACT_ADDRESS)
-                    getBPancakeTokens(userProfile, blockchainAccount, 'BUSD', UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_POOL_BUSD_CONTRACT_ADDRESS)
-                    getBPancakeTokens(userProfile, blockchainAccount, 'ETH', UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_POOL_ETH_CONTRACT_ADDRESS)
+                    userProfile.payload.liquidityTokens = initValues
+                    for (let tokenId of assetList) {
+                        getLiquidityTokenBalance(userProfile, blockchainAccount, tokenId)
+                    }
 
                     /* 
                     Now we get the SA Tokens Balance.
@@ -502,38 +500,62 @@ function newGovernanceUserProfileSpace() {
             }
         }
 
-        function getBPancakeTokens(userProfile, blockchainAccount, asset, marketContract) {
-            console.log('[INFO] Loading Pancake Balance for User Profile: ', userProfile.name, 'blockchainAccount: ', blockchainAccount, 'asset: ', asset)
 
-            let request = {
-                url: 'WEB3',
-                params: {
-                    method: "getUserWalletBalance",
-                    walletAddress: blockchainAccount,
-                    contractAddress: marketContract
+        function getLiquidityTokenBalance(userProfile, blockchainAccount, asset) {
+            const exchanges = UI.projects.governance.globals.saToken.SA_TOKEN_BSC_EXCHANGES
+            let tokenTotal = 0
+            
+            /* Obtain contract addresses for configured liquidity pools */
+            let contracts = {}
+            for (let i = 0; i < exchanges.length; i++) {
+                let contractIdentifier = 'UI.projects.governance.globals.saToken.SA_TOKEN_BSC_' + exchanges[i] + '_LIQUIDITY_POOL_' + asset + '_CONTRACT_ADDRESS'
+                let marketContract = ''
+                marketContract = eval(contractIdentifier)
+                if (marketContract !== undefined) {
+                    contracts[exchanges[i]] = marketContract
                 }
             }
-
-            httpRequest(JSON.stringify(request.params), request.url, onResponse)
-
-            function onResponse(err, data) {
-                if (err.result === GLOBAL.DEFAULT_FAIL_RESPONSE) {
-                    console.log('[WARN] Error fetching liquidity tokens for asset ' + asset + ' of user profile ' + userProfile.name)
-                    userProfile.payload.blockchainTokens = undefined
-                } else {
-                    let commandResponse = JSON.parse(data)
-                    if (commandResponse.result !== "Ok") {
-                        console.log('[WARN] Web3 Error fetching liquidity tokens for asset ' + asset + ' of user profile ' + userProfile.name)
-                        return
+            
+            let neededResponses = Object.keys(contracts).length
+            for (let dex in contracts) {
+                //console.log('[INFO] Loading ' + dex + ' Balance for User Profile: ' + userProfile.name + ' blockchainAccount: ' + blockchainAccount + ' asset: ' + asset)
+                let request = {
+                    url: 'WEB3',
+                    params: {
+                        method: "getUserWalletBalance",
+                        walletAddress: blockchainAccount,
+                        contractAddress: contracts[dex]
                     }
-                    userProfile.payload.uiObject.setInfoMessage('Pancake Balance Successfully Loaded for asset ' + asset,
-                        UI.projects.governance.globals.designer.SET_INFO_COUNTER_FACTOR
-                    )
-                    userProfile.payload.liquidityTokens[asset] = Number(commandResponse.balance)
-                    console.log('[INFO] Liquidity of ' + userProfile.name + ' for asset ' + asset + ' is ', userProfile.payload.liquidityTokens[asset])
                 }
-            }
+
+                httpRequest(JSON.stringify(request.params), request.url, onResponse)           
+            
+                function onResponse(err, data) {
+                    --neededResponses
+                    if (err.result === GLOBAL.DEFAULT_FAIL_RESPONSE) {
+                        console.log('[WARN] Error fetching ' + dex + ' liquidity tokens for asset ' + asset + ' of user profile ' + userProfile.name)
+                        userProfile.payload.blockchainTokens = undefined
+                    } else {
+                        let commandResponse = JSON.parse(data)
+                        if (commandResponse.result !== "Ok") {
+                            console.log('[WARN] Web3 Error fetching ' + dex + ' liquidity tokens for asset ' + asset + ' of user profile ' + userProfile.name)
+                            return
+                        }
+
+                        tokenTotal = tokenTotal + Number(commandResponse.balance)
+                        console.log('[INFO]', dex ,'Liquidity of', userProfile.name, 'for asset', asset, 'is ', Number(commandResponse.balance))
+                        if (neededResponses === 0) {
+                            userProfile.payload.liquidityTokens[asset] = tokenTotal
+                            console.log('[INFO] TOTAL Liquidity of', userProfile.name, 'for asset', asset, 'is ', userProfile.payload.liquidityTokens[asset])
+                            userProfile.payload.uiObject.setInfoMessage('Balance Successfully Loaded for asset ' + asset,
+                                UI.projects.governance.globals.designer.SET_INFO_COUNTER_FACTOR
+                            )
+                        }
+                    }
+                }            
+            }            
         }
+
     }
 
     function draw() {

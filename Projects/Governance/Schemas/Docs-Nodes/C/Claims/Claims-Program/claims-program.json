@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Когда вы вносите свой вклад в Superalgos, вы должны подать заявку на свой вклад и заручиться поддержкой близких вам людей, которые подтвердят или проголосуют за это.",
                 "updated": 1638990396697
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos'a katkıda bulunduğunuzda, katkınız için bir talepte bulunmalı ve size yakın çalışan, iddialarınıza kefil olacak veya oy verecek kişilerin desteğini istemelisiniz.",
+                "updated": 1644495276016
             }
         ]
     },
@@ -36,6 +41,11 @@
                     "language": "RU",
                     "text": "Управление децентрализовано. Нет никакого центрального органа, контролирующего, кто вносит вклад и какие вознаграждения получают участники. Вместо этого проект делегирует сообществу возможность устанавливать ценность вкладов и определять, кто и что внес.",
                     "updated": 1638990470744
+                },
+                {
+                    "language": "TR",
+                    "text": "Yönetim merkeziyetsizdir. Kimin katkıda bulunacağını veya katkıda bulunanların hangi ödülleri alacağını kontrol eden merkezi bir otorite yoktur. Bunun yerine, proje, Topluluk içindeki katkıların değerini belirleme ve kimin neye katkıda bulunduğunu belirlemek için yetkisini topluluğa devretmiştir.",
+                    "updated": 1644495374637
                 }
             ]
         },
@@ -52,6 +62,11 @@
                     "language": "RU",
                     "text": "Как таковое, управление - это социальная система. Когда вы участвуете в Superalgos, вы взаимодействуете с Сообществом и находите способы внести свой вклад. При этом вы общаетесь или общаетесь с членами сообщества, которые имеют схожие интересы или сосредоточены на тех же областях проекта, в котором вы, возможно, работаете. Именно эти люди подтвердят ваши заявления!",
                     "updated": 1638990541765
+                },
+                {
+                    "language": "TR",
+                    "text": "Dolayısıyla yönetim sosyal bir sistemdir. Superalgos'a dahil olduğunuzda, Topluluk (Community) ile etkileşime girer ve katkıda bulunmanın yollarını bulursunuz. Bunu yaparken, benzer ilgi alanlarına sahip veya üzerinde çalıştığınız projenin aynı alanlarına odaklanmış topluluk üyeleriyle ilişki kurarsınız. İddialarınıza kefil olacak olan bu insanlardır!",
+                    "updated": 1644495444067
                 }
             ]
         },
@@ -68,21 +83,47 @@
                     "language": "RU",
                     "text": "Существует три различных типа претензий, которые вы можете подать:",
                     "updated": 1638990572805
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapabileceğiniz üç farklı hak talebi türü vardır:",
+                    "updated": 1644495472288
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Asset Contribution Claim"
+            "text": "Asset Contribution Claim",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Asset Contribution Claim (Varlık Katkı Talebi)",
+                    "updated": 1644495482905
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Feature Contribution Claim"
+            "text": "Feature Contribution Claim",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Feature Contribution Claim (Özellik Katkı Talebi)",
+                    "updated": 1644495523143
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Position Contribution Claim",
-            "updated": 1630256348337
+            "updated": 1630256348337,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Position Contribution Claim (Pozisyon Katkı Talebi)",
+                    "updated": 1644495537263
+                }
+            ]
         },
         {
             "style": "Text",
@@ -97,22 +138,48 @@
                     "language": "RU",
                     "text": "Также существует три различных типа папок узлов, которые действуют как организационные устройства, из которых вы можете создавать указанные выше узлы заявок:",
                     "updated": 1638990598227
+                },
+                {
+                    "language": "TR",
+                    "text": "Ayrıca, yukarıdaki talep düğümlerini oluşturabileceğiniz kurumsal aygıtlar gibi davranan üç farklı klasör tipi düğüm vardır:",
+                    "updated": 1644495560501
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Asset Claims Folder"
+            "text": "Asset Claims Folder",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Asset Claims Folder (Varlık Talep Klasörü)",
+                    "updated": 1644495635878
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Feature Claims Folder",
-            "updated": 1630256365206
+            "updated": 1630256365206,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Feature Claims Folder (Özellik Talep Klasörü)",
+                    "updated": 1644495646450
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Position Claims Folder",
-            "updated": 1630256373604
+            "updated": 1630256373604,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Position Claims Folder (Pozisyon Talep Düğümü)",
+                    "updated": 1644495661705
+                }
+            ]
         },
         {
             "style": "Text",
@@ -127,20 +194,46 @@
                     "language": "RU",
                     "text": "Эти три типа заявлений соответствуют трем типам иерархий определений, используемых для описания проекта:",
                     "updated": 1638990642149
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu üç talep türü, projeyi tanımlamak için kullanılan üç tür hiyerarşisiyle eşleşir:",
+                    "updated": 1644495691830
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Assets"
+            "text": "Assets",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Assets (Varlıklar)",
+                    "updated": 1644495702403
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Features"
+            "text": "Features",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Features (Özelikler)",
+                    "updated": 1644495710502
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Positions"
+            "text": "Positions",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Positions (Pozisyonlar)",
+                    "updated": 1644495719579
+                }
+            ]
         },
         {
             "style": "Callout",
@@ -156,6 +249,11 @@
                     "language": "RU",
                     "text": "Чтобы разместить заявку, используйте соответствующий тип узла заявки на взнос для ссылки на соответствующий тип определения. Например, используйте узел Asset Contribution Claim для ссылки на узел Asset в иерархии Assets. Когда вы это делаете, вы фактически предъявляете претензию на этот ресурс.",
                     "updated": 1638991185571
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir talepte bulunmak için, eşleşen tanım türüne başvuruda bulunmak üzere uygun türde katkı talebi düğümünü kullanın. Örneğin, Varlıklar hiyerarşisindeki bir Varlık (Asset) düğümüne başvurmak için bir Varlık Katkı Talebi (Asset Contribution Claim) düğümü kullanın. Bunu yaptığınızda, o varlık üzerinde etkili bir şekilde hak talebinde bulunmuş olursunuz.",
+                    "updated": 1644496782797
                 }
             ]
         },
@@ -172,6 +270,11 @@
                     "language": "RU",
                     "text": "Это означает, что вы заявляете, что работали над этим ресурсом, создавая или улучшая его, и ожидаете соответствующего вознаграждения.",
                     "updated": 1638991248603
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu iddia, o varlık üzerinde çalıştığınızı, onu yarattığınızı veya iyileştirdiğinizi ve buna göre ödüllendirilmeyi beklediğinizi beyan ettiğiniz anlamına gelir.",
+                    "updated": 1644496802287
                 }
             ]
         },
@@ -189,6 +292,11 @@
                     "language": "RU",
                     "text": "Порядок разрешения претензии зависит от трех взаимосвязанных концепций:",
                     "updated": 1638991270692
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir talebin nasıl çözüldüğü birbiriyle ilişkili üç kavrama bağlıdır:",
+                    "updated": 1644496867937
                 }
             ]
         },
@@ -206,6 +314,11 @@
                     "language": "RU",
                     "text": "Claim Power, который вы вбиваете в узел, который размещает заявку.",
                     "updated": 1638991498259
+                },
+                {
+                    "language": "TR",
+                    "text": "Hak talebinin yerleştirildiği düğüme verdiğiniz Talep Gücü.",
+                    "updated": 1644496907479
                 }
             ]
         },
@@ -222,6 +335,11 @@
                     "language": "RU",
                     "text": "Claim Votes, который ваша заявка получает от других пользователей, и Voting Power, который они вкладывают в эти голоса.",
                     "updated": 1638991475900
+                },
+                {
+                    "language": "TR",
+                    "text": "Talep Oyları, talebinizin diğer kullanıcılardan aldığı oylar ve bu oylara verdikleri Oylama Gücü.",
+                    "updated": 1644496937691
                 }
             ]
         },
@@ -239,6 +357,11 @@
                     "language": "RU",
                     "text": "Token Rewards, доступные в узле определения, на который вы претендуете.",
                     "updated": 1638991542338
+                },
+                {
+                    "language": "TR",
+                    "text": "Talep ettiğiniz düğümde bulunan Token Ödülleri.",
+                    "updated": 1644496960239
                 }
             ]
         },
@@ -256,6 +379,11 @@
                     "language": "RU",
                     "text": "Чтобы узнать все подробности о разрешении претензий, прочтите страницу How Claims are Resolved в разделе Governance Flow книги The Governance Project.",
                     "updated": 1638991638290
+                },
+                {
+                    "language": "TR",
+                    "text": "Taleplerin çözümlenmesiyle ilgili tüm ayrıntıları öğrenmek için, Yönetişim Projesi kitabının (The Governance Project) Yönetişim Akışı konusundaki Talepler Nasıl Çözülür (How Claims are Resolved) sayfasını okuyun.",
+                    "updated": 1644497022746
                 }
             ]
         },
@@ -275,6 +403,11 @@
                     "language": "RU",
                     "text": "Конфигурация",
                     "updated": 1638991651989
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırma",
+                    "updated": 1644497038427
                 }
             ]
         }

@@ -28,7 +28,7 @@
     },
     "level": 3,
     "attachingRules": {
-        "compatibleTypes": "->Indicator Bot Instance->"
+        "compatibleTypes": "->Indicator Bot Instance->Study Bot Instance->"
     },
     "propertyNameAtParent": "timeFramesFilter"
 }

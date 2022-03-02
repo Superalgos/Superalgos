@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Votes (Abstimmungen) und Claims (Ansprüche) sind Instrumente, mit denen die Gemeinschaft bestimmt, was gefördert wird und wie Beiträge vergütet werden. Verwenden Sie diese Nodes, um das Claims Program und das Voting Program zu starten.",
                 "updated": 1640304162727
+            },
+            {
+                "language": "TR",
+                "text": "Oylar (Votes) ve talepler (Claims), Topluluğun neyin teşvik edildiğini ve katkıların nasıl ödüllendirleceğini belirlemek için kullandığı araçlardır. Talep Programını (Claims Program) ve Oylama Programını (Voting Program) oluşturmak için bu düğümü kullanın.",
+                "updated": 1645182024693
             }
         ]
     },
@@ -36,6 +41,11 @@
                     "language": "DE",
                     "text": "Erfahren Sie mehr darüber, wie Token Power Flows in diese Programme fließt!",
                     "updated": 1640304209039
+                },
+                {
+                    "language": "TR",
+                    "text": "Token Gücünün bu programlara nasıl aktığı hakkında daha fazla bilgi edinin!",
+                    "updated": 1645182042552
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "RU",
                     "text": "Конфигурация",
                     "updated": 1638986163127
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırma",
+                    "updated": 1645182051884
                 }
             ]
         }

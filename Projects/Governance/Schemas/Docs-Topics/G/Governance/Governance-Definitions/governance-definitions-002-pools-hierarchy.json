@@ -20,6 +20,11 @@
                 "language": "DE",
                 "text": "Die Top-Level-Definitionen beinhalten die Definition von Pools, die in die Verteilung von Token eingreifen.",
                 "updated": 1640724000846
+            },
+            {
+                "language": "TR",
+                "text": "Üst düzey tanımlar, belirteçlerin dağıtımına müdahale eden havuzların tanımını içerir.",
+                "updated": 1645187110739
             }
         ]
     },

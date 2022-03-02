@@ -4,7 +4,14 @@
     "type": "TS Process Error - Unexpected Error",
     "definition": {
         "text": "There was an unexpected error and the process was shut down.",
-        "updated": 1611413113338
+        "updated": 1611413113338,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Возникла непредвиденная ошибка, и процесс был остановлен.",
+                "updated": 1645629426928
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -19,16 +26,37 @@
         {
             "style": "Title",
             "text": "Error Info",
-            "updated": 1611258020914
+            "updated": 1611258020914,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Информация об ошибке",
+                    "updated": 1645629461558
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In the following section, you will find the information recorded when the error occurred."
+            "text": "In the following section, you will find the information recorded when the error occurred.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В следующем разделе вы найдете информацию, записанную при возникновении ошибки.",
+                    "updated": 1645629470286
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "You will only see the information if you opened this page as a result of the error actually occurring.",
-            "updated": 1611258030660
+            "updated": 1611258030660,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы увидите информацию только в том случае, если вы открыли эту страницу в результате того, что ошибка действительно произошла.",
+                    "updated": 1645629479296
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -36,7 +64,14 @@
         },
         {
             "style": "Text",
-            "text": "The following is the Error Message of the Exception that occurred at the TS:"
+            "text": "The following is the Error Message of the Exception that occurred at the TS:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ниже приведено сообщение об ошибке исключения, произошедшего в TS:",
+                    "updated": 1645629487146
+                }
+            ]
         },
         {
             "style": "Placeholder",
@@ -48,7 +83,14 @@
         },
         {
             "style": "Text",
-            "text": "The following is the Error Stack of the Exception that occurred at the TS:"
+            "text": "The following is the Error Stack of the Exception that occurred at the TS:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ниже приведен стек ошибок исключения, произошедшего в TS:",
+                    "updated": 1645629494990
+                }
+            ]
         },
         {
             "style": "Placeholder",
@@ -60,7 +102,14 @@
         },
         {
             "style": "Text",
-            "text": "The following is the Error Code of the Exception that occurred at the TS:"
+            "text": "The following is the Error Code of the Exception that occurred at the TS:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ниже приведен код ошибки исключения, произошедшего в TS:",
+                    "updated": 1645629500864
+                }
+            ]
         },
         {
             "style": "Placeholder",
@@ -72,7 +121,14 @@
         },
         {
             "style": "Text",
-            "text": "The following are all the Error details of the Exception that occurred at the TS:"
+            "text": "The following are all the Error details of the Exception that occurred at the TS:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ниже перечислены все детали ошибки исключения, произошедшего в TS:",
+                    "updated": 1645629506766
+                }
+            ]
         },
         {
             "style": "Placeholder",

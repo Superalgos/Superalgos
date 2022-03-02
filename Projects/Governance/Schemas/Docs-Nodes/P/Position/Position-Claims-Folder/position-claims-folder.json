@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Используйте этот узел в качестве организационного устройства, чтобы порождать узлы Position Contribution Claim и отображать целые структуры в иерархии Positions для одновременного размещения нескольких Contribution Claims.",
                 "updated": 1639133920871
+            },
+            {
+                "language": "TR",
+                "text": "Pozisyon Katkı Talebi düğümlerini (Pozition Contribution Claim) oluşturmak ve aynı anda birden çok Katkı Talebi (Contribution Claims) yerleştirmek ve tüm talepleri bir Varlıklar hiyerarşisinde birleştirmek için bu düğümü kurumsal bir cihaz olarak kullanın.",
+                "updated": 1644497993048
             }
         ]
     },

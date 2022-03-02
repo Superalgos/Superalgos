@@ -4,22 +4,50 @@
     "type": "Trading Signal Integration within Trading Bot Tasks",
     "definition": {
         "text": "A traditional trading bot executes trades based on the logic held within a Trading System. Trading signals add on to these functions of a Trading Bot Task to transmit and receive signal data.",
-        "updated": 1642819777524
+        "updated": 1642819777524,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Традиционный торговый бот совершает сделки на основе логики, заложенной в торговой системе. Торговые сигналы добавляют к этим функциям торгового бота задачи по передаче и приему сигнальных данных.",
+                "updated": 1645626135101
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Trading Bot tasks are very different from Social Trading Bots! While Social trading bots define and expose trading signals on the peer to peer network. Trading bot tasks run the mechanics to actually generate or receive trading signals. You can think of these trading bot tasks as the muscle to put into action all the logic held within the trading system as well as feed signal data to and receive data from social trading bots that are active on the network.",
-            "updated": 1642819858425
+            "updated": 1642819858425,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Задачи торговых ботов сильно отличаются от задач социальных торговых ботов! В то время как социальные торговые боты определяют и выставляют торговые сигналы в одноранговой сети. Задачи торговых ботов запускают механику для фактической генерации или получения торговых сигналов. Вы можете рассматривать эти задачи торговых ботов как мышцы, которые приводят в действие всю логику, заложенную в торговой системе, а также передают сигнальные данные и получают данные от социальных торговых ботов, активных в сети.",
+                    "updated": 1645626173242
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Trading Bot tasks run within the task server of the Superalgos Platform. The task server itself must have a signing account set up in order for the current machine to identify itself on the peer to peer network.  Each Trading bot task uses the signing account for the current user’s task server in order to access the network.  This is achieved by setting up a Task Server App Reference node underneath the Task node holding the trading bot.  Then connect a reference from the Task Server App node (held under the users governance profile) to Task Server App Reference node.  This will give the bot running within this task access to the signing account associated with the current user."
+            "text": "Trading Bot tasks run within the task server of the Superalgos Platform. The task server itself must have a signing account set up in order for the current machine to identify itself on the peer to peer network.  Each Trading bot task uses the signing account for the current user’s task server in order to access the network.  This is achieved by setting up a Task Server App Reference node underneath the Task node holding the trading bot.  Then connect a reference from the Task Server App node (held under the users governance profile) to Task Server App Reference node.  This will give the bot running within this task access to the signing account associated with the current user.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Задачи торгового бота выполняются на сервере задач платформы Superalgos. Сам сервер задач должен иметь учетную запись, установленную для того, чтобы текущая машина могла идентифицировать себя в одноранговой сети. Каждая задача торгового бота использует учетную запись для сервера задач текущего пользователя, чтобы получить доступ к сети. Это достигается путем установки узла Task Server App Reference под узлом Task, в котором находится торговый бот. Затем подключите ссылку из узла Task Server App (находящегося в профиле управления пользователя) к узлу Task Server App Reference. Это даст боту, запущенному в рамках этой задачи, доступ к учетной записи, связанной с текущим пользователем.",
+                    "updated": 1645626211224
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "In addition to this, the trading bot task also needs to have a reference to the Social Trading Bot it will be either sending signals through or receiving signals from. This is done by connecting a Social Trading Bot Reference node to the Trading Bot Instance node. Then connecting a reference between the social trading bot reference node and social trading bot node. The social trading bot node will be held under the provider's profile if receiving signals, and the user’s profile if sending signals.",
-            "updated": 1642819938516
+            "updated": 1642819938516,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В дополнение к этому задача торгового бота также должна иметь ссылку на социального торгового бота, через которого она будет посылать сигналы или получать сигналы от него. Это делается путем подключения узла Social Trading Bot Reference к узлу Trading Bot Instance. Затем подключается ссылка между узлом ссылки социального торгового бота и узлом социального торгового бота. Узел социального торгового бота будет находиться под профилем провайдера, если он получает сигналы, и под профилем пользователя, если он отправляет сигналы.",
+                    "updated": 1645626242796
+                }
+            ]
         },
         {
             "style": "Text",

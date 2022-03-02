@@ -2,13 +2,27 @@
     "type": "Kernel Constraint",
     "definition": {
         "text": "Constraint for the kernel weights.",
-        "updated": 1613244365425
+        "updated": 1613244365425,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Ограничение для весов ядра.",
+                "updated": 1645248259630
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Subtitle",
             "text": "Possible Values",
-            "updated": 1613244375424
+            "updated": 1613244375424,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Возможные значения",
+                    "updated": 1645248265141
+                }
+            ]
         },
         {
             "style": "Javascript",

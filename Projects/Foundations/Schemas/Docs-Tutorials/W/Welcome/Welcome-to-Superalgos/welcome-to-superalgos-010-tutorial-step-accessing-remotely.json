@@ -105,8 +105,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "İstemciye ( Client ) uzak bir makineden erişiyorsanız, devam etmeden önce Ağ Düğümü ( Node )  yapılandırmasını ayarlamanız gerekir.",
-                    "updated": 1635579070105
+                    "text": "İstemciye (Client) uzak bir makineden erişiyorsanız, \"LAN Network Node\" düğümünün yapılandırmasını ayarlamanız gerekir.",
+                    "updated": 1644848777652
                 }
             ],
             "updated": 1636909673978
@@ -165,8 +165,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Ağ Düğümü menüsünün sağ üst köşesindeki Yapılandır'a ( Configure ) tıklayın.",
-                    "updated": 1635579264884
+                    "text": "Ağ Düğümü menüsünün sağ üst köşesindeki Yapılandır'a ( Configure ) tıklayın. ",
+                    "updated": 1644848838505
                 }
             ]
         },
@@ -212,8 +212,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Arka ucu çalıştıran makinenin IP adresi için ana bilgisayar parametresini değiştirin. Ters proxy kullanıyorsanız, \"webSocketsExternalURL\": \"wss://mydomain.com:443\" yapılandırma parametresini manuel olarak eklemelisiniz.",
-                    "updated": 1635579170033
+                    "text": "Arka ucu çalıştıran makinenin IP adresi için ana bilgisayar parametresini değiştirin.",
+                    "updated": 1644848902048
                 },
                 {
                     "language": "RU",
@@ -297,8 +297,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Fare işaretçisini yapılandırma balonundan kaldırarak yapılandırmadan çıkın! Yapılandırma doğruysa, Ağ Düğümü'ndeki hata mesajı bir dakika içinde kaybolmalıdır!",
-                    "updated": 1635579204588
+                    "text": "Şimdi düzenleyiciyi kapatın. Yapılandırma doğruysa, hata mesajı bir dakika içinde kaybolacaktır!",
+                    "updated": 1644848933672
                 }
             ],
             "updated": 1636910042545

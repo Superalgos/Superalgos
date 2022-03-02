@@ -20,6 +20,11 @@
                 "language": "DE",
                 "text": "Die Definition von \nShortcuts (Tastenkombinationen) zu bestimmten Nodes kann nützlich sein, wenn man regelmäßig mit der besagten Node interagiert.",
                 "updated": 1640559600123
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Belirli düğümlere kısayollar tanımlamak, söz konusu düğümle düzenli olarak etkileşim kurarken faydalı olabilir.",
+                "updated": 1645976623485
             }
         ]
     },
@@ -48,6 +53,11 @@
                     "language": "DE",
                     "text": "Es ist auch möglich, einen benutzerdefinierten Shortcut zu einer beliebigen Node zu setzen, die Sie wünschen. Dies ist nützlich für den Zugriff auf häufig verwendete Nodes.",
                     "updated": 1640559696109
+                },
+                {
+                    "language": "TR",
+                    "text": "İstediğiniz herhangi bir düğüme özel bir kısayol ayarlamak da mümkündür. Bu, sık kullanılan düğümlere erişmek için kullanışlıdır.",
+                    "updated": 1645976959474
                 }
             ]
         },
@@ -70,6 +80,11 @@
                     "language": "DE",
                     "text": "Sie können diese Art von shortcuts nach folgendem Verfahren definieren:",
                     "updated": 1640559716356
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki yordamı kullanarak bu tür kısayolu tanımlayabilirsiniz:",
+                    "updated": 1645977002053
                 }
             ]
         },
@@ -91,6 +106,11 @@
                     "language": "DE",
                     "text": "Bewegen Sie den Mauszeiger über die Ziel-Node, bis sich das Menü öffnet. Dadurch wird die Node in den Fokus gesetzt.",
                     "updated": 1640559754763
+                },
+                {
+                    "language": "TR",
+                    "text": "Menü açılana kadar fare işaretçisini hedef düğümün üzerine getirin. Bu, düğümü odak haline getirir.",
+                    "updated": 1645977017581
                 }
             ]
         },
@@ -108,6 +128,11 @@
                     "language": "EL",
                     "text": "Κάντε κλικ στο Ctrl ή στο Cmd + Alt + το κλειδί που προτιμάτε για να εκχωρήσετε τη συντόμευση.",
                     "updated": 1639396602714
+                },
+                {
+                    "language": "TR",
+                    "text": "Kısayolu atamak için Ctrl veya Cmd + Alt + tercih ettiğiniz tuşu tıklayın.",
+                    "updated": 1645977027729
                 }
             ]
         },
@@ -129,6 +154,11 @@
                     "language": "DE",
                     "text": "Unter der Node erscheint ein Zeichen, das die Zuweisung des Shortcuts bestätigt.",
                     "updated": 1640559837145
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğümün altında kısayolun atandığını onaylayan bir işaret görünecektir.",
+                    "updated": 1645977038239
                 }
             ]
         },
@@ -155,6 +185,11 @@
                     "language": "DE",
                     "text": "Wiederholen Sie den gleichen Vorgang, um einen Shortcut zu entfernen.",
                     "updated": 1640559856548
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir kısayolu kaldırmak için aynı işlemi tekrarlayın.",
+                    "updated": 1645977079650
                 }
             ]
         },
@@ -177,6 +212,11 @@
                     "language": "DE",
                     "text": "Wenn Sie versuchen, einen Shortcut mit einem bereits verwendeten Shortcut zuzuweisen, meldet das System das Problem. Wenn Sie darauf bestehen, indem Sie dieselbe Tastenkombination zwei weitere Male drücken, weist das System das Kürzel wie erwartet zu.",
                     "updated": 1640559908645
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Halihazırda kullanımda olan bir klavye kombinasyonuyla bir kısayol atamaya çalışırken, sistem sorunu bildirir. Aynı klavye kombinasyonuna iki kez daha basarak ısrar ederseniz, sistem kısayolu beklendiği gibi atayacaktır.",
+                    "updated": 1645977109633
                 }
             ]
         }

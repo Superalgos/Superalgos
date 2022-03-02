@@ -25,6 +25,11 @@
                 "language": "DE",
                 "text": "Sind Sie bereit, tiefer in den Governance-Kaninchenbau einzutauchen?\nWenn Sie gerade erst mit Superalgos anfangen, brauchen Sie an dieser Stelle <i>nicht</i> weiter zu gehen!",
                 "updated": 1640083299839
+            },
+            {
+                "language": "TR",
+                "text": "Yönetim tavşan deliğinde daha derine inmeye hazır mısınız?\nSuperalgos ile yeni başlıyorsanız, bu noktada daha ileri gitmenize gerek yok!",
+                "updated": 1645168825176
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "DE",
                     "text": "Wenn Sie jedoch in das Projekt investiert sind und einige  Contribution Claims stellen oder Abstimmungen durchführen möchten, dann müssen Sie etwas lesen!",
                     "updated": 1640083332328
+                },
+                {
+                    "language": "TR",
+                    "text": "Ancak, projeye yatırım yaptıysanız, Katkı İddiasında bulunmak veya oy vermek istiyorsanız, okumanız gereken bazı şeyler var!",
+                    "updated": 1645168655662
                 }
             ]
         },
@@ -72,6 +82,11 @@
                     "language": "DE",
                     "text": "Das Governance Projektbuch auf der rechten Seite führt Sie tief in alle Governance Programs ein, einschließlich derer, die wir noch nicht behandelt haben!",
                     "updated": 1640083362819
+                },
+                {
+                    "language": "TR",
+                    "text": "Sağdaki Yönetişim Projesi kitabı (The Governance Project) sizi, henüz ele almadıklarımız da dahil olmak üzere tüm Yönetişim Programlarının (Governance Programs) derinliklerine götürür!",
+                    "updated": 1645168710095
                 }
             ]
         },
@@ -95,6 +110,11 @@
                     "language": "DE",
                     "text": "Von hier an sind Sie auf sich allein gestellt! Wenn Sie Fragen zu Governance oder dem Token haben, treten Sie bitte der Token Group in Telegram bei!",
                     "updated": 1640083390498
+                },
+                {
+                    "language": "TR",
+                    "text": "Şu andan itibaren kendi başınasın! Yönetim veya token hakkında herhangi bir sorunuz varsa, lütfen Telegram'daki Token Grubuna (Token Group) katılın!",
+                    "updated": 1645168776747
                 }
             ]
         }

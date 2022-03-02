@@ -81,6 +81,11 @@
 		save the data more often allowing for the data mining to move forward.
 		*/
 		candlestickBatch = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.candlestickBatch
+		asset - sets the  maximum number of OHCLV that is pulled before the data is saved.
+		This is only to be used when the exchange is kicking out the data-mine randomly and alows the user to
+		save the data more often allowing for the data mining to move forward.
+		*/
+		candlebatchSize = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.candlebatchSize
 
             /* Applying the parameters defined by the user at the Exchange Node Config */
             if (TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API !== undefined) {
@@ -592,6 +597,14 @@
                         */
                         if (candlestickBatch) {
                             candlestickBatch = MAX_OHLCVs_PER_EXECUTION
+			candlebatchSize - sets the  maximum number of OHCLV that is pulled before the data is saved.
+			candleBatchSize should only be used when the exchange is kicking out the data-mine randomly and alows the user to
+			save the data more often allowing for the data mining to move forward.
+                        Check if we don't have a candlebatchSize parameter and use global parameter instead
+                        */
+                        if (candlebatchSize) {
+                            MAX_OHLCVs_PER_EXECUTION = candlebatchSize 
+
                         }
 
                         /*

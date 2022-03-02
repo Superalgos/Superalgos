@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Отчеты о состоянии Status Reports - это файлы, создаваемые процессами каждого бота, с ключевой информацией, которую бот должен сохранить, чтобы запомнить при следующем запуске.",
                 "updated": 1639412860714
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Durum Raporları ( Status Reports ), Bot'un bir sonraki çalıştırılışında hatırlamak için kaydetmesi gereken önemli bilgilerle birlikte her bir Bot'un süreçleri tarafından üretilen dosyalardır.",
+                "updated": 1645903283726
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "RU",
                     "text": "Главный цикл сервера задач Task Server",
                     "updated": 1639412905521
+                },
+                {
+                    "language": "TR",
+                    "text": "Görev Sunucusu Ana Döngüsü",
+                    "updated": 1645903350330
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "RU",
                     "text": "Большинство ботов в Superalgos запускаются сервером задач Task Server и реализуют основной цикл Main Loop. При выполнении каждого цикла боты выполняют свою работу и в конце засыпают.",
                     "updated": 1639412976422
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos'taki çoğu Bot, Görev Sunucusu ( Task Server ) tarafından çalıştırılır ve bir Ana Döngü ( Main Loop ) uygular. Her döngü yürütmede, botlar işlerini yapar ve sonunda uyurlar.",
+                    "updated": 1645903454385
                 }
             ]
         },
@@ -66,6 +81,11 @@
                     "language": "RU",
                     "text": "Сколько времени они спят, и другие детали настраиваются в определении процесса Process Definition бота.",
                     "updated": 1639413013057
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Ne kadar uyudukları ve diğer ayrıntılar Bot'un İşlem Tanımında ( Process Definition ) yapılandırılır.",
+                    "updated": 1645903496035
                 }
             ]
         },
@@ -100,6 +120,11 @@
                     "language": "RU",
                     "text": "Перед тем, как бот перейдет в спящий режим, из памяти компьютера удаляется вся информация, связанная с ботом. Это важно для освобождения аппаратных ресурсов для других ботов, работающих на той же машине. Однако существует некоторая информация, которую ботам необходимо запоминать между каждым выполнением основного цикла Main Loop и между выполнениями самой задачи. Эта информация хранится в JSON / текстовом файле, который называется Status Report. Название \"Status\" использовалось, поскольку хранимая информация часто является статусом процесса бота. Вот пример простого файла Status Report:",
                     "updated": 1639413309271
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir bot uyku moduna geçmeden önce, bilgisayar belleği Bot ile ilgili tüm bilgilerden temizlenir. Bu, aynı makinede çalışan diğer botlar için donanım kaynaklarını boşaltmak için önemlidir. Ancak, Ana Döngünün  ( Main Loop ) her yürütmesi arasında ve Görevin kendisinin yürütülmesi arasında Botların hatırlaması gereken bazı bilgiler vardır. Bu bilgi, Durum Raporu ( Status Report ) adı verilen bir JSON / metin dosyasında saklanır. Durum adı, saklanan bilgiler genellikle Bot'un işleminin durumu olduğu için kullanılmıştır. İşte basit bir Durum Raporu dosyası örneği:",
+                    "updated": 1645903631434
                 }
             ]
         },
@@ -122,6 +147,11 @@
                     "language": "RU",
                     "text": "Файлы Status Report также могут включать структуру данных, называемую памятью выполнения Inter Execution Memory. Информация о статусе стандартна для всех типов ботов. С другой стороны, Inter Execution Memory зависит от типа каждого бота и от того, что на самом деле обрабатывается.",
                     "updated": 1639413401296
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Durum Raporu ( Status Report ) dosyaları, Yürütme Arası Bellek ( Inter Execution Memory ) adı verilen bir veri yapısı da içerebilir. Durum bilgileri, tüm bot türleri için standarttır. Yürütmeler Arası Bellek ( Inter Execution Memory ) ise her bir Bot'un türüne ve gerçekte ne işlenmekte olduğuna bağlıdır.",
+                    "updated": 1645903735673
                 }
             ]
         },

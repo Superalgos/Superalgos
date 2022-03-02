@@ -495,8 +495,8 @@ function newPlotter() {
             thisObject.container.eventHandler.raiseEvent('Current Record Changed', undefined)
 
             for (let i = 0; i < records.length; i++) {
-                let record = records[i]
-
+                let record = records[i] 
+                
                 if (checkOutOfScreen(i, record) !== true) { continue }
 
                 let atMousePosition = false

@@ -25,6 +25,11 @@
                 "language": "DE",
                 "text": "Das Support Program funktioniert so ähnlich wie das Referral Program, nur dass Sie angeben, wer Ihre lieblings Community Mods sind!",
                 "updated": 1640081563583
+            },
+            {
+                "language": "TR",
+                "text": "Destek Programı, Referans Programına (Referral Program) benzer şekilde çalışır, sadece en sevdiğiniz Topluluk Modlarının (Community Mods) kim olduğunu beyan edersiniz!",
+                "updated": 1645101833654
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "DE",
                     "text": "Fügen Sie das Support Program hinzu und verwenden Sie den User Supporter Knoten, um Verweise auf Ihre Lieblingsmoderatoren einzurichten! Ihre Profile sind bereits geladen!",
                     "updated": 1640081606209
+                },
+                {
+                    "language": "TR",
+                    "text": "Destek Programını (Support Program) ekleyin ve favori moderatörlerinize referanslar ayarlamak için Kullanıcı Destekçi (User Supporter) düğümlerini kullanın! Profilleri zaten yüklendi!",
+                    "updated": 1645101890575
                 }
             ]
         },
@@ -72,6 +82,11 @@
                     "language": "DE",
                     "text": "Obwohl die Community immer bereit ist, bei typischen Fragen zu helfen, braucht es ein gewisses Maß an Erfahrung und Wissen, um effektive Unterstützung zu leisten. Aus diesem Grund sind ausgewählte Community Mods dafür zuständig! Die Teilnahme an diesem Programm ist der beste Weg, sich bei den Leuten zu bedanken, die anderen selbstlos helfen!",
                     "updated": 1640081621732
+                },
+                {
+                    "language": "TR",
+                    "text": "Topluluk tipik sorularda her zaman yardıma hazır olsa da, etkili destek sağlamak için belirli bir düzeyde deneyim ve bilgi gerekir. Bundan belirli Topluluk Modları sorumludur! Bu programa katılmak, başkalarına özverili bir şekilde yardım eden insanlara teşekkür etmenin en iyi yoludur!",
+                    "updated": 1645101931074
                 }
             ]
         }

@@ -25,6 +25,11 @@
                 "language": "DE",
                 "text": "Da Sie nun das Zielbenutzerprofil im Workspace haben, müssen Sie nur noch den Verweis von Ihrem User Referrer Knoten auf das Benutzerprofil herstellen.",
                 "updated": 1640080318104
+            },
+            {
+                "language": "TR",
+                "text": "Artık çalışma alanında hedef Kullanıcı Profiline sahip olduğunuza göre, geriye kalan tek şey Kullanıcı Yönlendiren (User Referrer) düğümünüzden Kullanıcı Profiline (User Profile) referansı oluşturmaktır.",
+                "updated": 1645099812307
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "DE",
                     "text": "Für den Fall, dass Sie sich mit Referenzen nicht auskennen, hier eine kurze Erinnerung daran, wie Referenzen funktionieren!",
                     "updated": 1640080331154
+                },
+                {
+                    "language": "TR",
+                    "text": "Referanslar konusunda uzman değilseniz, işte referansların nasıl çalıştığına dair kısa bir hatırlatma!",
+                    "updated": 1645100036569
                 }
             ]
         },
@@ -72,6 +82,11 @@
                     "language": "DE",
                     "text": "Wenn Sie das Gefühl haben, dass Sie mehr als einen Referrer haben, können Sie gerne weitere User Referrer Knoten hinzufügen und die Referenzen mit ihren Profilen einrichten!",
                     "updated": 1640080352783
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu arada, birden fazla yönlendireniniz olduğunu düşünüyorsanız, Kullanıcı Yönlendiren düğümleri eklemekten ve referansları profilleriyle birlikte ayarlamaktan çekinmeyin!",
+                    "updated": 1645100072152
                 }
             ]
         },
@@ -90,6 +105,11 @@
                     "language": "DE",
                     "text": "Sobald Sie Ihre Referrer deklariert haben, fahren Sie mit dem Tutorial fort!",
                     "updated": 1640080360518
+                },
+                {
+                    "language": "TR",
+                    "text": "Yönlendirenlerinizi bildirmeyi bitirdikten sonra eğiticiye devam edin!",
+                    "updated": 1645100087601
                 }
             ]
         }

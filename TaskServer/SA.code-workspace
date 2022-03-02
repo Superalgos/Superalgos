@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "..\\Projects"
+		},
+		{
+			"path": "..\\node_modules"
+		}
+	],
+	"settings": {
+		"search.maintainFileSearchCache": true
+	}
+}

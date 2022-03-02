@@ -20,6 +20,11 @@
                 "language": "RU",
                 "text": "Data Mines позволяют обрабатывать данные, используя наборы данных, созданные другими, выполняя вычисления и выводя новый продукт данных с добавленной стоимостью, который могут потреблять другие. Другими словами, Data Mines - это созданные пользователем пакеты определений. Эти определения обычно включают определения Sensor Bot, Indicator Bot и Plotter. Data Mines, поставляемые с Superalgos, представляют собой пакеты, предоставленные пользователями программного обеспечения.",
                 "updated": 1639407739867
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Veri madenleri ( Data Mines ), başkalarının ürettiği veri kümelerini tüketerek, hesaplamalar yaparak ve başkalarının tüketebileceği yeni bir katma değerli veri ürünü çıkararak verilerin işlenmesini sağlar. Başka bir deyişle, Veri Madenleri ( Data Mines ), kullanıcı tarafından oluşturulan tanım paketleridir. Bu tanımlar genellikle Sensör Botu ( Sensor Bot ), Gösterge Botu ( Indicator Bot ) ve Plotter tanımlarını içerir. Superalgos ile birlikte gönderilen Veri Madenleri, yazılım geliştiricileri kullanıcıları tarafından sağlanan paketlerdir.",
+                "updated": 1645898737805
             }
         ]
     },
@@ -43,6 +48,11 @@
                     "language": "RU",
                     "text": "Superalgos предоставляет вам мощную систему обработки и визуализации данных. Используйте его в полной мере, и вы увидите, что ваш интеллект увеличится на порядки.",
                     "updated": 1639407758198
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos, size güçlü bir veri işleme ve görselleştirme sistemini veriyor. Onu sonuna kadar kullanın ve zekanızın büyüklük derecelerinde arttığını göreceksiniz.",
+                    "updated": 1645898840387
                 }
             ]
         },
@@ -64,6 +74,11 @@
                     "language": "RU",
                     "text": "Любой желающий может получить доступ к необработанным сделкам и данным книги заказов с бирж и информации в виде стандартных индикаторов и технических исследований.",
                     "updated": 1639407875015
+                },
+                {
+                    "language": "TR",
+                    "text": "Herkes ham işlemlere erişebilir ve borsalardan verileri çekebilir. Herkes standart göstergeler ve teknik çalışmalar şeklindeki bilgilere erişebilir.",
+                    "updated": 1645898930073
                 }
             ]
         },
@@ -85,6 +100,11 @@
                     "language": "RU",
                     "text": "Однако Superalgos позволяет выполнять любую обработку существующей информации по всему рынку, сохранять результаты в новых наборах данных и делать их доступными для торговых стратегий. Более того, он позволяет создавать сложные графические представления данных, которые можно мгновенно просматривать на диаграммах.",
                     "updated": 1639407899552
+                },
+                {
+                    "language": "TR",
+                    "text": "Bununla birlikte, Superalgos, piyasanın tamamında mevcut bilgiler üzerinde her türlü işlemi gerçekleştirmenize, sonuçları yeni veri kümelerinde saklamanıza ve bunları ticaret stratejileri için kullanılabilir hale getirmenize olanak tanır. Ayrıca, grafikler üzerinde anında göz atılabilen ayrıntılı grafik temsilleri oluşturmanıza olanak tanır.",
+                    "updated": 1645898968144
                 }
             ]
         },
@@ -106,6 +126,11 @@
                     "language": "RU",
                     "text": "Функционал добычи данных очень гибок и работает в соответствии с той же парадигмой, что и при построении стратегий. Они предоставляют визуальный интерфейс и структуру, которая проведет вас через процесс создания новых ботов с минимальными навыками программирования.",
                     "updated": 1639407947909
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri madenlerinin işlevselliği son derece esnektir ve stratejiler oluşturmak için kullanılan aynı paradigma altında çalışır. Minimum kodlama becerileri ile yeni botlar oluşturma sürecinde size yol gösteren görsel bir arayüz ve çerçeve sağlarlar.",
+                    "updated": 1645899011109
                 }
             ]
         },
@@ -127,6 +152,11 @@
                     "language": "RU",
                     "text": "Подавляющая часть сложности обработки данных выполняется ботами внутри компании, и вам не нужно иметь с ней дело или даже понимать ее. Система изолирует сложность и открывает вам только самые важные элементы, которые влияют на то, чего вы хотите достичь.",
                     "updated": 1639407972580
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri işlemenin karmaşıklığının büyük çoğunluğu dahili olarak botlar tarafından gerçekleştirilir ve bununla uğraşmanıza, hatta anlamanıza bile gerek yoktur. Sistem karmaşıklığı izole eder ve sizi yalnızca başarmak istediğiniz şeyi etkileyen önemli unsurlara maruz bırakır.",
+                    "updated": 1645899048287
                 }
             ]
         },
@@ -148,6 +178,11 @@
                     "language": "RU",
                     "text": "Этот раздел документации дает вам техническое представление о том, как данные обрабатываются системой. Ядро функциональности, раскрываемой в этом разделе, по сути, охватывает следующие моменты:",
                     "updated": 1639408001139
+                },
+                {
+                    "language": "TR",
+                    "text": "Dokümantasyonun bu bölümü, verilerin sistem tarafından nasıl işlendiğine dair teknik bilgi sağlar. Bu bölümün ortaya çıkardığı işlevselliğin özü, özünde aşağıdaki noktaları kapsar:",
+                    "updated": 1645899098457
                 }
             ]
         },
@@ -169,6 +204,11 @@
                     "language": "RU",
                     "text": "1. Способность определять любое количество вычислительных процессов, которые могут опираться на результаты друг друга, что приводит к огромному количеству информации, которая может быть использована торговыми стратегиями.",
                     "updated": 1639408038019
+                },
+                {
+                    "language": "TR",
+                    "text": "Birbirlerinin çıktılarını besleyebilecek herhangi bir sayıda hesaplama sürecini tanımlama kapasitesi, ticaret stratejileri tarafından tüketilebilecek çok sayıda bilgi ile sonuçlanır.",
+                    "updated": 1645899135569
                 }
             ]
         },
@@ -190,6 +230,11 @@
                     "language": "RU",
                     "text": "2. Свойства и характеристики наборов данных, возникающих в результате выполнения таких процессов - как и где они хранятся, в каком формате, как они потребляются внутри и, возможно, другими системами.",
                     "updated": 1639408073271
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu tür süreçlerin yürütülmesinden kaynaklanan veri kümelerinin özellikleri ve karakteristikleri - nasıl ve nerede depolandıkları, hangi formatta, dahili olarak ve potansiyel olarak diğer sistemler tarafından nasıl tüketildikleri.",
+                    "updated": 1645899193179
                 }
             ]
         },
@@ -212,6 +257,11 @@
                     "language": "RU",
                     "text": "3. Возможность визуализировать данные на диаграммах и просматривать их со всеми функциями, встроенными в систему диаграмм.",
                     "updated": 1639408091862
+                },
+                {
+                    "language": "TR",
+                    "text": "Verileri grafikler üzerinde görselleştirme ve grafik sisteminde yerleşik tüm özelliklerle göz atma kapasitesi.",
+                    "updated": 1645899211887
                 }
             ]
         },
@@ -228,6 +278,11 @@
                     "language": "RU",
                     "text": "Как боты используют Data Mines",
                     "updated": 1639408110640
+                },
+                {
+                    "language": "TR",
+                    "text": "Botlar Veri Madenlerini Nasıl Kullanır?",
+                    "updated": 1645900389423
                 }
             ]
         },
@@ -249,6 +304,11 @@
                     "language": "RU",
                     "text": "Важно понимать, что Data Mine - это набор определений. Когда пользователи запускают бота, они делают это внутри задачи Task. Эта задача должна знать, как запустить бот. Чтобы это выяснить, у бота в задаче должна быть ссылка на определение процесса Process Definition, существующее в Data Mine. Когда бот запускается внутри задачи, в этот момент он получает всю информацию о задаче, которая используется для запуска бота, и в то же время он также получает информацию об определении бота из Data Mine.",
                     "updated": 1639408280969
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Veri Madeni'nin ( Data Mine ) bir tanım paketi olduğunu anlamak önemlidir. Kullanıcılar bir Bot çalıştırdıklarında bunu bir Görev içinde yaparlar. Bu görevin botun nasıl çalıştırılacağının bilmesi gerekir. Bunu bulmak için, görevdeki botun bir Veri Madeninde bulunan bir Süreç Tanımına ( Process Definition ) referansı olması gerekir. Bot, görev içinde başlatıldığında, o anda, botu başlatmak için kullanılan görevle ilgili tüm bilgileri alırken, aynı zamanda Bot'un tanımıyla ilgili bilgileri de Veri Madeni'nden ( Data Mine ) alır.",
+                    "updated": 1645900554270
                 }
             ]
         },
@@ -271,6 +331,11 @@
                     "language": "RU",
                     "text": "Используя обе стороны этой информации (данные задачи и определение бота), бот может выполнять свою работу.",
                     "updated": 1639408313504
+                },
+                {
+                    "language": "TR",
+                    "text": "Önemli: Bu bilgilerin (Görev ( Task ) verileri ve Bot tanımı) her iki tarafını kullanarak Bot, işini yapabilir.",
+                    "updated": 1645900610607
                 }
             ]
         },
@@ -287,6 +352,11 @@
                     "language": "RU",
                     "text": "Кто создает Data Mines?",
                     "updated": 1639408332727
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri Madenlerini Kim Oluşturur?",
+                    "updated": 1645900747914
                 }
             ]
         },
@@ -308,6 +378,11 @@
                     "language": "RU",
                     "text": "Data Mines создаются опытными пользователями и вносят свой вклад в проект (те, которые поставляются вместе с программным обеспечением). Пользователи могут создавать Data Mines для личного использования и никогда не делиться ими. Однако, если они поделятся ими, они получат токены SA за это, а также за их адаптацию и поддержку, если это необходимо, для каждого нового выпуска.",
                     "updated": 1639408374777
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri Madenleri ( Data Mines ), uzman kullanıcılar tarafından oluşturulur ve projeye katkıda bulunur (yazılımla birlikte gönderilenler). Kullanıcılar, kişisel kullanımları için Veri Madenleri ( Data Mines ) oluşturabilir ve bunları asla paylaşmayabilir. Ancak, bunları paylaşırlarsa, bunun için ve ayrıca gerekirse her yeni sürüm için bunları uyarlamak ve sürdürmek için SA Token alırlar.",
+                    "updated": 1645900931477
                 }
             ]
         },
@@ -324,6 +399,11 @@
                     "language": "RU",
                     "text": "Поддерживаемые боты",
                     "updated": 1639408390317
+                },
+                {
+                    "language": "TR",
+                    "text": "Desteklenen Botlar",
+                    "updated": 1645900976698
                 }
             ]
         },
@@ -345,6 +425,11 @@
                     "language": "RU",
                     "text": "Есть три типа ботов, которые могут хранить свои определения в Data Mine.",
                     "updated": 1639408403958
+                },
+                {
+                    "language": "TR",
+                    "text": "Tanımlarını bir Veri Madeninde tutabilen üç tür bot vardır.",
+                    "updated": 1645901015839
                 }
             ]
         },
@@ -366,6 +451,11 @@
                     "language": "RU",
                     "text": "Sensor Bots: используется для получения данных из некоторого Интернет-источника путем кодирования специального алгоритма.",
                     "updated": 1639408905144
+                },
+                {
+                    "language": "TR",
+                    "text": "Sensör Botları: Özel bir algoritma kodlayarak bazı İnternet kaynaklarından veri almak için kullanılır.",
+                    "updated": 1645901029455
                 }
             ]
         },
@@ -387,6 +477,11 @@
                     "language": "RU",
                     "text": "API Data Fetcher Bots: используется для получения данных из Интернет-API без необходимости кодирования.",
                     "updated": 1639408921920
+                },
+                {
+                    "language": "TR",
+                    "text": "API Veri Alıcısı Botları: Kodlamaya gerek kalmadan bir İnternet API'sinden veri almak için kullanılır.",
+                    "updated": 1645901045679
                 }
             ]
         },
@@ -408,13 +503,25 @@
                     "language": "RU",
                     "text": "Indicator Bots: используется для обработки данных.",
                     "updated": 1639408932433
+                },
+                {
+                    "language": "TR",
+                    "text": "Gösterge Botları: verileri işlemek için kullanılır.",
+                    "updated": 1645901057969
                 }
             ]
         },
         {
             "style": "Title",
             "text": "Data Mine",
-            "updated": 1611407778880
+            "updated": 1611407778880,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Veri Madeni",
+                    "updated": 1645901069860
+                }
+            ]
         },
         {
             "style": "Include",
@@ -429,7 +536,14 @@
         {
             "style": "Title",
             "text": "Sensor Bot",
-            "updated": 1611407910652
+            "updated": 1611407910652,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Sensör Botu",
+                    "updated": 1645901101818
+                }
+            ]
         },
         {
             "style": "Include",
@@ -439,7 +553,14 @@
         {
             "style": "Title",
             "text": "Indicator Bot",
-            "updated": 1611407935038
+            "updated": 1611407935038,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Gösterge Botu",
+                    "updated": 1645901148221
+                }
+            ]
         },
         {
             "style": "Include",
@@ -449,7 +570,14 @@
         {
             "style": "Title",
             "text": "Plotter",
-            "updated": 1611407956192
+            "updated": 1611407956192,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Çizici (Plotter)",
+                    "updated": 1645901179721
+                }
+            ]
         },
         {
             "style": "Include",
@@ -490,6 +618,11 @@
                     "language": "RU",
                     "text": "Data Mines могут зависеть от других Data Mines. Это означает, что боты в Data Mine могут зависеть от ботов, принадлежащих другим Data Mines. Далее в этой теме вы узнаете больше о том, как бот может зависеть от других ботов. Короче говоря, они могут зависеть 3 способами. Они могут иметь:",
                     "updated": 1639408999412
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri Madenleri ( Data Mines ), diğer Veri Madenlerine bağlı olabilir. Bunun anlamı, bir Veri Madeni ( Data Mine ) içindeki botların, diğer Veri Madenlerine ( Data Mines ) ait botlara bağlı olabileceğidir. Bu Konunun devamında, bir botun diğer botlara nasıl bağımlı olabileceği hakkında daha fazla bilgi edineceksiniz. Özetle, 3 şekilde bağlı olabilirler. Şunlara sahip olabilirler:",
+                    "updated": 1645901270217
                 }
             ]
         },
@@ -511,6 +644,11 @@
                     "language": "RU",
                     "text": "Зависимость данных: это означает, что бот использует в качестве входных данных данные, созданные другим ботом.",
                     "updated": 1639409018142
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri Bağımlılığı ( Data Dependency ): Bu, bir Botun başka bir bot tarafından üretilen verileri girdi olarak kullanması anlamına gelir.",
+                    "updated": 1645901316096
                 }
             ]
         },
@@ -532,6 +670,11 @@
                     "language": "RU",
                     "text": "Зависимость статуса: это означает, что бот использует статус другого бота в качестве параметров для собственной обработки.",
                     "updated": 1639409031515
+                },
+                {
+                    "language": "TR",
+                    "text": "Durum Bağımlılığı ( Status Dependency ): Bu, bir Bot'un kendi işlemesi için parametre olarak başka bir Bot'un durumunu kullanması anlamına gelir.",
+                    "updated": 1645901357100
                 }
             ]
         },
@@ -554,6 +697,11 @@
                     "language": "RU",
                     "text": "Наиболее распространенный вариант использования - когда боту нужна дата начала или окончания рынка. Эта информация автоматически извлекается из отчета о состоянии Status Report бота, который производит необработанные данные, поскольку он всегда знает, какие данные самые старые, а какие самые новые.",
                     "updated": 1639409109902
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: En yaygın kullanım durumu, bir Bot'un bir pazarın başladığı veya bittiği tarihe ihtiyaç duymasıdır. Bu bilgi, ham verileri üreten botun Durum Raporundan ( Status Report ) otomatik olarak alınır, çünkü hangi verinin en eski ve en yeni olduğunu her zaman bilir.",
+                    "updated": 1645901402704
                 }
             ]
         },
@@ -575,6 +723,11 @@
                     "language": "RU",
                     "text": "Зависимость от выполнения: это означает, что бот зависит от завершения выполнения другого бота, чтобы начать собственное выполнение.",
                     "updated": 1639409148871
+                },
+                {
+                    "language": "TR",
+                    "text": "Yürütme Bağımlılığı: Bu, bir Bot'un kendi yürütmesini başlatması için diğer Bot yürütmesinin bitmesine bağlı olduğu anlamına gelir.",
+                    "updated": 1645901441249
                 }
             ]
         },
@@ -597,6 +750,11 @@
                     "language": "RU",
                     "text": "Когда Data Mine зависит от другого Data Mine, оба должны присутствовать в рабочем пространстве, где находится задача, выполняющая бота.",
                     "updated": 1639409313540
+                },
+                {
+                    "language": "TR",
+                    "text": "Önemli: Bir Veri Madeni ( Data Mine ) başka bir Veri Madeni'ne bağlı olduğunda, her ikisinin de Bot'u yürüten Görevin bulunduğu Çalışma Alanında bulunması gerekir.",
+                    "updated": 1645901494519
                 }
             ]
         }

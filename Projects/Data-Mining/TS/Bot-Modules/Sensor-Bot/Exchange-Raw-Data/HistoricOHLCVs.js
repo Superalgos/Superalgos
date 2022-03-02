@@ -13,7 +13,7 @@
     let fileStorage = TS.projects.foundations.taskModules.fileStorage.newFileStorage(processIndex);
     let statusDependencies
 
-    const MAX_OHLCVs_PER_EXECUTION = 10000000
+    let MAX_OHLCVs_PER_EXECUTION = 10000000
     const symbol = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + '/' + TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
     const ccxt = SA.nodeModules.ccxt
     /*
@@ -76,11 +76,11 @@
 
             exchangeId = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.codeName
 		/*
-		maxRate - sets the  maximum number of OHCLV that is pulled before the data is saved.
+		candlestickBatch - sets the  maximum number of OHCLV that is pulled before the data is saved.
 		This is only to be used when the exchange is kicking out the data-mine randomly and alows the user to
 		save the data more often allowing for the data mining to move forward.
 		*/
-		maxRate = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.maxRate
+		candlestickBatch = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.candlestickBatch
 
             /* Applying the parameters defined by the user at the Exchange Node Config */
             if (TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API !== undefined) {
@@ -585,13 +585,13 @@
                         let currentDate = new Date(since)
 
                         /*
-			maxRate - sets the  maximum number of OHCLV that is pulled before the data is saved.
-			maxRate should only be used when the exchange is kicking out the data-mine randomly and alows the user to
+			candlestickBatch - sets the  maximum number of OHCLV that is pulled before the data is saved.
+			candlstickBatch should only be used when the exchange is kicking out the data-mine randomly and alows the user to
 			save the data more often allowing for the data mining to move forward.
-                        Check if we don't have a maxRate parameter and use global parameter instead
+                        Check if we don't have a candlestickBatch parameter and use global parameter instead
                         */
-                        if (!maxRate) {
-                            maxRate = MAX_OHLCVs_PER_EXECUTION
+                        if (candlestickBatch) {
+                            candlestickBatch = MAX_OHLCVs_PER_EXECUTION
                         }
 
                         /*

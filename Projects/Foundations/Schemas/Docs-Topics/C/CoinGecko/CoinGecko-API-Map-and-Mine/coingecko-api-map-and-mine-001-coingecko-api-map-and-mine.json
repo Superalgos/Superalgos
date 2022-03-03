@@ -10,6 +10,11 @@
                 "language": "TR",
                 "text": "Özet: Bu API Haritası ( API Map ) ve Veri Madeni ( Data Mine ), CoinGecko API'sinden kullanılan mevcut varlıklarla ilgili istatistikleri almak için CoinGecko API'sinden yararlanır.",
                 "updated": 1644591160754
+            },
+            {
+                "language": "RU",
+                "text": "Эта API Map and Data Mine подключается к API CoinGecko, чтобы получить статистику о текущих используемых активах из API CoinGecko.",
+                "updated": 1645606866075
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "language": "TR",
                     "text": "İpucu: Ek ortak çalışanlar kabul edilir!",
                     "updated": 1644591182015
+                },
+                {
+                    "language": "RU",
+                    "text": "Дополнительные соавторы приветствуются!",
+                    "updated": 1645606901219
                 }
             ]
         }

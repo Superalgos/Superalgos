@@ -599,7 +599,7 @@
                         */
                         if (candlestickBatch) {
                             candlestickBatch = MAX_OHLCVs_PER_EXECUTION
-			candlebatchSize - sets the  maximum number of OHCLV that is pulled before the data is saved.
+			/*candlebatchSize - sets the  maximum number of OHCLV that is pulled before the data is saved.
 			candleBatchSize should only be used when the exchange is kicking out the data-mine randomly and alows the user to
 			save the data more often allowing for the data mining to move forward.
                         Check if we don't have a candlebatchSize parameter and use global parameter instead

@@ -344,7 +344,11 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
 
                 /* Entry Position size and rate */
                 await tradingSystem.evalFormulas(tradingSystemStage.initialTargets, 'Initial Targets')
-                tradingPositionModuleObject.initialTargets(tradingSystemStage, tradingEngineStage)
+                if (tradingPositionModuleObject.initialTargets(tradingSystemStage, tradingEngineStage) === false) {
+                    changeStageStatus('Close Stage', 'Closing', 'Position Size Zero')
+                    return
+                }
+
                 initializeStageTargetSize()
 
                 /* From here on, the stage is officially Open */
@@ -847,6 +851,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                     tradingPositionModuleObject.closingPosition('Stop Loss')
                     changeStageStatus('Close Stage', 'Opening')
                     changeStageStatus('Manage Stage', 'Closed', 'Stop Loss Hit')
+                    changeStageStatus('Open Stage', 'Closing', 'Stop Loss Hit')
                     return
                 }
 
@@ -866,6 +871,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                     tradingPositionModuleObject.closingPosition('Take Profit')
                     changeStageStatus('Close Stage', 'Opening')
                     changeStageStatus('Manage Stage', 'Closed', 'Take Profit Hit')
+                    changeStageStatus('Open Stage', 'Closing', 'Take Profit Hit')
                     return
                 }
                 return
@@ -892,16 +898,27 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                     changeStageStatus('Close Stage', 'Closed', 'Close Stage Undefined')
                     return
                 }
-
+                /*
+                If the Open Stage has not been closed, then we will not be able to open the Close Stage. 
+                We will wait until the Open is closed so that their final sizes and counters are not going to change anymore
+                and we can calculate the size for the Close based on constant data.
+                */
+                if (
+                    tradingEngine.tradingCurrent.strategyOpenStage.status.value !== 'Closed' &&
+                    tradingEngine.tradingCurrent.strategyOpenStage.status.value !== tradingEngine.tradingCurrent.strategyOpenStage.status.config.initialValue
+                ) { return }
                 /* 
                 This will happen only once, as soon as the Take Profit or Stop was hit.
                 */
                 let tradingSystemStage = tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value].closeStage
+                let tradingEngineStage = tradingEngine.tradingCurrent.strategyCloseStage
 
                 /* Exit Position size and rate */
                 await tradingSystem.evalFormulas(tradingSystemStage.initialTargets, 'Initial Targets')
-                if (tradingPositionModuleObject.initialTargets(tradingSystemStage, tradingEngine.tradingCurrent.strategyCloseStage, 'Close Stage') === false) {
-                    //console.log("No Close-Stage Target Asset to Trade: Strategy Closing.")
+                if (tradingPositionModuleObject.initialTargets(tradingSystemStage, tradingEngineStage) === false) {
+                    changeStageStatus('Close Stage', 'Opem')
+                    changeStageStatus('Close Stage', 'Closed', 'Position Size Zero')
+                    return
                 }
 
                 initializeStageTargetSize()

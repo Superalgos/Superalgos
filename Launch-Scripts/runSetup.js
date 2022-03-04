@@ -26,8 +26,6 @@ const setUpstreamAndOrigin = async (dir, repo='Superalgos') => {
   // if repo is not main app repo, assume it is a plugin, in ./Plugins.
   else options.baseDir = path.join(process.cwd(), 'Plugins', dir)
   const git = simpleGit(options)
-  console.log(await git.getRemotes(true))
-  return "ok"
   // Check to see it main repo has been set as upstream
   let remotes = await git.getRemotes(true).catch(errorResp)
   let isUpstreamSet
@@ -58,7 +56,6 @@ const setUpstreamAndOrigin = async (dir, repo='Superalgos') => {
       usesSSH = true
     }
   }
-
   // Check that branches exist
   let branchSumAll = await git.branchLocal().catch(errorResp)
   let masterExists = false
@@ -67,19 +64,33 @@ const setUpstreamAndOrigin = async (dir, repo='Superalgos') => {
     if (branchSumAll.all[i] === 'master') masterExists = true
     else if (branchSumAll.all[i] === 'develop') developExists = true
   }
-  if (!masterExists) await git.checkout(['-B', 'master'])
-  if (!developExists) await git.checkout(['-B', 'develop'])
+  if (!masterExists) {
+    await git.checkout(['-B', 'master'])
+  }
+  if (!developExists) {
+    await git.checkout(['-B', 'develop'])
+  }
   // Check that a branch is checked out, otherwise checkout develop
   branchSumAll = await git.branchLocal().catch(errorResp)
-  if (branchSumAll.current === '' || branchSumAll.current === 'master') await git.checkout(['-B', 'develop'])
+  if (branchSumAll.current === '' || branchSumAll.current === 'master') {
+    await git.checkout(['-B', 'develop'])
+  }
 
-  if (repo !== 'Superalgos' && origin && gitUser) await git.removeRemote('origin').catch(errorResp)
+  if (repo !== 'Superalgos' && origin && gitUser) {
+    await git.removeRemote('origin').catch(errorResp)
+  }
+
   if (repo !== 'Superalgos' && gitUser) {
     let orURL
-    if (usesSSH) orURL = `git@github.com:${gitUser}/${repo}.git`
-    else orURL = `https://github.com/${gitUser}/${repo}.git`
-    await git.addRemote('origin', orURL).catch(errorResp)
+    if (usesSSH) {
+      orURL = `git@github.com:${gitUser}/${repo}.git`
+    }
+    else {
+      orURL = `https://github.com/${gitUser}/${repo}.git`
+      await git.addRemote('origin', orURL).catch(errorResp)
+    }
   }
+  return 'Set upstream and origin for github'
 }
 
 const runSetup = () => {

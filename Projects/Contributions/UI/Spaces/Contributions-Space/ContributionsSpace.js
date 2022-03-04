@@ -156,6 +156,7 @@ function newContributionsContributionsSpace() {
     }
 
     function getContainer(point, purpose) {
+        if (isInitialized === false) { return }
         if (thisObject.sidePanelTab === undefined) {
             return
         }

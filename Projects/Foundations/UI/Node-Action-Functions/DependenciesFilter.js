@@ -160,7 +160,7 @@ function newFoundationsFunctionLibraryDependenciesFilter() {
                         timeFrame = timeFrame.substring(2, 4) + '-' + timeFrame.substring(4, 7)
                     }
                     filters.market.list.set(defaultMarket, true)
-                    addTimeFrames(defaultExchange, baseAsset, quotedAsset, product, timeFrame)
+                    filters.exchange.timeFrames.set(defaultExchange + '-' + defaultMarket + '-' + product + '-' + timeFrame, true)
                     filters.exchange.products.set(defaultExchange + '-' + defaultMarket + '-' + product, true)
                     filters.exchange.markets.set(defaultExchange + '-' + defaultMarket, true)
                     filters.exchange.list.set(defaultExchange, true)

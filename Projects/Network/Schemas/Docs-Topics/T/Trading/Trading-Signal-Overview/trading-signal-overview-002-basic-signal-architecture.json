@@ -4,37 +4,93 @@
     "type": "Basic Signal Architecture",
     "definition": {
         "text": "Signals sent across the Superalgos peer to peer network are designed to be extensible and resource wise.",
-        "updated": 1642463394466
+        "updated": 1642463394466,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Сигналы, передаваемые по одноранговой сети Superalgos, разработаны таким образом, чтобы быть расширяемыми и не требовать больших ресурсов.",
+                "updated": 1645623645444
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Now that we know a little bit about what signals can do, let’s discuss some of the basic architecture of where trading signals live.  Because signals can hold a large amount of data, the entirety of a signal is not sent via the Superalgos peer to peer network.  Instead, signal providers send a header message via the peer to peer network that contains the address to the contents of the signal.  Breaking this architecture down looks like this:",
-            "updated": 1642463154072
+            "updated": 1642463154072,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Теперь, когда мы немного знаем о том, что могут делать сигналы, давайте обсудим базовую архитектуру того, где живут торговые сигналы. Поскольку сигналы могут содержать большой объем данных, весь сигнал не отправляется через одноранговую сеть Superalgos. Вместо этого поставщики сигналов отправляют по одноранговой сети сообщение с заголовком, в котором содержится адрес содержимого сигнала. В разбивке эта архитектура выглядит следующим образом:",
+                    "updated": 1645623675940
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Provider sends a signal."
+            "text": "Provider sends a signal.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Провайдер посылает сигнал.",
+                    "updated": 1645623808751
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Signal is split up into header and contents."
+            "text": "Signal is split up into header and contents.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сигнал разделяется на заголовок и содержимое.",
+                    "updated": 1645623815746
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Contents are uploaded to an open access storage (currently this is a public github repository)."
+            "text": "Contents are uploaded to an open access storage (currently this is a public github repository).",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Содержимое загружается в хранилище открытого доступа (в настоящее время это публичный репозиторий на Github).",
+                    "updated": 1645623847092
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Header is sent via the peer to peer network to all subscribed signal recipients."
+            "text": "Header is sent via the peer to peer network to all subscribed signal recipients.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Заголовок отправляется через одноранговую сеть всем подписавшимся получателям сигнала.",
+                    "updated": 1645623913511
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Signal recipients interpret the address of the signal and then download the signal contents."
+            "text": "Signal recipients interpret the address of the signal and then download the signal contents.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Получатели сигнала интерпретируют адрес сигнала и затем загружают его содержимое.",
+                    "updated": 1645623927333
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "This signal architecture greatly reduces the load on the Superalgos network allowing the transmission of large amounts of data to many recipients while using minimal network resources.  "
+            "text": "This signal architecture greatly reduces the load on the Superalgos network allowing the transmission of large amounts of data to many recipients while using minimal network resources.  ",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Такая архитектура сигнала значительно снижает нагрузку на сеть Superalgos, позволяя передавать большие объемы данных многим получателям при минимальном использовании сетевых ресурсов.",
+                    "updated": 1645624111790
+                }
+            ]
         },
         {
             "style": "Text",

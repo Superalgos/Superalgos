@@ -1596,7 +1596,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                         let repoStatus = []
                                         let status
 
-                                        // status is an array that holds the repo name and diff summary in an array
+                                        // status is an array that holds the repo name, diff summary, and status of local repo compared to remote in an array
                                         status = await doGit().catch(errorResp)
                                         repoStatus.push(status)
 
@@ -1623,11 +1623,28 @@ exports.newHttpInterface = function newHttpInterface() {
                                     else options.baseDir = SA.nodeModules.path.join(process.cwd(), 'Plugins', dir)
                                     const git = simpleGit(options)
                                     let diffObj
+                                    let upstreamArray = []
                                     try {
                                         // Clear the index to make sure we pick up all active changes
                                         await git.reset('mixed')
                                         // get the summary of current changes in the current repo
                                         diffObj = await git.diffSummary(responce).catch(errorResp)
+
+                                        // get the status of current repo compaired to upstream
+                                        let raw = await git.remote(['show', 'upstream'])
+                                        let split = raw.split('\n')
+                                        // Keep only end of returned message and format for UI
+                                        for (let str of split) {
+                                            if (str.includes('pushes')) {
+                                                // Get name of Branch
+                                                let name = str.trim().split(' ')[0]
+                                                // Get status of branch
+                                                let value = str.match(/\(([^]+)\)/)
+                                                upstreamArray.push([name, value[1]])
+                                            }
+                                        }
+
+
 
                                         function responce(err, diffSummary) {
                                             if (err !== null) {
@@ -1644,7 +1661,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                         console.log(err.stack)
                                         error = err
                                     }
-                                    return [repo, diffObj];
+                                    return [repo, diffObj, upstreamArray];
                                 }
 
                             } catch (err) {
@@ -2020,7 +2037,6 @@ exports.newHttpInterface = function newHttpInterface() {
                             }
                             break
                         }
-
 
                         case 'FixAppSchema': {
                             /*

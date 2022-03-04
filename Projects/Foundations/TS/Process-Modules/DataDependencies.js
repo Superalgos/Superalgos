@@ -84,7 +84,7 @@ exports.newFoundationsProcessModulesDataDependencies = function (processIndex) {
                 "-" +
                 TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
 
-            /* Session based dependency thisObject.filters */
+            /* Depenndency Filters comming from the UI */
             let receivedDependencyFilters = TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).DEPENDENCY_FILTER
             if (receivedDependencyFilters !== undefined) {
                 /*

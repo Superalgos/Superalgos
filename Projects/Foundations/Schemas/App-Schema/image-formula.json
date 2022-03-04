@@ -1,15 +1,15 @@
 {
-    "type": "Point Formula",
+    "type": "Image Formula",
     "level": 4,
-    "propertyNameAtParent": "pointFormula",
+    "propertyNameAtParent": "imageFormula",
     "attachingRules": {
-        "compatibleTypes": "->Point->"
+        "compatibleTypes": "->Image->"
     },
     "editors": {
         "formula": true
     },
     "initialValues": {
-        "code": "x = record.begin\ny = record.property"
+        "code": "record.property"
     },
     "menuItems": [
         {

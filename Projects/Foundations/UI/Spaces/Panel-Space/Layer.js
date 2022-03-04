@@ -192,7 +192,7 @@ function newLayer() {
                 'Polygon->Polygon Condition->Polygon Body->Style->Style Condition->Style->' +
                 'Polygon Border->Style->Style Condition->Style->' +
                 'Polygon Vertex->Point->' +
-                'Image->Image Condition->Image Position->Point->' +
+                'Image->Image Condition->Image Position->Image Formula->Point->' +
                 'Text->Text Condition->Text Position->Point->Text Formula->Text Style->' +
                 'Plotter Panel->Plotter Panel Javascript Code->Panel Data->Data Formula->Text Style->' +
                 'Nodes Highlights->Nodes Values->Nodes Errors->Nodes Warnings->Nodes Infos->Nodes Status->Nodes Progress->Nodes Running->Nodes Announcements->Record Values->'

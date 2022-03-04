@@ -1,0 +1,87 @@
+{
+    "type": "Dependency Filter",
+    "definition": {
+        "text": "The Dependency Filter is a mechanism that analyzes the code of all conditions, formulas and Study Bots in order to get from the code which data dependencies need to be loaded at the bot once ran.",
+        "updated": 1646057284735
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Explanation",
+            "updated": 1646057319208
+        },
+        {
+            "style": "Subtitle",
+            "text": "What is the Dependency Filter?",
+            "updated": 1646057384029
+        },
+        {
+            "style": "Text",
+            "text": "The Dependency Filter is a mechanism that analyzes the code of all conditions, formulas and Study Bots in order to get from the code which data dependencies need to be loaded at the bot once ran. The procedure scans every line of code in search for the exchange, market or chart objects and once it finds them, it then breaks it down to understand which product will be needed for the bot. These filters are needed in order to prevent the bot to load all dependency files at all time frames when at the code many of these files are evidently not used."
+        },
+        {
+            "style": "Text",
+            "text": "A Dependency Filter is a list of Indicators and Studies a Strategy depends on, that is later used to filter out all the other indicators and studies the Trading Bot depends on."
+        },
+        {
+            "style": "Text",
+            "text": "The function will scan a node branch, most likely a Trading System, looking into the code property of each node. It will analyze it's content and try to make a list of all indicators and studies mentioned at the code text and at which time frames they are mentioned.",
+            "updated": 1646056524485
+        },
+        {
+            "style": "Text",
+            "text": "It is important to note that all nodes that are not of the type Procedure Javascript, Javascript Code or Formula are going to be ignored.",
+            "updated": 1646056534040
+        },
+        {
+            "style": "Subtitle",
+            "text": "Examples"
+        },
+        {
+            "style": "Text",
+            "text": "These are instructions that the Dependency Filter will recognize without any problems:"
+        },
+        {
+            "style": "Text",
+            "text": "market.BTC.USDT.chart.at01hs.popularSMA.sma200 - market.ETC.USDT.chart.at01hs.popularSMA.sma100  < 10"
+        },
+        {
+            "style": "Text",
+            "text": "If you removed spaces between instructions then the Dependency Filter might get confused and you will get an undefined value for the indicator you are trying to use."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Advance Use"
+        },
+        {
+            "style": "Success",
+            "text": "If you are coding and dynamically picking the Base Asset, Quote Asset, or Time Frame, then there are a couple of tricks for you, because the Dependency Filters will not be able to guess which markets you will need at which time frame, there are a few tricks on how to influence the Dependency Filter.",
+            "updated": 1646056897508
+        },
+        {
+            "style": "Text",
+            "text": "Inside a commented area of the code you can write something like this:",
+            "updated": 1646056993223
+        },
+        {
+            "style": "Text",
+            "text": "market.anyBaseAsset.BTC.chart.atAnyTimeFrame.candle"
+        },
+        {
+            "style": "Text",
+            "text": "The valid keyworks are:"
+        },
+        {
+            "style": "Text",
+            "text": "anyBaseAsset"
+        },
+        {
+            "style": "Text",
+            "text": "anyQuotedAsset"
+        },
+        {
+            "style": "Text",
+            "text": "atAnyTimeFrame"
+        }
+    ]
+}

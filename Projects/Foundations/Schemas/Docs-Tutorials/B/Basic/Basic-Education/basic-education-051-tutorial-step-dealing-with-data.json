@@ -36,6 +36,11 @@
                 "language": "RU",
                 "text": "Данные, которые вы загружаете с бирж и обрабатываете с помощью индикаторов, доступны повсеместно, из любого рабочего пространства и стратегии.",
                 "updated": 1640875700028
+            },
+            {
+                "language": "ID",
+                "text": "Data yang kamu unduh dari exchanges dan diproses dengan indikator tersedia yang bisa diterapin kesemuanya, dapat diakses dari workspace mana saja dan strategi apa pun.",
+                "updated": 1645560911998
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "RU",
                     "text": "Данные хранятся на диске в папке Data-Storage и организованы по категориям Project, Data Mine, bot и Market. Не имеет значения, какое рабочее пространство вы использовали для добычи данных или обработки индикаторов.",
                     "updated": 1640875728180
+                },
+                {
+                    "language": "ID",
+                    "text": "Data disimpan dalam disk di bawah Data-Storage folder dan diatur oleh Project, Data Mine, bot, dan Market. Tidak masalah workspace apa yang kamu gunakan untuk menambang data atau memproses indikator.",
+                    "updated": 1645560987710
                 }
             ]
         },
@@ -104,6 +114,11 @@
                     "language": "RU",
                     "text": "Все данные доступны для всех рабочих пространств, поэтому вы можете работать с одними и теми же источниками данных независимо от того, что вы делаете.",
                     "updated": 1640875743084
+                },
+                {
+                    "language": "ID",
+                    "text": "Semua data tersedia untuk semua workspaces, sehingga kamu dapat bekerja dengan sumber data yang sama terlepas dari apa yang kamu lakukan.",
+                    "updated": 1645561018358
                 }
             ]
         },
@@ -138,6 +153,11 @@
                     "language": "RU",
                     "text": "В приложении нет встроенного управления данными. Вместо этого используйте файловую систему!",
                     "updated": 1640875757997
+                },
+                {
+                    "language": "ID",
+                    "text": "Tidak ada data-management bawaan didalam aplikasi. Gunakan sistem file kamu sebagai gantinya!",
+                    "updated": 1645561065959
                 }
             ]
         }

@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Индикатор отслеживает уровни сопротивления и поддержки для всего набора данных.",
                 "updated": 1643521887622
+            },
+            {
+                "language": "DE",
+                "text": "Der Indikator verfolgt die Widerstände und Unterstützungsniveaus für den gesamten Datensatz.",
+                "updated": 1645070312308
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Сопротивления и поддержки на графиках",
                     "updated": 1643521930221
+                },
+                {
+                    "language": "DE",
+                    "text": "Widerstände und Unterstützungen auf den Charts",
+                    "updated": 1645070351328
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Этот индикатор представляет собой интерпретацию концепции уровней сопротивления и поддержки. Индикатор определяет уровни (ценовой диапазон), на которых цена отклоняется, и ведет счетчик количества откатов до тех пор, пока уровень не будет пробит.",
                     "updated": 1643521978087
+                },
+                {
+                    "language": "DE",
+                    "text": "Dieser Indikator ist eine Interpretation des Konzepts der Widerstands- und Unterstützungsniveaus. Der Indikator identifiziert Niveaus (eine Preisspanne), auf denen der Preis zurückgewiesen wird, und führt einen Zähler darüber, wie oft Zurückweisungen auftreten, bis das Niveau durchbrochen wird.",
+                    "updated": 1645070408360
                 }
             ]
         },
@@ -50,6 +65,11 @@
                     "language": "RU",
                     "text": "Каждый уровень определяется базовой ставкой, которая является ставкой первого отката. Однако уровень - это не конкретная ставка, а диапазон ставок, выраженный в процентах от контрольной ставки. Процент, используемый для определения уровня, зависит от временного интервала. Чем меньше временной интервал, тем меньше процент.",
                     "updated": 1643522026834
+                },
+                {
+                    "language": "DE",
+                    "text": "Jedes Level wird durch den Referenzkurs bestimmt, der der Kurs der ersten Ablehnung ist. Bei dem Level handelt es sich jedoch nicht um einen bestimmten Kurs, sondern um einen als Prozentsatz des Referenzkurses ausgedrückten Kursbereich. Der Prozentsatz, der zur Bestimmung eines Levels verwendet wird, variiert je nach Zeitrahmen. Je kleiner der Zeitrahmen, desto kleiner der Prozentsatz.",
+                    "updated": 1645071161315
                 }
             ]
         },
@@ -61,6 +81,11 @@
                     "language": "RU",
                     "text": "Кроме того, каждый уровень рассчитывается в различных вариациях с использованием различных процентов для определения диапазона ставок, составляющих уровень. Каждая из этих вариаций диапазона ставок уровня называется зоной.",
                     "updated": 1643522045259
+                },
+                {
+                    "language": "DE",
+                    "text": "Außerdem wird jedes Level in verschiedenen Varianten berechnet, wobei unterschiedliche Prozentsätze verwendet werden, um den Kursbereich zu bestimmen, aus dem das Level besteht. Jede dieser Variationen im Kursbereich eines Levels wird als Zone bezeichnet.",
+                    "updated": 1645071189520
                 }
             ]
         },
@@ -72,6 +97,11 @@
                     "language": "RU",
                     "text": "Для простоты на экране отображается только первая зона каждого уровня. То есть, то, что вы видите на экране, является отображением одной вариации уровня. Однако стратегии имеют доступ к нескольким различным версиям, увеличивающимся в размерах зон.",
                     "updated": 1643522063368
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Einfachheit halber wird nur die erste Zone eines jeden Levels auf dem Bildschirm dargestellt. Das heißt, was Sie auf dem Bildschirm sehen, ist die Darstellung einer einzigen Variante eines Levels. Die Strategien haben jedoch Zugang zu mehreren verschiedenen Versionen, die sich in der Größe der Zonen unterscheiden.",
+                    "updated": 1645071620733
                 }
             ]
         },
@@ -83,6 +113,11 @@
                     "language": "RU",
                     "text": "Способ визуализации уровня на экране зависит от количества отказов, произошедших на данном уровне с момента его создания:",
                     "updated": 1643522075178
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Art und Weise, wie ein Level auf dem Bildschirm dargestellt wird, hängt von der Anzahl der Ablehnungen ab, die auf dem jeweiligen Level seit ihrer Einrichtung erfolgt sind:",
+                    "updated": 1645071695383
                 }
             ]
         },
@@ -95,6 +130,11 @@
                     "language": "RU",
                     "text": "| Number of Rejections | Graphics | Comments |\n| 1 |<span style=\"display: block; border-bottom: 1px dotted grey;\"></span>| Слабая серая пунктирная линия, обозначающая базовую ставку уровня поддержки/сопротивления. |\n| 2 |RGB(150, 150, 150, 0.2)| Серый блок, обозначающий диапазон ставок, составляющих уровень. |\n| 3 |RGB(2, 149, 170, 0.2)| Бирюзовый блок. |\n| 4 |RGB(244, 228, 9, 0.2)| Желтый блок. |\n| 5 |RGB(188, 214, 67, 0.2)| Зеленый блок. |\n| 6 |RGB(240, 162, 2, 0.2)| Оранжевый блок. |\n| 7 or more |RGB(91,80, 122, 0.4)| Фиолетовый блок. |",
                     "updated": 1643522143455
+                },
+                {
+                    "language": "DE",
+                    "text": "| Anzahl der Ablehnungen | Grafiken | Kommentare |\n| 1 |<span style=\"display: block; border-bottom: 1px dotted grey;\"></span>|Eine schwache, grau gestrichelte Linie markiert den Referenzkurs des Unterstützungs-/Widerstandsniveaus. |\n| 2 |RGB(150, 150, 150, 0.2)|Ein grauer Block, der den Bereich des Kurses markiert, aus denen sich das Level zusammensetzt. |\n| 3 |RGB(2, 149, 170, 0.2)| Ein türkisfarbener Block. |\n| 4 |RGB(244, 228, 9, 0.2)| Ein gelber Block. |\n| 5 |RGB(188, 214, 67, 0.2)| Ein grüner Block. |\n| 6 |RGB(240, 162, 2, 0,2)| Ein orangefarbener Block. |\n| 7 oder mehr |RGB(91,80, 122, 0.4)| Ein violetter Block. |",
+                    "updated": 1645071992622
                 }
             ]
         },
@@ -112,6 +152,11 @@
                     "language": "RU",
                     "text": "Каждый относительный максимум, отклоненный на уровне, увеличивает счетчик и изменяет цвет уровня.",
                     "updated": 1643522219380
+                },
+                {
+                    "language": "DE",
+                    "text": "Jedes relative Hoch, das auf dem Level abgelehnt wird, erhöht den Zähler und ändert die Farbe der Ebene.",
+                    "updated": 1645072611969
                 }
             ]
         },
@@ -123,6 +168,11 @@
                     "language": "RU",
                     "text": "Как только цена пробивает уровень, уровень исчезает.",
                     "updated": 1643522228067
+                },
+                {
+                    "language": "DE",
+                    "text": "Sobald der Preis das Level durchbricht, verschwindet das Level.",
+                    "updated": 1645072715132
                 }
             ]
         },
@@ -134,6 +184,11 @@
                     "language": "RU",
                     "text": "Когда уровень идентифицирован и счетчик откскоков больше нуля, уровень остается \"в памяти\". Однако это не означает, что уровень все время графически представлен на экране. Напротив, не все уровни постоянно отображаются на экране.",
                     "updated": 1643522304817
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn ein Level erkannt wird und der Rückweisungszähler größer als Null ist, bleibt das Level \"im Speicher\". Dies bedeutet jedoch nicht, dass der Pegel jederzeit auf dem Bildschirm grafisch dargestellt wird. Im Gegenteil, nicht alle Levels werden zu jeder Zeit auf dem Bildschirm dargestellt.",
+                    "updated": 1645073265485
                 }
             ]
         },
@@ -145,6 +200,11 @@
                     "language": "RU",
                     "text": "Критерии отображения уровней на экране зависят от цены на текущей свече. Для каждой свечи отображаются только пять уровней сопротивления и пять уровней поддержки, выше и ниже цены соответственно. Это делается для того, чтобы очистить экран и ограничить плотность отображения информации, когда она не является актуальной. По мере движения цены вверх и вниз некоторые уровни скрываются, могут образовываться новые уровни и появляться ранее существовавшие.",
                     "updated": 1643522334195
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Kriterien für die Darstellung der Levels auf dem Bildschirm werden durch den Preis der aktuellen Kerze beeinflusst. Für jede Kerze werden nur fünf Widerstandsniveaus und fünf Unterstützungsniveaus oberhalb bzw. unterhalb des Preises angezeigt. Dies dient der Übersichtlichkeit des Bildschirms und der Begrenzung der Informationsdichte in der Anzeige, wenn die Informationen nicht relevant sind. Während sich der Preis nach oben und unten bewegt, werden einige Levels ausgeblendet, es können sich neue Levels bilden und bereits bestehende Levels auftauchen.",
+                    "updated": 1645073350795
                 }
             ]
         },
@@ -161,6 +221,11 @@
                     "language": "RU",
                     "text": "Обратите внимание на прерывистость уровня, отмеченного синим цветом, вызванную падением цены и появлением новых уровней ниже. Однако, несмотря на то, что уровень перестал отображаться на экране, он остается скрытым и вновь появляется, когда цена снова поднимается.",
                     "updated": 1643522380336
+                },
+                {
+                    "language": "DE",
+                    "text": "Beachten Sie die Unterbrechung des blau markierten Levels, die durch den Rückgang des Preises und das Auftauchen neuer Levels darunter verursacht wird. Obwohl das Level nicht mehr auf dem Bildschirm angezeigt wird, bleibt es verborgen und taucht wieder auf, wenn der Preis wieder steigt.",
+                    "updated": 1645073455128
                 }
             ]
         },
@@ -184,6 +249,11 @@
                     "language": "RU",
                     "text": "Resistance / Support Bounces: На панели показано количество отскоков от каждой из шести зон первых трех уровней.",
                     "updated": 1643522405328
+                },
+                {
+                    "language": "DE",
+                    "text": "<b>Widerstand / Unterstützung Bounces:</b> Das Feld zeigt die Anzahl der Abpraller von jeder der sechs Zonen der ersten drei Ebenen.",
+                    "updated": 1645073730965
                 }
             ]
         },
@@ -196,6 +266,11 @@
                     "language": "RU",
                     "text": "Resistance / Support Levels: На панели указывается курс, на котором расположены ближайшие пять уровней сопротивления или поддержки, и количество периодов существования этих уровней, считая от периода первого отбоя.",
                     "updated": 1643522430514
+                },
+                {
+                    "language": "DE",
+                    "text": "<b>Widerstands-/Unterstützungslevels:</b> Das Panel zeigt den Kurs an, auf dem sich die fünf nächstgelegenen Widerstands- oder Unterstützungslevels befinden, sowie die Anzahl der Perioden, in denen diese Levels bestanden haben, gerechnet ab dem Zeitraum der ersten Ablehnung.",
+                    "updated": 1645073837035
                 }
             ]
         },
@@ -208,6 +283,11 @@
                     "language": "RU",
                     "text": "Resistance / Support Zone Sizes: На панели показаны размеры различных зон, отслеживаемых для каждого уровня. Однако помните, что на экране отображается только первая зона.",
                     "updated": 1643522444870
+                },
+                {
+                    "language": "DE",
+                    "text": "<b>Größen der Widerstands-/Unterstützungszonen:</b> Das Panel zeigt die Größen der verschiedenen Zonen an, die für jedes Level verfolgt werden. Beachten Sie jedoch, dass nur die erste Zone auf dem Bildschirm angezeigt wird.",
+                    "updated": 1645073932691
                 }
             ]
         },
@@ -219,6 +299,11 @@
                     "language": "RU",
                     "text": "Продукты и свойства Support and Resistances",
                     "updated": 1643522488500
+                },
+                {
+                    "language": "DE",
+                    "text": "Widerstände und Unterstützungen Produkte & Eigenschaften",
+                    "updated": 1645074560236
                 }
             ]
         },
@@ -230,6 +315,11 @@
                     "language": "RU",
                     "text": "Индикатор имеет два информационных продукта: resitance и support.",
                     "updated": 1643522514417
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Indikator enthält zwei Datenprodukte: Widerstand und Unterstützung.",
+                    "updated": 1645074597723
                 }
             ]
         },
@@ -242,6 +332,11 @@
                     "language": "RU",
                     "text": "| Product Name | Product Variable |\n| Resistance | сопротивление |\n| Support | поддержка |",
                     "updated": 1643522527477
+                },
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable |\n| Resistance | resistance |\n| Support | support |\n",
+                    "updated": 1645074676145
                 }
             ]
         },
@@ -254,6 +349,11 @@
                     "language": "RU",
                     "text": "| Resistance Properties | Possible Values of (i) | Comments |\n| resitance(i)Rate | от 1 до 5 | Базовая цена уровня. |\n| resistance(i)Period | от 1 до 5 | Количество периодов существования уровня. |\n| resistance(i)Bounce1 | от 1 до 5 | Количество отскоков для зоны 1, отображаемой на экране. |\n| resistance(i)Bounce2 | от 1 до 3 | Количество отскоков для зоны 2, доступно только для первых трех уровней. Зона 2 в два раза больше, чем зона 1. |\n| resistance(i)Bounce3 | от 1 до 3 | Количество отскоков для зоны 3, доступно только для первых трех уровней. Зона 3 в три раза больше, чем зона 1. |\n| resistance(i)Bounce5 | от 1 до 3 | Количество отскоков для зоны 5, доступное только для первых трех уровней. Зона 5 в пять раз больше, чем зона 1. |\n| resistance(i)Bounce10 | от 1 до 3 | Количество отскоков для зоны 10, доступно только для первых трех уровней. Зона 10 в десять раз больше, чем зона 1. |\n| resistance(i)BounceAll | от 1 до 3 | Количество отскоков для зоны All, доступно только для первых трех уровней. Зона All в сто раз больше, чем зона 1. |",
                     "updated": 1643522681132
+                },
+                {
+                    "language": "DE",
+                    "text": "| Widerstandseigenschaften | Mögliche Werte von (i) | Kommentare |\n| resistance(i)Rate | 1 to 5 | Die Referenzkurs des Levels. |\n| resistance(i)Period | 1 to 5 | Die Anzahl der Perioden, in denen das Level existiert hat. |\n| resistance(i)Bounce1 | 1 to 5 | Die Anzahl der Abpraller für Zone 1, die auf dem Bildschirm dargestellt wird. |\n| resistance(i)Bounce2 | 1 to 3 | Die Anzahl der Abpraller für Zone 2, die nur für die ersten drei Levels verfügbar ist. Zone 2 ist doppelt so groß wie Zone 1. |\n| resistance(i)Bounce3 | 1 to 3 | Die Anzahl der Abpraller für Zone 3, nur für die ersten drei Levels verfügbar. Zone 3 ist dreimal so groß wie Zone 1. |\n| resistance(i)Bounce5 | 1 to 3 | Die Anzahl der Abpraller für Zone 5, nur für die ersten drei Levels verfügbar. Zone 5 ist fünfmal so groß wie Zone 1. |\n| resistance(i)Bounce10 | 1 to 3 | Die Anzahl der Abpraller für Zone 10, nur für die ersten drei Levels verfügbar. Zone 10 ist zehnmal so groß wie Zone 1. |\n| resistance(i)BounceAll | 1 to 3 | Die Anzahl der Abpraller für Zone All, nur für die ersten drei Levels verfügbar. Die Zone All ist hundertmal größer als die Zone 1. |",
+                    "updated": 1645075118336
                 }
             ]
         },
@@ -266,6 +366,11 @@
                     "language": "RU",
                     "text": "| Support Properties | Possible Values of (i) | Comments |\n| support(i)Rate | от 1 до 5 | Базовая цена уровня. |\n| support(i)Period | от 1 до 5 | Количество периодов существования уровня. |\n| support(i)Bounce1 | от 1 до 5 | Количество отскоков для зоны 1, отображаемой на экране. |\n| support(i)Bounce2 | от 1 до 3 | Количество отскоков для зоны 2, доступно только для первых трех уровней. Зона 2 в два раза больше, чем зона 1. |\n| support(i)Bounce3 | от 1 до 3 | Количество отскоков для зоны 3, доступно только для первых трех уровней. Зона 3 в три раза больше, чем зона 1. |\n| support(i)Bounce5 | от 1 до 3 | Количество отскоков для зоны 5, доступное только для первых трех уровней. Зона 5 в пять раз больше, чем зона 1. |\n| support(i)Bounce10 | от 1 до 3 | Количество отскоков для зоны 10, доступно только для первых трех уровней. Зона 10 в десять раз больше, чем зона 1. |\n| support(i)BounceAll | от 1 до 3 | Количество отскоков для зоны All, доступно только для первых трех уровней. Зона All в сто раз больше, чем зона 1. |",
                     "updated": 1643522807565
+                },
+                {
+                    "language": "DE",
+                    "text": "| Unterstützungseigenschaften | Mögliche Werte von (i) | Kommentare |\n| support(i)Rate | 1 to 5 |Der Referenzkurs des Levels. |\n| support(i)Period | 1 to 5 | Die Anzahl der Perioden, in denen das Level existiert. |\n| support(i)Bounce1 | 1 to 5 |Die Anzahl der Abpraller für Zone 1, die auf dem Bildschirm angezeigt wird. |\n| support(i)Bounce2 | 1 to 3 | Die Anzahl der Abpraller für Zone 2, nur für die ersten drei Levels verfügbar. Zone 2 ist zwei Mal größer als Zone 1. |\n| support(i)Bounce3 | 1 to 3 |  Die Anzahl der Abpraller für Zone 3, nur für die ersten drei Levels verfügbar. Zone 3 ist dreimal so groß wie Zone 1. |\n| support(i)Bounce5 | 1 to 3 | Die Anzahl der Abpraller für Zone 5, nur für die ersten drei Levels verfügbar. Zone 5 ist fünfmal so groß wie Zone 1. |\n| support(i)Bounce10 | 1 to 3 | Die Anzahl der Abpraller für Zone 10, nur für die ersten drei Levels verfügbar. Zone 10 ist zehnmal so groß wie Zone 1. |\n| support(i)BounceAll | 1 to 3 | Die Anzahl der Abpraller für die Zone All, nur für die ersten drei Levels verfügbar. Die Zone All ist hundertmal größer als die Zone 1. |\n",
+                    "updated": 1645075321277
                 }
             ]
         },
@@ -278,6 +383,11 @@
                     "language": "RU",
                     "text": "Примеры",
                     "updated": 1643522814470
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiele",
+                    "updated": 1645075351051
                 }
             ]
         },
@@ -289,6 +399,11 @@
                     "language": "RU",
                     "text": "Допустим, вы хотите проверить, есть ли у вас сильный уровень поддержки ниже текущей цены на графике 1H.",
                     "updated": 1643522825504
+                },
+                {
+                    "language": "DE",
+                    "text": "Nehmen wir an, Sie möchten prüfen, ob Sie ein starkes Unterstützungsniveau unterhalb des aktuellen Kurses auf dem 1H-Chart haben.",
+                    "updated": 1645075382036
                 }
             ]
         },
@@ -300,6 +415,11 @@
                     "language": "RU",
                     "text": "chart.at01hs.support.support1Bounce1 показывает, сколько раз цена отскакивала от первого уровня поддержки; большое количество отскоков может означать, что уровень имеет сильную поддержку.",
                     "updated": 1643522842896
+                },
+                {
+                    "language": "DE",
+                    "text": "chart.at01hs.support.support1Bounce1 gibt an, wie oft der Kurs von der ersten Unterstützungslevel abgeprallt ist; eine hohe Anzahl von Abprallungen kann bedeuten, dass das Level eine starke Unterstützung bietet.",
+                    "updated": 1645075566368
                 }
             ]
         },
@@ -311,6 +431,11 @@
                     "language": "RU",
                     "text": "chart.at01hs.support.support1Period показывает, как долго \"живет\" уровень поддержки; долгоживущие уровни поддержки могут означать, что уровень сильный, так как он не был пробит в течение длительного времени.",
                     "updated": 1643522858180
+                },
+                {
+                    "language": "DE",
+                    "text": "chart.at01hs.support.support1Period gibt an, wie lange das Unterstützungslevel \"lebt\"; lang anhaltende Unterstützungslevels können bedeuten, dass das Level stark ist, da es seit langem nicht mehr durchbrochen wurde.",
+                    "updated": 1645075560335
                 }
             ]
         },
@@ -322,6 +447,11 @@
                     "language": "RU",
                     "text": "chart.at01hs.candle.close - chart.at01hs.support.support1Rate говорит вам, насколько далеко внизу находится первый уровень поддержки.",
                     "updated": 1643522892067
+                },
+                {
+                    "language": "DE",
+                    "text": "chart.at01hs.candle.close - chart.at01hs.support.support1Rate zeigt Ihnen, wie weit unten das erste Unterstützungslevel liegt.",
+                    "updated": 1645075609488
                 }
             ]
         },
@@ -333,6 +463,11 @@
                     "language": "RU",
                     "text": "Проверки только первого уровня может быть недостаточно. Имейте в виду, что первый уровень может показать слабую поддержку, но на более низких уровнях может быть более сильная поддержка.",
                     "updated": 1643522912098
+                },
+                {
+                    "language": "DE",
+                    "text": "Es reicht nicht aus, nur das erste Level zu prüfen. Denken Sie daran, dass das erste Level eine schwache Unterstützung zeigen kann, aber eine stärkere Unterstützung auf niedrigeren Level vorhanden sein kann.",
+                    "updated": 1645075697264
                 }
             ]
         },

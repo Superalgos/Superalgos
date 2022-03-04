@@ -2,12 +2,26 @@
     "type": "Verbose",
     "definition": {
         "text": "Verbose mode is an option available in many computer operating systems and programming languages that provides additional details as to what the computer is doing and what drivers and software it is loading during startup or in programming it would produce detailed output for diagnostic purposes thus makes a program easier to debug.",
-        "updated": 1615895950551
+        "updated": 1615895950551,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Режим Verbose - это опция, доступная во многих компьютерных операционных системах и языках программирования, которая предоставляет дополнительную информацию о том, что делает компьютер, какие драйверы и программное обеспечение загружаются во время запуска или программирования, что позволяет получить подробный вывод в диагностических целях и облегчает отладку программы.",
+                "updated": 1645252678227
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "Right click and select the pencil button to enter edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
+                    "updated": 1645252683006
+                }
+            ]
         }
     ]
 }

@@ -2,13 +2,27 @@
     "type": "Thresholded Relu Layer",
     "definition": {
         "text": "Thresholded Rectified Linear Unit.",
-        "updated": 1613217166999
+        "updated": 1613217166999,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Пороговая выпрямленная линейная единица.",
+                "updated": 1645252219754
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "It Follows ",
-            "updated": 1613217193348
+            "updated": 1613217193348,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Она подчиняется",
+                    "updated": 1645252232935
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -16,11 +30,25 @@
         },
         {
             "style": "List",
-            "text": "Input shape: Arbitrary. Use the configuration inputShape when using this layer as the first layer in a model."
+            "text": "Input shape: Arbitrary. Use the configuration inputShape when using this layer as the first layer in a model.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Input shape: Произвольный. Используйте конфигурацию inputShape при использовании этого слоя в качестве первого слоя в модели.",
+                    "updated": 1645252241332
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Output shape: Same shape as the input."
+            "text": "Output shape: Same shape as the input.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Output shape: Та же форма, что и у входа.",
+                    "updated": 1645252248350
+                }
+            ]
         }
     ]
 }

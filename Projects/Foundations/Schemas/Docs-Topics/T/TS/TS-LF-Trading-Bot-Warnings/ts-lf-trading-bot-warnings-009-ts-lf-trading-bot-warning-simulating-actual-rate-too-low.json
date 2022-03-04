@@ -4,25 +4,60 @@
     "type": "TS LF Trading Bot Warning - Simulating - Actual Rate Too Low",
     "definition": {
         "text": "The Actual Rate was adjusted to the Candle Min value because the original Actual Rate of the Sell Order was below the Current Candle Min.",
-        "updated": 1611924465479
+        "updated": 1611924465479,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Actual Rate был скорректирован до значения Candle Min, потому что первоначальный Actual Rate ордера на продажу был ниже текущего Candle Min.",
+                "updated": 1645630503936
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Success",
             "text": "This is not an error and may be normal behavior. The trading bot created this warning to let you know that this happened so that you may keep track of all the details of the trade should you need to. This page provides information that should help you understand the context of the warning.",
-            "updated": 1611924376290
+            "updated": 1611924376290,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это не является ошибкой и может быть нормальным поведением. Торговый бот создал это предупреждение, чтобы сообщить вам, что это произошло, чтобы вы могли отследить все детали сделки, если вам это понадобится. На этой странице представлена информация, которая должна помочь вам понять контекст предупреждения.",
+                    "updated": 1645630529491
+                }
+            ]
         },
         {
             "style": "Warning",
-            "text": "Actual Rate Too Low"
+            "text": "Actual Rate Too Low",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Actual Rate слишком низкая",
+                    "updated": 1645630543543
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Context Info"
+            "text": "Context Info",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Контекстная информация",
+                    "updated": 1645630555881
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Find below the values of variables relevant to the warning at the time the warning was created. They may prove of use to understand what happened."
+            "text": "Find below the values of variables relevant to the warning at the time the warning was created. They may prove of use to understand what happened.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ниже приведены значения переменных, относящихся к предупреждению на момент его создания. Они могут оказаться полезными для понимания того, что произошло.",
+                    "updated": 1645630567189
+                }
+            ]
         },
         {
             "style": "Placeholder",
@@ -34,11 +69,25 @@
         },
         {
             "style": "Title",
-            "text": "Learn More"
+            "text": "Learn More",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узнать больше",
+                    "updated": 1645630591396
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "To learn more about this topic, please read the following page:"
+            "text": "To learn more about this topic, please read the following page:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы узнать больше об этой теме, прочтите следующую страницу:",
+                    "updated": 1645630596774
+                }
+            ]
         },
         {
             "style": "List",

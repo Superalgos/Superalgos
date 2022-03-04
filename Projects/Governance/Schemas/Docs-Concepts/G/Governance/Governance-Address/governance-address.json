@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Ваш Governance Address - это адрес токена Superalgos SA Token, созданный в Superalgos с помощью конструктора Profile Constructor. Токены, которые вы держите на этом адресе, наделяют вас Token Power, которые вы можете использовать из своего профиля пользователя User Profile для участия в управлении.",
                 "updated": 1639036980516
+            },
+            {
+                "language": "TR",
+                "text": "Yönetim Adresiniz, Superalgos içinden Profil Oluşturucu (Profile Constructor) kullanılarak oluşturulan bir Superalgos SA Token adresidir. Bu adreste sahip olduğunuz jetonlar, yönetişime katılmak için Kullanıcı Profilinizden kullanabileceğiniz Token Gücü (Token Power) sağlar.",
+                "updated": 1644577992875
             }
         ]
     },
@@ -36,6 +41,11 @@
                     "language": "RU",
                     "text": "Ваш Governance Address - это адрес токена Superalgos SA Token, созданный в Superalgos с помощью конструктора Profile Constructor. Токены, которые вы держите на этом адресе, наделяют вас Token Power, которые вы можете использовать из своего профиля пользователя User Profile для участия в управлении.",
                     "updated": 1639036985623
+                },
+                {
+                    "language": "TR",
+                    "text": "Yönetim Adresiniz, Superalgos içinden Profil Oluşturucu (Profile Constructor) kullanılarak oluşturulan bir Superalgos SA Token adresidir. Bu adreste sahip olduğunuz jetonlar, yönetişime katılmak için Kullanıcı Profilinizden kullanabileceğiniz Token Gücü (Token Power) sağlar.",
+                    "updated": 1644578029967
                 }
             ]
         }

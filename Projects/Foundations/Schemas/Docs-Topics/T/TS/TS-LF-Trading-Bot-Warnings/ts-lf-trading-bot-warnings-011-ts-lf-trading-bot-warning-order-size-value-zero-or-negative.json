@@ -4,13 +4,27 @@
     "type": "TS LF Trading Bot Warning - Order Size Value Zero Or Negative",
     "definition": {
         "text": "Even though the bot got the instruction to open this order, it could not be opened because the Size is zero or negative.",
-        "updated": 1611915310058
+        "updated": 1611915310058,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Несмотря на то, что бот получил команду открыть этот ордер, он не мог быть открыт, потому что Size равен нулю или отрицателен.",
+                "updated": 1645630719397
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Success",
             "text": "This is not an error and may be normal behavior. The trading bot created this warning to let you know that this happened so that you may keep track of all the details of the trade should you need to. This page provides information that should help you understand the context of the warning.",
-            "updated": 1611916340216
+            "updated": 1611916340216,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это не является ошибкой и может быть нормальным поведением. Торговый бот создал это предупреждение, чтобы сообщить вам, что это произошло, чтобы вы могли отследить все детали сделки, если вам это понадобится. На этой странице представлена информация, которая должна помочь вам понять контекст предупреждения.",
+                    "updated": 1645630724163
+                }
+            ]
         },
         {
             "style": "Warning",
@@ -18,11 +32,25 @@
         },
         {
             "style": "Title",
-            "text": "Context Info"
+            "text": "Context Info",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Контекстная информация",
+                    "updated": 1645630769166
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Find below the values of variables relevant to the warning at the time the warning was created. They may prove of use to understand what happened."
+            "text": "Find below the values of variables relevant to the warning at the time the warning was created. They may prove of use to understand what happened.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ниже приведены значения переменных, относящихся к предупреждению на момент его создания. Они могут оказаться полезными для понимания того, что произошло.",
+                    "updated": 1645630775565
+                }
+            ]
         },
         {
             "style": "Placeholder",
@@ -31,7 +59,14 @@
         {
             "style": "Title",
             "text": "Opening Orders",
-            "updated": 1611953814899
+            "updated": 1611953814899,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Открытие ордеров",
+                    "updated": 1645630787270
+                }
+            ]
         },
         {
             "style": "Include",
@@ -39,11 +74,25 @@
         },
         {
             "style": "Title",
-            "text": "Learn More"
+            "text": "Learn More",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узнать больше",
+                    "updated": 1645630794968
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "To learn more about this topic, please read the following page:"
+            "text": "To learn more about this topic, please read the following page:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы узнать больше об этой теме, прочтите следующую страницу:",
+                    "updated": 1645630813099
+                }
+            ]
         },
         {
             "style": "List",

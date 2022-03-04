@@ -50,6 +50,7 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
         scanBotArray(mine.sensorBots)
         scanBotArray(mine.apiDataFetcherBots)
         scanBotArray(mine.indicatorBots)
+        scanBotArray(mine.studyBots)
         scanBotArray(mine.tradingBots)
         scanBotArray(mine.portfolioBots)
         scanBotArray(mine.learningBots)

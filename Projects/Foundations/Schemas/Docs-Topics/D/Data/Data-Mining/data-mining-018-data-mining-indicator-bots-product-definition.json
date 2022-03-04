@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Die Produktdefinition ist die Zusammenstellung von Konfigurationen, Referenzen und JavaScript-Code, aus denen das Datenprodukt besteht.",
                 "updated": 1635275735541
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Ürün tanımı, veri ürününü oluşturan konfigürasyonların, referansların ve JavaScript kodunun derlenmesidir.",
+                "updated": 1645971341406
             }
         ]
     },
@@ -36,7 +41,14 @@
         {
             "style": "Title",
             "text": "Dataset Definition",
-            "updated": 1611425958957
+            "updated": 1611425958957,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Veri Kümesi Tanımı",
+                    "updated": 1645971358680
+                }
+            ]
         },
         {
             "style": "Include",
@@ -51,7 +63,14 @@
         {
             "style": "Title",
             "text": "Record Definition",
-            "updated": 1611426032529
+            "updated": 1611426032529,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Kayıt Tanımı",
+                    "updated": 1645971370094
+                }
+            ]
         },
         {
             "style": "Include",
@@ -76,7 +95,14 @@
         {
             "style": "Subtitle",
             "text": "Record Property",
-            "updated": 1611426123252
+            "updated": 1611426123252,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Kayıt Özelliği",
+                    "updated": 1645971391111
+                }
+            ]
         },
         {
             "style": "Include",
@@ -91,7 +117,14 @@
         {
             "style": "Subtitle",
             "text": "Record Formula",
-            "updated": 1611426162635
+            "updated": 1611426162635,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Kayıt Formülü",
+                    "updated": 1645971413821
+                }
+            ]
         },
         {
             "style": "Text",
@@ -111,6 +144,11 @@
                     "language": "DE",
                     "text": "Calculations Prozedur:",
                     "updated": 1635276008201
+                },
+                {
+                    "language": "TR",
+                    "text": "Hesaplama Prosedürü",
+                    "updated": 1645971425403
                 }
             ]
         },
@@ -136,7 +174,14 @@
         {
             "style": "Subtitle",
             "text": "Procedure Initialization",
-            "updated": 1611426543003
+            "updated": 1611426543003,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Prosedür Başlatma",
+                    "updated": 1645971443952
+                }
+            ]
         },
         {
             "style": "Include",
@@ -146,7 +191,14 @@
         {
             "style": "Subtitle",
             "text": "Procedure Loop",
-            "updated": 1611426364374
+            "updated": 1611426364374,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Prosedür Döngüsü",
+                    "updated": 1645971456803
+                }
+            ]
         },
         {
             "style": "Include",
@@ -156,7 +208,14 @@
         {
             "style": "Subtitle",
             "text": "Procedure Javascript Code",
-            "updated": 1611426387898
+            "updated": 1611426387898,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Prosedür Javascript Kodu",
+                    "updated": 1645971490477
+                }
+            ]
         },
         {
             "style": "Include",
@@ -166,7 +225,14 @@
         {
             "style": "Title",
             "text": "Data Building Procedure",
-            "updated": 1611426735172
+            "updated": 1611426735172,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Veri Oluşturma Prosedürü",
+                    "updated": 1645971503281
+                }
+            ]
         },
         {
             "style": "Include",

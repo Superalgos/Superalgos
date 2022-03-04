@@ -2,12 +2,26 @@
     "type": "Dense Layer",
     "definition": {
         "text": "Creates a dense (fully connected) layer.",
-        "updated": 1613213671494
+        "updated": 1613213671494,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Создает плотный (полностью связанный) слой.",
+                "updated": 1645247312646
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "Right click and select the pencil button to enter edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
+                    "updated": 1645247318567
+                }
+            ]
         }
     ]
 }

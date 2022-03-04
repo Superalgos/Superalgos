@@ -2,12 +2,26 @@
     "type": "CPU Backend",
     "definition": {
         "text": "The CPU Backend,'cpu', is the least performant backend, however it is the simplest. Operations are all implemented in vanilla JavaScript, which makes them less parallelizable.",
-        "updated": 1613059028403
+        "updated": 1613059028403,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "CPU Backend, \"cpu\", является наименее производительным бэкендом, однако он самый простой. Все операции реализованы на стандартном JavaScript, что делает их менее распараллеливаемыми.",
+                "updated": 1645196332570
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "Right click and select the pencil button to enter edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
+                    "updated": 1645196337862
+                }
+            ]
         }
     ]
 }

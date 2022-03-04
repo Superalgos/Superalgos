@@ -6,7 +6,7 @@
         "text": "What if the nodes are far away from each other, maybe even in different hierarchies? Watch the video to learn a few tricks!",
         "updated": 1616098998366,
         "icon": {
-            "name": "copy-position",
+            "name": "mouse-right-click",
             "project": "Foundations"
         },
         "translations": [
@@ -36,6 +36,11 @@
                 "language": "RU",
                 "text": "Что делать, если узлы находятся далеко друг от друга, возможно, даже в разных иерархиях? Посмотрите видео, чтобы узнать несколько приемов!",
                 "updated": 1640869528063
+            },
+            {
+                "language": "ID",
+                "text": "Bagaimana jika node jauh dari satu sama lain, bahkan mungkin dalam hierarki yang berbeda? Tonton video untuk mempelajari beberapa trik!",
+                "updated": 1644949084231
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "RU",
                     "text": "Эти приемы пользовательского интерфейса могут облегчить вам жизнь:",
                     "updated": 1640869539046
+                },
+                {
+                    "language": "ID",
+                    "text": "Trik UI ini dapat membuat hidup kamu lebih mudah :",
+                    "updated": 1644949107171
                 }
             ]
         },
@@ -104,6 +114,11 @@
                     "language": "RU",
                     "text": "Закрепите узел, который вы собираетесь переместить, в пространстве проектирования, чтобы он остался там, куда вы его переместите!",
                     "updated": 1640869565155
+                },
+                {
+                    "language": "ID",
+                    "text": "Pin node kamu yang akan bergerak melintasi design space, sehingga akan tetap di tempat kamu menjatuhkannya!",
+                    "updated": 1644949159572
                 }
             ],
             "updated": 1640097977030
@@ -139,6 +154,11 @@
                     "language": "RU",
                     "text": "Нажмите кнопку \"Save node to be moved\" на узле, который вы хотите переместить.",
                     "updated": 1640869596572
+                },
+                {
+                    "language": "ID",
+                    "text": "Klik tombol \"Save node to be moved\" pada node yang ingin kamu pindahkan.",
+                    "updated": 1644949190021
                 }
             ]
         },
@@ -156,6 +176,11 @@
                     "language": "RU",
                     "text": "Используйте карту пространства проектирования для уменьшения масштаба и щелкните рядом с узлом, к которому вы хотите переместиться.",
                     "updated": 1640869613645
+                },
+                {
+                    "language": "ID",
+                    "text": "Gunakan map design space untuk memperkecil dan mengklik di dekat node yang ingin kamu kunjungi.",
+                    "updated": 1644949228870
                 }
             ]
         },
@@ -173,6 +198,11 @@
                     "language": "RU",
                     "text": "Нажмите \" Snap saved node to postion\", и сохраненный вами узел волшебным образом появится поверх узла, на котором вы находитесь!",
                     "updated": 1640869638264
+                },
+                {
+                    "language": "ID",
+                    "text": "Klik \"Snap saved node to postion\" dan node yang kamu simpan akan secara ajaib muncul di atas node tempat kamu berada!",
+                    "updated": 1644949264728
                 }
             ]
         },
@@ -189,6 +219,11 @@
                     "language": "RU",
                     "text": "Удалите штифт после установления ссылки, чтобы узел вернулся на свое место.",
                     "updated": 1640870003951
+                },
+                {
+                    "language": "ID",
+                    "text": "Lepaskan pin setelah referensi dibuat sehingga node kembali ke tempatnya.",
+                    "updated": 1644949283640
                 }
             ]
         }

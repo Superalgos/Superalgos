@@ -8,13 +8,25 @@
                 "language": "TR",
                 "text": "Girdi verilerinden tahmine dayalı bir model oluşturan (eğiten) bir program veya sistem. Sistem, modeli eğitmek için kullanılan veriler ile  yeni (daha önce hiç görülmemiş) verilerden faydalı tahminler yapmak için bu modeli kullanır. Makine öğrenimi, bu programlar veya sistemlerle ilgili çalışma alanını da ifade eder.",
                 "updated": 1639233358531
+            },
+            {
+                "language": "RU",
+                "text": "Machine Learning - это программа или система, которая строит (обучает) прогностическую модель на основе входных данных. Система использует выученную модель для составления полезных прогнозов на основе новых (ранее не встречавшихся) данных, взятых из того же распределения, которое использовалось для обучения модели. Машинное обучение также относится к области исследований, связанных с этими программами или системами.",
+                "updated": 1645248932641
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "Right click and select the pencil button to enter edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
+                    "updated": 1645248941954
+                }
+            ]
         }
     ]
 }

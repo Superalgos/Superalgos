@@ -547,6 +547,7 @@ function newWorkspace() {
                         thisObject.isInitialized = true
 
                         UI.projects.governance.spaces.reportsSpace.reset()
+                        UI.projects.contributions.spaces.contributionsSpace.reset()
                         UI.projects.governance.spaces.userProfileSpace.reset()
                         UI.projects.foundations.spaces.codeEditorSpace.reset()
                         await UI.projects.education.spaces.docsSpace.reset()

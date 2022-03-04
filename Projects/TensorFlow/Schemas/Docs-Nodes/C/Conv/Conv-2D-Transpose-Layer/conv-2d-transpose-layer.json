@@ -2,21 +2,49 @@
     "type": "Conv 2D Transpose Layer",
     "definition": {
         "text": "Transposed convolutional layer (sometimes called Deconvolution). The need for transposed convolutions generally arises from the desire to use a transformation going in the opposite direction of a normal convolution, i.e., from something that has the shape of the output of some convolution to something that has the shape of its input while maintaining a connectivity pattern that is compatible with said convolution.",
-        "updated": 1613218678919
+        "updated": 1613218678919,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Транспонированный сверточный слой (иногда называемый деконволюцией). Необходимость в транспонированных свертках обычно возникает из-за желания использовать преобразование, идущее в противоположном направлении от обычной свертки, т.е. от чего-то, что имеет форму выхода некоторой свертки, к чему-то, что имеет форму ее входа, сохраняя при этом схему связности, совместимую с этой сверткой.",
+                "updated": 1645196075736
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "When using this layer as the first layer in a model, provide the configuration inputShape (Array of integers, does not include the sample axis), e.g., inputShape: [128, 128, 3] for 128x128 RGB pictures in dataFormat: 'channelsLast'.",
-            "updated": 1613218856414
+            "updated": 1613218856414,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "При использовании этого слоя в качестве первого слоя в модели предоставьте конфигурацию inputShape (массив целых чисел, не включает ось образца), например, inputShape: [128, 128, 3] для изображений RGB размером 128x128 в dataFormat:'channelsLast'.",
+                    "updated": 1645196095426
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Input shape: 4D tensor with shape: [batch, channels, rows, cols] if dataFormat is 'channelsFirst'. or 4D tensor with shape [batch, rows, cols, channels] if dataFormat is 'channelsLast."
+            "text": "Input shape: 4D tensor with shape: [batch, channels, rows, cols] if dataFormat is 'channelsFirst'. or 4D tensor with shape [batch, rows, cols, channels] if dataFormat is 'channelsLast.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Input shape: 4D тензор с формой: [batch, channels, rows, cols], если dataFormat is'channelsFirst'. или 4D тензор с формой [batch, rows, cols, channels], если dataFormat is'channelsLast.",
+                    "updated": 1645196121214
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Output shape: 4D tensor with shape: [batch, filters, newRows, newCols] if dataFormat is 'channelsFirst'. or 4D tensor with shape: [batch, newRows, newCols, filters] if dataFormat is 'channelsLast'."
+            "text": "Output shape: 4D tensor with shape: [batch, filters, newRows, newCols] if dataFormat is 'channelsFirst'. or 4D tensor with shape: [batch, newRows, newCols, filters] if dataFormat is 'channelsLast'.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Output shape: 4D тензор с формой: [batch, filters, newRows, newCols], если dataFormat is'channelsFirst'. или 4D тензор с формой: [batch, newRows, newCols, filters], если dataFormat is'channelsLast'.",
+                    "updated": 1645196163260
+                }
+            ]
         }
     ]
 }

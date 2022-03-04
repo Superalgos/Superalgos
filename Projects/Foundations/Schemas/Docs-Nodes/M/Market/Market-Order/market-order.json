@@ -1,7 +1,14 @@
 {
     "type": "Market Order",
     "definition": {
-        "text": "Market order is the section of the data structure that keeps track of the properties of a specific market order, as defined in the trading system."
+        "text": "Market order is the section of the data structure that keeps track of the properties of a specific market order, as defined in the trading system.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Рыночный ордер - это раздел структуры данных, который отслеживает свойства конкретного рыночного ордера, как определено в торговой системе.",
+                "updated": 1645168439825
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,7 +17,14 @@
         },
         {
             "style": "Text",
-            "text": "Each market order defined in the trading system must reference the data structure of a market order in the trading engine."
+            "text": "Each market order defined in the trading system must reference the data structure of a market order in the trading engine.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Каждый рыночный ордер, определенный в торговой системе, должен ссылаться на структуру данных рыночного ордера в торговом движке.",
+                    "updated": 1645168449400
+                }
+            ]
         }
     ]
 }

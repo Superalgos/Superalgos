@@ -36,6 +36,11 @@
                 "language": "RU",
                 "text": "Если вы являетесь разработчиком или имеете хотя бы базовое понимание JavaScript, вы сможете создавать свои собственные индикаторы!",
                 "updated": 1640875917049
+            },
+            {
+                "language": "ID",
+                "text": "Jika kamu seorang developer atau memiliki setidaknya pemahaman dasar tentang JavaScript, Kamu akan dapat membuat indikator sendiri!",
+                "updated": 1645561357928
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "RU",
                     "text": "Это важнейшая особенность Superalgos, поскольку торговый интеллект не может появиться без возможности анализировать рыночные данные! Опять же, я не буду сейчас подробно описывать, как строить индикаторы, но хочу сообщить вам, что мы позаботились об этом!",
                     "updated": 1640875946020
+                },
+                {
+                    "language": "ID",
+                    "text": "Ini adalah fitur penting Superalgos, karena trading intelligence tidak dapat muncul tanpa kemampuan untuk menganalisis data market! Sekali lagi, aku tidak akan membahas cara membangun indikator pada titik ini, tetapi aku ingin memberi tahu kamu bahwa kami telah membantu kamu!",
+                    "updated": 1645561426287
                 }
             ]
         },
@@ -105,6 +115,11 @@
                     "language": "RU",
                     "text": "Существует обширная серия видеоуроков, объясняющих весь процесс! Взгляните на эти страницы во кладке Docs!",
                     "updated": 1640875987555
+                },
+                {
+                    "language": "ID",
+                    "text": "Ada serangkaian tutorial video komprehensif yang menjelaskan seluruh proses! Lihatlah halaman ini dengan cepat di Docs!",
+                    "updated": 1645561474655
                 }
             ]
         }

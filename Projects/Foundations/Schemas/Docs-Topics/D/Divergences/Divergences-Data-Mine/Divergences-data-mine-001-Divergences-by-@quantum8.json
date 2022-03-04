@@ -3,16 +3,60 @@
     "pageNumber": "1",
     "type": "Divergences by @quantum8",
     "definition": {
-        "text": "The Divergences Data Mine features divergence calculations and their underlying momentum indicators. These indicator's parameters can be adjusted at the Indicator Bot Instance under the applicable Data Mining Task Node."
+        "text": "The Divergences Data Mine features divergence calculations and their underlying momentum indicators. These indicator's parameters can be adjusted at the Indicator Bot Instance under the applicable Data Mining Task Node.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "В Divergences Data Mine представлены расчеты дивергенций и лежащие в их основе индикаторы импульса. Параметры этих индикаторов можно настроить в экземпляре Indicator Bot в соответствующем узле задачи Data Mining.",
+                "updated": 1645608270202
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
-            "text": "Divergences:"
+            "text": "Divergences:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Дивергенции:",
+                    "updated": 1645608278009
+                }
+            ]
         },
         {
             "style": "List",
-            "text": " 1.) RSI Divergence"
+            "text": "1.) RSI Divergence",
+            "updated": 1646094526582
+        },
+        {
+            "style": "List",
+            "text": "2) Commodity Channel Index Indicator - CCI",
+            "updated": 1646094775135
+        },
+        {
+            "style": "List",
+            "text": "3) CCI Divergence"
+        },
+        {
+            "style": "List",
+            "text": "4) MFI Divergence"
+        },
+        {
+            "style": "List",
+            "text": "5) Awesome Oscillator Indicator"
+        },
+        {
+            "style": "List",
+            "text": "6) Awesome Oscillator Divergence"
+        },
+        {
+            "style": "List",
+            "text": "7) Klinger Volume Oscillator Indicator"
+        },
+        {
+            "style": "List",
+            "text": "8) Klinger Oscillator Divergence"
         },
         {
             "style": "Title",
@@ -22,7 +66,7 @@
             "style": "Link",
             "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
         },
-		{
+        {
             "style": "Text",
             "text": "@quantum8#7428 (discord)"
         }

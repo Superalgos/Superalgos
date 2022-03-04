@@ -4,13 +4,27 @@
     "type": "TS Trading Session Error - Session Base Asset Node Missing",
     "definition": {
         "text": "A Session Base Asset Node is expected and needed in order to run a Trading Session.",
-        "updated": 1611331205570
+        "updated": 1611331205570,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Session Base Asset ожидается и необходим для проведения торговой сессии.",
+                "updated": 1645628409618
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Success",
             "text": "Add a Session Base Asset Node at the Trading Parameters Node where this error popped up, check it's config and try running the Trading Session again.",
-            "updated": 1611331221697
+            "updated": 1611331221697,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Добавьте узел Session Base Asset в узел Trading Parameters, где возникла эта ошибка, проверьте его конфигурацию и попробуйте запустить торговую сессию снова.",
+                    "updated": 1645628423003
+                }
+            ]
         }
     ]
 }

@@ -6,27 +6,18 @@ const {
   runSetup
 } = require('../../Launch-Scripts/runSetup')
 
-jest.mock('simple-git', async () => {
-  return {
-    getRemotes: jest.fn((options) => {
-      if (options) {
-        return new Promise((resolve, reject) => {
-          return resolve
-        }
-    )
-  }
+jest.mock('simple-git')
+simpleGit.mockReturnValue({
+  getRemotes: jest.fn()
 })
 
 afterEach(() => {
   jest.clearAllMocks()
-  nock.restore()
 })
 
 describe('setUpstreamAndOrigin', () => {
   it('should return true', async () => {
-    // simpleGit.mockImplementation((options) => {
-    //   console.log(options)
-    // })
+    // console.log(simpleGit)
     const resp = await setUpstreamAndOrigin('./')
     expect(resp).toEqual("ok")
   })

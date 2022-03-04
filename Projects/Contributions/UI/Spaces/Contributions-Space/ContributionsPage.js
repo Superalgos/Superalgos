@@ -64,7 +64,6 @@ function newContributionsContributionsPage() {
         let fileNamesRepoAndPath = []
         let repoNames = []
         let fileName
-        let updateStat
         for (const stat of thisObject.repoStatus) {
 
             // Overall diff in repo
@@ -268,6 +267,7 @@ function newContributionsContributionsPage() {
             data = JSON.parse(data)
             if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.CUSTOM_OK_RESPONSE.result) {
                 //TODO: need to iterate through returned message in data result to give more specific result messages 
+                reset()
                 setCommandStatus("Updated Succesfully!") 
                 
             } else {

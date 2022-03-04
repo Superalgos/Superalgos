@@ -123,9 +123,13 @@
             ]
         },
         {
-            "style": "Json",
-            "text": "chart.at01min.support.support5Rate +\nexchange.poloniex.market.ETH.USDT.chart.at05min.candle.close",
-            "updated": 1612352290634
+            "style": "Javascript",
+            "text": "chart.at01min.support.support5Rate + \nexchange.poloniex.market.ETH.USDT.chart.at05min.candle.close",
+            "updated": 1646057547768
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Concept->Dependency Filter->Explanation"
         }
     ]
 }

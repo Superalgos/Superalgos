@@ -4,25 +4,60 @@
     "type": "TS LF Trading Bot Warning - Order Not Found at the Exchange",
     "definition": {
         "text": "The exchange returned null while checking an order. This usually happens at exchanges like Coinbase Pro that after an order cancellation the exchange deletes the order instead of changing it's status to cancelled.",
-        "updated": 1611922128136
+        "updated": 1611922128136,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Биржа вернула null при проверке ордера. Обычно это происходит на биржах типа Coinbase Pro, когда после отмены ордера биржа удаляет ордер вместо того, чтобы изменить его статус на отмененный.",
+                "updated": 1645631301996
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Success",
             "text": "This is not an error and may be normal behavior. The trading bot created this warning to let you know that this happened so that you may keep track of all the details of the trade should you need to. This page provides information that should help you understand the context of the warning.",
-            "updated": 1611922148396
+            "updated": 1611922148396,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это не является ошибкой и может быть нормальным поведением. Торговый бот создал это предупреждение, чтобы сообщить вам, что это произошло, чтобы вы могли отследить все детали сделки, если вам это понадобится. На этой странице представлена информация, которая должна помочь вам понять контекст предупреждения.",
+                    "updated": 1645631307459
+                }
+            ]
         },
         {
             "style": "Warning",
-            "text": "Order Status Not Sync With Exchange"
+            "text": "Order Status Not Sync With Exchange",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Статус ордера не синхронизируется с биржей",
+                    "updated": 1645631650829
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Context Info"
+            "text": "Context Info",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Контекстная информация",
+                    "updated": 1645631656696
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Find below the values of variables relevant to the warning at the time the warning was created. They may prove of use to understand what happened."
+            "text": "Find below the values of variables relevant to the warning at the time the warning was created. They may prove of use to understand what happened.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ниже приведены значения переменных, относящихся к предупреждению на момент его создания. Они могут оказаться полезными для понимания того, что произошло.",
+                    "updated": 1645631662681
+                }
+            ]
         },
         {
             "style": "Placeholder",
@@ -30,11 +65,25 @@
         },
         {
             "style": "Title",
-            "text": "Learn More"
+            "text": "Learn More",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узнать больше",
+                    "updated": 1645631669000
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "To learn more about this topic, please read the following page:"
+            "text": "To learn more about this topic, please read the following page:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы узнать больше об этой теме, прочтите следующую страницу:",
+                    "updated": 1645631675920
+                }
+            ]
         },
         {
             "style": "List",

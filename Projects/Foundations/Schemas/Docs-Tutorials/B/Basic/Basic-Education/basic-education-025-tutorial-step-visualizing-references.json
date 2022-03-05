@@ -36,6 +36,11 @@
                 "language": "RU",
                 "text": "Когда вы наводите указатель мыши на узел с исходящей ссылкой, ссылка становится видимой.",
                 "updated": 1640869254654
+            },
+            {
+                "language": "ID",
+                "text": "Ketika kamu mengarahkan mouse pointer ke atas node dengan referensi keluaran, referensi menjadi terlihat.",
+                "updated": 1644948389690
             }
         ]
     },
@@ -66,6 +71,11 @@
                     "language": "RU",
                     "text": "Но есть также способ сделать все ссылки видимыми!",
                     "updated": 1640869265618
+                },
+                {
+                    "language": "ID",
+                    "text": "Tetapi ada juga cara untuk membuat semua referensi terlihat!",
+                    "updated": 1644948407709
                 }
             ]
         },
@@ -100,6 +110,11 @@
                     "language": "RU",
                     "text": "Нажмите следующую комбинацию клавиш: Ctrl + Shift + Key-R или Cmd + Shift + Key-R на Mac",
                     "updated": 1640869283933
+                },
+                {
+                    "language": "ID",
+                    "text": "Tekan kombinasi tombol berikut: Ctrl + Shift + Key-R atau Cmd + Shift + Key-R pada Mac",
+                    "updated": 1644948435735
                 }
             ]
         },
@@ -134,6 +149,11 @@
                     "language": "RU",
                     "text": "Теперь вы можете видеть ссылки, исходящие как из узла Trading System Reference, так и из узла Trading Engine Reference.",
                     "updated": 1640869303094
+                },
+                {
+                    "language": "ID",
+                    "text": "Sekarang kamu dapat melihat referensi yang keluar dari node  Trading System Reference dan node Trading Engine Reference.",
+                    "updated": 1644948489785
                 }
             ]
         },
@@ -168,6 +188,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши, чтобы получить доступ к карте пространства проектирования (Design Space) и заметить другие ссылки, которые могут быть видны.",
                     "updated": 1640869361556
+                },
+                {
+                    "language": "ID",
+                    "text": "Klik kanan untuk mengakses map Design Space dan perhatikan referensi lain yang mungkin terlihat.",
+                    "updated": 1644948528001
                 }
             ]
         }

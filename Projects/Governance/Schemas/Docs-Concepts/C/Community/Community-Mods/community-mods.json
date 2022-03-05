@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Если вы умеете хрошо объяснять вещи, находите удовольствие в помощи людям и хотите внести свой вклад в проект, то находится в рядах Community Mod может быть большим для вас и для проекта!",
                 "updated": 1639129046263
+            },
+            {
+                "language": "TR",
+                "text": "Bir şeyleri sevgiyle açıklama becerisine sahipseniz, insanlara yardım etmekten zevk alıyorsanız , Topluluk Modu olmak sizin ve proje için harika olabilir!",
+                "updated": 1645099595038
             }
         ]
     },
@@ -36,6 +41,11 @@
                     "language": "RU",
                     "text": "Чтобы вступить в Community Mod, вы должны углубиться в кроличью нору, изучить документацию и руководства и начать использовать систему. Требуется глубокое понимание того, как все работает, прежде чем вы сможете объяснить это кому-то еще. Тем не менее, не нужно много помогать новичкам с более простыми вопросами. Вы можете принять участие в работе Community Group и Support Group, и в какой-то момент мы пригласим вас присоединиться к команде!",
                     "updated": 1639129191346
+                },
+                {
+                    "language": "TR",
+                    "text": "Topluluk Modu olmak için, tavşan deliğine derinlemesine girmeli, Belgeleri ve öğreticileri incelemeli ve sistemi kullanmaya başlamalısınız. Başka birine açıklayabilmeniz için işlerin nasıl yürüdüğünü derinlemesine anlamak gerekir. Bunu yaptığınızda yeni gelenlere yardımcı olmak çok fazla zaman almaz. Topluluk Grubuna ve Destek Grubuna katılabilirsiniz. Bir noktada sizi ekibe katılmaya hazırlayacağız!",
+                    "updated": 1645099550830
                 }
             ]
         }

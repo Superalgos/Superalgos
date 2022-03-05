@@ -3,10 +3,24 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER для написания новых абзацев. ESC для выхода из режима редактирования.",
+                    "updated": 1645167804936
+                }
+            ]
         }
     ],
     "definition": {
-        "text": "Right click to edit this text and replace it with a definition / summary for this page. ESC to exit edit mode."
+        "text": "Right click to edit this text and replace it with a definition / summary for this page. ESC to exit edit mode.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Щелкните правой кнопкой мыши, чтобы отредактировать этот текст и заменить его на определение / резюме для этой страницы. ESC для выхода из режима редактирования.",
+                "updated": 1645167785623
+            }
+        ]
     }
 }

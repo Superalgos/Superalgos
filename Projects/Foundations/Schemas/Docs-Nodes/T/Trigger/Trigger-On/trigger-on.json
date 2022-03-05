@@ -12,6 +12,11 @@
                 "language": "DE",
                 "text": "Zählt die Perioden seit der letzten Auslösung einer Strategie.",
                 "updated": 1641735510794
+            },
+            {
+                "language": "RU",
+                "text": "Считает периоды с момента последнего срабатывания стратегии.",
+                "updated": 1645179888544
             }
         ]
     },
@@ -24,6 +29,11 @@
                     "language": "DE",
                     "text": "Klicken Sie mit der rechten Maustaste auf \"Edit\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
                     "updated": 1641735560408
+                },
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER для написания новых абзацев. ESC для выхода из режима редактирования.",
+                    "updated": 1645179894773
                 }
             ]
         },
@@ -41,6 +51,11 @@
                     "language": "DE",
                     "text": "Trigger On Konfiguration",
                     "updated": 1641735581785
+                },
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Trigger On",
+                    "updated": 1645179907357
                 }
             ]
         },
@@ -53,6 +68,11 @@
                     "language": "DE",
                     "text": "Eigenschaften",
                     "updated": 1641735589501
+                },
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1645179913926
                 }
             ]
         },
@@ -65,6 +85,11 @@
                     "language": "DE",
                     "text": "initialValue ermöglicht es, den Grundzustand des Knotens auf einen beliebigen Wert zurückzusetzen.",
                     "updated": 1641735652414
+                },
+                {
+                    "language": "RU",
+                    "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
+                    "updated": 1645179919478
                 }
             ]
         }

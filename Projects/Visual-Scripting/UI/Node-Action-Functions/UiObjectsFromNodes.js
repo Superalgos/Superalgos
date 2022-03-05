@@ -286,8 +286,8 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
                     }
                 }
             }
-            function endLoop() {
-                tryToConnectChildrenWithReferenceParents()
+            async function endLoop() {
+                await tryToConnectChildrenWithReferenceParents()
 
                 if (callBackFunction !== undefined) {
                     callBackFunction() // The recreation of the workspace is complete
@@ -453,7 +453,6 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
                                             break
                                         }
                                     }
-
                                 }
                             }
                         }

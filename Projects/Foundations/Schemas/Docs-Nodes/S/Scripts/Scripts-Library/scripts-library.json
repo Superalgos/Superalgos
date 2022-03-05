@@ -7,6 +7,11 @@
                 "language": "DE",
                 "text": "Eine script library ist eine Sammlung zusammengehöriger Skripte(scripts).",
                 "updated": 1639495044854
+            },
+            {
+                "language": "RU",
+                "text": "Scripts Library - это коллекция связанных сценариев (скриптов).",
+                "updated": 1645169935779
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "DE",
                     "text": "Die Node script library spielt eine organisatorische Rolle und gruppiert Masterskripte(masters scripts) nach den Kriterien des Entwicklers(developer).",
                     "updated": 1639495106376
+                },
+                {
+                    "language": "RU",
+                    "text": "Узел библиотеки скриптов играет организационную роль, группируя скрипты мастеров в соответствии с критериями разработчика.",
+                    "updated": 1645169945615
                 }
             ]
         }

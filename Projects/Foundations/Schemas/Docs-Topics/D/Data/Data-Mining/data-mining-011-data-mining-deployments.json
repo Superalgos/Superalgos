@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Боты интеллектуального анализа данных могут быть развернуты на одной или нескольких машинах одновременно, и они автоматически найдут способ для координации своих действий.",
                 "updated": 1639578043962
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Veri Madenciliği Botları, aynı anda bir veya daha fazla makineye yerleştirilebilir ve eylemlerini koordine etmenin yolunu otomatik olarak bulurlar",
+                "updated": 1645963220252
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "RU",
                     "text": "После того, как вы закончите определение своих ботов для интеллектуального анализа данных, вы можете переместить задачи Task, которые их выполняют, на другие сетевые узлы и некоторые другие структуры узлов в иерархии LAN Network. Бот по-прежнему будет работать даже на разных компьютерах в сети.",
                     "updated": 1639578208788
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri madenciliği Botlarınızı tanımlamayı bitirdikten sonra, onları yürüten Görevleri diğer Ağ Düğümlerine ve Ağ hiyerarşisi içindeki diğer bazı düğüm yapılarına taşıyabilirsiniz. Bot, ağdaki farklı makinelerden bile çalışmaya devam edecek.",
+                    "updated": 1645963234495
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "RU",
                     "text": "Как Superalgos знает, как координировать работу ботов?",
                     "updated": 1639578283371
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos, Botları Nasıl Koordine Edeceğini Nasıl Biliyor?",
+                    "updated": 1645963250906
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "RU",
                     "text": "Все, что необходимо знать, уже определено в рабочем пространстве Workspace.",
                     "updated": 1639578319982
+                },
+                {
+                    "language": "TR",
+                    "text": "Bilinmesi gereken her şey Çalışma Alanında ( Workspace ) zaten tanımlanmıştır.",
+                    "updated": 1645963262901
                 }
             ]
         },
@@ -84,6 +104,11 @@
                     "language": "RU",
                     "text": "В узлах Data Mine: определения в Data Mine содержат 3 типа отношений между ботами: Execution Dependency, Data Dependency и Status Dependency.",
                     "updated": 1639578452034
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri Madenlerinde: Veri Madeni'ndeki tanımlar Botlar arasındaki 3 tür ilişkiyi içerir: Yürütme Bağımlılığı, Veri Bağımlılığı ( Data Dependency ) ve Durum Bağımlılığı ( Status Dependency ).",
+                    "updated": 1645963277107
                 }
             ]
         },
@@ -101,6 +126,11 @@
                     "language": "RU",
                     "text": "В сети LAN Network: иерархия LAN Network содержит всю информацию, необходимую для того, чтобы знать, где работают зависимые боты. Глядя на задачи Task на сетевом узле, мы можем узнать, какие боты работают на определенной машине в сети. Глядя на иерархию Data Storage, мы можем знать, где в сети хранятся наборы данных Dataset.",
                     "updated": 1639578747681
+                },
+                {
+                    "language": "TR",
+                    "text": "Ağda: Ağ hiyerarşisi, bağımlı botların nerede çalıştığını bilmek için gereken tüm bilgileri içerir. Ağ düğümündeki Görevlere bakarak, ağdaki belirli bir makinede hangi botların çalıştığını bilebiliriz. Veri Depolama ( Data Storage ) hiyerarşisine bakarak, Veri Kümelerinin ağda nerede depolandığını bilebiliriz.",
+                    "updated": 1645963291618
                 }
             ]
         },
@@ -118,6 +148,11 @@
                     "language": "RU",
                     "text": "Как бот узнает, где запущены его зависимости?",
                     "updated": 1639578719797
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Bot Bağımlılıklarının Nerede Yürüttüğünü Nasıl Bilebilir?",
+                    "updated": 1645963304673
                 }
             ]
         },
@@ -135,6 +170,11 @@
                     "language": "RU",
                     "text": "Каждый раз, когда задача Task выполняется, вся сетевая иерархия вместе с определениями ботов отправляется на сервер задач Task Server. Это включает не только определение запущенного бота, но и все определения зависимых ботов.",
                     "updated": 1639578850309
+                },
+                {
+                    "language": "TR",
+                    "text": "Her Görev yürütüldüğünde, tüm Ağ hiyerarşisi, Veri Madenlerindeki bot tanımlarıyla birlikte Görev Sunucusuna ( Task Server ) gönderilir. Bu, yalnızca çalışan Bot'un tanımını değil, aynı zamanda bağımlı botların tüm tanımlarını da içerir.",
+                    "updated": 1645963317335
                 }
             ]
         },
@@ -152,6 +192,11 @@
                     "language": "RU",
                     "text": "Во время выполнения Superalgos предоставит боту наборы данных Datasets, определенные в зависимостях Data Dependency, отчеты о состоянии Status Report, определенные как зависимости состояния Status Dependency, и при необходимости это поможет боту дождаться бота, определенного как зависимость Execution Dependency, независимо от того, где находятся все эти ресурсы в физической сети.",
                     "updated": 1639579079086
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Superalgos, çalışma zamanında Bot'a Veri Bağımlılıkları'nda tanımlanan Veri Kümeleri, Durum Bağımlılıkları olarak tanımlanan Durum Raporları sağlar ve gerekirse, tüm bunlar nerede olursa olsun, Yürütme Bağımlılığı olarak tanımlanan Bot'u beklemesine yardımcı olur. kaynaklar fiziksel ağ içindedir.",
+                    "updated": 1645963333546
                 }
             ]
         }

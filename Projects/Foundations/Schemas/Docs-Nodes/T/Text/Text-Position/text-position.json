@@ -1,7 +1,14 @@
 {
     "type": "Text Position",
     "definition": {
-        "text": "The text position node is a reference to a point defined in the chart points, and serves to determine the position in which text shall be rendered."
+        "text": "The text position node is a reference to a point defined in the chart points, and serves to determine the position in which text shall be rendered.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Text Position является ссылкой на точку, определенную в точках графика, и служит для определения позиции, в которой будет отображаться текст.",
+                "updated": 1645179404985
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,11 +17,25 @@
         },
         {
             "style": "Text",
-            "text": "The text position node works similarly to the image position node in the sense that it must establish a reference with a point in the charts point to acquire a defined coordinate that determines where the text shall be placed."
+            "text": "The text position node works similarly to the image position node in the sense that it must establish a reference with a point in the charts point to acquire a defined coordinate that determines where the text shall be placed.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узел позиции текста работает аналогично узлу позиции изображения в том смысле, что он должен установить связь с точкой в точке диаграммы, чтобы получить определенную координату, которая определяет место размещения текста.",
+                    "updated": 1645179423272
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "See the configuration for further details."
+            "text": "See the configuration for further details.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Более подробную информацию см. в конфигурации.",
+                    "updated": 1645179431185
+                }
+            ]
         },
         {
             "style": "Block",
@@ -22,11 +43,25 @@
         },
         {
             "style": "Title",
-            "text": "Configuring Text Position"
+            "text": "Configuring Text Position",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Text Position",
+                    "updated": 1645179446875
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Select Configure on the menu to access the configuration."
+            "text": "Select Configure on the menu to access the configuration.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Выберите Configure в меню для доступа к конфигурации.",
+                    "updated": 1645179454431
+                }
+            ]
         },
         {
             "style": "Text",
@@ -46,11 +81,25 @@
         },
         {
             "style": "List",
-            "text": "offsetX is an offset in the X axis, in pixels, applied to displace the text in relation to the coordinate point defined by the reference of the node. Negative values displace the text to the left and positive values to the right."
+            "text": "offsetX is an offset in the X axis, in pixels, applied to displace the text in relation to the coordinate point defined by the reference of the node. Negative values displace the text to the left and positive values to the right.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "offsetX - это смещение по оси X в пикселях, применяемое для смещения текста относительно точки координат, заданной ссылкой узла. Отрицательные значения смещают текст влево, а положительные - вправо.",
+                    "updated": 1645179466554
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "offsetY is an offset in the Y axis. Negative values displace the text downwards and positive values displace the image upwards."
+            "text": "offsetY is an offset in the Y axis. Negative values displace the text downwards and positive values displace the image upwards.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "offsetY - смещение по оси Y. Отрицательные значения смещают текст вниз, а положительные - изображение вверх.",
+                    "updated": 1645179474163
+                }
+            ]
         }
     ]
 }

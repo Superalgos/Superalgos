@@ -2,12 +2,26 @@
     "type": "Dropout Layer",
     "definition": {
         "text": "Applies dropout to the input. Dropout consists in randomly setting a fraction rate of input units to 0 at each update during training time, which helps prevent overfitting.",
-        "updated": 1613213791502
+        "updated": 1613213791502,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Применяет отсев к входным данным. Отсев заключается в случайной установке доли входных единиц на 0 при каждом обновлении в течение времени обучения, что помогает предотвратить переподгонку.",
+                "updated": 1645247457538
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "Right click and select the pencil button to enter edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
+                    "updated": 1645247463220
+                }
+            ]
         }
     ]
 }

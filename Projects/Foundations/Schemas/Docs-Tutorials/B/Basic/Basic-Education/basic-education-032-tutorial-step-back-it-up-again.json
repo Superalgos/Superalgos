@@ -36,6 +36,11 @@
                 "language": "RU",
                 "text": "Я же говорил вам, что собираюсь довести эту тему до ума! Давайте попробуем второй пример!",
                 "updated": 1640870858272
+            },
+            {
+                "language": "ID",
+                "text": "Sudah kubilang aku akan menjelaskan topik ini! Mari kita coba contoh kedua!",
+                "updated": 1644951377689
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "RU",
                     "text": "Сделайте резервную копию торговой системы Lightning Strike! Восстановите резервную копию, не удаляя оригинал. Затем повторите операцию восстановления, но сначала удалите оригинальную торговую систему!",
                     "updated": 1640870878407
+                },
+                {
+                    "language": "ID",
+                    "text": "Ambil cadangan Lightning Strike trading system! Kembalikan cadangan tanpa menghapus yang asli. Kemudian ulangi operasi pemulihan tetapi hapus trading system asli terlebih dahulu!",
+                    "updated": 1644951447502
                 }
             ]
         },
@@ -104,6 +114,11 @@
                     "language": "RU",
                     "text": "Проверьте, как сохраняются входящие ссылки, только во втором случае!",
                     "updated": 1640870935829
+                },
+                {
+                    "language": "ID",
+                    "text": "Verifikasi bagaimana incoming references dijaga hanya dalam kasus kedua!",
+                    "updated": 1644951500416
                 }
             ]
         },
@@ -138,6 +153,11 @@
                     "language": "RU",
                     "text": "Помните, что для сохранения входящих ссылок необходимо удалить исходную структуру узлов перед восстановлением резервной копии!",
                     "updated": 1640870949480
+                },
+                {
+                    "language": "ID",
+                    "text": "Ingatlah bahwa, agar incoming references dijaga, kamu harus menghapus struktur node asli sebelum mengembalikan cadangan!",
+                    "updated": 1644951546081
                 }
             ]
         }

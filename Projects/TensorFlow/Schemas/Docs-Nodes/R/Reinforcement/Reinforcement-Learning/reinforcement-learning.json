@@ -2,18 +2,39 @@
     "type": "Reinforcement Learning",
     "definition": {
         "text": "Reinforcement learning (RL) is an area of machine learning concerned with how intelligent agents ought to take actions in an environment in order to maximize the notion of cumulative reward. Reinforcement learning is one of three basic machine learning paradigms, alongside supervised learning and unsupervised learning.",
-        "updated": 1613197154946
+        "updated": 1613197154946,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Обучение с подкреплением (RL) - это область машинного обучения, занимающаяся тем, как интеллектуальные агенты должны предпринимать действия в окружающей среде, чтобы максимизировать понятие совокупного вознаграждения. Обучение с подкреплением является одной из трех основных парадигм машинного обучения, наряду с контролируемым и неконтролируемым обучением.",
+                "updated": 1645249613791
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Reinforcement learning differs from supervised learning in not needing labelled input/output pairs be presented, and in not needing sub-optimal actions to be explicitly corrected. Instead the focus is on finding a balance between exploration (of uncharted territory) and exploitation (of current knowledge).",
-            "updated": 1613197179841
+            "updated": 1613197179841,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Обучение с подкреплением отличается от контролируемого обучения тем, что не требует представления пар \"вход/выход\" с метками и не требует явного исправления неоптимальных действий. Вместо этого основное внимание уделяется поиску баланса между исследованием (неизведанной территории) и эксплуатацией (текущих знаний).",
+                    "updated": 1645249628011
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The environment is typically stated in the form of a Markov decision process (MDP), because many reinforcement learning algorithms for this context use dynamic programming techniques. The main difference between the classical dynamic programming methods and reinforcement learning algorithms is that the latter do not assume knowledge of an exact mathematical model of the MDP and they target large MDPs where exact methods become infeasible.",
-            "updated": 1613197190452
+            "updated": 1613197190452,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Среда обычно задается в виде марковского процесса принятия решений (MDP), потому что многие алгоритмы обучения с подкреплением для этого контекста и��пользуют методы динамического программирования. Основное различие между классическими методами динамического программирования и алгоритмами обучения с подкреплением заключается в том, что последние не предполагают знания точной математической модели MDP и нацелены на большие MDP, где точные методы становятся невыполнимыми.",
+                    "updated": 1645249638743
+                }
+            ]
         }
     ]
 }

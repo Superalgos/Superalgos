@@ -54,10 +54,11 @@ function newCanvas() {
             UI.projects.education.spaces.tutorialSpace.finalize()
             UI.projects.education.spaces.docsSpace.finalize()
             //thisObject.chatSpace.finalize()
-            UI.projects.foundations.spaces.sideSpace.finalize()
+            UI.projects.foundations.sdsfsgfdpaces.sideSpace.finalize()
             UI.projects.foundations.spaces.chartingSpace.finalize()
             UI.projects.foundations.spaces.floatingSpace.finalize()
             UI.projects.foundations.spaces.codeEditorSpace.finalize()
+            UI.projects.contributions.spaces.contributionsSpace.finalize()
             thisObject.shorcutNumbers = undefined
 
             if (browserCanvas.removeEventListener) {
@@ -408,6 +409,11 @@ function newCanvas() {
         }
         /* When the Code Editor is Visible, we do not process key down events of the Designer Space. */
         if (UI.projects.foundations.spaces.codeEditorSpace.isVisible === true) {
+            return
+        }
+
+        /* When the Contributios Space is Visible, we do not process key down events of the Designer Space. */
+        if (UI.projects.contributions.spaces.contributionsSpace.isVisible === true) {
             return
         }
 

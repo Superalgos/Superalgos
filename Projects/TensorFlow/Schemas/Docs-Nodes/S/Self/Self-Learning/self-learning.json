@@ -2,12 +2,26 @@
     "type": "Self Learning",
     "definition": {
         "text": "Self-learning as a machine learning paradigm was introduced in 1982 along with a neural network capable of self-learning named crossbar adaptive array (CAA). It is a learning with no external rewards and no external teacher advice. The CAA self-learning algorithm computes, in a crossbar fashion, both decisions about actions and emotions (feelings) about consequence situations. The system is driven by the interaction between cognition and emotion.",
-        "updated": 1613199403151
+        "updated": 1613199403151,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Самообучение как парадигма машинного обучения было представлено в 1982 году вместе с нейронной сетью, способной к самообучению, названной Crossbar adaptive array (CAA). Это обучение без внешних вознаграждений и советов со стороны учителя. Алгоритм самообучения CAA вычисляет, в перекрестном порядке, как решения о действиях, так и эмоции (чувства) по поводу последствий ситуаций. Система управляется взаимодействием между познанием и эмоциями.",
+                "updated": 1645249793354
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "Right click and select the pencil button to enter edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
+                    "updated": 1645249798620
+                }
+            ]
         }
     ]
 }

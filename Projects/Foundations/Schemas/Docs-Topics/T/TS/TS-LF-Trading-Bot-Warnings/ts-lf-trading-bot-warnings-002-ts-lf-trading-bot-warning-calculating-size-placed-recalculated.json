@@ -4,25 +4,60 @@
     "type": "TS LF Trading Bot Warning - Calculating - Size Placed Recalculated",
     "definition": {
         "text": "The Size Placed was recalculated because the Actual Rate is different than the Order Rate.",
-        "updated": 1611817875294
+        "updated": 1611817875294,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Size Placed был пересчитан, потому что Actual Rate отличается от Order Rate.",
+                "updated": 1645629797819
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Success",
             "text": "This is not an error and may be normal behavior. The trading bot created this warning to let you know that this happened so that you may keep track of all the details of the trade should you need to. This page provides information that should help you understand the context of the warning.",
-            "updated": 1611922682683
+            "updated": 1611922682683,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это не является ошибкой и может быть нормальным поведением. Торговый бот создал это предупреждение, чтобы сообщить вам, что это произошло, чтобы вы могли отследить все детали сделки, если вам это понадобится. На этой странице представлена информация, которая должна помочь вам понять контекст предупреждения.",
+                    "updated": 1645629806655
+                }
+            ]
         },
         {
             "style": "Warning",
-            "text": "Size Placed Recalculated"
+            "text": "Size Placed Recalculated",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Size Placed пересчитан",
+                    "updated": 1645629844514
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Context Info"
+            "text": "Context Info",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Контекстная информация",
+                    "updated": 1645629862195
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Find below the values of variables relevant to the warning at the time the warning was created. They may prove of use to understand what happened."
+            "text": "Find below the values of variables relevant to the warning at the time the warning was created. They may prove of use to understand what happened.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ниже приведены значения переменных, относящихся к предупреждению на момент его создания. Они могут оказаться полезными для понимания того, что произошло.",
+                    "updated": 1645629896337
+                }
+            ]
         },
         {
             "style": "Placeholder",
@@ -30,12 +65,26 @@
         },
         {
             "style": "Title",
-            "text": "Function Involved"
+            "text": "Function Involved",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вовлеченная функция",
+                    "updated": 1645629905035
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "This warning was triggered at the Recalculate Size Placed Function within the LF Trading Bot.",
-            "updated": 1611818476005
+            "updated": 1611818476005,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это предупреждение было вызвано функцией Recalculate Size Placed Function в LF Trading Bot.",
+                    "updated": 1645629921736
+                }
+            ]
         },
         {
             "style": "Include",
@@ -44,11 +93,25 @@
         },
         {
             "style": "Title",
-            "text": "Learn More"
+            "text": "Learn More",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узнать больше",
+                    "updated": 1645629931753
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "To learn more about this topic, please read the following page:"
+            "text": "To learn more about this topic, please read the following page:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы узнать больше об этой теме, прочтите следующую страницу:",
+                    "updated": 1645629938131
+                }
+            ]
         },
         {
             "style": "List",

@@ -8,6 +8,11 @@
                 "language": "ES",
                 "text": "El término  Contribution Claims ( declaración de contribución) es una generalización del concepto reclamo y puede referirse a  cualquiera o a todos los tipos existentes, a saber Asset Contribution Claim (declaración de contribución de activos), Feature Contribution Claim ( declaración de contribución de funciones), and Position Contribution Claim nodes (declaraciónde contribución de posición de nodos).",
                 "updated": 1633179306733
+            },
+            {
+                "language": "RU",
+                "text": "Термин Contribution Claims является обобщением понятия требований (заявлений) и может относиться к любому или всем существующим типам, а именно к узлам Asset Contribution Claim, Feature Contribution Claim и Position Contribution Claim.",
+                "updated": 1645081681295
             }
         ]
     },

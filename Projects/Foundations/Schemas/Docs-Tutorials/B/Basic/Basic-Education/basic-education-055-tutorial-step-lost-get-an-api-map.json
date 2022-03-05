@@ -30,6 +30,11 @@
                 "language": "RU",
                 "text": "Вам интересно, как получить данные из других источников, кроме бирж, в CCXT? Messari? Twitter? Мы поможем вам!",
                 "updated": 1640877284248
+            },
+            {
+                "language": "ID",
+                "text": "Apakah kamu bertanya-tanya bagaimana cara mendapatkan data dari sumber selain exchanges di CCXT? Messari? Twitter? Kami akan membantu kamu!",
+                "updated": 1645562076868
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "RU",
                     "text": "Superalgos позволяет вам получать данные из любого API в Интернете, и для этого не нужно писать код! Вместо этого вы можете разработать свой API Map или использовать те, которые поставляются вместе с системой!",
                     "updated": 1640877320381
+                },
+                {
+                    "language": "ID",
+                    "text": "Superalgos memungkinkan kamu mengambil data dari API apa pun di Internet, dan kamu tidak perlu kode untuk melakukannya! Sebagai gantinya, kamu dapat merancang API Map atau menggunakan yang cocok dengan sistem!",
+                    "updated": 1645562171935
                 }
             ]
         },
@@ -87,6 +97,11 @@
                     "language": "RU",
                     "text": "API Map - это набор определений, устанавливающих, как бот может получить доступ к определенному API и как интерпретировать ответы сервера.",
                     "updated": 1640877362783
+                },
+                {
+                    "language": "ID",
+                    "text": "API Map adalah seperangkat definisi yang menentukan bagaimana bot dapat mengakses API tertentu dan cara menafsirkan respons dari server.",
+                    "updated": 1645562161029
                 }
             ]
         },
@@ -115,6 +130,11 @@
                     "language": "RU",
                     "text": "Погрузитесь в этот раздел темы Data Mining, когда будете готовы к изучению возможностей API!",
                     "updated": 1640877401322
+                },
+                {
+                    "language": "ID",
+                    "text": "Dalami bagian topik Data Mining ini ketika kau siap menjelajahi API landscape!",
+                    "updated": 1645562217422
                 }
             ]
         }

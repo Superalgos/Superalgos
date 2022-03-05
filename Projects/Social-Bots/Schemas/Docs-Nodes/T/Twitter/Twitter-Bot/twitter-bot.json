@@ -1,56 +1,147 @@
 {
     "type": "Twitter Bot",
     "definition": {
-        "text": "The Twitter Bot allows Superalgos to send messages to Twitter."
+        "text": "The Twitter Bot allows Superalgos to send messages to Twitter.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Twitter Bot позволяет Superalgos отправлять сообщения в Twitter.",
+                "updated": 1645194638938
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "In order to use the Twitter Bot, a Twitter API Application needs to be created. Follow the Twitter API Documentation to apply for access and create the application. Create an Access Token and Secret with Read and Write permissions."
+            "text": "In order to use the Twitter Bot, a Twitter API Application needs to be created. Follow the Twitter API Documentation to apply for access and create the application. Create an Access Token and Secret with Read and Write permissions.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для того чтобы использовать Twitter Bot, необходимо создать приложение Twitter API. Следуйте документации API Twitter, чтобы подать заявку на доступ и создать приложение. Создайте токен доступа и секрет с правами чтения и записи.",
+                    "updated": 1645194655444
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Parameters:"
+            "text": "Parameters:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Параметры:",
+                    "updated": 1645194660700
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "- consumer_key - required - obtained from the Twitter developer portal application, API Key"
+            "text": "- consumer_key - required - obtained from the Twitter developer portal application, API Key",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "- consumer_key - требуется - получен из приложения портала разработчиков Twitter, API Key",
+                    "updated": 1645194670134
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "- consumer_secret - required - obtained from the Twitter developer portal application, API Key Secret"
+            "text": "- consumer_secret - required - obtained from the Twitter developer portal application, API Key Secret",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "- consumer_secret - требуется - получен из приложения портала разработчиков Twitter, Секрет ключа API",
+                    "updated": 1645194678424
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "- access_token_key - required - obtained from the Twitter developer portal application, Access Token"
+            "text": "- access_token_key - required - obtained from the Twitter developer portal application, Access Token",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "- access_token_key - требуется - получен из приложения портала разработчиков Twitter, Access Token",
+                    "updated": 1645194686410
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "- access_token_secret - required - obtained from the Twitter developer portal application, Access Token Secret"
+            "text": "- access_token_secret - required - obtained from the Twitter developer portal application, Access Token Secret",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "- access_token_secret - требуется - получен из приложения портала разработчиков Twitter, Access Token Secret",
+                    "updated": 1645194693947
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "- format - optional - allows custom formatting of the message being sent into Discord."
+            "text": "- format - optional - allows custom formatting of the message being sent into Discord.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "- format - опционально - позволяет настроить форматирование сообщения, отправляемого в Discord.",
+                    "updated": 1645194703375
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Recognized Format Variables:"
+            "text": "Recognized Format Variables:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Распознанные переменные формата:",
+                    "updated": 1645194731116
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "- `%{EXCHANGE}` the exchange which is operating, i.e. Binance"
+            "text": "- `%{EXCHANGE}` the exchange which is operating, i.e. Binance",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "- `%{EXCHANGE}` биржа, которая работает, т.е. Binance",
+                    "updated": 1645194738030
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "- `%{MARKET}` the market which is operating. i.e. BTC/USDT"
+            "text": "- `%{MARKET}` the market which is operating. i.e. BTC/USDT",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "- `%{MARKET}` рынок, который работает. т.е. BTC/USDT",
+                    "updated": 1645194744839
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "- `%{MESSAGE}` the text being sent"
+            "text": "- `%{MESSAGE}` the text being sent",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "- `%{MESSAGE}` отправляемый текст",
+                    "updated": 1645194750973
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "An example format is:"
+            "text": "An example format is:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В качестве примера можно привести следующий формат:",
+                    "updated": 1645194757144
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -58,7 +149,14 @@
         },
         {
             "style": "Text",
-            "text": "Which results in a final message in Twitter that looks like:"
+            "text": "Which results in a final message in Twitter that looks like:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В результате в Twitter появляется итоговое сообщение, которое выглядит следующим образом:",
+                    "updated": 1645194767310
+                }
+            ]
         },
         {
             "style": "Javascript",

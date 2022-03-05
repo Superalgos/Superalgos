@@ -6,6 +6,11 @@
         "text": "The pay process finished successfully. Payments to all contributors were sent.",
         "updated": 1611003042937,
         "translations": [
+            {
+                "language": "RU",
+                "text": "Процесс оплаты завершился успешно. Выплаты всем вкладчикам были отправлены.",
+                "updated": 1645627021130
+            }
         ]
     },
     "paragraphs": [
@@ -14,6 +19,11 @@
             "text": "The process to pay contributors was fully successful and all payments have been sent.",
             "updated": 1616081292001,
             "translations": [
+                {
+                    "language": "RU",
+                    "text": "Процесс выплаты вкладов прошел полностью успешно, и все платежи были отправлены.",
+                    "updated": 1645627037350
+                }
             ]
         }
     ]

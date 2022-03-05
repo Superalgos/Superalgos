@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Superalgos организует данные в наборы данных Dataset. Эти наборы данных стандартизированы по всей системе с использованием различных определений типов.",
                 "updated": 1639392223361
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Superalgos, verileri veri kümeleri halinde düzenler. Bu veri kümeleri, farklı tür tanımları kullanılarak sistem genelinde standartlaştırılır.",
+                "updated": 1645366582822
             }
         ]
     },
@@ -38,6 +43,11 @@
                     "language": "RU",
                     "text": "Типы Dataset",
                     "updated": 1639392241096
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri Kümesi Türleri",
+                    "updated": 1645366602226
                 }
             ]
         },
@@ -54,6 +64,11 @@
                     "language": "RU",
                     "text": "Это полный список типов Dataset, которые в настоящее время поддерживаются системой:",
                     "updated": 1639392305644
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu, şu anda sistem tarafından desteklenen Veri Kümesi ( Dataset ) türlerinin tam listesidir:",
+                    "updated": 1645366646773
                 }
             ]
         },
@@ -71,6 +86,11 @@
                     "language": "RU",
                     "text": "Single-File: Как следует из названия, этот набор данных состоит только из одного файла, содержащего все данные. Этот тип набора данных может быть нанесен на график, а его данные могут использоваться торговыми стратегиями и внутри них. Бот API Data Fetcher Bot также может сохранять необработанные данные в этом типе набора данных, если это необходимо.",
                     "updated": 1639392365511
+                },
+                {
+                    "language": "TR",
+                    "text": "Tek Dosya ( Single-File ): Adından da anlaşılacağı gibi, bu Veri Kümesi ( Dataset ), tüm verileri içeren yalnızca bir dosyadan oluşur. Bu Veri Kümesi türü çizilebilir ve verileri Ticaret Stratejileri ( Trading Strategies ) tarafından ve içinde tüketilebilir. API Veri Alıcı Botu ( API Data Fetcher Bot ), gerekirse Ham Verileri ( Raw Data ) bu tür veri kümesine de kaydedebilir.",
+                    "updated": 1645366812554
                 }
             ]
         },
@@ -88,6 +108,11 @@
                     "language": "RU",
                     "text": "Тип Single-File используется нечасто. В настоящее время это тип набора данных, используемый для хранения данных, поступающих от Webhooks. Он хранится таким образом, потому что предполагается, что по этому каналу будет проходить не много данных, а только сигналы, производимые внешними системами. Ожидается, что в будущем функция Webhooks будет развиваться, управляя входящими данными в другом типе набора данных.",
                     "updated": 1639392509026
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Tek Dosyalı ( Single-File ) Veri Kümesi türü sık kullanılmaz. Şu anda, Web kancalarından gelen verileri depolamak için kullanılan Veri Kümesi ( Dataset ) türüdür. Bu borudan çok fazla verinin gelmeyeceği, sadece harici sistemler tarafından üretilen sinyallerin geleceği varsayıldığından bu şekilde saklanır. Web kancaları özelliğinin, gelen verileri başka bir Veri Kümesi ( Dataset ) türünde yöneterek gelecekte gelişmesi bekleniyor.",
+                    "updated": 1645366918198
                 }
             ]
         },
@@ -105,6 +130,11 @@
                     "language": "RU",
                     "text": "One-Min-Daily: Этот тип набора данных организует данные в один файл в день и, как следует из названия, ожидает, что сами данные будут принадлежать таймфрейму в одну минуту. Этот тип набора данных не может быть нанесен на график или его данные не могут быть использованы торговыми стратегиями.",
                     "updated": 1639392567661
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Dakikalık-Günlük ( One-Min-Daily ): Bu Veri Kümesi ( Dataset ) türü, verileri günde bir dosya halinde düzenler ve adından da anlaşılacağı gibi, verilerin kendisinin bir dakikalık zaman dilimlerine ait olmasını bekler. Bu tür Veri Kümesi çizilemez veya verileri Ticaret Stratejileri ( Trading Strategies ) tarafından tüketilemez.",
+                    "updated": 1645367004519
                 }
             ]
         },
@@ -122,6 +152,11 @@
                     "language": "RU",
                     "text": "Multi-Time-Frame-Daily: Этот тип набора данных организует данные в один файл в день для каждого временного интервала в диапазоне от 1 до 45 минут. Данные этого типа набора данных могут быть нанесены на график и могут быть использованы торговыми стратегиями.",
                     "updated": 1639392587801
+                },
+                {
+                    "language": "TR",
+                    "text": "Günlük-Çoklu-Zaman Çerçevesi ( Multi-Time-Frame-Daily ): Bu Veri Kümesi ( Dataset ) türü, 1 dakika ile 45 dakika arasında değişen her Zaman Çerçevesi ( Time Frame ) için verileri günde bir dosya halinde düzenler. Bu tür Veri Kümesinin verileri çizilebilir ve Ticaret Stratejileri ( Trading Strategies ) tarafından tüketilebilir.",
+                    "updated": 1645367119565
                 }
             ]
         },
@@ -139,6 +174,11 @@
                     "language": "RU",
                     "text": "Multi-Time-Frame-Market: Этот тип набора данных организует данные только в один файл для каждого временного интервала от 1 часа до 24 часов. Это означает, что вся рыночная история будет храниться в одном файле для каждого временного интервала. Например, свечи на 1 час для определенного рынка будут храниться в одном файле. Данные этого типа набора данных могут быть нанесены на график и могут быть использованы торговыми стратегиями.",
                     "updated": 1639392623533
+                },
+                {
+                    "language": "TR",
+                    "text": "Çoklu-Zaman Çerçevesi Pazarı ( Multi-Time-Frame-Market ): Bu Veri Kümesi ( Dataset ) türü, verileri 1 saat ile 24 saat arasında değişen her Zaman Çerçevesi ( Time Frame ) için yalnızca bir dosyada düzenler. Bu, tüm piyasa geçmişinin her zaman dilimi için tek bir dosyada saklanacağı anlamına gelir. Örneğin belirli bir market için 1 saatlik mumlar, tek bir dosyada saklanacaktır. Bu tür Veri Kümesinin verileri çizilebilir ve Ticaret Stratejileri ( Trading Strategies ) tarafından tüketilebilir.",
+                    "updated": 1645367197447
                 }
             ]
         },
@@ -155,6 +195,11 @@
                     "language": "RU",
                     "text": "Безусловно, самые популярные типы наборов данных - Multi-Time-Frame-Daily и Multi-Time-Frame-Market.",
                     "updated": 1639392668594
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Açık farkla en popüler Veri Kümesi Türleri, Çok Zamanlı Çerçeve-Günlük ve Çok Zamanlı Çerçeve-Market'tir ( Multi-Time-Frame-Daily and Multi-Time-Frame-Market ). ",
+                    "updated": 1645367247116
                 }
             ]
         }

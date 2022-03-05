@@ -2,7 +2,14 @@
     "type": "Incoming Power",
     "definition": {
         "text": "Incoming Power is a form of Token Power coming into any given Governance Program originating at a third party User Profile. Certain programs use the notion of Incoming Power to determine the Tokens Rewards applicable for the program in question.",
-        "updated": 1630235289528
+        "updated": 1630235289528,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Входящая сила (Incoming Power) - это форма силы токенов (Token Power), поступающая в ту или иную программу управления из профиля пользователя третьей стороны. Некоторые программы используют понятие Incoming Power для определения Tokens Rewards (\"Вознаграждения токенами\"), применимых к данной программе.",
+                "updated": 1645082916878
+            }
+        ]
     },
     "paragraphs": [
         {

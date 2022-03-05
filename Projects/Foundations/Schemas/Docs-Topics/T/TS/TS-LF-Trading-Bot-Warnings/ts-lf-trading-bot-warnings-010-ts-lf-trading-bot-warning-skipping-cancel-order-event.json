@@ -4,25 +4,60 @@
     "type": "TS LF Trading Bot Warning - Skipping Cancel Order Event",
     "definition": {
         "text": "For some reason, the trading bot could not check the order status at the exchange. As a result, the bot does not know if it can cancel it. To avoid inconsistencies at the accounting level, the bot did not evaluate the conditions of the Cancel Order Event.",
-        "updated": 1611914240549
+        "updated": 1611914240549,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "По какой-то причине торговый бот не смог проверить статус ордера на бирже. В результате бот не знает, может ли он его отменить. Чтобы избежать несоответствий на уровне учета, бот не оценивал условия события Cancel Order Event.",
+                "updated": 1645630619278
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Success",
             "text": "This is not an error and may be normal behavior. The trading bot created this warning to let you know that this happened so that you may keep track of all the details of the trade should you need to. This page provides information that should help you understand the context of the warning.",
-            "updated": 1611916332679
+            "updated": 1611916332679,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это не является ошибкой и может быть нормальным поведением. Торговый бот создал это предупреждение, чтобы сообщить вам, что это произошло, чтобы вы могли отследить все детали сделки, если вам это понадобится. На этой странице представлена информация, которая должна помочь вам понять контекст предупреждения.",
+                    "updated": 1645630643137
+                }
+            ]
         },
         {
             "style": "Warning",
-            "text": "Skipping Cancel Order Event"
+            "text": "Skipping Cancel Order Event",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пропуск события Cancel Order Event",
+                    "updated": 1645630665141
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Context Info"
+            "text": "Context Info",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Контекстная информация",
+                    "updated": 1645630670280
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Find below the values of variables relevant to the warning at the time the warning was created. They may prove of use to understand what happened."
+            "text": "Find below the values of variables relevant to the warning at the time the warning was created. They may prove of use to understand what happened.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ниже приведены значения переменных, относящихся к предупреждению на момент его создания. Они могут оказаться полезными для понимания того, что произошло.",
+                    "updated": 1645630675017
+                }
+            ]
         },
         {
             "style": "Placeholder",
@@ -35,11 +70,25 @@
         },
         {
             "style": "Title",
-            "text": "Learn More"
+            "text": "Learn More",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узнать больше",
+                    "updated": 1645630695493
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "To learn more about this topic, please read the following page:"
+            "text": "To learn more about this topic, please read the following page:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы узнать больше об этой теме, прочтите следующую страницу:",
+                    "updated": 1645630700688
+                }
+            ]
         },
         {
             "style": "List",

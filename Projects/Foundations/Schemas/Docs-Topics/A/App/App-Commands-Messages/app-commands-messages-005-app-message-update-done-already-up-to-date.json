@@ -21,6 +21,11 @@
                 "language": "RU",
                 "text": "Процесс обновления выполнено успешно, но никаких изменений внесено не было, поскольку ваша установка обновлена ​​до последней версии текущей ветки. Никаких дополнительных действий не требуется",
                 "updated": 1637927153335
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Güncelleme işlemi başarılı bir şekilde çalışıyor ancak kurulumunuz mevcut şube ile güncel olduğundan herhangi bir değişiklik yapılmadı. Daha fazla aksiyona gerek yok.",
+                "updated": 1644415800934
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Все уже обновлено. Нет необходимости перезагружать клиент Client или обновлять страницу пользовательского интерфейса UI.",
                     "updated": 1637927289677
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Güncelsiniz. İstemciyi ( Client ) yeniden başlatmaya veya kullanıcı arayüzü ( UI ) sayfasını yenilemeye gerek yoktur.",
+                    "updated": 1644415838678
                 }
             ]
         }

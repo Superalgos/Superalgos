@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "Mines se refiere a los diferentes tipos de minas para las que existen definiciones en forma de jerarquías. En esta etapa, el nodo puede generar jerarquías de Data Mine, Trading Mine, y Learning Mine.",
                 "updated": 1628903154447
+            },
+            {
+                "language": "RU",
+                "text": "Источники (шахты, хранилища) относятся к различным типам источников данных, для которых существуют определения в виде иерархий. На этом этапе узел может породить иерархии Data Mine, Trading Mine и Learning Mine.",
+                "updated": 1645168879537
             }
         ]
     },
@@ -19,7 +24,14 @@
         {
             "style": "Success",
             "text": "Use the menu to spawn new hierarchies.",
-            "updated": 1609702365986
+            "updated": 1609702365986,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Используйте меню для создания новых иерархий.",
+                    "updated": 1645168886415
+                }
+            ]
         }
     ]
 }

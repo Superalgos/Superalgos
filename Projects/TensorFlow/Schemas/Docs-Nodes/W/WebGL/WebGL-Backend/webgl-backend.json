@@ -8,13 +8,25 @@
                 "language": "DE",
                 "text": "Das WebGL-Backend, 'webgl', ist derzeit das leistungsfähigste Backend für den Browser. Dieses Backend ist bis zu 100x schneller als das vanilla CPU Backend. Tensoren werden als WebGL-Texturen gespeichert und mathematische Operationen werden in WebGL-Shadern implementiert.",
                 "updated": 1639913439287
+            },
+            {
+                "language": "RU",
+                "text": "Бэкенд WebGL, \"webgl\", в настоящее время является самым мощным бэкендом для браузера. Этот бэкенд в 100 раз быстрее, чем бэкенд ванильного процессора. Тензоры хранятся в виде текстур WebGL, а математические операции реализуются в шейдерах WebGL.",
+                "updated": 1645252778909
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "Right click and select the pencil button to enter edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
+                    "updated": 1645252818215
+                }
+            ]
         }
     ]
 }

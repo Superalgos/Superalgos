@@ -10,6 +10,26 @@ async function run() {
     await forkPluginRepos(username, token)
     clonePluginRepos(username)
 
+    // Save github credentials for later after script runs
+    const credentials = {
+        "githubUsername": username,
+        "githubToken": token
+    }
+    const fs = require("fs")
+    let secretsDir = "./My-Secrets"
+    // Make sure My-Secrets has been created
+    if (!fs.existsSync(secretsDir)) {
+        fs.mkdirSync(secretsDir)
+    }
+    fs.writeFile(secretsDir + "/githubCredentials.json", JSON.stringify(credentials), function(err) {
+        if(err) {
+            console.log('[ERROR] Github Credentials were not saved correctly ' + err)
+        }
+    } )
+
+
+
+
     async function forkPluginRepos(username, token) {
 
         return new Promise(promiseWork)
@@ -80,7 +100,7 @@ async function run() {
             }
 
             console.log(' ')
-            console.log('[INFO] Clonning plugin repo from ' + repoURL + ' into ' + cloneDir)
+            console.log('[INFO] Cloning plugin repo from ' + repoURL + ' into ' + cloneDir)
             await cloneTheRepo()
 
             async function cloneTheRepo() {
@@ -94,11 +114,11 @@ async function run() {
                         async function (error) {
                             if (error) {
                                 console.log('')
-                                console.log("[ERROR] There was an error clonning the plugin this repo. ");
+                                console.log("[ERROR] There was an error cloning the plugin this repo. ");
                                 console.log('')
                                 console.log(error)
                             } else {
-                                console.log('[INFO] Clonning repo ' + global.env.PROJECT_PLUGIN_MAP[propertyName].repo + ' succeed.')
+                                console.log('[INFO] Cloning repo ' + global.env.PROJECT_PLUGIN_MAP[propertyName].repo + ' succeed.')
                                 /*
                                 Final step is to set the remote to the main Superalgos account.
                                 */

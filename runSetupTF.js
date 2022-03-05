@@ -9,7 +9,7 @@ const externalScripts = [
     "https://code.jquery.com/jquery-3.6.0.js",
     "https://code.jquery.com/ui/1.13.0/jquery-ui.js"
 ]
-const projectPluginMap = require('../Plugins/project-plugin-map.json')
+const projectPluginMap = require('./Plugins/project-plugin-map.json')
 
 
 const tfjsWinInstall = () => {

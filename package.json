@@ -20,7 +20,7 @@
     "startLocalDesktopReact": "start npm run startNetwork && cd ./DesktopReact && start npm run startDesktopReactBackend && start npm run startDesktopReactFrontend",
     "startDesktopReact": "cd ./DesktopReact && start npm run startDesktopReactBackend && start npm run startDesktopReactFrontend",
     "unitTest": "jest --silent",
-    "unitTest:debug": "DEBUG=nock.* jest",
+    "unitTest:debug": "DEBUG=nock.* jest --silent",
     "unitTest:watch": "jest --silent --watch",
     "unitTest:verbose": "./node_modules/.bin/jest"
   },

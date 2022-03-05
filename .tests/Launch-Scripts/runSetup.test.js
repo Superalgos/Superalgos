@@ -1,6 +1,8 @@
-const https = require('https')
 const nock = require('nock')
 const simpleGit = require('simple-git')
+const child_process = require('child_process')
+const env = require('../../Environment').newEnvironment()
+const externalScriptsURLs = env.EXTERNAL_SCRIPTS
 const { 
   getRemotesResponse,
   branchLocalResponse,
@@ -8,10 +10,11 @@ const {
 } = require('../../.mocks/simple-git')
 const { 
   setUpstreamAndOrigin, 
-  runSetup
+  runSetup,
+  installExternalScripts
 } = require('../../Launch-Scripts/runSetup')
 
-// ** VERY IMPORTANT NOTE **
+// ****** VERY IMPORTANT NOTE *******
 // when your node module has a special character
 // like '-' in it, you cannot mock it like this:
 // jest.mock('simple-git', () => {
@@ -45,6 +48,32 @@ simpleGit.mockReturnValue({
   })
 })
 
+jest.mock('process', () => {
+  return {
+    cwd: jest.fn(() => './')
+  }
+})
+
+jest.mock('fs')
+
+jest.mock('child_process', () => {
+  return {
+    exec: jest.fn((command, dir) => {
+      if (command.includes('echo Results of install at')) {
+        return 1
+      } else {
+        return 0
+      }
+    })
+  }
+})
+
+for (let i = 0; i< externalScriptsURLs.length; i++) {
+  nock(externalScriptsURLs[i])
+  .get('')
+  .reply(200, 'successfully mocked')
+}
+
 afterEach(() => {
   jest.clearAllMocks()
 })
@@ -53,5 +82,15 @@ describe('setUpstreamAndOrigin', () => {
   it('should return success msg if github is setup correctly', async () => {
     const resp = await setUpstreamAndOrigin('./')
     expect(resp).toEqual('Set upstream and origin for github')
+  })
+})
+describe('runSetup', () => {
+  it('should return success message if setup completes properly', () => {
+    expect(runSetup()).toEqual(true)
+  })
+})
+describe('installExternalScripts', () => {
+  it('should install all external scripts to disk', () => {
+    expect(installExternalScripts()).toEqual(true)
   })
 })

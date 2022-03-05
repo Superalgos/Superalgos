@@ -14,18 +14,57 @@ const errorResp = (e) => {
   process.exit(1)
 }
 
-// export piece by piece for ease of testing & re-usability
+// export setup piece by piece for more robust tests
+const installExternalScripts = () => {
+  for (let i = 0; i<externalScriptsURLs.length; i++) {
+    const url = externalScriptsURLs[i]
+    const filename = url.split('/').pop()
+    const dest = path.join(externalScriptsDir, filename)
+    const res = https.get(url, resp => {
+      if (resp.statusCode !== 200) {
+        console.error(
+          `Error downloading ${url}: HTTP response code ${response.statusCode}.`
+          )
+        return false
+      } else {
+        const writeStream = fs.createWriteStream(dest)
+        resp.pipe(writeStream)
+        writeStream.on('error', () => console.error('Error writing to ' + path.resolve(dest)))
+        return 5555
+      }
+    })    
+  }
+
+  return true
+  // for (let url of externalScriptsURLs) {
+  //   const filename = url.split('/').pop()
+  //   const dest = path.join(externalScriptsDir, filename)
+  //   https.get(url, response => {
+  //     if (response.statusCode !== 200) {
+  //         console.error(`Error downloading ${url}: HTTP response code ${response.statusCode}.`)
+  //         return false
+  //     }
+  //     const writeStream = fs.createWriteStream(dest)
+  //     response.pipe(writeStream)
+  //     writeStream.on('error', () => console.error('Error writing to ' + path.resolve(dest)))
+  //     writeStream.on('finish', () => writeStream.close())
+  //   })
+  // }
+}
+
 const setUpstreamAndOrigin = async (dir, repo='Superalgos') => {
   // initialize simpleGit
   const options = {
       binary: 'git',
       maxConcurrentProcesses: 6,
   }
+  
   // main app repo should be the working directory
   if (repo === 'Superalgos') options.baseDir = dir || process.cwd()
   // if repo is not main app repo, assume it is a plugin, in ./Plugins.
   else options.baseDir = path.join(process.cwd(), 'Plugins', dir)
   const git = simpleGit(options)
+  
   // Check to see it main repo has been set as upstream
   let remotes = await git.getRemotes(true).catch(errorResp)
   let isUpstreamSet
@@ -40,10 +79,12 @@ const setUpstreamAndOrigin = async (dir, repo='Superalgos') => {
       }
     }
   }
+
   // If upstream has not been set. Set it now
   if (isUpstreamSet === false) {
     await git.addRemote('upstream', `https://github.com/Superalgos/${repo}`).catch(errorResp)
   }
+
   let gitUser
   let usesSSH
   // if in main Superalgos repo, set gitUser from origin
@@ -56,6 +97,7 @@ const setUpstreamAndOrigin = async (dir, repo='Superalgos') => {
       usesSSH = true
     }
   }
+
   // Check that branches exist
   let branchSumAll = await git.branchLocal().catch(errorResp)
   let masterExists = false
@@ -70,6 +112,7 @@ const setUpstreamAndOrigin = async (dir, repo='Superalgos') => {
   if (!developExists) {
     await git.checkout(['-B', 'develop'])
   }
+
   // Check that a branch is checked out, otherwise checkout develop
   branchSumAll = await git.branchLocal().catch(errorResp)
   if (branchSumAll.current === '' || branchSumAll.current === 'master') {
@@ -94,7 +137,6 @@ const setUpstreamAndOrigin = async (dir, repo='Superalgos') => {
 }
 
 const runSetup = () => {
-
   // Install Node_Modules to Main Superalgos Directory
   let dir = process.cwd()
   let command = 'echo Results of install at ' + dir + ' & npm ci'
@@ -127,23 +169,23 @@ const runSetup = () => {
   console.log('')
   console.log('Downloading external scripts …')
   console.log('')
-
-  for (let url of externalScriptsURLs) {
-    const filename = url.split('/').pop()
-    const dest = path.join(externalScriptsDir, filename)
-    https.get(url, response => {
-      if (response.statusCode !== 200) {
-          console.error(`Error downloading ${url}: HTTP response code ${response.statusCode}.`)
-          return false
-      }
-      // console.log(response)
-      const writeStream = fs.createWriteStream(dest)
-      response.pipe(writeStream)
-      writeStream.on('error', () => console.error('Error writing to ' + path.resolve(dest)))
-      writeStream.on('finish', () => writeStream.close())
-    })
-  }
-
+  return true
+  installExternalScripts()
+  // for (let url of externalScriptsURLs) {
+  //   const filename = url.split('/').pop()
+  //   const dest = path.join(externalScriptsDir, filename)
+  //   https.get(url, response => {
+  //     if (response.statusCode !== 200) {
+  //         console.error(`Error downloading ${url}: HTTP response code ${response.statusCode}.`)
+  //         return false
+  //     }
+  //     const writeStream = fs.createWriteStream(dest)
+  //     response.pipe(writeStream)
+  //     writeStream.on('error', () => console.error('Error writing to ' + path.resolve(dest)))
+  //     writeStream.on('finish', () => writeStream.close())
+  //   })
+  // }
+  return true
   // wait until node installation is complete
   nodeInstPromise.then(() => {
     // Initialize and update git repositories
@@ -163,5 +205,6 @@ const runSetup = () => {
 
 module.exports = {
   runSetup,
-  setUpstreamAndOrigin
+  setUpstreamAndOrigin,
+  installExternalScripts
 }

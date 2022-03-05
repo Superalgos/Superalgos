@@ -20,9 +20,8 @@
     "startLocalDesktopReact": "start npm run startNetwork && cd ./DesktopReact && start npm run startDesktopReactBackend && start npm run startDesktopReactFrontend",
     "startDesktopReact": "cd ./DesktopReact && start npm run startDesktopReactBackend && start npm run startDesktopReactFrontend",
     "unitTest": "jest --silent",
-    "unitTest:debug": "DEBUG=nock.* jest --silent",
-    "unitTest:watch": "jest --silent --watch",
-    "unitTest:verbose": "./node_modules/.bin/jest"
+    "unitTest:coverage": "jest --silent --coverage",
+    "unitTest:debug": "DEBUG=nock.* jest"
   },
   "dependencies": {
     "@discordjs/rest": "^0.1.0-canary.0",
@@ -76,6 +75,11 @@
     ],
     "testPathIgnorePatterns": [
       "node_modules"
+    ],
+    "coverageDirectory": "<rootDir>/.testsCoverage",
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/Launch-Scripts/*.ico",
+      "<rootDir>/Launch-Scripts/*.sh"
     ],
     "moduleFileExtensions": [
       "js",

@@ -7,7 +7,6 @@ const { runSetup } = require("./Launch-Scripts/runSetup")
 systemCheck()
 
 // Handle adding shortcuts
-
 if (process.argv.includes("shortcuts")) {
     // Run create-shortcuts script
     try {

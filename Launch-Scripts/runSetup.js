@@ -14,7 +14,7 @@ const errorResp = (e) => {
   process.exit(1)
 }
 
-// export setup piece by piece for more robust tests
+// ** export setup piece by piece for more robust tests **
 const installExternalScripts = () => {
   for (let i = 0; i<externalScriptsURLs.length; i++) {
     const url = externalScriptsURLs[i]
@@ -30,26 +30,13 @@ const installExternalScripts = () => {
         const writeStream = fs.createWriteStream(dest)
         resp.pipe(writeStream)
         writeStream.on('error', () => console.error('Error writing to ' + path.resolve(dest)))
+        writeStream.on('finish', () => writeStream.close())
         return 5555
       }
     })    
   }
-
-  return true
-  // for (let url of externalScriptsURLs) {
-  //   const filename = url.split('/').pop()
-  //   const dest = path.join(externalScriptsDir, filename)
-  //   https.get(url, response => {
-  //     if (response.statusCode !== 200) {
-  //         console.error(`Error downloading ${url}: HTTP response code ${response.statusCode}.`)
-  //         return false
-  //     }
-  //     const writeStream = fs.createWriteStream(dest)
-  //     response.pipe(writeStream)
-  //     writeStream.on('error', () => console.error('Error writing to ' + path.resolve(dest)))
-  //     writeStream.on('finish', () => writeStream.close())
-  //   })
-  // }
+  console.log('External scripts installed')
+  return 'External scripts installed'
 }
 
 const setUpstreamAndOrigin = async (dir, repo='Superalgos') => {
@@ -133,6 +120,7 @@ const setUpstreamAndOrigin = async (dir, repo='Superalgos') => {
       await git.addRemote('origin', orURL).catch(errorResp)
     }
   }
+  console.log('Set upstream and origin for github')
   return 'Set upstream and origin for github'
 }
 
@@ -169,23 +157,8 @@ const runSetup = () => {
   console.log('')
   console.log('Downloading external scripts …')
   console.log('')
-  return true
   installExternalScripts()
-  // for (let url of externalScriptsURLs) {
-  //   const filename = url.split('/').pop()
-  //   const dest = path.join(externalScriptsDir, filename)
-  //   https.get(url, response => {
-  //     if (response.statusCode !== 200) {
-  //         console.error(`Error downloading ${url}: HTTP response code ${response.statusCode}.`)
-  //         return false
-  //     }
-  //     const writeStream = fs.createWriteStream(dest)
-  //     response.pipe(writeStream)
-  //     writeStream.on('error', () => console.error('Error writing to ' + path.resolve(dest)))
-  //     writeStream.on('finish', () => writeStream.close())
-  //   })
-  // }
-  return true
+
   // wait until node installation is complete
   nodeInstPromise.then(() => {
     // Initialize and update git repositories
@@ -199,7 +172,7 @@ const runSetup = () => {
       })
     }).catch(errorResp)
   })
-
+  console.log('Setup complete')
   return 'Setup complete'
 }
 

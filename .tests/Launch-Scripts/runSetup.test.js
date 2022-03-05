@@ -1,6 +1,5 @@
 const nock = require('nock')
 const simpleGit = require('simple-git')
-const child_process = require('child_process')
 const env = require('../../Environment').newEnvironment()
 const externalScriptsURLs = env.EXTERNAL_SCRIPTS
 const { 
@@ -54,8 +53,6 @@ jest.mock('process', () => {
   }
 })
 
-jest.mock('fs')
-
 jest.mock('child_process', () => {
   return {
     exec: jest.fn((command, dir) => {
@@ -70,12 +67,13 @@ jest.mock('child_process', () => {
 
 for (let i = 0; i< externalScriptsURLs.length; i++) {
   nock(externalScriptsURLs[i])
-  .get('')
-  .reply(200, 'successfully mocked')
+    .get('')
+    .reply(200, 'successfully mocked')
 }
 
 afterEach(() => {
   jest.clearAllMocks()
+  nock.restore()
 })
 
 describe('setUpstreamAndOrigin', () => {
@@ -84,13 +82,14 @@ describe('setUpstreamAndOrigin', () => {
     expect(resp).toEqual('Set upstream and origin for github')
   })
 })
-describe('runSetup', () => {
-  it('should return success message if setup completes properly', () => {
-    expect(runSetup()).toEqual(true)
+describe('installExternalScripts', () => {
+  // TODO: figure out how to properly mock createWriteStream
+  it('should install all external scripts to disk', async () => {
+    expect(installExternalScripts()).toEqual('External scripts installed')
   })
 })
-describe('installExternalScripts', () => {
-  it('should install all external scripts to disk', () => {
-    expect(installExternalScripts()).toEqual(true)
+describe('runSetup', () => {
+  it('should return success message if setup completes properly', () => {
+    expect(runSetup()).toEqual('Setup complete')
   })
 })

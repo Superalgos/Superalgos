@@ -22,7 +22,10 @@
     "startDesktopReact": "cd ./DesktopReact && start npm run startDesktopReactBackend && start npm run startDesktopReactFrontend",
     "unitTest": "jest --silent",
     "unitTest:coverage": "jest --silent --coverage",
-    "unitTest:debug": "DEBUG=nock.* jest"
+    "unitTest:debug": "DEBUG=nock.* jest",
+    "lintAll": "eslint . --ext .js",
+    "lintFile": "eslint --ext .js",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@discordjs/rest": "^0.1.0-canary.0",
@@ -61,6 +64,8 @@
   "devDependencies": {
     "electron": "^15.1.0",
     "electron-builder": "^22.14.5",
+    "eslint": "^8.10.0",
+    "husky": "^7.0.4",
     "jest": "^27.5.1",
     "nock": "^13.2.4"
   },

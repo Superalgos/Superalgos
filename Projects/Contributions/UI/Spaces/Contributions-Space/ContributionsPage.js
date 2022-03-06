@@ -69,7 +69,7 @@ function newContributionsContributionsPage() {
             // Overall diff in repo
             HTML += '<div class="repo-title"><span class="docs-h3">' + stat[0] + '</span><span><span>Files Changed: ' + JSON.stringify(stat[1].changed) + ' </span><span class="insertion"> Insertions: ' + JSON.stringify(stat[1].insertions) +' </span><span class="deletion"> Deletions: ' + JSON.stringify(stat[1].deletions) + ' </span></span></div>'
             // Status compared to upstream by branch 
-            if (stat[2].length === 0 || stat[2] === undefined) {
+            if (stat[2] === undefined || stat[2].length === 0) {
                 HTML += '<div class="repo-update-stat">Something is wrong with the status of your local repository. Check the console</div>'
             } else {
                 for (const branch of stat[2]) {

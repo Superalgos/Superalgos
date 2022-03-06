@@ -69,17 +69,20 @@ function newContributionsContributionsPage() {
             // Overall diff in repo
             HTML += '<div class="repo-title"><span class="docs-h3">' + stat[0] + '</span><span><span>Files Changed: ' + JSON.stringify(stat[1].changed) + ' </span><span class="insertion"> Insertions: ' + JSON.stringify(stat[1].insertions) +' </span><span class="deletion"> Deletions: ' + JSON.stringify(stat[1].deletions) + ' </span></span></div>'
             // Status compared to upstream by branch 
-            for (const branch of stat[2]) {
-                if (UI.projects.education.spaces.docsSpace.currentBranch === branch[0]) {
-                    if (branch[1] === 'local out of date'){
-                        HTML += '<div class="repo-update-stat" style="color:#b11a0f">Out dated. Please Update</div>'
-                    } else if (branch[1] === 'up to date'){
-                        HTML += '<div class="repo-update-stat" style="color:#10aa1d">Up to date!</div>'
-                    } else {
-                        HTML += '<div class="repo-update-stat">Local code is ' + branch[1] + ' </div>'
-                    }
-                       
-                } 
+            if (stat[2] === undefined || stat[2].length === 0) {
+                HTML += '<div class="repo-update-stat">Something is wrong with the status of your local repository. Check the console</div>'
+            } else {
+                for (const branch of stat[2]) {
+                    if (UI.projects.education.spaces.docsSpace.currentBranch === branch[0]) {
+                        if (branch[1] === 'local out of date'){
+                            HTML += '<div class="repo-update-stat" style="color:#b11a0f">Out dated. Please Update</div>'
+                        } else if (branch[1] === 'up to date'){
+                            HTML += '<div class="repo-update-stat" style="color:#10aa1d">Up to date!</div>'
+                        } else {
+                            HTML += '<div class="repo-update-stat">Local code is ' + branch[1] + ' </div>'
+                        }   
+                    } 
+                }
             }
 
             // Commit per repo tools 
@@ -130,7 +133,7 @@ function newContributionsContributionsPage() {
         // Attach listener to Credentials save button
         document.getElementById('credentials-save-button').addEventListener('click', saveCreds)
 
-        //Attach listeners and animation to Main Buttons 
+        //Attach listeners to Main Buttons 
         document.getElementById('contribute-all').addEventListener('click', contributeAll)
         document.getElementById('update').addEventListener('click', update)
         document.getElementById('reset').addEventListener('click', resetRepo)
@@ -189,7 +192,6 @@ function newContributionsContributionsPage() {
         httpRequest(undefined, 'App/Status', onResponse)
         
         function onResponse(err, data) {
-            console.log('this is the result of checking upstream', data)
             /* Lets check the result of the call through the http interface */
             data = JSON.parse(data)
             if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
@@ -278,8 +280,10 @@ function newContributionsContributionsPage() {
 
     function resetRepo() {
            
-        setCommandStatus("Resetting Repository....") 
-        httpRequest(undefined, 'App/Reset/' + UI.projects.education.spaces.docsSpace.currentBranch, onResponse)
+        if(confirm("Are you sure you want to reset your local SA instance?")) {
+            setCommandStatus("Resetting Repository....") 
+            httpRequest(undefined, 'App/Reset/' + UI.projects.education.spaces.docsSpace.currentBranch, onResponse)
+        }
         
         function onResponse(err, data) {
             /* Lets check the result of the call through the http interface */

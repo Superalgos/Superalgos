@@ -101,7 +101,7 @@ const runPlatform = () => {
   if ( fs.existsSync(path) ) {
     try {
         child_process.fork('./PlatformRoot.js', process.argv, options)
-        return true
+        return 'client running'
     } catch (err) {
         console.log('')
         console.log('Fail to create Superalgos Platform Client Process.')

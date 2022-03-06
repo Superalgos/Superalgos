@@ -13,7 +13,9 @@ jest.mock('fs', () => {
 })
 
 jest.mock('child_process', () => {
-  fork: jest.fn((dir, args, options) => false)
+  return {
+    fork: jest.fn((dir, args, options) => false)
+  }
 })
 
 afterEach(() => {
@@ -27,10 +29,10 @@ describe ('fatalErrorHelp()', () => {
 })
 
 describe('runPlatform()', () => {
-  it('should catch errors when loading client file', () => {
+  it('should run the client when no errors', () => {
     jest.spyOn(os, 'totalmem').mockReturnValue(8148832256)
 
-    expect(runPlatform()).toEqual('client error')
+    expect(runPlatform()).toEqual('client running')
   })
   it('should display help message when command line args like \'-h\'', () => {
     process.argv.push('-h')

@@ -114,6 +114,7 @@ const setUpstreamAndOrigin = async (dir, repo='Superalgos') => {
     let orURL
     if (usesSSH) {
       orURL = `git@github.com:${gitUser}/${repo}.git`
+      await git.addRemote('origin', orURL).catch(errorResp)
     }
     else {
       orURL = `https://github.com/${gitUser}/${repo}.git`

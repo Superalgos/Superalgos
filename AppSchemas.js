@@ -17,7 +17,7 @@ exports.newAppSchemas = function () {
 
       return new Promise(loadAppSchemasForAllProjects)
 
-      function loadAppSchemasForAllProjects(resolve, reject) {
+      function loadAppSchemasForAllProjects(resolve) {
 
         let projectsLoaded = 0
         for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {

@@ -44,6 +44,7 @@ describe('systemCheck()', () => {
         return `git version ${env.GIT_NEEDED_VERSION}.0.0`
       }
     })
+
     systemCheck()
     expect(mockExit).toHaveBeenCalledWith()
   })
@@ -62,6 +63,7 @@ describe('systemCheck()', () => {
         return `git version ${env.GIT_NEEDED_VERSION}.0.0`
       }
     })
+
     systemCheck()
     expect(mockExit).toHaveBeenCalledWith()
   })
@@ -80,6 +82,7 @@ describe('systemCheck()', () => {
         return `git version 1.0.0`
       }
     })
+
     systemCheck()
     expect(mockExit).toHaveBeenCalledWith()
   })
@@ -102,6 +105,7 @@ describe('systemCheck()', () => {
         return 'darwin'
       }
     })
+
     systemCheck()
     expect(mockExit).toHaveBeenCalledWith()        
   })

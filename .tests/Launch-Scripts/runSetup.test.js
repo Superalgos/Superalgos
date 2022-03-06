@@ -83,12 +83,14 @@ describe('errorResp()', () => {
   it('should exit if error caught', () => {
     const mockExit = jest.spyOn(process, 'exit').mockImplementation(() => {})
     errorResp('there was an error')
+    
     expect(mockExit).toHaveBeenCalledWith()
   })
 })
 describe('setUpstreamAndOrigin()', () => {
   it('should return success msg if github is setup correctly', async () => {
     const resp = await setUpstreamAndOrigin('./')
+  
     expect(resp).toEqual('Set upstream and origin for github')
   })
 })

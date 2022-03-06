@@ -33,6 +33,7 @@ describe('tfSetup()', () => {
   })
   it('should do nothing if not windows system', () => {
     jest.spyOn(os, 'platform').mockReturnValue('linux')
+
     expect(tfSetup()).toEqual('non-windows system')
   })
 })

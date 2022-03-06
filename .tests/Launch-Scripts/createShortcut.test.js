@@ -16,7 +16,7 @@ jest.mock('child_process', () => {
   let icon = path.join('root/path', "superalgos.ico")
   let name = dir[dir.length - 2]
   return {
-    // assuming exit code 0
+    // assuming exit code 0 is success
     execSync: jest.fn((command) => {
       if (command === `$ws = New-Object -ComObject WScript.Shell; $s = $ws.CreateShortcut("${dir}"); $S.TargetPath = "${target}"; $S.IconLocation = "${icon}"; $S.Save()`) {
         return 0
@@ -39,6 +39,7 @@ jest.mock('child_process', () => {
     })
   }
 })
+
 jest.createMockFromModule('fs')
 
 afterEach(() => {
@@ -65,7 +66,6 @@ describe('createShortcut()', () => {
   it('should create shortcuts for ubuntu system', () => {
     jest.spyOn(os, 'platform').mockReturnValue('linux')
     jest.spyOn(os, 'version').mockReturnValue('Ubuntu') 
-    
 
     expect(createShortcut()).toEqual(
       "Shortcuts created for Ubuntu"

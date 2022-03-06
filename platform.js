@@ -1,3 +1,3 @@
-const runPlatform = require('./Launch-Scripts/runPlatform')
+const { runPlatform } = require('./Launch-Scripts/runPlatform')
 
 runPlatform()

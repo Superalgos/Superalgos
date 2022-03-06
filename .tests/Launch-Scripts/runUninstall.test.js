@@ -8,8 +8,8 @@ jest.mock('child_process', () => {
   let cwd = __dirname
   let dirs = cwd.split(path.sep)
   let name = dirs[dirs.length - 1]
-  let desktop = path.join( os.homedir(), "Desktop", `${name}.lnk`)
-  let startMenu = path.join( os.homedir(), "AppData", "Roaming", "Microsoft", "Windows", "Start Menu", "Programs", `${name}.lnk`)
+  let desktop = path.join(os.homedir(), "Desktop", `${name}.lnk`)
+  let startMenu = path.join(os.homedir(), "AppData", "Roaming", "Microsoft", "Windows", "Start Menu", "Programs", `${name}.lnk`)
   
   return {
     // assuming exit code 0 is success

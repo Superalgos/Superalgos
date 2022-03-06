@@ -1,4 +1,16 @@
 const os = require('os')
+const child_process = require('child_process')
+
+const fatalErrorHelp = () => {
+  console.log('')
+  console.log('* If your device does not have MORE than 8GB of RAM then please use the minMemo option.')
+  console.log('* If your OS does not have a user interface, please use the noBrowser option.')
+  console.log('')
+  console.log('If you continue having trouble to start the Superalgos Platform Client try:')
+  console.log('')
+  console.log('node platform minMemo noBrowser')
+  return 'fatal error help message displayed'
+}
 
 const runPlatform = () => {
   if (
@@ -13,7 +25,7 @@ const runPlatform = () => {
 
     console.log('Superalgos')
     console.log('')
-    console.log('VERSION:               ' + require('package.json').version)
+    console.log('VERSION:               ' + require('../package.json').version)
     console.log('')
     console.log('WEB:                   https://www.superalgos.org')
     console.log('')
@@ -35,8 +47,7 @@ const runPlatform = () => {
     console.log('')
     console.log('If you are having an error while trying to run the Superalgos Platform Client, consider this:')
 
-    fatalErrorHelp()
-    return
+    return 'help message has been displayed'
   }
 
   let totalRAM = os.totalmem() // Get total ram installed
@@ -70,17 +81,14 @@ const runPlatform = () => {
     optionsAccepted++
     console.log('minMemo ..................................................... Running with Minimun Required Memory.')
   } 
-
   if (process.argv.includes("noBrowser")) {
     optionsAccepted++
     console.log('noBrowser ................................................... Running without User Interface.')
   }
-
   if (process.argv.includes("demoMode")) {
     optionsAccepted++
     console.log('demoMode .................................................... Running without User Interface.')
   }
-
   if (optionsAccepted === 0) {
     console.log('none ........................................................ Running without any command line options.')
   }
@@ -91,16 +99,16 @@ const runPlatform = () => {
   const fs = require('fs')
   const path = './node_modules'
   if ( fs.existsSync(path) ) {
-
     try {
-        const { fork } = require('child_process')
-        fork('./PlatformRoot.js', process.argv, options)
+        child_process.fork('./PlatformRoot.js', process.argv, options)
+        return true
     } catch (err) {
         console.log('')
         console.log('Fail to create Superalgos Platform Client Process.')
         console.log('')
 
         fatalErrorHelp()
+        return 'client error'
     }
   } else {
     console.log('')
@@ -108,17 +116,9 @@ const runPlatform = () => {
     console.log('')
   }
 
-
-  function fatalErrorHelp() {
-    console.log('')
-    console.log('* If your device does not have MORE than 8GB of RAM then please use the minMemo option.')
-    console.log('* If your OS does not have a user interface, please use the noBrowser option.')
-    console.log('')
-    console.log('If you continue having trouble to start the Superalgos Platform Client try:')
-    console.log('')
-    console.log('node platform minMemo noBrowser')
-  }
-
 }
 
-module.exports = runPlatform
+module.exports = {
+  runPlatform,
+  fatalErrorHelp
+}

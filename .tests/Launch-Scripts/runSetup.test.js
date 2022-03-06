@@ -79,26 +79,26 @@ afterEach(() => {
   nock.restore()
 })
 
-describe('errorResp', () => {
+describe('errorResp()', () => {
   it('should exit if error caught', () => {
     const mockExit = jest.spyOn(process, 'exit').mockImplementation(() => {})
     errorResp('there was an error')
     expect(mockExit).toHaveBeenCalledWith()
   })
 })
-describe('setUpstreamAndOrigin', () => {
+describe('setUpstreamAndOrigin()', () => {
   it('should return success msg if github is setup correctly', async () => {
     const resp = await setUpstreamAndOrigin('./')
     expect(resp).toEqual('Set upstream and origin for github')
   })
 })
-describe('installExternalScripts', () => {
+describe('installExternalScripts()', () => {
   // TODO: figure out how to properly mock createWriteStream
   it('should install all external scripts to disk', async () => {
     expect(installExternalScripts()).toEqual('External scripts installed')
   })
 })
-describe('runSetup', () => {
+describe('runSetup()', () => {
   it('should return success message if setup completes properly', () => {
     expect(runSetup()).toEqual('Setup complete')
   })

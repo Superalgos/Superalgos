@@ -45,7 +45,7 @@ afterEach(() => {
   jest.clearAllMocks()
 })
 
-describe('createShortcut', () => {
+describe('createShortcut()', () => {
   it('should create a new shortcut for windows system', () => {
     jest.spyOn(os, 'platform').mockReturnValue('win32')
     jest.spyOn(os, 'version').mockReturnValue('10')

@@ -27,7 +27,7 @@ afterEach(() => {
   jest.clearAllMocks()
 })
 
-describe('tfSetup', () => {
+describe('tfSetup()', () => {
   it('should copy tensorflow.dll for windows sytems', () => {
     expect(tfSetup()).toEqual('tensorflow dll copied')
   })

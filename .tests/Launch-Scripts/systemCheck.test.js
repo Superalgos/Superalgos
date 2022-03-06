@@ -29,7 +29,7 @@ afterEach(() => {
   jest.clearAllMocks()
 })
 
-describe('systemCheck', () => {
+describe('systemCheck()', () => {
   it('should exit if npm version is less than needed version', () => {
     const env = require('../../Environment').newEnvironment()
     const mockExit = jest.spyOn(process, 'exit').mockImplementation(() => {})

@@ -33,7 +33,6 @@ const SuggestedUsers = () => {
     const dispatch = useDispatch();
     const suggestedUsersList = useSelector(state => state.suggestedUsers.suggestedUsersList)
     const [loading, setLoading] = useState(true);
-    const /*[*/initialPaginationIdex/*, setInitialPaginationIndex] */ =/* useState(*/7/*)*/;
     const /*[*/pagination/*, setPagination] */ =/* useState(*/3/*)*/;
 
     useEffect(() => {

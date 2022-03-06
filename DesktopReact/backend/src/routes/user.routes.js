@@ -16,8 +16,16 @@ router
     .get(userController.loadProfile);
 
 router
+    .route('/profileData')
+    .get(userController.loadProfileData);
+
+router
     .route('/profile')
     .post(userController.saveProfile);
+
+router
+    .route('/social-stats')
+    .post(userController.getSocialStats);
 
 router
     .route('/paginate-profiles')

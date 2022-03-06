@@ -65,8 +65,24 @@ function newContributionsContributionsPage() {
         let repoNames = []
         let fileName
         for (const stat of thisObject.repoStatus) {
+
             // Overall diff in repo
-            HTML += '<div class="repo-title"><span class="docs-h3">' + stat[0] + '</span>' + '<span><span>Files Changed: ' + JSON.stringify(stat[1].changed) + ' </span><span class="insertion"> Insertions: ' + JSON.stringify(stat[1].insertions) +' </span><span class="deletion"> Deletions: ' + JSON.stringify(stat[1].deletions) + ' </span></span></div>'
+            HTML += '<div class="repo-title"><span class="docs-h3">' + stat[0] + '</span><span><span>Files Changed: ' + JSON.stringify(stat[1].changed) + ' </span><span class="insertion"> Insertions: ' + JSON.stringify(stat[1].insertions) +' </span><span class="deletion"> Deletions: ' + JSON.stringify(stat[1].deletions) + ' </span></span></div>'
+            // Status compared to upstream by branch 
+            for (const branch of stat[2]) {
+                if (UI.projects.education.spaces.docsSpace.currentBranch === branch[0]) {
+                    if (branch[1] === 'local out of date'){
+                        HTML += '<div class="repo-update-stat" style="color:#b11a0f">Out dated. Please Update</div>'
+                    } else if (branch[1] === 'up to date'){
+                        HTML += '<div class="repo-update-stat" style="color:#10aa1d">Up to date!</div>'
+                    } else {
+                        HTML += '<div class="repo-update-stat">Local code is ' + branch[1] + ' </div>'
+                    }
+                       
+                } 
+            }
+
+            // Commit per repo tools 
             HTML += '<div class="contribute-box"><input id="' + stat[0] + '-input" type="text" class="contributions-input" placeholder="Type a commit message for these changes here" spellcheck="false" autocapitalize="false"></input><button id="' + stat[0] + '-contribute-button" class="credentials-save-button">Contribute</button></div>'
             repoNames.push(stat[0])
 
@@ -173,6 +189,7 @@ function newContributionsContributionsPage() {
         httpRequest(undefined, 'App/Status', onResponse)
         
         function onResponse(err, data) {
+            console.log('this is the result of checking upstream', data)
             /* Lets check the result of the call through the http interface */
             data = JSON.parse(data)
             if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
@@ -250,6 +267,7 @@ function newContributionsContributionsPage() {
             data = JSON.parse(data)
             if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.CUSTOM_OK_RESPONSE.result) {
                 //TODO: need to iterate through returned message in data result to give more specific result messages 
+                reset()
                 setCommandStatus("Updated Succesfully!") 
                 
             } else {

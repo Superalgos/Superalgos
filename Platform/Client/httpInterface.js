@@ -1637,14 +1637,12 @@ exports.newHttpInterface = function newHttpInterface() {
                                         for (let str of split) {
                                             if (str.includes('pushes')) {
                                                 // Get name of Branch
-                                                let name = str.trim().split(' ')[0]
+                                                let branch = str.trim().split(' ')[0]
                                                 // Get status of branch
                                                 let value = str.match(/\(([^]+)\)/)
-                                                upstreamArray.push([name, value[1]])
+                                                upstreamArray.push([branch, value[1]])
                                             }
                                         }
-
-
 
                                         function responce(err, diffSummary) {
                                             if (err !== null) {

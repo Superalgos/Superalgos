@@ -69,17 +69,20 @@ function newContributionsContributionsPage() {
             // Overall diff in repo
             HTML += '<div class="repo-title"><span class="docs-h3">' + stat[0] + '</span><span><span>Files Changed: ' + JSON.stringify(stat[1].changed) + ' </span><span class="insertion"> Insertions: ' + JSON.stringify(stat[1].insertions) +' </span><span class="deletion"> Deletions: ' + JSON.stringify(stat[1].deletions) + ' </span></span></div>'
             // Status compared to upstream by branch 
-            for (const branch of stat[2]) {
-                if (UI.projects.education.spaces.docsSpace.currentBranch === branch[0]) {
-                    if (branch[1] === 'local out of date'){
-                        HTML += '<div class="repo-update-stat" style="color:#b11a0f">Out dated. Please Update</div>'
-                    } else if (branch[1] === 'up to date'){
-                        HTML += '<div class="repo-update-stat" style="color:#10aa1d">Up to date!</div>'
-                    } else {
-                        HTML += '<div class="repo-update-stat">Local code is ' + branch[1] + ' </div>'
-                    }
-                       
-                } 
+            if (stat[2].length === 0) {
+                HTML += '<div class="repo-update-stat">Something is wrong with the status of your local repository. Please Update</div>'
+            } else {
+                for (const branch of stat[2]) {
+                    if (UI.projects.education.spaces.docsSpace.currentBranch === branch[0]) {
+                        if (branch[1] === 'local out of date'){
+                            HTML += '<div class="repo-update-stat" style="color:#b11a0f">Out dated. Please Update</div>'
+                        } else if (branch[1] === 'up to date'){
+                            HTML += '<div class="repo-update-stat" style="color:#10aa1d">Up to date!</div>'
+                        } else {
+                            HTML += '<div class="repo-update-stat">Local code is ' + branch[1] + ' </div>'
+                        }   
+                    } 
+                }
             }
 
             // Commit per repo tools 

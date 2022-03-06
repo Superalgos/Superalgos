@@ -1644,6 +1644,10 @@ exports.newHttpInterface = function newHttpInterface() {
                                             }
                                         }
 
+                                        if (upstreamArray.length === 0) {
+                                            console.log('[ERROR] Unexpected response from command git remote. Responded with:',raw)
+                                        }
+
                                         function responce(err, diffSummary) {
                                             if (err !== null) {
                                                 console.log('[ERROR] Error while gathering diff summary for ' + repo)

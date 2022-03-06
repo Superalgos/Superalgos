@@ -10,7 +10,8 @@
   "scripts": {
     "start": "node platform minMemo noBrowser",
     "presetup": "git checkout develop && git pull upstream develop",
-    "setup": "node setup noShortcuts && node tf_setup.js",
+    "setup": "node setup noShortcuts",
+    "setupWithTf": "node setupWithTf noShortcuts",
     "postsetup": "npm start",
     "dist": "electron-builder -c build/electron-builder.json",
     "postinstall": "electron-builder install-app-deps",

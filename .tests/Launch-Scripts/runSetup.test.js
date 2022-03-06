@@ -1,5 +1,6 @@
 const nock = require('nock')
 const simpleGit = require('simple-git')
+const process = require('process')
 const env = require('../../Environment').newEnvironment()
 const externalScriptsURLs = env.EXTERNAL_SCRIPTS
 const { 
@@ -10,7 +11,8 @@ const {
 const { 
   setUpstreamAndOrigin, 
   runSetup,
-  installExternalScripts
+  installExternalScripts,
+  errorResp
 } = require('../../Launch-Scripts/runSetup')
 
 // ****** VERY IMPORTANT NOTE *******
@@ -49,7 +51,8 @@ simpleGit.mockReturnValue({
 
 jest.mock('process', () => {
   return {
-    cwd: jest.fn(() => './')
+    cwd: jest.fn(() => './'),
+    exit: jest.fn(() => 'there was an error')
   }
 })
 
@@ -76,6 +79,13 @@ afterEach(() => {
   nock.restore()
 })
 
+describe('errorResp', () => {
+  it('should exit if error caught', () => {
+    const mockExit = jest.spyOn(process, 'exit').mockImplementation(() => {})
+    errorResp('there was an error')
+    expect(mockExit).toHaveBeenCalledWith()
+  })
+})
 describe('setUpstreamAndOrigin', () => {
   it('should return success msg if github is setup correctly', async () => {
     const resp = await setUpstreamAndOrigin('./')

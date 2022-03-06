@@ -7,11 +7,10 @@ const externalScriptsDir = path.join(process.cwd(), 'Platform', 'WebServer', 'ex
 const env = require('../Environment').newEnvironment()
 const externalScriptsURLs = env.EXTERNAL_SCRIPTS
 const projectPluginMap = require('../Plugins/project-plugin-map.json')
-const simpleGit = require('simple-git')
 
 const errorResp = (e) => {
   console.error(e)
-  process.exit(1)
+  process.exit()
 }
 
 // ** export setup piece by piece for more robust tests **
@@ -35,12 +34,13 @@ const installExternalScripts = () => {
       }
     })    
   }
-  console.log('External scripts installed')
   return 'External scripts installed'
 }
 
 const setUpstreamAndOrigin = async (dir, repo='Superalgos') => {
+  console.log('Setting up github upstream and origin...')
   // initialize simpleGit
+  const simpleGit = require('simple-git')
   const options = {
       binary: 'git',
       maxConcurrentProcesses: 6,
@@ -124,8 +124,23 @@ const setUpstreamAndOrigin = async (dir, repo='Superalgos') => {
   return 'Set upstream and origin for github'
 }
 
-const runSetup = () => {
+const runSetup = (tfjs=false) => {
   // Install Node_Modules to Main Superalgos Directory
+
+  // install tensorflow if user ran tensorflow setup file
+  if (tfjs !== false) {
+    console.log('Including tensorflow.js in your setup...')
+    nodeModulesDirs = [
+      path.join(process.cwd(), 
+                "Projects", 
+                "TensorFlow", 
+                "TS", 
+                "Bot-Modules", 
+                "Learning-Bot", 
+                "Low-Frequency-Learning")
+  ]
+  }
+
   let dir = process.cwd()
   let command = 'echo Results of install at ' + dir + ' & npm ci'
   let nodeInstPromise = new Promise(resolve => {
@@ -155,7 +170,7 @@ const runSetup = () => {
 
   // Donload external scripts
   console.log('')
-  console.log('Downloading external scripts …')
+  console.log('Setting up your environment …')
   console.log('')
   installExternalScripts()
 
@@ -165,19 +180,18 @@ const runSetup = () => {
     // Ensure upstream and origin are set for this repo and submodules
 
     let gitUser
-    let usesSSH = false
     setUpstreamAndOrigin().then(async () => {
       Object.values(projectPluginMap).forEach(plugin => {
         setUpstreamAndOrigin(plugin.dir, plugin.repo)
       })
     }).catch(errorResp)
   })
-  console.log('Setup complete')
   return 'Setup complete'
 }
 
 module.exports = {
   runSetup,
   setUpstreamAndOrigin,
-  installExternalScripts
+  installExternalScripts,
+  errorResp
 }

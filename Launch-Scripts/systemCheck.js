@@ -67,6 +67,6 @@ function systemCheck () {
   }
   return true
 
-};
+}
 
 module.exports = systemCheck

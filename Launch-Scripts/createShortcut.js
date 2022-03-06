@@ -15,8 +15,15 @@ const createShortcut = () => {
     let target = path.join( __dirname, "launch-windows.bat")
     let icon = path.join( __dirname, "superalgos.ico")
     let shortcutPaths = [
-      path.join( os.homedir(), "Desktop", `${name}.lnk`),
-      path.join( os.homedir(), "AppData", "Roaming", "Microsoft", "Windows", "Start Menu", "Programs", `${name}.lnk`)
+      path.join(os.homedir(), "Desktop", `${name}.lnk`),
+      path.join(os.homedir(), 
+                "AppData", 
+                "Roaming", 
+                "Microsoft", 
+                "Windows", 
+                "Start Menu", 
+                "Programs", 
+                `${name}.lnk`)
     ]
 
     // Place Shortcuts using powershell
@@ -28,12 +35,12 @@ const createShortcut = () => {
           shell: "powershell.exe",
           execArgv: "-ExecutionPolicy Bypass -NoLogo -NonInteractive -NoProfile -Command"
         },
-        function ( error, stdout){
+        (error, stdout) => {
           if (error) {
             console.log('')
             console.log("There was an error installing a shortcut: ")
             console.log('')
-            console.log( error )
+            console.log(error)
             return false
           } else {
             console.log('')
@@ -74,8 +81,8 @@ const createShortcut = () => {
 
       // Place shortcut in proper folders
       let command = `cp ${name}.desktop ~/Desktop/${name}.desktop & cp ${name}.desktop ~/.local/share/applications/${name}.desktop`
-        execSync( command,
-          function ( error, stdout ){
+        execSync(command,
+          (error) => {
             if (error) {
               console.log('')
               console.log("There was an error installing a shortcut: ")
@@ -100,7 +107,7 @@ const createShortcut = () => {
 
   // Mac Shortcuts
   } else if (os.platform() == "darwin") {
-    const icon = path.join( __dirname,"/superalgos.ico")
+    path.join( __dirname,"/superalgos.ico")
     const createShortcutCommand = `chmod +x ${name}.command & cp ${name}.command ~/Desktop/${name}.command`
     const installFileIconcommand = `npm install -g fileicon`
     const changeIconCommand = `./node_modules/fileicon/bin/fileicon set ~/Desktop/${name}.command ./Launch-Scripts/superalgos.ico`

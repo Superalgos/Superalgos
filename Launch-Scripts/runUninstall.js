@@ -38,7 +38,7 @@ const uninstall = () => {
 
       // Remove .desktop files
       let command = `rm ~/Desktop/${name}.desktop & rm ~/.local/share/applications/${name}.desktop`
-      exec(command, (error, stdout) => {
+      exec(command, (error) => {
         if (error) {
           console.log('')
           console.log("There was an error uninstalling shortcuts: ")
@@ -60,7 +60,7 @@ const uninstall = () => {
   if (os.platform() == "darwin") {
     // Remove .desktop files
     let command = `rm ~/Desktop/${name}.command`
-    exec(command, (error, stdout) => {
+    exec(command, (error) => {
       if (error) {
         console.log('')
         console.log("There was an error uninstalling shortcuts: ")

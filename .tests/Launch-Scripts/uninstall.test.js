@@ -1,4 +1,4 @@
-const uninstall = require('../../Launch-Scripts/uninstallAll')
+const uninstall = require('../../Launch-Scripts/runUninstall')
 const os = require('os')
 
 jest.mock('child_process', () => {

@@ -19,10 +19,10 @@ const installExternalScripts = () => {
     const url = externalScriptsURLs[i]
     const filename = url.split('/').pop()
     const dest = path.join(externalScriptsDir, filename)
-    const res = https.get(url, resp => {
+    https.get(url, resp => {
       if (resp.statusCode !== 200) {
         console.error(
-          `Error downloading ${url}: HTTP response code ${response.statusCode}.`
+          `Error downloading ${url}: HTTP response code ${resp.statusCode}.`
           )
         return false
       } else {
@@ -78,7 +78,7 @@ const setUpstreamAndOrigin = async (dir, repo='Superalgos') => {
   if (repo === 'Superalgos' && origin) {
     if (origin.indexOf('@') === -1) {
       gitUser = origin.split('/')[3]
-      useSSH = false
+      usesSSH = false
     } else {
       gitUser = origin.split(':')[1].split('/')[0]
       usesSSH = true
@@ -130,20 +130,19 @@ const runSetup = (tfjs=false) => {
   // install tensorflow if user ran tensorflow setup file
   if (tfjs !== false) {
     console.log('Including tensorflow.js in your setup...')
-    nodeModulesDirs = [
-      path.join(process.cwd(), 
-                "Projects", 
-                "TensorFlow", 
-                "TS", 
-                "Bot-Modules", 
-                "Learning-Bot", 
-                "Low-Frequency-Learning")
-  ]
+
+    path.join(process.cwd(), 
+              "Projects", 
+              "TensorFlow", 
+              "TS", 
+              "Bot-Modules", 
+              "Learning-Bot", 
+              "Low-Frequency-Learning")
   }
 
   let dir = process.cwd()
   let command = 'echo Results of install at ' + dir + ' & npm ci'
-  let nodeInstPromise = new Promise(resolve => {
+  let nodeInstPromise = new Promise(() => {
     exec(command,
       {
           cwd: dir
@@ -179,7 +178,6 @@ const runSetup = (tfjs=false) => {
     // Initialize and update git repositories
     // Ensure upstream and origin are set for this repo and submodules
 
-    let gitUser
     setUpstreamAndOrigin().then(async () => {
       Object.values(projectPluginMap).forEach(plugin => {
         setUpstreamAndOrigin(plugin.dir, plugin.repo)

@@ -10,20 +10,21 @@ const UserCard = ({name, userId, profilePic}) => {
     const navigate = useNavigate();
     const [followed, setFollowed] = useState(false);
 
-    const followCallback = async () => {
+    const followCallback = async (e) => {
+        e.stopPropagation();
         const eventType = followed ? 16 : 15;/* TODO use constant */
         const {result} = await followUser(userId, eventType).then(response => response.json());
         setFollowed(value => ((result === STATUS_OK) ? (!value) : (value)));
     }
 
-    const navigateToprofile = () => {
+    const navigateToProfile = () => {
         navigate(`/Profile/?p=${userId}`)
     }
 
 
     return (
-        <Card className="userCard" variant="outlined">
-            <Avatar src={profilePic ? profilePic : pic} className='avatar' onClick={navigateToprofile}/>
+        <Card className="userCard" variant="outlined" onClick={navigateToProfile}>
+            <Avatar src={profilePic || pic} className='avatar'/>
             <CardContent className="usernameCard">
                 {/*TODO name should not exceed certain length */}
                 <Typography className="username" variant="body2">{name}</Typography>

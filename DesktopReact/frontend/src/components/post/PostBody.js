@@ -35,10 +35,10 @@ const Post = ({postData}) => {
                 <div className="grid-container">
                     <div className="postHeader">
                         <Typography className="postName">
-                            {name ? name : 'userProfileHandle'}
+                            { name || 'userProfileHandle'}
                         </Typography>
                         <Typography className="postUserName">
-                            @{username ? username : 'userProfileHandle'}
+                            @{ username || 'userProfileHandle'}
                         </Typography>
                     </div>
                     <div className="postAvatar">

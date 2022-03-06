@@ -133,7 +133,7 @@ function newContributionsContributionsPage() {
         // Attach listener to Credentials save button
         document.getElementById('credentials-save-button').addEventListener('click', saveCreds)
 
-        //Attach listeners and animation to Main Buttons 
+        //Attach listeners to Main Buttons 
         document.getElementById('contribute-all').addEventListener('click', contributeAll)
         document.getElementById('update').addEventListener('click', update)
         document.getElementById('reset').addEventListener('click', resetRepo)
@@ -280,8 +280,10 @@ function newContributionsContributionsPage() {
 
     function resetRepo() {
            
-        setCommandStatus("Resetting Repository....") 
-        httpRequest(undefined, 'App/Reset/' + UI.projects.education.spaces.docsSpace.currentBranch, onResponse)
+        if(confirm("Are you sure you want to reset your local SA instance?")) {
+            setCommandStatus("Resetting Repository....") 
+            httpRequest(undefined, 'App/Reset/' + UI.projects.education.spaces.docsSpace.currentBranch, onResponse)
+        }
         
         function onResponse(err, data) {
             /* Lets check the result of the call through the http interface */

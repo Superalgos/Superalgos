@@ -8,16 +8,16 @@ systemCheck()
 
 // Handle adding shortcuts
 if (process.argv.includes("shortcuts")) {
-    // Run create-shortcuts script
-    try {
-        console.log('\nshortcuts ................................................... Creating desktop shortcuts.\n')
-        createShortcut()
-    } catch (err) {
-        console.log('')
-        console.log(err)
-        console.log('')
-        process.exit(1)
-    }
+  // Run create-shortcuts script
+  try {
+    console.log('\nshortcuts ................................................... Creating desktop shortcuts.\n')
+    createShortcut()
+  } catch (err) {
+    console.log('')
+    console.log(err)
+    console.log('')
+    process.exit(1)
+  }
 }
 
 runSetup()

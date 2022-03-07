@@ -21,5 +21,6 @@ if (process.argv.includes("shortcuts")) {
   }
 }
 
-runSetup(tfjs=true)
+
+runSetup(true)
 tfSetup()

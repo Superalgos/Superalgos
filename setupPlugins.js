@@ -31,7 +31,7 @@ async function run() {
 
     return new Promise(promiseWork)
 
-    async function promiseWork(resolve, reject) {
+    async function promiseWork(resolve) {
       if (username === undefined || token === undefined) {
         console.log('[WARN] You need to provide your Github username and token in order for this script to Fork the Plugins repositories into your acccount for you.')
         console.log('[WARN] Add your user name and token to the parameters of this script and try again please. ')
@@ -51,12 +51,12 @@ async function run() {
           owner: username,
           repo: repo,
         })
-          .then(async err => {
+          .then(async () => {
             console.log('[INFO] Dont need to fork plugin repo Superalgos/' + repo + ' because a fork already exists at the ' + username + ' account.')
             reponsesCount++
             if (reponsesCount === Object.keys(global.env.PROJECT_PLUGIN_MAP).length) { resolve() }
           })
-          .catch(async err => {
+          .catch(async () => {
             await octokit.repos.createFork({
               owner: 'Superalgos',
               repo: repo
@@ -101,9 +101,9 @@ async function run() {
       await cloneTheRepo()
 
       async function cloneTheRepo() {
-        return new Promise(promiseWork)
+        return new Promise(git)
 
-        async function promiseWork(resolve, reject) {
+        async function promiseWork(resolve) {
           exec('git clone ' + repoURL + ' ' + global.env.PROJECT_PLUGIN_MAP[propertyName].dir + ' --branch develop',
             {
               cwd: path.join(global.env.PATH_TO_PLUGINS)

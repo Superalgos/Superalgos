@@ -722,7 +722,7 @@
                     "onMouseWheelIndex": 5,
                     "onMouseOverIndex": 4,
                     "onMouseClickIndex": 5,
-                    "onMouseDownIndex": 4
+                    "onMouseDownIndex": 5
                 },
                 {
                     "name": "Side Space",
@@ -754,7 +754,7 @@
                     "onMouseWheelIndex": 7,
                     "onMouseOverIndex": 5,
                     "onMouseClickIndex": 4,
-                    "onMouseDownIndex": 5
+                    "onMouseDownIndex": 4
                 }
             ]
         },

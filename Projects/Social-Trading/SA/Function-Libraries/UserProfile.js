@@ -8,7 +8,7 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
     return thisObject
 
     async function getUserProfileInfo(profileMessage) {
-
+        // TODO make this function return UserProfileInfo
     }
 
     async function createUserProfile(profileMessage) {
@@ -91,7 +91,7 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
             const SUPERALGOS_ORGANIZATION_NAME = 'Superalgos'
             const GOVERNANCE_PLUGINS_REPO_NAME = 'Governance-Plugins'
             const GOVERNANCE_PLUGINS_REPO_BRANCH = 'develop'
-            const { Octokit } = SA.nodeModules.octokit
+            const {Octokit} = SA.nodeModules.octokit
             const octokit = new Octokit({
                 auth: profileMessage.storageProviderToken,
                 userAgent: 'Superalgos ' + SA.version
@@ -104,38 +104,38 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
             }
 
             await checkCreateFork()
-            if (response.result === 'Error') { 
-                resolve(response) 
+            if (response.result === 'Error') {
+                resolve(response)
                 return
             }
             await checkCreateUserProfile()
-            if (response.result === 'Error') { 
-                resolve(response) 
+            if (response.result === 'Error') {
+                resolve(response)
                 return
             }
             addUserAppsNodes()
-            if (response.result === 'Error') { 
-                resolve(response) 
+            if (response.result === 'Error') {
+                resolve(response)
                 return
             }
             await addSigningAccounts()
-            if (response.result === 'Error') { 
-                resolve(response) 
+            if (response.result === 'Error') {
+                resolve(response)
                 return
             }
             await pushUserProfileAndPullRequest()
-            if (response.result === 'Error') { 
-                resolve(response) 
+            if (response.result === 'Error') {
+                resolve(response)
                 return
             }
             updateInMemoryUserProfile()
-            if (response.result === 'Error') { 
-                resolve(response) 
+            if (response.result === 'Error') {
+                resolve(response)
                 return
             }
             saveUserAppFile()
-            if (response.result === 'Error') { 
-                resolve(response) 
+            if (response.result === 'Error') {
+                resolve(response)
                 return
             }
 
@@ -324,7 +324,9 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                     targetNodeTypeCount,
                     response
                 )
-                if (response.result === 'Error') { resolve(response) }
+                if (response.result === 'Error') {
+                    resolve(response)
+                }
             }
 
             async function pushUserProfileAndPullRequest() {
@@ -350,8 +352,8 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                 }
             }
 
-            function updateInMemoryUserProfile(){
-                
+            function updateInMemoryUserProfile() {
+
                 let inMemoryUserProfile = SA.projects.communityPlugins.utilities.nodes.fromSavedPluginToInMemoryStructure(
                     userProfile
                 )
@@ -371,7 +373,7 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                 We will save a file to a special git ignored folder.
                 */
                 let filePath = global.env.PATH_TO_SECRETS + '/'
-                let fileName = profileMessage.userAppType.replace(' ','').replace(' ','').replace(' ','').replace(' ','').replace(' ','').replace(' ','').replace(' ','') + ".json"
+                let fileName = profileMessage.userAppType.replace(' ', '').replace(' ', '').replace(' ', '').replace(' ', '').replace(' ', '').replace(' ', '').replace(' ', '') + ".json"
                 let fileContent = {
                     userProfile: {
                         id: userProfile.id,

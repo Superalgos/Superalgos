@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Эта команда позволяет проверить все существующие PR и автоматически закрыть те, которые не соответствуют правилам PR запросов, или объединить те, которые соответствуют. Она также оставляет нетронутыми PR, которые выходят за рамки правил PR запросов.",
                 "updated": 1645627894102
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu komut, varolan tüm PR'ları denetlemenize ve PRs Kurallarına uymayanları otomatik olarak kapatmanıza veya yaptıklarını birleştirmenize olanak tanır. Ayrıca, PRS Kuralları'nın kapsamı dışında olan PR'lere dokunulmaz.",
+                "updated": 1646744671436
             }
         ]
     },

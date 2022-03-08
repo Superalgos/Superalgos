@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Probit Exchange (www.probit.com) описывает себя как глобальную криптовалютную биржу, работающую по принципу \"монета к монете\". ProBit Exchange размещает только те криптовалютные проекты, которые она считает \"квалифицированными и достойными\". Сообщается, что скорость обработки ордеров на ProBit Exchange составляет более 1,5 миллиона ордеров в секунду, а пользовательский интерфейс является настраиваемым. Кроме того, ProBit Exchange утверждает, что предоставляет пользователям возможность использования аппаратного ключа безопасности в дополнение к двухфакторной аутентификации.",
                 "updated": 1645626738167
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Probit Exchange (www.probit.com), kendisini küresel bir madeni paradan madeni paraya kripto para birimi değişimi olarak tanımlar. ProBit Exchange, yalnızca 'nitelikli ve hak eden' kripto para projelerini listeler. ProBit Exchange'in saniyede 1,5 milyonun üzerinde sipariş eşleştirme hızına ve özelleştirilebilir bir kullanıcı arayüzüne sahip olduğu bildiriliyor. Ayrıca ProBit Exchange, kullanıcılara 2 Faktörlü Kimlik Doğrulamaya ek olarak bir donanım güvenlik anahtarı seçeneği sunduğunu iddia ediyor.",
+                "updated": 1646307150838
             }
         ]
     },
@@ -22,6 +27,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER для написания новых абзацев. ESC для выхода из режима редактирования. Затем вы можете использовать docs.save для сохранения изменений и app.contribute для отправки их в основной репозиторий.",
                     "updated": 1645626745250
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle. Yeni paragraflar yazmak için ENTER'a basın. Düzenleme modundan çıkmak için ESC. Ardından, değişikliklerinizi kaydetmek için docs.save'i ve ana depoya göndermek için app.contribute'i kullanabilirsiniz.",
+                    "updated": 1646307176555
                 }
             ]
         }

@@ -148,28 +148,24 @@ function newAnimation() {
                     PANORAMA_WAS_PANNED = false
                 }
             }
-// **************************
-            //* We request the next frame to be drawn, and establish a loop */
-            
+
+            /* We request the next frame to be drawn, and establish a loop */
+
             /* Use this code for full animation speed. */
-            //animationLoopHandle = window.requestAnimationFrame(animationLoop)
+            animationLoopHandle = window.requestAnimationFrame(animationLoop)
 
             /* Use this code for max 10 frames per second animation speed, if the app is consuming too much of your CPU.  */
             /*
-            setTimeout(nextLoop, 1000000)//100
+            setTimeout(nextLoop, 100)
             function nextLoop () {
               animationLoopHandle = window.requestAnimationFrame(animationLoop)
             }
             */
-            const fps = 60;
-            setTimeout(() => {
-                animationLoopHandle = window.requestAnimationFrame(animationLoop) 
-				}, 1000 / fps);
         } catch (err) {
             if (ERROR_LOG === true) { logger.write('[ERROR] animationLoop -> err = ' + err.stack) }
         }
     }
-// ***********************
+
     function clearBrowserCanvas() {
         if (CAN_SPACES_DRAW === false) { return }
         browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'

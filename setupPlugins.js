@@ -7,7 +7,10 @@ async function run() {
     let ENVIRONMENT_MODULE = ENVIRONMENT.newEnvironment()
     global.env = ENVIRONMENT_MODULE
 
-    // Save github credentials for later
+    await forkPluginRepos(username, token)
+    clonePluginRepos(username)
+
+    // Save github credentials for later after script runs
     const credentials = {
         "githubUsername": username,
         "githubToken": token
@@ -25,8 +28,7 @@ async function run() {
     } )
 
 
-    await forkPluginRepos(username, token)
-    clonePluginRepos(username)
+
 
     async function forkPluginRepos(username, token) {
 

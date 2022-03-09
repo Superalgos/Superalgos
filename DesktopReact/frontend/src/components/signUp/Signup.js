@@ -2,40 +2,36 @@ import React, {useEffect, useState} from 'react';
 import "./Signup.css"
 import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
-import {updateProfile} from "../../api/profile.httpService";
+import {createProfile, updateProfile} from "../../api/profile.httpService";
 import {STATUS_OK} from "../../api/httpConfig";
 import {setActualProfile} from "../../store/slices/Profile.slice";
 import SignupView from "./SignupView";
+import {toBase64} from "../../utils/helper";
 
 const Signup = () => {
-    const [errorState, setErrorState] = useState(true);
+    const [errorState, setErrorState] = useState({name: true, gitUsername: true, gitToken: true});
     const [inputCharNumber, setInputCharNumber] = useState(false);
-    const [userInfo, setUserInfo] = useState(useSelector(state => state.profile.actualUser));
+    const [userInfo, setUserInfo] = useState({
+        ...useSelector(state => state.profile.actualUser),
+        gitUsername: '',
+        gitToken: ''
+    });
     // Stepper Component
-    const steps = [/*'Enter your username', 'Additional p*/'Profile data'];
-    const [activeStep, setActiveStep] = React.useState(0);
-    const [skipped, setSkipped] = React.useState(new Set());
+    const steps = ['Github login', 'Profile data', 'Profile photo', 'Finish'];
+    const [activeStep, setActiveStep] = useState(0);
+    const [skipped, setSkipped] = useState(new Set());
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
     const isUserLoaded = () => {
-        console.log(userInfo)
         let {name, bio, joined, profilePic, location, bannerPic} = userInfo;
-        if (name || bio || joined || profilePic || location || bannerPic) return;
-        // navigate('/');
+        if (!(name || bio || joined || profilePic || location || bannerPic)) return;
+        navigate('/');
     }
 
     useEffect(() => {
         isUserLoaded();
     }, []);
-
-
-    const toBase64 = file => new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = () => resolve(reader.result);
-        reader.onerror = error => reject(error);
-    });
 
     const selectProfilePic = async (e) => {
         let profilePic = e.target.files[0];
@@ -59,7 +55,11 @@ const Signup = () => {
         let newValue = event.target.value;
         let field = event.target.id;
         console.log({field, newValue})
-        setErrorState(field === 'name' && (!newValue));
+        setErrorState((val) => {
+            val[field] = !newValue;
+            return val;
+        });
+
         setUserInfo({
             ...userInfo,
             [field]: newValue
@@ -67,7 +67,7 @@ const Signup = () => {
         setInputCharNumber(event.target.value.length) // if a field is filled with error, changing of input and adding more chars clears the error because of the use of one state handler
     }
 
-    const saveProfile = async () => {
+    const saveProfileHandler = async () => {
         let profileData = {
             ...userInfo, joined: new Date().getTime(), originSocialPersonaId: userInfo.nodeId
         };
@@ -77,11 +77,13 @@ const Signup = () => {
         if (result === STATUS_OK) {
             dispatch(setActualProfile(userInfo));
             navigate("/");
+        } else {
+            alert('Profile could not be created.')
         }
     }
 
     const isStepOptional = (step) => {
-        return step === 1;
+        return false/*step === 2*/;
     };
 
     const isStepSkipped = (step) => {
@@ -122,6 +124,19 @@ const Signup = () => {
         setActiveStep(0);
     };
 
+    const createProfileHandler = async () => {
+        let {result} = await createProfile({
+            username: userInfo?.gitUsername,
+            token: userInfo?.gitToken
+        }).then(response => response.json());
+        if (result === STATUS_OK) {
+            handleNext()
+        } else {
+            alert('Profile could not be created.')
+        }
+    }
+
+
     return <SignupView
         errorState={errorState}
         inputCharNumber={inputCharNumber}
@@ -129,13 +144,13 @@ const Signup = () => {
         selectProfilePic={selectProfilePic}
         selectBannerPic={selectBannerPic}
         handleChange={handleChange}
-        saveProfile={saveProfile}
+        saveProfile={saveProfileHandler}
         steps={steps}
         activeStep={activeStep}
         skipped={skipped}
         isStepOptional={isStepOptional}
         isStepSkipped={isStepSkipped}
-        handleNext={handleNext}
+        handleNext={createProfileHandler}
         handleBack={handleBack}
         handleSkip={handleSkip}
         handleReset={handleReset}

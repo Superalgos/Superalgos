@@ -7,33 +7,38 @@ import {
     FormControl,
     FormHelperText,
     InputLabel,
+    Link,
     OutlinedInput,
+    Step,
+    StepLabel,
+    Stepper,
     Typography
 } from "@mui/material";
 import {LoginOutlined} from "@mui/icons-material";
 import styled from "@emotion/styled";
+import DomSwitch from "../domSwitch/DomSwitch";
 
-const SignupView = (props) => {
-    const {
-        errorState,
-        inputCharNumber,
-        userInfo,
-        selectProfilePic,
-        selectBannerPic,
-        handleChange,
-        saveProfile,
-        steps,
-        activeStep,
-        skipped,
-        isStepOptional,
-        isStepSkipped,
-        handleNext,
-        handleBack,
-        handleSkip,
-        handleReset
-    } = props;
+const SignupView = ({
+                        errorState,
+                        inputCharNumber,
+                        userInfo,
+                        selectProfilePic,
+                        selectBannerPic,
+                        handleChange,
+                        saveProfile,
+                        steps,
+                        activeStep,
+                        skipped,
+                        isStepOptional,
+                        isStepSkipped,
+                        handleNext,
+                        handleBack,
+                        handleSkip,
+                        handleReset
+                    }) => {
 
-    const inputCharLimit = [{name: 50, bio: 150, location: 30, web: 100}] // temporal char limiter constant. Use json file instead?
+
+    const inputCharLimit = {name: 50, bio: 150, location: 30, web: 100} // temporal char limiter constant. Use json file instead?
 
     const Input = styled('input')({
         display: 'none',
@@ -74,7 +79,7 @@ const SignupView = (props) => {
                                         <Input className="input" accept="image/*" id="profilePic" multiple type="file"
                                                onChange={selectProfilePic}/>
                                         {
-                                            activeStep === 0 ? (
+                                            activeStep === 1 ? (
                                                 <Button className="signupPicButton" variant="outlined" component="span">
                                                     Upload Profile Picture
                                                 </Button>) : null
@@ -86,7 +91,7 @@ const SignupView = (props) => {
                                                    type="file"
                                                    onChange={selectBannerPic}/>
                                             {
-                                                activeStep === 0 ? (
+                                                activeStep === 1 ? (
                                                     <Button className="signupPicButton" variant="outlined"
                                                             component="span">
                                                         Upload Banner Picture
@@ -98,11 +103,48 @@ const SignupView = (props) => {
                                 </div>
                                 {/* From control */}
                                 <div className="signupInputBoxesContainer">
-                                    {activeStep === 0 ? (
-                                        <React.Fragment>
+                                    <DomSwitch test={activeStep}>
+                                        <div value={0}>
                                             <FormControl className="signupFormControl"
                                                          required
-                                                         error={errorState}
+                                                         error={errorState.gitUsername}
+                                            >
+                                                <InputLabel htmlFor="gitUsername">Github username</InputLabel>
+                                                <OutlinedInput
+                                                    id="gitUsername"
+                                                    value={userInfo.gitusername}
+                                                    onChange={handleChange}
+                                                    label="Github username"
+                                                />
+                                                {errorState.gitUsername ? (
+                                                    <FormHelperText id="gitUsername-error">Username can't be
+                                                        blank</FormHelperText>
+                                                ) : null}
+                                            </FormControl>
+                                            <FormControl className="signupFormControl"
+                                                         required
+                                                         error={errorState.gitToken}
+                                            >
+                                                <InputLabel htmlFor="gitToken">Github personal access token</InputLabel>
+                                                <OutlinedInput
+                                                    id="gitToken"
+                                                    value={userInfo.gitToken}
+                                                    onChange={handleChange}
+                                                    label="Github personal access token"
+                                                />
+                                                {errorState.gitToken ? (
+                                                    <FormHelperText id="gitToken-error">Token can't be
+                                                        blank</FormHelperText>
+                                                ) : null}
+                                            </FormControl>
+                                            <Typography> You can see <Link
+                                                href='https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token'>here</Link> how
+                                                to generate the appropriate token</Typography>
+                                        </div>
+                                        <div value={1}>
+                                            <FormControl className="signupFormControl"
+                                                         required
+                                                         error={errorState.name}
                                             >
                                                 <InputLabel htmlFor="name">Name</InputLabel>
                                                 <OutlinedInput
@@ -110,17 +152,13 @@ const SignupView = (props) => {
                                                     value={userInfo.name}
                                                     onChange={handleChange}
                                                     label="Name"
-                                                    inputProps={{maxLength: inputCharLimit[0].name}}
-                                                    error={inputCharNumber === inputCharLimit[0].name}
+                                                    inputProps={{maxLength: inputCharLimit.name}}
+                                                    error={inputCharNumber === inputCharLimit.name}
                                                 />
-                                                {errorState ? (
+                                                {errorState.name ? (
                                                     <FormHelperText id="name-error">Name can't be blank</FormHelperText>
                                                 ) : null}
                                             </FormControl>
-                                        </React.Fragment>
-                                    ) : null}
-                                    {activeStep === 0 ? (
-                                        <React.Fragment>
                                             <FormControl className="signupFormControl">
                                                 <InputLabel htmlFor="bio">Bio</InputLabel>
                                                 <OutlinedInput
@@ -128,7 +166,7 @@ const SignupView = (props) => {
                                                     value={userInfo.bio}
                                                     onChange={handleChange}
                                                     label="Bio"
-                                                    inputProps={{maxLength: inputCharLimit[0].bio}}
+                                                    inputProps={{maxLength: inputCharLimit.bio}}
                                                 />
                                             </FormControl>
                                             <FormControl className="signupFormControl">
@@ -138,7 +176,7 @@ const SignupView = (props) => {
                                                     value={userInfo.location}
                                                     onChange={handleChange}
                                                     label="Location"
-                                                    inputProps={{maxLength: inputCharLimit[0].location}}
+                                                    inputProps={{maxLength: inputCharLimit.location}}
                                                 />
                                             </FormControl>
                                             <FormControl className="signupFormControl">
@@ -148,46 +186,45 @@ const SignupView = (props) => {
                                                     value={userInfo.web}
                                                     onChange={handleChange}
                                                     label="Web"
-                                                    inputProps={{maxLength: inputCharLimit[0].web}}
+                                                    inputProps={{maxLength: inputCharLimit.web}}
                                                 />
                                             </FormControl>
-                                        </React.Fragment>
-                                    ) : null}
+                                        </div>
+                                    </DomSwitch>
                                 </div>
                                 <div className="signupFooter">
                                     {/* Stepper */}
-                                    {/*
-                                    <Stepper activeStep={activeStep}>
-                                        {steps.map((label, index) => {
-                                            const stepProps = {};
-                                            const labelProps = {};
-                                            if (isStepSkipped(index)) {
-                                                stepProps.completed = false;
-                                            }
-                                            return (
-                                                <Step key={label} {...stepProps}>
-                                                    <StepLabel {...labelProps}>{label}</StepLabel>
-                                                </Step>
-                                            );
-                                        })}
-                                    </Stepper>
-*/}
+                                    {
+                                        <Stepper activeStep={activeStep}>
+                                            {steps.map((label, index) => {
+                                                const stepProps = {};
+                                                const labelProps = {};
+                                                if (isStepSkipped(index)) {
+                                                    stepProps.completed = false;
+                                                }
+                                                return (
+                                                    <Step key={label} {...stepProps}>
+                                                        <StepLabel {...labelProps}>{label}</StepLabel>
+                                                    </Step>
+                                                );
+                                            })}
+                                        </Stepper>
+                                    }
                                 </div>
                             </div>
                         </CardContent>
                         <Box sx={{display: 'flex', flexDirection: 'row', pt: 2, minWidth: "20rem", maxWidth: "40rem"}}>
-                            {/*<Button
+                            {<Button
                                 color="inherit"
-                                disabled={activeStep === 5}
+                                disabled={activeStep === 0}
                                 onClick={handleBack}
                                 sx={{mr: 1}}
                             >Back
-                            </Button>*/}
+                            </Button>}
                             <Box sx={{flex: '1 1 auto'}}/>
-                            {/* todo Loui: handle save profile func */}
-                            <Button onClick={activeStep === 5 ? (handleNext) : saveProfile}
-                                    disabled={errorState}
-                                    startIcon={activeStep === 0 ? (<LoginOutlined/>) : null}
+                            <Button onClick={activeStep === 0 ? (handleNext) : saveProfile}
+                                    disabled={((errorState.gitUsername || errorState.gitToken) && activeStep === 0) || (errorState.name && activeStep === 1)}
+                                    startIcon={activeStep === 1 ? (<LoginOutlined/>) : null}
                             >
                                 {activeStep === steps.length - 1 ? 'Sign Up' : 'Next'}
                             </Button>

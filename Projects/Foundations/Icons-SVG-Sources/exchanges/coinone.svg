@@ -1,63 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg
-   viewBox="0 0 512.00001 512"
-   version="1.1"
-   id="svg1916"
-   sodipodi:docname="coinone.svg"
-   width="512"
-   height="512"
-   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
-  <defs
-     id="defs1920" />
-  <sodipodi:namedview
-     id="namedview1918"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageshadow="2"
-     inkscape:pageopacity="0.0"
-     inkscape:pagecheckerboard="0"
-     showgrid="false"
-     fit-margin-top="0"
-     fit-margin-left="0"
-     fit-margin-right="0"
-     fit-margin-bottom="0"
-     inkscape:zoom="0.46130952"
-     inkscape:cx="204.85161"
-     inkscape:cy="300.23226"
-     inkscape:window-width="1920"
-     inkscape:window-height="1013"
-     inkscape:window-x="-9"
-     inkscape:window-y="-9"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="svg1916" />
-  <linearGradient
-     id="a"
-     gradientUnits="userSpaceOnUse"
-     x1="81.339996"
-     x2="127.68"
-     y1="4.71"
-     y2="203.21001"
-     gradientTransform="matrix(2.5038852,0,0,2.4380952,-0.06955051,-5e-7)">
-    <stop
-       offset="0"
-       stop-color="#01aeff"
-       id="stop1909" />
-    <stop
-       offset="1"
-       stop-color="#0157ff"
-       id="stop1911" />
-  </linearGradient>
-  <path
-     d="m 450.62978,256 61.37023,-81.89562 a 262.90795,256 0 1 0 0,163.79124 z m -52.58158,75.58095 c -26.89173,42.496 -80.12433,73.14286 -135.2098,73.14286 A 152.737,148.72381 0 1 1 388.03265,170.66667 L 448.1259,256 Z"
-     fill="url(#a)"
-     id="path1914"
-     style="fill:url(#a);stroke-width:2.47077"
-     inkscape:export-filename="C:\Users\Piyantha.K\Documents\Superalgos\Projects\Foundations\Icons-SVG-Sources\exchanges\New folder\coinone.png"
-     inkscape:export-xdpi="96"
-     inkscape:export-ydpi="96" />
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_320_323)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M256 0C244.092 0.304688 232.162 1.39893 220.292 3.29761C158.776 13.1372 102.853 43.9414 62.5024 90.2122C22.1519 136.483 0 195.21 0 255.912C0 316.614 22.1519 375.341 62.5024 421.612C102.853 467.883 158.776 498.687 220.292 508.526C232.162 510.425 244.092 511.519 256 511.824V404.482C232.131 403.426 208.815 396.928 187.945 385.474C165.085 372.929 145.931 354.861 132.328 333.011C118.725 311.162 111.132 286.268 110.282 260.73C109.432 235.193 115.353 209.873 127.474 187.211C139.595 164.55 157.508 145.312 179.485 131.351C201.463 117.39 226.763 109.178 252.947 107.507C253.965 107.442 254.982 107.387 256 107.342V0Z" fill="#0295AA"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M512 174.105L450.63 256.001L512 337.896C492.057 395.408 451.775 444.149 398.344 475.419C355.223 500.655 305.801 513.188 256 511.913V404.571C258.275 404.672 260.555 404.723 262.838 404.724C317.924 404.724 371.156 374.078 398.048 331.582L448.126 256.001L388.033 170.667C372.977 149.741 352.638 132.944 328.977 121.897C306.236 111.279 281.163 106.316 256 107.43L256 0.0883824C305.801 -1.18641 355.223 11.3461 398.344 36.5821C451.775 67.8524 492.057 116.593 512 174.105ZM6.10352e-05 256.175V255.826C6.10352e-05 255.884 0 255.942 0 256.001C0 256.059 6.10352e-05 256.117 6.10352e-05 256.175Z" fill="#4ACFD9"/>
+</g>
+<defs>
+<clipPath id="clip0_320_323">
+<rect width="512" height="512" fill="white"/>
+</clipPath>
+</defs>
 </svg>

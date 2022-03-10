@@ -4,37 +4,86 @@
     "type": "Kraken Test Status",
     "definition": {
         "text": "Kraken is tested for data mining but not for live trading.",
-        "updated": 1616005542987
+        "updated": 1616005542987,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Kraken тестируется для добычи данных, но не для реальной торговли.",
+                "updated": 1646902465103
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Properties",
-            "updated": 1615143100216
+            "updated": 1615143100216,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сведения",
+                    "updated": 1646902471759
+                }
+            ]
         },
         {
             "style": "List",
             "text": "1-min OHLCVs Capability: Yes. The ability to fetch historic data for backtesting purposes has been verified.",
-            "updated": 1616005497164
+            "updated": 1616005497164,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "1-минутные свечи OHLCV: Да. Возможность получения исторических данных для целей бэктестинга была проверена.",
+                    "updated": 1646902507414
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Market History: Unknown",
-            "updated": 1615204614502
+            "updated": 1615204614502,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "История рынка: Неизвестно",
+                    "updated": 1646902513190
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Trading Capability [**]: Unknown. The ability to run strategies in live-trading mode has not been verified.",
-            "updated": 1616005523609
+            "updated": 1616005523609,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Торговые возможности [**]: Неизвестно. Возможность запуска стратегий в режиме реальной торговли не была проверена.",
+                    "updated": 1646902522460
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Comments: With standard settings only one day worth of Raw Data is fetched. To retrieve Raw Data in Kraken, pairs in config are reversed. Backtesting and Live Trading behaviour unknown",
-            "updated": 1615278620667
+            "updated": 1615278620667,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Комментарии: При стандартных настройках извлекаются необработанные данные только за один день. Чтобы получить необработанные данные в Kraken, пары в конфигурации меняются местами. Поведение при бэктестинге и реальной торговле неизвестно",
+                    "updated": 1646902544917
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1646902551135
+                }
+            ]
         },
         {
             "style": "Json",

@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Diese Datenmine enthält Trendindikatoren wie den Money Flow Index (MFI) und den Wilder's Relative Strength Index (W-RSI)",
                 "updated": 1644721781381
+            },
+            {
+                "language": "RU",
+                "text": "Этот источник данных включает такие трендовые индикаторы, как индекс денежного потока (MFI) и индекс относительной силы Уайлдера (W-RSI).",
+                "updated": 1646896829453
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "DE",
                     "text": "Die Delta-Datenmine wird Ihnen präsentiert von...",
                     "updated": 1644721793902
+                },
+                {
+                    "language": "RU",
+                    "text": "Источник данных Delta предоставлен вам...",
+                    "updated": 1646896870323
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "language": "DE",
                     "text": "Arbeiten Sie mit dieser Datenmine zusammen und melden Sie Probleme direkt an das Superalgos Repository.",
                     "updated": 1644721811654
+                },
+                {
+                    "language": "RU",
+                    "text": "Участвуйте в работе с этим источником данных и сообщайте о проблемах непосредственно в хранилище Superalgos.",
+                    "updated": 1646896909742
                 }
             ]
         }

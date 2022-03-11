@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Gösterge, bir dakikalık mumları tüm zaman dilimleri için mum ve hacim bilgilerine dönüştürür.",
                 "updated": 1644500451861
+            },
+            {
+                "language": "RU",
+                "text": "Индикатор перерабатывает минутные свечи в информацию о свечах и объемах для всех таймфреймов.",
+                "updated": 1645606611555
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Grafiklerde",
                     "updated": 1644500466557
+                },
+                {
+                    "language": "RU",
+                    "text": "На графиках",
+                    "updated": 1645606618791
                 }
             ]
         },
@@ -60,6 +70,11 @@
                     "language": "TR",
                     "text": "Tipik mum çubukları.",
                     "updated": 1644500491024
+                },
+                {
+                    "language": "RU",
+                    "text": "Характерные свечи.",
+                    "updated": 1645606630906
                 }
             ]
         },
@@ -92,6 +107,11 @@
                     "language": "TR",
                     "text": "Alış hacmini en alta (yeşil) ve satış hacmini en üste (kırmızı) yerleştirerek biraz yenilik yaptık.",
                     "updated": 1644500531184
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы немного новаторски разместили объем покупки внизу (зеленый цвет), а объем продажи вверху (красный цвет).",
+                    "updated": 1645606643479
                 }
             ]
         },
@@ -117,6 +137,11 @@
                     "language": "TR",
                     "text": "Ürünler ve Özellikler",
                     "updated": 1644501001575
+                },
+                {
+                    "language": "RU",
+                    "text": "Продукты и свойства",
+                    "updated": 1645606651276
                 }
             ]
         },
@@ -144,6 +169,11 @@
                     "language": "TR",
                     "text": "Ürün mumu beş farklı özelliğe sahiptir.",
                     "updated": 1644501042148
+                },
+                {
+                    "language": "RU",
+                    "text": "Товарная свеча обладает пятью различными свойствами.",
+                    "updated": 1645606659244
                 }
             ]
         },
@@ -172,6 +202,11 @@
                     "language": "TR",
                     "text": "mum.min: Son kapatılan mumun minimum fiyatı (düşük).",
                     "updated": 1644501101561
+                },
+                {
+                    "language": "RU",
+                    "text": "candle.min: Минимальная цена последней закрытой свечи (low).",
+                    "updated": 1645606670246
                 }
             ]
         },
@@ -188,6 +223,11 @@
                     "language": "TR",
                     "text": "mum.max: Son kapatılan mumun maksimum fiyatı (yüksek).",
                     "updated": 1644501110181
+                },
+                {
+                    "language": "RU",
+                    "text": "candle.max: Максимальная цена последней закрытой свечи (high).",
+                    "updated": 1645606678757
                 }
             ]
         },
@@ -204,6 +244,11 @@
                     "language": "TR",
                     "text": "mum.open: Son kapatılan mumun açıldığı fiyat.",
                     "updated": 1644501126798
+                },
+                {
+                    "language": "RU",
+                    "text": "candle.open: Цена, по которой открылась последняя закрытая свеча.",
+                    "updated": 1645606685488
                 }
             ]
         },
@@ -220,6 +265,11 @@
                     "language": "TR",
                     "text": "mum.close: Son kapatılan mumun kapandığı fiyat.",
                     "updated": 1644501141974
+                },
+                {
+                    "language": "RU",
+                    "text": "candle.close: Цена, по которой закрылась последняя закрытая свеча.",
+                    "updated": 1645606694386
                 }
             ]
         },
@@ -297,6 +347,11 @@
                     "language": "TR",
                     "text": "Tam örnek:",
                     "updated": 1644501254120
+                },
+                {
+                    "language": "RU",
+                    "text": "Например:",
+                    "updated": 1645606751378
                 }
             ]
         },
@@ -331,6 +386,11 @@
                     "language": "TR",
                     "text": "Mumlar özelliği, belleğe yüklenen tüm mumların bir dizisini döndürür. İndeksini kullanarak belirli mumlara erişebilirsiniz.",
                     "updated": 1644501285559
+                },
+                {
+                    "language": "RU",
+                    "text": "Свойство candles возвращает массив всех свечей, которые были загружены в память. Вы можете получить доступ к конкретным свечам, используя их индекс.",
+                    "updated": 1645606725722
                 }
             ]
         },
@@ -347,6 +407,11 @@
                     "language": "TR",
                     "text": "Örneğin:",
                     "updated": 1644501296501
+                },
+                {
+                    "language": "RU",
+                    "text": "Например:",
+                    "updated": 1645606746013
                 }
             ]
         },
@@ -368,6 +433,11 @@
                     "language": "TR",
                     "text": "Buradan, her bir mum içinde tutulan belirli verilere erişebilirsiniz.",
                     "updated": 1644501313534
+                },
+                {
+                    "language": "RU",
+                    "text": "Отсюда вы можете получить доступ к конкретным данным, хранящимся в каждой свече.",
+                    "updated": 1645606762632
                 }
             ]
         },
@@ -395,6 +465,11 @@
                     "language": "TR",
                     "text": "Ürün hacmi iki özelliğe sahiptir.",
                     "updated": 1644501337063
+                },
+                {
+                    "language": "RU",
+                    "text": "Объем продукта характеризуется двумя свойствами.",
+                    "updated": 1645606769402
                 }
             ]
         },
@@ -423,6 +498,11 @@
                     "language": "TR",
                     "text": "volume.buy: Son kapatılan mumun alış hacmi.",
                     "updated": 1644501362937
+                },
+                {
+                    "language": "RU",
+                    "text": "volume.buy: Объем покупки последней закрытой свечи.",
+                    "updated": 1645606777588
                 }
             ]
         },
@@ -439,6 +519,11 @@
                     "language": "TR",
                     "text": "volume.sell: Son kapatılan mumun satış hacmi.",
                     "updated": 1644501376843
+                },
+                {
+                    "language": "RU",
+                    "text": "volume.sell: Объем продажи последней закрытой свечи.",
+                    "updated": 1645606786622
                 }
             ]
         }

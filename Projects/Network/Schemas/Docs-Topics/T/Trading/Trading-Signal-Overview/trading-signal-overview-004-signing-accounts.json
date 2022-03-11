@@ -4,7 +4,14 @@
     "type": "Signing Accounts",
     "definition": {
         "text": " Signing Accounts are the center of security within the Superalgos network.",
-        "updated": 1643078915732
+        "updated": 1643078915732,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Учетные записи подписи являются центром безопасности в сети Superalgos.",
+                "updated": 1645625363722
+            }
+        ]
     },
     "paragraphs": [
         {

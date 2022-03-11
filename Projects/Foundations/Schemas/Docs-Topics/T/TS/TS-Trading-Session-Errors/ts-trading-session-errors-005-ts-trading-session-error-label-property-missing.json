@@ -4,18 +4,39 @@
     "type": "TS Trading Session Error - Label Property Missing",
     "definition": {
         "text": "A property called label is expected at the Time Frame Node config, but it is missing.",
-        "updated": 1611332389501
+        "updated": 1611332389501,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "В конфигурации узла Time Frame ожидается свойство label, но оно отсутствует.",
+                "updated": 1645628257219
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Success",
             "text": "Add the label property at the Time Frame Node and try running the Trading Session again.",
-            "updated": 1611332549238
+            "updated": 1611332549238,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Добавьте свойство label в узел Time Frame и попробуйте снова запустить торговую сессию.",
+                    "updated": 1645628266084
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Property Missing",
-            "updated": 1611392835535
+            "updated": 1611392835535,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Отсутствие свойста",
+                    "updated": 1645628287447
+                }
+            ]
         },
         {
             "style": "Json",
@@ -23,7 +44,14 @@
         },
         {
             "style": "Title",
-            "text": "Example"
+            "text": "Example",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пример",
+                    "updated": 1645628293129
+                }
+            ]
         },
         {
             "style": "Json",

@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Давайте проанализируем поток Token Rewards через пулы параллельно с потоком Token Power, и в частности Weight Power, поскольку они взаимозависимы.",
                 "updated": 1640321939175
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Jeton Gücü ( Token Power ) akışına ve özellikle Ağırlık Gücüne ( Weight Power ) paralel olarak Havuzlar ( Pools ) aracılığıyla Jeton Ödülleri ( Token Rewards ) akışını analiz edelim, çünkü bunlar birbirine bağımlıdır",
+                "updated": 1646736347174
             }
         ]
     },
@@ -38,6 +43,11 @@
                     "language": "RU",
                     "text": "Главный пул распределения",
                     "updated": 1640322094739
+                },
+                {
+                    "language": "TR",
+                    "text": "Ana Dağıtım Havuzu",
+                    "updated": 1646736364194
                 }
             ]
         },
@@ -55,6 +65,11 @@
                     "language": "RU",
                     "text": "Каждый выпуск распределяет определенное количество токенов, как указано в конфигурации иерархии Superalgos Pools верхнего уровня. Во главе этой иерархии находится главный распределительный пул, с которого все начинается с точки зрения потока вознаграждений Token Rewards.",
                     "updated": 1640322196870
+                },
+                {
+                    "language": "TR",
+                    "text": "Her sürüm, üst düzey Superalgos Havuzları ( Superalgos Pools ) hiyerarşisinin yapılandırmasında belirtildiği gibi bir dizi jeton dağıtır. Bu hiyerarşinin başı, her şeyin Jeton ( Token Rewards ) Ödüllerinin akışı açısından başladığı ana dağıtım havuzudur.",
+                    "updated": 1646736446393
                 }
             ]
         },
@@ -72,6 +87,11 @@
                     "language": "RU",
                     "text": "Представьте поток Token Rewards как каскад, начинающийся в начале иерархии Superalgos Pools, который должен просачиваться вниз к различным узлам Pool в иерархии, а затем переходить к началу других иерархий Project Definition Hierarchies.",
                     "updated": 1640322299235
+                },
+                {
+                    "language": "TR",
+                    "text": " Not: Jeton Ödülleri ( Token Rewards ) akışını, hiyerarşideki farklı Havuz düğümlerine akması ve ardından diğer Proje Tanımı ( Project Definition ) Hiyerarşilerinin başına atlaması gereken Superalgos Havuzları ( Superalgos Pools ) hiyerarşisinin başından başlayarak bir basamak olarak görselleştirin.",
+                    "updated": 1646736696741
                 }
             ]
         },
@@ -89,6 +109,11 @@
                     "language": "RU",
                     "text": "В отличие от потока Token Power в профиле пользователя, который определяется конфигурациями, введенными владельцем профиля, поток Token Rewards зависит от воли сообщества. Другими словами, именно сообщество должно решить, как будут распределяться вознаграждения, и сколько токенов должно пойти на стимулирование того или иного направления.",
                     "updated": 1640322370243
+                },
+                {
+                    "language": "TR",
+                    "text": "Profil sahibi tarafından girilen konfigürasyonlarla belirlenen bir Kullanıcı Profilindeki ( User Profile ) Token Gücü ( Token Power ) akışının aksine, Jeton Ödüllerinin ( Token Rewards ) akışı Topluluğun ( Community ) iradesine tabidir. Başka bir deyişle, ödüllerin nasıl akacağına ve neyi teşvik etmek için kaç jetonun gitmesi gerektiğine karar vermesi gereken topluluktur.",
+                    "updated": 1646736825886
                 }
             ]
         },
@@ -101,6 +126,11 @@
                     "language": "RU",
                     "text": "Именно здесь в дело вступают Weight Votes",
                     "updated": 1640322483579
+                },
+                {
+                    "language": "TR",
+                    "text": "Ağırlık Oylarının Resimde Geldiği Yer burasıdır",
+                    "updated": 1646736846771
                 }
             ]
         },
@@ -118,6 +148,11 @@
                     "language": "RU",
                     "text": "Weight Votes - это инструмент, используемый Сообществом (Community) для выражения того, как должны распределяться вознаграждения Token Rewards. Эти вознаграждения распределяются по иерархии в зависимости от голосов, отданных Сообществом. То есть Сообщество определяет Weight каждого пула путем голосования.",
                     "updated": 1640324233840
+                },
+                {
+                    "language": "TR",
+                    "text": "Ağırlık Oyları ( Weight Votes ), Topluluğun Jeton Ödüllerinin nasıl akması gerektiğini ifade etmek için kullandığı araçtır. Token Ödülleri ( Token Rewards ), Topluluk ( Community ) tarafından verilen Ağırlık Oylarına yanıt olarak hiyerarşi içinde akar. Yani Topluluk, Ağırlık Oyları vererek her bir Havuzun Ağırlığına karar verir.",
+                    "updated": 1646736952445
                 }
             ]
         },
@@ -135,6 +170,11 @@
                     "language": "RU",
                     "text": "Именно здесь вознаграждения Token Rewards пересекаются с Weight Power, поскольку именно Weight Power управляет потоком вознаграждений Token Rewards через Weight Votes.",
                     "updated": 1640322894834
+                },
+                {
+                    "language": "TR",
+                    "text": "Jeton Ödüllerinin ( Token Rewards ) Ağırlık Gücü ( Weight Power ) ile kesiştiği yer burasıdır, çünkü Ağırlık Gücü ( Weight Power ), Jeton Ödüllerinin Ağırlık Oyları ( Weight Votes ) yoluyla akışını yönlendirir.",
+                    "updated": 1646737097057
                 }
             ]
         },
@@ -152,6 +192,11 @@
                     "language": "RU",
                     "text": "Помните, что ваш Token Power перетекает в различные программы, доступные в вашем профиле пользователя (User Profile). Часть Token Power, которая поступает в вашу программу голосования (Voting Program), превращается в Voting Power, которая направляется через различные типы переключателей. Вы используете узлы переключателей Weight Votes Switch, чтобы превратить Voting Power в Weight Power, которая затем перетекает в Weight Votes.",
                     "updated": 1640323043603
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Jeton Gücünüzün ( Token Power ) Kullanıcı Profiliniz ( User Profile ) altında bulunan farklı programlara aktığını unutmayın. Oylama Programınıza ( Voting Program ) akan Jeton Gücü ( Token Power ) kısmı, farklı anahtar türleri aracılığıyla kanalize edilen Oylama Gücüne ( Voting Power ) dönüşür. Oylama Gücünü Ağırlık Gücüne ( Weight Power ) dönüştürmek için Ağırlık Oyları ( Weight Votes ) Anahtar düğümlerini kullanırsınız, bu da Ağırlık Oylarına akar.",
+                    "updated": 1646737425320
                 }
             ]
         },
@@ -164,6 +209,11 @@
                     "language": "RU",
                     "text": "Например",
                     "updated": 1640323060165
+                },
+                {
+                    "language": "TR",
+                    "text": "Örneğin",
+                    "updated": 1646737458874
                 }
             ]
         },
@@ -181,6 +231,11 @@
                     "language": "RU",
                     "text": "Когда вы ссылаетесь на узел Pool с узлом Pool Weight Vote, вы передаете Weight Power в вашем Pool Weight Vote этому конкретному узлу Pool.",
                     "updated": 1640323840297
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Havuz Ağırlığı Oyu düğümüne ( Pool Weight Vote ) sahip bir Havuz ( Pool ) düğümüne başvurduğunuzda, Havuz Ağırlığı Oyunuzdaki Ağırlık Gücünü ( Weight Power ) söz konusu Havuz düğümüne vermiş olursunuz.",
+                    "updated": 1646737815286
                 }
             ]
         },
@@ -198,6 +253,11 @@
                     "language": "RU",
                     "text": "Теперь, когда этот узел Pool имеет некоторый Вес, Token Rewards, доступные на вершине иерархии, могут перетекать в этот узел Pool. В каком объеме? Это зависит от Weight Power, которую получает этот Pool по отношению к Weight Power, которую получают остальные пулы в иерархии!",
                     "updated": 1640323921134
+                },
+                {
+                    "language": "TR",
+                    "text": "Artık bu Havuz düğümünün bir Ağırlığı ( Weight ) olduğundan, hiyerarşinin en üstünde bulunan Jeton Ödülleri ( Token Rewards ) bu Havuz düğümüne akabilir. Ne kadar? Hiyerarşideki Havuzların geri kalanının aldığı Ağırlık Gücüne göre Havuzun aldığı Ağırlık Gücüne bağlıdır!",
+                    "updated": 1646737894532
                 }
             ]
         },
@@ -227,6 +287,11 @@
                     "language": "RU",
                     "text": "Если узел Pool не имеет Weight Power, то в этот узел не поступают вознаграждения Token Rewards.",
                     "updated": 1640324446078
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bir Havuz düğümü Ağırlık Gücü ( Weight Power ) olmadan sona ererse, bu durumda düğüme Jeton Ödülü akmaz.",
+                    "updated": 1646737993627
                 }
             ]
         },
@@ -244,6 +309,11 @@
                     "language": "RU",
                     "text": "Вознаграждения в виде токенов вливаются в другие иерархии",
                     "updated": 1640324483651
+                },
+                {
+                    "language": "TR",
+                    "text": "Jeton Ödülleri, Diğer Hiyerarşilere Akar",
+                    "updated": 1646738017869
                 }
             ]
         },
@@ -260,6 +330,11 @@
                     "language": "RU",
                     "text": "Узлы Pool в иерархии верхнего уровня Superalgos Pools ссылаются на другие иерархии, в которых продолжаются определения проекта. Эти иерархии могут быть другими иерархиями Pool, Position, Feature или Asset.",
                     "updated": 1640324576119
+                },
+                {
+                    "language": "TR",
+                    "text": "Üst düzey Superalgos Havuz ( Superalgos Pools ) hiyerarşisindeki havuz düğümleri, proje tanımlarının devam eden diğer hiyerarşilere başvurur. Bu hiyerarşiler diğer Havuzlar ( Pools ), Pozisyonlar ( Positions ), Özellikler ( Features ) veya Varlık ( Asset ) hiyerarşileri olabilir.",
+                    "updated": 1646738166764
                 }
             ]
         },
@@ -277,6 +352,11 @@
                     "language": "RU",
                     "text": "Когда узел Pool в иерархии Superalgos Pools получает некоторый Weight Power, Token Rewards, поступающие в узел, немедленно передаются в иерархию, на которую ссылаются. Таким образом, теперь у ссылающейся иерархии есть свои собственные вознаграждения в виде токенов (Token Rewards) во главе иерархии!",
                     "updated": 1640324661621
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos Havuzları ( Superalgos Pools ) hiyerarşisindeki bir Havuz düğümü bir miktar Ağırlık Gücü ( Weight Power ) aldığında, düğüme akan Jeton Ödülleri ( Token Rewards ) hemen başvurulan hiyerarşiye iletilir. Bu nedenle, referans verilen hiyerarşinin başında kendi Jeton Ödülleri var!",
+                    "updated": 1646738378862
                 }
             ]
         },
@@ -294,6 +374,11 @@
                     "language": "RU",
                     "text": "Как же происходит движение Token Rewards в этих вторичных иерархиях? Точно таким же образом! Когда голоса Weight Votes отдаются в иерархии, Token Rewards поступают в затронутые узлы пропорционально Weight, подсчитанному в рамках иерархии.",
                     "updated": 1640324750511
+                },
+                {
+                    "language": "TR",
+                    "text": "Jeton Ödülleri ( Token Rewards ) bu ikincil hiyerarşiler içinde nasıl akar? Ağırlık Oyları ( Weight Votes ) hiyerarşi içinde kullanıldığında, Jeton Ödülleri, hiyerarşi kapsamında hesaplanan Ağırlıkla orantılı olarak etkilenen düğümlere akar.",
+                    "updated": 1646738493858
                 }
             ]
         },
@@ -310,6 +395,11 @@
                     "language": "RU",
                     "text": "Область расчета пропорции Weight ограничена рассматриваемой иерархией.",
                     "updated": 1640324827133
+                },
+                {
+                    "language": "TR",
+                    "text": "Önemli: Ağırlık oranlarının hesaplanmasının kapsamı, söz konusu hiyerarşi ile sınırlıdır.",
+                    "updated": 1646738522860
                 }
             ]
         },
@@ -327,6 +417,11 @@
                     "language": "RU",
                     "text": "Цикл продолжается и проходит через все существующие уровни вложенных иерархий. Процессы и потоки одинаковы независимо от типа иерархии.",
                     "updated": 1640324902390
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Döngü, mevcut tüm iç içe hiyerarşi seviyeleri boyunca devam eder. Süreçler ve akışlar, hiyerarşi türünden bağımsız olarak aynıdır.",
+                    "updated": 1646738544850
                 }
             ]
         }

@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Профиль Superalgos Governance является ключевой частью сети Peer to Peer (\"равный равному\").",
                 "updated": 1645625260679
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Superalgos Yönetişim profili, eşler arası ağın önemli bir parçasıdır.",
+                "updated": 1646297124975
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Это особенно важно для отправки и приема сигналов. Пользователи определяют под своими профилями ряд важных вещей:",
                     "updated": 1645625288911
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikle sinyal gönderme ve alma için önemlidir. Kullanıcılar, Profillerinin altında bir dizi önemli şeyi tanımlar:",
+                    "updated": 1646297168328
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Какие приложения или узлы они собираются запускать.",
                     "updated": 1645625300293
+                },
+                {
+                    "language": "TR",
+                    "text": "Hangi uygulamaları veya düğümleri çalıştıracakları.",
+                    "updated": 1646297177016
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "RU",
                     "text": "Какие Social Trading Bot принадлежат этому пользователю (Social trading bot можно рассматривать как коллекции сигналов).",
                     "updated": 1645625329581
+                },
+                {
+                    "language": "TR",
+                    "text": "Hangi Sosyal Ticaret Botları ( Social Trading Bots ) bu kullanıcıya aittir (Sosyal ticaret botları, sinyal koleksiyonları olarak düşünülebilir).",
+                    "updated": 1646297210082
                 }
             ]
         },
@@ -56,6 +76,11 @@
                     "language": "RU",
                     "text": "Расположение открытого хранилища, где будут храниться сигналы.",
                     "updated": 1645625343369
+                },
+                {
+                    "language": "TR",
+                    "text": "Sinyallerin saklanacağı açık depolamanın yeri.",
+                    "updated": 1646297224834
                 }
             ]
         },

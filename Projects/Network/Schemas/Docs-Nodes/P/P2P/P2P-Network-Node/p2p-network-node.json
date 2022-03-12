@@ -1,0 +1,13 @@
+{
+    "type": "P2P Network Node",
+    "definition": {
+        "text": "The P2P Network Node node defines a node to run on the Superalgos peer to peer network.",
+        "updated": 1647061315649
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Right click and select the pencil button to enter edit mode."
+        }
+    ]
+}

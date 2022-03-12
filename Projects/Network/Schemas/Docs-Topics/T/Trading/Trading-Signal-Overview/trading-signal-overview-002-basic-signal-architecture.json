@@ -16,8 +16,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Now that we know a little bit about what signals can do, let’s discuss some of the basic architecture of where trading signals live.  Because signals can hold a large amount of data, the entirety of a signal is not sent via the Superalgos peer to peer network.  Instead, signal providers send a header message via the peer to peer network that contains the address to the contents of the signal.  Breaking this architecture down looks like this:",
-            "updated": 1642463154072,
+            "text": "Now that we know a little bit about what signals can do, let’s discuss some of the basic architecture of where trading signals live. Because signals can hold a large amount of data, the entirety of a signal is not sent via the Superalgos peer to peer network. Instead, signal providers send a header message via the peer to peer network that contains an encryption key and address to the contents of the signal. Breaking this architecture down looks like this:",
+            "updated": 1647054695356,
             "translations": [
                 {
                     "language": "RU",
@@ -50,14 +50,15 @@
         },
         {
             "style": "List",
-            "text": "Contents are uploaded to an open access storage (currently this is a public github repository).",
+            "text": "Contents are encrypted and then uploaded to an open access storage (currently this is a public github repository).",
             "translations": [
                 {
                     "language": "RU",
                     "text": "Содержимое загружается в хранилище открытого доступа (в настоящее время это публичный репозиторий на Github).",
                     "updated": 1645623847092
                 }
-            ]
+            ],
+            "updated": 1647054722453
         },
         {
             "style": "List",
@@ -72,14 +73,20 @@
         },
         {
             "style": "List",
-            "text": "Signal recipients interpret the address of the signal and then download the signal contents.",
+            "text": "Signal recipient bots interpret the address where the contents of the signal is stored, then downloads the signal contents.",
             "translations": [
                 {
                     "language": "RU",
                     "text": "Получатели сигнала интерпретируют адрес сигнала и затем загружают его содержимое.",
                     "updated": 1645623927333
                 }
-            ]
+            ],
+            "updated": 1647054963776
+        },
+        {
+            "style": "List",
+            "text": "Using the received encryption key, data is decrypt and then made available for use withing the recipients Trading System.",
+            "updated": 1647055040815
         },
         {
             "style": "Text",

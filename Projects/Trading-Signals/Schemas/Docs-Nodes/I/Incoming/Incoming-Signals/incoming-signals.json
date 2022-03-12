@@ -53,6 +53,11 @@
             "updated": 1644031444290
         },
         {
+            "style": "Note",
+            "text": "You can think of this node as the one that activates the Trading Signals functionality in your Trading System.",
+            "updated": 1647052377015
+        },
+        {
             "style": "Subtitle",
             "text": "Event Signals"
         },
@@ -131,8 +136,13 @@
         },
         {
             "style": "Javascript",
-            "text": " let lastSignalFormulaValue = 0\nfor (let i = 0; i < signals.length; i++) {\n    let signal = signals[i]\n    lastSignalFormulaValue = signal.source.tradingSystem.node.formula.value\n}\nlastSignalFormulaValue",
-            "updated": 1644033260794
+            "text": "let lastSignalFormulaValue = 0\nfor (let i = 0; i < signals.length; i++) {\n    let signal = signals[i]\n    lastSignalFormulaValue = signal.source.tradingSystem.node.formula.value\n}\nlastSignalFormulaValue\n",
+            "updated": 1647052895311
+        },
+        {
+            "style": "Success",
+            "text": "The signal object is a JavaScript object that holds all the information delivered by the trading signal. Accessing various properties of this object will allow you to engage all the information provided by the signal. For example, to gather the value sent by a formula signal you would access these properties: signal.source.tradingSystem.node.formula.value",
+            "updated": 1647053153178
         },
         {
             "style": "Note",

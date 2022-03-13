@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Свойство initialDatetime, настроенное в узле Time Range, не распознается как действительное Javascript Datetime.",
                 "updated": 1645628072057
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Zaman Aralığı ( Time Range ) düğümünde yapılandırılan ilk Datetime özelliği, geçerli bir Javascript Datetime olarak tanınmıyor.",
+                "updated": 1647097072554
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Проверка sessionParameters.timeRange.config.initialDatetime не прошла, и поэтому торговая сессия не может быть запущена.",
                     "updated": 1645628081807
+                },
+                {
+                    "language": "TR",
+                    "text": "sessionParameters.timeRange.config.initialDatetime doğrulaması başarısız oldu ve bu nedenle Ticaret Oturumu ( Trading Session ) çalıştırılamaz.",
+                    "updated": 1647097145609
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "RU",
                     "text": "Обратитесь к документации Node JS Javascript, чтобы узнать, как правильно выразить значение datetime.",
                     "updated": 1645628091611
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bir tarih saat değerinin nasıl doğru şekilde ifade edileceğini öğrenmek için Node JS Javascript belgelerine bakın.",
+                    "updated": 1647097171636
                 }
             ]
         },
@@ -46,6 +61,11 @@
                     "language": "RU",
                     "text": "Текущее значение",
                     "updated": 1645628108925
+                },
+                {
+                    "language": "TR",
+                    "text": "Mevcut değer",
+                    "updated": 1647097202742
                 }
             ]
         },
@@ -58,6 +78,11 @@
                     "language": "RU",
                     "text": "На данный момент свойство имеет следующее значение. Обратите внимание, что значение будет показано ниже только в том случае, если вы получили эту ошибку, а не при переходе на эту страницу ошибки другими способами.",
                     "updated": 1645628122400
+                },
+                {
+                    "language": "TR",
+                    "text": "Şu andaki özellik aşağıdaki değere sahiptir. Aşağıda, başka yollarla bu hata sayfasına gittiğinizde değil, yalnızca bu hatayı aldığınızda bir değer gösterileceğini unutmayın.",
+                    "updated": 1647097305096
                 }
             ]
         },

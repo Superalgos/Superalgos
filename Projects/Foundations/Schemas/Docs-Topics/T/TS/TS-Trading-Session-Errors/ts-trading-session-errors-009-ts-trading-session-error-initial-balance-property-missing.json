@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "В конфигурации узла Session Base Asset и Session Quoted Asset ожидается свойство initialBalance.",
                 "updated": 1645628480415
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Oturum Temel Varlık ( Session Base Asset ) ve Oturum Alıntılanan Varlık Düğümü ( Session Quoted Asset Node ) yapılandırmasında initialBalance adlı bir özellik bekleniyor.",
+                "updated": 1647100883852
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Проверьте конфигурацию узла, сообщающего об ошибке, и убедитесь, что это свойство существует.",
                     "updated": 1645628489260
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bu hatayı bildiren Düğümdeki yapılandırmayı kontrol edin ve bu özelliğin var olduğundan emin olun.",
+                    "updated": 1647100903821
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Отсутствие свойста",
                     "updated": 1645628507415
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellik Eksik",
+                    "updated": 1647100919629
                 }
             ]
         },

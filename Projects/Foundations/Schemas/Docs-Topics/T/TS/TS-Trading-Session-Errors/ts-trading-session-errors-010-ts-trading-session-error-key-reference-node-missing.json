@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Для проведения реальной торговой сессии или форвардного тестирования вам необходимо предоставить API-ключ биржи для доступа к вашему биржевому счету. Для этого вам нужно добавить узел Key Reference Node, который ссылается на узел Exchange Account Key Node с вашими ключами.",
                 "updated": 1645628532609
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Canlı Ticaret Oturumu ( Live Trading Session ) veya İleriye Yönelik Test ( Forward Testing Session ) Oturumu için, Exchange hesabınıza erişmek için bir Exchange API Anahtarı sağlamanız gerekir. Bunu yapmak için, anahtarlarınızla bir Exchange Hesabı Anahtar ( Exchange Account Key ) Düğümüne başvuran bir Anahtar Referans Düğümü ( Key Reference Node ) eklemeniz gerekir.",
+                "updated": 1647101079392
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "В узле Task, где возникла эта ошибка, добавьте узел Key Reference Node и ссылайтесь из него на ключ Exchange Account Key. Затем вы можете попробовать запустить торговую сессию снова.",
                     "updated": 1645628563812
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bu hatanın ortaya çıktığı Görev Düğümünde ( Task Node ), bir Anahtar Referans Düğümü ( Key Reference Node ) ekleyin ve onunla birlikte bir Exchange Hesabı Anahtarına ( Exchange Account Key ) referans verin. Ardından Ticaret Oturumunu ( Trading Session ) tekrar çalıştırmayı deneyebilirsiniz.",
+                    "updated": 1647101186078
                 }
             ]
         }

@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Используйте эту команду для осуществления платежей вкладчикам, используя для этого блокчейн-счет Казначейства (Treasury Blockchain Account). Если вы не являетесь ответственным за счет Казначейства, вы все равно можете выполнить эту команду для создания выходного файла процесса Pay.",
                 "updated": 1645627953565
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Hazine Blok Zinciri Hesabını kullanarak katkıda bulunanlara ödeme yapmak için bu komutu kullanın. Hazine Hesabından ( Treasury Account ) sorumlu değilseniz, Ödeme işleminin çıktı dosyasını oluşturmak için bu komutu çalıştırmaya devam edebilirsiniz.",
+                "updated": 1646744772432
             }
         ]
     },

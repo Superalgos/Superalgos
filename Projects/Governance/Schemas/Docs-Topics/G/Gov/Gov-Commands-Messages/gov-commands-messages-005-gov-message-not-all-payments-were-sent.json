@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Обновление оплаты запущено, но не все платежи были отправлены. Вам нужно проверить вывод процесса, чтобы исправить это и, возможно, запустить его снова.",
                 "updated": 1645627085228
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Ödeme çalıştırması güncellendi, ancak tüm ödemeler gönderilmedi. Düzeltmek için işlem çıktısını kontrol etmeniz ve muhtemelen tekrar çalıştırmanız gerekir.",
+                "updated": 1646741771969
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Вы находитесь в актуальном состоянии. Нет необходимости перезагружать клиент или обновлять страницу пользовательского интерфейса.",
                     "updated": 1645627095231
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Güncelsiniz. İstemciyi ( Client ) yeniden başlatmaya veya kullanıcı arayüzü ( UI ) sayfasını yenilemeye gerek yok.",
+                    "updated": 1646741834233
                 }
             ]
         }

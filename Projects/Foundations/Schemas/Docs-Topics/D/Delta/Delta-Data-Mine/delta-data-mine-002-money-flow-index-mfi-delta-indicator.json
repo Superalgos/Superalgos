@@ -97,8 +97,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Der MFI erzeugt überkaufte oder überverkaufte Signale, indem er sowohl Preis- als auch Volumendaten verwendet.",
-                    "updated": 1644721938974
+                    "text": "Ein MFI-Wert über 80 gilt als überkauft und ein MFI-Wert unter 20 als überverkauft, obwohl auch Werte von 90 und 10 als Schwellenwerte verwendet werden. Eine Abweichung zwischen dem Indikator und der Kursentwicklung ist bemerkenswert.",
+                    "updated": 1644721957356
                 },
                 {
                     "language": "RU",

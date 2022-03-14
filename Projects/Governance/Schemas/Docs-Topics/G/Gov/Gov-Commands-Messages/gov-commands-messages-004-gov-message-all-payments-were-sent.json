@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Процесс оплаты завершился успешно. Выплаты всем вкладчикам были отправлены.",
                 "updated": 1645627021130
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Ödeme işlemi başarıyla tamamlandı. Tüm katkıda bulunanlara ödemeler gönderildi.",
+                "updated": 1646741645499
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Процесс выплаты вкладов прошел полностью успешно, и все платежи были отправлены.",
                     "updated": 1645627037350
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Katkıda bulunanlara ödeme süreci tamamen başarılı oldu ve tüm ödemeler gönderildi.",
+                    "updated": 1646741661182
                 }
             ]
         }

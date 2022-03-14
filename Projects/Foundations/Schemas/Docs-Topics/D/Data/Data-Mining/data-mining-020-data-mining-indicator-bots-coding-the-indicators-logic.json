@@ -762,7 +762,7 @@
         },
         {
             "style": "Text",
-            "text": "Storing undifined property values is highly undesirable, as that would likely produce errors downstream when others attempt to consume the products produced by the indicator. How to handle such circumstances is up to the developer.",
+            "text": "Storing undefined property values is highly undesirable, as that would likely produce errors downstream when others attempt to consume the products produced by the indicator. How to handle such circumstances is up to the developer.",
             "translations": [
                 {
                     "language": "DE",
@@ -779,7 +779,8 @@
                     "text": "Başkaları gösterge tarafından üretilen ürünleri tüketmeye çalıştığında aşağı yönde hatalara yol açacağından, tanımlanmamış mülk değerlerinin saklanması oldukça istenmeyen bir durumdur. Bu tür durumlarla nasıl başa çıkılacağı geliştiriciye bağlıdır.",
                     "updated": 1645973604241
                 }
-            ]
+            ],
+            "updated": 1647236335266
         },
         {
             "style": "Text",

@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "В конфигурации узла Time Frame ожидается свойство label, но оно отсутствует.",
                 "updated": 1645628257219
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Zaman Çerçevesi Düğümü ( Time Frame Node ) yapılandırmasında etiket adlı bir özellik bekleniyor, ancak bu özellik yok.",
+                "updated": 1647099951855
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Добавьте свойство label в узел Time Frame и попробуйте снова запустить торговую сессию.",
                     "updated": 1645628266084
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Zaman Çerçevesi Düğümünde ( Time Frame Node ) etiket özelliğini ekleyin ve Ticaret Oturumunu ( Trading Session ) yeniden çalıştırmayı deneyin.",
+                    "updated": 1647100023548
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "RU",
                     "text": "Отсутствие свойста",
                     "updated": 1645628287447
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellik Eksik",
+                    "updated": 1647100039960
                 }
             ]
         },
@@ -50,6 +65,11 @@
                     "language": "RU",
                     "text": "Пример",
                     "updated": 1645628293129
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnek",
+                    "updated": 1647100061363
                 }
             ]
         },

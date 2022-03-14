@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Чтобы включить связь по websockets между UI и клиентами (Client) Superalgos, нам нужно прочитать конфигурацию сетевого узла Network. Если в этой конфигурации что-то не так, пользовательский интерфейс не сможет общаться с клиентом через websockets, и многие вещи, например, запуск задачи (Task), будут невозможны.",
                 "updated": 1640357732680
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Kullanıcı arabiriminden ( UI ) Superalgos İstemcilerine ( Client ) websockets iletişimini etkinleştirmek için Ağ Düğümü yapılandırmasını okumamız gerekir. Bu yapılandırmayla ilgili herhangi bir sorun varsa, Kullanıcı Arabirimi Web yuvaları aracılığıyla İstemci ile iletişim kuramaz ve Görev ( Task ) çalıştırmak gibi pek çok şey mümkün olmaz.",
+                "updated": 1647093544443
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Существует несколько причин, по которым UI Web Sockets Client может сообщить об ошибке Bad Configuration. Все они перечислены ниже.",
                     "updated": 1640357755566
+                },
+                {
+                    "language": "TR",
+                    "text": "UI Web Sockets Client'ın Kötü Yapılandırma hatası bildirmesinin birkaç nedeni vardır. Hepsi aşağıda listelenmiştir.",
+                    "updated": 1647093608002
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "language": "RU",
                     "text": "Причина №1: Неверный формат JSON",
                     "updated": 1640357771079
+                },
+                {
+                    "language": "TR",
+                    "text": "Neden #1: Geçersiz JSON Formatı",
+                    "updated": 1647093648363
                 }
             ]
         },
@@ -50,13 +65,25 @@
                     "language": "RU",
                     "text": "Чтобы включить связь по websockets от пользовательского интерфейса к клиентам Superalgos, нам нужно прочитать конфигурацию сетевого узла. В данном случае эта конфигурация не читается, поскольку неправильно отформатирована в JSON.",
                     "updated": 1640357798607
+                },
+                {
+                    "language": "TR",
+                    "text": "Kullanıcı Arabiriminden ( UI ) Superalgos İstemcilerine websockets iletişimini etkinleştirmek için Ağ Düğümü yapılandırmasını okumamız gerekir. Bu durumda, JSON'da doğru biçimlendirilmediği için bu yapılandırma okunamaz.",
+                    "updated": 1647093699461
                 }
             ]
         },
         {
             "style": "Error",
             "text": "Bad Configuration - Invalid JSON Format",
-            "updated": 1610889068414
+            "updated": 1610889068414,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hata: Kötü Yapılandırma - Geçersiz JSON Biçimi",
+                    "updated": 1647093713319
+                }
+            ]
         },
         {
             "style": "Success",
@@ -67,6 +94,11 @@
                     "language": "RU",
                     "text": "Отредактируйте конфигурацию и дважды проверьте правильность форматирования. При необходимости скопируйте текст в онлайн-форматер JSON, чтобы четко увидеть, в чем проблема.",
                     "updated": 1640357880870
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Yapılandırmayı düzenleyin ve doğru biçimlendirildiğini iki kez kontrol edin. Gerekirse, sorunun ne olduğunu açıkça görmek için metni çevrimiçi bir JSON biçimlendiricisine kopyalayın.",
+                    "updated": 1647093752376
                 }
             ]
         },
@@ -78,6 +110,11 @@
                     "language": "RU",
                     "text": "Эта страница содержит несколько случаев ошибок. При нажатии на сообщение об ошибке на узле вы будете перенаправлены в пределах этой страницы в раздел, где объясняется ошибка, возникшая на этом узле.",
                     "updated": 1640358109292
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bu sayfa birkaç hata koşulu içerir. Bir düğümde Hata Mesajına tıkladığınızda, bu sayfa içerisinde o düğümde meydana gelen hatanın açıklandığı bölüme yönlendirilirsiniz.",
+                    "updated": 1647093785771
                 }
             ]
         },
@@ -93,6 +130,11 @@
                     "language": "RU",
                     "text": "Причина №2: Не найдено свойство host",
                     "updated": 1640358020580
+                },
+                {
+                    "language": "TR",
+                    "text": "Neden #2: Ana Bilgisayar Özelliği Bulunamadı",
+                    "updated": 1647093828556
                 }
             ]
         },
@@ -105,6 +147,11 @@
                     "language": "RU",
                     "text": "В конфигурации сетевого узла ожидалось и не было найдено следующее свойство:",
                     "updated": 1640358010960
+                },
+                {
+                    "language": "TR",
+                    "text": "Ağ Düğümü ( Node ) yapılandırmasında aşağıdaki özellik bekleniyordu ve bulunamadı:",
+                    "updated": 1647093860919
                 }
             ]
         },
@@ -115,7 +162,14 @@
         {
             "style": "Error",
             "text": "Bad Configuration - Host Property Not Found",
-            "updated": 1610889199843
+            "updated": 1610889199843,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hata: Kötü Yapılandırma - Ana Bilgisayar Özelliği Bulunamadı",
+                    "updated": 1647093891538
+                }
+            ]
         },
         {
             "style": "Success",
@@ -126,6 +180,11 @@
                     "language": "RU",
                     "text": "Дважды проверьте, не ошиблись ли вы в определении этого свойства. Его значением должно быть имя хоста или IP-номер компьютера/сервера, на котором установлен клиент Superalgos.",
                     "updated": 1640358055256
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bu özelliği yanlış yazmadığınızı iki kez kontrol edin. Değeri, Superalgos İstemcisini barındıran bilgisayarın / sunucunun hostName veya IP numarası olmalıdır.",
+                    "updated": 1647093917308
                 }
             ]
         },
@@ -137,6 +196,11 @@
                     "language": "RU",
                     "text": "Эта страница содержит несколько случаев ошибок. При нажатии на сообщение об ошибке на узле вы будете перенаправлены в пределах этой страницы в раздел, где объясняется ошибка, возникшая на этом узле.",
                     "updated": 1640358092049
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bu sayfa birkaç hata koşulu içerir. Bir düğümde Hata Mesajına tıkladığınızda, bu sayfa içerisinde o düğümde meydana gelen hatanın açıklandığı bölüme yönlendirilirsiniz.",
+                    "updated": 1647093933503
                 }
             ]
         },
@@ -153,6 +217,11 @@
                     "language": "RU",
                     "text": "Причина №3: Свойство WebSocketsPort не найдено",
                     "updated": 1640358278857
+                },
+                {
+                    "language": "TR",
+                    "text": "Neden #3: WebSocketsPort Özelliği Bulunamadı",
+                    "updated": 1647093959786
                 }
             ]
         },
@@ -175,7 +244,14 @@
         {
             "style": "Error",
             "text": "Error: Bad Configuration - WebSocketsPort Property Not Found",
-            "updated": 1610889423432
+            "updated": 1610889423432,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hata: Hata: Kötü Yapılandırma - WebSocketsPort Özelliği Bulunamadı",
+                    "updated": 1647094013435
+                }
+            ]
         },
         {
             "style": "Success",
@@ -186,6 +262,11 @@
                     "language": "RU",
                     "text": "Дважды проверьте, не ошиблись ли вы в определении этого свойства. Его значением должен быть номер порта, настроенный для клиентского интерфейса Websockets.",
                     "updated": 1640358341218
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bu özelliği yanlış yazmadığınızı iki kez kontrol edin. Değeri, istemci ( Client ) Websockets Arayüzü için yapılandırılan bağlantı noktası numarası olmalıdır.",
+                    "updated": 1647094101105
                 }
             ]
         },
@@ -197,6 +278,11 @@
                     "language": "RU",
                     "text": "Эта страница содержит несколько случаев ошибок. При нажатии на сообщение об ошибке на узле вы будете перенаправлены в пределах этой страницы в раздел, где объясняется ошибка, возникшая на этом узле.",
                     "updated": 1640358373546
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bu sayfa birkaç hata koşulu içerir. Bir düğümde Hata Mesajına tıkladığınızda, bu sayfa içerisinde o düğümde meydana gelen hatanın açıklandığı bölüme yönlendirilirsiniz.",
+                    "updated": 1647094115229
                 }
             ]
         }

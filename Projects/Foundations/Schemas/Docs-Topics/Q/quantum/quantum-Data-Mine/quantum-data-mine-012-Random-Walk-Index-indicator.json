@@ -1,0 +1,70 @@
+{
+    "topic": "quantum Data Mine",
+    "pageNumber": 12,
+    "type": "Random Walk Index Indicator",
+    "definition": {
+        "text": "The Random Walk Index (RWI) compares price movements to a random sampling to determine if it's engaged in a statistically significant trend."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Random Walk Index the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "According to investopedia, this indicator was created by Michael Poulos in order to determine if a security's current price action is exhibiting 'random walk' or is the result of a statistically significant trend, higher or lower. "
+        },
+        {
+            "style": "Text",
+            "text": "Key concepts:"
+        },
+        {
+            "style": "List",
+            "text": "Contains two trend lines; High and Low, which measure the uptrend and downtrend respectively."
+        },
+        {
+            "style": "List",
+            "text": "When the High is above the Low it means there is more upward strength than downward strength, and vice versa."
+        },
+        {
+            "style": "List",
+            "text": "When either the High or the Low is above one, it indicates a strong, non-random trend is present."
+        },
+        {
+            "style": "Link",
+            "text": "Random Walk Index(investopedia)->www.investopedia.com/terms/r/random-walk-index.asp"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-RWI-on-the-chart.png"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the RWI can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"Random Walk Index\" Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-RWI-params.png"
+        },
+        {
+            "style": "Title",
+            "text": "RWI Products & Properties"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Setting | Product Variable | Properties |\n| Random-Walk-Index | RWI | rwiHigh, rwiLow |"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "A simple strategy can be built by entering a trade when the High value is above the Low, and above one:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.RWI.rwiHigh > chart.at01hs.RWI.rwiLow && chart.at01hs.RWI.rwiHigh > 1"
+        }
+    ]
+}

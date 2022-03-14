@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Запросы на извлечение (Pull Request, PR) в основном репозитории Superalgos были успешно обработаны.",
                 "updated": 1645626855724
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Ana Superalgos deposundaki çekme istekleri başarıyla işlendi.",
+                "updated": 1646741028459
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "RU",
                     "text": "От вас не требуется никаких дальнейших действий. Правила обработки PR были применены, и все PR, которые могли быть объединены, были объединены.",
                     "updated": 1645626830232
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Başka bir işlem yapmanız gerekmez. PR İşleme Kuralları uygulandı ve birleştirilebilecek tüm PR'ler birleştirildi.",
+                    "updated": 1646741059451
                 }
             ]
         }

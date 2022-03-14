@@ -21,6 +21,11 @@
                 "language": "TR",
                 "text": "Özet: İlk adım, Superalgos dizinine erişimi olacak ve hangi dosyanın çalıştırılacağını, ekleneceğini ve hata ayıklama için izleneceğini bilmesi için Visual Studio Code'u ayarlamaktır.",
                 "updated": 1645357587498
+            },
+            {
+                "language": "DE",
+                "text": "Der erste Schritt besteht darin, Visual Studio Code so einzurichten, dass es Zugriff auf das Superalgos-Verzeichnis hat und weiß, welche Datei ausgeführt, angehängt und zum Debuggen überwacht werden soll.",
+                "updated": 1647166575915
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "language": "TR",
                     "text": "Genel Bakış",
                     "updated": 1645357620483
+                },
+                {
+                    "language": "DE",
+                    "text": "Überblick",
+                    "updated": 1647167018585
                 }
             ]
         },
@@ -56,6 +66,11 @@
                     "language": "TR",
                     "text": "Superalgos'un üç temel bileşeni vardır: İstemci ( Client ), TS ve UI.",
                     "updated": 1645357638006
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos hat drei Kernkomponenten, den Client, TS und die UI.",
+                    "updated": 1647166639401
                 }
             ]
         },
@@ -73,6 +88,11 @@
                     "language": "TR",
                     "text": "İpucu: Her bir bileşenle ilgili daha fazla bilgi edinmek için yukarıdaki her kelimenin üzerine gelin (veya tıklayın).",
                     "updated": 1645357695418
+                },
+                {
+                    "language": "DE",
+                    "text": "Fahren Sie mit dem Mauszeiger über die einzelnen Wörter (oder klicken Sie darauf), um mehr über die einzelnen Komponenten zu erfahren.",
+                    "updated": 1647166660314
                 }
             ]
         },
@@ -90,6 +110,11 @@
                     "language": "TR",
                     "text": "Hata ayıklama amacıyla, zaten İstemci ve Kullanıcı Arayüzünün çalışmasını istiyoruz. Bu işlem, TS'nin bir hata ayıklama örneğini çalıştırmak için Visual Studio Code'un nasıl ayarlanacağını ayrıntılarıyla anlatır.",
                     "updated": 1645357719909
+                },
+                {
+                    "language": "DE",
+                    "text": "Für Debugging-Zwecke wollen wir bereits den Client und die UI laufen lassen. Dieser Prozess beschreibt, wie man Visual Studio Code einrichtet, um eine Debug-Instanz des TS auszuführen.",
+                    "updated": 1647166845701
                 }
             ]
         },
@@ -107,6 +132,11 @@
                     "language": "TR",
                     "text": "Öncelikle Superalgos dizinini görebilmemiz için Visual Studio Code çalışma alanımızı kurmamız gerekiyor.",
                     "updated": 1645357731347
+                },
+                {
+                    "language": "DE",
+                    "text": "Zuerst müssen wir unseren Visual Studio Code-Arbeitsbereich so einrichten, dass wir das Superalgos-Verzeichnis sehen können.",
+                    "updated": 1647166923668
                 }
             ]
         },
@@ -124,6 +154,11 @@
                     "language": "TR",
                     "text": "Visual Studio Kodunu Yapılandırma",
                     "updated": 1645357750313
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfigurieren von Visual Studio Code",
+                    "updated": 1647167007919
                 }
             ]
         },
@@ -140,6 +175,11 @@
                     "language": "TR",
                     "text": "Visual Studio Code'u başlatın ve Explorer sol panelini açmak için Explorer simgesine tıklayın.",
                     "updated": 1645357760939
+                },
+                {
+                    "language": "DE",
+                    "text": "Starten Sie Visual Studio Code und klicken Sie auf das Explorer-Symbol, um das Explorer-Panel auf der linken Seite zu öffnen.",
+                    "updated": 1647167035371
                 }
             ]
         },
@@ -162,6 +202,11 @@
                     "language": "TR",
                     "text": "TS'yi sadece hata ayıklama modunda çalıştırdığımız için \"TaskServer\" klasörü ile başlıyoruz.",
                     "updated": 1645357790560
+                },
+                {
+                    "language": "DE",
+                    "text": "Da wir den TS nur im Debug-Modus ausführen, beginnen wir mit dem Ordner \"TaskServer\".",
+                    "updated": 1647167077101
                 }
             ]
         },
@@ -178,6 +223,11 @@
                     "language": "TR",
                     "text": "Klasör Ekle düğmesini tıklayın ve bunu Visual Studio Code çalışma alanınıza eklemek için \"TaskServer\" klasörünü (../Superalgos/TaskServer) açın.",
                     "updated": 1645357813029
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie auf die Schaltfläche Ordner hinzufügen und öffnen Sie den Ordner \"TaskServer\" (../Superalgos/TaskServer), um diesen Ihrem Visual Studio Code-Arbeitsbereich hinzuzufügen.",
+                    "updated": 1647167099609
                 }
             ]
         },
@@ -205,6 +255,11 @@
                     "language": "TR",
                     "text": "Ardından, Superalgos dosyalarının geri kalanını analiz edebilmemiz için \"Projeler\" klasörünü ekliyoruz.",
                     "updated": 1645357868069
+                },
+                {
+                    "language": "DE",
+                    "text": "Als Nächstes fügen wir den Ordner \"Projekte\" hinzu, damit wir den Rest der Superalgos-Dateien analysieren können.",
+                    "updated": 1647167129783
                 }
             ]
         },
@@ -221,6 +276,11 @@
                     "language": "TR",
                     "text": "Explorer sol panelindeki boş alana sağ tıklayın ve Çalışma Alanına Klasör Ekle'ye tıklayın ve ayrıca \"Projeler\" (../Superalgos/Projects) klasörünü çalışma alanınıza ekleyin.",
                     "updated": 1645357878017
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf die leere Stelle im linken Fenster des Explorers und klicken Sie auf Ordner zum Arbeitsbereich hinzufügen und fügen Sie den Ordner \"Projekte\" (../Superalgos/Projects) zu Ihrem Workspace hinzu.",
+                    "updated": 1647167155402
                 }
             ]
         },
@@ -248,6 +308,11 @@
                     "language": "TR",
                     "text": "Explorer sol panelinde şimdi aşağıdaki gibi \"TaskServer\" ve \"Projects\" adlı iki klasör bulunmalıdır.",
                     "updated": 1645358261098
+                },
+                {
+                    "language": "DE",
+                    "text": "Das linke Fenster des Explorers sollte nun die beiden Ordner \"TaskServer\" und \"Projekte\" enthalten, wie unten dargestellt.",
+                    "updated": 1647167183580
                 }
             ]
         },
@@ -270,6 +335,11 @@
                     "language": "TR",
                     "text": "Bu eşleşirse, Çalışma Alanımızı ( Workspace ) kaydedelim, böylece bir sonraki Visual Studio Code'u açtığımızda bu otomatik olarak yüklenir. Dosya'yı ve ardından Çalışma Alanını Farklı Kaydet'i tıklayın ve ona bir ad verin.",
                     "updated": 1645358304301
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn dies zutrifft, sollten wir unseren Workspace speichern, damit er beim nächsten Öffnen von Visual Studio Code automatisch geladen wird. Klicken Sie auf Datei und dann auf Workspace speichern unter und geben Sie einen Namen ein.",
+                    "updated": 1647167232769
                 }
             ]
         },
@@ -290,6 +360,11 @@
                     "language": "TR",
                     "text": "Mükemmel! Superalgos dizinine erişebilmesi için Visual Studio Code'u ayarlamak için gereken tek şey bu. Daha sonra koda dalacağız ve kesme noktaları hakkında konuşacağız.",
                     "updated": 1645358353305
+                },
+                {
+                    "language": "DE",
+                    "text": "Großartig! Das ist alles, was Sie tun müssen, um Visual Studio Code so einzurichten, dass es auf das Superalgos-Verzeichnis zugreifen kann. Als nächstes werden wir in den Code eintauchen und über Haltepunkte sprechen.",
+                    "updated": 1647167258968
                 }
             ]
         }

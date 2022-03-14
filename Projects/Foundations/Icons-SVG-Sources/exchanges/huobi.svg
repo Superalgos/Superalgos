@@ -1,54 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg
-   enable-background="new 0 0 88 135.9"
-   viewBox="0 0 512 512.00002"
-   version="1.1"
-   id="svg2301"
-   sodipodi:docname="huobi.svg"
-   width="512"
-   height="512"
-   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
-  <defs
-     id="defs2305" />
-  <sodipodi:namedview
-     id="namedview2303"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageshadow="2"
-     inkscape:pageopacity="0.0"
-     inkscape:pagecheckerboard="0"
-     showgrid="false"
-     fit-margin-top="0"
-     fit-margin-left="0"
-     fit-margin-right="0"
-     fit-margin-bottom="0"
-     inkscape:zoom="0.71284032"
-     inkscape:cx="244.79535"
-     inkscape:cy="333.17419"
-     inkscape:window-width="1920"
-     inkscape:window-height="1013"
-     inkscape:window-x="-9"
-     inkscape:window-y="-9"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="svg2301" />
-  <g
-     id="g2389"
-     transform="matrix(5.81989,0,0,3.7635762,0.37954953,0.20738073)"
-     inkscape:export-filename="C:\Users\Piyantha.K\Documents\Superalgos\Projects\Foundations\Icons-SVG-Sources\exchanges\New folder\huobi.png"
-     inkscape:export-xdpi="96"
-     inkscape:export-ydpi="96">
-    <path
-       d="M 57.8,41.8 C 57.8,22.3 48.4,5.5 41.2,0 c 0,0 -0.5,-0.3 -0.5,0.5 -0.6,37.7 -19.7,48 -30.3,61.7 -24.3,31.8 -1.7,66.6 21.3,73 12.9,3.6 -3,-6.4 -5,-27.4 -2.4,-25.5 31.1,-44.9 31.1,-66"
-       fill="#282e5b"
-       id="path2297" />
-    <path
-       d="m 70.4,54.7 c -0.1,-0.1 -0.3,-0.1 -0.5,0 0,0 0,0 -0.1,0.1 -0.4,4.7 -5.6,14.9 -12.1,24.2 -22.1,31.6 -9.5,46.8 -2.4,55 4.1,4.8 0,0 10.3,-4.9 0.8,-0.4 20,-10.6 22.1,-33.7 C 89.8,72.9 75.5,58.8 70.4,54.7"
-       fill="#059bdc"
-       id="path2299" />
-  </g>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_321_434)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M256 9.66209C250.61 5.91277 245.289 2.7414 240.159 0.207381C240.159 0.207381 237.249 -0.921692 237.249 2.08917C234.485 114.41 164.248 162.108 104.493 202.688C88.7641 213.369 73.7613 223.558 60.9064 234.302C-80.5169 353.984 51.0126 484.956 184.87 509.043C223.439 516.003 217.772 509.455 201.563 490.725C186.22 472.997 161.431 444.353 155.771 405.921C148.254 354.272 201.249 309.273 251.802 266.347C253.204 265.157 254.603 263.968 256 262.781V9.66209Z" fill="#0295AA"/>
+<path d="M410.1 206.413C409.518 206.037 408.354 206.037 407.19 206.413C407.19 206.413 407.19 206.413 406.608 206.789C404.28 224.478 374.017 262.867 336.187 297.868C207.568 416.797 280.898 474.003 322.219 504.865C346.081 522.93 322.219 504.865 382.164 486.423C386.82 484.918 498.562 446.529 510.784 359.591C523.006 274.91 439.781 221.844 410.1 206.413Z" fill="#4ACFD9"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M256 263.119C297.828 227.565 336.769 193.353 336.769 157.863C336.769 93.4573 294.637 36.8778 256 10V263.119Z" fill="#4ACFD9"/>
+</g>
+<defs>
+<clipPath id="clip0_321_434">
+<rect width="512" height="512" fill="white"/>
+</clipPath>
+</defs>
 </svg>

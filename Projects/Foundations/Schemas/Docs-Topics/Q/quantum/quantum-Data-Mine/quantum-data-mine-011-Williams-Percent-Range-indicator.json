@@ -1,0 +1,71 @@
+{
+    "topic": "quantum Data Mine",
+    "pageNumber": 11,
+    "type": "William's Percent Range Indicator",
+    "definition": {
+        "text": "Williams %R, also known as the Williams Percent Range, is a type of momentum indicator that moves between 0 and -100 and measures overbought and oversold levels."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Williams %R On the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "According to investopedia: The Williams %R may be used to find entry and exit points in the market. The indicator is very similar to the Stochastic oscillator and is used in the same way. It was developed by Larry Williams and it compares a stock's closing price to the high-low range over a specific period, typically 14 days or periods.",
+            "updated": 1647223967173
+        },
+        {
+            "style": "Text",
+            "text": "Key concepts:"
+        },
+        {
+            "style": "List",
+            "text": "Moves between zero and -100"
+        },
+        {
+            "style": "List",
+            "text": "-20 is overbought"
+        },
+        {
+            "style": "List",
+            "text": "-80 is oversold"
+        },
+        {
+            "style": "Link",
+            "text": "Williams %R(investopedia)->investopedia.com/terms/w/williamsr.asp"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-williamsPercR-on-the-chart.png"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the Williams %R can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"Williams %R\" Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-williamsPercR-params.png"
+        },
+        {
+            "style": "Title",
+            "text": "Williams %R Products & Properties"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Setting | Product Variable | Properties |\n| Williams-PercR | WilliamsPercR | value |"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "A simple strategy can be built by entering a trade when the %R value leaves the overbought area of -80:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at45min.WilliamsPercR.previous.value < -80 && chart.at45min.WilliamsPercR.value > -80"
+        }
+    ]
+}

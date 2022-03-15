@@ -4,37 +4,86 @@
     "type": "Binance Test Status",
     "definition": {
         "text": "Binance Exchange, Spot market is fully tested for data mining and trading. Margin account trading under review & testing phase and prioritized on users requirement.",
-        "updated": 1615141847424
+        "updated": 1615141847424,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Биржа Binance, рынок спот полностью протестирован для поиска данных и торговли. Торговля на маржинальном счете находится на стадии рассмотрения и тестирования, приоритет отдается требованиям пользователей.",
+                "updated": 1646900153096
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Properties",
-            "updated": 1615143100216
+            "updated": 1615143100216,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сведения",
+                    "updated": 1646900462952
+                }
+            ]
         },
         {
             "style": "List",
             "text": "1-min OHLCVs Capability: Yes. The ability to fetch historic data for backtesting purposes has been verified.",
-            "updated": 1616003523813
+            "updated": 1616003523813,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "1-минутные свечи OHLCV: Да. Возможность получения исторических данных для целей бэктестинга была проверена.",
+                    "updated": 1646900220400
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Market History: Starting on September 2017.",
-            "updated": 1615142912901
+            "updated": 1615142912901,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "История рынка: Начиная с сентября 2017 года.",
+                    "updated": 1646900196684
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Trading Capability: Yes. The ability to run strategies in live-trading mode has been verified.",
-            "updated": 1616003541160
+            "updated": 1616003541160,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Возможность торговли: Да. Возможность запуска стратегий в режиме реальной торговли была проверена.",
+                    "updated": 1646900230360
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Comments: Fully tested. Starting with Binance is recommended as the experience is seamless. Sandbox/testnet facility available but not yet reviewed as it requires independent exchange API keys.",
-            "updated": 1615142951363
+            "updated": 1615142951363,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Комментарии: Полностью протестировано. Рекомендуется начинать с Binance, так как опыт работы с ней является беспроблемным. Песочница/тестнет доступны, но пока не проверены, так как требуют независимых API-ключей биржи.",
+                    "updated": 1646900266186
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "In order to be exchange friendly a utility has been provided to pre-download symbol ticker data, thus saving time & net download bandwidth usage. Please refer to the documentations provided.\n\thttps://github.com/PLuv/Exchange-Raw-Data-Superalgos"
+            "text": "In order to be exchange friendly a utility has been provided to pre-download symbol ticker data, thus saving time & net download bandwidth usage. Please refer to the documentations provided.\n\thttps://github.com/PLuv/Exchange-Raw-Data-Superalgos",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для того, чтобы быть дружелюбным к бирже, была разработана утилита для предварительной загрузки данных символьных тикеров, что позволяет сэкономить время и пропускную способность сети. Пожалуйста, ознакомьтесь с предоставленной документацией.\thttps://github.com/PLuv/Exchange-Raw-Data-Superalgos",
+                    "updated": 1646900377585
+                }
+            ]
         },
         {
             "style": "Json",

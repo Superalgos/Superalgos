@@ -1,0 +1,58 @@
+{
+    "topic": "quantum Data Mine",
+    "pageNumber": 10,
+    "type": "Elder's Force Index Indicator",
+    "definition": {
+        "text": "Elder's Force Index measures the direction and extent of price change, and the trading volume over a specific period of time to display the power of bulls or bears in that timeframe."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Elder's Force Index On the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "According to investopedia, Dr Alexander Elder created this indicator, taking the three elements of trading force (direction and extent of price change, and Volume) and combined it with a moving average to accurately measure significant changes in the market."
+        },
+        {
+            "style": "Text",
+            "text": "Since the Force Index combines volume and price, it is very good at showing the strength of a trend. When th eindex hits a new high, a given uptrend is likely to continue. The same is said for new lows and downtrends. A flattening force index is also an important situaion; it means the change in prices is not supported by either rising or declining volume, and that the trend is likely to reverse."
+        },
+        {
+            "style": "Link",
+            "text": "Force Index(investopedia)->www.investopedia.com/articles/trading/03/031203.asp"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-EFI-on-the-chart.png"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the EFI can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"Elder\" Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-EFI-params.png"
+        },
+        {
+            "style": "Title",
+            "text": "EFI Products & Properties"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Setting | Product Variable | Properties |\n| ElderForceInd | efi | value |"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "A simple strategy can be built by entering a trade when the EFI value rises above -50:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at15min.efi.previous.value < -50 && chart.at15min.efi.value > -50"
+        }
+    ]
+}

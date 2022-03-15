@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Все механизмы торговых сигналов, рассмотренные на предыдущих страницах, работают на базе одноранговой сети Superalgos.",
                 "updated": 1645626310374
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Önceki sayfalarda tartışılan tüm ticaret sinyal mekaniği, Superalgos eşler arası ağ üzerinde çalışır.",
+                "updated": 1646300647855
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Поэтому важно отметить, что на данном этапе развития для получения доступа к сети необходимо запустить свой собственный узел. По мере развития сети и добавления узлов, каждому человеку не нужно будет запускать свой узел.",
                     "updated": 1645626325726
+                },
+                {
+                    "language": "TR",
+                    "text": "Sonuç olarak, geliştirmenin şu andaki aşamasında, ağa erişmeye başlamak için kendi ağ düğümünüzü çalıştırmanız gerektiğini belirtmek önemlidir. Ağ büyüdükçe ve düğümler eklendikçe, her bireyin kendi düğümünü çalıştırması gerekli olmayacak.",
+                    "updated": 1646300695690
                 }
             ]
         }

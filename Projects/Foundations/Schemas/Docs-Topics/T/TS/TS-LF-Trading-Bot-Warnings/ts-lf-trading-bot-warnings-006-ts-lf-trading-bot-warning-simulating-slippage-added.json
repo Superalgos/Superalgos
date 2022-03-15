@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Проскальзывание было рассчитано на основе торговых параметров и добавлено к Order Rate для расчета Actual Rate. Проскальзывание было добавлено, поскольку ордер является рыночным ордером на покупку.",
                 "updated": 1645630273077
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Slippage, Ticaret Parametrelerine ( Trading Parameters ) göre hesaplandı ve Gerçek Oranı ( Actual Rate ) hesaplamak için Emir Oranına ( Order Rate ) eklendi. Emir Piyasa Alım Emri ( Market Sell Order ) olduğu için ( Slippage ) eklendi.",
+                "updated": 1647172363395
             }
         ]
     },
@@ -34,6 +39,11 @@
                     "language": "RU",
                     "text": "Добавлено проскальзывание",
                     "updated": 1645630284725
+                },
+                {
+                    "language": "TR",
+                    "text": "Uyarı: Slippage Eklendi",
+                    "updated": 1647172403120
                 }
             ]
         },
@@ -45,6 +55,11 @@
                     "language": "RU",
                     "text": "Контекстная информация",
                     "updated": 1645630289361
+                },
+                {
+                    "language": "TR",
+                    "text": "İçerik Bilgisi",
+                    "updated": 1647172420035
                 }
             ]
         },
@@ -56,6 +71,11 @@
                     "language": "RU",
                     "text": "Ниже приведены значения переменных, относящихся к предупреждению на момент его создания. Они могут оказаться полезными для понимания того, что произошло.",
                     "updated": 1645630294348
+                },
+                {
+                    "language": "TR",
+                    "text": "Uyarının oluşturulduğu anda uyarıyla ilgili değişkenlerin değerlerini aşağıda bulun. Neler olduğunu anlamak için faydalı olabilirler.",
+                    "updated": 1647172429998
                 }
             ]
         },
@@ -75,6 +95,11 @@
                     "language": "RU",
                     "text": "Узнать больше",
                     "updated": 1645630308108
+                },
+                {
+                    "language": "TR",
+                    "text": "Daha Fazlasını Öğrenin",
+                    "updated": 1647172478441
                 }
             ]
         },
@@ -86,12 +111,24 @@
                     "language": "RU",
                     "text": "Чтобы узнать больше об этой теме, прочтите следующую страницу:",
                     "updated": 1645630316381
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu konu hakkında daha fazla bilgi edinmek için lütfen aşağıdaki sayfayı okuyun:",
+                    "updated": 1647172489487
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Simulating Sync With the Exchange"
+            "text": "Simulating Sync With the Exchange",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Exchange ile Senkronizasyonu Simüle Etme ( Simulating Sync With the Exchange )",
+                    "updated": 1647172497219
+                }
+            ]
         },
         {
             "style": "List",

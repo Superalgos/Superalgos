@@ -1,0 +1,33 @@
+{
+    "type": "P2P Network Reference",
+    "definition": {
+        "text": "The P2P Network Reference node defines which Peer to Peer network the current Network node will run within.",
+        "updated": 1647060713209
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "This node holds a reference to a P2P Network node allowing the User to control exactly which peer to peer network will be accessed.",
+            "updated": 1647061073236
+        },
+        {
+            "style": "Text",
+            "text": "There are three main types of peer to peer networks."
+        },
+        {
+            "style": "List",
+            "text": "TestNets used for testing peer to peer functionality.",
+            "updated": 1647061118289
+        },
+        {
+            "style": "List",
+            "text": "Permissioned networks that are only accessible with the right credentials.",
+            "updated": 1647061146408
+        },
+        {
+            "style": "List",
+            "text": "Open networks that can be accessed freely.",
+            "updated": 1647061163693
+        }
+    ]
+}

@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Возникла непредвиденная ошибка, и процесс был остановлен.",
                 "updated": 1645629426928
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Beklenmeyen bir hata oluştu ve işlem durduruldu.",
+                "updated": 1647096176839
             }
         ]
     },
@@ -17,11 +22,25 @@
         {
             "style": "Text",
             "text": "While running at the TS, the process encountered and unexpected error that forced the TS to shut the process down. The Task may still be running other unaffected processes, but if all the processes stop running or this was the only process under the Task, then the Task may have stopped too.",
-            "updated": 1611413246602
+            "updated": 1611413246602,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "TS'de çalışırken, hatalı bir işlemle karşılaşıldı ve TS'yi işlem kapatmaya zorlayan beklenmeyen bir hata oluştu. Görev ( Task ), etkilenmeyen diğer işlemleri çalıştırmaya devam ediyor olabilir, ancak tüm işlemlerin çalışması durursa veya Görev altındaki tek işlem buysa, Görev de durmuş olabilir.",
+                    "updated": 1647096307479
+                }
+            ]
         },
         {
             "style": "Error",
-            "text": "Unexpected Error"
+            "text": "Unexpected Error",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hata: Beklenmeyen Hata ( Unexpected Error )",
+                    "updated": 1647096334960
+                }
+            ]
         },
         {
             "style": "Title",
@@ -32,6 +51,11 @@
                     "language": "RU",
                     "text": "Информация об ошибке",
                     "updated": 1645629461558
+                },
+                {
+                    "language": "TR",
+                    "text": "Hata Bilgisi",
+                    "updated": 1647096365368
                 }
             ]
         },
@@ -43,6 +67,11 @@
                     "language": "RU",
                     "text": "В следующем разделе вы найдете информацию, записанную при возникновении ошибки.",
                     "updated": 1645629470286
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki bölümde, hata oluştuğunda kaydedilen bilgileri bulacaksınız.",
+                    "updated": 1647096374012
                 }
             ]
         },
@@ -55,12 +84,24 @@
                     "language": "RU",
                     "text": "Вы увидите информацию только в том случае, если вы открыли эту страницу в результате того, что ошибка действительно произошла.",
                     "updated": 1645629479296
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bilgileri yalnızca bu sayfayı gerçekten oluşan hatanın bir sonucu olarak açtıysanız göreceksiniz.",
+                    "updated": 1647096381849
                 }
             ]
         },
         {
             "style": "Subtitle",
-            "text": "Error Message"
+            "text": "Error Message",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hata mesajı",
+                    "updated": 1647096398267
+                }
+            ]
         },
         {
             "style": "Text",
@@ -70,6 +111,11 @@
                     "language": "RU",
                     "text": "Ниже приведено сообщение об ошибке исключения, произошедшего в TS:",
                     "updated": 1645629487146
+                },
+                {
+                    "language": "TR",
+                    "text": "TS'de meydana gelen İstisnanın Hata Mesajı aşağıdadır:",
+                    "updated": 1647096408765
                 }
             ]
         },
@@ -79,7 +125,14 @@
         },
         {
             "style": "Subtitle",
-            "text": "Error Stack"
+            "text": "Error Stack",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hata Yığını",
+                    "updated": 1647096432568
+                }
+            ]
         },
         {
             "style": "Text",
@@ -89,6 +142,11 @@
                     "language": "RU",
                     "text": "Ниже приведен стек ошибок исключения, произошедшего в TS:",
                     "updated": 1645629494990
+                },
+                {
+                    "language": "TR",
+                    "text": "TS'de meydana gelen İstisnanın Hata Yığını aşağıdadır:",
+                    "updated": 1647096437393
                 }
             ]
         },
@@ -98,7 +156,14 @@
         },
         {
             "style": "Subtitle",
-            "text": "Error Code"
+            "text": "Error Code",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hata Kodu",
+                    "updated": 1647096459797
+                }
+            ]
         },
         {
             "style": "Text",
@@ -108,6 +173,11 @@
                     "language": "RU",
                     "text": "Ниже приведен код ошибки исключения, произошедшего в TS:",
                     "updated": 1645629500864
+                },
+                {
+                    "language": "TR",
+                    "text": "TS'de meydana gelen İstisnanın Hata Kodu aşağıdadır:",
+                    "updated": 1647096463538
                 }
             ]
         },
@@ -117,7 +187,14 @@
         },
         {
             "style": "Subtitle",
-            "text": "Error Details"
+            "text": "Error Details",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hata detayları",
+                    "updated": 1647096477685
+                }
+            ]
         },
         {
             "style": "Text",
@@ -127,6 +204,11 @@
                     "language": "RU",
                     "text": "Ниже перечислены все детали ошибки исключения, произошедшего в TS:",
                     "updated": 1645629506766
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdakiler, TS'de meydana gelen İstisnanın tüm Hata ayrıntılarıdır:",
+                    "updated": 1647096485022
                 }
             ]
         },

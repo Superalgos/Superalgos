@@ -72,11 +72,12 @@ function newContributionsContributionsPage() {
             if (stat[2] === undefined || stat[2].length === 0) {
                 HTML += '<div class="repo-update-stat">Something is wrong with the status of your local repository. Check the console</div>'
             } else {
+    //TODO: needs localized for all supported languages 
                 for (const branch of stat[2]) {
                     if (UI.projects.education.spaces.docsSpace.currentBranch === branch[0]) {
                         if (branch[1] === 'local out of date'){
                             HTML += '<div class="repo-update-stat" style="color:#b11a0f">Out dated. Please Update</div>'
-                        } else if (branch[1] === 'up to date'){
+                        } else if (branch[1] === 'up to date' || branch[1] === "a jour"){
                             HTML += '<div class="repo-update-stat" style="color:#10aa1d">Up to date!</div>'
                         } else {
                             HTML += '<div class="repo-update-stat">Local code is ' + branch[1] + ' </div>'

@@ -15,6 +15,11 @@
                 "language": "ES",
                 "text": "Token Power Fluye en cascada hacia abajo desde el nodo User Profile  al nodo Token Power Switch, a su descendencia, y así sucesivamente, siguiendo la estructura de la jerarquía.",
                 "updated": 1640976938375
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Kullanıcı Profiliniz ( User Profile ), yönetime nasıl katılmak istediğinizi tanımladığınız yerdir.",
+                "updated": 1646301229245
             }
         ]
     },
@@ -30,7 +35,14 @@
         },
         {
             "style": "Title",
-            "text": "Token Power Switch"
+            "text": "Token Power Switch",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Jeton Güç Anahtarı",
+                    "updated": 1646301270300
+                }
+            ]
         },
         {
             "style": "Include",
@@ -43,7 +55,14 @@
         {
             "style": "Title",
             "text": "Tokens Mined",
-            "updated": 1630157369136
+            "updated": 1630157369136,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Jeton Madeni",
+                    "updated": 1646301556077
+                }
+            ]
         },
         {
             "style": "Include",
@@ -61,7 +80,14 @@
         },
         {
             "style": "Title",
-            "text": "Tokens Awarded"
+            "text": "Tokens Awarded",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ödüllü Jetonlar",
+                    "updated": 1646301548355
+                }
+            ]
         },
         {
             "style": "Include",
@@ -78,7 +104,14 @@
         },
         {
             "style": "Title",
-            "text": "Tokens Bonus"
+            "text": "Tokens Bonus",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Jeton Bonusu",
+                    "updated": 1646301531863
+                }
+            ]
         },
         {
             "style": "Include",

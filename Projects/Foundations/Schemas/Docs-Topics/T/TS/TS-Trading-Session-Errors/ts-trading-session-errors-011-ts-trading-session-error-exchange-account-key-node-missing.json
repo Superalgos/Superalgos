@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Узел Exchange Account Key Node ожидается и необходим для запуска реальной торговой сессии или сессии форвардного тестирования.",
                 "updated": 1645628595249
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Canlı Ticaret Oturumu ( Live Trading Session ) veya İleri Test Oturumu ( Forward Testing Session ) çalıştırmak için bir Exchange Hesabı Anahtar ( Exchange Account Key ) Düğümü beklenir ve gereklidir.",
+                "updated": 1647101306321
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Из узла Key Reference Node, где появилась эта ошибка, вам нужно сослаться на Account Exchange Key, содержащий ваши ключи для доступа к вашей учетной записи на бирже.",
                     "updated": 1645628605637
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bu hatanın ortaya çıktığı Anahtar Referans Düğümünden ( Key Reference Node ), Exchange'deki hesabınıza erişmek için anahtarlarınızı tutan bir Hesap Değişim Anahtarına başvurmanız gerekir.",
+                    "updated": 1647101364705
                 }
             ]
         }

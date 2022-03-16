@@ -9,6 +9,11 @@
                 "language": "RU",
                 "text": "Вы можете установить различные значения для используемых периодов в верхней части большинства индикаторов, расположенных в узле Omega Data Mine -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code.",
                 "updated": 1643524249143
+            },
+            {
+                "language": "DE",
+                "text": "Sie können im oberen Abschnitt der meisten Indikatoren, die Sie unter Omega Data Mine -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code finden, verschiedene Werte für die verwendeten Perioden festlegen.",
+                "updated": 1645155757800
             }
         ]
     },
@@ -22,6 +27,11 @@
                     "language": "RU",
                     "text": "Список индикаторов:",
                     "updated": 1643524255533
+                },
+                {
+                    "language": "DE",
+                    "text": "Liste der Indikatoren:",
+                    "updated": 1645155788411
                 }
             ]
         },
@@ -37,6 +47,11 @@
                     "language": "RU",
                     "text": "Chaikin Oscillator - это разница между 3-дневной и 10-дневной EMA линии распределения накопления. Как и другие индикаторы импульса, этот индикатор предназначен для предвидения направленных изменений в линии распределения накопления путем измерения импульса, стоящего за движениями.",
                     "updated": 1643524287379
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Chaikin Oscillator ist die Differenz zwischen den 3-Tages- und 10-Tages-EMAs der Akkumulations-/Verteilungslinie. Wie andere Momentum Indikatoren ist dieser Indikator darauf ausgelegt, Richtungsänderungen der Akkumulations-/Verteilungslinie vorauszusehen, indem er das Momentum hinter den Bewegungen misst.",
+                    "updated": 1645156268639
                 }
             ]
         },
@@ -54,6 +69,11 @@
                     "language": "RU",
                     "text": "ARPS - Average Range Percentage Spread измеряет силу бычьей и медвежьей мощи. Два отдельных индикатора, измеряющих одно и то же, для использования как по отдельности, так и вместе.",
                     "updated": 1643524329018
+                },
+                {
+                    "language": "DE",
+                    "text": "ARPS - Average Range Percentage Spread misst die Stärke der Bullen- und Bärenpower. Zwei separate Indikatoren, die das Gleiche messen und entweder separat oder kombiniert verwendet werden können.",
+                    "updated": 1645156833526
                 }
             ]
         },
@@ -70,6 +90,11 @@
                     "language": "RU",
                     "text": "Осциллятор Average VS Average можно использовать для распознавания изменений между быстрой средней и медленной средней. При этом учитывается движение цены, объем и так называемый \"открытый интерес\".",
                     "updated": 1643524343553
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Average VS Average Oscillator kann verwendet werden, um Veränderungen zwischen einem schnellen und einem langsamen Durchschnitt zu erkennen. Unter Berücksichtigung der Preisbewegung, des Volumens und des so genannten \"Open Interest\".",
+                    "updated": 1645156892867
                 }
             ]
         }

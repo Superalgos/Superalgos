@@ -1,40 +1,28 @@
 {
-    "topic": "TS LF Learning Bot Errors",
+    "topic": "TS Dataset Type Standard Converter Error",
     "pageNumber": "2",
-    "type": "TS LF Learning Bot Error - Evaluating Formula Error",
+    "type": "TS Dataset Type Standard Converter Error - Only One Output Dataset Expected",
     "definition": {
-        "text": "An error occurred while evaluating a user-defined Formula at the Learning System.",
-        "updated": 1611926309593,
+        "text": "For this type of Dataset conversion, the process needs to have only one Output Datasety defined. Zero or more than one where found. To fix this issue, define only one Output Dataset and try again.",
+        "updated": 1621859784437,
         "translations": [
             {
                 "language": "TR",
-                "text": "Özet: Öğrenme Sisteminde ( Learning System ) kullanıcı tanımlı bir Formül ( Formula ) değerlendirilirken bir hata oluştu.",
-                "updated": 1647419503303
+                "text": "Özet: Bu tür bir Veri Kümesi ( Dataset )  dönüştürmesi için, Bulunduğu yerde sıfır veya birden fazla işlemin bir Çıktı Veri Kümesinin ( Output Dataset ) tanımlanmış olması gerekir.Bu sorunu gidermek için yalnızca bir Çıktı Veri Kümesi ( Output Dataset ) tanımlayın ve yeniden deneyin.",
+                "updated": 1647422286726
             }
         ]
     },
     "paragraphs": [
         {
-            "style": "Text",
-            "text": "While running at the TS, the LF Learning Bot encountered an error trying to evaluate one of the formulas defined in the Learning System. Formulas are arbitrary Javascript Code that users may write. The code must be valid Javascript for Node JS.",
-            "updated": 1611926279221,
-            "translations": [
-                {
-                    "language": "TR",
-                    "text": "LF Öğrenme Botu ( LF Learning Bot ), TS'de çalışırken, Öğrenme Sisteminde ( Learning System ) tanımlanan formüllerden birini değerlendirmeye çalışırken bir hatayla karşılaştı. Formüller, kullanıcıların yazabileceği isteğe bağlı Javascript Kodudur ( Javascript Code ). Kod, Node JS için geçerli Javascript olmalıdır.",
-                    "updated": 1647420025944
-                }
-            ]
-        },
-        {
             "style": "Error",
-            "text": "Evaluating Formula Error",
-            "updated": 1611569347664,
+            "text": "Only One Output Dataset Expected",
+            "updated": 1621860374194,
             "translations": [
                 {
                     "language": "TR",
-                    "text": "Hata: Formül ( Formula ) Hatası Değerlendiriliyor",
-                    "updated": 1647420047984
+                    "text": "Hata: Yalnızca Bir Çıktı Veri Kümesi ( Output Dataset ) Bekleniyor",
+                    "updated": 1647422317459
                 }
             ]
         },
@@ -45,7 +33,7 @@
                 {
                     "language": "TR",
                     "text": "Hata Bilgisi",
-                    "updated": 1647420077798
+                    "updated": 1647422335410
                 }
             ]
         },
@@ -56,19 +44,19 @@
                 {
                     "language": "TR",
                     "text": "Aşağıdaki bölümde, hata oluştuğunda kaydedilen bilgileri bulacaksınız.",
-                    "updated": 1647420085867
+                    "updated": 1647422338346
                 }
             ]
         },
         {
             "style": "Success",
             "text": "You will only see the information if you opened this page as a result of the error actually occurring.",
-            "updated": 1611569373599,
+            "updated": 1611680880668,
             "translations": [
                 {
                     "language": "TR",
                     "text": "İpucu: Bilgileri yalnızca bu sayfayı gerçekten oluşan hatanın bir sonucu olarak açtıysanız göreceksiniz.",
-                    "updated": 1647420097368
+                    "updated": 1647422356557
                 }
             ]
         },
@@ -79,19 +67,18 @@
                 {
                     "language": "TR",
                     "text": "Hata Mesajı",
-                    "updated": 1647420110655
+                    "updated": 1647422384612
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "The following is the Error Message of the Exception that occurred at the LF Learning Bot:",
-            "updated": 1611569424352,
+            "text": "The following is the Error Message of the Exception that occurred at the API Data Fetcher Bot:",
             "translations": [
                 {
                     "language": "TR",
-                    "text": "LF Öğrenme Bot'tunda ( LF Learning Bot ) meydana gelen İstisnanın Hata Mesajı aşağıdadır:",
-                    "updated": 1647420177672
+                    "text": "API Veri Alıcı Botunda ( API Data Fetcher Bot ) meydana gelen İstisnanın Hata Mesajı aşağıdadır:",
+                    "updated": 1647422398079
                 }
             ]
         },
@@ -106,19 +93,18 @@
                 {
                     "language": "TR",
                     "text": "Hata Yığını",
-                    "updated": 1647420162855
+                    "updated": 1647422408246
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "The following is the Error Stack of the Exception that occurred at the LF Learning Bot:",
-            "updated": 1611569434043,
+            "text": "The following is the Error Stack of the Exception that occurred at the API Data Fetcher Bot:",
             "translations": [
                 {
                     "language": "TR",
-                    "text": "LF Öğrenme Bot'tunda ( LF Learning Bot ) meydana gelen İstisnanın Hata Yığını aşağıdadır:",
-                    "updated": 1647420211885
+                    "text": "API Veri Alıcı Botunda ( API Data Fetcher Bot ) meydana gelen İstisnanın Hata Yığını aşağıdadır:",
+                    "updated": 1647422418229
                 }
             ]
         },
@@ -133,19 +119,18 @@
                 {
                     "language": "TR",
                     "text": "Hata Kodu",
-                    "updated": 1647420217607
+                    "updated": 1647422425504
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "The following is the Error Code of the Exception that occurred at the LF Learning Bot:",
-            "updated": 1611569440715,
+            "text": "The following is the Error Code of the Exception that occurred at the API Data Fetcher Bot:",
             "translations": [
                 {
                     "language": "TR",
-                    "text": "LF Öğrenme Bot'tunda ( LF Learning Bot ) meydana gelen İstisnanın Hata Kodu aşağıdadır:",
-                    "updated": 1647420241123
+                    "text": "API Veri Alıcı Botunda ( API Data Fetcher Bot ) meydana gelen İstisnanın Hata Kodu aşağıdadır:",
+                    "updated": 1647422435381
                 }
             ]
         },
@@ -160,19 +145,18 @@
                 {
                     "language": "TR",
                     "text": "Hata Detayları",
-                    "updated": 1647420251967
+                    "updated": 1647422452867
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "The following are all the Error details of the Exception that occurred at the LF Learning Bot:",
-            "updated": 1611569446711,
+            "text": "The following are all the Error details of the Exception that occurred at the API Data Fetcher Bot:",
             "translations": [
                 {
                     "language": "TR",
-                    "text": "LF Öğrenme Bot'tunda ( LF Learning Bot ) meydana gelen İstisnanın tüm Hata ayrıntılarıdır:",
-                    "updated": 1647420266692
+                    "text": "API Veri Alıcı Botunda ( API Data Fetcher Bot ) meydana gelen İstisnanın tüm Hata ayrıntıları aşağıdadır:",
+                    "updated": 1647422455893
                 }
             ]
         },
@@ -183,24 +167,22 @@
         {
             "style": "Subtitle",
             "text": "Node Name",
-            "updated": 1611571361685,
             "translations": [
                 {
                     "language": "TR",
                     "text": "Düğüm Adı",
-                    "updated": 1647420285443
+                    "updated": 1647422523714
                 }
             ]
         },
         {
             "style": "Text",
             "text": "The following is the node's name of the Node most related to this error:",
-            "updated": 1611571455498,
             "translations": [
                 {
                     "language": "TR",
-                    "text": "Aşağıdaki, bu hatayla en çok ilgili olan Düğümün ( Node ) adıdır:",
-                    "updated": 1647420304264
+                    "text": "Aşağıda, bu hatayla en çok ilişkili olan Düğümün ( Node ) adı verilmiştir:",
+                    "updated": 1647422494012
                 }
             ]
         },
@@ -215,30 +197,24 @@
                 {
                     "language": "TR",
                     "text": "Düğüm Kodu",
-                    "updated": 1647420311354
+                    "updated": 1647422531258
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "The following is the code stored at the node that produced the error at the LF Learning Bot:",
-            "updated": 1611569545869,
+            "text": "The following is the code stored at the node that produced the error at the API Data Fetcher Bot:",
             "translations": [
                 {
                     "language": "TR",
-                    "text": "LF Öğrenme Bot'tunda ( LF Learning Bot ) hatayı üreten düğümde depolanan kod aşağıdadır:",
-                    "updated": 1647420710341
+                    "text": "API Veri Alıcı Botunda ( API Data Fetcher Bot ) hatayı üreten düğümde depolanan kod aşağıdadır:",
+                    "updated": 1647422539406
                 }
             ]
         },
         {
             "style": "Placeholder",
-            "text": "nodeCode",
-            "updated": 1611569590234
-        },
-        {
-            "style": "Text",
-            "text": ""
+            "text": "nodeCode"
         }
     ]
 }

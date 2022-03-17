@@ -47,7 +47,7 @@
     "node-fetch": "^2.6.6",
     "open": "^8.4.0",
     "path": "^0.12.7",
-    "simple-git": "^2.47.0",
+    "simple-git": "^3.3.0",
     "telegraf": "^4.4.2",
     "twitter-api-v2": "^1.7.1",
     "util": "^0.12.4",

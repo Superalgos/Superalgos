@@ -3,20 +3,48 @@
     "pageNumber": "9",
     "type": "Klinger Oscillator Divergence",
     "definition": {
-        "text": "The Klinger Oscillator Divergence - this indicator analyses highs and lows of a 34 and 55 period Klinger Volume Oscillator indicator and compares it to the price action and produces any divergence data found."
+        "text": "The Klinger Oscillator Divergence - this indicator analyses highs and lows of a 34 and 55 period Klinger Volume Oscillator indicator and compares it to the price action and produces any divergence data found.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Дивергенция осциллятора Клингера - этот индикатор анализирует максимумы и минимумы индикатора Klinger Volume Oscillator с периодами 34 и 55, сравнивает их с ценовым действием и выдает любые найденные данные о дивергенции.",
+                "updated": 1647359124955
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
-            "text": "Klinger Oscillator Divergence on the Charts"
+            "text": "Klinger Oscillator Divergence on the Charts",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Дивергенция осциллятора Клингера на графиках",
+                    "updated": 1647359132137
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "According to investopedia: Momentum indicators are commonly used to smooth out the price action and give a clearer picture. They allow the trader to compare the indicator swings to price swings, rather than having to compare price to price. Momentum is a study of the strength of the price action, it simply checks whether the price and momentum agree or disagree."
+            "text": "According to investopedia: Momentum indicators are commonly used to smooth out the price action and give a clearer picture. They allow the trader to compare the indicator swings to price swings, rather than having to compare price to price. Momentum is a study of the strength of the price action, it simply checks whether the price and momentum agree or disagree.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Согласно investopedia: Индикаторы моментума обычно используются для сглаживания ценового движения и получения более четкой картины. Они позволяют трейдеру сравнивать колебания индикатора с колебаниями цены, а не сравнивать цену с ценой. Моментум - это исследование силы ценового движения, он просто проверяет, согласны или не согласны цена и моментум.",
+                    "updated": 1647359156405
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Disagreement between the indicator and price is called divergence, and it can have significant implications for trade management. The amount of agreement/disagreement is relative, so there can be several different patterns that develop in the relationship between price and the indicator."
+            "text": "Disagreement between the indicator and price is called divergence, and it can have significant implications for trade management. The amount of agreement/disagreement is relative, so there can be several different patterns that develop in the relationship between price and the indicator.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Разногласия между индикатором и ценой называются дивергенцией, и они могут иметь значительные последствия для управления торговлей. Величина согласия/несогласия относительна, поэтому в отношениях между ценой и индикатором может развиваться несколько различных моделей.",
+                    "updated": 1647359168824
+                }
+            ]
         },
         {
             "style": "Link",
@@ -24,23 +52,58 @@
         },
         {
             "style": "Text",
-            "text": "The indicator shows four types of divergences, as well as an approximate strength prediction and percent value:"
+            "text": "The indicator shows four types of divergences, as well as an approximate strength prediction and percent value:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Индикатор показывает четыре типа дивергенций, а также приблизительный прогноз силы и процентное значение:",
+                    "updated": 1647359176341
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Bullish (Solid Green line): the momentum indicator makes a higher low, while the price action makes a lower low."
+            "text": "Bullish (Solid Green line): the momentum indicator makes a higher low, while the price action makes a lower low.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Бычий (сплошная зеленая линия): индикатор моментума формирует более высокий минимум, в то время как ценовое действие формирует более низкий минимум.",
+                    "updated": 1647359186061
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Bearish (Solid Red line): the momentum indicator makes a lower high, while the price action makes a higher high."
+            "text": "Bearish (Solid Red line): the momentum indicator makes a lower high, while the price action makes a higher high.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Медвежий (сплошная красная линия): индикатор моментума формирует более низкий максимум, в то время как ценовое действие формирует более высокий максимум.",
+                    "updated": 1647359194668
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Hidden Bullish Continuation(Dashed Green line): the momentum indicator makes a lower high, while the price action makes a higher low."
+            "text": "Hidden Bullish Continuation(Dashed Green line): the momentum indicator makes a lower high, while the price action makes a higher low.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Скрытое бычье продолжение (пунктирная зеленая линия): индикатор моментума формирует более низкий максимум, в то время как ценовое действие формирует более высокий минимум.",
+                    "updated": 1647359203689
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Hidden Bearish Continuation(Dashed Red line): the momentum indicator makes a higher high, while the price action makes a lower high."
+            "text": "Hidden Bearish Continuation(Dashed Red line): the momentum indicator makes a higher high, while the price action makes a lower high.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Скрытое медвежье продолжение (пунктирная красная линия): индикатор моментума формирует более высокий максимум, в то время как ценовое действие формирует более низкий максимум.",
+                    "updated": 1647359214630
+                }
+            ]
         },
         {
             "style": "Png",
@@ -48,11 +111,25 @@
         },
         {
             "style": "Text",
-            "text": "Above: a bullish divergence(leftmost, green), and an bearish divergence (rightmost, red)."
+            "text": "Above: a bullish divergence(leftmost, green), and an bearish divergence (rightmost, red).",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Выше: бычья дивергенция (крайний левый, зеленый) и медвежья дивергенция (крайний правый, красный).",
+                    "updated": 1647359223764
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The length of the divergence finder, the pivot length, as well as the threshold for strong and weak divergences can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under ’Klinger Oscillator Divergence’ Procedure Loop."
+            "text": "The length of the divergence finder, the pivot length, as well as the threshold for strong and weak divergences can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under ’Klinger Oscillator Divergence’ Procedure Loop.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Длину детектора дивергенции, длину разворота, а также порог для сильных и слабых дивергенций можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Loop в разделе 'Klinger Oscillator Divergence' Procedure Loop.",
+                    "updated": 1647359281914
+                }
+            ]
         },
         {
             "style": "Png",
@@ -60,11 +137,25 @@
         },
         {
             "style": "Note",
-            "text": "Keep in mind that the longer the pivot length, the greater the accuracy but the longer the lag for confirming the pivot peak/low."
+            "text": "Keep in mind that the longer the pivot length, the greater the accuracy but the longer the lag for confirming the pivot peak/low.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Помните, что чем больше длина разворота, тем выше точность, но больше задержка для подтверждения пика/минимума разворота.",
+                    "updated": 1647359293907
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The upper and lower cutoff for divergence detection can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Initialization under ’Klinger Oscillator Divergence’ Procedure Initialization."
+            "text": "The upper and lower cutoff for divergence detection can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Initialization under ’Klinger Oscillator Divergence’ Procedure Initialization.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Верхний и нижний срез для определения дивергенции можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Initialization в разделе 'Klinger Oscillator Divergence' Procedure Initialization.",
+                    "updated": 1647359313012
+                }
+            ]
         },
         {
             "style": "Png",
@@ -73,15 +164,36 @@
         {
             "style": "Text",
             "text": "The length of the Klinger Oscillator can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under ’Klinger Oscillator’ Procedure Loop.",
-            "updated": 1646113199651
+            "updated": 1646113199651,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Длину осциллятора Клингера можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Loop в разделе 'Klinger Oscillator' Procedure Loop.",
+                    "updated": 1647359346790
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Products & Properties"
+            "text": "Products & Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты и свойства",
+                    "updated": 1647359352954
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The following properties are available to access:"
+            "text": "The following properties are available to access:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Доступны следующие свойства:",
+                    "updated": 1647359358681
+                }
+            ]
         },
         {
             "style": "Table",
@@ -90,19 +202,47 @@
         },
         {
             "style": "List",
-            "text": "status: returns a string with the following possible values: bullish, bearish, bull continuation, bear continuation"
+            "text": "status: returns a string with the following possible values: bullish, bearish, bull continuation, bear continuation",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "status: возвращает строку со следующими возможными значениями: бычий (\"bullish\"), медвежий (\"bearish\"), бычье продолжение (\"bull continuation\"), медвежье продолжение (\"bear continuation\").",
+                    "updated": 1647359396521
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "strength: returns a string with the following possible values: weak, medium, strong"
+            "text": "strength: returns a string with the following possible values: weak, medium, strong",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "strength: возвращает строку со следующими возможными значениями: слабый (\"weak\"), средний (\"medium\"), сильный (\"strong\").",
+                    "updated": 1647359407497
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "divPerc: returns a number that corresponds to the percent change between peaks or lows of an identified divergence"
+            "text": "divPerc: returns a number that corresponds to the percent change between peaks or lows of an identified divergence",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "divPerc: возвращает число, соответствующее процентному изменению между пиками или минимумами идентифицированной дивергенции",
+                    "updated": 1647359416739
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Examples:"
+            "text": "Examples:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Примеры:",
+                    "updated": 1647359422230
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -118,7 +258,14 @@
         },
         {
             "style": "Text",
-            "text": "To increase confirmation confidence, find a suitable Klinger Oscillator value to enter the trade after the divergence is found, for example, ko > 50 after a bullish detection."
+            "text": "To increase confirmation confidence, find a suitable Klinger Oscillator value to enter the trade after the divergence is found, for example, ko > 50 after a bullish detection.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы повысить точность подтверждения, найдите подходящее значение осциллятора Клингера для входа в сделку после обнаружения дивергенции, например, ko > 50 после обнаружения бычьей дивергенции.",
+                    "updated": 1647359459345
+                }
+            ]
         },
         {
             "style": "Title",

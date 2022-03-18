@@ -3,120 +3,274 @@
     "pageNumber": "5",
     "type": "MFI Divergence",
     "definition": {
-        "text": "The MFI Divergence - this indicator analyses highs and lows of a 20 period MFI indicator and compares it to the price action and produces any divergence data found."
+        "text": "The MFI Divergence - this indicator analyses highs and lows of a 20 period MFI indicator and compares it to the price action and produces any divergence data found.",
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Özet: MFI Sapması - bu gösterge, 20 dönemlik bir MFI göstergesinin en yüksek, en düşük noktalarını analiz eder, bunu fiyat hareketiyle karşılaştırır ve bulunan sapma verilerini üretir.",
+                "updated": 1647590722187
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
-            "text": "MFI Divergence on the Charts"
+            "text": "MFI Divergence on the Charts",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Çizelgelerdeki MFI Sapması",
+                    "updated": 1647590752571
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "According to investopedia: Momentum indicators are commonly used to smooth out the price action and give a clearer picture. They allow the trader to compare the indicator swings to price swings, rather than having to compare price to price. Momentum is a study of the strength of the price action, it simply checks whether the price and momentum agree or disagree."
-        },        
-		{
+            "text": "According to investopedia: Momentum indicators are commonly used to smooth out the price action and give a clearer picture. They allow the trader to compare the indicator swings to price swings, rather than having to compare price to price. Momentum is a study of the strength of the price action, it simply checks whether the price and momentum agree or disagree.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Investopedia'ya göre: Momentum göstergeleri, fiyat hareketini yumuşatmak ve daha net bir resim vermek için yaygın olarak kullanılır. Tüccarın, fiyatı fiyatla karşılaştırmak yerine gösterge dalgalanmalarını fiyat dalgalanmalarıyla karşılaştırmasına izin verir. Momentum, fiyat hareketinin gücünün bir çalışmasıdır, sadece fiyat ve momentumun uyuşup uyuşmadığını kontrol eder.",
+                    "updated": 1647590763171
+                }
+            ]
+        },
+        {
             "style": "Text",
-            "text": "Disagreement between the indicator and price is called divergence, and it can have significant implications for trade management. The amount of agreement/disagreement is relative, so there can be several different patterns that develop in the relationship between price and the indicator."
+            "text": "Disagreement between the indicator and price is called divergence, and it can have significant implications for trade management. The amount of agreement/disagreement is relative, so there can be several different patterns that develop in the relationship between price and the indicator.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Gösterge ve fiyat arasındaki uyuşmazlığa sapma denir ve ticaret yönetimi için önemli etkileri olabilir. Anlaşma/anlaşmazlık miktarı görecelidir, dolayısıyla fiyat ve gösterge arasındaki ilişkide gelişen birkaç farklı model olabilir.",
+                    "updated": 1647590774612
+                }
+            ]
         },
         {
             "style": "Link",
             "text": "Understanding momentum - (investopedia)->www.investopedia.com/trading/trading-divergence-and-understanding-momentum/#toc-momentum-divergence"
         },
-		{
+        {
             "style": "Text",
-            "text": "The indicator shows four types of divergences, as well as an approximate strength prediction and percent value:"
+            "text": "The indicator shows four types of divergences, as well as an approximate strength prediction and percent value:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Gösterge, dört tür sapmanın yanı sıra yaklaşık bir güç tahmini ve yüzde değeri gösterir:",
+                    "updated": 1647590805926
+                }
+            ]
         },
-		{
+        {
             "style": "List",
-            "text": "Bullish (Solid Green line): the momentum indicator makes a higher low, while the price action makes a lower low."
+            "text": "Bullish (Solid Green line): the momentum indicator makes a higher low, while the price action makes a lower low.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Boğa (Sürekli Yeşil çizgi): Momentum göstergesi daha yüksek bir dip yapar, fiyat hareketi ise daha düşük bir düşüş yapar.",
+                    "updated": 1647590813940
+                }
+            ]
         },
-		{
+        {
             "style": "List",
-            "text": "Bearish (Solid Red line): the momentum indicator makes a lower high, while the price action makes a higher high."
+            "text": "Bearish (Solid Red line): the momentum indicator makes a lower high, while the price action makes a higher high.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ayı (Sürekli Kırmızı çizgi): Momentum göstergesi daha düşük bir zirve yapar, fiyat hareketi ise daha yüksek bir zirve yapar.",
+                    "updated": 1647590822070
+                }
+            ]
         },
-		{
+        {
             "style": "List",
-            "text": "Hidden Bullish Continuation(Dashed Green line): the momentum indicator makes a lower high, while the price action makes a higher low."
+            "text": "Hidden Bullish Continuation(Dashed Green line): the momentum indicator makes a lower high, while the price action makes a higher low.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Gizli Boğa Devamı (Kesikli Yeşil çizgi): Momentum göstergesi daha düşük bir zirve yapar, fiyat hareketi ise daha yüksek bir dip yapar.",
+                    "updated": 1647590831969
+                }
+            ]
         },
-		{
+        {
             "style": "List",
-            "text": "Hidden Bearish Continuation(Dashed Red line): the momentum indicator makes a higher high, while the price action makes a lower high."
+            "text": "Hidden Bearish Continuation(Dashed Red line): the momentum indicator makes a higher high, while the price action makes a lower high.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Gizli Ayı Devamı(Kesikli Kırmızı çizgi): Momentum göstergesi daha yüksek bir yükseliş sağlarken, fiyat hareketi daha düşük bir zirve yapar.",
+                    "updated": 1647590840879
+                }
+            ]
         },
-		{
+        {
             "style": "Png",
             "text": "PNGs/Foundations/Docs/indicators/Divergences-MFI-1.png"
         },
-		{
+        {
             "style": "Text",
-            "text": "Above: a bearish divergence(leftmost, red), and two bullish divergences (green)."
+            "text": "Above: a bearish divergence(leftmost, red), and two bullish divergences (green).",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yukarıda: düşüş eğilimi (en soldaki, kırmızı) ve iki yükseliş eğilimi (yeşil).",
+                    "updated": 1647590864457
+                }
+            ]
         },
-		{
+        {
             "style": "Text",
-            "text": "The length of the divergence finder, the pivot length, as well as the threshold for strong and weak divergences can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \u2019MFI Divergence\u2019 Procedure Loop."
-        },	
+            "text": "The length of the divergence finder, the pivot length, as well as the threshold for strong and weak divergences can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under ’MFI Divergence’ Procedure Loop.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Sapma bulucunun uzunluğu, pivot uzunluğu ve ayrıca güçlü ve zayıf sapmalar için eşik, Javascript Kodunun ( Javascript Code ) 'MFI Divergence' Prosedür Döngüsü ( Procedure Loop ) altındaki Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Döngüsü ( Procedure Loop ) altında bulunması ve açılmasıyla değiştirilebilir.",
+                    "updated": 1647590959375
+                }
+            ]
+        },
         {
             "style": "Png",
             "text": "PNGs/Foundations/Docs/indicators/Divergences-RSI-params-1.png"
-        },		
-		{
+        },
+        {
             "style": "Note",
-            "text": "Keep in mind that the longer the pivot length, the greater the accuracy but the longer the lag for confirming the pivot peak/low."
-        },	
-		{
+            "text": "Keep in mind that the longer the pivot length, the greater the accuracy but the longer the lag for confirming the pivot peak/low.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Not: Pivot uzunluğu ne kadar uzun olursa, doğruluğun o kadar yüksek olduğunu, ancak pivot tepe/düşük değerini doğrulama gecikmesinin o kadar uzun olduğunu unutmayın.",
+                    "updated": 1647590993775
+                }
+            ]
+        },
+        {
             "style": "Text",
-            "text": "The upper and lower cutoff for divergence detection can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Initialization under \u2019MFI Divergence\u2019 Procedure Initialization."
+            "text": "The upper and lower cutoff for divergence detection can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Initialization under ’MFI Divergence’ Procedure Initialization.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Sapma tespiti için üst ve alt sınır, Javascript Kodunun ( Javascript Code ) Veri Oluşturma Prosedürü ( Data Building Procedure ) -> \"MFI Divergence\" Prosedür Başlatma ( Procedure Initialization ) altında bulunup açılmasıyla değiştirilebilir.",
+                    "updated": 1647591073984
+                }
+            ]
         },
         {
             "style": "Png",
             "text": "PNGs/Foundations/Docs/indicators/Divergences-RSI-params-2.png"
         },
-		{
+        {
             "style": "Text",
-            "text": "The length of the MFI can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \u2019MFI14\u2019 Procedure Loop."
-        },	
-		{
+            "text": "The length of the MFI can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under ’MFI14’ Procedure Loop.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "MFI'nin uzunluğu, 'MFI14' Prosedür Döngüsü altındaki Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Döngüsü ( Procedure Loop ) altında Javascript Kodu ( Javascript Code ) bulunup açılarak değiştirilebilir.",
+                    "updated": 1647591148722
+                }
+            ]
+        },
+        {
             "style": "Title",
-            "text": "Products & Properties"
+            "text": "Products & Properties",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ürün ve Özellikler",
+                    "updated": 1647591166156
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The following properties are available to access:"
+            "text": "The following properties are available to access:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki özelliklere erişmek mümkündür:",
+                    "updated": 1647591192403
+                }
+            ]
         },
         {
             "style": "Table",
-            "text": "| Product Name | Product Variable | Properties |\n| MFI-Div | mfiDiv | status, strength, divPerc |"
+            "text": "| Product Name | Product Variable | Properties |\n| MFI-Div | mfiDiv | status, strength, divPerc |",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "| Ürün Adı | Ürün Değişkeni | Özellikler |\n| MFI-Div | mfiDiv | durum, güç, divPerc |",
+                    "updated": 1647591209939
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "status: returns a string with the following possible values: bullish, bearish, bull continuation, bear continuation"
-        },
-		{
-            "style": "List",
-            "text": "strength: returns a string with the following possible values: weak, medium, strong"
+            "text": "status: returns a string with the following possible values: bullish, bearish, bull continuation, bear continuation",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "durum: aşağıdaki olası değerlere sahip bir dize döndürür: boğa, ayı, boğa devamı, ayı devamı",
+                    "updated": 1647591232175
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "divPerc: returns a number that corresponds to the percent change between peaks or lows of an identified divergence"
+            "text": "strength: returns a string with the following possible values: weak, medium, strong",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "güç: aşağıdaki olası değerlere sahip bir dize döndürür: zayıf, orta, güçlü",
+                    "updated": 1647591239322
+                }
+            ]
         },
-		{
+        {
+            "style": "List",
+            "text": "divPerc: returns a number that corresponds to the percent change between peaks or lows of an identified divergence",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "divPerc: tanımlanan bir sapmanın tepe veya alt noktaları arasındaki değişim yüzdesine karşılık gelen bir sayı döndürür",
+                    "updated": 1647591249038
+                }
+            ]
+        },
+        {
             "style": "Text",
-            "text": "Examples:"
+            "text": "Examples:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Örnekler:",
+                    "updated": 1647591258273
+                }
+            ]
         },
-		{
+        {
             "style": "Javascript",
             "text": "chart.at01hs.mfiDiv.status == \"bullish\""
         },
-		{
+        {
             "style": "Javascript",
             "text": "chart.at15min.mfiDiv.strength == \"strong\""
         },
-		{
+        {
             "style": "Javascript",
             "text": "chart.at15min.mfiDiv.divPerc > 20"
         },
-		{
+        {
             "style": "Text",
-            "text": "To increase confirmation confidence, find a suitable MFI value to enter the trade after the divergence is found, for example, MFI > 50 after a bullish detection."
+            "text": "To increase confirmation confidence, find a suitable MFI value to enter the trade after the divergence is found, for example, MFI > 50 after a bullish detection.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Teyit güvenini artırmak için, sapma bulunduktan sonra ticarete girmek için uygun bir MFI değeri bulun, örneğin bir yükseliş tespitinden sonra MFI > 50.",
+                    "updated": 1647591282149
+                }
+            ]
         },
         {
             "style": "Title",

@@ -9,6 +9,11 @@
                 "language": "RU",
                 "text": "Awesome Oscillator Divergence - этот индикатор анализирует максимумы и минимумы индикатора Awesome Oscillator с 5 и 34 периодами, сравнивает их с ценовым движением и выдает любые найденные расхождения.",
                 "updated": 1647358592175
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Awesome Oscillator Divergence ( Sapma ) - bu gösterge, 5 ve 34 dönemlik Awesome Oscillator göstergesinin en yüksek ve en düşük seviyelerini analiz eder ve bunu fiyat hareketiyle karşılaştırır ve bulunan sapma verilerini üretir.",
+                "updated": 1647717825241
             }
         ]
     },
@@ -21,6 +26,11 @@
                     "language": "RU",
                     "text": "Дивергенция Awesome Oscillator на графиках",
                     "updated": 1647358618320
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafiklerde Awesome Oscillator Divergence ( Sapma )",
+                    "updated": 1647717859475
                 }
             ]
         },
@@ -32,6 +42,11 @@
                     "language": "RU",
                     "text": "Согласно investopedia: Индикаторы моментума обычно используются для сглаживания ценового движения и получения более четкой картины. Они позволяют трейдеру сравнивать колебания индикатора с колебаниями цены, а не сравнивать цену с ценой. Моментум - это исследование силы ценового движения, он просто проверяет, согласны или не согласны цена и моментум.",
                     "updated": 1647358638521
+                },
+                {
+                    "language": "TR",
+                    "text": "Investopedia'ya göre: Momentum göstergeleri, fiyat hareketini yumuşatmak ve daha net bir resim vermek için yaygın olarak kullanılır. Tüccarın, fiyatı fiyatla karşılaştırmak yerine gösterge dalgalanmalarını fiyat dalgalanmalarıyla karşılaştırmasına izin verir. Momentum, fiyat hareketinin gücünün bir çalışmasıdır, sadece fiyat ve momentumun uyuşup uyuşmadığını kontrol eder.",
+                    "updated": 1647717873228
                 }
             ]
         },
@@ -43,6 +58,11 @@
                     "language": "RU",
                     "text": "Разногласия между индикатором и ценой называются дивергенцией, и они могут иметь значительные последствия для управления торговлей. Величина согласия/несогласия относительна, поэтому в отношениях между ценой и индикатором может развиваться несколько различных моделей.",
                     "updated": 1647358656726
+                },
+                {
+                    "language": "TR",
+                    "text": "Gösterge ve fiyat arasındaki uyuşmazlığa sapma denir ve ticaret yönetimi için önemli etkileri olabilir. Anlaşma/anlaşmazlık miktarı görecelidir, dolayısıyla fiyat ve gösterge arasındaki ilişkide gelişen birkaç farklı model olabilir.",
+                    "updated": 1647717884617
                 }
             ]
         },
@@ -58,6 +78,11 @@
                     "language": "RU",
                     "text": "Индикатор показывает четыре типа дивергенций, а также приблизительный прогноз силы и процентное значение:",
                     "updated": 1647358665164
+                },
+                {
+                    "language": "TR",
+                    "text": "Gösterge, dört tür sapmanın yanı sıra yaklaşık bir güç tahmini ve yüzde değeri gösterir:",
+                    "updated": 1647717930873
                 }
             ]
         },
@@ -69,6 +94,11 @@
                     "language": "RU",
                     "text": "Бычий (сплошная зеленая линия): индикатор моментума формирует более высокий минимум, в то время как ценовое действие формирует более низкий минимум.",
                     "updated": 1647358674547
+                },
+                {
+                    "language": "TR",
+                    "text": "Boğa (Sürekli Yeşil çizgi): Momentum göstergesi daha yüksek bir dip yapar, fiyat hareketi ise daha düşük bir düşüş yapar.",
+                    "updated": 1647717940235
                 }
             ]
         },
@@ -80,6 +110,11 @@
                     "language": "RU",
                     "text": "Медвежий (сплошная красная линия): индикатор моментума формирует более низкий максимум, в то время как ценовое действие формирует более высокий максимум.",
                     "updated": 1647358683139
+                },
+                {
+                    "language": "TR",
+                    "text": "Ayı (Sürekli Kırmızı çizgi): Momentum göstergesi daha düşük bir zirve yapar, fiyat hareketi ise daha yüksek bir zirve yapar.",
+                    "updated": 1647717950468
                 }
             ]
         },
@@ -91,6 +126,11 @@
                     "language": "RU",
                     "text": "Скрытое бычье продолжение (пунктирная зеленая линия): индикатор моментума формирует более низкий максимум, в то время как ценовое действие формирует более высокий минимум.",
                     "updated": 1647358691331
+                },
+                {
+                    "language": "TR",
+                    "text": "Gizli Boğa Devamı (Kesikli Yeşil çizgi): Momentum göstergesi daha düşük bir zirve yapar, fiyat hareketi ise daha yüksek bir dip yapar.",
+                    "updated": 1647717958513
                 }
             ]
         },
@@ -102,6 +142,11 @@
                     "language": "RU",
                     "text": "Скрытое медвежье продолжение (пунктирная красная линия): индикатор моментума формирует более высокий максимум, в то время как ценовое действие формирует более низкий максимум.",
                     "updated": 1647358701599
+                },
+                {
+                    "language": "TR",
+                    "text": "Gizli Ayı Devamı(Kesikli Kırmızı çizgi): Momentum göstergesi daha yüksek bir yükseliş sağlarken, fiyat hareketi daha düşük bir zirve yapar.",
+                    "updated": 1647717968187
                 }
             ]
         },
@@ -117,6 +162,11 @@
                     "language": "RU",
                     "text": "Выше: медвежья дивергенция (крайняя слева, красная), две бычьи дивергенции (зеленые) и несущая дивергенция справа (красная).",
                     "updated": 1647358715163
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarıda: aşağı yönlü bir sapma (en solda, kırmızı), iki yükseliş yönü sapması (yeşil) ve sağda (kırmızı) bir yön sapması.",
+                    "updated": 1647717984707
                 }
             ]
         },
@@ -128,6 +178,11 @@
                     "language": "RU",
                     "text": "Длина искателя дивергенции, длина точки разворота, а также порог для сильных и слабых дивергенций могут быть изменены путем нахождения и открытия Javascript Code в разделе Data Building Procedure -> Procedure Loop в разделе 'Awesome Oscillator Divergence' Procedure Loop.",
                     "updated": 1647358741249
+                },
+                {
+                    "language": "TR",
+                    "text": "Sapma bulucunun uzunluğu, pivot uzunluğu ve ayrıca güçlü ve zayıf sapmalar için eşik, Javascript Kodunun ( Javascript Code ) 'Awesome Osilator Divergence' Prosedür Döngüsü ( Procedure Loop ) altındaki Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Döngüsü ( Procedure Loop ) altında bulunması ve açılmasıyla değiştirilebilir.",
+                    "updated": 1647717994700
                 }
             ]
         },
@@ -143,6 +198,11 @@
                     "language": "RU",
                     "text": "Помните, что чем больше длина разворота, тем выше точность, но больше задержка для подтверждения пика/минимума разворота.",
                     "updated": 1647358749742
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Pivot uzunluğu ne kadar uzun olursa, doğruluğun o kadar yüksek olduğunu, ancak pivot tepe/düşük değerini doğrulama gecikmesinin o kadar uzun olduğunu unutmayın.",
+                    "updated": 1647718004382
                 }
             ]
         },
@@ -154,6 +214,11 @@
                     "language": "RU",
                     "text": "Верхний и нижний срез для определения дивергенции можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Initialization в разделе 'Awesome Oscillator Divergence' Procedure Initialization.",
                     "updated": 1647358764434
+                },
+                {
+                    "language": "TR",
+                    "text": "Sapma tespiti için üst ve alt sınır, Javascript Kodunun ( Javascript Code ) Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Başlatma ( Procedure Initialization ) altında 'Awesome Oscillator Divergence' Prosedür Başlatma ( Procedure Initialization ) altında bulunması ve açılmasıyla değiştirilebilir.",
+                    "updated": 1647718013936
                 }
             ]
         },
@@ -169,6 +234,11 @@
                     "language": "RU",
                     "text": "Длину Awesome Oscillator можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Loop в разделе 'Awesome Oscillator14' Procedure Loop.",
                     "updated": 1647358779810
+                },
+                {
+                    "language": "TR",
+                    "text": "Awesome Osilatörün uzunluğu, Javascript Kodunun ( Javascript Code ) Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Döngüsü ( Procedure Loop ) altında 'Awesome Oscillator14' Prosedür Döngüsü ( Procedure Loop ) altında bulunması ve açılmasıyla değiştirilebilir.",
+                    "updated": 1647718027025
                 }
             ]
         },
@@ -180,6 +250,11 @@
                     "language": "RU",
                     "text": "Продукты и свойства",
                     "updated": 1647358787091
+                },
+                {
+                    "language": "TR",
+                    "text": "Ürün ve Özellikler",
+                    "updated": 1647718039119
                 }
             ]
         },
@@ -191,12 +266,24 @@
                     "language": "RU",
                     "text": "Доступны следующие свойства:",
                     "updated": 1647358794852
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki özelliklere erişmek mümkündür:",
+                    "updated": 1647718047436
                 }
             ]
         },
         {
             "style": "Table",
-            "text": "| Product Name | Product Variable | Properties |\n| awe-Div | aweDiv | status, strength, divPerc |"
+            "text": "| Product Name | Product Variable | Properties |\n| awe-Div | aweDiv | status, strength, divPerc |",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "| Ürün Adı | Ürün Değişkeni | Özellikler |\n| aweDiv | aweDiv | durum, güç, divPerc |",
+                    "updated": 1647718069322
+                }
+            ]
         },
         {
             "style": "List",
@@ -206,6 +293,11 @@
                     "language": "RU",
                     "text": "status: возвращает строку со следующими возможными значениями: бычий (\"bullish \"), медвежий (\"bearish \"), бычье продолжение (\"bull continuation\"), медвежье продолжение (\"bear continuation\").",
                     "updated": 1647358820312
+                },
+                {
+                    "language": "TR",
+                    "text": "durum: aşağıdaki olası değerlere sahip bir dize döndürür: boğa, ayı, boğa devamı, ayı devamı",
+                    "updated": 1647718078294
                 }
             ]
         },
@@ -217,6 +309,11 @@
                     "language": "RU",
                     "text": "strength: возвращает строку со следующими возможными значениями: слабый (\"weak\"), средний (\"medium\"), сильный (\"strong\").",
                     "updated": 1647358847614
+                },
+                {
+                    "language": "TR",
+                    "text": "güç: aşağıdaki olası değerlere sahip bir dize döndürür: zayıf, orta, güçlü",
+                    "updated": 1647718086752
                 }
             ]
         },
@@ -228,6 +325,11 @@
                     "language": "RU",
                     "text": "divPerc: возвращает число, соответствующее процентному изменению между пиками или минимумами идентифицированной дивергенции",
                     "updated": 1647358855604
+                },
+                {
+                    "language": "TR",
+                    "text": "divPerc: tanımlanan bir sapmanın tepe veya alt noktaları arasındaki değişim yüzdesine karşılık gelen bir sayı döndürür",
+                    "updated": 1647718095308
                 }
             ]
         },
@@ -239,6 +341,11 @@
                     "language": "RU",
                     "text": "Примеры:",
                     "updated": 1647358860603
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnekler:",
+                    "updated": 1647718103429
                 }
             ]
         },
@@ -262,6 +369,11 @@
                     "language": "RU",
                     "text": "Чтобы повысить уверенность подтверждения, найдите подходящее значение Awesome Oscillator для входа в сделку после обнаружения дивергенции, например, ao > 50 после обнаружения бычьей дивергенции.",
                     "updated": 1647358876088
+                },
+                {
+                    "language": "TR",
+                    "text": "Teyit güvenini artırmak için, sapma bulunduktan sonra işleme girmek için uygun bir Awesome Oscillator değeri bulun, örneğin, bir yükseliş tespitinden sonra ao > 50.",
+                    "updated": 1647718115396
                 }
             ]
         },

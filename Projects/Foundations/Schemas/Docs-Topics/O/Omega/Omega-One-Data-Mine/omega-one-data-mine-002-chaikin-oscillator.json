@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Chaikin Indicator применяет MACD к линии накопления-распределения, а не к цене закрытия.",
                 "updated": 1643524392540
+            },
+            {
+                "language": "DE",
+                "text": "Der Chaikin Indikator wendet den MACD auf die Akkumulations-/Verteilungslinie anstatt des Schlusskurses an.",
+                "updated": 1645157684449
             }
         ]
     },
@@ -22,6 +27,11 @@
                     "language": "RU",
                     "text": "Что такое Chaikin Oscillator?",
                     "updated": 1643524403141
+                },
+                {
+                    "language": "DE",
+                    "text": "Was ist der Chaikin-Oszillator?",
+                    "updated": 1645157716108
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Chaikin Oscillator назван в честь его создателя Марка Чайкина. Осциллятор измеряет линию накопления-распределения скользящей средней конвергенции-дивергенции (MACD). Чтобы рассчитать осциллятор Чайкина, вычтите 10-дневную экспоненциальную скользящую среднюю (EMA) линии накопления-распределения из 3-дневной EMA линии накопления-распределения. Это измеряет импульс, предсказанный колебаниями вокруг линии накопления-распределения.",
                     "updated": 1643524457676
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Chaikin Oszillator ist nach seinem Schöpfer Marc Chaikin benannt. Der Oszillator misst die Akkumulations-/Verteilungslinie des gleitenden Durchschnitts der Konvergenz-Divergenz (MACD). Zur Berechnung des Chaikin-Oszillators wird der exponentielle gleitende 10-Tage-Durchschnitt (EMA) der Akkumulations-/Verteilungslinie von einem 3-Tage-EMA der Akkumulations-/Verteilungslinie abgezogen. Damit wird die Dynamik gemessen, die durch die Oszillationen um die Akkumulations-/Verteilungslinie vorhergesagt wird.",
+                    "updated": 1645158020994
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "RU",
                     "text": "Пересечение над линией накопления-распределения указывает на то, что участники рынка накапливают акции, ценные бумаги или контракты, что, как правило, является \"бычьим\" фактором.",
                     "updated": 1643524481724
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein Kreuz über der  Akkumulations-/Verteilungslinie zeigt an, dass die Marktteilnehmer Aktien, Wertpapiere oder Kontrakte anhäufen, was typischerweise bullisch ist.",
+                    "updated": 1645158158534
                 }
             ]
         },
@@ -61,6 +81,11 @@
                     "language": "RU",
                     "text": "Как рассчитывается осциллятор Чайкина?",
                     "updated": 1643524489450
+                },
+                {
+                    "language": "DE",
+                    "text": "Wie wird der Chaikin Oszillator berechnet?",
+                    "updated": 1645158201499
                 }
             ]
         },
@@ -72,6 +97,11 @@
                     "language": "RU",
                     "text": "Рассчитайте Money Flow Multiplier (N) (\"Множитель денежного потока\").",
                     "updated": 1643524660353
+                },
+                {
+                    "language": "DE",
+                    "text": "Berechne den Money Flow Multiplier (N).",
+                    "updated": 1645158308297
                 }
             ]
         },
@@ -83,6 +113,11 @@
                     "language": "RU",
                     "text": "Умножьте Money Flow Multiplier (N) на объем, чтобы рассчитать Money Flow Volume (N) (\"Объем денежного потока\").",
                     "updated": 1643524653611
+                },
+                {
+                    "language": "DE",
+                    "text": "Multipliziere den Money Flow Multiplier (N) mit dem Volumen, um das  Money Flow Volume (N) zu berechnen.",
+                    "updated": 1645158393226
                 }
             ]
         },
@@ -94,6 +129,11 @@
                     "language": "RU",
                     "text": "Перечислите текущий итог N для построения линии накопления-распределения (ADL).",
                     "updated": 1643524672084
+                },
+                {
+                    "language": "DE",
+                    "text": "Führe eine laufende Summe von N auf, um die Akkumulationsverteilungslinie (ADL) zu zeichnen.",
+                    "updated": 1645158522096
                 }
             ]
         },
@@ -105,6 +145,11 @@
                     "language": "RU",
                     "text": "Вычислите разницу между 10-периодной и 3-периодной экспоненциальными скользящими средними для расчета осциллятора Чайкина.",
                     "updated": 1643524689201
+                },
+                {
+                    "language": "DE",
+                    "text": "Berechne die Differenz zwischen exponentiellen gleitenden Durchschnitten mit 10 Perioden und 3 Perioden, um den Chaikin Oszillator zu berechnen.",
+                    "updated": 1645158504480
                 }
             ]
         },
@@ -116,6 +161,11 @@
                     "language": "RU",
                     "text": "Пример использования осциллятора Чайкина",
                     "updated": 1643524695486
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiel für die Verwendung des Chaikin Oszillators",
+                    "updated": 1645160888928
                 }
             ]
         },
@@ -127,6 +177,11 @@
                     "language": "RU",
                     "text": "Целью осциллятора Чайкина является определение базового импульса во время колебаний накопления-распределения. В частности, он применяет индикатор MACD к накоплению-распределению, а не к ценам закрытия.",
                     "updated": 1643524707398
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Zweck des Chaikin Oszillators besteht darin, die zugrunde liegende Dynamik bei Schwankungen in der Akkumulationsverteilung zu erkennen. Insbesondere wendet er den MACD-Indikator auf die Akkumulationsverteilung und nicht auf die Schlusskurse an.",
+                    "updated": 1645160976845
                 }
             ]
         },
@@ -138,6 +193,11 @@
                     "language": "RU",
                     "text": "Например, трейдер хочет определить, будет ли цена акции с большей вероятностью расти или падать, а MACD имеет тенденцию к росту. Осциллятор Чайкина генерирует бычью дивергенцию, когда пересекает базовую линию. Базовая линия называется линией накопления-распределения. Пересечение выше этой линии указывает на то, что трейдеры накапливают средства, что, как правило, является \"бычьим\" трендом.",
                     "updated": 1643524728170
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein Händler möchte beispielsweise feststellen, ob ein Aktienkurs eher steigen oder fallen wird und der MACD einen Aufwärtstrend aufweist. Der Chaikin Oszillator erzeugt eine bullische Auseinanderentwicklung, wenn er eine Basislinie überschreitet. Die Basislinie ist die so genannte Akkumulations-Verteilungs-Linie. Ein Kreuz über dieser Linie zeigt an, dass die Händler Akkumulieren, was in der Regel bullisch ist.",
+                    "updated": 1645161327743
                 }
             ]
         },
@@ -149,6 +209,11 @@
                     "language": "RU",
                     "text": "Осциллятор Чайкина использует два основных сигнала на покупку и продажу. Во-первых, положительная дивергенция подтверждается пересечением центральной линии выше линии накопления-распределения, что сигнализирует о потенциальной возможности покупки. Во-вторых, отрицательная дивергенция подтверждается пересечением центральной линии ниже линии накопления-распределения, что сигнализирует о потенциальной возможности продажи.",
                     "updated": 1643524741934
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Chaikin Oszillator verwendet zwei primäre Kauf- und Verkaufssignale. Erstens wird eine positive Divergenz durch ein Kreuzen der Mittellinie über der Akkumulations-Verteilungslinie bestätigt, was eine potenzielle Kaufgelegenheit signalisiert. Zweitens wird eine negative Divergenz durch ein Kreuzen der Mittellinie unterhalb der Akkumulations-Verteilungslinie bestätigt und signalisiert eine potenzielle Verkaufsmöglichkeit.",
+                    "updated": 1645161408651
                 }
             ]
         },
@@ -160,6 +225,11 @@
                     "language": "RU",
                     "text": "Положительная дивергенция сигнализирует о том, что цена акций, скорее всего, будет расти, учитывая рост накопления. Отрицательная дивергенция сигнализирует о том, что цена акций, скорее всего, упадет, учитывая рост распределения.",
                     "updated": 1643524752987
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine positive Divergenz signalisiert, dass ein Aktienkurs angesichts der Zunahme der Akkumulation wahrscheinlich steigen wird. Eine negative Divergenz signalisiert, dass ein Aktienkurs angesichts der Zunahme der Ausschüttung wahrscheinlich fallen wird.",
+                    "updated": 1645161783374
                 }
             ]
         },
@@ -172,13 +242,25 @@
                     "language": "RU",
                     "text": "Продукты, свойства и примеры",
                     "updated": 1643524760143
+                },
+                {
+                    "language": "DE",
+                    "text": "Produkte, Eigenschaften und Beispiele",
+                    "updated": 1645161807032
                 }
             ]
         },
         {
             "style": "Table",
             "text": "| Product Name | Product Variable | Properties |\n| Chaikin Oscillator | chaikinOscillator | chaikinOscillator, zeroLine |",
-            "updated": 1617967606206
+            "updated": 1617967606206,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produkt Variabel | Eigenschaften |\n| Chaikin Oscillator | chaikinOscillator | chaikinOscillator, zeroLine |\n",
+                    "updated": 1645161911002
+                }
+            ]
         },
         {
             "style": "Javascript",

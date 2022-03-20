@@ -15,6 +15,11 @@
                 "language": "DE",
                 "text": "Dieser Indikator enthält zwei Produkte des exponentiellen gleitenden Durchschnitts (EMA). Weitere Informationen über den EMA Indikator finden Sie in der EMA-Dokumentation in der Sparta Datenmine.",
                 "updated": 1647333298328
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu gösterge, iki üstel hareketli ortalama (EMA) ürünü içerir. EMA göstergesi hakkında daha fazla bilgi için Sparta veri madenindeki ( Sparta Data Mine ) EMA belgelerine bakın.",
+                "updated": 1647788472934
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "DE",
                     "text": "Dieser Indikator verwendet 2 separate EMA Signale:",
                     "updated": 1647333341089
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu gösterge 2 ayrı EMA sinyali kullanır:",
+                    "updated": 1647788502829
                 }
             ]
         },
@@ -62,6 +72,11 @@
                     "language": "DE",
                     "text": "Ändern Sie die Eingabe, um sie für Ihren Anwendungsfall zu optimieren!",
                     "updated": 1647333408521
+                },
+                {
+                    "language": "TR",
+                    "text": "Kullanım durumunuza göre optimize etmek için girişi değiştirin!",
+                    "updated": 1647788548217
                 }
             ]
         },
@@ -79,6 +94,11 @@
                     "language": "DE",
                     "text": "Die meisten Omega Indikatoren können verschiedene Periodenwerte verwenden. Um Perioden zu ändern:",
                     "updated": 1647333419286
+                },
+                {
+                    "language": "TR",
+                    "text": "Omega indikatörlerinin çoğu farklı periyot değerleri kullanabilir. Periyotları değiştirmek için:",
+                    "updated": 1647788563528
                 }
             ]
         },
@@ -95,6 +115,11 @@
                     "language": "DE",
                     "text": "Suchen Sie die Data Mine und erweitern Sie sie.",
                     "updated": 1647333430157
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri Madeni'ni ( Data Mine ) bulun ve genişletin.",
+                    "updated": 1647788573193
                 }
             ]
         },
@@ -111,6 +136,11 @@
                     "language": "DE",
                     "text": "Erweitern Sie den Knoten Indicator Bot.",
                     "updated": 1647333440389
+                },
+                {
+                    "language": "TR",
+                    "text": "Gösterge Botu ( Indicator Bot ) düğümünü genişletin.",
+                    "updated": 1647788593477
                 }
             ]
         },
@@ -127,6 +157,11 @@
                     "language": "DE",
                     "text": "Suchen Sie die Product Definition -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code.",
                     "updated": 1647333450819
+                },
+                {
+                    "language": "TR",
+                    "text": "Ürün Tanımı ( Product Definition ) -> Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Döngüsü ( Procedure Loop ) -> Prosedür Javascript Kodunu ( Procedure Javascript Code ) bulun.",
+                    "updated": 1647788611294
                 }
             ]
         },
@@ -143,6 +178,11 @@
                     "language": "DE",
                     "text": "<i>Bearbeiten</i> Sie den Knoten Procedure Javascript Code.",
                     "updated": 1647333550395
+                },
+                {
+                    "language": "TR",
+                    "text": "Prosedür Javascript Kodu ( Procedure Javascript Code ) düğümünü düzenleyin.",
+                    "updated": 1647788624531
                 }
             ]
         },
@@ -159,6 +199,11 @@
                     "language": "DE",
                     "text": "Setzen Sie den Textmarker in das Bearbeitungsfeld und drücken Sie die Pfeiltaste nach oben, bis Sie den oberen Teil des Codes erreichen.",
                     "updated": 1647333567028
+                },
+                {
+                    "language": "TR",
+                    "text": "Metin işaretçisini düzenleme kutusuna koyun ve kodun en üstüne ulaşana kadar Yukarı Ok'a basın.",
+                    "updated": 1647788637071
                 }
             ]
         },
@@ -176,6 +221,11 @@
                     "language": "DE",
                     "text": "Suchen Sie nach \"User defined values\".",
                     "updated": 1647333578300
+                },
+                {
+                    "language": "TR",
+                    "text": "\"Kullanıcı tanımlı değerler ( User defined values )\" arayın.",
+                    "updated": 1647788648818
                 }
             ]
         },
@@ -192,6 +242,11 @@
                     "language": "DE",
                     "text": "Geben Sie die Werte Ihrer Wahl ein.",
                     "updated": 1647333588771
+                },
+                {
+                    "language": "TR",
+                    "text": "Tercih ettiğiniz değerleri girin.",
+                    "updated": 1647788660618
                 }
             ]
         },
@@ -209,6 +264,11 @@
                     "language": "DE",
                     "text": "Denken Sie daran, dass Sie die vorhandenen Daten für den Indikator im Ordner Data-Storage löschen und die für den Indikator erforderlichen Data Tasks im Knoten Network neu starten müssen, bevor Sie die Änderungen sehen können.",
                     "updated": 1647333599976
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Veri Depolama klasöründeki gösterge için mevcut verileri silmeniz ve herhangi bir değişikliği görebilmeniz,Ağ düğümündeki gösterge için gereken Veri Görevlerini ( Data Tasks ) yeniden başlatmanız gerektiğini unutmayın.",
+                    "updated": 1647788990556
                 }
             ]
         },
@@ -231,6 +291,11 @@
                     "language": "DE",
                     "text": "Produkte, Eigenschaften und Beispiele",
                     "updated": 1647333613419
+                },
+                {
+                    "language": "TR",
+                    "text": "Ürünler, Özellikler ve Örnekler",
+                    "updated": 1647788690342
                 }
             ]
         },
@@ -243,6 +308,11 @@
                     "language": "DE",
                     "text": "| Produktname | Produktvariable | Eigenschaften |\n| EMA Crossing | emaCrossing | ema01, ema02 |\n",
                     "updated": 1647333645980
+                },
+                {
+                    "language": "TR",
+                    "text": "| Ürün Adı | Ürün Değişkeni | Özellikler |\n| EMA Crossing | emaCrossing | ema01, ema02 |",
+                    "updated": 1647788716487
                 }
             ]
         },

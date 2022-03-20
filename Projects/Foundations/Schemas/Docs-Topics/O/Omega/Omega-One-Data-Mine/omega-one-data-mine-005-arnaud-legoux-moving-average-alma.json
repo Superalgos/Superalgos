@@ -15,6 +15,11 @@
                 "language": "DE",
                 "text": "Der Indikator des gleitenden Durchschnitts von Arnaud Legoux (ALMA) ist ein technisches Analyseinstrument, das geringfügige Kursschwankungen eliminiert und den Trend des Marktes verstärkt.",
                 "updated": 1647275423412
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Arnaud Legoux hareketli ortalama (ALMA) göstergesi, küçük fiyat dalgalanmalarını ortadan kaldıran ve piyasanın trendini iyileştiren bir teknik analiz aracıdır.",
+                "updated": 1647780552662
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "DE",
                     "text": "Der ALMA ist ein technisches Analyseinstrument, das Anlegern und Händlern ein zuverlässigeres Handelssignal liefern soll, indem es das Rauschen reduziert, das bei herkömmlichen gleitenden Durchschnitten stören kann. Er eliminiert die kleinen Schwankungen im Preis eines Vermögenswerts, um den Trend deutlicher zu machen.",
                     "updated": 1647275490873
+                },
+                {
+                    "language": "TR",
+                    "text": "ALMA, geleneksel hareketli ortalamalara müdahale edebilecek gürültüyü azaltarak yatırımcılara ve tüccarlara daha güvenilir bir ticaret sinyali vermeyi amaçlayan bir teknik analiz aracıdır. Trendi daha net hale getirmek için bir varlık fiyatındaki küçük dalgalanmaları ortadan kaldırır.",
+                    "updated": 1647780586957
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "DE",
                     "text": "Der ALMA reduziert die Kursverzögerung und erzeugt eine glattere Linie als andere gleitende Durchschnitte. Anstelle eines einfachen gleitenden Durchschnitts für einen bestimmten Zeitraum wird ein gleitender Durchschnitt zweimal angewandt: von links nach rechts und von rechts nach links.",
                     "updated": 1647275502151
+                },
+                {
+                    "language": "TR",
+                    "text": "ALMA, fiyat gecikmesini azaltır ve diğer hareketli ortalamalardan daha yumuşak bir çizgi oluşturur. Belli bir dönem için basit bir hareketli ortalama yerine, iki kez hareketli ortalama uygular; soldan sağa ve sağdan sola.",
+                    "updated": 1647780596513
                 }
             ]
         },
@@ -71,6 +86,11 @@
                     "language": "DE",
                     "text": "Ändern Sie die Eingabe, um sie für Ihren Anwendungsfall zu optimieren!",
                     "updated": 1647275661774
+                },
+                {
+                    "language": "TR",
+                    "text": "Kullanım durumunuza göre optimize etmek üzere girişi değiştirin!",
+                    "updated": 1647780630470
                 }
             ]
         },
@@ -88,6 +108,11 @@
                     "language": "DE",
                     "text": "Die meisten Omega Indikatoren können verschiedene Periodenwerte verwenden. Um Perioden zu ändern:",
                     "updated": 1647275675574
+                },
+                {
+                    "language": "TR",
+                    "text": "Omega indikatörlerinin çoğu farklı periyot değerleri kullanabilir. Periyotları değiştirmek için:",
+                    "updated": 1647780649219
                 }
             ]
         },
@@ -104,6 +129,11 @@
                     "language": "DE",
                     "text": "Suchen Sie die Data Mine und erweitern Sie sie.",
                     "updated": 1647275685477
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri Madeni'ni ( Data Mine ) bulun ve genişletin.",
+                    "updated": 1647780705562
                 }
             ]
         },
@@ -120,6 +150,11 @@
                     "language": "DE",
                     "text": "Erweitern Sie den Knoten Indicator Bot.",
                     "updated": 1647275697604
+                },
+                {
+                    "language": "TR",
+                    "text": "Gösterge Botu ( Indicator Bot ) düğümünü genişletin.",
+                    "updated": 1647780718500
                 }
             ]
         },
@@ -136,6 +171,11 @@
                     "language": "DE",
                     "text": "Suchen Sie die Product Definition -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code.",
                     "updated": 1647275709164
+                },
+                {
+                    "language": "TR",
+                    "text": "Ürün Tanımı ( Product Definition ) -> Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Döngüsü ( Procedure Loop ) -> Prosedür Javascript Kodunu ( Procedure Javascript Code ) bulun.",
+                    "updated": 1647780831290
                 }
             ]
         },
@@ -152,6 +192,11 @@
                     "language": "DE",
                     "text": "<i>Bearbeiten</i> Sie den Knoten Procedure Javascript Code.",
                     "updated": 1647333691050
+                },
+                {
+                    "language": "TR",
+                    "text": "Prosedür Javascript Kodu ( Procedure Javascript Code ) düğümünü düzenleyin.",
+                    "updated": 1647780848642
                 }
             ]
         },
@@ -168,6 +213,11 @@
                     "language": "DE",
                     "text": "Setzen Sie den Textmarker in das Bearbeitungsfeld und drücken Sie die Pfeiltaste nach oben, bis Sie den oberen Teil des Codes erreichen.",
                     "updated": 1647275739725
+                },
+                {
+                    "language": "TR",
+                    "text": "Metin işaretçisini düzenleme kutusuna koyun ve kodun en üstüne ulaşana kadar Yukarı Ok'a basın.",
+                    "updated": 1647780864169
                 }
             ]
         },
@@ -185,6 +235,11 @@
                     "language": "DE",
                     "text": "Suchen Sie nach \"User defined values\".",
                     "updated": 1647275752681
+                },
+                {
+                    "language": "TR",
+                    "text": "\"Kullanıcı tanımlı değerler ( User defined values )\" arayın.",
+                    "updated": 1647780875000
                 }
             ]
         },
@@ -201,6 +256,11 @@
                     "language": "DE",
                     "text": "Geben Sie die Werte Ihrer Wahl ein.",
                     "updated": 1647275765229
+                },
+                {
+                    "language": "TR",
+                    "text": "Tercih ettiğiniz değerleri girin.",
+                    "updated": 1647780884212
                 }
             ]
         },
@@ -218,6 +278,11 @@
                     "language": "DE",
                     "text": "Denken Sie daran, dass Sie die vorhandenen Daten für den Indikator im Ordner Data-Storage löschen und die für den Indikator erforderlichen Data Tasks im Knoten Network neu starten müssen, bevor Sie die Änderungen sehen können.",
                     "updated": 1647275826486
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Veri Depolama klasöründeki gösterge için mevcut verileri silmeniz ve herhangi bir değişikliği görebilmeniz,Ağ düğümündeki gösterge için gereken Veri Görevlerini ( Data Tasks ) yeniden başlatmanız gerektiğini unutmayın.",
+                    "updated": 1647789016407
                 }
             ]
         },
@@ -240,6 +305,11 @@
                     "language": "DE",
                     "text": "Produkte, Eigenschaften und Beispiele",
                     "updated": 1647275859364
+                },
+                {
+                    "language": "TR",
+                    "text": "Ürünler, Özellikler ve Örnekler",
+                    "updated": 1647780918730
                 }
             ]
         },
@@ -252,6 +322,11 @@
                     "language": "DE",
                     "text": "| Produktname | Produktvariable | Eigenschaften |\n| ALMA | ALMA | alma01 |",
                     "updated": 1647275891658
+                },
+                {
+                    "language": "TR",
+                    "text": "| Ürün Adı | Ürün Değişkeni | Özellikler |\n| ALMA | ALMA | alma01 |",
+                    "updated": 1647780933353
                 }
             ]
         },

@@ -36,8 +36,8 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Там нет страницы, описывающей тему. Вместо этого Docs Topic Name используется для группировки набора связанных страниц по определенной теме.",
-                    "updated": 1638463626687
+                    "text": "Обратите внимание, что темы сами по себе не являются страницами. Вместо этого название темы документа (Docs Topic Name) является свойством страницы документа (Docs Page).",
+                    "updated": 1647781257730
                 },
                 {
                     "language": "TR",
@@ -55,6 +55,11 @@
                     "language": "TR",
                     "text": "Başka bir deyişle, bir konuyu (Topic) açıklayan bir sayfa yoktur. Bunun yerine, Docs Topic Name, belirli bir konu altında bir dizi ilgili sayfayı gruplamak için kullanılır.",
                     "updated": 1646208486093
+                },
+                {
+                    "language": "RU",
+                    "text": "Другими словами, не существует страницы, описывающей тему. Вместо этого название темы используется для группировки набора связанных страниц под определенной темой.",
+                    "updated": 1647781294980
                 }
             ]
         }

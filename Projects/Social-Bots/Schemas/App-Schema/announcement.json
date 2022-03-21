@@ -44,7 +44,7 @@
         }
     ],
     "initialValues": {
-        "config": "{ \n\"text\": \"Type the message you wish to announce when there is no formula\"\n}"
+        "config": "{ \n\"text\": \"Type the message you wish to announce when there is no formula\",\n \"onEnter\": true,\n \"onExit\": false \n}"
     },
     "addLeftIcons": true,
     "level": 4,

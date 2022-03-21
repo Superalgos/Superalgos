@@ -1,6 +1,6 @@
 {
     "topic": "Tested Exchanges",
-    "pageNumber": 4,
+    "pageNumber": 3,
     "type": "Ascendex Test Status",
     "definition": {
         "text": "Passed Fetch OHLVCs and Backtesting. Live trading will soon be tested.",

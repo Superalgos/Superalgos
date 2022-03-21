@@ -1,6 +1,6 @@
 {
     "topic": "Tested Exchanges",
-    "pageNumber": 15,
+    "pageNumber": 13,
     "type": "OKEX Test Status",
     "definition": {
         "text": "Passed Live Trading Test but limited Historical Data ",

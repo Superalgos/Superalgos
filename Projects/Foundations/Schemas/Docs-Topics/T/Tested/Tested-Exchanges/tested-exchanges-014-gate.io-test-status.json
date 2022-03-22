@@ -1,6 +1,6 @@
 {
     "topic": "Tested Exchanges",
-    "pageNumber": 15,
+    "pageNumber": 14,
     "type": "Gate.io Test Status",
     "definition": {
         "text": "Passed Live Trading Test but Gate.io doesn't support Market Orders",

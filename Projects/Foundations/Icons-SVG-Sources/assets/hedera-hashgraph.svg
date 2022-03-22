@@ -1,48 +1,48 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg
-   viewBox="0 0 512 512"
-   version="1.1"
-   id="svg558"
-   width="512"
-   height="512"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:dc="http://purl.org/dc/elements/1.1/">
-  <defs
-     id="defs548">
-    <style
-       id="style546">.cls-1{fill:#fff;}</style>
-  </defs>
-  <title
-     id="title550">hedera--logo</title>
-  <g
-     id="g648"
-     transform="scale(0.2048)">
-    <g
-       id="Layer_2"
-       data-name="Layer 2">
-      <g
-         id="Layer_1-2"
-         data-name="Layer 1">
-        <path
-           d="M 1250,0 C 559.64,0 0,559.64 0,1250 0,1940.36 559.64,2500 1250,2500 1940.36,2500 2500,1940.36 2500,1250 2500,559.64 1940.36,0 1250,0"
-           id="path552" />
-        <path
-           class="cls-1"
-           d="M 1758.12,1790.62 H 1599.38 V 1453.13 H 900.62 v 337.49 H 741.87 V 696.25 h 158.75 v 329.37 h 698.76 V 696.25 h 158.75 z m -850,-463.75 h 698.75 V 1152.5 H 908.12 Z"
-           id="path554" />
-      </g>
-    </g>
-  </g>
-  <metadata
-     id="metadata642">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:title>hedera--logo</dc:title>
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.4.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1"
+	 id="svg558" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
+	 style="enable-background:new 0 0 512 512;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;}
+	.st1{fill:#365558;}
+	.st2{fill:#0295AA;}
+	.st3{fill:url(#New_Pattern_Swatch_5);}
+	.st4{fill:url(#New_Pattern_Swatch_6);}
+	.st5{fill:#82CDD8;}
+	.st6{fill:#CED3D4;}
+	.st7{fill:#9EA8AA;}
+	.st8{fill:#5494A7;}
+</style>
+<pattern  y="512" width="128" height="128" patternUnits="userSpaceOnUse" id="New_Pattern_Swatch_5" viewBox="0 -128 128 128" style="overflow:visible;">
+	<g>
+		<rect y="-128" class="st0" width="128" height="128"/>
+		<rect y="-128" class="st1" width="128" height="128"/>
+	</g>
+</pattern>
+<pattern  y="512" width="128" height="128" patternUnits="userSpaceOnUse" id="New_Pattern_Swatch_6" viewBox="0 -128 128 128" style="overflow:visible;">
+	<g>
+		<rect y="-128" class="st0" width="128" height="128"/>
+		<rect y="-128" class="st2" width="128" height="128"/>
+	</g>
+</pattern>
+<g id="g648" transform="scale(0.2048)">
+	<g id="Layer_2_00000049918851021384436550000015840185992546903729_">
+		<g id="Layer_1-2">
+			<path class="st3" d="M900.6,1025.6V696.2H741.8v1094.4h158.8v-337.5H1250V2500C559.6,2500,0,1940.4,0,1250S559.6,0,1250,0v1025.6
+				H900.6z"/>
+			<path class="st4" d="M2500,1250c0,690.4-559.6,1250-1250,1250V1453.1h349.4v337.5h158.7l0.1-1094.4h-158.9v329.4H1250V0
+				C1940.4,0,2500,559.6,2500,1250z"/>
+			<polygon class="st5" points="1758.2,696.2 1758.1,1790.6 1758.1,696.2 			"/>
+			<polygon class="st6" points="1758.2,696.2 1758.1,1790.6 1599.4,1790.6 1599.4,1453.1 1250,1453.1 1250,1326.9 1606.9,1326.9 
+				1606.9,1152.5 1250,1152.5 1250,1025.6 1599.4,1025.6 1599.4,696.2 			"/>
+			<polygon class="st7" points="1250,1025.6 1250,1152.5 908.1,1152.5 908.1,1326.9 1250,1326.9 1250,1453.1 900.6,1453.1 
+				900.6,1790.6 741.8,1790.6 741.8,696.2 900.6,696.2 900.6,1025.6 			"/>
+		</g>
+	</g>
+</g>
+<polygon class="st4" points="329.1,236 329.1,271.8 186,271.8 186,236 186,236 186,271.7 256,271.7 256,236 "/>
+<rect x="186" y="236" class="st3" width="70" height="35.7"/>
+<rect x="186" y="236" class="st8" width="70" height="0"/>
 </svg>

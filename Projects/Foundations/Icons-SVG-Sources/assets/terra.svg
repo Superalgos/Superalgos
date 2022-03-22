@@ -1,46 +1,97 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Generator: Adobe Illustrator 24.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-
-<svg
-   version="1.1"
-   id="Layer_1"
-   x="0px"
-   y="0px"
-   viewBox="0 0 512 512"
-   xml:space="preserve"
-   width="512"
-   height="512"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg"><defs
-   id="defs10676" />
-<style
-   type="text/css"
-   id="style10661">
-	.st0{fill:#172852;}
-	.st1{fill:#FFD83D;}
-	.st2{fill:#FF6F03;}
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.4.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns:svg="http://www.w3.org/2000/svg"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
+	 style="enable-background:new 0 0 512 512;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;}
+	.st1{fill:#E6EAEA;}
+	.st2{fill:#365558;}
+	.st3{fill:#0295AA;}
+	.st4{fill:#CDD4D5;}
+	.st5{fill:url(#SVGID_1_);}
+	.st6{fill:url(#SVGID_00000018930727453618201330000010715296406908677773_);}
+	.st7{fill:url(#SVGID_00000183961109217851637730000001954477289907776134_);}
+	.st8{fill:url(#SVGID_00000072276003238113540530000007104165206204989583_);}
+	.st9{fill:url(#SVGID_00000067225589268647926310000006417241424349332657_);}
+	.st10{fill:url(#SVGID_00000085218063748253800940000017218882633065056683_);}
+	.st11{fill:url(#SVGID_00000151503260736546933840000013942633639987792774_);}
 </style>
-
-
-<g
-   id="g10763"
-   transform="scale(0.256)"><circle
-     class="st0"
-     cx="1000"
-     cy="1000"
-     r="1000"
-     id="circle10663" /><g
-     id="g10669">
-	<path
-   class="st1"
-   d="m 805.5,446.9 c 117.1,-43.8 248.9,-43.9 368.2,-7.9 155.3,48.2 286.4,165.4 354.9,312.5 18.9,41.9 37,85.6 38.8,132.2 -87.3,-50.6 -183,-83.4 -278.9,-113.3 -153.4,-55.3 -314,-93.7 -459.2,-169.7 -33.8,-20.2 -76.9,-40.9 -86.1,-83 -3.7,-36.4 34.8,-56.7 62.3,-70.8"
-   id="path10665" />
-	<path
-   class="st1"
-   d="m 452,800.9 c 33.9,-92 89.5,-177.4 165,-240.7 19.2,157.9 86.4,310.5 197.4,425.3 133.1,138.3 322.7,223.2 515.6,220 76.6,2.4 151.5,-15.3 226.2,-29.6 -73.5,265.6 -364.6,441.9 -634.3,399.5 C 759.1,1554.6 608.8,1458.2 518.1,1322.1 415.8,1171.7 390,972 452,800.9 Z"
-   id="path10667" />
-</g><path
-     class="st2"
-     d="m 1288.5,770.4 c 95.9,29.9 191.6,62.7 278.9,113.3 l 5.9,3.1 c 8.1,60.9 14,123 3.2,184 -43.9,-18.6 -79.5,-51.3 -116.7,-80.2 C 1388.2,931 1315.1,862.8 1288.5,770.4"
-     id="path10671" /></g>
+<pattern  y="512" width="128" height="128" patternUnits="userSpaceOnUse" id="New_Pattern_Swatch_10" viewBox="0 -128 128 128" style="overflow:visible;">
+	<g>
+		<rect y="-128" class="st0" width="128" height="128"/>
+		<rect y="-128" class="st1" width="128" height="128"/>
+	</g>
+</pattern>
+<pattern  y="512" width="128" height="128" patternUnits="userSpaceOnUse" id="New_Pattern_Swatch_5" viewBox="0 -128 128 128" style="overflow:visible;">
+	<g>
+		<rect y="-128" class="st0" width="128" height="128"/>
+		<g>
+			<rect y="-128" class="st0" width="128" height="128"/>
+			<rect y="-128" class="st2" width="128" height="128"/>
+		</g>
+	</g>
+</pattern>
+<pattern  y="512" width="128" height="128" patternUnits="userSpaceOnUse" id="New_Pattern_Swatch_6" viewBox="0 -128 128 128" style="overflow:visible;">
+	<g>
+		<rect y="-128" class="st0" width="128" height="128"/>
+		<g>
+			<rect y="-128" class="st0" width="128" height="128"/>
+			<rect y="-128" class="st3" width="128" height="128"/>
+		</g>
+	</g>
+</pattern>
+<pattern  y="512" width="128" height="128" patternUnits="userSpaceOnUse" id="New_Pattern_Swatch_9" viewBox="0 -128 128 128" style="overflow:visible;">
+	<g>
+		<rect y="-128" class="st0" width="128" height="128"/>
+		<rect y="-128" class="st4" width="128" height="128"/>
+	</g>
+</pattern>
+<g id="g10763" transform="scale(0.256)">
+	<pattern  id="SVGID_1_" xlink:href="#New_Pattern_Swatch_5" patternTransform="matrix(0.256 0 0 -0.256 -5882.7837 -9833.1846)">
+	</pattern>
+	<path class="st5" d="M743.2,517.7c9.2,42.1,52.3,62.8,86.1,83c55.1,28.8,112.4,52.3,170.7,73.2v450.8
+		c-68.7-36.2-131.8-83.3-185.6-139.2C703.4,870.7,636.2,718.1,617,560.2c-75.5,63.3-131.1,148.7-165,240.7
+		c-62,171.1-36.2,370.8,66.1,521.2c90.7,136.1,241,232.5,403.8,253.3c25.9,4.1,52,6.1,78.1,6.3V2000C447.7,2000,0,1552.3,0,1000
+		S447.7,0,1000,0v412.9c-66.3-0.2-132.4,10.7-194.5,34C778,461,739.5,481.3,743.2,517.7z"/>
+	
+		<pattern  id="SVGID_00000088135194908400116960000010016631922984954516_" xlink:href="#New_Pattern_Swatch_6" patternTransform="matrix(0.256 0 0 -0.256 -5882.7837 -9833.1846)">
+	</pattern>
+	<path style="fill:url(#SVGID_00000088135194908400116960000010016631922984954516_);" d="M2000,1000c0,552.3-447.7,1000-1000,1000
+		v-418.4c245.5,1.5,489.8-165.7,556.2-405.7c-74.7,14.3-149.6,32-226.2,29.6c-114.9,1.9-228.7-27.5-330-80.8V673.9
+		c95.4,34.3,193.3,62.1,288.5,96.4c26.6,92.4,99.7,160.6,171.3,220.2c37.2,28.9,68.9,61.7,112.8,80.3c10.8-61,2.9-126.3-5.2-187.2
+		l0,0c-1.8-46.6-19.9-90.3-38.8-132.2c-68.5-147-199.6-264.2-354.9-312.4c-56.1-16.9-114.9-25.9-173.7-26.1V0
+		C1552.3,0,2000,447.7,2000,1000z"/>
+	<g id="g10669">
+		
+			<pattern  id="SVGID_00000050651850817314590280000012150569263013723036_" xlink:href="#New_Pattern_Swatch_9" patternTransform="matrix(0.256 0 0 -0.256 -5882.7837 -9833.1846)">
+		</pattern>
+		<path style="fill:url(#SVGID_00000050651850817314590280000012150569263013723036_);" d="M1000,412.9v261
+			c-58.3-21-115.6-44.4-170.7-73.2c-33.8-20.2-76.9-40.9-86.1-83c-3.7-36.4,34.8-56.7,62.3-70.8C867.6,423.7,933.7,412.7,1000,412.9
+			z"/>
+		
+			<pattern  id="SVGID_00000137850643687689186570000009403067203735536519_" xlink:href="#New_Pattern_Swatch_10" patternTransform="matrix(0.256 0 0 -0.256 -5882.7837 -9833.1846)">
+		</pattern>
+		<path style="fill:url(#SVGID_00000137850643687689186570000009403067203735536519_);" d="M1568.9,889.2
+			c-87.3-50.6-189.3-89.8-285.2-119.7c-95.2-34.3-188.4-61.2-283.7-95.5V413c58.8,0.2,117.7,9.1,173.7,26.1
+			c155.3,48.2,286.4,165.4,354.9,312.5C1547.5,793.4,1567.1,842.6,1568.9,889.2z"/>
+		
+			<pattern  id="SVGID_00000026150875925777648870000007218061449834368685_" xlink:href="#New_Pattern_Swatch_9" patternTransform="matrix(0.256 0 0 -0.256 -5882.7837 -9833.1846)">
+		</pattern>
+		<path style="fill:url(#SVGID_00000026150875925777648870000007218061449834368685_);" d="M1000,1124.7v456.9
+			c-26.1-0.1-52.2-2.1-78.1-6.3c-162.8-20.8-313.1-117.2-403.8-253.3C415.8,1171.7,390,972,452,800.9c33.9-92,89.5-177.4,165-240.7
+			c19.2,157.9,86.4,310.5,197.4,425.3C868.2,1041.4,931.3,1088.6,1000,1124.7z"/>
+		
+			<pattern  id="SVGID_00000002378890170777584940000000797783680451028120_" xlink:href="#New_Pattern_Swatch_10" patternTransform="matrix(0.256 0 0 -0.256 -5882.7837 -9833.1846)">
+		</pattern>
+		<path style="fill:url(#SVGID_00000002378890170777584940000000797783680451028120_);" d="M1556.2,1175.9
+			c-66.4,240.1-310.7,407.2-556.2,405.7v-456.9c101.3,53.3,215.1,82.7,330,80.8C1406.6,1207.9,1481.5,1190.2,1556.2,1175.9z"/>
+	</g>
+	
+		<pattern  id="SVGID_00000065780537535637556400000015839438355847214782_" xlink:href="#New_Pattern_Swatch_9" patternTransform="matrix(0.256 0 0 -0.256 -5882.7837 -9833.1846)">
+	</pattern>
+	<path style="fill:url(#SVGID_00000065780537535637556400000015839438355847214782_);" d="M1571.7,1069.9
+		c-43.9-18.6-79.5-51.3-116.7-80.2c-71.6-59.6-144.7-127.8-171.3-220.2c95.9,29.9,191.6,62.7,278.9,113.3l5.9,3.1
+		C1576.6,946.8,1582.5,1008.9,1571.7,1069.9z"/>
+</g>
 </svg>

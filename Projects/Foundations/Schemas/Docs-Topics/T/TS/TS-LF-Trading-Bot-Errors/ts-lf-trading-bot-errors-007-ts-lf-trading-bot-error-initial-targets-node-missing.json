@@ -4,22 +4,50 @@
     "type": "TS LF Trading Bot Error - Initial Targets Node Missing",
     "definition": {
         "text": "An Initial Targets node was expected but not found at the node where the error originated.",
-        "updated": 1611938198885
+        "updated": 1611938198885,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Bir İlk Hedefler ( Initial Targets ) düğümü bekleniyordu ancak hatanın kaynaklandığı düğümde bulunamadı.",
+                "updated": 1648067657406
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "The Trading Session may run without the Open Stage, Manage Stage, and Close Stage nodes present. But if a stage exists, then the required nodes within must be properly defined.",
-            "updated": 1611938347979
+            "updated": 1611938347979,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ticaret Oturumu ,(  Trading Session ) Açık Aşama (  Open Stage ) , Aşamayı Yönet  ( Manage Stage ) ve Aşamayı Kapat (  Close Stage )  düğümleri olmadan çalışabilir. Ancak bir aşama varsa, içindeki gerekli düğümler uygun şekilde tanımlanmalıdır.",
+                    "updated": 1648068197350
+                }
+            ]
         },
         {
             "style": "Error",
-            "text": "Initial Targets Node Missing"
+            "text": "Initial Targets Node Missing",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İlk Hedefler, Düğüm Eksik ( Initial Targets Node Missing )",
+                    "updated": 1648068439220
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Add the missing node and try again. The session will not run free of errors until all required nodes are defined.",
-            "updated": 1611938473498
+            "updated": 1611938473498,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Eksik düğümü ekleyin ve tekrar deneyin. Gerekli tüm düğümler tanımlanıncaya kadar oturum hatasız çalışmayacaktır.",
+                    "updated": 1648068289560
+                }
+            ]
         }
     ]
 }

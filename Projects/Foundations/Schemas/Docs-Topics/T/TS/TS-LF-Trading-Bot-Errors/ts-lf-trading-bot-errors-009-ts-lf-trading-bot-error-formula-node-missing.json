@@ -4,18 +4,39 @@
     "type": "TS LF Trading Bot Error - Formula Node Missing",
     "definition": {
         "text": "A Formula node was expected but not found at the node where the error originated.",
-        "updated": 1611939289307
+        "updated": 1611939289307,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Formüle ( Formula ) düğüm bekleniyordu ancak hatanın kaynaklandığı düğümde bulunamadı.",
+                "updated": 1648069724200
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Error",
             "text": "Formula Node Missing",
-            "updated": 1611597209589
+            "updated": 1611597209589,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Formül Düğümü Eksik ( Formula Node Missing )",
+                    "updated": 1648069760199
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Add the missing node and try again. The session will not run free of errors until all required nodes are defined.",
-            "updated": 1611939303905
+            "updated": 1611939303905,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Eksik düğümü ekleyin ve tekrar deneyin. Gerekli tüm düğümler tanımlanıncaya kadar oturum hatasız çalışmayacaktır.",
+                    "updated": 1648069785345
+                }
+            ]
         }
     ]
 }

@@ -9,6 +9,11 @@
                 "language": "RU",
                 "text": "MFI Divergence - этот индикатор анализирует максимумы и минимумы 20-периодного индикатора MFI, сравнивает их с ценовым действием и выдает любые найденные данные о дивергенции.",
                 "updated": 1647358127581
+            },
+            {
+                "language": "TR",
+                "text": "Özet: MFI Divergence - bu gösterge, 20 dönemlik bir MFI göstergesinin en yüksek, en düşük noktalarını analiz eder, bunu fiyat hareketiyle karşılaştırır ve bulunan sapma verilerini üretir.",
+                "updated": 1647717174041
             }
         ]
     },
@@ -21,6 +26,11 @@
                     "language": "RU",
                     "text": "Дивергенция MFI на графиках",
                     "updated": 1647358140203
+                },
+                {
+                    "language": "TR",
+                    "text": "Çizelgelerdeki MFI Divergence",
+                    "updated": 1647717215416
                 }
             ]
         },
@@ -32,6 +42,11 @@
                     "language": "RU",
                     "text": "Согласно investopedia: Индикаторы моментума обычно используются для сглаживания ценового действия и получения более четкой картины. Они позволяют трейдеру сравнивать колебания индикатора с колебаниями цены, а не сравнивать цену с ценой. Моментум - это исследование силы ценового действия, он просто проверяет, согласны или не согласны цена и моментум.",
                     "updated": 1647358159994
+                },
+                {
+                    "language": "TR",
+                    "text": "Investopedia'ya göre: Momentum göstergeleri, fiyat hareketini yumuşatmak ve daha net bir resim vermek için yaygın olarak kullanılır. Tüccarın, fiyatı fiyatla karşılaştırmak yerine gösterge dalgalanmalarını fiyat dalgalanmalarıyla karşılaştırmasına izin verir. Momentum, fiyat hareketinin gücünün bir çalışmasıdır, sadece fiyat ve momentumun uyuşup uyuşmadığını kontrol eder.",
+                    "updated": 1647717222457
                 }
             ]
         },
@@ -43,6 +58,11 @@
                     "language": "RU",
                     "text": "Разногласия между индикатором и ценой называются дивергенцией, и они могут иметь значительные последствия для управления торговлей. Величина согласия/несогласия относительна, поэтому в отношениях между ценой и индикатором может развиваться несколько различных моделей.",
                     "updated": 1647358170606
+                },
+                {
+                    "language": "TR",
+                    "text": "Gösterge ve fiyat arasındaki uyuşmazlığa sapma denir ve ticaret yönetimi için önemli etkileri olabilir. Anlaşma/anlaşmazlık miktarı görecelidir, dolayısıyla fiyat ve gösterge arasındaki ilişkide gelişen birkaç farklı model olabilir.",
+                    "updated": 1647717230637
                 }
             ]
         },
@@ -58,6 +78,11 @@
                     "language": "RU",
                     "text": "Индикатор показывает четыре типа дивергенций, а также приблизительный прогноз силы и процентное значение:",
                     "updated": 1647358177984
+                },
+                {
+                    "language": "TR",
+                    "text": "Gösterge, dört tür sapmanın yanı sıra yaklaşık bir güç tahmini ve yüzde değeri gösterir:",
+                    "updated": 1647717240090
                 }
             ]
         },
@@ -69,6 +94,11 @@
                     "language": "RU",
                     "text": "Бычий (сплошная зеленая линия): индикатор моментума формирует более высокий минимум, в то время как ценовое действие формирует более низкий минимум.",
                     "updated": 1647358190676
+                },
+                {
+                    "language": "TR",
+                    "text": "Boğa (Sürekli Yeşil çizgi): Momentum göstergesi daha yüksek bir dip yapar, fiyat hareketi ise daha düşük bir düşüş yapar.",
+                    "updated": 1647717250161
                 }
             ]
         },
@@ -80,6 +110,11 @@
                     "language": "RU",
                     "text": "Медвежий (сплошная красная линия): индикатор моментума формирует более низкий максимум, в то время как ценовое действие формирует более высокий максимум.",
                     "updated": 1647358205663
+                },
+                {
+                    "language": "TR",
+                    "text": "Ayı (Sürekli Kırmızı çizgi): Momentum göstergesi daha düşük bir zirve yapar, fiyat hareketi ise daha yüksek bir zirve yapar.",
+                    "updated": 1647717259468
                 }
             ]
         },
@@ -91,6 +126,11 @@
                     "language": "RU",
                     "text": "Скрытое бычье продолжение (пунктирная зеленая линия): индикатор моментума формирует более низкий максимум, в то время как ценовое действие формирует более высокий минимум.",
                     "updated": 1647358217426
+                },
+                {
+                    "language": "TR",
+                    "text": "Gizli Boğa Devamı (Kesikli Yeşil çizgi): Momentum göstergesi daha düşük bir zirve yapar, fiyat hareketi ise daha yüksek bir dip yapar.",
+                    "updated": 1647717311344
                 }
             ]
         },
@@ -102,6 +142,11 @@
                     "language": "RU",
                     "text": "Скрытое медвежье продолжение (пунктирная красная линия): индикатор моментума формирует более высокий максимум, в то время как ценовое действие формирует более низкий максимум.",
                     "updated": 1647358228368
+                },
+                {
+                    "language": "TR",
+                    "text": "Gizli Ayı Devamı(Kesikli Kırmızı çizgi): Momentum göstergesi daha yüksek bir yükseliş sağlarken, fiyat hareketi daha düşük bir zirve yapar.",
+                    "updated": 1647717320444
                 }
             ]
         },
@@ -117,6 +162,11 @@
                     "language": "RU",
                     "text": "Выше: медвежья дивергенция (крайняя слева, красная) и две бычьи дивергенции (зеленые).",
                     "updated": 1647358239074
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarıda: düşüş eğilimi (en soldaki, kırmızı) ve iki yükseliş eğilimi (yeşil).",
+                    "updated": 1647717330973
                 }
             ]
         },
@@ -128,6 +178,11 @@
                     "language": "RU",
                     "text": "Длину искателя дивергенции, длину стержня, а также порог сильной и слабой дивергенции можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Loop в разделе 'MFI Divergence' Procedure Loop.",
                     "updated": 1647358252613
+                },
+                {
+                    "language": "TR",
+                    "text": "Sapma bulucunun uzunluğu, pivot uzunluğu ve ayrıca güçlü ve zayıf sapmalar için eşik, Javascript Kodunun ( Javascript Code ) 'MFI Divergence' Prosedür Döngüsü ( Procedure Loop ) altındaki Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Döngüsü ( Procedure Loop ) altında bulunması ve açılmasıyla değiştirilebilir.",
+                    "updated": 1647717339998
                 }
             ]
         },
@@ -143,6 +198,11 @@
                     "language": "RU",
                     "text": "Помните, что чем больше длина разворота, тем выше точность, но больше задержка для подтверждения пика/минимума разворота.",
                     "updated": 1647358265097
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Pivot uzunluğu ne kadar uzun olursa, doğruluğun o kadar yüksek olduğunu, ancak pivot tepe/düşük değerini doğrulama gecikmesinin o kadar uzun olduğunu unutmayın.",
+                    "updated": 1647717353165
                 }
             ]
         },
@@ -154,6 +214,11 @@
                     "language": "RU",
                     "text": "Верхний и нижний срез для обнаружения расхождений можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Initialization в разделе 'MFI Divergence' Procedure Initialization.",
                     "updated": 1647358282713
+                },
+                {
+                    "language": "TR",
+                    "text": "Sapma tespiti için üst ve alt sınır, Javascript Kodunun ( Javascript Code ) Veri Oluşturma Prosedürü ( Data Building Procedure ) ->\" MFI Divergence\" Prosedür Başlatma ( Procedure Initialization ) altında bulunup açılmasıyla değiştirilebilir.",
+                    "updated": 1647717410229
                 }
             ]
         },
@@ -169,6 +234,11 @@
                     "language": "RU",
                     "text": "Длину MFI можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Loop в разделе 'MFI14' Procedure Loop.",
                     "updated": 1647358290942
+                },
+                {
+                    "language": "TR",
+                    "text": "MFI'nin uzunluğu, 'MFI14' Prosedür Döngüsü altındaki Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Döngüsü ( Procedure Loop ) altında Javascript Kodu ( Javascript Code ) bulunup açılarak değiştirilebilir.",
+                    "updated": 1647717428530
                 }
             ]
         },
@@ -180,6 +250,11 @@
                     "language": "RU",
                     "text": "Продукты и свойства",
                     "updated": 1647358296049
+                },
+                {
+                    "language": "TR",
+                    "text": "Ürün ve Özellikler",
+                    "updated": 1647717436600
                 }
             ]
         },
@@ -191,12 +266,24 @@
                     "language": "RU",
                     "text": "Доступны следующие свойства:",
                     "updated": 1647358304107
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki özelliklere erişmek mümkündür:",
+                    "updated": 1647717446698
                 }
             ]
         },
         {
             "style": "Table",
-            "text": "| Product Name | Product Variable | Properties |\n| MFI-Div | mfiDiv | status, strength, divPerc |"
+            "text": "| Product Name | Product Variable | Properties |\n| MFI-Div | mfiDiv | status, strength, divPerc |",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "| Ürün Adı | Ürün Değişkeni | Özellikler  |\n| MFI-Div | mfiDiv | durum, güç, divPerc |",
+                    "updated": 1647717478039
+                }
+            ]
         },
         {
             "style": "List",
@@ -206,6 +293,11 @@
                     "language": "RU",
                     "text": "status: возвращает строку со следующими возможными значениями: бычий (\"bullish\"), медвежий (\"bearish\"), бычье продолжение (\"bull continuation\"), медвежье продолжение (\"bear continuation\").",
                     "updated": 1647358341390
+                },
+                {
+                    "language": "TR",
+                    "text": "durum: aşağıdaki olası değerlere sahip bir dize döndürür: boğa, ayı, boğa devamı, ayı devamı",
+                    "updated": 1647717490360
                 }
             ]
         },
@@ -217,6 +309,11 @@
                     "language": "RU",
                     "text": "strength: возвращает строку со следующими возможными значениями: слабый (\"weak\"), средний (\"medium\"), сильный (\"strong\").",
                     "updated": 1647358354377
+                },
+                {
+                    "language": "TR",
+                    "text": "güç: aşağıdaki olası değerlere sahip bir dize döndürür: zayıf, orta, güçlü",
+                    "updated": 1647717498221
                 }
             ]
         },
@@ -228,6 +325,11 @@
                     "language": "RU",
                     "text": "divPerc: возвращает число, соответствующее процентному изменению между пиками или минимумами идентифицированной дивергенции",
                     "updated": 1647358363566
+                },
+                {
+                    "language": "TR",
+                    "text": "divPerc: tanımlanan bir sapmanın tepe veya alt noktaları arasındaki değişim yüzdesine karşılık gelen bir sayı döndürür",
+                    "updated": 1647717507389
                 }
             ]
         },
@@ -239,6 +341,11 @@
                     "language": "RU",
                     "text": "Примеры:",
                     "updated": 1647358369557
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnekler:",
+                    "updated": 1647717527266
                 }
             ]
         },
@@ -262,6 +369,11 @@
                     "language": "RU",
                     "text": "Чтобы повысить уверенность в подтверждении, найдите подходящее значение MFI для входа в сделку после обнаружения дивергенции, например, MFI > 50 после обнаружения бычьей дивергенции.",
                     "updated": 1647358377605
+                },
+                {
+                    "language": "TR",
+                    "text": "Teyit güvenini artırmak için, sapma bulunduktan sonra ticarete girmek için uygun bir MFI değeri bulun, örneğin bir yükseliş tespitinden sonra MFI > 50.",
+                    "updated": 1647717542909
                 }
             ]
         },

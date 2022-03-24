@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Убедитесь, что Node JS правильно установлен и что вы выполняете команду из правильной папки.",
                 "updated": 1640456872045
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Node JS'nin doğru şekilde kurulduğundan ve komutları doğru klasörden çalıştırdığınızdan emin olun.",
+                "updated": 1647861370033
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "У вас установлен Node JS?",
                     "updated": 1640456524058
+                },
+                {
+                    "language": "TR",
+                    "text": "Node JS'yi kurdunuz mu?",
+                    "updated": 1647861848522
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Руководство Download and Set Up проведет вас через процесс установки Node JS, серверной среды с открытым исходным кодом, необходимой для работы Superalgos. Убедитесь, что вы правильно установили программное обеспечение. Дважды проверьте, если установка еще не завершилась.",
                     "updated": 1640456738452
+                },
+                {
+                    "language": "TR",
+                    "text": "İndirme ve Kurulum kılavuzu, Superalgos'u çalıştırmak için gereken açık kaynaklı bir sunucu ortamı olan Node JS'yi yükleme sürecinde size yol gösterir. Yazılımı doğru yüklediğinizden emin olun. Kurulumun henüz bitmemesi durumunda iki kez kontrol edin.",
+                    "updated": 1647862137048
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "RU",
                     "text": "А вы выполняете команду из правильной папки?",
                     "updated": 1640456846114
+                },
+                {
+                    "language": "TR",
+                    "text": "Komutu doğru klasörde mi çalıştırıyorsunuz?",
+                    "updated": 1647862171128
                 }
             ]
         },
@@ -56,6 +76,11 @@
                     "language": "RU",
                     "text": "Убедитесь, что вы запустили команду из папки Superalgos-master.",
                     "updated": 1640456889460
+                },
+                {
+                    "language": "TR",
+                    "text": "Komutu Superalgos-master klasörü içinden çalıştırdığınızdan emin olun.",
+                    "updated": 1647862185230
                 }
             ]
         },
@@ -67,6 +92,11 @@
                     "language": "RU",
                     "text": "Проверьте, установлен ли Node JS",
                     "updated": 1640456903014
+                },
+                {
+                    "language": "TR",
+                    "text": "Node JS'nin kurulu olup olmadığını test edin",
+                    "updated": 1647862319297
                 }
             ]
         },
@@ -79,6 +109,11 @@
                     "language": "RU",
                     "text": "Выполните команду...",
                     "updated": 1640456919987
+                },
+                {
+                    "language": "TR",
+                    "text": "Komutu çalıştırın...",
+                    "updated": 1647862327920
                 }
             ]
         },
@@ -94,6 +129,11 @@
                     "language": "RU",
                     "text": "... чтобы проверить, установлен ли Node JS. Если Node JS установлен, система должна вернуть номер версии. Если этого не происходит, установите Node JS снова.",
                     "updated": 1640456941803
+                },
+                {
+                    "language": "TR",
+                    "text": "... Node JS'nin kurulu olup olmadığını test etmek için. Node JS kuruluysa, sistem bir sürüm numarası döndürmelidir. Olmazsa, lütfen Node JS'yi tekrar yükleyin.",
+                    "updated": 1647862635315
                 }
             ]
         }

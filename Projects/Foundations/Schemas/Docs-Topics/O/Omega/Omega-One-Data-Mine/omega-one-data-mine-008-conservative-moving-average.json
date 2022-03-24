@@ -15,6 +15,11 @@
                 "language": "DE",
                 "text": " Wie der Name schon sagt, handelt es sich bei diesem Indikator um einen gleitenden Durchschnitt, der in Bezug auf seine Veränderungsrate einen konservativen Ansatz verfolgt. Er ist weniger anfällig für Volatilitätsspitzen, reagiert aber auch nur langsam auf schnelle Kursveränderungen.",
                 "updated": 1647333875975
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu gösterge, adından da anlaşılacağı gibi, değişim hızına muhafazakar bir yaklaşım getiren hareketli bir ortalamadır. Uçucu artışlara daha az duyarlıdır, ancak fiyat hareketindeki hızlı değişikliklere tepki vermekte yavaştır.",
+                "updated": 1647788783928
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "DE",
                     "text": "Dieser Indikator verwendet einen 20 Perioden Wert, um die gleitenden Durchschnittswerte zu berechnen.",
                     "updated": 1647333919253
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu gösterge, hareketli ortalama değerlerini hesaplamak için 20 periyot değeri kullanır.",
+                    "updated": 1647788806736
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "DE",
                     "text": "Er unterscheidet sich in der Berechnung vom gleitenden Standard Durchschnitt, da er nur Kerzenwerte innerhalb des doppelten Kerzen Durchschnitts beim Maximum und der Hälfte des Durchschnitts beim Tiefstwert berücksichtigt.",
                     "updated": 1647333963403
+                },
+                {
+                    "language": "TR",
+                    "text": "Hesaplamada standart hareketli ortalamadan farklıdır, çünkü mum değerlerini maksimumda mum ortalamasının iki katı ve en düşük ortalamanın yarısı kadardır.",
+                    "updated": 1647788827802
                 }
             ]
         },
@@ -71,6 +86,11 @@
                     "language": "DE",
                     "text": "Ändern Sie die Eingabe, um sie für Ihren Anwendungsfall zu optimieren!",
                     "updated": 1647334017842
+                },
+                {
+                    "language": "TR",
+                    "text": "Kullanım durumunuza göre optimize etmek için girişi değiştirin!",
+                    "updated": 1647788843999
                 }
             ]
         },
@@ -88,6 +108,11 @@
                     "language": "DE",
                     "text": "Die meisten Omega Indikatoren können verschiedene Periodenwerte verwenden. Um Perioden zu ändern:",
                     "updated": 1647334027531
+                },
+                {
+                    "language": "TR",
+                    "text": "Omega indikatörlerinin çoğu farklı periyot değerleri kullanabilir. Periyotları değiştirmek için:",
+                    "updated": 1647788853762
                 }
             ]
         },
@@ -104,6 +129,11 @@
                     "language": "DE",
                     "text": "Suchen Sie die Data Mine und erweitern Sie sie.",
                     "updated": 1647334037780
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri Madeni'ni ( Data Mine ) bulun ve genişletin.",
+                    "updated": 1647788862752
                 }
             ]
         },
@@ -120,6 +150,11 @@
                     "language": "DE",
                     "text": "Erweitern Sie den Knoten Indicator Bot.",
                     "updated": 1647334053594
+                },
+                {
+                    "language": "TR",
+                    "text": "Gösterge Botu ( Indicator Bot ) düğümünü genişletin.",
+                    "updated": 1647788873515
                 }
             ]
         },
@@ -136,6 +171,11 @@
                     "language": "DE",
                     "text": "Suchen Sie die Product Definition -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code.",
                     "updated": 1647334063923
+                },
+                {
+                    "language": "TR",
+                    "text": "Ürün Tanımı ( Product Definition ) -> Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Döngüsü ( Procedure Loop ) -> Prosedür Javascript Kodunu ( Procedure Javascript Code ) bulun.",
+                    "updated": 1647788885459
                 }
             ]
         },
@@ -152,6 +192,11 @@
                     "language": "DE",
                     "text": "<i>Bearbeiten</i> Sie den Knoten Procedure Javascript Code.",
                     "updated": 1647334074537
+                },
+                {
+                    "language": "TR",
+                    "text": "Prosedür Javascript Kodu ( Procedure Javascript Code ) düğümünü düzenleyin.",
+                    "updated": 1647788895212
                 }
             ]
         },
@@ -168,6 +213,11 @@
                     "language": "DE",
                     "text": "Setzen Sie den Textmarker in das Bearbeitungsfeld und drücken Sie die Pfeiltaste nach oben, bis Sie den oberen Teil des Codes erreichen.",
                     "updated": 1647334085360
+                },
+                {
+                    "language": "TR",
+                    "text": "Metin işaretçisini düzenleme kutusuna koyun ve kodun en üstüne ulaşana kadar Yukarı Ok'a basın.",
+                    "updated": 1647788906196
                 }
             ]
         },
@@ -185,6 +235,11 @@
                     "language": "DE",
                     "text": "Suchen Sie nach \"User defined values\".",
                     "updated": 1647334097738
+                },
+                {
+                    "language": "TR",
+                    "text": "\"Kullanıcı tanımlı değerler ( User defined values )\" arayın.",
+                    "updated": 1647788915879
                 }
             ]
         },
@@ -201,6 +256,11 @@
                     "language": "DE",
                     "text": "Geben Sie die Werte Ihrer Wahl ein.",
                     "updated": 1647334108380
+                },
+                {
+                    "language": "TR",
+                    "text": "Tercih ettiğiniz değerleri girin.",
+                    "updated": 1647788923399
                 }
             ]
         },
@@ -218,6 +278,11 @@
                     "language": "DE",
                     "text": "Denken Sie daran, dass Sie die vorhandenen Daten für den Indikator im Ordner Data-Storage löschen und die für den Indikator erforderlichen Data Tasks im Knoten Network neu starten müssen, bevor Sie die Änderungen sehen können.",
                     "updated": 1647334121729
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Veri Depolama klasöründeki gösterge için mevcut verileri silmeniz ve herhangi bir değişikliği görebilmeniz,Ağ düğümündeki gösterge için gereken Veri Görevlerini ( Data Tasks ) yeniden başlatmanız gerektiğini unutmayın.",
+                    "updated": 1647788944079
                 }
             ]
         },
@@ -240,6 +305,11 @@
                     "language": "DE",
                     "text": "Produkte, Eigenschaften und Beispiele",
                     "updated": 1647334133143
+                },
+                {
+                    "language": "TR",
+                    "text": "Ürünler, Özellikler ve Örnekler",
+                    "updated": 1647788964307
                 }
             ]
         },
@@ -252,6 +322,11 @@
                     "language": "DE",
                     "text": "| Produktname | Produktvariable | Eigenschaften |\n| Conservative Moving Average | cma | cma |\n",
                     "updated": 1647334180089
+                },
+                {
+                    "language": "TR",
+                    "text": "| Ürün Adı | Ürün Değişkeni | Özellikler |\n| Conservative Moving Average | cma | cma |",
+                    "updated": 1647788979769
                 }
             ]
         },

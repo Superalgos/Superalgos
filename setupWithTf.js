@@ -2,6 +2,7 @@ const process = require("process")
 const systemCheck = require('./Launch-Scripts/systemCheck')
 const createShortcut = require('./Launch-Scripts/createShortcut')
 const { runSetup } = require("./Launch-Scripts/runSetup")
+const tfSetup = require('./Launch-Scripts/tfSetup')
 
 // Check system is set up correctly 
 systemCheck()
@@ -20,4 +21,6 @@ if (process.argv.includes("shortcuts")) {
   }
 }
 
-runSetup()
+
+runSetup(true)
+tfSetup()

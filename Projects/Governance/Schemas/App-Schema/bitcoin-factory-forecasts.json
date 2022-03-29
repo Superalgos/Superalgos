@@ -1,0 +1,66 @@
+{
+    "type": "Bitcoin Factory Forecasts",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Test Client Instance",
+            "relatedUiObject": "Test Client Instance",
+            "relatedUiObjectProject": "Governance"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Forecast Client Instance",
+            "relatedUiObject": "Forecast Client Instance",
+            "relatedUiObjectProject": "Governance"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{}"
+    },
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Forecasts Providers->"
+    },
+    "propertyNameAtParent": "bitcoinFactoryForecasts",
+    "childrenNodesProperties": [
+        {
+            "name": "testClientInstances",
+            "type": "array",
+            "childType": "Test Client Instance",
+            "project": "Governance",
+            "autoAdd": false
+        },
+        {
+            "name": "forecastClientInstances",
+            "type": "array",
+            "childType": "Forecast Client Instance",
+            "project": "Governance",
+            "autoAdd": false
+        }
+    ]
+}

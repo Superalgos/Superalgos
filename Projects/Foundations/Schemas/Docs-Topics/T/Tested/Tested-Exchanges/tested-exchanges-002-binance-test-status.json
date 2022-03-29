@@ -87,8 +87,8 @@
         },
         {
             "style": "Json",
-            "text": "{\n    \"codeName\": \"binance\",\n    \"API\": [\n        {\n            \"method\": \"fetchTrades\",\n            \"fetchType\": \"by Id\",\n            \"fetchTradesMethod\": \"publicGetHistoricalTrades\",\n            \"firstId\": \"f\"\n        }\n    ]\n}",
-            "updated": 1615143066280
+            "text": "{\n    \"codeName\": \"binance\"\n}",
+            "updated": 1648557956370
         },
         {
             "style": "Text",

@@ -62,7 +62,7 @@ const expectedObject = {
   ]
 }
 
-describe('newEnvironment', () => {
+describe('newEnvironment()', () => {
   it('should contain no new environment variables', () => {
     expect(env.newEnvironment()).toEqual(expectedObject)
   })

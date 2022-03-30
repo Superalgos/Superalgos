@@ -69,6 +69,7 @@ exports.newPlatformApp = function newPlatformApp() {
             let CCXT_SERVER = require('./Client/ccxtServer.js')
             let WEB3_SERVER = require('./Client/web3Server.js')
             let GITHUB_SERVER = require('./Client/githubServer.js')
+            let BITCOIN_FACTORY_SERVER = require('./Client/bitcoinFactoryServer.js')
 
             /* Network Interfaces */
             let WEB_SOCKETS_INTERFACE = require('./Client/webSocketsInterface.js')
@@ -129,6 +130,11 @@ exports.newPlatformApp = function newPlatformApp() {
             PL.servers.GITHUB_SERVER.initialize()
             PL.servers.GITHUB_SERVER.run()
             console.log('Github Server ............................................... Started')
+
+            PL.servers.BITCOIN_FACTORY_SERVER = BITCOIN_FACTORY_SERVER.newBitcoinFactoryServer()
+            PL.servers.BITCOIN_FACTORY_SERVER.initialize()
+            PL.servers.BITCOIN_FACTORY_SERVER.run()
+            console.log('Bitcoin Factory Server ...................................... Started')
 
             console.log('')
             console.log('SUPERALGOS PLATFORM CLIENT INTERFACES:')

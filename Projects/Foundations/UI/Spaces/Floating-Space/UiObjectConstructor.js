@@ -597,7 +597,7 @@ function newUiObjectConstructor() {
 
         let schemaDocument = getSchemaDocument(payload.node)
         if (schemaDocument === undefined) {
-            console.log('[WARN] Set up of the object ' + payload.node.name + ' of type ' + payload.node.type + ' can not be completed becasue its definition can not be found at the APP SCHEMA.')
+            console.log((new Date()).toISOString(), '[WARN] Set up of the object ' + payload.node.name + ' of type ' + payload.node.type + ' can not be completed becasue its definition can not be found at the APP SCHEMA.')
             return
         }
 

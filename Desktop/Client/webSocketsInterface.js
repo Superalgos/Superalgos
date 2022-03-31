@@ -35,7 +35,7 @@ exports.newWebSocketsInterface = function newWebSocketsInterface() {
             is established.
             */ {
                 if (webApp !== undefined) {
-                    console.log('[ERROR] Only one websockets client allowed.')
+                    console.log((new Date()).toISOString(), '[ERROR] Only one websockets client allowed.')
                     return
                 }
 
@@ -72,7 +72,7 @@ exports.newWebSocketsInterface = function newWebSocketsInterface() {
                         }
 
                         function onError(errorMessage) {
-                            console.log('[ERROR] Web Sockets Interface -> onMenssage -> errorMessage = ' + errorMessage)
+                            console.log((new Date()).toISOString(), '[ERROR] Web Sockets Interface -> onMenssage -> errorMessage = ' + errorMessage)
                             let response = {
                                 messageId: messageHeader.messageId,
                                 result: 'Error',
@@ -82,7 +82,7 @@ exports.newWebSocketsInterface = function newWebSocketsInterface() {
                         }
 
                     } catch (err) {
-                        console.log('[ERROR] Web Sockets Interface -> onMenssage -> err.stack = ' + err.stack)
+                        console.log((new Date()).toISOString(), '[ERROR] Web Sockets Interface -> onMenssage -> err.stack = ' + err.stack)
                     }
                 }
             }
@@ -93,7 +93,7 @@ exports.newWebSocketsInterface = function newWebSocketsInterface() {
             }
 
         } catch (err) {
-            console.log('[ERROR] Web Sockets Interface -> setUpWebSocketServer -> err.stack = ' + err.stack)
+            console.log((new Date()).toISOString(), '[ERROR] Web Sockets Interface -> setUpWebSocketServer -> err.stack = ' + err.stack)
         }
     }
 

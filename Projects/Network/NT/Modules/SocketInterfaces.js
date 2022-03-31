@@ -213,7 +213,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                 }
             }
         } catch (err) {
-            console.log('[ERROR] Socket Interfaces -> setUpWebSocketServer -> err.stack = ' + err.stack)
+            console.log((new Date()).toISOString(), '[ERROR] Socket Interfaces -> setUpWebSocketServer -> err.stack = ' + err.stack)
         }
     }
 
@@ -581,7 +581,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                 .catch(onError)
 
             function onError() {
-                console.log('[ERROR] Socket Interfaces -> broadcastToPeers -> Sending Message Failed.')
+                console.log((new Date()).toISOString(), '[ERROR] Socket Interfaces -> broadcastToPeers -> Sending Message Failed.')
             }
         }
     }
@@ -594,7 +594,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
             }
             return true
         } catch (err) {
-            console.log('[ERROR] Socket Interfaces -> broadcastToClients -> err.stack = ' + err.stack)
+            console.log((new Date()).toISOString(), '[ERROR] Socket Interfaces -> broadcastToClients -> err.stack = ' + err.stack)
         }
     }
 
@@ -609,7 +609,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
             }
             return true
         } catch (err) {
-            console.log('[ERROR] Socket Interfaces -> broadcastSignalsToClients -> err.stack = ' + err.stack)
+            console.log((new Date()).toISOString(), '[ERROR] Socket Interfaces -> broadcastSignalsToClients -> err.stack = ' + err.stack)
         }
     }
 }

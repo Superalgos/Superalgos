@@ -735,7 +735,7 @@ function newPlotter() {
                                 let dataPointObject = record.dataPoints.get(polygonVertex.referenceParent.id)
                                 if (dataPointObject === undefined) {
                                     polygonVertex.payload.uiObject.setErrorMessage('Vertex not referencing any Point')
-                                    console.log('[WARN] You have a Polygon Vertex not referencing any Point.')
+                                    console.log((new Date()).toISOString(), '[WARN] You have a Polygon Vertex not referencing any Point.')
                                     continue
                                 }
 

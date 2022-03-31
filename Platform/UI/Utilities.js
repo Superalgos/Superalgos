@@ -1,6 +1,6 @@
 function getSchemaDocument(node, project) {
   if (node === null || node === undefined) {
-    console.log('[ERROR] Can not get the schema document of a null or undefined node ')
+    console.log((new Date()).toISOString(), '[ERROR] Can not get the schema document of a null or undefined node ')
     return
   }
   if (project === undefined) { project = node.project }
@@ -31,7 +31,7 @@ function getSchemaDocument(node, project) {
 
     return schemaDocument
   } else {
-    console.log('[ERROR] Could not get APP Schema for project ' + node.project)
+    console.log((new Date()).toISOString(), '[ERROR] Could not get APP Schema for project ' + node.project)
   }
 }
 

@@ -155,9 +155,9 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
                                 }
 
                             } catch (err) {
-                                console.log('[ERROR] P2P Node -> httpInterface -> Method call produced an error.')
-                                console.log('[ERROR] P2P Node -> httpInterface -> err.stack = ' + err.stack)
-                                console.log('[ERROR] P2P Node -> httpInterface -> Body Received = ' + bodyString)
+                                console.log((new Date()).toISOString(), '[ERROR] P2P Node -> httpInterface -> Method call produced an error.')
+                                console.log((new Date()).toISOString(), '[ERROR] P2P Node -> httpInterface -> err.stack = ' + err.stack)
+                                console.log((new Date()).toISOString(), '[ERROR] P2P Node -> httpInterface -> Body Received = ' + bodyString)
 
                                 let error = {
                                     result: 'Fail Because',

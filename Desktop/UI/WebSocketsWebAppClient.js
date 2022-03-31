@@ -45,12 +45,12 @@ function newWebSocketsWebAppClient() {
                 }
 
                 function onError(err) {
-                    console.log('[ERROR] Web Sockets WebApp Client -> onError -> err.message = ' + err.message)
-                    console.log('[ERROR] Web Sockets WebApp Client -> onError -> err.stack = ' + err.stack)
+                    console.log((new Date()).toISOString(), '[ERROR] Web Sockets WebApp Client -> onError -> err.message = ' + err.message)
+                    console.log((new Date()).toISOString(), '[ERROR] Web Sockets WebApp Client -> onError -> err.stack = ' + err.stack)
                 }
 
             } catch (err) {
-                console.log('[ERROR] Web Sockets WebApp Client -> setUpWebsocketClient -> err.stack = ' + err.stack)
+                console.log((new Date()).toISOString(), '[ERROR] Web Sockets WebApp Client -> setUpWebsocketClient -> err.stack = ' + err.stack)
             }
         }
     }
@@ -62,7 +62,7 @@ function newWebSocketsWebAppClient() {
         function sendSocketMessage(resolve, reject) {
 
             if (socketClient.readyState !== 1) { // 1 means connected and ready.
-                console.log('[ERROR] Web Sockets WebApp Client -> sendMessage -> Cannot send message while connection is closed.')
+                console.log((new Date()).toISOString(), '[ERROR] Web Sockets WebApp Client -> sendMessage -> Cannot send message while connection is closed.')
                 reject('Websockets Connection Not Ready.')
                 return
             }
@@ -82,13 +82,13 @@ function newWebSocketsWebAppClient() {
                     if (response.result === 'Ok') {
                         resolve(response.data)
                     } else {
-                        console.log('[ERROR] Web Sockets WebApp Client -> onMenssage -> response.message = ' + response.message)
+                        console.log((new Date()).toISOString(), '[ERROR] Web Sockets WebApp Client -> onMenssage -> response.message = ' + response.message)
                         reject(response.message)
                     }
 
                 } catch (err) {
                     callbackFunction = undefined
-                    console.log('[ERROR] Web Sockets WebApp Client -> err.stack = ' + err.stack)
+                    console.log((new Date()).toISOString(), '[ERROR] Web Sockets WebApp Client -> err.stack = ' + err.stack)
                 }
             }
         }
@@ -117,8 +117,8 @@ function newWebSocketsWebAppClient() {
             try {
                 event = JSON.parse(message)
             } catch (err) {
-                console.log('[ERROR] Web Sockets WebApp Client -> onMenssage -> message = ' + message)
-                console.log('[ERROR] Web Sockets WebApp Client -> onMenssage -> err.stack = ' + err.stack)
+                console.log((new Date()).toISOString(), '[ERROR] Web Sockets WebApp Client -> onMenssage -> message = ' + message)
+                console.log((new Date()).toISOString(), '[ERROR] Web Sockets WebApp Client -> onMenssage -> err.stack = ' + err.stack)
                 thisObject.socket.close()
                 return
             }

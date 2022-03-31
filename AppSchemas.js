@@ -1,39 +1,34 @@
 exports.newAppSchemas = function () {
-
   let thisObject = {
     initialize: initialize
   }
 
   return thisObject
 
-  async function initialize() {
+  async function initialize () {
     /*
     Here we will load into memory all the APP_SCHEMA files of every project.
     */
 
     await loadAppSchemas()
 
-    async function loadAppSchemas() {
-
+    async function loadAppSchemas () {
       return new Promise(loadAppSchemasForAllProjects)
 
-      function loadAppSchemasForAllProjects(resolve) {
-
+      function loadAppSchemasForAllProjects (resolve) {
         let projectsLoaded = 0
         for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
           let projectDefinition = PROJECTS_SCHEMA[i]
           loadAppSchemasForProject(projectDefinition.name)
         }
 
-        function loadAppSchemasForProject(project) {
-
+        function loadAppSchemasForProject (project) {
           let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/'
           let folder = 'App-Schema'
 
           SA.projects.foundations.utilities.filesAndDirectories.getAllFilesInDirectoryAndSubdirectories(filePath + folder, onFilesReady)
 
-          function onFilesReady(files) {
-
+          function onFilesReady (files) {
             for (let k = 0; k < files.length; k++) {
               let name = files[k]
               let nameSplitted = name.split(folder)

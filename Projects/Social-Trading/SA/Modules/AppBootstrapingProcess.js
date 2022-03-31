@@ -56,7 +56,7 @@ exports.newSocialTradingAppBootstrapingProcess = function newSocialTradingAppBoo
                                 return
                             }
                             if (socialClient.config.handle === undefined || socialClient.config.handle === "") {
-                                console.log('[WARN] User Profile ' + userProfile.name + ' ' + socialClient.config.codeName + ' does not have a Config Property handle defined.')
+                                console.log((new Date()).toISOString(), '[WARN] User Profile ' + userProfile.name + ' ' + socialClient.config.codeName + ' does not have a Config Property handle defined.')
                                 return
                             }
 
@@ -91,7 +91,7 @@ exports.newSocialTradingAppBootstrapingProcess = function newSocialTradingAppBoo
                                 return
                             }
                             if (socialClient.config.handle === undefined || socialClient.config.handle === "") {
-                                console.log('[WARN] User Profile ' + userProfile.name + ' ' + socialClient.config.codeName + ' does not have a Config Property handle defined.')
+                                console.log((new Date()).toISOString(), '[WARN] User Profile ' + userProfile.name + ' ' + socialClient.config.codeName + ' does not have a Config Property handle defined.')
                                 return
                             }
 

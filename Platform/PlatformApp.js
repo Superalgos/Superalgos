@@ -13,9 +13,9 @@ exports.newPlatformApp = function newPlatformApp() {
                 console.log("The Superalgos Platform Client cannot be started. Reason: the port configured migth be being used by another application, or Superalgos Platform Client might be already running.")
                 return
             }
-            console.log('[ERROR] Platform App -> uncaughtException -> err.message = ' + err.message)
-            console.log('[ERROR] Platform App -> uncaughtException -> err.stack = ' + err.stack)
-            console.log('[ERROR] Platform App -> uncaughtException -> err = ' + err)
+            console.log((new Date()).toISOString(), '[ERROR] Platform App -> uncaughtException -> err.message = ' + err.message)
+            console.log((new Date()).toISOString(), '[ERROR] Platform App -> uncaughtException -> err.stack = ' + err.stack)
+            console.log((new Date()).toISOString(), '[ERROR] Platform App -> uncaughtException -> err = ' + err)
             process.exit(1)
         })
 
@@ -23,11 +23,11 @@ exports.newPlatformApp = function newPlatformApp() {
             // Signal user that a necessary node module is missing
             if (reason.code == 'MODULE_NOT_FOUND') {
                 console.log("[ERROR] Dependency library not found. Please try running the 'node setup' command and then restart the Superalgos Platform Client.")
-                console.log('[ERROR] Platform App -> reason = ' + JSON.stringify(reason))
+                console.log((new Date()).toISOString(), '[ERROR] Platform App -> reason = ' + JSON.stringify(reason))
                 process.exit(1)
             }
-            console.log('[ERROR] Platform App -> unhandledRejection -> reason = ' + JSON.stringify(reason))
-            console.log('[ERROR] Platform App -> unhandledRejection -> p = ' + JSON.stringify(p))
+            console.log((new Date()).toISOString(), '[ERROR] Platform App -> unhandledRejection -> reason = ' + JSON.stringify(reason))
+            console.log((new Date()).toISOString(), '[ERROR] Platform App -> unhandledRejection -> p = ' + JSON.stringify(p))
             process.exit(1)
         })
         try {
@@ -166,7 +166,7 @@ exports.newPlatformApp = function newPlatformApp() {
             console.log('')
 
         } catch (err) {
-            console.log('[ERROR] Platform App -> Error = ' + err.stack)
+            console.log((new Date()).toISOString(), '[ERROR] Platform App -> Error = ' + err.stack)
         }
     }
 }

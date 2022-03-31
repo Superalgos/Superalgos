@@ -167,7 +167,7 @@ function newPluginsUtilitiesPlugins() {
                 pluginToSave.payload.uiObject.setInfoMessage('Plugin Saved.', 5)
                 return
             }
-            console.log('[ERROR] Saving Plugin File: ' + JSON.stringify(data))
+            console.log((new Date()).toISOString(), '[ERROR] Saving Plugin File: ' + JSON.stringify(data))
             pluginFile.payload.uiObject.setErrorMessage('This Plugin Could not be Saved. ' + JSON.stringify(data), 500)
         }
     }

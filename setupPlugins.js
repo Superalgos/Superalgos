@@ -23,7 +23,7 @@ async function run() {
     }
     fs.writeFile(secretsDir + "/githubCredentials.json", JSON.stringify(credentials), function(err) {
         if(err) {
-            console.log('[ERROR] Github Credentials were not saved correctly ' + err)
+            console.log((new Date()).toISOString(), '[ERROR] Github Credentials were not saved correctly ' + err)
         }
     } )
 
@@ -36,8 +36,8 @@ async function run() {
 
         async function promiseWork(resolve, reject) {
             if (username === undefined || token === undefined) {
-                console.log('[WARN] You need to provide your Github username and token in order for this script to Fork the Plugins repositories into your acccount for you.')
-                console.log('[WARN] Add your user name and token to the parameters of this script and try again please. ')
+                console.log((new Date()).toISOString(), '[WARN] You need to provide your Github username and token in order for this script to Fork the Plugins repositories into your acccount for you.')
+                console.log((new Date()).toISOString(), '[WARN] Add your user name and token to the parameters of this script and try again please. ')
                 resolve()
                 return
             }
@@ -55,7 +55,7 @@ async function run() {
                     repo: repo,
                 })
                     .then(async err => {
-                        console.log('[INFO] Dont need to fork plugin repo Superalgos/' + repo + ' because a fork already exists at the ' + username + ' account.')
+                        console.log((new Date()).toISOString(), '[INFO] Dont need to fork plugin repo Superalgos/' + repo + ' because a fork already exists at the ' + username + ' account.')
                         reponsesCount++
                         if (reponsesCount === Object.keys(global.env.PROJECT_PLUGIN_MAP).length) { resolve() }
                     })
@@ -64,7 +64,7 @@ async function run() {
                             owner: 'Superalgos',
                             repo: repo
                         })
-                        console.log('[INFO] Plugin repo Superalgos/' + repo + ' forked into the ' + username + ' account.')
+                        console.log((new Date()).toISOString(), '[INFO] Plugin repo Superalgos/' + repo + ' forked into the ' + username + ' account.')
                         reponsesCount++
                         if (reponsesCount === Object.keys(global.env.PROJECT_PLUGIN_MAP).length) { resolve() }
                     })
@@ -76,8 +76,8 @@ async function run() {
     async function clonePluginRepos(username) {
 
         if (username === undefined) {
-            console.log('[WARN] You need to provide your Github username for this script to Clone the Plugins repositories forks from your acccount.')
-            console.log('[WARN] Add your user name to the parameters of this script and try again please. ')
+            console.log((new Date()).toISOString(), '[WARN] You need to provide your Github username for this script to Clone the Plugins repositories forks from your acccount.')
+            console.log((new Date()).toISOString(), '[WARN] Add your user name to the parameters of this script and try again please. ')
             return
         }
 
@@ -94,13 +94,13 @@ async function run() {
 
             if (fs.existsSync(cloneDir)) {
                 console.log(' ')
-                console.log('[INFO] Directory ' + cloneDir + ' already exists.')
-                console.log('[INFO] No need to clone repo ' + repoURL)
+                console.log((new Date()).toISOString(), '[INFO] Directory ' + cloneDir + ' already exists.')
+                console.log((new Date()).toISOString(), '[INFO] No need to clone repo ' + repoURL)
                 continue
             }
 
             console.log(' ')
-            console.log('[INFO] Cloning plugin repo from ' + repoURL + ' into ' + cloneDir)
+            console.log((new Date()).toISOString(), '[INFO] Cloning plugin repo from ' + repoURL + ' into ' + cloneDir)
             await cloneTheRepo()
 
             async function cloneTheRepo() {
@@ -118,7 +118,7 @@ async function run() {
                                 console.log('')
                                 console.log(error)
                             } else {
-                                console.log('[INFO] Cloning repo ' + global.env.PROJECT_PLUGIN_MAP[propertyName].repo + ' succeed.')
+                                console.log((new Date()).toISOString(), '[INFO] Cloning repo ' + global.env.PROJECT_PLUGIN_MAP[propertyName].repo + ' succeed.')
                                 /*
                                 Final step is to set the remote to the main Superalgos account.
                                 */
@@ -135,11 +135,11 @@ async function run() {
                                     .catch(errorSettingRemote)
 
                                 function remoteSetSuccesfully() {
-                                    console.log('[INFO] Setup of repo ' + global.env.PROJECT_PLUGIN_MAP[propertyName].repo + ' succeed.')
+                                    console.log((new Date()).toISOString(), '[INFO] Setup of repo ' + global.env.PROJECT_PLUGIN_MAP[propertyName].repo + ' succeed.')
                                     resolve()
                                 }
                                 function errorSettingRemote(err) {
-                                    console.log('[ERROR] Setup of repo ' + global.env.PROJECT_PLUGIN_MAP[propertyName].repo + ' failed. You will need to set the git remote manually.')
+                                    console.log((new Date()).toISOString(), '[ERROR] Setup of repo ' + global.env.PROJECT_PLUGIN_MAP[propertyName].repo + ' failed. You will need to set the git remote manually.')
                                     console.log('')
                                     console.log(err)
                                     resolve()

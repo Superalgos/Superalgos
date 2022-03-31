@@ -151,7 +151,7 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
             Any exception that happens while trying to run the query.
             */
             if (err.stack !== undefined) {
-                console.log('[ERROR] Client Interface -> err.stack = ' + err.stack)
+                console.log((new Date()).toISOString(), '[ERROR] Client Interface -> err.stack = ' + err.stack)
             }
             let errorMessage = err.message
             if (errorMessage === undefined) { errorMessage = err }
@@ -302,7 +302,7 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
             will be returned to the caller without doing anything else here.
             */
             if (err.stack !== undefined) {
-                console.log('[ERROR] Client Interface -> err.stack = ' + err.stack)
+                console.log((new Date()).toISOString(), '[ERROR] Client Interface -> err.stack = ' + err.stack)
             }
             let errorMessage = err.message
             if (errorMessage === undefined) { errorMessage = err }

@@ -49,7 +49,7 @@ exports.newAppSchemas = function () {
                                 schemaDocument = JSON.parse(fileContent)
                                 SA.projects.foundations.globals.schemas.APP_SCHEMA_MAP.set(project + '-' + schemaDocument.type, schemaDocument)
                             } catch (err) {
-                                console.log('[WARN] loadAppSchemasForProject -> Error Parsing JSON File: ' + fileToRead + '. Error = ' + err.stack)
+                                console.log((new Date()).toISOString(), '[WARN] loadAppSchemasForProject -> Error Parsing JSON File: ' + fileToRead + '. Error = ' + err.stack)
                                 return
                             }
                         }

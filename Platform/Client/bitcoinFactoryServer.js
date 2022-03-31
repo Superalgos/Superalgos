@@ -193,11 +193,11 @@ exports.newBitcoinFactoryServer = function newBitcoinFactoryServer() {
 
     function getUserProfileFile(fileName) {
 
-        let userProfilePluginFile = SA.nodeModules.fs.readFileSync(ENVIRONMENT.SUPERALGOS_PATH + './Plugins/Governance/User-Profiles/' + fileName)
+        let userProfilePluginFile = SA.nodeModules.fs.readFileSync('./Plugins/Governance/User-Profiles/' + fileName)
 
         return {
             result: 'Ok',
-            userProfilePluginFile: userProfilePluginFile
+            userProfilePluginFile: userProfilePluginFile.toString()
         }
     }
 
@@ -216,7 +216,7 @@ exports.newBitcoinFactoryServer = function newBitcoinFactoryServer() {
 
         return {
             result: 'Ok',
-            fileContent: fileContent
+            fileContent: fileContent.toString()
         }
     }
 }

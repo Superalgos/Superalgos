@@ -83,7 +83,7 @@ function newWorkspace() {
                         let nodeActionSwitch = eval('new' + project.replaceAll('-', '') + 'NodeActionSwitch()')
                         nodeActionSwitchesByProject.set(project, nodeActionSwitch)
                     } catch (err) {
-                        console.log('[WARN] Action Switch for project ' + project + ' not found.')
+                        console.log((new Date()).toISOString(), '[WARN] Action Switch for project ' + project + ' not found.')
                     }
                 }
                 /* … and the system action switches map */
@@ -93,7 +93,7 @@ function newWorkspace() {
                         let systemActionSwitch = eval('new' + project.replaceAll('-', '') + 'SystemActionSwitch()')
                         systemActionSwitchesByProject.set(project, systemActionSwitch)
                     } catch (err) {
-                        console.log('[WARN] System Action Switch for project ' + project + ' not found.')
+                        console.log((new Date()).toISOString(), '[WARN] System Action Switch for project ' + project + ' not found.')
                     }
                 }
 
@@ -231,7 +231,7 @@ function newWorkspace() {
                             systemActionSwitch = systemActionSwitchesByProject.get(project.name)
                         }
                         if (systemActionSwitch === undefined) {
-                            console.log('[ERROR] System Action Switch for project ' + project.name + ' could not be found.')
+                            console.log((new Date()).toISOString(), '[ERROR] System Action Switch for project ' + project.name + ' could not be found.')
                             continue
                         }
                         /* for a menu item that has an action: {"label": "…", "action": {…}} */
@@ -314,7 +314,7 @@ function newWorkspace() {
 
         let url = 'SaveWorkspace/' + workspace.name
         if (textToSave.indexOf('null,null,null,null,null,null,null,null,null') >= 0) {
-            console.log('[WARN] The system tried to save an empty workspace. Saving cancelled.')
+            console.log((new Date()).toISOString(), '[WARN] The system tried to save an empty workspace. Saving cancelled.')
             return
         }
         httpRequest(textToSave, url, onResponse)
@@ -457,9 +457,9 @@ function newWorkspace() {
 
                             let result = await executeAction({ node: thisObject.workspaceNode, name: 'Delete Workspace', project: 'Visual-Scripting', callBackFunction: onDeleted })
                             if (result === false) {
-                                console.log('[ERROR] Could not replace the current workspace because there was a problem removing one node from memory.')
-                                console.log('[ERROR] The system is at an inconsistent state and your workspace is partially deleted. Saving has been disabled to prevent data loss.')
-                                console.log('[ERROR] The only thing you can do now is to fix the APP SCHEMA and refresh the page to reload the previously saved workspace again.')
+                                console.log((new Date()).toISOString(), '[ERROR] Could not replace the current workspace because there was a problem removing one node from memory.')
+                                console.log((new Date()).toISOString(), '[ERROR] The system is at an inconsistent state and your workspace is partially deleted. Saving has been disabled to prevent data loss.')
+                                console.log((new Date()).toISOString(), '[ERROR] The only thing you can do now is to fix the APP SCHEMA and refresh the page to reload the previously saved workspace again.')
                                 workingAtTask = 0
                                 return
                             }
@@ -841,7 +841,7 @@ function newWorkspace() {
 
         let nodeActionSwitch = nodeActionSwitchesByProject.get(action.project)
         if (nodeActionSwitch === undefined) {
-            console.log('[ERROR] Action Switch for project ' + action.project + ' could not be found.')
+            console.log((new Date()).toISOString(), '[ERROR] Action Switch for project ' + action.project + ' could not be found.')
             return
         }
         return nodeActionSwitch.executeAction(action)

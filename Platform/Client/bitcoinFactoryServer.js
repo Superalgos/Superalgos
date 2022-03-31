@@ -1,7 +1,11 @@
 exports.newBitcoinFactoryServer = function newBitcoinFactoryServer() {
 
     let thisObject = {
+        getTestClientInstanceId: getTestClientInstanceId,
         updateForecastedCandles: updateForecastedCandles,
+        getUserProfileFilesList: getUserProfileFilesList,
+        getUserProfileFile: getUserProfileFile,
+        getIndicatorFile: getIndicatorFile,
         initialize: initialize,
         finalize: finalize,
         run: run
@@ -137,6 +141,82 @@ exports.newBitcoinFactoryServer = function newBitcoinFactoryServer() {
 
         return {
             result: 'Ok'
+        }
+    }
+
+    function getTestClientInstanceId(networkCodeName, userProfileName, clientName) {
+
+        let userProfilePluginFile = SA.nodeModules.fs.readFileSync('./Plugins/Governance/User-Profiles/' + userProfileName + '.json')
+        let userProfile = JSON.parse(userProfilePluginFile)
+        if (
+            userProfile.forecastsProviders !== undefined &&
+            userProfile.forecastsProviders.bitcoinFactoryForecasts !== undefined
+        ) {
+            for (let i = 0; i < userProfile.forecastsProviders.bitcoinFactoryForecasts.length; i++) {
+                let network = userProfile.forecastsProviders.bitcoinFactoryForecasts[i]
+                if (network.name === networkCodeName) {
+                    for (let j = 0; j < network.testClientInstances.length; j++) {
+                        let testClientInstance = network.testClientInstances[j]
+                        if (testClientInstance.name === clientName) {
+                            return {
+                                result: 'Ok',
+                                clientId: testClientInstance.id
+                            }
+                        }
+                    }
+                    for (let j = 0; j < network.forecastClientInstances.length; j++) {
+                        let forecastClientInstance = network.forecastClientInstances[j]
+                        if (forecastClientInstance.name === clientName) {
+                            return {
+                                result: 'Ok',
+                                clientId: forecastClientInstance.id
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return {
+            result: 'Not Ok'
+        }
+    }
+
+    function getUserProfileFilesList() {
+
+        let userProfileFIleList = SA.nodeModules.fs.readdirSync('./Plugins/Governance/User-Profiles')
+
+        return {
+            result: 'Ok',
+            userProfileFIleList: userProfileFIleList
+        }
+    }
+
+    function getUserProfileFile(fileName) {
+
+        let userProfilePluginFile = SA.nodeModules.fs.readFileSync(ENVIRONMENT.SUPERALGOS_PATH + './Plugins/Governance/User-Profiles/' + fileName)
+
+        return {
+            result: 'Ok',
+            userProfilePluginFile: userProfilePluginFile
+        }
+    }
+
+    function getIndicatorFile(
+        dataMine,
+        indicator,
+        product,
+        exchange,
+        baseAsset,
+        quotedAsset,
+        dataset,
+        timeFrameLabel
+    ) {
+
+        let fileContent = SA.nodeModules.fs.readFileSync('./Platform/My-Data-Storage/Project/Data-Mining/Data-Mine/' + dataMine + '/' + indicator + '/' + exchange + '/' + baseAsset + '-' + quotedAsset + '/Output/' + product + '/' + dataset + '/' + timeFrameLabel + '/Data.json')
+
+        return {
+            result: 'Ok',
+            fileContent: fileContent
         }
     }
 }

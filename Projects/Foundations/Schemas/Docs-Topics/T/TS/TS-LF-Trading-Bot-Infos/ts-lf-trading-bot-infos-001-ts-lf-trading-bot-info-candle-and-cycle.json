@@ -4,21 +4,49 @@
     "type": "TS LF Trading Bot Info - Candle And Cycle",
     "definition": {
         "text": "The LF Trading Bot is running over a set of candles. At Time Frames of 1 hour and above, it runs on a market file containing all the candles of all available history of the market. On a Time Frame of less than 1 hours on a set of candles of a given day. This Info shows the # of the candle in the set, and also the Cycle at which the LF was stanging at the moment of producing the Info Message.",
-        "updated": 1611919712986
+        "updated": 1611919712986,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Özet: LF Ticaret Botu ( LF Trading Bot ) bir dizi mum üzerinde çalışıyor. 1 saat ve üzeri Zaman Aralığında ( Time Frame ), piyasanın mevcut tüm geçmişinin tüm mumlarını ( Candle ) içeren bir piyasa dosyasında çalışır. Belirli bir günün mum setinde 1 saatten kısa bir Zaman Aralığında. Bu Bilgi, setteki mumun # sayısını ve ayrıca Bilgi Mesajını üretirken LF'nin durduğu Döngüyü ( Cycle ) gösterir.",
+                "updated": 1647355276536
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Note",
             "text": "Candle And Cycle",
-            "updated": 1611919730247
+            "updated": 1611919730247,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Not: Mum Ve Döngüsü ( Candle And Cycle )",
+                    "updated": 1647355179379
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Context Info"
+            "text": "Context Info",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İçerik Bilgisi",
+                    "updated": 1647355203887
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The following is the information preserved at the moment this Info Message was generated:"
+            "text": "The following is the information preserved at the moment this Info Message was generated:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Aşağıdakiler, bu Bilgi Mesajının oluşturulduğu anda korunan bilgilerdir:",
+                    "updated": 1647355210391
+                }
+            ]
         },
         {
             "style": "Placeholder",

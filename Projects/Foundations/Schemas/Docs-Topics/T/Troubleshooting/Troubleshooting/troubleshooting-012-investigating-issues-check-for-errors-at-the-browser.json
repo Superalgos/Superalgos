@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "При возникновении ошибок в фронтенд-приложении вы должны либо получить сообщение об ошибке на экране, либо ошибка должна быть зарегистрирована в консоли браузера.",
                 "updated": 1640538935996
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Ön uç uygulamasında hatalar oluştuğunda, ekranda bir hata almanız veya tarayıcı konsolunda bir hatanın günlüğe kaydedilmesi gerekir.",
+                "updated": 1647867636897
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Откройте DevTools в Chrome с помощью клавиши F12 (когда браузер находится в фокусе) и перейдите на вкладку Console. Затем вернитесь в Superalgos и воспроизведите проблему. В консоли могут отображаться сетевые ошибки и предупреждения различного рода. Они не важны, и вы можете смело игнорировать их.",
                     "updated": 1640538962295
+                },
+                {
+                    "language": "TR",
+                    "text": "F12 tuşuyla (tarayıcı odaktayken) Chrome'un DevTools'unu açın ve Konsol sekmesini tıklayın. Ardından Superalgos'a geri dönün ve sorunu yeniden oluşturun. Konsol, ağ hatalarını ve farklı türden uyarıları görüntüleyebilir. Bunlar önemli değildir ve bunları güvenle görmezden gelebilirsiniz.",
+                    "updated": 1647867724126
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Обратите внимание на другие виды ошибок, такие как файлы, которые не могут быть загружены, или ошибки в определенных компонентах системы.",
                     "updated": 1640538983259
+                },
+                {
+                    "language": "TR",
+                    "text": "Yüklenemeyen dosyalar veya belirli sistem bileşenlerindeki hatalar gibi diğer türdeki hatalara dikkat edin.",
+                    "updated": 1647867743528
                 }
             ]
         }

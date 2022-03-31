@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Если вы получаете доступ к бэкенду с другого компьютера в сети, вам необходимо настроить сетевой узел с соответствующим IP-адресом.",
                 "updated": 1640457087250
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Arka uca ağdaki başka bir bilgisayardan erişiyorsanız, uygun IP Adresi ile Ağ Düğümünü ( Node ) yapılandırmanız gerekir.",
+                "updated": 1647862853264
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Когда вы создаете торговую ферму, с помощью которой вы собираетесь получить доступ к внутренним службам, запущенным на машине, с удаленного компьютера в сети, вы должны настроить сетевой узел на удаленном компьютере на использование IP-адреса машины, на которой запущены внутренние службы.",
                     "updated": 1640457111548
+                },
+                {
+                    "language": "TR",
+                    "text": "Ağdaki uzak bir bilgisayardan bir makinede çalışan arka uç hizmetlerine erişmeyi düşündüğünüz bir ticaret çiftliği kurulumu oluşturduğunuzda, uzak bilgisayardaki Ağ Düğümünü, arka ucun bulunduğu makinenin IP Adresini kullanacak şekilde yapılandırmanız gerekir.",
+                    "updated": 1647862944543
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Настройка узла Network",
                     "updated": 1640457143008
+                },
+                {
+                    "language": "TR",
+                    "text": "Ağ Düğümünün Yapılandırılması",
+                    "updated": 1647862961684
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "RU",
                     "text": "Выберите Configure в меню для доступа к конфигурации.",
                     "updated": 1640457157469
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırmaya erişmek için menüden Yapılandır'ı seçin.",
+                    "updated": 1647862973590
                 }
             ]
         },
@@ -61,6 +81,11 @@
                     "language": "RU",
                     "text": "host - это машина или оборудование, представленное сетевым узлом. Параметр по умолчанию - localhost, но если вы собираетесь получить доступ к внутренним службам этого узла с удаленного компьютера, то необходимо изменить localhost на IP-адрес машины, на которой работает узел, например, на 147.0.0.1.",
                     "updated": 1640457182296
+                },
+                {
+                    "language": "TR",
+                    "text": "ana bilgisayar, ağ düğümü tarafından temsil edilen makine veya donanımdır. Varsayılan parametre localhost'tur, ancak bu düğümün arka uç hizmetlerine uzak bir bilgisayardan erişmeyi düşünüyorsanız, düğümün çalıştığı makinenin IP Adresi için localhost'u örneğin 147.0.0.1 olarak değiştirmelisiniz.",
+                    "updated": 1647863052289
                 }
             ]
         },
@@ -72,6 +97,11 @@
                     "language": "RU",
                     "text": "webPort - это порт, используемый веб-сервером, на данном этапе 34248.",
                     "updated": 1640457209783
+                },
+                {
+                    "language": "TR",
+                    "text": "webPort, bu aşamada 34248 Web Sunucusu tarafından kullanılan bağlantı noktasıdır.",
+                    "updated": 1647863081600
                 }
             ]
         },
@@ -83,6 +113,11 @@
                     "language": "RU",
                     "text": "webSocketsPort - порт, используемый системой для связи по локальной сети, по умолчанию установлен на 18041.",
                     "updated": 1640457221926
+                },
+                {
+                    "language": "TR",
+                    "text": "webSocketsPort, sistem tarafından yerel alan ağı üzerinden iletişim kurmak için kullanılan ve varsayılan olarak 18041 olarak ayarlanan bağlantı noktasıdır.",
+                    "updated": 1647863103587
                 }
             ]
         },
@@ -95,6 +130,11 @@
                     "language": "RU",
                     "text": "После настройки сетевого узла обновите страницу с помощью F5, и графический интерфейс должен соединиться с бэкендом.",
                     "updated": 1640457410897
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Ağ düğümünü yapılandırdıktan sonra sayfayı F5 ile yenileyin ve GIU arka uçla bağlantı kurmalıdır.",
+                    "updated": 1647863127614
                 }
             ]
         }

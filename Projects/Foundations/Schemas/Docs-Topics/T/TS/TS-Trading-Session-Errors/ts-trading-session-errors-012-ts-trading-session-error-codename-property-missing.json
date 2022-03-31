@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "В конфигурации узла Exchange Account Key Node ожидается свойство под названием codeName.",
                 "updated": 1645628630148
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Exchange Hesabı Anahtar Düğümü ( Exchange Account Key ) yapılandırmasında codeName adlı bir özellik bekleniyor.",
+                "updated": 1647101435975
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Добавьте это свойство и присвойте ему значение ключа вашей учетной записи, взятое с сайта биржи.",
                     "updated": 1645628648031
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bu özelliği ekleyin ve buna Exchange web sitesinden alınan hesap anahtarınızın değerini atayın.",
+                    "updated": 1647101472748
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Отсутствие свойста",
                     "updated": 1645628666415
+                },
+                {
+                    "language": "TR",
+                    "text": "Eksik Özellik ",
+                    "updated": 1647101484667
                 }
             ]
         },

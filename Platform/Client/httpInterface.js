@@ -1718,7 +1718,8 @@ exports.newHttpInterface = function newHttpInterface() {
                                         let split = raw.split('\n')
                                         // Keep only end of returned message and format for UI
                                         for (let str of split) {
-                                            if (str.includes('pushes')) {
+                            // TODO: needs localized for all supported languages 
+                                            if (str.includes('pushes') || str.includes('pousse')) {
                                                 // Get name of Branch
                                                 let branch = str.trim().split(' ')[0]
                                                 // Get status of branch

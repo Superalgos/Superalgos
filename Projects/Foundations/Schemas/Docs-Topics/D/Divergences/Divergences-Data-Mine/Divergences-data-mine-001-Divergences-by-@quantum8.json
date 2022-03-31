@@ -9,6 +9,11 @@
                 "language": "RU",
                 "text": "В Divergences Data Mine представлены расчеты дивергенций и лежащие в их основе индикаторы импульса. Параметры этих индикаторов можно настроить в экземпляре Indicator Bot в соответствующем узле задачи Data Mining.",
                 "updated": 1645608270202
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Divergences Veri Madeni ( Data Mine ), sapma hesaplamalarını ve bunların altında yatan momentum göstergelerini içerir. Bu göstergenin parametreleri, ilgili Veri Madenciliği Görev Düğümü ( Task Node ) altındaki Gösterge Bot örneğinde ( Indicator Bot Instance ) ayarlanabilir.",
+                "updated": 1647001692709
             }
         ]
     },
@@ -57,6 +62,10 @@
         {
             "style": "List",
             "text": "8) Klinger Oscillator Divergence"
+        },
+        {
+            "style": "List",
+            "text": "9) Stochastic Divergence"
         },
         {
             "style": "Title",

@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Установив начальный процент риска от вашего общего котируемого баланса, после достижения первой цели по профиту происходит первый Trailing Stop Loss. После достижения второй цели по прибыли мы установим Trailing Stop Loss на фиксированный процент.",
                 "updated": 1640358889392
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Toplam Kote Edilen Bakiyeniz için bir başlangıç Risk Yüzdesi belirlemek, ilk Kar Hedefine ulaştıktan sonra ilk Zarar Durdurma işleminiz gerçekleşir. İkinci Kâr Hedefine ulaştıktan sonra, İzleyen Zararı Durdur'u ( Stop Loss) sabit bir yüzdeye ayarlayacağız.",
+                "updated": 1647092848422
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Первоначальный Stop Loss, риск и целевая комбинация",
                     "updated": 1640358922821
+                },
+                {
+                    "language": "TR",
+                    "text": "İlk Durdurma Kaybı, Risk ve Hedef Kombinasyonu",
+                    "updated": 1647092919582
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Идея этого заключается в том, чтобы изначально дать позиции пространство для движения.",
                     "updated": 1640358939752
+                },
+                {
+                    "language": "TR",
+                    "text": "Bunun fikri, başlangıçta pozisyona hareket etmesi için biraz boşluk bırakmaktır.",
+                    "updated": 1647092940493
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "RU",
                     "text": "Когда позиция достигнет первой цели прибыли, она будет использовать Trailing Stop Loss, установленный на прибыль, разделенную на ваш делитель прибыли (Profit Divider). После достижения второй цели по прибыли Trailing Stop Loss будет использовать фиксированный процент.",
                     "updated": 1640358993073
+                },
+                {
+                    "language": "TR",
+                    "text": "Pozisyon ilk Kar Hedefine ulaştığında, Kar Bölücünüze bölünen Kâr olarak ayarlanmış bir Takipteki Zarar Durdurma yöntemini kullanır. İkinci Kar Hedefine ulaştıktan sonra, İzleyen Zarar Durdurma sabit bir yüzde kullanır.",
+                    "updated": 1647092976382
                 }
             ]
         },
@@ -56,6 +76,11 @@
                     "language": "RU",
                     "text": "Пример для длинной позиции",
                     "updated": 1640359003752
+                },
+                {
+                    "language": "TR",
+                    "text": "Uzun Pozisyon Örneği",
+                    "updated": 1647092991352
                 }
             ]
         },
@@ -73,6 +98,11 @@
                     "language": "RU",
                     "text": "Пример для короткой позиции",
                     "updated": 1640359019538
+                },
+                {
+                    "language": "TR",
+                    "text": "Kısa Pozisyon Örneği",
+                    "updated": 1647093009410
                 }
             ]
         },

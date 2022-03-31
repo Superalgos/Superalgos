@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Erzeugt den Index der relativen Stärke unter Verwendung der Glättungsmethode von Wilder‘s.",
                 "updated": 1644722106407
+            },
+            {
+                "language": "RU",
+                "text": "Производит индекс относительной силы, используя метод сглаживания Уайлдера.",
+                "updated": 1646897204400
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "DE",
                     "text": "RSI-W auf den Charts",
                     "updated": 1644722121800
+                },
+                {
+                    "language": "RU",
+                    "text": "RSI-W на графиках",
+                    "updated": 1646897211642
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "DE",
                     "text": "Die Wilder's Methode zur Berechnung des RSI verwendet eine Form der exponentiellen Mittelwertbildung im Gegensatz zur traditionellen RSI-Berechnung mit einfacher Mittelwertbildung. Die Wilder‘s Methode führt zu weniger wilden Ausschlägen als der traditionelle RSI, kann aber auch einige wichtige Signale herausfiltern. Dieses Signal verwendet 14 Kerzenperioden, um seine Berechnungen durchzuführen.",
                     "updated": 1644722136128
+                },
+                {
+                    "language": "RU",
+                    "text": "В методе Уайлдера для расчета RSI используется форма экспоненциального усреднения, в отличие от традиционного расчета RSI с помощью простого усреднения. Метод Уайлдера дает меньше резких колебаний, чем традиционный RSI, но также может отсеивать некоторые важные сигналы. Этот сигнал использует 14 свечных периодов для своих расчетов.",
+                    "updated": 1646897238879
                 }
             ]
         },
@@ -50,6 +65,11 @@
                     "language": "DE",
                     "text": "Die überverkauften und überkauften Regionen können geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Initialization unter \"RSI-W14\" Product Definition gesucht und geöffnet wird.",
                     "updated": 1644722148947
+                },
+                {
+                    "language": "RU",
+                    "text": "Регионы перепроданности и перекупленности можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Initialization под продуктом \"RSI-W14\" Product Definition.",
+                    "updated": 1646897264603
                 }
             ]
         },
@@ -66,6 +86,11 @@
                     "language": "DE",
                     "text": "RSI-W Produkte & Eigenschaften",
                     "updated": 1644722162744
+                },
+                {
+                    "language": "RU",
+                    "text": "Продукты и свойства RSI-W",
+                    "updated": 1646897272341
                 }
             ]
         },
@@ -77,6 +102,11 @@
                     "language": "DE",
                     "text": "Die verfügbaren Eigenschaften sind:",
                     "updated": 1644722173022
+                },
+                {
+                    "language": "RU",
+                    "text": "В наличии имеются следующие объекты:",
+                    "updated": 1646897278406
                 }
             ]
         },
@@ -89,6 +119,11 @@
                     "language": "DE",
                     "text": "| Produktname | Produktvariable | Eigenschaften |\n| RSI Wilder Method | RSI-W14 | value, oversold, overbought |\n",
                     "updated": 1644722189029
+                },
+                {
+                    "language": "RU",
+                    "text": "| Product Name | Product Variable | Properties |\n| RSI Wilder Method | RSI-W14 | значение (value), перепроданность (oversold), перекупленность (overbought) |",
+                    "updated": 1646897292478
                 }
             ]
         },
@@ -101,6 +136,11 @@
                     "language": "DE",
                     "text": "Beispiele:",
                     "updated": 1644722202168
+                },
+                {
+                    "language": "RU",
+                    "text": "Примеры:",
+                    "updated": 1646897299127
                 }
             ]
         },
@@ -112,6 +152,11 @@
                     "language": "DE",
                     "text": "Eine grundlegende Strategie kann durch die Betrachtung der überverkauften/überkauften Bereiche des RSI erstellt werden:",
                     "updated": 1644722215513
+                },
+                {
+                    "language": "RU",
+                    "text": "Базовую стратегию можно построить, рассматривая области перепроданности/перекупленности RSI:",
+                    "updated": 1646897308626
                 }
             ]
         },

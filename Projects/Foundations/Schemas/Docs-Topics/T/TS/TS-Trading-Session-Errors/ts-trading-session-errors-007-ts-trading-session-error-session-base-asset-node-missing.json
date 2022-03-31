@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Узел Session Base Asset ожидается и необходим для проведения торговой сессии.",
                 "updated": 1645628409618
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bir Ticaret Oturumu ( Trading Session ) yürütmek için bir Oturum Temel Varlık Düğümü ( Session Base Asset Node  ) beklenir ve gereklidir.",
+                "updated": 1647100424785
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Добавьте узел Session Base Asset в узел Trading Parameters, где возникла эта ошибка, проверьте его конфигурацию и попробуйте запустить торговую сессию снова.",
                     "updated": 1645628423003
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bu hatanın ortaya çıktığı Ticaret Parametreleri Düğümünde ( Trading Parameters Node ) bir Oturum Temel Varlık Düğümü ( Session Base Asset Node ) ekleyin, yapılandırmasını kontrol edin ve Ticaret Oturumunu ( Trading Session ) yeniden çalıştırmayı deneyin.",
+                    "updated": 1647100536555
                 }
             ]
         }

@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Для проведения торговой сессии ожидается и необходим узел Session Quoted Asset.",
                 "updated": 1645628444695
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bir Ticaret Oturumu ( Trading Session ) yürütmek için bir Oturum Koteli Varlık Düğümü ( Session Quoted Asset Node ) beklenir ve gereklidir.",
+                "updated": 1647100605752
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Добавьте узел Session Quoted Asset в узел Trading Parameters, где возникла эта ошибка, проверьте его конфигурацию и попробуйте запустить торговую сессию снова.",
                     "updated": 1645628465093
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bu hatanın ortaya çıktığı Ticaret Parametreleri Düğümünde bir Oturum Koteli Varlık Düğümü ( Session Quoted Asset Node ) ekleyin, yapılandırmasını kontrol edin ve Ticaret Oturumunu ( Trading Session ) yeniden çalıştırmayı deneyin.",
+                    "updated": 1647100690468
                 }
             ]
         }

@@ -1,0 +1,30 @@
+{
+    "type": "Network Services",
+    "definition": {
+        "text": "The Network Services node defines the load out of the current P2P Network Node.",
+        "updated": 1647061292355
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "This allows the user to configure the network node to run particular services. ",
+            "updated": 1647061532122
+        },
+        {
+            "style": "Text",
+            "text": "Currently available services are:"
+        },
+        {
+            "style": "List",
+            "text": "Social Graph"
+        },
+        {
+            "style": "List",
+            "text": "Trading Signals"
+        },
+        {
+            "style": "List",
+            "text": "Online Workspaces"
+        }
+    ]
+}

@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Это руководство по устранению неполадок научит вас логическим шагам, которые помогут вам лучше понять систему и найти решение большинства проблем, с которыми вы можете столкнуться.",
                 "updated": 1640438728271
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu Sorun Giderme Kılavuzu, sistemi daha iyi anlamanıza ve karşılaşabileceğiniz sorunların çoğuna çözümler bulmanıza yardımcı olacak mantıklı adımları öğretir.",
+                "updated": 1647852036703
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Существует несколько причин, по которым вы можете столкнуться с проблемами при использовании Superalgos. Это может быть связано с непониманием того, как работает система, с тем, что вы пропускаете пару шагов в процессе, который вы пытаетесь осуществить, или с тем, что что-то может работать не так, как должно.",
                     "updated": 1640438814988
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos'u kullanırken sorun yaşamanızın birkaç nedeni olabilir. Sistemin nasıl çalıştığını anlamamanızdan kaynaklanıyor olabilir, katılmaya çalıştığınız süreçte bir veya iki adımı atlıyor olabilirsiniz veya bir şey olması gerektiği gibi çalışmıyor olabilir.",
+                    "updated": 1647852076876
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Какой бы ни была причина, на этой странице представлен пошаговый процесс, который поможет вам понять, что происходит, и решить вашу проблему наиболее эффективным способом.",
                     "updated": 1640438846074
+                },
+                {
+                    "language": "TR",
+                    "text": "Sebep ne olursa olsun, bu sayfa, sorununuzu mümkün olan en verimli şekilde çözebilmeniz için neler olup bittiğini anlamanıza yardımcı olacak adım adım bir süreç sunar.",
+                    "updated": 1647852100004
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "RU",
                     "text": "Другими словами, следуя этому руководству по устранению неисправностей, вы либо узнаете, что вы делаете неправильно, чтобы устранить проблему и двигаться дальше, либо соберете всю необходимую информацию, необходимую команде для изучения проблемы.",
                     "updated": 1640438880663
+                },
+                {
+                    "language": "TR",
+                    "text": "Başka bir deyişle, bu adım adım sorun giderme kılavuzunu takip etmek, sizi ya sorununuzu düzeltip devam edebilmeniz için neyi yanlış yaptığınızı keşfetmenize ya da Ekibin sorunu araştırması için gereken tüm ilgili bilgileri toplamanıza yol açacaktır.",
+                    "updated": 1647852188986
                 }
             ]
         },
@@ -57,6 +77,11 @@
                     "language": "RU",
                     "text": "Тщательное следование этому руководству по устранению неполадок - шаг за шагом - является обязательным условием для сообщения о проблеме или обращения за помощью в группу поддержки. Мы не можем позволить себе изучать проблемы, которые вы можете решить самостоятельно или без соответствующей информации. Это лишит проект полезных ресурсов.",
                     "updated": 1640438963788
+                },
+                {
+                    "language": "TR",
+                    "text": "Önemli: Bu sorun giderme kılavuzunu adım adım takip etmek, bir sorunu bildirmek veya Destek Grubundan ( Support Group ) yardım istemek için bir gerekliliktir. Kendi başınıza veya uygun bilgiler olmadan çözebileceğiniz sorunları araştırma lüksümüz yoktur. Bunu yapmak, projeyi değerli kaynaklardan yoksun bırakacaktır.",
+                    "updated": 1647852280409
                 }
             ]
         },
@@ -69,6 +94,11 @@
                     "language": "RU",
                     "text": "Прежде чем приступать к устранению неполадок, необходимо изучить все доступные учебники. Это самый лучший совет, который вы можете получить, поскольку учебники научат вас всем основным операциям и прояснят большинство вопросов, которые возникают из-за непонимания того, как работает система. Пожалуйста, обратитесь к книге First Steps Tutorials и немного поучитесь! Пожалуйста, не обращайтесь за помощью до того, как вы изучите все учебники!",
                     "updated": 1640439035460
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Sorun gidermeye başlamadan önce, mevcut tüm öğreticileri yapmalısınız. Bu, alabileceğiniz en iyi tavsiyedir, çünkü öğreticiler size tüm temel işlemleri öğretecek ve sistemin nasıl çalıştığını anlama eksikliğinden kaynaklanan soruların çoğunu netleştirecektir. Lütfen İlk Adım Eğitimleri kitabına ( First Steps Tutorials ) gidin ve biraz öğrenin! Lütfen tüm dersleri yapmadan önce yardım istemeyin!",
+                    "updated": 1647852388881
                 }
             ]
         },
@@ -80,6 +110,11 @@
                     "language": "RU",
                     "text": "Начните здесь",
                     "updated": 1640439051077
+                },
+                {
+                    "language": "TR",
+                    "text": "Buradan başlayın",
+                    "updated": 1647852412176
                 }
             ]
         },
@@ -91,6 +126,11 @@
                     "language": "RU",
                     "text": "1. Разберитесь в том, что вы делаете и как работает функция",
                     "updated": 1640439094931
+                },
+                {
+                    "language": "TR",
+                    "text": "1. Ne yaptığınızı ve bu özelliğin nasıl çalıştığını anlayın.",
+                    "updated": 1647852430336
                 }
             ]
         },
@@ -103,6 +143,11 @@
                     "language": "RU",
                     "text": "Если вы следуете руководству Welcome, прочитайте внимательно и убедитесь, что вы не пропустили ни одного шага. Вернитесь на несколько шагов назад и попробуйте еще раз.",
                     "updated": 1640439121889
+                },
+                {
+                    "language": "TR",
+                    "text": "Hoş Geldiniz eğitimindeyseniz, dikkatlice okuyun ve hiçbir adımı atlamadığınızdan emin olun. Birkaç adım geri gidin ve tekrar deneyin.",
+                    "updated": 1647852574442
                 }
             ]
         },
@@ -115,6 +160,11 @@
                     "language": "RU",
                     "text": "Если вы уже пользуетесь системой, уделите время поиску в документации и прочтите темы, относящиеся к вопросам, с которыми вы работаете. Используйте поисковую строку для поиска конкретного вопроса (бэктестинг, добыча данных и т.д.)",
                     "updated": 1640439152939
+                },
+                {
+                    "language": "TR",
+                    "text": "Halihazırda sistemi kullanıyorsanız, biraz zaman ayırarak Dokümanlar'da arama yapın ve üzerinde çalıştığınız konularla ilgili konuları okuyun. Belirli bir konuyu aramak için arama kutusunu kullanın, geriye dönük test, veri madenciliği vb.(backtesting, data mining, etc.)",
+                    "updated": 1647852633275
                 }
             ]
         },
@@ -127,6 +177,11 @@
                     "language": "RU",
                     "text": "Если у вас возникли проблемы с определенным узлом в Design Space, откройте меню и нажмите кнопку помощи. Откроются документы с описанием того, что это за узел и как он работает. Прочитайте об узле, его родительском узле и его потомках.",
                     "updated": 1640439179685
+                },
+                {
+                    "language": "TR",
+                    "text": "Tasarım Alanında ( Design Space ) belirli bir düğümle ilgili sorun yaşıyorsanız menüyü açın ve yardım düğmesine tıklayın. Dokümanlar, düğümün ne olduğuna ve nasıl çalıştığına ilişkin bir açıklamayla açılır. Düğüm, onun üst düğümü ve onun alt düğümleri hakkında bilgi edinin.",
+                    "updated": 1647852730871
                 }
             ]
         },
@@ -139,6 +194,11 @@
                     "language": "RU",
                     "text": "If you are having trouble operating the charts, make sure you revisit the Welcome tutorial and the pages on Если у вас возникли трудности в работе с диаграммами, обязательно просмотрите учебник Welcome и страницы, посвященные Time Machines и Timeline Charts, а также Scales. and Timeline Charts, and Scales.",
                     "updated": 1640439270500
+                },
+                {
+                    "language": "TR",
+                    "text": "Çizelgeleri kullanmakta sorun yaşıyorsanız, Hoş Geldiniz eğitimini ( Welcome Tutorial ) ve Zaman Makineleri ve Zaman Çizelgesi Grafikleri ( Time Machines and Timeline Charts ) ve Ölçekler ( Scales ) sayfalarını tekrar ziyaret ettiğinizden emin olun.",
+                    "updated": 1647853432621
                 }
             ]
         },
@@ -151,6 +211,11 @@
                     "language": "RU",
                     "text": "Если вы не уверены в том, что вам следует искать, обратитесь к книге User Manual и просмотрите темы, затронутые в ней. Если вы серьезно относитесь к изучению Superalgos, прочтение всего руководства пользователя поставит вас на вершину пищевой цепочки.",
                     "updated": 1640439429836
+                },
+                {
+                    "language": "TR",
+                    "text": "Ne aramanız gerektiğinden emin değilseniz, Kullanım Kılavuzu ( User Manual ) kitabına gidin ve orada ele alınan konuları tarayın. Superalgos'u öğrenmek konusunda ciddiyseniz, Kullanım Kılavuzunun ( User Manual ) tamamını okumak sizi besin zincirinin en üstüne yerleştirecektir.",
+                    "updated": 1647852877661
                 }
             ]
         },
@@ -163,6 +228,11 @@
                     "language": "RU",
                     "text": "Знания ничем не заменить. Чем больше вы понимаете, тем меньше времени и усилий вы потратите на решение проблем, связанных с непониманием, и тем более целенаправленными будут ваши вопросы при обращении за помощью. Вы можете быть склонны пойти коротким путем и спросить у сообщества, прежде чем проводить свои исследования. Это может сэкономить вам время и может быть уместно в случаях, когда вам нужно небольшое руководство или нужно быстро развеять сомнения. Однако проблема отсутствия понимания заключается в том, что это состояние сохраняется до тех пор, пока вы не разберетесь с его первопричиной. Способ устранения первопричины заключается в том, чтобы потратить время на прохождение всех уроков \"Первых шагов\" и чтение руководства пользователя. В противном случае вы будете сталкиваться с одними и теми же проблемами снова и снова. Приобретение знаний и бережное отношение к времени команды - это первый шаг к тому, чтобы стать ценным членом сообщества.",
                     "updated": 1640439496090
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bilginin yerini hiçbir şey tutamaz. Ne kadar çok anlarsanız, anlama eksikliği ile ilgili sorunlarla o kadar az zaman ve çaba harcarsınız ve yardım isterken sorularınız o kadar odaklanmış olur. Araştırmanızı yapmadan önce kısa yoldan gidip topluluğa sormaya meyilli olabilirsiniz. Bu, ara sıra size biraz zaman kazandırabilir ve küçük bir rehberliğe ihtiyaç duyduğunuz veya hızlı bir şüpheyi ortadan kaldırmanız gereken durumlarda uygun olabilir. Bununla birlikte, anlama eksikliği ile ilgili sorun, kök neden ile ilgilenene kadar kalıcı bir durum olmasıdır. Kök neden ile başa çıkmanın yolu, tüm İlk Adım Eğitimlerini yapmak ( First Steps Tutorials ) ve Kullanım Kılavuzunu ( User Manual ) okumak için zaman ayırmaktır. Aksi takdirde, kendinizi tekrar tekrar aynı kısıtlamalarla uğraşırken bulacaksınız. Ekibin zamanını göz önünde bulundurarak bilgi edinmek, topluluğun değerli bir üyesi olma yolundaki ilk adımdır.",
+                    "updated": 1647853562529
                 }
             ]
         },
@@ -175,6 +245,11 @@
                     "language": "RU",
                     "text": "2. Просмотрите тему Troubleshooting (Устранение неполадок)",
                     "updated": 1640439551179
+                },
+                {
+                    "language": "TR",
+                    "text": "2. Sorun Giderme başlığını tarayın",
+                    "updated": 1647853621936
                 }
             ]
         },
@@ -202,6 +277,11 @@
                     "language": "RU",
                     "text": "3. Ваш процессор завис на 100%?",
                     "updated": 1640439729565
+                },
+                {
+                    "language": "TR",
+                    "text": "3. İşlemciniz %100'de mi?",
+                    "updated": 1647853778811
                 }
             ]
         },
@@ -214,6 +294,11 @@
                     "language": "RU",
                     "text": "Откройте приложение диспетчера задач вашей операционной системы и проверьте загрузку процессора, пока вы воспроизводите проблему, с которой вы столкнулись. Если ваш процессор работает на 100% в течение более 30-60 секунд, могут возникнуть всевозможные проблемы, так как ваше оборудование может не справиться с тем, что вы пытаетесь сделать.",
                     "updated": 1640439809065
+                },
+                {
+                    "language": "TR",
+                    "text": "İşletim sisteminizin görev yöneticisi uygulamasını açın ve yaşadığınız sorunu yeniden oluştururken CPU yükünü doğrulayın. CPU'nuz 30 ila 60 saniyeden fazla %100'de çalışıyorsa, donanımınız yapmaya çalıştığınız şeyle baş edemeyebileceğinden her türlü sorun ortaya çıkabilir.",
+                    "updated": 1647853832475
                 }
             ]
         },
@@ -226,6 +311,11 @@
                     "language": "RU",
                     "text": "В этом случае попробуйте закрыть другие приложения, которые могут требовать процессорного времени, и следуйте рекомендациям, предложенным на странице Perception Issues - My System Gets Slow, чтобы снизить нагрузку на процессор.",
                     "updated": 1640439836188
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu durumda, CPU zamanı gerektirebilecek diğer uygulamaları kapatmayı deneyin ve işlemci üzerindeki talepleri azaltmak için Algılama Sorunları - Sistemim Yavaşlıyor ( Perception Issues - My System Gets Slow  ) sayfasında önerilen yönergeleri izleyin.",
+                    "updated": 1647853911321
                 }
             ]
         },
@@ -237,6 +327,11 @@
                     "language": "RU",
                     "text": "Если вы не можете воспроизвести проблему, пока ваш процессор работает менее чем на 100%, то, возможно, причина проблемы в этом.",
                     "updated": 1640439891951
+                },
+                {
+                    "language": "TR",
+                    "text": "CPU'nuz %100'den daha düşük bir hızda çalışırken sorunu yeniden oluşturamazsanız, sorunun nedeni bu olabilir.",
+                    "updated": 1647853944290
                 }
             ]
         },
@@ -248,6 +343,11 @@
                     "language": "RU",
                     "text": "4. Сохраняется ли проблема при использовании последней версии программного обеспечения?",
                     "updated": 1640439901423
+                },
+                {
+                    "language": "TR",
+                    "text": "4. Yazılımın en son sürümü kullanıldığında sorun devam ediyor mu?",
+                    "updated": 1647853980176
                 }
             ]
         },
@@ -259,6 +359,11 @@
                     "language": "RU",
                     "text": "Запуск последней версии программного обеспечения практически обязателен, так как ошибки, затрагивающие вас, могут быть уже решены. Убедитесь, что вы используете последнюю стабильную версию ПО в ветке master репозитория Superalgos или последнюю версию ПО в ветке develop.",
                     "updated": 1640439927102
+                },
+                {
+                    "language": "TR",
+                    "text": "Sizi etkileyen hatalar zaten çözülmüş olabileceğinden, yazılımın en son sürümünü çalıştırmak neredeyse zorunludur. Superalgos deposunun ana dalında en son kararlı yazılım sürümünü veya geliştirme dalında en son yazılımı çalıştırdığınızdan emin olun.",
+                    "updated": 1647854007066
                 }
             ]
         },
@@ -271,6 +376,11 @@
                     "language": "RU",
                     "text": "Убедиться в этом означает установить последнюю версию прямо сейчас. Вы можете запустить команду обновления приложения App Update Command.",
                     "updated": 1640439957268
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Emin olmak için, en son sürümü hemen şimdi yükleyin. Uygulama Güncelleme Komutunu ( App Update Command ) çalıştırabilirsiniz.",
+                    "updated": 1647854096698
                 }
             ]
         },
@@ -283,6 +393,11 @@
                     "language": "RU",
                     "text": "5. Сохраняется ли проблема при использовании одного из рабочих пространств плагина?",
                     "updated": 1640439969486
+                },
+                {
+                    "language": "TR",
+                    "text": "5. Eklenti çalışma alanlarından biri kullanıldığında sorun devammı ediyor?",
+                    "updated": 1647854147663
                 }
             ]
         },
@@ -295,6 +410,11 @@
                     "language": "RU",
                     "text": "Если проблема не воспроизводится с помощью одного из рабочих пространств плагина, это, скорее всего, означает, что модификации, которые вы ввели, могут играть роль в проблеме. Сама по себе это важная информация, которая поможет начать процесс выявления проблемы.",
                     "updated": 1640440082099
+                },
+                {
+                    "language": "TR",
+                    "text": "Sorun, eklenti çalışma alanlarından biri kullanılarak yeniden oluşturulamıyorsa, bu, yapmış olabileceğiniz değişikliklerin sorunda rol oynuyor olabileceği anlamına gelir. Kendi içinde, bu, sorunu izole etme sürecini başlatmaya yardımcı olan önemli bir bilgi parçasıdır.",
+                    "updated": 1647854227903
                 }
             ]
         },
@@ -306,6 +426,11 @@
                     "language": "RU",
                     "text": "Если проблема возникает только в измененном рабочем пространстве, потратьте некоторое время на то, чтобы просмотреть внесенные изменения.",
                     "updated": 1640440096152
+                },
+                {
+                    "language": "TR",
+                    "text": "Sorun yalnızca değiştirilmiş bir çalışma alanında ortaya çıkıyorsa, tanıttığınız değişiklikleri gözden geçirmek için biraz zaman ayırın.",
+                    "updated": 1647854249106
                 }
             ]
         },
@@ -318,6 +443,11 @@
                     "language": "RU",
                     "text": "Начните сначала и воспроизведите модификации на рабочем пространстве плагина, по одной за раз, и проведите быстрый тест после применения каждой модификации. Этот процесс, выполненный правильно, должен привести вас к тому, что вы найдете точный узел, структуру узлов, конфигурацию, параметр или - в общем - модификацию, которая может быть связана с причиной проблемы.",
                     "updated": 1640440158926
+                },
+                {
+                    "language": "TR",
+                    "text": "Eklenti çalışma alanındaki değişiklikleri birer birer yeniden başlatın ve yeniden oluşturun ve her mod uygulandıktan sonra hızlı bir test yapın. Doğru yapılan bu işlem sizi tam düğüme, düğümlerin yapısına, konfigürasyona, parametreye veya genel olarak sorunun nedenine dahil olabilecek değişikliğe yönlendirmelidir.",
+                    "updated": 1647854291723
                 }
             ]
         },
@@ -330,6 +460,11 @@
                     "language": "RU",
                     "text": "Это не обязательно означает, что вы допустили ошибку при модификации официального рабочего пространства. Это просто указывает на то, где может быть проблема, и является важной частью расследования, которое вы должны провести, прежде чем двигаться дальше.",
                     "updated": 1640440189688
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bu, resmi çalışma alanını değiştirirken mutlaka bir hata yaptığınız anlamına gelmez. Sadece sorunun nerede olabileceğini tam olarak belirler ve daha ileri gitmeden önce yürütmeniz gereken soruşturmanın çok önemli bir parçasıdır.",
+                    "updated": 1647854326601
                 }
             ]
         },
@@ -341,6 +476,11 @@
                     "language": "RU",
                     "text": "6. Упростите контекст и изолируйте проблему",
                     "updated": 1640440202305
+                },
+                {
+                    "language": "TR",
+                    "text": "6. Bağlamı basitleştirin ve sorunu izole edin",
+                    "updated": 1647854369350
                 }
             ]
         },
@@ -352,6 +492,11 @@
                     "language": "RU",
                     "text": "Когда вы делаете несколько дел одновременно и что-то идет не так, иногда трудно определить, что именно может быть причиной проблемы. Следующим логичным шагом будет дальнейшая изоляция проблемы. Для этого нужно удалить части из контекста, чтобы сосредоточиться на сути вопроса.",
                     "updated": 1640440222900
+                },
+                {
+                    "language": "TR",
+                    "text": "Aynı anda birkaç şey yaptığınızda ve bir şeyler ters gittiğinde, soruna neyin neden olabileceğini belirlemek bazen zor olabilir. Atılacak bir sonraki mantıklı adım, sorunu daha da izole etmektir. Bunu, konunun özüne odaklanabilmeniz için bağlamdan parçaları çıkararak yaparsınız.",
+                    "updated": 1647854399604
                 }
             ]
         },
@@ -363,6 +508,11 @@
                     "language": "RU",
                     "text": "Например:",
                     "updated": 1640440230662
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnek:",
+                    "updated": 1647854413983
                 }
             ]
         },
@@ -374,6 +524,11 @@
                     "language": "RU",
                     "text": "Если у вас возникла проблема во время бэктестирования стратегии, вам не нужно, чтобы операция по добыче данных была запущена. В этом случае остановите операцию добычи данных и все остальное, что вы можете делать, и запустите только бэктест.",
                     "updated": 1640440269656
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir stratejiyi geriye dönük test ederken bir sorun yaşıyorsanız, veri madenciliği operasyonunuzun çalışıyor olması gerekmez. Böyle bir durumda, veri madenciliği işlemini ve yaptığınız diğer her şeyi durdurun ve yalnızca geriye dönük testi çalıştırın.",
+                    "updated": 1647854443299
                 }
             ]
         },
@@ -385,6 +540,11 @@
                     "language": "RU",
                     "text": "Если у вас возникла проблема с запуском одного из индикаторов Masters, вам не нужно, чтобы все индикаторы были запущены одновременно. Убедитесь, что указанные зависимости индикатора запущены, и остановите остальные индикаторы.",
                     "updated": 1640440295959
+                },
+                {
+                    "language": "TR",
+                    "text": "Ana göstergelerden birini çalıştırırken sorun yaşıyorsanız, tüm göstergelerin aynı anda çalışıyor olması gerekmez. Söz konusu gösterge bağımlılıklarının çalıştığından emin olun ve geri kalan göstergeleri durdurun.",
+                    "updated": 1647854471218
                 }
             ]
         },
@@ -396,6 +556,11 @@
                     "language": "RU",
                     "text": "Если у вас возникла проблема с графиком, а на экране одновременно находятся три других графика, попробуйте приблизить график и посмотреть, сохранится ли проблема. Или отключите все слои и оставьте только тот слой, с которым у вас возникли проблемы.",
                     "updated": 1640440325573
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir grafikle ilgili bir sorununuz varsa ve aynı anda ekranda üç grafiğiniz daha varsa, grafiği yakınlaştırmayı deneyin ve sorunla karşılaşmaya devam edip etmediğinizi görün. Veya tüm katmanları kapatın ve yalnızca zorluk yaşayabileceğiniz katmanı bırakın.",
+                    "updated": 1647854506142
                 }
             ]
         },
@@ -407,6 +572,11 @@
                     "language": "RU",
                     "text": "Если вы проводите несколько торговых сессий в реальном времени и столкнулись с проблемой в одной из них, остановите остальные сессии и попытайтесь воспроизвести проблему в первой сессии.",
                     "updated": 1640440344166
+                },
+                {
+                    "language": "TR",
+                    "text": "Birden fazla canlı ticaret seansı yürütüyorsanız ve bunlardan birinde sorun yaşıyorsanız, kalan seansları durdurun ve sorunu ilkinde yeniden oluşturmaya çalışın.",
+                    "updated": 1647854574212
                 }
             ]
         },
@@ -419,6 +589,11 @@
                     "language": "RU",
                     "text": "Главное, что следует уяснить: чем меньше масштаб расследования, тем легче найти причину проблемы.",
                     "updated": 1640440356085
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Dikkate alınması gereken nokta, soruşturmanın kapsamı ne kadar dar olursa, sorunun nedenini bulmanın o kadar kolay olduğudur.",
+                    "updated": 1647854621052
                 }
             ]
         },
@@ -430,6 +605,11 @@
                     "language": "RU",
                     "text": "7. Может ли это быть проблемой с данными?",
                     "updated": 1640440367797
+                },
+                {
+                    "language": "TR",
+                    "text": "7. Bu bir veri sorunu olabilir mi?",
+                    "updated": 1647854674514
                 }
             ]
         },
@@ -442,6 +622,11 @@
                     "language": "RU",
                     "text": "Если ваша машина неожиданно выключилась или вы закрыли внутренние серверы, запущенные в консольном приложении, не остановив предварительно задачи по добыче данных, есть вероятность, что некоторые из ваших данных были повреждены. Если вы подозреваете, что это может иметь отношение к вашей проблеме, то вам следует прочитать статью Investigating Issues - Check the Integrity of Your Data.",
                     "updated": 1640440501511
+                },
+                {
+                    "language": "TR",
+                    "text": "Makineniz beklenmedik bir şekilde kapandıysa veya veri madenciliği görevlerinizi durdurmadan konsol uygulamasında çalışan arka uç sunucularını kapattıysanız, verilerinizin bir kısmı bozulmuş olabilir. Bunun sorununuzla ilgili olabileceğinden şüpheleniyorsanız, Sorunların İncelenmesi - Verilerinizin Bütünlüğünü Kontrol Edin ( Investigating Issues - Check the Integrity of Your Data ) bölümünü okumalısınız.",
+                    "updated": 1647854729747
                 }
             ]
         },
@@ -454,6 +639,11 @@
                     "language": "RU",
                     "text": "8. Может ли это быть проблемой с графическим интерфейсом?",
                     "updated": 1640440513629
+                },
+                {
+                    "language": "TR",
+                    "text": "8. Grafiksel Kullanıcı Arayüzü ( GUI ) ile ilgili bir sorun olabilir mi?",
+                    "updated": 1647854836938
                 }
             ]
         },
@@ -466,6 +656,11 @@
                     "language": "RU",
                     "text": "Если проблема возникает в графическом интерфейсе, то вы должны получить либо ошибку на экране, либо ошибку в консольном приложении браузера.",
                     "updated": 1640440530738
+                },
+                {
+                    "language": "TR",
+                    "text": "Sorununuz GUI'de ortaya çıkıyorsa, ekranda bir hata veya tarayıcı konsolu uygulamanızda bir hata alıyor olmalısınız.",
+                    "updated": 1647854857784
                 }
             ]
         },
@@ -477,6 +672,11 @@
                     "language": "RU",
                     "text": "Ошибка на экране или в журнале консоли браузера может дать вам подсказку о том, что может происходить. Если вы технический специалист, это может помочь решить проблему самостоятельно.",
                     "updated": 1640440552891
+                },
+                {
+                    "language": "TR",
+                    "text": "Ekrandaki veya tarayıcı konsolunda kaydedilen hata, neler olabileceğine dair bir ipucu verebilir. Teknik bir kişiyseniz, bu sorununuzu kendi başınıza çözmenize yardımcı olabilir.",
+                    "updated": 1647854877326
                 }
             ]
         },
@@ -489,6 +689,11 @@
                     "language": "RU",
                     "text": "Обязательно захватите экран с этими ошибками, чтобы потом сообщить о них.",
                     "updated": 1640440588809
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Daha sonra rapor edebilmek için bu hataları gösteren ekranı aldığınızdan emin olun.",
+                    "updated": 1647854891374
                 }
             ]
         },
@@ -501,6 +706,11 @@
                     "language": "RU",
                     "text": "Помните, что Chrome и Safari на Mac являются единственными поддерживаемыми браузерами. Если вы используете другие браузеры и у вас возникли проблемы с графическим интерфейсом, мы не сможем их воспроизвести. Не сообщайте о проблемах с графическим интерфейсом, если вы не используете Chrome или Safari.",
                     "updated": 1640440693840
+                },
+                {
+                    "language": "TR",
+                    "text": "Önemli: Yalnızca Mac'te Chrome ve Safari'nin desteklenen tarayıcılar olduğunu unutmayın. Başka bir tarayıcı kullanıyorsanız ve GUI sorunlarınız varsa, bunları yeniden oluşturamayabiliriz. Chrome veya Safari kullanmıyorsanız GUI ile ilgili bir sorunu rapor etmeyin.",
+                    "updated": 1647854942564
                 }
             ]
         },
@@ -513,6 +723,11 @@
                     "language": "RU",
                     "text": "9. Может ли это быть проблемой клиентского приложения?",
                     "updated": 1640440717814
+                },
+                {
+                    "language": "TR",
+                    "text": "9. Bu, İstemci ( Client ) uygulamasıyla ilgili bir sorun olabilir mi?",
+                    "updated": 1647854986851
                 }
             ]
         },
@@ -525,6 +740,11 @@
                     "language": "RU",
                     "text": "Если возникают проблемы с приложением Client, то ошибки должны регистрироваться на консоли, на которой запущен бэкэнд. Эти же ошибки регистрируются в папке Log-Files и в конкретных подпапках, соответствующих процессам, вовлеченным в это дело.",
                     "updated": 1640440746785
+                },
+                {
+                    "language": "TR",
+                    "text": "İstemci ( Client ) uygulamasıyla ilgili sorunlar varsa, hataların arka ucu çalıştırdığınız konsolda günlüğe kaydedilmesi gerekir. Aynı hatalar, Günlük Dosyaları klasörüne ve konuyla ilgili işlemlere karşılık gelen belirli alt klasörlere kaydedilir.",
+                    "updated": 1647855040692
                 }
             ]
         },
@@ -537,6 +757,11 @@
                     "language": "RU",
                     "text": "Обязательно проверьте журналы регистрации конкретных процессов, связанных с этим вопросом, и сохраните соответствующие файлы журналов с этими ошибками, чтобы впоследствии сообщить о них.",
                     "updated": 1640440882329
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Materyalle ilgili belirli işlemler için günlükleri kontrol ettiğinizden emin olun ve daha sonra rapor edebilmek için ilgili günlük dosyalarını bu hatalarla birlikte kaydedin.",
+                    "updated": 1647855067263
                 }
             ]
         },
@@ -549,6 +774,11 @@
                     "language": "RU",
                     "text": "Если вы разработчик, помните, что вы можете легко провести отладку задачи, чтобы найти первопричину проблемы. Читайте статью Debugging a Task.",
                     "updated": 1640440945042
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bir geliştiriciyseniz, sorunun temel nedenini bulmak için bir görevde kolaylıkla hata ayıklayabileceğinizi unutmayın. Bir Görevde Hata Ayıklama'yı ( Debugging a Task ) okuyun.",
+                    "updated": 1647855123616
                 }
             ]
         },
@@ -560,6 +790,11 @@
                     "language": "RU",
                     "text": "10. Может ли это быть проблемой, связанной с вашей конкретной установкой?",
                     "updated": 1640440957598
+                },
+                {
+                    "language": "TR",
+                    "text": "10. Bu sizin özel kurulumunuzla ilgili bir sorun olabilir mi?",
+                    "updated": 1647855177278
                 }
             ]
         },
@@ -571,6 +806,11 @@
                     "language": "RU",
                     "text": "Развертывание и запуск Superalgos в сложных или очень специфических установках увеличивает вероятность возникновения проблем, связанных с самой установкой, которые команде может быть очень сложно или даже невозможно воспроизвести. Команда будет исследовать проблемы, возникающие при запуске Superalgos на вашей локальной машине или при работе в классической конфигурации торговой фермы, как описано в документации. Мы не можем исследовать проблемы, не связанные с самим программным обеспечением.",
                     "updated": 1640440994472
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos'u karmaşık veya çok özel kurulumlarda dağıtmak ve çalıştırmak, kurulumun kendisiyle ilgili, Ekibin yeniden oluşturması çok zor veya hatta imkansız olabilecek sorunların olasılığını artırır. Ekip, yerel makinenizde Superalgos çalıştırırken veya belgelerde açıklandığı gibi klasik bir ticaret çiftliği kurulumunda çalışırken meydana gelen sorunları araştıracaktır. Yazılımın kendisiyle ilgili olmayan sorunları araştıramayız.",
+                    "updated": 1647855222411
                 }
             ]
         },
@@ -582,6 +822,11 @@
                     "language": "RU",
                     "text": "Если у вас возникли проблемы с конкретной настройкой, не стесняйтесь просить помощи у других пользователей сообщества, но не открывайте проблему для рассмотрения командой.",
                     "updated": 1640441017785
+                },
+                {
+                    "language": "TR",
+                    "text": "Belirli bir kurulumla ilgili sorunlarınız varsa, topluluktaki diğer kullanıcılardan yardım istemekten çekinmeyin, ancak Ekibin incelemesi için bir sorun açmayın.",
+                    "updated": 1647855252086
                 }
             ]
         },
@@ -593,6 +838,11 @@
                     "language": "RU",
                     "text": "Ваш вопрос не был решен?",
                     "updated": 1640441027788
+                },
+                {
+                    "language": "TR",
+                    "text": "Sorununuz Çözülmedi mi?",
+                    "updated": 1647855273950
                 }
             ]
         },
@@ -604,6 +854,11 @@
                     "language": "RU",
                     "text": "Если это руководство не помогло решить вашу проблему, не волнуйтесь... ваши усилия не пропадут даром!",
                     "updated": 1640441039564
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu kılavuzu takip etmek sorununuzu çözmediyse endişelenmeyin… çabalarınız boşa gitmeyecek!",
+                    "updated": 1647855287565
                 }
             ]
         },
@@ -616,6 +871,11 @@
                     "language": "RU",
                     "text": "Изучение вашей проблемы должно было многому научить вас о том, как работает система, а это обязательное условие для сообщения о проблеме, чтобы команда могла ее изучить. Поэтому, пожалуйста, сделайте это. Обязательно следуйте инструкциям раздела How to Report an Issue (\"Как сообщить о проблеме\") и предоставьте всю полезную информацию, которую вы собрали, следуя этому руководству.",
                     "updated": 1640441099531
+                },
+                {
+                    "language": "TR",
+                    "text": "Sorununuzu araştırmak, sistemin nasıl çalıştığı hakkında size çok şey öğretmiş olmalı ve Ekibin bunu araştırabilmesi için bir sorunu bildirmeniz şarttır. O yüzden lütfen devam edin ve bunu yapın. Bir Sorun Nasıl Bildirilir ( How to Report an Issue ) konusundaki talimatları uyguladığınızdan ve bu kılavuzu takip ederken topladığınız tüm değerli bilgileri sağladığınızdan emin olun.",
+                    "updated": 1647855398429
                 }
             ]
         },

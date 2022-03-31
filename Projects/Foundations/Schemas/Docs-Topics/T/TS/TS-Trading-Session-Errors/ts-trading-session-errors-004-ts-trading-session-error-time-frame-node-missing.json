@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Узел Time Frame необходим и ожидается для проведения торговой сессии.",
                 "updated": 1645628227419
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bir Ticaret Oturumu ( Trading Session ) yürütmek için bir Zaman Çerçevesi ( Time Frame ) Düğümü beklenir ve gereklidir.",
+                "updated": 1647099792262
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Добавьте узел Time Frame в узел Trading Parameters, где возникла эта ошибка, проверьте его конфигурацию и попробуйте запустить торговую сессию снова.",
                     "updated": 1645628241421
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bu hatanın ortaya çıktığı Ticaret Parametreleri ( Trading Parameters ) Düğümünde bir Zaman Çerçevesi ( Time Frame ) Düğümü ekleyin, yapılandırmasını kontrol edin ve Ticaret Oturumunu ( Trading Session ) yeniden çalıştırmayı deneyin.",
+                    "updated": 1647099896252
                 }
             ]
         }

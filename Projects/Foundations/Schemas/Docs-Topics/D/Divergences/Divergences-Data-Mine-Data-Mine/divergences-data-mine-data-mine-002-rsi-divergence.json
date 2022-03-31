@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "RSI Divergence - этот индикатор анализирует максимумы и минимумы 14-периодного индикатора RSI, сравнивает их с ценовым движением и выдает любые найденные данные о дивергенции.",
                 "updated": 1645608321131
+            },
+            {
+                "language": "TR",
+                "text": "Özet: RSI Sapması - bu gösterge, 14 dönemlik bir RSI göstergesinin en yüksek ve en düşük noktalarını analiz eder, bunu fiyat hareketiyle karşılaştırır ve bulunan sapma verilerini üretir.",
+                "updated": 1647001848924
             }
         ]
     },
@@ -22,6 +27,11 @@
                     "language": "RU",
                     "text": "Дивергенция RSI на графиках",
                     "updated": 1645608340838
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafiklerde RSI Sapması",
+                    "updated": 1647001860815
                 }
             ]
         },
@@ -33,6 +43,11 @@
                     "language": "RU",
                     "text": "Согласно investopedia: Индикаторы моментума обычно используются для сглаживания ценового действия и получения более четкой картины. Они позволяют трейдеру сравнивать колебания индикатора с колебаниями цены, а не сравнивать цену с ценой. Моментум - это исследование силы ценового движения, он просто проверяет, согласны или не согласны цена и моментум.",
                     "updated": 1645608367848
+                },
+                {
+                    "language": "TR",
+                    "text": "Investopedia'ya göre: Momentum göstergeleri genellikle fiyat hareketini düzeltmek ve daha net bir resim vermek için kullanılır. Tüccarın, fiyatı fiyatla karşılaştırmak yerine gösterge dalgalanmalarını fiyat dalgalanmalarıyla karşılaştırmasına izin verir. Momentum, fiyat hareketinin gücünün bir çalışmasıdır, sadece fiyat ve momentumun uyuşup uyuşmadığını kontrol eder.",
+                    "updated": 1647001921565
                 }
             ]
         },
@@ -44,6 +59,11 @@
                     "language": "RU",
                     "text": "Разногласия между индикатором и ценой называются дивергенцией, и они могут иметь значительные последствия для управления торговлей. Величина согласия/несогласия относительна, поэтому в отношениях между ценой и индикатором может развиваться несколько различных моделей.",
                     "updated": 1645608383837
+                },
+                {
+                    "language": "TR",
+                    "text": "Gösterge ve fiyat arasındaki uyuşmazlığa sapma denir ve ticaret yönetimi için önemli etkileri olabilir. Anlaşma/anlaşmazlık miktarı görecelidir, dolayısıyla fiyat ve gösterge arasındaki ilişkide gelişen birkaç farklı model olabilir.",
+                    "updated": 1647001953312
                 }
             ]
         },
@@ -59,6 +79,11 @@
                     "language": "RU",
                     "text": "Индикатор показывает четыре типа дивергенций, а также приблизительный прогноз силы и процентное значение:",
                     "updated": 1645608395393
+                },
+                {
+                    "language": "TR",
+                    "text": "Gösterge, dört tür sapmanın yanı sıra yaklaşık bir kuvvet tahmini ve yüzde değeri gösterir:",
+                    "updated": 1647002124295
                 }
             ]
         },
@@ -70,6 +95,11 @@
                     "language": "RU",
                     "text": "Bullish (сплошная зеленая линия): индикатор импульса формирует более высокий минимум, в то время как ценовое действие формирует более низкий минимум.",
                     "updated": 1645608441698
+                },
+                {
+                    "language": "TR",
+                    "text": "Boğa (Sürekli Yeşil çizgi): Momentum göstergesi daha yüksek bir dip yapar, fiyat hareketi ise daha düşük bir düşüş yapar.",
+                    "updated": 1647002143525
                 }
             ]
         },
@@ -81,6 +111,11 @@
                     "language": "RU",
                     "text": "Bearish (Сплошная красная линия): индикатор импульса формирует более низкий максимум, в то время как ценовое действие формирует более высокий максимум.",
                     "updated": 1645608454980
+                },
+                {
+                    "language": "TR",
+                    "text": "Ayı (Sürekli Kırmızı çizgi): Momentum göstergesi daha düşük bir zirve yapar, fiyat hareketi ise daha yüksek bir zirve yapar.",
+                    "updated": 1647002157789
                 }
             ]
         },
@@ -92,6 +127,11 @@
                     "language": "RU",
                     "text": "Hidden Bullish Continuation (пунктирная зеленая линия): индикатор импульса формирует более низкий максимум, в то время как ценовое действие формирует более высокий минимум.",
                     "updated": 1645608476718
+                },
+                {
+                    "language": "TR",
+                    "text": "Gizli Boğa Devamı (Kesikli Yeşil çizgi): Momentum göstergesi daha düşük bir zirve yapar, fiyat hareketi ise daha yüksek bir dip yapar.",
+                    "updated": 1647002173407
                 }
             ]
         },
@@ -103,6 +143,11 @@
                     "language": "RU",
                     "text": "Hidden Bearish Continuation (пунктирная красная линия): индикатор импульса формирует более высокий максимум, в то время как ценовое действие формирует более низкий максимум.",
                     "updated": 1645608494009
+                },
+                {
+                    "language": "TR",
+                    "text": "Gizli Ayı Devamı(Kesikli Kırmızı çizgi): Momentum göstergesi daha yüksek bir yükseliş sağlarken, fiyat hareketi daha düşük bir zirve yapar.",
+                    "updated": 1647002183564
                 }
             ]
         },
@@ -118,6 +163,11 @@
                     "language": "RU",
                     "text": "Выше: медвежья (красная) со средней силой при падении на 11,25% и бычья (зеленая) дивергенция.",
                     "updated": 1645608508551
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarıda: %11,25'lik bir düşüşle orta kuvvette bir düşüş (kırmızı) ve bir yükseliş (yeşil) sapma görüyorsunuz.",
+                    "updated": 1647002286049
                 }
             ]
         },
@@ -133,6 +183,11 @@
                     "language": "RU",
                     "text": "Выше: скрытая бычья (зеленый пунктир) и бычья (зеленый) дивергенция с сильной силой и 70-процентным ростом.",
                     "updated": 1645608520965
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarıda: güçlü bir güç ve %70 artış ile gizli bir yükseliş (kesikli yeşil) ve bir yükseliş (yeşil) ayrışması görüyorsunuz.",
+                    "updated": 1647002280026
                 }
             ]
         },
@@ -144,6 +199,11 @@
                     "language": "RU",
                     "text": "Длина детектора дивергенции, длина разворота, а также порог для сильных и слабых дивергенций могут быть изменены путем нахождения и открытия Javascript Code в разделе Data Building Procedure -> Procedure Loop в разделе'RSI Divergence'Procedure Loop.",
                     "updated": 1645608623722
+                },
+                {
+                    "language": "TR",
+                    "text": "Farklılıklar bulucusunun uzunluğu, pivot uzunluğu ve ayrıca güçlü ve zayıf sapmalar için eşik, Javascript Kodunun ( Javascript Code ) 'RSI Sapma'Prosedür Döngüsü altındaki Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Döngüsü ( Procedure Loop ) altında bulunması ve açılmasıyla değiştirilebilir.",
+                    "updated": 1647002818095
                 }
             ]
         },
@@ -159,6 +219,11 @@
                     "language": "RU",
                     "text": "Помните, что чем больше длина разворота, тем выше точность, но больше задержка для подтверждения пика/минимума разворота.",
                     "updated": 1645608576059
+                },
+                {
+                    "language": "TR",
+                    "text": "Pivot uzunluğu ne kadar uzun olursa, doğruluğun o kadar yüksek olduğunu, ancak pivot tepe/düşük değerini doğrulamak için gecikme süresinin o kadar uzun olduğunu unutmayın.",
+                    "updated": 1647002719748
                 }
             ]
         },
@@ -170,6 +235,11 @@
                     "language": "RU",
                     "text": "Верхний и нижний срез для определения дивергенции можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Initialization в разделе 'RSI Divergence' Procedure Initialization.",
                     "updated": 1645608601033
+                },
+                {
+                    "language": "TR",
+                    "text": "Sapma tespiti için üst ve alt sınır, Javascript Kodunun ( Javascript Code ) Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Başlatma altında 'RSI Divergence' Prosedür Başlatma ( Procedure Initialization ) altında bulunması ve açılmasıyla değiştirilebilir.",
+                    "updated": 1647002811263
                 }
             ]
         },
@@ -185,6 +255,11 @@
                     "language": "RU",
                     "text": "Длину RSI можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Loop в разделе 'RSI14' Procedure Loop.",
                     "updated": 1645608645456
+                },
+                {
+                    "language": "TR",
+                    "text": "RSI'nin uzunluğu, Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Döngüsü ( Procedure Loop ) altında 'RSI14' Prosedür Döngüsü altında Javascript Kodu ( Javascript Code ) bulunup açılarak değiştirilebilir.",
+                    "updated": 1647002896616
                 }
             ]
         },
@@ -196,6 +271,11 @@
                     "language": "RU",
                     "text": "Продукты и свойства",
                     "updated": 1645608651538
+                },
+                {
+                    "language": "TR",
+                    "text": "Ürünler ve Özellikler",
+                    "updated": 1647002910423
                 }
             ]
         },
@@ -212,7 +292,14 @@
         },
         {
             "style": "Table",
-            "text": "| Product Name | Product Variable | Properties |\n| RSI-Div | rsiDiv | status, strength, divPerc |"
+            "text": "| Product Name | Product Variable | Properties |\n| RSI-Div | rsiDiv | status, strength, divPerc |",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "| Ürün Adı | Ürün Değişkeni | Özellikler |\n| RSI-Div | rsiDiv | status, strength, divPerc |",
+                    "updated": 1647002989169
+                }
+            ]
         },
         {
             "style": "List",
@@ -222,6 +309,11 @@
                     "language": "RU",
                     "text": "status: возвращает строку со следующими возможными значениями: bullish, bearish, bull continuation, bear continuation",
                     "updated": 1645608678958
+                },
+                {
+                    "language": "TR",
+                    "text": "durum (status): aşağıdaki olası değerlere sahip bir dize döndürür: boğa, ayı, boğa devamı, ayı devamı",
+                    "updated": 1647003031757
                 }
             ]
         },
@@ -231,8 +323,13 @@
             "translations": [
                 {
                     "language": "RU",
-                    "text": "возвращает строку со следующими возможными значениями: weak (\"слабый\"), medium (\"средний\"), strong (\"сильный\").",
-                    "updated": 1645608715893
+                    "text": "strength: возвращает строку со следующими возможными значениями: weak (\"слабый\"), medium (\"средний\"), strong (\"сильный\").",
+                    "updated": 1647356842718
+                },
+                {
+                    "language": "TR",
+                    "text": "güç (strength): aşağıdaki olası değerlere sahip bir dize döndürür: zayıf, orta, güçlü",
+                    "updated": 1647003061296
                 }
             ]
         },
@@ -244,6 +341,11 @@
                     "language": "RU",
                     "text": "divPerc: возвращает число, соответствующее процентному изменению между пиками или минимумами идентифицированной дивергенции",
                     "updated": 1645608729022
+                },
+                {
+                    "language": "TR",
+                    "text": "divPerc: tanımlanan bir sapmanın tepe veya alt noktaları arasındaki değişim yüzdesine karşılık gelen bir sayı döndürür",
+                    "updated": 1647003073986
                 }
             ]
         },
@@ -255,6 +357,11 @@
                     "language": "RU",
                     "text": "Примеры:",
                     "updated": 1645608735064
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnekler:",
+                    "updated": 1647003083565
                 }
             ]
         },
@@ -278,6 +385,11 @@
                     "language": "RU",
                     "text": "Чтобы повысить уверенность подтверждения, найдите подходящее значение RSI для входа в сделку после обнаружения дивергенции, например, RSI > 50 после обнаружения бычьей дивергенции.",
                     "updated": 1645608750841
+                },
+                {
+                    "language": "TR",
+                    "text": "Teyit güvenini artırmak için, sapma bulunduktan sonra ticarete girmek amacıyla uygun bir RSI değeri bulun, örneğin bir yükseliş tespitinden sonra RSI > 50.",
+                    "updated": 1647003273254
                 }
             ]
         },

@@ -150,8 +150,8 @@
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Регулярно обновляйте свое приложение, чтобы включать недавние изменения, которые могли быть отправлены другими пользователями.",
-                    "updated": 1637943003592
+                    "text": "Регулярно обновляйте свое приложение, чтобы включить в него последние изменения, представленные другими пользователями. Для этого используйте команду app.update, как описано выше.",
+                    "updated": 1647781999600
                 },
                 {
                     "language": "DE",
@@ -284,6 +284,11 @@
                     "language": "TR",
                     "text": "Dokümanlar ve Dokümantasyon Sanatı Hakkında Her Şeyi Öğrenin",
                     "updated": 1645294719507
+                },
+                {
+                    "language": "RU",
+                    "text": "Узнайте все о документах и искусстве документирования",
+                    "updated": 1647782019395
                 }
             ]
         },
@@ -295,6 +300,11 @@
                     "language": "TR",
                     "text": "Muhtemelen uygulamayı kullanarak ve ilk birkaç öğreticiyi yaparak Dokümanların nasıl çalıştığına dair bir fikriniz vardır. Mevcut sayfalarda zaman zaman küçük düzeltmelere katkıda bulunmayı düşünüyorsanız, muhtemelen katkıda bulunmaya başlamak için yeterince şey biliyorsunuzdur!",
                     "updated": 1645294827113
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы, вероятно, имеете представление о том, как функционирует Docs, благодаря использованию приложения и прохождению первых нескольких уроков. Если вы собираетесь вносить небольшие исправления в существующие страницы, вы, вероятно, знаете достаточно, чтобы начать вносить свой вклад!",
+                    "updated": 1647782101485
                 }
             ]
         },
@@ -307,6 +317,11 @@
                     "language": "TR",
                     "text": "Ancak yeni işlevlerin belgelenmesi, konuların yeniden düzenlenmesi, kitapların düzenlenmesi vb. işlere dahil olmak istiyorsanız Dokümantasyon Açıklamalı kitabını ( The Docs Explained ) mutlaka okumalısınız. Son bölüme özellikle dikkat edin: Dokümantasyon Sanatı.",
                     "updated": 1645295654831
+                },
+                {
+                    "language": "RU",
+                    "text": "Однако если вы хотите принять участие в документировании новой функциональности, реорганизации тем, упорядочивании книг и так далее, вам обязательно нужно прочитать книгу The Docs Explained. Обратите особое внимание на последнюю главу: The Art of Documenting.",
+                    "updated": 1647782116998
                 }
             ]
         },

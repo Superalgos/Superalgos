@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Операции по поиску данных требуется время для загрузки данных с биржи и обработки исходных данных для построения свечей. Проверьте ход выполнения операции по поиску данных в сетевой иерархии.",
                 "updated": 1640458784246
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Veri madenciliği operasyonunuzun borsadan veri indirmesi ve mum oluşturmak için ham verileri işlemesi zaman alır. Ağ hiyerarşisinde veri madenciliği operasyonunuzun ilerlemesini kontrol edin.",
+                "updated": 1647864920795
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "RU",
                     "text": "Есть несколько причин, по которым у вас могут возникнуть проблемы с выводом свечей на графики. Пожалуйста, рассмотрите следующие...",
                     "updated": 1640458865231
+                },
+                {
+                    "language": "TR",
+                    "text": "Tablolarda mum bulmakta sorun yaşamanızın birkaç nedeni olabilir. Lütfen aşağıdakileri göz önünde bulundurun…",
+                    "updated": 1647864986869
                 }
             ]
         },
@@ -44,6 +54,11 @@
                     "language": "RU",
                     "text": "Проверка хода выполнения операции по сбору данных",
                     "updated": 1640458892502
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri Madenciliği Operasyonunun İlerlemesini Kontrol Edin",
+                    "updated": 1647865001343
                 }
             ]
         },
@@ -55,6 +70,11 @@
                     "language": "RU",
                     "text": "Если вы только начинаете работать с Superalgos, продолжая следовать руководству по началу работы, имейте в виду, что для загрузки данных с биржи требуется время. В зависимости от мощности вашего оборудования и скорости вашего интернет-соединения может потребоваться от получаса до нескольких часов, чтобы увидеть несколько первых свечей, особенно на бирже Binance, поскольку рынок охватывает период с сентября 2017 года.",
                     "updated": 1640458949104
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos'a yeni başlıyorsanız ve hala başlangıç kılavuzunu takip ediyorsanız, borsadan verilerin indirilmesinin zaman aldığını unutmayın. Donanımınızın gücüne ve internet bağlantınızın hızına bağlı olarak, Market'in Eylül 2017'ye kadar uzanması nedeniyle ilk birkaç mumun, özellikle Binance borsasının mumlarının görülmesi yarım saatten birkaç saate kadar sürebilir.",
+                    "updated": 1647865085193
                 }
             ]
         },
@@ -71,6 +91,11 @@
                     "language": "RU",
                     "text": "Проверьте работу добычи данных на сетевой иерархии. Вы сможете увидеть свечи на экране только после того, как бот датчика OHLCV и индикатор Candles Volumes в менеджере задач Masters соответствующего узла задач биржевых данных и рынка достигнут 100% прогресса.",
                     "updated": 1640459034546
+                },
+                {
+                    "language": "TR",
+                    "text": "Ağ hiyerarşisinde veri madenciliği işlemini kontrol edin. Mumları ekranda ancak ilgili değişim verileri görevleri düğümünün ve pazarın Masters görev yöneticisindeki OHLCV Sensör Botu ( Sensor Bot ) ve Mum Hacimleri göstergesi %100 ilerlemeye ulaştıktan sonra görebileceksiniz.",
+                    "updated": 1647865139037
                 }
             ]
         },
@@ -88,6 +113,11 @@
                     "language": "RU",
                     "text": "Если вы не знаете, о чем идет речь в приведенном выше абзаце, вернитесь к учебнику Welcome (\"Добро пожаловать\") в качестве справочного материала.",
                     "updated": 1640459122047
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Yukarıdaki paragrafın ne anlama geldiğinden emin değilseniz, tazeleyici olarak Hoş Geldiniz öğreticisine geri dönün.",
+                    "updated": 1647865169011
                 }
             ]
         },
@@ -99,6 +129,11 @@
                     "language": "RU",
                     "text": "Выключите и снова включите слой свечей и обновите страницу",
                     "updated": 1640459138567
+                },
+                {
+                    "language": "TR",
+                    "text": "Mum Katmanını Kapatın ,Tekrar Açın ve Sayfayı Yenileyin",
+                    "updated": 1647865189269
                 }
             ]
         },
@@ -115,6 +150,11 @@
                     "language": "RU",
                     "text": "Увеличьте масштаб графика, пока не увидите в менеджере слоев слой со свечами. Выключите слой свечей и включите его снова. Это заставит слой свечей перезагрузиться.",
                     "updated": 1640459184769
+                },
+                {
+                    "language": "TR",
+                    "text": "Mum katmanını içeren katman yöneticisini görene kadar grafiği yakınlaştırın. Mum katmanını kapatın ve tekrar açın. Bu, mum katmanını yeniden yüklemeye zorlar.",
+                    "updated": 1647865210769
                 }
             ]
         },
@@ -126,6 +166,11 @@
                     "language": "RU",
                     "text": "Проверьте Time Scale, Rate Scale и Time Frame Scale",
                     "updated": 1640459484899
+                },
+                {
+                    "language": "TR",
+                    "text": "Zaman, Oran ve Zaman Çerçevesi Ölçeklerini Kontrol Edin",
+                    "updated": 1647865239593
                 }
             ]
         },
@@ -142,6 +187,11 @@
                     "language": "RU",
                     "text": "Может случиться так, что вы пытались манипулировать графиками и в процессе что-то пошло не так.",
                     "updated": 1640459411529
+                },
+                {
+                    "language": "TR",
+                    "text": "Çizelgeleri manipüle etmeye çalışmış olabilirsiniz ve bu süreçte bir şeyler ters gitmiş olabilir.",
+                    "updated": 1647865272073
                 }
             ]
         },
@@ -158,6 +208,11 @@
                     "language": "RU",
                     "text": "Попробуйте установить масштаб таймфрейма на 24 часа, а шкалу времени и шкалу курса - в автоматический режим. При установке шкалы времени в автоматический режим в фокус графика попадает весь диапазон рынка. Установив шкалу курса в автоматический режим, установите шкалу так, чтобы она соответствовала всему диапазону цен на рынке. Цель состоит в том, чтобы убедиться, что все шкалы установлены таким образом, что если есть данные, которые нужно показать, то они будут показаны.",
                     "updated": 1640459465739
+                },
+                {
+                    "language": "TR",
+                    "text": "Zaman çerçevesi ölçeğini 24 saate ve hem zaman ölçeğini hem de hız ölçeğini otomatik moda ayarlamayı deneyin. Zaman ölçeğini otomatik moda ayarlamak, piyasanın tüm aralığını grafiğe odaklar. Oran ölçeğini otomatik moda ayarlamak, ölçeği piyasadaki tüm fiyat aralığına uyacak şekilde ayarlar. Amaç, tüm ölçeklerin - gösterilecek herhangi bir veri varsa - gösterileceği şekilde ayarlandığından emin olmaktır.",
+                    "updated": 1647865291803
                 }
             ]
         },
@@ -169,6 +224,11 @@
                     "language": "RU",
                     "text": "Проверьте целостность ваших данных",
                     "updated": 1640459524367
+                },
+                {
+                    "language": "TR",
+                    "text": "Verilerinizin Bütünlüğünü Kontrol Edin",
+                    "updated": 1647865311930
                 }
             ]
         },
@@ -185,6 +245,11 @@
                     "language": "RU",
                     "text": "Возможно, ваш компьютер был принудительно выключен или вы закрыли консоль, на которой был запущен бэкэнд Superalgos, во время выполнения операции по добыче данных. Такие ситуации могут привести к повреждению некоторых данных.",
                     "updated": 1640459632599
+                },
+                {
+                    "language": "TR",
+                    "text": "Bilgisayarınız zorla kapatılmış olabilir veya bir veri madenciliği işlemi yürütürken Superalgos arka ucunu çalıştıran konsolu kapatmış olabilirsiniz. Bu tür durumlar bazı verilerin bozulmasına neden olabilir.",
+                    "updated": 1647865336423
                 }
             ]
         },
@@ -196,6 +261,11 @@
                     "language": "RU",
                     "text": "1. Проверьте целостность данных бота датчика",
                     "updated": 1640459675766
+                },
+                {
+                    "language": "TR",
+                    "text": "1. Sensör bot verilerinin bütünlüğünü kontrol edin",
+                    "updated": 1647865357663
                 }
             ]
         },
@@ -212,6 +282,11 @@
                     "language": "RU",
                     "text": "Перейдите в папку Exchange-Raw-Data в разделе Data-Storage > Exchange > Market > Masters и продолжайте открывать вложенные папки, чтобы добраться до последнего доступного дня, и откройте файл Data.json. Если файл открывается нормально, это может означать, что данные, которые вы загрузили с биржи, безопасны.",
                     "updated": 1640459706827
+                },
+                {
+                    "language": "TR",
+                    "text": "Data-Storage > Exchange > Market > Masters altında Exchange-Raw-Data klasörüne gidin ve mevcut son güne gitmek için alt klasörleri açmaya devam edin ve Data.json dosyasını açın. Dosya düzgün açılırsa, bu borsadan indirdiğiniz verilerin güvenli olduğu anlamına gelebilir.",
+                    "updated": 1647865384691
                 }
             ]
         },
@@ -228,6 +303,11 @@
                     "language": "RU",
                     "text": "Если последний файл в Exchange-Raw-Data не открывается должным образом, удалите весь Data-Storage > Exchange > Market и запустите операцию добычи данных. В результате бот датчик OHLCV снова загрузит все данные с биржи, и все индикаторы будут рассчитаны заново.",
                     "updated": 1640459788929
+                },
+                {
+                    "language": "TR",
+                    "text": "Exchange-Raw-Data'daki son dosya düzgün açılmazsa, Data-Storage > Exchange > Market'in tamamını silin ve veri madenciliği işlemini çalıştırın. Bu, OHLCV sensör botunun borsadaki tüm verileri tekrar indirmesini ve tüm göstergelerin sıfırdan hesaplanmasını sağlayacaktır.",
+                    "updated": 1647865414424
                 }
             ]
         },
@@ -271,6 +351,11 @@
                     "language": "RU",
                     "text": "Если у вас возникли проблемы со свечами, вам необходимо проверить данные индикатора Candles Volumes инструмента Masters Data Mine, расположенного глубоко в папках Multi-Time-Frame-Daily и Multi-Time-Frame-Market в разделе Data-Storage > Exchange > Market > Masters > Candles-Volumes > Output > Candles.",
                     "updated": 1640459879218
+                },
+                {
+                    "language": "TR",
+                    "text": "Mumlarla ilgili sorun yaşıyorsanız, Data-Storage > Exchange > Market > Masters > Candles-Volumes > Output > Candles altındaki Multi-Time-Frame-Daily and Multi-Time-Frame-Market  klasörlerinin derinliklerinde bulunan Masters Data Mine Mum Hacimleri göstergesinin verilerini kontrol etmeniz gerekir.",
+                    "updated": 1647865675795
                 }
             ]
         },
@@ -287,6 +372,11 @@
                     "language": "RU",
                     "text": "Если вы обнаружили какие-либо файлы типа \".tmp\" или не можете открыть некоторые из последних файлов Data.json в обычном текстовом редакторе, или некоторые файлы пусты, есть вероятность, что файлы были повреждены.",
                     "updated": 1640459931494
+                },
+                {
+                    "language": "TR",
+                    "text": "Herhangi bir.tmp dosyası bulursanız veya en son Data.json dosyalarından bazılarını normal bir metin düzenleyicide açamıyorsanız veya bazı dosyalar boşsa, dosyalar bozulmuş olabilir.",
+                    "updated": 1647865702292
                 }
             ]
         },
@@ -304,6 +394,11 @@
                     "language": "RU",
                     "text": "Нечто подобное могло произойти и с другими индикаторами, поэтому обязательно проверьте папки хранения данных индикаторов, которые могут не работать или с которыми у вас возникли проблемы.",
                     "updated": 1640459953146
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Diğer göstergelerde de benzer bir şey olmuş olabilir, bu nedenle çalışmayan veya sorun yaşıyor olabileceğiniz göstergelerin veri depolama klasörlerini kontrol ettiğinizden emin olun.",
+                    "updated": 1647865733569
                 }
             ]
         },
@@ -320,6 +415,11 @@
                     "language": "RU",
                     "text": "Если это так, то удалите папку для каждого источника данных в Data-Storage > Exchange > Market, но оставьте Exchange-Raw-Data нетронутой, и затем запустите операцию по сбору данных. Это приведет к регенерации всех продуктов данных индикаторов, включая Candles Volumes.",
                     "updated": 1640460118299
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu durumda, Data-Storage > Exchange > Market içindeki her bir veri madeni için klasörü silecek, ancak Exchange-Raw-Data'yı olduğu gibi bırakacak ve daha sonra veri madenciliği operasyonunu çalıştıracaksınız. Bu, Mum Hacimleri de dahil olmak üzere tüm gösterge veri ürünlerini yeniden oluşturacaktır.",
+                    "updated": 1647865755614
                 }
             ]
         },
@@ -336,6 +436,11 @@
                     "language": "RU",
                     "text": "3. Помните, что существует правильный способ закрытия системы!",
                     "updated": 1640460154536
+                },
+                {
+                    "language": "TR",
+                    "text": "3. Sistemi kapatmanın uygun bir yolu olduğunu unutmayın!",
+                    "updated": 1647865824391
                 }
             ]
         },
@@ -347,6 +452,11 @@
                     "language": "RU",
                     "text": "Проверка наличия ошибок в браузере",
                     "updated": 1640460319785
+                },
+                {
+                    "language": "TR",
+                    "text": "Tarayıcıdaki Hataları Kontrol Edin",
+                    "updated": 1647865827435
                 }
             ]
         },
@@ -363,6 +473,11 @@
                     "language": "RU",
                     "text": "Откройте DevTools в Chrome с помощью клавиши F12 (когда браузер находится в фокусе) и перейдите на вкладку Console. Затем вернитесь в Superalgos и воспроизведите проблему. В консоли могут отображаться сетевые ошибки и предупреждения различного рода. Они не важны, и вы можете смело игнорировать их.",
                     "updated": 1640460354719
+                },
+                {
+                    "language": "TR",
+                    "text": "F12 tuşuyla Chrome'un DevTools'unu açın (tarayıcı odaktayken) ve Konsol sekmesini tıklayın. Ardından Superalgos'a geri dönün ve sorunu yeniden oluşturun. Konsol, ağ hatalarını ve farklı türden uyarıları görüntüleyebilir. Bunlar önemli değildir ve bunları güvenle görmezden gelebilirsiniz.",
+                    "updated": 1647865862421
                 }
             ]
         },
@@ -379,6 +494,11 @@
                     "language": "RU",
                     "text": "Обратите внимание на другие виды ошибок, такие как файлы, которые не могут быть загружены, или ошибки в определенных компонентах системы.",
                     "updated": 1640460372526
+                },
+                {
+                    "language": "TR",
+                    "text": "Yüklenemeyen dosyalar veya belirli sistem bileşenlerindeki hatalar gibi diğer türdeki hatalara dikkat edin.",
+                    "updated": 1647865878767
                 }
             ]
         }

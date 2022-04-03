@@ -1,0 +1,65 @@
+{
+    "type": "Signal Context Formula",
+    "definition": {
+        "text": "Allows the signal provider to send addtional data surrounding an Outgoing Formula Signal.",
+        "updated": 1644030421348,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Позволяет поставщику сигналов отправлять дополнительные данные, окружающие исходящий сигнал формулы (Outgoing Formula Signal).",
+                "updated": 1645253495188
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1644030134004
+        },
+        {
+            "style": "Text",
+            "text": "A standard formula signal sends the result of its associated formula. So for example the resulting Order Rate of an order rate formula. A signal provider can also set up a Signal Context Formula node. This node allows the provider to send additional information coming out of the trading system. This can be values used to help calculate the current formula, values from the Trading Engine or any other available variables.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Стандартный сигнал по формуле отправляет результат связанной с ним формулы. Например, результирующая Order Rate формулы Order Rate. Провайдер сигналов может также установить узел Signal Context Formula. Этот узел позволяет провайдеру отправлять дополнительную информацию, поступающую из торговой системы. Это могут быть значения, используемые для расчета текущей формулы, значения из торгового механизма или любые другие доступные переменные.",
+                    "updated": 1645253526577
+                }
+            ]
+        },
+        {
+            "style": "Block",
+            "text": "Configuration",
+            "updated": 1644030390795
+        },
+        {
+            "style": "Title",
+            "text": "Signal Context Formula Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Signal Context Formula",
+                    "updated": 1645253540277
+                }
+            ]
+        },
+        {
+            "style": "Subtitle",
+            "text": "Example",
+            "updated": 1644030374260,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пример",
+                    "updated": 1645253546433
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "let context = {\n    profitLoss: tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.profitLoss.value,\n    hitFail: tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.hitFail.value,\n    roi: tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.ROI.value\n}\n\ncontext // return the context object",
+            "updated": 1643429104204
+        }
+    ]
+}

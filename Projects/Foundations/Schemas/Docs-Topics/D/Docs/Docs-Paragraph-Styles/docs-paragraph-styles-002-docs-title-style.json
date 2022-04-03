@@ -3,20 +3,68 @@
     "pageNumber": 2,
     "type": "Docs Title Style",
     "definition": {
-        "text": "Use this style to render titles on the docs page."
+        "text": "Use this style to render titles on the docs page.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Verwenden Sie diesen Stil, um Titel auf der docs-Seite darzustellen.",
+                "updated": 1633952314955
+            },
+            {
+                "language": "RU",
+                "text": "Используйте этот стиль для отображения заголовков на странице документов.",
+                "updated": 1638532759086
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "As the name suggests, the title style simply makes anything you type while editing visible as a title at the docs page."
+            "text": "As the name suggests, the title style simply makes anything you type while editing visible as a title at the docs page.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wie der Name schon vermuten lässt, macht der Titelstil einfach alles, was Sie während der Bearbeitung eingeben, als Titel auf der docs-Seite sichtbar.",
+                    "updated": 1633952379140
+                },
+                {
+                    "language": "RU",
+                    "text": "Как следует из названия, стиль заголовка просто делает все, что вы вводите во время редактирования, видимым как заголовок на странице документов.",
+                    "updated": 1638532794274
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Example:"
+            "text": "Example:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1633952935582
+                },
+                {
+                    "language": "RU",
+                    "text": "Пример:",
+                    "updated": 1638532842101
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The previous one is a paragraph in title style."
+            "text": "The previous one is a paragraph in title style.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der vorherige ist ein Absatz im Titelstil. (Beispiel Überschrift ist Titel-Stil)",
+                    "updated": 1633952469135
+                },
+                {
+                    "language": "RU",
+                    "text": "Предыдущий - это абзац в стиле заголовка.",
+                    "updated": 1638532822687
+                }
+            ]
         }
     ]
 }

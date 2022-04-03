@@ -1,0 +1,41 @@
+{
+    "type": "Plugin Trading Engines",
+    "menuItems": [
+        {
+            "action": "Add Missing Plugin Trading Engines",
+            "label": "Add Missing Trading Engines",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "iconPathOn": "trading-engine",
+            "iconPathOff": "trading-engine",
+            "iconProject": "Algorithmic-Trading",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Community-Plugins"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 1,
+    "propertyNameAtParent": "pluginTradingEngines",
+    "attachingRules": {
+        "compatibleTypes": "->Plugin Project->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "pluginFiles",
+            "type": "array",
+            "childType": "Plugin File",
+            "autoAdd": false
+        }
+    ]
+}

@@ -1,0 +1,52 @@
+{
+    "type": "Docs Space",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "docsSpaceStyle",
+            "label": "Add Docs Space Style",
+            "relatedUiObject": "Docs Space Style",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Education"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "docsSpaceSettings",
+            "label": "Add Docs Space Settings",
+            "relatedUiObject": "Docs Space Settings",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Education"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "actionFunction": "payload.executeAction",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity"
+        }
+    ],
+    "isHierarchyHead": true,
+    "addLeftIcons": true,
+    "level": 0,
+    "childrenNodesProperties": [
+        {
+            "name": "docsSpaceStyle",
+            "type": "node",
+            "childType": "Docs Space Style",
+            "autoAdd": true
+        },
+        {
+            "name": "docsSpaceSettings",
+            "type": "node",
+            "childType": "Docs Space Settings",
+            "autoAdd": true
+        }
+    ]
+}

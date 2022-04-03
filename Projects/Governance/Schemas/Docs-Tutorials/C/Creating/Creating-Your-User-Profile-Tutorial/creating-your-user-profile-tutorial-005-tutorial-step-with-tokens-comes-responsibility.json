@@ -3,22 +3,91 @@
     "pageNumber": 5,
     "type": "Tutorial Step - With Tokens Comes Responsibility",
     "definition": {
-        "text": "Holding tokens does more than just show commitment. SA tokens also confer governance power!",
-        "updated": 1629162449407,
+        "text": "Holding tokens does more than just show commitment. SA Tokens also confer Token Power!",
+        "updated": 1630605735788,
         "icon": {
             "name": "governance",
             "project": "Governance"
-        }
+        },
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Tener tokens hace más que mostrar compromiso. Los tokens SA también confieren Token Power!",
+                "updated": 1630873231890,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Token tutmak, Superlagos'a bağlılık göstermekten fazlasını yapar. SA Token'ları size ayrıca Token Gücü verir! ( Token Power! )",
+                "updated": 1637147203152
+            },
+            {
+                "language": "RU",
+                "text": "Хранение токенов это нечто большее, чем просто демонстрация обязательств. Токены SA также наделяют Token Power!",
+                "updated": 1639044921538
+            },
+            {
+                "language": "DE",
+                "text": "Der Besitz von Tokens ist mehr als nur ein Zeichen des Engagements. SA-Token verleihen auch Token Power!",
+                "updated": 1640072274888
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The more tokens you hold the more influence you can have over the direction of the project. This means, by owning SA tokens, you hold the power to use those tokens to exert influence over what parts of the system will be developed and how the community will evolve.",
-            "updated": 1629165111109
+            "text": "The more tokens you hold the more influence you can have over the direction of the project. This means, by owning SA Tokens, you hold the power to use those tokens to exert influence over what parts of the system will be developed and how the community will evolve.",
+            "updated": 1629165111109,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Cuantas más fichas tengas, más influencia podrás tener sobre la dirección del proyecto. Esto significa que, al poseer SA Tokens, tienes el poder de usar esos tokens para ejercer influencia sobre qué partes del sistema se desarrollarán y cómo evolucionará la comunidad.",
+                    "updated": 1630873381109,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Ne kadar çok token tutarsanız, projenin yönü üzerinde o kadar fazla etkiye sahip olabilirsiniz. Bu, SA tokenlarına sahip olarak, sistemin hangi bölümlerinin geliştirileceği ve topluluğun nasıl gelişeceği üzerinde etki uygulamak için bu tokenları kullanma gücüne sahip olduğunuz anlamına gelir.",
+                    "updated": 1637147395621
+                },
+                {
+                    "language": "RU",
+                    "text": "Чем больше у вас токенов, тем большее влияние вы можете иметь на направление проекта. Это означает, что, владея токенами SA, вы имеете право использовать эти токены для оказания влияния на то, какие части системы будут развиваться и как будет развиваться сообщество.",
+                    "updated": 1639044961113
+                },
+                {
+                    "language": "DE",
+                    "text": "Je mehr Token Sie besitzen, desto mehr Einfluss können Sie auf die Richtung des Projekts haben. Das bedeutet, dass Sie durch den Besitz von SA-Token die Macht haben, diese Token zu nutzen, um Einfluss darauf zu nehmen, welche Teile des Systems entwickelt werden und wie sich die Gemeinschaft entwickelt.",
+                    "updated": 1640072334022
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "This works in a cycle. The more you contribute, the more tokens you earn, the more say you have!"
+            "text": "This works in a cycle. The more you contribute, the more tokens you earn, the more say you have!",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Esto funciona en un ciclo. Cuanto más contribuyas, más fichas ganarás, ¡más dirá quien más tiene!",
+                    "updated": 1631671942707,
+                    "style": "Note"
+                },
+                {
+                    "language": "TR",
+                    "text": "\" Not: Bu bir döngü içinde çalışır. Ne kadar çok katkıda bulunursanız, o kadar çok token kazanırsınız, o kadar çok söz hakkınız olur! \"",
+                    "updated": 1637147430858
+                },
+                {
+                    "language": "RU",
+                    "text": "Это работает в цикле. Чем больше вы вносите, тем больше токенов вы зарабатываете, тем больше у вас репутации!",
+                    "updated": 1639044978300
+                },
+                {
+                    "language": "DE",
+                    "text": "Dies funktioniert in einem Kreislauf. Je mehr Sie beitragen, desto mehr Token verdienen Sie, desto mehr Mitspracherecht haben Sie!",
+                    "updated": 1640072340534
+                }
+            ]
         }
     ]
 }

@@ -1,1 +1,80 @@
-{}
+{
+  "name": "superalgos",
+  "version": "1.2.0",
+  "description": "Superalgos is a free, open-source crypto trading bot",
+  "license": "Apache License 2.0",
+  "homepage": "https://www.superalgos.org/",
+  "author": {
+    "name": "Superalgos Contributors"
+  },
+  "scripts": {
+    "start": "node platform minMemo noBrowser",
+    "presetup": "git checkout develop && git pull upstream develop",
+    "setup": "node setup noShortcuts && node tf_setup.js",
+    "postsetup": "npm start",
+    "dist": "electron-builder -c build/electron-builder.json",
+    "postinstall": "electron-builder install-app-deps",
+    "startNetwork": "node network",
+    "startDesktop": "node desktop",
+    "installDesktopReact": "cd ./DesktopReact && npm ci",
+    "startLocalDesktopReact": "start npm run startNetwork && cd ./DesktopReact && start npm run startDesktopReactBackend && start npm run startDesktopReactFrontend",
+    "startDesktopReact": "cd ./DesktopReact && start npm run startDesktopReactBackend && start npm run startDesktopReactFrontend",
+    "clearJest": "./node_modules/.bin/jest --clearCache",
+    "test": "./node_modules/.bin/jest",
+    "test:watch": "./node_modules/.bin/jest --watch"
+  },
+  "dependencies": {
+    "@discordjs/rest": "^0.1.0-canary.0",
+    "@octokit/rest": "^18.12.0",
+    "@reduxjs/toolkit": "^1.6.2",
+    "@slack/web-api": "^6.5.1",
+    "axios": "^0.24.0",
+    "ccxt": "^1.61.93",
+    "child_process": "^1.0.2",
+    "discord-api-types": "^0.25.2",
+    "discord.js": "^13.3.1",
+    "dotenv": "8.2.0",
+    "dotenv-expand": "5.1.0",
+    "electron-updater": "^4.6.1",
+    "ethereumjs-common": "^1.5.2",
+    "ethereumjs-tx": "^2.1.2",
+    "ethers": "^5.5.3",
+    "http": "0.0.1-security",
+    "https": "^1.0.0",
+    "ip": "^1.1.5",
+    "jest": "^27.5.0",
+    "lookpath": "^1.2.2",
+    "node-fetch": "^2.6.6",
+    "open": "^8.4.0",
+    "path": "^0.12.7",
+    "simple-git": "^2.47.0",
+    "telegraf": "^4.4.2",
+    "twitter-api-v2": "^1.7.1",
+    "util": "^0.12.4",
+    "web3": "^1.6.1",
+    "workbox-webpack-plugin": "5.1.4",
+    "ws": "^8.4.0"
+  },
+  "optionalDependencies": {
+    "@tensorflow/tfjs-node": "^2.8.6"
+  },
+  "devDependencies": {
+    "electron": "^15.1.0",
+    "electron-builder": "^22.14.5"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "verbose": true,
+    "transform": {
+      "^.+\\.[m|t|j]s?$": "babel-jest"
+    },
+    "testMatch": [
+      "**/__tests__/**/?(*.)(test).js?(x)",
+      "**/__tests__/?(*.)(test).js?(x)"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "json"
+    ]
+  }
+}

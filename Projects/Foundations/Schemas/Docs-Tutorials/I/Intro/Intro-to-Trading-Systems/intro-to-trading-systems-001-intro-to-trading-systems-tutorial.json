@@ -4,13 +4,47 @@
     "type": "Intro to Trading Systems Tutorial",
     "definition": {
         "text": "This tutorial is the first in a series of tutorials that teach you how to build trading systems. The series goes deep into multiple topics and takes you through a progression that intends to match basic trading knowledge with particular Superalgos implementations. This first tutorial covers theoretical concepts, explains how trading systems are structured in Superalgos, and highlights how you need to frame your strategies to make the most out of the trading framework built-in the system.",
-        "updated": 1617114418610
+        "updated": 1617114418610,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Este tutorial es el primero de una serie de tutoriales que le enseñan a construir sistemas de trading. La serie profundiza en múltiples temas y lo lleva a través de una progresión que tiene la intención de hacer coincidir el conocimiento comercial básico con implementaciones particulares de Superalgos.Este primer tutorial cubre conceptos teóricos, explica cómo se estructuran los sistemas de negociación en Superalgos y destaca cómo debe enmarcar sus estrategias para aprovechar al máximo el marco de negociación integrado en el sistema.",
+                "updated": 1636738336791
+            },
+            {
+                "language": "DE",
+                "text": "Dieses Tutorial ist das erste in einer Reihe von Tutorials, in denen Sie lernen, wie man Trading Systeme erstellt. Die Reihe vertieft mehrere Themen und führt Sie durch eine Progression, die darauf abzielt, grundlegende Handelskenntnisse mit bestimmten Superalgos-Implementierungen zu verbinden. Dieses erste Tutorial deckt theoretische Konzepte ab, erklärt, wie Handelssysteme in Superalgos strukturiert sind, und hebt hervor, wie Sie Ihre Strategien gestalten müssen, um das Beste aus dem in das System integrierten Handelsrahmen herauszuholen.",
+                "updated": 1639147057219
+            },
+            {
+                "language": "TR",
+                "text": "Bu öğretici, size ticaret sistemlerinin nasıl oluşturulacağını öğreten bir dizi öğreticinin ilkidir. Seri, birden fazla konuyu derinlemesine ele alır ve temel ticaret bilgilerini belirli Superalgos uygulamalarıyla eşleştirmeyi amaçlayan bir ilerlemeye götürür. Bu ilk eğitim teorik kavramları kapsar, Superalgos'ta alım satım sistemlerinin nasıl yapılandırıldığını açıklar ve sistemde yerleşik alım satım çerçevesinden en iyi şekilde yararlanmak için stratejilerinizi nasıl çerçevelemeniz gerektiğini vurgular.",
+                "updated": 1640690079795
+            },
+            {
+                "language": "RU",
+                "text": "Этот учебник является первым в серии учебников, которые научат вас создавать торговые системы. Серия углубляется во множество тем и проводит вас через последовательность, которая призвана соотнести базовые знания о торговле с конкретными реализациями Superalgos. В этом первом уроке рассматриваются теоретические концепции, объясняется, как построены торговые системы в Superalgos, и подчеркивается, как нужно строить свои стратегии, чтобы извлечь максимальную пользу из торговой платформы, встроенной в систему.",
+                "updated": 1640878603688
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "About This Tutorial",
-            "updated": 1617114477974
+            "updated": 1617114477974,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Über dieses Tutorial:",
+                    "updated": 1635726127122
+                },
+                {
+                    "language": "RU",
+                    "text": "Об этом учебнике",
+                    "updated": 1640878612936
+                }
+            ]
         },
         {
             "style": "List",

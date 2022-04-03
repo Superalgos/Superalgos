@@ -1,7 +1,14 @@
 {
     "type": "Process Dependencies",
     "definition": {
-        "text": "Process dependencies are references to various data structures on which the process depends to function."
+        "text": "Process dependencies are references to various data structures on which the process depends to function.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Зависимости процессов Process Dependencies - это ссылки на различные структуры данных, от которых зависит функционирование процесса.",
+                "updated": 1639660180248
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,7 +17,14 @@
         },
         {
             "style": "Text",
-            "text": "While processes run autonomously, most processes participate in a value-adding chain by which a process produces a data product that other processes may consume as an input to be processed further. This means that bots&mdash;while autonomous in their particular jobs&mdash;do depend both on other bots and on the data other bots produce."
+            "text": "While processes run autonomously, most processes participate in a value-adding chain by which a process produces a data product that other processes may consume as an input to be processed further. This means that bots&mdash;while autonomous in their particular jobs&mdash;do depend both on other bots and on the data other bots produce.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В то время как процессы выполняются автономно, большинство процессов участвуют в цепочке создания добавленной стоимости, посредством которой процесс создает продукт данных, который другие процессы могут использовать в качестве входных данных для дальнейшей обработки. Это означает, что боты, хотя и автономны в своей конкретной работе, зависят как от других ботов, так и от данных, которые производят другие боты.",
+                    "updated": 1639660229833
+                }
+            ]
         }
     ]
 }

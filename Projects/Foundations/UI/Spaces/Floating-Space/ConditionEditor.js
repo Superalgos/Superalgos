@@ -67,14 +67,14 @@ function newConditionEditor() {
     }
 
     function initialize() {
-        timeFrameIcon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'time-frame')
-        dataMineIcon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'data-mine')
-        botIcon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'indicator-bot')
-        whenIcon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'trigger-on')
-        productIcon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'product-definition')
-        propertyIcon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'record-property')
-        operationIcon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'space-settings')
-        valueIcon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'trading-strategy')
+        timeFrameIcon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'time-frame')
+        dataMineIcon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'data-mine')
+        botIcon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'indicator-bot')
+        whenIcon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'trigger-on')
+        productIcon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'product-definition')
+        propertyIcon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'record-property')
+        operationIcon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'space-settings')
+        valueIcon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'trading-strategy')
     }
 
     function activate(action) {
@@ -537,23 +537,23 @@ function newConditionEditor() {
     function scanDataMines() {
         let selector = {}
 
-        let workspace = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode
+        let workspace = UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode
 
         for (let i = 0; i < workspace.rootNodes.length; i++) {
             let rootNode = workspace.rootNodes[i]
             if (rootNode.type !== 'Data Mine') { continue }
             let dataMine = rootNode
-            let dataMineName = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(dataMine.payload, 'codeName')
+            let dataMineName = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(dataMine.payload, 'codeName')
             selector[dataMineName] = {}
-            let bots = dataMine.sensorBots.concat(dataMine.apiDataFetcherBots).concat(dataMine.indicatorBots)
+            let bots = dataMine.sensorBots.concat(dataMine.apiDataFetcherBots).concat(dataMine.indicatorBots).concat(dataMine.studyBots)
             for (let j = 0; j < bots.length; j++) {
                 let bot = bots[j]
-                let botName = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(bot.payload, 'codeName')
+                let botName = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(bot.payload, 'codeName')
                 let selectorDataMine = selector[dataMineName]
                 selectorDataMine[botName] = {}
                 for (let k = 0; k < bot.products.length; k++) {
                     let product = bot.products[k]
-                    let productName = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(product.payload, 'singularVariableName')
+                    let productName = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(product.payload, 'singularVariableName')
                     if (productName === undefined) { continue }
                     let selectorProduct = selectorDataMine[botName]
                     selectorProduct[productName] = {
@@ -562,11 +562,11 @@ function newConditionEditor() {
                     if (product.record === undefined) { continue }
                     for (let m = 0; m < product.record.properties.length; m++) {
                         let property = product.record.properties[m]
-                        let propertyName = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(property.payload, 'codeName')
+                        let propertyName = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(property.payload, 'codeName')
                         let selectorProperty = selectorProduct[productName]
                         selectorProperty = selectorProperty.properties
                         selectorProperty[propertyName] = {}
-                        let possibleValues = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(property.payload, 'possibleValues')
+                        let possibleValues = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(property.payload, 'possibleValues')
                         if (possibleValues === undefined) { possibleValues = [] }
                         let selectorPossibleValue = selectorProperty[propertyName]
                         selectorPossibleValue.possibleValues = possibleValues
@@ -574,7 +574,7 @@ function newConditionEditor() {
                     let allPossibleTimeFrames = []
                     for (let m = 0; m < product.datasets.length; m++) {
                         let dataset = product.datasets[m]
-                        let validTimeFrames = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(dataset.payload, 'validTimeFrames')
+                        let validTimeFrames = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(dataset.payload, 'validTimeFrames')
                         if (validTimeFrames !== undefined) {
                             allPossibleTimeFrames = allPossibleTimeFrames.concat(validTimeFrames)
                         }

@@ -13,6 +13,21 @@
                 "language": "ES",
                 "text": "La instalación de la función Market configura muchas estructuras de datos en el local Network Node.",
                 "updated": 1629247715120
+            },
+            {
+                "language": "DE",
+                "text": "Die Funktion Install Market richtet im lokalen Netzwerk Node viele Datenstrukturen ein.",
+                "updated": 1636356142878
+            },
+            {
+                "language": "TR",
+                "text": "Install Market işlevi, yerel ağ Düğümünde (local Network Node) birçok veri yapısı kurar.",
+                "updated": 1642151916622
+            },
+            {
+                "language": "RU",
+                "text": "Функция Install Market устанавливает множество структур данных в локальном сетевом узле.",
+                "updated": 1643090688544
             }
         ]
     },
@@ -25,6 +40,21 @@
                     "language": "ES",
                     "text": "En los siguientes pasos, verificarás que cada una de las estructuras de datos esperadas se haya creado correctamente. Las estructuras esperadas son:",
                     "updated": 1629247883351
+                },
+                {
+                    "language": "DE",
+                    "text": "In den nächsten Schritten werden Sie überprüfen, ob jede der erwarteten Datenstrukturen erfolgreich erstellt wurde. Die erwarteten Strukturen sind:",
+                    "updated": 1636356136312
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki adımlarda, beklenen veri yapılarının her birinin doğru şekilde oluşturulduğunu doğrulayın. Beklenen yapılar şunlardır:",
+                    "updated": 1642151999155
+                },
+                {
+                    "language": "RU",
+                    "text": "На следующих нескольких шагах вы убедитесь, что каждая из ожидаемых структур данных была успешно создана. Ожидаемыми структурами являются:",
+                    "updated": 1643090700070
                 }
             ]
         },
@@ -36,6 +66,21 @@
                     "language": "ES",
                     "text": "1. Data Tasks tareas para todas las minas de datos incluidas en tu espacio de trabajo.2. Backtesting and live trading tasks for all included trading systems.3. The corresponding Data Storage definitions.",
                     "updated": 1629247909377
+                },
+                {
+                    "language": "DE",
+                    "text": "1. Data Tasks Aufgaben für alle in Ihrem Arbeitsbereich enthaltenen Datenminen.<br/><br/>2. Backtesting- und Live-Trading-Aufgaben für alle enthaltenen Handelssysteme.<br/><br/>3. Die entsprechenden Datenspeicher-Definitionen.",
+                    "updated": 1636356007305
+                },
+                {
+                    "language": "TR",
+                    "text": "1. Çalışma alanınızda bulunan tüm veri madenciliği için Veri Görevleri ( Data Tasks).<br/><br/>2. Dahil edilen tüm ticaret sistemleri için geriye dönük test ve canlı ticaret görevleri.<br/><br/>3. İlgili Veri Depolama ( Data Storage ) tanımları.",
+                    "updated": 1642152353445
+                },
+                {
+                    "language": "RU",
+                    "text": "1. Задачи Data Tasks для всех источников данных, включенных в ваше рабочее пространство. 2. Задачи Backtesting и Live Trading для всех включенных торговых систем. 3. Соответствующие определения Data Storage.",
+                    "updated": 1643090738868
                 }
             ]
         }

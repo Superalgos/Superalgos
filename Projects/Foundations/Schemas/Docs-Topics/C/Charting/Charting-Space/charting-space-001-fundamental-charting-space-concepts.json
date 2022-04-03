@@ -4,32 +4,134 @@
     "type": "Fundamental Charting Space Concepts",
     "definition": {
         "text": "The charting space provides great control over how information generated on other hierarchies is visualized.",
-        "updated": 1610134431825
+        "updated": 1610134431825,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Der Charting Space bietet eine große Kontrolle darüber, wie die auf anderen Hierarchien erzeugten Informationen visualisiert werden.",
+                "updated": 1634486374442
+            },
+            {
+                "language": "RU",
+                "text": "Пространство диаграмм Charting Space обеспечивает отличный контроль над визуализацией информации, сгенерированной в других иерархиях.",
+                "updated": 1639374317686
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Grafik alanı, diğer hiyerarşilerde oluşturulan bilgilerin nasıl görselleştirildiği üzerinde büyük kontrol sağlar.",
+                "updated": 1644588539325
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Conceptually, Superalgos places the focus on the visual experience. Not just because it’s nice to see data in a graphical representation, but because our analysis capabilities are extended when we incorporate senses in the mix. Human’s capacity to think abstractly may be more or less developed across individuals, but one thing is clear: our thought process benefits from being able to see.",
-            "updated": 1610134441689
+            "updated": 1610134441689,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das Konzept von Superalgos legt den Schwerpunkt auf die visuelle Erfahrung. Nicht nur, weil es schön ist, Daten in einer grafischen Darstellung zu sehen, sondern weil unsere Analysefähigkeiten erweitert werden, wenn wir Sinne mit einbeziehen. Die Fähigkeit des Menschen, abstrakt zu denken, mag bei jedem Menschen mehr oder weniger ausgeprägt sein, aber eines ist klar: Unser Denkprozess profitiert davon, dass wir sehen können.",
+                    "updated": 1634486364773
+                },
+                {
+                    "language": "RU",
+                    "text": "Концептуально Superalgos делает акцент на визуальном восприятии. Не только потому, что приятно видеть данные в графическом представлении, но и потому, что наши возможности анализа расширяются, когда мы включаем в смесь органы чувств. Способность человека мыслить абстрактно может быть более или менее развита у разных людей. Но ясно одно: наш мыслительный процесс выигрывает от способности видеть.",
+                    "updated": 1639374285848
+                },
+                {
+                    "language": "TR",
+                    "text": "Kavramsal olarak, Superalgos görsel deneyime odaklanır.Sadece verileri grafiksel bir sunumda görmek güzel olduğu için değil, aynı zamanda karışıma duyuları dahil ettiğimizde analiz yeteneklerimiz genişlediği için. İnsanın soyut düşünme kapasitesi bireyler arasında az ya da çok gelişmiş olabilir, ancak bir şey açıktır: düşünce sürecimiz görebilmekten yararlanır.",
+                    "updated": 1644588671342
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The Charting Space is conceived to provide an unprecedented level of flexibility and control over the way information is displayed graphically. Everything that you see in the form of charts when you pull the slider down is configured in the charting space hierarchy while using the information available in other hierarchies.",
-            "updated": 1610134480039
+            "updated": 1610134480039,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Charting Space ist so konzipiert, dass er ein noch nie dagewesenes Maß an Flexibilität und Kontrolle über die Art und Weise bietet, wie Informationen grafisch dargestellt werden. Alles, was Sie in Form von Diagrammen sehen, wenn Sie den Schieberegler nach unten ziehen, wird in der Hierarchie des Charting Space konfiguriert, wobei die in anderen Hierarchien verfügbaren Informationen verwendet werden.",
+                    "updated": 1634486341592
+                },
+                {
+                    "language": "RU",
+                    "text": "Charting Space задуман таким образом, чтобы обеспечить беспрецедентный уровень гибкости и контроля над графическим отображением информации. Все, что вы видите в виде диаграмм при перемещении ползунка вниз, настраивается в иерархии пространства диаграмм с использованием информации, доступной в других иерархиях.",
+                    "updated": 1639374442968
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafik Alanı ( Charting Space ), benzeri görülmemiş düzeyde bir esneklik sağlamak ve bilgilerin grafiksel olarak görüntülenme şekli üzerinde kontrol sağlamak için tasarlanmıştır. Kaydırıcıyı aşağı çektiğinizde grafikler şeklinde gördüğünüz her şey, diğer hiyerarşilerde bulunan bilgileri kullanırken grafik alanı hiyerarşisinde yapılandırılır.",
+                    "updated": 1644588734783
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "In other words, you use the charting space hierarchy to create Time Machines and Timeline Charts, and to configure their scales and so on, but the information feeding those charts come from bots running on the Network hierarchy. Those bots obtain exchange and market information from the Crypto Ecosystem hierarchy via references, and their source code is defined in Data Mines.",
-            "updated": 1610134533861
+            "updated": 1610134533861,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Mit anderen Worten: Sie verwenden die Charting Space Hierarchie, um Time Machines und Timeline Charts zu erstellen und ihre Skalen usw. zu konfigurieren, aber die Informationen, die diese Charts speisen, stammen von Bots, die auf der Network hierarchy ( Hierarchie) laufen. Diese Bots beziehen Börsen- und Marktinformationen über Referenzen aus der Crypto Ecosystem Hierarchie, und ihr Quellcode ist in Data Mines definiert.",
+                    "updated": 1634486583344
+                },
+                {
+                    "language": "RU",
+                    "text": "Другими словами, вы используете иерархию пространства диаграмм для создания Time Machines and Timeline Charts, а также для настройки их масштабов и т. д., Но информация, поступающая в эти диаграммы, поступает от ботов, работающих в сетевой иерархии. Эти боты получают биржевую и рыночную информацию из иерархии Crypto Ecosystem через ссылки, а их исходный код определен в иерархии Data Mine.",
+                    "updated": 1639375175939
+                },
+                {
+                    "language": "TR",
+                    "text": "Başka bir deyişle, Zaman Makineleri ( Time Machine ) ve Zaman Çizelgesi Grafikleri oluşturmak ve bunların ölçeklerini vb. yapılandırmak için grafik alanı hiyerarşisini kullanırsınız, ancak bu çizelgeleri besleyen bilgiler Ağ hiyerarşisinde çalışan botlardan gelir. Bu botlar, referanslar aracılığıyla Kripto Ekosistem ( Crypto Ecosystem ) hiyerarşisinden borsa ve piyasa bilgilerini alır ve kaynak kodları Veri Madenlerinde ( Data Mines ) tanımlanır.",
+                    "updated": 1644589780200
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The above means that, in order to have information to visualize, you will first need to run sensor and indicator bots. We call that data mining, and it’s done from the data mining section of the network hierarchy."
+            "text": "The above means that, in order to have information to visualize, you will first need to run sensor and indicator bots. We call that data mining, and it’s done from the data mining section of the network hierarchy.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das bedeutet, dass Sie zunächst Sensor- und Indicator-Bots ausführen müssen, um Informationen zur Visualisierung zu erhalten. Wir nennen das Data-Mining, und es wird im Data-Mining-Bereich der network hierarchy durchgeführt.",
+                    "updated": 1634486674422
+                },
+                {
+                    "language": "RU",
+                    "text": "Вышеупомянутое означает, что для получения информации для визуализации вам сначала нужно запустить сенсорных и индикаторных ботов. Мы называем это интеллектуальным анализом данных \"data mining\", и это делается из раздела интеллектуального анализа данных сетевой иерархии.",
+                    "updated": 1639375802928
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarıdaki, görselleştirilecek bilgilere sahip olmak için önce sensör ve gösterge botlarını çalıştırmanız gerektiği anlamına gelir. Biz buna veri madenciliği diyoruz ve bu ağ hiyerarşisinin veri madenciliği bölümünden yapılıyor.",
+                    "updated": 1644589821030
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The workspaces shipping with the system feature several configurations of exchanges, markets, and charts that you may start using right away. To configure your own charts, you will need to learn the basics of the Charting Space, and that is exactly the information covered on these pages.",
-            "updated": 1610134602649
+            "updated": 1610134602649,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die mit dem System gelieferten Arbeitsbereiche enthalten mehrere Konfigurationen von Börsen, Märkten und Charts, die Sie sofort verwenden können. Um Ihre eigenen Charts zu konfigurieren, müssen Sie die Grundlagen des Charting Space erlernen, und genau diese Informationen werden auf diesen Seiten behandelt.",
+                    "updated": 1634486718746
+                },
+                {
+                    "language": "RU",
+                    "text": "Рабочие пространства, поставляемые с системой, содержат несколько конфигураций бирж, рынков и графиков, которые вы можете сразу же начать использовать. Чтобы настроить свои собственные диаграммы, вам нужно будет изучить основы Charting Space, и это именно та информация, которая представлена ​​на этих страницах.",
+                    "updated": 1639375755148
+                },
+                {
+                    "language": "TR",
+                    "text": "The workspaces shipping with the system feature several configurations of exchanges, markets, and charts that you Sistemle birlikte gönderilen çalışma alanları, hemen kullanmaya başlayabileceğiniz çeşitli borsa, piyasa ve çizelge konfigürasyonlarına sahiptir. Kendi çizelgelerinizi yapılandırmak için, Grafik Alanının ( Charting Space ) temellerini öğrenmeniz gerekecek ve bu, bu sayfalarda ele alınan bilgiler tam olarak budur.",
+                    "updated": 1644589881567
+                }
+            ]
         }
     ]
 }

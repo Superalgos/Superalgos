@@ -7,16 +7,64 @@
             "project": "Foundations",
             "name": ""
         },
-        "text": "The Panel Space is where all panels defined by plotters exist. The space has its own physics engine which governs the way users interact with panels, and panels with other panels."
+        "text": "The Panel Space is where all panels defined by plotters exist. The space has its own physics engine which governs the way users interact with panels, and panels with other panels.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Der Panelbereich ist der Ort, an dem alle von Plottern definierten Panels existieren. Der Bereich verfügt über eine eigene Physik-Engine, die die Art und Weise regelt, wie Benutzer mit Panels und Panels mit anderen Panels interagieren.",
+                "updated": 1641736659403
+        },
+        {                "language": "RU",
+                "text": "Panel Space - это место, где существуют все панели, определенные плоттерами. Пространство имеет свой собственный физический движок, который управляет тем, как пользователи взаимодействуют с панелями, а панели - с другими панелями.",
+                "updated": 1640931881651
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Panel Alanı, çiziciler tarafından tanımlanan tüm panellerin bulunduğu yerdir. Alanın, kullanıcıların panellerle ve panellerin diğer panellerle etkileşimini yöneten kendi fizik motoru vardır.",
+                "updated": 1643203584996
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Panels are constrained within the boundaries of the Panel Space, which matches the boundaries of the Charting Space."
+            "text": "Panels are constrained within the boundaries of the Panel Space, which matches the boundaries of the Charting Space.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Panels sind an die Grenzen des Panel Space gebunden, der mit den Grenzen des Charting Space übereinstimmt.",
+                    "updated": 1641736669044
+        },
+        {                    "language": "RU",
+                    "text": "Панели ограничены границами пространства панелей (Panel Space), которое совпадает с границами пространства Charting Space.",
+                    "updated": 1640931922223
+                },
+                {
+                    "language": "TR",
+                    "text": "Paneller, Grafik Alanının ( Charting Space ) sınırlarıyla eşleşen Panel Alanı sınırları içinde sınırlandırılmıştır.",
+                    "updated": 1643203633521
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "Although the panel space has existed since the project's inception, it is still quite underdeveloped, and there is a lot of room to improve it."
+            "text": "Although the panel space has existed since the project's inception, it is still quite underdeveloped, and there is a lot of room to improve it.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Obwohl der Panel-Bereich seit den Anfängen des Projekts existiert, ist er immer noch recht unterentwickelt, und es gibt viel Raum für Verbesserungen.",
+                    "updated": 1641736676281
+        },
+        {                    "language": "RU",
+                    "text": "Хотя пространство панелей существует с момента создания проекта, оно все еще довольно слабо развито, и есть много возможностей для его улучшения.",
+                    "updated": 1640931957540
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Panel alanı, projenin başlangıcından beri var olmasına rağmen, hala oldukça az gelişmiş durumda ve onu geliştirmek için çok yer var.",
+                    "updated": 1643203666327
+                }
+            ]
         }
     ]
 }

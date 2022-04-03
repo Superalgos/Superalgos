@@ -20,6 +20,26 @@
                 "text": "Antes de dejar el Trading System, echemos un vistazo rápido a una de estas órdenes y veamos qué puede ser de interés.",
                 "updated": 1624460743665,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Bevor wir das Handelssystem verlassen, lassen Sie uns einen kurzen Blick auf einen dieser Aufträge werfen, um zu sehen, was von Interesse sein könnte.",
+                "updated": 1634225948168
+            },
+            {
+                "language": "TR",
+                "text": "Ticaret sisteminden ayrılmadan önce, bu emirlerden birine hızlıca bir göz atalım ve neyin ilgi çekici olabileceğini görelim.",
+                "updated": 1636211034839
+            },
+            {
+                "language": "ID",
+                "text": "Sebelum kita meninggalkan trading system, mari kita lihat dengan cepat salah satu pesanan ini dan lihat mungkin ada yang menarik.",
+                "updated": 1640566644087
+            },
+            {
+                "language": "RU",
+                "text": "Прежде чем мы покинем торговую систему, давайте вкратце рассмотрим один из этих ордеров и посмотрим, что может вызвать интерес.",
+                "updated": 1642769049916
             }
         ]
     },
@@ -39,6 +59,26 @@
                     "text": "Expande Profit 0.6 y comprueba la fórmula del nodo Order Rate.",
                     "updated": 1624460823729,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Erweitern Sie Profit 0.6 und prüfen Sie die Formel des Knotens Order Rate.",
+                    "updated": 1634226017595
+                },
+                {
+                    "language": "TR",
+                    "text": "Profit 0.6'yı genişletin ve Sipariş Oranı düğümünün formülünü kontrol edin. (Düğümün üzerine geldiğinizde sol altta bulunan  ( + )butonu ile genişletebilirsiniz.)",
+                    "updated": 1636211159570
+                },
+                {
+                    "language": "ID",
+                    "text": "Expand Profit 0.6 dan periksa formula Order Rate node.",
+                    "updated": 1640566727451
+                },
+                {
+                    "language": "RU",
+                    "text": "Разверните Profit 0.6 и проверьте формулу узла Order Rate.",
+                    "updated": 1642769073928
                 }
             ]
         },
@@ -58,22 +98,33 @@
                     "text": "Centrémonos en esta parte misteriosa de la fórmula:",
                     "updated": 1624460862154,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Konzentrieren wir uns auf diesen mysteriösen Teil der Formel:",
+                    "updated": 1634226011471
+                },
+                {
+                    "language": "TR",
+                    "text": "Formülün bu gizemli parçasına odaklanalım:",
+                    "updated": 1636211171683
+                },
+                {
+                    "language": "ID",
+                    "text": "Mari kita fokus pada sedikit formula misterius ini :",
+                    "updated": 1640566761290
+                },
+                {
+                    "language": "RU",
+                    "text": "Давайте сосредоточимся на этой загадочной части формулы:",
+                    "updated": 1642769086685
                 }
             ]
         },
         {
-            "style": "Text",
-            "text": "tradingEngine.tradingCurrent.",
-            "updated": 1616429707529
-        },
-        {
-            "style": "Text",
-            "text": "position.exitTargetRate.value"
-        },
-        {
-            "style": "Text",
-            "text": "&nbsp;",
-            "updated": 1610642114068
+            "style": "Json",
+            "text": "tradingEngine.tradingCurrent.position.exitTargetRate.value",
+            "updated": 1630943899973
         },
         {
             "style": "Text",
@@ -90,6 +141,26 @@
                     "text": "La fórmula está obteniendo el valor del Exit Target Rate, definido en otro lugar. No nos enfoquemos en cuál puede ser esta tasa objetivo. En cambio, echemos un vistazo al mecanismo por el cual un Trading System puede tener acceso a la información procesada por el Trading Bot.",
                     "updated": 1624460952441,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Formel holt den Wert der an anderer Stelle definierten Exit Target Rate ab. Wir wollen uns nicht darauf konzentrieren, wie dieser Zielkurs aussehen könnte. Sehen wir uns stattdessen den Mechanismus an, über den ein Trading System  Zugriff auf die vom Trading Bot verarbeiteten Informationen haben kann.",
+                    "updated": 1634225991629
+                },
+                {
+                    "language": "TR",
+                    "text": "Formül, başka bir yerde tanımlanan Çıkış Hedef Oranının ( Exit Target Rate ) değerini getiriyor. Bu hedef oranın ne olabileceğine odaklanmayalım. Bunun yerine, bir Alım Satım Sisteminin ( Trading System ) Alım Satım Botu tarafından işlenen bilgilere erişme mekanizmasına bir göz atalım.",
+                    "updated": 1636211282034
+                },
+                {
+                    "language": "ID",
+                    "text": "Formula ini mengambil nilai dari Exit Target Rate, yang ditentukan di tempat lain. Jangan fokus pada tingkat target ini. Sebagai gantinya, mari kita lihat mekanisme di mana Trading System dapat memiliki akses ke informasi yang diproses oleh Trading Bot.",
+                    "updated": 1640566862084
+                },
+                {
+                    "language": "RU",
+                    "text": "Формула получает значение Exit Target Rate, определенное в другом месте. Не будем заострять внимание на том, какой может быть эта целевая ставка. Вместо этого рассмотрим механизм, с помощью которого торговая система может получить доступ к информации, обрабатываемой торговым ботом.",
+                    "updated": 1642769189322
                 }
             ]
         }

@@ -1,0 +1,69 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 59,
+    "type": "Tutorial Step - Is There Room For Nuance?",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "space-style"
+        },
+        "text": "Should the testing of a trading idea output black or white results? That's a good question... one that only you may answer!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Sollte das Testen einer Handelsidee schwarze oder weiße Ergebnisse liefern? Das ist eine gute Frage... eine, die nur Sie beantworten können!",
+                "updated": 1639418979109
+            },
+            {
+                "language": "TR",
+                "text": "Bir ticaret fikrini test etmek iyi yoksa kötü sonuçlar mı üretmeli? Bu iyi bir soru... sadece senin cevaplayabileceğin bir soru!",
+                "updated": 1641807680233
+            },
+            {
+                "language": "RU",
+                "text": "Должно ли тестирование торговой идеи давать черные или белые результаты? Это хороший вопрос... на который можете ответить только вы!",
+                "updated": 1642945599023
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "Is your testing criteria rock-solid? If you trust the testing criteria and are confident the prediction must be fulfilled for the idea to be worth it, then you should probably stick to the hard numbers.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sind Ihre Testkriterien grundsolide? Wenn Sie den Testkriterien vertrauen und davon überzeugt sind, dass die Vorhersage erfüllt werden muss, damit sich die Idee lohnt, sollten Sie sich wahrscheinlich an die harten Zahlen halten.",
+                    "updated": 1639418990659
+                },
+                {
+                    "language": "TR",
+                    "text": "Test kriterleriniz kaya gibi sağlam mı? Test kriterlerine güveniyorsanız ve fikrin değerli olması için tahminin karşılanması gerektiğine inanıyorsanız, muhtemelen kesin sayılara bağlı kalmalısınız.",
+                    "updated": 1641808507819
+                },
+                {
+                    "language": "RU",
+                    "text": "Надежны ли ваши критерии тестирования? Если вы доверяете критериям тестирования и уверены, что прогноз должен оправдаться, чтобы идея оправдала себя, тогда вам, вероятно, следует придерживаться конкретных цифр.",
+                    "updated": 1642945633696
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Is your testing criteria more like a guideline or first assessment? In our case, I may openly confess that the testing criteria proposed is rather arbitrary, and doesn't hold water if questioned. I chose a simple criteria to make a point and facilitate the explanations, but I wouldn't defend it in a court of my peers! If you see the testing criteria as a first assessment only, then there should probably be room for a more nuanced analysis.",
+            "updated": 1610473653651,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sind Ihre Prüfkriterien eher ein Leitfaden oder eine erste Einschätzung? In unserem Fall darf ich offen zugeben, dass die vorgeschlagenen Prüfkriterien ziemlich willkürlich sind und im Zweifelsfall keinen Bestand haben. Ich habe ein einfaches Kriterium gewählt, um eine Aussage zu treffen und die Erklärungen zu erleichtern, aber ich würde es nicht vor einem Gericht verteidigen! Wenn Sie die Prüfkriterien nur als eine erste Einschätzung betrachten, dann sollte es wohl Raum für eine differenziertere Analyse geben.",
+                    "updated": 1639419001212
+                },
+                {
+                    "language": "RU",
+                    "text": "Являются ли ваши критерии тестирования скорее руководством к действию или первой оценкой? В нашем случае я могу открыто признаться, что предложенные критерии тестирования довольно произвольны и не выдерживают критики, если их подвергнуть сомнению. Я выбрал простой критерий, чтобы донести свою точку зрения и облегчить объяснения, но я не стал бы защищать его в суде своих коллег! Если вы рассматриваете критерии тестирования только как первую оценку, то, вероятно, должно остаться место для более тонкого анализа.",
+                    "updated": 1642945671180
+                }
+            ]
+        }
+    ]
+}

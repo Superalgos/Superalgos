@@ -4,7 +4,7 @@
     "type": "Tutorial Step - The Hard Data",
     "definition": {
         "icon": {
-           "project": "Foundations",
+            "project": "Foundations",
             "name": "plotter-panel"
         },
         "text": "A Plotter Panel features non-graphical representations of data, mostly in the form of numerical values or text.",
@@ -18,7 +18,28 @@
             {
                 "language": "ES",
                 "text": "Un Plotter Panel presenta representaciones no gráficas de datos, principalmente en forma de valores numéricos o texto.",
-                "updated": 1624410194484
+                "updated": 1624410194484,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Ein Plotter Panel enthält nicht-grafische Darstellungen von Daten, meist in Form von numerischen Werten oder Text.",
+                "updated": 1634218122317
+            },
+            {
+                "language": "TR",
+                "text": "Bir Plotter Paneli, çoğunlukla sayısal değerler veya metin biçiminde verileri içerir.",
+                "updated": 1636096630769
+            },
+            {
+                "language": "RU",
+                "text": "Plotter Panel содержит неграфические представления данных, в основном виде числовых значений или текста.",
+                "updated": 1636567221705
+            },
+            {
+                "language": "ID",
+                "text": "Plotter Panel menampilkan representasi data non-grafis, sebagian besar dalam bentuk nilai numerik atau teks.",
+                "updated": 1639587646731
             }
         ]
     },
@@ -36,7 +57,28 @@
                 {
                     "language": "ES",
                     "text": "Cada capa puede presentar o no uno o más paneles asociados. Depende del desarrollador del Bot indicador correspondiente definirlos o no.",
-                    "updated": 1624410271230
+                    "updated": 1624410271230,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Jede Ebene kann ein oder mehrere zugehörige Panels enthalten oder auch nicht. Es liegt im Ermessen des Entwicklers des entsprechenden Indicator Bot, ob er diese definiert oder nicht.",
+                    "updated": 1634218128665
+                },
+                {
+                    "language": "TR",
+                    "text": "Her katman, bir veya daha fazla ilişkili panel içerebilir veya içermeyebilir. Bunları tanımlamak veya tanımlamamak ilgili Gösterge Botunun ( Indicator Bot ) geliştiricisine bağlıdır.",
+                    "updated": 1636096681002
+                },
+                {
+                    "language": "RU",
+                    "text": "Каждый слой может содержать или не содержать одну или несколько соответствующих панелей. Определять их или нет, - зависит от разработчика соответствующего Indicator Bot.",
+                    "updated": 1636567398843
+                },
+                {
+                    "language": "ID",
+                    "text": "Setiap layer mungkin atau mungkin tidak menampilkan satu atau lebih panel terkait. Terserah pengembang Bot Indikator yang sesuai untuk menentukannya atau tidak.",
+                    "updated": 1639587864338
                 }
             ]
         },
@@ -53,13 +95,34 @@
                 {
                     "language": "ES",
                     "text": "Para acceder a los paneles, haz clic con el botón izquierdo en el icono del panel del trazador de la capa de tu elección.",
-                    "updated": 1624410322152
+                    "updated": 1624410322152,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Um auf die Panels zuzugreifen, klicken Sie mit der linken Maustaste auf das Symbol des Plotter-Panels der gewünschten Ebene.",
+                    "updated": 1634218135107
+                },
+                {
+                    "language": "TR",
+                    "text": "Panellere erişmek için, seçilen katmanın çizici paneli simgesine sol tıklayın.",
+                    "updated": 1636096699582
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы получить доступ к панелям, щелкните левой кнопкой мыши значок панели плоттера выбранного слоя.",
+                    "updated": 1636567465686
+                },
+                {
+                    "language": "ID",
+                    "text": "Untuk mengakses panel, klik kiri pada icon plotter panel dari layers pilihan.",
+                    "updated": 1639587776166
                 }
             ]
         },
         {
             "style": "Success",
-            "text": "You may move layers managers and plotter panels by left-clicking on their headers and dragging them to any corner of the screen.",
+            "text": "You may move layer managers and plotter panels by left-clicking on their headers and dragging them to any corner of the screen.",
             "translations": [
                 {
                     "language": "IT",
@@ -70,9 +133,31 @@
                 {
                     "language": "ES",
                     "text": "Puedes mover el Layer Manager y Plotter Panel haciendo clic con el botón izquierdo en sus encabezados y arrastrándolos a cualquier esquina de la pantalla.",
-                    "updated": 1624410466327
+                    "updated": 1624410466327,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können Ebenenmanager und Plotterfelder verschieben, indem Sie mit der linken Maustaste auf die Kopfzeile klicken und sie in eine beliebige Ecke des Bildschirms ziehen. ",
+                    "updated": 1642151943374
+                },
+                {
+                    "language": "TR",
+                    "text": "Katman yöneticilerini ve çizici panellerini, başlıklarına sol tıklayarak ve ekranın herhangi bir köşesine sürükleyerek taşıyabilirsiniz.",
+                    "updated": 1636096719299
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы можете перемещать менеджеры слоев и панели плоттера, щелкнув левой кнопкой мыши на их заголовках и перетащив их в любой угол экрана. ",
+                    "updated": 1641833293138
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu dapat memindahkan layers manager dan plotter panels dengan mengklik kiri pada headernya dan menyeretnya ke sudut mana pun di layar.",
+                    "updated": 1639587712869
                 }
-            ]
+            ],
+            "updated": 1640359316083
         }
     ]
 }

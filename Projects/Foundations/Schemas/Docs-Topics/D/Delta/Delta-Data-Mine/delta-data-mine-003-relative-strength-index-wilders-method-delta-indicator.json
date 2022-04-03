@@ -1,0 +1,128 @@
+{
+    "topic": "Delta Data Mine",
+    "pageNumber": 3,
+    "type": "Relative Strength Index - Wilder's Method - Delta Indicator",
+    "definition": {
+        "text": "Produces the relative strength index using Wilder's smoothing method.",
+        "updated": 1636853769,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Erzeugt den Index der relativen Stärke unter Verwendung der Glättungsmethode von Wilder‘s.",
+                "updated": 1644722106407
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "RSI-W On the Charts",
+            "updated": 1636853769,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "RSI-W auf den Charts",
+                    "updated": 1644722121800
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The Wilder's method of calculating RSI uses a form of exponential averaging, versus the traditional RSI calculation of simple averaging. Wilder's method results in fewer wild swings than traditional RSI, but can also filter out some important signals. This signal uses 14 candle periods to perform its calculations.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Wilder's Methode zur Berechnung des RSI verwendet eine Form der exponentiellen Mittelwertbildung im Gegensatz zur traditionellen RSI-Berechnung mit einfacher Mittelwertbildung. Die Wilder‘s Methode führt zu weniger wilden Ausschlägen als der traditionelle RSI, kann aber auch einige wichtige Signale herausfiltern. Dieses Signal verwendet 14 Kerzenperioden, um seine Berechnungen durchzuführen.",
+                    "updated": 1644722136128
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Delta-RSIW-on-the-chart.png",
+            "updated": 1636853769
+        },
+        {
+            "style": "Text",
+            "text": "The oversold and overbought regions can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Initialization under “RSI-W14” Product Definition.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die überverkauften und überkauften Regionen können geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Initialization unter \"RSI-W14\" Product Definition gesucht und geöffnet wird.",
+                    "updated": 1644722148947
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Delta-RSIW-params.png",
+            "updated": 1636853769
+        },
+        {
+            "style": "Title",
+            "text": "RSI-W Products & Properties",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "RSI-W Produkte & Eigenschaften",
+                    "updated": 1644722162744
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The properties available are:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die verfügbaren Eigenschaften sind:",
+                    "updated": 1644722173022
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| RSI Wilder Method | RSI-W14 | value, oversold, overbought |",
+            "updated": 1636853769,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| RSI Wilder Method | RSI-W14 | value, oversold, overbought |\n",
+                    "updated": 1644722189029
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Examples:",
+            "updated": 1636853769,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiele:",
+                    "updated": 1644722202168
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "A basic strategy can be built by looking at the oversold/overbought areas of the RSI:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Eine grundlegende Strategie kann durch die Betrachtung der überverkauften/überkauften Bereiche des RSI erstellt werden:",
+                    "updated": 1644722215513
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.RSI-W14.mvwap3 > chart.at01hs.RSI-W14.overbought",
+            "updated": 1636853769
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

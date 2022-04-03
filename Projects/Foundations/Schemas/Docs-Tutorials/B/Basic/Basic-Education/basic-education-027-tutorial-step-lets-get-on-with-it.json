@@ -6,7 +6,7 @@
         "text": "What if the nodes are far away from each other, maybe even in different hierarchies? Watch the video to learn a few tricks!",
         "updated": 1616098998366,
         "icon": {
-            "name": "Mouse\\mouse-right-click",
+            "name": "copy-position",
             "project": "Foundations"
         },
         "translations": [
@@ -21,6 +21,21 @@
                 "text": "¿Qué pasa si los nodos están muy lejos unos de otros, tal vez incluso en diferentes jerarquías? ¡Mira el video y aprende algunos trucos!",
                 "updated": 1626540840863,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Was tun, wenn die Knoten weit voneinander entfernt sind, vielleicht sogar in verschiedenen Hierarchien? Sehen Sie sich das Video an und lernen Sie ein paar Tricks!",
+                "updated": 1634334595517
+            },
+            {
+                "language": "TR",
+                "text": "Ya Düğümler birbirinden çok uzaktaysa, hatta belki farklı hiyerarşilerdeyse? Birkaç püf noktası öğrenmek için videoyu izleyin!",
+                "updated": 1639488625000
+            },
+            {
+                "language": "RU",
+                "text": "Что делать, если узлы находятся далеко друг от друга, возможно, даже в разных иерархиях? Посмотрите видео, чтобы узнать несколько приемов!",
+                "updated": 1640869528063
             }
         ]
     },
@@ -41,30 +56,27 @@
                     "text": "Estos trucos UI pueden facilitarle la vida:",
                     "updated": 1626540682262,
                     "style": "Text"
-                }
-            ]
-        },
-        {
-            "style": "List",
-            "text": "Use the design space map as many times as required to find your way from node to node.",
-            "translations": [
-                {
-                    "language": "IT",
-                    "text": "Usa la mappa del design space tante volte quante serve per trovare il percorso tra i nodi.",
-                    "updated": 1619501801090,
-                    "style": "List"
                 },
                 {
-                    "language": "ES",
-                    "text": "Utiliza el mapa del espacio de diseño para encontrar tu camino de nodo en nodo.",
-                    "updated": 1626541152202,
-                    "style": "List"
+                    "language": "DE",
+                    "text": "Diese UI-Tricks können Ihnen das Leben leichter machen:",
+                    "updated": 1634334609357
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu UI ( User Interface ) hileleri hayatınızı kolaylaştırabilir:",
+                    "updated": 1639488655612
+                },
+                {
+                    "language": "RU",
+                    "text": "Эти приемы пользовательского интерфейса могут облегчить вам жизнь:",
+                    "updated": 1640869539046
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Pin the node you are going to move across the design space, so that you may drop it at any point to check the design space map for directions.",
+            "text": "Pin the node you are going to move across the design space, so that it will stay where you drop it!",
             "translations": [
                 {
                     "language": "IT",
@@ -77,13 +89,29 @@
                     "text": "Fije el nodo que va a mover a través del espacio de diseño, de modo que pueda soltarlo en cualquier punto para verificar las direcciones en el mapa del espacio de diseño.",
                     "updated": 1626540729452,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Stecken Sie den Knoten, den Sie verschieben wollen, in den Entwurfsbereich, damit er dort bleibt, wo Sie ihn ablegen!",
+                    "updated": 1641741319676
+                },
+                {
+                    "language": "TR",
+                    "text": "Tasarım alanı boyunca hareket ettireceğiniz düğümü sabitleyin, böylece hareket ettirdiğiniz düğümü tasarım alanında herhangi bir noktada bıraktığınızda sabit kalacaktır.",
+                    "updated": 1639558424076
+                },
+                {
+                    "language": "RU",
+                    "text": "Закрепите узел, который вы собираетесь переместить, в пространстве проектирования, чтобы он остался там, куда вы его переместите!",
+                    "updated": 1640869565155
                 }
-            ]
+            ],
+            "updated": 1640097977030
         },
         {
             "style": "List",
-            "text": "Use Ctrl / Cmd + arrow keys to drag the node across the screen after clicking on it with the mouse. Keep keys pressed and the node flies!",
-            "updated": 1615807572088,
+            "text": "Click the \"Save node to be moved\" button on the node you wish to move.",
+            "updated": 1640098072442,
             "translations": [
                 {
                     "language": "IT",
@@ -96,6 +124,55 @@
                     "text": "Usa Ctrl / Cmd + teclas de flecha para arrastrar el nodo por la pantalla después de hacer clic en él con el mouse. ¡Mantén las teclas presionadas y el nodo vuela!",
                     "updated": 1626540759534,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie auf die Schaltfläche \"Save node to be moved\" auf dem Knoten, den Sie verschieben möchten. ",
+                    "updated": 1641741355901
+                },
+                {
+                    "language": "TR",
+                    "text": "Farenin sağ tuşu ile üzerine tıkladıktan sonra düğümü ekran boyunca sürüklemek için Windows'ta Ctrl  + ok tuşları, Mac'te ise Cmd + ok tuşlarını kullanın.",
+                    "updated": 1639558498078
+                },
+                {
+                    "language": "RU",
+                    "text": "Нажмите кнопку \"Save node to be moved\" на узле, который вы хотите переместить.",
+                    "updated": 1640869596572
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Use the design space map to zoom out and click near the node to which you wish to travel. ",
+            "updated": 1640098364795,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Verkleinern Sie die Karte des Designraums und klicken Sie in die Nähe des Knotens, zu dem Sie reisen möchten.",
+                    "updated": 1641741272856
+                },
+                {
+                    "language": "RU",
+                    "text": "Используйте карту пространства проектирования для уменьшения масштаба и щелкните рядом с узлом, к которому вы хотите переместиться.",
+                    "updated": 1640869613645
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Click \"Snap saved node to postion\" and the node you saved will magically appear on top of the node you are at!",
+            "updated": 1640098421986,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie auf \"Gespeicherten Knoten an Position fangen\", und der gespeicherte Knoten erscheint auf magische Weise über dem Knoten, an dem Sie sich befinden!",
+                    "updated": 1641741282424
+                },
+                {
+                    "language": "RU",
+                    "text": "Нажмите \" Snap saved node to postion\", и сохраненный вами узел волшебным образом появится поверх узла, на котором вы находитесь!",
+                    "updated": 1640869638264
                 }
             ]
         },
@@ -104,16 +181,14 @@
             "text": "Remove the pin once the reference is established so that the node goes back to its place.",
             "translations": [
                 {
-                    "language": "IT",
-                    "text": "Rimuovi il pin una volta stabilita la reference, così da rimandare il nodo al suo posto.",
-                    "updated": 1619501980789,
-                    "style": "List"
+                    "language": "DE",
+                    "text": "Entfernen Sie die Stecknadel, sobald der Bezug hergestellt ist, damit der Knoten an seinen Platz zurückkehrt.",
+                    "updated": 1641741288724
                 },
                 {
-                    "language": "ES",
-                    "text": "Retira el pin una vez que se establezca la referencia para que el nodo vuelva a su lugar.",
-                    "updated": 1626540795482,
-                    "style": "List"
+                    "language": "RU",
+                    "text": "Удалите штифт после установления ссылки, чтобы узел вернулся на свое место.",
+                    "updated": 1640870003951
                 }
             ]
         }

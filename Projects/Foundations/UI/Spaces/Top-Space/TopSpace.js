@@ -13,18 +13,20 @@ function newFoundationsTopSpace() {
     resize()
 
     thisObject.container.isDraggeable = false
+    thisObject.container.isClickeable = true
     let backgroundImage
     let logoImage
     return thisObject
 
     function initialize() {
         canvas.eventHandler.listenToEvent('Browser Resized', resize)
+        thisObject.container.eventHandler.listenToEvent('onMouseClick', () => {})
 
         backgroundImage = new Image()
         logoImage = new Image()
 
         loadImage('superalgos-header-background', backgroundImage)
-        loadImage('sa-beta11-logo-horiz-dark', logoImage)
+        loadImage('sa-v10-logo-horiz-dark', logoImage)
 
         function loadImage(name, image) {
             const PATH = 'Images/'
@@ -50,7 +52,11 @@ function newFoundationsTopSpace() {
     }
 
     function getContainer(point) {
-
+        if (thisObject.container.frame.isThisPointHere(point, true) === true) {
+            return thisObject.container
+        } else {
+            return undefined
+        }
     }
 
     function draw() {

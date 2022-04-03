@@ -22,8 +22,6 @@ exports.newMLDataObj = function(featureLen, labelLen) {
     /* Variables Section: */
     var _features = {};     // Features Object
     var _labels = {};       // Labels Object
-    var feats = []
-    var labs = []
     //var _rank = [];       // Future expansion placeholder variable. [Feature Tensor Rank, Label Tensor Rank]
 
     /* stats{} : Statistics producer object:
@@ -339,7 +337,7 @@ exports.newMLDataObj = function(featureLen, labelLen) {
 
 
     /*  A rank two tensor is what we typically think of as a matrix, a rank one tensor is a vector.
-     *  For a rank two tensor you can acccess any element with the syntax t[i, j].
+     *  For a rank two tensor you can access any element with the syntax t[i, j].
      *  For a rank three tensor you would need to address an element with t[i, j, k].
      */
     // setRank() : placeholder for future expansion past sequential model.

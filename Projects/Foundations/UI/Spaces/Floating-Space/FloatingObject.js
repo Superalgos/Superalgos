@@ -15,7 +15,7 @@ function newFloatingObject() {
         type: undefined,                        // Currently there are two types of Floating Objects: Profile Balls, and Notes.
         currentSpeed: 0,                        // This is the current speed of the floating object.
         currentMass: 0,                         // This is the current mass of the floating object, including its zoom applied.
-        friction: 0,                            // This is a factor that will ultimatelly desacelerate the floating object.
+        friction: 0,                            // This is a factor that will ultimately decelerate the floating object.
         targetFriction: 0,
         rawMass: 0,                             // This is the mass value without zoom.
         rawRadius: 0,                           // This is the radius of this floating object without zoom.
@@ -31,6 +31,7 @@ function newFloatingObject() {
         collapsedManually: false,
         typeStrokeStyle: undefined,
         nameStrokeStyle: undefined,
+        isVisibleFunction: isVisibleFunction,
         forceFocus: forceFocus,
         removeForceFocus: removeForceFocus,
         setFocus: setFocus,
@@ -74,6 +75,7 @@ function newFloatingObject() {
     thisObject.container.isClickeable = true
     thisObject.container.isDraggeable = true
     thisObject.container.detectMouseOver = true
+    thisObject.container.isVisibleFunction = thisObject.isVisibleFunction
     thisObject.container.frame.radius = 0
     thisObject.container.frame.position.x = 0
     thisObject.container.frame.position.y = 0
@@ -357,7 +359,7 @@ function newFloatingObject() {
                 if (parent.payload === undefined) { return }
                 if (parent.payload.position === undefined) { return }
                 distanceToParent = Math.sqrt(Math.pow(parent.payload.position.x - thisObject.container.frame.position.x, 2) + Math.pow(parent.payload.position.y - thisObject.container.frame.position.y, 2))  // ... we calculate the distance ...
-                parentChildren = UI.projects.foundations.spaces.designSpace.workspace.nodeChildren.childrenCount(parent, thisObject.payload.node)
+                parentChildren = UI.projects.visualScripting.nodeActionFunctions.nodeChildren.childrenCount(parent, thisObject.payload.node)
                 parentDistanceToGarndParent = parent.payload.distance
             }
 
@@ -576,7 +578,11 @@ function newFloatingObject() {
 
             if (thisObject.isOnFocus === true) {
                 animationStepSize = (targetRadiusWithFocus() - targetRadiusWithoutFocus()) / ANIMATION_STEPS
-                if (thisObject.container.frame.radius >= targetRadiusWithFocus()) { return }
+                if (thisObject.container.frame.radius > targetRadiusWithFocus()) { 
+                    thisObject.container.frame.radius = targetRadiusWithFocus()
+                    thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
+                    return 
+                }
                 thisObject.container.frame.radius = thisObject.container.frame.radius + animationStepSize
                 if (thisObject.container.frame.radius >= targetRadiusWithFocus()) {
                     thisObject.container.frame.radius = targetRadiusWithFocus()
@@ -584,7 +590,11 @@ function newFloatingObject() {
                 thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
             } else {
                 animationStepSize = (targetRadiusWithoutFocus() - targetRadiusWithFocus()) / ANIMATION_STEPS
-                if (thisObject.container.frame.radius <= targetRadiusWithoutFocus()) { return }
+                if (thisObject.container.frame.radius < targetRadiusWithoutFocus()) { 
+                    thisObject.container.frame.radius = targetRadiusWithoutFocus()
+                    thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
+                    return 
+                }
                 thisObject.container.frame.radius = thisObject.container.frame.radius + animationStepSize
                 if (thisObject.container.frame.radius <= targetRadiusWithoutFocus()) {
                     thisObject.container.frame.radius = targetRadiusWithoutFocus()
@@ -825,5 +835,16 @@ function newFloatingObject() {
     }
 
     function updateRadius() {
+    }
+
+    function isVisibleFunction(point){
+        if(point.x <= UI.projects.foundations.spaces.floatingSpace.container.frame.width + (browserCanvas.width / 2) && point.x >= 0
+            && point.y <= UI.projects.foundations.spaces.floatingSpace.container.frame.height + (browserCanvas.height / 2) && point.y >= 0) {
+
+            return true
+        }
+        else{
+            return false
+        }
     }
 }

@@ -4,7 +4,19 @@
     "type": "Data Mining - Plotters",
     "definition": {
         "text": "Plotters read data products created by bots and map certain coordinate points to use them as vertices for polygons, which are assigned styles to create graphic representations of the underlying data.",
-        "updated": 1611431276108
+        "updated": 1611431276108,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Plotter lesen von Bots erstellte Datenprodukte und bilden bestimmte Koordinatenpunkte ab, um sie als Eckpunkte für Polygone zu verwenden, denen Stile zugewiesen werden, um grafische Darstellungen der zugrunde liegenden Daten zu erstellen.",
+                "updated": 1635368884704
+            },
+            {
+                "language": "RU",
+                "text": "Плоттеры читают продукты данных, созданные ботами, и наносят на экран определенные координатные точки, чтобы использовать их в качестве вершин для многоугольников, которым назначаются стили для создания графических представлений базовых данных.",
+                "updated": 1639724065813
+            }
+        ]
     },
     "paragraphs": [
         {

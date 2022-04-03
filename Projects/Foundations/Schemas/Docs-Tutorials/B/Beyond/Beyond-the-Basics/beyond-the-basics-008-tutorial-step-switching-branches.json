@@ -19,7 +19,23 @@
             {
                 "language": "ES",
                 "text": "¡Superalgos te permite cambiar de rama directamente desde la aplicación! Pero, ¿por qué querrías cambiar de rama?",
-                "updated": 1628122007840
+                "updated": 1628122007840,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Mit Superalgos können Sie direkt aus der App heraus den Zweig wechseln! Aber warum sollten Sie den Zweig (Branch) wechseln wollen?",
+                "updated": 1634821291313
+            },
+            {
+                "language": "RU",
+                "text": "Superalgos позволяет вам переключать ветви прямо из приложения! Но зачем вам менять ветки?",
+                "updated": 1640155464550
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos, doğrudan uygulama içinden dallar ( Branch ) arasında geçiş yapmanızı sağlar! Ama neden Branch değiştirmek isteyesiniz?",
+                "updated": 1640382531378
             }
         ]
     },
@@ -38,7 +54,23 @@
                 {
                     "language": "ES",
                     "text": "Superalgos está mejorando constantemente. En algún momento, es posible que desee probar la versión del software en la rama de desarrollo. Tal vez haya una nueva característica o una solución para un error que aún no ha llegado a la rama maestra...",
-                    "updated": 1628122074246
+                    "updated": 1628122074246,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos wird ständig weiterentwickelt. Irgendwann möchten Sie vielleicht die Softwareversion im Entwicklungszweig ausprobieren. Vielleicht gibt es eine neue Funktion oder eine Fehlerbehebung, die es noch nicht in den Master-Zweig geschafft hat...",
+                    "updated": 1634821261891
+                },
+                {
+                    "language": "RU",
+                    "text": "Superalgos постоянно совершенствуется. В какой-то момент вы, возможно, захотите попробовать версию программы в ветке разработчиков. Возможно, там есть новая функция или исправление ошибки, которая еще не попала в основную ветку...",
+                    "updated": 1640155496012
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos sürekli gelişiyor. Bir noktada, geliştirme dalında ( Develop Branch ) yazılım sürümünü denemek isteyebilirsiniz. Belki yeni bir özellik vardır ya da henüz ana dalda ( Master Branch ) olmayan, bir hata için bir düzeltme vardır...",
+                    "updated": 1640382663346
                 }
             ]
         },
@@ -56,14 +88,30 @@
                 {
                     "language": "ES",
                     "text": "¡Tal vez desees enviar una contribución, como en nuestro caso ahora mismo! ¡hagámoslo!",
-                    "updated": 1628122187462
+                    "updated": 1628122187462,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Oder Sie möchten einen Beitrag einreichen, wie in unserem Fall gerade jetzt! Los geht's!",
+                    "updated": 1634821203097
+                },
+                {
+                    "language": "RU",
+                    "text": "Или вы можете внести свой вклад, как в нашем случае прямо сейчас! Давайте сделаем это!",
+                    "updated": 1640155509855
+                },
+                {
+                    "language": "TR",
+                    "text": "Veya şu anda bizim durumumuzda olduğu gibi bir katkı sunmak isteyebilirsiniz! Haydi Yapalım şunu!",
+                    "updated": 1640382681608
                 }
             ]
         },
         {
             "style": "Callout",
-            "text": "Scroll down the Docs page to the footer and select Plugins-Docs as your Contributions Branch! It's the option on the right-hand side, not in the center!",
-            "updated": 1619794957137,
+            "text": "Scroll down the Docs page to the footer and select Develop as your Contributions Branch! It's the option on the right-hand side, not in the center!",
+            "updated": 1636912795665,
             "translations": [
                 {
                     "language": "IT",
@@ -74,7 +122,23 @@
                 {
                     "language": "ES",
                     "text": "Desplázate hacia abajo en Docs hasta el pie de página y selecciona Plugins-Docs. ¡Es la opción del lado derecho, no del centro!",
-                    "updated": 1628122390826
+                    "updated": 1628122390826,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Scrollen Sie auf der Docs-Seite bis zur Fußzeile und wählen Sie develop als Ihren Beitragszweig! Es ist die Option auf der rechten Seite, nicht in der Mitte!  ",
+                    "updated": 1638832110555
+                },
+                {
+                    "language": "RU",
+                    "text": "Прокрутите страницу Docs вниз до нижнего колонтитула и выберите Develop в качестве Contributions Branch! Это опция с правой стороны, а не в центре!",
+                    "updated": 1640155537282
+                },
+                {
+                    "language": "TR",
+                    "text": "Dokümanlar sayfasını ( bu sayfayı yani ) aşağı kaydırın ve Contributions Branch olarak Develop 'ı seçin! Ortadaki \"Choose The Current Branch\" altındaki seçeneklerde değil , sağ taraftaki seçenek!",
+                    "updated": 1640382892211
                 }
             ]
         }

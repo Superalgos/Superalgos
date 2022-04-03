@@ -27,6 +27,7 @@ function newFoundationsDocsCommmandInterface() {
     function detectAppCommands() {
         if (checkContributeCommand() === undefined) { return true }
         if (checkUpdateCommand() === undefined) { return true }
+        if (fixAppSchema() === undefined) { return true }
 
         function checkContributeCommand() {
             if (UI.projects.education.spaces.docsSpace.commandInterface.command.toLowerCase() === 'app.help app.contribute') {
@@ -42,7 +43,7 @@ function newFoundationsDocsCommmandInterface() {
             }
 
             /* Find the Username and Password */
-            let apisNode = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadByNodeType('APIs')
+            let apisNode = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadByNodeType('APIs')
             if (apisNode === undefined) {
                 UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
                 return
@@ -113,7 +114,7 @@ function newFoundationsDocsCommmandInterface() {
                 /* Lets check the result of the call through the http interface */
                 data = JSON.parse(data)
                 if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.CUSTOM_OK_RESPONSE.result) {
-                    if (data.message.summary.changes + data.message.summary.deletions + data.message.summary.insertions > 0) {
+                    if (data.message.reposUpdated === true) {
                         UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Message - Update Done - New Version Found')
                     } else {
                         UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Message - Update Done - Already Up-To-Date')
@@ -128,6 +129,19 @@ function newFoundationsDocsCommmandInterface() {
                         data.docs.placeholder
                     )
                 }
+            }
+        }
+
+        function fixAppSchema() {
+
+            if (UI.projects.education.spaces.docsSpace.commandInterface.command.indexOf('App.fix') !== 0 && UI.projects.education.spaces.docsSpace.commandInterface.command.indexOf('app.fix') !== 0) { return 'Not Update Commands' }
+
+            httpRequest(undefined, 'App/FixAppSchema', onResponse)
+
+            return
+
+            function onResponse(err, data) {
+
             }
         }
     }
@@ -535,7 +549,7 @@ function newFoundationsDocsCommmandInterface() {
 
             function afterSaving() {
                 /*
-                Since all the changes where saved, we need to remove the change flags at the different shcema documents.
+                Since all the changes where saved, we need to remove the change flags at the different schema documents.
                 We also need to remove from the arrays the deleted items.
                 */
                 for (let j = 0; j < PROJECTS_SCHEMA.length; j++) {

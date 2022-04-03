@@ -4,20 +4,71 @@
     "type": "Tutorial Step - How Do We Go About It?",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "target-rate"
+            "name": "Target\\target-rate",
+            "project": "Foundations"
         },
-        "text": "Remember we are taking the position at the close of the 1H candle, whenever the take position event validates true."
+        "text": "Remember we are taking the position at the close of the 1H candle, whenever the take position event validates true.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Denken Sie daran, dass wir die Position zum Abschluss der 1H-Kerze einnehmen, sobald das Ereignis \"Position einnehmen\" bestätigt wird.",
+                "updated": 1639395489264
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Unutmayın, \"pozisyon al\" olayı onaylandıktan sonra 1h Mumunu kapatmak için pozisyon alacağız.",
+                "updated": 1641668233874
+            },
+            {
+                "language": "RU",
+                "text": "Помните, что мы берем позицию на закрытии свечи 1H, когда событие взятия позиции становится истинным.",
+                "updated": 1642776955600
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "What would be a reasonable rate, then?"
+            "text": "What would be a reasonable rate, then?",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Was wäre dann ein angemessener Kurs?",
+                    "updated": 1639395510815
+                },
+                {
+                    "language": "TR",
+                    "text": "O zaman makul bir oran ne olurdu?",
+                    "updated": 1641668255791
+                },
+                {
+                    "language": "RU",
+                    "text": "Какова же будет разумная ставка?",
+                    "updated": 1642776963856
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Well... a good choice would be the rate at the close of the candle, right? Our target rate formula would then be:",
-            "updated": 1610472351878
+            "updated": 1610472351878,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Nun... eine gute Wahl wäre der Kurs am Ende der Kerze, richtig? Unsere Formel für den Zielkurs wäre dann:",
+                    "updated": 1639395519356
+                },
+                {
+                    "language": "TR",
+                    "text": "Pekala... Mumun kapanışındaki kur iyi bir seçim olur, değil mi? O zaman hedef oran formülünüz şöyle olacaktır:",
+                    "updated": 1641668265525
+                },
+                {
+                    "language": "RU",
+                    "text": "Ну... хорошим выбором будет ставка на момент закрытия свечи, верно? Тогда наша формула целевой ставки будет выглядеть следующим образом:",
+                    "updated": 1642776978088
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -25,7 +76,24 @@
         },
         {
             "style": "Callout",
-            "text": "Go ahead and edit the formula with the above syntax!"
+            "text": "Go ahead and edit the formula with the above syntax!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bearbeiten Sie die Formel mit der obigen Syntax!",
+                    "updated": 1639395526472
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarıdaki sözdizimini kullanarak formülü düzenleyin!",
+                    "updated": 1641668275856
+                },
+                {
+                    "language": "RU",
+                    "text": "Продолжайте редактировать формулу с помощью приведенного выше синтаксиса!",
+                    "updated": 1642776986711
+                }
+            ]
         }
     ]
 }

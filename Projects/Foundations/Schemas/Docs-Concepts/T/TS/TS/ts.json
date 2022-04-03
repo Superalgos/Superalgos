@@ -2,13 +2,27 @@
     "type": "TS",
     "definition": {
         "text": "TS is the abbreviation of Task Server, one of the core components of the Superalgos Software.",
-        "updated": 1610912495126
+        "updated": 1610912495126,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "TS - это аббревиатура от Task Server, одного из основных компонентов программного обеспечения Superalgos.",
+                "updated": 1638299708269
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Success",
             "text": "TS is also the root object of a data structure available at runtime within the Task Server.",
-            "updated": 1610911849966
+            "updated": 1610911849966,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "TS также является корневым объектом структуры данных, доступной во время выполнения на сервере задач Task Server.",
+                    "updated": 1638299741474
+                }
+            ]
         }
     ]
 }

@@ -1,0 +1,27 @@
+.modalContainer {
+    position: absolute;
+    justify-content: normal;
+    width: 35rem;
+    min-width: 20rem;
+    max-width: 35rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    box-shadow: 24px 24px 100px #0000002b;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    outline: none;
+}
+
+h4 {
+    margin-block-start: 0 !important;
+}
+
+.postHeaderContainer {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0 0.5rem 0;
+    width: 100%;
+    height: 1rem;
+}

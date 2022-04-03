@@ -1,0 +1,51 @@
+{
+    "type": "Liquidity Program",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "tokensAwarded",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Tokens Awarded",
+            "relatedUiObject": "Tokens Awarded",
+            "relatedUiObjectProject": "Governance"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{\n\"asset\": \"BTCB\"\n}"    },
+    "attachingRules": {
+        "compatibleTypes": "->Liquidity Programs->"
+    },
+    "addLeftIcons": true,
+    "level": 1,
+    "propertyNameAtParent": "liquidityProgram",
+    "childrenNodesProperties": [
+        {
+            "name": "tokensAwarded",
+            "type": "node",
+            "childType": "Tokens Awarded",
+            "autoAdd": true
+        }
+    ]
+}

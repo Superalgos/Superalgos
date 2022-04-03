@@ -1,0 +1,95 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 81,
+    "type": "Tutorial Step - A Little Speculation Game",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "help"
+        },
+        "text": "Let's do a quick mental exercise! Consider the point of the first take position event, that is, the 8hs candle, closing at 9 hs.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Machen wir eine kurze Denkübung! Betrachten Sie den Zeitpunkt des ersten Take-Position-Ereignisses, d.h. die 8-Stunden-Kerze, die um 9 Uhr schließt.",
+                "updated": 1639391664072
+            },
+            {
+                "language": "TR",
+                "text": "Hadi kısa bir düşünce egzersizi yapalım! İlk pozisyon alma olayının saatine bakın, yani saat 9'da kapanan 8 saatlik mum.",
+                "updated": 1641666167592
+            },
+            {
+                "language": "RU",
+                "text": "Давайте сделаем быстрое интеллектуальное упражнение! Рассмотрим точку первого события взятия позиции, то есть свечу 8hs, закрывающуюся в 9 hs.",
+                "updated": 1642664310328
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Discard the chain of strategies that follow, as those are a by-product of not defining the rest of the stages!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Verwerfen Sie die Kette von Strategien, die darauf folgen, da diese ein Nebenprodukt der Nichtdefinition der restlichen Phasen sind!",
+                    "updated": 1639391671496
+                },
+                {
+                    "language": "TR",
+                    "text": "Geri kalan aşamaları tanımlamamanın bir yan ürünü olduğu için takip eden stratejiler zincirini atın!",
+                    "updated": 1641666184426
+                },
+                {
+                    "language": "RU",
+                    "text": "Отбросьте последующие цепочки стратегий, поскольку они являются побочным продуктом отсутствия определения остальных этапов!",
+                    "updated": 1642664327062
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Go to the Candles Data layer panel and turn on the plotter panel of the Candles layer in case it isn't!",
+            "updated": 1622490115400,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Gehen Sie zum Panel der Kerzen-Datenebene und schalten Sie das Plotter-Panel der Kerzen-Ebene ein, falls es noch nicht aktiviert ist!",
+                    "updated": 1639391677929
+                },
+                {
+                    "language": "TR",
+                    "text": "Mum Verileri katmanı paneline gidin (Candles Data layer panel) ve Mumlar katmanının çizici panelini(plotter panel of the Candles layer) açın!",
+                    "updated": 1641666194427
+                },
+                {
+                    "language": "RU",
+                    "text": "Перейдите на панель слоя Candles Data и включите панель плоттера слоя Candles, если его нет!",
+                    "updated": 1642664343739
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Now place the pointer of the mouse on the 8hs candle. As you can see on the panel, that candle closed at 8702 USDT. That would be our take position rate, give or take slippage. Now go to the 12hs candle. The min value for that candle is 8445 USDT. After that short-term low, the market goes in an uptrend (in the 1H time frame).",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Platzieren Sie nun den Mauszeiger auf der Kerze 8hs. Wie Sie auf dem Panel sehen können, hat diese Kerze bei 8702 USDT geschlossen. Das ist der Kurs, zu dem wir die Position übernehmen, plus/minus Slippage. Gehen Sie nun zur 12-Stunden-Kerze. Der Mindestwert für diese Kerze liegt bei 8445 USDT. Nach diesem kurzfristigen Tiefpunkt befindet sich der Markt in einem Aufwärtstrend (im 1H-Zeitrahmen).",
+                    "updated": 1639391689742
+                },
+                {
+                    "language": "TR",
+                    "text": "Şimdi fare işaretçisini 8hs mumunun üzerine getirin. Panelde görebileceğiniz gibi, bu mum USDT 8702'de kapandı. Artı/eksi kaymada pozisyonu aldığımız oran bu. Şimdi 12 saatlik muma gidin. Bu mum için minimum değer 8445 USDT'dir. Bu kısa vadeli düşükten sonra, piyasa yükseliş trendinde (1H zaman diliminde).",
+                    "updated": 1641666211939
+                },
+                {
+                    "language": "RU",
+                    "text": "Теперь поместите указатель мыши на свечу 8hs. Как показано на панели, эта свеча закрылась на отметке 8702 USDT. Это будет наша цена для взятия позиции, плюс-минус проскальзывание. Теперь перейдем к 12-часовой свече. Минимальное значение для этой свечи составляет 8445 USDT. После этого краткосрочного минимума рынок переходит в восходящий тренд (на таймфрейме 1H).",
+                    "updated": 1642664428497
+                }
+            ]
+        }
+    ]
+}

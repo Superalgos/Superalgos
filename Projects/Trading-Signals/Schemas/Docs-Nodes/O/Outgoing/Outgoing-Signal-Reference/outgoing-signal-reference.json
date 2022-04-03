@@ -1,0 +1,40 @@
+{
+    "type": "Outgoing Signal Reference",
+    "definition": {
+        "text": "The Outgoing Signal Reference node stores a reference to a signal definition held under the User's Profile in order to be sent across the Superalgos peer to peer network.",
+        "updated": 1643399854093,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Outgoing Signal Reference хранит ссылку на определение сигнала, хранящееся в профиле пользователя, для отправки по одноранговой сети Superalgos.",
+                "updated": 1645253113579
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "the Signal’s Reference node to the matching Signals node under the Social Trading Bot of the Provider.",
+            "updated": 1643405264982,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узел Signal Reference на соответствующий узел Signals в Social Trading Bot провайдера.",
+                    "updated": 1645253182867
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Each of the locations to which signals can be attached to send or receive signals has a matching Signals nodes available under the Social Trading Bots.",
+            "updated": 1644030748959,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Каждое из мест, к которым могут быть присоединены сигналы для отправки или получения сигналов, имеет соответствующие узлы Signals, доступные в разделе Social Trading Bots.",
+                    "updated": 1645253199719
+                }
+            ]
+        }
+    ]
+}

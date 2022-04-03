@@ -3,9 +3,19 @@
     "menuItems": [
         {
             "action": "Add UI Object",
-            "label": "Add Crypto Exchange",
+            "label": "Add Centralized Exchange",
             "relatedUiObject": "Crypto Exchange",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Decentralized Exchange",
+            "relatedUiObject": "Decentralized Exchange",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Decentralized-Exchanges"
         },
         {
             "action": "Add Missing Crypto Exchanges",
@@ -14,10 +24,12 @@
             "confirmationLabel": "Confirm to Proceed",
             "workDoneLabel": "Done",
             "relatedUiObject": "Crypto Exchange",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",
@@ -38,6 +50,12 @@
             "name": "exchanges",
             "type": "array",
             "childType": "Crypto Exchange",
+            "autoAdd": true
+        },
+        {
+            "name": "decentralizedExchange",
+            "type": "array",
+            "childType": "Decentralized Exchange",
             "autoAdd": true
         }
     ]

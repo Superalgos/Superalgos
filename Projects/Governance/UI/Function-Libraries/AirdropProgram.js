@@ -106,18 +106,26 @@ function newGovernanceFunctionLibraryAirdropProgram() {
                 userProfile.payload.blockchainTokens === undefined
             ) {
                 node.payload.airdropProgram.isActive = false
-                userProfile.payload.uiObject.setErrorMessage("You need to setup this profile with the Profile Constructor, to access the Token Power of your account at the Blockchain.")
+                userProfile.payload.uiObject.setErrorMessage(
+                    "Waiting for blockchain balance. It takes 1 minute to load the balance of each profile, because you are using a free API provided by BSC Scan.",
+                    UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                    )
                 return
+            } else {
+                userProfile.payload.uiObject.resetErrorMessage()
             }
             /*
             Next thing to do is to validate if the airdrop user profile has a star at the Superalgos repository. 
             */
-            let profileSignature = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(userProfile.payload, 'signature')
+            let profileSignature = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(userProfile.payload, 'signature')
             if (
                 profileSignature === undefined
             ) {
                 node.payload.airdropProgram.isActive = false
-                userProfile.payload.uiObject.setErrorMessage("You need to setup this profile with the Profile Constructor, and produce a signature of your Airdrop Username.")
+                userProfile.payload.uiObject.setErrorMessage(
+                    "You need to setup this profile with the Profile Constructor, and produce a signature of your Airdrop Username.",
+                    UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                    )
                 return
             }
 
@@ -128,7 +136,7 @@ function newGovernanceFunctionLibraryAirdropProgram() {
             if (programNode === undefined || programNode.payload === undefined) { return }
             /*
             Here we will convert Token Power into Airdrop Power. 
-            As per system rules Airdrop Powar = 1000 SA Tokens.
+            As per system rules Airdrop Power = 1000 SA Tokens.
             */
             let programPower = 1000
             programNode.payload.airdropProgram.ownPower = programPower
@@ -154,7 +162,10 @@ function newGovernanceFunctionLibraryAirdropProgram() {
             if (totalPowerRewardRatio < 1) { totalPowerRewardRatio = 1 }
 
             if (programNode.tokensAwarded === undefined || programNode.tokensAwarded.payload === undefined) {
-                programNode.payload.uiObject.setErrorMessage("Tokens Awarded Node is needed in order for this Program to get Tokens from the Program Pool.")
+                programNode.payload.uiObject.setErrorMessage(
+                    "Tokens Awarded Node is needed in order for this Program to get Tokens from the Program Pool.",
+                    UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                    )
                 return
             }
             programNode.payload.airdropProgram.awarded.tokens = programNode.payload.airdropProgram.ownPower / totalPowerRewardRatio 
@@ -170,7 +181,7 @@ function newGovernanceFunctionLibraryAirdropProgram() {
                 node.payload.uiObject.statusAngleOffset = 0
                 node.payload.uiObject.statusAtAngle = false
 
-                node.payload.uiObject.setStatus(ownPowerText + ' Airdrop Power')
+                node.payload.uiObject.setStatus(ownPowerText + ' Airdrop Power', UI.projects.governance.globals.designer.SET_STATUS_COUNTER)
             }
             if (node.tokensAwarded !== undefined && node.tokensAwarded.payload !== undefined) {
 
@@ -180,12 +191,12 @@ function newGovernanceFunctionLibraryAirdropProgram() {
                 node.tokensAwarded.payload.uiObject.valueAngleOffset = 0
                 node.tokensAwarded.payload.uiObject.valueAtAngle = false
 
-                node.tokensAwarded.payload.uiObject.setValue(tokensAwardedText + ' SA Tokens' + tokensAwardedBTC)
+                node.tokensAwarded.payload.uiObject.setValue(tokensAwardedText + ' SA Tokens' + tokensAwardedBTC, UI.projects.governance.globals.designer.SET_VALUE_COUNTER)
 
                 node.tokensAwarded.payload.uiObject.statusAngleOffset = 0
                 node.tokensAwarded.payload.uiObject.statusAtAngle = false
 
-                node.tokensAwarded.payload.uiObject.setStatus('For creating your Superalgos profile!')
+                node.tokensAwarded.payload.uiObject.setStatus('For creating your Superalgos profile!', UI.projects.governance.globals.designer.SET_STATUS_COUNTER)
             }
         }
     }

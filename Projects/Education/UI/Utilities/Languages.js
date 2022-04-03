@@ -44,6 +44,18 @@ function newEducationUtilitiesLanguages() {
                 languageLabel = 'Turkish'
                 break
             }
+            case 'NL': {
+                languageLabel = 'Dutch'
+                break
+            }
+            case 'AR': {
+                languageLabel = 'Arabic'
+                break
+            }
+            case 'EL': {
+                languageLabel = 'Greek'
+                break
+            }
         }
         return languageLabel 
     }    

@@ -119,8 +119,8 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
 
     async function saveModel() {
         let fileLocation = getModelPath();
-        /* If necesary a folder or folders are created before writing the file to disk: */
-        TS.projects.foundations.utilities.miscellaneousFunctions.mkDirByPathSync(fileLocation);
+        /* If necessary a folder or folders are created before writing the file to disk: */
+        SA.projects.foundations.utilities.filesAndDirectories.mkDirByPathSync(fileLocation);
 
         const savedModel = await tensorFlowModelsManager.model.save('file://' + fileLocation);
     }

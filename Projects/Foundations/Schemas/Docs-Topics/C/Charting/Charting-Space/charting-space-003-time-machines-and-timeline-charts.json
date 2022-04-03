@@ -4,7 +4,19 @@
     "type": "Time Machines and Timeline Charts",
     "definition": {
         "text": "Time machines and timeline charts are the devices that render graphical information on the Viewport.",
-        "updated": 1610135709494
+        "updated": 1610135709494,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Time Machines and Timeline Charts - это устройства, которые отображают графическую информацию в окне Viewport.",
+                "updated": 1639374797512
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Zaman makineleri ve zaman çizelgesi çizelgeleri, Viewport'ta grafiksel bilgi veren cihazlardır.",
+                "updated": 1644590199879
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -48,7 +60,19 @@
         {
             "style": "Note",
             "text": "We will cover scales and layer managers in separate pages!",
-            "updated": 1610136541919
+            "updated": 1610136541919,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Масштабы и менеджеры слоев мы рассмотрим на отдельных страницах!",
+                    "updated": 1639378766238
+                },
+                {
+                    "language": "TR",
+                    "text": "Ölçekleri ve katman yöneticilerini ayrı sayfalarda ele alacağız!",
+                    "updated": 1644590237303
+                }
+            ]
         }
     ]
 }

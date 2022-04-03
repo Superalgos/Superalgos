@@ -5,7 +5,7 @@
     "definition": {
         "text": "Trading System is already set up. Let's have a look!",
         "icon": {
-            "name": "Trading\\trading-system-reference",
+            "name": "trading-system-reference",
             "project": "Foundations"
         },
         "updated": 1614242955916,
@@ -20,6 +20,21 @@
                 "language": "ES",
                 "text": "Trading System ya está configurado. ¡Echemos un vistazo!",
                 "updated": 1629348173186
+            },
+            {
+                "language": "IT",
+                "text": "Il Trading System è già impostato. Diamo un'occhiata!",
+                "updated": 1639075033970
+            },
+            {
+                "language": "TR",
+                "text": "Ticaret Sistemi ( Trading System ) çoktan kuruldu. Hadi kontrol edelim!",
+                "updated": 1640616471688
+            },
+            {
+                "language": "RU",
+                "text": "Торговая система уже настроена. Давайте посмотрим!",
+                "updated": 1640854450217
             }
         ]
     },
@@ -39,6 +54,21 @@
                     "language": "ES",
                     "text": "La estrategia ya está desplegada. ¡Así que echemos un vistazo para entenderlo!",
                     "updated": 1629348191210
+                },
+                {
+                    "language": "IT",
+                    "text": "Ho già proveduto a settare l'occorrente e la strategia è già implementata. Diamo un'occhiata in giro!",
+                    "updated": 1639075146492
+                },
+                {
+                    "language": "TR",
+                    "text": "Strateji çoktan uygulandı. Bunu anlamak için etrafa bir göz atalım!",
+                    "updated": 1640616484894
+                },
+                {
+                    "language": "RU",
+                    "text": "Стратегия уже развернута. Так что давайте осмотримся, чтобы понять ее!",
+                    "updated": 1640854463200
                 }
             ]
         },
@@ -56,6 +86,21 @@
                     "language": "ES",
                     "text": "Como puedes ver, un Trading System tiene 2 descendientes principales:",
                     "updated": 1629348227357
+                },
+                {
+                    "language": "IT",
+                    "text": "Come puoi vedere, il Trading System ha 2 figli (offsprings) principali:",
+                    "updated": 1639076579571
+                },
+                {
+                    "language": "TR",
+                    "text": "Gördüğünüz gibi, bir Ticaret Sisteminin ( Trading System ) 2 ana ürünü vardır:",
+                    "updated": 1640616501493
+                },
+                {
+                    "language": "RU",
+                    "text": "Как видно, торговая система имеет 2 основных потомка:",
+                    "updated": 1640854521203
                 }
             ]
         },
@@ -74,6 +119,21 @@
                     "language": "ES",
                     "text": "Dynamic Indicators: Esto te permite crear indicadores sobre la marcha",
                     "updated": 1629348275874
+                },
+                {
+                    "language": "IT",
+                    "text": "Dynamic Indicators: Serve per costruire indicatori On-The-Fly (non verrà usato in questo tutorial)",
+                    "updated": 1639075240227
+                },
+                {
+                    "language": "TR",
+                    "text": "Dinamik Göstergeler: Bu, Anında göstergeler oluşturmanızı sağlar",
+                    "updated": 1640616513602
+                },
+                {
+                    "language": "RU",
+                    "text": "Dynamic Indicators: Это позволяет создавать индикаторы \"на лету\".",
+                    "updated": 1640854555101
                 }
             ]
         },
@@ -92,6 +152,21 @@
                     "language": "ES",
                     "text": "Trading Strategy: Es donde definimos parámetros, condiciones y fórmulas para nuestra estrategia.",
                     "updated": 1629348244296
+                },
+                {
+                    "language": "IT",
+                    "text": "Trading Strategy: È qui che definiamo parametri, condizioni e formule per la nostra strategia",
+                    "updated": 1639075258476
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Stratejisi ( Strategy ): Stratejimiz için parametreleri, koşulları ve formülleri tanımladığımız yerdir",
+                    "updated": 1640616526965
+                },
+                {
+                    "language": "RU",
+                    "text": "Trading Strategy: Это место, где мы определяем параметры, условия и формулы для нашей стратегии",
+                    "updated": 1640854568299
                 }
             ]
         },
@@ -109,6 +184,21 @@
                     "language": "ES",
                     "text": "Este tutorial no cubre definiciones o conceptos usados ​​en SA. ¡Este tutorial solo trata sobre cómo implementar una estrategia!",
                     "updated": 1629348296182
+                },
+                {
+                    "language": "IT",
+                    "text": "Questo tutorial non copre definizioni o concetti utilizzati in SA. Questo tutorial riguarda solo come implementare una strategia!",
+                    "updated": 1639075281490
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bu öğretici, SA'da kullanılan tanımları veya kavramları kapsamaz. Bu öğretici yalnızca bir stratejinin nasıl uygulanacağıyla ilgilidir",
+                    "updated": 1640616560846
+                },
+                {
+                    "language": "RU",
+                    "text": "В этом учебнике не рассматриваются определения или концепции, используемые в Superalgos. Этот учебник посвящен только тому, как развернуть стратегию!",
+                    "updated": 1640854608376
                 }
             ]
         }

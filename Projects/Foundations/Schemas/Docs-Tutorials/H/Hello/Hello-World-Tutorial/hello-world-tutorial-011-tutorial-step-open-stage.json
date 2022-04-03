@@ -5,7 +5,7 @@
     "definition": {
         "text": "The Open Stage is where bot take position!",
         "icon": {
-            "name": "Open\\open-stage",
+            "name": "open-stage",
             "project": "Foundations"
         },
         "updated": 1614260398081,
@@ -20,6 +20,21 @@
                 "language": "ES",
                 "text": "El Open Stage es donde el bot toma posición!",
                 "updated": 1629356240122
+            },
+            {
+                "language": "IT",
+                "text": "Nell'Open Stage il bot prende posizione!",
+                "updated": 1639078616544
+            },
+            {
+                "language": "TR",
+                "text": "Açık sahne ( Open Stage ), botun pozisyon aldığı yerdir!",
+                "updated": 1640617312499
+            },
+            {
+                "language": "RU",
+                "text": "Open Stage - это место, где бот занимает позицию!",
+                "updated": 1640856530548
             }
         ]
     },
@@ -39,6 +54,21 @@
                     "language": "ES",
                     "text": "La estrategia que quiero hacer backtesting se basa en 4h TF y la estrategia es Long. Esto significa que el bot Buy el asset para después Sell (¡a un mejor precio esperamos!). Para simplificar las cosas, todo lo que tengo que hacer es indicar el TF en el nodo Target Rate usando todo mi saldo en el Target Size en Quoted Asset.",
                     "updated": 1629356415752
+                },
+                {
+                    "language": "IT",
+                    "text": "La strategia che voglio testare è basata su un TF di 4h e sono \"Long\" cioè compro un asset. Ciò significa che il bot comprerà l'asset per poi venderlo (a un prezzo migliore speriamo!). Per semplificare le cose, tutto ciò che devo fare è indicare il TF nel nodo Target Rate e utilizzare il mio saldo totale nel nodo Target Size.",
+                    "updated": 1639078819030
+                },
+                {
+                    "language": "TR",
+                    "text": "Geri test etmek istediğim strateji 4h TF'ye dayanıyor ve strateji Uzun. Bu, botun daha sonra satmak için varlığı daha iyi bir fiyata satın alacağı anlamına. İşleri basit tutmak için tek yapmam gereken, Teklif Edilen Varlıktaki ( Asset ) Hedef Boyut'taki ( Target Size ) tüm bakiyemi kullanarak Hedef Oran ( Target Rate ) düğümündeki TF'yi belirtmektir.",
+                    "updated": 1640617325801
+                },
+                {
+                    "language": "RU",
+                    "text": "Стратегия, которую я хочу протестировать, основана на 4h TF, и стратегия является Long. Это означает, что бот будет покупать актив, чтобы позже продать его (по лучшей цене, мы надеемся!). Чтобы упростить ситуацию, все, что мне нужно сделать, это указать TF в узле Target Rate, используя мой весь баланс в Target Size в Quoted Asset.",
+                    "updated": 1640857188703
                 }
             ]
         },
@@ -57,6 +87,21 @@
                     "language": "ES",
                     "text": "Si nuestro mercado es BTC/USDT entonces la Quoted Asset is USDT y Base Asset es BTC",
                     "updated": 1629356454601
+                },
+                {
+                    "language": "IT",
+                    "text": "Se il nostro mercato è BTC/USDT, l'asset quotato è USDT e l'asset base è BTC",
+                    "updated": 1639078846301
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Pazarımız BTC/USDT ise, Kota Edilen Varlık ( Asset ) USDT ve Temel Varlık ( Asset ) BTC'dir.",
+                    "updated": 1640617344853
+                },
+                {
+                    "language": "RU",
+                    "text": "Если наш рынок - BTC/USDT, то котируемый актив (Quoted Asset) - USDT, а базовый актив (Base Asset) - BTC.",
+                    "updated": 1640856676020
                 }
             ]
         }

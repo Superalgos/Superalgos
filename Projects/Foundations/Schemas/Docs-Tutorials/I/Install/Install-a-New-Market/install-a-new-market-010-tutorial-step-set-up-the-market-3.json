@@ -12,20 +12,52 @@
             {
                 "language": "ES",
                 "text": "Ahora establece una referencia del nodo Market Quoted Asset en el Market que acaba de definir a la correspondiente nodo Asset definido bajo Exchange Assets.",
-                "updated": 1629166070472
+                "updated": 1629166070472,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Stellen Sie nun einen Verweis vom Knoten Market Quoted Asset im soeben definierten Market auf den entsprechenden Asset Knoten unter Exchange Assets her.",
+                "updated": 1635832310411
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Şimdi, Borsa Varlıkları ( Exchange Assets ) altındaki ilgili Varlık ( Asset ) düğümüne az önce tanımladığınız Piyasadaki, Piyasa Koteli Varlık ( Market Quoted Asset ) düğümünden bir bağlantı oluşturun.",
+                "updated": 1642148844954
+            },
+            {
+                "language": "RU",
+                "text": "Теперь установите ссылку от узла Market Quoted Asset на только что определенном рынке к соответствующему узлу Asset, определенному в разделе Exchange Assets.",
+                "updated": 1643090562574
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Success",
-            "text": "You are almost done with this references!",
-            "updated": 1617212021559,
+            "text": "You are almost done with these references!",
+            "updated": 1640709313365,
             "translations": [
                 {
                     "language": "ES",
                     "text": "¡Ya casi has terminado con estas referencias!",
-                    "updated": 1629166084110
+                    "updated": 1629166084110,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie sind mit diesen Referenzen fast fertig!",
+                    "updated": 1635832357018
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bu referanslarla işiniz neredeyse bitti!",
+                    "updated": 1642148902368
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы почти закончили с этими рекомендациями!",
+                    "updated": 1643090569820
                 }
             ]
         }

@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "Un chart points agrupa definiciones de puntos de coordenadas que se utilizan para definir polígonos.",
                 "updated": 1628036795702
+            },
+            {
+                "language": "RU",
+                "text": "Chart Points группируют определения координатных точек, используемых для определения полигонов.",
+                "updated": 1638646349547
             }
         ]
     },
@@ -17,7 +22,14 @@
         },
         {
             "style": "Text",
-            "text": "The definition of a point consists of the name of the point and the corresponding values for the x and y coordinates. To create such definitions, point and point formulas are used."
+            "text": "The definition of a point consists of the name of the point and the corresponding values for the x and y coordinates. To create such definitions, point and point formulas are used.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Определение точки состоит из имени точки и соответствующих значений для координат x и y. Для создания таких определений используются точка и точечные формулы.",
+                    "updated": 1638646404452
+                }
+            ]
         }
     ]
 }

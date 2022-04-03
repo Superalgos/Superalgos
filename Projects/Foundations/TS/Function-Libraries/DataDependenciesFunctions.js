@@ -18,7 +18,6 @@ exports.newFoundationsFunctionLibrariesDataDependenciesFunctions = function () {
 
     async function processSingleFiles(
         processIndex,
-        dataFiles,
         multiTimeFrameDataFiles,
         dataDependenciesModule
     ) {
@@ -34,7 +33,7 @@ exports.newFoundationsFunctionLibrariesDataDependenciesFunctions = function () {
             for (let m = 0; m < marketList.length; m++) {
                 let currentMarket = marketList[m]
 
-                dataFiles = new Map()
+                let dataFiles = new Map()
 
                 for (let dependencyIndex = 0; dependencyIndex < dataDependenciesModule.curatedDependencyNodeArray.length; dependencyIndex++) {
                     let dependency = dataDependenciesModule.curatedDependencyNodeArray[dependencyIndex]
@@ -72,7 +71,7 @@ exports.newFoundationsFunctionLibrariesDataDependenciesFunctions = function () {
                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                             "[ERROR] Your strategy depends on the dataset  " + dependency.name + '.')
                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[ERROR] The reason that it depends on this dataset is becuase in one of your condition's Javascript Code node, you have written an expression that references this dataset. If you don't want to depend on this dataset, just locate that code and remove the mention.")
+                            "[ERROR] The reason that it depends on this dataset is because in one of your condition's Javascript Code node, you have written an expression that references this dataset. If you don't want to depend on this dataset, just locate that code and remove the mention.")
                         return false
                     }
 
@@ -92,7 +91,6 @@ exports.newFoundationsFunctionLibrariesDataDependenciesFunctions = function () {
 
     async function processMarketFiles(
         processIndex,
-        dataFiles,
         multiTimeFrameDataFiles,
         dataDependenciesModule,
         currentTimeFrame,
@@ -116,13 +114,13 @@ exports.newFoundationsFunctionLibrariesDataDependenciesFunctions = function () {
             for (let m = 0; m < marketList.length; m++) {
                 let currentMarket = marketList[m]
                 /*
-                We will iterate through all posible timeFrames.
+                We will iterate through all possible timeFrames.
                 */
                 for (let n = 0; n < TS.projects.foundations.globals.timeFrames.marketTimeFramesArray().length; n++) {
                     const timeFrame = TS.projects.foundations.globals.timeFrames.marketTimeFramesArray()[n][0]
                     const timeFrameLabel = TS.projects.foundations.globals.timeFrames.marketTimeFramesArray()[n][1]
 
-                    dataFiles = new Map()
+                    let dataFiles = new Map()
 
                     /* Current Time Frame detection */
                     if (userDefinedTimeFrame === timeFrameLabel) {
@@ -173,7 +171,7 @@ exports.newFoundationsFunctionLibrariesDataDependenciesFunctions = function () {
                             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                 "[ERROR] Your strategy depends on the dataset  " + dependency.name + '.')
                             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[ERROR] The reason that it depends on this dataset is becuase in one of your condition's Javascript Code node, you have written an expression that references this dataset. If you don't want to depend on this dataset, just locate that code and remove the mention.")
+                                "[ERROR] The reason that it depends on this dataset is because in one of your condition's Javascript Code node, you have written an expression that references this dataset. If you don't want to depend on this dataset, just locate that code and remove the mention.")
                             return false
                         }
 
@@ -182,13 +180,18 @@ exports.newFoundationsFunctionLibrariesDataDependenciesFunctions = function () {
                         }
 
                         let dataFile = JSON.parse(response.text)
-                        let trimmedDataFile = trimDataFile(dataFile, datasetModule.node.parentNode.record)
-                        dataFiles.set(dependency.id, trimmedDataFile)
+
+                        if(initialDatetime !== undefined && finalDatetime !== undefined  ) {
+                            let trimmedDataFile = trimDataFile(dataFile, datasetModule.node.parentNode.record)
+                            dataFiles.set(dependency.id, trimmedDataFile)
+                        } else {
+                            dataFiles.set(dependency.id, dataFile)
+                        }
 
                         function trimDataFile(dataFile, recordDefinition) {
                             /* 
                             Here we will discard all the records in a file that are outside of the current time range.
-                            We will include the las element previous to the begining of the time range. This is needed
+                            We will include the las element previous to the beginning of the time range. This is needed
                             because during the simulation, the current Time Frame is not the open one, but the previous to 
                             the open, and if we do not include the previous to the initial datetime there will be no 
                             current objects at the begining of the simulation for many time frames. 
@@ -233,7 +236,6 @@ exports.newFoundationsFunctionLibrariesDataDependenciesFunctions = function () {
 
     async function processDailyFiles(
         processIndex,
-        dataFiles,
         multiTimeFrameDataFiles,
         dataDependenciesModule,
         currentTimeFrame,
@@ -241,7 +243,7 @@ exports.newFoundationsFunctionLibrariesDataDependenciesFunctions = function () {
         processDate
     ) {
         /*  Telling the world we are alive and doing well and which date we are processing right now. */
-        let processingDateString = processDate.getUTCFullYear() + '-' + TS.projects.foundations.utilities.miscellaneousFunctions.pad(processDate.getUTCMonth() + 1, 2) + '-' + TS.projects.foundations.utilities.miscellaneousFunctions.pad(processDate.getUTCDate(), 2)
+        let processingDateString = processDate.getUTCFullYear() + '-' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(processDate.getUTCMonth() + 1, 2) + '-' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(processDate.getUTCDate(), 2)
         TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, processingDateString, undefined, "Running...")
 
         /* 
@@ -255,7 +257,7 @@ exports.newFoundationsFunctionLibrariesDataDependenciesFunctions = function () {
             for (let m = 0; m < marketList.length; m++) {
                 let currentMarket = marketList[m]
                 /*
-                We will iterate through all posible timeFrames.
+                We will iterate through all possible timeFrames.
                 */
                 for (let n = 0; n < TS.projects.foundations.globals.timeFrames.dailyTimeFramesArray().length; n++) {
                     const timeFrameLabel = TS.projects.foundations.globals.timeFrames.dailyTimeFramesArray()[n][1]
@@ -276,7 +278,7 @@ exports.newFoundationsFunctionLibrariesDataDependenciesFunctions = function () {
                         currentTimeFrame.label = TS.projects.foundations.globals.timeFrames.dailyTimeFramesArray()[n][1]
                     }
 
-                    dataFiles = new Map()
+                    let dataFiles = new Map()
 
                     /*
                     We will iterate through all dependencies, in order to load the
@@ -315,7 +317,7 @@ exports.newFoundationsFunctionLibrariesDataDependenciesFunctions = function () {
                         /*
                         We will need to fetch the data of the current day and the previous day, in order for .previous properties in conditions and formulas to work well.
                         */
-                        let previousDate = new Date(processDate.valueOf() - TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
+                        let previousDate = new Date(processDate.valueOf() - SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
                         let currentDate = new Date(processDate.valueOf())
 
                         let previousFile = await getDataFileFromDate(previousDate)
@@ -327,7 +329,7 @@ exports.newFoundationsFunctionLibrariesDataDependenciesFunctions = function () {
 
                         async function getDataFileFromDate(dataFileDate) {
 
-                            let dateForPath = dataFileDate.getUTCFullYear() + '/' + TS.projects.foundations.utilities.miscellaneousFunctions.pad(dataFileDate.getUTCMonth() + 1, 2) + '/' + TS.projects.foundations.utilities.miscellaneousFunctions.pad(dataFileDate.getUTCDate(), 2)
+                            let dateForPath = dataFileDate.getUTCFullYear() + '/' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(dataFileDate.getUTCMonth() + 1, 2) + '/' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(dataFileDate.getUTCDate(), 2)
                             let filePath = dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName + "/" + timeFrameLabel + "/" + dateForPath
                             let fileName = "Data.json"
 
@@ -340,7 +342,7 @@ exports.newFoundationsFunctionLibrariesDataDependenciesFunctions = function () {
                                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                     "[ERROR] Your strategy depends on the dataset  " + dependency.name + '.')
                                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                    "[ERROR] The reason that it depends on this dataset is becuase in one of your condition's Javascript Code node, you have written an expression that references this dataset. If you don't want to depend on this dataset, just locate that code and remove the mention.")
+                                    "[ERROR] The reason that it depends on this dataset is because in one of your condition's Javascript Code node, you have written an expression that references this dataset. If you don't want to depend on this dataset, just locate that code and remove the mention.")
                                 return false
                             }
                             if (response.err.result !== TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
@@ -369,20 +371,20 @@ exports.newFoundationsFunctionLibrariesDataDependenciesFunctions = function () {
         exchange,
         callBackFunction
     ) {
-        /* Fisrt Phase: Validations */
+        /* First Phase: Validations */
         let mainDependency = {}
         /* 
         THe first thing we do is to build an array of all the 
         declared dependencies of the Bot Process.
         */
-        let dataDependencies = TS.projects.foundations.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processDependencies, 'Data Dependency')
+        let dataDependencies = SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processDependencies, 'Data Dependency')
         /* 
         Then we will filter out declared dependencies that are 
         not referencing nodes currently present at the workspace.
         This will allow the user to have less Data Mines loaded at 
         the workspace that the ones that a the Bot process depends on.
         */
-        dataDependencies = TS.projects.foundations.utilities.nodeFunctions.filterOutNodeWihtoutReferenceParentFromNodeArray(dataDependencies)
+        dataDependencies = SA.projects.visualScripting.utilities.nodeFunctions.filterOutNodeWihtoutReferenceParentFromNodeArray(dataDependencies)
         /*
         We will run some validations to prevent starting the process
         if all needed config and nodes are not present.
@@ -392,15 +394,15 @@ exports.newFoundationsFunctionLibrariesDataDependenciesFunctions = function () {
         Next we will build an array of output datasets of this process.
         We are not going to use it right now, but later down the line,
         we do it just to be able to validate that all nodes and config
-        are ok before letting this provess run too far.
+        are ok before letting this process run too far.
         */
-        let outputDatasets = TS.projects.foundations.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
+        let outputDatasets = SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
         /*
         Here we check that all output datasets configs are ok. 
         */
         if (TS.projects.foundations.functionLibraries.singleMarketFunctions.validateOutputDatasets(processIndex, outputDatasets, callBackFunction) !== true) { return }
 
-        /* Second Phase: Bilding the chart data structure */
+        /* Second Phase: Building the chart data structure */
 
         /* 
         This phase is about transforming the inputs into a format,

@@ -4,23 +4,91 @@
     "type": "Tutorial Step - Right Out of the Box!",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "trading-system"
+            "name": "Trading\\trading-system",
+            "project": "Foundations"
         },
-        "text": "This is the trading system we will use, virtually as it comes right out of the box!"
+        "text": "This is the trading system we will use, virtually as it comes right out of the box!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Dies ist das Trading System, das wir verwenden werden, praktisch so, wie es direkt aus der Box kommt!",
+                "updated": 1639261221764
+            },
+            {
+                "language": "RU",
+                "text": "Именно эту торговую систему мы будем использовать, практически в том виде, в котором она поставляется прямо из коробки!",
+                "updated": 1640934151084
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu, neredeyse kutudan çıktığı gibi kullanacağımız ticaret sistemidir!",
+                "updated": 1641064528800
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "All I've done with it is organize the hierarchy the way I like it, and give it a name: BB Breakdown."
+            "text": "All I've done with it is organize the hierarchy the way I like it, and give it a name: BB Breakdown.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Alles, was ich damit gemacht habe, ist, die Hierarchie so zu organisieren, wie ich sie mag, und ihr einen Namen zu geben: BB Breakdown.",
+                    "updated": 1639261229998
+                },
+                {
+                    "language": "RU",
+                    "text": "Все, что я с ним сделал, это организовал иерархию так, как мне нравится, и дал ему название: BB Breakdown.",
+                    "updated": 1640934165612
+                },
+                {
+                    "language": "TR",
+                    "text": "Onunla yapacağım tek şey hiyerarşiyi istediğim gibi düzenlemek ve ona bir isim vermek: BB Breakdown.",
+                    "updated": 1641064596654
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Expand the hierarchy and look around! Notice the Downtrends strategy... Expand each of the nodes corresponding to the four stages, one by one, and take a good look inside!"
+            "text": "Expand the hierarchy and look around! Notice the Downtrends strategy... Expand each of the nodes corresponding to the four stages, one by one, and take a good look inside!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Erweitern Sie die Hierarchie und sehen Sie sich um! Beachten Sie die Downtrends-Strategie... Erweitern Sie jeden der Knoten, die den vier Phasen entsprechen, einen nach dem anderen, und sehen Sie sich das Innere genau an!",
+                    "updated": 1639261237430
+                },
+                {
+                    "language": "RU",
+                    "text": "Разверните иерархию и осмотритесь! Обратите внимание на стратегию Downtrends... Разверните по очереди каждый из узлов, соответствующих четырем этапам, и внимательно посмотрите внутрь!",
+                    "updated": 1640934184084
+                },
+                {
+                    "language": "TR",
+                    "text": "Hiyerarşiyi genişletin ve etrafınıza bakın! Downtrends stratejisine dikkat edin... Dört aşamaya karşılık gelen düğümlerin her birini tek tek genişletin ve içeriye iyi bakın!",
+                    "updated": 1641064634947
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "The nodes you see within each of these stages make up the definitions of a strategy..."
+            "text": "The nodes you see within each of these stages make up the definitions of a strategy...",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Knoten, die Sie innerhalb jeder dieser Phasen sehen, bilden die Definitionen einer Strategie...",
+                    "updated": 1639261245565
+                },
+                {
+                    "language": "RU",
+                    "text": "Узлы, которые вы видите на каждом из этих этапов, составляют определение стратегии...",
+                    "updated": 1640934195172
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bu aşamaların her birinde gördüğünüz düğümler bir stratejinin tanımlarını oluşturuyor...",
+                    "updated": 1641064695452
+                }
+            ]
         }
     ]
 }

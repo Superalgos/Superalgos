@@ -26,7 +26,7 @@
             TS.projects.foundations.globals.taskVariables.LOGGER_MAP.set('Pre-Bot-Main-Loop' + TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].id, TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT)
             /*
             There are a few variables with the scope of the process instance. We will store it here so that it can be
-            accesed from where it is needed.
+            accessed from where it is needed.
             */
             VARIABLES_BY_PROCESS_INDEX = {
                 MAIN_LOOP_COUNTER: 0,
@@ -41,6 +41,9 @@
             */
             let CONSTANTS_BY_PROCESS_INDEX = {}
             TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.set(processIndex, CONSTANTS_BY_PROCESS_INDEX)
+            if (TS.projects.foundations.globals.taskConstants.DEPENDENCY_FILTERS !== undefined) {
+                TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).DEPENDENCY_FILTER = TS.projects.foundations.globals.taskConstants.DEPENDENCY_FILTERS[processIndex]
+            }
             /*
             We also need to initialize this here.
             */
@@ -52,15 +55,15 @@
             the bot type received via websockets events, at the PROJECTS SCHEMA a botModule must be 
             defined with the same type at the property botType.
             */
-            for (let i = 0; i < TS.projects.foundations.globals.taskConstants.PROJECTS_SCHEMA.length; i++) {
-                let project = TS.projects.foundations.globals.taskConstants.PROJECTS_SCHEMA[i]
-                if (project.name !== TS.projects.foundations.globals.taskConstants.PROJECT_DEFINITION_NODE.config.codeName) { continue }
-                for (let j = 0; j < project.TS.botModules.length; j++) {
-                    botModuleDefinition = project.TS.botModules[j]
+            for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
+                let projectDefinition = PROJECTS_SCHEMA[i]
+                if (projectDefinition.name !== TS.projects.foundations.globals.taskConstants.PROJECT_DEFINITION_NODE.config.codeName) { continue }
+                for (let j = 0; j < projectDefinition.TS.botModules.length; j++) {
+                    botModuleDefinition = projectDefinition.TS.botModules[j]
                     if (botModuleDefinition.botType === TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.type) {
                         try {
                             TS.projects.foundations.globals.processVariables.TOTAL_PROCESS_INSTANCES_CREATED++
-                            let project = TS.projects[TS.projects.foundations.globals.taskConstants.PROJECT_DEFINITION_NODE.config.codeName.toLowerCase()]
+                            let project = TS.projects[projectDefinition.propertyName]
                             let botModule = project.botModules[botModuleDefinition.propertyName]
                             let moduleFunction = botModule[botModuleDefinition.functionName]
                             botModuleObject = moduleFunction(processIndex)

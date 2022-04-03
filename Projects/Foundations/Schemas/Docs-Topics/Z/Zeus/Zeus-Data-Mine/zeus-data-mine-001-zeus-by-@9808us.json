@@ -19,7 +19,14 @@
         },
         {
             "style": "Success",
-            "text": "Collaborate with this data mine and report issues directly at the contributor’s repository."
+            "text": "Collaborate with this data mine and report issues directly at the contributor’s repository.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Arbeiten Sie mit dieser Datamine zusammen und melden Sie Probleme direkt an das Repository des Mitwirkenden.",
+                    "updated": 1637874691756
+                }
+            ]
         }
     ]
 }

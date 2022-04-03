@@ -13,8 +13,57 @@
             "updated": 1622481793076
         },
         {
+            "style": "Text",
+            "text": "The Hull Moving Average (HMA) is a directional trend indicator. It captures the current state of the market and uses recent price action to determine if conditions are bullish or bearish relative to historical data."
+        },
+        {
+            "style": "Text",
+            "text": "The Hull differs from more traditional trend indicators like the Exponential Moving Average (EMA) and the Simple Moving Average (SMA). It is designed to reduce the lag often associated with those MAs by providing a faster signal on a smoother visual plane."
+        },
+        {
             "style": "Link",
             "text": "HMA - (Fidelity)->www.fidelity.com/learning-center/trading-investing/technical-analysis/technical-indicator-guide/hull-moving-average"
+        },
+		{
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Pluvtech-HMA.png",
+            "updated": 1611661370646
+        },
+		{
+            "style": "Text",
+            "text": "The length of the Hull Moving Average indicator calculation can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Initialization under \u2019HMA\u2019 Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Pluvtech-HMA-params.png",
+            "updated": 1611673329568
+        },
+		{
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Hull Moving Average | HMA | hma |",
+            "updated": 1636853769
+        },
+		{
+            "style": "Text",
+            "text": "Example:",
+            "updated": 1611661674316
+        },
+		{
+            "style": "Text",
+            "text": "The HMA indicator could be used to generate a buy signal when a candle closes above the HMA:"
+        },
+		{
+            "style": "Javascript",
+            "text": "chart.at01hs.candle.close > chart.at01hs.HMA.hma",
+            "updated": 1636853769
         },
         {
             "style": "Title",

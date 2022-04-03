@@ -100,14 +100,14 @@ function newEducationDocSpace() {
                 /*
                 Getting the currentBranch
                 */
-                let workspace = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode
+                let workspace = UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode
 
                 httpRequest(undefined, 'App/Branch', onResponse)
                 /*
                 Deleting what was is here because is not longer used...
                 */
                 window.localStorage.removeItem('Current Branch')
-                UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(workspace.payload, 'currentBranch', undefined)
+                UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(workspace.payload, 'currentBranch', undefined)
 
                 function onResponse(err, data) {
                     /* Lets check the result of the call through the http interface */
@@ -132,11 +132,11 @@ function newEducationDocSpace() {
                 /*
                 Getting the contributionsBranch
                 */
-                let workspace = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode
-                let contributionsBranch = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(workspace.payload, 'contributionsBranch')
+                let workspace = UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode
+                let contributionsBranch = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(workspace.payload, 'contributionsBranch')
 
                 if (contributionsBranch === undefined) {
-                    UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(workspace.payload, 'contributionsBranch', UI.projects.education.globals.docs.DEFAULT_CONTRIBUTIONS_BRANCH)
+                    UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(workspace.payload, 'contributionsBranch', UI.projects.education.globals.docs.DEFAULT_CONTRIBUTIONS_BRANCH)
                     UI.projects.education.spaces.docsSpace.contributionsBranch = UI.projects.education.globals.docs.DEFAULT_CONTRIBUTIONS_BRANCH
                 } else {
                     UI.projects.education.spaces.docsSpace.contributionsBranch = contributionsBranch
@@ -153,13 +153,13 @@ function newEducationDocSpace() {
 
             function setupUserLanguage() {
                 /*
-                Getting the used preferred languague
+                Getting the used preferred language
                 */
-                let workspace = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode
-                let docsLanguage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(workspace.payload, 'docsLanguage')
+                let workspace = UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode
+                let docsLanguage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(workspace.payload, 'docsLanguage')
 
                 if (docsLanguage === undefined) {
-                    UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(workspace.payload, 'docsLanguage', UI.projects.education.globals.docs.DEFAULT_LANGUAGE)
+                    UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(workspace.payload, 'docsLanguage', UI.projects.education.globals.docs.DEFAULT_LANGUAGE)
                     UI.projects.education.spaces.docsSpace.language = UI.projects.education.globals.docs.DEFAULT_LANGUAGE
                 } else {
                     UI.projects.education.spaces.docsSpace.language = docsLanguage
@@ -249,11 +249,13 @@ function newEducationDocSpace() {
             data = JSON.parse(data)
             if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
                 UI.projects.education.spaces.docsSpace.currentBranch = branch
-                let workspace = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode
-                UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(workspace.payload, 'currentBranch', branch)
+                let workspace = UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode
+                UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(workspace.payload, 'currentBranch', branch)
 
                 if (doNotNavigate === true) { return }
+
                 UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'Switching Branches - Current Branch Changed')
+
             } else {
                 UI.projects.education.spaces.docsSpace.navigateTo(
                     data.docs.project,
@@ -269,8 +271,8 @@ function newEducationDocSpace() {
 
     function changeContributionsBranch(branch, doNotNavigate) {
         UI.projects.education.spaces.docsSpace.contributionsBranch = branch
-        let workspace = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode
-        UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(workspace.payload, 'contributionsBranch', branch)
+        let workspace = UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode
+        UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(workspace.payload, 'contributionsBranch', branch)
 
         if (doNotNavigate !== true) {
             UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'Switching Branches - Contributions Branch Changed')
@@ -282,8 +284,8 @@ function newEducationDocSpace() {
         let languageLabel = UI.projects.education.utilities.languages.getLaguageLabel(UI.projects.education.spaces.docsSpace.language)
         UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'Docs In ' + languageLabel)
 
-        let workspace = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode
-        UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(workspace.payload, 'docsLanguage', UI.projects.education.spaces.docsSpace.language)
+        let workspace = UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode
+        UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(workspace.payload, 'docsLanguage', UI.projects.education.spaces.docsSpace.language)
     }
 
     function sharePage() {
@@ -391,7 +393,7 @@ function newEducationDocSpace() {
             UI.projects.education.spaces.docsSpace.currentBookBeingRendered = {
                 project: project,
                 category: category,
-                type: type.replace('AMPERSAND', '\''),
+                type: type.replaceAll('AMPERSAND', '\''),
                 anchor: anchor,
                 nodeId: nodeId,
                 placeholder: placeholder
@@ -401,7 +403,7 @@ function newEducationDocSpace() {
         UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered = {
             project: project,
             category: category,
-            type: type.replace('AMPERSAND', '\''),
+            type: type.replaceAll('AMPERSAND', '\''),
             anchor: anchor,
             nodeId: nodeId,
             placeholder: placeholder

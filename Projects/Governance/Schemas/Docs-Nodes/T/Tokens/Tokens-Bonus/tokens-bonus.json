@@ -2,7 +2,19 @@
     "type": "Tokens Bonus",
     "definition": {
         "text": "A Tokens Bonus is a reward that you obtain for participating in a program that is incentivized. Taking part in these programs is desirable, as they foster Community bonds, develop healthy social relations, or encourage specific collaborative dynamics. It is for those reasons that participation is incentivized.",
-        "updated": 1630141035393
+        "updated": 1630141035393,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Tokens Bonus - это награда, которую вы получаете за участие в программе, которая является мотивированной. Участие в этих программах желательно, поскольку они способствуют укреплению связей в сообществе, развивают здоровые социальные отношения или поощряют конкретную динамику сотрудничества. Именно по этим причинам участие поощряется.",
+                "updated": 1639127462366
+            },
+            {
+                "language": "TR",
+                "text": "Jeton Bonusu, teşvik edilen bir programa katıldığınız için elde ettiğiniz bir ödüldür. Topluluk ( Community ) bağlarını güçlendirdiği, sağlıklı sosyal ilişkiler geliştirdiği veya belirli işbirlikçi dinamikleri teşvik ettiği için bu programlarda yer almak arzu edilir. Katılımın teşvik edilmesi bu nedenlerledir.",
+                "updated": 1640035169272
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -13,22 +25,50 @@
         {
             "style": "Text",
             "text": "Programs that feature a Tokens Bonus have an associated Bonus Pool under the Governance Programs section of the Superalgos Pools hierarchy. These pools are used specifically to allocate tokens for these incentives.",
-            "updated": 1630168414638
+            "updated": 1630168414638,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Программы с Tokens Bonus имеют связанный бонусный пул Bonus Pool в разделе Governance Programs иерархии Superalgos Pools. Эти пулы используются специально для распределения токенов для этих стимулов.",
+                    "updated": 1639127617144
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "The Tokens Bonus you may get on any given program is in a Direct Proportion to the Token Power that you drive into the said program. That is, the more Token Power you drive into an incentivized program, the more tokens you get from the corresponding pool.",
-            "updated": 1630141193081
+            "updated": 1630141193081,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Tokens Bonus, который вы можете получить в любой программе, прямо пропорционален Token Power, который вы вкладываете в указанную программу. То есть, чем больше токенов вы вложите в программу стимулирования, тем больше токенов вы получите из соответствующего пула.",
+                    "updated": 1639127692135
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Calculation",
-            "updated": 1630141623710
+            "updated": 1630141623710,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Расчет",
+                    "updated": 1639127700832
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The calculation of the Tokens Bonus is a direct Rule of Three:",
-            "updated": 1630142120510
+            "updated": 1630142120510,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Расчет бонуса токенов является прямым правилом трех:",
+                    "updated": 1639127720484
+                }
+            ]
         },
         {
             "style": "Json",

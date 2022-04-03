@@ -4,12 +4,36 @@
     "type": "Unexpected Error",
     "definition": {
         "text": "An Unexpected Error is an error that happened at runtime that does not have a programmed way to handle it, and it usually produces the procedure where it happens to be halted. For those errors we preserve all the information available and display it at the Docs for users to analyze them.",
-        "updated": 1611733132608
+        "updated": 1611733132608,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Неожиданная ошибка - это ошибка, произошедшая во время выполнения, которая не имеет запрограммированного способа ее обработки, и обычно вызывает процедуру, в которой она останавливается. Для этих ошибок мы сохраняем всю доступную информацию и отображаем ее в документах Docs, чтобы пользователи могли их анализировать.",
+                "updated": 1638553423837
+                },
+                {
+                "language": "DE",
+                "text": "Ein unerwarteter Fehler ist ein Fehler, der zur Laufzeit (Runtime) aufgetreten ist und für den es keine programmierte Lösung gibt, und der normalerweise dazu führt, dass die Prozedur angehalten wird. Für diese Fehler bewahren wir alle verfügbaren Informationen auf und zeigen sie in den Docs an, damit die Benutzer sie analysieren können.",
+                "updated": 1638747534471
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования. Затем вы можете использовать docs.save для сохранения изменений и app.contribute для отправки в основной репозиторий.",
+                    "updated": 1638553439759
+                },
+                {
+                    "language": "DE",
+                    "text": "Wechsle bevor du etwas zu dem Artikel an sich hinzufügen möchtest zu englisch damit die Änderungen global sind. Speichere vorher aber alle bisherigen Änderungen/Übersetzungen. Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen. Dann können Sie docs.save verwenden, um Ihre Änderungen zu speichern und app.contribute, um sie an das Haupt-Repository zu senden.",
+                    "updated": 1638747650192
+                }
+            ]
         }
     ]
 }

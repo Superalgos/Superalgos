@@ -1,0 +1,127 @@
+{
+    "topic": "LAN Network",
+    "pageNumber": "7",
+    "type": "Trading Bot Instance and Trading Sessions",
+    "definition": {
+        "text": "The Trading Bot Instance may run four different types of trading tasks: Backtesting Session, Paper Trading Session, Forward Testing Session, and Live Trading Session.",
+        "updated": 1610104458924,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Экземпляр торгового бота Trading Bot Instance может выполнять четыре различных типа торговых задач: Backtesting Session, Paper Trading Session, Forward Testing Session и Live Trading Session.",
+                "updated": 1638601442717
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Trading Bot Instance->Definition",
+            "updated": 1610104349814
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Trading Bot Instance->Content",
+            "updated": 1610104353367
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Concept->Reusable Snippets->Note for Hierarchy Tables",
+            "updated": 1610104559141
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Foundations->Trading Bot Instance->3",
+            "updated": 1610105354911
+        },
+        {
+            "style": "Title",
+            "text": "Trading Process Instance",
+            "updated": 1610105388480
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Trading Process Instance->Definition",
+            "updated": 1610105392651
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Trading Process Instance->Content",
+            "updated": 1610105395638
+        },
+        {
+            "style": "Title",
+            "text": "Backtesting Session",
+            "updated": 1610105426304
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Backtesting Session->Definition",
+            "updated": 1610105431567
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Backtesting Session->Content",
+            "updated": 1610105435332
+        },
+        {
+            "style": "Title",
+            "text": "Paper Trading Session",
+            "updated": 1610105446863
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Paper Trading Session->Definition",
+            "updated": 1610105455085
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Paper Trading Session->Content",
+            "updated": 1610105458675
+        },
+        {
+            "style": "Title",
+            "text": "Forward Testing Session",
+            "updated": 1610105468103
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Forward Testing Session->Definition",
+            "updated": 1610105490548
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Forward Testing Session->Content",
+            "updated": 1610105494921
+        },
+        {
+            "style": "Title",
+            "text": "Live Trading Session",
+            "updated": 1610105511436
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Live Trading Session->Definition"
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Live Trading Session->Content",
+            "updated": 1610105515022
+        },
+        {
+            "style": "Title",
+            "text": "Execution Started Event",
+            "updated": 1610105590828
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Execution Started Event->Definition",
+            "updated": 1610105594875
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Execution Started Event->Content",
+            "updated": 1610105598223
+        }
+    ]
+}

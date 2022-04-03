@@ -1,0 +1,172 @@
+{
+    "type": "Outgoing Signals",
+    "definition": {
+        "text": "The Outgoing Signals node defines the location within a Trading System from which data can be gathered and composed into a Trading Signal. ",
+        "updated": 1644029844037,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Outgoing Signals определяет место в торговой системе, откуда данные могут быть собраны и скомпонованы в торговый сигнал.",
+                "updated": 1645253241155
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1643406159352
+        },
+        {
+            "style": "Text",
+            "text": "What this means is that an Outgoing Signal node captures and then tells the system where to send signal information. This is achieved by adding a child Outgoing Signal Reference node.",
+            "updated": 1643406587670,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это означает, что узел Outgoing Signal захватывает и затем указывает системе, куда посылать сигнальную информацию. Это достигается путем добавления дочернего узла Outgoing Signal Reference.",
+                    "updated": 1645253250788
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "Types of Signals",
+            "updated": 1643406148598,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Типы сигналов",
+                    "updated": 1645253258331
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "There are three types of signals that can be sent:",
+            "updated": 1644029880507,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Существует три типа сигналов, которые могут быть отправлены:",
+                    "updated": 1645253266416
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Subtitle",
+            "text": "Candle Sync Signals",
+            "updated": 1643425661140,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сигналы синхронизации свечей",
+                    "updated": 1645253284268
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Keeping the bots of provider and recipient on the same candle is vital for trading signals to actually be useful. Therefore, Candle Sync signals are the foundational use of the Outgoing Signal node. It communicates the candle on which the current signal belongs. This allows the recipient’s bots to identify the exact same candle and stay in sync with the provider’s bots.",
+            "updated": 1643425213425,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Удержание ботов поставщика и получателя на одной и той же свече является жизненно важным для того, чтобы торговые сигналы были действительно полезными. Поэтому сигналы Candle Sync являются основой использования узла Outgoing Signal. Он передает свечу, на которой находится текущий сигнал. Это позволяет ботам получателя идентифицировать точно такую же свечу и оставаться в синхронизации с ботами поставщика.",
+                    "updated": 1645253304937
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Candle sync signals are established by attaching an Outgoing Signal node to a Trading System node. Then adding a child Outgoing Signal Reference node. Then establishing a reference from the Outgoing Signal Reference node to the Trading System Signal node held under the Social Trading Bot of the provider.",
+            "updated": 1643425432904,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сигналы синхронизации свечей устанавливаются путем присоединения узла Outgoing Signal к узлу Trading System. Затем добавляется дочерний узел Outgoing Signal Reference. Затем устанавливается ссылка с узла Outgoing Signal Reference на узел Trading System Signal, находящийся под Social Trading Bot провайдера.",
+                    "updated": 1645253320305
+                }
+            ]
+        },
+        {
+            "style": "Subtitle",
+            "text": "Event Signals",
+            "updated": 1643425667662,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сигналы событий",
+                    "updated": 1645253326187
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Event signals allow the signal provider to send information concerning trading system events. Examples of such events are the Trigger On Event, Trigger Off Event, Take Position Event, etc.",
+            "updated": 1643426918248,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сигналы событий позволяют поставщику сигналов отправлять информацию о событиях торговой системы. Примерами таких событий являются событие включения триггера, событие отключения триггера, событие взятия позиции и т.д.",
+                    "updated": 1645253334141
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Creating event signals is very straightforward. First find the event which you would like to include in your signal. Then add an Outgoing Signal node to the Event node. After that attach a child Outgoing Signal Reference node. Finally establish a reference from the Outgoing Signal Reference node to the appropriate Trading Strategy Signals node.",
+            "updated": 1643426717064,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Создание сигналов событий очень простое. Сначала найдите событие, которое вы хотите включить в сигнал. Затем добавьте узел Outgoing Signal к узлу Event. После этого добавьте дочерний узел Outgoing Signal Reference. И наконец, установите ссылку от узла Outgoing Signal Reference на соответствующий узел Trading Strategy Signals.",
+                    "updated": 1645253344183
+                }
+            ]
+        },
+        {
+            "style": "Subtitle",
+            "text": "Formula Signals",
+            "updated": 1643426795012,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сигналы формул",
+                    "updated": 1645253355738
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Formula signals allow the signal provider to send information coming out of trading system formulas. Examples of such formulas are, Target Rate, Order Rate, Target Size In Base Asset, etc.",
+            "updated": 1643427806063,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сигналы по формулам позволяют поставщику сигналов передавать информацию, исходящую из формул торговой системы. Примерами таких формул являются: Target Rate, Order Rate, Target Size In Base Asset и т.д.",
+                    "updated": 1645253375863
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Creating a formula signal is the same as establishing an event signal.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Создание сигнала по формуле - это то же самое, что и создание сигнала события.",
+                    "updated": 1645253398469
+                }
+            ]
+        },
+        {
+            "style": "Include",
+            "text": "Trading-Signals->Node->Signal Context Formula->Content"
+        }
+    ]
+}

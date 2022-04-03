@@ -19,7 +19,23 @@
             {
                 "language": "ES",
                 "text": "Ahora que comprendes las referencias, podemos profundizar en Backups,tal vez incluso discutir las diferencias con Clones!",
-                "updated": 1626568459683
+                "updated": 1626568459683,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Jetzt, da Sie die Referenzen verstanden haben, können wir uns näher mit Backups befassen und vielleicht sogar die Unterschiede zu Clones diskutieren!",
+                "updated": 1634585586598
+            },
+            {
+                "language": "TR",
+                "text": "Artık referansları anladığınıza göre, daha derine inebilir ve  Yedekler ( Backups ) ile Klonlar ( Clones ) arasındaki farka bakabiliriz.",
+                "updated": 1639564320216
+            },
+            {
+                "language": "RU",
+                "text": "Теперь, когда вы понимаете, что такое ссылки, мы можем углубиться в резервное копирование и, возможно, даже обсудить его отличие от клонирования!",
+                "updated": 1640870580637
             }
         ]
     },
@@ -38,7 +54,23 @@
                 {
                     "language": "ES",
                     "text": "¡Tienes más que leer! ¡Por favor, lee esta página detenidamente y deja que la información se asimile!",
-                    "updated": 1626569135266
+                    "updated": 1626569135266,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie müssen noch etwas lesen! Bitte lesen Sie diese Seite sorgfältig und lassen Sie die Informationen auf sich wirken!",
+                    "updated": 1634585594377
+                },
+                {
+                    "language": "TR",
+                    "text": "Okuman gereken daha çok sayfa var! Lütfen bu sayfayı dikkatlice okuyun ve bilgileri öğrendiğinizden emin olun.",
+                    "updated": 1639564382848
+                },
+                {
+                    "language": "RU",
+                    "text": "Вам предстоит еще немного почитать! Пожалуйста, внимательно прочитайте эту страницу и дайте информации усвоиться!",
+                    "updated": 1640870608708
                 }
             ]
         },
@@ -56,7 +88,18 @@
                 {
                     "language": "ES",
                     "text": "En resumen:",
-                    "updated": 1626613851965
+                    "updated": 1626613851965,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Zusammengefasst:",
+                    "updated": 1634585604403
+                },
+                {
+                    "language": "RU",
+                    "text": "В заключение:",
+                    "updated": 1640870631959
                 }
             ]
         },
@@ -74,7 +117,23 @@
                 {
                     "language": "ES",
                     "text": "Outgoing references: Siempre se mantienen intactos.",
-                    "updated": 1626569183871
+                    "updated": 1626569183871,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ausgehende Referenzen: Sie werden immer beibehalten.",
+                    "updated": 1634585629017
+                },
+                {
+                    "language": "TR",
+                    "text": "Giden referanslar (Outgoing references): Her zaman olduğu gibi tutulurlar.",
+                    "updated": 1639564508215
+                },
+                {
+                    "language": "RU",
+                    "text": "Исходящие ссылки: Они всегда сохраняются в целости и сохранности.",
+                    "updated": 1640870642228
                 }
             ]
         },
@@ -92,7 +151,23 @@
                 {
                     "language": "ES",
                     "text": "Incoming references: Se conservan solo cuando se elimina la estructura original antes de restaurar la copia de seguridad.",
-                    "updated": 1626613813084
+                    "updated": 1626613813084,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Eingehende Referenzen: Sie werden nur beibehalten, wenn die Originalstruktur vor der Wiederherstellung der Sicherung gelöscht wird.",
+                    "updated": 1634585637023
+                },
+                {
+                    "language": "TR",
+                    "text": "Gelen referanslar (Incoming references): Yalnızca yedeklemeyi geri yüklemeden önce orijinal yapı silindiğinde tutulurlar.",
+                    "updated": 1639567244914
+                },
+                {
+                    "language": "RU",
+                    "text": "Входящие ссылки: Они сохраняются только в том случае, если исходная структура удалена перед восстановлением резервной копии.",
+                    "updated": 1640870667600
                 }
             ]
         },
@@ -110,7 +185,23 @@
                 {
                     "language": "ES",
                     "text": "Internal references: Permanecen internos, solo cuando la estructura original se elimina primero.",
-                    "updated": 1626613836362
+                    "updated": 1626613836362,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Interne Referenzen: Sie bleiben nur dann intern, wenn die ursprüngliche Struktur zuerst gelöscht wird.",
+                    "updated": 1634585642707
+                },
+                {
+                    "language": "TR",
+                    "text": "Dahili referanslar (Internal references): Yalnızca orijinal yapı ilk silindiğinde tutulurlar.",
+                    "updated": 1639567329284
+                },
+                {
+                    "language": "RU",
+                    "text": "Внутренние ссылки: Они остаются внутренними, только если сначала удаляется исходная структура.",
+                    "updated": 1640870680340
                 }
             ]
         }

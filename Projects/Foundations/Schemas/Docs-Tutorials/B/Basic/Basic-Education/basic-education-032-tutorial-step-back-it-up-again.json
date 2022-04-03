@@ -19,7 +19,23 @@
             {
                 "language": "ES",
                 "text": "¡Te dije que iba a insistir en este tema! ¡Probemos el segundo ejemplo!",
-                "updated": 1626614763096
+                "updated": 1626614763096,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Ich habe Ihnen gesagt, dass ich dieses Thema mit dem Hammer bearbeiten werde! Lassen Sie uns das zweite Beispiel ausprobieren!",
+                "updated": 1634585921922
+            },
+            {
+                "language": "TR",
+                "text": "İkinci örneği deneyelim!",
+                "updated": 1639603129746
+            },
+            {
+                "language": "RU",
+                "text": "Я же говорил вам, что собираюсь довести эту тему до ума! Давайте попробуем второй пример!",
+                "updated": 1640870858272
             }
         ]
     },
@@ -38,7 +54,23 @@
                 {
                     "language": "ES",
                     "text": "¡Realiza una copia de seguridad del sistema Lightning Strike trading! Restaura la copia de seguridad sin eliminar el original. Luego, repite la operación de restauración, pero primero elimine el sistema trading original.",
-                    "updated": 1626614976596
+                    "updated": 1626614976596,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Machen Sie ein Backup des Lightning Strike Handelssystems! Stellen Sie das Backup wieder her, ohne das Original zu löschen. Wiederholen Sie dann den Wiederherstellungsvorgang, aber löschen Sie zuerst das ursprüngliche Handelssystem!",
+                    "updated": 1634585943896
+                },
+                {
+                    "language": "TR",
+                    "text": "Lightning Strike Trading System düğümünün yedeğini alın! Orijinali silmeden yedeği geri yükleyin. Ardından geri yükleme işlemini tekrarlayın, ancak önce orijinal ticaret sistemini silin!",
+                    "updated": 1639603462583
+                },
+                {
+                    "language": "RU",
+                    "text": "Сделайте резервную копию торговой системы Lightning Strike! Восстановите резервную копию, не удаляя оригинал. Затем повторите операцию восстановления, но сначала удалите оригинальную торговую систему!",
+                    "updated": 1640870878407
                 }
             ]
         },
@@ -55,7 +87,23 @@
                 {
                     "language": "ES",
                     "text": "¡Verifica cómo se conservan las referencias entrantes solo en el segundo caso!",
-                    "updated": 1626615039104
+                    "updated": 1626615039104,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Überprüfen Sie, wie die eingehenden Referenzen nur im zweiten Fall erhalten bleiben!",
+                    "updated": 1634585949205
+                },
+                {
+                    "language": "TR",
+                    "text": "İkinci durumda (orjinal düğümü silip düğümü geri yüklediğinizde) gelen referansların ( Incoming references ) nasıl korunduğunu gözlemleyin!",
+                    "updated": 1639603967310
+                },
+                {
+                    "language": "RU",
+                    "text": "Проверьте, как сохраняются входящие ссылки, только во втором случае!",
+                    "updated": 1640870935829
                 }
             ]
         },
@@ -73,7 +121,23 @@
                 {
                     "language": "ES",
                     "text": "Recuerde que, para conservar las referencias entrantes, debe eliminar la estructura original de los nodos antes de restaurar la copia de seguridad.",
-                    "updated": 1626615070797
+                    "updated": 1626615070797,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Damit die eingehenden Referenzen erhalten bleiben, müssen Sie die ursprüngliche Struktur der Knoten löschen, bevor Sie die Sicherung wiederherstellen!",
+                    "updated": 1634585956756
+                },
+                {
+                    "language": "TR",
+                    "text": "Unutmayın, gelen referansların korunması için yedeği geri yüklemeden önce düğümlerin orijinal yapısını silmeniz gerekir!",
+                    "updated": 1639603997353
+                },
+                {
+                    "language": "RU",
+                    "text": "Помните, что для сохранения входящих ссылок необходимо удалить исходную структуру узлов перед восстановлением резервной копии!",
+                    "updated": 1640870949480
                 }
             ]
         }

@@ -4,13 +4,42 @@
     "type": "App Update Command",
     "definition": {
         "text": "Use this command to update your local installation of Superalgos to the latest version available. ",
-        "updated": 1610449365984
+        "updated": 1610449365984,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Zusammenfassung: Verwenden Sie diesen Befehl, um Ihre lokale Installation von Superalgos auf die neueste verfügbare Version zu aktualisieren.",
+                "updated": 1638038182879
+            },
+            {
+                "language": "RU",
+                "text": "Используйте эту команду для обновления локальной установки Superalgos до последней доступной версии.",
+                "updated": 1640235456216
+            },
+            {
+                "language": "TR",
+                "text": "Yerel Superalgos kurulumunuzu mevcut en son sürüme güncellemek için bu komutu kullanın.",
+                "updated": 1644223335480
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Syntax",
-            "updated": 1610449451990
+            "updated": 1610449451990,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Синтаксис",
+                    "updated": 1640235466825
+                },
+                {
+                    "language": "TR",
+                    "text": "Söz Dizimi",
+                    "updated": 1644223350415
+                }
+            ]
         },
         {
             "style": "Json",
@@ -19,7 +48,24 @@
         },
         {
             "style": "Title",
-            "text": "Examples"
+            "text": "Examples",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiele",
+                    "updated": 1638038191514
+                },
+                {
+                    "language": "RU",
+                    "text": "Примеры",
+                    "updated": 1640235474571
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnekler",
+                    "updated": 1644223365611
+                }
+            ]
         },
         {
             "style": "Json",

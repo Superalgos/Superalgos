@@ -1,0 +1,27 @@
+{
+    "topic": "User Profile",
+    "pageNumber": 14,
+    "type": "The Staking Program",
+    "definition": {
+        "text": "Staking in Superalgos is as simple as it gets!",
+        "updated": 1630500044430,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Staking en Superalgos es tan simple como parece!",
+                "updated": 1640960584552
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Governance->Node->Staking Program->Definition",
+            "updated": 1630499989010
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Staking Program->Content"
+        }
+    ]
+}

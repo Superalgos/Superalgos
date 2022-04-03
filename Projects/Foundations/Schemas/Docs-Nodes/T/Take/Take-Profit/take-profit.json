@@ -7,13 +7,25 @@
                 "language": "ES",
                 "text": "Take profit es el objetivo actual de obtención de beneficios, según se define en la etapa de gestión de la estrategia correspondiente.",
                 "updated": 1629579903804
+            },
+            {
+                "language": "RU",
+                "text": "Take Profit - текущая цель тейк-профита, определенная на этапе управления соответствующей стратегией.",
+                "updated": 1645170783168
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER для написания новых абзацев. ESC для выхода из режима редактирования.",
+                    "updated": 1645170788796
+                }
+            ]
         },
         {
             "style": "Block",
@@ -22,15 +34,36 @@
         {
             "style": "Title",
             "text": "Take Profit Configuration",
-            "updated": 1609926487662
+            "updated": 1609926487662,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Take Profit",
+                    "updated": 1645170803062
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Properties"
+            "text": "Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1645170810073
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "initialValue allows resetting the initial state of the node to an arbitrary value."
+            "text": "initialValue allows resetting the initial state of the node to an arbitrary value.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
+                    "updated": 1645170815393
+                }
+            ]
         }
     ]
 }

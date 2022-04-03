@@ -7,6 +7,16 @@
                 "language": "ES",
                 "text": "Position es la sección de la estructura de datos que realiza un seguimiento de la información dentro del alcance de cada puesto, y durante el tiempo que un puesto está abierto.",
                 "updated": 1629580398836
+            },
+            {
+                "language": "TR",
+                "text": "Pozisyon, veri yapısının her pozisyon kapsamında ve pozisyonun açık olduğu süre boyunca bilgileri takip eden bölümüdür.",
+                "updated": 1639225406261
+            },
+            {
+                "language": "RU",
+                "text": "Position - это раздел структуры данных, который отслеживает информацию в рамках каждой позиции и в течение времени, когда позиция открыта.",
+                "updated": 1639559977476
             }
         ]
     },
@@ -17,35 +27,91 @@
         },
         {
             "style": "Text",
-            "text": "The position node is available both in the current context and the last context, that is, you may retrieve information of the position that was last opened or the one currently open."
+            "text": "The position node is available both in the current context and the last context, that is, you may retrieve information of the position that was last opened or the one currently open.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узел Position доступен как в текущем контексте, так и в последнем контексте, то есть вы можете получить информацию о позиции, которая была открыта последней или открытой в данный момент.",
+                    "updated": 1639560091465
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "A position is open from the instant the take position event is triggered until the instant the close stage is closed. Therefore, this section of the data structure features information spaning those periods only."
+            "text": "A position is open from the instant the take position event is triggered until the instant the close stage is closed. Therefore, this section of the data structure features information spaning those periods only.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Позиция открыта с момента срабатывания события \"занять позицию\" до момента закрытия этапа закрытия. Поэтому в этом разделе структуры данных содержится информация, охватывающая только эти периоды.",
+                    "updated": 1640284557877
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In this section of the hierarchy, you have access to:"
+            "text": "In this section of the hierarchy, you have access to:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В этом разделе иерархии у вас есть доступ к:",
+                    "updated": 1640284574176
+                }
+            ]
         },
         {
             "style": "List",
-            "text": " balances and position performance metrics denominated in both the base and quoted assets;"
+            "text": " balances and position performance metrics denominated in both the base and quoted assets;",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "балансам и показателям эффективности позиций, выраженным как в базовых, так и в котируемых активах;",
+                    "updated": 1640284626997
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "counters, such as the number of periods the position has been open;"
+            "text": "counters, such as the number of periods the position has been open;",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "счетчикам, таким как количество периодов, в течение которых позиция была открыта;",
+                    "updated": 1640284655162
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "statistics, such as performance metrics consolidating both assets, or user-defined statistics;"
+            "text": "statistics, such as performance metrics consolidating both assets, or user-defined statistics;",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "статистике, такой как показатели производительности, объединяющие оба актива, или статистике, определяемой пользователем;",
+                    "updated": 1640284686948
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "the distance to certain events, such as the number of candles to the last  take position event, or the last create order event;"
+            "text": "the distance to certain events, such as the number of candles to the last  take position event, or the last create order event;",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "расстоянию до определенных событий, например, количество свечей до последнего события взятия позиции или последнего события выставления ордера;",
+                    "updated": 1640284748176
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "rates describing each candle in the episode, such as the open, close, min and max rates;"
+            "text": "rates describing each candle in the episode, such as the open, close, min and max rates;",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "ставке, описывающей каждую свечу в эпизоде, такой как ставка открытия, закрытия, min и max;",
+                    "updated": 1640284783487
+                }
+            ]
         }
     ]
 }

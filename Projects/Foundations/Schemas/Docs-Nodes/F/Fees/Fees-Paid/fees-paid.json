@@ -1,7 +1,14 @@
 {
     "type": "Fees Paid",
     "definition": {
-        "text": "Fees paid is the amount paid in fees."
+        "text": "Fees paid is the amount paid in fees.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Fees paid - это сумма, уплаченная в виде комиссий.",
+                "updated": 1638963664549
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,15 +17,36 @@
         },
         {
             "style": "Text",
-            "text": "The exchange does not explicitly indicate how much has been paid in fees for a given transaction. Instead, when Superalgos verifies if an order has been filled or not, the exchange reports the size filled and the actual rate only."
+            "text": "The exchange does not explicitly indicate how much has been paid in fees for a given transaction. Instead, when Superalgos verifies if an order has been filled or not, the exchange reports the size filled and the actual rate only.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Биржа явно не указывает, сколько было уплачено в виде комиссионных за данную транзакцию. Вместо этого, когда Superalgos проверяет, был ли заказ заполнен или нет, биржа сообщает только заполненный размер и фактический курс.",
+                    "updated": 1638963729275
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Exchange fees are estimated using the fee structure parameter set for the trading session. It is, therefore, important to set the correct values for that parameter."
+            "text": "Exchange fees are estimated using the fee structure parameter set for the trading session. It is, therefore, important to set the correct values for that parameter.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Биржевые комиссии рассчитываются с использованием параметра структуры комиссий Fee Structure, установленного для торговой сессии. Поэтому важно установить правильные значения для этого параметра.",
+                    "updated": 1638963830205
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Exchanges deduct fees from the asset you are receiving. For instance, if you are selling BTC in the BTC-USDT market, then you are receiving USDT, and the exchange will deduct the fees directly from the amount of USDT you are receiving."
+            "text": "Exchanges deduct fees from the asset you are receiving. For instance, if you are selling BTC in the BTC-USDT market, then you are receiving USDT, and the exchange will deduct the fees directly from the amount of USDT you are receiving.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Биржи вычитают комиссию из получаемого вами актива. Например, если вы продаете BTC на рынке BTC-USDT, вы получаете USDT, и биржа вычитает комиссию непосредственно из суммы получаемого вами USDT.",
+                    "updated": 1638963850679
+                }
+            ]
         },
         {
             "style": "Block",
@@ -28,17 +56,38 @@
         {
             "style": "Title",
             "text": "Fees Paid Configuration",
-            "updated": 1609926807448
+            "updated": 1609926807448,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Fees Paid",
+                    "updated": 1638963872245
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609873980538
+            "updated": 1609873980538,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1638963879686
+                }
+            ]
         },
         {
             "style": "List",
             "text": "initialValue allows resetting the initial state of the node to an arbitrary value.",
-            "updated": 1609875415147
+            "updated": 1609875415147,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
+                    "updated": 1638963888395
+                }
+            ]
         }
     ]
 }

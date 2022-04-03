@@ -2,13 +2,27 @@
     "type": "Delete Entity",
     "definition": {
         "text": "Deletes the node and all its offspring. A confirmation in the form of an additional click is required.",
-        "updated": 1610033272508
+        "updated": 1610033272508,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Удаляет узел и все его потомки. Требуется подтверждение в виде дополнительного клика.",
+                "updated": 1638282734383
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Warning",
             "text": "This operation can not be undone.",
-            "updated": 1611398340598
+            "updated": 1611398340598,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Эту операцию нельзя отменить.",
+                    "updated": 1638282747415
+                }
+            ]
         }
     ]
 }

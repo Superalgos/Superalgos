@@ -8,6 +8,11 @@
                 "language": "ES",
                 "text": "Esto se refiere a la Dataset Type que contienen archivos para cada período de tiempo desde 1 minuto hasta 45 minutos y tiene un archivo para cada día diferente.",
                 "updated": 1624496919020
+            },
+            {
+                "language": "RU",
+                "text": "Это относится к типу набора данных Dataset Type, который содержит файлы для Time Frame от 1 минуты до 45 минут и имеет по одному файлу на каждый день.",
+                "updated": 1638286046084
             }
         ]
     },

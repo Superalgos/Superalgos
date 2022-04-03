@@ -1,26 +1,46 @@
 {
     "type": "Feature Claims Folder",
     "definition": {
-        "text": "The Feature Contribution Claims Folder node is an organizational device used to arrange Feature Contribution Claim nodes in suitable hierarchical structures.",
-        "updated": 1624728474759
+        "text": "Use this node as an organizational device, to spawn Feature Contribution Claim nodes, and to map entire structures in a Features hierarchy to place multiple Contribution Claims at once.",
+        "updated": 1630352152356,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Use este nodo como un dispositivo organizacional, para abrir nodos Feature Contribution Claim (solicitud de  contribución  de función), y para mapear estructuras enteras en una jerarquía de  Feature (función) y colocar múltiples solicitudes de Contribution Claims al mismo tiempo.",
+                "updated": 1636112015354
+            },
+            {
+                "language": "RU",
+                "text": "Используйте этот узел в качестве организационного устройства, чтобы порождать узлы Feature Contribution Claim и отображать целые структуры в иерархии Features для одновременного размещения нескольких Contribution Claims.",
+                "updated": 1639133874436
+            },
+            {
+                "language": "TR",
+                "text": "Özellik Katkı Talebi düğümlerini (Feature Contribution Claim) oluşturmak ve aynı anda birden çok Katkı Talebi (Contribution Claims) yerleştirmek ve tüm talepleri bir Varlıklar hiyerarşisinde birleştirmek için bu düğümü kurumsal bir cihaz olarak kullanın.",
+                "updated": 1644497944444
+            }
+        ]
     },
     "paragraphs": [
         {
-            "style": "Block",
-            "text": "Content",
-            "updated": 1624728497197
-        },
-        {
-            "style": "Text",
-            "text": "You may use this node to reference a Feature Class node in the Features hierarchy. Once the reference is established, you may use the Install Missing Claims option on the menu to map the data structure of the referenced node with claims for each Feature."
+            "style": "Include",
+            "text": "Governance->Concept->Claims Folder->Content",
+            "updated": 1630260159250
         },
         {
             "style": "Block",
-            "text": "Cnfiguration"
+            "text": "Configuration"
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1639133257953
+                }
+            ]
         }
     ]
 }

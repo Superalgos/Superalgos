@@ -1,8 +1,25 @@
 {
     "type": "Referral Program",
     "definition": {
-        "text": "The referral program is designed to incentivize both word-of-mouth and influencer referrals. You may earn tokens for each user you refer, but also for each user they refer as well, and the chain goes on infinitely!",
-        "updated": 1624726453093
+        "text": "The referral program incentivizes the promotion of the project, either by word-of-mouth or “en masse” through articles, social media posts, videos, and other forms of influencer marketing.",
+        "updated": 1630227795694,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "El referral program incentiva la promoción del proyecto, ya sea de boca en boca  o en masa  a través de artículos, posteos en redes sociales, videos y otras formas de influencias en marketing .",
+                "updated": 1633524918233
+            },
+            {
+                "language": "RU",
+                "text": "Реферальная программа стимулирует продвижение проекта либо из уст в уста, либо “массово” посредством статей, постов в социальных сетях, видеороликов и других форм маркетинга влияния.",
+                "updated": 1638983828968
+            },
+            {
+                "language": "TR",
+                "text": "Yönlendirme programı, projenin tanıtımını ya ağızdan ağza ya da makaleler, sosyal medya gönderileri, videolar ve diğer etkileyici pazarlama biçimleri aracılığıyla \"toplu olarak\" teşvik eder.",
+                "updated": 1640034611198
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -11,24 +28,73 @@
             "updated": 1624726477501
         },
         {
-            "style": "Text",
-            "text": "When you declare one or more referrers, you confer them 10% of your Referral Power, but without losing any of your power! That is, you are not giving your power away… you’re empowering someone else through your power!"
+            "style": "Include",
+            "text": "Governance->Concept->Reusable Governance Snippets->Featuring Tokens Bonus",
+            "updated": 1630230465415
         },
         {
             "style": "Text",
-            "text": "The power you confer to your referrer is added to his or her own power. Now, guess what happens when your referrer declares his or her referrer? That's right! 10% of the total Referral Power is conferred to his or her referrer too! And the chain continues on and on."
+            "text": "With this program, you may earn Superalgos SA Tokens for every user you refer to the project, and also for the users they refer!",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Con este programa, puede ganar Superalgos SA Tokens por cada usuario que usted refiera al proyecto, y tambien por los usuarios que ellos referencien!",
+                    "updated": 1633525009280
+                },
+                {
+                    "language": "RU",
+                    "text": "С помощью этой программы вы можете зарабатывать токены Superalgos SA Token для каждого пользователя, которого вы ссылаетесь на проект, а также для пользователей, которых они ссылаются!",
+                    "updated": 1638984094214
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Now, let’s look at this the other way round. The people you refer confer 10% of their Referral Power to you. When they get to refer people, they get 10% of their Referral Power. This means that you get 10% of the Referral Power from the first generation of people you refer, but you also get 1% of the power of the second generation, and 0.1% of the third generation, and so on!"
+            "text": "To participate, you must spawn the Referral Program and declare your referrer. To do that, add a User Referrer node and use it to establish a reference to the User Profile of the person that referred you to Superalgos. If you have more than one referrer, simply add more User Referrer nodes.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Para participar, debe extender el programa Referral Program y declarar su referido. Para hacer esto, agregue un nodo al User Referrer y úselo para establecer el User Profile de la persona que lo refirió a Superalgos. Si tiene más de un referido, simplemente agregue más nodos al User Referrer.",
+                    "updated": 1633530224609
+                },
+                {
+                    "language": "RU",
+                    "text": "Для участия вы должны запустить реферальную программу Referral Program и объявить своего реферера. Для этого добавьте узел User Referrer и используйте его, чтобы установить ссылку на профиль пользователя человека, который направил вас в Superalgos. Если у вас более одного реферера, просто добавьте больше узлов User Referrer.",
+                    "updated": 1638984032303
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "At the time of each Distribution Event, your total Referral Power determines the Direct Proportion of tokens you get from the Referral Reward Pool."
+            "text": "Maybe you learned about Superalgos from an article, a video, a comment on Reddit, a tweet, the official website, or someone who told you about us!",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Может быть, вы узнали о Superalgos из статьи, видео, комментария на Reddit, твита, официального сайта или кого-то, кто рассказал вам о нас!",
+                    "updated": 1638984116650
+                }
+            ]
         },
         {
-            "style": "Success",
-            "text": "As you can see, there is a very good incentive for spreading the word about Superalgos. It’s good for you, for your friends, for their friends, and for the project!"
+            "style": "Text",
+            "text": "Declaring your referrers is the best way to thank the people that may have written that article or tweet, produced that video, maintained the website, or told you about Superalgos! Without them, you probably wouldn’t be here yet!",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Declarar sus referidos es el mejor modo de agradecerle a la gente que escribió el artículo o tweeteo, produjo ese video, realizó el mantenimiento de la web, o te habló a cerca de Superalgos! Sin ellos, probablemente no estaría aquí todavía!",
+                    "updated": 1633530419731
+                },
+                {
+                    "language": "RU",
+                    "text": "Объявление ваших рефереров - лучший способ поблагодарить людей, которые, возможно, написали эту статью или твит, создали это видео, поддерживали веб-сайт или рассказали вам о Superalgos! Без них вас, наверное, еще бы здесь не было!",
+                    "updated": 1638984144769
+                }
+            ]
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Reusable Governance Snippets->Community Building Programs",
+            "updated": 1630230671246
         },
         {
             "style": "Block",
@@ -36,7 +102,14 @@
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1638984168546
+                }
+            ]
         }
     ]
 }

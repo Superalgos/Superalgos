@@ -4,13 +4,42 @@
     "type": "Testing a Trading Idea - The Trigger Stage Tutorial",
     "definition": {
         "text": "This tutorial walks you through the implementation of the trading idea defined in the previous tutorial, covering the definitions of the Trigger Stage.",
-        "updated": 1617118397821
+        "updated": 1617118397821,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Este tutorial le guía a través de la implementación de la idea de trading comercial definida en el tutorial anterior, cubriendo las definiciones de Trigger Stage  (etapa de gatillo).",
+                "updated": 1636725770895
+            },
+            {
+                "language": "DE",
+                "text": "Dieses Tutorial führt Sie durch die Umsetzung der im vorherigen Tutorial definierten Handelsidee und behandelt die Definitionen der Trigger Stage.",
+                "updated": 1639253993289
+            },
+            {
+                "language": "RU",
+                "text": "В этом уроке вы пройдете через реализацию торговой идеи, определенной в предыдущем уроке, охватывая определения Trigger Stage.",
+                "updated": 1640933091104
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu öğretici, Tetikleme Aşamasının ( Trigger Stage ) tanımlarını kapsayan, önceki öğreticide tanımlanan ticaret fikrinin uygulanmasında size yol gösterir.",
+                "updated": 1641062029090
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "About This Tutorial",
-            "updated": 1617118440328
+            "updated": 1617118440328,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Об этом учебнике",
+                    "updated": 1640933099673
+                }
+            ]
         },
         {
             "style": "List",

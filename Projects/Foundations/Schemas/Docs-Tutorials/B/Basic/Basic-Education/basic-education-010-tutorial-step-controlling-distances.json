@@ -21,6 +21,26 @@
                 "text": "La siguiente opción del menú controla la distancia desde el nodo hasta su padre. Al hacer clic en el botón, se recorren las opciones.",
                 "updated": 1625957415996,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Die nächste Option im Menü steuert den Abstand zwischen dem Unterknoten und seinem Übergeordneten Knoten. Durch Klicken auf die Schaltfläche werden die Optionen durchlaufen.",
+                "updated": 1634332176300
+            },
+            {
+                "language": "TR",
+                "text": "Menüdeki bir sonraki seçenek, düğümden ebeveynine olan mesafeyi kontrol eder. Düğmeye tıklamak seçenekler arasında geçiş yapar.",
+                "updated": 1636748818153
+            },
+            {
+                "language": "RU",
+                "text": "Следующая опция в меню управляет расстоянием от узла до его родителя. При нажатии на кнопку происходит циклический переход между опциями.",
+                "updated": 1640866447512
+            },
+            {
+                "language": "ID",
+                "text": "Opsi selanjutnya di kontrol menu jarak dari node kepada parent-nya. Klik tombol secara berulang di pilihan.",
+                "updated": 1643353095314
             }
         ]
     },
@@ -41,6 +61,26 @@
                     "text": "La distancia de un nodo a su padre se establece en relación con la distancia del padre a su nodo padre. Las opciones disponibles son:",
                     "updated": 1625957455476,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Abstand eines Knotens zu seinem übergeordneten Knoten wird relativ zum Abstand des übergeordneten Knotens zu seinem übergeordneten Knoten festgelegt. Die verfügbaren Optionen sind:",
+                    "updated": 1634332213957
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir düğümden ebeveynine olan mesafe, ebeveynden ebeveyn düğümüne olan mesafeye göre ayarlanır. Mevcut seçenekler şunlardır:",
+                    "updated": 1636748858484
+                },
+                {
+                    "language": "RU",
+                    "text": "Расстояние от узла до его родителя устанавливается относительно расстояния от родительского узла до его родительского узла. Доступны следующие варианты:",
+                    "updated": 1640866462942
+                },
+                {
+                    "language": "ID",
+                    "text": "Jarak dari node ke parentnya diatur relatif terhadap jarak dari parent ke node parentnya. Opsi yang tersedia adalah:",
+                    "updated": 1643434282958
                 }
             ]
         },
@@ -54,6 +94,26 @@
                     "text": "Rosa: 0.25X",
                     "updated": 1619460519997,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Rosa: 0.25X",
+                    "updated": 1634332245055
+                },
+                {
+                    "language": "TR",
+                    "text": "Pink (Pembe): 0.25X",
+                    "updated": 1636748869618
+                },
+                {
+                    "language": "RU",
+                    "text": "Розовый: 0,25X",
+                    "updated": 1640866526964
+                },
+                {
+                    "language": "ID",
+                    "text": "Merah Muda: 0.25X",
+                    "updated": 1643473780922
                 }
             ]
         },
@@ -66,6 +126,21 @@
                     "text": "Arancione: 0.5X",
                     "updated": 1619460530100,
                     "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Orange (Kavuniçi): 0.5X",
+                    "updated": 1636748886700
+                },
+                {
+                    "language": "RU",
+                    "text": "Оранжевый: 0.5X",
+                    "updated": 1640866535036
+                },
+                {
+                    "language": "ID",
+                    "text": "Oranye: 0.5X",
+                    "updated": 1643473807651
                 }
             ]
         },
@@ -78,6 +153,26 @@
                     "text": "Verde: 1X",
                     "updated": 1619460537594,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Grün: 1X",
+                    "updated": 1634332224238
+                },
+                {
+                    "language": "TR",
+                    "text": "Green (Yeşil): 1X",
+                    "updated": 1636748898393
+                },
+                {
+                    "language": "RU",
+                    "text": "Зеленый: 1X",
+                    "updated": 1640866542121
+                },
+                {
+                    "language": "ID",
+                    "text": "Hijau: 1X",
+                    "updated": 1643473851575
                 }
             ]
         },
@@ -90,6 +185,26 @@
                     "text": "Blu: 1.5X",
                     "updated": 1619460541700,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Blau: 1.5X",
+                    "updated": 1634332228958
+                },
+                {
+                    "language": "TR",
+                    "text": "Blue (Mavi): 1.5X",
+                    "updated": 1636749062176
+                },
+                {
+                    "language": "RU",
+                    "text": "Синий: 1.5X",
+                    "updated": 1640866548819
+                },
+                {
+                    "language": "ID",
+                    "text": "Biru: 1.5X",
+                    "updated": 1643473858691
                 }
             ]
         },
@@ -102,6 +217,26 @@
                     "text": "Rosso: 2X",
                     "updated": 1619460546342,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Rot: 2X",
+                    "updated": 1634332233805
+                },
+                {
+                    "language": "TR",
+                    "text": "Red (Kırmızı): 2X",
+                    "updated": 1636749080979
+                },
+                {
+                    "language": "RU",
+                    "text": "Красный: 2X",
+                    "updated": 1640866555783
+                },
+                {
+                    "language": "ID",
+                    "text": "Merah: 2X",
+                    "updated": 1643473865965
                 }
             ]
         },
@@ -121,6 +256,26 @@
                     "text": "Digamos que eliges la opción green. ¡La distancia del nodo a su padre será la misma distancia que separa el nodo padre de su padre!",
                     "updated": 1625957497706,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Nehmen wir an, Sie wählen die grüne Option. Der Abstand des Knotens zu seinem übergeordneten Knoten ist derselbe Abstand, der den übergeordneten Knoten von seinem übergeordneten Knoten trennt!",
+                    "updated": 1634332187256
+                },
+                {
+                    "language": "TR",
+                    "text": "Diyelim ki yeşil seçeneği seçtiniz. Düğümden ebeveynine olan mesafe, ebeveyn düğümünden ayıran mesafeyle aynı olacaktır!",
+                    "updated": 1636749146092
+                },
+                {
+                    "language": "RU",
+                    "text": "Предположим, что вы выбрали зеленый вариант. Расстояние от узла до его родителя будет равно расстоянию, которое отделяет родительский узел от его родителя!",
+                    "updated": 1640866515945
+                },
+                {
+                    "language": "ID",
+                    "text": "Katakan jika kamu memilih warna Hijau. Jarak dari node ke parent-nya akan sama dengan jarak yang memisahkan parent node dengan parent-nya!",
+                    "updated": 1643473885338
                 }
             ]
         }

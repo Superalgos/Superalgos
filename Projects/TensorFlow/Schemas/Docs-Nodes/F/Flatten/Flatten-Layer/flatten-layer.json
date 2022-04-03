@@ -2,12 +2,26 @@
     "type": "Flatten Layer",
     "definition": {
         "text": "Flattens the input. Does not affect the batch size. A Flatten layer flattens each batch in its inputs to 1D (making the output 2D).",
-        "updated": 1613213956160
+        "updated": 1613213956160,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Сглаживает входные данные. Не влияет на размер партии. Слой Flatten сплющивает каждую партию на входе до 1D (делая выход 2D).",
+                "updated": 1645248019338
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "Right click and select the pencil button to enter edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
+                    "updated": 1645248024302
+                }
+            ]
         }
     ]
 }

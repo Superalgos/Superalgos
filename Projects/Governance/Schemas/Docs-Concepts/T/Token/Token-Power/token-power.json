@@ -2,7 +2,24 @@
     "type": "Token Power",
     "definition": {
         "text": "Your Token Power is equal to the number of Superalgos SA Tokens in your Governance Address, and is a measure of the influence you have in relation with the influence of the rest of Contributors participating in governance.",
-        "updated": 1624780307783
+        "updated": 1624780307783,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Su Token Power es igual al número de Superalgos SA Tokens en su Governance Address, y es una medida de la influencia que tiene con respecto a la influencia del resto de los contribuyentes participando de la gobernanza.",
+                "updated": 1633532803325
+            },
+            {
+                "language": "RU",
+                "text": "Ваш Token Power равна количеству токенов Superalgos SA Token в вашем адресе управления Governance Address и является мерой вашего влияния по сравнению с влиянием остальных участников, участвующих в управлении.",
+                "updated": 1638983626522
+            },
+            {
+                "language": "TR",
+                "text": "Token Gücünüz, Yönetim Adresinizdeki ( Governance Address ) Superalgos SA token'larının sayısına eşittir ve yönetime katılan diğer katkıda bulunan kişilerin etkisiyle sahip olduğunuz etkinin bir ölçüsüdür.",
+                "updated": 1640035368058
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -12,7 +29,24 @@
         },
         {
             "style": "Callout",
-            "text": "Your Token Power is equal to the number of Superalgos SA Tokens in your Governance Address, and is a measure of the influence you have in relation with the influence of the rest of Contributors participating in governance."
+            "text": "Your Token Power is equal to the number of Superalgos SA Tokens in your Governance Address, and is a measure of the influence you have in relation with the influence of the rest of Contributors participating in governance.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Su Token Power es igual al número de Superalgos SA Tokens en su Governance Address, y es una medida de la influencia que tiene con respecto a la influencia del resto de los contribuyentes participando de la gobernanza.",
+                    "updated": 1633532837434
+                },
+                {
+                    "language": "RU",
+                    "text": "Ваш Token Power равен количеству токенов Superalgos SA Token в вашем адресе управления Governance Address и является мерой вашего влияния по сравнению с влиянием остальных участников, участвующих в управлении.",
+                    "updated": 1640319016496
+                },
+                {
+                    "language": "TR",
+                    "text": "Token Gücünüz, Yönetim Adresinizdeki Superalgos SA Tokenlerinin sayısına eşittir ve yönetime katılan diğer Katkıda Bulunanların etkisiyle ilgili olarak sahip olduğunuz etkinin bir ölçüsüdür.",
+                    "updated": 1642712544780
+                }
+            ]
         }
     ]
 }

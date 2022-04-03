@@ -1,13 +1,72 @@
 {
     "type": "Feature Claim Vote",
     "definition": {
-        "text": "This node is used to pass votes, via a reference, to a Feature Contribution Claim made by a user, in order to support that claim and allow the user making the claim to receive tokens for contributing either with the creation of that an feature or it's mantainance.",
-        "updated": 1622988841078
+        "text": "Use this node to establish a reference with a Feature Contribution Claim placed by your colleague in the Claims Program section of their User Profile. This vote means that you support your colleague's claim with the Claim Support Power you drive into the Claim Votes node!",
+        "updated": 1630356075429,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Use este nodo para establecer una referrencia con una Feature Contribution Claim ( solicitud de contribución de función) colocada por un colega en la sección del Claims Program sde su User Profile. Este voto significa que apoya a la slicitud de su colega con el Claim Support Power que dirija a su nodo de Claim Votes!",
+                "updated": 1636111740902
+            },
+            {
+                "language": "RU",
+                "text": "Используйте этот узел, чтобы установить ссылку на Feature Contribution Claim, размещенное вашим коллегой в разделе «Claims Program» своего профиля пользователя. Это голосование означает, что вы поддерживаете утверждение своего коллеги с помощью Claim Support Power, которую вы вводите в узел Claim Votes!",
+                "updated": 1639138039593
+            }
+        ]
     },
     "paragraphs": [
         {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1630351115901
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Reusable Governance Snippets->Claim Votes Content"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Working on Multiple Workspaces",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Работа с несколькими рабочими пространствами",
+                    "updated": 1639138085204
+                }
+            ]
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Reusable Governance Snippets->Deep in Governance"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Reusable Governance Snippets->Computational Limitations 2"
+        },
+        {
+            "style": "Subtitle",
+            "text": ""
+        },
+        {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": ""
+        },
+        {
+            "style": "Block",
+            "text": "Configuration"
+        },
+        {
+            "style": "Title",
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1639138099714
+                }
+            ]
         }
     ]
 }

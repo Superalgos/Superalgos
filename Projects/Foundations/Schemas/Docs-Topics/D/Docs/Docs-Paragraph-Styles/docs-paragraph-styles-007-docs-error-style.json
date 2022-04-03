@@ -3,20 +3,68 @@
     "pageNumber": 7,
     "type": "Docs Error - Style",
     "definition": {
-        "text": "This style is used by the system itself to show you when you entered incorrect parameters for some styles. You can use this style as well to show readers errors in the context of what you are explaining to them."
+        "text": "This style is used by the system itself to show you when you entered incorrect parameters for some styles. You can use this style as well to show readers errors in the context of what you are explaining to them.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Diese Formatvorlage wird vom System selbst verwendet, um Sie darauf hinzuweisen, dass Sie für einige Stile falsche Parameter eingegeben haben. Sie können diesen Stil auch verwenden, um Lesern Fehler im Zusammenhang mit dem, was Sie ihnen erklären, anzuzeigen.",
+                "updated": 1633953332955
+            },
+            {
+                "language": "RU",
+                "text": "Этот стиль используется самой системой, чтобы показать вам, когда вы ввели неверные параметры для некоторых стилей. Вы также можете использовать этот стиль, чтобы показывать читателям ошибки в контексте того, что вы им объясняете.",
+                "updated": 1638533407882
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Anything you type while editing, will be displayed inside the error box."
+            "text": "Anything you type while editing, will be displayed inside the error box.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Alles, was Sie während der Bearbeitung eingeben, wird im Error-Feld angezeigt.",
+                    "updated": 1633953358773
+                },
+                {
+                    "language": "RU",
+                    "text": "Все, что вы вводите во время редактирования, будет отображаться внутри окна ошибки.",
+                    "updated": 1638533428394
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Example:"
+            "text": "Example:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1633953365742
+                },
+                {
+                    "language": "RU",
+                    "text": "Пример:",
+                    "updated": 1638533743927
+                }
+            ]
         },
         {
             "style": "Error",
-            "text": "This is an example of a paragraph in error style."
+            "text": "This is an example of a paragraph in error style.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dies ist ein Beispiel für einen Absatz im Error-Stil.",
+                    "updated": 1633953383188
+                },
+                {
+                    "language": "RU",
+                    "text": "Это пример абзаца в стиле ошибки.",
+                    "updated": 1638533460113
+                }
+            ]
         }
     ]
 }

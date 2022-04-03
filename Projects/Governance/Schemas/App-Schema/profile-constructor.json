@@ -9,18 +9,52 @@
             "iconPathOff": "configuration"
         },
         {
-            "action": "Build Profile",
+            "action": "Build Profile Wallet",
             "actionProject": "Governance",
-            "label": "Build Profile",
+            "label": "Build Profile and New Wallet",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
             "workDoneLabel": "Done",
             "relatedUiObject": "Profile Constructor",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Governance"
+        },
+        {
+            "action": "Build Profile Mnemonic",
+            "actionProject": "Governance",
+            "label": "Build Profile with Mnemonic",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Profile Constructor",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Governance"
+        },
+        {
+            "action": "Build Profile WalletConnect",
+            "actionProject": "Governance",
+            "label": "Build Profile with WalletConnect",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Profile Constructor",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Governance"
+        },
+        {
+            "action": "Install Signing Accounts",
+            "actionProject": "Governance",
+            "label": "Install Signing Accounts",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Profile Constructor",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Delete UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

@@ -1,0 +1,29 @@
+{
+    "type": "User Apps",
+    "definition": {
+        "text": "The User Apps hierarchy holds the definitions of all apps associated with the current User Profile.",
+        "updated": 1643077357942
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1643078353466
+        },
+        {
+            "style": "Text",
+            "text": "These apps are used to access the Superalgos Peer to Peer Network.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Эти приложения используются для доступа к одноранговой сети Superalgos.",
+                    "updated": 1645254021386
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

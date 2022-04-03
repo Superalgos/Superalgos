@@ -1,0 +1,49 @@
+{
+    "topic": "Tested Exchanges",
+    "pageNumber": 4,
+    "type": "FTX Test Status",
+    "definition": {
+        "text": "FTX passed spot trading tests",
+        "updated": 1645133010183
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Properties",
+            "updated": 1615143100216
+        },
+        {
+            "style": "List",
+            "text": "1-min OHLCVs Capability: Yes. The ability to fetch historic data for backtesting purposes has been verified.",
+            "updated": 1616003666832
+        },
+        {
+            "style": "List",
+            "text": "Market History: Starting on 29-04-2020",
+            "updated": 1645133040427
+        },
+        {
+            "style": "List",
+            "text": "Trading Capability: Yes. The ability to run strategies in live-trading mode has not been verified.",
+            "updated": 1645133053866
+        },
+        {
+            "style": "List",
+            "text": "Comments: First Level KYC needed when signing up.",
+            "updated": 1645133163105
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"codeName\": \"ftx\"\n}",
+            "updated": 1615204693035
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

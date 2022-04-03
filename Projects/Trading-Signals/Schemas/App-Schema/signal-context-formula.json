@@ -1,0 +1,35 @@
+{
+    "type": "Signal Context Formula",
+    "menuItems": [
+        {
+            "action": "Edit",
+            "label": "Edit",
+            "iconPathOn": "javascript-code",
+            "iconPathOff": "javascript-code",
+            "dontShowAtFullscreen": true,
+            "actionFunction": "uiObject.formulaEditor.activate"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "editors": {
+        "formula": true
+    },
+    "initialValues": {
+        "code": "// Type your formula code here. You are expected to return an object representing the context information attached to the outgoing signal."
+    },
+    "level": 4,
+    "attachingRules": {
+        "compatibleTypes": "->Outgoing Signal Reference->"
+    },
+    "propertyNameAtParent": "signalContextFormula"
+}

@@ -3,7 +3,7 @@
     "pageNumber": "3",
     "type": "TS LF Trading Bot Info - Order Closed",
     "definition": {
-        "text": "The order that triggered this Infor Message has been closed.",
+        "text": "The order that triggered this Info Message has been closed.",
         "updated": 1611920136713
     },
     "paragraphs": [

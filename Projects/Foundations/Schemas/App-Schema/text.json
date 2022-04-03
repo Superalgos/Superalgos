@@ -12,7 +12,9 @@
             "propertyToCheckFor": "textCondition",
             "actionFunction": "payload.executeAction",
             "label": "Add Text Condition",
-            "relatedUiObject": "Text Condition"
+            "relatedUiObject": "Text Condition",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
@@ -20,7 +22,9 @@
             "propertyToCheckFor": "textPosition",
             "actionFunction": "payload.executeAction",
             "label": "Add Text Position",
-            "relatedUiObject": "Text Position"
+            "relatedUiObject": "Text Position",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
@@ -28,7 +32,9 @@
             "propertyToCheckFor": "textFormula",
             "actionFunction": "payload.executeAction",
             "label": "Add Text Formula",
-            "relatedUiObject": "Text Formula"
+            "relatedUiObject": "Text Formula",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
@@ -36,10 +42,13 @@
             "propertyToCheckFor": "textStyle",
             "actionFunction": "payload.executeAction",
             "label": "Add Text Style",
-            "relatedUiObject": "Text Style"
+            "relatedUiObject": "Text Style",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "actionFunction": "payload.executeAction",

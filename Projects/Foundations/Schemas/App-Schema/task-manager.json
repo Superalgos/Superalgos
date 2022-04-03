@@ -25,10 +25,13 @@
             "action": "Add UI Object",
             "label": "Add Task",
             "relatedUiObject": "Task",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",
@@ -40,7 +43,7 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Data Mine Tasks->Trading Mine Tasks->Learning Mine Tasks->"
+        "compatibleTypes": "->Data Mine Tasks->Trading Mine Tasks->Portfolio Mine Tasks->Learning Mine Tasks->"
     },
     "childrenNodesProperties": [
         {
@@ -51,5 +54,6 @@
             "monitorChildrenRunning": true
         }
     ],
-    "propertyNameAtParent": "taskManagers"
+    "propertyNameAtParent": "taskManagers",
+    "project": "Foundations"
 }

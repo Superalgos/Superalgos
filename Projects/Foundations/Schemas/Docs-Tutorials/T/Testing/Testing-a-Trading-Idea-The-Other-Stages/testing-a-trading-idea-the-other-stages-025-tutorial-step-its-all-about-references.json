@@ -4,24 +4,92 @@
     "type": "Tutorial Step - It's All About References!",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "market-order"
+            "name": "Market\\market-order",
+            "project": "Foundations"
         },
         "text": "Do you remember what references are and how to establish them? Watch the video for a quick refresher!",
-        "updated": 1617198810582
+        "updated": 1617198810582,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Wissen Sie noch, was Referenzen sind und wie man sie herstellt? Schauen Sie sich das Video für eine kurze Auffrischung an!",
+                "updated": 1639399298946
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Referansların ne olduğunu ve nasıl yapılacağını hatırlıyor musunuz? Hızlı bir tazeleme için videoyu izleyin!",
+                "updated": 1641747204968
+            },
+            {
+                "language": "RU",
+                "text": "Помните ли вы, что такое ссылки и как их устанавливать? Посмотрите видео, чтобы быстро вспомнить!",
+                "updated": 1642941580015
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "References are a crucial concept in Superalgos, as they relate information across nodes and hierarchies!"
+            "text": "References are a crucial concept in Superalgos, as they relate information across nodes and hierarchies!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Referenzen sind ein wichtiges Konzept in Superalgos, da sie Informationen über Knoten und Hierarchien hinweg in Beziehung setzen!",
+                    "updated": 1639399310342
+                },
+                {
+                    "language": "TR",
+                    "text": "Referanslar ( References ), bilgileri düğümler ve hiyerarşiler arasında ilişkilendirdikleri için Superalgos'ta önemli bir kavramdır!",
+                    "updated": 1641747215209
+                },
+                {
+                    "language": "RU",
+                    "text": "Ссылки - важнейшее понятие в Superalgos, поскольку они связывают информацию между узлами и иерархиями!",
+                    "updated": 1642941594159
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "You must establish a reference from the Market Sell Order node in the trading system to this Market Sell Order #1 Market Order node in the trading engine hierarchy! Go ahead! Do it!"
+            "text": "You must establish a reference from the Market Sell Order node in the trading system to this Market Sell Order #1 Market Order node in the trading engine hierarchy! Go ahead! Do it!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sie müssen eine Referenz vom Knoten Market Sell Order im Handelssystem zum Knoten Market Sell Order #1 Market Order in der Hierarchie der Trading Engine herstellen! Machen Sie weiter! Tun Sie es!",
+                    "updated": 1639399322670
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret sistemindeki Piyasa Satış Emri ( Market Sell Order )  düğümünden, ticaret motoru hiyerarşisindeki Piyasa Satış Emri ( Market Sell Order ) # 1  Piyasa Emri ( Market Order ) düğümüne bir referans oluşturmalısınız! Devam et ve yap!",
+                    "updated": 1641747230202
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы должны установить ссылку от узла Market Sell Order в торговой системе на этот узел Market Sell Order #1 Market Order в иерархии Trading Engine! Вперед! Сделайте это!",
+                    "updated": 1642941625279
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "I'll give you a couple of tips on the next step if you are not sure how to go about this!"
+            "text": "I'll give you a couple of tips on the next step if you are not sure how to go about this!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ich gebe Ihnen im nächsten Schritt ein paar Tipps, wenn Sie nicht sicher sind, wie Sie vorgehen sollen!",
+                    "updated": 1639399331508
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bunu nasıl yapacağınızdan emin değilseniz, bir sonraki adımda size birkaç ipucu vereceğim!",
+                    "updated": 1641747239642
+                },
+                {
+                    "language": "RU",
+                    "text": "Я дам вам пару советов на следующем этапе, если вы не уверены, как это сделать!",
+                    "updated": 1642941634867
+                }
+            ]
         }
     ]
 }

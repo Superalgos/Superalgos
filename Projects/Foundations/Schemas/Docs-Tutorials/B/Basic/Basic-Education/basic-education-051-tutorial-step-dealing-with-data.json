@@ -21,6 +21,21 @@
                 "text": "Los datos que descargas de los exchanges y procesas están disponibles en todos los ámbitos, accesibles desde cualquier Workspace y estrategia.",
                 "updated": 1628020470335,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Die Daten, die Sie von den Börsen herunterladen und mit den Indikatoren verarbeiten, sind übergreifend verfügbar und von jedem Workspace und jeder Strategie aus zugänglich.",
+                "updated": 1634589901473
+            },
+            {
+                "language": "TR",
+                "text": "Borsalardan indirdiğiniz ve göstergelerle işlediğiniz verilere herhangi bir çalışma alanından ve stratejiden erişilebilirsiniz. Yani çalışma alanını değiştrisenizde yeni alanınızda daha önce indirilmiş bu verileri kullanırsınız. Her çalışma alanı için tekrardan indirmenize gerek yoktur..",
+                "updated": 1639825082061
+            },
+            {
+                "language": "RU",
+                "text": "Данные, которые вы загружаете с бирж и обрабатываете с помощью индикаторов, доступны повсеместно, из любого рабочего пространства и стратегии.",
+                "updated": 1640875700028
             }
         ]
     },
@@ -41,6 +56,21 @@
                     "text": "Los datos se almacenan en el disco en la carpeta Data-Storage y están organizados por Project, Data Mine, bot y Market. No importa qué Worksapce hayas utilizado para minar los datos o los indicadores de proceso.",
                     "updated": 1628017724144,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Daten werden auf der Festplatte im Ordner Data-Storage gespeichert und sind nach Project, Data Mine, Bot und Market geordnet. Es spielt keine Rolle, in welchem Workspace Sie die Daten gewonnen oder die Indikatoren verarbeitet haben.",
+                    "updated": 1634589981672
+                },
+                {
+                    "language": "TR",
+                    "text": "Veriler, Data-Storage klasörü altında diske depolanır ve Project, Data Mine, bot ve Market tarafından düzenlenir. Verileri veya süreç göstergelerini çıkarmak için hangi çalışma alanını kullandığınızın bir önemi yoktur.",
+                    "updated": 1639825127007
+                },
+                {
+                    "language": "RU",
+                    "text": "Данные хранятся на диске в папке Data-Storage и организованы по категориям Project, Data Mine, bot и Market. Не имеет значения, какое рабочее пространство вы использовали для добычи данных или обработки индикаторов.",
+                    "updated": 1640875728180
                 }
             ]
         },
@@ -59,6 +89,21 @@
                     "text": "Todos los datos están disponibles para todos los espacios de trabajo, por lo que puedes trabajar con las mismas fuentes de datos independientemente de lo que estés haciendo.",
                     "updated": 1628017031765,
                     "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Alle Daten stehen in allen Workspaces zur Verfügung, so dass Sie unabhängig von Ihrer Tätigkeit mit denselben Datenquellen arbeiten können.",
+                    "updated": 1634589990093
+                },
+                {
+                    "language": "TR",
+                    "text": "Herhangi bir borsadan çektiğiniz verilerin hepis tüm çalışma alanlarında mevcuttur, böylece ne yapıyor olursanız olun aynı veri kaynaklarıyla çalışabilirsiniz.",
+                    "updated": 1639825202230
+                },
+                {
+                    "language": "RU",
+                    "text": "Все данные доступны для всех рабочих пространств, поэтому вы можете работать с одними и теми же источниками данных независимо от того, что вы делаете.",
+                    "updated": 1640875743084
                 }
             ]
         },
@@ -78,6 +123,21 @@
                     "text": "No hay gestión de datos incorporada en la aplicación. ¡Utilice tu sistema de archivos!",
                     "updated": 1628019703596,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Es gibt keine integrierte Datenverwaltung in der App. Verwenden Sie stattdessen Ihr Dateisystem!",
+                    "updated": 1634589996758
+                },
+                {
+                    "language": "TR",
+                    "text": "Uygulamada yerleşik veri yönetimi yoktur. Bunun yerine dosya sisteminizi kullanın!",
+                    "updated": 1639825229337
+                },
+                {
+                    "language": "RU",
+                    "text": "В приложении нет встроенного управления данными. Вместо этого используйте файловую систему!",
+                    "updated": 1640875757997
                 }
             ]
         }

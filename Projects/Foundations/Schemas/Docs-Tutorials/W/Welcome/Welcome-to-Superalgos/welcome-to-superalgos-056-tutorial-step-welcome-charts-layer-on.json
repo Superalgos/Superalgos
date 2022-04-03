@@ -10,6 +10,26 @@
                 "text": "Questo step eseguirà un video in modalità schermo intero.",
                 "updated": 1615963785929,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "In diesem Schritt wird ein Video im Vollbildmodus abgespielt.",
+                "updated": 1634218041634
+            },
+            {
+                "language": "TR",
+                "text": "Bu video katman yöneticisi ve katmanları öğrenmeniz içindir.",
+                "updated": 1639214618551
+            },
+            {
+                "language": "RU",
+                "text": "Этот шаг воспроизводит видео в полноэкранном режиме.",
+                "updated": 1636566615423
+            },
+            {
+                "language": "ID",
+                "text": "Step ini akan menjalankan video mode layar penuh.",
+                "updated": 1639582632554
             }
         ]
     },

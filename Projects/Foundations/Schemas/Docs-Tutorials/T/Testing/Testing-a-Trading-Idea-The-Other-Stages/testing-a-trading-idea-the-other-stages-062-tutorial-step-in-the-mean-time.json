@@ -1,0 +1,139 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 62,
+    "type": "Tutorial Step - In The Mean Time!",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "scripts-library"
+        },
+        "text": "If you are willing to keep going on your own, mastering building strategies requires some reading and a lot of practice!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Wenn Sie bereit sind, auf eigene Faust weiterzumachen, erfordert die Beherrschung von Gebäudestrategien einige Lektüre und eine Menge Übung!",
+                "updated": 1639419093581
+            },
+            {
+                "language": "TR",
+                "text": "Kendi başına devam etmek istiyorsanız, strateji oluşturmada ustalaşmak biraz okuma ve çok fazla pratik gerektirecektir!",
+                "updated": 1641811295237
+            },
+            {
+                "language": "RU",
+                "text": "Если вы готовы идти дальше самостоятельно, овладение стратегиями строительства требует немного чтения и много практики!",
+                "updated": 1642945925381
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Continue your education by reading the following sections of the documentation:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Setzen Sie Ihre Ausbildung fort, indem Sie die folgenden Abschnitte der Dokumentation lesen:",
+                    "updated": 1639419100640
+                },
+                {
+                    "language": "TR",
+                    "text": "Belgelerin aşağıdaki bölümlerini okuyarak eğitiminize devam edin:",
+                    "updated": 1641811347652
+                },
+                {
+                    "language": "RU",
+                    "text": "Продолжайте свое образование, читая следующие разделы документации:",
+                    "updated": 1642945941264
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "The nuances of stages of Trading Strategies.",
+            "updated": 1610465367806,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Nuancen der Stufen der Trading Strategies.",
+                    "updated": 1639419107971
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret stratejileri ( Trading Strategies ) seviyelerinin nüansları.",
+                    "updated": 1641811407345
+                },
+                {
+                    "language": "RU",
+                    "text": "Нюансы стадий торговых стратегий.",
+                    "updated": 1642945964227
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "The whole Trading Engine section.",
+            "updated": 1610465391868,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Den gesamten Abschnitt über die Trading Engine.",
+                    "updated": 1639419114828
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret motorundaki ( Trading Engine ) tüm bölüm.",
+                    "updated": 1641811445358
+                },
+                {
+                    "language": "RU",
+                    "text": "Весь раздел Trading Engine.",
+                    "updated": 1642945983030
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "The whole topic on the Overview of the Management Issue.",
+            "updated": 1612723291316,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das gesamte Thema der Übersicht über das Managementproblem \" Overview of the Management Issue \".",
+                    "updated": 1639419129997
+                },
+                {
+                    "language": "TR",
+                    "text": "Yönetim konusuna genel bakış (Overview of the Management Issue) konusunun tamamı.",
+                    "updated": 1641811526343
+                },
+                {
+                    "language": "RU",
+                    "text": "Всю тему Overview of the Management Issue.",
+                    "updated": 1642946072930
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "You may keep developing what we started on this series, or go your own way and start implementing your own idea! Good luck, and see you on the next tutorial!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sie können das, was wir in dieser Serie begonnen haben, weiterentwickeln oder Ihren eigenen Weg gehen und Ihre eigene Idee umsetzen! Viel Glück, und wir sehen uns beim nächsten Tutorial!",
+                    "updated": 1639419139321
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bu seride başladığımız şeyi geliştirmeye devam edebilir veya kendi yolunuza gidebilir ve kendi fikrinizi uygulamaya başlayabilirsiniz! İyi şanslar ve bir sonraki eğitimde görüşmek üzere!",
+                    "updated": 1641811737713
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы можете продолжать развивать то, что мы начали в этой серии, или пойти своим путем и начать реализовывать свою собственную идею! Удачи, и до встречи на следующем уроке!",
+                    "updated": 1642946097526
+                }
+            ]
+        }
+    ]
+}

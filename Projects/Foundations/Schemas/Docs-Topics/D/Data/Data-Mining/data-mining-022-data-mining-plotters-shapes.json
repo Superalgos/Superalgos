@@ -4,7 +4,19 @@
     "type": "Data Mining - Plotters - Shapes",
     "definition": {
         "text": "Shapes define coordinate points to use as vertex for polygons, which are assigned styles.",
-        "updated": 1611432676884
+        "updated": 1611432676884,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Shapes definieren Koordinatenpunkte, die als Scheitelpunkte für Polygone verwendet werden, denen Stile zugewiesen werden.",
+                "updated": 1635368948734
+            },
+            {
+                "language": "RU",
+                "text": "Фигуры Shapes определяют координатные точки, используемые в качестве вершин для полигонов, которым назначаются стили.",
+                "updated": 1639727206055
+            }
+        ]
     },
     "paragraphs": [
         {

@@ -1,0 +1,96 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 52,
+    "type": "Tutorial Step - A Note on Event-Evaluation",
+    "definition": {
+        "icon": {
+            "name": "Nodes\\nodes-highlights",
+            "project": "Foundations"
+        },
+        "text": "Did you notice that once the trigger stage is active, the conditions of the Trigger On Event are no longer evaluated?",
+        "updated": 1617191896544,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Ist Ihnen aufgefallen, dass die Bedingungen des Trigger On Event nicht mehr ausgewertet werden, sobald die Trigger Stage aktiv ist?",
+                "updated": 1639388703415
+            },
+            {
+                "language": "TR",
+                "text": "Trigger On Event koşullarının, Trigger Stage 'in aktif hale gelir gelmez artık değerlendirilmediğini fark ettiniz mi?",
+                "updated": 1641662065823
+            },
+            {
+                "language": "RU",
+                "text": "Заметили ли вы, что после того, как стадия срабатывания активна, условия события Trigger On Event больше не проверяются?",
+                "updated": 1642658471518
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The opposite goes for the Trigger Off Event conditions: they are not evaluated before the stage is active. See for yourself!",
+            "updated": 1617191916250,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das Gegenteil gilt für die Bedingungen des Trigger Off Event: Sie werden nicht ausgewertet, bevor die Stufe aktiv ist. Überzeugen Sie sich selbst!",
+                    "updated": 1639388713512
+                },
+                {
+                    "language": "TR",
+                    "text": "Trigger Off Event koşulları için tersi geçerlidir: Sahne aktif olana kadar değerlendirilmezler. Kendiniz görün!",
+                    "updated": 1641662103067
+                },
+                {
+                    "language": "RU",
+                    "text": "Иначе обстоит дело с условиями события Trigger Off Event: они не проверяются до того, как стадия станет активной. Убедитесь в этом сами!",
+                    "updated": 1642658540945
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "The trading bot follows the protocol that governs trading systems and only evaluates the events that are required at any moment in time!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Trading-Bot folgt dem Protokoll, das für Handelssysteme gilt, und wertet nur die Ereignisse aus, die zu einem bestimmten Zeitpunkt erforderlich sind!",
+                    "updated": 1639388721386
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret botu, ticaret sistemleri için geçerli olan protokolü takip eder ve yalnızca belirli bir zamanda gerekli olan olayları değerlendirir!",
+                    "updated": 1641662115371
+                },
+                {
+                    "language": "RU",
+                    "text": "Торговый бот следует протоколу, который регулирует торговые системы, и обрабатывает только те события, которые необходимы в конкретный момент времени!",
+                    "updated": 1642658596679
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "It's logical, right? The bot aims to be as efficient as possible and does only what needs to be done!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das ist doch logisch, oder? Der Bot ist bestrebt, so effizient wie möglich zu sein und tut nur das, was getan werden muss!",
+                    "updated": 1639388729488
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu size göre de mantıklı değil mi? Bot, mümkün olduğu kadar verimli olmayı hedefliyor ve sadece yapılması gerekeni yapıyor!",
+                    "updated": 1641662130841
+                },
+                {
+                    "language": "RU",
+                    "text": "Это логично, верно? Бот стремится быть максимально эффективным и делает только то, что нужно!",
+                    "updated": 1642658625504
+                }
+            ]
+        }
+    ]
+}

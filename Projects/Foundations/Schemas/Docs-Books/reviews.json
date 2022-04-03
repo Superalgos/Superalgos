@@ -1,13 +1,25 @@
 {
     "type": "Reviews",
     "definition": {
-        "text": "This book is a cataloge of all types of reviews at the Docs.",
-        "updated": 1621437863554
+        "text": "This book is a catalogue of all types of reviews at the Docs.",
+        "updated": 1621437863554,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Эта книга представляет собой каталог всех видов рецензий в Docs.",
+                "updated": 1638466923216
+            },
+            {
+                "language": "TR",
+                "text": "Bu kitap, Dokümanlar'daki her tür incelemenin bir kataloğudur.",
+                "updated": 1639387046324
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Chapter",
-            "text": "I->Foundations->Review->Superalgos Project Review->These are reviews of the project submited by users.",
+            "text": "I->Foundations->Review->Superalgos Project Review->These are reviews of the project submitted by users.",
             "updated": 1621437834465
         }
     ]

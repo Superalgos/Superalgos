@@ -1,7 +1,14 @@
 {
     "type": "Template Structure",
     "definition": {
-        "text": "The template structure holds the structure of nodes with all its configurations and properties, exactly as it should be implemented."
+        "text": "The template structure holds the structure of nodes with all its configurations and properties, exactly as it should be implemented.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Template Structure содержит структуру узлов со всеми ее конфигурациями и свойствами, именно так, как она должна быть реализована.",
+                "updated": 1645179096771
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,11 +17,25 @@
         },
         {
             "style": "Text",
-            "text": "Properties include the physical arrangement of nodes, references and so on."
+            "text": "Properties include the physical arrangement of nodes, references and so on.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства включают физическое расположение узлов, ссылок и так далее.",
+                    "updated": 1645179108482
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "The actual structure of nodes contained in the template usually originates as a clone of an existing structure of nodes."
+            "text": "The actual structure of nodes contained in the template usually originates as a clone of an existing structure of nodes.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Фактическая структура узлов, содержащаяся в шаблоне, обычно возникает как клон существующей структуры узлов.",
+                    "updated": 1645179117243
+                }
+            ]
         }
     ]
 }

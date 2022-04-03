@@ -2,13 +2,32 @@
     "type": "Supervised Learning",
     "definition": {
         "text": "Supervised learning is the machine learning task of learning a function that maps an input to an output based on example input-output pairs. It infers a function from labeled training data consisting of a set of training examples. In supervised learning, each example is a pair consisting of an input object (typically a vector) and a desired output value (also called the supervisory signal).",
-        "updated": 1613197014944
+        "updated": 1613197014944,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Контролируемое обучение - это задача машинного\nобучения по изучению функции, которая направляет входные данные с выходными на основе пар ввода-вывода. Она вводит функцию из помеченных обучающих данных, состоящих из набора обучающих примеров. В обучении под наблюдением каждый пример представляет пару, состоящую из входного объекта (обычно вектора) и желаемого выходного значения (также называемого управляющий сигналом)",
+                "updated": 1636748807235
+            },
+            {
+                "language": "TR",
+                "text": "Denetimli öğrenme, örnek girdi-çıktı çiftlerine dayalı olarak bir girdiyi bir çıktıya eşleyen bir işlevi öğrenmenin makine öğrenimi görevidir. Bir dizi eğitim örneğinden oluşan etiketli eğitim verilerinden bir işlev çıkarır. Denetimli öğrenmede, her örnek bir girdi nesnesinden (tipik olarak bir vektör) ve istenen bir çıktı değerinden (denetleme sinyali olarak da adlandırılır) oluşan bir çifttir.",
+                "updated": 1639220558905
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "A supervised learning algorithm analyzes the training data and produces an inferred function, which can be used for mapping new examples. An optimal scenario will allow for the algorithm to correctly determine the class labels for unseen instances. This requires the learning algorithm to generalize from the training data to unseen situations in a \"reasonable\" way (see inductive bias).",
-            "updated": 1613197051912
+            "updated": 1613197051912,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Алгоритм контролируемого обучения анализирует обучающие данные и производит выведенную функцию, которую можно использовать для сопоставления новых примеров. Оптимальный сценарий позволит алгоритму правильно определить метки классов для невидимых примеров. Это требует от алгоритма обучения \"разумного\" обобщения от обучающих данных к невидимым ситуациям (см. индуктивная предвзятость).",
+                    "updated": 1645250207057
+                }
+            ]
         }
     ]
 }

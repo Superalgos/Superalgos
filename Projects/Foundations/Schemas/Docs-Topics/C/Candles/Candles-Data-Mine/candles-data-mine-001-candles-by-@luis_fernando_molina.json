@@ -4,7 +4,19 @@
     "type": "Candles by @luis_fernando_molina",
     "definition": {
         "text": "The Candles Data Mine features the Exchange Raw Data Sensor Bot and the Candles Volumes Indicator Bot.",
-        "updated": 1622481284246
+        "updated": 1622481284246,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Die Candles Data Mine enthält den Exchange Raw Data Sensor Bot und den Candles Volumes Indicator Bot.",
+                "updated": 1641732014067
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Candles Veri Madeni'nde şunlar bulunur,Değişim Ham Veri Sensör Botu (Exchange Raw Data Sensor Bot) ve Mum Hacimleri Gösterge Botu (Candles Volumes Indicator Bot).",
+                "updated": 1644500390348
+            }
+        ]
     },
     "paragraphs": [
         {

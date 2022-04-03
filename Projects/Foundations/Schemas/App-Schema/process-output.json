@@ -5,13 +5,17 @@
             "action": "Add UI Object",
             "label": "Add Output Dataset",
             "relatedUiObject": "Output Dataset",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
             "label": "Add Output Dataset Folder",
             "relatedUiObject": "Output Dataset Folder",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add All Output Datasets",
@@ -20,10 +24,13 @@
             "confirmationLabel": "Confirm to Proceed",
             "workDoneLabel": "Done",
             "relatedUiObject": "Output Dataset",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Data-Mining",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

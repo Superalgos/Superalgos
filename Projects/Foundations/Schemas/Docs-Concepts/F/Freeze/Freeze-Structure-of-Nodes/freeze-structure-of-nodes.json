@@ -2,12 +2,26 @@
     "type": "Freeze Structure of Nodes",
     "definition": {
         "text": "Clicking the freeze option freezes the node’s chain connections with its parent and offspring. Connecting lines turn blue. If you freeze the head node of a hierarchy, then the whole hierarchy is frozen. Freezing node structures is effective only when nodes are loose, that is, when they are not affected by angle or distance settings and are unpinned. In such cases, freezing releases CPU resources, as the system stops calculating node’s positions and status.",
-        "updated": 1610028881634
+        "updated": 1610028881634,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "При выборе параметра замораживания цепные соединения узла с его родителем и потомком замораживаются. Соединительные линии станут синими. Если вы заморозите головной узел иерархии, то вся иерархия будет заморожена. Замораживание структур узлов эффективно только тогда, когда узлы свободны, то есть когда на них не влияют настройки угла или расстояния, и они откреплены.\n. В таких случаях замораживание высвобождает ресурсы ЦП, поскольку система перестает вычислять положение и статус узла.",
+                "updated": 1638283461834
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
+                    "updated": 1638283474382
+                }
+            ]
         }
     ]
 }

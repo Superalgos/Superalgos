@@ -1,7 +1,14 @@
 {
     "type": "Close Stage Event",
     "definition": {
-        "text": "The close stage event defines the set of rules that need to be met for the corresponding stage to be closed."
+        "text": "The close stage event defines the set of rules that need to be met for the corresponding stage to be closed.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Close Stage Event определяет набор правил, которые необходимо соблюдать для закрытия соответствующего этапа.",
+                "updated": 1638647655127
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,11 +17,25 @@
         },
         {
             "style": "Text",
-            "text": "Both the open and close stages are closed once the target size is filled."
+            "text": "Both the open and close stages are closed once the target size is filled.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Обе стадии открытия и закрытия закрываются, как только целевой размер заполнен.",
+                    "updated": 1638647673308
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "However, Superalgos allows an extra level of control so that the user may choose to close either stage given specific market situations. Such is the intent of the close stage event."
+            "text": "However, Superalgos allows an extra level of control so that the user may choose to close either stage given specific market situations. Such is the intent of the close stage event.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Однако Superalgos предоставляет дополнительный уровень контроля, так что пользователь может выбрать закрытие любого этапа в конкретных рыночных ситуациях. Такова цель Close Stage Event.",
+                    "updated": 1638647790431
+                }
+            ]
         }
     ]
 }

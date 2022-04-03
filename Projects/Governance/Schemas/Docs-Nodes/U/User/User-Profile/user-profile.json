@@ -2,7 +2,24 @@
     "type": "User Profile",
     "definition": {
         "text": "The User Profile is the hierarchy that allows you to define how you intend to use the Token Power conferred by your holdings of Superalgos SA Tokens. These definitions are spread across several programs, and your Token Power cascades down to these programs from the head of the hierarchy. Each program is designed to get Contributors involved in different governance needs.",
-        "updated": 1624726047712
+        "updated": 1624726047712,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Token Power fmínimos en cascada desde el nodo Perfil de usuario hasta el nodo  Token Power Switch, a su descendencia, y así sucesivamente, siguiendo la estructura de la jerarquía.",
+                "updated": 1637851334389
+            },
+            {
+                "language": "RU",
+                "text": "Token Power перетекает каскадно от узла User Profile к узлу Token Power Switch, к его потомкам и т. д., согласно структуре иерархии.",
+                "updated": 1639040549453
+            },
+            {
+                "language": "TR",
+                "text": "Token Gücü (Token Power), hiyerarşi yapısını izleyerek Kullanıcı Profili (User Profile) düğümünden Token Güç Anahtarı (Token Power Switch) düğümüne,sonra onun alt düğümlerine doğru kademeli olarak akar.",
+                "updated": 1642713345079
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -13,82 +30,68 @@
         {
             "style": "Text",
             "text": "As explained in the Building Your Profile page, your User Profile is paired with your Governance Address. The tokens you hold in this address confer you Token Power that you may use to influence how Superalgos distributes the tokens allocated to each release.",
-            "updated": 1630091460767
+            "updated": 1630091460767,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Como se explica en la página Building Your Profile, su perfil de usuario está emparejado con su Governance Address. Los tokens que tiene en esta dirección le confieren Token Power que puede utilizar para influir en la forma en que Superalgos distribuye los tokens asignados a cada lanzamiento.",
+                    "updated": 1637851209460
+                },
+                {
+                    "language": "RU",
+                    "text": "Как объясняется на странице Building Your Profile, ваш профиль пользователя User Profile связан с вашим административным адресом Governance Address. Токены, которые вы держите в этом адресе, наделяют вас полномочиями Token Power, которую вы можете использовать, чтобы влиять на то, как Superalgos распределяет токены, выделенные для каждого выпуска.",
+                    "updated": 1639040313012
+                },
+                {
+                    "language": "TR",
+                    "text": "Profilinizi Oluşturma sayfasında (Building Your Profile) açıklandığı gibi, Kullanıcı Profiliniz Yönetişim Adresinizle (Governance Address) eşleştirilir. Bu adreste tuttuğunuz tokenlar size, Superalgos'un her bir sürümüne tahsis edilen tokenlerin nasıl dağıtılacağını etkilemek için kullanabileceğiniz Token Gücü verir.",
+                    "updated": 1642712984132
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "After building your profile, you should see your Token Power flowing to the Token Power Switch node, the first offspring of the head of the hierarchy. This principle is maintained throughout the hierarchy: Token Power flows down to offspring nodes, through each section of the hierarchy.",
-            "updated": 1630094400877
+            "updated": 1630094400877,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Después de crear su perfil, debería ver su Token Powerfluyendo al nodo de Token Power Switch, tel primer vástago del jefe de la jerarquía. Este principio se mantiene en toda la jerarquía:Token Power fluye hacia los nodos descendientes, a través de cada sección de la jerarquía.",
+                    "updated": 1637851292698
+                },
+                {
+                    "language": "RU",
+                    "text": "После создания профиля вы должны увидеть, как ваш Token Power перетекает к узлу Token Power Switch, первому потомку главы иерархии. Этот принцип поддерживается во всей иерархии: Token Power передается дочерним узлам через каждый раздел иерархии.",
+                    "updated": 1639040408859
+                },
+                {
+                    "language": "TR",
+                    "text": "Profilinizi oluşturduktan sonra, Token Gücünüzün hiyerarşinin ilk başladığı düğüm olan Token Power Switch düğümüne aktığını görmelisiniz. Bu ilke, hiyerarşi boyunca korunur: Simge Gücü, hiyerarşinin her bölümü aracılığıyla alt düğümlere akar.",
+                    "updated": 1642713185856
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Token Power Flow"
+            "text": "Token Power Flows",
+            "updated": 1630216274356,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Token Power Akışı",
+                    "updated": 1642713235845
+                }
+            ]
         },
         {
-            "style": "Text",
-            "text": "How Token Power flows depends on the following:"
+            "style": "Include",
+            "text": "Governance->Concept->Token Power Flows->Definition",
+            "updated": 1630216248820
         },
         {
-            "style": "List",
-            "text": "By default, Token Power flows in equal proportion to each direct offspring node.",
-            "updated": 1630093090611
-        },
-        {
-            "style": "List",
-            "text": "You may override the defaults by explicitly defining the percentage of the Token Power you wish to allocate to each offspring. If you define less than a total of 100%, then the remaining Token Power is distributed evenly across the offspring for which there is no definition.",
-            "updated": 1630093129825
-        },
-        {
-            "style": "Text",
-            "text": "This is the format of the configuration you may use on each of the programs:"
-        },
-        {
-            "style": "Json",
-            "text": "{\n    \"percentage\": 50\n}",
-            "updated": 1624726090541
-        },
-        {
-            "style": "Text",
-            "text": "For example, let's say you have 1,000 Token Power flowing into your Token Power Switch node. Let's say you spawn the Onboarding Programs, Community Building Programs, Votes and Claims Programs, and Financial Programs nodes.",
-            "updated": 1630094336717
-        },
-        {
-            "style": "Callout",
-            "text": "As soon as you deploy these four offspring of the Token Power Switch node, you will see that each of these nodes gets 25% of the Token Power by default.",
-            "updated": 1630094063741
-        },
-        {
-            "style": "Text",
-            "text": "But you wish to limit the Token Power flowing into the Onboarding Programs to zero, as those programs do not require Token Power. To do that, you set up the following in the Onboarding Programs node configuration:",
-            "updated": 1630093868178
-        },
-        {
-            "style": "Json",
-            "text": "{\n    \"percentage\": 0\n}",
-            "updated": 1630093495369
-        },
-        {
-            "style": "Callout",
-            "text": "Once the configuration is in place, you will notice that the Onboarding Programs node shows 0% and 0 Token Power flowing into the node. You will also notice that the rest of the nodes are getting 33.33% of the Token Power each.",
-            "updated": 1630093693182
-        },
-        {
-            "style": "Text",
-            "text": "Now let's say you wish to use only 10% of your Token Power in the Onboarding Programs. So you set up the following config:"
-        },
-        {
-            "style": "Json",
-            "text": "{\n    \"percentage\": 10\n}",
-            "updated": 1630093961107
-        },
-        {
-            "style": "Callout",
-            "text": "As a result, 10% of the Token Power flows into the Onboarding Programs, while the remaining nodes get 45% of the Token Power each.",
-            "updated": 1630094141031
-        },
-        {
-            "style": "Success",
-            "text": "The same logic applies to the flow of Token Power throughout the hierarchy!"
+            "style": "Include",
+            "text": "Governance->Concept->Token Power Flows->Content",
+            "updated": 1630216256004
         },
         {
             "style": "Block",

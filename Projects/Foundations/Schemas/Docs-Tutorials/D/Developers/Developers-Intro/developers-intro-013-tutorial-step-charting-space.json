@@ -7,16 +7,67 @@
             "project": "Foundations",
             "name": ""
         },
-        "text": "This is where the charts are displayed. It allows users to navigate through multi-dimensional datasets."
+        "text": "This is where the charts are displayed. It allows users to navigate through multi-dimensional datasets.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Hier werden die Diagramme angezeigt. Er ermöglicht es den Benutzern, durch mehrdimensionale Datensätze zu navigieren.",
+                "updated": 1641735239256
+            },
+            {        
+                "language": "RU",
+                "text": "Здесь отображаются графики. Он позволяет пользователям перемещаться по многомерным наборам данных.",
+                "updated": 1640930880970
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Burada grafikler görüntülenir. Kullanıcıların çok boyutlu veri kümelerinde gezinmesine olanak tanır.",
+                "updated": 1643201976025
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The Charting Space has its own object structure that partially matches the definitions set by the user on the Charting Space hierarchy. This means that, whenever the user adds a chart, removes a scale, or changes a configuration of any of the nodes inside the Charting Space hierarchy, the Charting Space senses these changes and adapts its object model, most of the time in real-time, which in turn changes the way that the charts are displayed."
+            "text": "The Charting Space has its own object structure that partially matches the definitions set by the user on the Charting Space hierarchy. This means that, whenever the user adds a chart, removes a scale, or changes a configuration of any of the nodes inside the Charting Space hierarchy, the Charting Space senses these changes and adapts its object model, most of the time in real-time, which in turn changes the way that the charts are displayed.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Charting Space verfügt über eine eigene Objektstruktur, die teilweise mit den Definitionen übereinstimmt, die der Benutzer in der Charting Space Hierarchie festgelegt hat. Das bedeutet, dass der Charting Space jedes Mal, wenn der Benutzer ein Diagramm hinzufügt, eine Skala entfernt oder die Konfiguration eines der Knoten innerhalb der Charting Space Hierarchie ändert, diese Änderungen erkennt und sein Objektmodell anpasst, meistens in Echtzeit, was wiederum die Art und Weise ändert, wie die Diagramme angezeigt werden.",
+                    "updated": 1641735269240
+                 },
+                 {  
+                    "language": "RU",
+                    "text": "Charting Space имеет свою собственную структуру объектов, которая частично соответствует определениям, заданным пользователем в иерархии Charting Space. Это означает, что каждый раз, когда пользователь добавляет график, удаляет масштаб или изменяет конфигурацию любого из узлов иерархии Charting Space, Charting Space воспринимает эти изменения и адаптирует свою объектную модель, чаще всего в режиме реального времени, что в свою очередь изменяет способ отображения графиков.",
+                    "updated": 1640930936935
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafik Alanı ( Charting Space ) , kullanıcı tarafından Grafik Alanı ( Charting Space ) hiyerarşisinde belirlenen tanımlarla kısmen eşleşen kendi nesne yapısına sahiptir. Bu, kullanıcı bir grafik eklediğinde, bir ölçeği kaldırdığında veya Grafik Alanı ( Charting Space ) hiyerarşisindeki herhangi bir düğümün konfigürasyonunu değiştirdiğinde, Grafik Alanının ( Charting Space ) bu değişiklikleri algıladığı ve nesne modelini çoğu zaman gerçek zamanlı olarak uyarladığı anlamına gelir. , bu da grafiklerin görüntülenme şeklini değiştirir.",
+                    "updated": 1643202152944
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "The Charting Space uses the Files Components as its data provider."
+            "text": "The Charting Space uses the Files Components as its data provider.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Charting Space verwendet die Dateikomponenten als Datenlieferant.",
+                    "updated": 1641735276209
+                },
+                {    
+                    "language": "RU",
+                    "text": "В качестве поставщика данных в Charting Space используются компоненты Files Components.",
+                    "updated": 1640930974055
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Grafik Alanı ( Charting Space ), veri sağlayıcısı olarak Dosya Bileşenlerini kullanır.",
+                    "updated": 1643202191454
+                }
+            ]
         }
     ]
 }

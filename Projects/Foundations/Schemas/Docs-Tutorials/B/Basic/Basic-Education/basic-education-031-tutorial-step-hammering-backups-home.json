@@ -19,7 +19,23 @@
             {
                 "language": "ES",
                 "text": "¡Repasemos los mismos ejemplos sobre los que acabas de leer para que te los aprendas de memoria!",
-                "updated": 1626613958881
+                "updated": 1626613958881,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Gehen wir noch einmal die Beispiele durch, die Sie gerade gelesen haben, damit Sie das auswendig lernen!",
+                "updated": 1634585727295
+            },
+            {
+                "language": "TR",
+                "text": "Bunu iyice pekiştirmek için az önce okuduğunuz örneklerin üzerinden geçelim!",
+                "updated": 1639602759421
+            },
+            {
+                "language": "RU",
+                "text": "Давайте рассмотрим те же примеры, о которых вы только что прочитали, чтобы вы выучили их наизусть!",
+                "updated": 1640870699527
             }
         ]
     },
@@ -38,7 +54,23 @@
                 {
                     "language": "ES",
                     "text": "Realiza una copia de seguridad del Lightning Strike Task y restaurarlo sin eliminar la tarea original. Luego repite la operación pero eliminando la tarea original antes de restaurar la copia de seguridad.",
-                    "updated": 1626614204066
+                    "updated": 1626614204066,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Erstellen Sie eine Sicherungskopie des Lightning Strike Tasks und stellen Sie diese wieder her, ohne den ursprünglichen Task zu löschen. Dann wiederholen Sie den Vorgang, löschen aber den ursprünglichen Task, bevor Sie die Sicherung wiederherstellen.",
+                    "updated": 1634585740393
+                },
+                {
+                    "language": "TR",
+                    "text": " Lightning Strike Task düğümünün yedeğini alın ve orijinal görevi silmeden geri yükleyin. Ardından işlemi tekrarlayın, ancak yedeklemeyi geri yüklemeden önce orijinal görevi silin.",
+                    "updated": 1639602833481
+                },
+                {
+                    "language": "RU",
+                    "text": "Создайте резервную копию задачи Lightning Strike и восстановите ее, не удаляя исходную задачу (Task). Затем повторите операцию, но удалите исходную задачу перед восстановлением резервной копии.",
+                    "updated": 1640870770776
                 }
             ]
         },
@@ -56,7 +88,18 @@
                 {
                     "language": "ES",
                     "text": "Verifica que, en ambos casos, las referencias salientes originadas en el Trading System Reference y el nodo Trading Engine Reference se conservan.",
-                    "updated": 1626614637489
+                    "updated": 1626614637489,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Vergewissern Sie sich, dass in beiden Fällen die ausgehenden Verweise, die von den Knoten Trading System Reference und Trading Engine Reference ausgehen, erhalten bleiben.",
+                    "updated": 1634585747278
+                },
+                {
+                    "language": "RU",
+                    "text": "Убедитесь, что в обоих случаях сохраняются исходящие ссылки, созданные на узлах Trading System Reference и Trading Engine Reference.",
+                    "updated": 1640870791755
                 }
             ]
         },
@@ -74,7 +117,23 @@
                 {
                     "language": "ES",
                     "text": "¡Recuerda que las referencias salientes siempre se conservan!",
-                    "updated": 1626614674572
+                    "updated": 1626614674572,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Denken Sie daran, dass ausgehende Referenzen immer erhalten bleiben!",
+                    "updated": 1634585756386
+                },
+                {
+                    "language": "TR",
+                    "text": "Giden referansların her zaman korunduğunu unutmayın!",
+                    "updated": 1639602969456
+                },
+                {
+                    "language": "RU",
+                    "text": "Помните, что исходящие ссылки всегда сохраняются!",
+                    "updated": 1640870803361
                 }
             ]
         }

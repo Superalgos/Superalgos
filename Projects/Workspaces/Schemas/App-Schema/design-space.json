@@ -1,0 +1,52 @@
+{
+    "type": "Design Space",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "spaceStyle",
+            "label": "Add Space Style",
+            "relatedUiObject": "Space Style",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "spaceSettings",
+            "label": "Add Space Settings",
+            "relatedUiObject": "Space Settings",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "actionFunction": "payload.executeAction",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity"
+        }
+    ],
+    "isHierarchyHead": true,
+    "addLeftIcons": true,
+    "level": 0,
+    "childrenNodesProperties": [
+        {
+            "name": "spaceStyle",
+            "type": "node",
+            "childType": "Space Style",
+            "autoAdd": true
+        },
+        {
+            "name": "spaceSettings",
+            "type": "node",
+            "childType": "Space Settings",
+            "autoAdd": true
+        }
+    ]
+}

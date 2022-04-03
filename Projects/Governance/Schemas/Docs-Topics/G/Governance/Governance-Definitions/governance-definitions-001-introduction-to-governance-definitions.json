@@ -4,21 +4,89 @@
     "type": "Introduction to Governance Definitions",
     "definition": {
         "text": "For Contributors to participate in governance, the project must be thoroughly defined, as it is these definitions that may accept votes and claims from Contributors.",
-        "updated": 1624706736435
+        "updated": 1624706736435,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Para que los Contribuyentes participen en la gobernanza, el proyecto debe estar completamente definido, ya que son estas definiciones las que pueden aceptar votos y reclamos de los Contribuyentes.",
+                "updated": 1637405662285
+            },
+            {
+                "language": "RU",
+                "text": "Чтобы участники могли участвовать в управлении, проект должен быть тщательно определен, поскольку именно эти определения могут принимать голоса и претензии авторов.",
+                "updated": 1639039480562
+            },
+            {
+                "language": "DE",
+                "text": "Damit die Contributors (Mitwirkenden) an der Governance (Verwaltung) teilnehmen können, muss das Projekt genau definiert werden, da diese Definitionen die Votes und Claims (Stimmen und Forderungen) der Contributors akzeptieren können.",
+                "updated": 1640644243649
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "The Governance Project is designed in a way that allows describing the project in a highly granular fashion. This is one of the features that enable a massive collaboration, as it allows different people to get involved with very specific areas of the project.",
-            "updated": 1624706744817
+            "updated": 1624706744817,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "The Governance Project ( el proyecto de gobernanza) está diseñado de una manera que permite describir el proyecto de una manera muy granular. Ésta es una de las características que posibilita una colaboración masiva, ya que permite que distintas personas se involucren en áreas muy específicas del proyecto.",
+                    "updated": 1640974532396
+                },
+                {
+                    "language": "RU",
+                    "text": "Проект управления Governance Project разработан таким образом, чтобы можно было детально описать проект. Это одна из функций, обеспечивающих массовое сотрудничество, поскольку она позволяет разным людям участвовать в очень конкретных областях проекта.",
+                    "updated": 1639039526493
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Governance-Projekt ist so konzipiert, dass das Projekt sehr detailliert beschrieben werden kann. Dies ist eines der Merkmale, die eine umfassende Zusammenarbeit (collaboration) ermöglichen, da sich so verschiedene Personen mit sehr spezifischen Bereichen des Projekts befassen können.",
+                    "updated": 1640644301702
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Usually, governance definitions are produced by top contributors leading significant areas of the project. They are best suited to define the areas they lead, as they have profound knowledge of the existing infrastructure and the development roadmap."
+            "text": "Usually, governance definitions are produced by top contributors leading significant areas of the project. They are best suited to define the areas they lead, as they have profound knowledge of the existing infrastructure and the development roadmap.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Por lo general, las definiciones de gobernanza son elaboradas por los principales contribuyentes que lideran áreas importantes del proyecto. Son los más adecuados para definir las áreas que lideran, ya que tienen un conocimiento profundo de la infraestructura existente y la hoja de ruta del desarrollo.",
+                    "updated": 1637406151282
+                },
+                {
+                    "language": "RU",
+                    "text": "Обычно определения управления производятся ведущими участниками, ведущими важные области проекта. Они лучше всего подходят для определения направлений, которые они возглавляют, поскольку обладают глубокими знаниями существующей инфраструктуры и дорожной карты развития.",
+                    "updated": 1639039556437
+                },
+                {
+                    "language": "DE",
+                    "text": "In der Regel werden Governance-Definitionen von führenden Contributors erstellt, die wichtige Bereiche des Projekts leiten. Sie sind am besten geeignet, die von ihnen geleiteten Bereiche zu definieren, da sie über profunde Kenntnisse der bestehenden Infrastruktur und der development roadmap (Entwicklungsplans) verfügen.",
+                    "updated": 1640644398010
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Regular contributors tend to interact with these definitions to cast their votes and raise their claims."
+            "text": "Regular contributors tend to interact with these definitions to cast their votes and raise their claims.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Los contribuyentes habituales tienden a interactuar con estas definiciones para emitir sus votos y plantear sus solicitudes.",
+                    "updated": 1637406185693
+                },
+                {
+                    "language": "RU",
+                    "text": "Постоянные участники, как правило, взаимодействуют с этими определениями, чтобы отдать свои голоса и заявить о своих претензиях.",
+                    "updated": 1639039575377
+                },
+                {
+                    "language": "DE",
+                    "text": "Regelmäßige Contributor neigen dazu, mit diesen Definitionen zu interagieren, um ihre votes (Stimmen) abzugeben und ihre claims (Forderungen) zu stellen.",
+                    "updated": 1640644449935
+                }
+            ]
         }
     ]
 }

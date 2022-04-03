@@ -47,7 +47,7 @@ function newUiObjectConstructor() {
         When this object is created based on a backup, share or clone, 
         we will have a savedPayload that we will use to set the initial properties.
         If it is a new object being created out of the user interface, 
-        we jusst continue with the construction process.
+        we just continue with the construction process.
         */
         if (userAddingNew === false && payload.node.type !== 'Workspace') {
             let position = {
@@ -224,11 +224,12 @@ function newUiObjectConstructor() {
         return
     }
 
-    function addLeftIcons(menuItemsInitialValues, floatingObject, isPersonalData) {
+    function addLeftIcons(menuItemsInitialValues, floatingObject, schemaDocument) {
         menuItemsInitialValues.push(
             {
                 action: 'Pin / Unpin',
-                actionFunction: floatingObject.pinToggle,
+                actionFunction: floatingObject.payload.executeAction,
+                actionProject: 'Visual-Scripting',
                 actionStatus: floatingObject.getPinStatus,
                 currentStatus: false,
                 label: undefined,
@@ -244,7 +245,8 @@ function newUiObjectConstructor() {
         menuItemsInitialValues.push(
             {
                 action: 'Change Tension Level',
-                actionFunction: floatingObject.angleToParentToggle,
+                actionFunction: floatingObject.payload.executeAction,
+                actionProject: 'Visual-Scripting',
                 actionStatus: floatingObject.getAngleToParent,
                 currentStatus: true,
                 label: undefined,
@@ -258,8 +260,9 @@ function newUiObjectConstructor() {
         )
         menuItemsInitialValues.push(
             {
-                action: 'Change Distance to Paarent',
-                actionFunction: floatingObject.distanceToParentToggle,
+                action: 'Change Distance to Parent',
+                actionFunction: floatingObject.payload.executeAction,
+                actionProject: 'Visual-Scripting',
                 actionStatus: floatingObject.getDistanceToParent,
                 currentStatus: true,
                 label: undefined,
@@ -274,7 +277,8 @@ function newUiObjectConstructor() {
         menuItemsInitialValues.push(
             {
                 action: 'Change Arrangement Style',
-                actionFunction: floatingObject.arrangementStyleToggle,
+                actionFunction: floatingObject.payload.executeAction,
+                actionProject: 'Visual-Scripting',
                 actionStatus: floatingObject.getArrangementStyle,
                 currentStatus: true,
                 label: undefined,
@@ -289,7 +293,8 @@ function newUiObjectConstructor() {
         menuItemsInitialValues.push(
             {
                 action: 'Freeze / Unfreeze',
-                actionFunction: floatingObject.freezeToggle,
+                actionFunction: floatingObject.payload.executeAction,
+                actionProject: 'Visual-Scripting',
                 actionStatus: floatingObject.getFreezeStatus,
                 currentStatus: true,
                 label: undefined,
@@ -322,7 +327,7 @@ function newUiObjectConstructor() {
             {
                 action: 'Backup',
                 actionFunction: floatingObject.payload.executeAction,
-                actionProject: 'Foundations',
+                actionProject: 'Visual-Scripting',
                 label: undefined,
                 visible: true,
                 iconPathOn: 'backup-entity',
@@ -337,7 +342,7 @@ function newUiObjectConstructor() {
             {
                 action: 'Clone',
                 actionFunction: floatingObject.payload.executeAction,
-                actionProject: 'Foundations',
+                actionProject: 'Visual-Scripting',
                 label: undefined,
                 visible: true,
                 iconPathOn: 'clone-entity',
@@ -348,12 +353,12 @@ function newUiObjectConstructor() {
                 ring: 2
             }
         )
-        if (isPersonalData !== true) {
+        if (schemaDocument.isPersonalData !== true) {
             menuItemsInitialValues.push(
                 {
                     action: 'Share',
                     actionFunction: floatingObject.payload.executeAction,
-                    actionProject: 'Foundations',
+                    actionProject: 'Visual-Scripting',
                     label: undefined,
                     visible: true,
                     iconPathOn: 'share-entity',
@@ -367,19 +372,34 @@ function newUiObjectConstructor() {
         }
         menuItemsInitialValues.push(
             {
-                action: 'Parent Detach',
-                askConfirmation: true,
-                confirmationLabel: "Confirm to Detach",
+                action: 'Save node to be moved',
                 actionFunction: floatingObject.payload.executeAction,
                 actionProject: 'Foundations',
                 label: undefined,
                 visible: true,
-                iconPathOn: 'detach-node',
-                iconPathOff: 'detach-node',
+                //placeholder icon : https://www.iconpacks.net/free-icon/pin-48.html
+                iconPathOn: 'copy-position',
+                iconPathOff: 'copy-position',
                 rawRadius: 12,
                 targetRadius: 0,
                 currentRadius: 0,
-                ring: 3
+                ring: 2
+            }
+        )
+        menuItemsInitialValues.push(
+            {
+                action: 'Snap saved node to position',
+                actionFunction: floatingObject.payload.executeAction,
+                actionProject: 'Foundations',
+                label: undefined,
+                visible: true,
+                //placeholder icon: https://www.iconpacks.net/free-icon/pins-53.html
+                iconPathOn: 'snap-position',
+                iconPathOff: 'snap-position',
+                rawRadius: 12,
+                targetRadius: 0,
+                currentRadius: 0,
+                ring: 2
             }
         )
         menuItemsInitialValues.push(
@@ -388,7 +408,7 @@ function newUiObjectConstructor() {
                 askConfirmation: true,
                 confirmationLabel: "Confirm to Detach",
                 actionFunction: floatingObject.payload.executeAction,
-                actionProject: 'Foundations',
+                actionProject: 'Visual-Scripting',
                 label: undefined,
                 visible: true,
                 iconPathOn: 'delink-node',
@@ -399,8 +419,58 @@ function newUiObjectConstructor() {
                 ring: 3
             }
         )
-
+        if (schemaDocument.referencingRules !== undefined) {
+            menuItemsInitialValues.push(
+                {
+                    action: 'Create Reference',
+                    actionFunction: floatingObject.payload.executeAction,
+                    actionProject: 'Visual-Scripting',
+                    label: undefined,
+                    visible: true,
+                    iconPathOn: 'create-reference',
+                    iconPathOff: 'create-reference',
+                    rawRadius: 12,
+                    targetRadius: 0,
+                    currentRadius: 0,
+                    ring: 3
+                }
+            )
+        }
         menuItemsInitialValues.push(
+            {
+                action: 'Highlight Referencing Nodes',
+                actionFunction: floatingObject.payload.executeAction,
+                actionProject: 'Visual-Scripting',
+                actionStatus: floatingObject.payload.uiObject.getHighlightReferenceChildrenStatus,
+                label: undefined,
+                visible: true,
+                iconPathOn: 'highlight-referencing-nodes-on',
+                iconPathOff: 'highlight-referencing-nodes-off',
+                iconProject: 'Visual-Scripting',
+                rawRadius: 12,
+                targetRadius: 0,
+                currentRadius: 0,
+                ring: 3
+            }
+        )
+        menuItemsInitialValues.push(
+            {
+                action: 'Parent Detach',
+                askConfirmation: true,
+                confirmationLabel: "Confirm to Detach",
+                actionFunction: floatingObject.payload.executeAction,
+                actionProject: 'Visual-Scripting',
+                label: undefined,
+                visible: true,
+                iconPathOn: 'detach-node',
+                iconPathOff: 'detach-node',
+                rawRadius: 12,
+                targetRadius: 0,
+                currentRadius: 0,
+                ring: 4
+            }
+        )
+    menuItemsInitialValues.push(
             {
                 action: 'Open Documentation',
                 actionFunction: floatingObject.payload.executeAction,
@@ -425,21 +495,21 @@ function newUiObjectConstructor() {
             if (schemaDocument.editors !== undefined) {
                 if (schemaDocument.editors.config === true) {
                     uiObject.configEditor = newConfigEditor()
-                    uiObject.configEditor.isVisibleFunction = uiObject.isVisibleFunction
-                    uiObject.configEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
                     uiObject.configEditor.initialize()
                 }
                 if (schemaDocument.editors.code === true) {
                     uiObject.codeEditor = newCodeEditor()
-                    uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
-                    uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
                     uiObject.codeEditor.initialize()
                 }
                 if (schemaDocument.editors.formula === true) {
                     uiObject.formulaEditor = newFormulaEditor()
-                    uiObject.formulaEditor.isVisibleFunction = uiObject.isVisibleFunction
-                    uiObject.formulaEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
                     uiObject.formulaEditor.initialize()
+                }
+                if (schemaDocument.editors.list === true) {
+                    uiObject.listSelector = newListSelector()
+                    uiObject.listSelector.isVisibleFunction = uiObject.isVisibleFunction
+                    uiObject.listSelector.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+                    uiObject.listSelector.initialize()
                 }
                 if (schemaDocument.editors.condition === true) {
                     uiObject.conditionEditor = newConditionEditor()
@@ -448,8 +518,14 @@ function newUiObjectConstructor() {
                     uiObject.conditionEditor.initialize()
                 }
             }
+            if (schemaDocument.referencingRules !== undefined) {
+                uiObject.listSelector = newListSelector()
+                uiObject.listSelector.isVisibleFunction = uiObject.isVisibleFunction
+                uiObject.listSelector.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+                uiObject.listSelector.initialize()
+            }
             if (schemaDocument.addLeftIcons === true) {
-                addLeftIcons(menuItemsInitialValues, floatingObject, schemaDocument.isPersonalData)
+                addLeftIcons(menuItemsInitialValues, floatingObject, schemaDocument)
             }
             if (schemaDocument.isPinned === true) {
                 floatingObject.isPinned = true
@@ -458,42 +534,52 @@ function newUiObjectConstructor() {
                 floatingObject.positionLocked = true
             }
 
-            for (let i = 0; i < schemaDocument.menuItems.length; i++) {
-                let menutItemDefinition = schemaDocument.menuItems[i]
-                let newMenuItem = JSON.parse(JSON.stringify(menutItemDefinition))
+            processMenuItems(schemaDocument.menuItems, menuItemsInitialValues)
 
-                /* We need to reference the real function based on its name */
-                if (menutItemDefinition.actionFunction !== undefined) {
-                    try {
-                        newMenuItem.actionFunction = eval(menutItemDefinition.actionFunction)
-                    } catch (err) {
-                        console.log('Error at Menu Item Action Function: ' + menutItemDefinition.actionFunction + ' ' + err.stack)
-                        continue
+            function processMenuItems(menuItems, array) {
+
+                for (let i = 0; i < menuItems.length; i++) {
+
+                    let menuItemDefinition = menuItems[i]
+                    let newMenuItem = JSON.parse(JSON.stringify(menuItemDefinition))
+
+                    /* We need to reference the real function based on its name */
+                    if (menuItemDefinition.actionFunction !== undefined) {
+                        try {
+                            newMenuItem.actionFunction = eval(menuItemDefinition.actionFunction)
+                        } catch (err) {
+                            console.log('Error at Menu Item Action Function: ' + menuItemDefinition.actionFunction + ' ' + err.stack)
+                        }
                     }
-                }
 
-                /* Adding default values */
-                if (newMenuItem.visible === undefined) {
-                    newMenuItem.visible = true
-                }
+                    /* Adding default values */
+                    if (newMenuItem.visible === undefined && menuItemsInitialValues === array) {
+                        newMenuItem.visible = true
+                    }
 
-                if (newMenuItem.rawRadius === undefined) {
-                    newMenuItem.rawRadius = 12
-                }
+                    if (newMenuItem.rawRadius === undefined) {
+                        newMenuItem.rawRadius = 12
+                    }
 
-                if (newMenuItem.targetRadius === undefined) {
-                    newMenuItem.targetRadius = 0
-                }
+                    if (newMenuItem.targetRadius === undefined) {
+                        newMenuItem.targetRadius = 0
+                    }
 
-                if (newMenuItem.currentRadius === undefined) {
-                    newMenuItem.currentRadius = 0
-                }
+                    if (newMenuItem.currentRadius === undefined) {
+                        newMenuItem.currentRadius = 0
+                    }
 
-                if (newMenuItem.actionProject === undefined) {
-                    newMenuItem.actionProject = payload.node.project
-                }
+                    if (newMenuItem.actionProject === undefined) {
+                        newMenuItem.actionProject = payload.node.project
+                    }
 
-                menuItemsInitialValues.push(newMenuItem)
+                    if (menuItemDefinition.menuItems !== undefined) {
+                        newMenuItem.menuItems = []
+                        processMenuItems(menuItemDefinition.menuItems, newMenuItem.menuItems)
+                    }
+
+                    array.push(newMenuItem)
+                }
             }
         } else {
             if (ERROR_LOG === true) { logger.write('[ERROR] getMenuItemsInitialValues -> UI Object Type not Recognized -> type = ' + payload.node.type) }

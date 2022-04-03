@@ -1,7 +1,14 @@
 {
     "type": "Profit Loss",
     "definition": {
-        "text": "Profit loss is the difference between the balance at the end and the balance at the beginning of a certain period, given by the context."
+        "text": "Profit loss is the difference between the balance at the end and the balance at the beginning of a certain period, given by the context.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Profit Loss - это разница между балансом на конец и балансом на начало определенного периода, заданная контекстом.",
+                "updated": 1640347962847
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,11 +17,25 @@
         },
         {
             "style": "Text",
-            "text": "In the context of the base asset or the quoted asset, the calculation is done by subtracting the balances in the corresponding assets, using the variable appropriate to the larger context (i.e.: episode, position, etc.)."
+            "text": "In the context of the base asset or the quoted asset, the calculation is done by subtracting the balances in the corresponding assets, using the variable appropriate to the larger context (i.e.: episode, position, etc.).",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В контексте базового актива или котируемого актива расчет производится путем вычитания балансов в соответствующих активах с использованием переменной, соответствующей более широкому контексту (т.е.: эпизод, позиция и т.д.).",
+                    "updated": 1640348029408
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In general terms:"
+            "text": "In general terms:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В общих чертах:",
+                    "updated": 1640348041316
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -27,7 +48,14 @@
         {
             "style": "Text",
             "text": "In the case of the Episode Base Asset and Episode Quoted Asset:",
-            "updated": 1609880629828
+            "updated": 1609880629828,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В случае Episode Base Asset и Episode Quoted Asset:",
+                    "updated": 1640348059532
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -41,7 +69,14 @@
         {
             "style": "Text",
             "text": "In the case of the Position Base Asset and Position Quoted Asset:",
-            "updated": 1609880656759
+            "updated": 1609880656759,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В случае Position Base Asset и Position Quoted Asset:",
+                    "updated": 1640348077976
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -54,15 +89,36 @@
         },
         {
             "style": "Text",
-            "text": "In the context of the episode statistics or the position statistics, the calculation is done consolidating the profits of both assets."
+            "text": "In the context of the episode statistics or the position statistics, the calculation is done consolidating the profits of both assets.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В контексте статистики по эпизодам или статистики по позициям расчет производится с объединением прибыли обоих активов.",
+                    "updated": 1640348097770
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "When the context does not refer to either of the assets in particular, then both assets are taken into account in the calculation."
+            "text": "When the context does not refer to either of the assets in particular, then both assets are taken into account in the calculation.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если в контексте не упоминается ни один из активов в частности, то при расчете учитываются оба актива.",
+                    "updated": 1640348110125
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In the context of the episode statistics:"
+            "text": "In the context of the episode statistics:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В контексте статистики эпизодов:",
+                    "updated": 1640348121043
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -71,7 +127,14 @@
         },
         {
             "style": "Text",
-            "text": "In the context of the position statistics:"
+            "text": "In the context of the position statistics:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В контексте статистики позиций:",
+                    "updated": 1640348132545
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -86,17 +149,38 @@
         {
             "style": "Title",
             "text": "Profit Loss Configuration",
-            "updated": 1609880814504
+            "updated": 1609880814504,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Profit Loss",
+                    "updated": 1640348151997
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609880843742
+            "updated": 1609880843742,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1640348158730
+                }
+            ]
         },
         {
             "style": "List",
             "text": "initialValue allows resetting the initial state of the node to an arbitrary value.",
-            "updated": 1609880851919
+            "updated": 1609880851919,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
+                    "updated": 1640348167134
+                }
+            ]
         }
     ]
 }

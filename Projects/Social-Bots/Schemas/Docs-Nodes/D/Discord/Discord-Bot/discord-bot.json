@@ -1,0 +1,62 @@
+{
+    "type": "Discord Bot",
+    "definition": {
+        "text": "The Discord Bot node is used for defining the configuration for a Discord Bot. This bot allows Superalgos to send announcements to a Discord Channel.",
+        "updated": 1619546769461
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "In order to use the Discord Bot, you will need to create a new Application. Follow the official Discord developmer portal documentation to create your bot and obtain an Auth Token.",
+            "updated": 1619546875758
+        },
+        {
+            "style": "Text",
+            "text": "Parameters:"
+        },
+        {
+            "style": "Text",
+            "text": "- token - required - obtained from the Discord Developer Portal."
+        },
+        {
+             "style": "Text",
+             "text": "- channelId - required - right click on a channel then Copy ID to obtain the channel ID."
+         },
+        {
+            "style": "Text",
+            "text": "- format - optional - allows custom formatting of the message being sent into Discord."
+        },
+        {
+            "style": "Text",
+            "text": "Recognized Format Variables:"
+        },
+        {
+            "style": "Text",
+            "text": "- `%{EXCHANGE}` the exchange which is operating, i.e. Binance"
+        },
+        {
+            "style": "Text",
+            "text": "- `%{MARKET}` the market which is operating. i.e. BTC/USDT"
+        },
+        {
+            "style": "Text",
+            "text": "- `%{MESSAGE}` the text being sent"
+        },
+        {
+            "style": "Text",
+            "text": "An example format is:"
+        },
+        {
+            "style": "Javascript",
+            "text": "\"%{EXCHANGE} %{MARKET}: %{MESSAGE}\""
+        },
+        {
+            "style": "Text",
+            "text": "Which results in a final message in Discord that looks like:"
+        },
+        {
+            "style": "Javascript",
+            "text": "\"Binance BTC/USDT: Backtesting Session 'Lightning Strike' is starting.\""
+        }
+    ]
+}

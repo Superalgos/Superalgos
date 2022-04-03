@@ -26,6 +26,27 @@
                 "text": "\nHasta ahora, has estado confinado al lado oscuro de Superalgos. Prepárate  para ser expuesto al lado brillante: el Charting Space.\n",
                 "updated": 1624379177365,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Bislang waren Sie auf die dunkle Seite von Superalgos beschränkt. Machen Sie sich bereit, die helle Seite kennenzulernen: den Charting Space.",
+                "updated": 1634174936126,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Şimdiye kadar Superalgos'un karanlık tarafıyla sınırlı kaldınız. Superalgos'un ışıklı tarafıyla tanışmaya hazır olun: Grafik Alanı ( Charting Space )",
+                "updated": 1644911149593
+            },
+            {
+                "language": "RU",
+                "text": "До сих пор Вы были ограничены только темной стороной Superalgos. Приготовьтесь к тому, что Вас ждет яркая сторона: Charting Space.",
+                "updated": 1636197684784
+            },
+            {
+                "language": "NL",
+                "text": "Tot nu toe was je aan de donkere kant van Superlgos. Maak je klaar voor de lichte kant: de Charting Space.",
+                "updated": 1638781129195
             }
         ]
     },
@@ -52,6 +73,27 @@
                     "text": "El espacio de gráficos vive en la parte superior del espacio de diseño, separado por un control deslizante de color turquesa. Como es de esperar de Superalgos, el espacio de gráficos es configurable y altamente flexible. Todo lo que sucede allí está definido en la jerarquía del Charting Space.",
                     "updated": 1624379290740,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Charting-Bereich befindet sich über dem Design-Bereich, getrennt durch einen türkisfarbenen Schieberegler. Wie Sie es von Superalgos gewohnt sind, ist der Charting Space konfigurierbar und hochflexibel. Alles, was dort geschieht, wird in der Charting Space Hierarchie definiert.",
+                    "updated": 1634174969494,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafik alanı, turkuaz bir kaydırıcı ile ayrılmış olarak tasarım alanının üstünde bulunur. Superalgos'tan beklendiği gibi, grafik alanı yapılandırılabilir ve oldukça esnektir. Orada olan her şey Grafik Alanı ( Charting Space ) hiyerarşisinde tanımlanır.",
+                    "updated": 1644911175003
+                },
+                {
+                    "language": "RU",
+                    "text": "Пространство построения графиков расположено поверх пространства проектирования, разделенного бирюзовыим ползунком. Как Вы и ожидаете от Superalgos, оно является настраиваемым и очень гибким. Все, что там происходит, определено в иерархии Charting Space.",
+                    "updated": 1636197912680
+                },
+                {
+                    "language": "NL",
+                    "text": "De Charting Space bevind zich boven de Design Space, gescheiden door een turquoise schuifbalk. Zoals je gewend bent van Superalgos is de ruimte van de grafieken zeer flexibel en te configureren. Alles wat daar gebeurt is gedefinieerd in de Charting Space hiërarchie.",
+                    "updated": 1638781441406
                 }
             ]
         },
@@ -76,6 +118,27 @@
                     "text": "El Charting Space es conocido por hacer volar la mente de las personas. Por favor, abstente de continuar con este tutorial si actualmente te encuentras bajo la influencia de sustancias psicoactivas.",
                     "updated": 1627304116898,
                     "style": "Warning"
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Charting Space ist dafür bekannt, dass er die Leute umhaut. Bitte fahren Sie mit diesem Tutorial nicht fort, wenn Sie unter dem Einfluss von psychoaktiven Substanzen stehen.",
+                    "updated": 1634174978126,
+                    "style": "Warning"
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafik alanı, insanların aklını başından almasıyla bilinir. Lütfen şu anda psikoaktif maddelerin etkisi altındaysanız bu eğitime devam etmekten kaçının :-)",
+                    "updated": 1644911189295
+                },
+                {
+                    "language": "RU",
+                    "text": "Пространство постороения графиков известно тем, что будоражит умы людей. Пожалуйста, воздержитесь от продолжения изучения этого материала, если в настоящий момент Вы находитесь под воздействием психоактивных веществ.",
+                    "updated": 1636198131426
+                },
+                {
+                    "language": "NL",
+                    "text": "De ruimte voor de grafieken staat er om bekend om mensen versteld te doen staan. Ga niet verder met deze tutorial als je op dit moment onder invloed bent van psychoactieve stoffen.",
+                    "updated": 1638781673970
                 }
             ],
             "updated": 1616416552336

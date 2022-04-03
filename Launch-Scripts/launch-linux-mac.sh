@@ -1,4 +1,4 @@
 #!/bin/sh
 cd .. 
-node run 
+node platform 
 "$SHELL"

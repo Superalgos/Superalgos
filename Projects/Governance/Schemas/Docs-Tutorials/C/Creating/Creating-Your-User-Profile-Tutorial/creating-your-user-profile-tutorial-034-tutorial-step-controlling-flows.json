@@ -1,0 +1,84 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": 34,
+    "type": "Tutorial Step - Controlling Flows",
+    "definition": {
+        "text": "The configuration of each node where Token Power may go in acts as a floodgate! That's how you control Token Power Flows!",
+        "icon": {
+            "name": "Switches\\votes-switch",
+            "project": "Governance"
+        },
+        "updated": 1630687488694,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "¡La configuración de cada nodo donde pueda entrar Token Power actúa como una compuerta! Así es como controlas Token Power Flows!",
+                "updated": 1630897279661,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Конфигурация каждого узла, в который может входить Token Power, действует как шлюз! Вот как вы управляете потоками токенов Token Power Flows!",
+                "updated": 1639051361085
+            },
+            {
+                "language": "DE",
+                "text": "Die Konfiguration eines jeden Knotens, in den Token Power einfließen kann, wirkt wie eine Schleuse! So kontrollieren Sie die Token Power Flows!",
+                "updated": 1640080729154
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Go back to the Onboarding Programs node. Guess what? Those programs do not need Token Power, so we will close the floodgate!",
+            "updated": 1630687366643,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Vuelve al nodo Onboarding Programs. ¿Adivina qué? Esos programas no necesitan Token Power, ¡así que cerraremos la compuerta!",
+                    "updated": 1630897321614,
+                    "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Вернитесь в узел Onboarding Programs. Знаешь, что? Этим программам не нужен Token Power, поэтому мы закроем шлюз!",
+                    "updated": 1639051493624
+                },
+                {
+                    "language": "DE",
+                    "text": "Gehen Sie zurück zum Knoten Onboarding Programs. Raten Sie mal! Diese Programme brauchen keine Token Power, also schließen wir die Schleuse!",
+                    "updated": 1640080737966
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Copy the below configuration and paste it into the Onboarding Programs node configuration!",
+            "updated": 1630687477137,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Copie la siguiente configuración y péguela en la configuración del nodo Onboarding Programs.",
+                    "updated": 1630897367644,
+                    "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Скопируйте приведенную ниже конфигурацию и вставьте ее в конфигурацию узла Onboarding Programs!",
+                    "updated": 1639051532113
+                },
+                {
+                    "language": "DE",
+                    "text": "Kopieren Sie die untenstehende Konfiguration und fügen Sie sie in die Konfiguration des Knotens \" Onboarding Programs \" ein!",
+                    "updated": 1640080783653
+                }
+            ]
+        },
+        {
+            "style": "Json",
+            "text": "{\n   \"percentage\": 0\n }",
+            "updated": 1630687598132
+        }
+    ]
+}

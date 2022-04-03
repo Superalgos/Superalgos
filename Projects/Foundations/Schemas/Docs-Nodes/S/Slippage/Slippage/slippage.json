@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "El slippage es una suposición sobre la diferencia entre la tasa simulada y la tasa de ejecución real de una orden de mercado, más relevante en el contexto de las sesiones de backtesting y de paper-trading. El parámetro es una herramienta para hacer que las simulaciones sean más realistas.",
                 "updated": 1629581196113
+            },
+            {
+                "language": "RU",
+                "text": "Slippage (проскальзывание) - это предположение о разнице между моделируемой скоростью и фактической скоростью исполнения рыночного ордера, что наиболее актуально в контексте тестирования на исторических данных и сессий бумажной торговли. Параметр Slippage - это инструмент, позволяющий сделать моделирование более реалистичным.",
+                "updated": 1639147541218
             }
         ]
     },
@@ -17,7 +22,14 @@
         },
         {
             "style": "Text",
-            "text": "In the context of forward testing and live trading sessions, slippage does not affect the actual transactions. However, the parameter is taken into account when creating the live trading simulation until the actual order fill values are obtained from the exchange."
+            "text": "In the context of forward testing and live trading sessions, slippage does not affect the actual transactions. However, the parameter is taken into account when creating the live trading simulation until the actual order fill values are obtained from the exchange.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В контексте форвард-тестирования и торговых сессий в реальном времени проскальзывание не влияет на фактические транзакции. Однако этот параметр учитывается при создании симуляции торговли в реальном времени до тех пор, пока с биржи не будут получены фактические значения заполнения ордеров.",
+                    "updated": 1639147564278
+                }
+            ]
         },
         {
             "style": "Block",
@@ -26,31 +38,73 @@
         {
             "style": "Title",
             "text": "Slippage Configuration",
-            "updated": 1609676424004
+            "updated": 1609676424004,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Slippage",
+                    "updated": 1639147612820
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609676430132
+            "updated": 1609676430132,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1639147620946
+                }
+            ]
         },
         {
             "style": "List",
             "text": "positionRate is the slippage value applied to the rate of all market orders throughout the position, expressed as a percentage (for example, 0.1 means 0.1%).",
-            "updated": 1609676495674
+            "updated": 1609676495674,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "positionRate - это значение проскальзывания, применяемое к ставке всех рыночных ордеров по всей позиции, выраженное в процентах (например, 0,1 означает 0,1%).",
+                    "updated": 1639147647756
+                }
+            ]
         },
         {
             "style": "List",
             "text": "stopLoss is the slippage value applied to the stop loss target defined by the formulas of each stop loss phase in the manage stage of the trading system, expressed as a percentage (for example, 0.2 means 0.2%). The slippage value is applied to the value resulting from the corresponding stop loss formula, and the actual stop loss target is the resulting number. For example, if the stop loss formula results in 1000 and the stopLoss slippage value is 0.2, then the resulting stop loss target is  1000 ± 1000  0.2 / 100. Read below for an explanation on when the slippage is added or subtracted.",
-            "updated": 1609676508652
+            "updated": 1609676508652,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "stopLoss - это величина проскальзывания, применяемая к цели стоп-лосса, определяемая формулами каждой фазы стоп-лосса на этапе управления торговой системой, выраженная в процентах (например, 0,2 означает 0,2%). Значение проскальзывания применяется к значению, полученному по соответствующей формуле стоп-лосса, а фактическая цель стоп-лосса - это результирующее число. Например, если формула стоп-лосса дает значение 1000, а значение проскальзывания стоп-лосса равно 0,2, то результирующая цель стоп-лосса составляет 1000 ± 1000 0,2 / 100. Прочтите ниже, чтобы узнать, когда складывается или вычитается проскальзывание.",
+                    "updated": 1639147701533
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "takeProfit works similarly as the stopLoss setting, but affecting the take profit target instead of the stop loss target."
+            "text": "takeProfit works similarly as the stopLoss setting, but affecting the take profit target instead of the stop loss target.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "takeProfit работает аналогично настройке stopLoss, но влияет на целевой тейк-профит вместо целевого стоп-лосса.",
+                    "updated": 1639147737312
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "If the slippage parameter is left empty or detached both from your session and your trading system, slippage is not computed during simulations.",
-            "updated": 1609676526540
+            "updated": 1609676526540,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если параметр проскальзывания оставлен пустым или отключен как от вашей сессии, так и от вашей торговой системы, проскальзывание не вычисляется во время симулирования.",
+                    "updated": 1639147782632
+                }
+            ]
         }
     ]
 }

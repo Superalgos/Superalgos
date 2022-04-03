@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "Trading mine products son referencias establecidas con trading minas para facilitar el establecimiento de referencias de productos de datos con múltiples productos en la mina determinada.",
                 "updated": 1628899003801
+            },
+            {
+                "language": "RU",
+                "text": "Trading Mine Products - это ссылки, установленные с Trading Mine, чтобы облегчить установить ссылку на информационные продукты с несколькими продуктами в данной шахте.",
+                "updated": 1639151591582
             }
         ]
     },
@@ -17,15 +22,36 @@
         },
         {
             "style": "Text",
-            "text": "At this point, Superalgos ships with a single trading mine, featuring a single low frequency trading bot. However, developers may create their own trading bots or fork the existing one."
+            "text": "At this point, Superalgos ships with a single trading mine, featuring a single low frequency trading bot. However, developers may create their own trading bots or fork the existing one.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "На данный момент Superalgos поставляется с одной торговой шахтой, в которой есть один низкочастотный торговый бот. Однако разработчики могут создавать собственных торговых ботов или форк уже существующего.",
+                    "updated": 1639151615773
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The node may be used as an organizational device, simply to arrange bot products. However, the smart use of the node involves automating the deployment of multiple data products."
+            "text": "The node may be used as an organizational device, simply to arrange bot products. However, the smart use of the node involves automating the deployment of multiple data products.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узел можно использовать как организационное устройство, просто для размещения продуктов ботов. Однако разумное использование узла предполагает автоматизацию развертывания нескольких продуктов данных.",
+                    "updated": 1639151642811
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The use of the trading mine products node is optional, as data products may also exist outside of trading mine products nodes."
+            "text": "The use of the trading mine products node is optional, as data products may also exist outside of trading mine products nodes.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Использование узла Trading Mine Products необязательно, так как информационные продукты могут также существовать вне узлов Trading Mine Products.",
+                    "updated": 1639151702734
+                }
+            ]
         }
     ]
 }

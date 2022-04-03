@@ -4,7 +4,24 @@
     "type": "Charting Space Hierarchy",
     "definition": {
         "text": "The charting space hierarchy organizes the charts on the Viewport and controls their behavior.",
-        "updated": 1610134676796
+        "updated": 1610134676796,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Die Hierarchie des Charting Space organisiert die Diagramme im Viewport und steuert ihr Verhalten.",
+                "updated": 1634486807958
+            },
+            {
+                "language": "RU",
+                "text": "Иерархия Charting Space организует диаграммы на Viewport и контролирует их поведение.",
+                "updated": 1639375906816
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Grafik alanı hiyerarşisi, Görünüm Alanındaki çizelgeleri düzenler ve davranışlarını kontrol eder.",
+                "updated": 1644589904522
+            }
+        ]
     },
     "paragraphs": [
         {

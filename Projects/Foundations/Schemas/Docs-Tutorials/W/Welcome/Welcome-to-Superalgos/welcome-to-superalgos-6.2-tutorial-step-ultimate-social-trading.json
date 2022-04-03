@@ -1,0 +1,144 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": "106.2",
+    "type": "Tutorial Step - Ultimate Social Trading",
+    "definition": {
+        "text": "The Superalgos Platform is designed to serve algo traders. But the project is expanding its scope to cater to all crypto users!",
+        "updated": 1636302029793,
+        "icon": {
+            "name": "User\\user-influencer",
+            "project": "Governance"
+        },
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Die Superalgos-Plattform ist für Algo-Trader konzipiert. Aber das Projekt erweitert seinen Umfang, um alle Krypto-Nutzer zu bedienen!",
+                "updated": 1634246924903
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos Platformu, algo tüccarlarına hizmet etmek için tasarlanmıştır. Ancak proje, tüm kripto kullanıcılarına hitap edecek şekilde kapsamını genişletiyor!",
+                "updated": 1636661912945
+            },
+            {
+                "language": "ID",
+                "text": "Platform Superalgos dirancang untuk melayani algo traders. Tetapi proyek ini memperluas cakupannya untuk melayani semua pengguna crypto!",
+                "updated": 1640598614989
+            },
+            {
+                "language": "RU",
+                "text": "Платформа Superalgos предназначена для алготрейдеров. Но проект расширяет сферу своей деятельности, чтобы удовлетворить всех пользователей криптовалют!",
+                "updated": 1642773110913
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "Incentivized by the protocol, algo traders will compete to produce and disseminate trading signals.",
+            "updated": 1636302022130,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Angeregt durch das Protokoll, werden Algo-Händler miteinander konkurrieren, um Handelssignale zu produzieren und zu verbreiten.",
+                    "updated": 1634246936645
+                },
+                {
+                    "language": "TR",
+                    "text": "Protokol tarafından teşvik edilen algo tüccarları, ticaret sinyalleri üretmek ve yaymak için rekabet edecek.",
+                    "updated": 1636661931970
+                },
+                {
+                    "language": "ID",
+                    "text": "Terpusat oleh protokol, algo traders akan bersaing untuk memproduksi dan menyebarkan trading signals.",
+                    "updated": 1640598656754
+                },
+                {
+                    "language": "RU",
+                    "text": "Благодаря протоколу алготрейдеры будут соревноваться в производстве и распространении торговых сигналов.",
+                    "updated": 1642773165400
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Influencers will curate signal providers and broadcast select signals to their following.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Influencer werden Signalanbieter kuratieren und ausgewählte Signale an ihre Anhängerschaft senden.",
+                    "updated": 1634246948725
+                },
+                {
+                    "language": "TR",
+                    "text": "Influencer’lar sinyal sağlayıcıları seçecek ve seçilen sinyalleri takipçilerine yayınlayacak.",
+                    "updated": 1636661965784
+                },
+                {
+                    "language": "ID",
+                    "text": "Influencer akan mengenalkan providers dan broadcast sinyal tertentu ke followers mereka.",
+                    "updated": 1640598777370
+                },
+                {
+                    "language": "RU",
+                    "text": "Влиятельные люди будут курировать поставщиков сигналов и транслировать избранные сигналы своим подписчикам.",
+                    "updated": 1642773176745
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Crypto users will follow influencers and get their signals on a mobile, desktop, or server app, free of charge! These apps will enable easy auto-trading, with free intelligence produced by experts!",
+            "updated": 1630856106399,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Krypto-Nutzer werden den Influencern folgen und ihre Signale kostenlos über eine Handy-, Desktop- oder Server-App erhalten! Diese Apps ermöglichen einfaches automatisches Handeln mit kostenloser Intelligenz, die von Experten erstellt wird!",
+                    "updated": 1634246955205
+                },
+                {
+                    "language": "TR",
+                    "text": "Kripto kullanıcıları, influencers'ları takip edecek ve sinyallerini mobil, masaüstü veya sunucu uygulamasında ücretsiz olarak alacak! Bu uygulamalar, uzmanlar tarafından üretilen ücretsiz zeka ile kolay otomatik alım satımı mümkün kılacaktır!",
+                    "updated": 1636662050183
+                },
+                {
+                    "language": "ID",
+                    "text": "Pengguna Crypto akan mengikuti influencer dan mendapatkan sinyal mereka di aplikasi seluler, desktop, atau server, gratis! Aplikasi ini akan memungkinkan perdagangan otomatis yang mudah, dengan kecerdasan gratis yang dihasilkan oleh para ahli!",
+                    "updated": 1640598811939
+                },
+                {
+                    "language": "RU",
+                    "text": "Пользователи криптовалют будут следить за экспертами и получать их сигналы в мобильном, настольном или серверном приложении бесплатно! Эти приложения позволят легко осуществлять автоматическую торговлю, используя бесплатные аналитические данные, полученные от экспертов!",
+                    "updated": 1642773363404
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Both algo traders and influencers get paid by the protocol, while crypto users get all products and services free of charge. Quite disruptive, right?",
+            "updated": 1636302065775,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sowohl Algo-Trader als auch Influencer werden über das Protokoll bezahlt, während Krypto-Nutzer alle Produkte und Dienstleistungen kostenlos erhalten. Ziemlich disruptiv, oder?",
+                    "updated": 1634246960533
+                },
+                {
+                    "language": "TR",
+                    "text": "Hem algo tüccarları hem de etkileyiciler protokol tarafından ödenirken, kripto kullanıcıları tüm ürün ve hizmetleri ücretsiz olarak kullanacaklar. Oldukça etkileyici değil mi?",
+                    "updated": 1636662121975
+                },
+                {
+                    "language": "ID",
+                    "text": "Baik algo traders dan influencer dibayar oleh protokol, sementara pengguna crypto mendapatkan semua produk dan layanan gratis. Cukup adil, bukan?",
+                    "updated": 1640598876455
+                },
+                {
+                    "language": "RU",
+                    "text": "И алготрейдеры, и влиятельные лица получают оплату по протоколу, а пользователи криптовалют получают все продукты и услуги бесплатно. Довольно революционно, не так ли?",
+                    "updated": 1642773545277
+                }
+            ]
+        }
+    ]
+}

@@ -1,7 +1,14 @@
 {
     "type": "Data Product Folder",
     "definition": {
-        "text": "A data product folder node is an organizational device used to map the arrangement of product definition folders as may exist in the bot definition of the corresponding data or trading mine."
+        "text": "A data product folder node is an organizational device used to map the arrangement of product definition folders as may exist in the bot definition of the corresponding data or trading mine.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Data Product Folder - это организационное устройство, используемое для сопоставления расположения папок определений продуктов, которое может существовать в определении бота соответствующих данных или Trading Mine.",
+                "updated": 1638731337275
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,7 +17,14 @@
         },
         {
             "style": "Text",
-            "text": "The use of the data product folder node is optional, as data products may also exist outside of data product folders."
+            "text": "The use of the data product folder node is optional, as data products may also exist outside of data product folders.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Использование узла папки продуктов данных необязательно, поскольку продукты данных могут также существовать вне папок продуктов данных.",
+                    "updated": 1638731372351
+                }
+            ]
         }
     ]
 }

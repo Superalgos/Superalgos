@@ -20,6 +20,26 @@
                 "text": "Hay toneladas de cosas que aún no hemos cubierto, ¡lo sé! ¡Solo mire alrededor! ¡Tantas cosas para ver! Es alucinante.",
                 "updated": 1624485720195,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Es gibt eine Menge Dinge, die wir noch nicht behandelt haben, ich weiß! Schau dich einfach um! Es gibt so viele Dinge zu sehen! Es ist verblüffend.",
+                "updated": 1634245768717
+            },
+            {
+                "language": "TR",
+                "text": "Henüz ele almadığımız tonlarca şey var, biliyorum! Sadece etrafa bak! Görülecek çok şey var! ",
+                "updated": 1636638137396
+            },
+            {
+                "language": "ID",
+                "text": "Ada banyak hal yang belum kita bahas, aku tahu! Lihat saja sekeliling! Begitu banyak hal untuk dilihat! Ini membingungkan.",
+                "updated": 1640596516101
+            },
+            {
+                "language": "RU",
+                "text": "Мы еще много о чем не рассказали, я знаю! Просто оглянитесь вокруг! Столько всего интересного! Это просто умопомрачительно.",
+                "updated": 1642772196636
             }
         ]
     },
@@ -40,6 +60,26 @@
                     "text": "Estoy seguro de que todavía tienes toneladas de preguntas flotando en tu cabeza ... ¿Cómo creo mis propias estrategias? ¿Cómo mido el desempeño? ¿Cómo construyo un indicador? ¿Cómo implemento un Trading Farm? ¿Cómo puedo integrarme con TradingView? ¿Cómo configuro los anuncios de Telegram?",
                     "updated": 1624485819701,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ich bin mir sicher, dass Sie immer noch eine Menge Fragen im Kopf haben... Wie kann ich meine eigenen Strategien entwickeln? Wie kann ich die Leistung messen? Wie baue ich einen Indikator? Wie setze ich eine Trading-Farm ein? Wie kann ich mich mit TradingView integrieren? Wie richte ich Telegram-Ankündigungen ein? Wie kann ich Daten von anderen APIs abrufen?",
+                    "updated": 1634245775761
+                },
+                {
+                    "language": "TR",
+                    "text": "Eminim hala kafanızda uçuşan tonlarca soru vardır... Kendi stratejilerimi nasıl oluştururum? Performansı nasıl ölçerim? Nasıl bir gösterge oluştururum? Bir ticaret çiftliğini nasıl organize edebilirim? TradingView ile nasıl entegre olabilirim? Telegram duyurularını nasıl ayarlarım? Diğer API'lerden nasıl veri alırım?",
+                    "updated": 1636638173407
+                },
+                {
+                    "language": "ID",
+                    "text": "Aku yakin kamu masih memiliki banyak pertanyaan yang mengambang di kepalamu... Bagaimana cara membangun strategiku sendiri? Bagaimana cara mengukur kinerja? Bagaimana cara membangun indikator? Bagaimana cara menggunakan trading farm? Bagaimana saya bisa berintegrasi dengan TradingView? Bagaimana cara mengatur Telegram announcements? Bagaimana cara mengambil data dari API lain?",
+                    "updated": 1640596695647
+                },
+                {
+                    "language": "RU",
+                    "text": "Я уверен, что у вас в голове все еще плавают тонны вопросов... Как мне строить свои собственные стратегии? Как измерить эффективность? Как построить индикатор? Как развернуть торговую ферму? Как интегрироваться с TradingView? Как настроить уведомления в Telegram? Как получить данные из других API?",
+                    "updated": 1642772226524
                 }
             ]
         },
@@ -59,6 +99,26 @@
                     "text": "¡No te preocupes! ¡Llegarás, amigo mío! ¡Hay más tutoriales y mucho material de lectura disponible! ¡Quizás sea una buena idea darle un vistazo rápido al sistema de documentación integrado antes de despedirme!",
                     "updated": 1624485842059,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Don't worry! Du schaffst das schon, mein Freund! Es gibt noch mehr Tutorials und jede Menge Lesestoff! Vielleicht ist es eine gute Idee, Ihnen einen kurzen Einblick in das integrierte Dokumentationssystem zu geben, bevor ich mich verabschiede!",
+                    "updated": 1634245783429
+                },
+                {
+                    "language": "TR",
+                    "text": "Merak etme! Tüm bunları öğreneceksin arkadaşım! Daha fazla öğretici ve birçok okuma materyali mevcut! Belki de hoşçakal demeden önce yerleşik Dokümantasyon sistemine bir göz atmak iyi bir fikirdir!",
+                    "updated": 1636638320357
+                },
+                {
+                    "language": "ID",
+                    "text": "Jangan khawatir! kamu akan sampai di sana temanku! Ada lebih banyak tutorial dan banyak bahan bacaan yang tersedia! Mungkin itu ide yang baik untuk memberi kamu sekilas ke dalam sistem Dokumentasi bawaan sebelum aku mengucapkan selamat tinggal!",
+                    "updated": 1640596773612
+                },
+                {
+                    "language": "RU",
+                    "text": "Не волнуйся! У тебя все получится, мой друг! Есть еще больше руководств и много материалов для чтения! Может быть, это хорошая идея, чтобы дать вам быстрый обзор встроенной системы документации, прежде чем я попрощаюсь с вами!",
+                    "updated": 1642772260920
                 }
             ]
         }

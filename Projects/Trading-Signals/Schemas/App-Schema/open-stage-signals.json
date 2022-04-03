@@ -1,0 +1,156 @@
+{
+    "type": "Open Stage Signals",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Limit Buy Order Signals",
+            "relatedUiObject": "Limit Buy Order Signals",
+            "relatedUiObjectProject": "Trading-Signals"
+        },     
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Limit Sell Order Signals",
+            "relatedUiObject": "Limit Sell Order Signals",
+            "relatedUiObjectProject": "Trading-Signals"
+        },  
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Market Buy Order Signals",
+            "relatedUiObject": "Market Buy Order Signals",
+            "relatedUiObjectProject": "Trading-Signals"
+        },     
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Market Sell Order Signals",
+            "relatedUiObject": "Market Sell Order Signals",
+            "relatedUiObjectProject": "Trading-Signals"
+        }, 
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "targetRateSignal",
+            "actionProject": "Visual-Scripting",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Target Rate Signal",
+            "relatedUiObject": "Target Rate Signal",
+            "relatedUiObjectProject": "Trading-Signals"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "targetSizeInBaseAssetSignal",
+            "actionProject": "Visual-Scripting",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Target Size In Base Asset Signal",
+            "relatedUiObject": "Target Size In Base Asset Signal",
+            "relatedUiObjectProject": "Trading-Signals"
+        },  
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "targetSizeInQuotedAssetSignal",
+            "actionProject": "Visual-Scripting",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Target Size In Quoted Asset Signal",
+            "relatedUiObject": "Target Size In Quoted Asset Signal",
+            "relatedUiObjectProject": "Trading-Signals"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "closeStageSignal",
+            "actionProject": "Visual-Scripting",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Close Stage Signal",
+            "relatedUiObject": "Close Stage Signal",
+            "relatedUiObjectProject": "Trading-Signals"
+        },  
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{}"
+    },
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Trading Strategy Signals->"
+    },
+    "propertyNameAtParent": "openStageSignals",
+    "childrenNodesProperties": [
+        {
+            "name": "limitBuyOrderSignals",
+            "type": "array",
+            "childType": "Limit Buy Order Signals",
+            "autoAdd": false
+        },
+        {
+            "name": "limitSellOrderSignals",
+            "type": "array",
+            "childType": "Limit Sell Order Signals",
+            "autoAdd": false
+        },
+        {
+            "name": "marketBuyOrderSignals",
+            "type": "array",
+            "childType": "Market Buy Order Signals",
+            "autoAdd": false
+        },
+        {
+            "name": "marketSellOrderSignals",
+            "type": "array",
+            "childType": "Market Sell Order Signals",
+            "autoAdd": false
+        },
+        {
+            "name": "targetRateSignal",
+            "type": "node",
+            "childType": "Target Rate Signal",
+            "autoAdd": false
+        },
+        {
+            "name": "targetSizeInBaseAssetSignal",
+            "type": "node",
+            "childType": "Target Size In Base Asset Signal",
+            "autoAdd": false
+        },
+        {
+            "name": "targetSizeInQuotedAssetSignal",
+            "type": "node",
+            "childType": "Target Size In Quoted Asset Signal",
+            "autoAdd": false
+        },
+        {
+            "name": "closeStageSignal",
+            "type": "node",
+            "childType": "Close Stage Signal",
+            "autoAdd": false
+        }
+    ]
+}

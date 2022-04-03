@@ -1,0 +1,66 @@
+{
+    "type": "Plugin Tutorials",
+    "definition": {
+        "text": "The plugin tutorials node features the definitions of tutorials to be included as plugins in the current workspace.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "El nodo  plugin tutorials  presenta las definiciones de tutoriales que se incluirán como complementos en el workspace.",
+                "updated": 1636559382952
+            },
+            {
+                "language": "RU",
+                "text": "Узел Plugin Tutorials содержит определения учебников, которые должны быть включены в текущее рабочее пространство в качестве плагинов.",
+                "updated": 1645166028861
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Important",
+            "text": "Tutorials included in the workspace as plugins do not keep track of users' progress, thus, may not return to the last step using the <i>Resume</i> button on the menu.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Учебники, включенные в рабочее пространство в качестве плагинов, не отслеживают прогресс пользователя, поэтому он не может вернуться к последнему шагу с помощью кнопки Resume в меню.",
+                    "updated": 1645166044312
+                }
+            ]
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Configuring Plugin Tutorials",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Plugin Tutorials",
+                    "updated": 1645166057934
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Select Configure on the menu to access the configuration.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Seleccione Configure en el menu para acceder a la configuración.",
+                    "updated": 1636559608194
+                },
+                {
+                    "language": "RU",
+                    "text": "Выберите Configure в меню для доступа к конфигурации.",
+                    "updated": 1645166062911
+                }
+            ]
+        }
+    ]
+}

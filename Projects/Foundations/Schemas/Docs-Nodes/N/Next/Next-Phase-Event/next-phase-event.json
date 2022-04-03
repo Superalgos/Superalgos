@@ -1,7 +1,14 @@
 {
     "type": "Next Phase Event",
     "definition": {
-        "text": "The next phase event determines when there should be a switch of phases to the next phase in a predefined sequence."
+        "text": "The next phase event determines when there should be a switch of phases to the next phase in a predefined sequence.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Событие Next Phase Event определяет, когда должно произойти переключение фаз на следующую фазу в заранее определенной последовательности.",
+                "updated": 1639849068948
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,24 +17,59 @@
         },
         {
             "style": "Text",
-            "text": "The management of a position is &mdash;by default&mdash;done in sequential phases, each phase with its formula. To move from one phase to the next, a situation you define must be validated."
+            "text": "The management of a position is &mdash;by default&mdash;done in sequential phases, each phase with its formula. To move from one phase to the next, a situation you define must be validated.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Управление позицией по умолчанию осуществляется в виде последовательных фаз, каждая из которых имеет свою формулу. Чтобы перейти от одной фазы к другой, необходимо подтвердить определенную вами ситуацию.",
+                    "updated": 1639849130999
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "When that happens, the next phase event is triggered, the current phase is abandoned, and the next phase is activated. From that instant on, the system evaluates the formula corresponding to the next phase."
+            "text": "When that happens, the next phase event is triggered, the current phase is abandoned, and the next phase is activated. From that instant on, the system evaluates the formula corresponding to the next phase.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Когда это происходит, запускается событие следующей фазы, текущая фаза прекращается, и активируется следующая фаза. С этого момента система оценивает формулу, соответствующую следующей фазе.",
+                    "updated": 1639849159937
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The sequence of phases may be as long as the number of phases you choose to add and define. There may be unlimited numbers of phases."
+            "text": "The sequence of phases may be as long as the number of phases you choose to add and define. There may be unlimited numbers of phases.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Последовательность фаз может быть такой, сколько фаз вы решите добавить и определить. Количество фаз может быть неограниченным.",
+                    "updated": 1639849243190
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "Events are triggered by situations, which are defined by conditions. Both are explained in the situations, conditions, and formulas page."
+            "text": "Events are triggered by situations, which are defined by conditions. Both are explained in the situations, conditions, and formulas page.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "События вызываются ситуациями, которые определяются условиями. Оба эти понятия объясняются на странице Situations, Conditions, and Formulas.",
+                    "updated": 1639849341241
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "To set up a next phase event, add the node and define the situation that should trigger the event.",
-            "updated": 1609610098815
+            "updated": 1609610098815,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы установить событие следующей фазы, добавьте узел и определите ситуацию, которая должна вызвать событие.",
+                    "updated": 1639849757130
+                }
+            ]
         }
     ]
 }

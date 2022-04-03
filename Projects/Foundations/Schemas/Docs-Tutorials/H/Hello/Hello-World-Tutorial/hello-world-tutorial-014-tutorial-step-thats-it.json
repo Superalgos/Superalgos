@@ -5,7 +5,7 @@
     "definition": {
         "text": "Strategy is defined!",
         "icon": {
-            "name": "Announcement\\announcement",
+            "name": "announcement",
             "project": "Foundations"
         },
         "updated": 1614262144926,
@@ -21,6 +21,21 @@
                 "text": "¡ Strategy está definida!",
                 "updated": 1629357095005,
                 "style": "Definition"
+            },
+            {
+                "language": "IT",
+                "text": "La strategia è completa!",
+                "updated": 1640110202335
+            },
+            {
+                "language": "TR",
+                "text": "Strateji ( Strategy ) tanımlandı",
+                "updated": 1640617864729
+            },
+            {
+                "language": "RU",
+                "text": "Стратегия определена!",
+                "updated": 1640856987245
             }
         ]
     },
@@ -41,6 +56,21 @@
                     "text": "Es cuestión de unas pocas líneas de código.",
                     "updated": 1629576702851,
                     "style": "Text"
+                },
+                {
+                    "language": "IT",
+                    "text": "Impostare una semplice strategia è veramente questione di poche linee di codice!",
+                    "updated": 1640110226107
+                },
+                {
+                    "language": "TR",
+                    "text": "Gördüğünüz gibi, basit bir strateji uygulamak birkaç satırlık bir kod meselesidir!",
+                    "updated": 1640617876874
+                },
+                {
+                    "language": "RU",
+                    "text": "Как вы убедились, реализация простой стратегии - дело нескольких строк кода!",
+                    "updated": 1640857000556
                 }
             ]
         },
@@ -60,6 +90,21 @@
                     "text": "Ten esto en cuenta para tratar correctamente Base and Quoted Asset. Base está en la cima, Quoted está en el fondo! Entonces en nuestro caso BTC / USD tenemos BTC es el Base Asset mientras que USDT es el Quoted Asset",
                     "updated": 1629357672381,
                     "style": "Success"
+                },
+                {
+                    "language": "IT",
+                    "text": "Tieni a mente di gestire correttamente gli asset Base e Quoted. Base è in alto, Quoted è in basso! Quindi nel nostro caso BTC/USD abbiamo che BTC è il Base asset mentre USDT è il Quoted asset",
+                    "updated": 1640110306534
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Baz ve Kota Edilen Varlık ile doğru bir şekilde işlem yapmak için bunu aklınızda bulundurun. Taban üstte, Alıntı altta! Yani bizim durumumuzda BTC/USD, Temel Varlıktır ( Asset ) BTC, USDT ise Kota Edilmiş Varlıktır ( Asset )",
+                    "updated": 1640617896718
+                },
+                {
+                    "language": "RU",
+                    "text": "Помните об этом, чтобы правильно работать с базовым и котируемым активом. Базовый находится сверху, котируемый - снизу! Таким образом, в нашем случае BTC/USD BTC является базовым активом, а USDT - котируемым активом.",
+                    "updated": 1640857039417
                 }
             ]
         },
@@ -79,6 +124,21 @@
                     "text": "No cambia si te vas Short. Si la estrategia es Short luego en el Open Stage Bot venderá el Base Asset y luego volver a comprarlo usando Quoted Asset!",
                     "updated": 1629357633755,
                     "style": "Warning"
+                },
+                {
+                    "language": "IT",
+                    "text": "Non cambia se la strategia è Short. Infatti, nella fase di apertura (Open Stage) il bot venderà il Base asset e in seguito lo riacquisterà utilizzando il Quoted asset",
+                    "updated": 1640110410952
+                },
+                {
+                    "language": "TR",
+                    "text": "Uyarı:Strateji Kısaysa, Açık Aşamada ( Open Stage ) her ikisi de Temel Varlığı satacak ve daha sonra Kota Edilmiş Varlığı ( Asset ) kullanarak geri satın alacaktır!",
+                    "updated": 1640617911470
+                },
+                {
+                    "language": "RU",
+                    "text": "Это не меняется, если вы выбрали стратегию Short. Если стратегия Short, то в Open Stage бот продаст базовый актив и позже выкупит его обратно, используя котируемый актив!",
+                    "updated": 1640857092950
                 }
             ]
         }

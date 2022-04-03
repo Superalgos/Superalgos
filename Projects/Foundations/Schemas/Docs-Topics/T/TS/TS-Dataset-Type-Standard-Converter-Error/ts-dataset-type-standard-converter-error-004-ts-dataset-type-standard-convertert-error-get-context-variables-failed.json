@@ -1,7 +1,7 @@
 {
     "topic": "TS Dataset Type Standard Converter Error",
     "pageNumber": "4",
-    "type": "TS Dataset Type Standard Convertert Error - Get Context Variables Failed",
+    "type": "TS Dataset Type Standard Converter Error - Get Context Variables Failed",
     "definition": {
         "text": "It was not possible to get the context variables needed for running this process. See below for details.",
         "updated": 1621859784437
@@ -31,7 +31,7 @@
         },
         {
             "style": "Text",
-            "text": "The following is the Error Message of the Exception that occured at the API Data Fetcher Bot:"
+            "text": "The following is the Error Message of the Exception that occurred at the API Data Fetcher Bot:"
         },
         {
             "style": "Placeholder",
@@ -43,7 +43,7 @@
         },
         {
             "style": "Text",
-            "text": "The following is the Error Stack of the Exception that occured at the API Data Fetcher Bot:"
+            "text": "The following is the Error Stack of the Exception that occurred at the API Data Fetcher Bot:"
         },
         {
             "style": "Placeholder",
@@ -55,7 +55,7 @@
         },
         {
             "style": "Text",
-            "text": "The following is the Error Code of the Exception that occured at the API Data Fetcher Bot:"
+            "text": "The following is the Error Code of the Exception that occurred at the API Data Fetcher Bot:"
         },
         {
             "style": "Placeholder",
@@ -67,7 +67,7 @@
         },
         {
             "style": "Text",
-            "text": "The following are all the Error details of the Exception that occured at the API Data Fetcher Bot:"
+            "text": "The following are all the Error details of the Exception that occurred at the API Data Fetcher Bot:"
         },
         {
             "style": "Placeholder",

@@ -2,7 +2,30 @@
     "type": "Community Building Programs",
     "definition": {
         "text": "Superalgos thrives through contributions and collaboration. We designed the Community Building Programs to foster a community in which members are always ready to help and give back! The node may spawn the Referral Program, Support Program, and Mentorship Program nodes.",
-        "updated": 1630167175719
+        "updated": 1630167175719,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Superalgos prospera a través de contribuciones y colaboración. Diseñamos el Community Building Programs para fomentar una comunidad en la que los miembros siempre estén dispuestos a ayudar y retribuir. El nodo puede generar los nodos Referral Program, Support Program, y Mentorship Program.",
+                "updated": 1630896389287,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Superalgos gedeiht durch Beiträge und Zusammenarbeit. Wir haben die Community Building Programs entwickelt, um eine Gemeinschaft zu fördern, in der die Mitglieder immer bereit sind, zu helfen und etwas zurückzugeben! Die Node kann das Referral Program,  Support Program, und die Mentorship Program Nodes spwanen.",
+                "updated": 1637590388078
+            },
+            {
+                "language": "RU",
+                "text": "Superalgos процветает благодаря вкладу и сотрудничеству. Мы разработали программы построения сообщества Community Building Programs, чтобы способствовать развитию сообщества, члены которого всегда готовы помочь и внести свой вклад! Узел может порождать узлы Referral Program, Support Program и Mentorship Program.",
+                "updated": 1638980684785
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos, katkılar ve işbirliği yoluyla gelişir. Topluluk Oluşturma Programlarını, üyelerin her zaman yardım etmeye ve geri vermeye hazır olduğu bir topluluğu teşvik etmek için tasarladık! Bu Düğüm, Yönlendirme Programı ( Referral Program ) , Destek Programı (Support Program) ve Mentorluk Programı ( Mentorship Program ) düğümlerini oluşturabilir.",
+                "updated": 1640035040189
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -11,48 +34,326 @@
             "updated": 1630165468473
         },
         {
+            "style": "Success",
+            "text": "Learn more about how Token Power Flows into these programs!",
+            "updated": 1630218909731,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Aprenda más a cerca de como fluye el Token Power en estos programas!",
+                    "updated": 1633521539329
+                },
+                {
+                    "language": "DE",
+                    "text": "Erfahren Sie mehr darüber, wie Token Power in diese Programme fließt (Token Power Flows)!",
+                    "updated": 1637590446132
+                },
+                {
+                    "language": "RU",
+                    "text": "Узнайте больше о том, как токен перетекает в эти программы Token Power Flows!",
+                    "updated": 1638980741139
+                },
+                {
+                    "language": "TR",
+                    "text": "Token Gücünün (Token Power Flows) bu programlara nasıl dağıldığı hakkında daha fazla bilgi edinin!",
+                    "updated": 1644482064269
+                }
+            ]
+        },
+        {
             "style": "Text",
             "text": "Each of the Community Building Programs has an associated Rewards Pool and a Bonus Pool under the Governance Programs > Community Building Programs section of the Superalgos Pools hierarchy.",
-            "updated": 1630168361008
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Cada programa del Community Building Programs tiene asociada una Rewards Pool y un Bonus Pool debajo de Governance Programs > Community Building Programs en la sección de la jerarquía de Superalgos Pools.",
+                    "updated": 1633521703488
+                },
+                {
+                    "language": "DE",
+                    "text": "Jedes der Community Building Programs hat einen zugehörigen Rewards Pool und einen Bonus Pool unter dem Abschnitt Governance Programs > Community Building Programs in der Superalgos Pools Hierarchie.",
+                    "updated": 1637590674330
+                },
+                {
+                    "language": "RU",
+                    "text": "Каждая из программ Community Building Programs имеет связанный пул вознаграждений Rewards Pool и бонусный пул Bonus Pool в разделе Governance Programs > Community Building Programs иерархии пулов Superalgos.",
+                    "updated": 1638981148166
+                },
+                {
+                    "language": "TR",
+                    "text": "Topluluk Oluşturma Programlarının (Community Building Programs) her birinin, Superalgos Havuzları (Superalgos Pools) hiyerarşisinin Yönetişim Programları Governance Programs) > Topluluk Oluşturma Programları bölümünde ilişkili bir Ödül Havuzu (Reward Pool) ve bir Bonus Havuzu (Bonus Pool) vardır.",
+                    "updated": 1644482195393
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "The incentives entailed in a Bonus Pool are explained in the Tokens Bonus node.",
-            "updated": 1630170463942
+            "updated": 1630170463942,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Los incentivos implicados en una Bonus Pool están explicados en el nodo Tokens Bonus.",
+                    "updated": 1633521794403
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Anreize, die ein Bonuspool mit sich bringt, werden in der Node: Tokens Bonus erläutert.",
+                    "updated": 1637590740831
+                },
+                {
+                    "language": "RU",
+                    "text": "Стимулы, связанные с Bonus Pool, объясняются в узле Tokens Bonus.",
+                    "updated": 1638980907612
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Bonus Havuzuna (Bonus Pool) dahil olan teşvikler, Token Bonusu (Token Bonus) düğümünde açıklanmıştır.",
+                    "updated": 1644482495324
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Let's explore how Rewards Pools are distributed in the case of Community Building Programs. In general terms, the Referral Program, Support Program, and Mentorship Program all have the following common rules:",
-            "updated": 1630168572231
+            "text": "Let's explore how each Rewards Pool is distributed in the case of Community Building Programs. In general terms, the Referral Program, Support Program, and Mentorship Program all have the following common rules:",
+            "updated": 1630399976367,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Exploremos como cada Rewards Pool es distribuida en el caso de los programas de la Community Building Programs. En términos generales, el Referral Program, Support Program y el Mentorship Program todos tienen las siguientes reglas comunes:",
+                    "updated": 1633522008747
+                },
+                {
+                    "language": "DE",
+                    "text": "Schauen wir uns an, wie die einzelnen Rewards Pool (Belohnungspools) im Falle der Community Building Programme verteilt werden. Im Allgemeinen gelten für das Referral Program, Support Program, und das Mentorship Program die folgenden gemeinsamen Regeln:",
+                    "updated": 1637591066936
+                },
+                {
+                    "language": "RU",
+                    "text": "Давайте рассмотрим, как распределяется каждый Rewards Pool в случае программ построения сообщества. В целом, Referral Program, Support Program и Mentorship Program имеют следующие общие правила:",
+                    "updated": 1638981126342
+                },
+                {
+                    "language": "TR",
+                    "text": "Topluluk Oluşturma Programları söz konusu olduğunda her Ödül Havuzunun nasıl dağıtıldığını inceleyelim. Genel olarak, Yönlendirme Programı (Referral Program), Destek Programı (Support Program) ve Mentorluk Programının (Mentorship Program) tümü aşağıdaki ortak kurallara sahiptir:",
+                    "updated": 1644482743309
+                }
+            ]
         },
         {
             "style": "List",
             "text": "When your profile is referenced by others through their User Referrer, User Supporter, or User Mentor nodes, they pass on 10% of the Referral Power, Support Power, or Mentorship Power available in the node to you. This is your Incoming Power in the corresponding program.",
-            "updated": 1630166954607
+            "updated": 1630166954607,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Cuando su profile es referenciado por otros a través de los nodos de su User Referrer, User Supporter, or User Mentor, ellos pasan un 10% del Referral Power, Support Power, or Mentorship Power disponible en el nodo a usted. Este es su Incoming Power en el programa correspondiente.",
+                    "updated": 1633522227632
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Ihr Profil von anderen über deren User Referrer, User Supporter oder User Mentor Nodes referenziert wird, geben diese 10% der in der Node verfügbaren Referral Power, Support Power oder Mentorship Power an Sie weiter. Dies ist Ihre eingehende Power (Incoming Power) in dem entsprechenden Programm.",
+                    "updated": 1637591215756
+                },
+                {
+                    "language": "RU",
+                    "text": "Когда на ваш профиль ссылаются другие пользователи через их узлы User Referrer, User Supporter или User Mentor, они передают вам 10% ресурсов реферала, поддержки или наставничества, доступных в узле. Это ваша входящее полномочие Incoming Power в соответствующей программе.",
+                    "updated": 1638983130593
+                },
+                {
+                    "language": "TR",
+                    "text": "Profilinize başkaları tarafından Kullanıcı Yönlendiricisi (User Referrer), Kullanıcı Destekçisi (User Supporter) veya Kullanıcı Mentörü 8User Mentor) düğümleri aracılığıyla başvurulduğunda, onlar düğümde size sunulan Yönlendirme Gücünün (Referral Power), Destek Gücünün (Support Power) veya Mentorluk Gücünün (Mentorship Power) %10'unu size iletirler. Bu, ilgili programdaki Gelen Gücünüzdür (Incoming Power).",
+                    "updated": 1644482946637
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Your Incoming Power is added to your Own Power in the corresponding program, so that you may pass on more power to other User Profiles. Like in the reverse case, when you reference other User Profiles, you pass on 10% of the power that reaches the node establishing the reference.",
-            "updated": 1630166856996
+            "updated": 1630166856996,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Su Incoming Power es agregado a su propio Own Power en el programa correspondiente, para que entonces pueda enviar más power a otros User Profiles. Como en el caso contrario,  cuando referencia a otros su User Profiles, usted pasa un 10% del power que alcanza el nodo que establece la referencia.",
+                    "updated": 1633522374508
+                },
+                {
+                    "language": "DE",
+                    "text": "Ihre Incoming Power wird in dem entsprechenden Programm zu Ihrer eigenen Leistung (Own Power) addiert, so dass Sie mehr power an andere Benutzerprofile (User Profiles) weitergeben können. Wie im umgekehrten Fall, wenn Sie andere Benutzerprofile referenzieren, geben Sie 10% der power weiter, an die Node die sie referenziert haben.",
+                    "updated": 1637591444011
+                },
+                {
+                    "language": "RU",
+                    "text": "Ваша входящее полномочие Incoming Power добавляется к вашим собственным полномочиям Own Power в соответствующей программе, чтобы вы могли передавать больше возможностей другим профилям пользователей. Как и в обратном случае, когда вы ссылаетесь на другие профили пользователей, вы передаете 10% полномочий, которая достигает узла, устанавливающего ссылку.",
+                    "updated": 1638983214934
+                },
+                {
+                    "language": "TR",
+                    "text": "Gelen Gücünüz (Incoming Power) , diğer Kullanıcı Profillerine daha fazla yetki aktarabilmeniz için ilgili programda Kendi Gücünüze eklenir. Tersi durumda, diğer Kullanıcı Profillerine referans verdiğinizde, gücünüzün %10'unu aktarırsınız.",
+                    "updated": 1644483687890
+                }
+            ]
+        },
+        {
+            "style": "Important",
+            "text": "This passing of 10% of the power from one user to the next has the effect of rewarding collaboration chains. ",
+            "updated": 1630683048349,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Este pasar el 10% del power de un usuario al siguiente tiene el efecto de recompensar las cadenas de colaboración.",
+                    "updated": 1633522479558
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese Weitergabe von 10 % der power von einem Nutzer zum nächsten hat den Effekt, dass Kooperationsketten (rewarding collaboration chains) belohnt werden.",
+                    "updated": 1637591556083
+                },
+                {
+                    "language": "RU",
+                    "text": "Эта передача 10% полномочий от одного пользователя к другому приводит к вознаграждению за цепочки сотрудничества.",
+                    "updated": 1638981420656
+                },
+                {
+                    "language": "TR",
+                    "text": "Gücün %10'unun bir kullanıcıdan diğerine bu geçişi, işbirliği zincirlerini ödüllendirme etkisine sahiptir.",
+                    "updated": 1644483707374
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "This passing of 10% of the power from one user to the next has the effect of rewarding collaboration chains. For instance, Alice tells her friend Bob about Superalgos. When Bob eventually sets up his User Profile, he declares Alice as his referrer. This means that Alice gets 10% of the Referral Power that Bob drives to his User Referrer node. Then, Bob brings his friend Charly to Superalgos. Charly sets up his profile and declares Bob as his referrer. So now Bob gets 10% of the Referral Power that Charly drives to his User Referrer node. Can you see what happens with Alice's Incoming Referral Power? That's it! She gets 10% of Bob's power, which includes 10% of Charly's power!",
-            "updated": 1630167091644
+            "text": "For instance, Alice tells her friend Bob about Superalgos. When Bob eventually sets up his User Profile, he declares Alice as his referrer. This means that Alice gets 10% of the Referral Power that Bob drives to his User Referrer node. Then, Bob brings his friend Charly to Superalgos. Charly sets up his profile and declares Bob as his referrer. So now Bob gets 10% of the Referral Power that Charly drives to his User Referrer node. ",
+            "updated": 1630683087674,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Por ejemplo, Alice le habla a su amigo Bob a cerca de Superalgos. Cuando Bob eventualmente programa su User Profile, declara que Alice es su referido. Esto significa que Alice obtiene un 10% del Referral Power que Bob dirige a su nodo User Referrer. Entonces, Bob trae a su amigo Charly a Superalgos. Charly configura su profile y declara a Bob como su referido. Entonces ahora Bob obtiene un 10% del Referral Power que Charly dirige a su nodo de User Referrer.",
+                    "updated": 1633522898254
+                },
+                {
+                    "language": "DE",
+                    "text": "Zum Beispiel erzählt Alice ihrem Freund Bob von Superalgos. Als Bob schließlich sein Benutzerprofil einrichtet, gibt er Alice als seinen Referrer an. Das bedeutet, dass Alice 10 % der Referral Power erhält, die Bob zu seiner User Referrer Node treibt. Dann bringt Bob seinen Freund Charly zu Superalgos. Charly richtet sein Profil ein und gibt Bob als seinen Referrer an. Bob erhält nun also 10 % der Referral Power, die Charly zu seiner User Referrer Node bringt.",
+                    "updated": 1637591729634
+                },
+                {
+                    "language": "RU",
+                    "text": "Например, Алиса рассказывает своему другу Бобу о Superalgos. Когда Боб в конечном итоге настраивает свой профиль пользователя, он объявляет Алису своим рефералом. Это означает, что Алиса получает 10% от реферального полномочия Referral Power, которую Боб передает своему узлу User Referrer. Затем Боб приводит своего друга Чарли в Superalgos. Чарли создает свой профиль и объявляет Боба своим рефералом. Итак, теперь Боб получает 10% реферального полномочия, которую Чарли направляет на его узел User Referrer.",
+                    "updated": 1638983297180
+                },
+                {
+                    "language": "TR",
+                    "text": "Örneğin Cem, arkadaşı Bülent'e'Superalgos'u anlatır. Bülent Kullanıcı Profilini (User Profile) oluşturduğunda, Cem'i yönlendiren kişi olarak ilan eder. Bu, Cem'in, Bülent'in Kullanıcı Yönlendiren (User Referrer) düğümüne yönlendirdiği Yönlendirme Gücünün %10'unu aldığı anlamına gelir. Ardından Bülent, arkadaşı Alptuğ'u Superalgos'a getirir. Alptuğ profilini oluşturur ve Bülent'i yönlendiren kişi olarak ilan eder.Bülent'te, Alptuğ'un Kullanıcı Yönlendiren düğümüne yönlendirdiği Yönlendirme Gücünün %10'unu alır. Alpuğ, Gabriel'e Superalgos'u anlatıp davet ettiğinde ise yine aynı süreç devam eder...",
+                    "updated": 1644484419227
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "Can you see what happens with Alice's Incoming Referral Power? That's it! She gets 10% of Bob's power, which includes 10% of Charly's power and son on!",
+            "updated": 1630683111245,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Puede ver lo que sucede con el Incoming Referral Power de  Alice? Eso es! Ella obtiene un 10% del power de Bob, que incluye un 10% del power de Charly y así sucesivamente!",
+                    "updated": 1633523067803
+                },
+                {
+                    "language": "DE",
+                    "text": "Kannst du dir vorstellen, was mit Alices \"Incoming Referral Power\" passiert? Das ist es! Sie erhält 10 % von Bobs Power, die wiederum 10 % von Charlys Power umfasst und so weiter!",
+                    "updated": 1637591778206
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы видите, что происходит с входящим реферальным полномочием Referral Power Алисы? Вот и все! Она получает 10% полномочий Боба, включая 10% полномочий Чарли и так далее!",
+                    "updated": 1638983372019
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Cem'in Gelen Yönlendirme Gücüne ne olduğunu görebiliyor musunuz? Budur! Alptuğ'un gücünün %10'u da dahil olmak üzere Bülent'in'gücünün %10'unu alır!",
+                    "updated": 1644484612990
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "Pretty much the same happens with the Support Program and the Mentorship Program."
+            "text": "Pretty much the same happens with the Support Program and the Mentorship Program.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Prácticamente lo mismo ocurre con el Support Program y el Mentorship Program.",
+                    "updated": 1633523110557
+                },
+                {
+                    "language": "DE",
+                    "text": "Ähnlich verhält es sich mit dem Support Program und dem Mentorship Program.",
+                    "updated": 1637591820432
+                },
+                {
+                    "language": "RU",
+                    "text": "Практически то же самое происходит с Support Program и Mentorship Program.",
+                    "updated": 1638981842735
+                },
+                {
+                    "language": "TR",
+                    "text": "Hemen hemen aynı şey Destek Programı ve Mentorluk Programı için de geçerlidir.",
+                    "updated": 1644484633076
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The Incoming Power you get from other users is in a Direct Proportion to the number of tokens you get from the corresponding program Rewards Pool. The calculation is based on a Rule of Three, and the result is displayed under the Tokens Bonus node of the corresponding program.",
-            "updated": 1630170674503
+            "text": "The Incoming Power you get from other users is in a Direct Proportion to the number of tokens you get from the corresponding program Rewards Pool. The calculation is based on a Rule of Three, and the result is displayed under the Tokens Awarded node of the corresponding program.",
+            "updated": 1630682945130,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El Incoming Power que obtiene de otros usuarios está en una Direct Proportion al número de tokens que obtiene del programa corespondiente de la Rewards Pool. El cálculo está basado en una Rule of Three, y el resutado es mostrado debajo del nodo de Tokens Awarded del programa correspondiente.",
+                    "updated": 1633523351316
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Incoming Power, die Sie von anderen Nutzern erhalten, steht in einem direktem Verhältnis (Direct Proportion) zu der Anzahl der Token, die Sie aus dem entsprechenden Rewards Pool des Programms erhalten. Die Berechnung basiert auf einer Dreierregel ( Rule of Three ), und das Ergebnis wird unter der Node \" Tokens Awarded \" des entsprechenden Programms angezeigt.",
+                    "updated": 1637591993834
+                },
+                {
+                    "language": "RU",
+                    "text": "Входящее полномочие Incoming Power, которую вы получаете от других пользователей, находится в прямой пропорции Direct Proportion к количеству токенов, которые вы получаете из соответствующего пула вознаграждений Rewards Pool программы. Расчет основан на правиле Rule of Three, и результат отображается в узле Tokens Awarded соответствующей программы.",
+                    "updated": 1638983423339
+                }
+            ]
         },
         {
             "style": "Json",
-            "text": "Total Incoming Power [*] -> 100% of the pool\n Your Incoming Power [**] -> X% of the pool -> Tokens Rewards\n\nTokens Rewards = Your Incoming Power * 100% / Total Incoming Power\n\n[*] The sum of all Incoming Power (in the given program) in all User Profiles combined.\n[**] Your Incoming Power (in the given program).",
-            "updated": 1630170860166
+            "text": "Total Incoming Power [*] -> 100% of the pool\n Your Incoming Power [**] -> X% of the pool -> Tokens Awarded\n\nTokens Awarded = Your Incoming Power * 100% / Total Incoming Power\n\n[*] The sum of all Incoming Power (in the given program) in all User Profiles combined.\n[**] Your Incoming Power (in the given program).",
+            "updated": 1630683009510
+        },
+        {
+            "style": "Block",
+            "text": "Configuration",
+            "updated": 1630215228441
+        },
+        {
+            "style": "Title",
+            "text": "Configuration",
+            "updated": 1630215233190,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Konfiguration:",
+                    "updated": 1637591578326
+                },
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1638982031084
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırma",
+                    "updated": 1644484765972
+                }
+            ]
         }
     ]
 }

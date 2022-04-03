@@ -21,6 +21,21 @@
                 "text": "¡Espero que hayas comprendido las complejidades de las copias de seguridad y cómo se ven afectadas las referencias en cada caso de restauración en particular!",
                 "updated": 1626617460637,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Ich hoffe, Sie haben die Feinheiten von Backups verstanden und wissen, wie Referenzen in jedem einzelnen Wiederherstellungsfall betroffen sind!",
+                "updated": 1634586159314
+            },
+            {
+                "language": "TR",
+                "text": "Umarım yedeklemelerin inceliklerini ve her bir kurtarma durumunda referansların nasıl etkilendiğini anlamışsınızdır!",
+                "updated": 1639727234077
+            },
+            {
+                "language": "RU",
+                "text": "Надеюсь, вам удалось разобраться в тонкостях резервного копирования и понять, как влияют ссылки в каждом конкретном случае восстановления!",
+                "updated": 1640871055748
             }
         ]
     },
@@ -41,6 +56,21 @@
                     "text": "No es necesario que memorices los casos individuales. En cambio, si comprendes el mecanismo subyacente que involucra referencias, ¡entonces puede deducir el comportamiento en cada caso!",
                     "updated": 1626617450873,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie müssen die einzelnen Fälle nicht auswendig lernen. Wenn Sie stattdessen den zugrundeliegenden Mechanismus mit den Referenzen verstehen, können Sie das Verhalten in jedem Fall ableiten!",
+                    "updated": 1634586166198
+                },
+                {
+                    "language": "TR",
+                    "text": "Her durumu ezberlemenize gerek yok. Bunun yerine, referansları içeren temel mekanizmayı anlarsanız, her durumdaki davranışı tahmin edebilirsiniz!",
+                    "updated": 1639727308270
+                },
+                {
+                    "language": "RU",
+                    "text": "Вам не нужно запоминать отдельные случаи. Вместо этого, если вы понимаете основной механизм, связанный со ссылками, вы можете сделать вывод о поведении в каждом конкретном случае!",
+                    "updated": 1640871076346
                 }
             ]
         },
@@ -60,6 +90,21 @@
                     "text": "¡Recuerda que cada nodo tiene un ID específico! Cuando se establece una referencia, ambos nodos involucrados tienen un ID único. Las referencias salientes no dependen del ID del nodo, ¡pero las referencias entrantes sí! Si el nodo respaldado se puede restaurar con el mismo ID, las referencias entrantes persistirán; de lo contrario, cambiarán o se perderán.",
                     "updated": 1626617498840,
                     "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Denken Sie daran, dass jeder Knoten eine bestimmte ID hat! Wenn ein Verweis hergestellt wird, haben beide beteiligten Knoten eine eindeutige ID. Ausgehende Referenzen hängen nicht von der ID des Knotens ab, eingehende jedoch schon! Wenn der gesicherte Knoten mit der gleichen ID wiederhergestellt werden kann, bleiben die eingehenden Verweise bestehen; andernfalls ändern sie sich oder gehen verloren!",
+                    "updated": 1634586177224
+                },
+                {
+                    "language": "TR",
+                    "text": "Her düğümün belirli bir kimliği ( ID ) olduğunu unutmayın! Bir referans oluşturulduğunda, dahil olan her iki düğümün de benzersiz bir ID'si  oluşur. Giden referanslar düğümün ID'sine bağlı değildir, ancak gelen referanslar bağlıdır! Yedeklenen düğüm aynı ID ile geri yüklenebilirse, gelen referanslar devam eder; aksi takdirde değişirler veya kaybolurlar!",
+                    "updated": 1639727420761
+                },
+                {
+                    "language": "RU",
+                    "text": "Помните, что каждый узел имеет определенный идентификатор ID! Когда устанавливается ссылка, оба участвующих узла имеют уникальный ID. Исходящие ссылки не зависят от ID узла, но входящие ссылки зависят! Если резервный узел может быть восстановлен с тем же ID, то входящие ссылки сохранятся; в противном случае они изменятся или будут потеряны!",
+                    "updated": 1640871118732
                 }
             ]
         }

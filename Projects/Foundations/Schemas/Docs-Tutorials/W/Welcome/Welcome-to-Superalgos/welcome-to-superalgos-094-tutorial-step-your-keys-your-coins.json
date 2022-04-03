@@ -21,6 +21,26 @@
                 "text": "Aquí es donde configuras tu Exchange Account Key para el Live Trading Session del Lightning Strike Trading System.",
                 "updated": 1624473031635,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Hier konfigurieren Sie Ihren Exchange Account Key für die Live Trading Session des Lightning Strike Trading Systems.",
+                "updated": 1634244424767
+            },
+            {
+                "language": "TR",
+                "text": "Lightning Strike Alım Satım Sisteminin Canlı Alım Satım Oturumu ( Live Trading Session ) için Borsa Hesap Anahtarınızı ( Exchange Acoount Key ) burada yapılandırabilirsiniz.",
+                "updated": 1636571154270
+            },
+            {
+                "language": "ID",
+                "text": "Di sinilah kamu mengkonfigurasi Exchange Account Key kamu untuk Live Trading Session dari Lightning Strike Trading System.",
+                "updated": 1640575942351
+            },
+            {
+                "language": "RU",
+                "text": "Здесь вы настраиваете ключ вашего биржевого счета для реальной торговой сессии торговой системы Lightning Strike.",
+                "updated": 1642770933436
             }
         ]
     },
@@ -41,6 +61,26 @@
                     "text": "En la configuración ingresa cuidadosamente la clave pública API y la clave secreta API.",
                     "updated": 1624479173958,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Rufen Sie die Konfiguration auf und geben Sie sorgfältig den API Pubilic Key und den API Secret Key ein.",
+                    "updated": 1634244438606
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırmaya (Configure) erişin ve API Genel Anahtarını ve API gizli anahtarını dikkatlice girin.",
+                    "updated": 1636571181921
+                },
+                {
+                    "language": "ID",
+                    "text": "Akses konfigurasi dan masukkan API Pubilic Key dengan hati-hati dan API secret key.",
+                    "updated": 1640575997998
+                },
+                {
+                    "language": "RU",
+                    "text": "Зайдите в конфигурацию и внимательно введите API Pubilic Key и секретный ключ API.",
+                    "updated": 1642770944562
                 }
             ]
         },
@@ -59,6 +99,26 @@
                     "text": "Elimina el texto predeterminado para cada parámetro, para que ningún carácter se mezcle con las claves.",
                     "updated": 1625928654592,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Löschen Sie zuerst die Standard-Textzeichenfolge für jeden Parameter, damit keine fremden Zeichen mit den Schlüsseln verwechselt werden.",
+                    "updated": 1634244452387
+                },
+                {
+                    "language": "TR",
+                    "text": "Hiçbir yabancı karakterin karışmaması için önce her parametre için varsayılan metin dizesini silin.",
+                    "updated": 1636571210360
+                },
+                {
+                    "language": "ID",
+                    "text": "Delete string teks default untuk setiap parameter terlebih dahulu, sehingga tidak ada karakter asing yang tercampur dengan kunci.",
+                    "updated": 1640576105163
+                },
+                {
+                    "language": "RU",
+                    "text": "Сначала удалите текстовую строку по умолчанию для каждого параметра, чтобы не перепутать посторонние символы с ключами.",
+                    "updated": 1642770958877
                 }
             ]
         },
@@ -78,6 +138,26 @@
                     "text": "La Exchange Account Key se almacena en el User Workspace, sin cifrar para autenticarse con el exchange. Nunca se envía ni se almacena en otro lugar. No compartas este espacio de trabajo hasta que aprendas cómo hacerlo de forma segura en el siguiente tutorial.",
                     "updated": 1624479154981,
                     "style": "Warning"
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Exchange Account Key wird unverschlüsselt in der User Workspace Datei gespeichert. Er wird für die Authentifizierung bei der Börse verwendet. Er wird niemals an andere Stellen gesendet oder gespeichert. Geben Sie diesen Workspace nicht weiter, bis Sie im nächsten Tutorial lernen, wie Sie ihn sicher verwenden können.",
+                    "updated": 1634244462521
+                },
+                {
+                    "language": "TR",
+                    "text": "Borsa Hesap Anahtarı ( Exchange Acoount Key ), şifrelenmemiş olarak Kullanıcı Çalışma Alanı ( User Workspace ) dosyasında saklanır. Borsada kimlik doğrulamak için kullanılır. Asla başka bir yere gönderilmez veya saklanmaz. Bir sonraki öğreticide nasıl güvenli bir şekilde yapılacağını öğrenene kadar bu çalışma alanını paylaşmayın.",
+                    "updated": 1636571296174
+                },
+                {
+                    "language": "ID",
+                    "text": "Exchange Account Key disimpan dalam file User Workspace, tidak terenkripsi. Ini digunakan untuk mengotentikasi dengan exchange. Tidak pernah dikirim atau disimpan di tempat lain. Jangan bagikan ruang kerja ini sampai kamu belajar bagaimana melakukannya dengan aman di tutorial berikutnya.",
+                    "updated": 1640576174178
+                },
+                {
+                    "language": "RU",
+                    "text": "Exchange Account Key хранится в файле User Workspace в незашифрованном виде. Он используется для аутентификации на бирже. Он никогда не отправляется и не хранится в другом месте. Не делитесь этим рабочим пространством, пока не научитесь делать это безопасно в следующем уроке.",
+                    "updated": 1642770993025
                 }
             ]
         }

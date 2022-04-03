@@ -17,8 +17,8 @@ function newNodesHighlights() {
     }
 
     function initialize(pRootNode) {
-        let rootNode = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsById(pRootNode.id)
-        hiriarchyMap = UI.projects.foundations.utilities.hierarchy.getHiriarchyMap(rootNode)
+        let rootNode = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadsById(pRootNode.id)
+        hiriarchyMap = UI.projects.visualScripting.utilities.hierarchy.getHiriarchyMap(rootNode)
     }
 
     function onRecordChange(currentRecord) {

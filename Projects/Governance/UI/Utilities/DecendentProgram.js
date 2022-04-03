@@ -1,13 +1,13 @@
 function newGovernanceUtilitiesDecendentProgram() {
     /*
     This Utility Module is intended to be used by all programs that have the 
-    concept of Decendents, and when the program requires to compute recursively
-    all decendents.
+    concept of Descendants, and when the program requires to compute recursively
+    all descendants.
     */
     let thisObject = {
         run: run
     }
-    const MAX_GENERATIONS = 10
+    const MAX_GENERATIONS = 3
 
     return thisObject
 
@@ -23,13 +23,13 @@ function newGovernanceUtilitiesDecendentProgram() {
     ) {
         /*
         Here we will store the total amount of tokens that is going to be distributed among all participants
-        of the Program. This will come from a Pool that is configured wiht a codeName config property
+        of the Program. This will come from a Pool that is configured with a codeName config property
         with the value programCodeName
         */
         let programPoolTokenReward
         /*
         In order to be able to calculate the share of the Program Pool for each User Profile,
-        we need to accumulate all the Icomming programPowerName that each User Profile at their Program
+        we need to accumulate all the Incoming programPowerName that each User Profile at their Program
         node has, because with that Incoming Power is that each Program node gets a share of 
         the pool.
          */
@@ -168,8 +168,13 @@ function newGovernanceUtilitiesDecendentProgram() {
                 userProfile.payload.blockchainTokens === undefined
             ) {
                 node.payload[programPropertyName].isActive = false
-                userProfile.payload.uiObject.setErrorMessage("You need to setup this profile with the Profile Constructor, to access the Token Power of your account at the Blockchain.")
+                userProfile.payload.uiObject.setErrorMessage(
+                    "Waiting for blockchain balance. It takes 1 minute to load the balance of each profile, because you are using a free API provided by BSC Scan.",
+                    UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                    )
                 return
+            } else {
+                userProfile.payload.uiObject.resetErrorMessage()
             }
             /*
             As per the system rules, the Program will not give tokens 
@@ -182,7 +187,10 @@ function newGovernanceUtilitiesDecendentProgram() {
                 (node[usersArrayPropertyName] === undefined || hasUsersDefined(node[usersArrayPropertyName]) === false)
             ) {
                 node.payload[programPropertyName].isActive = false
-                node.payload.uiObject.setErrorMessage("In order to enable this program you need to add " + userNodeType + " nodes and reference a User Profile from each one.")
+                node.payload.uiObject.setErrorMessage(
+                    "In order to enable this program you need to add " + userNodeType + " nodes and reference a User Profile from each one.",
+                    UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                    )
             } else {
                 node.payload[programPropertyName].isActive = true
             }
@@ -205,7 +213,7 @@ function newGovernanceUtilitiesDecendentProgram() {
             */
             let programPower = programNode.payload.tokenPower
             /*
-            We will also reseet the count of descendents from here.
+            We will also reset the count of descendents from here.
             */
             let count = 0
             /*
@@ -244,16 +252,16 @@ function newGovernanceUtilitiesDecendentProgram() {
                         */
                         node.payload[programPropertyName].outgoingPower = node.payload[programPropertyName].outgoingPower + programPower
                         /*
-                        We need to adjust the balance that holds the accumulationt of all incomingPower of all Program
-                        nodes. To do this we will substratct the current incomingPower, bacause it is going to be recalculated
-                        inmediatelly after this, and then we will add it again after the recalcualtion.
+                        We need to adjust the balance that holds the accumulation of all incomingPower of all Program
+                        nodes. To do this we will subtract the current incomingPower, because it is going to be recalculated
+                        immediately after this, and then we will add it again after the recalculation.
                         */
                         accumulatedIncomingProgramPower = accumulatedIncomingProgramPower - node.payload[programPropertyName].incomingPower
                         /*
                         At any point in time, the incomingPower will be equal to the total of the outgoingPower minus
                         the ownPower. This is like this because the outgoingPower is the accumulation of all the 
                         power flow that is leaving this node, which includes the ownPower. That means that if we 
-                        substract the ownPower, we will have the accumulation of all the incomingPower, which 
+                        subtract the ownPower, we will have the accumulation of all the incomingPower, which
                         means all the power coming from other User Profiles referencing this one.
                         */
                         node.payload[programPropertyName].incomingPower = node.payload[programPropertyName].outgoingPower - node.payload[programPropertyName].ownPower
@@ -274,15 +282,18 @@ function newGovernanceUtilitiesDecendentProgram() {
                             let totalNodesWithoutPercentage = 0
                             for (let i = 0; i < node[usersArrayPropertyName].length; i++) {
                                 let childNode = node[usersArrayPropertyName][i]
-                                let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
-                                if (percentage !== undefined && isNaN(percentage) !== true) {
+                                let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
+                                if (percentage !== undefined && isNaN(percentage) !== true && percentage >= 0) {
                                     totalPercentage = totalPercentage + percentage
                                 } else {
                                     totalNodesWithoutPercentage++
                                 }
                             }
                             if (totalPercentage > 100) {
-                                node.payload.uiObject.setErrorMessage('Program Power Switching Error. Total Percentage of children nodes is grater that 100.')
+                                node.payload.uiObject.setErrorMessage(
+                                    'Program Power Switching Error. Total Percentage of children nodes is grater that 100.',
+                                    UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                                    )
                                 return
                             }
                             let defaultPercentage = 0
@@ -294,8 +305,8 @@ function newGovernanceUtilitiesDecendentProgram() {
                             */
                             for (let i = 0; i < node[usersArrayPropertyName].length; i++) {
                                 let childNode = node[usersArrayPropertyName][i]
-                                let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
-                                if (percentage === undefined || isNaN(percentage) === true) {
+                                let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
+                                if (percentage === undefined || isNaN(percentage)  || percentage < 0 === true) {
                                     percentage = defaultPercentage
                                 }
                                 distributeProgramPower(
@@ -318,7 +329,7 @@ function newGovernanceUtilitiesDecendentProgram() {
                         if (node.payload.referenceParent !== undefined) {
                             /*
                             We want to accumulate the usedPower, but to keep the right balance, everytime we add to it the outgoingPower
-                            we need to substract the previous one, since this migth be executed at every user profile and also recurisvely.
+                            we need to subtract the previous one, since this might be executed at every user profile and also recursively.
                             */
                             currentProgramNode.payload[programPropertyName].usedPower = currentProgramNode.payload[programPropertyName].usedPower - previousOutgoing
                             currentProgramNode.payload[programPropertyName].usedPower = currentProgramNode.payload[programPropertyName].usedPower + node.payload[programPropertyName].outgoingPower
@@ -371,7 +382,10 @@ function newGovernanceUtilitiesDecendentProgram() {
             if (totalPowerRewardRatio < 1) { totalPowerRewardRatio = 1 }
 
             if (programNode.tokensAwarded === undefined || programNode.tokensAwarded.payload === undefined) {
-                programNode.payload.uiObject.setErrorMessage("Tokens Awarded Node is needed in order for this Program to get Tokens from the Program Pool.")
+                programNode.payload.uiObject.setErrorMessage(
+                    "Tokens Awarded Node is needed in order for this Program to get Tokens from the Program Pool.",
+                    UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                    )
                 return
             }
             programNode.payload[programPropertyName].awarded.tokens = programNode.payload[programPropertyName].incomingPower / totalPowerRewardRatio
@@ -387,17 +401,19 @@ function newGovernanceUtilitiesDecendentProgram() {
                 node.payload.uiObject.valueAngleOffset = 180
                 node.payload.uiObject.valueAtAngle = true
 
-                node.payload.uiObject.setValue(outgoingPowerText + ' ' + programPowerName)
+                node.payload.uiObject.setValue(outgoingPowerText + ' ' + programPowerName, UI.projects.governance.globals.designer.SET_VALUE_COUNTER)
 
                 node.payload.uiObject.percentageAngleOffset = 180
                 node.payload.uiObject.percentageAtAngle = true
 
-                node.payload.uiObject.setPercentage(percentage)
+                node.payload.uiObject.setPercentage(percentage,
+                    UI.projects.governance.globals.designer.SET_PERCENTAGE_COUNTER
+                    )
 
                 node.payload.uiObject.statusAngleOffset = 0
                 node.payload.uiObject.statusAtAngle = true
 
-                node.payload.uiObject.setStatus(outgoingPowerText + ' ' + ' Outgoing Power')
+                node.payload.uiObject.setStatus(outgoingPowerText + ' ' + ' Outgoing Power', UI.projects.governance.globals.designer.SET_STATUS_COUNTER)
             }
         }
 
@@ -410,7 +426,7 @@ function newGovernanceUtilitiesDecendentProgram() {
                 node.payload.uiObject.statusAngleOffset = 0
                 node.payload.uiObject.statusAtAngle = false
 
-                node.payload.uiObject.setStatus(ownPowerText + ' Own Power' + ' + ' + incomingPowerText + ' Incoming ' + programPowerName)
+                node.payload.uiObject.setStatus(ownPowerText + ' Own Power' + ' + ' + incomingPowerText + ' Incoming ' + programPowerName, UI.projects.governance.globals.designer.SET_STATUS_COUNTER)
             }
             if (node.tokensAwarded !== undefined && node.tokensAwarded.payload !== undefined) {
 
@@ -422,8 +438,8 @@ function newGovernanceUtilitiesDecendentProgram() {
                 node.tokensAwarded.payload.uiObject.valueAngleOffset = 0
                 node.tokensAwarded.payload.uiObject.valueAtAngle = true
 
-                node.tokensAwarded.payload.uiObject.setValue(tokensAwardedText + ' SA Tokens' + tokensAwardedBTC)
-                node.tokensAwarded.payload.uiObject.setStatus('From ' + node.payload[programPropertyName].count + ' Descendants.')
+                node.tokensAwarded.payload.uiObject.setValue(tokensAwardedText + ' SA Tokens' + tokensAwardedBTC, UI.projects.governance.globals.designer.SET_VALUE_COUNTER)
+                node.tokensAwarded.payload.uiObject.setStatus('From ' + node.payload[programPropertyName].count + ' Descendants.', UI.projects.governance.globals.designer.SET_STATUS_COUNTER)
             }
         }
     }

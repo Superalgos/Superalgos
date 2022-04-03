@@ -21,6 +21,21 @@
                 "text": "¡Muchos usuarios optan por ejecutar las dos ramas desde carpetas independientes! ¡Esta parece una solución sensata para los contribuyentes activos!",
                 "updated": 1628129062291,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Viele Benutzer entscheiden sich dafür, die beiden Zweige in getrennten Ordnern laufen zu lassen! Dies scheint eine vernünftige Lösung für aktive Mitwirkende zu sein!",
+                "updated": 1635147698376
+            },
+            {
+                "language": "RU",
+                "text": "Многие пользователи предпочитают запускать эти две ветки из разных папок! Это кажется разумным решением для активных участников!",
+                "updated": 1640158377376
+            },
+            {
+                "language": "TR",
+                "text": "Birçok kullanıcı, iki dalı ayrı klasörlerden çalıştırmayı seçer! Bu, aktif katkıda bulunanlar için mantıklı bir çözüm gibi görünüyor!",
+                "updated": 1640417991435
             }
         ]
     },
@@ -41,6 +56,21 @@
                     "text": "Puedes tener dos clones de tu fork que se ejecutan desde carpetas separadas, cada una en diferentes ramas.",
                     "updated": 1628129113706,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können zwei Klone Ihres Forks aus verschiedenen Verzeichnissen laufen lassen, jeder auf einem anderen Zweig.",
+                    "updated": 1635147704965
+                },
+                {
+                    "language": "RU",
+                    "text": "У вас может быть два клона вашего форка, запущенных из отдельных папок, каждый из которых находится на разных ветках.",
+                    "updated": 1640158400160
+                },
+                {
+                    "language": "TR",
+                    "text": "Her biri farklı dallarda bulunan ayrı klasörlerden çalışan çatalınızın iki klonu olabilir.",
+                    "updated": 1640418013944
                 }
             ]
         },
@@ -60,13 +90,28 @@
                     "text": "Dos instancias que se ejecutan en carpetas distintas son independientes. Ejecutan distintos espacios de trabajo y generan datos únicos.",
                     "updated": 1628185249129,
                     "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Zwei Instanzen von Superalgos, die in verschiedenen Verzeichnissen laufen, sind völlig unabhängig. Sie führen unterschiedliche Workspaces aus und geben eindeutige Daten aus.",
+                    "updated": 1635147722794
+                },
+                {
+                    "language": "RU",
+                    "text": "Два экземпляра Superalgos, запущенные из разных папок, полностью независимы. Они запускают разные рабочие пространства и выводят отдельные данные.",
+                    "updated": 1640158425678
+                },
+                {
+                    "language": "TR",
+                    "text": "Farklı klasörlerden çalışan iki Superalgos örneği tamamen bağımsızdır. Farklı çalışma alanları çalıştırırlar ve benzersiz veriler üretirler.",
+                    "updated": 1640418034665
                 }
             ]
         },
         {
             "style": "Success",
-            "text": "Such a setup allows you to run the stable version for your production tasks, and the version in another branch to contribute and test new features! But you can't run two versions at the same time, unless you change ports! We won't go there now!",
-            "updated": 1618148172616,
+            "text": "Such a setup allows you to run the stable version for your production tasks, and the version in another branch to contribute and test new features! But you can't run two versions at the same time, unless you change ports!",
+            "updated": 1636913062018,
             "translations": [
                 {
                     "language": "IT",
@@ -79,6 +124,21 @@
                     "text": "¡Esta configuración te permite ejecutar la versión estable para tus tareas de producción y la versión en otra rama para contribuir y probar nuevas funciones! No puedes ejecutar dos versiones al mismo tiempo a menos que cambies los puertos.",
                     "updated": 1628185065000,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "So können Sie die stabile Version für Ihre Produktionsaufgaben verwenden und die Version in einem anderen Zweig, um neue Funktionen beizusteuern und zu testen! Aber Sie können nicht zwei Versionen gleichzeitig laufen lassen, es sei denn, Sie ändern die Ports!",
+                    "updated": 1641741650053
+                },
+                {
+                    "language": "RU",
+                    "text": "Такая настройка позволяет вам запускать стабильную версию для производственных задач, а также версию в другой ветке для внесения вклада и тестирования новых возможностей! Но вы не можете запускать две версии одновременно, если не измените порты!",
+                    "updated": 1640158538808
+                },
+                {
+                    "language": "TR",
+                    "text": "Böyle bir kurulum, diğer işleriniz için kararlı sürümü kullanırken, katkıda bulunmak ve test etmek için başka bir daldaki sürümü çalıştırmanıza olanak tanır! Ancak bağlantı noktalarını (Ports) değiştirmediğiniz sürece iki sürümü aynı anda çalıştıramazsınız!",
+                    "updated": 1640418405614
                 }
             ]
         }

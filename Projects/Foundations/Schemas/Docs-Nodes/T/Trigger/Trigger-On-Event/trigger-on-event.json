@@ -7,6 +7,16 @@
                 "language": "ES",
                 "text": "El trigger-on event define el conjunto de reglas que deben cumplirse para que se active la estrategia correspondiente. Una estrategia que se activa puede utilizar todo el capital disponible para el sistema de trading y evita que se activen otras estrategias en el sistema.",
                 "updated": 1629580618624
+            },
+            {
+                "language": "RU",
+                "text": "Trigger On Event (событие включения) определяет набор правил, которые должны быть выполнены для включения соответствующей стратегии. Сработавшая стратегия может использовать весь капитал, доступный торговой системе, и препятствует срабатыванию других стратегий в системе.",
+                "updated": 1639734975463
+            },
+            {
+                "language": "DE",
+                "text": "Der Trigger On Event definiert die Regeln, die erfüllt sein müssen, damit die entsprechende Strategie ausgelöst wird. Eine Strategie, die ausgelöst wird, kann das gesamte dem Handelssystem zur Verfügung stehende Kapital verwenden und verhindert, dass andere Strategien im System ausgelöst werden.",
+                "updated": 1641635804644
             }
         ]
     },
@@ -17,11 +27,35 @@
         },
         {
             "style": "Text",
-            "text": "In conceptual terms, the trigger-on event is the mechanism you use to define the specific situations in which you would consider trading with the corresponding strategy. Think of the trigger-on event as the definition of the scenario in which the trading idea behind the strategy should be carefully considered."
+            "text": "In conceptual terms, the trigger-on event is the mechanism you use to define the specific situations in which you would consider trading with the corresponding strategy. Think of the trigger-on event as the definition of the scenario in which the trading idea behind the strategy should be carefully considered.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В концептуальном плане событие включения - это механизм, который вы используете для определения конкретных ситуаций, в которых вы будете рассматривать возможность торговли с помощью соответствующей стратегии. Воспринимайте событие включения как определение сценария, в котором торговая идея, лежащая в основе стратегии, должна быть тщательно продумана.",
+                    "updated": 1639736452767
+                },
+                {
+                    "language": "DE",
+                    "text": "In konzeptioneller Hinsicht ist das Trigger-on-Ereignis der Mechanismus, mit dem Sie die spezifischen Situationen definieren, in denen Sie den Handel mit der entsprechenden Strategie in Betracht ziehen würden. Betrachten Sie das Trigger-on-Ereignis als die Definition des Szenarios, in dem die Handelsidee hinter der Strategie sorgfältig geprüft werden sollte.",
+                    "updated": 1641635846001
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Once a strategy is triggered-on, the system starts evaluating the take position event. In conceptual terms, it means that the system has been alerted that the trading idea behind the corresponding trading strategy has produced a signal and that it should carefully monitor the market for the opportunity to take a position."
+            "text": "Once a strategy is triggered-on, the system starts evaluating the take position event. In conceptual terms, it means that the system has been alerted that the trading idea behind the corresponding trading strategy has produced a signal and that it should carefully monitor the market for the opportunity to take a position.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как только стратегия срабатывает, система начинает оценивать событие открытия позиции. В концептуальном плане это означает, что система получила сигнал о том, что торговая идея, лежащая в основе соответствующей торговой стратегии, дала сигнал и что она должна внимательно следить за рынком в поисках возможности открыть позицию.",
+                    "updated": 1639736510224
+                },
+                {
+                    "language": "DE",
+                    "text": "Sobald eine Strategie ausgelöst wird, beginnt das System mit der Auswertung des Ereignisses \"Take Position\". In konzeptioneller Hinsicht bedeutet dies, dass das System darauf aufmerksam gemacht wurde, dass die Handelsidee, die hinter der entsprechenden Handelsstrategie steht, ein Signal erzeugt hat und dass es den Markt sorgfältig beobachten sollte, um die Gelegenheit zu nutzen, eine Position einzugehen.",
+                    "updated": 1641635880330
+                }
+            ]
         }
     ]
 }

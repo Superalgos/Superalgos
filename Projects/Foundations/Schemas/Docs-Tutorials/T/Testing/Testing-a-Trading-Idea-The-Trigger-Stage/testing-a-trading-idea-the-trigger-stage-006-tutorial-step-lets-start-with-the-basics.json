@@ -4,19 +4,70 @@
     "type": "Tutorial Step - Let's Start With the Basics!",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "trading-strategy"
+            "name": "Trading\\trading-strategy",
+            "project": "Foundations"
         },
-        "text": "You define trading strategies following the Superalgos Protocol!"
+        "text": "You define trading strategies following the Superalgos Protocol!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": " Sie definieren Handelsstrategien nach dem Superalgos Protokoll!",
+                "updated": 1639254839327
+            },
+            {
+                "language": "RU",
+                "text": "Вы определяете торговые стратегии, следуя протоколу Superalgos!",
+                "updated": 1640933682341
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Superalgos Protokolünü izleyerek ticaret stratejilerini belirlersiniz!",
+                "updated": 1641063263189
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Please, read this page about trading strategies. It is the base of everything we will be discussing!"
+            "text": "Please, read this page about trading strategies. It is the base of everything we will be discussing!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bitte lesen Sie diese Seite über Trading Strategien. Sie ist die Grundlage für alles, was wir hier besprechen werden!",
+                    "updated": 1639254845363
+                },
+                {
+                    "language": "RU",
+                    "text": "Пожалуйста, прочитайте страницу о торговых стратегиях. Это основа всего, что мы будем обсуждать!",
+                    "updated": 1640933723769
+                },
+                {
+                    "language": "TR",
+                    "text": "Lütfen ticaret stratejileriyle ilgili bu sayfayı okuyun. Bu tartışacağımız her şeyin temelidir!",
+                    "updated": 1641063292838
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "The last paragraph in the page states that the framework is flexible enough to accept definitions that bend the rigid interpretation of what a position is. In this tutorial, we will focus on a typical by-the-book definition of a strategy, that is, the case for which the framework is optimized. We will cover other cases in other tutorials!"
+            "text": "The last paragraph in the page states that the framework is flexible enough to accept definitions that bend the rigid interpretation of what a position is. In this tutorial, we will focus on a typical by-the-book definition of a strategy, that is, the case for which the framework is optimized. We will cover other cases in other tutorials!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Im letzten Absatz der Seite heißt es, dass der Rahmen flexibel genug ist, um Definitionen zu akzeptieren, die die starre Auslegung dessen, was eine Position ist, verbiegen. In diesem Tutorial konzentrieren wir uns auf eine typische Definition einer Strategie nach dem Lehrbuch, d.h. auf den Fall, für den das Framework optimiert ist. Andere Fälle werden wir in anderen Tutorials behandeln!",
+                    "updated": 1639254855801
+                },
+                {
+                    "language": "RU",
+                    "text": "Последний абзац на этой странице гласит, что фреймворк достаточно гибок, чтобы принимать определения, которые отклоняются от жесткой интерпретации того, что такое позиция. В этом руководстве мы сосредоточимся на типичном определении стратегии по книге, то есть на случае, для которого фреймворк оптимизирован. Другие случаи мы рассмотрим в других учебниках!",
+                    "updated": 1640933763167
+                },
+                {
+                    "language": "TR",
+                    "text": " Not: Sayfadaki son paragraf, çerçevenin bir pozisyonun ne olduğunu katı bir şekilde yorumlayan tanımları kabul edecek kadar esnek olduğunu belirtir. Bu öğreticide, bir stratejinin tipik bir kitap tanımına, yani çerçevenin optimize edilmiş olması durumuna odaklanacağız. Diğer öğreticilerde diğer durumları ele alacağız!",
+                    "updated": 1641063353890
+                }
+            ]
         }
     ]
 }

@@ -1,7 +1,14 @@
 {
     "type": "Balance",
     "definition": {
-        "text": "Balance is the running balance, that is, the amount of the asset that exists at any point in time."
+        "text": "Balance is the running balance, that is, the amount of the asset that exists at any point in time.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Balance - это текущий баланс, то есть сумма актива, которая существует в любой момент времени.",
+                "updated": 1638644220589
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,7 +17,14 @@
         },
         {
             "style": "Text",
-            "text": "The balance of an asset changes every time an order involving the asset is filled. When the trading bot consults the exchange to find out the status of each order placed, the exchange answers with the size filled and actual rate for the order. That is the information used to calculate balances."
+            "text": "The balance of an asset changes every time an order involving the asset is filled. When the trading bot consults the exchange to find out the status of each order placed, the exchange answers with the size filled and actual rate for the order. That is the information used to calculate balances.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Баланс актива изменяется каждый раз, когда выполняется ордер, связанный с активом. Когда торговый бот консультируется с биржей, чтобы узнать статус каждого размещенного ордера, биржа отвечает с указанием заполненного размера и фактического курса для ордера. Это информация, используемая для расчета остатков.",
+                    "updated": 1638644263527
+                }
+            ]
         },
         {
             "style": "Block",
@@ -20,17 +34,38 @@
         {
             "style": "Title",
             "text": "Balance Configuration",
-            "updated": 1609880398764
+            "updated": 1609880398764,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Balance",
+                    "updated": 1638644279043
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609873980538
+            "updated": 1609873980538,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1638644287965
+                }
+            ]
         },
         {
             "style": "List",
             "text": "initialValue allows resetting the initial state of the node to an arbitrary value.",
-            "updated": 1609875415147
+            "updated": 1609875415147,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
+                    "updated": 1638644299489
+                }
+            ]
         }
     ]
 }

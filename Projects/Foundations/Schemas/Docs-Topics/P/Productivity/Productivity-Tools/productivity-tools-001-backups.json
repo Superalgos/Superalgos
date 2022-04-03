@@ -10,6 +10,16 @@
                 "language": "ES",
                 "text": "La función  backup está diseñada para preservar la integridad de las referencias, como esperaría cuando desees restaurar una estructura de datos a un estado anterior.",
                 "updated": 1628036272845
+            },
+            {
+                "language": "TR",
+                "text": "Yedekleme özelliği, bir veri yapısını önceki bir duruma geri yüklemek istediğinizde referansların bütünlüğünü korumak için tasarlanmıştır.",
+                "updated": 1639484850205
+            },
+            {
+                "language": "DE",
+                "text": "Das Backup Feature (Sicherungsfunktion) ist so konzipiert, dass die Integrität der Verweise erhalten bleibt, wie Sie es erwarten würden, wenn Sie eine Datenstruktur in einem früheren Zustand wiederherstellen möchten.",
+                "updated": 1640724973720
             }
         ]
     },
@@ -17,41 +27,122 @@
         {
             "style": "Title",
             "text": "Introduction",
-            "updated": 1611489635384
+            "updated": 1611489635384,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Einführung",
+                    "updated": 1640724984273
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "When you back up a Node, a structure of nodes, a complete hierarchy, or even the Workspace, all existing references are stored in the resulting JSON file.",
-            "updated": 1615823255327
+            "updated": 1615823255327,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bir Düğümü ( Node ), düğümlerin yapısını, tam bir hiyerarşiyi ve hatta Çalışma Alanı'nı yedeklediğinizde, varolan tüm başvurular bir JSON dosyasında depolanır.",
+                    "updated": 1639569680254
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie eine Node, eine Struktur von Nodes, eine komplette Hierarchie oder sogar den Workspace sichern, werden alle vorhandenen Referenzen in der resultierenden JSON-Datei gespeichert.",
+                    "updated": 1640725045551
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "When you restore a workspace backup, the current workspace is replaced with the backup.",
-            "updated": 1615820832685
+            "updated": 1615820832685,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie eine Workspace Sicherung (ein workspace backup) wiederherstellen, wird der aktuelle Workspace durch die Sicherung ersetzt.",
+                    "updated": 1640725141272
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Now, let’s see what happens when you restore anything other than a workspace, that is, any of the data structures contained in the workspace. What we want to analyze is what happens with references that may be present in the structure, in particular, with the different types of references.",
-            "updated": 1615820914384
+            "updated": 1615820914384,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Şimdi, bir çalışma alanı dışında bir şeyi, yani çalışma alanında bulunan veri yapılarından herhangi birini geri yüklediğinizde ne olacağını görelim. Analiz etmek istediğimiz şey, yapıda, özellikle de farklı referans türlerinde bulunabilecek referanslarla ne olduğudur.",
+                    "updated": 1639569846722
+                },
+                {
+                    "language": "DE",
+                    "text": "Sehen wir uns nun an, was passiert, wenn Sie etwas anderes als einen Workspace wiederherstellen, d. h. eine der im Workspace enthaltenen Datenstrukturen. Was wir analysieren wollen, ist, was mit den Referenzen passiert, die in der Struktur vorhanden sein können, insbesondere mit den verschiedenen Arten von Referenzen.",
+                    "updated": 1640725417736
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "When a backup is restored, what happens with each type of reference varies depending on one factor: Is the original structure present in the workspace? Or has the structure been deleted before restoring the backup?",
-            "updated": 1615823276285
+            "updated": 1615823276285,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bir yedekleme geri yüklendiğinde, her bir referans tipine ne olacağı bir faktöre bağlı olarak değişir: Çalışma alanında orijinal yapı mevcut mu? Veya yedeği geri yüklemeden önce yapı silindi mi?",
+                    "updated": 1639569943473
+                },
+                {
+                    "language": "DE",
+                    "text": "Was bei der Wiederherstellung einer Sicherung mit den einzelnen Referenztypen geschieht, hängt von einem Faktor ab: Ist die ursprüngliche Struktur im Arbeitsbereich vorhanden? Oder wurde die Struktur vor der Wiederherstellung des Backups gelöscht?",
+                    "updated": 1640725512954
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Outgoing References"
+            "text": "Outgoing References",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Giden Referanslar",
+                    "updated": 1639569984223
+                },
+                {
+                    "language": "DE",
+                    "text": "Ausgehende Referenzen (Outgoing References)",
+                    "updated": 1640725541673
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "Outgoing references are kept intact no matter if the original structure of nodes still exists or not.",
-            "updated": 1615821071450
+            "updated": 1615821071450,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Düğümlerin orijinal yapısı hala mevcut olsun veya olmasın, giden referanslar olduğu gibi tutulur.",
+                    "updated": 1639570000190
+                },
+                {
+                    "language": "DE",
+                    "text": "Ausgehende Verweise (Outgoing references) bleiben intakt, unabhängig davon, ob die ursprüngliche Struktur der Nodes noch existiert oder nicht.",
+                    "updated": 1640725595708
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "For example, in a Task set up to run a Backtesting Session, the Trading Process Instance references the Trading Bot Multi-Time-Frame process, the Trading System Reference references a Trading System, and the Trading Engine Reference references the Trading Engine. These are all outgoing references relative to the structure of nodes that make up a Task.",
-            "updated": 1615823380296
+            "updated": 1615823380296,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Örneğin, bir Geriye Dönük Test Oturumu ( Backtesting Session ) çalıştırmak için ayarlanmış bir Görevde (Task), Trading Process Instance,  Trading Bot Multi-Time-Frame modeline atıfta bulunur, Alım Satım Sistemi Referansı bir Alım Satım Sistemine atıfta bulunur ve Ticaret Motoru Referansı, Ticaret Motoruna ( Trading Engine ) atıfta bulunur. Bunların tümü, bir Görevi oluşturan düğümlere göre giden referanslardır.",
+                    "updated": 1639570954741
+                }
+            ]
         },
         {
             "style": "Gif",
@@ -61,25 +152,85 @@
         {
             "style": "Text",
             "text": "As the capture above shows, when restoring the backup of a Task, the three outgoing references are maintained, even when the original task has not been deleted.",
-            "updated": 1615821379213
+            "updated": 1615821379213,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yukarıdaki videoda görüldüğü gibi, bir Görevin yedeğini geri yüklediğinizde, orijinal görev silinmemiş olsa bile üç giden referans korunur.",
+                    "updated": 1639571022872
+                },
+                {
+                    "language": "DE",
+                    "text": "Wie die obige Abbildung zeigt, werden beim Wiederherstellen der Sicherung einer Task die drei ausgehenden Referenzen beibehalten, auch wenn der ursprüngliche Task nicht gelöscht wurde.",
+                    "updated": 1640726069877
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "This means that restoring a backup is a viable way to duplicate structures of nodes with outgoing references when you expect outgoing references to be preserved.",
-            "updated": 1615821244593
+            "updated": 1615821244593,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bu, bir yedeği geri yüklemenin, giden referansların korunmasını beklediğiniz zaman, giden referanslara sahip düğüm yapılarını çoğaltmanın uygun bir yolu olduğu anlamına gelir.",
+                    "updated": 1639571057901
+                },
+                {
+                    "language": "DE",
+                    "text": "Das bedeutet, dass die Wiederherstellung eines Backups ein gangbarer Weg ist, um Strukturen von Nodes mit ausgehenden Referenzen zu duplizieren, wenn Sie erwarten, dass ausgehende Referenzen erhalten bleiben.",
+                    "updated": 1640733080570
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Incoming References"
+            "text": "Incoming References",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Gelen Referanslar",
+                    "updated": 1639571071289
+                },
+                {
+                    "language": "DE",
+                    "text": "Eingehende Referenzen",
+                    "updated": 1640733100638
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Incoming references are restored only when the original structure of nodes is deleted before restoring the backup."
+            "text": "Incoming references are restored only when the original structure of nodes is deleted before restoring the backup.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Gelen referanslar, yalnızca yedekleme geri yüklenmeden önce düğümlerin orijinal yapısı silindiğinde geri yüklenir.",
+                    "updated": 1639571087047
+                },
+                {
+                    "language": "DE",
+                    "text": "Eingehende Referenzen werden nur wiederhergestellt, wenn die ursprüngliche Struktur der Nodes vor der Wiederherstellung der Sicherung gelöscht wird.",
+                    "updated": 1640733159364
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Let’s take a Trading System as an example. Trading systems usually have several incoming references originating at different testing and live trading sessions.",
-            "updated": 1615821415989
+            "updated": 1615821415989,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Örnek olarak bir Ticaret Sistemini ( Trading System ) ele alalım. Ticaret sistemleri genellikle farklı test ve canlı alım satım oturumlarından kaynaklanan birkaç gelen referansa sahiptir.",
+                    "updated": 1639571163845
+                },
+                {
+                    "language": "DE",
+                    "text": "Nehmen wir ein Trading System als Beispiel. Trading systems haben in der Regel mehrere eingehende Referenzen, die aus verschiedenen Testing- und Live-trading sessions stammen.",
+                    "updated": 1640733244793
+                }
+            ]
         },
         {
             "style": "Gif",
@@ -89,12 +240,36 @@
         {
             "style": "Text",
             "text": "The capture above shows that restoring a backup of a trading system when the original definition is still in the workspace causes the incoming references to be lost. This is because the backup is restored with new IDs on each node.",
-            "updated": 1615822161951
+            "updated": 1615822161951,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yukarıdaki video, orijinal düğüm hala çalışma alanındayken bir ticaret sisteminin yedeğinin geri yüklenmesinin, geri yüklenen düğümde gelen referansların kaybolmasına neden olduğunu göstermektedir. Bunun nedeni, yedeklemenin her düğümde yeni kimliklerle geri yüklenmesidir.",
+                    "updated": 1639571240315
+                },
+                {
+                    "language": "DE",
+                    "text": "Die obige Abbildung zeigt, dass bei der Wiederherstellung eines Backups eines trading systems, wenn sich die ursprüngliche Definition noch im Workspace befindet, die eingehenden Referenzen verloren gehen. Dies liegt daran, dass die Sicherung mit neuen IDs bei jeder Node wiederhergestellt wird.",
+                    "updated": 1640733352449
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "However, as the capture below shows, if the original structure of nodes is deleted before the backup is restored, then the incoming references are restored as well. This is because deleting the original structure releases the IDs of the nodes involved and allows recreating the structure with the same IDs each of the nodes used to have.",
-            "updated": 1615822180175
+            "updated": 1615822180175,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ancak, aşağıdaki videoda gösterdiği gibi, yedek geri yüklenmeden önce düğümün orijinali silinirse, gelen referanslar da geri yüklenir. Bunun nedeni, orijinal yapının silinmesinin ilgili düğümlerin ID'lerini serbest bırakması ve her bir düğümün sahip olduğu aynı ID ile yapının yeniden oluşturulmasına izin vermesidir.",
+                    "updated": 1639571396509
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn jedoch die ursprüngliche Struktur der Nodes vor der Wiederherstellung des Backups gelöscht wird, werden auch die eingehenden Referenzen wiederhergestellt, wie die folgende Abbildung zeigt. Dies liegt daran, dass durch das Löschen der ursprünglichen Struktur die IDs der beteiligten Nodes freigegeben werden und die Struktur mit denselben IDs wiederhergestellt werden kann, die jede der Nodes zuvor hatte.",
+                    "updated": 1640733629146
+                }
+            ]
         },
         {
             "style": "Gif",
@@ -103,17 +278,53 @@
         },
         {
             "style": "Title",
-            "text": "Internal References"
+            "text": "Internal References",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Dahili Referanslar",
+                    "updated": 1639571413230
+                },
+                {
+                    "language": "DE",
+                    "text": "Interne Referenzen/Verweise",
+                    "updated": 1640733658815
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Internal references remain to be internal references only when the original structure of nodes is deleted before restoring the backup. If the original structure of nodes is present, then the references will point to the original nodes on the original structure of nodes.",
-            "updated": 1615822737609
+            "updated": 1615822737609,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Dahili referanslar, yalnızca yedek geri yüklenmeden önce düğümlerin orijinal yapısı silindiğinde dahili referanslar olarak kalır. Düğümlerin orijinal yapısı mevcutsa, referanslar, düğümlerin orijinal yapısındaki orijinal düğümlere işaret edecektir.",
+                    "updated": 1639571562138
+                },
+                {
+                    "language": "DE",
+                    "text": "Interne Referenzen bleiben nur dann interne Referenzen, wenn die ursprüngliche Node-Struktur vor der Wiederherstellung des Backups gelöscht wird. Wenn die ursprüngliche Node-Struktur vorhanden ist, verweisen die Referenzen auf die ursprünglichen Knoten der ursprünglichen Node-Struktur.",
+                    "updated": 1640733792123
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Let’s see what happens when we restore a backup of a Shapes node without deleting the original node first:",
-            "updated": 1615822610298
+            "updated": 1615822610298,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Önce orijinal düğümü silmeden Shapes düğümünün yedeğini geri yüklediğimizde ne olacağını görelim:",
+                    "updated": 1639571592239
+                },
+                {
+                    "language": "DE",
+                    "text": "Schauen wir uns an, was passiert, wenn wir ein Backup einer Shapes-Node wiederherstellen, ohne die ursprüngliche Node vorher zu löschen:",
+                    "updated": 1640733888693
+                }
+            ]
         },
         {
             "style": "Gif",
@@ -123,11 +334,35 @@
         {
             "style": "Text",
             "text": "As expected, the references from vertices in the restored backup do not point to the points in the same structure, but instead, point to the original points in the original structure.",
-            "updated": 1615823436326
+            "updated": 1615823436326,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Beklendiği gibi, geri yüklenen yedeklemedeki tepe noktalarından yapılan referanslar aynı yapıdaki noktaları değil, bunun yerine orijinal yapıdaki orijinal noktaları gösterir.",
+                    "updated": 1639571677540
+                },
+                {
+                    "language": "DE",
+                    "text": "Wie erwartet, verweisen die Referenzen von vertices in dem wiederhergestellten Backup nicht auf die Punkte in derselben Struktur, sondern auf die ursprünglichen Punkte in der ursprünglichen Struktur.",
+                    "updated": 1640734058324
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "On the other hand, if the original structure of nodes is deleted before restoring the backup, then the references point to the nodes within the same structure:"
+            "text": "On the other hand, if the original structure of nodes is deleted before restoring the backup, then the references point to the nodes within the same structure:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Öte yandan, yedekleme geri yüklenmeden önce düğümlerin orijinal yapısı silinirse, referanslar aynı yapı içindeki düğümlere işaret eder:",
+                    "updated": 1639571692796
+                },
+                {
+                    "language": "DE",
+                    "text": "Wird hingegen die ursprüngliche Struktur der Nodes vor der Wiederherstellung des Backups gelöscht, verweisen die Referenzen auf die Nodes innerhalb derselben Struktur:",
+                    "updated": 1640734082461
+                }
+            ]
         },
         {
             "style": "Gif",
@@ -137,20 +372,68 @@
         {
             "style": "Success",
             "text": "To understand this behavior you must consider —again— what happens with the IDs of the nodes involved! In the first case, when you delete the structure of nodes before the backup is restored, the IDs are freed so that when the backup is restored, the nodes may be restored with the same IDs they used to have. This allows for the references to be kept as they used to be. In the second case, the IDs are already taken and the nodes are created with new IDs. This results in the references pointing to the original nodes, instead of the ones that were restored from the backup.",
-            "updated": 1615823179782
+            "updated": 1615823179782,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bu davranışı anlamak için —tekrar— ilgili düğümlerin ID'lerinin ne olduğunu düşünmelisiniz! İlk durumda, yedekleme geri yüklenmeden önce düğümlerin yapısını sildiğinizde, ID'ler serbest bırakılır, böylece yedekleme geri yüklendiğinde, düğümler eskiden sahip oldukları aynı ID'lerle geri yüklenebilir. Bu, referansların eskisi gibi tutulmasına izin verir. İkinci durumda, ID'ler zaten alınır ve düğümler yeni ID'lerle oluşturulur. Bu, yedekten geri yüklenenler yerine orijinal düğümlere işaret eden referanslarla sonuçlanır.",
+                    "updated": 1639572909389
+                },
+                {
+                    "language": "DE",
+                    "text": "Um dieses Verhalten zu verstehen, müssen Sie sich noch einmal vor Augen führen, was mit den IDs der beteiligten Nodes passiert! Im ersten Fall, wenn Sie die Struktur der Nodes vor der Wiederherstellung des Backups löschen, werden die IDs freigegeben, so dass die Nodes bei der Wiederherstellung des Backups mit denselben IDs wiederhergestellt werden können, die sie vorher hatten. Auf diese Weise können die Verweise (Referenzen) so beibehalten werden, wie sie vorher waren. Im zweiten Fall sind die IDs bereits vergeben und die Nodes werden mit neuen IDs erstellt. Dies führt dazu, dass die Verweise auf die ursprünglichen Nodes zeigen und nicht auf die, die aus dem Backup wiederhergestellt wurden.",
+                    "updated": 1640734229489
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Conclusion"
+            "text": "Conclusion",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Çözüm",
+                    "updated": 1639572923025
+                },
+                {
+                    "language": "DE",
+                    "text": "Fazit",
+                    "updated": 1640734243540
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The backup feature is designed to preserve the integrity of references as you would expect when you wish to restore a data structure to a previous state of affairs."
+            "text": "The backup feature is designed to preserve the integrity of references as you would expect when you wish to restore a data structure to a previous state of affairs.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yedekleme özelliği, bir veri yapısını önceki bir duruma geri yüklemek istediğinizde beklediğiniz gibi referansların bütünlüğünü korumak için tasarlanmıştır.",
+                    "updated": 1639572939771
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Backup Feature ist so konzipiert, dass die Integrität der Verweise erhalten bleibt, wie Sie es erwarten würden, wenn Sie eine Datenstruktur in einem früheren Zustand wiederherstellen möchten.",
+                    "updated": 1640734277625
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "However, the tool’s particular behavior when restoring a backup without deleting the original structure may be of use on certain occasions. In such cases, the backup feature behaves differently than the clone feature.",
-            "updated": 1615823501537
+            "updated": 1615823501537,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ancak, orijinal yapıyı silmeden bir yedeği geri yüklerken aracın özel davranışı belirli durumlarda faydalı olabilir. Bu gibi durumlarda, yedekleme özelliği klonlama özelliğinden farklı davranır.",
+                    "updated": 1639572961211
+                },
+                {
+                    "language": "DE",
+                    "text": "Das besondere Verhalten des Tools beim Wiederherstellen eines Backups ohne Löschen der ursprünglichen Struktur kann jedoch in bestimmten Fällen von Nutzen sein. In solchen Fällen verhält sich die Backup Funktion anders als die clone Funktion (clone feature).",
+                    "updated": 1640734348339
+                }
+            ]
         },
         {
             "style": "Text",

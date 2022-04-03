@@ -1,0 +1,82 @@
+{
+    "topic": "Polus Data Mine",
+    "pageNumber": "2",
+    "type": "Fisher MFI",
+    "definition": {
+        "text": "The Fisher MFI - this indicator normalizes price and volume action into a gaussian normal disctibution. This version of the Fisher Transform uses money flow index (MFI) as a base of calculations instead of just the price action.",
+        "updated": 1622686933380
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Fisher MFI on the Charts",
+            "updated": 1622481793076
+        },
+        {
+            "style": "Text",
+            "text": "A technical indicator created by John F. Ehlers that converts prices into a Gaussian normal distribution. The indicator highlights when prices have moved to an extreme, based on recent prices. This may help in spotting turning points in the price of an asset. It also helps show the trend and isolate the price waves within a trend."
+        },        
+		{
+            "style": "Text",
+            "text": "This technical indicator is commonly used by traders looking for leading signals, rather than lagging indicators."
+        },
+        {
+            "style": "Link",
+            "text": "Fisher Transform - (investopedia)->www.investopedia.com/terms/f/fisher-transform.asp"
+        },
+		{
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-Fisher-MFI.png",
+            "updated": 1611661370646
+        },
+		{
+            "style": "Text",
+            "text": "The length of the fisher transform calculation, as well as the sampling sice can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \u2019Fisher MFI\u2019 Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-Fisher-MFI-params.png",
+            "updated": 1611673329568
+        },
+		{
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Fisher MFI | Fisher-MFI | fish, trig |",
+            "updated": 1636853769
+        },
+		{
+            "style": "Text",
+            "text": "Example:",
+            "updated": 1611661674316
+        },
+		{
+            "style": "Text",
+            "text": "The Fisher MFI could be used to generate a buy signal when the Fisher line crosses the trigger line after an extreme low."
+        },
+		{
+            "style": "Javascript",
+            "text": "chart.at04hs.Fisher-MFI.fish > chart.at04hs.Fisher-MFI.trig && chart.at04hs.Fisher-MFI.fish < 1",
+            "updated": 1636853769
+        },
+		{
+            "style": "Text",
+            "text": "To increase confirmation confidence, this indicator can be paired with other indicators such as Parabolic SAR or Bollinger Bands."
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:",
+            "updated": 1622481793076
+        },
+        {
+            "style": "Link",
+            "text": "@ThomasHuault (Telegram)->t.me/ThomasHuault"
+        }
+    ]
+}

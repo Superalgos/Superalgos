@@ -4,24 +4,92 @@
     "type": "Tutorial Step - Market Sell Orders",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "market-sell-order"
+            "name": "Market\\market-sell-order",
+            "project": "Foundations"
         },
-        "text": "We'll use a single execution algorithm handling 100% of the size we defined earlier! Time to learn a bit about orders!"
+        "text": "We'll use a single execution algorithm handling 100% of the size we defined earlier! Time to learn a bit about orders!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Wir werden einen einzigen Ausführungsalgorithmus verwenden, der 100 % der zuvor definierten Größe verarbeitet! Zeit, ein wenig über Aufträge zu lernen!",
+                "updated": 1639398581888
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Önceden tanımlanmış boyutun %100'ünü işleyen tek bir yürütme algoritması kullanacağız! Görevler hakkında biraz bilgi edinme zamanı!",
+                "updated": 1641746660738
+            },
+            {
+                "language": "RU",
+                "text": "Мы будем использовать алгоритм однократного выполнения, обрабатывающий 100% размера, который мы определили ранее! Пора узнать немного об ордерах!",
+                "updated": 1642779802597
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "There is quite a bit of depth on the matter of how orders work! We'll get into the details on a tutorial focusing on the nuances of order execution. But for the time being, we'll keep it simple:"
+            "text": "There is quite a bit of depth on the matter of how orders work! We'll get into the details on a tutorial focusing on the nuances of order execution. But for the time being, we'll keep it simple:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Funktionsweise von Aufträgen ist sehr umfangreich! Wir werden in einem Tutorial, das sich mit den Feinheiten der Auftragsausführung beschäftigt, ins Detail gehen. Aber für den Moment wollen wir es einfach halten:",
+                    "updated": 1639398594569
+                },
+                {
+                    "language": "TR",
+                    "text": "Siparişlerin işlevselliği çok geniştir! Sipariş yürütmenin nüanslarına odaklanan bir eğitimin ayrıntılarına gireceğiz. Ama şimdilik, basit tutalım:",
+                    "updated": 1641746670862
+                },
+                {
+                    "language": "RU",
+                    "text": "Существует довольно много подробностей о том, как работают ордера! Мы разберемся в деталях в учебном пособии, посвященном нюансам исполнения ордеров. Но пока мы будем действовать просто:",
+                    "updated": 1642779940621
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "A market sell order is an instruction sent to the exchange to sell the base asset, for immediate execution at current market prices.",
-            "updated": 1622547845887
+            "updated": 1622547845887,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Eine Market-Sell-Order ist eine an die Börse gesendete Anweisung zum Verkauf des Basiswertes, die sofort zu den aktuellen Marktpreisen ausgeführt wird.",
+                    "updated": 1639398605166
+                },
+                {
+                    "language": "TR",
+                    "text": "Piyasa satış emri (market sell order), dayanak varlığı satmak için borsaya gönderilen ve cari piyasa fiyatından anında gerçekleştirilen bir talimattır.",
+                    "updated": 1641746682586
+                },
+                {
+                    "language": "RU",
+                    "text": "Рыночный ордер на продажу - это распоряжение, отправленное на биржу для продажи базового актива с целью немедленного исполнения по текущим рыночным ценам.",
+                    "updated": 1642779952405
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Check the configuration of the sell order!"
+            "text": "Check the configuration of the sell order!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Überprüfen Sie die Konfiguration des Verkaufsauftrags!",
+                    "updated": 1639398611453
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Satış emrinin (sell order) yapılandırmasını kontrol edin!",
+                    "updated": 1641746691682
+                },
+                {
+                    "language": "RU",
+                    "text": "Проверьте конфигурацию ордера на продажу!",
+                    "updated": 1642779960795
+                }
+            ]
         }
     ]
 }

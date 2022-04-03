@@ -107,23 +107,28 @@ function newUiObjectTitle() {
                     case 'Use Parent': {
                         let nodeToUse = thisObject.payload.parentNode
                         if (nodeToUse !== undefined && nodeToUse.payload !== undefined && nodeToUse.payload.node.name !== "New " + nodeToUse.payload.node.type && nodeToUse.payload.node.name !== "My " + nodeToUse.payload.node.type) {
-                            thisObject.payload.title = thisObject.payload.title + separator + nodeToUse.payload.title
                             thisObject.payload.node.name = thisObject.payload.node.name + separator + nodeToUse.payload.node.name
+                        } else {
+                            if (nodeToUse !== undefined && nodeToUse.payload !== undefined) {
+                                thisObject.payload.node.name = thisObject.payload.node.name + separator + nodeToUse.payload.node.name
+                            }
                         }
                         break
                     }
                     case 'Use Reference Parent': {
                         let nodeToUse = thisObject.payload.node.payload.referenceParent
                         if (nodeToUse !== undefined && nodeToUse.payload !== undefined && nodeToUse.payload.node.name !== "New " + nodeToUse.payload.node.type && nodeToUse.payload.node.name !== "My " + nodeToUse.payload.node.type) {
-                            thisObject.payload.title = thisObject.payload.title + separator + nodeToUse.payload.title
                             thisObject.payload.node.name = thisObject.payload.node.name + separator + nodeToUse.payload.node.name
-                        }
+                        } else {
+                            if (nodeToUse !== undefined && nodeToUse.payload !== undefined) {
+                                thisObject.payload.node.name = thisObject.payload.node.name + separator + nodeToUse.payload.node.type
+                            }  
+                        }                     
                         break
                     }
                     case 'Use Reference Parent Type': {
                         let nodeToUse = thisObject.payload.node.payload.referenceParent
                         if (nodeToUse !== undefined && nodeToUse.payload !== undefined) {
-                            thisObject.payload.title = thisObject.payload.title + separator + nodeToUse.type
                             thisObject.payload.node.name = thisObject.payload.node.name + separator + nodeToUse.type
                         }
                         break
@@ -133,7 +138,6 @@ function newUiObjectTitle() {
                         if (nodeToUse !== undefined && nodeToUse.payload !== undefined && nodeToUse.payload.node.name !== "New " + nodeToUse.payload.node.type && nodeToUse.payload.node.name !== "My " + nodeToUse.payload.node.type) {
                             nodeToUse = thisObject.payload.node.payload.referenceParent.payload.referenceParent
                             if (nodeToUse !== undefined) {
-                                thisObject.payload.title = thisObject.payload.title + separator + nodeToUse.payload.title
                                 thisObject.payload.node.name = thisObject.payload.node.name + separator + nodeToUse.payload.node.name
                             }
                         }
@@ -144,7 +148,6 @@ function newUiObjectTitle() {
                         if (nodeToUse !== undefined && nodeToUse.payload !== undefined && nodeToUse.payload.node.name !== "New " + nodeToUse.payload.node.type && nodeToUse.payload.node.name !== "My " + nodeToUse.payload.node.type) {
                             nodeToUse = thisObject.payload.node.payload.referenceParent.payload.parentNode
                             if (nodeToUse !== undefined && nodeToUse.payload !== undefined && nodeToUse.payload.node.name !== "New " + nodeToUse.payload.node.type && nodeToUse.payload.node.name !== "My " + nodeToUse.payload.node.type) {
-                                thisObject.payload.title = thisObject.payload.title + separator + nodeToUse.payload.title
                                 thisObject.payload.node.name = thisObject.payload.node.name + separator + nodeToUse.payload.node.name
                             }
                         }
@@ -157,7 +160,6 @@ function newUiObjectTitle() {
                             if (nodeToUse !== undefined && nodeToUse.payload !== undefined && nodeToUse.payload.node.name !== "New " + nodeToUse.payload.node.type && nodeToUse.payload.node.name !== "My " + nodeToUse.payload.node.type) {
                                 nodeToUse = thisObject.payload.node.payload.referenceParent.payload.parentNode.payload.parentNode
                                 if (nodeToUse !== undefined && nodeToUse.payload !== undefined && nodeToUse.payload.node.name !== "New " + nodeToUse.payload.node.type && nodeToUse.payload.node.name !== "My " + nodeToUse.payload.node.type) {
-                                    thisObject.payload.title = thisObject.payload.title + separator + nodeToUse.payload.title
                                     thisObject.payload.node.name = thisObject.payload.node.name + separator + nodeToUse.payload.node.name
                                 }
                             }
@@ -173,7 +175,6 @@ function newUiObjectTitle() {
                                 if (nodeToUse !== undefined && nodeToUse.payload !== undefined && nodeToUse.payload.node.name !== "New " + nodeToUse.payload.node.type && nodeToUse.payload.node.name !== "My " + nodeToUse.payload.node.type) {
                                     nodeToUse = thisObject.payload.node.payload.referenceParent.payload.parentNode.payload.parentNode.payload.parentNode
                                     if (nodeToUse !== undefined && nodeToUse.payload !== undefined && nodeToUse.payload.node.name !== "New " + nodeToUse.payload.node.type && nodeToUse.payload.node.name !== "My " + nodeToUse.payload.node.type) {
-                                        thisObject.payload.title = thisObject.payload.title + separator + nodeToUse.payload.title
                                         thisObject.payload.node.name = thisObject.payload.node.name + separator + nodeToUse.payload.node.name
                                     }
                                 }
@@ -191,7 +192,7 @@ function newUiObjectTitle() {
                         }
                         if (titleReference.indexOf('Find In Parents Node Type->') === 0) {
                             let nodeType = titleReference.substring(titleReference.indexOf('->') + 2, titleReference.length)
-                            let nodeToUse = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(
+                            let nodeToUse = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(
                                 thisObject.payload.node,
                                 nodeType,
                                 undefined,
@@ -206,7 +207,7 @@ function newUiObjectTitle() {
                         }
                         if (titleReference.indexOf('Reference Parent Find In Parents Node Type->') === 0) {
                             let nodeType = titleReference.substring(titleReference.indexOf('->') + 2, titleReference.length)
-                            let nodeToUse = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(
+                            let nodeToUse = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(
                                 thisObject.payload.referenceParent,
                                 nodeType,
                                 undefined,
@@ -359,6 +360,15 @@ function newUiObjectTitle() {
             let fontSize = thisObject.payload.floatingObject.currentFontSize
             let label
 
+            let schemaDocument = getSchemaDocument(thisObject.payload.node)
+            if (UI.projects.foundations.spaces.floatingSpace.inMapMode === true) {
+                if (schemaDocument.inMapMode !== undefined) {
+                    if (schemaDocument.inMapMode.smallText === true) {
+                        fontSize = fontSize * 0.8
+                    }
+                }
+            }
+
             browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
 
             if (radius > 6 && (thisObject.isOnFocus === true || thisObject.allwaysVisible === true || thisObject.isDefault === false)) {
@@ -383,7 +393,6 @@ function newUiObjectTitle() {
                         labelPoint.x = labelPoint.x - getTextWidth(label) / 2,
                             labelPoint.y = labelPoint.y - 35
 
-                        let schemaDocument = getSchemaDocument(thisObject.payload.node)
                         if (schemaDocument !== undefined) {
                             if (schemaDocument.isHierarchyHead !== true && schemaDocument.isProjectHead !== true) {
                                 return

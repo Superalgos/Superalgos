@@ -1,6 +1,6 @@
 
 function newCircularMenuItem() {
-    const MODULE_NAME = 'Circular Menu Iem'
+    const MODULE_NAME = 'Circular Menu Item'
 
     let thisObject = {
         type: undefined,
@@ -28,6 +28,7 @@ function newCircularMenuItem() {
         secondaryWorkDoneLabel: undefined,
         secondaryWorkFailedLabel: undefined,
         secondaryIcon: undefined,
+        booleanProperty: undefined,
         nextAction: undefined,
         visible: false,
         iconPathOn: undefined,
@@ -38,13 +39,17 @@ function newCircularMenuItem() {
         angle: undefined,
         container: undefined,
         payload: undefined,
+        circularMenu: undefined,
+        menu: undefined,
         relatedUiObject: undefined,
+        relatedUiObjectProject: undefined,
         dontShowAtFullscreen: undefined,
         isEnabled: true,
         shorcutNumber: undefined,
         internalClick: internalClick,
         physics: physics,
         invisiblePhysics: invisiblePhysics,
+        toggleMenu: toggleMenu,
         drawBackground: drawBackground,
         drawForeground: drawForeground,
         getContainer: getContainer,
@@ -103,6 +108,8 @@ function newCircularMenuItem() {
         thisObject.actionStatus = undefined
         thisObject.disableIfPropertyIsDefined = undefined
         thisObject.propertyToCheckFor = undefined
+        thisObject.menu = undefined
+        thisObject.circularMenu = undefined
     }
 
     function initialize(pPayload) {
@@ -110,13 +117,38 @@ function newCircularMenuItem() {
 
         iconPhysics()
 
+        if (thisObject.icon === undefined) {
+            console.log(
+                '[ERROR] newCircularMenuItem -> initialize -> err = Icon not found, Action: "' +
+                thisObject.action +
+                '", relatedUiObject: "' +
+                thisObject.relatedUiObject +
+                '", label: "' +
+                thisObject.label +
+                '"'
+            )
+            console.log(thisObject.payload.node)
+            console.log(thisObject)
+        }
+
         selfMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
         selfMouseClickEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
         selfMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
 
         containerPhysics()
 
-        thisObject.nextAction = thisObject.action
+        if (thisObject.booleanProperty !== undefined) {
+            let config = JSON.parse(thisObject.payload.node.config)
+
+            if (config[thisObject.booleanProperty] === true) {
+                thisObject.nextAction = thisObject.secondaryAction
+                setStatus(thisObject.secondaryLabel, defaultBackgroudColor, undefined, STATUS_PRIMARY_WORK_DONE)
+            } else {
+                thisObject.nextAction = thisObject.action
+            }
+        } else {
+            thisObject.nextAction = thisObject.action
+        }
     }
 
     function getContainer(point) {
@@ -126,6 +158,18 @@ function newCircularMenuItem() {
         if (thisObject.isDeployed === true) {
             if (thisObject.container.frame.isThisPointHere(point, true, false) === true) {
                 return thisObject.container
+            } else if (thisObject.menu !== undefined) {
+                if (thisObject.menu.isDeployed === true) {
+                    for (let i = 0; i < thisObject.menu.menuItems.length; i++) {
+                        let menuItem = thisObject.menu.menuItems[i]
+                        if (menuItem.visible === true) {
+                            container = menuItem.getContainer(point)
+                        }
+                        if (container !== undefined) { return container }
+                    }
+                } else {
+                    return undefined
+                }
             } else {
                 return undefined
             }
@@ -133,6 +177,9 @@ function newCircularMenuItem() {
     }
 
     function invisiblePhysics() {
+        if (thisObject.menu !== undefined) {
+            thisObject.menu.invisiblePhysics()
+        }
         temporaryStatusPhysics()
     }
 
@@ -151,7 +198,13 @@ function newCircularMenuItem() {
     }
 
     function physics() {
+        thisObject.payload.targetPosition.x = thisObject.payload.position.x
+        thisObject.payload.targetPosition.y = thisObject.payload.position.y
+
         if (thisObject.dontShowAtFullscreen === true && AT_FULL_SCREEN_MODE === true) { return }
+        if (thisObject.menu !== undefined) {
+            thisObject.menu.physics()
+        }
         positionPhysics()
         temporaryStatusPhysics()
         disablePhysics()
@@ -175,15 +228,15 @@ function newCircularMenuItem() {
         if (thisObject.type === 'Icon Only') {
             switch (thisObject.ring) {
                 case 1: {
-                    radiusGrowthFactor = 5.5
+                    radiusGrowthFactor = 6.5
                     break
                 }
                 case 2: {
-                    radiusGrowthFactor = 4.0
+                    radiusGrowthFactor = 5.0
                     break
                 }
                 case 3: {
-                    radiusGrowthFactor = 3.0
+                    radiusGrowthFactor = 3.5
                     break
                 }
                 case 4: {
@@ -239,7 +292,7 @@ function newCircularMenuItem() {
 
     function containerPhysics() {
         if (thisObject.type === 'Icon & Text') {
-            thisObject.container.frame.width = 220 * UI.projects.foundations.spaces.floatingSpace.settings.node.menuItem.widthPercentage / 100
+            thisObject.container.frame.width = 237 * UI.projects.foundations.spaces.floatingSpace.settings.node.menuItem.widthPercentage / 100
         } else {
             thisObject.container.frame.width = 50 * UI.projects.foundations.spaces.floatingSpace.settings.node.menuItem.widthPercentage / 100
         }
@@ -260,26 +313,40 @@ function newCircularMenuItem() {
                 temporaryStatus === STATUS_SECONDARY_WORK_FAILED
             ) && thisObject.secondaryAction !== undefined
         ) {
-            thisObject.iconOn = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', thisObject.secondaryIcon)
-            thisObject.iconOff = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', thisObject.secondaryIcon)
+            if (thisObject.iconProject !== undefined) {
+                thisObject.iconOn = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName(thisObject.iconProject, thisObject.secondaryIcon)
+                thisObject.iconOff = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName(thisObject.iconProject, thisObject.secondaryIcon)
+            } else {
+                thisObject.iconOn = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName('Foundations', thisObject.secondaryIcon)
+                thisObject.iconOff = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName('Foundations', thisObject.secondaryIcon)
+            }
         } else {
-            if (thisObject.label === "Add Dependency Product Folder") { console.log ("Test") }
+
+            /*
+            TODO : This code needs to be cleaned and reorganized. It is not clear how a menu item icon is going to be selected.
+            */
+
             if (thisObject.relatedUiObject !== undefined && thisObject.iconProject !== undefined) {
-                thisObject.iconOn = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(thisObject.iconProject, thisObject.relatedUiObject)
-                thisObject.iconOff = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(thisObject.iconProject, thisObject.relatedUiObject)
+                thisObject.iconOn = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(thisObject.iconProject, thisObject.relatedUiObject)
+                thisObject.iconOff = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(thisObject.iconProject, thisObject.relatedUiObject)
             } else if (thisObject.relatedUiObject !== undefined && thisObject.iconProject === undefined) {
-                thisObject.iconOn = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.relatedUiObject)
-                thisObject.iconOff = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.relatedUiObject)
+                if (thisObject.relatedUiObjectProject !== undefined) {
+                    thisObject.iconOn = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(thisObject.relatedUiObjectProject, thisObject.relatedUiObject)
+                    thisObject.iconOff = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(thisObject.relatedUiObjectProject, thisObject.relatedUiObject)
+                } else {
+                    thisObject.iconOn = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.relatedUiObject)
+                    thisObject.iconOff = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.relatedUiObject)
+                }
             } else {
                 if (thisObject.iconPathOn !== undefined && thisObject.iconPathOff !== undefined && thisObject.iconProject !== undefined) {
-                    thisObject.iconOn = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(thisObject.iconProject, thisObject.iconPathOn)
-                    thisObject.iconOff = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(thisObject.iconProject, thisObject.iconPathOff)
+                    thisObject.iconOn = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName(thisObject.iconProject, thisObject.iconPathOn)
+                    thisObject.iconOff = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName(thisObject.iconProject, thisObject.iconPathOff)
                 } else if (thisObject.iconPathOn !== undefined && thisObject.iconPathOff !== undefined && thisObject.iconProject === undefined) {
-                    thisObject.iconOn = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', thisObject.iconPathOn)
-                    thisObject.iconOff = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', thisObject.iconPathOff)
+                    thisObject.iconOn = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName('Foundations', thisObject.iconPathOn)
+                    thisObject.iconOff = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName('Foundations', thisObject.iconPathOff)
                 } else {
-                    thisObject.iconOn = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', thisObject.icons[thisObject.actionStatus()])
-                    thisObject.iconOff = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', thisObject.icons[thisObject.actionStatus()])
+                    thisObject.iconOn = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName('Foundations', thisObject.icons[thisObject.actionStatus()])
+                    thisObject.iconOff = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName('Foundations', thisObject.icons[thisObject.actionStatus()])
                 }
             }
         }
@@ -301,6 +368,15 @@ function newCircularMenuItem() {
 
     function onMouseOver(point) {
         if (thisObject.container.frame.isThisPointHere(point, true, false) === true) {
+            let text = thisObject.action
+
+            if (thisObject.payload.uiObject.payload.referenceParent !== undefined && thisObject.action === 'Reference Detach') {
+                text = text + ' -> [Existing Reference] Type : [' + thisObject.payload.uiObject.payload.referenceParent.type + '] , Name : [' + thisObject.payload.uiObject.payload.referenceParent.name + ']'
+            }
+
+            if (thisObject.label === undefined) {
+                thisObject.payload.uiObject.setQuickInfo(text)
+            }
             isMouseOver = true
         } else {
             isMouseOver = false
@@ -310,24 +386,30 @@ function newCircularMenuItem() {
 
     function onMouseNotOver(point) {
         isMouseOver = false
+        thisObject.payload.uiObject.resetQuickInfo()
         MENU_ITEM_ON_FOCUS = undefined
     }
 
     function internalClick() {
+        if (thisObject.payload === undefined) { return }
         if (thisObject.shorcutNumber !== undefined) {
             let label = thisObject.payload.node.name + ' ' + labelToPrint
             UI.projects.foundations.spaces.cockpitSpace.setStatus(label, 4, UI.projects.foundations.spaces.cockpitSpace.statusTypes.ALL_GOOD)
         }
 
-        onMouseClick()
+        onMouseClick(event, true)
     }
 
-    function onMouseClick() {
+    function onMouseClick(event, isInternal) {
         if (thisObject.isEnabled === false) { return }
+
+        if (isInternal === undefined) {
+            isInternal = false
+        }
 
         if (thisObject.askConfirmation !== true) { /* No confirmation is needed */
             if (temporaryStatus === STATUS_NO_ACTION_TAKEN_YET || temporaryStatus === STATUS_PRIMARY_WORK_DONE) {
-                executeAction()
+                executeAction(isInternal)
             } // Any click out of those states is ignored
         } else {
             /* Confirmation is needed */
@@ -339,7 +421,7 @@ function newCircularMenuItem() {
             }
             /* A Click during confirmation executes the pre-defined action. */
             if (temporaryStatus === STATUS_WAITING_CONFIRMATION || temporaryStatus === STATUS_PRIMARY_WORK_DONE) {
-                executeAction()
+                executeAction(isInternal)
                 if (thisObject.workDoneLabel !== undefined) {
                     setStatus(thisObject.workDoneLabel, UI_COLOR.PATINATED_TURQUOISE, 5, STATUS_SECONDARY_WORK_DONE)
                 } else {
@@ -349,7 +431,14 @@ function newCircularMenuItem() {
             }
         }
 
-        function executeAction() {
+        function executeAction(isInternal) {
+            if (thisObject.action === "Open Menu") {
+                thisObject.toggleMenu()
+                return
+            }
+            if (isInternal === undefined) {
+                isInternal = false
+            }
             if (temporaryStatus === STATUS_NO_ACTION_TAKEN_YET || temporaryStatus === STATUS_WAITING_CONFIRMATION) {
                 /* We need to execute the main Action */
                 /* If there is a working label defined, we use it here. */
@@ -357,8 +446,24 @@ function newCircularMenuItem() {
                     setStatus(thisObject.workingLabel, UI_COLOR.GREY, undefined, STATUS_PRIMARY_ACTION_WORKING) // Status will not expire, will only change with a callback. Mouse Clicks will be ignored.
                 }
 
-                /* Execute the action and wait for callbacks to update our statuus. */
-                thisObject.actionFunction({ node: thisObject.payload.node, name: thisObject.action, project: thisObject.actionProject, relatedNodeType: thisObject.relatedUiObject, callBackFunction: onPrimaryCallBack })
+                /* Execute the action and wait for callbacks to update our status. */
+                let relatedNodeProject = thisObject.actionProject
+                if (thisObject.relatedUiObjectProject !== undefined) {
+                    relatedNodeProject = thisObject.relatedUiObjectProject
+                }
+
+                thisObject.actionFunction(
+                    {
+                        isInternal: isInternal,
+                        node: thisObject.payload.node,
+                        name: thisObject.action,
+                        label: thisObject.label,
+                        project: thisObject.actionProject,
+                        relatedNodeType: thisObject.relatedUiObject,
+                        relatedNodeProject: relatedNodeProject,
+                        callBackFunction: onPrimaryCallBack
+                    }
+                )
                 return
             }
             if (temporaryStatus === STATUS_PRIMARY_WORK_DONE && thisObject.secondaryAction !== undefined) {
@@ -367,8 +472,17 @@ function newCircularMenuItem() {
                     setStatus(thisObject.secondaryWorkingLabel, UI_COLOR.GREY, undefined, STATUS_SECONDARY_ACTION_WORKING) // Status will not expire, will only change with a callback. Mouse Clicks will be ignored.
                 }
 
-                /* Execute the action and wait for callbacks to update our statuus. */
-                thisObject.actionFunction({ node: thisObject.payload.node, name: thisObject.secondaryAction, project: thisObject.actionProject, relatedNodeType: thisObject.relatedUiObject, callBackFunction: onSecondaryCallBack })
+                /* Execute the action and wait for callbacks to update our status. */
+                thisObject.actionFunction(
+                    {
+                        isInternal: isInternal,
+                        node: thisObject.payload.node,
+                        name: thisObject.secondaryAction,
+                        project: thisObject.actionProject,
+                        relatedNodeType: thisObject.relatedUiObject,
+                        callBackFunction: onSecondaryCallBack
+                    }
+                )
                 return
             }
 
@@ -424,20 +538,42 @@ function newCircularMenuItem() {
         labelToPrint = text
         backgroundColorToUse = backgroundColor
         temporaryStatus = newStatus
-        temporaryStatusCounter = newStatus // This will often put this into negatives numbers, which will disable the counting back and automatic reseting.
+        temporaryStatusCounter = newStatus // This will often put this into negatives numbers, which will disable the counting back and automatic resetting.
         if (waitingCycles !== undefined) { // This will override the often negative value with a positive one that will tend to zero onto the default state.
             temporaryStatusCounter = waitingCycles
+        }
+    }
+
+    function toggleMenu() {
+        if (thisObject.menu === undefined) { return }
+        if (thisObject.menu.isOpen === true) {
+            thisObject.menu.setMenuOpenState(false)
+        } else {
+            thisObject.menu.setMenuOpenState(true)
+            for (let i = 0; i < thisObject.circularMenu.menuItems.length; i++) {
+                if (thisObject.circularMenu.menuItems[i].menu !== undefined) {
+                    if (thisObject.menu.container.id !== thisObject.circularMenu.menuItems[i].menu.container.id)
+                        thisObject.circularMenu.menuItems[i].menu.setMenuOpenState(false)
+                }
+            }
         }
     }
 
     function drawBackground() {
         if (thisObject.dontShowAtFullscreen === true && AT_FULL_SCREEN_MODE === true) { return }
 
+        if (thisObject.menu !== undefined) {
+            thisObject.menu.drawBackground()
+        }
+
         if (thisObject.container.frame.position.x > 0 && thisObject.isDeployed === true && thisObject.currentRadius >= thisObject.targetRadius) {
             if (thisObject.type === 'Icon & Text') {
                 let backgroundColor = backgroundColorToUse
                 if (thisObject.isEnabled === false) {
                     backgroundColor = UI_COLOR.GREY
+                }
+                if (thisObject.menu !== undefined && thisObject.menu.isOpen === true) {
+                    backgroundColor = UI_COLOR.MIDNIGHT_GREEN
                 }
                 let params = {
                     cornerRadius: 5,
@@ -463,6 +599,10 @@ function newCircularMenuItem() {
     function drawForeground() {
         if (thisObject.dontShowAtFullscreen === true && AT_FULL_SCREEN_MODE === true) { return }
 
+        if (thisObject.menu !== undefined) {
+            thisObject.menu.drawForeground()
+        }
+
         let menuPosition = {
             x: thisObject.currentRadius * 1.5,
             y: thisObject.container.frame.height / 2
@@ -478,32 +618,37 @@ function newCircularMenuItem() {
             iconSize = UI.projects.foundations.spaces.floatingSpace.style.node.menuItem.imageSize
         }
 
-        if (thisObject.icon === undefined) { return }
-        if (thisObject.icon.canDrawIcon === true && thisObject.currentRadius > 1 && thisObject.isDeployed === true) {
-            browserCanvasContext.drawImage(thisObject.icon, menuPosition.x - iconSize, menuPosition.y - iconSize, iconSize * 2, iconSize * 2)
+        if (thisObject.icon === undefined) {
+            thisObject.icon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName('Foundations', 'missing-image')
+        }
 
-            /* Menu Label */
-            if (thisObject.type === 'Icon & Text') {
-                label = labelToPrint
-                if (thisObject.shorcutNumber !== undefined) {
-                    label = '' + thisObject.shorcutNumber + '- ' + labelToPrint
+        if (thisObject.icon !== undefined) {
+            if (thisObject.icon.canDrawIcon === true && thisObject.currentRadius > 1 && thisObject.isDeployed === true) {
+                browserCanvasContext.drawImage(thisObject.icon, menuPosition.x - iconSize, menuPosition.y - iconSize, iconSize * 2, iconSize * 2)
+            }
+        }
+
+        /* Menu Label */
+        if (thisObject.type === 'Icon & Text') {
+            label = labelToPrint
+            if (thisObject.shorcutNumber !== undefined) {
+                label = '' + thisObject.shorcutNumber + '- ' + labelToPrint
+            }
+
+            let labelPoint
+            let fontSize = UI.projects.foundations.spaces.floatingSpace.style.node.menuItem.fontSize
+
+            browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
+
+            if (thisObject.currentRadius >= thisObject.targetRadius) {
+                labelPoint = {
+                    x: menuPosition.x + thisObject.currentRadius + 25,
+                    y: menuPosition.y + fontSize * FONT_ASPECT_RATIO
                 }
-
-                let labelPoint
-                let fontSize = UI.projects.foundations.spaces.floatingSpace.style.node.menuItem.fontSize
 
                 browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-
-                if (thisObject.currentRadius >= thisObject.targetRadius) {
-                    labelPoint = {
-                        x: menuPosition.x + thisObject.currentRadius + 25,
-                        y: menuPosition.y + fontSize * FONT_ASPECT_RATIO
-                    }
-
-                    browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-                    browserCanvasContext.fillStyle = 'rgba(' + UI.projects.foundations.spaces.floatingSpace.style.node.menuItem.fontColor + ', 1)'
-                    browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
-                }
+                browserCanvasContext.fillStyle = 'rgba(' + UI.projects.foundations.spaces.floatingSpace.style.node.menuItem.fontColor + ', 1)'
+                browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
             }
         }
     }

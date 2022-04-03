@@ -1,7 +1,14 @@
 {
     "type": "Procedure Initialization",
     "definition": {
-        "text": "The procedure initialization is used to initialize variables used by the procedure loop."
+        "text": "The procedure initialization is used to initialize variables used by the procedure loop.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Procedure Initialization используется для инициализации переменных, используемых в цикле процедуры.",
+                "updated": 1639660718485
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,7 +17,14 @@
         },
         {
             "style": "Text",
-            "text": "This is an example of a procedure loop code snippet, in particular, the code that initializes the array used in the calculation of the Popular SMAs product of the Simple Moving Average (SMA) indicator."
+            "text": "This is an example of a procedure loop code snippet, in particular, the code that initializes the array used in the calculation of the Popular SMAs product of the Simple Moving Average (SMA) indicator.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это пример фрагмента кода цикла процедуры, в частности, кода, который инициализирует массив, используемый при вычислении продукта Popular SMA индикатора Simple Moving Average (SMA).",
+                    "updated": 1639660745244
+                }
+            ]
         },
         {
             "style": "Javascript",

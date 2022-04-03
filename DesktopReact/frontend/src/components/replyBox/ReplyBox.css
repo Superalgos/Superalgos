@@ -1,0 +1,16 @@
+.replyText {
+    margin: 0 1rem;
+    width: -webkit-fill-available;
+}
+
+.replyButton {
+    margin: 0 0.5rem !important;
+    width: 7rem;
+    max-height: 1.5rem;
+    border-radius: 20px !important;
+}
+
+.avatar {
+    height: 3rem !important;
+    width: 3rem !important;
+}

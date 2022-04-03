@@ -1,0 +1,24 @@
+.repostQuoteModal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40rem;
+    height: fit-content;
+    background-color: white;
+    border: 1px solid #000;
+    box-shadow: 24px 24px 100px black;
+    border-radius: 1rem;
+    overflow-y: auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.repostHeader {
+    display: flex;
+    align-items: center;
+    padding: 1rem 0 1rem .5rem;
+    height: 1rem;
+}
+

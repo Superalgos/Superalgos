@@ -19,7 +19,23 @@
             {
                 "language": "ES",
                 "text": "¡Probemos el tercer ejemplo! ¡Observa las referencias que fluyen desde los vértices del polígono hasta los puntos debajo del nodo Chart Points!",
-                "updated": 1626615204304
+                "updated": 1626615204304,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Versuchen wir es mit dem dritten Beispiel! Beachten Sie die Verweise, die von Polygonscheiteln zu Punkten unter dem Knoten Chart Points fließen!",
+                "updated": 1634586079127
+            },
+            {
+                "language": "TR",
+                "text": "Üçüncü örneği deneyelim! plygon düğümünden Grafik Noktaları ( Chart Points ) düğümünün altındaki noktalara akan referanslara dikkat edin!",
+                "updated": 1639723270170
+            },
+            {
+                "language": "RU",
+                "text": "Давайте попробуем третий пример! Обратите внимание на ссылки, идущие от вершин полигонов к точкам в узле Chart Points!",
+                "updated": 1640870975645
             }
         ]
     },
@@ -38,7 +54,23 @@
                 {
                     "language": "ES",
                     "text": "Realiza un backup del nodo Shapes y restauralo en el lateral sin borrar el original. Luego repite, pero eliminando el original antes de restaurar el backup.",
-                    "updated": 1626617114505
+                    "updated": 1626617114505,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Erstellen Sie eine Sicherungskopie des Knotens Shapes und stellen Sie diese wieder her, ohne das Original zu löschen. Wiederholen Sie den Vorgang, aber löschen Sie das Original, bevor Sie die Sicherung wiederherstellen!",
+                    "updated": 1634586087146
+                },
+                {
+                    "language": "TR",
+                    "text": "Shapes düğümünün yedeğini alın ve orijinali silmeden yan tarafa geri yükleyin (çalışma alanına sürükleyrek bırakın). Bunu yaptıktan sonra bu sefer aynı işlemi ojinal düğümü silerek tekrarlayın.",
+                    "updated": 1639723389534
+                },
+                {
+                    "language": "RU",
+                    "text": "Сделайте резервную копию узла Shapes и восстановите ее сбоку, не удаляя оригинал. Затем повторите, но удалите оригинал перед восстановлением резервной копии!",
+                    "updated": 1640870996301
                 }
             ]
         },
@@ -55,7 +87,23 @@
                 {
                     "language": "ES",
                     "text": "¡En el primer caso, las referencias apuntan a que los puntos originales se convierten en referencias externas! Por el contrario, en el segundo caso, ¡las referencias permanecen internas!",
-                    "updated": 1626615362499
+                    "updated": 1626615362499,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Beachten Sie, dass im ersten Fall die Verweise auf die ursprünglichen Punkte zu externen Verweisen werden! Im zweiten Fall hingegen bleiben die Referenzen intern!",
+                    "updated": 1634586093378
+                },
+                {
+                    "language": "TR",
+                    "text": "İlk durumda, referansların harici referanslara dönüşen orijinal noktaları gösterdiğine dikkat edin! Aksine, ikinci durumda, referanslar dahili kalır!",
+                    "updated": 1639724259925
+                },
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание, что в первом случае ссылки указывают на исходные точки, превращаясь во внешние ссылки! А во втором случае, наоборот, ссылки остаются внутренними!",
+                    "updated": 1640871024817
                 }
             ]
         },
@@ -73,7 +121,23 @@
                 {
                     "language": "ES",
                     "text": "¡Las referencias permanecen internas solo cuando primero eliminas la estructura original!",
-                    "updated": 1626615411251
+                    "updated": 1626615411251,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Denken Sie daran, dass Referenzen nur dann intern bleiben, wenn Sie die Originalstruktur zuerst löschen!",
+                    "updated": 1634586099423
+                },
+                {
+                    "language": "TR",
+                    "text": "Referansların yalnızca ilk önce orijinal yapıyı sildiğinizde dahili kaldığını unutmayın!",
+                    "updated": 1639724279947
+                },
+                {
+                    "language": "RU",
+                    "text": "Помните, что ссылки остаются внутренними только тогда, когда вы сначала удалите исходную структуру!",
+                    "updated": 1640871038731
                 }
             ]
         }

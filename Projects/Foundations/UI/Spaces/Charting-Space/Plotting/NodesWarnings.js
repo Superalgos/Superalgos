@@ -32,7 +32,7 @@ function newNodesWarnings() {
                 let arrayItem = array[i]
                 let docs = arrayItem[2]
                 let nodeIdArray = arrayItem[0]
-                /* We migth receive here and array of node Ids. If we dont, we receive at least one node id*/
+                /* We might receive here and array of node Ids. If we dont, we receive at least one node id*/
                 if (Array.isArray(nodeIdArray) === true) {
                     for (let j = 0; j < nodeIdArray.length; j++) {
                         let nodeId = nodeIdArray[j]
@@ -58,7 +58,7 @@ function newNodesWarnings() {
             let docs = arrayItem[2]
             let nodeId
             let nodeIdArray = arrayItem[0]
-            /* We migth receive here and array of node Ids. If we dont, we receive at least one node id*/
+            /* We might receive here and array of node Ids. If we dont, we receive at least one node id*/
             if (Array.isArray(nodeIdArray) === true) {
                 /* For repositioning the design space we will pick the first Id at the Node Id Array */
                 nodeId = nodeIdArray[0]
@@ -100,7 +100,7 @@ function newNodesWarnings() {
 
     async function applyValue(nodeId, value, docs) {
         if (UI.projects.foundations.spaces.chartingSpace.visible !== true) { return }
-        let node = await UI.projects.foundations.spaces.designSpace.workspace.getNodeById(nodeId)
+        let node = await UI.projects.workspaces.spaces.designSpace.workspace.getNodeById(nodeId)
         if (node === undefined) { return }
         if (node.payload === undefined) { return }
         if (node.payload.uiObject === undefined) { return }

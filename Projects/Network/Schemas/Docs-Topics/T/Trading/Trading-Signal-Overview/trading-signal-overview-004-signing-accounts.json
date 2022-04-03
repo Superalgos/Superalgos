@@ -1,0 +1,15 @@
+{
+    "topic": "Trading Signal Overview",
+    "pageNumber": 4,
+    "type": "Signing Accounts",
+    "definition": {
+        "text": " Signing Accounts are the center of security within the Superalgos network.",
+        "updated": 1643078915732
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Governance->Node->Signing Account->Content"
+        }
+    ]
+}

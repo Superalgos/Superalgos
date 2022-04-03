@@ -1,0 +1,28 @@
+{
+    "type": "Docs Space Style",
+    "definition": {
+        "text": "Trough this Node you can adjust your UI through changing the Backround color or font size as well as font color.",
+        "updated": 1642631429639,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Этот узел в настоящее время является заполнителем, который в конечном итоге позволит пользователям настраивать внешний вид пространства документов.",
+                "updated": 1638532516073
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "There exists an explicit article about what colors can be added.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите кнопку карандаша, чтобы войти в режим редактирования.",
+                    "updated": 1638532527365
+                }
+            ],
+            "updated": 1642631433302
+        }
+    ]
+}

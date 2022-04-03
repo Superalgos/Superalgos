@@ -4,25 +4,60 @@
     "type": "Temporal Context - Current and Last",
     "definition": {
         "text": "Much of the information provided by the trading engine may be accessed for the current instance of the object as well as for the last instance that was open, at any point in time.",
-        "updated": 1611254206670
+        "updated": 1611254206670,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Большая часть информации, предоставляемой торговым движком, может быть доступна в любой момент времени как для текущего экземпляра объекта, так и для последнего открытого экземпляра.",
+                "updated": 1640341385381
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "The trading engine hierarchy is organized by context. That is, the main offspring nodes—current, last, and exchange orders—describe the context in which their respective offspring live.",
-            "updated": 1611254225764
+            "updated": 1611254225764,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Иерархия торгового движка организована по контексту. То есть, основные узлы потомков - текущие, последние и биржевые ордера - описывают контекст, в котором живут их соответствующие потомки.",
+                    "updated": 1640341416455
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "For example, the concept of an episode—a whole run of the trading bot— exists only in the context of the current episode, as the system keeps track of one episode at the time only."
+            "text": "For example, the concept of an episode—a whole run of the trading bot— exists only in the context of the current episode, as the system keeps track of one episode at the time only.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Например, понятие эпизода - целого цикла работы торгового бота - существует только в контексте текущего эпизода, поскольку система отслеживает только один эпизод за раз.",
+                    "updated": 1640341441313
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "However, the concept of a position is tracked both as the current position and the last position. This is possible because the system keeps track of all positions occurring within an episode."
+            "text": "However, the concept of a position is tracked both as the current position and the last position. This is possible because the system keeps track of all positions occurring within an episode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Однако понятие позиции отслеживается и как текущая позиция, и как последняя позиция. Это возможно потому, что система отслеживает все позиции, возникающие в течение эпизода.",
+                    "updated": 1640341476909
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Superalgos developers thought it was worth it to provide certain information, positions, for example, in both contexts, as this allows you—visually—and your trading system—using simple syntax—to access information about the current position and the last position at any given point in time."
+            "text": "Superalgos developers thought it was worth it to provide certain information, positions, for example, in both contexts, as this allows you—visually—and your trading system—using simple syntax—to access information about the current position and the last position at any given point in time.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Разработчики Superalgos решили, что стоит предоставлять определенную информацию, например, позиции, в обоих контекстах, поскольку это позволяет вам - визуально и вашей торговой системе - используя простой синтаксис - получить доступ к информации о текущей позиции и последней позиции в любой момент времени.",
+                    "updated": 1640341502228
+                }
+            ]
         },
         {
             "style": "Title",

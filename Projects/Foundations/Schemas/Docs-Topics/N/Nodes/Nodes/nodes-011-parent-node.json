@@ -4,12 +4,26 @@
     "type": "Parent Node",
     "definition": {
         "text": "The Parent Node of a certain Node A, is the Node who was used to create A. Nodes are automatically attached to their Parent Node. Not all nodes have a Parent Node.",
-        "updated": 1609240097919
+        "updated": 1609240097919,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Родительский узел определенного узла A - это узел, который был использован для создания A. Узлы автоматически привязываются к своему родительскому узлу. Не все узлы имеют родительский узел.",
+                "updated": 1640356692142
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
+                    "updated": 1640356700616
+                }
+            ]
         }
     ]
 }

@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "El nodo exchange markets agrupa las definiciones de mercados.",
                 "updated": 1628046005046
+            },
+            {
+                "language": "RU",
+                "text": "Узел Exchange Markets группирует определения рынков.",
+                "updated": 1638785082134
             }
         ]
     },
@@ -14,7 +19,14 @@
         {
             "style": "Text",
             "text": "There is no limit as of how many markets may be defined.",
-            "updated": 1609772386734
+            "updated": 1609772386734,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Нет никаких ограничений на то, сколько рынков может быть определено.",
+                    "updated": 1638785099199
+                }
+            ]
         }
     ]
 }

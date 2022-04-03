@@ -5,8 +5,19 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "Un live trading session es un modo de trading mediante el cual el trading bot lee instantáneamente una fuente de datos de mercado en vivo, aplica las reglas definidas en el  Trading System asociado, coloca las órdenes correspondientes en el exchange asociado y almacena los productos de datos definidos.",
-                "updated": 1624375128544
+                "text": "Una Live Trading Session es un modo de trading mediante el cual el trading bot lee instantáneamente una fuente de datos de mercado en timepo real, aplica las reglas definidas en el Trading System asociado, coloca las órdenes correspondientes en el exchange asociado y almacena los productos de datos definidos.",
+                "updated": 1641154754397,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Live Trading Session - это режим торговли, с помощью которого экземпляр торгового бота считывает поток рыночных данных в реальном времени, применяет правила, определенные в соответствующей торговой системе, размещает заданные ордера на соответствующей бирже и сохраняет определенные продукты данных.",
+                "updated": 1638950102673
+            },
+            {
+                "language": "TR",
+                "text": "Canlı ticaret oturumu, ticaret botu'nun bir canlı piyasa verisi beslemesini okuduğu, ilgili ticaret sisteminde tanımlanan kuralları uyguladığı, ilgili emirleri ilgili borsaya yerleştirdiği ve tanımlanan veri ürünlerini depoladığı bir ticaret modudur.",
+                "updated": 1639119865083
             }
         ]
     },
@@ -17,7 +28,19 @@
         },
         {
             "style": "Text",
-            "text": "A live trading session node must reference a trading system to gain access to the trading logic to be applied during the session. Other considerations framing the session come from the set of parameters attached to it."
+            "text": "A live trading session node must reference a trading system to gain access to the trading logic to be applied during the session. Other considerations framing the session come from the set of parameters attached to it.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узел реальной торговой сессии должен ссылаться на торговую систему, чтобы получить доступ к торговой логике, которая будет применяться во время сессии. Другие соображения, касающиеся сеанса, исходят из набора прикрепленных к нему параметров.",
+                    "updated": 1638603263054
+                },
+                {
+                    "language": "ES",
+                    "text": "Un nodo Live Trading Session debe hacer referencia a un Trading System para acceder a la lógica de trading que se aplicará durante la sesión. Otras consideraciones que enmarcan la sesión provienen del conjunto de parámetros que se le adjuntan.",
+                    "updated": 1641154898692
+                }
+            ]
         },
         {
             "style": "Include",
@@ -30,15 +53,52 @@
         },
         {
             "style": "Title",
-            "text": "Running Live Trading Session"
+            "text": "Running Live Trading Session",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Запуск Live Trading Session",
+                    "updated": 1638603273597
+                },
+                {
+                    "language": "ES",
+                    "text": "Ejecutando una Live Trading Session",
+                    "updated": 1641154916141
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Before you start a live trading session, the corresponding task needs to be running, as it is the task that puts the trading bot instance to run. Once the trading bot instance is running, select Run on the menu to start the session."
+            "text": "Before you start a live trading session, the corresponding task needs to be running, as it is the task that puts the trading bot instance to run. Once the trading bot instance is running, select Run on the menu to start the session.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Перед тем, как вы начнете торговую сессию в реальном времени, должна быть запущена соответствующая задача, поскольку именно эта задача запускает экземпляр торгового бота. После запуска экземпляра торгового бота выберите в меню пункт «Run», чтобы начать сеанс.",
+                    "updated": 1638603293221
+                },
+                {
+                    "language": "ES",
+                    "text": "Antes de iniciar una Live Trading Sesion, la tarea correspondiente debe estar en ejecución, ya que es la tarea que pone en marcha la instancia del bot de trading. Una vez que la instancia del bot de trading se esté ejecutando, seleccione \"Run\" en el menú para iniciar la sesión.",
+                    "updated": 1641154982020
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "To stop a backtesting session, select Stop on the menu."
+            "text": "To stop a live trading session, select Stop on the menu.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы остановить торговую сессию, выберите Stop в меню.",
+                    "updated": 1641834335471
+                },
+                {
+                    "language": "ES",
+                    "text": "Para detener una Live Trading Session , seleccione \"Stop\" en el menú.",
+                    "updated": 1641155284114
+                }
+            ],
+            "updated": 1641177920119
         },
         {
             "style": "Block",
@@ -48,17 +108,53 @@
         {
             "style": "Title",
             "text": "Live Trading Session Configuration",
-            "updated": 1609674010854
+            "updated": 1609674010854,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Live Trading Session",
+                    "updated": 1638603357530
+                },
+                {
+                    "language": "ES",
+                    "text": "Configuración de la Live Trading Session",
+                    "updated": 1641155347345
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609674018276
+            "updated": 1609674018276,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1638603364968
+                },
+                {
+                    "language": "ES",
+                    "text": "Propiedades",
+                    "updated": 1641155393289
+                }
+            ]
         },
         {
             "style": "List",
             "text": "folderName allows you to set a significant name to the folder in which the data products&mdash;and logs&mdash;generated by the session are stored. If left blank, the system names the folders with the session id. This may be handy when you intend to consult the raw data generated by the session, as, otherwise, the folder would be hard to identify.",
-            "updated": 1609674032582
+            "updated": 1609674032582,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "folderName позволяет вам задать значимое имя для папки, в которой хранятся продукты данных и журналы, созданные в ходе сеанса. Если оставить поле пустым, система присваивает папкам имена с идентификатором сеанса. Это может быть удобно, если вы собираетесь просмотреть необработанные данные, созданные в ходе сеанса, поскольку в противном случае папку будет сложно идентифицировать.",
+                    "updated": 1638603376863
+                },
+                {
+                    "language": "ES",
+                    "text": "folderName permite establecer un nombre apropiado para la carpeta en la que se almacenan los Data Products -y los Logs- generados por la sesión. Si se deja en blanco, el sistema nombra las carpetas con el id de la sesión. Esto puede ser útil cuando se pretende consultar los datos brutos generados por la sesión, ya que, de lo contrario, la carpeta sería difícil de identificar.",
+                    "updated": 1641155398185
+                }
+            ]
         }
     ]
 }

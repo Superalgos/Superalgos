@@ -5,8 +5,8 @@
     "definition": {
         "text": "To place a plugin in a workspace you must select the option to add the missing plugins on the node of the matching type!",
         "icon": {
-            "name": "Plugins\\plugin-trading-systems",
-            "project": "Foundations"
+            "name": "plugin-trading-systems",
+            "project": "Community-Plugins"
         },
         "updated": 1615925984822,
         "translations": [
@@ -21,6 +21,21 @@
                 "text": "Para colocar un plugin ien un workspace ¡debe seleccionar la opción para agregar los plugins que faltan en el nodo del tipo correspondiente!",
                 "updated": 1626643106064,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Um ein Plugin in einem Workspace zu platzieren, müssen Sie die Option wählen, die fehlenden Plugins auf dem Knoten des passenden Typs hinzuzufügen!",
+                "updated": 1634588716948
+            },
+            {
+                "language": "TR",
+                "text": "Bir çalışma alanına bir eklenti yerleştirmek için, Add The Missing Plugins seçeneğini seçmelisiniz!",
+                "updated": 1639813267037
+            },
+            {
+                "language": "RU",
+                "text": "Чтобы поместить плагин в рабочее пространство, необходимо выбрать опцию Add the Missing Plugins на узле соответствующего типа!",
+                "updated": 1640873740630
             }
         ]
     },
@@ -41,6 +56,21 @@
                     "text": "¡Intentémoslo! ¡Selecciona Add Missing Trading Systems en el nodo Plugin Trading Systems!",
                     "updated": 1626643167865,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Probieren wir es aus! Wählen Sie Add Missing Trading Systems im Knoten Plugin Trading Systems!",
+                    "updated": 1634588730509
+                },
+                {
+                    "language": "TR",
+                    "text": "Plugin Trading System düğümünde Add Missing Trading System'ı  seçin!",
+                    "updated": 1639815783798
+                },
+                {
+                    "language": "RU",
+                    "text": "Давайте попробуем! Выберите Add Missing Trading Systems в узле Plugin Trading Systems!",
+                    "updated": 1640873761062
                 }
             ]
         },
@@ -57,9 +87,24 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Nuevos nodos Plugin File se crean para cada plugin in \\Plugins\\Trading-Systems. Puede eliminar los nodos Plugin File no necesitas y conserva los que necesites! Luego, puedes agregar y anclar el nodo Plugin File Position donde deseas colocar el plugin.",
-                    "updated": 1626643680169,
+                    "text": "Nuevos nodos Plugin File se crean para cada plugin in \\Foundations\\Plugins\\Trading-Systems. Puede eliminar los nodos Plugin File que no necesita y conservar los que necesite! Luego, puedes agregar y anclar el nodo Plugin File Position donde deseas colocar la jerarquía del plugin.  ",
+                    "updated": 1633282144023,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Für jedes Plugin in \\Foundations\\Plugins\\Trading-Systems werden neue Plugin File Knoten erstellt. Sie können die Plugin File Knoten, die Sie nicht benötigen, löschen und die gewünschten behalten! Fügen Sie nun den Knoten Plugin File Position hinzu und heften Sie ihn an die Stelle, an der Sie die Plugin Hierarchie platzieren möchten!",
+                    "updated": 1634588766367
+                },
+                {
+                    "language": "TR",
+                    "text": "Her eklenti için \\Foundations\\Plugins\\Trading-Systems dizininde Plugin Files dosyası oluşturulur.İhtiyacınız olmayan Plugin File düğümlerini silebilir ve istediklerinizi saklayabilirsiniz! Şimdi herhangi bir Plugin File düğümünü genişletin, Plugin File Position düğümünü eklentiyi yerleştirmek istediğiniz yere sürükleyerek sabitleyin",
+                    "updated": 1639816060254
+                },
+                {
+                    "language": "RU",
+                    "text": "Новые узлы Plugin File создаются для каждого плагина в \\Foundations\\Plugins\\Trading-Systems. Вы можете удалить ненужные вам узлы Plugin File и оставить те, которые вам нужны! Теперь добавьте и закрепите узел Plugin File Position там, где вы хотите разместить иерархию плагинов!",
+                    "updated": 1640873789742
                 }
             ]
         },
@@ -79,6 +124,21 @@
                     "text": "Plugins se agregarán la próxima vez que cargue el workspace. Si deseas probarlo, ¡actualiza!",
                     "updated": 1626643436449,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Plugins werden hinzugefügt, wenn Sie den Workspace das nächste Mal laden! Wenn Sie sie testen wollen, aktualisieren Sie!",
+                    "updated": 1634588775070
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışma alanını bir sonraki yüklediğinizde Plugin eklenecektir! Test etmek istiyorsanız, sayfayı yenileyin!",
+                    "updated": 1639816105489
+                },
+                {
+                    "language": "RU",
+                    "text": "Плагины будут добавлены при следующей загрузке рабочего пространства! Если вы хотите протестировать его, обновите страницу!",
+                    "updated": 1640873813342
                 }
             ]
         }

@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "A plotter panel generalmente muestra representaciones numéricas de datos sobre los gráficos en una pequeña ventana o panel. El nodo plotter panel presenta definiciones para hacerlo posible.",
                 "updated": 1624410820906
+            },
+            {
+                "language": "RU",
+                "text": "Панель плоттера обычно отображает числовые представления данных на диаграммах в небольшом окне или панели. Узел панели плоттера содержит определения, позволяющие это сделать.",
+                "updated": 1636566746211
             }
         ]
     },

@@ -1,0 +1,194 @@
+{
+    "type": "Trading System",
+    "definition": {
+        "text": "A trading system is a framework handling the low-level logic that serves to structure the processes and methods used to implement and deploy trading strategies.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Un trading system es un marco que maneja la lógica de bajo nivel que sirve para estructurar los procesos y métodos utilizados para implementar y desplegar estrategias de trading.",
+                "updated": 1624375355452
+            },
+            {
+                "language": "RU",
+                "text": "Trading System - это структура, управляющая логикой низкого уровня, которая служит для структурирования процессов и методов, используемых для реализации и развертывания торговых стратегий.",
+                "updated": 1638338041020
+            },
+            {
+                "language": "DE",
+                "text": "Ein Handelssystem ist ein Framework, der die Low-Level-Logik handhabt, die dazu dient, die Prozesse und Methoden zu strukturieren, die zur Umsetzung und Anwendung von trading strategies verwendet werden.",
+                "updated": 1636658948319
+            },
+            {
+                "language": "TR",
+                "text": "Bir ticaret sistemi, ticaret stratejilerini uygulamak ve dağıtmak için kullanılan süreçleri ve yöntemleri yapılandırmaya hizmet eden düşük seviyeli mantığı işleyen bir sistemdir.",
+                "updated": 1639144651527
+            },
+            {
+                "language": "EL",
+                "text": "Ένα σύστημα συναλλαγών είναι ένα πλαίσιο που χειρίζεται τη λογική θεμελιώδους επιπέδου που χρησιμεύει στη δομή των διαδικασιών και των μεθόδων που χρησιμοποιούνται για την εφαρμογή και την ανάπτυξη στρατηγικής συναλλαγών.",
+                "updated": 1641827933473
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "In practical terms, a trading system is a hierarchical arrangement organizing the actionable aspects of your investment plan. The hierarchy contains definitions regarding any number of trading strategies, all operating on the same market and sharing the same initial capital allocation.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "En términos prácticos, un Trading System es una disposición jerárquica que organiza los aspectos procesables de su plan de inversión. Esta jerarquía contiene definiciones respecto a un sinnúmero de estrategias de trading, todas operando en el mismo mercado y compartiendo la misma asignación de capital inicial.",
+                    "updated": 1637880963165
+                },
+                {
+                    "language": "RU",
+                    "text": "С практической точки зрения торговая система - это иерархическая структура, организующая практические аспекты вашего инвестиционного плана. Иерархия содержит определения относительно любого количества торговых стратегий, работающих на одном рынке и имеющих одинаковое начальное распределение капитала.",
+                    "updated": 1638338066276
+                },
+                {
+                    "language": "TR",
+                    "text": "Pratik anlamda, bir ticaret sistemi, yatırım planınızın uygulanabilir yönlerini düzenleyen hiyerarşik bir düzenlemedir. Hiyerarşi, tümü aynı piyasada faaliyet gösteren ve aynı başlangıç sermaye tahsisini paylaşan herhangi bir sayıda ticaret stratejisine ilişkin tanımları içerir.",
+                    "updated": 1642513001705
+                },
+                {
+                    "language": "EL",
+                    "text": "Πρακτικά, ένα σύστημα συναλλαγών είναι μια ιεραρχική ρύθμιση που οργανώνει τις δραστικές πτυχές του επενδυτικού σας σχεδίου. Η ιεραρχία περιέχει ορισμούς σχετικά με οποιονδήποτε αριθμό στρατηγικής συναλλαγών, όλες λειτουργούν στην ίδια αγορά και μοιράζονται την ίδια αρχική κατανομή κεφαλαίου.",
+                    "updated": 164182796164
+                },
+                {
+                    "language": "DE",
+                    "text": "In der Praxis ist ein Handelssystem eine hierarchische Anordnung, die die umsetzbaren Aspekte Ihres Investitionsplans organisiert. Die Hierarchie enthält Definitionen für eine beliebige Anzahl von Handelsstrategien, die alle auf demselben Markt operieren und dieselbe anfängliche Kapitalzuweisung teilen.",
+                    "updated": 1641657276395
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "You use a trading system to define strategies following the Superalgos Protocol, splitting strategies into four stages: trigger, open, manage, and close.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Se utiliza un Trading System para definir estrategias acorde al protocolo de Superalgos, dividiendo a éstas en cuatro etapas: activación, apertura, gestión y cierre.",
+                    "updated": 1637880976135
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы используете торговую систему для определения стратегий, следуя протоколу Superalgos, разбивая стратегии на четыре стадии (этапа, ступени, фазы): срабатывание, открытие, управление и закрытие.",
+                    "updated": 1640191081570
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos Protokolünü takip eden stratejileri tanımlamak, stratejileri dört aşamaya ayırmak için bir ticaret sistemi kullanırsınız. Bu aşamalar  Trigger, Open, Manage, and Close aşamalarıdır..",
+                    "updated": 1642513118816
+                },
+                {
+                    "language": "EL",
+                    "text": "Χρησιμοποιείτε ένα σύστημα συναλλαγών για να ορίσετε στρατηγικές ακολουθώντας το Πρωτόκολλο Superalgos, χωρίζοντας τις στρατηγικές σε τέσσερα στάδια: ενεργοποίηση, άνοιγμα, διαχείριση και κλείσιμο.",
+                    "updated": 1641827976391
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie verwenden ein Handelssystem, um Strategien nach dem Superalgos-Protokoll zu definieren, das die Strategien in vier Phasen unterteilt: Auslösen (trigger), Öffnen (open), Verwalten (manage) und Schließen (close).",
+                    "updated": 1641657258431
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The concept of describing strategies in stages is fundamental to the methodical aspect of the trading system, as it provides a framework to run every strategy with the same framework, which contributes to developing scalable trading systems that may grow to any number of strategies.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El concepto de describir estrategias en etapas es fundamental para el aspecto metódico del Trading System, ya que provee la infraestructura necesaria para ejecutar cualquier estrategia con la misma infraestructura. Esto contribuye a desarrollar Trading Systems escalables, que pueden alcanzar innumerable cantidad de estrategias.",
+                    "updated": 1637880986625
+                },
+                {
+                    "language": "RU",
+                    "text": "Концепция поэтапного описания стратегий является фундаментальной для методического аспекта торговой системы, поскольку она обеспечивает основу для запуска каждой стратегии с одной и той же структурой, что способствует разработке масштабируемых торговых систем, которые могут расширяться до любого количества стратегий.",
+                    "updated": 1638338107057
+                },
+                {
+                    "language": "TR",
+                    "text": "Stratejileri aşamalar halinde tanımlama kavramı, her stratejiyi aynı çerçeve ile yürütmek için bir çerçeve sağladığından ve herhangi bir sayıda stratejiye dönüşebilecek ölçeklenebilir ticaret sistemlerinin geliştirilmesine katkıda bulunduğundan, ticaret sisteminin metodik yönü için esastır.",
+                    "updated": 1642513147547
+                },
+                {
+                    "language": "EL",
+                    "text": "Η ιδέα της περιγραφής των στρατηγικών σταδιακά είναι θεμελιώδης για τη μεθοδική πτυχή του συστήματος συναλλαγών, καθώς παρέχει ένα πλαίσιο για την εκτέλεση κάθε στρατηγικής με το ίδιο πλαίσιο, το οποίο συμβάλλει στην ανάπτυξη κλιμακούμενων συστημάτων συναλλαγών που μπορούν να αναπτυχθούν σε οποιονδήποτε αριθμό στρατηγικών.",
+                    "updated": 1641828013314
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Konzept der stufenweisen Beschreibung von Strategien ist für den methodischen Aspekt des Handelssystems von grundlegender Bedeutung, da es einen Rahmen bietet, um jede Strategie mit demselben Rahmen auszuführen, was zur Entwicklung skalierbarer Handelssysteme beiträgt, die auf eine beliebige Anzahl von Strategien anwachsen können.",
+                    "updated": 1641657292077
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "When a trading system features more than one strategy, the first strategy has precedence over the second, the second over the third, and so on. This means that strategies are evaluated in a sequence. When a given strategy is triggered-on, the remaining strategies in the queue are no longer evaluated until the strategy triggers off. In other words, when multiple strategies are deployed within a single trading system, only one strategy may trade at any given moment, and precedence is given by the order around the trading system node.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Cuando un Trading System ofrece más de una estrategia, la primera estrategia tiene prioridad sobre la segunda, la segunda sobre la tercera, y así sucesivamente. Esto significa que las estrategias son analizadas de manera secuencial. Cuando una estrategia dada es activada, las estrategias restantes no serán analizadas hasta que ésta se desactive. En otras palabras, cuando se implementan múltiples estrategias bajo un único Trading System, solo una estrategia puede operar en un momento dado, y la prioridad está dada por el orden especificado en el Nodo del Trading System.",
+                    "updated": 1637881003253
+                },
+                {
+                    "language": "RU",
+                    "text": "Когда торговая система использует более одной стратегии, первая стратегия имеет приоритет над второй, вторая над третьей и так далее. Это означает, что стратегии оцениваются последовательно. Когда данная стратегия срабатывает, оставшиеся в очереди стратегии больше не оцениваются, пока стратегия не сработает. Другими словами, когда несколько стратегий развернуты в одной торговой системе, только одна стратегия может торговать в любой момент времени, а приоритет отдается порядку, установленному вокруг узла торговой системы.",
+                    "updated": 1638338139127
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir ticaret sistemi birden fazla stratejiye sahip olduğunda, birinci strateji ikinciye, ikinci strateji üçüncüye göre önceliğe sahiptir ve bu böyle devam eder. Bu, stratejilerin bir sırayla değerlendirildiği anlamına gelir. Belirli bir strateji tetiklendiğinde, kuyrukta kalan stratejiler, strateji tetiklenene kadar artık değerlendirilmez. Başka bir deyişle, tek bir ticaret sistemi içinde birden fazla strateji konuşlandırıldığında, herhangi bir anda yalnızca bir strateji ticaret yapabilir ve ticaret sistemi düğümü etrafındaki sipariş tarafından öncelik verilir.",
+                    "updated": 1642513191527
+                },
+                {
+                    "language": "EL",
+                    "text": "Όταν ένα σύστημα συναλλαγών διαθέτει περισσότερες από μία στρατηγικές, η πρώτη στρατηγική έχει προτεραιότητα έναντι της δεύτερης, η δεύτερη έναντι της τρίτης και ούτω καθεξής. Αυτό σημαίνει ότι οι στρατηγικές αξιολογούνται με μια σειρά. Όταν μια δεδομένη στρατηγική ενεργοποιείται, οι υπόλοιπες στρατηγικές στην ουρά δεν αξιολογούνται πλέον μέχρι να ενεργοποιηθεί η στρατηγική. Με άλλα λόγια, όταν αναπτύσσονται πολλαπλές στρατηγικές σε ένα μόνο σύστημα συναλλαγών, μόνο μία στρατηγική μπορεί να διαπραγματεύεται κάθε δεδομένη στιγμή και η προτεραιότητα δίνεται από τη σειρά γύρω από τον κόμβο του συστήματος συναλλαγών.",
+                    "updated": 1641828042117
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn ein Handelssystem mehr als eine Strategie enthält, hat die erste Strategie Vorrang vor der zweiten, die zweite vor der dritten und so weiter. Dies bedeutet, dass die Strategien in einer bestimmten Reihenfolge ausgewertet werden. Wenn eine bestimmte Strategie ausgelöst wird, werden die übrigen Strategien in der Warteschlange nicht mehr ausgewertet, bis die Strategie ausgelöst wird. Mit anderen Worten: Wenn mehrere Strategien in einem einzigen Handelssystem eingesetzt werden, kann zu einem bestimmten Zeitpunkt nur eine Strategie gehandelt werden, und der Vorrang ergibt sich aus der Reihenfolge um den Knoten des Handelssystems.",
+                    "updated": 1641657320329
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "As a corollary to the above, if you wish strategies to operate in different markets, or you wish strategies to be able to take positions simultaneously, then you must set up those strategies in different trading systems.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Como complemento a lo anterior, si se desea configurar estrategias que operen sobre diferentes mercados, o estrategias que tengan la posibilidad de abrir posiciones de forma simultánea, entonces se las deberá configurar bajo Trading Systems distintos.",
+                    "updated": 1637881023208
+                },
+                {
+                    "language": "RU",
+                    "text": "Как следствие вышесказанного, если вы хотите, чтобы стратегии работали на разных рынках, или вы хотите, чтобы стратегии могли открывать позиции одновременно, вы должны настроить эти стратегии в разных торговых системах.",
+                    "updated": 1638338156830
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarıdakilerin bir sonucu olarak, stratejilerin farklı pazarlarda işlemesini veya stratejilerin aynı anda pozisyon alabilmesini istiyorsanız, bu stratejileri farklı ticaret sistemlerinde kurmalısınız.",
+                    "updated": 1642513209866
+                },
+                {
+                    "language": "EL",
+                    "text": "Ως συνέπεια των παραπάνω, εάν επιθυμείτε οι στρατηγικές να λειτουργούν σε διαφορετικές αγορές ή θέλετε οι στρατηγικές να μπορούν να λαμβάνουν θέσεις ταυτόχρονα, τότε πρέπει να ρυθμίσετε αυτές τις στρατηγικές σε διαφορετικά συστήματα συναλλαγών.",
+                    "updated": 1641828054664
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie also möchten, dass Strategien auf verschiedenen Märkten operieren oder gleichzeitig Positionen eingehen können, müssen Sie diese Strategien in verschiedenen Handelssystemen einrichten.",
+                    "updated": 1641657362414
+                }
+            ]
+        }
+    ]
+}

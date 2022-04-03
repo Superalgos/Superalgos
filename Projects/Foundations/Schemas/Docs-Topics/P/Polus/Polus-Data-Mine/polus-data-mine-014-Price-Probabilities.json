@@ -1,0 +1,62 @@
+{
+    "topic": "Polus Data Mine",
+    "pageNumber": "14",
+    "type": "Price Probabilities",
+    "definition": {
+        "text": "This is an indicator that uses Exponential Moving Average (EMA) and Average True Range (ATR) to provide probability bands around the price action based on standard deviations."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Price Probabilities on the Charts:"
+        },    
+		{
+            "style": "Text",
+            "text": "The produced probability bands are not unlike bollinger bands in which they show the volatility level in the price action."
+        },
+		{
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-Price-Probabilities.png"
+        },
+		{
+            "style": "Text",
+            "text": "The length of the ATR and the period of the EMA can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \u2019Price probabilities\u2019 Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-Price-Probabilities-params.png"
+        },
+		{
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Price probabilities | PPB | l1, l30, h1, h30, l01, l02, h01, h02 |"
+        },
+		{
+            "style": "Text",
+            "text": "Example:"
+        },
+		{
+            "style": "Text",
+            "text": "Examples of accessing this indicator can be found below:"
+        },
+		{
+            "style": "Javascript",
+            "text": "chart.at02hs.PPB.l1 \nchart.at10min.PPB.l30 \nchart.at04hs.PPB.h30 \nchart.at45min.PPB.h02"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@ThomasHuault (Telegram)->t.me/ThomasHuault"
+        }
+    ]
+}

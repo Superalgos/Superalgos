@@ -21,6 +21,21 @@
                 "text": "¡Te daré algunos consejos sobre cómo editar la página! Haga clic derecho en un párrafo para obtener el menú de estilos. El lápiz inicia el modo de edición ...",
                 "updated": 1628189538173,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Ich gebe Ihnen ein paar Tipps, wie Sie die Seite bearbeiten können! Klicken Sie mit der rechten Maustaste auf einen Absatz, um das Menü Stile aufzurufen. Der Bleistift startet den Bearbeitungsmodus...",
+                "updated": 1635149071490
+            },
+            {
+                "language": "RU",
+                "text": "Я дам вам несколько советов по редактированию страницы! Щелкните правой кнопкой мыши на абзаце, чтобы вызвать меню стилей. Карандаш запускает режим редактирования...",
+                "updated": 1640161520306
+            },
+            {
+                "language": "TR",
+                "text": "Sayfayı nasıl düzenleyeceğiniz konusunda size birkaç ipucu vereceğim! Stiller menüsünü görüğntülemek için bir paragrafa sağ tıklayın. Kalem simgesi düzenleme modunu başlatır...",
+                "updated": 1640610406161
             }
         ]
     },
@@ -35,6 +50,21 @@
                     "text": "Esto es un H1... H2 es mas pequeño!",
                     "updated": 1628189607019,
                     "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "Dies ist eine H1 Überschrift... H2 ist kleiner!",
+                    "updated": 1635149095321
+                },
+                {
+                    "language": "RU",
+                    "text": "Это H1... H2 меньше!",
+                    "updated": 1640161612660
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu başlık bir H1... H2 daha küçüktür!",
+                    "updated": 1640610460431
                 }
             ]
         },
@@ -48,6 +78,21 @@
                     "text": "Ab|: crea elenchi puntati come questo!",
                     "updated": 1619636137132,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ab|: erstellt Aufzählungslisten wie diese hier!",
+                    "updated": 1635149117453
+                },
+                {
+                    "language": "RU",
+                    "text": "Ab|: создавайте списки, подобные этому!",
+                    "updated": 1640161624921
+                },
+                {
+                    "language": "TR",
+                    "text": "Ab|: Bunun gibi madde işareti listeleri oluşturur!",
+                    "updated": 1640610448673
                 }
             ]
         },
@@ -67,6 +112,21 @@
                     "text": "La cuarta columna presenta notas (como esta), junto con consejos, recuadros importantes y de advertencia.",
                     "updated": 1628189734281,
                     "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die vierte Spalte enthält Notizen (wie diese hier), sowie Tipps, wichtige und Warnhinweise.",
+                    "updated": 1635149125740
+                },
+                {
+                    "language": "RU",
+                    "text": "В четвертой колонке размещаются примечания (как, например, в этой), а также советы, важные и предупреждающие поля.",
+                    "updated": 1640161643056
+                },
+                {
+                    "language": "TR",
+                    "text": "Dördüncü simge, ipuçları, önemli ve uyarı kutuları ile birlikte notları (bunun gibi) içerir.",
+                    "updated": 1640610502107
                 }
             ]
         },
@@ -80,6 +140,16 @@
                     "text": "Utiliza JS para agregar código === \"¡diseñado por prisma!\"",
                     "updated": 1628189857508,
                     "style": "Javascript"
+                },
+                {
+                    "language": "DE",
+                    "text": "Verwenden Sie JS um Code hinzuzufügen === \"styled by prism!\"",
+                    "updated": 1635149192282
+                },
+                {
+                    "language": "RU",
+                    "text": "Используйте JS для добавления кода === \"styled by prism!\"",
+                    "updated": 1640161702527
                 }
             ]
         },
@@ -99,6 +169,21 @@
                     "text": "Abc| convierte el párrafo en texto sin formato. ¡Eso debería ser suficiente para que tu reseña se vea genial! ¡Explicaré el resto del menú más adelante!",
                     "updated": 1628189894586,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Abc| verwandelt den Absatz wieder in reinen Text. Das sollte ausreichen, um Ihre Rezension großartig aussehen zu lassen! Den Rest des Menüs erkläre ich zu einem späteren Zeitpunkt!",
+                    "updated": 1635149165714
+                },
+                {
+                    "language": "RU",
+                    "text": "Abc| превращает абзац обратно в обычный текст. Этого должно быть достаточно, чтобы ваш обзор выглядел великолепно! Остальное меню я объясню позже!",
+                    "updated": 1640161675024
+                },
+                {
+                    "language": "TR",
+                    "text": "Abc| paragrafı düz metne döndürür. İncelemenizin harika görünmesi için bu yeterli olmalı! Menünün geri kalanını daha sonra açıklayacağım!",
+                    "updated": 1640610795195
                 }
             ]
         }

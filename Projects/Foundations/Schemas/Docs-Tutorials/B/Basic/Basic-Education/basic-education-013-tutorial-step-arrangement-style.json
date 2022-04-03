@@ -21,6 +21,26 @@
                 "text": "El botón recorre varias opciones de disposición que afectan la ubicación de un nodo en relación con su padre.",
                 "updated": 1625958297786,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Die Schaltfläche schaltet zwischen verschiedenen Anordnungsoptionen um, die sich darauf auswirken, wo ein Knoten im Verhältnis zu seinem übergeordneten Knoten platziert wird.",
+                "updated": 1634332853777
+            },
+            {
+                "language": "TR",
+                "text": "Bu düğme, düğümün üst öğesiyle ilişkili olarak nereye yerleştirileceğini etkileyen çeşitli düzenleme seçenekleri arasında geçiş yapar.",
+                "updated": 1636752213924
+            },
+            {
+                "language": "RU",
+                "text": "Кнопка переключает несколько вариантов расположения, которые влияют на расположение узла по отношению к его родителю.",
+                "updated": 1640866906072
+            },
+            {
+                "language": "ID",
+                "text": "Tombol cycles melalui beberapa opsi arrangement  yang mempengaruhi di mana sebuah node ditempatkan dalam kaitannya dengan parentnya.",
+                "updated": 1643472768208
             }
         ]
     },
@@ -41,6 +61,26 @@
                     "text": "El punto naranja representa el nodo principal y los puntos azules representan el nodo que adopta el estilo de disposición específico.",
                     "updated": 1626038309258,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "In der Zeichnung stellt der orangefarbene Punkt den übergeordneten Knoten dar, und die blauen Punkte repräsentieren den Knoten, der den spezifischen Anordnungsstil annimmt.",
+                    "updated": 1634332860892
+                },
+                {
+                    "language": "TR",
+                    "text": "Çizimde turuncu nokta üst düğümü, mavi noktalar ise belirli düzenleme stilini benimseyen düğümü temsil eder.",
+                    "updated": 1636752246374
+                },
+                {
+                    "language": "RU",
+                    "text": "На рисунке оранжевая точка представляет родительский узел, а синие точки - узел, принимающий определенный стиль расположения.",
+                    "updated": 1640866922356
+                },
+                {
+                    "language": "ID",
+                    "text": "Dalam pengaplikasiannya, bulatan oren merepresentasikan node parent, dan bulatan biru adalah node yang mengadopsi gaya arrangement secara spesifik.",
+                    "updated": 1643473102846
                 }
             ]
         },
@@ -60,6 +100,26 @@
                     "text": "Concave: El nodo adopta una ranura en una circunferencia alrededor de su nodo principal.",
                     "updated": 1626038471028,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Konkav: Dies ist der Standardstil. Der Knoten nimmt einen Platz auf einem Kreis um seinen übergeordneten Knoten ein.",
+                    "updated": 1634332870561
+                },
+                {
+                    "language": "TR",
+                    "text": "İçbükey: Bu, varsayılan stildir. Düğüm, üst düğümünün etrafındaki bir çevre üzerinde konumlanır",
+                    "updated": 1636752350927
+                },
+                {
+                    "language": "RU",
+                    "text": "Concave: Это стиль по умолчанию. Узел принимает паз по окружности вокруг своего родительского узла.",
+                    "updated": 1640866971076
+                },
+                {
+                    "language": "ID",
+                    "text": "Concave: Ini adalah gaya default. Node mengadopsi slot pada keliling di sekitar node parent-nya.",
+                    "updated": 1643473091231
                 }
             ]
         },
@@ -79,6 +139,26 @@
                     "text": "Convex: La ranura está en una curva convexa.",
                     "updated": 1625958342457,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Konvex: Der Schlitz befindet sich auf einer konvexen Kurve.",
+                    "updated": 1634332885678
+                },
+                {
+                    "language": "TR",
+                    "text": "Dışbükey: Yuva dışbükey bir eğri üzerinde konumlanır.",
+                    "updated": 1636752424282
+                },
+                {
+                    "language": "RU",
+                    "text": "Convex: Слот находится на выпуклой кривой.",
+                    "updated": 1640866983469
+                },
+                {
+                    "language": "ID",
+                    "text": "Convex: Slot berada pada kurva cembung.",
+                    "updated": 1643473130882
                 }
             ]
         },
@@ -98,6 +178,26 @@
                     "text": "Vertical-Right: Sobre una línea vertical a la derecha.",
                     "updated": 1625958412828,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Vertikal-Rechts: Auf einer vertikalen Linie nach rechts.",
+                    "updated": 1634332895278
+                },
+                {
+                    "language": "TR",
+                    "text": "Dikey-Sağ: Sağa dikey bir çizgi üzerinde konumlanır.",
+                    "updated": 1636752436742
+                },
+                {
+                    "language": "RU",
+                    "text": "Vertical-Right: По вертикальной линии справа.",
+                    "updated": 1640867049669
+                },
+                {
+                    "language": "ID",
+                    "text": "Vertical-Right: Pada garis vertikal ke kanan.",
+                    "updated": 1643473152602
                 }
             ]
         },
@@ -117,6 +217,26 @@
                     "text": "Vertical-Left: La ranura está en una línea vertical a la izquierda.",
                     "updated": 1625958432042,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Vertikal-Links: Der Schlitz befindet sich auf einer vertikalen Linie nach links.",
+                    "updated": 1634332902630
+                },
+                {
+                    "language": "TR",
+                    "text": "Dikey-Sol: Yuva, sola doğru dikey bir çizgi üzerinde konumlanır.",
+                    "updated": 1636752467099
+                },
+                {
+                    "language": "RU",
+                    "text": "Vertical-Left: Слот располагается на вертикальной линии слева.",
+                    "updated": 1640867062310
+                },
+                {
+                    "language": "ID",
+                    "text": "Vertical-Left: Slot berada pada garis vertikal ke kiri.",
+                    "updated": 1643473174943
                 }
             ]
         },
@@ -136,6 +256,26 @@
                     "text": "Horizontal-Bottom: En una línea horizontal debajo.",
                     "updated": 1625958446725,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Horizontal-unten: Auf einer horizontalen Linie nach unten.",
+                    "updated": 1634332909056
+                },
+                {
+                    "language": "TR",
+                    "text": "Yatay-Alt: Aşağıda yatay bir çizgi üzerinde konumlanır.",
+                    "updated": 1636752488032
+                },
+                {
+                    "language": "RU",
+                    "text": "Horizontal-Bottom: По горизонтальной линии внизу.",
+                    "updated": 1640867121955
+                },
+                {
+                    "language": "ID",
+                    "text": "Horizontal-Bottom: Pada garis horizontal ke bawah ini.",
+                    "updated": 1643473208313
                 }
             ]
         },
@@ -155,6 +295,26 @@
                     "text": "Horizontal-Top: La ranura está en una línea horizontal arriba.",
                     "updated": 1625958461412,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Horizontal-Oben: Der Schlitz befindet sich auf einer horizontalen Linie oben.",
+                    "updated": 1634332915541
+                },
+                {
+                    "language": "TR",
+                    "text": "Yatay-Üst: Yuva, yukarıda yatay bir çizgi üzerinde konumlanır.",
+                    "updated": 1636752516000
+                },
+                {
+                    "language": "RU",
+                    "text": "Horizontal-Top: слот находится по горизонтальной линии вверху.",
+                    "updated": 1640867146157
+                },
+                {
+                    "language": "ID",
+                    "text": "Horizontal-Top: Slot berada pada garis horizontal di atas.",
+                    "updated": 1643473234697
                 }
             ]
         },

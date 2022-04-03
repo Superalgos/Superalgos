@@ -1,7 +1,14 @@
 {
     "type": "Order Name",
     "definition": {
-        "text": "Order name is the name of the order as specified in the trading system."
+        "text": "Order name is the name of the order as specified in the trading system.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Order Name - это название ордера, указанное в торговой системе.",
+                "updated": 1640351268959
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,7 +17,14 @@
         },
         {
             "style": "Text",
-            "text": "Assigning names to orders in the definition of the trading system makes tracking the execution of orders easier."
+            "text": "Assigning names to orders in the definition of the trading system makes tracking the execution of orders easier.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Присвоение имен ордерам в определении торговой системы облегчает отслеживание исполнения ордеров.",
+                    "updated": 1640351285197
+                }
+            ]
         },
         {
             "style": "Block",
@@ -20,17 +34,38 @@
         {
             "style": "Title",
             "text": "Order Name Configuration",
-            "updated": 1609927166835
+            "updated": 1609927166835,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Order Name",
+                    "updated": 1640351298627
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609873980538
+            "updated": 1609873980538,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1640351305114
+                }
+            ]
         },
         {
             "style": "List",
             "text": "initialValue allows resetting the initial state of the node to an arbitrary value.",
-            "updated": 1609875415147
+            "updated": 1609875415147,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
+                    "updated": 1640351313836
+                }
+            ]
         }
     ]
 }

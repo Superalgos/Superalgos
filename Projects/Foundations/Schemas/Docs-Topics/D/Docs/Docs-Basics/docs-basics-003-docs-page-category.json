@@ -3,8 +3,8 @@
     "pageNumber": 3,
     "type": "Docs Page Category",
     "definition": {
-        "text": "The Docs feature six categories of pages: Node, Concept, Topic, Tutorial, Review, and Book. Each category is represented by a tab in the Docs Search Results.",
-        "updated": 1616876130108,
+        "text": "The Docs feature seven categories of pages: Node, Concept, Topic, Tutorial, Review,Book and Workspace. Each category is represented by a tab in the Docs Search Results.",
+        "updated": 1642711625422,
         "translations": [
             {
                 "language": "ID",
@@ -15,7 +15,24 @@
             {
                 "language": "ES",
                 "text": "Los documentos cuentan con seis categorías de páginas: Node, Concept, Topic, Tutorial, Review, y Book. Cada categoría está representada por una pestaña en los resultados de la búsqueda de Documentos.",
-                "updated": 1628205085106
+                "updated": 1628205085106,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Die Docs enthalten sechs Kategorien von Seiten: Node, Concept, Topic, Tutorial, Review, Book und Workspace. Jede Kategorie wird durch eine Registerkarte in den Docs-Suchergebnissen dargestellt.",
+                "updated": 1642718416492,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Документы содержат шесть категорий страниц: Node, Concept, Topic, Tutorial, Review, and Book. Каждая категория представлена ​​вкладкой в ​​результатах поиска документов.",
+                "updated": 1638458497233
+            },
+            {
+                "language": "TR",
+                "text": "Dokümanlar altı sayfa kategorisinde toplanmıştır: Düğüm ( Node ), Kavram ( Concept ), Konu ( Topic ), Eğitim ( Tutorial ), İnceleme ( Review ) ve Kitap ( Book ). Her kategori, Dokümanlar Arama Sonuçlarında bir sekme ile gösterilir.",
+                "updated": 1640610203305
             }
         ]
     },
@@ -34,6 +51,17 @@
                     "text": "Kategori Halaman Node ",
                     "updated": 1613859587112,
                     "style": "Title"
+                },
+                {
+                    "language": "DE",
+                    "text": "Node Seiten-Kategorie",
+                    "updated": 1633857256015,
+                    "style": "Title"
+                },
+                {
+                    "language": "RU",
+                    "text": "Категория Node",
+                    "updated": 1638458808149
                 }
             ]
         },
@@ -46,6 +74,17 @@
                     "text": "Setiap Node ditentukan dalam konteks Project yang menampilkan Docs Node Page yang menjelaskan apa itu Node dan bagaimana penggunaannya. Halaman ini akan terbuka saat mengklik tombol bantuan di menu node.",
                     "updated": 1613859807031,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Jede Node, die im Kontext eines Project (Projekts) definiert ist, verfügt über eine Docs Node Page, die erklärt, was die Node ist und wie sie verwendet wird. Diese Seite wird geöffnet, wenn Sie auf die Schaltfläche \"help\" im Menü des Knotens klicken.",
+                    "updated": 1633806392260,
+                    "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Каждый узел Node, определенный в контексте проекта Project, имеет страницу Docs Node Page, объясняющую, что это за узел и как он используется. Это страница, которая открывается при нажатии кнопки справки в меню узла.",
+                    "updated": 1638458755616
                 }
             ]
         },
@@ -58,6 +97,17 @@
                     "text": "Kategori Halaman Concept",
                     "updated": 1613859855103,
                     "style": "Title"
+                },
+                {
+                    "language": "DE",
+                    "text": "Concept Seiten-Kategorie",
+                    "updated": 1633857303758,
+                    "style": "Title"
+                },
+                {
+                    "language": "RU",
+                    "text": "Категория Concept",
+                    "updated": 1638458826439
                 }
             ]
         },
@@ -70,6 +120,17 @@
                     "text": "Konseps adalah pemikiran atau gagasan yang tidak direpresentasikan sebagai node dalam hierarcy. Halaman dalam kategori konsep mencakup pemikiran atau gagasan yang dapat dijelaskan dalam satu halaman. Intinya, konsep adalah gagasan yang dapat dibahas secara lengkap dalam satu halaman.",
                     "updated": 1613860012881,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Concepts (Konzepte) sind Begriffe oder Ideen, die nicht als Knotenpunkte in einer Hierarchie dargestellt werden. Die Seiten in der Kategorie \"Concept\" behandeln Begriffe oder Ideen, die auf einer einzigen Seite erklärt werden können. Das heißt, Konzepte sind Begriffe, die auf einer einzigen Seite ausreichend behandelt werden können.",
+                    "updated": 1633856673559,
+                    "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Концепции - это понятия или идеи, которые не представлены в виде узлов в иерархии. Страницы в категории Concept охватывают понятия или идеи, которые могут быть объяснены на одной странице. То есть концепции - это понятия, которые могут быть исчерпывающе рассмотрены на одной странице.",
+                    "updated": 1638458973238
                 }
             ]
         },
@@ -82,6 +143,17 @@
                     "text": "Kategori Halaman Topic",
                     "updated": 1613860037593,
                     "style": "Title"
+                },
+                {
+                    "language": "DE",
+                    "text": "Topic Seiten-Kategorie",
+                    "updated": 1633860678628,
+                    "style": "Title"
+                },
+                {
+                    "language": "RU",
+                    "text": "Категория Topic",
+                    "updated": 1638459020247
                 }
             ]
         },
@@ -94,6 +166,17 @@
                     "text": "Topik adalah konsep yang lebih dalam dan memiliki banyak segi yang membutuhkan lebih dari satu halaman untuk dijelaskan. Topik adalah sekumpulan konsep yang berkaitan erat, disusun secara berurutan. Namun, bukan halaman itu saja. Melainkan, ini adalah kumpulan dari halaman-halaman.",
                     "updated": 1613860164710,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Topics (Themen) sind vielschichtige, tiefgreifende Konzepte, die mehr als eine Seite benötigen, um korrekt behandelt zu werden. Topics sind Gruppen von eng miteinander verbundenen Konzepten, die in einer Reihenfolge angeordnet sind. Ein Topic ist jedoch keine Seite an sich. Es handelt sich vielmehr um eine Sammlung von Seiten.",
+                    "updated": 1633856641151,
+                    "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Темы - это многогранные, глубокие концепции, для правильного рассмотрения которых требуется более одной страницы. Темы представляют собой наборы тесно связанных понятий, расположенных в определенной последовательности. Однако это не страница сама по себе. Вместо этого это набор страниц.",
+                    "updated": 1638459065579
                 }
             ]
         },
@@ -106,6 +189,17 @@
                     "text": "Kategori Halaman Tutorial",
                     "updated": 1613860197070,
                     "style": "Title"
+                },
+                {
+                    "language": "DE",
+                    "text": "Tutorial Seiten-Kategorie",
+                    "updated": 1633860764085,
+                    "style": "Title"
+                },
+                {
+                    "language": "RU",
+                    "text": "Категория Tutorial",
+                    "updated": 1638459083962
                 }
             ]
         },
@@ -118,6 +212,17 @@
                     "text": "Adapun dalam Tutorial adalah hirarki yang dapat mengatur berbagai jenis node termasuk node Tutorial Topic dan Tutorial Step. Setiap node dalam hierarki mengarah ke Tutorial Step di Docs tempat sumber informasi. Dalam konteks Docs, halaman dalam tutorial diatur secara runtut seperti topik.",
                     "updated": 1613860411843,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine Tutorial-Hierarchie kann verschiedene Arten von nodes beinhalten, einschließlich Tutorial Topic und Tutorial Step nodes. Jede node in der Hierarchie zeigt auf eine „ Tutorial Step “ Seite in den Docs, von der er Informationen bezieht. Im Kontext der Docs sind die Seiten eines Tutorials in einer Reihenfolge angeordnet, wie bei Themen.",
+                    "updated": 1633856957281,
+                    "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Иерархия Tutorial может упорядочивать узлы различных типов, включая узлы Tutorial Topic и Tutorial Step. Каждый узел в иерархии указывает на страницу Tutorial Step Page в документах, из которой он черпает информацию. В контексте документов, страницы в учебнике расположены в последовательности, как и темы.",
+                    "updated": 1638459807647
                 }
             ]
         },
@@ -130,6 +235,17 @@
                     "text": "Kategori Halaman Reviews",
                     "updated": 1613860442084,
                     "style": "Title"
+                },
+                {
+                    "language": "DE",
+                    "text": "Reviews Seiten-Kategorie",
+                    "updated": 1633860775633,
+                    "style": "Title"
+                },
+                {
+                    "language": "RU",
+                    "text": "Категория Reviews",
+                    "updated": 1638459908013
                 }
             ]
         },
@@ -142,6 +258,17 @@
                     "text": "Reviews adalah konten buatan pengguna yang menjelaskan pengalaman mereka dengan komponen tertentu dari Superalgos atau proyek lain.",
                     "updated": 1613860497517,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Reviews sind von Benutzern erstellte Inhalte, die ihre Erfahrungen mit bestimmten Komponenten von Superalgos oder anderen Projekten beschreiben.",
+                    "updated": 1633857053512,
+                    "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Reviews - это создаваемый пользователями контент, в котором описывается их опыт работы с определенными компонентами Superalgos или других проектов.",
+                    "updated": 1638459974909
                 }
             ]
         },
@@ -154,6 +281,17 @@
                     "text": "Kategori Halaman Books",
                     "updated": 1613860532720,
                     "style": "Title"
+                },
+                {
+                    "language": "DE",
+                    "text": "Books Seiten-Kategorie",
+                    "updated": 1633860789952,
+                    "style": "Title"
+                },
+                {
+                    "language": "RU",
+                    "text": "Категория Books",
+                    "updated": 1638460137112
                 }
             ]
         },
@@ -166,8 +304,47 @@
                     "text": "Books merupakan halaman itu sendiri. Halaman tersebut menampilkan daftar topik yang masing-masing merupakan satu bab dalam buku tersebut.",
                     "updated": 1613860614179,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein \"Book\" ist eine eigenständige Seite. Die Seite enthält eine Liste von Themen, die jeweils ein Kapitel des Buches darstellen.                                                                                                                                                                           ",
+                    "updated": 1634053406718,
+                    "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Books - это страница сама по себе. На странице представлен список тем, каждая из которых составляет главу книги.",
+                    "updated": 1638460105684
                 }
             ]
+        },
+        {
+            "style": "Title",
+            "text": "Workspace Page Category",
+            "updated": 1634054845364,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Категория Workspace",
+                    "updated": 1638460132388
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The \"Workspace\" tab does not actually display a docs page but content from the workspaces. It is a possibility to search trough workspaces with a keyword. It shows all nodes which are related to the keyword. Make a query in the search bar with a keyword you like (e.g. \"market\") and have a look at the Workspace Category.",
+            "updated": 1634055788510,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "На вкладке Workspace фактически отображается не страница документов, а содержимое рабочих пространств. Это возможность поиска в рабочем пространстве по ключевому слову. Он показывает все узлы, связанные с ключевым словом. Сделайте запрос в строке поиска с ключевым словом, которое вам нужен (например, \"market\"), и посмотрите на категорию рабочего пространства.",
+                    "updated": 1638460490413
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": ""
         }
     ]
 }

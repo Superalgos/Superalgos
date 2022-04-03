@@ -113,6 +113,18 @@ function newGovernanceFunctionLibraryTokenMining() {
 
             calculateProgram(userProfile, program, "airdropProgram")
         }
+        for (let i = 0; i < userProfiles.length; i++) {
+            let userProfile = userProfiles[i]
+            for (let j = 0; j < UI.projects.governance.globals.saToken.SA_TOKEN_BSC_LIQUIDITY_ASSETS.length; j++) {
+                let asset = UI.projects.governance.globals.saToken.SA_TOKEN_BSC_LIQUIDITY_ASSETS[j]
+                if (userProfile.tokenPowerSwitch === undefined) { continue }
+                let program = UI.projects.governance.utilities.validations.onlyOneProgramBasedOnConfigProperty(userProfile, "Liquidity Program", 'asset', asset)
+                if (program === undefined) { continue }
+                if (program.payload === undefined) { continue }
+
+                calculateProgram(userProfile, program, "liquidityProgram")
+            }
+        }
 
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
@@ -126,6 +138,7 @@ function newGovernanceFunctionLibraryTokenMining() {
             if (userProfile === undefined) { return }
             if (userProfile.payload === undefined) { return }
             if (userProfile.tokensMined === undefined) { return }
+            if (userProfile.tokensMined.payload === undefined) { return }
             if (userProfile.tokensMined.payload.tokensMined === undefined) {
                 userProfile.tokensMined.payload.tokensMined = {
                     awarded: 0,
@@ -147,6 +160,8 @@ function newGovernanceFunctionLibraryTokenMining() {
             if (userProfile === undefined) { return }
             if (userProfile.payload === undefined) { return }
             if (userProfile.tokensMined === undefined) { return }
+            if (userProfile.tokensMined.payload === undefined) { return }
+
             if (programNode.payload === undefined) { return }
             if (programNode.payload[programPropertyName] === undefined) { return }
 
@@ -165,6 +180,7 @@ function newGovernanceFunctionLibraryTokenMining() {
             if (userProfile === undefined) { return }
             if (userProfile.payload === undefined) { return }
             if (userProfile.tokensMined === undefined) { return }
+            if (userProfile.tokensMined.payload === undefined) { return }
 
             const awarded = parseFloat(userProfile.tokensMined.payload.tokensMined.awarded.toFixed(0)).toLocaleString('en')
             const bonus = parseFloat(userProfile.tokensMined.payload.tokensMined.bonus.toFixed(0)).toLocaleString('en')
@@ -174,8 +190,8 @@ function newGovernanceFunctionLibraryTokenMining() {
             userProfile.tokensMined.payload.uiObject.valueAngleOffset = 0
             userProfile.tokensMined.payload.uiObject.valueAtAngle = true
 
-            userProfile.tokensMined.payload.uiObject.setStatus(awarded + ' Awarded + ' + bonus + ' Bonus')
-            userProfile.tokensMined.payload.uiObject.setValue(total + ' SA Tokens' + tokensAwardedBTC)
+            userProfile.tokensMined.payload.uiObject.setStatus(awarded + ' Awarded + ' + bonus + ' Bonus', UI.projects.governance.globals.designer.SET_STATUS_COUNTER)
+            userProfile.tokensMined.payload.uiObject.setValue(total + ' SA Tokens' + tokensAwardedBTC, UI.projects.governance.globals.designer.SET_VALUE_COUNTER)
         }
     }
 }

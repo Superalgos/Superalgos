@@ -4,23 +4,92 @@
     "type": "Tutorial Step - Trading Systems",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "trading-system"
+            "name": "Trading\\trading-system",
+            "project": "Foundations"
         },
-        "text": "New trading systems are created from the Superalgos Project hierarchy, in particular, from the Other Hierarchies node."
+        "text": "New trading systems are created from the Foundations Project hierarchy, in particular, from the Trading node.",
+        "updated": 1636542869575,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Neue Handelssysteme werden über die Hierarchie des Foundations Project erstellt, insbesondere über den Knoten Trading System.",
+                "updated": 1639261160354
+            },
+            {
+                "language": "RU",
+                "text": "Новые торговые системы создаются из иерархии проекта Foundations, в частности, из узла Trading.",
+                "updated": 1640934050426
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Foundations Project hiyerarşisinden, özellikle Ticaret ( Trading ) düğümünden yeni ticaret sistemleri oluşturulur.",
+                "updated": 1641063484758
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "But... you know what? We'll use one I created already!"
+            "text": "But... you know what? We'll use one I created already!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Aber... wissen Sie was? Wir werden eines verwenden, das ich bereits erstellt habe!",
+                    "updated": 1639261177915
+                },
+                {
+                    "language": "RU",
+                    "text": "Но... знаете что? Мы будем использовать тот, который я уже создал!",
+                    "updated": 1640934065608
+                },
+                {
+                    "language": "TR",
+                    "text": "Ama... Ne var biliyor musun? Zaten benim oluşturduğumu kullanacağız!",
+                    "updated": 1641063647209
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Feel free to add a trading system if you wish, but delete it afterwards, as we are not going to use it!"
+            "text": "Feel free to add a trading system if you wish, but delete it afterwards, as we are not going to use it!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Fügen Sie ruhig ein Trading System hinzu, wenn Sie möchten, aber löschen Sie es anschließend, da wir es nicht verwenden werden!",
+                    "updated": 1639261185549
+                },
+                {
+                    "language": "RU",
+                    "text": "Не стесняйтесь добавить торговую систему, если хотите, но потом удалите ее, так как мы не собираемся ее использовать!",
+                    "updated": 1640934098826
+                },
+                {
+                    "language": "TR",
+                    "text": "İsterseniz bir ticaret sistemi ekleyebilirsin, ancak daha sonrasında sil, çünkü kullanmayacağız!",
+                    "updated": 1641063723493
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "I set up a trading system while you weren't watching so that I can reference existing nodes and take you to specific places while we move along this tutorial! Merely for technical reasons, if you must know!"
+            "text": "I set up a trading system while you weren't watching so that I can reference existing nodes and take you to specific places while we move along this tutorial! Merely for technical reasons, if you must know!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ich habe ein Trading System eingerichtet, während Sie nicht zugesehen haben, damit ich auf bestehende Knoten verweisen und Sie zu bestimmten Stellen führen kann, während wir uns in diesem Tutorial bewegen! Lediglich aus technischen Gründen, wenn Sie es wissen müssen!",
+                    "updated": 1639261194241
+                },
+                {
+                    "language": "RU",
+                    "text": "Я создал торговую систему, пока вы не смотрели, чтобы я мог ссылаться на существующие узлы и вести вас в определенные места, пока мы продвигаемся по этому учебнику! Просто по техническим причинам, если вы хотите знать!",
+                    "updated": 1640934123724
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Siz izlemiyorken bir ticaret sistemi kurdum, böylece bu eğitimde ilerlerken mevcut düğümlere başvurabilir ve sizi belirli yerlere götürebilirim! Bilmeniz gerekiyorsa, sadece teknik nedenlerle!",
+                    "updated": 1641064465974
+                }
+            ]
         }
     ]
 }

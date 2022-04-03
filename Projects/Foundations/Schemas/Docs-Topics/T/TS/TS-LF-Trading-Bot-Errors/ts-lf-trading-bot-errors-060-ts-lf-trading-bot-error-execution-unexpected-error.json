@@ -3,7 +3,7 @@
     "pageNumber": 60,
     "type": "TS LF Trading Bot Error - Execution Unexpected Error",
     "definition": {
-        "text": "An Unexpected Error occured while procesing the execution of orders. The LF Trading Bot continued running after reporting this error.",
+        "text": "An Unexpected Error occurred while processing the execution of orders. The LF Trading Bot continued running after reporting this error.",
         "updated": 1611953087876
     },
     "paragraphs": [
@@ -36,7 +36,7 @@
         },
         {
             "style": "Text",
-            "text": "The following is the Error Message of the Exception that occured at the LF Trading Bot:"
+            "text": "The following is the Error Message of the Exception that occurred at the LF Trading Bot:"
         },
         {
             "style": "Placeholder",
@@ -48,7 +48,7 @@
         },
         {
             "style": "Text",
-            "text": "The following is the Error Stack of the Exception that occured at the LF Trading Bot:"
+            "text": "The following is the Error Stack of the Exception that occurred at the LF Trading Bot:"
         },
         {
             "style": "Placeholder",
@@ -60,7 +60,7 @@
         },
         {
             "style": "Text",
-            "text": "The following is the Error Code of the Exception that occured at the LF Trading Bot:"
+            "text": "The following is the Error Code of the Exception that occurred at the LF Trading Bot:"
         },
         {
             "style": "Placeholder",
@@ -72,7 +72,7 @@
         },
         {
             "style": "Text",
-            "text": "The following are all the Error details of the Exception that occured at the LF Trading Bot:"
+            "text": "The following are all the Error details of the Exception that occurred at the LF Trading Bot:"
         },
         {
             "style": "Placeholder",

@@ -7,12 +7,12 @@
             "project": "Foundations",
             "name": "network"
         },
-        "text": "Before I show you the rest of the menu, let's take a look at another hierarchy: the Network.",
+        "text": "Before I show you the rest of the menu, let's take a look at another hierarchy: the LAN Network.",
         "translations": [
             {
                 "language": "ID",
-                "text": "Sebelum aku memperlihatkan bagian lain dari menu, ayo kebeberapa hirarki lain seperti Network.",
-                "updated": 1614425404268,
+                "text": "Sebelum aku menunjukkan kepada kamu menu lainnya, mari kita lihat hierarki lain: LAN Network.",
+                "updated": 1640568256268,
                 "style": "Definition"
             },
             {
@@ -32,18 +32,42 @@
                 "text": "Avant de vous montrer le reste du menu, jetons un coup d'œil à une autre hiérarchie : le réseau.",
                 "updated": 1623951418764,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Menünün geri kalanını göstermeden önce, başka bir hiyerarşiye bir göz atalım: \"Ağ.\" (Lan Network)",
+                "updated": 1644848110578,
+                "style": "Definition"
+            },
+            {
+                "language": "NL",
+                "text": "Voor ik je de rest van het menu laat zien, laten we eerst een andere hiërarchie bekijken: het Netwerk.",
+                "updated": 1633853332041,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Bevor ich Ihnen den Rest des Menüs zeige, lassen Sie uns einen Blick auf eine andere Hierarchie werfen: das Netzwerk.",
+                "updated": 1634160400461,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Прежде, чем я покажу вам остальную часть меню, давайте посмотрим на другую иерархию - LAN Network.\n",
+                "updated": 1641801636027
             }
-        ]
+        ],
+        "updated": 1640343243633
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The Network hierarchy is the control room of the system. This is where you control your Data Tasks, Testing Trading Tasks, and Production Trading Tasks.",
+            "text": "The LAN Network hierarchy is the control room of the system. This is where you control your Data Tasks, Testing Trading Tasks, and Production Trading Tasks.",
             "translations": [
                 {
                     "language": "ID",
-                    "text": "Network merupakan hirarki yang mengatur ruang kendali sistem. Di sinilah kamu bisa mengontrol Data Tasks, Testing Trading Tasks, dan Production Trading Tasks.",
-                    "updated": 1614425530127,
+                    "text": "Hirarki LAN Network adalah ruang kontrol sistem. Di sinilah kamu mengontrol  Data Tasks, Testing Trading Tasks, dan Production Trading Tasks kamu.",
+                    "updated": 1640568177240,
                     "style": "Text"
                 },
                 {
@@ -63,8 +87,32 @@
                     "text": "Le Network hiérarchie réseau est la salle de contrôle du système. C'est là que vous contrôlez vos Data Tasks, les Testing Trading Tasks, et les Production Trading Tasks.",
                     "updated": 1623952138963,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Ağ hiyerarşisi, sistemin kontrol odasıdır.Burası Veri Görevlerinizi ( Data Task ), Ticaret Görevlerini Test Etme   (Testing Trading Tasks) ve Ticaret Görevlerinizi (Production Trading Tasks) kontrol ettiğiniz yerdir",
+                    "updated": 1644848447271,
+                    "style": "Text"
+                },
+                {
+                    "language": "NL",
+                    "text": "De Netwerk hiërarchie is de controlekamer van het systeem. Dit is waar je jouw Data Tasks, Test Trading Tasks en Production Trading Tasks beheert.",
+                    "updated": 1633853559028,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die LAN Netzwerkhierarchie ist der Kontrollraum des Systems. Hier steuern Sie Ihre Data Tasks, Testing Trading Tasks und Production Trading Aufgaben.",
+                    "updated": 1642149600351,
+                    "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Иерархия LAN Network - это управленческая комната системы. Именно здесь Вы управляете своими Data Tasks, Testing Trading Tasks, and Production Trading Tasks операциями.",
+                    "updated": 1641801801269
                 }
-            ]
+            ],
+            "updated": 1640343257331
         },
         {
             "style": "Callout",
@@ -93,6 +141,29 @@
                     "text": "Élargissez la hiérarchie et jetez un coup d'œil à l'intérieur !",
                     "updated": 1623952177269,
                     "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğümü genişletin ve içeriye bir göz atın!",
+                    "updated": 1633268461684,
+                    "style": "Callout"
+                },
+                {
+                    "language": "NL",
+                    "text": "Vouw de hiërarchie uit en laten we eens binnenin kijken!",
+                    "updated": 1633853650994,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Erweitern Sie die Hierarchie und schauen Sie rein!",
+                    "updated": 1634160512829,
+                    "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Разверните иерархию и посмотрите внутрь!",
+                    "updated": 1635510510872
                 }
             ]
         },
@@ -124,6 +195,29 @@
                     "text": "Voyez les nœuds que j'ai mentionnés plus tôt ? Cool ! Nous sommes ici pour commencer votre toute première opération de minage d'informations.",
                     "updated": 1623952241074,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Daha önce bahsettiğim düğümleri görüyor musunuz? Güzel! İlk veri madenciliği operasyonunuzu başlatmak için buradayız.",
+                    "updated": 1633268493855,
+                    "style": "Text"
+                },
+                {
+                    "language": "NL",
+                    "text": "Zie je de eerder genoemde (sub)knooppunten? Cool! Wij zijn hier om jouw allereerste datamining operatie op te starten.",
+                    "updated": 1633890622350,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sehen Sie die Knoten, die ich bereits erwähnt habe? Cool! Wir sind hier, um Ihre allererste Data-Mining-Operation zu starten.",
+                    "updated": 1634160465920,
+                    "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы видите узлы, о которых я упоминал ранее? Отлично! Мы здесь для того, чтобы начать Вашу первую операцию интеллектуального анализа данных.",
+                    "updated": 1635510685551
                 }
             ]
         },
@@ -154,6 +248,29 @@
                     "text": "Mais avant de commencer, j'ai une petite question pour vous : accédez-vous au Client a distance?",
                     "updated": 1623952297046,
                     "style": "Note"
+                },
+                {
+                    "language": "TR",
+                    "text": "Ancak başlamadan önce size kısa bir sorum var: İstemciye uzaktan erişiyor musunuz?",
+                    "updated": 1633268516400,
+                    "style": "Note"
+                },
+                {
+                    "language": "NL",
+                    "text": "Voor we beginnen, heb ik de volgende vraag voor je: benader je de Client op afstand?",
+                    "updated": 1633853800893,
+                    "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Doch bevor wir beginnen, habe ich eine kurze Frage an Sie: Greifen Sie per Fernzugriff auf den Client zu?",
+                    "updated": 1634160524428,
+                    "style": "Note"
+                },
+                {
+                    "language": "RU",
+                    "text": "Но прежде чем мы начнем, у меня к вам есть небольшой вопрос: получаете ли Вы доступ к Client удаленно?",
+                    "updated": 1635511033016
                 }
             ]
         }

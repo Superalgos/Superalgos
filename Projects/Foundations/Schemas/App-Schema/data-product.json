@@ -3,6 +3,7 @@
     "menuItems": [
         {
             "action": "Delete UI Object",
+"actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",
@@ -21,7 +22,7 @@
         "compatibleTypes": "->Product Definition->"
     },
     "attachingRules": {
-        "compatibleTypes": "->Market Data Products->Data Product Folder->Bot Products->Trading Session Reference->"
+        "compatibleTypes": "->Market Data Products->Data Product Folder->Bot Products->Trading Session Reference->Portfolio Session Reference->"
     },
     "propertyNameAtParent": "dataProducts",
     "childrenNodesProperties": []

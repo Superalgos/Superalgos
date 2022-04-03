@@ -21,6 +21,26 @@
                 "text": "Superalgos es una plataforma multiproyecto y, después de TensorFlow, la integración de Ethereum es la siguiente en la línea ...",
                 "updated": 1624487518684,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Superalgos ist eine Multi-Projekt-Plattform, und nach TensorFlow ist die Ethereum-Integration die nächste in der Reihe...",
+                "updated": 1634246816998
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos, çok projeli bir platformdur. TensorFlow'dan sonra sıradaki Ethereum entegrasyonudur...",
+                "updated": 1636636198144
+            },
+            {
+                "language": "ID",
+                "text": "Superalgos adalah platform multi-proyek, dan — setelah TensorFlow — integrasi Ethereum adalah yang berikutnya...",
+                "updated": 1640598195833
+            },
+            {
+                "language": "RU",
+                "text": "Superalgos - это многопроектная платформа, и - после TensorFlow - интеграция с Ethereum является следующей на очереди....",
+                "updated": 1642772856073
             }
         ]
     },
@@ -41,6 +61,26 @@
                     "text": "¿Qué significa integrar Ethereum? Significa que, en versiones futuras, podrás:",
                     "updated": 1624487553387,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Was bedeutet die Integration von Ethereum, fragen Sie? Es bedeutet, dass Sie - in zukünftigen Versionen - in der Lage sein werden:",
+                    "updated": 1634246807622
+                },
+                {
+                    "language": "TR",
+                    "text": "Ethereum'u entegre etmek ne anlama geliyor? Bu, gelecekteki sürümlerde şunları yapabileceğiniz anlamına gelir:",
+                    "updated": 1636636318950
+                },
+                {
+                    "language": "ID",
+                    "text": "Apa arti mengintegrasikan Ethereum, Kamu bertanya? Ini berarti bahwa — dalam versi yang akan datang — kamu akan dapat :",
+                    "updated": 1640598245063
+                },
+                {
+                    "language": "RU",
+                    "text": "Что означает интеграция с Ethereum, спросите вы? Это значит, что в будущих версиях вы сможете:",
+                    "updated": 1642772850380
                 }
             ]
         },
@@ -59,6 +99,26 @@
                     "text": "Conectarte a un nodo Ethereum directamente desde Superalgos utilizando la interfaz visual.",
                     "updated": 1624487598081,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sich mit einem Ethereum-Knoten direkt von Superalgos aus über die visuelle Schnittstelle verbinden.",
+                    "updated": 1634246794294
+                },
+                {
+                    "language": "TR",
+                    "text": "Görsel arayüzü kullanarak Superalgos'un içinden bir Ethereum düğümüne bağlanırsınız.",
+                    "updated": 1636637433751
+                },
+                {
+                    "language": "ID",
+                    "text": "Terhubung ke Ethereum node langsung dari dalam Superalgos menggunakan interface visual.",
+                    "updated": 1640598284459
+                },
+                {
+                    "language": "RU",
+                    "text": "Подключение к узлу Ethereum прямо из Superalgos с помощью визуального интерфейса.",
+                    "updated": 1642772876348
                 }
             ]
         },
@@ -78,6 +138,26 @@
                     "text": "Extraer datos de blockchain para acceder a información de monedas y contratos para todos los proyectos basados ​​en Ethereum, incluido De-Fi o lo que sea, visualizando datos en los gráficos, construyendo indicadores y aprovechando el resto de la infraestructura de Superalgos.",
                     "updated": 1624487654036,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Blockchain-Daten zu schürfen, um auf Coin- und Vertragsinformationen für alle Ethereum-basierten Projekte zuzugreifen, einschließlich De-Fi oder was auch immer, Daten in den Charts zu visualisieren, Indikatoren zu erstellen und den Rest der Superalgos-Infrastruktur zu nutzen.",
+                    "updated": 1634246834706
+                },
+                {
+                    "language": "TR",
+                    "text": "De-Fi veya neye sahipseniz, tüm Ethereum tabanlı projeler için coin ve sözleşme bilgilerine erişmek için blok zinciri verilerini çıkarabilir, grafiklerdeki verileri görselleştirebilir, göstergeler oluşturabilir ve Superalgos altyapısının geri kalanından yararlanabilirsiniz.",
+                    "updated": 1636637425615
+                },
+                {
+                    "language": "ID",
+                    "text": "Tambang data blockchain untuk mengakses informasi koin dan kontrak untuk semua proyek berbasis Ethereum, termasuk De-Fi atau apa pun yang kamu miliki, memvisualisasikan data pada charts, membangun indikator, dan memanfaatkan sisa infrastruktur Superalgos.",
+                    "updated": 1640598383369
+                },
+                {
+                    "language": "RU",
+                    "text": "Добывать данные из блокчейна, чтобы получить доступ к информации о монетах и контрактах для всех проектов на базе Ethereum, включая De-Fi или что там у вас, визуализировать данные на графиках, строить индикаторы и использовать остальную инфраструктуру Superalgos.",
+                    "updated": 1642772938805
                 }
             ]
         },
@@ -96,6 +176,26 @@
                     "text": "¡Utilizar los datos para comerciar consumiendo indicadores relacionados desde dentro de los sistemas de trading!",
                     "updated": 1624487724120,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Nutzen Sie die Daten für den Handel, indem Sie die entsprechenden Indikatoren aus den Handelssystemen verwenden!",
+                    "updated": 1634246841374
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret sistemlerinden ilgili göstergeleri kullanarak ticaret yapmak için verileri kullanabilirsiniz.",
+                    "updated": 1636637596993
+                },
+                {
+                    "language": "ID",
+                    "text": "Gunakan data untuk trade dengan menggunakan indikator terkait dari dalam trading systems!",
+                    "updated": 1640598452709
+                },
+                {
+                    "language": "RU",
+                    "text": "Используйте данные для торговли, потребляя связанные индикаторы из торговых систем!",
+                    "updated": 1642772955234
                 }
             ]
         }

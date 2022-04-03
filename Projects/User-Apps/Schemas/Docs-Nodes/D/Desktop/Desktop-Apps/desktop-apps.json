@@ -1,0 +1,32 @@
+{
+    "type": "Desktop Apps",
+    "definition": {
+        "text": "The Desktop Apps hierarchy holds the definitions of all desktop apps associated with the current User Profile.  ",
+        "updated": 1643077456951,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Иерархия Desktop Apps содержит определения всех настольных приложений, связанных с текущим профилем пользователя.",
+                "updated": 1645253750159
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1643078329455
+        },
+        {
+            "style": "Text",
+            "text": "Desktop apps are generally used to access the social trading funcitonality of the Superalgos Peer to Peer Network.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Приложения для настольных компьютеров обычно используются для доступа к социальным торговым функциям одноранговой сети Superalgos.",
+                    "updated": 1645253757726
+                }
+            ]
+        }
+    ]
+}

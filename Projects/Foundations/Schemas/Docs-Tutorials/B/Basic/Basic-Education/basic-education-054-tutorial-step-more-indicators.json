@@ -6,8 +6,8 @@
         "text": "Indicators are built by the Community! Usually, a developer will build a few indicators he or she needs, and contribute them to the project in a new Data Mine!",
         "updated": 1616235133472,
         "icon": {
-            "name": "Data\\data-mine",
-            "project": "Foundations"
+            "name": "data-mine",
+            "project": "Data-Mining"
         },
         "translations": [
             {
@@ -21,6 +21,21 @@
                 "text": "¡Los indicadores los construye la comunidad! Un desarrollador construirá indicadores que necesita y los aportará al proyecto en una nueva mina de datos.",
                 "updated": 1628024771860,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Indikatoren werden von der Community erstellt! Normalerweise baut ein Entwickler ein paar Indikatoren, die er oder sie braucht, und stellt sie dem Projekt in einer neuen Data Mine zur Verfügung!",
+                "updated": 1634590447390
+            },
+            {
+                "language": "TR",
+                "text": "Indikatrler Topluluk tarafından oluşturulmuştur! Genellikle, bir geliştirici ihtiyaç duyduğu birkaç gösterge oluşturur ve bunları yeni bir Veri Madeni'ndeki ( Data Mine ) projeye katkıda  bulunur!",
+                "updated": 1639836507868
+            },
+            {
+                "language": "RU",
+                "text": "Индикаторы создаются сообществом! Обычно разработчик создает несколько нужных ему индикаторов и вносит их в проект в новой Data Mine!",
+                "updated": 1640876027226
             }
         ]
     },
@@ -41,6 +56,21 @@
                     "text": "El Community Data Mines Book es donde puedes encontrar todas los Data Mines y sus indicadores. Cada capítulo del libro corresponde a un Data Mine...",
                     "updated": 1628024715026,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Im  Community Data Mines Buch finden Sie alle bestehenden Data Mines und ihre Indikatoren! Jedes Kapitel des Buches entspricht einer Data Mine...",
+                    "updated": 1634590455084
+                },
+                {
+                    "language": "TR",
+                    "text": "Topluluk Veri Madenleri Kitabı ( Community Data Mines Book ), mevcut tüm veri madenlerini ve göstergelerini bulabileceğiniz yerdir! Kitaptaki her bölüm bir Veri Madenine ( Data Mine ) karşılık gelir...",
+                    "updated": 1639836612445
+                },
+                {
+                    "language": "RU",
+                    "text": "Книга Community Data Mines - это место, где вы можете найти все существующие сборщики данных и их индикаторы! Каждая глава в книге соответствует добыче данных...",
+                    "updated": 1640877157320
                 }
             ]
         },
@@ -59,6 +89,21 @@
                     "text": "¡Escanea el contenido de cada capítulo para saber de lo que está disponible en este momento!",
                     "updated": 1628023653141,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Scannen Sie den Inhalt jedes Kapitels, um eine Vorstellung davon zu bekommen, was an dieser Stelle verfügbar ist!",
+                    "updated": 1634590467643
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu noktada hangi indikatörlerin olduğuna dair bir fikir edinmek için her bölümün içeriğini inceleyin!",
+                    "updated": 1639836749476
+                },
+                {
+                    "language": "RU",
+                    "text": "Просмотрите содержание каждой главы, чтобы получить представление о том, что доступно на данный момент!",
+                    "updated": 1640877218761
                 }
             ]
         },
@@ -78,6 +123,21 @@
                     "text": "Para usar un Data Mine, debes incluirlo en el espacio de trabajo o como complemento e instalar el mercado. ¡Todas las tareas de datos se crearán automáticamente!",
                     "updated": 1628024742935,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Um eine Data Mine zu verwenden, müssen Sie sie in den Workspace oder als Plugin einbinden und den Markt installieren. Alle Data Tasks werden dann automatisch erstellt!",
+                    "updated": 1634590473687
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Veri Madeni ( Data Mine ) kullanmak için, onu çalışma alanına bir eklenti olarak dahil etmeli ve marketi kurmalısınız. Tüm Veri Görevleri ( Data Task ) otomatik olarak oluşturulacaktır!",
+                    "updated": 1639836804563
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы использовать Data Mine, вы должны включить его в рабочее пространство или как плагин и установить рынок. Все задачи Data Tasks будут созданы автоматически!",
+                    "updated": 1640877259977
                 }
             ]
         }

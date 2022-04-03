@@ -19,7 +19,23 @@
             {
                 "language": "ES",
                 "text": "En este paso, ejecutarás tu primer comando para crear una página de revisión. ¡Esta página será tuya para editarla en el futuro!",
-                "updated": 1628186991397
+                "updated": 1628186991397,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "In diesem Schritt führen Sie Ihren ersten Befehl aus, um eine Rezensionsseite zu erstellen! Diese Seite wird in Zukunft von Ihnen bearbeitet werden können!",
+                "updated": 1635148536985
+            },
+            {
+                "language": "RU",
+                "text": "В этом шаге вы выполните свою первую команду для создания страницы вашего обзора! Эта страница будет вашей для редактирования в будущем!",
+                "updated": 1640160588248
+            },
+            {
+                "language": "TR",
+                "text": "Bu adımda, bir inceleme sayfası oluşturmak için ilk komutunuzu çalıştıracaksınız! Bu sayfa gelecekte düzenlemek için sizin olacak!",
+                "updated": 1640554867287
             }
         ]
     },
@@ -38,7 +54,23 @@
                 {
                     "language": "ES",
                     "text": "¡La sintaxis para escribir comandos es bastante coloquial! ¡Te encantará! ¡Compruébalo y sigue las instrucciones a continuación!",
-                    "updated": 1628187026752
+                    "updated": 1628187026752,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Syntax zum Schreiben von Befehlen ist recht umgangssprachlich! Sie werden sie lieben! Probieren Sie es aus und folgen Sie den Anweisungen unten!",
+                    "updated": 1635148546406
+                },
+                {
+                    "language": "RU",
+                    "text": "Синтаксис для ввода команд довольно простой! Вам понравится! Проверьте это следуя за инструкциями ниже!",
+                    "updated": 1640159429591
+                },
+                {
+                    "language": "TR",
+                    "text": "Komut yazmak için kullanılan sözdizimi oldukça sadedir.! Onu seveceksin! Kontrol edin ve aşağıdaki talimatları izleyin!",
+                    "updated": 1640554941366
                 }
             ]
         },
@@ -61,7 +93,23 @@
                 {
                     "language": "ES",
                     "text": "FIRST: Copia el comando anterior.",
-                    "updated": 1628187044978
+                    "updated": 1628187044978,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "ERSTENS: Kopieren Sie den obigen Befehl.",
+                    "updated": 1635148562686
+                },
+                {
+                    "language": "RU",
+                    "text": "ПЕРВОЕ: Скопируйте приведенную выше команду.",
+                    "updated": 1640159446619
+                },
+                {
+                    "language": "TR",
+                    "text": "1. ADIM: Yukarıdaki komutu kopyalayın.",
+                    "updated": 1640555029333
                 }
             ]
         },
@@ -79,7 +127,23 @@
                 {
                     "language": "ES",
                     "text": "SECOND: Pégalo en un editor de texto.",
-                    "updated": 1628187089099
+                    "updated": 1628187089099,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "ZWEITENS: Fügen Sie ihn in einen Texteditor ein.",
+                    "updated": 1635148570052
+                },
+                {
+                    "language": "RU",
+                    "text": "ВТОРОЕ: Вставьте его в текстовый редактор.",
+                    "updated": 1640159458339
+                },
+                {
+                    "language": "TR",
+                    "text": "2. ADIM: Bir metin düzenleyici açın (Ms Word ya da Text Editör)",
+                    "updated": 1640555113303
                 }
             ]
         },
@@ -97,7 +161,23 @@
                 {
                     "language": "ES",
                     "text": "THIRD: Reemplaza \"Your Review Title\" por un título significativo. ¡Los títulos deben ser únicos!",
-                    "updated": 1628187188266
+                    "updated": 1628187188266,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "DRITTENS: Ersetzen Sie \"Your Review Title\" durch einen aussagekräftigen Titel. Die Titel der Rezensionen müssen einzigartig sein!",
+                    "updated": 1635148579016
+                },
+                {
+                    "language": "RU",
+                    "text": "ТРЕТЬЕ: Замените \"Your Review Title\" на осмысленное название. Названия отзывов должны быть уникальными!",
+                    "updated": 1640159521331
+                },
+                {
+                    "language": "TR",
+                    "text": "3. ADIM: İnceleme başlığınızı (Your Review Title) text editörde anlamlı bir başlıkla değiştirin. İnceleme başlıkları benzersiz olmalıdır!",
+                    "updated": 1640555280943
                 }
             ]
         },
@@ -115,7 +195,23 @@
                 {
                     "language": "ES",
                     "text": "FOURTH: Pega el comando actualizado en el cuadro de búsqueda / comando y presiona Enter.",
-                    "updated": 1628187252151
+                    "updated": 1628187252151,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "VIERTENS: Fügen Sie den aktualisierten Befehl in das Such-/Befehlsfeld ein und drücken Sie die Eingabetaste.",
+                    "updated": 1635148586304
+                },
+                {
+                    "language": "RU",
+                    "text": "ЧЕТВЕРТОЕ: Вставьте обновленную команду в поле поиска/команды и нажмите Enter.",
+                    "updated": 1640159534256
+                },
+                {
+                    "language": "TR",
+                    "text": "4. ADIM: Düzenlediğiniz bu yeni komutu arama/komut kutusuna yapıştırın ve Enter'a basın.",
+                    "updated": 1640555304432
                 }
             ]
         }

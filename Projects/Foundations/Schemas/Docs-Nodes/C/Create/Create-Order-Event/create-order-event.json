@@ -1,7 +1,14 @@
 {
     "type": "Create Order Event",
     "definition": {
-        "text": "The create order event controls the placement of orders."
+        "text": "The create order event controls the placement of orders.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Create Order Event контролирует размещение ордеров.",
+                "updated": 1638648176725
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,15 +17,36 @@
         },
         {
             "style": "Text",
-            "text": "Even though the decision to take a position may have been made, the user may still decide to exert additional control over the placement of orders. Such is the intent of the create order event."
+            "text": "Even though the decision to take a position may have been made, the user may still decide to exert additional control over the placement of orders. Such is the intent of the create order event.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Даже если решение открыть позицию могло быть принято, пользователь все равно может принять решение о дополнительном контроле над размещением ордеров. Такова цель события Create Order Event.",
+                    "updated": 1638648234620
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "An order defined in an execution algorithm will be executed only if the event evaluates true."
+            "text": "An order defined in an execution algorithm will be executed only if the event evaluates true.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Порядок, определенный в алгоритме выполнения, будет выполнен, только если событие оценивается как true.",
+                    "updated": 1638648264876
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If you wish orders to be placed as defined immediately after the take position event has been triggered, the use the statement true your only create order event condition."
+            "text": "If you wish orders to be placed as defined immediately after the take position event has been triggered, the use the statement true your only create order event condition.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если вы хотите, чтобы ордера размещались, как определено, сразу после того, как было инициировано событие открытия позиции, используйте оператор true для вашего единственного условия события создания ордера.",
+                    "updated": 1638648287533
+                }
+            ]
         }
     ]
 }

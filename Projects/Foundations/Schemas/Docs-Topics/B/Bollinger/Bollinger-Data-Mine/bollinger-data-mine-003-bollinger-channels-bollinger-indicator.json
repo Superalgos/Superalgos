@@ -4,21 +4,64 @@
     "type": "Bollinger Channels - Bollinger Indicator",
     "definition": {
         "text": "The indicator produces the Bollinger Channels and Bollinger Sub-Channels products.",
-        "updated": 1610468458099
+        "updated": 1610468458099,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Dieser Indikator generiert die Bollinger Channels- und Bollinger Sub-Channels-Produkte.",
+                "updated": 1641652686470
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Gösterge, Bollinger Kanalları ve Bollinger Alt Kanalları ürünlerini üretir.",
+                "updated": 1644418363370
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "On the Charts",
-            "updated": 1610385639559
+            "updated": 1610385639559,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "In den Diagrammen",
+                    "updated": 1641652698316
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafiklerde",
+                    "updated": 1644418387851
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Bollinger Channels"
+            "text": "Bollinger Channels",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bollinger Kanalları",
+                    "updated": 1644418395335
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "This is a non-standard indicator derived from the Bollinger Bands. These types of channels are calculated using the Bollinger Bands moving average. Essentially an upward channel begins when the moving average changes direction from going down to going up, and the channel finishes when it turns from going up to down. A downward channel starts when the Bollinger Band moving average turns from going up to down, and it finishes when it starts going up again. Upward channels are plotted in green, while downward channels in red. Additional information can be found at the indicator’s panel, like the number of periods contained at the channel."
+            "text": "This is a non-standard indicator derived from the Bollinger Bands. These types of channels are calculated using the Bollinger Bands moving average. Essentially an upward channel begins when the moving average changes direction from going down to going up, and the channel finishes when it turns from going up to down. A downward channel starts when the Bollinger Band moving average turns from going up to down, and it finishes when it starts going up again. Upward channels are plotted in green, while downward channels in red. Additional information can be found at the indicator’s panel, like the number of periods contained at the channel.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dies ist ein Nicht-Standard-Indikator, der von den Bollinger Bändern abgeleitet ist. Diese Art von Kanälen (Channels) wird anhand des gleitenden Durchschnitts der Bollinger Bänder berechnet. Im Wesentlichen beginnt ein Aufwärtskanal, wenn der gleitende Durchschnitt seine Richtung von abwärts nach aufwärts ändert, und der Kanal endet, wenn er von aufwärts nach abwärts wechselt. Ein Abwärtskanal beginnt, wenn der gleitende Bollinger Band-Durchschnitt von einer steigenden in eine fallende Richtung wechselt, und er endet, wenn er wieder steigt. Aufwärtsgerichtete Kanäle werden in grüner Farbe dargestellt, während abwärtsgerichtete Kanäle in rot dargestellt werden. Zusätzliche Informationen, wie die Anzahl der im Kanal enthaltenen Perioden, finden Sie auf der Seite des Indikators.",
+                    "updated": 1641652817100
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu, Bollinger Bantlarından türetilen standart olmayan bir göstergedir. Bu tür kanallar, Bollinger Bantları hareketli ortalama kullanılarak hesaplanır. Esasen yukarı doğru bir kanal, hareketli ortalama yön aşağı inerken yukarıya doğru değiştiğinde başlar ve kanal, yukarıya doğru hareket ettiğinde sona erer. Aşağı yönlü bir kanal, Bollinger Bandı hareketli ortalamanın yükselişten aşağıya dönmesiyle başlar ve tekrar yükselmeye başladığında biter. Yukarı doğru olan kanallar yeşil, aşağı doğru olan kanallar ise kırmızı ile gösterilmiştir. Kanalda bulunan periyot sayısı gibi ek bilgiler gösterge panelinde bulunabilir.",
+                    "updated": 1644418471581
+                }
+            ]
         },
         {
             "style": "Gif",
@@ -31,11 +74,30 @@
         },
         {
             "style": "Subtitle",
-            "text": "Bollinger Sub-Channels"
+            "text": "Bollinger Sub-Channels",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bollinger Alt Kanalları",
+                    "updated": 1644418486989
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If we consider that one Bollinger Channel can have sub-channels in the same direction (up or down) but different slopes, then we get to the concept of Bollinger Sub-Channels. The most important property of a sub-channel is its slope. The possible values are Side, Gentle, Medium, High and Extreme. With this information, a trading bot could easily ask if it is in a sub-channel with a certain slope and for how many periods. The slope or inclination of the moving average may be an indication of momentum."
+            "text": "If we consider that one Bollinger Channel can have sub-channels in the same direction (up or down) but different slopes, then we get to the concept of Bollinger Sub-Channels. The most important property of a sub-channel is its slope. The possible values are Side, Gentle, Medium, High and Extreme. With this information, a trading bot could easily ask if it is in a sub-channel with a certain slope and for how many periods. The slope or inclination of the moving average may be an indication of momentum.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn wir bedenken, dass ein Bollinger-Kanal Unterkanäle in der gleichen Richtung (aufwärts oder abwärts), aber mit unterschiedlichen Steigungen haben kann, dann kommen wir zum Konzept der Bollinger-Sub-Channels. Die wichtigste Eigenschaft eines Sub-Channels ist seine Neigung. Die möglichen Werte sind Side, Gentle, Medium, High und Extreme. Mit dieser Information könnte ein Handelsroboter leicht abfragen, ob er sich in einem Sub-Channel mit einer bestimmten Neigung befindet und für wie viele Perioden. Die Steigung oder Neigung des gleitenden Durchschnitts kann ein Hinweis auf die Dynamik sein.",
+                    "updated": 1641653987966
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Bollinger Kanalının aynı yönde (yukarı veya aşağı) ancak farklı eğimlerde alt kanalları olabileceğini düşünürsek, Bollinger alt Kanalları kavramına ulaşırız. Bir alt kanalın en önemli özelliği eğimidir. Olası değerler Side, Gentle, Medium, High ve Extreme'dir. Bu bilgi ile bir ticaret botu, belirli bir eğime sahip bir alt kanalda olup olmadığını ve kaç periyot boyunca olduğunu kolayca sorabilir. Hareketli ortalamanın eğimi veya eğilimi, momentumun bir göstergesi olabilir.",
+                    "updated": 1644418678491
+                }
+            ]
         },
         {
             "style": "Gif",
@@ -49,28 +111,90 @@
         {
             "style": "Title",
             "text": "Products & Properties",
-            "updated": 1610467642103
+            "updated": 1610467642103,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Produkte & Eigenschaften",
+                    "updated": 1641652907538
+                },
+                {
+                    "language": "TR",
+                    "text": "Ürünler ve Özellikler",
+                    "updated": 1644418659656
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Bollinger Channels"
+            "text": "Bollinger Channels",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bollinger Kanalları",
+                    "updated": 1644418693759
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The product bollingerChannel features two different properties that you may use."
+            "text": "The product bollingerChannel features two different properties that you may use.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das Produkt bollingerChannel verfügt über zwei verschiedene Eigenschaften, die Sie verwenden können.",
+                    "updated": 1641652960943
+                },
+                {
+                    "language": "TR",
+                    "text": "bollingerChannel ürünü, kullanabileceğiniz iki farklı özelliğe sahiptir.",
+                    "updated": 1644419124081
+                }
+            ]
         },
         {
             "style": "Table",
             "text": "| Product Name | Product Variable\t| Property Variables |\n| Bollinger Channels | bollingerChannel | direction, period |",
-            "updated": 1610385740520
+            "updated": 1610385740520,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "| Ürün Adı | Ürün Değişkeni | Özellik Değişkenleri |\n| Bollinger Kanalları | bollingerKanal | yön, nokta |",
+                    "updated": 1644419172802
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "bollingerChannel.direction: Possible values are \"Down\", \"Up\", and \"Side\"."
+            "text": "bollingerChannel.direction: Possible values are \"Down\", \"Up\", and \"Side\".",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "bollingerChannel.direction: Mögliche Werte sind \"Down\", \"Up\", und \"Side\".",
+                    "updated": 1641653001108
+                },
+                {
+                    "language": "TR",
+                    "text": "bollingerChannel.direction: Olası değerler \"Aşağı\", \"Yukarı\" ve \"Yan\"dır.",
+                    "updated": 1644419214087
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "bollingerChannel.period: The number of periods the channel spans at the moment the variable is being read. For instance, if a channel spans 10 candles and the variable is checked on the fourth candle, then bollingerChannel.period = 4. Put in other words, it is the current span of the channel."
+            "text": "bollingerChannel.period: The number of periods the channel spans at the moment the variable is being read. For instance, if a channel spans 10 candles and the variable is checked on the fourth candle, then bollingerChannel.period = 4. Put in other words, it is the current span of the channel.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "bollingerChannel.period: Die Anzahl der Perioden, die der Kanal zu dem Zeitpunkt umfasst, zu dem die Variable ausgelesen wird. Wenn sich ein Kanal beispielsweise über 10 Kerzen erstreckt und die Variable bei der vierten Kerze überprüft wird, dann ist bollingerChannel.period = 4. Anders ausgedrückt handelt es sich um die aktuelle Spanne des Kanals.",
+                    "updated": 1641653058933
+                },
+                {
+                    "language": "TR",
+                    "text": "bollingerChannel.period: Değişkenin okunduğu anda kanalın kapsadığı dönemlerin sayısı. Örneğin, bir kanal 10 muma yayılıyorsa ve dördüncü mumda değişken kontrol ediliyorsa, bollingerChannel.period = 4. Diğer bir deyişle, kanalın mevcut aralığıdır.",
+                    "updated": 1644419245432
+                }
+            ]
         },
         {
             "style": "Anchor",
@@ -80,28 +204,90 @@
         {
             "style": "Subtitle",
             "text": "Bollinger Sub-Channels",
-            "updated": 1610468477026
+            "updated": 1610468477026,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bollinger Alt Kanalları",
+                    "updated": 1644419261339
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The product bollingerSubChannel features three different properties that you may use."
+            "text": "The product bollingerSubChannel features three different properties that you may use.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das Produkt bollingerSubChannel verfügt über drei verschiedene Eigenschaften, die Sie verwenden können.",
+                    "updated": 1641653098978
+                },
+                {
+                    "language": "TR",
+                    "text": "bollingerSubChannel ürünü, kullanabileceğiniz üç farklı özelliğe sahiptir.",
+                    "updated": 1644419277008
+                }
+            ]
         },
         {
             "style": "Table",
             "text": "| Product Name | Product Variable | Property Variables |\n| Bollinger SubChannels | bollingerSubChannel | direction, period, slope |",
-            "updated": 1610385815244
+            "updated": 1610385815244,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "| Ürün Adı | Ürün Değişkeni | Özellik Değişkenleri |\n| Bollinger Alt Kanalları | bollingerSubChannel | yön, periyot, eğim |",
+                    "updated": 1644419304954
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "bollingerSubChannel.direction: Possible values are \"Down\", \"Up\", and \"Side\"."
+            "text": "bollingerSubChannel.direction: Possible values are \"Down\", \"Up\", and \"Side\".",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "bollingerSubChannel.direction: Mögliche Werte sind \"Down\", \"Up\", und \"Side\".",
+                    "updated": 1641653117077
+                },
+                {
+                    "language": "TR",
+                    "text": "bollingerSubChannel.direction: Olası değerler \"Aşağı\", \"Yukarı\" ve \"Yan\"dır.",
+                    "updated": 1644419322489
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "bollingerSubChannel.period: The number of periods the subchannel spans at the moment the variable is being read. For instance, if a subchannel spans 10 candles and the variable is checked on the fourth candle, then bollingerChannel.period = 4. Put in other words, it is the current span of the subchannel."
+            "text": "bollingerSubChannel.period: The number of periods the subchannel spans at the moment the variable is being read. For instance, if a subchannel spans 10 candles and the variable is checked on the fourth candle, then bollingerChannel.period = 4. Put in other words, it is the current span of the subchannel.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "bollingerSubChannel.period: Die Anzahl der Perioden, die der Unterkanal zu dem Zeitpunkt umfasst, zu dem die Variable ausgelesen wird. Wenn sich ein Unterkanal beispielsweise über 10 Kerzen erstreckt und die Variable bei der vierten Kerze überprüft wird, dann ist bollingerSubChannel.period = 4. Anders ausgedrückt handelt es sich um die aktuelle Spanne des Unterkanals.",
+                    "updated": 1641653423190
+                },
+                {
+                    "language": "TR",
+                    "text": "bollingerSubChannel.period: Değişkenin okunduğu anda alt kanalın kapsadığı dönemlerin sayısı. Örneğin, bir alt kanal 10 muma yayılıyorsa ve değişken dördüncü mumda kontrol ediliyorsa, bollingerChannel.period = 4. Diğer bir deyişle, bu alt kanalın geçerli aralığıdır.",
+                    "updated": 1644419340020
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "bollingerSubChannel.slope: Indicates how steep the slope of the subchannel is. Possible values are \"Side\", \"Gentle\", \"Medium\", \"Steep\", \"Extreme\" (in order from lowest to highest)."
+            "text": "bollingerSubChannel.slope: Indicates how steep the slope of the subchannel is. Possible values are \"Side\", \"Gentle\", \"Medium\", \"Steep\", \"Extreme\" (in order from lowest to highest).",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "bollingerSubChannel.slope: Gibt die Steigung des Unterkanals an. Mögliche Werte sind \"Side\", \"Gentle\", \"Medium\", \"Steep\", \"Extreme\" (in der Reihenfolge vom niedrigsten zum höchsten Wert).",
+                    "updated": 1641653398356
+                },
+                {
+                    "language": "TR",
+                    "text": "bollingerSubChannel.slope: alt kanalın eğiminin ne kadar dik olduğunu gösterir. Olası değerler \"Side\", \"Gentle\", \"Medium\", \"Steep\", \"Extreme\" (en düşükten en yükseğe doğru sıralanmıştır).",
+                    "updated": 1644419365198
+                }
+            ]
         }
     ]
 }

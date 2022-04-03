@@ -1,7 +1,14 @@
 {
     "type": "Market Quoted Asset",
     "definition": {
-        "text": "The market quoted asset is the asset in the pair for which a quote is given, denominated in the base asset, as listed at the exchange."
+        "text": "The market quoted asset is the asset in the pair for which a quote is given, denominated in the base asset, as listed at the exchange.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Рыночный котируемый актив - это актив в паре, для которого дана котировка, выраженная в базовом активе, котируемом на бирже.",
+                "updated": 1645168492035
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,7 +17,14 @@
         },
         {
             "style": "Text",
-            "text": "A market quoted asset must reference an asset defined under the exchange assets node."
+            "text": "A market quoted asset must reference an asset defined under the exchange assets node.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Котируемый на рынке актив должен ссылаться на актив, определенный в узле биржевых активов.",
+                    "updated": 1645168504712
+                }
+            ]
         }
     ]
 }

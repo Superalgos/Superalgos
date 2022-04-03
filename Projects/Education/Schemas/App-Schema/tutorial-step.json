@@ -3,7 +3,7 @@
     "menuItems": [
         {
             "action": "Play Tutorial Step",
-            "actionProject": "Foundations",
+            "actionProject": "Education",
             "label": "Play",
             "iconPathOn": "play",
             "iconPathOff": "play",
@@ -11,7 +11,7 @@
         },
         {
             "action": "Resume Tutorial Step",
-            "actionProject": "Foundations",
+            "actionProject": "Education",
             "label": "Resume",
             "iconPathOn": "resume",
             "iconPathOff": "resume",
@@ -26,7 +26,7 @@
         },
         {
             "action": "Delete UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

@@ -2,12 +2,31 @@
     "type": "Reputation Power",
     "definition": {
         "text": "Reputation Power is added to the Token Power you direct into the Voting Program to increase your Voting Power. Reputation power comes from the Reputation in your Governance Address.",
-        "updated": 1630065079427
+        "updated": 1630065079427,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "El poder de reputación se agrega a su Power  directamente en el Voting Program para incrementar su Voting Power. Su poder de Reputation viene de la Reputation en su Governance Address.",
+                "updated": 1639136562273
+            },
+            {
+                "language": "RU",
+                "text": "Reputation Power (Сила репутации) добавляется к Token Power, который вы направляете в программу голосования Voting Programm, чтобы увеличить ваш Voting Power. Reputation Power берется из репутации в вашем адресе управления (Governance Address).",
+                "updated": 1640321631531
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования. Затем вы можете использовать docs.save для сохранения изменений и app.contribute для отправки в основной репозиторий.",
+                    "updated": 1640321646823
+                }
+            ]
         }
     ]
 }

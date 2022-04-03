@@ -1,7 +1,14 @@
 {
     "type": "Status Dependency",
     "definition": {
-        "text": "Status dependencies are references to a status report that define which process the process establishing the reference depends on."
+        "text": "Status dependencies are references to a status report that define which process the process establishing the reference depends on.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Зависимости состояния Status Dependency - это ссылки на отчет о состоянии, которые определяют, от какого процесса зависит процесс, устанавливающий ссылку.",
+                "updated": 1639591845287
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,26 +17,61 @@
         },
         {
             "style": "Text",
-            "text": "The reference is established to acquire the information relative to what the target process is doing. For example, by reading a status report a process may learn when was the last time the referenced process ran, and what was the last file processed."
+            "text": "The reference is established to acquire the information relative to what the target process is doing. For example, by reading a status report a process may learn when was the last time the referenced process ran, and what was the last file processed.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ссылка устанавливается для получения информации о том, что делает целевой процесс. Например, при чтении отчета о состоянии процесс может узнать, когда последний раз выполнялся указанный процесс и какой файл был обработан последним.",
+                    "updated": 1639548710992
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The status report referenced may belong to the same process— which is called a self-reference. In such a case, the process is learning what it did the last time it ran. Also, the status report referenced may belong to another process—another bot. In that case, the dependency may be of the Market Starting Point or Market Ending Point types. ",
-            "updated": 1609787389239
+            "updated": 1609787389239,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Указанный отчет о состоянии может принадлежать одному и тому же процессу, что называется ссылкой на себя. В таком случае процесс изучает то, что он делал при последнем запуске. Кроме того, упомянутый отчет о состоянии может принадлежать другому процессу - другому боту. В этом случае зависимость может быть типа Market Starting Point или Market Ending Point.",
+                    "updated": 1639548809371
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Self Reference is mandatory, as a process needs to read its own status report every time it wakes up."
+            "text": "Self Reference is mandatory, as a process needs to read its own status report every time it wakes up.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ссылка на себя Self Reference обязательна, так как процесс должен читать свой собственный отчет о состоянии каждый раз, когда он просыпается.",
+                    "updated": 1639548876131
+                }
+            ]
         },
         {
             "style": "List",
             "text": "The market starting point is a status dependency existing on Multi-Time-Frame-Daily processes so that the process establishing the reference learns the datetime of the start of the market. Usually, the reference is established with the sensor's Historic-OHLCVs process status report. Multi-Time-Frame-Market processes do not have this type of status dependency as the date of the start of the market is implied in their dataset (a single file with all market data).",
-            "updated": 1609787724948
+            "updated": 1609787724948,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Market Starting Point  - это зависимость статуса, существующая в процессах с Multi-Time-Frame-Daily, так что процесс, устанавливающий ссылку, узнает дату и время начала рынка. Обычно ссылка устанавливается с помощью отчета о состоянии процесса датчика Historic-OHLCV. Multi-Time-Frame-Market процессы не имеют такой зависимости статуса, поскольку дата начала рынка подразумевается в их наборе данных (один файл со всеми рыночными данными).",
+                    "updated": 1639549236987
+                }
+            ]
         },
         {
             "style": "List",
             "text": "The market ending point is a status dependency existing both in Multi-Time-Frame-Market and Multi-Time-Frame-Daily processes so that the process establishing the reference knows the datetime of the end of the market.",
-            "updated": 1609787745299
+            "updated": 1609787745299,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Market Ending Point - это зависимость статуса, существующая как в процессах с несколькими временными рамками, так и в процессах с Multi-Time-Frame-Market, так что процесс, устанавливающий ссылку, знает дату и время окончания рынка.",
+                    "updated": 1639549342745
+                }
+            ]
         },
         {
             "style": "Block",
@@ -38,17 +80,38 @@
         {
             "style": "Title",
             "text": "Status Dependency Configuration",
-            "updated": 1609787775907
+            "updated": 1609787775907,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Status Dependency",
+                    "updated": 1639549362338
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609787781306
+            "updated": 1609787781306,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1639549369719
+                }
+            ]
         },
         {
             "style": "List",
             "text": "mainUtility determines the type of status dependency, with possible values being Self Reference, MMarket Starting Point, or MMarket Ending Point.",
-            "updated": 1609787859239
+            "updated": 1609787859239,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "mainUtility - основная утилита определяющая тип зависимости статуса, при этом возможными значениями являются Self Reference, Market Starting Point или Market Ending Point",
+                    "updated": 1639549510251
+                }
+            ]
         }
     ]
 }

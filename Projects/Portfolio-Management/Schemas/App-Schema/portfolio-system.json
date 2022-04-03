@@ -1,0 +1,52 @@
+{
+    "type": "Portfolio System",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Managed Session Reference",
+            "relatedUiObject": "Managed Session Reference",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Portfolio-Management",
+            "actionProject": "Visual-Scripting"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add User Defined Code",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "userDefinedPortfolioCode",
+            "relatedUiObject": "User Defined Portfolio Code",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Portfolio-Management",
+            "actionProject": "Visual-Scripting"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "isHierarchyHead": true,
+    "addLeftIcons": true,
+    "level": 0,
+    "childrenNodesProperties": [
+        {
+            "name": "managedSessionReferences",
+            "type": "array",
+            "childType": "Managed Session Reference",
+            "autoAdd": false,
+            "project": "Portfolio-Management"
+        },
+        {
+            "name": "userDefinedPortfolioCode",
+            "type": "node",
+            "childType": "User Defined Portfolio Code",
+            "autoAdd": false,
+            "project": "Portfolio-Management"
+        }
+    ]
+}

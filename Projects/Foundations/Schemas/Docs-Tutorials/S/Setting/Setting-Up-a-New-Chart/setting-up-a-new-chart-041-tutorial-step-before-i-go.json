@@ -5,7 +5,7 @@
     "definition": {
         "text": "Want some more help figuring out complex chart configurations? You are in luck! I have some friends who would love to help you out.",
         "icon": {
-            "name": "Charting-Space/charting-space",
+            "name": "charting-space",
             "project": "Foundations"
         },
         "updated": 1617371031010,
@@ -14,6 +14,21 @@
                 "language": "ES",
                 "text": "¿Quieres más ayuda para descubrir configuraciones de gráficos complejas? ¡Estas de suerte! Tengo algunos amigos a los que les encantaría ayudarte.",
                 "updated": 1628732843747
+            },
+            {
+                "language": "RU",
+                "text": "Хотите получить дополнительную помощь в определении сложных конфигураций графиков? Вам повезло! У меня есть несколько друзей, которые с радостью помогут вам.",
+                "updated": 1639084894980
+            },
+            {
+                "language": "DE",
+                "text": "Sie möchten mehr Hilfe bei der Erstellung komplexer Diagrammkonfigurationen? Sie haben Glück! Ich habe einige Freunde, die Ihnen gerne helfen würden.",
+                "updated": 1639500810597
+            },
+            {
+                "language": "TR",
+                "text": "Karmaşık grafik yapılandırmaları oluşturmak için daha fazla yardım mı istiyorsunuz? Şanslısın! Sana yardım etmek isteyen bazı öğreticilerim var.",
+                "updated": 1642883010815
             }
         ]
     },
@@ -27,6 +42,21 @@
                     "language": "ES",
                     "text": "¡Enciende a uno de mis amigos para que continúe!",
                     "updated": 1628733009291
+                },
+                {
+                    "language": "RU",
+                    "text": "Зажгите одного из моих друзей, чтобы продолжать!",
+                    "updated": 1639085023418
+                },
+                {
+                    "language": "DE",
+                    "text": "Feuern Sie einen meiner Freunde an, damit er weitermacht!",
+                    "updated": 1639501191878
+                },
+                {
+                    "language": "TR",
+                    "text": "Devam etmek için öğreticilerden birini açın!",
+                    "updated": 1642883030235
                 }
             ]
         },
@@ -39,6 +69,21 @@
                     "language": "ES",
                     "text": "Los siguientes tutoriales están actualmente en construcción: How to customize a Layer Manager Tutorial, How to set up a custom Rate Scale Tutorial, How to combine Markets in a Chart Tutorial, How to combine Exchanges in a Chart Tutorial",
                     "updated": 1628733032271
+                },
+                {
+                    "language": "RU",
+                    "text": "Следующие учебники находятся в стадии разработки: How to customize a Layer Manager Tutorial, How to set up a custom Rate Scale Tutorial, How to combine Markets in a Chart Tutorial, How to combine Exchanges in a Chart Tutorial",
+                    "updated": 1639085041797
+                },
+                {
+                    "language": "DE",
+                    "text": "Die folgenden Tutorials sind derzeit noch in Arbeit: How to customize a Layer Manager Tutorial, How to set up a custom Rate Scale Tutorial, How to combine Markets in a Chart Tutorial, How to combine Exchanges in a Chart Tutorial",
+                    "updated": 1639501201792
+                },
+                {
+                    "language": "TR",
+                    "text": "Önemli: Aşağıdaki öğreticiler şu anda yapım aşamasındadır:Katman Yöneticisi Eğitimi nasıl özelleştirilir (How to customize a Layer Manager Tutorial),Özel bir Oran Ölçeği Eğitimi nasıl ayarlanır (How to set up a custom Rate Scale Tutorial), Bir Grafik Eğitiminde Piyasalar nasıl birleştirilir (How to combine Markets in a Chart Tutorial),Bir Grafik Eğitiminde Değişimler nasıl birleştirilir ( How to combine Exchanges in a Chart Tutorial )",
+                    "updated": 1642883867706
                 }
             ]
         },

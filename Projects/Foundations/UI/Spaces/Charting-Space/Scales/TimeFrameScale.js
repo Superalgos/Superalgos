@@ -230,7 +230,7 @@ function newTimeFrameScale() {
 
     function onViewportZoomChanged(event) {
         if (event !== undefined) { // it is undefined when the level is just being animated.
-            if (event.shiftKey === false || event.shiftKey === undefined) { return } // with no shft key pressed, no automatic change in scale
+            if (event.shiftKey === false || event.shiftKey === undefined) { return } // with no shift key pressed, no automatic change in scale
             let currentTimeFrame = thisObject.timeFrame
             let timeFrame = recalculatePeriod(event.newLevel)
             if (timeFrame !== currentTimeFrame) {
@@ -394,8 +394,8 @@ function newTimeFrameScale() {
         let label2 = label[0]
         let label3 = label[1].toUpperCase()
 
-        let icon1 = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.payload.parentNode.project, thisObject.payload.node.payload.parentNode.type)
-        let icon2 = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.payload.node.type)
+        let icon1 = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.payload.parentNode.project, thisObject.payload.node.payload.parentNode.type)
+        let icon2 = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.payload.node.type)
 
         let backgroundColor = UI_COLOR.BLACK
 

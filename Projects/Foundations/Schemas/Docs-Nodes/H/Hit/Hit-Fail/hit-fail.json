@@ -1,7 +1,19 @@
 {
     "type": "Hit Fail",
     "definition": {
-        "text": "Hit fail states whether a transaction is successful or not, hit meaning it is successful and fail meaning it is not."
+        "text": "Hit fail states whether a transaction is successful or not, hit meaning it is successful and fail meaning it is not.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Hit Fail указывает, успешна ли транзакция или нет, Hit означает, что она успешна, а Fail наоборот.",
+                "updated": 1638967040500
+            },
+            {
+                "language": "DE",
+                "text": "Hit fail gibt an, ob eine Transaktion erfolgreich war oder nicht, wobei hit bedeutet, dass sie erfolgreich war und fail, dass sie nicht erfolgreich war.",
+                "updated": 1641856969909
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,11 +22,35 @@
         },
         {
             "style": "Text",
-            "text": "Superalgos marks positions and even entire episodes as hits or fails, by evaluating profit loss for the corresponding context. If profit loss is positive, then the position or episode is a hit. If profit loss is negative, it is a fail."
+            "text": "Superalgos marks positions and even entire episodes as hits or fails, by evaluating profit loss for the corresponding context. If profit loss is positive, then the position or episode is a hit. If profit loss is negative, it is a fail.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Superalgos отмечает позиции и даже целые эпизоды как успешные или неудачные, оценивая прибыль / убыток для соответствующего контекста. Если прибыль, то позиция или эпизод - Hit. Если убыток, это Fail.",
+                    "updated": 1638967352120
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos kennzeichnet Positionen und sogar ganze Episoden als hits (Treffer) oder fails (Fehlschlag), indem es den profit loss für den entsprechenden Kontext auswertet. Ist der profit loss positiv, so ist die Position oder Episode ein Hit. Wenn der profit loss negativ ist, handelt es sich um einen Fail.",
+                    "updated": 1641857318476
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "Please refer to the definition of hits for the details."
+            "text": "Please refer to the definition of hits for the details.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пожалуйста, обратитесь к определению Hits для получения подробной информации.",
+                    "updated": 1638967380070
+                },
+                {
+                    "language": "DE",
+                    "text": "Einzelheiten sind der Definition von hits (Treffern) zu entnehmen.",
+                    "updated": 1641857347307
+                }
+            ]
         },
         {
             "style": "Block",
@@ -24,17 +60,43 @@
         {
             "style": "Title",
             "text": "Hit Fail Configuration",
-            "updated": 1609880962570
+            "updated": 1609880962570,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Hit Fail",
+                    "updated": 1638967463803
+                },
+                {
+                    "language": "DE",
+                    "text": "Hit Fail Konfiguration",
+                    "updated": 1641857357095
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609873980538
+            "updated": 1609873980538,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сойства",
+                    "updated": 1638967471471
+                }
+            ]
         },
         {
             "style": "List",
             "text": "initialValue allows resetting the initial state of the node to an arbitrary value.",
-            "updated": 1609875415147
+            "updated": 1609875415147,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
+                    "updated": 1638967481835
+                }
+            ]
         }
     ]
 }

@@ -1,7 +1,14 @@
 {
     "type": "Candle",
     "definition": {
-        "text": "The candle structure of nodes stores the properties that make up each candle in the episode, including open and close datetime, and the rates for open, min, max, and close."
+        "text": "The candle structure of nodes stores the properties that make up each candle in the episode, including open and close datetime, and the rates for open, min, max, and close.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "В свечной структуре узлов хранятся свойства, составляющие каждую свечу в эпизоде, включая дату и время открытия и закрытия, а также ставки для открытия, минимума, максимума и закрытия.",
+                "updated": 1638646229268
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,7 +17,14 @@
         },
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text."
+            "text": "Right click and Edit to enter edit mode and change this text.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст.",
+                    "updated": 1638646239827
+                }
+            ]
         }
     ]
 }

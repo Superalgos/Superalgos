@@ -1,0 +1,31 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 82,
+    "type": "Tutorial Step - Trading Systems Candles Panel",
+    "definition": {
+        "text": "This step will play a video in full screen mode.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Mit diesem Schritt wird ein Video im Vollbildmodus abgespielt.",
+                "updated": 1639391742191
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu adım, videoyu tam ekran modunda oynatır.",
+                "updated": 1641666232337
+            },
+            {
+                "language": "RU",
+                "text": "Этот шаг позволит воспроизвести видео в полноэкранном режиме.",
+                "updated": 1642664437277
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Gif",
+            "text": "GIFs/Foundations/Tutorials/trading-systems-candles-panel.gif"
+        }
+    ]
+}

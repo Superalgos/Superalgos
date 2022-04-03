@@ -1,0 +1,102 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": 42,
+    "type": "Tutorial Step - Welcome aboard!",
+    "definition": {
+        "text": "You did it! You are now officially taking part in the governance of Superalgos! So, what's next?",
+        "updated": 1630751721473,
+        "icon": {
+            "name": "Announcement\\announcement",
+            "project": "Foundations"
+        },
+        "translations": [
+            {
+                "language": "ES",
+                "text": "¡Lo hiciste! ¡Ahora estás participando oficialmente en el gobierno de Superalgos! ¿Qué es lo siguiente?",
+                "updated": 1630899371726,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Ты сделал это! Теперь вы официально принимаете участие в управлении Superalgos! Ну и что дальше?",
+                "updated": 1639053732625
+            },
+            {
+                "language": "DE",
+                "text": "Sie haben es geschafft! Du bist jetzt offiziell an der Regierung von Superalgos beteiligt! Wie geht es nun weiter?",
+                "updated": 1640082521860
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "If you generated a new Governance Address using the Profile Constructor, you may want to connect it to a software wallet so that you have control of your tokens.",
+            "updated": 1630751845529,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si generaste un nuevo Governance Address utilizando el Profile Constructor, es posible que desees conectarlo a una billetera de software para que tengas el control de tus tokens.",
+                    "updated": 1630899427730,
+                    "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы сгенерировали новый адрес управления Governance Address с помощью конструктора профилей Profile Constructor, вы можете подключить его к программному кошельку, чтобы иметь контроль над своими токенами.",
+                    "updated": 1639053795526
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie eine neue Governance Address mit dem Profile Constructor erstellt haben, möchten Sie diese vielleicht mit einer Software-Wallet verbinden, damit Sie die Kontrolle über Ihre Token haben.",
+                    "updated": 1640082550454
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "See the \"Import Private Key in a Wallet\" section of this Docs page on the right. It explains how to do that using Trust Wallet. Check it out!",
+            "updated": 1630756159921,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Ve el \"Import Private Key in a Wallet\" sección de esta página de Documentos a la derecha. Explica cómo hacerlo con Trust Wallet. ¡Echale un vistazo!",
+                    "updated": 1630899460693,
+                    "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Смотрите раздел Import Private Key in a Wallet на этой странице документов Docs page справа. В нем объясняется, как это сделать с помощью кошелька Trust Wallet. Проверьте это!",
+                    "updated": 1639053976753
+                },
+                {
+                    "language": "DE",
+                    "text": "Sehen Sie sich den Abschnitt \"Import Private Key in a Wallet\" auf dieser Docs-Seite auf der rechten Seite an. Dort wird erklärt, wie man das mit Trust Wallet macht. Probieren Sie es aus!",
+                    "updated": 1640082581822
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "Feel free to use any other wallet that supports BEP20 tokens in the Binance Smart Chain.",
+            "updated": 1630752335924,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Siéntate libre de usar cualquier otra billetera que admita tokens BEP20 en el Binance Smart Chain.",
+                    "updated": 1630899484668,
+                    "style": "Note"
+                },
+                {
+                    "language": "RU",
+                    "text": "Не стесняйтесь использовать любой другой кошелек, который поддерживает токены BEP20 в Binance Smart Chain.",
+                    "updated": 1639053992756
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können jede andere Wallet verwenden, die BEP20-Token in der Binance Smart Chain unterstützt.",
+                    "updated": 1640082590465
+                }
+            ]
+        }
+    ]
+}

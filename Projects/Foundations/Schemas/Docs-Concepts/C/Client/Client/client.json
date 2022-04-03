@@ -7,7 +7,18 @@
             {
                 "language": "ES",
                 "text": "El Client, junto con el TS y la UI es uno de los tres componentes centrales del Software Superalgos.",
-                "updated": 1624379422979
+                "updated": 1624379422979,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Client вместе с TS и UI является одним из трех основных компонентов программного обеспечения Superalgos.",
+                "updated": 1638276853370
+            },
+            {
+                "language": "TR",
+                "text": "İstemci, TS (Task Server) ve UI (User Interface) ile birlikte Superalgos Yazılımının üç temel bileşeninden biridir.",
+                "updated": 1639119130060
             }
         ]
     },
@@ -15,7 +26,14 @@
         {
             "style": "Success",
             "text": "The Client is what users run.",
-            "updated": 1610912048355
+            "updated": 1610912048355,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Client - это то, что запускают пользователи.",
+                    "updated": 1637927442517
+                }
+            ]
         }
     ]
 }

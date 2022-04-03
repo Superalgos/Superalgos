@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "Un market sell orderes una instrucción enviada a la bolsa para vender el activo base, para su ejecución inmediata a los precios actuales del mercado.",
                 "updated": 1629580936448
+            },
+            {
+                "language": "RU",
+                "text": "Market Sell Order - это распоряжение, отправленное на биржу для продажи базового актива с целью немедленного исполнения по текущим рыночным ценам.",
+                "updated": 1639841489842
             }
         ]
     },
@@ -18,7 +23,14 @@
         {
             "style": "Success",
             "text": "Please read the definition of Market Buy Order for relevant information about how orders in general—and market orders in particular—work.",
-            "updated": 1609608966819
+            "updated": 1609608966819,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пожалуйста, прочитайте определение Market Buy Order для получения соответствующей информации о том, как работают ордера в целом и в частности рыночные ордера.",
+                    "updated": 1639841738841
+                }
+            ]
         },
         {
             "style": "Block",
@@ -27,20 +39,48 @@
         {
             "style": "Title",
             "text": "Market Sell Order Configuration",
-            "updated": 1609608299620
+            "updated": 1609608299620,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Market Sell Order",
+                    "updated": 1639841593496
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609608307181
+            "updated": 1609608307181,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1639841600484
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "percentageOfAlgorithmSize is the definition of how much of the size handled by the algorithm shall be allocated to this particular order. Posible values are real numbers between 0 and 100, including the extremes. If you set the value to 0, the order will not be executed."
+            "text": "percentageOfAlgorithmSize is the definition of how much of the size handled by the algorithm shall be allocated to this particular order. Posible values are real numbers between 0 and 100, including the extremes. If you set the value to 0, the order will not be executed.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "percentageOfAlgorithmSize - это определение того, какая часть размера, обрабатываемого алгоритмом, должна быть выделена для данного конкретного ордера. Возможные значения - вещественные числа от 0 до 100, включая крайние значения. Если вы установите значение 0, ордер не будет выполнен.",
+                    "updated": 1639841631317
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "spawnMultipleOrders is the parameter that indicates whether additional spawned orders are allowed (true) or not (false)."
+            "text": "spawnMultipleOrders is the parameter that indicates whether additional spawned orders are allowed (true) or not (false).",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "spawnMultipleOrders - это параметр, который указывает, разрешены ли дополнительные порожденные ордера (true) или нет (false).",
+                    "updated": 1639841649174
+                }
+            ]
         }
     ]
 }

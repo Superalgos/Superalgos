@@ -1,0 +1,146 @@
+{
+    "type": "Data Mine",
+    "definition": {
+        "text": "A data mine is a hierarchy that contains definitions of sensor and indicators bots, and their plotters. These definitions are consumed from the actual code of such bots.",
+        "updated": 1621708641767,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Un Data Mine es una jerarquía que contiene definiciones de sensor, bots indicadores, y sus trazadores. Estas definiciones se obtienen del código de dichos bots.",
+                "updated": 1624230241851
+            },
+            {
+                "language": "RU",
+                "text": "Data Mine - это иерархия, содержащая определения датчиков и ботов-индикаторов, а также их плоттеров. Эти определения взяты из фактического кода таких ботов.",
+                "updated": 1638275063658
+            },
+            {
+                "language": "TR",
+                "text": "Veri madeni, sensör ve gösterge botlarının tanımlarını ve bunların plotter'larını içeren bir hiyerarşidir. ",
+                "updated": 1639144316542
+            },
+            {
+                "language": "EL",
+                "text": "Η εξόρυξη δεδομένων είναι μια ιεραρχία που περιέχει ορισμούς των ρομπότ αισθητήρων και δεικτών και των σχεδιογράφων τους. Αυτοί οι ορισμοί χρησιμοποιούνται από τον πραγματικό κώδικα τέτοιων ρομπότ.",
+                "updated": 1641828711985
+            },
+            {
+                "language": "DE",
+                "text": "Eine Data Mine ist eine Hierarchie, die Definitionen von Sensor- und Indikator-Bots und deren Plotter enthält. Diese Definitionen werden aus dem eigentlichen Code solcher Bots konsumiert.",
+                "updated": 1641763663384
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "In a way, data mines are catalogs of bots that anyone may create. This hierarchy provides all the tools required to create sensors, indicators, and plotters, with minimal coding required.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "En cierto modo, los Data Mines son listas de bots que pueden ser creados por cualquier usuario. Esta jerarquía provee todas las herramientas necesarias para crear sensores, indicadores y gráficos, con un mínimo requerimiento de código.",
+                    "updated": 1638150280351
+                },
+                {
+                    "language": "RU",
+                    "text": "В каком-то смысле Data Mine - это каталоги ботов, которые может создать каждый. Эта иерархия предоставляет все инструменты, необходимые для создания датчиков, индикаторов и плоттеров с минимальным кодированием.",
+                    "updated": 1638339932741
+                },
+                {
+                    "language": "EL",
+                    "text": "Κατά κάποιο τρόπο, τα ορυχεία δεδομένων είναι κατάλογοι ρομπότ που μπορεί να δημιουργήσει ο καθένας. Αυτή η ιεραρχία παρέχει όλα τα εργαλεία που απαιτούνται για τη δημιουργία αισθητήρων, δεικτών και σχεδιογράφων, με ελάχιστη απαιτούμενη κωδικοποίηση.",
+                    "updated": 1641828735053
+                },
+                {
+                    "language": "DE",
+                    "text": "In gewisser Weise sind Data Mines Kataloge von Bots, die jeder erstellen kann. Diese Hierarchie stellt alle Werkzeuge zur Verfügung, die zur Erstellung von Sensoren, Indikatoren und Plottern erforderlich sind, wobei nur ein Minimum an Kodierung erforderlich ist.",
+                    "updated": 1641764479375
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Because the hierarchy provides definitions, it does not intervene in the execution of bots. Instead, the definitions in data mines are instantiated from the network hierarchy by bot instances. Bot instances and process instances are the ones running the code according to the definitions in the corresponding data mine.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Debido a que la jerarquía solo proporciona definiciones, no interfiere en la ejecución de Bots. Sino que las definiciones en los Data Mines son instanciados desde la jerarquía Network por las instancias de los Bots. Las instancias de los Bots y las instancias de procesos son las encargadas de ejecutar el código acorde a las definiciones del Data Mine correspondiente.",
+                    "updated": 1638150294294
+                },
+                {
+                    "language": "RU",
+                    "text": "Поскольку иерархия предоставляет определения, она не вмешивается в выполнение ботов. Вместо этого определения в Data Mine создаются экземплярами ботов из сетевой иерархии. Экземпляры ботов и экземпляры процессов - это те, которые запускают код в соответствии с определениями в соответствующем хранилище данных.",
+                    "updated": 1638339974635
+                },
+                {
+                    "language": "EL",
+                    "text": "Επειδή η ιεραρχία παρέχει ορισμούς, δεν παρεμβαίνει στην εκτέλεση των ρομπότ. Αντίθετα, οι ορισμοί στα εξορυκτήρια δεδομένων δημιουργούνται από την ιεραρχία του δικτύου από ρομπότ. Τα ρομπότ και οι φάσεις διεργασίας είναι αυτές που εκτελούν τον κώδικα σύμφωνα με τους ορισμούς στο αντίστοιχο ορυχείο δεδομένων.",
+                    "updated": 1641828752557
+                },
+                {
+                    "language": "DE",
+                    "text": "Da die Hierarchie Definitionen bereitstellt, greift sie nicht in die Ausführung von Bots ein. Stattdessen werden die Definitionen in Data Mines von der Netzwerkhierarchie durch Bot-Instanzen instanziiert. Bot-Instanzen und Prozess-Instanzen sind diejenigen, die den Code gemäß den Definitionen in der entsprechenden Datenmine ausführen.",
+                    "updated": 1641764518148
+                }
+            ]
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Data Mine Configuration",
+            "updated": 1609789108763,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурирование Data Mine",
+                    "updated": 1638340008131
+                },
+                {
+                    "language": "DE",
+                    "text": "Data Mine Konfiguration",
+                    "updated": 1641764558876
+                }
+            ]
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609789116514,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1638340048023
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1641764570621
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "codeName is the name of the data mine as used within the code of the system.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "codeName - это имя хранилища данных, используемое в коде системы.",
+                    "updated": 1638340067608
+                },
+                {
+                    "language": "DE",
+                    "text": "codeName ist der Name der Data Mine, wie er im Code des Systems verwendet wird.",
+                    "updated": 1641764595369
+                }
+            ]
+        }
+    ]
+}

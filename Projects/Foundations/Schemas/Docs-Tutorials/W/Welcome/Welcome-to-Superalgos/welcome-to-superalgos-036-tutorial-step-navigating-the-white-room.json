@@ -26,6 +26,27 @@
                 "text": "Al igual que el Design Space, el Charting Space presenta un área enorme donde puede configurar gráficos ... ¡tantos como tu hardware pueda soportar!",
                 "updated": 1624380765872,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Genau wie der Design Space bietet auch der Charting Space einen riesigen Bereich, in dem Sie Diagramme einrichten können... so viele, wie Ihre Hardware verkraften kann!",
+                "updated": 1634205591674,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Tasarım alanı gibi, grafik alanı da grafikler oluşturabileceğiniz devasa bir alana sahiptir... Donanımınızın üstesinden gelebileceği kadar!",
+                "updated": 1644911342938
+            },
+            {
+                "language": "RU",
+                "text": "Как и пространство проектирования, пространство построения графиков имеет огромную область, где Вы можете создать диаграмм столько.. сколько сможет выдержать Ваше устройство!",
+                "updated": 1641812959784
+            },
+            {
+                "language": "NL",
+                "text": "Net als de Design Space, heeft de Charting Space een grote ruimte om grafieken op te bouwen.... zoveel als je hardware aan kan!",
+                "updated": 1638782237066
             }
         ]
     },
@@ -43,8 +64,8 @@
                 },
                 {
                     "language": "ID",
-                    "text": "Agar lebih mudah bagi para user baru, hanya ada dua charts di Getting Started Workspace. Pengguna lama dapat memonitor charts dari exchange dan market yang berbeda.",
-                    "updated": 1616934950201,
+                    "text": "Untuk mempermudah pendatang baru, hanya ada dua chart di Getting Started Tutorials workspace. Pengguna tingkat lanjut memantau charts dari beberapa exchanges dan beberapa markets.",
+                    "updated": 1639745370106,
                     "style": "Text"
                 },
                 {
@@ -52,6 +73,27 @@
                     "text": "Para simplificar las cosas para los recién llegados, solo hay dos gráficos en este espacio del Getting Started Tutorial. Los usuarios avanzados monitorean gráficos de múltiples intercambios y múltiples mercados.",
                     "updated": 1624380961849,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Um die Dinge für Neulinge einfach zu halten, gibt es in diesem Workspace des Getting Started Tutorials nur zwei Charts. Fortgeschrittene Benutzer überwachen Charts von mehreren Börsen und Märkten.",
+                    "updated": 1634205603337,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Yeni başlayanlar için işleri basit tutmak gerektiğinden bu ( Getting Started Tutorial ) alanında yalnızca iki çizelge vardır. İleri düzey kullanıcılar, birden çok borsadan ve birden çok işlem çiftinden gelen grafikleri izleyebilirler.",
+                    "updated": 1644911383166
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы новичкам было проще, в Getting Started Tutorials workspace имеется только две диаграммы. Опытные пользователи могут отслеживать графики с множествами бирж и рынков.",
+                    "updated": 1636199196560
+                },
+                {
+                    "language": "NL",
+                    "text": "Om het voor nieuwkomers eenvoudig te houden, zijn er slechts twee grafieken in deze Getting Started Tutorials. Gevorderde gebruikers monitoren grafieken van meerdere beurzen en meerdere markten.",
+                    "updated": 1638782331057
                 }
             ]
         },
@@ -67,8 +109,8 @@
                 },
                 {
                     "language": "ID",
-                    "text": "Untuk bergerak sekeliling di charting space, click dan drag dengan mouse. Dengan keyboard dapat menggunakan Shift + ↑ ← → ↓",
-                    "updated": 1616935011038,
+                    "text": "Untuk bergerak di sekitar Viewport, klik dan seret pada area kosong menggunakan mouse kamu. Kombinasi keyboardnya adalah Shift plus tombol panah  ↑ ← → ↓ ",
+                    "updated": 1639745432266,
                     "style": "Callout"
                 },
                 {
@@ -76,6 +118,27 @@
                     "text": "Para moverte por el Viewport, haz clic y arrastrate por el área en blanco con el mouse. La combinación de teclado es Shift más las teclas de flecha ↑ ← → ↓",
                     "updated": 1624493970819,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Um sich im Viewport zu bewegen, klicken Sie auf einen leeren Bereich und ziehen Sie mit der Maus. Die Tastaturkombination ist Shift plus die Pfeiltasten ↑ ← → ↓",
+                    "updated": 1634205660486,
+                    "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Görünüm Alanında (Viewport) gezinmek için farenizi kullanarak boş alana tıklayın ve sürükleyin. Klavye ile şu tuş kombinasyonunu kullanarakta gezinebilirsin. Shift artı ok tuşları ↑ ← → ↓",
+                    "updated": 1636034607617
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы перемещаться по Viewport, удерживайте левую кнопку мыши и перетащите пустую область. При использовании клавиатуры, воспользуйтесь комбинацией клавиш Shift + ↑ ← → ↓.",
+                    "updated": 1636199439035
+                },
+                {
+                    "language": "NL",
+                    "text": "Om te bewegen in de Viewport, klik en sleep met je muis op de blanco achtergrond. De keyboard combinatie is Shift plus de pijltjestoetsen ↑ ← → ↓",
+                    "updated": 1638782443884
                 }
             ],
             "updated": 1622198195729

@@ -166,7 +166,7 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                                 console.log(error)
                                 throw (error)
                             } else {
-                                console.log('[INFO] Clonning repo ' + repoURL + ' succeed.')
+                                console.log((new Date()).toISOString(), '[INFO] Clonning repo ' + repoURL + ' succeed.')
                                 resolve()
                             }
                         })
@@ -255,7 +255,7 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
 
                             } catch (err) {
                                 if (err.stack !== undefined) {
-                                    console.log('[ERROR] Client Interface -> err.stack = ' + err.stack)
+                                    console.log((new Date()).toISOString(), '[ERROR] Client Interface -> err.stack = ' + err.stack)
                                 }
                                 let errorMessage = err.message
                                 if (errorMessage === undefined) {

@@ -79,18 +79,18 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
 
                 function onError(err) {
                     if (err.message.indexOf('ECONNREFUSED') >= 0) {
-                        console.log('[WARN] Web Sockets Network Client -> onError -> Nobody home at ' + thisObject.host + ':' + thisObject.port)
+                        console.log((new Date()).toISOString(), '[WARN] Web Sockets Network Client -> onError -> Nobody home at ' + thisObject.host + ':' + thisObject.port)
                         reject()
                         return
                     }
-                    console.log('[ERROR] Web Sockets Network Client -> onError -> err.message = ' + err.message)
-                    console.log('[ERROR] Web Sockets Network Client -> onError -> err.stack = ' + err.stack)
+                    console.log((new Date()).toISOString(), '[ERROR] Web Sockets Network Client -> onError -> err.message = ' + err.message)
+                    console.log((new Date()).toISOString(), '[ERROR] Web Sockets Network Client -> onError -> err.stack = ' + err.stack)
                     reject()
                     return
                 }
 
             } catch (err) {
-                console.log('[ERROR] Web Sockets Network Client -> setUpWebSocketClient -> err.stack = ' + err.stack)
+                console.log((new Date()).toISOString(), '[ERROR] Web Sockets Network Client -> setUpWebSocketClient -> err.stack = ' + err.stack)
             }
         }
     }

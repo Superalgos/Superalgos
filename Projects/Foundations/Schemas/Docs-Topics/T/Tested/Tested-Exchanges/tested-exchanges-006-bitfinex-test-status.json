@@ -4,37 +4,86 @@
     "type": "Bitfinex Test Status",
     "definition": {
         "text": "Bitfinex is tested for data mining but not for live trading.",
-        "updated": 1616003876885
+        "updated": 1616003876885,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Bitfinex тестируется для добычи данных, но не для реальной торговли.",
+                "updated": 1646900987136
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Properties",
-            "updated": 1615143100216
+            "updated": 1615143100216,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сведения",
+                    "updated": 1646900996089
+                }
+            ]
         },
         {
             "style": "List",
             "text": "1-min OHLCVs Capability: Yes. The ability to fetch historic data for backtesting purposes has been verified.",
-            "updated": 1616003797511
+            "updated": 1616003797511,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "1-минутные свечи OHLCV: Да. Возможность получения исторических данных для целей бэктестинга была проверена.",
+                    "updated": 1646901029802
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Market History: 1 year.",
-            "updated": 1616004049653
+            "updated": 1616004049653,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "История рынка: 1 год.",
+                    "updated": 1646901036859
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Trading Capability: Unknown. The ability to run strategies in live-trading mode has not been verified.",
-            "updated": 1616003817998
+            "updated": 1616003817998,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Торговые возможности: Неизвестно. Возможность запуска стратегий в режиме реальной торговли не была проверена.",
+                    "updated": 1646901045254
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Comments: Raw Data mining can be slow due to exchange restrictions on their API that limit the number of data it can be requested via Rest API.",
-            "updated": 1616004065179
+            "updated": 1616004065179,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Комментарии: Добыча необработанных данных может быть медленной из-за ограничений обмена на их API, которые ограничивают количество данных, которые могут быть запрошены через Rest API.",
+                    "updated": 1646901063196
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1646901069408
+                }
+            ]
         },
         {
             "style": "Json",

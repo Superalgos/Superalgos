@@ -4,42 +4,98 @@
     "type": "Kucoin Test Status",
     "definition": {
         "text": "Kucoin is tested for data mining and for live trading.",
-        "updated": 1632650068116
+        "updated": 1632650068116,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Kucoin протестирован для добычи данных и для торговли в реальном времени.",
+                "updated": 1646902087301
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Properties",
-            "updated": 1615143100216
+            "updated": 1615143100216,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сведения",
+                    "updated": 1646902095155
+                }
+            ]
         },
         {
             "style": "List",
             "text": "1-min OHLCVs Capability: Yes. The ability to fetch historic data for backtesting purposes has been verified.",
-            "updated": 1632650093003
+            "updated": 1632650093003,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "1-минутные свечи OHLCV: Да. Возможность получения исторических данных для целей бэктестинга была проверена.",
+                    "updated": 1646902126675
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Market History: 1 day",
-            "updated": 1615211188110
+            "updated": 1615211188110,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "История рынка: 1 день",
+                    "updated": 1646902133116
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Trading Capability: Yes. The ability to run strategies in live-trading mode has been verified.",
-            "updated": 1632650205665
+            "updated": 1632650205665,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Возможность торговли: Да. Возможность запуска стратегий в режиме реальной торговли была проверена.",
+                    "updated": 1646902141589
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Comments: This exchange has not yet fully tested but I'm currently live trading on SHIB-USDT pair. I will update this section when I will have had the opportunity to do a more in-depth test",
-            "updated": 1632650423168
+            "updated": 1632650423168,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Комментарии: Эта биржа еще не полностью протестирована, но в настоящее время я веду реальную торговлю на паре SHIB-USDT. Я обновлю этот раздел, когда у меня будет возможность провести более глубокое тестирование.",
+                    "updated": 1646902159373
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Possible Issues: Kucoin is have an issue where is will randomly kick out the data-mine with error \"rateLimitExceeded\". When this occurs use maxRate in the configuration as shown below. If this error does not happen for you then you can leave out maxRate .",
-            "updated": 1638135088748
+            "updated": 1638135088748,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Возможные проблемы: У Kucoin есть проблема, когда он случайным образом выводит ошибку \"rateLimitExceeded\". Когда это происходит, используйте maxRate в конфигурации, как показано ниже. Если эта ошибка не возникает у вас, то вы можете не использовать maxRate.",
+                    "updated": 1646902213008
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1646902218938
+                }
+            ]
         },
         {
             "style": "Json",

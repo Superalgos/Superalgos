@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Торговая система Trading System несет в себе торговую логику, реализуемую торговым ботом Trading Bot во время торговой сессии.",
                 "updated": 1639732638426
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bir Ticaret Sistemi ( Trading System ), bir ticaret oturumu sırasında Ticaret Botu ( Trading Bot ) tarafından uygulanan ticaret mantığını taşır.",
+                "updated": 1647849389459
             }
         ]
     },

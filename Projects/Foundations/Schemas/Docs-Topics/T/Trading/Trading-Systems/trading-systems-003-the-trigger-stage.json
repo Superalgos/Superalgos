@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Стадия запуска включает в себя события Trigger-On Event, Trigger-Off Event и Take Position Event.",
                 "updated": 1639734147778
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Tetik aşaması, Tetikleme Olayı, Tetikleme Olayı ve Pozisyon Al Etkinliği tanımlarını içerir.",
+                "updated": 1647849631919
             }
         ]
     },
@@ -36,7 +41,14 @@
         {
             "style": "Note",
             "text": "Announcements is a feature external to Trading Systems and shall be addressed elsewhere.",
-            "updated": 1610139662103
+            "updated": 1610139662103,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Not: Duyurular, Ticaret Sistemlerinin ( Trading Systems ) dışında bulunan bir özelliktir ve başka bir yerde ele alınacaktır.",
+                    "updated": 1647849846641
+                }
+            ]
         },
         {
             "style": "Title",
@@ -55,7 +67,14 @@
         {
             "style": "Title",
             "text": "Trigger Off Event",
-            "updated": 1610139540955
+            "updated": 1610139540955,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Tetikleme Etkinliği",
+                    "updated": 1647849878839
+                }
+            ]
         },
         {
             "style": "Include",
@@ -70,7 +89,14 @@
         {
             "style": "Title",
             "text": "Take Position Event",
-            "updated": 1610139565779
+            "updated": 1610139565779,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Pozisyon Al Etkinliği",
+                    "updated": 1647849898593
+                }
+            ]
         },
         {
             "style": "Include",

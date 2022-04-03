@@ -1,41 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg
-   viewBox="0 0 511.99998 511.99998"
-   version="1.1"
-   id="svg16"
-   width="512"
-   height="512"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
-  <defs
-     id="defs20" />
-  <g
-     id="g29"
-     transform="scale(3.2898541)">
-    <g
-       fill="#3498d4"
-       id="g12">
-      <path
-         d="M 0,0 H 46.9 V 46.9 H 0 Z"
-         id="path2" />
-      <path
-         d="m 0,54.36 h 46.9 v 46.9 H 0 Z"
-         id="path4" />
-      <path
-         d="m 0,108.73 h 46.9 v 46.9 H 0 Z"
-         id="path6" />
-      <path
-         d="m 54.36,0 h 46.9 v 46.9 h -46.9 z"
-         id="path8" />
-      <path
-         d="m 108.73,0 h 46.9 v 46.9 h -46.9 z"
-         id="path10" />
-    </g>
-    <circle
-       cx="77.809998"
-       cy="76.860001"
-       fill="#e87d4a"
-       r="23.450001"
-       id="circle14" />
-  </g>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0H154.294V154.294H0V0Z" fill="#0295AA"/>
+<path d="M0 178.836H154.294V333.131H0V178.836Z" fill="#0295AA"/>
+<path d="M0 357.706H154.294V512H0V357.706Z" fill="#0295AA"/>
+<path d="M179 0H256V154H179V0Z" fill="#0295AA"/>
+<path d="M357.706 0H512V154.294H357.706V0Z" fill="#4ACFD9"/>
+<path d="M255.984 330.005V252.858V175.711C213.376 175.711 178.836 210.251 178.836 252.858C178.836 295.465 213.376 330.005 255.984 330.005Z" fill="#FD6A33"/>
+<path d="M333 0H256V154H333V0Z" fill="#4ACFD9"/>
+<path d="M256.016 330.005V252.858V175.711C298.624 175.711 333.164 210.251 333.164 252.858C333.164 295.465 298.624 330.005 256.016 330.005Z" fill="#FF8C29"/>
 </svg>

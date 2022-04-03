@@ -1,0 +1,72 @@
+{
+    "topic": "Divergences Data Mine",
+    "pageNumber": 11,
+    "type": "Ultimate Oscillator Indicator",
+    "definition": {
+        "text": "The Ultimate Oscillator indicator was developed by Larry Williams in 1976 to measure the price momentum of an asset across multiple timeframes."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Ultimate Oscillator the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "According to investopedia, By using the weighted average of three different timeframes the indicator has less volatility and fewer trade signals compared to other oscillators that rely on a single timeframe. Buy and sell signals are generated following divergences. The Ultimately Oscillator generates fewer divergence signals than other oscillators due to its multi-timeframe construction."
+        },
+        {
+            "style": "Text",
+            "text": "Key concepts:"
+        },
+        {
+            "style": "List",
+            "text": "The indicator uses three timeframes in its calculation: seven, 14, and 28 periods. The shorter timeframe has the most weight in the calculation, while the longer timeframe has the least weight."
+        },
+        {
+            "style": "List",
+            "text": "Buy signals occur when there is bullish divergence, the divergence low is below 30 on the indicator, and the oscillator then rises above the divergence high."
+        },
+        {
+            "style": "List",
+            "text": "A sell signal occurs when there is bearish divergence, the divergence high is above 70, and the oscillator then falls below the divergence low."
+        },
+        {
+            "style": "Link",
+            "text": "Ultimate Oscillator(investopedia)->www.investopedia.com/terms/u/ultimateoscillator.asp"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-UltimateOscillator-on-the-chart.png"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the Ultimate Oscillator can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"TRIX\" Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-UltimateOscillator-params.png"
+        },
+        {
+            "style": "Title",
+            "text": "Ultimate Oscillator Products & Properties"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Setting | Product Variable | Properties |\n| UltimateOsc | UO | value |"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "A simple strategy can be built by entering a trade when the oscillator rises above the zero line:",
+            "updated": 1648533587629
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.UO.value > 0 && chart.at01hs.UO.previous.value < 0",
+            "updated": 1648533639988
+        }
+    ]
+}

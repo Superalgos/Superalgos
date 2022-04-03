@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Если вы умеете с хорошо объяснять вещи, находите удовольствие в помощи людям и хотите внести свой вклад в проект, то использование Community Mod может быть большим для вас и для проекта!",
                 "updated": 1639128935883
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Topluluk Modlarını ( Community Mods ) iyi çalışmaya devam etmeleri ve daha fazla insanın ekibe katılmak istemesi için ödüllendirelim!",
+                "updated": 1646302370074
             }
         ]
     },
@@ -36,6 +41,11 @@
                     "language": "RU",
                     "text": "Ваши лучшие помощники",
                     "updated": 1639128754469
+                },
+                {
+                    "language": "TR",
+                    "text": "Favori Destekçileriniz",
+                    "updated": 1646302896522
                 }
             ]
         },
@@ -55,6 +65,11 @@
                     "language": "RU",
                     "text": "Вступление в Community Mod",
                     "updated": 1639128810007
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Topluluk Modu Olma",
+                    "updated": 1646302918317
                 }
             ]
         },

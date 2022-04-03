@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Не существует рекомендуемого браузера для использования!",
                 "updated": 1640540446990
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Kullanmak için önerilen bir tarayıcı yok!",
+                "updated": 1647871803851
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Хотя не существует рекомендованного браузера для использования с Superalgos, существует необходимость использования общей базы для разработчиков и пользователей для разработки SA и устранения возможных ошибок. На сегодняшний день Chrome является одним из самых используемых браузеров во всем мире, поэтому рекомендуется использовать именно его. Некоторые пользователи сообщили, что браузеры Edge и Brave, оба основанные на проекте chromium, работают без проблем (или с незначительными проблемами).",
                     "updated": 1640540501562
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos ile kullanılması önerilen bir tarayıcı bulunmamakla birlikte, geliştiriciler ve kullanıcılar için SA geliştirmek ve olası hataları gidermek için ortak bir temel kullanma ihtiyacı vardır. Bugün itibariyle Chrome, dünya çapında en çok kullanılan tarayıcılardan biridir ve bu yüzden kullanılması önerilir. Bazı kullanıcılar, krom projesine dayalı Edge ve Brave tarayıcısının hiç (veya küçük) sorunla çalıştığını bildirdi.",
+                    "updated": 1647871822305
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Chrome -> Общий базовый браузер, используемый разработчиками для разработки SA и устранения неполадок",
                     "updated": 1640540516430
+                },
+                {
+                    "language": "TR",
+                    "text": "Chrome -> Geliştiriciler tarafından SA geliştirmek ve sorunları gidermek için kullanılan ortak temel tarayıcı",
+                    "updated": 1647871841636
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "RU",
                     "text": "Edge -> Основан на chromium, проблем не выявлено",
                     "updated": 1640540564825
+                },
+                {
+                    "language": "TR",
+                    "text": "Edge -> Kroma dayalı, bilinmeyen sorunlar",
+                    "updated": 1647871852239
                 }
             ]
         },
@@ -57,6 +77,11 @@
                     "language": "RU",
                     "text": "Brave -> Основан на chromium, проблемы не выявлены. Функция блокировки Brave Shields должен быть отключен",
                     "updated": 1640540725622
+                },
+                {
+                    "language": "TR",
+                    "text": "Brave -> Kroma dayalı, bilinmeyen sorunlar. Shields kurulmalıdır",
+                    "updated": 1647871900544
                 }
             ]
         },
@@ -68,6 +93,11 @@
                     "language": "RU",
                     "text": "Firefox -> Нет отчетов, неизвестно",
                     "updated": 1640540739526
+                },
+                {
+                    "language": "TR",
+                    "text": "Firefox -> Rapor yok, bilinmiyor",
+                    "updated": 1647871909138
                 }
             ]
         },

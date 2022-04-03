@@ -93,6 +93,16 @@
                     "label": "Add User Storage",
                     "relatedUiObject": "User Storage",
                     "relatedUiObjectProject": "Open-Storage"
+                },                
+                {
+                    "action": "Add UI Object",
+                    "actionProject": "Visual-Scripting",
+                    "disableIfPropertyIsDefined": true,
+                    "propertyToCheckFor": "forecastsProviders",
+                    "actionFunction": "payload.executeAction",
+                    "label": "Add Forecasts Providers",
+                    "relatedUiObject": "Forecasts Providers",
+                    "relatedUiObjectProject": "Governance"
                 }
             ]
         },
@@ -190,6 +200,13 @@
             "type": "node",
             "childType": "User Storage",
             "project": "Open-Storage",
+            "autoAdd": false
+        },
+        {
+            "name": "forecastsProviders",
+            "type": "node",
+            "childType": "Forecasts Providers",
+            "project": "Governance",
             "autoAdd": false
         }
     ],

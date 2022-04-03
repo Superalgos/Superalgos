@@ -4,37 +4,86 @@
     "type": "FTX Test Status",
     "definition": {
         "text": "FTX passed spot trading tests",
-        "updated": 1645133010183
+        "updated": 1645133010183,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "FTX прошла тесты по спотовой торговле",
+                "updated": 1646900765107
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Properties",
-            "updated": 1615143100216
+            "updated": 1615143100216,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сведения",
+                    "updated": 1646900772707
+                }
+            ]
         },
         {
             "style": "List",
             "text": "1-min OHLCVs Capability: Yes. The ability to fetch historic data for backtesting purposes has been verified.",
-            "updated": 1616003666832
+            "updated": 1616003666832,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "1-минутные свечи OHLCV: Да. Возможность получения исторических данных для целей бэктестинга была проверена.",
+                    "updated": 1646900806410
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Market History: Starting on 29-04-2020",
-            "updated": 1645133040427
+            "updated": 1645133040427,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "История рынка: Начиная с 29-04-2020",
+                    "updated": 1646900819391
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Trading Capability: Yes. The ability to run strategies in live-trading mode has not been verified.",
-            "updated": 1645133053866
+            "updated": 1645133053866,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Возможность торговли: Да. Возможность запуска стратегий в режиме реальной торговли не проверялась.",
+                    "updated": 1646900836016
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Comments: First Level KYC needed when signing up.",
-            "updated": 1645133163105
+            "updated": 1645133163105,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Комментарии: При регистрации необходим первый уровень KYC.",
+                    "updated": 1646900844515
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1646900849770
+                }
+            ]
         },
         {
             "style": "Json",

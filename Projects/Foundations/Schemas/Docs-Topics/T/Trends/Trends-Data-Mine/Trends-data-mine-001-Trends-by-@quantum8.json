@@ -1,0 +1,34 @@
+{
+    "topic": "Trends Data Mine",
+    "pageNumber": "1",
+    "type": "Trends by @quantum8",
+    "definition": {
+        "text": "The Trends Data Mine features trend indicators to help identify upward or downward price action in the market. These indicator's parameters can be adjusted at the Indicator Bot Instance under the applicable Data Mining Task Node."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Trends:"
+        },
+        {
+            "style": "List",
+            "text": "1.) Chandelier Exit"
+        },
+        {
+            "style": "List",
+            "text": "2) Super Guppy"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        },
+        {
+            "style": "Text",
+            "text": "@quantum8#7428 (discord)"
+        }
+    ]
+}

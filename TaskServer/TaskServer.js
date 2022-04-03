@@ -44,12 +44,12 @@ exports.newTaskServer = function newTaskServer() {
                             TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_REFERENCES = SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE, 'Session Reference')
                             bootingProcess();
                         } catch (err) {
-                            console.log('[ERROR] Task Server -> Task -> preLoader -> eventReceived -> ' + err.stack)
+                            console.log((new Date()).toISOString(), '[ERROR] Task Server -> Task -> preLoader -> eventReceived -> ' + err.stack)
                         }
                     }
                 } catch (err) {
-                    console.log('[ERROR] Task Server -> Task -> preLoader -> TS.projects.foundations.globals.taskConstants.TASK_NODE -> ' + err.stack)
-                    console.log('[ERROR] Task Server -> Task -> preLoader -> TS.projects.foundations.globals.taskConstants.TASK_NODE = ' + JSON.stringify(TS.projects.foundations.globals.taskConstants.TASK_NODE).substring(0, 1000))
+                    console.log((new Date()).toISOString(), '[ERROR] Task Server -> Task -> preLoader -> TS.projects.foundations.globals.taskConstants.TASK_NODE -> ' + err.stack)
+                    console.log((new Date()).toISOString(), '[ERROR] Task Server -> Task -> preLoader -> TS.projects.foundations.globals.taskConstants.TASK_NODE = ' + JSON.stringify(TS.projects.foundations.globals.taskConstants.TASK_NODE).substring(0, 1000))
                 }
             }
             else {
@@ -71,12 +71,12 @@ exports.newTaskServer = function newTaskServer() {
                             bootingProcess()
 
                         } catch (err) {
-                            console.log('[ERROR] Task Server -> Task -> preLoader -> startDebugging -> ' + err.stack)
+                            console.log((new Date()).toISOString(), '[ERROR] Task Server -> Task -> preLoader -> startDebugging -> ' + err.stack)
                         }
                     }
                 } catch (err) {
-                    console.log('[ERROR] Task Server -> Task -> preLoader -> TS.projects.foundations.globals.taskConstants.TASK_NODE -> ' + err.stack)
-                    console.log('[ERROR] Task Server -> Task -> preLoader -> TS.projects.foundations.globals.taskConstants.TASK_NODE = ' + JSON.stringify(TS.projects.foundations.globals.taskConstants.TASK_NODE).substring(0, 1000))
+                    console.log((new Date()).toISOString(), '[ERROR] Task Server -> Task -> preLoader -> TS.projects.foundations.globals.taskConstants.TASK_NODE -> ' + err.stack)
+                    console.log((new Date()).toISOString(), '[ERROR] Task Server -> Task -> preLoader -> TS.projects.foundations.globals.taskConstants.TASK_NODE = ' + JSON.stringify(TS.projects.foundations.globals.taskConstants.TASK_NODE).substring(0, 1000))
                 }
             }
         }
@@ -245,7 +245,7 @@ exports.newTaskServer = function newTaskServer() {
                     }
                 }
             } catch (err) {
-                console.log('[ERROR] Task Server -> Task -> bootingProcess -> Fatal Error. Can not run this task. -> ' + err.stack)
+                console.log((new Date()).toISOString(), '[ERROR] Task Server -> Task -> bootingProcess -> Fatal Error. Can not run this task. -> ' + err.stack)
             }
         }
 

@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Подождите, пока этот процесс проверит все открытые PR в репозитории Superalgos на GitHub.com и объединит все те, которые могут быть объединены в соответствии с Правилами обработки PR. Вы получите новое сообщение, когда операция будет завершена.",
                 "updated": 1645626878766
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu işlem, GitHub.com'daki Superalgos deposundaki tüm açık PR'leri kontrol ederken ve PR'lerin İşleme Kurallarına göre birleştirilebileceklerin hepsini birleştirirken bekleyin. İşlem tamamlandığında yeni bir mesaj alacaksınız.",
+                "updated": 1646741090208
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "RU",
                     "text": "Что дальше?",
                     "updated": 1645626884105
+                },
+                {
+                    "language": "TR",
+                    "text": "Sıradaki Ne?",
+                    "updated": 1646741122544
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "RU",
                     "text": "От вас не требуется никаких дополнительных действий. Через несколько секунд/минут вы сможете увидеть результат этого процесса.",
                     "updated": 1645626893705
+                },
+                {
+                    "language": "TR",
+                    "text": "Sizden başka bir işlem yapmanız gerekmez. Birkaç saniye/dakika içinde bu işlemin sonucunu görebilmelisiniz.",
+                    "updated": 1646741125911
                 }
             ]
         }

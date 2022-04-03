@@ -273,7 +273,7 @@ function newUiObject() {
         iconPhysics()
 
         if (thisObject.icon === undefined) {
-            console.log('[ERROR] uiObject -> initialize -> err = Icon not found, Project: "' + thisObject.payload.node.project + '", Type: "' + thisObject.payload.node.type + '"')
+            console.log((new Date()).toISOString(), '[ERROR] uiObject -> initialize -> err = Icon not found, Project: "' + thisObject.payload.node.project + '", Type: "' + thisObject.payload.node.type + '"')
         }
 
         selfFocusEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onFocus', onFocus)

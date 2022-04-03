@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Торговый бот использовал формулу, определенную в узле Simulated Actual Rate, для расчета Actual Rate, перекрывая расчет, основанный на проскальзывании, как определено в параметрах торговли (Trading Parameters).",
                 "updated": 1645630344834
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Ticaret botu, Gerçek Oranı ( Actual Rate ) hesaplamak için Simüle Edilmiş Gerçek Oran ( Simulated Actual Rate ) düğümünde tanımlanan Formülü ( Formula ) kullandı ve Ticaret Parametrelerinde ( Trading Parameters ) tanımlandığı gibi Slippage dayalı hesaplamayı geçersiz kıldı.",
+                "updated": 1647172634114
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Это не является ошибкой и может быть нормальным поведением. Торговый бот создал это предупреждение, чтобы сообщить вам, что это произошло, чтобы вы могли отследить все детали сделки, если вам это понадобится. На этой странице представлена информация, которая должна помочь вам понять контекст предупреждения.",
                     "updated": 1645630350997
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bu bir hata değildir ve normal davranış olabilir. Alım satım botu bu uyarıyı, bunun gerçekleştiğini size bildirmek için oluşturdu, böylece ihtiyacınız olduğunda alım satımın tüm ayrıntılarını takip edebilirsiniz. Bu sayfa, uyarının içeriğini anlamanıza yardımcı olacak bilgiler sağlar.",
+                    "updated": 1647172648515
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Фактическая ставка по формуле",
                     "updated": 1645630381827
+                },
+                {
+                    "language": "TR",
+                    "text": "Uyarı: Formüle ( Formula ) Dayalı Gerçek Oran ( Actual Rate )",
+                    "updated": 1647172688375
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "RU",
                     "text": "Контекстная информация",
                     "updated": 1645630387874
+                },
+                {
+                    "language": "TR",
+                    "text": "İşlem Bilgisi",
+                    "updated": 1647172700105
                 }
             ]
         },
@@ -56,6 +76,11 @@
                     "language": "RU",
                     "text": "Ниже приведены значения переменных, относящихся к предупреждению на момент его создания. Они могут оказаться полезными для понимания того, что произошло.",
                     "updated": 1645630393534
+                },
+                {
+                    "language": "TR",
+                    "text": "Uyarının oluşturulduğu anda uyarıyla ilgili değişkenlerin değerlerini aşağıda bulun. Neler olduğunu anlamak için faydalı olabilirler.",
+                    "updated": 1647172759612
                 }
             ]
         },
@@ -75,6 +100,11 @@
                     "language": "RU",
                     "text": "Узнать больше",
                     "updated": 1645630402894
+                },
+                {
+                    "language": "TR",
+                    "text": "Daha Fazlasını Öğrenin",
+                    "updated": 1647172814611
                 }
             ]
         },
@@ -86,16 +116,35 @@
                     "language": "RU",
                     "text": "Чтобы узнать больше об этой теме, прочтите следующую страницу:",
                     "updated": 1645630414918
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu konu hakkında daha fazla bilgi edinmek için lütfen aşağıdaki sayfayı okuyun:",
+                    "updated": 1647172826760
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Simulating Sync With the Exchange"
+            "text": "Simulating Sync With the Exchange",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Exchange ile Senkronizasyonu Simüle Etme ( Simulating Sync With the Exchange )",
+                    "updated": 1647172839902
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Simulated Actual Rate"
+            "text": "Simulated Actual Rate",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Simüle Edilmiş Gerçek Oran ( Simulated Actual Rate )",
+                    "updated": 1647172878401
+                }
+            ]
         }
     ]
 }

@@ -199,7 +199,7 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
                     function onFileReceived(err, text, response) {
 
                         if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                            console.log('[WARN] Cannot load plugin ' + pluginFolder + ' ' + name + '. The Workspace will be loaded with this plugin file missing.')
+                            console.log((new Date()).toISOString(), '[WARN] Cannot load plugin ' + pluginFolder + ' ' + name + '. The Workspace will be loaded with this plugin file missing.')
                         } else {
 
                             let receivedNode
@@ -207,9 +207,9 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
                             try {
                                 receivedNode = JSON.parse(text)
                             } catch (err) {
-                                console.log('[ERROR] pluginAllTheseFiles -> Cannot load plugin ' + pluginFolder + ' ' + name + '. Received an invalid JSON object from the client.')
-                                console.log('[ERROR] pluginAllTheseFiles -> text = ' + text)
-                                console.log('[ERROR] pluginAllTheseFiles -> err.stack = ' + err.stack)
+                                console.log((new Date()).toISOString(), '[ERROR] pluginAllTheseFiles -> Cannot load plugin ' + pluginFolder + ' ' + name + '. Received an invalid JSON object from the client.')
+                                console.log((new Date()).toISOString(), '[ERROR] pluginAllTheseFiles -> text = ' + text)
+                                console.log((new Date()).toISOString(), '[ERROR] pluginAllTheseFiles -> err.stack = ' + err.stack)
                                 return
                             }
 
@@ -220,7 +220,7 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
                             for (let i = 0; i < node.rootNodes.length; i++) {
                                 let rootNode = node.rootNodes[i]
                                 if (rootNode.id === receivedNode.id) {
-                                    console.log('[WARN] The node with name "' + rootNode.name + '" and type "' + rootNode.type + '" will be replaced by the node with name "' + receivedNode.name + '" and type "' + receivedNode.type + '" because they both have the same node.id')
+                                    console.log((new Date()).toISOString(), '[WARN] The node with name "' + rootNode.name + '" and type "' + rootNode.type + '" will be replaced by the node with name "' + receivedNode.name + '" and type "' + receivedNode.type + '" because they both have the same node.id')
                                     node.rootNodes.splice(i, 1)
                                     break
                                 }
@@ -354,7 +354,7 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
                     //node.payload.referenceParent = mapOfNodes.get(node.payload.referenceParent.id)
                     referenceParent = await mapOfNodes.get(node.payload.referenceParent.id)
                     if (node.payload.referenceParent === undefined) {
-                        //console.log('[WARN]' + node.type + ' ' + node.name + ' reference parent lost during re-binding phase.')
+                        //console.log((new Date()).toISOString(), '[WARN]' + node.type + ' ' + node.name + ' reference parent lost during re-binding phase.')
                     }
                     continue  // We were referencing a deleted node, so we replace it potentially with a newly created one.
                 } else {

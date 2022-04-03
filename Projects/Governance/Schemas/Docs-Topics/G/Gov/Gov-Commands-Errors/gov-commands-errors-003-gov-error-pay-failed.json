@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Возникла проблема при попытке произвести оплату вкладчикам с казначейского счета. Проверьте консоль на наличие ошибок.",
                 "updated": 1645627708718
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Hazine Hesabından ( Treasury Account ) katkıda bulunanlara ödeme yapılırken bir sorun oluştu. Hatalar için konsolu kontrol edin.",
+                "updated": 1646743129555
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Проверьте в следующем разделе подробную информацию о том, что могло произойти. После устранения проблемы вы можете повторить попытку.",
                     "updated": 1645627717032
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Olabileceklerle ilgili ayrıntılar için aşağıdaki bölümü kontrol edin. Sorunu çözdükten sonra tekrar deneyebilirsiniz.",
+                    "updated": 1646743147141
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "RU",
                     "text": "Информация об ошибке",
                     "updated": 1645627727319
+                },
+                {
+                    "language": "TR",
+                    "text": "Hata Bilgisi",
+                    "updated": 1646743196069
                 }
             ]
         },
@@ -46,6 +61,11 @@
                     "language": "RU",
                     "text": "В следующем разделе вы найдете информацию, записанную при возникновении ошибки.",
                     "updated": 1645627735803
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki bölümde, hata oluştuğunda kaydedilen bilgileri bulacaksınız.",
+                    "updated": 1646743200773
                 }
             ]
         },
@@ -58,12 +78,24 @@
                     "language": "RU",
                     "text": "Вы увидите информацию только в том случае, если вы открыли эту страницу в результате того, что ошибка действительно произошла.",
                     "updated": 1645627746290
+                },
+                {
+                    "language": "TR",
+                    "text": "Note: Not: Bilgileri ancak bu sayfayı gerçekten oluşan hatanın bir sonucu olarak açtıysanız göreceksiniz.",
+                    "updated": 1646743213088
                 }
             ]
         },
         {
             "style": "Subtitle",
-            "text": "Error Message"
+            "text": "Error Message",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hata Mesajı",
+                    "updated": 1646743226985
+                }
+            ]
         },
         {
             "style": "Text",
@@ -74,6 +106,11 @@
                     "language": "RU",
                     "text": "Ниже приведено сообщение об ошибке исключения, произошедшего на клиенте:",
                     "updated": 1645627754904
+                },
+                {
+                    "language": "TR",
+                    "text": "İstemcide ( Client ) meydana gelen İstisnanın Hata Mesajı aşağıdadır:",
+                    "updated": 1646743238175
                 }
             ]
         },
@@ -83,7 +120,14 @@
         },
         {
             "style": "Subtitle",
-            "text": "Error Stack"
+            "text": "Error Stack",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hata Yığını",
+                    "updated": 1646743246861
+                }
+            ]
         },
         {
             "style": "Text",
@@ -94,6 +138,11 @@
                     "language": "RU",
                     "text": "Ниже приведен стек ошибок исключения, возникшего на клиенте:",
                     "updated": 1645627761812
+                },
+                {
+                    "language": "TR",
+                    "text": "İstemcide ( Client ) meydana gelen İstisnanın Hata Yığını aşağıdadır:",
+                    "updated": 1646743257282
                 }
             ]
         },
@@ -103,7 +152,14 @@
         },
         {
             "style": "Subtitle",
-            "text": "Error Code"
+            "text": "Error Code",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hata Kodu",
+                    "updated": 1646743264049
+                }
+            ]
         },
         {
             "style": "Text",
@@ -114,6 +170,11 @@
                     "language": "RU",
                     "text": "Ниже приведен код ошибки исключения, возникшего у клиента:",
                     "updated": 1645627767082
+                },
+                {
+                    "language": "TR",
+                    "text": "İstemcide ( Client ) meydana gelen İstisnanın Hata Kodu aşağıdadır:",
+                    "updated": 1646743274235
                 }
             ]
         },
@@ -123,7 +184,14 @@
         },
         {
             "style": "Subtitle",
-            "text": "Error Details"
+            "text": "Error Details",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hata Detayları",
+                    "updated": 1646743293587
+                }
+            ]
         },
         {
             "style": "Text",
@@ -133,6 +201,11 @@
                     "language": "RU",
                     "text": "Ниже приведены все детали ошибки исключения, произошедшего у клиента:",
                     "updated": 1645627782545
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdakiler, İstemcide ( Client ) meydana gelen İstisnanın tüm Hata ayrıntılarıdır:",
+                    "updated": 1646743297584
                 }
             ]
         },

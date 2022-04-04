@@ -90,7 +90,7 @@ We will briefly describe the options available. Click the link to go to the spec
 
 > **EXPERIENCING ISSUES INSTALLING SUPERALGOS?**
 > 
-> If you're having trouble installing or running the app for the first time, do not open an issue. Instead, join the [Support Telegram Group](https://t.me/superalgossupport) and follow the instructions on the pinned message to ask for help. You may also join the [new Discord Server](), but bear in mind that the response time tends to be longer. Online support is provided by volunteers — please provide clear information and sufficient context about the issue you are facing, and be mindful of people's time.
+> If you're having trouble installing or running the app for the first time, do not open an issue. Instead, join the [Support Telegram Group](https://t.me/superalgossupport) and follow the instructions on the pinned message to ask for help. You may also join the [new Discord Server](https://discord.gg/CGeKC6WQQb), but bear in mind that the response time tends to be longer. Online support is provided by volunteers — please provide clear information and sufficient context about the issue you are facing, and be mindful of people's time.
 
 If you wish to try the [packaged and portable apps](README_Packaged.md) or the [docker deployments](README_Docker.md), there is nothing of critical importance left for you on this README file. That said, the [Get In Touch](#get-in-touch), [Other Resources](#other-resources), [Contributing](#contributing), and [License](#license) sections are certainly of interest.
 
@@ -212,7 +212,7 @@ If you experience any issues installing dependencies, check the [Troubleshooting
 Before using the software, you will need to install the plugins built by the community. To do so, just run this command from the Superalgos main folder:
 
 ```sh
-node setupPlugins <Your-Github-Username> <Your-Github-Token>
+node setupPlugins <Your-Github-Username> <Your-Github-Personal-Access-Token>
 ```
 
 For example:
@@ -221,9 +221,11 @@ For example:
 node setupPlugins John ghz_2pBD4Sas0iYtwQGPjTq1Xlm3Ot4KpH3RLcr5
 ```
 
-This script is going to fork all Community Plugins repositories into your own Github account, and then it will clone each of these repositories into your local Superalgos/Plugins folder. The process is designed in a way that if someday a new type of plugin is added, you just need to run this command again and it will fork the new repo and clone it. This script will also find any missing forks needed and clone them too. You are safe running this script whenever you think is good.
+> **NOTE**: This is the token you created on earlier steps!`
 
-> **NOTE**: If you ever have issues with your Plugins repos, you can delete individual folders inside Superalgos/Plugins and run this script to fix the problems for you. If instead, you have any issues with any of your plugin forks at your Github account, you can delete the offending fork and run this script again to fix the problem. 
+This script is going to fork all Community Plugins repositories into your own Github account, and then it will clone each of these repositories into your local `Superalgos/Plugins` folder. The process is designed in a way that if someday a new type of plugin is added, you just need to run this command again and it will fork the new repo and clone it. This script will also find any missing forks needed and clone them too. You are safe running this script whenever you think is good.
+
+> **NOTE**: If you ever have issues with your Plugins repos, you can delete individual folders inside `Superalgos/Plugins` and run this script to fix the problems for you. Also, if you have any issues with any of your plugin forks at your Github account, you can delete the offending fork and run this script again to fix the problem. 
 
 **Congratulations! Your setup is complete. Now you may finally run the app for the first time. Please, follow the usage instructions below!**
 
@@ -233,7 +235,7 @@ This script is going to fork all Community Plugins repositories into your own Gi
 
 The Superalgos Platform is exchange-agnostic, but [the project offers partner exchanges](https://superalgos.org/partner-exchanges.shtml) custom support and a curated onboarding experience for their customers. In turn, partner exchanges offer preferential trading fees and, in some cases, other benefits to Superalgos users.
 
-Find more information on how to get the benefits in the corresponding Telegram group.
+Find more information on how to get the benefits, join the corresponding Telegram group.
 
 | Partner Exchange | Benefits | Telegram Group |
 |--- |--- |-- |
@@ -267,10 +269,10 @@ To run Superalgos with the default/fallback workspace, go to the Superalgos dire
 node platform
 ```
 
-Available Options:
+Options usage:
 
 ```sh
-usage: node platform <options> <project> <workspace>
+node platform <options> <project> <workspace>
 ```
 
 | Option | Description |
@@ -310,33 +312,39 @@ We also meet on several Telegram groups, where it all started!
 
 > **BEWARE OF IMPERSONATORS — SCAMMERS ARE LURKING!**
 > 
-> Superalgos Admins, the Core Team, and Community Mods will never contact you directly unless you contact them first. We will never ask you for API keys, coins, or cash. We will never ask you to trust us in any way. Our [Community Safety Policy](https://superalgos.org/community-safety-policy.shtml) explains why. In short, we want to make it clear that if someone contacts you directly claiming to work with or for the project, it is a scam. Please report scammers in the Community group so that they may be banned, and to increase awareness of the problem, but also block them and report them to Telegram if the option is available.
+> Superalgos Admins, the Core Team, and Community Mods will never contact you directly unless you contact them first. We will never ask you for API keys, coins, or cash. We will never ask you to trust us in any way. Our [Community Safety Policy](https://superalgos.org/community-safety-policy.shtml) explains why. In short, we want to make it clear that if someone contacts you directly claiming to work with or for the project, it is a scam. Please report scammers in the Community group so that they may be banned and to increase awareness of the problem, but also block them and report them to Telegram if the option is available.
 
-- Via Telegram
-  - Online support through our [Superalgos Support Group](https://t.me/superalgossupport).
-- In-App Integrated Documentation
-  - Superalgos features interactive documentation built into the system.
-- Video Tutorials
-  - Subscribe to the [Superalgos YouTube Channel](https://www.youtube.com/channel/UCmYSGbB151xFQPNxj7KfKBg).
-- In-App Tutorials
-  - There are many interactive tutorials you may do and learn from.
+- Via Telegram: online support through our [Superalgos Support Group](https://t.me/superalgossupport).
+
+- In-App Integrated Documentation: Superalgos features interactive documentation built into the system.
+
+- Video Tutorials: subscribe to the [Superalgos YouTube Channel](https://www.youtube.com/channel/UCmYSGbB151xFQPNxj7KfKBg).
+
+- In-App Tutorials: there are many interactive tutorials you may do and learn from.
 
 # Other Resources
 
 - Web Site
+
   - For an overview of what Superalgos can do for you, check the [Superalgos Website](https://superalgos.org/).
+
   - [List of community resources](https://superalgos.org/community-resources.shtml) featuring written, audiovisual, and interactive content.
+
 - Telegram
+
   - For official news, join the [Superalgos Announcements Channel](https://t.me/superalgos).
+
   - Meet other users in the [Superalgos Telegram Community Group](https://t.me/superalgoscommunity).
+
   - Meet developers in the [Superalgos Telegram Developer's Group](https://t.me/superalgosdevelop).
+
   - Users meet in other topic-specific Telegram Groups. There's a [complete list of groups](https://superalgos.org/community-join.shtml) on the website.
-- Blog
-  - Find official announcements and various articles on the [Superalgos Blog](https://medium.com/superalgos).
-- Twitter
-  - To stay in the loop, follow [Superalgos on Twitter](https://twitter.com/superalgos).
-- Facebook
-  - Or follow [Superalgos on Facebook](https://www.facebook.com/superalgos).
+
+- Blog: find official announcements and various articles on the [Superalgos Blog](https://medium.com/superalgos).
+
+- Twitter: to stay in the loop, follow [Superalgos on Twitter](https://twitter.com/superalgos). Help us spread the word!
+
+- Facebook: follow [Superalgos on Facebook](https://www.facebook.com/superalgos).
 
 # Contributing
 

@@ -4,13 +4,13 @@ This is by far the easiest way to get started with Superalgos!
 
 These packages contain the source code for the Superalgos platform wrapped together in one convenient file.  To find these files you can go to Superalgos' [releases page](https://github.com/Superalgos/Superalgos/releases). The releases are organized into two main categories.  First are the stable releases that come out roughly once a month and are the most tested and bug-free.  Second, are the nightly development snapshots that offer the most up-to-date code, but have not undergone the same rigorous testing. 
 
-> **NOTE**: If you are just getting started, it is recommended to begin with installing the most recent stable release before trying out one of the development snapshots.
+> :white_check_mark: **NOTE**: If you are just getting started, it is recommended to begin with installing the most recent stable release before trying out one of the development snapshots.
 
 Once you have chosen which type of release you would like to install, you can then find the proper package for your operating system. Each operating system has its own packaged application to work natively within your operating system.  The following list highlights the currently available packages:  
 
-> **IMPORTANT:** These installers are not code-signed (this costs money and Superalgos is completely free for everyone). Therefore, the antivirus will probably flag the file as not secure. You can force the installation to allow the packages to run. A more detailed explanation of this can be found in this [medium article](https://medium.com/superalgos/superalgos-packaged-application-release-8befd2895102). If this makes you uncomfortable, you may look into some of the other installation methods that do not suffer from this limitation.
+> :white_check_mark: **IMPORTANT:** These installers are not code-signed (this costs money and Superalgos is completely free for everyone). Therefore, the antivirus will probably flag the file as not secure. You can force the installation to allow the packages to run. A more detailed explanation of this can be found in this [medium article](https://medium.com/superalgos/superalgos-packaged-application-release-8befd2895102). If this makes you uncomfortable, you may look into some of the other installation methods that do not suffer from this limitation.
 
-> **NOTE ABOUT ASCENDEX:** An issue with AscendEX API may prevent the Welcome to Superalgos tutorial to run as expected. We suggest you use the fallback/default workspace in the meantime. The issue was reported to the exchange and is currently being investigated. 
+> :white_check_mark: **NOTE ABOUT ASCENDEX:** An issue with AscendEX API may prevent the Welcome to Superalgos tutorial to run as expected. We suggest you use the fallback/default workspace in the meantime. The issue was reported to the exchange and is currently being investigated. 
 
 
 ## Windows Portable Application

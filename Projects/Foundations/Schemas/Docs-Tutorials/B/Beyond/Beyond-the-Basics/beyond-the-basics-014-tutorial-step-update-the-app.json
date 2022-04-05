@@ -42,8 +42,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The App Update Command fetches the latest version of the software from the upstream repository in the Current Branch!",
-            "updated": 1636914274377,
+            "text": "The App Update Command (Contributors Installation only) fetches the latest version of the software from the upstream repository in the Current Branch!",
+            "updated": 1649176869565,
             "translations": [
                 {
                     "language": "IT",
@@ -75,7 +75,7 @@
         },
         {
             "style": "Callout",
-            "text": "Copy and run the command in the search/command box at the far top of the Docs.",
+            "text": "If you are on the Contributors Installation, copy and run the command in the search/command box at the far top of the Docs.",
             "translations": [
                 {
                     "language": "IT",
@@ -105,12 +105,12 @@
                     "updated": 1640554566255
                 }
             ],
-            "updated": 1635148665427
+            "updated": 1649176921704
         },
         {
             "style": "Success",
-            "text": "Because you just switched branches, you should already be up to date!",
-            "updated": 1636914400732,
+            "text": "You should be up to date after the switch!",
+            "updated": 1649177004728,
             "translations": [
                 {
                     "language": "IT",

@@ -48,49 +48,8 @@
     },
     "paragraphs": [
         {
-            "style": "Success",
-            "text": "There may be more, but these are the main!",
-            "updated": 1618143442686,
-            "translations": [
-                {
-                    "language": "IT",
-                    "text": "Ce ne sono altre, ma queste sono le principali!",
-                    "updated": 1619633138117,
-                    "style": "Success"
-                },
-                {
-                    "language": "FR",
-                    "text": "Il peut y en avoir d'autres, mais ce sont les principales !",
-                    "updated": 1623952831504,
-                    "style": "Success"
-                },
-                {
-                    "language": "ES",
-                    "text": "Puede que haya más, ¡pero estos son los principales!",
-                    "updated": 1628121700843,
-                    "style": "Success"
-                },
-                {
-                    "language": "DE",
-                    "text": "Es gibt vielleicht noch mehr, aber das sind die wichtigsten!",
-                    "updated": 1634821022072,
-                    "style": "Success"
-                },
-                {
-                    "language": "RU",
-                    "text": "Их может быть и больше, но эти самые основные!",
-                    "updated": 1635581904616
-                },
-                {
-                    "language": "TR",
-                    "text": "Daha fazlası olabilir, ancak şimdilik olanlar bunlar!",
-                    "updated": 1639942190492
-                }
-            ]
-        },
-        {
             "style": "List",
-            "text": "Master Branch: Features the stable version of the software. Never submit contributions to this branch!",
+            "text": "Master Branch: features the stable version of the software. Never submit contributions to this branch!",
             "translations": [
                 {
                     "language": "IT",
@@ -126,12 +85,13 @@
                     "text": "Master Branch: Yazılımın kararlı sürümünü içerir. Bu şubeye asla katkı göndermeyin!",
                     "updated": 1639942204622
                 }
-            ]
+            ],
+            "updated": 1649176347588
         },
         {
             "style": "List",
-            "text": "Develop Branch: Features the version currently in development. Submit contributions of code affecting the codebase, translations, improvements in the Docs, tutorials, and plugins such as data mines, trading systems, and so on!",
-            "updated": 1636912699736,
+            "text": "Develop Branch: features the version currently in development. Submit contributions of code affecting the codebase, translations, improvements in the Docs, tutorials, and plugins such as data mines, trading systems, and so on!",
+            "updated": 1649176354254,
             "translations": [
                 {
                     "language": "IT",
@@ -168,6 +128,11 @@
                     "updated": 1639942297409
                 }
             ]
+        },
+        {
+            "style": "Warning",
+            "text": "Ignore the instructions to switch branches of the next few steps if you are not using the Contributors installation. Just click Next to continue.",
+            "updated": 1649176508369
         }
     ]
 }

@@ -47,8 +47,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Let's say you are ready to start playing with a strategy. You want to start with an existing one and introduce modifications to understand how things work. You don't intend to contribute the changes. You just wish to play with it and tune it to your liking! Then, do the following:",
-            "updated": 1629908540100,
+            "text": "Let's say you wish to build a strategy. You want to start with an existing one and introduce modifications to understand how things work. You don't intend to contribute the changes. You just wish to play with it and tune it to your liking! Then, do the following:",
+            "updated": 1649175246476,
             "translations": [
                 {
                     "language": "IT",
@@ -86,8 +86,8 @@
         },
         {
             "style": "Success",
-            "text": "Delete the Plugin File node corresponding to the Trading System and restore the original plugin file (in the \\Plugins\\Trading-Systems folder) as if it was a backup: drag the file and drop it on the Design Space! The strategy now lives in the workspace and you may modify and save it!",
-            "updated": 1629908649650,
+            "text": "Delete the Plugin File node of to the Trading System and restore the original plugin file (<code>\\Plugins\\Algorithmic-Trading\\Trading-Systems</code>) as if it was a backup: drag the file and drop it on the Design Space! The strategy now lives in the workspace and you may modify and save it!",
+            "updated": 1649175373972,
             "translations": [
                 {
                     "language": "IT",

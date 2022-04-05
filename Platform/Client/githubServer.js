@@ -438,7 +438,7 @@ exports.newGithubServer = function newGithubServer() {
                                 Validation #2: File Name must be the same to the Github Username of the PR owner.
                                 */
                                 let pullRequestFile = filesChanged[0]
-                                fileContentUrl = pullRequestFile.raw_url
+                                fileContentUrl = unescape(pullRequestFile.raw_url)
 
                                 if (fileContentUrl.indexOf('User-Profiles') < 0) {
                                     /*

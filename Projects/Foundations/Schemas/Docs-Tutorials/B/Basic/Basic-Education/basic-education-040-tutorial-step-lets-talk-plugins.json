@@ -124,8 +124,8 @@
         },
         {
             "style": "Text",
-            "text": "As you can tell from the structure of the hierarchy, there are several types of plugins! They ship as JSON files, sorted by type in the plugins folder. Check it out!",
-            "updated": 1615917052972,
+            "text": "As you can tell from the structure of the hierarchy, there are several types of plugins! They ship as JSON files, sorted by Project and type in the plugins folder. Check it out!",
+            "updated": 1649174495914,
             "translations": [
                 {
                     "language": "IT",
@@ -163,8 +163,8 @@
         },
         {
             "style": "Json",
-            "text": "\\Projects\\Foundations\\Plugins",
-            "updated": 1615916283983
+            "text": "\\Plugins",
+            "updated": 1649174519153
         },
         {
             "style": "Text",

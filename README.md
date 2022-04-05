@@ -100,7 +100,7 @@ All procedures (other than pre-requisites) are the same for Windows, Linux, or M
 
 ## Pre-Requisites
 
-### Install Node.JS, Git, and Chrome
+### :one: Install Node.JS, Git, and Chrome
 
 You will need the latest versions of Node JS and Git installed. You will also need a web browser to access the interface. Google Chrome is recommended because it is the most tested browser being used by the development team and power users.
 
@@ -116,7 +116,7 @@ Follow the installation wizards to install the latest NodeJS and Git. If desired
 
 Additional notes about installing pre-requisites on specific environments and edge cases can be found in the [Pre-Requisites Notes](#small_orange_diamond-pre-requisites-notes) section in the Appendix.
 
-### Get Your Github.com Personal Access Token
+### :two: Get Your Github.com Personal Access Token
 
 You will need to get an access token from Github.com so that you may authenticate with the service from within the app and the terminal/command line.
 

@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Иерархия Assets определяет структуру ресурсов, из которых состоит проект. Любой цифровой компонент проекта может быть охарактеризован как ресурс, включая файлы кода, таблицы стилей, изображения, страницы документации, страницы руководств и так далее. Ресурсы, как и функции, необходимо создавать и поддерживать,\nтаким образом, их создание и поддержание необходимо стимулировать.",
                 "updated": 1638617726711
+            },
+            {
+                "language": "TR",
+                "text": "Varlıklar hiyerarşisi, bir projenin oluşturduğu varlıkların yapısını tanımlar. Bir Projenin (Project) herhangi bir dijital bileşeni, kod dosyaları, stil sayfaları, resimler, dokümantasyon sayfaları, eğitim sayfaları vb. dahil olmak üzere bir varlık olarak nitelendirilebilir. Özellikler (Features) gibi varlıkların oluşturulması ve sürdürülmesi gerekir, bu nedenle bunların oluşturulması ve bakımı teşvik edilmelidir.",
+                "updated": 1644568893756
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "RU",
                     "text": "Определение ресурсов на уровне проекта - отличный способ атомизировать описание проекта. Такой уровень детализации позволяет нескольким группам участников брать на себя ответственность за четко разграниченные компоненты, что имеет решающее значение для разработки, развития и поддержки обширного проекта посредством массового сотрудничества.",
                     "updated": 1638618106378
+                },
+                {
+                    "language": "TR",
+                    "text": "Varlıkları proje düzeyinde tanımlamak, bir projenin tanımını atomize etmenin mükemmel bir yoludur. Bu ayrıntı, çok sayıda Katkıda Bulunan grubunun, büyük bir işbirliği yoluyla geniş bir projeyi geliştirmek ve sürdürmek için çok önemli olan,bileşenlerin sorumluluğunu üstlenmesine olanak tanır.",
+                    "updated": 1644569193331
                 }
             ]
         },
@@ -37,6 +47,11 @@
                     "language": "RU",
                     "text": "Иерархия включает узлы класса ресурсов Asset Class, организационное устройство и узлы ресурсов Asset, представляющие фактические ресурсы. Оба типа узлов могут принимать входящие голоса Weight Votes, но только узлы ресурсов могут принимать заявки на участие Contribution Claims.",
                     "updated": 1638618493050
+                },
+                {
+                    "language": "TR",
+                    "text": "Hiyerarşi, bir kuruluş aygıtı olan Varlık Sınıfı (Asset Class) düğümlerini ve gerçek varlıkların temsili olan Varlık (Asset) düğümlerini içerir. Her iki düğüm türü de gelen Ağırlık Oylarını (Weight Votes) kabul edebilir, ancak yalnızca Varlık düğümleri Katkı Taleplerini (Contribution Claims) kabul edebilir.",
+                    "updated": 1644569311827
                 }
             ]
         },
@@ -49,6 +64,11 @@
                     "language": "RU",
                     "text": "Важнейшей особенностью этой иерархии является функция установки ресурсов Install Assets, доступная как на верхнем уровне иерархии, так и на уровне узла Assets Class.",
                     "updated": 1638618660748
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu hiyerarşinin önemli bir özelliği, hem hiyerarşinin en üst düzeyinde hem de Varlık Sınıfı (Asset Class) düğüm düzeyinde kullanılabilen Varlıkları Kurabilme özelliğidir.",
+                    "updated": 1644569374047
                 }
             ]
         },
@@ -61,6 +81,11 @@
                     "language": "RU",
                     "text": "Установка недостающих ресурсов",
                     "updated": 1638618890263
+                },
+                {
+                    "language": "TR",
+                    "text": "Eksik Varlıkları Yüklemek...",
+                    "updated": 1644569398564
                 }
             ]
         },
@@ -73,6 +98,11 @@
                     "language": "RU",
                     "text": "Функция Install Missing Assets предназначена для людей, поддерживающих иерархии Project Definition Hierarchies. Вы можете смело пропустить это объяснение, если вы обычный пользователь, изучающий управление.",
                     "updated": 1638618863067
+                },
+                {
+                    "language": "TR",
+                    "text": "Eksik Varlıkları Yükle (Install Missing Assets) özelliği, Proje Tanımı Hiyerarşilerini (Project Definition Hierarchies) tanıyıp anlayan kişilere yöneliktir. Yönetişim hakkında bilgi edinen düzenli bir kullanıcıysanız bu açıklamayı güvenle atlayabilirsiniz.",
+                    "updated": 1644569719310
                 }
             ]
         },
@@ -84,6 +114,11 @@
                     "language": "RU",
                     "text": "Узлы Asset и Asset Class поддерживают команду Install Missing Assets, доступную в меню. Поскольку узлы ресурсов сопоставляют цифровые файлы, доставляемые с системой, функция Install Missing Assets предназначена для сопоставления файлов на диске в иерархические структуры узлов ниже узла, на котором выполняется команда Install Missing Assets. В итоговой структуре узлов узлы Asset Class представляют папки, а узлы Assets представляют файлы.",
                     "updated": 1638619197330
+                },
+                {
+                    "language": "TR",
+                    "text": "Hem Varlıklar (Assets) düğümü hem de Varlık Sınıfı (Asset Class) düğümleri, menüde bulunan Eksik Varlıkları Yükle ((Install Missing Assets) ) komutunu destekler. Varlık düğümleri, sistemle birlikte gönderilen dijital dosyaları eşitlediğinden, Install Missing Assets özelliği, diskteki dosyaları, Install Missing Assets  komutunun çalıştırıldığı düğümün altındaki hiyerarşik düğüm yapılarına eşitlemek için tasarlanmıştır. Ortaya çıkan düğüm yapısında Varlık Sınıfı düğümleri klasörleri ve Varlık düğümleri dosyaları temsil eder.",
+                    "updated": 1644569863745
                 }
             ]
         },
@@ -95,6 +130,11 @@
                     "language": "RU",
                     "text": "Чтобы выполнить команду, вы должны настроить путь, который хотите отобразить.",
                     "updated": 1638619233070
+                },
+                {
+                    "language": "TR",
+                    "text": "Komutu çalıştırmak için, eşitlemek istediğiniz yolu yapılandırmanız gerekir.",
+                    "updated": 1644569886841
                 }
             ]
         },
@@ -106,6 +146,11 @@
                     "language": "RU",
                     "text": "Например:",
                     "updated": 1638619248350
+                },
+                {
+                    "language": "TR",
+                    "text": "Örneğin:",
+                    "updated": 1644569896608
                 }
             ]
         },
@@ -123,6 +168,11 @@
                     "language": "RU",
                     "text": "Используя приведенную выше конфигурацию, команда Install Missing Assets создает узел Superalgos Asset Class (корневой каталог папки Superalgos) и и узел класса ресурсов пользовательского интерфейса UI Asset Class в качестве дочернего узла. Затем содержимое папки пользовательского интерфейса UI отображается как потомок узла UI Asset Class.",
                     "updated": 1638620164191
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarıdaki yapılandırmayı kullanarak, Eksik Varlıkları Yükle (Install Missing Assets) komutu bir Superalgos Varlık Sınıfı (Asset Class) düğümü (Superalgos klasörünün kökü) ve bir alt düğüm olarak UI Varlık Sınıfı (UI Asset Class) düğümü oluşturur. Ardından, UI klasörünün içeriği, UI Varlık Sınıfı düğümünün ürünü olarak eşitlenir.",
+                    "updated": 1644570003781
                 }
             ]
         },
@@ -138,6 +188,11 @@
                     "language": "RU",
                     "text": "Конфигурация",
                     "updated": 1638619862406
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırma",
+                    "updated": 1644570014317
                 }
             ]
         }

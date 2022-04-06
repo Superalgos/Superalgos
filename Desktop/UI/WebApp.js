@@ -30,7 +30,7 @@ function newWebApp() {
             loadWhoToFollow()
             setupEventHandlers()
         } catch (err) {
-            console.log('[ERROR] initialize -> err.stack = ' + err.stack)
+            console.log((new Date()).toISOString(), '[ERROR] initialize -> err.stack = ' + err.stack)
         }
     }
 
@@ -127,8 +127,8 @@ function newWebApp() {
             .catch(onError)
 
         function onError(errorMessage) {
-            console.log('[ERROR] Query not executed. ' + errorMessage)
-            console.log('[ERROR] query = ' + JSON.stringify(query))
+            console.log((new Date()).toISOString(), '[ERROR] Query not executed. ' + errorMessage)
+            console.log((new Date()).toISOString(), '[ERROR] query = ' + JSON.stringify(query))
         }
 
         function addToContentDiv(events) {
@@ -171,7 +171,7 @@ function newWebApp() {
                 }
             }
             catch (err) {
-                console.log('[ERROR] err.stack = ' + err.stack)
+                console.log((new Date()).toISOString(), '[ERROR] err.stack = ' + err.stack)
             }
         }
     }
@@ -198,8 +198,8 @@ function newWebApp() {
             .catch(onError)
 
         function onError(errorMessage) {
-            console.log('[ERROR] Query not executed. ' + errorMessage)
-            console.log('[ERROR] query = ' + JSON.stringify(query))
+            console.log((new Date()).toISOString(), '[ERROR] Query not executed. ' + errorMessage)
+            console.log((new Date()).toISOString(), '[ERROR] query = ' + JSON.stringify(query))
         }
 
         function addWhoToFollowTable(socialPersonas) {
@@ -334,7 +334,7 @@ function newWebApp() {
             Error Handling
             */
             function onError(errorMessage) {
-                console.log('[ERROR] Click event failed. ' + errorMessage)
+                console.log((new Date()).toISOString(), '[ERROR] Click event failed. ' + errorMessage)
             }
         }
 
@@ -375,8 +375,8 @@ function newWebApp() {
                 .catch(onError)
 
             function onError(errorMessage) {
-                console.log('[ERROR] Event not executed. ' + errorMessage)
-                console.log('[ERROR] event = ' + JSON.stringify(event))
+                console.log((new Date()).toISOString(), '[ERROR] Event not executed. ' + errorMessage)
+                console.log((new Date()).toISOString(), '[ERROR] event = ' + JSON.stringify(event))
                 reject(errorMessage)
             }
         }
@@ -428,8 +428,8 @@ function newWebApp() {
                 resolve()
             }
             function onError(errorMessage) {
-                console.log('[ERROR] Event not executed. ' + JSON.stringify(errorMessage))
-                console.log('[ERROR] event = ' + JSON.stringify(event))
+                console.log((new Date()).toISOString(), '[ERROR] Event not executed. ' + JSON.stringify(errorMessage))
+                console.log((new Date()).toISOString(), '[ERROR] event = ' + JSON.stringify(event))
                 reject(errorMessage)
             }
         }

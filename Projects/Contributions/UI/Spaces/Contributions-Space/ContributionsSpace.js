@@ -43,6 +43,12 @@ function newContributionsContributionsSpace() {
     }
 
     function initialize() {
+        /*
+        If the workspace does not have the contributions project node, then we exit the initialize Function
+        */
+        let contributionsProject = UI.projects.workspaces.spaces.designSpace.workspace.getProjectHeadByNodeType('Contributions Project')
+        if (contributionsProject === undefined) { return }
+
         thisObject.container = newContainer()
         thisObject.container.name = MODULE_NAME
         thisObject.container.initialize()
@@ -150,6 +156,7 @@ function newContributionsContributionsSpace() {
     }
 
     function getContainer(point, purpose) {
+        if (isInitialized === false) { return }
         if (thisObject.sidePanelTab === undefined) {
             return
         }

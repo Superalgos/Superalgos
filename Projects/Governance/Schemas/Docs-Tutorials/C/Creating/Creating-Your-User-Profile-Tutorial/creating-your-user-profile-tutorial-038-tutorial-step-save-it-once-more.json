@@ -25,6 +25,11 @@
                 "language": "DE",
                 "text": "Wir sind fertig! Das ist alles, was wir tun, bevor wir Ihr Profil abschicken. Jetzt müssen Sie es noch speichern, bevor wir fortfahren.",
                 "updated": 1640081686592
+            },
+            {
+                "language": "TR",
+                "text": "İşimiz bitti! Profilinizi göndermeden önce gidebileceğimiz en son yer burası. Şimdi devam etmeden önce kaydettiğinden emin olalım.",
+                "updated": 1645103335573
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "DE",
                     "text": "Drücken Sie <kbd>Strg</kbd> + <kbd>Umschalt</kbd> + <kbd>Alt</kbd> + <kbd>Taste-S</kbd>, um Ihr Benutzerprofil ein letztes Mal zu speichern!",
                     "updated": 1640081723769
+                },
+                {
+                    "language": "TR",
+                    "text": "Kullanıcı Profilinizi son bir kez kaydetmek için Ctrl + Shift + Alt + Key-S tuşlarına basın!",
+                    "updated": 1645102985520
                 }
             ]
         },
@@ -72,6 +82,11 @@
                     "language": "DE",
                     "text": " Es kann nicht schaden, zu überprüfen, ob die Datei korrekt gespeichert wurde, oder? Eine Datei mit Ihrem Github-Benutzernamen und der Erweiterung.json sollte im unten angegebenen Pfad vorhanden sein!",
                     "updated": 1640081742313
+                },
+                {
+                    "language": "TR",
+                    "text": "Dosyanın doğru kaydedilip kaydedilmediğini kontrol etmenin bir zararı yok, değil mi? Aşağıdaki yolda Github_kullanıcı_adınız.json şeklinde bir dosya bulunmalıdır!",
+                    "updated": 1645103424160
                 }
             ]
         },

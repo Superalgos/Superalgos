@@ -80,8 +80,8 @@
 
                         if (origin === 'Web Browser') {
                             if (isNaN(nonce) || nonce === "") {
-                                console.log('[ERROR] Client -> Web Sockets Interface -> run -> setUpWebSocketServer -> Nonce is not a Number. message = ' + message.substring(0, 1000))
-                                console.log('[ERROR] Client -> Web Sockets Interface -> run -> setUpWebSocketServer -> Nonce is not a Number. nonce = ' + nonce)
+                                console.log((new Date()).toISOString(), '[ERROR] Client -> Web Sockets Interface -> run -> setUpWebSocketServer -> Nonce is not a Number. message = ' + message.substring(0, 1000))
+                                console.log((new Date()).toISOString(), '[ERROR] Client -> Web Sockets Interface -> run -> setUpWebSocketServer -> Nonce is not a Number. nonce = ' + nonce)
                                 return
                             }
 
@@ -90,9 +90,9 @@
                             }
 
                             if (Number(nonce) < Number(lastNonce)) {
-                                console.log('[ERROR] Client -> Web Sockets Interface -> run -> setUpWebSocketServer -> Nonce received is less than Last Nonce. message = ' + message.substring(0, 1000))
-                                console.log('[ERROR] Client -> Web Sockets Interface -> run -> setUpWebSocketServer -> Nonce received is less than Last Nonce. nonce = ' + nonce)
-                                console.log('[ERROR] Client -> Web Sockets Interface -> run -> setUpWebSocketServer -> Nonce received is less than Last Nonce. lastNonce = ' + lastNonce)
+                                console.log((new Date()).toISOString(), '[ERROR] Client -> Web Sockets Interface -> run -> setUpWebSocketServer -> Nonce received is less than Last Nonce. message = ' + message.substring(0, 1000))
+                                console.log((new Date()).toISOString(), '[ERROR] Client -> Web Sockets Interface -> run -> setUpWebSocketServer -> Nonce received is less than Last Nonce. nonce = ' + nonce)
+                                console.log((new Date()).toISOString(), '[ERROR] Client -> Web Sockets Interface -> run -> setUpWebSocketServer -> Nonce received is less than Last Nonce. lastNonce = ' + lastNonce)
                                 return
                             }
 
@@ -101,8 +101,8 @@
                             try {
                                 JSON.parse(messageToEventServer)
                             } catch (err) {
-                                console.log('[ERROR] Client -> Web Sockets Interface -> run -> setUpWebSocketServer -> Message received from the browser is not a valid JSON. message = ' + message.substring(0, 1000))
-                                console.log('[ERROR] Client -> Web Sockets Interface -> run -> setUpWebSocketServer -> Message received from the browser is not a valid JSON. messageToEventServer = ' + messageToEventServer)
+                                console.log((new Date()).toISOString(), '[ERROR] Client -> Web Sockets Interface -> run -> setUpWebSocketServer -> Message received from the browser is not a valid JSON. message = ' + message.substring(0, 1000))
+                                console.log((new Date()).toISOString(), '[ERROR] Client -> Web Sockets Interface -> run -> setUpWebSocketServer -> Message received from the browser is not a valid JSON. messageToEventServer = ' + messageToEventServer)
                                 return
                             }
 
@@ -121,13 +121,13 @@
                             socket.send(message)
                         }
                     } catch (err) {
-                        console.log('[ERROR] Client -> Web Sockets Interface -> run -> setUpWebSocketServer -> Nonce received is less than Last Nonce. err = ' + err.stack)
+                        console.log((new Date()).toISOString(), '[ERROR] Client -> Web Sockets Interface -> run -> setUpWebSocketServer -> Nonce received is less than Last Nonce. err = ' + err.stack)
                     }
                 }
             }
         } catch (err) {
-            console.log('[ERROR] Client -> Web Sockets Interface -> run -> setUpWebSocketServer -> err.message = ' + err.message)
-            console.log('[ERROR] Client -> Web Sockets Interface -> run -> setUpWebSocketServer -> err.message = ' + err.stack)
+            console.log((new Date()).toISOString(), '[ERROR] Client -> Web Sockets Interface -> run -> setUpWebSocketServer -> err.message = ' + err.message)
+            console.log((new Date()).toISOString(), '[ERROR] Client -> Web Sockets Interface -> run -> setUpWebSocketServer -> err.message = ' + err.stack)
         }
     }
 }

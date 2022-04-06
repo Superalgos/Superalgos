@@ -1,0 +1,34 @@
+{
+    "type": "Image Formula",
+    "level": 4,
+    "propertyNameAtParent": "imageFormula",
+    "attachingRules": {
+        "compatibleTypes": "->Image->"
+    },
+    "editors": {
+        "formula": true
+    },
+    "initialValues": {
+        "code": "record.property"
+    },
+    "menuItems": [
+        {
+            "action": "Edit",
+            "actionFunction": "uiObject.formulaEditor.activate",
+            "label": "Edit",
+            "iconPathOn": "javascript-code",
+            "iconPathOff": "javascript-code"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "actionFunction": "payload.executeAction",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity"
+        }
+    ],
+    "addLeftIcons": true
+}

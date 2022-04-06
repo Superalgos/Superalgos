@@ -1,0 +1,73 @@
+{
+    "topic": "Trends Data Mine",
+    "pageNumber": "3",
+    "type": "Super Guppy",
+    "definition": {
+        "text": "The Super Guppy - this indicator uses multiple exponential moving averages to highlight trends and anticipate a potential breakout in the price of an asset."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Super Guppy on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "From Investopedia: The Guppy Multiple Moving Average (GMMA) is a technical indicator that aims to anticipate a potential breakout in the price of an asset. The term gets its name from Daryl Guppy, an Australian financial columnist and book author who developed the concept in his book, \"Trading Tactics\".",
+            "updated": 1648598590380
+        },
+        {
+            "style": "Text",
+            "text": "The GMMA uses the exponential moving average (EMA) to capture the difference between price and value in an asset. A convergence in these factors is associated with a significant trend change. Guppy maintains that the GMMA is not a lagging indicator but a prior warning of a developing change in price and value.",
+            "updated": 1648598609986
+        },
+        {
+            "style": "Link",
+            "text": "Super Guppy - (Investopedia)->www.investopedia.com/terms/g/guppy-multiple-moving-average.asp"
+        },
+        {
+            "style": "Text",
+            "text": "The GMMA uses the 22 EMAs (ranging from a period of 3 through to 66), as well as an EMA with a 200 period to highlight the overall trend."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Trends-Super-Guppy.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| SuperGuppyFast | superguppyFast | ema1, ema2...ema7, fTrend |\n| SuperGuppySlow | superguppySlow | ema8, ema9...ema22, sTrend |"
+        },
+        {
+            "style": "Text",
+            "text": "The indicator is split into two separate indicators, fast and slow. Each one has an overall trend indication, fTrend for fast EMA values, and sTrend for the slow EMA values. The returned value of the fTrend and sTrend records is a string that can be: \"upward\", \"neutral\", or \"downward\".",
+            "updated": 1648598678171
+        },
+        {
+            "style": "Text",
+            "text": "Examples:"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator can be used to enter a trade when both the fast and slow trends are upward:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.SuperGuppyFast.fTrend === \"upward\" && chart.at01hs.SuperGuppySlow.sTrend === \"upward\""
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

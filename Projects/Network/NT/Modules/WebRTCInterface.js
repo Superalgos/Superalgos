@@ -68,7 +68,7 @@ exports.newNetworkModulesWebRTCInterface = function newNetworkModulesWebRTCInter
                 }
             }
         } catch (err) {
-            console.log('[ERROR] Web Sockets Interface -> setUpWebSocketServer -> err.stack = ' + err.stack)
+            console.log((new Date()).toISOString(), '[ERROR] Web Sockets Interface -> setUpWebSocketServer -> err.stack = ' + err.stack)
         }
     }
 }

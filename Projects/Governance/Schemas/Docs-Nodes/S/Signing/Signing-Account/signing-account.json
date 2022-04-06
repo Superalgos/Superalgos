@@ -117,6 +117,21 @@
             ]
         },
         {
+            "style": "Title",
+            "text": "Creating a Signing Account",
+            "updated": 1647062203889
+        },
+        {
+            "style": "Text",
+            "text": "In order to generate the needed signature keys for a Signing Account, you will need to place a Profile Constructor within your workspace. You can add it by navigating to the Governance Project node and clicking Add Profile Constructor.",
+            "updated": 1647062358709
+        },
+        {
+            "style": "Text",
+            "text": "Then connect a reference between the Profile Constructor node and your User Profile node. Once that is connected, click Install Signing Accounts. This will generate keys for all the various signing accounts associated with your profile.",
+            "updated": 1647062832754
+        },
+        {
             "style": "Text",
             "text": ""
         }

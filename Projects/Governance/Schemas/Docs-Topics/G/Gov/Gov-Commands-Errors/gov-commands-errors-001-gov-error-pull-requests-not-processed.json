@@ -10,6 +10,16 @@
                 "language": "DE",
                 "text": "Es gab ein Problem bei der Bearbeitung der Pull Requests im Superalgos Repository",
                 "updated": 1638746677069
+            },
+            {
+                "language": "RU",
+                "text": "Возникла проблема при попытке обработать запросы на извлечение (\"pull request\") в репозитории Superalgos",
+                "updated": 1645627422470
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Superalgos deposundaki çekme isteklerini işlemeye çalışırken bir sorun oluştu",
+                "updated": 1646742445215
             }
         ]
     },
@@ -23,13 +33,35 @@
                     "language": "DE",
                     "text": "Lesen Sie den folgenden Abschnitt, um zu erfahren, was passiert sein könnte. Nachdem Sie das Problem behoben haben, das die Ausführung des Befehls Gov PRs verhindert hat, können Sie es erneut versuchen.",
                     "updated": 1638746717268
+                },
+                {
+                    "language": "RU",
+                    "text": "Подробную информацию о том, что могло произойти, см. в следующем разделе. После устранения проблемы, которая не позволила запустить Gov PRs Command, вы можете повторить попытку.",
+                    "updated": 1645627452165
+                },
+                {
+                    "language": "TR",
+                    "text": "Neler olmuş olabileceğiyle ilgili ayrıntılar için aşağıdaki bölüme bakın. Gov PRs Command'ın çalışmasını engelleyen sorunu giderdikten sonra tekrar deneyebilirsiniz.",
+                    "updated": 1646742471073
                 }
             ]
         },
         {
             "style": "Title",
             "text": "Error Info",
-            "updated": 1611154606702
+            "updated": 1611154606702,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Информация об ошибке",
+                    "updated": 1645627461013
+                },
+                {
+                    "language": "TR",
+                    "text": "Hata Bilgisi",
+                    "updated": 1646742498764
+                }
+            ]
         },
         {
             "style": "Text",
@@ -39,6 +71,16 @@
                     "language": "DE",
                     "text": "Im folgenden Abschnitt finden Sie die Informationen, die beim Auftreten des Fehlers aufgezeichnet wurden.",
                     "updated": 1638746731702
+                },
+                {
+                    "language": "RU",
+                    "text": "В следующем разделе вы найдете информацию, записанную при возникновении ошибки.",
+                    "updated": 1645627467846
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki bölümde, hata oluştuğunda kaydedilen bilgileri bulacaksınız.",
+                    "updated": 1646742491649
                 }
             ]
         },
@@ -51,6 +93,16 @@
                     "language": "DE",
                     "text": "Die Informationen werden nur angezeigt, wenn Sie diese Seite geöffnet haben, weil der Fehler tatsächlich aufgetreten ist.",
                     "updated": 1638746793412
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы увидите информацию только в том случае, если вы открыли эту страницу в результате того, что ошибка действительно произошла.",
+                    "updated": 1645627475394
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bilgileri ancak bu sayfayı gerçekten oluşan hatanın bir sonucu olarak açtıysanız göreceksiniz.",
+                    "updated": 1646742529485
                 }
             ]
         },
@@ -62,6 +114,11 @@
                     "language": "DE",
                     "text": "Error Nachricht",
                     "updated": 1638746754945
+                },
+                {
+                    "language": "TR",
+                    "text": "Hata Mesajı",
+                    "updated": 1646742557236
                 }
             ]
         },
@@ -73,6 +130,16 @@
                     "language": "DE",
                     "text": "Im Folgenden wird die Fehlermeldung der beim Client aufgetretenen Ausnahme angezeigt:",
                     "updated": 1638746808346
+                },
+                {
+                    "language": "RU",
+                    "text": "Ниже приведено сообщение об ошибке исключения, произошедшего на клиенте:",
+                    "updated": 1645627491359
+                },
+                {
+                    "language": "TR",
+                    "text": "İstemcide ( Client ) meydana gelen İstisnanın Hata Mesajı aşağıdadır:",
+                    "updated": 1646742569451
                 }
             ]
         },
@@ -82,7 +149,14 @@
         },
         {
             "style": "Subtitle",
-            "text": "Error Stack"
+            "text": "Error Stack",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hata Yığını",
+                    "updated": 1646742595262
+                }
+            ]
         },
         {
             "style": "Text",
@@ -92,6 +166,16 @@
                     "language": "DE",
                     "text": "Im Folgenden ist der Error Stack der beim Client aufgetretenen Ausnahme dargestellt:",
                     "updated": 1638746830116
+                },
+                {
+                    "language": "RU",
+                    "text": "Ниже приведен стек ошибок исключения, произошедшего на клиенте:",
+                    "updated": 1645627498475
+                },
+                {
+                    "language": "TR",
+                    "text": "İstemcide ( Client ) meydana gelen İstisnanın Hata Yığını aşağıdadır:",
+                    "updated": 1646742607247
                 }
             ]
         },
@@ -101,7 +185,14 @@
         },
         {
             "style": "Subtitle",
-            "text": "Error Code"
+            "text": "Error Code",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hata Kodu",
+                    "updated": 1646742616423
+                }
+            ]
         },
         {
             "style": "Text",
@@ -111,6 +202,16 @@
                     "language": "DE",
                     "text": "Im Folgenden wird der Fehlercode der beim Client aufgetretenen Ausnahme angegeben:",
                     "updated": 1638746868393
+                },
+                {
+                    "language": "RU",
+                    "text": "Ниже приведен код ошибки исключения, произошедшего у клиента:",
+                    "updated": 1645627505034
+                },
+                {
+                    "language": "TR",
+                    "text": "İstemcide ( Client ) meydana gelen İstisnanın Hata Kodu aşağıdadır:",
+                    "updated": 1646742639786
                 }
             ]
         },
@@ -121,7 +222,14 @@
         {
             "style": "Subtitle",
             "text": "Error Details",
-            "updated": 1611154543778
+            "updated": 1611154543778,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hata Detayları",
+                    "updated": 1646742666641
+                }
+            ]
         },
         {
             "style": "Text",
@@ -132,6 +240,16 @@
                     "language": "DE",
                     "text": "Im Folgenden werden alle Fehlerdetails der beim Client aufgetretenen Ausnahme aufgeführt:",
                     "updated": 1638746879966
+                },
+                {
+                    "language": "RU",
+                    "text": "Ниже приведены все детали ошибки исключения, произошедшего у клиента:",
+                    "updated": 1645627521600
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdakiler, İstemcide ( Client ) meydana gelen İstisnanın tüm Hata ayrıntılarıdır:",
+                    "updated": 1646742684158
                 }
             ]
         },

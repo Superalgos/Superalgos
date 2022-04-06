@@ -4,31 +4,73 @@
     "type": "TS LF Trading Bot Error - Reference to Phase Node Missing",
     "definition": {
         "text": "The Move To Phase Event node where this error originated is expected to reference a Phase node so that—when all conditions are met—the LF Trading Bot may switch to the referenced Phase.",
-        "updated": 1611929416928
+        "updated": 1611929416928,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Bu hatanın kaynaklandığı Aşamaya Geçiş Olayı ( Move To Phase Event ) düğümünün bir Aşama ( Phase ) düğümüne referans vermesi beklenir, böylece tüm koşullar karşılandığında LF Ticaret Botu ( LF Trading Bot ) referans verilen Aşamaya ( Phase ) geçebilir.",
+                "updated": 1647976804952
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Error",
             "text": "Reference to Phase Node Missing",
-            "updated": 1611652631671
+            "updated": 1611652631671,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Faz Düğümü ( Phase Node Missing ) Eksikliğine Referans",
+                    "updated": 1648041963415
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "To fix this, establish a reference from the Move To Phase Event node to a Phase node.",
-            "updated": 1611929817733
+            "updated": 1611929817733,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bunu düzeltmek için Aşamaya Geçiş Olayı ( Move To Phase Event ) düğümünden bir Aşama ( Phase ) düğümüne bir referans oluşturun.",
+                    "updated": 1647973579274
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Learn More",
-            "updated": 1611929521725
+            "updated": 1611929521725,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Daha fazla bilgi edin",
+                    "updated": 1647973653980
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Establish and Remove References"
+            "text": "Establish and Remove References",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Referansları Oluşturun ve Kaldırın ( Establish and Remove References )",
+                    "updated": 1648042001264
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Move To Phase Event"
+            "text": "Move To Phase Event",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Aşama Etkinliğine Taşı ( Move To Phase Event )",
+                    "updated": 1648042046185
+                }
+            ]
         }
     ]
 }

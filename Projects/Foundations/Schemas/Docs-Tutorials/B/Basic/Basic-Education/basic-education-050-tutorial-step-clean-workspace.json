@@ -36,6 +36,11 @@
                 "language": "RU",
                 "text": "Говоря о проверенных биржах и плагинах, есть одно рабочее пространство плагина, которое вы можете использовать как чистый лист при разработке нового материала!",
                 "updated": 1640875531924
+            },
+            {
+                "language": "ID",
+                "text": "Berbicara tentang pengujian exchanges dan plugin, ada satu workspace plugin yang dapat kamu gunakan sebagai batu tulis bersih saat mendesain barang baru!",
+                "updated": 1645560408483
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "RU",
                     "text": "Это Blank Template Plugin Workspace!",
                     "updated": 1640875623186
+                },
+                {
+                    "language": "ID",
+                    "text": "Itulah Blank Template Plugin Workspace!",
+                    "updated": 1645561606714
                 }
             ]
         },
@@ -105,6 +115,11 @@
                     "language": "RU",
                     "text": "Как только вы закончите свое начальное обучение, пройдя все существующие учебники, вы будете готовы приступить к созданию своей собственной торговой системы. Это рабочее пространство плагина, которое вы можете использовать для этой цели!",
                     "updated": 1640875647118
+                },
+                {
+                    "language": "ID",
+                    "text": "Setelah kamu menyelesaikan edukasi awal kamu dengan melakukan semua tutorial yang ada, kamu akhirnya akan siap untuk mulai membangun Trading System kamu sendiri. Ini adalah workspace plugin yang dapat kamu gunakan untuk tujuan tersebut!",
+                    "updated": 1645560511328
                 }
             ]
         },
@@ -139,6 +154,11 @@
                     "language": "RU",
                     "text": "Она включает в себя чистую торговую систему прямо из коробки, учебник по установке нового рынка и список проверенных бирж, которые вы можете использовать.",
                     "updated": 1640875683576
+                },
+                {
+                    "language": "ID",
+                    "text": "Ini fitur Trading System bersih langsung dari kotak, Install New Market Tutorial, dan jajaran exchanges teruji yang dapat kamu gunakan.",
+                    "updated": 1645560581373
                 }
             ]
         }

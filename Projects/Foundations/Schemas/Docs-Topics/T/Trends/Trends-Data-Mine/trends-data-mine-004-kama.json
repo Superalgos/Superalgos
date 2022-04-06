@@ -1,0 +1,89 @@
+{
+    "topic": "Trends Data Mine",
+    "pageNumber": "4",
+    "type": "KAMA",
+    "definition": {
+        "text": "The Kaufman Adaptive Moving Average, or KAMA, is a moving average that accounts for volatility as well as price action."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "KAMA on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "The KAMA was developed by American quantitative financial theorist Perry J. Kaufman in 1998 and published in his book \"Trading Systems and Methods.\"."
+        },
+        {
+            "style": "Text",
+            "text": "When market volatility is low, Kaufman's Adaptive Moving Average remains near the current market price, but when volatility increases, it will lag behind. What the KAMA indicator aims to do is filter out 'market noise': insignificant, temporary surges in price action. One of the primary weaknesses of traditional moving averages is that when used for trading signals, they tend to generate many false signals. The KAMA indicator seeks to lessen this tendency - generate fewer false signals - by not responding to short-term, insignificant price movements.",
+            "updated": 1649139948049
+        },
+        {
+            "style": "Link",
+            "text": "Kaufmans Adaptive Moving Average - (corporatefinanceinstitute)->corporatefinanceinstitute.com/resources/knowledge/trading-investing/kaufmans-adaptive-moving-average-kama"
+        },
+        {
+            "style": "Text",
+            "text": "When following parameters are used in calculating the KAMA:"
+        },
+        {
+            "style": "List",
+            "text": "Length; the number of periods used to calculate the efficiency ratio, which is the price change adjusted for volatility",
+            "updated": 1649139976827
+        },
+        {
+            "style": "List",
+            "text": "Fast EMA constant"
+        },
+        {
+            "style": "List",
+            "text": "Slow EMA constant"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Trends-KAMA.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| KAMA-ind | KAMA | value |"
+        },
+        {
+            "style": "Text",
+            "text": "The indicator's parameters can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under 'KAMA' Procedure Loop.",
+            "updated": 1649140135383
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Trends-KAMA-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Examples:"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator can be used to enter a trade when the price action rises above the KAMA value:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at02hs.candle.close > chart.at02hs.KAMA.value"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

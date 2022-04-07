@@ -21,8 +21,8 @@
             "translations": [
                 {
                     "language": "TR",
-                    "text": "Temel Varlık Oturumu ( Session Base Asset ) ve Kota edilmiş varlık oturumu ( Session Quoted Asset ) Ticaret parametreleri oturumu ( Trading Parameters ) Ticaret Parametreleri minimum Denge minimumBalance. ayarı yapılmasını sağlar Parametre isteğe bağlıdır. Kullandığınız zaman, Ticaret Botu, ( LF Trading Bot ) her mum için kontrol eder. Bakiyenin yapılandırılan minimum değere ulaştığı Ticaret ( Trading ) Olursa bu hata tetiklenir ve hemen Ticaret oturumu ( Trading Session ) durur.",
-                    "updated": 1648066765410
+                    "text": "Temel Varlık Oturumu ( Session Base Asset ) ve Kote edilmiş varlık oturumu ( Session Quoted Asset ) Ticaret parametreleri oturumu ( Trading Parameters ) Ticaret Parametreleri minimum Denge minimumBalance. ayarı yapılmasını sağlar Parametre isteğe bağlıdır. Kullandığınız zaman, Ticaret Botu, ( LF Trading Bot ) her mum için kontrol eder. Bakiyenin yapılandırılan minimum değere ulaştığı Ticaret ( Trading ) Olursa bu hata tetiklenir ve hemen Ticaret oturumu ( Trading Session ) durur.",
+                    "updated": 1648579377195
                 }
             ]
         },

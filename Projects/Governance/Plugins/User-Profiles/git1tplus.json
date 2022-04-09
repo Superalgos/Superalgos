@@ -1,0 +1,284 @@
+{
+  "id": "76ab79d8-e422-4151-b84d-361b795aa464",
+  "type": "User Profile",
+  "name": "git1tplus",
+  "project": "Governance",
+  "config": "{\"codeName\":\"git1tplus\",\"signature\":{\"message\":\"git1tplus\",\"messageHash\":\"0x5bd96bfed3744854db6a057eda40aeeddb5d32a1fcb8e36da47f9f782d2ade22\",\"v\":\"0x1c\",\"r\":\"0x3b0a704129d6291010679245ce7c497c36684aa4a9e2a4c88d322672a3349a8c\",\"s\":\"0x5b9d6e93934994223fa7d78ffb5b00375fc9eefcaeb3775c1cc888f4326b6811\",\"signature\":\"0x3b0a704129d6291010679245ce7c497c36684aa4a9e2a4c88d322672a3349a8c5b9d6e93934994223fa7d78ffb5b00375fc9eefcaeb3775c1cc888f4326b68111c\"}}",
+  "savedPayload": {
+    "position": {
+      "x": 0.0,
+      "y": 0.0
+    },
+    "targetPosition": {
+      "x": 0.0,
+      "y": 0.0
+    },
+    "floatingObject": {
+      "isPinned": false,
+      "isFrozen": false,
+      "isCollapsed": false,
+      "angleToParent": 1,
+      "distanceToParent": 3,
+      "arrangementStyle": 0
+    },
+    "uiObject": {
+      "isRunning": false
+    }
+  },
+  "tokenPowerSwitch": {
+    "id": "2ae00bb2-0bd2-4ab4-bc81-9e3aaf370419",
+    "type": "Token Power Switch",
+    "name": "New Token Power Switch",
+    "project": "Governance",
+    "config": "{}",
+    "savedPayload": {
+      "position": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "targetPosition": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "floatingObject": {
+        "isPinned": false,
+        "isFrozen": false,
+        "isCollapsed": false,
+        "angleToParent": 1,
+        "distanceToParent": 3,
+        "arrangementStyle": 0
+      },
+      "uiObject": {
+        "isRunning": false
+      }
+    },
+    "tokenPowerSwitch": []
+  },
+  "tokensMined": {
+    "type": "Tokens Mined",
+    "name": "New Tokens Mined",
+    "project": "Governance",
+    "id": "fb45b6b0-2515-4b3a-9c71-6a949c6e5114",
+    "savedPayload": {
+      "position": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "targetPosition": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "floatingObject": {
+        "isPinned": false,
+        "isFrozen": false,
+        "isCollapsed": false,
+        "angleToParent": 1,
+        "distanceToParent": 3,
+        "arrangementStyle": 0
+      },
+      "uiObject": {
+        "isRunning": false
+      }
+    }
+  },
+  "socialPersonas": {
+    "id": "1956f127-c30d-4650-ab51-981cab09f8ba",
+    "type": "Social Personas",
+    "name": "New Social Personas",
+    "project": "Governance",
+    "config": "{}",
+    "savedPayload": {
+      "position": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "targetPosition": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "floatingObject": {
+        "isPinned": false,
+        "isFrozen": false,
+        "isCollapsed": false,
+        "angleToParent": 1,
+        "distanceToParent": 3,
+        "arrangementStyle": 0
+      },
+      "uiObject": {
+        "isRunning": false
+      }
+    },
+    "socialPersonas": [
+      {
+        "id": "6a3bfbbc-6f6b-4b16-ba8f-4e1307833c9b",
+        "type": "Social Persona",
+        "name": "New Social Persona",
+        "project": "Governance",
+        "config": "{\"codeName\":\"Social-Persona-DryPhrase\",\"socialHandle\":\"mynemon\",\"bio\":\"\"}",
+        "savedPayload": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "targetPosition": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "floatingObject": {
+            "isPinned": false,
+            "isFrozen": false,
+            "isCollapsed": false,
+            "angleToParent": 1,
+            "distanceToParent": 3,
+            "arrangementStyle": 0
+          },
+          "uiObject": {
+            "isRunning": false
+          }
+        },
+        "signingAccount": {
+          "id": "24e0754c-645a-4d0b-8a92-191aa1b0c80a",
+          "type": "Signing Account",
+          "name": "New Signing Account",
+          "project": "Governance",
+          "config": "{\"codeName\":\"Social-Persona-DryPhrase\",\"signature\":{\"message\":\"git1tplus\",\"messageHash\":\"0x5bd96bfed3744854db6a057eda40aeeddb5d32a1fcb8e36da47f9f782d2ade22\",\"v\":\"0x1b\",\"r\":\"0x70cc2f10190bb785c337c696dc05425a6aab7d3aefb8e9b7c3f9a8354a24d90f\",\"s\":\"0x4a6f70b2459e52a00e7a2212f48d0e0fa281cef8954c56efcfc2ca2ad1db6691\",\"signature\":\"0x70cc2f10190bb785c337c696dc05425a6aab7d3aefb8e9b7c3f9a8354a24d90f4a6f70b2459e52a00e7a2212f48d0e0fa281cef8954c56efcfc2ca2ad1db66911b\"}}",
+          "savedPayload": {
+            "position": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "targetPosition": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "floatingObject": {
+              "isPinned": false,
+              "isFrozen": false,
+              "isCollapsed": false,
+              "angleToParent": 1,
+              "distanceToParent": 3,
+              "arrangementStyle": 0
+            },
+            "uiObject": {
+              "isRunning": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "userApps": {
+    "id": "bc53151f-7180-4da2-86ea-3c2cab219e6d",
+    "type": "User Apps",
+    "name": "New User Apps",
+    "project": "Governance",
+    "config": "{}",
+    "savedPayload": {
+      "position": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "targetPosition": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "floatingObject": {
+        "isPinned": false,
+        "isFrozen": false,
+        "isCollapsed": false,
+        "angleToParent": 1,
+        "distanceToParent": 3,
+        "arrangementStyle": 0
+      },
+      "uiObject": {
+        "isRunning": false
+      }
+    },
+    "mobileApps": {
+      "id": "93cb73b4-fa56-4baf-88c4-a31ce0fe6662",
+      "type": "Mobile Apps",
+      "name": "New Mobile Apps",
+      "project": "Governance",
+      "config": "{}",
+      "savedPayload": {
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "targetPosition": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "floatingObject": {
+          "isPinned": false,
+          "isFrozen": false,
+          "isCollapsed": false,
+          "angleToParent": 1,
+          "distanceToParent": 3,
+          "arrangementStyle": 0
+        },
+        "uiObject": {
+          "isRunning": false
+        }
+      },
+      "socialTradingMobileApps": [
+        {
+          "id": "734b6744-9d74-4179-856f-c15353c2c2ec",
+          "type": "Social Trading Mobile App",
+          "name": "New Social Trading Mobile App",
+          "project": "Governance",
+          "config": "{\"codeName\":\"Social-Trading-Mobile-App-FastKnee\",\"host\":\"\",\"webSocketsPort\":\"\"}",
+          "savedPayload": {
+            "position": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "targetPosition": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "floatingObject": {
+              "isPinned": false,
+              "isFrozen": false,
+              "isCollapsed": false,
+              "angleToParent": 1,
+              "distanceToParent": 3,
+              "arrangementStyle": 0
+            },
+            "uiObject": {
+              "isRunning": false
+            }
+          },
+          "signingAccount": {
+            "id": "06a10a62-c921-4878-98f7-585416ab2ff7",
+            "type": "Signing Account",
+            "name": "New Signing Account",
+            "project": "Governance",
+            "config": "{\"codeName\":\"Social-Trading-Mobile-App-FastKnee\",\"signature\":{\"message\":\"git1tplus\",\"messageHash\":\"0x5bd96bfed3744854db6a057eda40aeeddb5d32a1fcb8e36da47f9f782d2ade22\",\"v\":\"0x1b\",\"r\":\"0xfb7197509cdddb841ba20f0f189479a855ec0b8dd3dbdc92a6820e5244bc9bb2\",\"s\":\"0x1605349821f0f0eda637c78bc20790ecd2280f7277e097b5a12399f25e3e38b3\",\"signature\":\"0xfb7197509cdddb841ba20f0f189479a855ec0b8dd3dbdc92a6820e5244bc9bb21605349821f0f0eda637c78bc20790ecd2280f7277e097b5a12399f25e3e38b31b\"}}",
+            "savedPayload": {
+              "position": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "targetPosition": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "floatingObject": {
+                "isPinned": false,
+                "isFrozen": false,
+                "isCollapsed": false,
+                "angleToParent": 1,
+                "distanceToParent": 3,
+                "arrangementStyle": 0
+              },
+              "uiObject": {
+                "isRunning": false
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

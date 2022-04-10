@@ -4,18 +4,39 @@
     "type": "TS LF Trading Bot Error - Percentage Of Stage Target Size Property Not A Number",
     "definition": {
         "text": "You must specify what percentage of the Size handled by the Stage is to be handled by the Execution Algorithm.",
-        "updated": 1611945134549
+        "updated": 1611945134549,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Aşama Alanı tarafından işlenen Boyutun ( Size ) yüzde kaçının Yürütme Algoritması ( Execution Algorithm ) tarafından işleneceğini belirtmelisiniz.",
+                "updated": 1649626040278
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Error",
             "text": "Percentage Of Stage Target Size Property Not A Number",
-            "updated": 1611651274703
+            "updated": 1611651274703,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Aşama Hedef Boyutu Yüzdesi Özelliği Sayı Değil. ( Target Size Property Not A Number )",
+                    "updated": 1649626149018
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Check the algorithm's configuration and make sure the percentageOfStageTargetSize property exists and is defined with a number greater than zero.",
-            "updated": 1611945169154
+            "updated": 1611945169154,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Algoritmanın yapılandırmasını kontrol edin ve aşma dışı hedef boyutun yüzdesi özelliğinin var olduğundan ve sıfırdan büyük bir sayıyla tanımlandığından emin olun.",
+                    "updated": 1649626298551
+                }
+            ]
         }
     ]
 }

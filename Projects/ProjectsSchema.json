@@ -951,9 +951,7 @@
             ]
         },
         "PL": {
-            "utilities": [
-
-            ]
+            "utilities": []
         },
         "SA": {
             "globals": [
@@ -1275,7 +1273,7 @@
                     "propertyName": "pluginsAtGithub",
                     "functionName": "newPluginsUtilitiesPluginsAtGithub",
                     "fileName": "PluginsAtGithub.js"
-                },                
+                },
                 {
                     "name": "Nodes",
                     "propertyName": "nodes",
@@ -1720,7 +1718,7 @@
                     "propertyName": "socketInterfaces",
                     "functionName": "newNetworkModulesSocketInterfaces",
                     "fileName": "SocketInterfaces.js"
-                },                
+                },
                 {
                     "name": "Http Interface",
                     "propertyName": "httpInterface",
@@ -2014,7 +2012,7 @@
                     "functionName": "newSocialTradingFunctionLibrariesUserProfile",
                     "fileName": "UserProfile.js"
                 }
-            ],            
+            ],
             "globals": [
                 {
                     "name": "Memory",
@@ -2351,7 +2349,45 @@
             "utilities": []
         },
         "TS": {},
-        "PL": {},
+        "plugins": []
+    },
+    {
+        "name": "Bitcoin-Factory",
+        "propertyName": "bitcoinFactory",
+        "UI": {
+            "nodeActionFunctions": [],
+            "systemActionFunctions": [],
+            "functionLibraries": [],
+            "globals": [],
+            "utilities": [],
+            "spaces": []
+        },
+        "SA": {
+            "utilities": []
+        },
+        "TS": {},
+        "NT": {
+            "modules":[
+                {
+                    "name": "Machine Learning Network Service",
+                    "propertyName": "machineLearningNetworkService",
+                    "functionName": "newBitcoinFactoryModulesMachineLearningNetworkService",
+                    "fileName": "MachineLearningNetworkService.js"
+                },
+                {
+                    "name": "Client Interface",
+                    "propertyName": "clientInterface",
+                    "functionName": "newBitcoinFactoryModulesClientInterface",
+                    "fileName": "ClientInterface.js"
+                },
+                {
+                    "name": "Server Interface",
+                    "propertyName": "serverInterface",
+                    "functionName": "newBitcoinFactoryModulesServerInterface",
+                    "fileName": "ServerInterface.js"
+                }
+            ]
+        },
         "plugins": []
     }
 ]

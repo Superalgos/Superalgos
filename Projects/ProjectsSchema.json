@@ -1055,6 +1055,13 @@
                     "folderName": "Sensor-Bot/Exchange-Raw-Data"
                 },
                 {
+                    "name": "Machine-Learning-Models-Tester",
+                    "propertyName": "machineLearningModelsTester",
+                    "functionName": "newDataMiningBotModulesMachineLearningModelsTester",
+                    "fileName": "MachineLearningModelsTester.js",
+                    "folderName": "Sensor-Bot/Machine-Learning-Models-Tester"
+                },
+                {
                     "name": "Single Market API Data Fetcher Bot",
                     "propertyName": "singleMarketAPIDataFetcherBot",
                     "functionName": "newDataMiningBotModulesSingleMarketAPIDataFetcherBot",
@@ -2363,7 +2370,20 @@
             "spaces": []
         },
         "SA": {
-            "utilities": []
+            "modules": [
+                {
+                    "name": "App Bootstraping Process",
+                    "propertyName": "appBootstrapingProcess",
+                    "functionName": "newBitoinFactoryAppBootstrapingProcess",
+                    "fileName": "AppBootstrapingProcess.js"
+                },
+                {
+                    "name": "Machine Learning Network Service Client",
+                    "propertyName": "machineLearningNetworkServiceClient",
+                    "functionName": "newBitcoinFactoryModulesMachineLearningNetworkServiceClient",
+                    "fileName": "MachineLearningNetworkServiceClient.js"
+                }
+            ]
         },
         "TS": {},
         "NT": {

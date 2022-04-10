@@ -34,7 +34,7 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
             return response
         }
 
-        if (messageHeader.requestType !== 'Message To Server') {
+        if (messageHeader.requestType !== 'Query') {
             let response = {
                 result: 'Error',
                 message: 'Client Interface requestType Not Supported.'
@@ -43,7 +43,7 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
         }
 
         switch (messageHeader.requestType) {
-            case 'Message To Server': {
+            case 'Query': {
                 return await queryReceived(
                     messageHeader.queryMessage,
                     userProfile

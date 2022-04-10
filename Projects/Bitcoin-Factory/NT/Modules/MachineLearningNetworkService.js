@@ -26,6 +26,11 @@ exports.newBitcoinFactoryModulesMachineLearningNetworkService = function newBitc
         p2pNetworkReachableNodes
     ) {
         /*
+        We run the Service Bootstrapping Process
+        */
+        let appBootstrapingProcess = SA.projects.socialTrading.modules.appBootstrapingProcess.newSocialTradingAppBootstrapingProcess()
+        appBootstrapingProcess.run()
+        /*
         The Storage deals with persisting the Machine Learning.
         */
         thisObject.clientInterface = NT.projects.bitcoinFactory.modules.clientInterface.newBitcoinFactoryModulesClientInterface()

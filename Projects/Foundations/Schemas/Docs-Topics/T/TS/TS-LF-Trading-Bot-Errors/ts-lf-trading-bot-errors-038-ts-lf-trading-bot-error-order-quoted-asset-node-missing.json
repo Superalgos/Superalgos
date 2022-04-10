@@ -4,17 +4,38 @@
     "type": "TS LF Trading Bot Error - Order Quoted Asset Node Missing",
     "definition": {
         "text": "An Order Quoted Asset node was expected but not found at the node where the error originated.",
-        "updated": 1611677527859
+        "updated": 1611677527859,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Bir Sipariş Koteli Varlık ( Order Quoted Asset ) düğümü bekleniyordu, ancak hatanın kaynaklandığı düğümde bulunamadı.",
+                "updated": 1649105001560
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Error",
             "text": "Order Quoted Asset Node Missing",
-            "updated": 1611650915963
+            "updated": 1611650915963,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Sipariş Alıntılanan Varlık Düğümü Eksik. ( Order Quoted Asset Node Missing )",
+                    "updated": 1649105070366
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Add the missing node and try again."
+            "text": "Add the missing node and try again.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Eksik düğümü ekleyin ve tekrar deneyin.",
+                    "updated": 1649105098760
+                }
+            ]
         }
     ]
 }

@@ -4,17 +4,38 @@
     "type": "TS LF Trading Bot Error - Order Base Asset Node Missing",
     "definition": {
         "text": "An Order Base Asset node was expected but not found at the node where the error originated.",
-        "updated": 1611650015208
+        "updated": 1611650015208,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Bir Sipariş Temeli Varlık ( Order Base Asset ) düğümü bekleniyordu ancak hatanın kaynaklandığı düğümde bulunamadı.",
+                "updated": 1648939171931
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Error",
             "text": "Order Base Asset Node Missing",
-            "updated": 1611650767027
+            "updated": 1611650767027,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Sipariş Temel Varlık Düğümü Eksik. ( Order Base Asset Node Missing )",
+                    "updated": 1648939203449
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Add the missing node and try again."
+            "text": "Add the missing node and try again.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Eksik düğümü ekleyin ve tekrar deneyin.",
+                    "updated": 1648939227985
+                }
+            ]
         }
     ]
 }

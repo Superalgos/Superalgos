@@ -21,8 +21,8 @@
             "translations": [
                 {
                     "language": "TR",
-                    "text": "Temel Varlık Oturumu ( Session Base Asset ) ve Kota edilmiş varlık oturumu ( Session Quoted Asset ) Ticaret parametreleri oturumu ( Trading Parameters ) Ticaret Parametreleri maksimum Denge maximumBalance. ayarı yapılmasını sağlar Parametre isteğe bağlıdır. Kullandığınız zaman, Ticaret Botu, ( LF Trading Bot ) her mum için kontrol eder. Bakiyenin yapılandırılan maksimum değere ulaşmadığı Ticaret ( Trading ) Olursa bu hata tetiklenir ve hemen Ticaret oturumu ( Trading Session ) durur.",
-                    "updated": 1648064837824
+                    "text": "Temel Varlık Oturumu ( Session Base Asset ) ve Kote edilmiş varlık oturumu ( Session Quoted Asset ) Ticaret parametreleri oturumu ( Trading Parameters ) Ticaret Parametreleri maksimum Denge maximumBalance. ayarı yapılmasını sağlar Parametre isteğe bağlıdır. Kullandığınız zaman, Ticaret Botu, ( LF Trading Bot ) her mum için kontrol eder. Bakiyenin yapılandırılan maksimum değere ulaşmadığı Ticaret ( Trading ) Olursa bu hata tetiklenir ve hemen Ticaret oturumu ( Trading Session ) durur.",
+                    "updated": 1648579347709
                 }
             ]
         },

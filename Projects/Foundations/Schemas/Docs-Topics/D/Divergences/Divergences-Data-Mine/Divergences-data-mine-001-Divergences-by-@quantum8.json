@@ -72,6 +72,11 @@
             "text": "10) Ultimate Oscillator"
         },
         {
+            "style": "List",
+            "text": "10) CCI Stochastic Divergence",
+            "updated": 1649651565349
+        },
+        {
             "style": "Title",
             "text": "Maintainer:"
         },

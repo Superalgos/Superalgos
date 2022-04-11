@@ -1,6 +1,6 @@
-﻿exports.newDataMiningBotModulesMachineLearningModelsTester = function (processIndex) {
+﻿exports.newBitcoinFactoryBotModulesTestClient = function (processIndex) {
 
-    const MODULE_NAME = "Machine-Learning-Models-Tester"
+    const MODULE_NAME = "Test-Client"
 
     let thisObject = {
         initialize: initialize,
@@ -23,9 +23,21 @@
         }
     }
 
-    function start(callBackFunction) {
+    async function start(callBackFunction) {
         try {
- 
+
+            let queryMessage = {
+                messageId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId()
+            }
+
+            let messageHeader = {
+                requestType: 'Query',
+                networkService: 'Machine Learning',
+                queryMessage: JSON.stringify(queryMessage)
+            }
+
+            let response = await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClient.machineLearningNetworkServiceClient.sendMessage(messageHeader)
+            console.log(response)
             callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
         }
         catch (err) {

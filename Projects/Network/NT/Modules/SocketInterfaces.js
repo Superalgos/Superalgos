@@ -129,7 +129,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                                     }
                                     break
                                 }
-                                case 'Bitcoin Factory': {
+                                case 'Machine Learning': {
                                     if (NT.networkApp.machineLearningNetworkService !== undefined) {
                                         response = await NT.networkApp.machineLearningNetworkService.clientInterface.messageReceived(
                                             payload,

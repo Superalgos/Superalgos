@@ -51,4 +51,32 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
             }
         }
     }
+
+    async function queryReceived(
+        queryMessage,
+        userProfile
+    ) {
+        /*
+ 
+        */
+        let queryReceived
+        try {
+            queryReceived = JSON.parse(queryMessage)
+        } catch (err) {
+            let response = {
+                result: 'Error',
+                message: 'Client Interface queryMessage Not Correct JSON Format.'
+            }
+            return response
+        }
+        /*
+        Do something here...
+        */
+        console.log(queryMessage)
+        let response = {
+            result: 'Ok',
+            message: 'Message Delivered.'
+        }
+        return response
+    }
 }

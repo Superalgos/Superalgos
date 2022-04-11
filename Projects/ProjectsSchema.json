@@ -1055,13 +1055,6 @@
                     "folderName": "Sensor-Bot/Exchange-Raw-Data"
                 },
                 {
-                    "name": "Machine-Learning-Models-Tester",
-                    "propertyName": "machineLearningModelsTester",
-                    "functionName": "newDataMiningBotModulesMachineLearningModelsTester",
-                    "fileName": "MachineLearningModelsTester.js",
-                    "folderName": "Sensor-Bot/Machine-Learning-Models-Tester"
-                },
-                {
                     "name": "Single Market API Data Fetcher Bot",
                     "propertyName": "singleMarketAPIDataFetcherBot",
                     "functionName": "newDataMiningBotModulesSingleMarketAPIDataFetcherBot",
@@ -2385,7 +2378,17 @@
                 }
             ]
         },
-        "TS": {},
+        "TS": {
+            "botModules":[
+                {
+                    "name": "Test-Client",
+                    "propertyName": "testClient",
+                    "functionName": "newBitcoinFactoryBotModulesTestClient",
+                    "fileName": "TestClient.js",
+                    "folderName": "Test-Client"
+                }
+            ]
+        },
         "NT": {
             "modules":[
                 {

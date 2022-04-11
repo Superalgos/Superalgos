@@ -1,6 +1,6 @@
-﻿exports.newBitcoinFactoryBotModulesTestClient = function (processIndex) {
+﻿exports.newBitcoinFactoryBotModulesTestServer = function (processIndex) {
 
-    const MODULE_NAME = "Test-Client"
+    const MODULE_NAME = "Test-Server"
 
     let thisObject = {
         initialize: initialize,
@@ -28,7 +28,7 @@
 
             let queryMessage = {
                 messageId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-                sender: 'Test-Client'
+                sender: 'Test-Server'
             }
 
             let messageHeader = {

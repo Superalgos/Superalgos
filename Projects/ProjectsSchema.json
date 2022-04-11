@@ -2386,6 +2386,13 @@
                     "functionName": "newBitcoinFactoryBotModulesTestClient",
                     "fileName": "TestClient.js",
                     "folderName": "Test-Client"
+                },
+                {
+                    "name": "Test-Server",
+                    "propertyName": "testServer",
+                    "functionName": "newBitcoinFactoryBotModulesTestServer",
+                    "fileName": "TestServer.js",
+                    "folderName": "Test-Server"
                 }
             ]
         },

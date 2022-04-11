@@ -10,6 +10,9 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
         finalize: finalize
     }
 
+    let requestsToServer = []
+    let responseFunctions = new Map()
+
     return thisObject
 
     function finalize() {
@@ -69,14 +72,58 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
             }
             return response
         }
-        /*
-        Do something here...
-        */
         console.log(queryMessage)
-        let response = {
-            result: 'Ok',
-            message: 'Message Delivered.'
+        switch (queryReceived.sender) {
+            case 'Test-Client': {
+                return await testClientMessage(queryReceived)
+            }
+            case 'Test-Server': {
+                return await testServerMessage(queryReceived)
+            }
         }
-        return response
+    }
+
+    async function testClientMessage(queryReceived) {
+        requestsToServer.push (queryReceived)
+        return new Promise(promiseWork)
+
+        async function promiseWork(resolve, reject) {
+            responseFunctions.set(queryReceived.messageId, onResponseFromServer)
+            function onResponseFromServer(queryReceived) {
+                let response = {
+                    result: 'Ok',
+                    message: 'Server Responded.',
+                    serverData: queryReceived
+                }
+                resolve(response)
+            }
+        }
+    }
+
+    async function testServerMessage(queryReceived) {
+        if (queryReceived.messageId !== undefined) {
+            let onResponseFromServer = responseFunctions.get(queryReceived.messageId)
+            onResponseFromServer(queryReceived)
+            responseFunctions.delete(queryReceived.messageId)
+        }
+        return new Promise(promiseWork)
+
+        async function promiseWork(resolve, reject) {
+            if (requestsToServer.length === 0) {
+                let response = {
+                    result: 'Ok',
+                    message: 'No Requests at the Moment.'
+                }
+                resolve(response)
+            } else {
+                let response = {
+                    result: 'Ok',
+                    message: 'Request Found.',
+                    clientData: JSON.stringify(requestsToServer[0])
+                }
+                requestsToServer.splice(0, 1)
+                resolve(response)
+            }
+        }
     }
 }

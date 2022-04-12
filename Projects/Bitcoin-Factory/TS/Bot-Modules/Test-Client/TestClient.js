@@ -7,8 +7,6 @@
         start: start
     }
 
-    let fileStorage = TS.projects.foundations.taskModules.fileStorage.newFileStorage(processIndex)
-
     return thisObject
 
     function initialize(pStatusDependenciesModule, callBackFunction) {

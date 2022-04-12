@@ -2394,6 +2394,15 @@
                     "fileName": "TestServer.js",
                     "folderName": "Test-Server"
                 }
+            ],
+            "utilities":[
+                {
+                    "name": "Utilities",
+                    "propertyName": "utilities",
+                    "functionName": "newBitcoinFactoryUtilities",
+                    "fileName": "Utilities.js",
+                    "folderName": ""
+                }
             ]
         },
         "NT": {

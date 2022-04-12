@@ -3,17 +3,48 @@
     const MODULE_NAME = "Test-Server"
 
     let thisObject = {
+        utilities: undefined,
+        dataBridge: undefined,
+        testCasesManager: undefined,
+        testClientsManager: undefined,
+        forecastsManager: undefined,
+        run: run,
         initialize: initialize,
+        finalize: finalize,
         start: start
     }
 
-    let fileStorage = TS.projects.foundations.taskModules.fileStorage.newFileStorage(processIndex)
+    networkCodeName = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.networkCodeName
 
+    const UTILITIES_MODULE = require('./Utilities')
+    thisObject.utilities = UTILITIES_MODULE.newUtilities()
+
+    const DATA_BRIDGE_MODULE = require('./DataBridge')
+    thisObject.dataBridge = DATA_BRIDGE_MODULE.newDataBridge()
+
+    const TEST_CASES_MANAGER_MODULE = require('./TestCasesManager')
+    thisObject.testCasesManager = TEST_CASES_MANAGER_MODULE.newTestCasesManager(networkCodeName)
+
+    const TEST_CLIENTS_MANAGER_MODULE = require('./TestClientsManager')
+    thisObject.testClientsManager = TEST_CLIENTS_MANAGER_MODULE.newTestClientsManager(networkCodeName)
+
+    const FORECAST_CASES_MANAGER_MODULE = require('./ForecastCasesManager')
+    thisObject.forecastCasesManager = FORECAST_CASES_MANAGER_MODULE.newForecastCasesManager(networkCodeName)
+
+    const FORECAST_CLIENTS_MANAGER_MODULE = require('./ForecastClientsManager')
+    thisObject.forecastClientsManager = FORECAST_CLIENTS_MANAGER_MODULE.newForecastClientsManager(networkCodeName)
+
+    global.TEST_SERVER = thisObject
     return thisObject
 
-    function initialize(pStatusDependenciesModule, callBackFunction) {
+    async function initialize(pStatusDependenciesModule, callBackFunction) {
         try {
-            statusDependenciesModule = pStatusDependenciesModule;
+            thisObject.utilities.initialize()
+            thisObject.dataBridge.initialize()
+            await thisObject.testCasesManager.initialize()
+            await thisObject.testClientsManager.initialize()
+            thisObject.forecastCasesManager.initialize()
+            await thisObject.forecastClientsManager.initialize()
             callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
         } catch (err) {
             TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
@@ -21,6 +52,15 @@
                 "[ERROR] initialize -> err = " + err.stack)
             callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
         }
+    }
+
+    function finalize() {
+        thisObject.utilities.finalize()
+        thisObject.dataBridge.finalize()
+        thisObject.testCasesManager.finalize()
+        thisObject.testClientsManager.finalize()
+        thisObject.forecastCasesManager.finalize()
+        thisObject.forecastClientsManager.initialize()
     }
 
     async function start(callBackFunction) {
@@ -79,9 +119,10 @@
         }
     }
 
-    function sleep(ms) {
-        return new Promise((resolve) => {
-            setTimeout(resolve, ms)
-        })
+    function run() {
+        thisObject.testCasesManager.run()
+        thisObject.testClientsManager.run()
+        thisObject.forecastCasesManager.run()
+        thisObject.forecastClientsManager.run()
     }
 }

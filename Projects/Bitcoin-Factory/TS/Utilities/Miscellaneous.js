@@ -1,4 +1,4 @@
-exports.newUtilities = function newUtilities() {
+exports.newBitcoinFactoryUtilitiesMiscellaneous = function newBitcoinFacnewBitcoinFactoryUtilitiesMiscellaneoustoryUtilities() {
     /*
     Utilities functions goes here.
     */

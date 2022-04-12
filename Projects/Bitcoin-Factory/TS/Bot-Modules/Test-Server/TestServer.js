@@ -16,24 +16,12 @@
 
     networkCodeName = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.networkCodeName
 
-    const UTILITIES_MODULE = require('./Utilities')
-    thisObject.utilities = UTILITIES_MODULE.newUtilities()
-
-    const DATA_BRIDGE_MODULE = require('./DataBridge')
-    thisObject.dataBridge = DATA_BRIDGE_MODULE.newDataBridge()
-
-    const TEST_CASES_MANAGER_MODULE = require('./TestCasesManager')
-    thisObject.testCasesManager = TEST_CASES_MANAGER_MODULE.newTestCasesManager(networkCodeName)
-
-    const TEST_CLIENTS_MANAGER_MODULE = require('./TestClientsManager')
-    thisObject.testClientsManager = TEST_CLIENTS_MANAGER_MODULE.newTestClientsManager(networkCodeName)
-
-    const FORECAST_CASES_MANAGER_MODULE = require('./ForecastCasesManager')
-    thisObject.forecastCasesManager = FORECAST_CASES_MANAGER_MODULE.newForecastCasesManager(networkCodeName)
-
-    const FORECAST_CLIENTS_MANAGER_MODULE = require('./ForecastClientsManager')
-    thisObject.forecastClientsManager = FORECAST_CLIENTS_MANAGER_MODULE.newForecastClientsManager(networkCodeName)
-
+    thisObject.utilities = TS.projects.bitcoinFactory.utilities.miscellaneous
+    thisObject.dataBridge = TS.projects.bitcoinFactory.botModules.dataBridge.newDataBridge(processIndex)
+    thisObject.testCasesManager = TEST_CASES_MANAGER_MODULE.newTestCasesManager(processIndex, networkCodeName)
+    thisObject.testClientsManager = TEST_CLIENTS_MANAGER_MODULE.newTestClientsManager(processIndex, networkCodeName)
+    thisObject.forecastCasesManager = FORECAST_CASES_MANAGER_MODULE.newForecastCasesManager(processIndex, networkCodeName)
+    thisObject.forecastClientsManager = FORECAST_CLIENTS_MANAGER_MODULE.newForecastClientsManager(processIndex, networkCodeName)
     global.TEST_SERVER = thisObject
     return thisObject
 

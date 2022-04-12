@@ -1,4 +1,4 @@
-exports.newTestCasesManager = function newTestCasesManager(networkCodeName) {
+exports.newTestCasesManager = function newTestCasesManager(processIndex, networkCodeName) {
     /*
     This modules coordinates all Test Cases for everyone.
     */
@@ -12,7 +12,6 @@ exports.newTestCasesManager = function newTestCasesManager(networkCodeName) {
         finalize: finalize
     }
 
-    const fs = require("fs")
     const REPORT_NAME = networkCodeName + '-' + (new Date()).toISOString().substring(0, 16).replace("T", "-").replace(":", "-").replace(":", "-") + '-00'
 
     let parametersRanges
@@ -296,12 +295,12 @@ exports.newTestCasesManager = function newTestCasesManager(networkCodeName) {
                 }
             }
 
-            fs.writeFileSync("./OutputData/TestReports/" + REPORT_NAME + ".CSV", testReportFile)
+            SA.nodeModules.fs.writeFileSync("./OutputData/TestReports/" + REPORT_NAME + ".CSV", testReportFile)
         }
     }
 
     function saveTestCasesFile() {
         let fileContent = JSON.stringify(thisObject.testCasesArray, undefined, 4)
-        fs.writeFileSync("./StateData/TestCases/Test-Cases-Array-" + networkCodeName + ".json", fileContent)
+        SA.nodeModules.fs.writeFileSync("./StateData/TestCases/Test-Cases-Array-" + networkCodeName + ".json", fileContent)
     }
 }

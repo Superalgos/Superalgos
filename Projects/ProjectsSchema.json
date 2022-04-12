@@ -2393,14 +2393,49 @@
                     "functionName": "newBitcoinFactoryBotModulesTestServer",
                     "fileName": "TestServer.js",
                     "folderName": "Test-Server"
+                },
+                {
+                    "name": "Data Bridge",
+                    "propertyName": "dataBridge",
+                    "functionName": "newDataBridge",
+                    "fileName": "DataBridge.js",
+                    "folderName": "Test-Server"
+                },
+                {
+                    "name": "Test Cases Manager",
+                    "propertyName": "testCasesManager",
+                    "functionName": "newTestCasesManager",
+                    "fileName": "TestCasesManager.js",
+                    "folderName": "Test-Server"
+                },
+                {
+                    "name": "Test Clients Manager",
+                    "propertyName": "testClientsManager",
+                    "functionName": "newTestClientsManager",
+                    "fileName": "TestClientsManager.js",
+                    "folderName": "Test-Server"
+                },
+                {
+                    "name": "Forecast Cases Manager",
+                    "propertyName": "forecastCasesManager",
+                    "functionName": "newForecastCasesManager",
+                    "fileName": "ForecastCasesManager.js",
+                    "folderName": "Test-Server"
+                },
+                {
+                    "name": "Forecast Clients Manager",
+                    "propertyName": "forecastClientsManager",
+                    "functionName": "newForecastClientsManager",
+                    "fileName": "ForecastClientsManager.js",
+                    "folderName": "Test-Server"
                 }
             ],
             "utilities":[
                 {
-                    "name": "Utilities",
-                    "propertyName": "utilities",
-                    "functionName": "newBitcoinFactoryUtilities",
-                    "fileName": "Utilities.js",
+                    "name": "Miscellaneous",
+                    "propertyName": "miscellaneous",
+                    "functionName": "newBitcoinFactoryUtilitiesMiscellaneous",
+                    "fileName": "Miscellaneous.js",
                     "folderName": ""
                 }
             ]

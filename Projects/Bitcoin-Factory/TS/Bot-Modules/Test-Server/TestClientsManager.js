@@ -1,4 +1,4 @@
-exports.newTestClientsManager = function newTestClientsManager(networkCodeName) {
+exports.newTestClientsManager = function newTestClientsManager(processIndex, networkCodeName) {
     /*
     This modules coordinates all Test Clients.
     */
@@ -42,7 +42,6 @@ exports.newTestClientsManager = function newTestClientsManager(networkCodeName) 
             listenToTestClients(WEBRTC_INSTANCE)
         }
     }
-
 
     async function scanSuperalgosUserProfiles() {
         testClients = []

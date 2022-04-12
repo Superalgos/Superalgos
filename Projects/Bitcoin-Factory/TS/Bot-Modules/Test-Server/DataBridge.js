@@ -1,4 +1,4 @@
-exports.newDataBridge = function newDataBridge() {
+exports.newDataBridge = function newDataBridge(processIndex) {
     /*
     This modules bring the data from Superalgos Indicators into a time-series file for each Test Case, 
     that can later be fed to a Machine Learning Model.
@@ -9,7 +9,6 @@ exports.newDataBridge = function newDataBridge() {
         initialize: initialize,
         finalize: finalize
     }
-    const fs = require("fs")
 
     let savedDatasets
 
@@ -23,23 +22,23 @@ exports.newDataBridge = function newDataBridge() {
         */
         let dir
         dir = './StateData/TestCases'
-        if (!fs.existsSync(dir)) {
-            fs.mkdirSync(dir, { recursive: true });
+        if (!SA.nodeModules.fs.existsSync(dir)) {
+            SA.nodeModules.fs.mkdirSync(dir, { recursive: true });
         }
 
         dir = './StateData/ForecastCases'
-        if (!fs.existsSync(dir)) {
-            fs.mkdirSync(dir, { recursive: true });
+        if (!SA.nodeModules.fs.existsSync(dir)) {
+            SA.nodeModules.fs.mkdirSync(dir, { recursive: true });
         }
 
         dir = './OutputData/TestData'
-        if (!fs.existsSync(dir)) {
-            fs.mkdirSync(dir, { recursive: true });
+        if (!SA.nodeModules.fs.existsSync(dir)) {
+            SA.nodeModules.fs.mkdirSync(dir, { recursive: true });
         }
 
         dir = './OutputData/TestReports'
-        if (!fs.existsSync(dir)) {
-            fs.mkdirSync(dir, { recursive: true });
+        if (!SA.nodeModules.fs.existsSync(dir)) {
+            SA.nodeModules.fs.mkdirSync(dir, { recursive: true });
         }
     }
 
@@ -86,7 +85,7 @@ exports.newDataBridge = function newDataBridge() {
                 "NUMBER_OF_FEATURES" + "   " + testCase.parameters.NUMBER_OF_FEATURES + "\r\n" +
                 "NUMBER_OF_EPOCHS" + "   " + testCase.parameters.NUMBER_OF_EPOCHS + "\r\n" +
                 "NUMBER_OF_LSTM_NEURONS" + "   " + testCase.parameters.NUMBER_OF_LSTM_NEURONS + "\r\n"
-            fs.writeFileSync("./OutputData/TestData/parameters-" + testCaseId + ".CSV", parametersFile)
+            SA.nodeModules.fs.writeFileSync("./OutputData/TestData/parameters-" + testCaseId + ".CSV", parametersFile)
 
             if (testCase.filesTimestaps === undefined) {
                 testCase.filesTimestaps = {}
@@ -143,7 +142,7 @@ exports.newDataBridge = function newDataBridge() {
             let newFileHash = TEST_SERVER.utilities.hash(timeSeriesFile)
             if (currentFileHash === undefined || currentFileHash !== newFileHash) {
 
-                fs.writeFileSync("./OutputData/TestData/" + testCase.timeSeriesFileName + ".CSV", timeSeriesFile)
+                SA.nodeModules.fs.writeFileSync("./OutputData/TestData/" + testCase.timeSeriesFileName + ".CSV", timeSeriesFile)
                 console.log((new Date()).toISOString(), 'Dataset File Saved: ' + testCase.timeSeriesFileName)
 
                 savedDataset = {
@@ -360,8 +359,8 @@ exports.newDataBridge = function newDataBridge() {
     function getFiles(testCase) {
         let testCaseId = TEST_SERVER.utilities.pad(testCase.id, 5)
         let files = {}
-        files.parameters = fs.readFileSync("./OutputData/TestData/parameters-" + testCaseId + ".CSV")
-        files.timeSeries = fs.readFileSync("./OutputData/TestData/" + testCase.timeSeriesFileName + ".CSV")
+        files.parameters = SA.nodeModules.fs.readFileSync("./OutputData/TestData/parameters-" + testCaseId + ".CSV")
+        files.timeSeries = SA.nodeModules.fs.readFileSync("./OutputData/TestData/" + testCase.timeSeriesFileName + ".CSV")
         return files
     }
 }

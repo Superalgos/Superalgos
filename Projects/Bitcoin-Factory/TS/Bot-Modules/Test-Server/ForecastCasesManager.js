@@ -1,4 +1,4 @@
-exports.newForecastCasesManager = function newForecastCasesManager(networkCodeName) {
+exports.newForecastCasesManager = function newForecastCasesManager(processIndex, networkCodeName) {
     /*
     This modules manages the best models that produce the best forecasts.
     */

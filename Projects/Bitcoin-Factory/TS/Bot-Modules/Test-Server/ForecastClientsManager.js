@@ -1,4 +1,4 @@
-exports.newForecastClientsManager = function newForecastClientsManager(networkCodeName) {
+exports.newForecastClientsManager = function newForecastClientsManager(processIndex, networkCodeName) {
     /*
     This modules coordinates all Forecast Clients.
     */
@@ -26,7 +26,7 @@ exports.newForecastClientsManager = function newForecastClientsManager(networkCo
             const WEBRTC = WEBRTC_MODULE.newMachineLearningWebRTC()
             WEBRTC.runningAtTestServer = true
             WEBRTC.clientInstanceName = forecastClient.name
-            WEBRTC.userProfile  = forecastClient.userProfile 
+            WEBRTC.userProfile = forecastClient.userProfile
             WEBRTC.initialize(forecastClient.id, i)
             WEBRTC_INSTANCES.push(WEBRTC)
         }
@@ -46,20 +46,20 @@ exports.newForecastClientsManager = function newForecastClientsManager(networkCo
     async function scanSuperalgosUserProfiles() {
         forecastClients = []
         let userProfileFIleList = await TEST_SERVER.utilities.getUserProfileFilesList()
-        
+
         for (let i = 0; i < userProfileFIleList.length; i++) {
             let fileName = userProfileFIleList[i]
             await processUserProfile(fileName)
         }
 
         async function processUserProfile(fileName) {
-            let userProfilePluginFile = await TEST_SERVER.utilities.getUserProfileFile(fileName) 
+            let userProfilePluginFile = await TEST_SERVER.utilities.getUserProfileFile(fileName)
             let userProfile = JSON.parse(userProfilePluginFile)
             if (
                 userProfile.forecastsProviders !== undefined &&
                 userProfile.forecastsProviders.bitcoinFactoryForecasts !== undefined
             ) {
-                
+
                 for (let i = 0; i < userProfile.forecastsProviders.bitcoinFactoryForecasts.length; i++) {
                     let network = userProfile.forecastsProviders.bitcoinFactoryForecasts[i]
                     if (network.name === networkCodeName) {
@@ -92,7 +92,7 @@ exports.newForecastClientsManager = function newForecastClientsManager(networkCo
                         messages. One will have the nextForecastCase object without the files,
                         and the other messages will be the timeseries and parameters files.
                         */
-                        console.log((new Date()).toISOString(), WEBRTC.userProfile + ' / ' +  WEBRTC.clientInstanceName, 'requested a new Forecast Case')
+                        console.log((new Date()).toISOString(), WEBRTC.userProfile + ' / ' + WEBRTC.clientInstanceName, 'requested a new Forecast Case')
                         WEBRTC.sendResponse('SENDING MULTIPLE MESSAGES')
                         WEBRTC.sendFile(nextForecastCase.files.timeSeries)
                         WEBRTC.sendFile(nextForecastCase.files.parameters)
@@ -100,7 +100,7 @@ exports.newForecastClientsManager = function newForecastClientsManager(networkCo
                         nextForecastCase.files.parameters = undefined
                         WEBRTC.sendResponse(JSON.stringify(nextForecastCase))
                         WEBRTC.sendResponse('MULTIPLE MESSAGES SENT')
-                        console.log((new Date()).toISOString(), 'Forecast Case Id ' + nextForecastCase.id + ' delivered to', WEBRTC.userProfile + ' / ' +  WEBRTC.clientInstanceName)
+                        console.log((new Date()).toISOString(), 'Forecast Case Id ' + nextForecastCase.id + ' delivered to', WEBRTC.userProfile + ' / ' + WEBRTC.clientInstanceName)
                     } else {
                         // console.log((new Date()).toISOString(), 'No more Forecast Cases to Build. Could not deliver one to ' + WEBRTC.userProfile + ' / ' +  WEBRTC.clientInstanceName)
                         WEBRTC.sendResponse('NO FORECAST CASES AVAILABLE AT THE MOMENT')
@@ -116,7 +116,7 @@ exports.newForecastClientsManager = function newForecastClientsManager(networkCo
                         messages. One will have the thisForecastCase object without the files,
                         and the other messages will be the timeseries and parameters files.
                         */
-                        console.log((new Date()).toISOString(), WEBRTC.userProfile + ' / ' +  WEBRTC.clientInstanceName, 'requested the Forecast Case Id ' + message.forecastCaseId)
+                        console.log((new Date()).toISOString(), WEBRTC.userProfile + ' / ' + WEBRTC.clientInstanceName, 'requested the Forecast Case Id ' + message.forecastCaseId)
                         WEBRTC.sendResponse('SENDING MULTIPLE MESSAGES')
                         WEBRTC.sendFile(thisForecastCase.files.timeSeries)
                         WEBRTC.sendFile(thisForecastCase.files.parameters)
@@ -124,15 +124,15 @@ exports.newForecastClientsManager = function newForecastClientsManager(networkCo
                         thisForecastCase.files.parameters = undefined
                         WEBRTC.sendResponse(JSON.stringify(thisForecastCase))
                         WEBRTC.sendResponse('MULTIPLE MESSAGES SENT')
-                        console.log((new Date()).toISOString(), 'Forecast Case Id ' + thisForecastCase.id + ' delivered to', WEBRTC.userProfile + ' / ' +  WEBRTC.clientInstanceName)
+                        console.log((new Date()).toISOString(), 'Forecast Case Id ' + thisForecastCase.id + ' delivered to', WEBRTC.userProfile + ' / ' + WEBRTC.clientInstanceName)
                     } else {
-                        console.log((new Date()).toISOString(), 'Forecast Case ' + message.forecastCaseId + ' is Not Available Anymore. Could not deliver requested Case to ' + WEBRTC.userProfile + ' / ' +  WEBRTC.clientInstanceName)
+                        console.log((new Date()).toISOString(), 'Forecast Case ' + message.forecastCaseId + ' is Not Available Anymore. Could not deliver requested Case to ' + WEBRTC.userProfile + ' / ' + WEBRTC.clientInstanceName)
                         WEBRTC.sendResponse('THIS FORECAST CASE IS NOT AVAILABLE ANYMORE')
                     }
                     break
                 }
                 case 'Set Forecast Case Results': {
-                    TEST_SERVER.forecastCasesManager.setForecastCaseResults(JSON.parse(message.payload), WEBRTC.userProfile + ' / ' +  WEBRTC.clientInstanceName)
+                    TEST_SERVER.forecastCasesManager.setForecastCaseResults(JSON.parse(message.payload), WEBRTC.userProfile + ' / ' + WEBRTC.clientInstanceName)
                     let response = JSON.stringify(TEST_SERVER.forecastCasesManager.getForecasts())
                     WEBRTC.sendResponse(response)
                     break

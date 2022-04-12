@@ -128,10 +128,8 @@
                 .then(onSuccess)
                 .catch(onError)
             async function onSuccess(response) {
-                if (response !== 'NO TEST CASES AVAILABLE AT THE MOMENT') {
-                    let nextTestCase = JSON.parse(response[2])
-                    nextTestCase.files.timeSeries = response[0]
-                    nextTestCase.files.parameters = response[1]
+                if (response.data.serverData.response !== 'NO TEST CASES AVAILABLE AT THE MOMENT') {
+                    let nextTestCase = response.data.serverData.response
                     resolve(nextTestCase)
                 } else {
                     reject('No more test cases at the Test Server')

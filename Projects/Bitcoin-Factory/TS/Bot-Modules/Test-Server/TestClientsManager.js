@@ -64,6 +64,8 @@ exports.newTestClientsManager = function newTestClientsManager(processIndex, net
                 let nextTestCase = TS.projects.foundations.globals.taskConstants.TEST_SERVER.testCasesManager.getNextTestCase()
                 if (nextTestCase !== undefined) {
                     console.log((new Date()).toISOString(), 'Test Case Id ' + nextTestCase.id + ' delivered to', userProfile + ' / ' + clientInstanceName)
+                    nextTestCase.files.parameters = nextTestCase.files.parameters.toString()
+                    nextTestCase.files.timeSeries = nextTestCase.files.timeSeries.toString()
                     return nextTestCase
                 } else {
                     console.log((new Date()).toISOString(), 'No more Test Cases. Could not deliver one to ' + userProfile + ' / ' + clientInstanceName)

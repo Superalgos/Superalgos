@@ -3,7 +3,6 @@ exports.newForecastClientsManager = function newForecastClientsManager(processIn
     This modules coordinates all Forecast Clients.
     */
     let thisObject = {
-        run: run,
         initialize: initialize,
         finalize: finalize
     }
@@ -18,26 +17,10 @@ exports.newForecastClientsManager = function newForecastClientsManager(processIn
         console.log((new Date()).toISOString(), 'Starting Network "' + networkCodeName + '" with these Forecast Clients:')
         console.table(forecastClients)
 
-        for (let i = 0; i < forecastClients.length; i++) {
-            let forecastClient = forecastClients[i]
-            const WEBRTC = WEBRTC_MODULE.newMachineLearningWebRTC()
-            WEBRTC.runningAtTestServer = true
-            WEBRTC.clientInstanceName = forecastClient.name
-            WEBRTC.userProfile = forecastClient.userProfile
-            WEBRTC.initialize(forecastClient.id, i)
-            WEBRTC_INSTANCES.push(WEBRTC)
-        }
     }
 
     function finalize() {
 
-    }
-
-    function run() {
-        for (let i = 0; i < WEBRTC_INSTANCES.length; i++) {
-            let WEBRTC_INSTANCE = WEBRTC_INSTANCES[i]
-            listenToForecastClients(WEBRTC_INSTANCE)
-        }
     }
 
     async function scanSuperalgosUserProfiles() {

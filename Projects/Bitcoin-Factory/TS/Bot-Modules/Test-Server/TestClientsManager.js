@@ -56,23 +56,22 @@ exports.newTestClientsManager = function newTestClientsManager(processIndex, net
         }
     }
 
-    function onMessageReceived(messageReceived) {
-        let message = JSON.parse(messageReceived)
+    function onMessageReceived(message, userProfile, clientInstanceName) {
 
         switch (message.type) {
             case 'Get Next Test Case': {
-                console.log((new Date()).toISOString(), clientProxy.userProfile + ' / ' + clientProxy.clientInstanceName, 'requested a new Test Case')
+                console.log((new Date()).toISOString(), userProfile + ' / ' + clientInstanceName, 'requested a new Test Case')
                 let nextTestCase = TS.projects.foundations.globals.taskConstants.TEST_SERVER.testCasesManager.getNextTestCase()
                 if (nextTestCase !== undefined) {
-                    console.log((new Date()).toISOString(), 'Test Case Id ' + nextTestCase.id + ' delivered to', clientProxy.userProfile + ' / ' + clientProxy.clientInstanceName)
+                    console.log((new Date()).toISOString(), 'Test Case Id ' + nextTestCase.id + ' delivered to', userProfile + ' / ' + clientInstanceName)
                     return nextTestCase
                 } else {
-                    console.log((new Date()).toISOString(), 'No more Test Cases. Could not deliver one to ' + clientProxy.userProfile + ' / ' + clientProxy.clientInstanceName)
+                    console.log((new Date()).toISOString(), 'No more Test Cases. Could not deliver one to ' + userProfile + ' / ' + clientInstanceName)
                     return 'NO TEST CASES AVAILABLE AT THE MOMENT'
                 }
             }
             case 'Set Test Case Results': {
-                TS.projects.foundations.globals.taskConstants.TEST_SERVER.testCasesManager.setTestCaseResults(JSON.parse(message.payload), clientProxy.userProfile + ' / ' + clientProxy.clientInstanceName)
+                TS.projects.foundations.globals.taskConstants.TEST_SERVER.testCasesManager.setTestCaseResults(JSON.parse(message.payload), userProfile + ' / ' + clientInstanceName)
                 let response = JSON.stringify(TS.projects.foundations.globals.taskConstants.TEST_SERVER.forecastCasesManager.getForecasts())
                 return response
             }

@@ -75,6 +75,7 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
         console.log(queryMessage)
         switch (queryReceived.sender) {
             case 'Test-Client': {
+                queryReceived.userProfile = userProfile.name
                 return await testClientMessage(queryReceived)
             }
             case 'Test-Server': {

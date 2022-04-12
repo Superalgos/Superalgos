@@ -82,14 +82,14 @@
                     await SA.projects.foundations.utilities.asyncFunctions.sleep(1000)
                 } else {
                     let clientData = JSON.parse(response.data.clientData)
-                    let response
+                    let managerResponse
                     switch (clientData.recipient) {
                         case 'Test Client Manager': {
-                            response = thisObject.testCasesManager.onMessageReceived(response.data.clientData.message)
+                            managerResponse = thisObject.testClientsManager.onMessageReceived(clientData.message, clientData.userProfile, clientData.clientInstanceName)
                             break
                         }
                         case 'Forecast Client Manager': {
-                            response = thisObject.forecastCasesManager.onMessageReceived(response.data.clientData.message)
+                            managerResponse = thisObject.forecastClientsManager.onMessageReceived(clientData.message)
                             break
                         }
                     }
@@ -97,7 +97,7 @@
                     queryMessage = {
                         messageId: clientData.messageId,
                         sender: 'Test-Server',
-                        response: response
+                        response: managerResponse
                     }
 
                     messageHeader = {

@@ -59,8 +59,7 @@ exports.newForecastClientsManager = function newForecastClientsManager(processIn
     function listenToForecastClients(WEBRTC) {
         WEBRTC.getNextMessage(onMessageReceived)
 
-        function onMessageReceived(messageReceived) {
-            let message = JSON.parse(messageReceived)
+        function onMessageReceived(message) {
 
             switch (message.type) {
                 case 'Get Next Forecast Case': {

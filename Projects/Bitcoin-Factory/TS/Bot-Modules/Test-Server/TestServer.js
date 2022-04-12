@@ -49,8 +49,9 @@
                         networkService: 'Machine Learning',
                         queryMessage: JSON.stringify(queryMessage)
                     }
-                    console.log('Waiting for 5 seconds to try to get another client request.')
-                    await sleep(5000)
+                    callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
+                    break
+                    //await sleep(5000)
                 } else {
                     let clientData = JSON.parse(response.data.clientData)
 

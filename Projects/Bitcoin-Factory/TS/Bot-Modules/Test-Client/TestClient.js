@@ -28,8 +28,8 @@
                 .catch(onError)
             async function onSuccess(nextTestCase) {
                 if (nextTestCase !== undefined) {
-                    SA.nodeModules.fs.writeFileSync("./notebooks/parameters.csv", nextTestCase.files.parameters)
-                    SA.nodeModules.fs.writeFileSync("./notebooks/time-series.csv", nextTestCase.files.timeSeries)
+                    SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/notebooks/parameters.csv", nextTestCase.files.parameters)
+                    SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/notebooks/time-series.csv", nextTestCase.files.timeSeries)
 
                     await buildModel(nextTestCase)
                         .then(onSuccess)
@@ -78,12 +78,6 @@
         }
     }
 
-    async function run() {
-        while (true) {
-
-        }
-    }
-
     function updateSuperalgos(bestPredictions) {
 
         for (let i = 0; i < bestPredictions.length; i++) {
@@ -119,6 +113,7 @@
             let queryMessage = {
                 messageId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                 sender: 'Test-Client',
+                recipient: 'Test Client Manager', 
                 message: message
             }
 

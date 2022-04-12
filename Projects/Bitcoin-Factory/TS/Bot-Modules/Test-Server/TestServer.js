@@ -64,7 +64,7 @@
             }
             while (true) {
                 let response = await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClient.machineLearningNetworkServiceClient.sendMessage(messageHeader)
-                console.log('Query received at Test Server: ' + JSON.stringify(response))
+                console.log((new Date()).toISOString(), 'Query received at Test Server: ' + JSON.stringify(response))
 
                 if (response.data.clientData === undefined) {
                     /*
@@ -79,8 +79,7 @@
                         networkService: 'Machine Learning',
                         queryMessage: JSON.stringify(queryMessage)
                     }
-                    callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
-                    break
+                    await SA.projects.foundations.utilities.asyncFunctions.sleep(1000)
                 } else {
                     let clientData = JSON.parse(response.data.clientData)
                     let response

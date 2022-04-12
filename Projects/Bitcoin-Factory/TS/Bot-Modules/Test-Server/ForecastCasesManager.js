@@ -23,7 +23,7 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
         loadForecastCasesFile()
 
         function loadForecastCasesFile() {
-            let fileContent = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.loadFile("./StateData/ForecastCases/Forecast-Cases-Array-" + networkCodeName + ".json")
+            let fileContent = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.loadFile(global.env.PATH_TO_BITCOIN_FACTORY + "/StateData/ForecastCases/Forecast-Cases-Array-" + networkCodeName + ".json")
             if (fileContent !== undefined) {
                 thisObject.forecastCasesArray = JSON.parse(fileContent)
                 thisObject.forecastCasesMap = new Map()
@@ -170,6 +170,6 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
 
     function saveForecastCasesFile() {
         let fileContent = JSON.stringify(thisObject.forecastCasesArray, undefined, 4)
-        fs.writeFileSync("./StateData/ForecastCases/Forecast-Cases-Array-" + networkCodeName + ".json", fileContent)
+        fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/StateData/ForecastCases/Forecast-Cases-Array-" + networkCodeName + ".json", fileContent)
     }
 }

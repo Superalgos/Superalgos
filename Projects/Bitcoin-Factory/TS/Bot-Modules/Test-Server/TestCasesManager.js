@@ -29,7 +29,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
         }
 
         async function loadTestCasesFile() {
-            let fileContent = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.loadFile("./StateData/TestCases/Test-Cases-Array-" + networkCodeName + ".json")
+            let fileContent = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.loadFile( global.env.PATH_TO_BITCOIN_FACTORY + "/StateData/TestCases/Test-Cases-Array-" + networkCodeName + ".json")
             if (fileContent === undefined) {
                 thisObject.testCasesArray = []
                 thisObject.testCasesMap = new Map()
@@ -281,12 +281,12 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
                 }
             }
 
-            SA.nodeModules.fs.writeFileSync("./OutputData/TestReports/" + REPORT_NAME + ".CSV", testReportFile)
+            SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/OutputData/TestReports/" + REPORT_NAME + ".CSV", testReportFile)
         }
     }
 
     function saveTestCasesFile() {
         let fileContent = JSON.stringify(thisObject.testCasesArray, undefined, 4)
-        SA.nodeModules.fs.writeFileSync("./StateData/TestCases/Test-Cases-Array-" + networkCodeName + ".json", fileContent)
+        SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/StateData/TestCases/Test-Cases-Array-" + networkCodeName + ".json", fileContent)
     }
 }

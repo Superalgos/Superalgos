@@ -10,9 +10,6 @@ exports.newForecastClientsManager = function newForecastClientsManager(processIn
 
     let forecastClients
 
-    const WEBRTC_MODULE = require('./ML-Test-WebRTC/WebRTC')
-    const WEBRTC_INSTANCES = []
-
     return thisObject
 
     async function initialize() {

@@ -23,7 +23,7 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
         loadForecastCasesFile()
 
         function loadForecastCasesFile() {
-            let fileContent = TEST_SERVER.utilities.loadFile("./StateData/ForecastCases/Forecast-Cases-Array-" + networkCodeName + ".json")
+            let fileContent = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.loadFile("./StateData/ForecastCases/Forecast-Cases-Array-" + networkCodeName + ".json")
             if (fileContent !== undefined) {
                 thisObject.forecastCasesArray = JSON.parse(fileContent)
                 thisObject.forecastCasesMap = new Map()
@@ -55,7 +55,7 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
         for (let i = 0; i < thisObject.forecastCasesArray.length; i++) {
             let forecastCase = thisObject.forecastCasesArray[i]
             if (forecastCase.timestamp !== undefined) {
-                forecastCase.when = TEST_SERVER.utilities.getHHMMSS(forecastCase.timestamp) + ' HH:MM:SS ago'
+                forecastCase.when = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.getHHMMSS(forecastCase.timestamp) + ' HH:MM:SS ago'
             }
         }
     }
@@ -108,7 +108,7 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
                     caseIndex: forecastCase.caseIndex, 
                     totalCases: thisObject.forecastCasesArray.length,
                     parameters: forecastCase.parameters,
-                    files: TEST_SERVER.dataBridge.getFiles(forecastCase)
+                    files: TS.projects.foundations.globals.taskConstants.TEST_SERVER.dataBridge.getFiles(forecastCase)
                 }
                 return nextForecastCase
             }
@@ -123,7 +123,7 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
                     id: forecastCase.id,
                     caseIndex: forecastCase.caseIndex, 
                     parameters: forecastCase.parameters,
-                    files: TEST_SERVER.dataBridge.getFiles(forecastCase)
+                    files: TS.projects.foundations.globals.taskConstants.TEST_SERVER.dataBridge.getFiles(forecastCase)
                 }
                 return thisForecastCase
             }
@@ -148,7 +148,7 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
             for (let i = Math.max(0, forecastResult.caseIndex - 5); i < Math.min(thisObject.forecastCasesArray.length, forecastResult.caseIndex + 5); i++) {
                 let forecastCase = thisObject.forecastCasesArray[i]
                 if (forecastCase.timestamp !== undefined) {
-                    forecastCase.when = TEST_SERVER.utilities.getHHMMSS(forecastCase.timestamp) + ' HH:MM:SS ago'
+                    forecastCase.when = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.getHHMMSS(forecastCase.timestamp) + ' HH:MM:SS ago'
                 }
                 logQueue.push(forecastCase)
             }

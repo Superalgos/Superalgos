@@ -4,8 +4,8 @@ exports.newBitcoinFactoryUtilitiesMiscellaneous = function newBitcoinFacnewBitco
     */
     let thisObject = {
         getUserProfileFilesList: getUserProfileFilesList,
-        getUserProfileFile: getUserProfileFile, 
-        getIndicatorFile: getIndicatorFile, 
+        getUserProfileFile: getUserProfileFile,
+        getIndicatorFile: getIndicatorFile,
         pad: pad,
         getHHMMSS: getHHMMSS,
         marketTimeFramesArray: undefined,
@@ -17,11 +17,12 @@ exports.newBitcoinFactoryUtilitiesMiscellaneous = function newBitcoinFacnewBitco
         finalize: finalize
     }
 
-    const ENVIRONMENT = require("./Environment")
+    let BOT_CONFIG
 
     return thisObject
 
     function initialize() {
+        BOT_CONFIG = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config
         /*
         Creat this Array
         */
@@ -109,7 +110,7 @@ exports.newBitcoinFactoryUtilitiesMiscellaneous = function newBitcoinFacnewBitco
 
             const axios = require("axios")
             axios
-                .post('http://' + ENVIRONMENT.SUPERALGOS_HOST + ':' + ENVIRONMENT.SUPERALGOS_HTTP_PORT + '/Bitcoin-Factory', params)
+                .post('http://' + BOT_CONFIG.mainSuperalgosHost + ':' + BOT_CONFIG.mainSuperalgosHttpPort + '/Bitcoin-Factory', params)
                 .then(res => {
                     if (res.data.result === 'Ok') {
                         resolve(res.data.userProfileFIleList)
@@ -136,7 +137,7 @@ exports.newBitcoinFactoryUtilitiesMiscellaneous = function newBitcoinFacnewBitco
 
             const axios = require("axios")
             axios
-                .post('http://' + ENVIRONMENT.SUPERALGOS_HOST + ':' + ENVIRONMENT.SUPERALGOS_HTTP_PORT + '/Bitcoin-Factory', params)
+                .post('http://' + BOT_CONFIG.mainSuperalgosHost + ':' + BOT_CONFIG.mainSuperalgosHttpPort + '/Bitcoin-Factory', params)
                 .then(res => {
                     if (res.data.result === 'Ok') {
                         resolve(res.data.userProfilePluginFile)
@@ -167,19 +168,19 @@ exports.newBitcoinFactoryUtilitiesMiscellaneous = function newBitcoinFacnewBitco
         function promiseWork(resolve, reject) {
             let params = {
                 method: 'getIndicatorFile',
-                dataMine: dataMine, 
-                indicator: indicator, 
-                product: product, 
-                exchange: exchange, 
-                baseAsset: baseAsset, 
-                quotedAsset: quotedAsset, 
-                dataset: dataset, 
+                dataMine: dataMine,
+                indicator: indicator,
+                product: product,
+                exchange: exchange,
+                baseAsset: baseAsset,
+                quotedAsset: quotedAsset,
+                dataset: dataset,
                 timeFrameLabel: timeFrameLabel
             }
 
             const axios = require("axios")
             axios
-                .post('http://' + ENVIRONMENT.SUPERALGOS_HOST + ':' + ENVIRONMENT.SUPERALGOS_HTTP_PORT + '/Bitcoin-Factory', params)
+                .post('http://' + BOT_CONFIG.mainSuperalgosHost + ':' + BOT_CONFIG.mainSuperalgosHttpPort + '/Bitcoin-Factory', params)
                 .then(res => {
                     if (res.data.result === 'Ok') {
                         resolve(res.data.fileContent)

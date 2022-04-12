@@ -14,15 +14,15 @@
         start: start
     }
 
-    networkCodeName = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.networkCodeName
+    networkCodeName = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.networkCodeName
 
     thisObject.utilities = TS.projects.bitcoinFactory.utilities.miscellaneous
     thisObject.dataBridge = TS.projects.bitcoinFactory.botModules.dataBridge.newDataBridge(processIndex)
-    thisObject.testCasesManager = TEST_CASES_MANAGER_MODULE.newTestCasesManager(processIndex, networkCodeName)
-    thisObject.testClientsManager = TEST_CLIENTS_MANAGER_MODULE.newTestClientsManager(processIndex, networkCodeName)
-    thisObject.forecastCasesManager = FORECAST_CASES_MANAGER_MODULE.newForecastCasesManager(processIndex, networkCodeName)
-    thisObject.forecastClientsManager = FORECAST_CLIENTS_MANAGER_MODULE.newForecastClientsManager(processIndex, networkCodeName)
-    global.TEST_SERVER = thisObject
+    thisObject.testCasesManager = TS.projects.bitcoinFactory.botModules.testCasesManager.newTestCasesManager(processIndex, networkCodeName)
+    thisObject.testClientsManager = TS.projects.bitcoinFactory.botModules.testClientsManager.newTestClientsManager(processIndex, networkCodeName)
+    thisObject.forecastCasesManager = TS.projects.bitcoinFactory.botModules.forecastCasesManager.newForecastCasesManager(processIndex, networkCodeName)
+    thisObject.forecastClientsManager = TS.projects.bitcoinFactory.botModules.forecastClientsManager.newForecastClientsManager(processIndex, networkCodeName)
+    TS.projects.foundations.globals.taskConstants.TEST_SERVER = thisObject
     return thisObject
 
     async function initialize(pStatusDependenciesModule, callBackFunction) {
@@ -66,8 +66,11 @@
             while (true) {
                 let response = await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClient.machineLearningNetworkServiceClient.sendMessage(messageHeader)
                 console.log('Query received at Test Server: ' + JSON.stringify(response))
-                // DO SOME STUFF
+
                 if (response.data.clientData === undefined) {
+                    /*
+                    In this case there were no requests for the server, we will prepare for the next message and go to sleep.
+                    */
                     queryMessage = {
                         sender: 'Test-Server'
                     }
@@ -79,14 +82,24 @@
                     }
                     callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
                     break
-                    //await sleep(5000)
                 } else {
                     let clientData = JSON.parse(response.data.clientData)
+                    let response
+                    switch (clientData.recipient) {
+                        case 'Test Client Manager': {
+                            response = thisObject.testCasesManager.onMessageReceived(response.data.clientData.message)
+                            break
+                        }
+                        case 'Forecast Client Manager': {
+                            response = thisObject.forecastCasesManager.onMessageReceived(response.data.clientData.message)
+                            break
+                        }
+                    }
 
                     queryMessage = {
                         messageId: clientData.messageId,
                         sender: 'Test-Server',
-                        queryResponse: 'This is the Specific Query Response comming from the Test Server'
+                        response: response
                     }
 
                     messageHeader = {
@@ -96,8 +109,6 @@
                     }
                 }
             }
-
-            //callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
         }
         catch (err) {
             TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
@@ -105,12 +116,5 @@
                 "[ERROR] start -> err = " + err.stack)
             callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
         }
-    }
-
-    function run() {
-        thisObject.testCasesManager.run()
-        thisObject.testClientsManager.run()
-        thisObject.forecastCasesManager.run()
-        thisObject.forecastClientsManager.run()
     }
 }

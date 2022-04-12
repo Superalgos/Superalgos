@@ -7,7 +7,6 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
         testCasesMap: undefined,
         setTestCaseResults: setTestCaseResults,
         getNextTestCase: getNextTestCase,
-        run: run,
         initialize: initialize,
         finalize: finalize
     }
@@ -39,7 +38,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
         }
 
         async function loadTestCasesFile() {
-            let fileContent = TEST_SERVER.utilities.loadFile("./StateData/TestCases/Test-Cases-Array-" + networkCodeName + ".json")
+            let fileContent = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.loadFile("./StateData/TestCases/Test-Cases-Array-" + networkCodeName + ".json")
             if (fileContent === undefined) {
                 thisObject.testCasesArray = []
                 thisObject.testCasesMap = new Map()
@@ -78,7 +77,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
                                     preParameters.NUMBER_OF_LSTM_NEURONS = parametersRanges.NUMBER_OF_LSTM_NEURONS[p]
 
                                     let parameters = getTestParameters(preParameters)
-                                    let parametersHash = TEST_SERVER.utilities.hash(JSON.stringify(parameters))
+                                    let parametersHash = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.hash(JSON.stringify(parameters))
                                     let testCase = {
                                         id: thisObject.testCasesArray.length + 1,
                                         mainAsset: preParameters.LIST_OF_ASSETS[0],
@@ -147,7 +146,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
             for (let i = 0; i < thisObject.testCasesArray.length; i++) {
                 let testCase = thisObject.testCasesArray[i]
                 getTimeSeriesFileName(testCase)
-                testCase.forcastedCandle = await TEST_SERVER.dataBridge.updateDatasetFiles(testCase)
+                testCase.forcastedCandle = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.dataBridge.updateDatasetFiles(testCase)
             }
             saveTestCasesFile()
 
@@ -170,10 +169,6 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
 
     }
 
-    function run() {
-
-    }
-
     function getNextTestCase() {
         for (let i = 0; i < thisObject.testCasesArray.length; i++) {
             let testCase = thisObject.testCasesArray[i]
@@ -183,7 +178,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
                     id: testCase.id,
                     totalCases: thisObject.testCasesArray.length,
                     parameters: testCase.parameters,
-                    files: TEST_SERVER.dataBridge.getFiles(testCase)
+                    files: TS.projects.foundations.globals.taskConstants.TEST_SERVER.dataBridge.getFiles(testCase)
                 }
                 return nextTestCase
             }
@@ -208,7 +203,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
             for (let i = Math.max(0, testResult.id - 5); i < Math.min(thisObject.testCasesArray.length, testResult.id + 5); i++) {
                 let testCase = thisObject.testCasesArray[i]
                 if (testCase.timestamp !== undefined) {
-                    testCase.when = TEST_SERVER.utilities.getHHMMSS(testCase.timestamp) + ' HH:MM:SS ago'
+                    testCase.when = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.getHHMMSS(testCase.timestamp) + ' HH:MM:SS ago'
                 }
                 logQueue.push(testCase)
             }
@@ -217,7 +212,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
             console.table(logQueue)
             saveTestReportFile()
             saveTestCasesFile()
-            TEST_SERVER.forecastCasesManager.addToforecastCases(testCase)
+            TS.projects.foundations.globals.taskConstants.TEST_SERVER.forecastCasesManager.addToforecastCases(testCase)
         } catch (err) {
             console.log((new Date()).toISOString(), '[ERROR] Error processing test results. Err = ' + err.stack)
             console.log((new Date()).toISOString(), '[ERROR] testResult = ' + JSON.stringify(testResult))

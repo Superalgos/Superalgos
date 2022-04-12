@@ -45,7 +45,7 @@ exports.newForecastClientsManager = function newForecastClientsManager(processIn
 
     async function scanSuperalgosUserProfiles() {
         forecastClients = []
-        let userProfileFIleList = await TEST_SERVER.utilities.getUserProfileFilesList()
+        let userProfileFIleList = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.getUserProfileFilesList()
 
         for (let i = 0; i < userProfileFIleList.length; i++) {
             let fileName = userProfileFIleList[i]
@@ -53,7 +53,7 @@ exports.newForecastClientsManager = function newForecastClientsManager(processIn
         }
 
         async function processUserProfile(fileName) {
-            let userProfilePluginFile = await TEST_SERVER.utilities.getUserProfileFile(fileName)
+            let userProfilePluginFile = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.getUserProfileFile(fileName)
             let userProfile = JSON.parse(userProfilePluginFile)
             if (
                 userProfile.forecastsProviders !== undefined &&
@@ -84,7 +84,7 @@ exports.newForecastClientsManager = function newForecastClientsManager(processIn
 
             switch (message.type) {
                 case 'Get Next Forecast Case': {
-                    let nextForecastCase = TEST_SERVER.forecastCasesManager.getNextForecastCase()
+                    let nextForecastCase = TS.projects.foundations.globals.taskConstants.TEST_SERVER.forecastCasesManager.getNextForecastCase()
                     if (nextForecastCase !== undefined) {
                         /*
                         Because there is a size limit at WebRTC for messages going through
@@ -108,7 +108,7 @@ exports.newForecastClientsManager = function newForecastClientsManager(processIn
                     break
                 }
                 case 'Get This Forecast Case': {
-                    let thisForecastCase = TEST_SERVER.forecastCasesManager.getThisForecastCase(message.forecastCaseId)
+                    let thisForecastCase = TS.projects.foundations.globals.taskConstants.TEST_SERVER.forecastCasesManager.getThisForecastCase(message.forecastCaseId)
                     if (thisForecastCase !== undefined) {
                         /*
                         Because there is a size limit at WebRTC for messages going through
@@ -132,8 +132,8 @@ exports.newForecastClientsManager = function newForecastClientsManager(processIn
                     break
                 }
                 case 'Set Forecast Case Results': {
-                    TEST_SERVER.forecastCasesManager.setForecastCaseResults(JSON.parse(message.payload), WEBRTC.userProfile + ' / ' + WEBRTC.clientInstanceName)
-                    let response = JSON.stringify(TEST_SERVER.forecastCasesManager.getForecasts())
+                    TS.projects.foundations.globals.taskConstants.TEST_SERVER.forecastCasesManager.setForecastCaseResults(JSON.parse(message.payload), WEBRTC.userProfile + ' / ' + WEBRTC.clientInstanceName)
+                    let response = JSON.stringify(TS.projects.foundations.globals.taskConstants.TEST_SERVER.forecastCasesManager.getForecasts())
                     WEBRTC.sendResponse(response)
                     break
                 }

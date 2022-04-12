@@ -52,7 +52,7 @@ exports.newDataBridge = function newDataBridge(processIndex) {
         let mainAsset = testCase.parameters.LIST_OF_ASSETS[0]
         let assetsToInclude = testCase.parameters.LIST_OF_ASSETS
         let timeFramesToInclude = testCase.parameters.LIST_OF_TIMEFRAMES
-        let testCaseId = TEST_SERVER.utilities.pad(testCase.id, 5)
+        let testCaseId = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.pad(testCase.id, 5)
 
         createParametersFile()
         await createTimeSeriesFile()
@@ -121,9 +121,9 @@ exports.newDataBridge = function newDataBridge(processIndex) {
             let lastTimestamp
             let maxTimeFrameValue = 0
 
-            for (let i = 0; i < TEST_SERVER.utilities.marketTimeFramesArray.length; i++) {
-                let timeFrameValue = TEST_SERVER.utilities.marketTimeFramesArray[i][0]
-                let timeFrameLabel = TEST_SERVER.utilities.marketTimeFramesArray[i][1]
+            for (let i = 0; i < TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.marketTimeFramesArray.length; i++) {
+                let timeFrameValue = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.marketTimeFramesArray[i][0]
+                let timeFrameLabel = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.marketTimeFramesArray[i][1]
 
                 if (timeFramesToInclude.includes(timeFrameLabel)) {
                     for (let j = 0; j < assetsToInclude.length; j++) {
@@ -139,7 +139,7 @@ exports.newDataBridge = function newDataBridge(processIndex) {
                 We will save the file only if it is different from the previous one, and if we do,
                 we will remember the file saved, it's hash and we'll get for it a new expiration time.
             */
-            let newFileHash = TEST_SERVER.utilities.hash(timeSeriesFile)
+            let newFileHash = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.hash(timeSeriesFile)
             if (currentFileHash === undefined || currentFileHash !== newFileHash) {
 
                 SA.nodeModules.fs.writeFileSync("./OutputData/TestData/" + testCase.timeSeriesFileName + ".CSV", timeSeriesFile)
@@ -148,7 +148,7 @@ exports.newDataBridge = function newDataBridge(processIndex) {
                 savedDataset = {
                     fileHash: newFileHash,
                     forcastedCandle: forcastedCandle,
-                    expiration: TEST_SERVER.utilities.getExpiration(testCase)
+                    expiration: TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.getExpiration(testCase)
                 }
                 savedDatasets.set(testCase.timeSeriesFileName, savedDataset)
             }
@@ -157,7 +157,7 @@ exports.newDataBridge = function newDataBridge(processIndex) {
 
                 if (timeFrameValue > maxTimeFrameValue) (maxTimeFrameValue = timeFrameValue)
 
-                let candlesFileContent = await TEST_SERVER.utilities.getIndicatorFile(
+                let candlesFileContent = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.getIndicatorFile(
                     'Candles',
                     'Candles-Volumes',
                     'Candles',
@@ -198,7 +198,7 @@ exports.newDataBridge = function newDataBridge(processIndex) {
                     }
                 }
 
-                let volumesFileContent = await TEST_SERVER.utilities.getIndicatorFile(
+                let volumesFileContent = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.getIndicatorFile(
                     'Candles',
                     'Candles-Volumes',
                     'Volumes',
@@ -233,9 +233,9 @@ exports.newDataBridge = function newDataBridge(processIndex) {
                     let subRecords = []
                     let header = "Timestamp"
 
-                    for (let i = 0; i < TEST_SERVER.utilities.marketTimeFramesArray.length; i++) {
-                        let timeFrameValue = TEST_SERVER.utilities.marketTimeFramesArray[i][0]
-                        let timeFrameLabel = TEST_SERVER.utilities.marketTimeFramesArray[i][1]
+                    for (let i = 0; i < TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.marketTimeFramesArray.length; i++) {
+                        let timeFrameValue = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.marketTimeFramesArray[i][0]
+                        let timeFrameLabel = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.marketTimeFramesArray[i][1]
 
                         if (timeFramesToInclude.includes(timeFrameLabel)) {
 
@@ -357,7 +357,7 @@ exports.newDataBridge = function newDataBridge(processIndex) {
     }
 
     function getFiles(testCase) {
-        let testCaseId = TEST_SERVER.utilities.pad(testCase.id, 5)
+        let testCaseId = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.pad(testCase.id, 5)
         let files = {}
         files.parameters = SA.nodeModules.fs.readFileSync("./OutputData/TestData/parameters-" + testCaseId + ".CSV")
         files.timeSeries = SA.nodeModules.fs.readFileSync("./OutputData/TestData/" + testCase.timeSeriesFileName + ".CSV")

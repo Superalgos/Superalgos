@@ -8,7 +8,6 @@
         testCasesManager: undefined,
         testClientsManager: undefined,
         forecastsManager: undefined,
-        run: run,
         initialize: initialize,
         finalize: finalize,
         start: start

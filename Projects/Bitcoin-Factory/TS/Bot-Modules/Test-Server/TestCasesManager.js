@@ -13,17 +13,8 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
 
     const REPORT_NAME = networkCodeName + '-' + (new Date()).toISOString().substring(0, 16).replace("T", "-").replace(":", "-").replace(":", "-") + '-00'
 
-    let parametersRanges
-    switch (networkCodeName) {
-        case 'Testnet': {
-            parametersRanges = require('./StateData/Ranges/Testnet-Parameters-Ranges')
-            break
-        }
-        case 'Mainnet': {
-            parametersRanges = require('./StateData/Ranges/Mainnet-Parameters-Ranges')
-            break
-        }
-    }
+    let parametersRanges = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.parametersRanges
+
     console.log((new Date()).toISOString(), 'Working with these Parameter Ranges:')
     console.table(parametersRanges)
 

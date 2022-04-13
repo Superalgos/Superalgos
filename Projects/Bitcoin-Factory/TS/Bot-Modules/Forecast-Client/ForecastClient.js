@@ -30,7 +30,7 @@
 
             loadForecastCasesFile()
 
-            // setInterval(updateForcasts, 60 * 1000)
+            setInterval(updateForcasts, 60 * 1000)
 
             function loadForecastCasesFile() {
                 let fileContent = thisObject.utilities.loadFile(global.env.PATH_TO_BITCOIN_FACTORY + "/StateData/ForecastCases/Forecast-Cases-Array-" + BOT_CONFIG.networkCodeName + ".json")
@@ -416,7 +416,7 @@
                             .then(onSuccess)
                             .catch(onError)
                         async function onSuccess(response) {
-                            let bestPredictions = JSON.parse(response)
+                            let bestPredictions = JSON.parse(response.data.serverData.response)
                             console.log(' ')
                             console.log('Best Crowd-Sourced Predictions:')
                             console.table(bestPredictions)

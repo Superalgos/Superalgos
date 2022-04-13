@@ -69,7 +69,7 @@ exports.newForecastClientsManager = function newForecastClientsManager(processIn
                     nextForecastCase.files.timeSeries = nextForecastCase.files.timeSeries.toString()
                     return nextForecastCase
                 } else {
-                    console.log((new Date()).toISOString(), 'No more Forecast Cases to Build. Could not deliver one to ' + WEBRTC.userProfile + ' / ' +  WEBRTC.clientInstanceName)
+                    console.log((new Date()).toISOString(), 'No more Forecast Cases to Build. Could not deliver one to ' + userProfile + ' / ' + clientInstanceName)
                     return'NO FORECAST CASES AVAILABLE AT THE MOMENT'
                 }
             }

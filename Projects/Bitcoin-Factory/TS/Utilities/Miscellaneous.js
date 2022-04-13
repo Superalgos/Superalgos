@@ -110,7 +110,7 @@ exports.newBitcoinFactoryUtilitiesMiscellaneous = function newBitcoinFacnewBitco
 
             const axios = require("axios")
             axios
-                .post('http://' + BOT_CONFIG.mainSuperalgosHost + ':' + BOT_CONFIG.mainSuperalgosHttpPort + '/Bitcoin-Factory', params)
+                .post('http://' + BOT_CONFIG.targetSuperalgosHost + ':' + BOT_CONFIG.targetSuperalgosHttpPort + '/Bitcoin-Factory', params)
                 .then(res => {
                     if (res.data.result === 'Ok') {
                         resolve(res.data.userProfileFIleList)
@@ -137,7 +137,7 @@ exports.newBitcoinFactoryUtilitiesMiscellaneous = function newBitcoinFacnewBitco
 
             const axios = require("axios")
             axios
-                .post('http://' + BOT_CONFIG.mainSuperalgosHost + ':' + BOT_CONFIG.mainSuperalgosHttpPort + '/Bitcoin-Factory', params)
+                .post('http://' + BOT_CONFIG.targetSuperalgosHost + ':' + BOT_CONFIG.targetSuperalgosHttpPort + '/Bitcoin-Factory', params)
                 .then(res => {
                     if (res.data.result === 'Ok') {
                         resolve(res.data.userProfilePluginFile)
@@ -180,7 +180,7 @@ exports.newBitcoinFactoryUtilitiesMiscellaneous = function newBitcoinFacnewBitco
 
             const axios = require("axios")
             axios
-                .post('http://' + BOT_CONFIG.mainSuperalgosHost + ':' + BOT_CONFIG.mainSuperalgosHttpPort + '/Bitcoin-Factory', params)
+                .post('http://' + BOT_CONFIG.targetSuperalgosHost + ':' + BOT_CONFIG.targetSuperalgosHttpPort + '/Bitcoin-Factory', params)
                 .then(res => {
                     if (res.data.result === 'Ok') {
                         resolve(res.data.fileContent)

@@ -64,7 +64,6 @@
             }
             while (true) {
                 let response = await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClient.machineLearningNetworkServiceClient.sendMessage(messageHeader)
-                console.log((new Date()).toISOString(), 'Query received at Test Server: ' + JSON.stringify(response))
 
                 if (response.data.clientData === undefined) {
                     /*
@@ -81,6 +80,11 @@
                     }
                     await SA.projects.foundations.utilities.asyncFunctions.sleep(1000)
                 } else {
+                    /*
+                    In this case there is a request that needs to be processed.
+                    */
+                    //console.log((new Date()).toISOString(), 'Query received at Test Server: ' + JSON.stringify(response))
+
                     let clientData = JSON.parse(response.data.clientData)
                     let managerResponse
                     switch (clientData.recipient) {

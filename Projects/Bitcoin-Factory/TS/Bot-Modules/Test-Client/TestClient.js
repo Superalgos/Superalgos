@@ -7,10 +7,13 @@
         start: start
     }
 
+    let BOT_CONFIG
+
     return thisObject
 
     function initialize(pStatusDependenciesModule, callBackFunction) {
         try {
+            BOT_CONFIG = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config
             statusDependenciesModule = pStatusDependenciesModule;
             callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
         } catch (err) {
@@ -42,11 +45,12 @@
                                 .then(onSuccess)
                                 .catch(onError)
                             async function onSuccess(response) {
-                                let bestPredictions = JSON.parse(response)
+                                let bestPredictions = JSON.parse(response.data.serverData.response)
                                 console.log(' ')
                                 console.log('Best Crowd-Sourced Predictions:')
                                 console.table(bestPredictions)
                                 updateSuperalgos(bestPredictions)
+                                callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
                             }
                             async function onError(err) {
                                 console.log((new Date()).toISOString(), 'Failed to send a Report to the Test Server with the Test Case Results and get a Reward for that. Err:', err, 'Aborting the processing of this case and retrying the main loop in 10 seconds...')
@@ -55,20 +59,18 @@
                     }
 
                     async function onError(err) {
-                        console.log((new Date()).toISOString(), 'Failed to Build the Model for this Test Case. Err:', err, 'Aborting the processing of this case and retrying the main loop in 10 seconds...')
-                        await sleep(10000)
+                        console.log((new Date()).toISOString(), 'Failed to Build the Model for this Test Case. Err:', err, 'Aborting the processing of this case and retrying the main loop in 30 seconds...')
+                        callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                     }
                 } else {
-                    console.log((new Date()).toISOString(), 'Nothing to Test', 'Retrying in 10 seconds...')
+                    console.log((new Date()).toISOString(), 'Nothing to Test', 'Retrying in 30 seconds...')
                 }
-                await sleep(10000)
+                callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
             }
             async function onError(err) {
-                console.log((new Date()).toISOString(), 'Failed to get a Test Case. Err:', err, 'Retrying in 10 seconds...')
-                await sleep(10000)
-            }
-
-            callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
+                console.log((new Date()).toISOString(), 'Failed to get a Test Case. Err:', err, 'Retrying in 30 seconds...')
+                callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
+            }   
         }
         catch (err) {
             TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
@@ -92,7 +94,7 @@
 
         const axios = require("axios")
         axios
-            .post('http://' + ENVIRONMENT.SUPERALGOS_HOST + ':' + ENVIRONMENT.SUPERALGOS_HTTP_PORT + '/Bitcoin-Factory', params)
+            .post('http://' + BOT_CONFIG.targetSuperalgosHost + ':' + BOT_CONFIG.targetSuperalgosHttpPort + '/Bitcoin-Factory', params)
             .then(res => {
                 console.log((new Date()).toISOString(), 'Updating Superalgos...', 'Response from Superalgos Bitcoin Factory Server: ' + JSON.stringify(res.data))
             })
@@ -153,6 +155,8 @@
             let queryMessage = {
                 messageId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                 sender: 'Test-Client',
+                clientInstanceName: TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.clientInstanceName,
+                recipient: 'Test Client Manager', 
                 message: message
             }
 
@@ -198,7 +202,7 @@
                 /*
                 Removing Carriedge Return from string.
                 */
-                if (ENVIRONMENT.LOG_TRAINING_OUTPUT === true) {
+                if (BOT_CONFIG.logTrainingOutput === true) {
                     console.log(data)
                 }
                 for (let i = 0; i < 1000; i++) {
@@ -256,12 +260,6 @@
                 resolve(processExecutionResult)
             }
         }
-    }
-
-    function sleep(ms) {
-        return new Promise((resolve) => {
-            setTimeout(resolve, ms)
-        })
     }
 
     function fixJSON(text) {

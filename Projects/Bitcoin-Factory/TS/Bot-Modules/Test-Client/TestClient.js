@@ -7,14 +7,12 @@
         start: start
     }
 
-    let BOT_CONFIG
+    let BOT_CONFIG = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config
 
     return thisObject
 
     function initialize(pStatusDependenciesModule, callBackFunction) {
         try {
-            BOT_CONFIG = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config
-            statusDependenciesModule = pStatusDependenciesModule;
             callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
         } catch (err) {
             TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
@@ -70,7 +68,7 @@
             async function onError(err) {
                 console.log((new Date()).toISOString(), 'Failed to get a Test Case. Err:', err, 'Retrying in 30 seconds...')
                 callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
-            }   
+            }
         }
         catch (err) {
             TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
@@ -116,7 +114,7 @@
                 messageId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                 sender: 'Test-Client',
                 clientInstanceName: TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.clientInstanceName,
-                recipient: 'Test Client Manager', 
+                recipient: 'Test Client Manager',
                 message: message
             }
 
@@ -156,7 +154,7 @@
                 messageId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                 sender: 'Test-Client',
                 clientInstanceName: TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.clientInstanceName,
-                recipient: 'Test Client Manager', 
+                recipient: 'Test Client Manager',
                 message: message
             }
 
@@ -164,7 +162,7 @@
                 requestType: 'Query',
                 networkService: 'Machine Learning',
                 queryMessage: JSON.stringify(queryMessage)
-            }   
+            }
 
             await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClient.machineLearningNetworkServiceClient.sendMessage(messageHeader)
                 .then(onSuccess)

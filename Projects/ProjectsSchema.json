@@ -2381,6 +2381,13 @@
         "TS": {
             "botModules":[
                 {
+                    "name": "Forecast-Client",
+                    "propertyName": "forecastClient",
+                    "functionName": "newBitcoinFactoryBotModulesForecastClient",
+                    "fileName": "ForecastClient.js",
+                    "folderName": "Forecast-Client"
+                },
+                {
                     "name": "Test-Client",
                     "propertyName": "testClient",
                     "functionName": "newBitcoinFactoryBotModulesTestClient",

@@ -13,7 +13,7 @@
         start: start
     }
 
-    networkCodeName = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.networkCodeName
+    let networkCodeName = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.networkCodeName
 
     thisObject.utilities = TS.projects.bitcoinFactory.utilities.miscellaneous
     thisObject.dataBridge = TS.projects.bitcoinFactory.botModules.dataBridge.newDataBridge(processIndex)

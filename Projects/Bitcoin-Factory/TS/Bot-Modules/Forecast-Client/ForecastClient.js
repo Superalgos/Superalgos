@@ -229,7 +229,7 @@
                 .then(onSuccess)
                 .catch(onError)
             async function onSuccess(response) {
-                resolve(response.data.serverData.response)
+                resolve(response)
             }
             async function onError(err) {
                 reject(err)

@@ -78,6 +78,10 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
                 queryReceived.userProfile = userProfile.name
                 return await testClientMessage(queryReceived)
             }
+            case 'Forecast-Client': {
+                queryReceived.userProfile = userProfile.name
+                return await forecastClientMessage(queryReceived)
+            }
             case 'Test-Server': {
                 return await testServerMessage(queryReceived)
             }
@@ -85,6 +89,23 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
     }
 
     async function testClientMessage(queryReceived) {
+        requestsToServer.push (queryReceived)
+        return new Promise(promiseWork)
+
+        async function promiseWork(resolve, reject) {
+            responseFunctions.set(queryReceived.messageId, onResponseFromServer)
+            function onResponseFromServer(queryReceived) {
+                let response = {
+                    result: 'Ok',
+                    message: 'Server Responded.',
+                    serverData: queryReceived
+                }
+                resolve(response)
+            }
+        }
+    }
+
+    async function forecastClientMessage(queryReceived) {
         requestsToServer.push (queryReceived)
         return new Promise(promiseWork)
 

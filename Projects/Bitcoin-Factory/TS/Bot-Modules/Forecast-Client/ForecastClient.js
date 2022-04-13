@@ -21,8 +21,8 @@
             */
             let dir
             dir = global.env.PATH_TO_BITCOIN_FACTORY + '/StateData/ForecastCases'
-            if (!fs.existsSync(dir)) {
-                fs.mkdirSync(dir, { recursive: true });
+            if (!SA.nodeModules.fs.existsSync(dir)) {
+                SA.nodeModules.fs.mkdirSync(dir, { recursive: true });
             }
 
             thisObject.utilities.initialize()
@@ -56,8 +56,8 @@
                 .catch(onError)
             async function onSuccess(nextForecastCase) {
                 if (nextForecastCase !== undefined) {
-                    SA.nodeModules.SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/notebooks/parameters.csv", nextForecastCase.files.parameters)
-                    SA.nodeModules.SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/notebooks/time-series.csv", nextForecastCase.files.timeSeries)
+                    SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/notebooks/parameters.csv", nextForecastCase.files.parameters)
+                    SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/notebooks/time-series.csv", nextForecastCase.files.timeSeries)
 
                     nextForecastCase.modelName = "MODEL-" + nextForecastCase.id
 

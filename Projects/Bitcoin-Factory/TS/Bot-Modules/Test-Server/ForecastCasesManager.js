@@ -15,7 +15,6 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
         finalize: finalize
     }
 
-    const fs = require("fs")
     return thisObject
 
     function initialize() {
@@ -170,6 +169,6 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
 
     function saveForecastCasesFile() {
         let fileContent = JSON.stringify(thisObject.forecastCasesArray, undefined, 4)
-        fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/StateData/ForecastCases/Forecast-Cases-Array-" + networkCodeName + ".json", fileContent)
+        SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/StateData/ForecastCases/Forecast-Cases-Array-" + networkCodeName + ".json", fileContent)
     }
 }

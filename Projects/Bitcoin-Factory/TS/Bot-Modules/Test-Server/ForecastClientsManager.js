@@ -3,6 +3,7 @@ exports.newForecastClientsManager = function newForecastClientsManager(processIn
     This modules coordinates all Forecast Clients.
     */
     let thisObject = {
+        onMessageReceived: onMessageReceived,
         initialize: initialize,
         finalize: finalize
     }
@@ -56,66 +57,39 @@ exports.newForecastClientsManager = function newForecastClientsManager(processIn
         }
     }
 
-    function listenToForecastClients(WEBRTC) {
-        WEBRTC.getNextMessage(onMessageReceived)
+    function onMessageReceived(message) {
 
-        function onMessageReceived(message) {
-
-            switch (message.type) {
-                case 'Get Next Forecast Case': {
-                    let nextForecastCase = TS.projects.foundations.globals.taskConstants.TEST_SERVER.forecastCasesManager.getNextForecastCase()
-                    if (nextForecastCase !== undefined) {
-                        /*
-                        Because there is a size limit at WebRTC for messages going through
-                        data channels, we will need to split the content into different 
-                        messages. One will have the nextForecastCase object without the files,
-                        and the other messages will be the timeseries and parameters files.
-                        */
-                        console.log((new Date()).toISOString(), WEBRTC.userProfile + ' / ' + WEBRTC.clientInstanceName, 'requested a new Forecast Case')
-                        WEBRTC.sendResponse('SENDING MULTIPLE MESSAGES')
-                        WEBRTC.sendFile(nextForecastCase.files.timeSeries)
-                        WEBRTC.sendFile(nextForecastCase.files.parameters)
-                        nextForecastCase.files.timeSeries = undefined
-                        nextForecastCase.files.parameters = undefined
-                        WEBRTC.sendResponse(JSON.stringify(nextForecastCase))
-                        WEBRTC.sendResponse('MULTIPLE MESSAGES SENT')
-                        console.log((new Date()).toISOString(), 'Forecast Case Id ' + nextForecastCase.id + ' delivered to', WEBRTC.userProfile + ' / ' + WEBRTC.clientInstanceName)
-                    } else {
-                        // console.log((new Date()).toISOString(), 'No more Forecast Cases to Build. Could not deliver one to ' + WEBRTC.userProfile + ' / ' +  WEBRTC.clientInstanceName)
-                        WEBRTC.sendResponse('NO FORECAST CASES AVAILABLE AT THE MOMENT')
-                    }
-                    break
+        switch (message.type) {
+            case 'Get Next Forecast Case': {
+                console.log((new Date()).toISOString(), userProfile + ' / ' + clientInstanceName, 'requested a new Forecast Case')
+                let nextForecastCase = TS.projects.foundations.globals.taskConstants.TEST_SERVER.forecastCasesManager.getNextForecastCase()
+                if (nextForecastCase !== undefined) {
+                    console.log((new Date()).toISOString(), 'Forecast Case Id ' + nextForecastCase.id + ' delivered to', userProfile + ' / ' + clientInstanceName)
+                    nextForecastCase.files.parameters = nextForecastCase.files.parameters.toString()
+                    nextForecastCase.files.timeSeries = nextForecastCase.files.timeSeries.toString()
+                    return nextTestCase
+                } else {
+                    console.log((new Date()).toISOString(), 'No more Forecast Cases to Build. Could not deliver one to ' + WEBRTC.userProfile + ' / ' +  WEBRTC.clientInstanceName)
+                    return'NO FORECAST CASES AVAILABLE AT THE MOMENT'
                 }
-                case 'Get This Forecast Case': {
-                    let thisForecastCase = TS.projects.foundations.globals.taskConstants.TEST_SERVER.forecastCasesManager.getThisForecastCase(message.forecastCaseId)
-                    if (thisForecastCase !== undefined) {
-                        /*
-                        Because there is a size limit at WebRTC for messages going through
-                        data channels, we will need to split the content into different 
-                        messages. One will have the thisForecastCase object without the files,
-                        and the other messages will be the timeseries and parameters files.
-                        */
-                        console.log((new Date()).toISOString(), WEBRTC.userProfile + ' / ' + WEBRTC.clientInstanceName, 'requested the Forecast Case Id ' + message.forecastCaseId)
-                        WEBRTC.sendResponse('SENDING MULTIPLE MESSAGES')
-                        WEBRTC.sendFile(thisForecastCase.files.timeSeries)
-                        WEBRTC.sendFile(thisForecastCase.files.parameters)
-                        thisForecastCase.files.timeSeries = undefined
-                        thisForecastCase.files.parameters = undefined
-                        WEBRTC.sendResponse(JSON.stringify(thisForecastCase))
-                        WEBRTC.sendResponse('MULTIPLE MESSAGES SENT')
-                        console.log((new Date()).toISOString(), 'Forecast Case Id ' + thisForecastCase.id + ' delivered to', WEBRTC.userProfile + ' / ' + WEBRTC.clientInstanceName)
-                    } else {
-                        console.log((new Date()).toISOString(), 'Forecast Case ' + message.forecastCaseId + ' is Not Available Anymore. Could not deliver requested Case to ' + WEBRTC.userProfile + ' / ' + WEBRTC.clientInstanceName)
-                        WEBRTC.sendResponse('THIS FORECAST CASE IS NOT AVAILABLE ANYMORE')
-                    }
-                    break
+            }
+            case 'Get This Forecast Case': {
+                console.log((new Date()).toISOString(), userProfile + ' / ' + clientInstanceName, 'requested the Forecast Case Id ' + message.forecastCaseId)
+                let thisForecastCase = TS.projects.foundations.globals.taskConstants.TEST_SERVER.forecastCasesManager.getThisForecastCase(message.forecastCaseId)
+                if (thisForecastCase !== undefined) {
+                    console.log((new Date()).toISOString(), 'Forecast Case Id ' + thisForecastCase.id + ' delivered to', userProfile + ' / ' + clientInstanceName)
+                    thisForecastCase.files.parameters = thisForecastCase.files.parameters.toString()
+                    thisForecastCase.files.timeSeries = thisForecastCase.files.timeSeries.toString()
+                    return nextTestCase
+                } else {
+                    console.log((new Date()).toISOString(), 'Forecast Case ' + message.forecastCaseId + ' is Not Available Anymore. Could not deliver requested Case to ' + userProfile + ' / ' + clientInstanceName)
+                    return'THIS FORECAST CASE IS NOT AVAILABLE ANYMORE'
                 }
-                case 'Set Forecast Case Results': {
-                    TS.projects.foundations.globals.taskConstants.TEST_SERVER.forecastCasesManager.setForecastCaseResults(JSON.parse(message.payload), WEBRTC.userProfile + ' / ' + WEBRTC.clientInstanceName)
-                    let response = JSON.stringify(TS.projects.foundations.globals.taskConstants.TEST_SERVER.forecastCasesManager.getForecasts())
-                    WEBRTC.sendResponse(response)
-                    break
-                }
+            }
+            case 'Set Forecast Case Results': {
+                TS.projects.foundations.globals.taskConstants.TEST_SERVER.forecastCasesManager.setForecastCaseResults(JSON.parse(message.payload), userProfile + ' / ' + clientInstanceName)
+                let response = JSON.stringify(TS.projects.foundations.globals.taskConstants.TEST_SERVER.forecastCasesManager.getForecasts())
+                return response
             }
         }
     }

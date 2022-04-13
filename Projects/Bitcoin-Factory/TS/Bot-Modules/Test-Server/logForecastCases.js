@@ -23,7 +23,7 @@ run()
 
 function run() {
     let forecastCasesArray
-    let fileContent = utilities.loadFile("./StateData/ForecastCases/Forecast-Cases-Array-" + networkCodeName + ".json")
+    let fileContent = utilities.loadFile(global.env.PATH_TO_BITCOIN_FACTORY + "/StateData/ForecastCases/Forecast-Cases-Array-" + networkCodeName + ".json")
     if (fileContent !== undefined) {
         forecastCasesArray = JSON.parse(fileContent)
     } else {

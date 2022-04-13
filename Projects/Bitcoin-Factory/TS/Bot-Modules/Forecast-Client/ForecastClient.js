@@ -6,12 +6,15 @@
         forecastCasesArray: undefined,
         utilities: undefined,
         initialize: initialize,
+        finalize: finalize, 
         start: start
     }
 
     thisObject.utilities = TS.projects.bitcoinFactory.utilities.miscellaneous
     let BOT_CONFIG = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config
     let reforecasting = false
+
+    let intervalId = setInterval(updateForcasts, 60 * 1000)
 
     return thisObject
 
@@ -21,7 +24,7 @@
             Create Missing Folders, if needed.
             */
             let dir
-            dir = global.env.PATH_TO_BITCOIN_FACTORY + '/StateData/ForecastCases'
+            dir = global.env.PATH_TO_BITCOIN_FACTORY + '/Forecast-Client/StateData/ForecastCases'
             if (!SA.nodeModules.fs.existsSync(dir)) {
                 SA.nodeModules.fs.mkdirSync(dir, { recursive: true });
             }
@@ -29,11 +32,9 @@
             thisObject.utilities.initialize()
 
             loadForecastCasesFile()
-
-            //setInterval(updateForcasts, 60 * 1000)
-
+            
             function loadForecastCasesFile() {
-                let fileContent = thisObject.utilities.loadFile(global.env.PATH_TO_BITCOIN_FACTORY + "/StateData/ForecastCases/Forecast-Cases-Array-" + BOT_CONFIG.networkCodeName + ".json")
+                let fileContent = thisObject.utilities.loadFile(global.env.PATH_TO_BITCOIN_FACTORY + "/Forecast-Client/StateData/ForecastCases/Forecast-Cases-Array-" + BOT_CONFIG.networkCodeName + ".json")
                 if (fileContent !== undefined) {
                     thisObject.forecastCasesArray = JSON.parse(fileContent)
                 } else {
@@ -48,6 +49,11 @@
                 "[ERROR] initialize -> err = " + err.stack)
             callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
         }
+    }
+
+
+    function finalize() {
+        clearInterval(intervalId)
     }
 
     async function start(callBackFunction) {
@@ -479,6 +485,6 @@
 
     function saveForecastCasesFile() {
         let fileContent = JSON.stringify(thisObject.forecastCasesArray, undefined, 4)
-        SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/StateData/ForecastCases/Forecast-Cases-Array-" + BOT_CONFIG.networkCodeName + ".json", fileContent)
+        SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Forecast-Client/StateData/ForecastCases/Forecast-Cases-Array-" + BOT_CONFIG.networkCodeName + ".json", fileContent)
     }
 }

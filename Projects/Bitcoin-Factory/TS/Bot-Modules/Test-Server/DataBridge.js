@@ -21,22 +21,22 @@ exports.newDataBridge = function newDataBridge(processIndex) {
         Create Missing Folders, if needed.
         */
         let dir
-        dir = global.env.PATH_TO_BITCOIN_FACTORY + '/StateData/TestCases'
+        dir = global.env.PATH_TO_BITCOIN_FACTORY + '/Test-Server/StateData/TestCases'
         if (!SA.nodeModules.fs.existsSync(dir)) {
             SA.nodeModules.fs.mkdirSync(dir, { recursive: true });
         }
 
-        dir = global.env.PATH_TO_BITCOIN_FACTORY + '/StateData/ForecastCases'
+        dir = global.env.PATH_TO_BITCOIN_FACTORY + '/Test-Server/StateData/ForecastCases'
         if (!SA.nodeModules.fs.existsSync(dir)) {
             SA.nodeModules.fs.mkdirSync(dir, { recursive: true });
         }
 
-        dir = global.env.PATH_TO_BITCOIN_FACTORY + '/OutputData/TestData'
+        dir = global.env.PATH_TO_BITCOIN_FACTORY + '/Test-Server/OutputData/TestData'
         if (!SA.nodeModules.fs.existsSync(dir)) {
             SA.nodeModules.fs.mkdirSync(dir, { recursive: true });
         }
 
-        dir = global.env.PATH_TO_BITCOIN_FACTORY + '/OutputData/TestReports'
+        dir = global.env.PATH_TO_BITCOIN_FACTORY + '/Test-Server/OutputData/TestReports'
         if (!SA.nodeModules.fs.existsSync(dir)) {
             SA.nodeModules.fs.mkdirSync(dir, { recursive: true });
         }
@@ -85,7 +85,7 @@ exports.newDataBridge = function newDataBridge(processIndex) {
                 "NUMBER_OF_FEATURES" + "   " + testCase.parameters.NUMBER_OF_FEATURES + "\r\n" +
                 "NUMBER_OF_EPOCHS" + "   " + testCase.parameters.NUMBER_OF_EPOCHS + "\r\n" +
                 "NUMBER_OF_LSTM_NEURONS" + "   " + testCase.parameters.NUMBER_OF_LSTM_NEURONS + "\r\n"
-            SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/OutputData/TestData/parameters-" + testCaseId + ".CSV", parametersFile)
+            SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/OutputData/TestData/parameters-" + testCaseId + ".CSV", parametersFile)
 
             if (testCase.filesTimestaps === undefined) {
                 testCase.filesTimestaps = {}
@@ -142,7 +142,7 @@ exports.newDataBridge = function newDataBridge(processIndex) {
             let newFileHash = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.hash(timeSeriesFile)
             if (currentFileHash === undefined || currentFileHash !== newFileHash) {
 
-                SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/OutputData/TestData/" + testCase.timeSeriesFileName + ".CSV", timeSeriesFile)
+                SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/OutputData/TestData/" + testCase.timeSeriesFileName + ".CSV", timeSeriesFile)
                 console.log((new Date()).toISOString(), 'Dataset File Saved: ' + testCase.timeSeriesFileName)
 
                 savedDataset = {
@@ -359,8 +359,8 @@ exports.newDataBridge = function newDataBridge(processIndex) {
     function getFiles(testCase) {
         let testCaseId = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.pad(testCase.id, 5)
         let files = {}
-        files.parameters = SA.nodeModules.fs.readFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/OutputData/TestData/parameters-" + testCaseId + ".CSV")
-        files.timeSeries = SA.nodeModules.fs.readFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/OutputData/TestData/" + testCase.timeSeriesFileName + ".CSV")
+        files.parameters = SA.nodeModules.fs.readFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/OutputData/TestData/parameters-" + testCaseId + ".CSV")
+        files.timeSeries = SA.nodeModules.fs.readFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/OutputData/TestData/" + testCase.timeSeriesFileName + ".CSV")
         return files
     }
 }

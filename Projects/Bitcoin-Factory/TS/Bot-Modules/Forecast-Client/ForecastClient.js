@@ -63,8 +63,8 @@
                 .catch(onError)
             async function onSuccess(nextForecastCase) {
                 if (nextForecastCase !== undefined) {
-                    SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/notebooks/parameters.csv", nextForecastCase.files.parameters)
-                    SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/notebooks/time-series.csv", nextForecastCase.files.timeSeries)
+                    SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Forecast-Client/notebooks/parameters.csv", nextForecastCase.files.parameters)
+                    SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Forecast-Client/notebooks/time-series.csv", nextForecastCase.files.timeSeries)
 
                     nextForecastCase.modelName = "MODEL-" + nextForecastCase.id
 
@@ -255,7 +255,7 @@
             /* Values */
             "ACTION_TO_TAKE" + "   " + instruction + "\r\n" +
             "MODEL_FILE_NAME" + "   " + nextForecastCase.modelName + "\r\n"
-        SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/notebooks/instructions.csv", instructionsFile)
+        SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Forecast-Client/notebooks/instructions.csv", instructionsFile)
     }
 
     async function buildModel(nextForecastCase) {
@@ -398,14 +398,14 @@
             .catch(onError)
         async function onSuccess(thisForecastCase) {
             if (thisForecastCase !== undefined) {
-                SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/notebooks/parameters.csv", thisForecastCase.files.parameters)
-                SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/notebooks/time-series.csv", thisForecastCase.files.timeSeries)
+                SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Forecast-Client/notebooks/parameters.csv", thisForecastCase.files.parameters)
+                SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Forecast-Client/notebooks/time-series.csv", thisForecastCase.files.timeSeries)
 
                 thisForecastCase.modelName = "MODEL-" + thisForecastCase.id
 
                 let newTimeSeriesHash = thisObject.utilities.hash(thisForecastCase.files.timeSeries)
                 if (newTimeSeriesHash === forecastCase.timeSeriesHash) {
-                    console.log((new Date()).toISOString(), 'The file provided by the Test Server is the same we already have.', 'Retrying the forcasting of case ' + thisForecastCase.id + ' in 10 seconds...')
+                    console.log((new Date()).toISOString(), 'The file provided by the Test Server is the same we already have.', 'Retrying the forcasting of case ' + thisForecastCase.id + ' in 60 seconds...')
                     return
                 }
 

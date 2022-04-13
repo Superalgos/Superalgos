@@ -29,8 +29,8 @@
                 .catch(onError)
             async function onSuccess(nextTestCase) {
                 if (nextTestCase !== undefined) {
-                    SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/notebooks/parameters.csv", nextTestCase.files.parameters)
-                    SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/notebooks/time-series.csv", nextTestCase.files.timeSeries)
+                    SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Client/notebooks/parameters.csv", nextTestCase.files.parameters)
+                    SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Client/notebooks/time-series.csv", nextTestCase.files.timeSeries)
 
                     await buildModel(nextTestCase)
                         .then(onSuccess)

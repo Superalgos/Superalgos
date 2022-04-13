@@ -57,7 +57,7 @@ exports.newForecastClientsManager = function newForecastClientsManager(processIn
         }
     }
 
-    function onMessageReceived(message) {
+    function onMessageReceived(message, userProfile, clientInstanceName) {
 
         switch (message.type) {
             case 'Get Next Forecast Case': {
@@ -67,7 +67,7 @@ exports.newForecastClientsManager = function newForecastClientsManager(processIn
                     console.log((new Date()).toISOString(), 'Forecast Case Id ' + nextForecastCase.id + ' delivered to', userProfile + ' / ' + clientInstanceName)
                     nextForecastCase.files.parameters = nextForecastCase.files.parameters.toString()
                     nextForecastCase.files.timeSeries = nextForecastCase.files.timeSeries.toString()
-                    return nextTestCase
+                    return nextForecastCase
                 } else {
                     console.log((new Date()).toISOString(), 'No more Forecast Cases to Build. Could not deliver one to ' + WEBRTC.userProfile + ' / ' +  WEBRTC.clientInstanceName)
                     return'NO FORECAST CASES AVAILABLE AT THE MOMENT'
@@ -80,7 +80,7 @@ exports.newForecastClientsManager = function newForecastClientsManager(processIn
                     console.log((new Date()).toISOString(), 'Forecast Case Id ' + thisForecastCase.id + ' delivered to', userProfile + ' / ' + clientInstanceName)
                     thisForecastCase.files.parameters = thisForecastCase.files.parameters.toString()
                     thisForecastCase.files.timeSeries = thisForecastCase.files.timeSeries.toString()
-                    return nextTestCase
+                    return thisForecastCase
                 } else {
                     console.log((new Date()).toISOString(), 'Forecast Case ' + message.forecastCaseId + ' is Not Available Anymore. Could not deliver requested Case to ' + userProfile + ' / ' + clientInstanceName)
                     return'THIS FORECAST CASE IS NOT AVAILABLE ANYMORE'

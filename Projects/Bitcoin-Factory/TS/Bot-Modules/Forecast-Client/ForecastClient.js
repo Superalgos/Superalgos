@@ -11,6 +11,7 @@
 
     thisObject.utilities = TS.projects.bitcoinFactory.utilities.miscellaneous
     let BOT_CONFIG = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config
+    let reforecasting = false
 
     return thisObject
 
@@ -29,7 +30,7 @@
 
             loadForecastCasesFile()
 
-            setInterval(updateForcasts, 60 * 1000)
+            // setInterval(updateForcasts, 60 * 1000)
 
             function loadForecastCasesFile() {
                 let fileContent = thisObject.utilities.loadFile(global.env.PATH_TO_BITCOIN_FACTORY + "/StateData/ForecastCases/Forecast-Cases-Array-" + BOT_CONFIG.networkCodeName + ".json")

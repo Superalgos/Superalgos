@@ -30,7 +30,7 @@
 
             loadForecastCasesFile()
 
-            setInterval(updateForcasts, 60 * 1000)
+            //setInterval(updateForcasts, 60 * 1000)
 
             function loadForecastCasesFile() {
                 let fileContent = thisObject.utilities.loadFile(global.env.PATH_TO_BITCOIN_FACTORY + "/StateData/ForecastCases/Forecast-Cases-Array-" + BOT_CONFIG.networkCodeName + ".json")
@@ -105,8 +105,8 @@
                     }
                 } else {
                     console.log((new Date()).toISOString(), 'Nothing to Test', 'Retrying in 30 seconds...')
+                    callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                 }
-                callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
             }
             async function onError(err) {
                 console.log((new Date()).toISOString(), 'Failed to get a Forecast Case. Err:', err, 'Retrying in 30 seconds...')
@@ -431,7 +431,7 @@
 
                         }
                         async function onError(err) {
-                            console.log((new Date()).toISOString(), 'Failed to send a Report to the Test Server with the Forecast Case Results and get a Reward for that. Err:', err, 'Retrying in 10 seconds...')
+                            console.log((new Date()).toISOString(), 'Failed to send a Report to the Test Server with the Forecast Case Results and get a Reward for that. Err:', err, 'Retrying in 60 seconds...')
                         }
                     }
                 }
@@ -439,7 +439,7 @@
                     console.log((new Date()).toISOString(), 'Failed to produce a Forecast for Case Id ' + forecastCase.id + '. Err:', err)
                 }
             } else {
-                console.log((new Date()).toISOString(), 'Nothing to Forecast', 'Retrying in 10 seconds...')
+                console.log((new Date()).toISOString(), 'Nothing to Forecast', 'Retrying in 60 seconds...')
             }
         }
         async function onError(err) {

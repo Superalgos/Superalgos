@@ -63,8 +63,8 @@
                     }
                 } else {
                     console.log((new Date()).toISOString(), 'Nothing to Test', 'Retrying in 30 seconds...')
+                    callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                 }
-                callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
             }
             async function onError(err) {
                 console.log((new Date()).toISOString(), 'Failed to get a Test Case. Err:', err, 'Retrying in 30 seconds...')

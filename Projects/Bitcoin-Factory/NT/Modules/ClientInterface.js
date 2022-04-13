@@ -72,7 +72,7 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
             }
             return response
         }
-        console.log(queryMessage)
+        //console.log(queryMessage)
         switch (queryReceived.sender) {
             case 'Test-Client': {
                 queryReceived.userProfile = userProfile.name

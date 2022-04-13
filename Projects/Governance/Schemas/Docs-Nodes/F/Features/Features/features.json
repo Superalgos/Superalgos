@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Иерархия Features определяет существующие функции программного обеспечения или функции в списке пожеланий, которые еще предстоит разработать. Определение существующих особенностей служит вознаграждению участников, поддерживающих код. Определения особенностей, которых еще не существует, призваны стимулировать создание и использование указанных данных.",
                 "updated": 1639035920535
+            },
+            {
+                "language": "TR",
+                "text": "Özellikler hiyerarşisi, mevcut yazılım özelliklerini veya istek listesindeki henüz geliştirilmemiş özellikleri tanımlar. Kodun bakımını yaparak koruyan geliştiricileri ödüllendirmek için özellikler tanımlanmıştır. Henüz var olmayan özelliklerin tanımları, söz konusu özelliklerin yaratılmasını ve katkısını teşvik etmeyi amaçlamaktadır.",
+                "updated": 1644570438814
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "RU",
                     "text": "Используйте свои Weight Votes, чтобы влиять на направление развития конкретных узлов функции Feature или наборов функций, представленных узлами Feature Class.",
                     "updated": 1639030093771
+                },
+                {
+                    "language": "TR",
+                    "text": "Belirli Özellik düğümlerinin veya Özellik Sınıfı (Features Class) düğümleri tarafından temsil edilen özellik (Feature) kümelerinin gelişim yönünü etkilemek için Ağırlık Oylarınızı (Weight Votes) kullanın.",
+                    "updated": 1644570981358
                 }
             ]
         }

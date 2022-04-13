@@ -1,0 +1,94 @@
+{
+    "topic": "Tested Exchanges",
+    "pageNumber": 15,
+    "type": "Latoken Test Status",
+    "definition": {
+        "text": "Passed Live Trading Test but limited Historical Data ",
+        "updated": 1636810465259,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Прошел тест живой торговли, но исторические данные ограничены",
+                "updated": 1646903108094
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Properties",
+            "updated": 1636811142009,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сведения",
+                    "updated": 1646903115147
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "1-min OHLCVs Capability: No. The ability to fetch historical data for backtesting purposes is not possible.",
+            "updated": 1636811644277,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "1-минутные свечи OHLCV: Нет. Возможность получения исторических данных для целей бэктестинга невозможна.",
+                    "updated": 1646903142421
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Market History: From that day you to start mining historical data",
+            "updated": 1636811635789,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "История рынка: С этого же момента вы можете начать добывать исторические данные",
+                    "updated": 1646903171356
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Trading Capability: Yes The ability to place market orders, create and cancel limit orders in a live-trading mode has been verified.",
+            "updated": 1636811869127,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Возможность торговли: Да. Возможность размещать рыночные ордера, создавать и отменять лимитные ордера в режиме реальной торговли была проверена.",
+                    "updated": 1646903183256
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Comments: Raw Data mining is limited to a few minutes due to exchange restrictions on their API that limit the number of data it can be requested via Rest API",
+            "updated": 1636812202662,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Комментарии: Поиск необработанных данных ограничен несколькими минутами из-за ограничений обмена на их API, которые ограничивают количество данных, которые можно запросить через Rest API.",
+                    "updated": 1646903194742
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1646903202332
+                }
+            ]
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"codeName\": \"latoken\",\n    \"API\": [\n        {\n            \"method\": \"fetchTrades\",\n            \"fetchType\": \"by Id\",\n            \"fetchTradesMethod\": \"publicGetHistoricalTrades\",\n            \"firstId\": \"f\"\n        }\n    ]\n}",
+            "updated": 1636811208143
+        }
+    ]
+}

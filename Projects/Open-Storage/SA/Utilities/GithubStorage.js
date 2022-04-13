@@ -15,7 +15,7 @@ exports.newOpenStorageUtilitiesGithubStorage = function () {
 
             const secret = SA.secrets.apisSecrets.map.get(storageContainer.config.codeName)
             if (secret === undefined) {
-                console.log('[WARN] You need at the Apis Secrets File a record for the codeName = ' + storageContainer.config.codeName)
+                console.log((new Date()).toISOString(), '[WARN] You need at the Apis Secrets File a record for the codeName = ' + storageContainer.config.codeName)
                 reject()
                 return
             }
@@ -59,7 +59,7 @@ exports.newOpenStorageUtilitiesGithubStorage = function () {
                 if (err.status === 404) {
                     createNewFile()
                 } else {
-                    console.log('[ERROR] File could not be saved at Github.com. -> err.stack = ' + err.stack)
+                    console.log((new Date()).toISOString(), '[ERROR] File could not be saved at Github.com. -> err.stack = ' + err.stack)
                     reject(err)
                 }
             }
@@ -82,7 +82,7 @@ exports.newOpenStorageUtilitiesGithubStorage = function () {
             }
 
             function githubError(err) {
-                console.log('[ERROR] Github Storage -> saveFile -> err.stack = ' + err.stack)
+                console.log((new Date()).toISOString(), '[ERROR] Github Storage -> saveFile -> err.stack = ' + err.stack)
                 reject()
             }
         }

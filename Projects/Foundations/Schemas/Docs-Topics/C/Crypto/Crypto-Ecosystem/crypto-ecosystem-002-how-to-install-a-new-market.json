@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Чтобы установить новый рынок, выберите Install Market в меню рынка, который вы хотите установить. Если рынок не настроен, его необходимо сначала настроить.",
                 "updated": 1640279502345
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Yeni bir market kurmak için, kurmak istediğiniz marketin menüsünde Market Install'i seçin. Piyasa kurulmamışsa, önce onu kurmalısınız.",
+                "updated": 1645356732034
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "RU",
                     "text": "Для получения подробной информации, пожалуйста, следуйте руководству Install New Market в рабочем пространстве Getting Started.",
                     "updated": 1640279589056
+                },
+                {
+                    "language": "TR",
+                    "text": "Ayrıntılar için lütfen Başlarken Çalışma Alanındaki ( Workspace ) Yeni Pazar Kur öğreticisini ( New Market tutorial ) izleyin.",
+                    "updated": 1645356793163
                 }
             ]
         }

@@ -46,8 +46,8 @@
             },
             {
                 "language": "TR",
-                "text": "Veri madenciliğine başlamadan önce size küçük bir sorum var: binance.com'da mı, binance.us'ta mı işlem yapıyorsunuz yoksa hiçbirinde mi?",
-                "updated": 1635582493156
+                "text": "Veri madenciliğine başlamadan önce size küçük bir sorum var: binance.com'da mı, binance.us'ta mı işlem yapıyorsunuz yoksa başka bir borsada mı?",
+                "updated": 1644849407918
             }
         ],
         "updated": 1622189667210
@@ -188,8 +188,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Yapılandırmaya (Configure) erişin ve kod adını \"binanceus\" olarak değiştirin. Fare işaretçisini yapılandırma balonunun dışına çıkarın, otomatik olarak kapanacak ve kaydedilecektir.",
-                    "updated": 1635582755655
+                    "text": "Yapılandırmaya (Configure) erişin ve kod adını \"binanceus\" olarak değiştirin. Düzenleyiciden çıkın, yaptığınız değişiklikler otomatik olarak kaydedilecektir. ",
+                    "updated": 1644849595878
                 }
             ]
         },

@@ -4,37 +4,86 @@
     "type": "Bittrex Test Status",
     "definition": {
         "text": "Bittrex passed all tests.",
-        "updated": 1637964636009
+        "updated": 1637964636009,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Bittrex прошла все тесты.",
+                "updated": 1646902563857
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Properties",
-            "updated": 1615143100216
+            "updated": 1615143100216,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сведения",
+                    "updated": 1646902570381
+                }
+            ]
         },
         {
             "style": "List",
             "text": "1-min OHLCVs Capability: Yes. The ability to fetch historic data for backtesting purposes has been verified.",
-            "updated": 1634135432569
+            "updated": 1634135432569,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "1-минутные свечи OHLCV: Да. Возможность получения исторических данных для целей бэктестинга была проверена.",
+                    "updated": 1646902593472
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Market History: Tested from 2020-01-01",
-            "updated": 1634135568527
+            "updated": 1634135568527,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "История рынка: Проверено с 2020-01-01",
+                    "updated": 1646902603200
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Trading Capability [**]: Yes. The ability to run strategies in live-trading mode has been verified.",
-            "updated": 1637964666144
+            "updated": 1637964666144,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Возможность торговли [**]: Да. Возможность запуска стратегий в режиме реальной торговли была проверена.",
+                    "updated": 1646902611519
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Comments: KYC needed before using the platform. Google Authenticator needed to create API keys",
-            "updated": 1637964814435
+            "updated": 1637964814435,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Комментарии: Перед использованием платформы необходимо провести KYC. Google Authenticator необходим для создания ключей API",
+                    "updated": 1646902621184
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1646902627453
+                }
+            ]
         },
         {
             "style": "Json",

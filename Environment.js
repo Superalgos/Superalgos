@@ -1,5 +1,6 @@
 const path = require("path")
 
+let basePath
 if (process.env.PACKAGED_PATH) {
     basePath = process.env.PACKAGED_PATH
 } else {
@@ -52,13 +53,26 @@ exports.newEnvironment = function () {
         TASK_SERVER_TARGET_NETWORK_TYPE: 'P2P Network',
         TASK_SERVER_TARGET_NETWORK_CODENAME: 'Testnet',
         DESKTOP_DEFAULT_SOCIAL_PERSONA: 'Social-Persona-1',
-        DESKTOP_DEFAULT_SOCIAL_TRADING_BOT: 'Social-Trading-Bot-1'
+        DESKTOP_DEFAULT_SOCIAL_TRADING_BOT: 'Social-Trading-Bot-1',
+        NPM_NEEDED_VERSION: '5',
+        NODE_NEEDED_VERSION: '12',
+        GIT_NEEDED_VERSION: '2',
+        EXTERNAL_SCRIPTS: [
+            'https://code.jquery.com/jquery-3.6.0.js',
+            'https://code.jquery.com/ui/1.13.0/jquery-ui.js'
+        ]
     }
 
     if (process.env.DATA_PATH) {
         thisObject.PATH_TO_DATA_STORAGE = path.join(process.env.DATA_PATH, '/Superalgos_Data/My-Data-Storage')
         thisObject.PATH_TO_LOG_FILES = path.join(process.env.DATA_PATH, '/Superalgos_Data/My-Log-Files')
         thisObject.PATH_TO_MY_WORKSPACES = path.join(process.env.DATA_PATH, '/Superalgos_Data/My-Workspaces')
+    }
+
+    for (const envVariable in thisObject) {
+        if (thisObject[envVariable] === undefined) {
+            throw new Error(`Environment variable ${envVariable} is not defined`)
+        }
     }
 
     return thisObject

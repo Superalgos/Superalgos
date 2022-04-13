@@ -272,7 +272,7 @@ function newFoundationsCodeEditorEditorPage() {
                  * }
                  *
                  */
-                let bots = node.sensorBots.concat(node.apiDataFetcherBots).concat(node.indicatorBots)
+                let bots = node.sensorBots.concat(node.apiDataFetcherBots).concat(node.indicatorBots).concat(node.studyBots)
 
                 bots.forEach(bot => {
                     let products = bot.products

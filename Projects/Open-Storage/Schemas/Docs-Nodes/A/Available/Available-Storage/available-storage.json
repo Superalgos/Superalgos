@@ -22,6 +22,11 @@
             "style": "List",
             "text": "Social Persona",
             "updated": 1643982149657
+        },
+        {
+            "style": "Success",
+            "text": "More than one open storage location can be defined for a particular bot or personal. This allows for a user to set up redundant locations to ensure uninterrupted availability to the stored data.",
+            "updated": 1647054334041
         }
     ]
 }

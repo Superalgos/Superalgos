@@ -117,5 +117,30 @@
                 }
             }
         ]
+    },
+    {
+        "name": "Contributions",
+        "propertyName": "contributions",
+        "systemMenu": [
+            {
+                "label": "Contribute all changes",
+                "action": {
+                    "name": "contributeAll"
+                }
+            },
+            {
+                "label": "Update App",
+                "action": {
+                    "name": "update"
+                }
+            },
+            {
+                "label": "Reset Local Repository",
+                "action": {
+                    "name": "reset"
+                } 
+                
+            }
+        ]
     }
 ]

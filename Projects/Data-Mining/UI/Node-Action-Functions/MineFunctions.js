@@ -70,6 +70,7 @@ function newDataMiningFunctionLibraryMineFunctions() {
         scanBotArray(dataMine.sensorBots)
         scanBotArray(dataMine.apiDataFetcherBots)
         scanBotArray(dataMine.indicatorBots)
+        scanBotArray(dataMine.studyBots)
         scanBotArray(dataMine.tradingBots)
         scanBotArray(dataMine.portfolioBots)
         scanBotArray(dataMine.learningBots)

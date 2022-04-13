@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Docs Page Name - это не только название страницы, отображаемое в качестве основного заголовка вверху, но и уникальный идентификатор страницы в проекте Project.",
                 "updated": 1638460986853
+            },
+            {
+                "language": "TR",
+                "text": "Dokümanlar Sayfa Adı, yalnızca en üstte ana başlık olarak görüntülenen bir sayfanın görünen adı değil, aynı zamanda bir Proje (Project) içindeki bir sayfanın benzersiz tanımlayıcısıdır.",
+                "updated": 1646208148114
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "RU",
                     "text": "Название страницы всегда указывается в качестве основного заголовка страницы, и никакие две страницы не могут иметь одинаковое имя.",
                     "updated": 1638461041771
+                },
+                {
+                    "language": "TR",
+                    "text": "Sayfa adı her zaman sayfanın ana başlığı olarak gösterilir ve aynı ada sahip iki sayfa olamaz.",
+                    "updated": 1646208175568
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "RU",
                     "text": "Важно помнить вышесказанное во время присвоения названия странице. В качестве названия страницы всегда следует использовать однозначное описательное название.",
                     "updated": 1638461202992
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir sayfaya isim verirken yukarıdakileri hatırlamak önemlidir. Bir sayfanın adı olarak her zaman açıklayıcı bir ad kullanmalısınız.",
+                    "updated": 1646208203734
                 }
             ]
         },
@@ -71,6 +86,11 @@
                     "language": "RU",
                     "text": "На этом этапе название страницы нельзя изменить в интерфейсе документов. Чтобы изменить название страницы, вам необходимо вручную изменить соответствующий файл, отредактировав поле типа и правильно сопоставив название страницы с именем файла.",
                     "updated": 1638461297941
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu noktada sayfanın adı Docs arayüzünden değiştirilemez. Sayfanın adını değiştirmek için ilgili dosyayı manuel olarak değiştirmeniz, tür alanını düzenlemeniz ve sayfanın adını dosya adına uygun şekilde eşleştirmeniz gerekir.",
+                    "updated": 1646208242345
                 }
             ]
         },

@@ -36,6 +36,11 @@
                 "language": "RU",
                 "text": "У каждого из нас есть свои предпочитаемые биржи... давайте немного поговорим о том, как Superalgos работает с ними и какие из них вы можете использовать...",
                 "updated": 1640875212461
+            },
+            {
+                "language": "ID",
+                "text": "Kita semua memiliki exchanges pilihan kita... mari kita bicara sedikit tentang bagaimana Superalgos berurusan dengan mereka dan exchanges mana yang dapat kamu gunakan...",
+                "updated": 1645559672939
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "RU",
                     "text": "Superalgos использует CCXT, библиотеку с открытым исходным кодом, предлагающую стандарт для API-коммуникаций бирж. Система работает с биржами, соответствующими этому стандарту:",
                     "updated": 1640875273571
+                },
+                {
+                    "language": "ID",
+                    "text": "Superalgos menggunakan CCXT, open-source library yang mengusulkan standar untuk pertukaran API comms. Sistem bekerja dengan pertukaran yang sesuai dengan standar :",
+                    "updated": 1645559710405
                 }
             ]
         },
@@ -83,6 +93,11 @@
                     "language": "DE",
                     "text": "Liste der Börsen, die sich zur Einhaltung von CCXT verpflichtet haben ->github.com/ccxt/ccxt/wiki/Exchange-Markets?r=Superalgos",
                     "updated": 1634589471287
+                },
+                {
+                    "language": "ID",
+                    "text": "Daftar Exchanges yang Menjanjikan Kepatuhan dengan CCXT->github.com/ccxt/ccxt/wiki/Exchange-Markets?r=Superalgos",
+                    "updated": 1645562801470
                 }
             ]
         },
@@ -117,6 +132,11 @@
                     "language": "RU",
                     "text": "Однако одного присутствия в списке недостаточно! Многие биржи на самом деле не соответствуют требованиям! В результате в сообществе ведется работа по тестированию бирж и документированию того, какие из них и как можно использовать с Superalgos! Эта тема есть в документации, где описываются эти усилия. Посмотрите в TOC, чтобы найти, какие биржи были протестированы и в какой степени.",
                     "updated": 1640875422649
+                },
+                {
+                    "language": "ID",
+                    "text": "Namun, Masuk kedalam daftar saja tidak cukup! Banyak exchanges tidak benar-benar patuh! Akibatnya, ada upaya komunitas yang berkelanjutan untuk menguji exchanges dan dokumen yang dapat digunakan dengan Superalgos dan bagaimana caranya! Ini adalah topik dalam Docs yang membahas upaya tersebut. Lihatlah TOC untuk menemukan pertukaran mana yang telah diuji dan sejauh mana perkembangannya.",
+                    "updated": 1645562832356
                 }
             ]
         }

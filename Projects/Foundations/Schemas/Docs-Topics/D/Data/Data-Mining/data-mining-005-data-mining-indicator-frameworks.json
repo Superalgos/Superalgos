@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Боты Indicator Bot готовы запускать собственный код или код, предоставленный фреймворком, для выполнения своей работы.",
                 "updated": 1639400664176
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Gösterge Botları, işlerini yapmak için özel kod çalıştırmaya veya bir çerçeve tarafından sağlanan kodu çalıştırmaya hazırdır.",
+                "updated": 1645368203132
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "RU",
                     "text": "Типы реализации индикатора",
                     "updated": 1639400684299
+                },
+                {
+                    "language": "TR",
+                    "text": "Gösterge Uygulama Türleri",
+                    "updated": 1645368236003
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "RU",
                     "text": "Пользовательский код: это означает, что Indicator Bot будет использовать специальный код для обработки всех преобразований данных.",
                     "updated": 1639400726486
+                },
+                {
+                    "language": "TR",
+                    "text": "Özel Kod: Bu, Gösterge Botunun ( Indicator Bot ) tüm veri dönüşümlerini işlemek için özel yapılmış kodu kullanacağı anlamına gelir.",
+                    "updated": 1645368258547
                 }
             ]
         },
@@ -66,6 +81,11 @@
                     "language": "RU",
                     "text": "При запуске пользовательского кода пользователи получают полный контроль над процессом, и нет никаких ограничений на то, что можно сделать с точки зрения манипулирования данными. Компромисс в том, что пользователь должен быть разработчиком.",
                     "updated": 1639400746757
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Özel kod çalıştırırken, kullanıcılar sürecin tam kontrolüne sahiptir ve veri işleme açısından yapılabileceklerin sınırı yoktur. Takas, kullanıcının bir geliştirici olması gerektiğidir.",
+                    "updated": 1645368269726
                 }
             ]
         },
@@ -83,6 +103,11 @@
                     "language": "RU",
                     "text": "Определенный пользовательским интерфейсом: это означает, что Indicator Bot будет основывать свое поведение на определениях в пользовательском интерфейсе, включая доступные фреймворки, а также на фрагментах кода, предоставленных пользователем.",
                     "updated": 1639400834174
+                },
+                {
+                    "language": "TR",
+                    "text": "UI Tanımlı: Bu, Indictor Bot'un davranışını, mevcut çerçeveler dahil olmak üzere UI'deki tanımlara ve ayrıca kullanıcı tarafından sağlanan kod parçacıklarına dayandıracağı anlamına gelir.",
+                    "updated": 1645368306072
                 }
             ]
         },
@@ -100,6 +125,11 @@
                     "language": "RU",
                     "text": "Запустив одну из доступных сред, индикатор может делать мощные вещи, оставляя только задачу написания очень маленького фрагмента кода для преобразования данных. В этом случае гибкость снижается по сравнению с пользовательским кодом, но значительно увеличивается простота разработки.",
                     "updated": 1639400860406
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Mevcut çerçevelerden birini çalıştırarak, bir gösterge, veri dönüşümlerini yapmak için yalnızca çok küçük bir kod parçası yazma görevini bırakırken güçlü şeyler yapabilir. Bu durumda, özel koda kıyasla esneklik azalır, ancak geliştirme kolaylığı büyük ölçüde artar.",
+                    "updated": 1645368323597
                 }
             ]
         },
@@ -116,6 +146,11 @@
                     "language": "RU",
                     "text": "Вам не нужно быть разработчиком, чтобы писать эти фрагменты кода, в большинстве случаев это очень простой код javascript.",
                     "updated": 1639400874213
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bu kod parçacıklarını yazmak için geliştirici olmanıza gerek yoktur, çoğu zaman çok basit javascript kodudur.",
+                    "updated": 1645368337371
                 }
             ]
         },
@@ -133,6 +168,11 @@
                     "language": "RU",
                     "text": "Индикаторы пользовательского кода",
                     "updated": 1639400887417
+                },
+                {
+                    "language": "TR",
+                    "text": "Özel Kod Göstergeleri",
+                    "updated": 1645368384311
                 }
             ]
         },
@@ -149,6 +189,11 @@
                     "language": "RU",
                     "text": "Примеры",
                     "updated": 1639400897350
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnekler",
+                    "updated": 1645368395208
                 }
             ]
         },
@@ -165,6 +210,11 @@
                     "language": "RU",
                     "text": "Эти два индикатора в настоящее время реализованы с помощью специального кода.",
                     "updated": 1639400910468
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu iki gösterge şu anda özel kodla uygulanmaktadır.",
+                    "updated": 1645368408412
                 }
             ]
         },
@@ -182,6 +232,11 @@
                     "language": "RU",
                     "text": "Candles-Volumes: Расположен в  Candles Data Mine.",
                     "updated": 1639400944531
+                },
+                {
+                    "language": "TR",
+                    "text": "Mumlar-Ciltler: Mumlar Veri Madeni'nde ( Data Mine ) bulunur",
+                    "updated": 1645368432076
                 }
             ]
         },
@@ -199,6 +254,11 @@
                     "language": "RU",
                     "text": "Bollinger-Bands: Расположен в Bollinger Data Mine",
                     "updated": 1639400963065
+                },
+                {
+                    "language": "TR",
+                    "text": "Bollinger Bantları: Bollinger Veri Madeninde ( Data Mine ) bulunur",
+                    "updated": 1645368464676
                 }
             ]
         },
@@ -216,6 +276,11 @@
                     "language": "RU",
                     "text": "Как реализовать собственный код",
                     "updated": 1639400972848
+                },
+                {
+                    "language": "TR",
+                    "text": "Özel Kodun Uygulanması",
+                    "updated": 1645368481692
                 }
             ]
         },
@@ -233,6 +298,11 @@
                     "language": "RU",
                     "text": "Способ реализации индикатора пользовательского кода - настроить конфигурацию для определения процесса Process Definition бота с помощью свойства botModule. Это сообщает боту, что для этого индикатора будет использоваться собственный код. Это пример того, как это должно выглядеть:",
                     "updated": 1639401142832
+                },
+                {
+                    "language": "TR",
+                    "text": "Özel Kod Göstergesini uygulamanın yolu, botModule özelliğini kullanarak Bot'un İşlem Tanımı ( Process Definition ) için yapılandırmayı ayarlamaktır. Bu, bota bu Gösterge için kullanılan özel kod olacağını söyler. Bunun, nasıl görünmesi gerektiğine bir örnek:",
+                    "updated": 1645368551293
                 }
             ]
         },
@@ -255,6 +325,11 @@
                     "language": "RU",
                     "text": "Затем вам нужно будет найти файл Project Schema для проекта, которому принадлежит ваш бот. Внутри этого файла вам нужно будет добавить некоторые определения, чтобы система могла загружать ваш новый модуль во время выполнения и позже запускать его, когда пользователи запускают вашего бота, реализованного таким образом.",
                     "updated": 1639401248159
+                },
+                {
+                    "language": "TR",
+                    "text": "Ardından, botunuzun ait olduğu proje için Proje Şema ( Project Schema File ) Dosyasını bulmanız gerekecek. Sistemin yeni modülünüzü çalışma zamanında yükleyebilmesi ve daha sonra kullanıcılar botunuzu bu şekilde çalıştırdığında çalıştırabilmesi için bu dosyanın içine bazı tanımlar eklemeniz gerekecektir.",
+                    "updated": 1645368624852
                 }
             ]
         },
@@ -272,6 +347,11 @@
                     "language": "RU",
                     "text": "Скорее всего, ваш новый бот будет добавлен в проект Superalgos, поэтому вы должны найти файл Project Schema проекта в папке Projects.",
                     "updated": 1639401291725
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Büyük olasılıkla yeni Bot'unuz Superalgos projesine eklenecektir, bu nedenle Proje Şema Dosyasını ( Project Schema File ) Projeler klasöründe bulmalısınız.",
+                    "updated": 1645368708156
                 }
             ]
         },
@@ -289,6 +369,11 @@
                     "language": "RU",
                     "text": "Определение, которое вам нужно будет добавить в файл схемы, должно выглядеть примерно так:",
                     "updated": 1639401313905
+                },
+                {
+                    "language": "TR",
+                    "text": "Şema dosyasına eklemeniz gereken tanım şöyle görünmelidir:",
+                    "updated": 1645368720408
                 }
             ]
         },
@@ -311,6 +396,11 @@
                     "language": "RU",
                     "text": "Наконец, вам нужно будет добавить новый модуль Javascript с вашим кодом в кодовую базу, используя то же имя файла, которое вы определили в файле схемы.",
                     "updated": 1639401337611
+                },
+                {
+                    "language": "TR",
+                    "text": "Son olarak, Schema dosyasında tanımladığınız aynı dosya adını kullanarak kodunuzla birlikte kod tabanına yeni bir Javascript modülü eklemeniz gerekecek.",
+                    "updated": 1645368738585
                 }
             ]
         },
@@ -328,6 +418,11 @@
                     "language": "RU",
                     "text": "Индикаторы, определяемые пользовательским интерфейсом",
                     "updated": 1639403163730
+                },
+                {
+                    "language": "TR",
+                    "text": "Kullanıcı Arayüzü ( UI ) Tanımlı Göstergeler",
+                    "updated": 1645368777418
                 }
             ]
         },
@@ -344,6 +439,11 @@
                     "language": "RU",
                     "text": "В этом случае список длинный, поскольку почти все другие существующие индикаторы были созданы с использованием инфраструктуры и определены в пользовательском интерфейсе с минимальным объемом кода, написанного пользователями, которые их создали.",
                     "updated": 1639403187935
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu durumda liste uzundur, çünkü var olan neredeyse tüm diğer göstergeler bir çerçeve kullanılarak oluşturulmuştur ve onları oluşturan kullanıcılar tarafından yazılan minimum kod miktarıyla kullanıcı arayüzünde ( UI ) tanımlanmıştır.",
+                    "updated": 1645368824760
                 }
             ]
         },
@@ -361,6 +461,11 @@
                     "language": "RU",
                     "text": "Indicator Frameworks ",
                     "updated": 1639403840394
+                },
+                {
+                    "language": "TR",
+                    "text": "Gösterge Çerçeveleri",
+                    "updated": 1645368839961
                 }
             ]
         },
@@ -378,6 +483,11 @@
                     "language": "RU",
                     "text": "Это полный список доступных Indicator Framework.",
                     "updated": 1639405408745
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu, mevcut Gösterge Çerçevelerinin tam listesidir",
+                    "updated": 1645368847850
                 }
             ]
         },
@@ -395,6 +505,11 @@
                     "language": "RU",
                     "text": "From-One-Min-To-Multi-Time-Frame-Daily: Он используется для преобразования одного набора данных из типа One-Min-Daily в Multi-Time-Frame-Daily.",
                     "updated": 1639403528161
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Dakikadan Çok Zamanlı Çerçeveye Günlük ( From-One-Min-To-Multi-Time-Frame-Daily ): Bir Veri Kümesini Bir Dakikalık Günlük türünden Çok Zamanlı Çerçeveli Günlük türüne dönüştürmek için kullanılır.",
+                    "updated": 1645369030047
                 }
             ]
         },
@@ -412,6 +527,11 @@
                     "language": "RU",
                     "text": "From-One-Min-To-Multi-Time-Frame-Market: Он используется для преобразования одного набора данных из типа One-Min-Daily в Multi-Time-Frame-Market.",
                     "updated": 1639403540818
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Dakikadan Çok Zamanlı Çerçeve Pazarına ( From-One-Min-To-Multi-Time-Frame-Market ): Bir Veri Kümesini Tek Dakikalık Günlük türünden Çok Zamanlı Çerçeve Pazarına dönüştürmek için kullanılır.",
+                    "updated": 1645369052594
                 }
             ]
         },
@@ -429,6 +549,11 @@
                     "language": "RU",
                     "text": "Multi-Time-Frame-Daily: Он используется для обработки данных, доступных в настоящее время в наборе данных типа Multi-Time-Frame-Daily, и производит в качестве выходных данных набор данных того же типа. Как данные будут преобразованы, зависит от пользователя, поскольку в пользовательском интерфейсе пользователи могут предоставить фрагменты кода для обработки преобразования данных в узле Data Building Procedure.",
                     "updated": 1639403724883
+                },
+                {
+                    "language": "TR",
+                    "text": "Çoklu-Zaman-Çerçeve-Günlük (Multi-Time-Frame-Daily ): Şu anda Çoklu-Zaman-Çerçeve-Günlük tipi bir Veri Kümesinde mevcut olan verileri işlemek için kullanılır ve çıktı olarak aynı tipte bir Veri Kümesi üretir. Verilerin nasıl dönüştürüleceği kullanıcıya bağlıdır, çünkü kullanıcı arayüzünde kullanıcılar Veri Oluşturma Prosedürü düğümünde veri dönüşümünü işlemek için kod parçacıkları sağlayabilir.",
+                    "updated": 1645369074063
                 }
             ]
         },
@@ -446,6 +571,11 @@
                     "language": "RU",
                     "text": "Multi-Time-Frame-Market: Он используется для обработки данных, доступных в настоящее время в наборе данных типа Multi-Time-Frame-Market, и производит в качестве выходных данных набор данных того же типа. Как данные будут преобразованы, зависит от пользователя, поскольку в пользовательском интерфейсе пользователи могут предоставить фрагменты кода для обработки преобразования данных в узле  Data Building Procedure.",
                     "updated": 1639403756987
+                },
+                {
+                    "language": "TR",
+                    "text": "Çoklu Zaman Çerçevesi Pazarı ( Multi-Time-Frame-Market ): Çoklu Zaman Çerçevesi Pazarı türündeki bir Veri Kümesinde halihazırda mevcut olan verileri işlemek için kullanılır ve çıktı olarak aynı türde bir Veri Kümesi üretir. Verilerin nasıl dönüştürüleceği kullanıcıya bağlıdır, çünkü kullanıcı arayüzünde kullanıcılar Veri Oluşturma Prosedürü düğümünde veri dönüşümünü işlemek için kod parçacıkları sağlayabilir.",
+                    "updated": 1645369108690
                 }
             ]
         },
@@ -463,6 +593,11 @@
                     "language": "RU",
                     "text": "Как использовать Indicator Framework",
                     "updated": 1639403789186
+                },
+                {
+                    "language": "TR",
+                    "text": "Gösterge Çerçevesi Nasıl Kullanılır",
+                    "updated": 1645369144209
                 }
             ]
         },
@@ -480,6 +615,11 @@
                     "language": "RU",
                     "text": "Чтобы использовать фреймворк в своем Indicator Bot, все, что вам нужно сделать, это указать имя фреймворка в узле Process Definition в свойстве \"framework\".",
                     "updated": 1639405566568
+                },
+                {
+                    "language": "TR",
+                    "text": "Gösterge Botunuzda ( Indicator Bot ) bir çerçeve kullanmak için tek yapmanız gereken çerçeve özelliği altında İşlem Tanımı'nda ( Process Definition ) çerçeve adını belirtmektir.",
+                    "updated": 1645369200879
                 }
             ]
         },
@@ -497,6 +637,11 @@
                     "language": "RU",
                     "text": "В этом примере процесс будет использовать фреймворк From-One-Min-To-Multi-Time-Frame-Daily.",
                     "updated": 1639405601189
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu örnekte, süreç, Bir-Dakikadan-Çok-Zamanlı-Çerçeve-Günlük çerçevesini kullanacaktır.",
+                    "updated": 1645369212416
                 }
             ]
         },
@@ -519,6 +664,11 @@
                     "language": "RU",
                     "text": "Вот пример использования фреймворка Multi-Time-Frame-Market.",
                     "updated": 1639405643669
+                },
+                {
+                    "language": "TR",
+                    "text": "İşte Multi-Time-Frame-Market çerçevesini kullanan bir örnek.",
+                    "updated": 1645369226887
                 }
             ]
         },

@@ -4,37 +4,86 @@
     "type": "Binance-US Test Status",
     "definition": {
         "text": "Binance US is tested for data mining and live trading",
-        "updated": 1616241967855
+        "updated": 1616241967855,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Binance US тестируется на предмет добычи данных и торговли в реальном времени",
+                "updated": 1646900877331
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Properties",
-            "updated": 1615143100216
+            "updated": 1615143100216,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сведения",
+                    "updated": 1646900883497
+                }
+            ]
         },
         {
             "style": "List",
             "text": "1-min OHLCVs Capability: Yes. The ability to fetch historic data for backtesting purposes has been verified",
-            "updated": 1616241978955
+            "updated": 1616241978955,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "1-минутные свечи OHLCV: Да. Возможность получения исторических данных для целей бэктестинга была проверена",
+                    "updated": 1646900927015
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Market History: Starting on Genuary 2020",
-            "updated": 1615210971704
+            "updated": 1615210971704,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "История рынка: Начиная с января 2020 года",
+                    "updated": 1646900942351
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Trading Capability: Yes. The ability to run strategies in live-trading mode has been verified",
-            "updated": 1616241962902
+            "updated": 1616241962902,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Возможность торговли: Да. Возможность запуска стратегий в режиме реальной торговли была проверена",
+                    "updated": 1646900953558
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Comments: Raw Data mining can be slow due to exchange restrictions on their API that limit the number of data it can be requested via Rest API",
-            "updated": 1615205045729
+            "updated": 1615205045729,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Комментарии: Добыча необработанных данных может быть медленной из-за ограничений обмена на их API, которые ограничивают количество данных, которые могут быть запрошены через Rest API.",
+                    "updated": 1646900969320
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1646900975036
+                }
+            ]
         },
         {
             "style": "Json",

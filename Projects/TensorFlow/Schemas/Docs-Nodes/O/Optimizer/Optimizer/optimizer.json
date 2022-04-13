@@ -2,12 +2,26 @@
     "type": "Optimizer",
     "definition": {
         "text": "Optimizers are the extended class, which include added information to train a specific model. The optimizer class is initialized with given parameters but it is important to remember that no Tensor is needed. The optimizers are used for improving speed and performance for training a specific model.",
-        "updated": 1615895635391
+        "updated": 1615895635391,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Оптимизаторы - это расширенный класс, который содержит дополнительную информацию для обучения конкретной модели. Класс Optimizer инициализируется с заданными параметрами, но важно помнить, что тензор не нужен. Оптимизаторы используются для повышения скорости и производительности обучения конкретной модели.",
+                "updated": 1645249168776
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "Right click and select the pencil button to enter edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
+                    "updated": 1645249173679
+                }
+            ]
         }
     ]
 }

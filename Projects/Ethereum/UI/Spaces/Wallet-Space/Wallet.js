@@ -143,7 +143,7 @@ function newEthereumWalletSpace() {
                     }
                 }
             } catch (err) {
-                console.log('[ERROR] checkBalances -> err = ' + err.stack)
+                console.log((new Date()).toISOString(), '[ERROR] checkBalances -> err = ' + err.stack)
             }
         }
     }

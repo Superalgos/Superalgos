@@ -178,7 +178,7 @@ exports.newAlgorithmicTradingBotModulesTradingPosition = function (processIndex)
         tradingEngine.tradingCurrent.position.takeProfit.takeProfitPhase.value = phase
     }
 
-    function initialTargets(tradingSystemStageNode, tradingEngineStageNode, stageName) {
+    function initialTargets(tradingSystemStageNode, tradingEngineStageNode) {
 
         if (tradingSystemStageNode.initialTargets === undefined) {
             const message = 'Initial Targets Node Missing'
@@ -194,7 +194,7 @@ exports.newAlgorithmicTradingBotModulesTradingPosition = function (processIndex)
         }
 
         setTargetRate()
-        return setTargetSize(stageName)
+        return setTargetSize()
 
         function setTargetRate() {
             if (tradingSystemStageNode.initialTargets.targetRate === undefined) {
@@ -262,7 +262,7 @@ exports.newAlgorithmicTradingBotModulesTradingPosition = function (processIndex)
             }
         }
 
-        function setTargetSize(stageName) {
+        function setTargetSize() {
             /* Basic Validation */
             if (
                 tradingSystemStageNode.initialTargets.targetSizeInBaseAsset !== undefined &&
@@ -298,9 +298,6 @@ exports.newAlgorithmicTradingBotModulesTradingPosition = function (processIndex)
                         badDefinitionUnhandledException(undefined, message, tradingSystemStageNode.initialTargets.targetSizeInBaseAsset, docs)
                     }
                     if (value === 0) {
-                        if (stageName === 'Close Stage') {
-                            return false;
-                        }
                         const message = 'Target Size Value Zero'
 
                         let docs = {
@@ -310,7 +307,14 @@ exports.newAlgorithmicTradingBotModulesTradingPosition = function (processIndex)
                             placeholder: {}
                         }
 
-                        badDefinitionUnhandledException(undefined, message, tradingSystemStageNode.initialTargets.targetSizeInBaseAsset, docs)
+                        tradingSystem.addWarning(
+                            [
+                                [tradingSystemStageNode.initialTargets.targetSizeInBaseAsset.id],
+                                message,
+                                docs
+                            ]
+                        )
+                        return false
                     }
 
                     switch (tradingSystemStageNode.type) {
@@ -370,7 +374,14 @@ exports.newAlgorithmicTradingBotModulesTradingPosition = function (processIndex)
                             placeholder: {}
                         }
 
-                        badDefinitionUnhandledException(undefined, message, tradingSystemStageNode.initialTargets.targetSizeInQuotedAsset, docs)
+                        tradingSystem.addWarning(
+                            [
+                                [tradingSystemStageNode.initialTargets.targetSizeInQuotedAsset.id],
+                                message,
+                                docs
+                            ]
+                        )
+                        return false
                     }
                     switch (tradingSystemStageNode.type) {
                         case 'Open Stage': {

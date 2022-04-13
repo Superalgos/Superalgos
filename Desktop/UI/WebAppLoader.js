@@ -119,14 +119,14 @@ function newWebAppLoader() {
 
                             }
                         } catch (err) {
-                            console.log('[ERROR] loadModules -> onRequired -> err = ' + err.stack)
+                            console.log((new Date()).toISOString(), '[ERROR] loadModules -> onRequired -> err = ' + err.stack)
                         }
                     }
                 }
             }
 
         } catch (err) {
-            console.log('[ERROR] loadModules -> err = ' + err.stack)
+            console.log((new Date()).toISOString(), '[ERROR] loadModules -> err = ' + err.stack)
         }
     }
 }

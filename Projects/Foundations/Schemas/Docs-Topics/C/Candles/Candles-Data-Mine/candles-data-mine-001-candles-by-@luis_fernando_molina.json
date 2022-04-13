@@ -10,6 +10,16 @@
                 "language": "DE",
                 "text": "Die Candles Data Mine enthält den Exchange Raw Data Sensor Bot und den Candles Volumes Indicator Bot.",
                 "updated": 1641732014067
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Candles Veri Madeni'nde şunlar bulunur,Değişim Ham Veri Sensör Botu (Exchange Raw Data Sensor Bot) ve Mum Hacimleri Gösterge Botu (Candles Volumes Indicator Bot).",
+                "updated": 1644500390348
+            },
+            {
+                "language": "RU",
+                "text": "Candles Data Mine включает в себя Exchange Raw Data Sensor Bot и Candles Volumes Indicator Bot.",
+                "updated": 1645606598719
             }
         ]
     },

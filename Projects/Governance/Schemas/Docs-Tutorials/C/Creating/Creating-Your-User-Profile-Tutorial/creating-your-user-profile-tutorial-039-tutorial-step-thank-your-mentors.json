@@ -25,6 +25,11 @@
                 "language": "DE",
                 "text": "Mentoren sind entscheidend für die Entwicklung von Contributors. Sie sind die Menschen, die die Extrameile gehen, um Ihnen zu helfen, Fortschritte zu machen und Superalgos zu meistern!",
                 "updated": 1640081859049
+            },
+            {
+                "language": "TR",
+                "text": "Mentorlar, Katkıda Bulunanları geliştirmek için çok önemlidir. Onlar, ilerlemenize ve Superalgos'ta ustalaşmanıza yardımcı olmak için ekstra yol kat eden insanlardır!",
+                "updated": 1645102045242
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "DE",
                     "text": "Das Mentorship Program ist dem Support Program sehr ähnlich, nur dass Ihre Mentoren keine Moderatoren sein müssen. Es kann Ihr Freund sein, der Superalgos mit Ihnen lernt, oder jedes andere Community Mitglied!",
                     "updated": 1640081902923
+                },
+                {
+                    "language": "TR",
+                    "text": "Mentorluk Programı (Mentorship Program), Destek Programına (Support Program) çok benzer, ancak mentorlarınızın moderatör olması gerekmez. Sizinle Superalgos öğrenen bir arkadaşınız veya başka bir Topluluk üyesi olabilir!",
+                    "updated": 1645102094486
                 }
             ]
         },
@@ -72,6 +82,11 @@
                     "language": "DE",
                     "text": "Setze das Programm ein, und erkläre deine Mentoren!",
                     "updated": 1640081910957
+                },
+                {
+                    "language": "TR",
+                    "text": "Programı uygulayın ve akıl hocalarınızı ilan edin!",
+                    "updated": 1645102125343
                 }
             ]
         },
@@ -95,6 +110,11 @@
                     "language": "DE",
                     "text": "Damit haben Sie die Einrichtung der wichtigsten Governance-Programme für Neueinsteiger abgeschlossen! Jetzt ist es an der Zeit, Ihr Benutzerprofil zum Superalgos-Repository beizutragen!",
                     "updated": 1640081918820
+                },
+                {
+                    "language": "TR",
+                    "text": "Bununla yeni gelenlere yönelik ana Yönetim Programlarının (Governance Programs) kurulumunu tamamladınız! Şimdi Kullanıcı Profilinizi Superalgos deposuna gönderme zamanı!",
+                    "updated": 1645102891410
                 }
             ]
         }

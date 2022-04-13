@@ -20,8 +20,13 @@
             },
             {
                 "language": "RU",
-                "text": "Docs - это пространство в проекте Superalgos. Он позволяет пользователям искать информацию относительно узлов, концепций, тем, руководств, обзоров и книг.",
-                "updated": 1638457173451
+                "text": "Docs - это пространство в рамках проекта Foundations. Оно позволяет пользователям искать информацию по узлам, концепциям, темам, учебникам, обзорам и книгам.",
+                "updated": 1647781093549
+            },
+            {
+                "language": "TR",
+                "text": "Dokümanlar, Foundation Project içinde bir Alan'dır. Kullanıcıların düğümler, kavramlar, konular, öğreticiler, incelemeler ve kitaplarla ilgili bilgileri aramasına olanak tanır.",
+                "updated": 1646205526218
             }
         ]
     },

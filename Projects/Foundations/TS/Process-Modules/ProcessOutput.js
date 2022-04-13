@@ -25,6 +25,9 @@
 
                     let botNode = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Indicator Bot')
                     if (botNode === undefined) { 
+                        botNode = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Study Bot')
+                    }
+                    if (botNode === undefined) { 
                         botNode = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Trading Bot')
                     }
                     if (botNode === undefined) {

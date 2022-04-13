@@ -1,48 +1,125 @@
 {
     "type": "Slack Bot",
     "definition": {
-        "text": "The Slack Bot node is used for defining the configuration for a Slack Bot. This bot allows Superalgos to send announcements to a Slack channel or Direct Message. Use the Getting Started guide in the Slack API Documentation for more details."
+        "text": "The Slack Bot node is used for defining the configuration for a Slack Bot. This bot allows Superalgos to send announcements to a Slack channel or Direct Message. Use the Getting Started guide in the Slack API Documentation for more details.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Slack Bot используется для определения конфигурации Slack Bot. Этот бот позволяет Superalgos отправлять объявления в канал Slack или прямые сообщения. Для получения более подробной информации воспользуйтесь руководством по началу работы в документации Slack API.",
+                "updated": 1645193948180
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "In order to use the Slack Bot, follow the Slack API documentation to create a new app. Edit the App Manifest and add chat:write to the oauth_config > scopes > bot section."
+            "text": "In order to use the Slack Bot, follow the Slack API documentation to create a new app. Edit the App Manifest and add chat:write to the oauth_config > scopes > bot section.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы использовать Slack Bot, следуйте документации Slack API для создания нового приложения. Отредактируйте App Manifest и добавьте chat:write в раздел oauth_config > scopes > bot.",
+                    "updated": 1645193976490
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Parameters:"
+            "text": "Parameters:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Параметры:",
+                    "updated": 1645193982860
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "- token - required - Get this from the Oauth & Permissions menu in the Slack app configuration page."
+            "text": "- token - required - Get this from the Oauth & Permissions menu in the Slack app configuration page.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "- token - требуется - Получите его из меню Oauth & Permissions на странице конфигурации приложения Slack.",
+                    "updated": 1645194006499
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "- conversationId - required - the #channel or Conversation ID obtained from Slack"
+            "text": "- conversationId - required - the #channel or Conversation ID obtained from Slack",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "- conversationId - требуется - идентификатор канала или беседы, полученный из Slack",
+                    "updated": 1645194053492
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "- format - optional - allows custom formatting of the message being sent into Discord."
+            "text": "- format - optional - allows custom formatting of the message being sent into Discord.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "- format - опционально - позволяет настроить форматирование сообщения, отправляемого в Discord.",
+                    "updated": 1645194065101
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Recognized Format Variables:"
+            "text": "Recognized Format Variables:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Распознанные переменные формата:",
+                    "updated": 1645194082390
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "- `%{EXCHANGE}` the exchange which is operating, i.e. Binance"
+            "text": "- `%{EXCHANGE}` the exchange which is operating, i.e. Binance",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "- `%{EXCHANGE}` биржа, которая работает, т.е. Binance",
+                    "updated": 1645194095164
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "- `%{MARKET}` the market which is operating. i.e. BTC/USDT"
+            "text": "- `%{MARKET}` the market which is operating. i.e. BTC/USDT",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "- `%{MARKET}` рынок, который работает. т.е. BTC/USDT",
+                    "updated": 1645194107759
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "- `%{MESSAGE}` the text being sent"
+            "text": "- `%{MESSAGE}` the text being sent",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "- `%{MESSAGE}` отправляемый текст",
+                    "updated": 1645194114345
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "An example format is:"
+            "text": "An example format is:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В качестве примера можно привести следующий формат:",
+                    "updated": 1645194123464
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -50,7 +127,14 @@
         },
         {
             "style": "Text",
-            "text": "Which results in a final message in Slack that looks like:"
+            "text": "Which results in a final message in Slack that looks like:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В результате итоговое сообщение в Slack выглядит следующим образом:",
+                    "updated": 1645194131503
+                }
+            ]
         },
         {
             "style": "Javascript",

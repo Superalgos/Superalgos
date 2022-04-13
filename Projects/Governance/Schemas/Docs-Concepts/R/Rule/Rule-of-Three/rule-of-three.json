@@ -2,7 +2,14 @@
     "type": "Rule of Three",
     "definition": {
         "text": "In math, the rule of three is a form that allows the resolution of problems of proportionality between three known values and an unknown. In other words, it is an operation that allows you to find the fourth term with respect to a given proportion.",
-        "updated": 1630142150472
+        "updated": 1630142150472,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "В математике правило трех - это форма, позволяющая решать задачи на пропорциональность между тремя известными величинами и неизвестной. Другими словами, это операция, позволяющая найти четвертый член в заданной пропорции.",
+                "updated": 1645083365808
+            }
+        ]
     },
     "paragraphs": [
         {

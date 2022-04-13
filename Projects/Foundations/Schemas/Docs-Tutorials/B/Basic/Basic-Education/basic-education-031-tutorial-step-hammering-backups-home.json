@@ -36,6 +36,11 @@
                 "language": "RU",
                 "text": "Давайте рассмотрим те же примеры, о которых вы только что прочитали, чтобы вы выучили их наизусть!",
                 "updated": 1640870699527
+            },
+            {
+                "language": "ID",
+                "text": "Mari kita membahas contoh yang sama yang baru saja Anda baca sehingga kamu dapat mempelajari ini dengan hati!",
+                "updated": 1644951040625
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "RU",
                     "text": "Создайте резервную копию задачи Lightning Strike и восстановите ее, не удаляя исходную задачу (Task). Затем повторите операцию, но удалите исходную задачу перед восстановлением резервной копии.",
                     "updated": 1640870770776
+                },
+                {
+                    "language": "ID",
+                    "text": "Buat cadangan dari Lightning Strike Task dan kembalikan tanpa menghapus tugas aslinya. Kemudian ulangi operasi tetapi hapus tugas asli sebelum mengembalikan cadangan.",
+                    "updated": 1644951119843
                 }
             ]
         },
@@ -100,6 +110,11 @@
                     "language": "RU",
                     "text": "Убедитесь, что в обоих случаях сохраняются исходящие ссылки, созданные на узлах Trading System Reference и Trading Engine Reference.",
                     "updated": 1640870791755
+                },
+                {
+                    "language": "ID",
+                    "text": "Terverifikasi bahwa, dalam kedua kasus, outgoing references yang berasal dari Trading System Reference dan node Trading Engine Reference dijaga.",
+                    "updated": 1644951263028
                 }
             ]
         },
@@ -134,6 +149,11 @@
                     "language": "RU",
                     "text": "Помните, что исходящие ссылки всегда сохраняются!",
                     "updated": 1640870803361
+                },
+                {
+                    "language": "ID",
+                    "text": "Ingatlah bahwa outgoing references selalu dijaga!",
+                    "updated": 1644951289519
                 }
             ]
         }

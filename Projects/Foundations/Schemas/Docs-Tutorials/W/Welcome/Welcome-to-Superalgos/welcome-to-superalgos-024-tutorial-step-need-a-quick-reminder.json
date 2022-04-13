@@ -95,8 +95,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Bu konulardan herhangi biri hakkında bir hatırlatmaya ihtiyacınız olursa, herhangi bir Eğitim Konusunu veya Eğitim Adımını tekrar oynatabilirsiniz.",
-                    "updated": 1639142764045
+                    "text": "Bu konulardan biri hakkında bir hatırlatmaya ihtiyacınız olursa, herhangi bir Eğitim Konusunu veya Eğitim Adımını tekrar oynatabilirsiniz.",
+                    "updated": 1644908363400
                 }
             ],
             "updated": 1636910771339
@@ -107,8 +107,8 @@
             "translations": [
                 {
                     "language": "TR",
-                    "text": "Beni tasarım alanının sol alt köşesinde bulabilir, konuların ve adımların hiyerarşisine göz atabilir ve herhangi birinde Oynat'a tıklayabilirsiniz. Konular, ana Öğretici düğümünün sağ tarafından başlayarak saat yönünde düzenlenir.",
-                    "updated": 1639142707800
+                    "text": "Beni tasarım alanının sol alt köşesinde bulabilir, konuların ve adımların hiyerarşisine göz atabilir ve herhangi birinde Oynat'a (Play) tıklayabilirsiniz. Konular, ana Öğretici düğümünün sağ tarafından başlayarak saat yönünde düzenlenir.",
+                    "updated": 1644908382276
                 },
                 {
                     "language": "RU",
@@ -160,8 +160,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "\"Hızlı Bir Hatırlatıcıya mı ihtiyacınız var?\" Bu adımı aşağıdaki \"Öğreticiler ve Yardım\" başlığı altında bulun. Ardından Durdur'a tıklayın ve söz konusu Eğitim Adımında ( Tutorial Step ) Oynat'a tıklayarak yeniden başlatın!",
-                    "updated": 1635953298548
+                    "text": "\"Hızlı Bir Hatırlatıcıya mı ihtiyacınız var?\" Bu adımı aşağıdaki \"Tutorials\" başlığı altında bulun. Ardından Durdur'a tıklayın ve söz konusu Eğitim Adımında ( Tutorial Step ) Oynat'a tıklayarak yeniden başlatın!",
+                    "updated": 1644908584946
                 }
             ]
         }

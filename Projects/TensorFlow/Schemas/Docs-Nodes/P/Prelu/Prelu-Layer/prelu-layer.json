@@ -2,13 +2,27 @@
     "type": "Prelu Layer",
     "definition": {
         "text": "Parameterized version of a leaky rectified linear unit.",
-        "updated": 1613216882813
+        "updated": 1613216882813,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Параметризованная версия негерметичного выпрямленного линейного блока.",
+                "updated": 1645249508768
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "It Follows ",
-            "updated": 1613216907058
+            "updated": 1613216907058,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Она подчиняется",
+                    "updated": 1645249520396
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -17,11 +31,25 @@
         },
         {
             "style": "List",
-            "text": "Input shape: Arbitrary. Use the configuration inputShape when using this layer as the first layer in a model."
+            "text": "Input shape: Arbitrary. Use the configuration inputShape when using this layer as the first layer in a model.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Input shape: Произвольный. Используйте конфигурацию inputShape при использовании этого слоя в качестве первого слоя в модели.",
+                    "updated": 1645249528511
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Output shape: Same shape as the input."
+            "text": "Output shape: Same shape as the input.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Output shape: Та же форма, что и у входа.",
+                    "updated": 1645249535370
+                }
+            ]
         }
     ]
 }

@@ -63,7 +63,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                 )
 
                 if (p2pNetwork === undefined) {
-                    console.log('[WARN] P2P Network Plugin could not be loadded into memory: ' + p2pNetworkPlugin.name)
+                    console.log((new Date()).toISOString(), '[WARN] P2P Network Plugin could not be loadded into memory: ' + p2pNetworkPlugin.name)
                     continue
                 }
 
@@ -98,7 +98,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                 )
 
                 if (userProfile === undefined) {
-                    console.log('[WARN] User Profile Plugin could not be loadded into memory: ' + userProfilePlugin.name)
+                    console.log((new Date()).toISOString(), '[WARN] User Profile Plugin could not be loadded into memory: ' + userProfilePlugin.name)
                     continue
                 }
 

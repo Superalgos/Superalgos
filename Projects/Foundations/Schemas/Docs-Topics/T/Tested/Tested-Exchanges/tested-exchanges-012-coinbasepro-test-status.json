@@ -4,37 +4,86 @@
     "type": "CoinbasePro Test Status",
     "definition": {
         "text": "Coinbase Pro is not fully tested for data mining nor for live trading.",
-        "updated": 1616005773803
+        "updated": 1616005773803,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Coinbase Pro не полностью протестирован ни для добычи данных, ни для торговли в реальном времени.",
+                "updated": 1646902738633
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Properties",
-            "updated": 1615143100216
+            "updated": 1615143100216,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сведения",
+                    "updated": 1646902746175
+                }
+            ]
         },
         {
             "style": "List",
             "text": "1-min OHLCVs Capability: Yes. Backtesting and Paper trading are functional. The data mining process is extremely slow when retrieving full history due to API limits but it is adequate for live trading purposes.",
-            "updated": 1617935711274
+            "updated": 1617935711274,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "1-минутные свечи OHLCV: Да. Резервное тестирование и бумажная торговля функционируют. Процесс поиска данных чрезвычайно медленный при получении полной истории из-за ограничений API, но он достаточен для целей реальной торговли.",
+                    "updated": 1646902792406
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Market History: Full extent is unknown, however the sensor bot start from 2021-05-01 even through set date is 2020-01-01",
-            "updated": 1634126300339
+            "updated": 1634126300339,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "История рынка: Полный объем неизвестен, однако сенсорный бот начинает свою работу с 2021-05-01, даже если дата установки 2020-01-01",
+                    "updated": 1646902809456
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Trading Capability: Partial. With a proper key configuration placing orders is possible. Currently, closing orders is not fully functional, so all types of trading strategies may not be fully functional.",
-            "updated": 1617935811860
+            "updated": 1617935811860,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Возможность торговли: Частичная. При правильной конфигурации ключей размещение ордеров возможно. В настоящее время закрытие ордеров не полностью функционально, поэтому все типы торговых стратегий могут быть не полностью функциональны.",
+                    "updated": 1646902822701
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Comments: Raw Data fetching extremely slow due to API restrictions, see config.",
-            "updated": 1616005813658
+            "updated": 1616005813658,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Комментарии: Получение необработанных данных происходит очень медленно из-за ограничений API, см. конфигурацию.",
+                    "updated": 1646902832289
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Exchange Configuration"
+            "text": "Exchange Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1646902847765
+                }
+            ]
         },
         {
             "style": "Json",
@@ -43,7 +92,14 @@
         },
         {
             "style": "Title",
-            "text": "API Key Configuration"
+            "text": "API Key Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация ключа API",
+                    "updated": 1646902858351
+                }
+            ]
         },
         {
             "style": "Json",

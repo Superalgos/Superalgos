@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Этот раздел стадии открытия Open Stage обрабатывает логику и приказы, используемые для входа в позицию Position.",
                 "updated": 1639830936979
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Açık Aşamanın ( Open Stage ) bu bölümü, bir Pozisyon ( Position ) girmek için kullanılan mantığı ve emirleri ele alır.",
+                "updated": 1647850234378
             }
         ]
     },
@@ -17,7 +22,14 @@
         {
             "style": "Title",
             "text": "Open Execution",
-            "updated": 1610187698287
+            "updated": 1610187698287,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Açık Yürütme ( Open Execution )",
+                    "updated": 1647850280583
+                }
+            ]
         },
         {
             "style": "Include",
@@ -45,7 +57,14 @@
         },
         {
             "style": "Title",
-            "text": "Execution Algorithm"
+            "text": "Execution Algorithm",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yürütme Algoritması",
+                    "updated": 1647850325024
+                }
+            ]
         },
         {
             "style": "Include",
@@ -60,7 +79,14 @@
         {
             "style": "Title",
             "text": "Market Buy Order",
-            "updated": 1610187970840
+            "updated": 1610187970840,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Piyasa Alım Emri ( Market Buy Order )",
+                    "updated": 1647850377733
+                }
+            ]
         },
         {
             "style": "Include",
@@ -75,7 +101,14 @@
         {
             "style": "Title",
             "text": "Market Sell Order",
-            "updated": 1610187985806
+            "updated": 1610187985806,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Piyasa Satış Emri ( Market Sell Order )",
+                    "updated": 1647850441283
+                }
+            ]
         },
         {
             "style": "Include",
@@ -90,7 +123,14 @@
         {
             "style": "Title",
             "text": "Limit Buy Order",
-            "updated": 1610188013160
+            "updated": 1610188013160,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Limit Satın Alma Emiri ( Limit Buy Order )",
+                    "updated": 1647850558303
+                }
+            ]
         },
         {
             "style": "Include",
@@ -105,7 +145,14 @@
         {
             "style": "Title",
             "text": "Limit Sell Order",
-            "updated": 1610188029692
+            "updated": 1610188029692,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Limit Satış Emri ( Limit Sell Order )",
+                    "updated": 1647850543630
+                }
+            ]
         },
         {
             "style": "Include",

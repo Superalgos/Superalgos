@@ -93,7 +93,7 @@
                             break
                         }
                         case 'Forecast Client Manager': {
-                            managerResponse = thisObject.forecastClientsManager.onMessageReceived(clientData.message)
+                            managerResponse = thisObject.forecastClientsManager.onMessageReceived(clientData.message, clientData.userProfile, clientData.clientInstanceName)
                             break
                         }
                     }

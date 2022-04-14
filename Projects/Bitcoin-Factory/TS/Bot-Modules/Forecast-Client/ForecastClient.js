@@ -6,7 +6,7 @@
         forecastCasesArray: undefined,
         utilities: undefined,
         initialize: initialize,
-        finalize: finalize, 
+        finalize: finalize,
         start: start
     }
 
@@ -32,7 +32,7 @@
             thisObject.utilities.initialize()
 
             loadForecastCasesFile()
-            
+
             function loadForecastCasesFile() {
                 let fileContent = thisObject.utilities.loadFile(global.env.PATH_TO_BITCOIN_FACTORY + "/Forecast-Client/StateData/ForecastCases/Forecast-Cases-Array-" + BOT_CONFIG.networkCodeName + ".json")
                 if (fileContent !== undefined) {
@@ -40,7 +40,7 @@
                 } else {
                     thisObject.forecastCasesArray = []
                 }
-            }            
+            }
 
             callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
         } catch (err) {
@@ -131,7 +131,7 @@
         return new Promise(promiseWork)
 
         async function promiseWork(resolve, reject) {
- 
+
             let message = {
                 type: 'Get Next Forecast Case'
             }
@@ -199,7 +199,7 @@
                     let thisForecastCase = response.data.serverData.response
                     resolve(thisForecastCase)
                 } else {
-                    reject('This Forecast Case is not available.')
+                    reject(response.data.serverData.response)
                 }
             }
             async function onError(err) {
@@ -373,8 +373,21 @@
             } else {
                 console.log((new Date()).toISOString(), 'Forcast case ' + forecastCase.id + ' expired.', 'Reforecasting now.')
                 await reforecast(forecastCase)
-
-                logQueue(forecastCase)
+                    .then(onSuccess)
+                    .catch(onError)
+                async function onSuccess() {
+                    logQueue(forecastCase)
+                }
+                async function onError(err) {
+                    if (err === 'THIS FORECAST CASE IS NOT AVAILABLE ANYMORE') {
+                        console.log((new Date()).toISOString(), 'Removing Case Id ' + forecastCase.id + ' from our records.')
+                        thisObject.forecastCasesArray.splice(i, 1)
+                        i--
+                        saveForecastCasesFile()
+                    } else {
+                        console.log((new Date()).toISOString(), 'Some problem at the Test Server prevented the forcasting of Case Id ' + forecastCase.id + ' . Server responded with: ' + err)
+                    }
+                }
             }
         }
         reforecasting = false
@@ -393,63 +406,73 @@
     }
 
     async function reforecast(forecastCase) {
-        await getThisForecastCase(forecastCase)
-            .then(onSuccess)
-            .catch(onError)
-        async function onSuccess(thisForecastCase) {
-            if (thisForecastCase !== undefined) {
-                SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Forecast-Client/notebooks/parameters.csv", thisForecastCase.files.parameters)
-                SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Forecast-Client/notebooks/time-series.csv", thisForecastCase.files.timeSeries)
+        return new Promise(promiseWork)
 
-                thisForecastCase.modelName = "MODEL-" + thisForecastCase.id
+        async function promiseWork(resolve, reject) {
+            await getThisForecastCase(forecastCase)
+                .then(onSuccess)
+                .catch(onError)
+            async function onSuccess(thisForecastCase) {
+                if (thisForecastCase !== undefined) {
+                    SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Forecast-Client/notebooks/parameters.csv", thisForecastCase.files.parameters)
+                    SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Forecast-Client/notebooks/time-series.csv", thisForecastCase.files.timeSeries)
 
-                let newTimeSeriesHash = thisObject.utilities.hash(thisForecastCase.files.timeSeries)
-                if (newTimeSeriesHash === forecastCase.timeSeriesHash) {
-                    console.log((new Date()).toISOString(), 'The file provided by the Test Server is the same we already have.', 'Retrying the forcasting of case ' + thisForecastCase.id + ' in 60 seconds...')
-                    return
-                }
+                    thisForecastCase.modelName = "MODEL-" + thisForecastCase.id
 
-                await useModel(thisForecastCase)
-                    .then(onSuccess)
-                    .catch(onError)
-                async function onSuccess(forecastResult) {
-                    thisForecastCase.files = undefined
+                    let newTimeSeriesHash = thisObject.utilities.hash(thisForecastCase.files.timeSeries)
+                    if (newTimeSeriesHash === forecastCase.timeSeriesHash) {
+                        console.log((new Date()).toISOString(), 'The file provided by the Test Server is the same we already have.', 'Retrying the forcasting of case ' + thisForecastCase.id + ' in 60 seconds...')
+                        reject('The same file that we already made a prediction with.')
+                        return
+                    }
 
-                    if (forecastResult !== undefined) {
-                        forecastResult.id = thisForecastCase.id
-                        forecastResult.caseIndex = thisForecastCase.caseIndex
-                        await setForecastCaseResults(forecastResult, 'clientInstanceForecaster')
-                            .then(onSuccess)
-                            .catch(onError)
-                        async function onSuccess(response) {
-                            let bestPredictions = JSON.parse(response.data.serverData.response)
-                            console.log(' ')
-                            console.log('Best Crowd-Sourced Predictions:')
-                            console.table(bestPredictions)
-                            /*
-                            Recalculate the expiration, timestamp, hash and save.
-                            */
-                            forecastCase.expiration = thisObject.utilities.getExpiration(forecastCase)
-                            forecastCase.timestamp = (new Date()).valueOf()
-                            forecastCase.timeSeriesHash = thisObject.utilities.hash(newTimeSeriesHash)
+                    await useModel(thisForecastCase)
+                        .then(onSuccess)
+                        .catch(onError)
+                    async function onSuccess(forecastResult) {
+                        thisForecastCase.files = undefined
 
-                            saveForecastCasesFile()
+                        if (forecastResult !== undefined) {
+                            forecastResult.id = thisForecastCase.id
+                            forecastResult.caseIndex = thisForecastCase.caseIndex
+                            await setForecastCaseResults(forecastResult, 'clientInstanceForecaster')
+                                .then(onSuccess)
+                                .catch(onError)
+                            async function onSuccess(response) {
+                                let bestPredictions = JSON.parse(response.data.serverData.response)
+                                console.log(' ')
+                                console.log('Best Crowd-Sourced Predictions:')
+                                console.table(bestPredictions)
+                                /*
+                                Recalculate the expiration, timestamp, hash and save.
+                                */
+                                forecastCase.expiration = thisObject.utilities.getExpiration(forecastCase)
+                                forecastCase.timestamp = (new Date()).valueOf()
+                                forecastCase.timeSeriesHash = thisObject.utilities.hash(newTimeSeriesHash)
 
-                        }
-                        async function onError(err) {
-                            console.log((new Date()).toISOString(), 'Failed to send a Report to the Test Server with the Forecast Case Results and get a Reward for that. Err:', err, 'Retrying in 60 seconds...')
+                                saveForecastCasesFile()
+                                resolve()
+
+                            }
+                            async function onError(err) {
+                                console.log((new Date()).toISOString(), 'Failed to send a Report to the Test Server with the Forecast Case Results and get a Reward for that. Err:', err, 'Retrying in 60 seconds...')
+                                reject(err)
+                            }
                         }
                     }
+                    async function onError(err) {
+                        console.log((new Date()).toISOString(), 'Failed to produce a Forecast for Case Id ' + forecastCase.id + '. Err:', err)
+                        reject(err)
+                    }
+                } else {
+                    console.log((new Date()).toISOString(), 'Nothing to Forecast', 'Retrying in 60 seconds...')
+                    reject('Nothing to Forecast')
                 }
-                async function onError(err) {
-                    console.log((new Date()).toISOString(), 'Failed to produce a Forecast for Case Id ' + forecastCase.id + '. Err:', err)
-                }
-            } else {
-                console.log((new Date()).toISOString(), 'Nothing to Forecast', 'Retrying in 60 seconds...')
             }
-        }
-        async function onError(err) {
-            console.log((new Date()).toISOString(), 'Failed to get the Forecast Case Id ' + forecastCase.id + '. Err:', err)
+            async function onError(err) {
+                console.log((new Date()).toISOString(), 'Failed to get the Forecast Case Id ' + forecastCase.id + '. Err:', err)
+                reject(err)
+            }
         }
     }
 

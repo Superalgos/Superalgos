@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Как создать гибкую и масштабируемую ферму криптотрейдинга под управлением Superalgos, распределенную на нескольких машинах.",
                 "updated": 1640351665465
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Birden fazla makineye dağıtılmış Superalgos çalıştıran esnek ve ölçeklenebilir bir kripto ticaret çiftliği nasıl kurulur.",
+                "updated": 1649923766689
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Введение",
                     "updated": 1640351675777
+                },
+                {
+                    "language": "TR",
+                    "text": "Giriş",
+                    "updated": 1649923787305
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Superalgos предназначен для скоординированных, гибких и масштабируемых торговых операций.",
                     "updated": 1640351691594
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos, koordineli, esnek ve ölçeklenebilir ticaret operasyonları için tasarlanmıştır.",
+                    "updated": 1649923799982
                 }
             ]
         },
@@ -51,6 +66,11 @@
                     "language": "RU",
                     "text": "Сеть Network, представленная иерархией LAN Network Hierarchy, - это просто определение, которое позволяет системе знать, где должны выполняться задачи и где размещаются данные. На любом рабочем пространстве вы можете определить одну или даже несколько иерархий LAN Network Hierarchy. Для простоты мы продолжим объяснение, предполагая, что определена только одна сеть.",
                     "updated": 1640351833339
+                },
+                {
+                    "language": "TR",
+                    "text": "LAN Network Hiyerarşisi ( LAN Network Hierarchy ) tarafından temsil edilen bir Ağ, sistem görevlerinin nerede çalıştırılması gerektiğini ve verilerin nerede barındırıldığını bilmesini sağlayan bir tanımdır. Herhangi bir çalışma alanında, bir veya birden fazla LAN Ağı Hiyerarşisi tanımlayabilirsiniz. Basit olması için, yalnızca bir Ağın tanımlandığını varsayarak açıklamaya devam edeceğiz.",
+                    "updated": 1649923931593
                 }
             ]
         },
@@ -63,6 +83,11 @@
                     "language": "RU",
                     "text": "В своей нынешней версии система может быть развернута на нескольких машинах - сколько угодно - и каждая машина может представлять собой узел в сети узлов. На самом деле, в одной компьютерной сети могут существовать различные сети узлов, поскольку они являются лишь абстракцией, а не чем-то физическим.",
                     "updated": 1640351862940
+                },
+                {
+                    "language": "TR",
+                    "text": "Mevcut versiyonda, sistem birden fazla makinede (istendiği kadar) konuşlandırılabilir ve her makine bir düğümler ağında bir düğüm oluşturabilir. Aslında, farklı düğüm ağları aynı bilgisayar ağı içinde yaşayabilir, çünkü bunlar sadece birer soyutlamadır, fiziksel bir şey değil.",
+                    "updated": 1649924200916
                 }
             ]
         },
@@ -74,6 +99,11 @@
                     "language": "RU",
                     "text": "Назначение",
                     "updated": 1640351877820
+                },
+                {
+                    "language": "TR",
+                    "text": "Amaç",
+                    "updated": 1649924227241
                 }
             ]
         },
@@ -86,6 +116,11 @@
                     "language": "RU",
                     "text": "Вся цель определения сети заключается в том, чтобы система знала, где должна выполняться каждая задача и где находятся данные.",
                     "updated": 1640363459771
+                },
+                {
+                    "language": "TR",
+                    "text": "Ağ tanımının tüm amacı, sistemin her bir görevin nerede çalışması gerektiğini ve verilerin nerede bulunduğunu bilmesini sağlamaktır.",
+                    "updated": 1649924230694
                 }
             ]
         },
@@ -97,6 +132,11 @@
                     "language": "RU",
                     "text": "Клиент Superalgos может стать узлом в определении сети, если вы настроите узел сети с IP и портами определенного клиента Superalgos.",
                     "updated": 1640363480436
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bir Superalgos İstemcisi, belirli bir Superalgos İstemcisinin IP'si ve bağlantı noktalarıyla bir Ağ Düğümü yapılandırırsanız, Ağ tanımında bir düğüm olabilir.",
+                    "updated": 1649924253303
                 }
             ]
         },
@@ -109,6 +149,11 @@
                     "language": "RU",
                     "text": "Организация",
                     "updated": 1640363495830
+                },
+                {
+                    "language": "TR",
+                    "text": "Organizasyon",
+                    "updated": 1649924307155
                 }
             ]
         },
@@ -121,6 +166,11 @@
                     "language": "RU",
                     "text": "Вы можете по-разному организовать задачи для нескольких клиентов. Это действительно зависит от вас. Систему это не волнует, и у нее нет предпочтительного для вас способа сделать это. Ей просто нужно знать, где выполняется каждая задача и где находятся данные. Вот и все.",
                     "updated": 1640363523276
+                },
+                {
+                    "language": "TR",
+                    "text": "Görevleri birkaç İstemcide organize etmek isteyebileceğiniz birçok farklı yol vardır. Bu gerçekten size kalmış. Sistem bunu umursamıyor veya sizin için tercih ettiğiniz bir yol yok. Sadece her bir Görevin nerede çalıştığını ve Verilerin nerede olduğunu bilmesi gerekir. Bu kadar.",
+                    "updated": 1649924332163
                 }
             ]
         },
@@ -132,6 +182,11 @@
                     "language": "RU",
                     "text": "Каждый узел в сети может специализироваться на одном типе процессов или обрабатывать несколько процессов разных типов.",
                     "updated": 1640363541202
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Ağdaki her düğüm, tek bir işlem tipinde uzmanlaşabilir veya farklı tipte birden çok işlemi işleyebilir.",
+                    "updated": 1649924351278
                 }
             ]
         },
@@ -143,6 +198,11 @@
                     "language": "RU",
                     "text": "Например, у вас может быть набор узлов, выполняющих операции по поиску данных, извлекающих данные с нескольких рынков и нескольких бирж. У вас может быть набор узлов, специализирующихся на обработке индикаторов и технических исследований. И у вас может быть набор узлов, специализирующихся на проведении торговых сессий.",
                     "updated": 1640363564886
+                },
+                {
+                    "language": "TR",
+                    "text": "Örneğin, birden çok pazardan ve birden çok borsadan veri çıkaran veri madenciliği işlemlerini yürüten bir dizi düğümünüz olabilir. Göstergeleri ve teknik çalışmaları işleme konusunda uzmanlaşmış bir dizi düğümünüz olabilir. Ve işlem seanslarını yürütmek konusunda uzmanlaşmış bir dizi düğümünüz olabilir.",
+                    "updated": 1649924380404
                 }
             ]
         },
@@ -154,6 +214,11 @@
                     "language": "RU",
                     "text": "Вы также можете использовать различные критерии для организации сети. Например, у вас может быть узел, выполняющий комбинированные операции по поиску данных, обработке данных и торговле на одной бирже или рынке, и другие узлы, выполняющие аналогичные комбинированные операции на других биржах или рынках.",
                     "updated": 1640363590580
+                },
+                {
+                    "language": "TR",
+                    "text": "Ağı düzenlemek için farklı kriterler de kullanabilirsiniz. Örneğin, tek bir borsa veya pazarda birleşik veri madenciliği, veri işleme ve alım satım işlemleri yürüten bir düğümünüz ve diğer borsalarda veya pazarlarda benzer birleşik işlemler yürüten diğer düğümleriniz olabilir.",
+                    "updated": 1649924412212
                 }
             ]
         },
@@ -165,6 +230,11 @@
                     "language": "RU",
                     "text": "Или у вас может быть сеть узлов для тестовой среды и другая сеть узлов для производственной среды.",
                     "updated": 1640363607362
+                },
+                {
+                    "language": "TR",
+                    "text": "Veya test ortamınız için bir düğüm ağınız ve üretim ortamınız için başka bir düğüm ağınız olabilir.",
+                    "updated": 1649924429221
                 }
             ]
         },
@@ -177,6 +247,11 @@
                     "language": "RU",
                     "text": "Другими словами, система позволяет построить любое расположение сетей узлов, соответствующее организационной логике вашего предпочтения.",
                     "updated": 1640363628972
+                },
+                {
+                    "language": "TR",
+                    "text": "Başka bir deyişle, sistem, tercih ettiğiniz organizasyon mantığına karşılık gelen herhangi bir düğüm ağı düzenlemesi oluşturmaya izin verir.",
+                    "updated": 1649924492459
                 }
             ]
         },
@@ -189,6 +264,11 @@
                     "language": "RU",
                     "text": "Автоматическое отслеживание зависимостей",
                     "updated": 1640363641892
+                },
+                {
+                    "language": "TR",
+                    "text": "Bağımlılıkların Otomatik Takibi",
+                    "updated": 1649924516111
                 }
             ]
         },
@@ -201,6 +281,11 @@
                     "language": "RU",
                     "text": "Когда вы определяете задачу, внутри нее вы ссылаетесь на определение процесса Process Definition, которое в свою очередь содержит определение, указывающее, от каких других процессов она зависит (например, запуск после завершения какого-либо другого процесса), а также имеет зависимости от данных, что означает, что для запуска ей необходимо считывать данные, выводимые другими процессами.",
                     "updated": 1640363717260
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Görev tanımladığınızda, bunun içinde, hangi diğer süreçlere bağlı olduğunu (örneğin, başka bir süreç bittikten sonra başlamak için) belirten bir tanımı olan ve aynı zamanda Veri Bağımlılıkları olan bir Süreç Tanımına ( Process Definition ) atıfta bulunursunuz. çalışabilmesi için diğer işlemlerden gelen veri çıktısını okuması gerekir.",
+                    "updated": 1649924593924
                 }
             ]
         },
@@ -213,6 +298,11 @@
                     "language": "RU",
                     "text": "Все эти определения встроены в Data Mine, Trading Mine и Learning Mine на концептуальном уровне. Это означает, что Data Mine не знает, где на самом деле находятся данные, от которых зависит процесс, или где на самом деле запущен процесс, от которого он зависит. Эта проблема решается во время выполнения задачи.",
                     "updated": 1640363848836
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Tüm bu tanımlar, kavramsal düzeyde Veri Madenleri, Ticaret Madenleri ( Trading Mines ) ve Öğrenme madenleri içinde yerleşiktir. Bu, bir Veri Madeninin ( Data Mines ), bir işlemin bağlı olduğu verinin gerçekte nerede olduğunu veya bağlı olduğu bir işlemin gerçekte nerede çalıştığını gerçekten bilmediği anlamına gelir. Bu sorun, bir Görev yürütüldüğünde çalışma zamanında çözülür.",
+                    "updated": 1649924660806
                 }
             ]
         },
@@ -225,6 +315,11 @@
                     "language": "RU",
                     "text": "Уникальность Superalgos заключается в том, что система отслеживает созданные вами сетевые схемы и гарантирует, что все процессы в системе могут легко отслеживать зависимости в сети. Это означает, например, что торговые сессии, запущенные на узле X, могут получить доступ к данным на узлах Y и Z без необходимости какой-либо настройки.",
                     "updated": 1640363879025
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos'u benzersiz kılan şey, sistemin oluşturduğunuz ağ düzenlemelerini takip etmesi ve sistemdeki tüm süreçlerin ağ üzerindeki bağımlılıkları sorunsuz bir şekilde izleyebilmesini sağlamasıdır. Bu, örneğin, X Düğümünde çalışan ticaret oturumlarının, herhangi bir yapılandırma gerektirmeden Düğüm Y ve Düğüm Z'deki verilere erişebileceği anlamına gelir.",
+                    "updated": 1649924773334
                 }
             ]
         },
@@ -237,13 +332,25 @@
                     "language": "RU",
                     "text": "Это достигается путем отправки только что выполненной Задаче (Task) снимка карты Сети в тот момент, когда Задача выполняется. Из определения Mine задача может знать, от каких процессов и данных она зависит, и, глядя на снимок сети, она может предположить, какой клиент размещает данные или задачи, от которых зависит процесс, что позволяет ей общаться с этими клиентами и получать от них данные или ждать нужных событий, сигнализирующих о завершении зависимого процесса.",
                     "updated": 1640364378870
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu, yeni yürütülen bir Göreve, Görev yürütülürken Ağ Haritasının anlık görüntüsünü göndererek gerçekleştirilir. Maden tanımından Görev, hangi süreçlere ve verilere bağlı olduğunu bilebilir ve Ağın anlık görüntüsüne bakarak, hangi İstemcinin Verileri barındırdığını veya sürecin bağlı olduğu Görevleri tahmin edebilir ve bunlarla iletişim kurmasına izin verebilir. İstemciler ve onlardan verileri alın veya bağımlı işlemin bittiğini gösteren doğru olayları bekleyin.",
+                    "updated": 1649924834165
                 }
             ]
         },
         {
             "style": "Title",
             "text": "Peer to Peer",
-            "updated": 1614354292649
+            "updated": 1614354292649,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Eşler Arası ( Peer to Peer )",
+                    "updated": 1649924879395
+                }
+            ]
         },
         {
             "style": "Text",
@@ -254,6 +361,11 @@
                     "language": "RU",
                     "text": "Нет предпочтительного узла, где можно управлять остальными клиентами.",
                     "updated": 1640364402758
+                },
+                {
+                    "language": "TR",
+                    "text": "İstemcinin geri kalanının yönetileceği tercih edilen bir düğüm yoktur.",
+                    "updated": 1649924890946
                 }
             ]
         },
@@ -266,6 +378,11 @@
                     "language": "RU",
                     "text": "Управление операцией может осуществляться полностью с любого узла сети. Фактически, управление может осуществляться с компьютера в сети, на котором не запущен Superalgos, путем указания браузера на любой из узлов в сети для запуска пользовательского интерфейса UI.",
                     "updated": 1640364540658
+                },
+                {
+                    "language": "TR",
+                    "text": "İşlem tamamen ağdaki herhangi bir düğümden yönetilebilir. Aslında, ağdaki Superalgos çalıştırmayan bir bilgisayardan, tarayıcıyı UI'yi çalıştırmak için ağdaki herhangi bir düğüme işaret ederek yönetilebilir.",
+                    "updated": 1649924917116
                 }
             ]
         },
@@ -277,6 +394,11 @@
                     "language": "RU",
                     "text": "Следующие объяснения предполагают, что вы знакомы с основными принципами работы Superalgos, и в частности с иерархией Network. Если это не так, то, пожалуйста, прочитайте страницы, посвященные Network, прежде чем приступать к созданию торговой фермы.",
                     "updated": 1640364591170
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki açıklamalar, Superalgos'un ve özellikle Ağ hiyerarşisinin temel işleyişine aşina olduğunuzu varsaymaktadır. Durum böyle değilse, lütfen bir ticaret çiftliği kurmaya başlamadan önce Ağ sayfalarını okuyun.",
+                    "updated": 1649924946447
                 }
             ]
         },
@@ -288,6 +410,11 @@
                     "language": "RU",
                     "text": "Безопасность",
                     "updated": 1640364607061
+                },
+                {
+                    "language": "TR",
+                    "text": "Güvenlik",
+                    "updated": 1649924955159
                 }
             ]
         },
@@ -300,6 +427,11 @@
                     "language": "RU",
                     "text": "На данном этапе Superalgos не реализует никаких мер безопасности, поэтому система должна использоваться только в условиях ограниченной локальной сети.",
                     "updated": 1640364622974
+                },
+                {
+                    "language": "TR",
+                    "text": "Uyarı: Bu aşamada Superalgos herhangi bir güvenlik önlemi uygulamamaktadır, bu nedenle sistem yalnızca kısıtlı bir Yerel Alan Ağı bağlamında kullanılmalıdır.",
+                    "updated": 1649924973942
                 }
             ]
         }

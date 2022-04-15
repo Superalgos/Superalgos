@@ -15,6 +15,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
 
     let parametersRanges = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.parametersRanges
     let timeSeriesFileFeatures = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.timeSeriesFile.features
+    let timeSeriesFileLabels = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.timeSeriesFile.labels
 
     console.log((new Date()).toISOString(), 'Working with these Parameter Ranges:')
     console.table(parametersRanges)
@@ -52,7 +53,14 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
             let preParameters = {}
 
             /*
-            Add Time Features to Param Ranges
+            Add Labels to Param Ranges
+            */
+            for (let q = 0; q < timeSeriesFileLabels.length; q++) {
+                let label = timeSeriesFileLabels[q].parameter
+                parametersRanges[label] = timeSeriesFileLabels[q].range
+            }
+            /*
+            Add Features to Param Ranges
             */
             for (let q = 0; q < timeSeriesFileFeatures.length; q++) {
                 let feature = timeSeriesFileFeatures[q].parameter
@@ -132,8 +140,8 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
                 /*
                 Add Time Features to Param Ranges
                 */
-               for (let q = 0; q < timeSeriesFileFeatures.length; q++) {
-                let feature = timeSeriesFileFeatures[q].parameter
+                for (let q = 0; q < timeSeriesFileFeatures.length; q++) {
+                    let feature = timeSeriesFileFeatures[q].parameter
                     parameters[feature] = preParameters[feature]
                 }
 

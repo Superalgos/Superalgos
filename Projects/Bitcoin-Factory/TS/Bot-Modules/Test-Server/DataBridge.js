@@ -11,6 +11,8 @@ exports.newDataBridge = function newDataBridge(processIndex) {
     }
 
     let savedDatasets
+    let timeSeriesFileFeatures = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.timeSeriesFile.features
+    let timeSeriesFileLabels = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.timeSeriesFile.labels
 
     return thisObject
 
@@ -113,6 +115,7 @@ exports.newDataBridge = function newDataBridge(processIndex) {
             */
             let timeSeriesFile = ""
             let objectsMap = new Map()
+            let indicatorsMap = new Map()
             let firstTimestamp
             let lastTimestamp
             let maxTimeFrameValue = 0
@@ -125,7 +128,7 @@ exports.newDataBridge = function newDataBridge(processIndex) {
                 for (let i = 0; i < TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.marketTimeFramesArray.length; i++) {
                     let timeFrameValue = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.marketTimeFramesArray[i][0]
                     let timeFrameLabel = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.marketTimeFramesArray[i][1]
-    
+
                     if (timeFramesToInclude.includes(timeFrameLabel)) {
                         for (let j = 0; j < assetsToInclude.length; j++) {
                             let asset = assetsToInclude[j]
@@ -139,71 +142,75 @@ exports.newDataBridge = function newDataBridge(processIndex) {
                     We will put all the object we find in files at objectsMap to be later retrieved from there.
                     */
                     if (timeFrameValue > maxTimeFrameValue) (maxTimeFrameValue = timeFrameValue)
-    
-                    let candlesFileContent = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.getIndicatorFile(
-                        'Candles',
-                        'Candles-Volumes',
-                        'Candles',
-                        'binance',
-                        asset,
-                        'USDT',
-                        'Multi-Time-Frame-Market',
-                        timeFrameLabel
-                    )
-    
-                    let candlesFile = JSON.parse(candlesFileContent)
+
                     /*
-                    First Candle and last Candle defines the First Timestamp and Last Timestamp
+                    Add Labels  
                     */
-                    firstTimestamp = candlesFile[0][4]
-                    lastTimestamp = candlesFile[candlesFile.length - 1][4]
-    
-                    for (let i = 0; i < candlesFile.length - 1; i++) {
-                        let candleArray = candlesFile[i]
-                        let candle = {
-                            min: candleArray[0],
-                            max: candleArray[1],
-                            open: candleArray[2],
-                            close: candleArray[3],
-                            begin: candleArray[4],
-                            end: candleArray[5]
+                    for (let q = 0; q < timeSeriesFileLabels.length; q++) {
+                        let label = timeSeriesFileLabels[q]
+                        addToObjectMap(label)
+                    }
+                    /*
+                    Add Features 
+                    */
+                    for (let q = 0; q < timeSeriesFileFeatures.length; q++) {
+                        let feature = timeSeriesFileFeatures[q]
+                        addToObjectMap(feature)
+                    }
+
+                    async function addToObjectMap(featuresOrLabelsObject) {
+
+                        let indicatorKey = featuresOrLabelsObject.dataMine + '-' + featuresOrLabelsObject.indicator + '-' + featuresOrLabelsObject.product
+                        let indicatorAlreadyProcessed = indicatorsMap.get(indicatorKey)
+                        if (indicatorAlreadyProcessed !== undefined) { return }
+
+                        let candlesFileContent = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.getIndicatorFile(
+                            featuresOrLabelsObject.dataMine,
+                            featuresOrLabelsObject.indicator,
+                            featuresOrLabelsObject.product,
+                            'binance',
+                            asset,
+                            'USDT',
+                            'Multi-Time-Frame-Market',
+                            timeFrameLabel
+                        )
+
+                        let indicatorFile = JSON.parse(candlesFileContent)
+
+                        if (featuresOrLabelsObject.product === "Candles") {
+                            /*
+                            First Candle and last Candle defines the First Timestamp and Last Timestamp
+                            */
+                            firstTimestamp = indicatorFile[0][4]
+                            lastTimestamp = indicatorFile[indicatorFile.length - 1][4]
                         }
-    
-                        let key = asset + "-" + "candle" + "-" + timeFrameLabel + "-" + candle.begin
-                        objectsMap.set(key, candle)
-    
-                        if (i === candlesFile.length - 2 && mainTimeFrame === timeFrameLabel && mainAsset === asset) {
-                            forcastedCandle = {
-                                begin: candle.begin,
-                                end: candle.end,
-                                open: candle.close
+
+                        for (let i = 0; i < indicatorFile.length - 1; i++) {
+                            let objectArray = indicatorFile[i]
+                            let object = {
+                                min: objectArray[0],
+                                max: objectArray[1],
+                                open: objectArray[2],
+                                close: objectArray[3],
+                                begin: objectArray[4],
+                                end: objectArray[5]
+                            }
+
+                            let key = asset + "-" + featuresOrLabelsObject.objectName + "-" + timeFrameLabel + "-" + object.begin
+                            objectsMap.set(key, object)
+
+                            if (featuresOrLabelsObject.product === "Candles") {
+                                if (i === indicatorFile.length - 2 && mainTimeFrame === timeFrameLabel && mainAsset === asset) {
+                                    forcastedCandle = {
+                                        begin: candle.begin,
+                                        end: candle.end,
+                                        open: candle.close
+                                    }
+                                }
                             }
                         }
-                    }
-    
-                    let volumesFileContent = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.getIndicatorFile(
-                        'Candles',
-                        'Candles-Volumes',
-                        'Volumes',
-                        'binance',
-                        asset,
-                        'USDT',
-                        'Multi-Time-Frame-Market',
-                        timeFrameLabel
-                    )
-    
-                    let volumesFile = JSON.parse(volumesFileContent)
-    
-                    for (let i = 0; i < volumesFile.length - 1; i++) {
-                        let volumeArray = volumesFile[i]
-                        let volume = {
-                            total: volumeArray[0] + volumeArray[1],
-                            begin: volumeArray[2],
-                            end: volumeArray[3]
-                        }
-    
-                        let key = asset + "-" + "volume" + "-" + timeFrameLabel + "-" + volume.begin
-                        objectsMap.set(key, volume)
+
+                        indicatorsMap.set(indicatorKey, true)
                     }
                 }
             }
@@ -227,11 +234,11 @@ exports.newDataBridge = function newDataBridge(processIndex) {
 
                             for (let j = 0; j < assetsToInclude.length; j++) {
                                 let asset = assetsToInclude[j]
-                                addToFile(asset, timeFrameValue, timeFrameLabel, 'Labels')
+                                addToFile(asset, timeFrameValue, timeFrameLabel, timeSeriesFileLabels)
                             }
                             for (let j = 0; j < assetsToInclude.length; j++) {
                                 let asset = assetsToInclude[j]
-                                addToFile(asset, timeFrameValue, timeFrameLabel, 'Features')
+                                addToFile(asset, timeFrameValue, timeFrameLabel, timeSeriesFileFeatures)
                             }
                         }
                     }
@@ -262,7 +269,7 @@ exports.newDataBridge = function newDataBridge(processIndex) {
 
                     timestamp = timestamp + maxTimeFrameValue
 
-                    function addToFile(asset, timeFrameValue, timeFrameLabel, featuresOrLabels) {
+                    function addToFile(asset, timeFrameValue, timeFrameLabel, featuresOrLabelsObjects) {
                         /*
                         This is the procedure that adds only all objects.
                         */
@@ -272,67 +279,44 @@ exports.newDataBridge = function newDataBridge(processIndex) {
 
                         for (let i = 0; i < maxObjectsToAdd; i++) {
                             keyTimestamp = timestamp + i * timeFrameValue
-                            /*
-                            Candles
-                            */
-                            let candleKey = asset + "-" + "candle" + "-" + timeFrameLabel + "-" + keyTimestamp
-                            let candle = objectsMap.get(candleKey)
 
-                            if (candle === undefined) {
-                                candle = {
-                                    min: 0,
-                                    max: 0,
-                                    open: 0,
-                                    close: 0,
-                                    begin: 0,
-                                    end: 0
-                                }
-                            }
-                            /*
-                            Volumes
-                            */
-                            let volumeKey = asset + "-" + "volume" + "-" + timeFrameLabel + "-" + keyTimestamp
-                            let volume = objectsMap.get(volumeKey)
+                            iterateOverFeaturesOrLabels()
 
-                            if (volume === undefined) {
-                                volume = {
-                                    total: 0,
-                                    begin: 0,
-                                    end: 0
-                                }
-                            }
-                            /*
-                            Create a new Output Record to be saved at the output file
-                            */
-                            if (candle.max !== 0 && candle.min !== 0 && candle.open !== 0) {
+                            function iterateOverFeaturesOrLabels() {
 
-                                switch (featuresOrLabels) {
-                                    case 'Features': {
-                                        let subRecord =
-                                            "   " + candle.open +
-                                            "   " + candle.close +
-                                            "   " + volume.total
+                                let subRecord = ""
 
-                                        subRecords.push(subRecord)
+                                for (let j = 0; j < featuresOrLabelsObjects.length; j++) {
+                                    let propertyName = featuresOrLabelsObjects[j].propertyName
+                                    let objectName = featuresOrLabelsObjects[j].objectName
 
-                                        header = header +
-                                            "   " + asset + "-" + "candle.open" + "-" + timeFrameLabel + "-" + (i + 1) +
-                                            "   " + asset + "-" + "candle.close" + "-" + timeFrameLabel + "-" + (i + 1) +
-                                            "   " + asset + "-" + "volume.total" + "-" + timeFrameLabel + "-" + (i + 1)
-                                        break
+                                    let objectKey = asset + "-" + propertyName + "-" + timeFrameLabel + "-" + keyTimestamp
+                                    let object = objectsMap.get(objectKey)
+
+                                    if (object === undefined) {
+                                        object = {
+                                            min: 0,
+                                            max: 0,
+                                            open: 0,
+                                            close: 0,
+                                            begin: 0,
+                                            end: 0
+                                        }
                                     }
-                                    case 'Labels': {
-                                        let subRecord =
-                                            "   " + candle.max +
-                                            "   " + candle.min
-
-                                        subRecords.push(subRecord)
-
-                                        header = header +
-                                            "   " + asset + "-" + "candle.max" + "-" + timeFrameLabel + "-" + (i + 1) +
-                                            "   " + asset + "-" + "candle.min" + "-" + timeFrameLabel + "-" + (i + 1)
-                                        break
+                                    if (objectName === 'candle' && (object.max === 0 || object.min === 0 || object.open === 0)) {
+                                        /* We will discard records where these candle properties are zero */
+                                        return
                                     }
+
+                                    subRecord = subRecord +
+                                        "   " + object[propertyName]
+
+                                    header = header +
+                                        "   " + asset + "-" + objectName + "." + propertyName + + "-" + timeFrameLabel + "-" + (i + 1)
+                                }
+
+                                if (subRecord !== "") {
+                                    subRecords.push(subRecord)
                                 }
                             }
                         }

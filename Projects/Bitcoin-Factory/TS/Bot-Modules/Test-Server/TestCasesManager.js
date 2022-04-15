@@ -14,7 +14,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
     const REPORT_NAME = networkCodeName + '-' + (new Date()).toISOString().substring(0, 16).replace("T", "-").replace(":", "-").replace(":", "-") + '-00'
 
     let parametersRanges = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.parametersRanges
-    let timeBasedFeatures = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.timeBasedFeatures
+    let timeSeriesFileFeatures = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.timeSeriesFile.features
 
     console.log((new Date()).toISOString(), 'Working with these Parameter Ranges:')
     console.table(parametersRanges)
@@ -54,9 +54,9 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
             /*
             Add Time Features to Param Ranges
             */
-            for (let q = 0; q < timeBasedFeatures.length; q++) {
-                let timeFeature = timeBasedFeatures[q]
-                parametersRanges[timeFeature] = ['ON', 'OFF']
+            for (let q = 0; q < timeSeriesFileFeatures.length; q++) {
+                let feature = timeSeriesFileFeatures[q].parameter
+                parametersRanges[feature] = timeSeriesFileFeatures[q].range
             }
             /*
             Generate Cases based on Param Ranges
@@ -132,9 +132,9 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
                 /*
                 Add Time Features to Param Ranges
                 */
-                for (let q = 0; q < timeBasedFeatures.length; q++) {
-                    let timeFeature = timeBasedFeatures[q]
-                    parameters[timeFeature] = preParameters[timeFeature]
+               for (let q = 0; q < timeSeriesFileFeatures.length; q++) {
+                let feature = timeSeriesFileFeatures[q].parameter
+                    parameters[feature] = preParameters[feature]
                 }
 
                 return parameters

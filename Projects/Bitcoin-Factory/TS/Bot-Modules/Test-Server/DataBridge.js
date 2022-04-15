@@ -117,11 +117,11 @@ exports.newDataBridge = function newDataBridge(processIndex) {
             let lastTimestamp
             let maxTimeFrameValue = 0
 
-            addTimeFramesAndAssets()
+            await addTimeFramesAndAssets()
             createFileContent()
             saveTimeSeriesFile()
 
-            function addTimeFramesAndAssets() {
+            async function addTimeFramesAndAssets() {
                 for (let i = 0; i < TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.marketTimeFramesArray.length; i++) {
                     let timeFrameValue = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.marketTimeFramesArray[i][0]
                     let timeFrameLabel = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.marketTimeFramesArray[i][1]
@@ -135,7 +135,9 @@ exports.newDataBridge = function newDataBridge(processIndex) {
                 }
 
                 async function addMarketFile(asset, timeFrameValue, timeFrameLabel) {
-
+                    /*
+                    We will put all the object we find in files at objectsMap to be later retrieved from there.
+                    */
                     if (timeFrameValue > maxTimeFrameValue) (maxTimeFrameValue = timeFrameValue)
     
                     let candlesFileContent = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.getIndicatorFile(
@@ -209,7 +211,9 @@ exports.newDataBridge = function newDataBridge(processIndex) {
             function createFileContent() {
                 let timestamp = firstTimestamp
                 let headerAdded = false
-
+                /*
+                Loop thorugh all the possible time slots, based on the main dependency that are candles.
+                */
                 while (timestamp <= lastTimestamp) {
                     let maxSubRecords = 0
                     let subRecords = []

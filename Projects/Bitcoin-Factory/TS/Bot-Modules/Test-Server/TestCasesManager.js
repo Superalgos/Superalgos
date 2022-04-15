@@ -14,6 +14,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
     const REPORT_NAME = networkCodeName + '-' + (new Date()).toISOString().substring(0, 16).replace("T", "-").replace(":", "-").replace(":", "-") + '-00'
 
     let parametersRanges = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.parametersRanges
+    let timeBasedFeatures = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.timeBasedFeatures
 
     console.log((new Date()).toISOString(), 'Working with these Parameter Ranges:')
     console.table(parametersRanges)
@@ -29,7 +30,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
         }
 
         async function loadTestCasesFile() {
-            let fileContent = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.loadFile( global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/StateData/TestCases/Test-Cases-Array-" + networkCodeName + ".json")
+            let fileContent = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.loadFile(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/StateData/TestCases/Test-Cases-Array-" + networkCodeName + ".json")
             if (fileContent === undefined) {
                 thisObject.testCasesArray = []
                 thisObject.testCasesMap = new Map()
@@ -49,45 +50,49 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
 
         function generateTestCases() {
             let preParameters = {}
-            for (let i = 0; i < parametersRanges.LIST_OF_ASSETS.length; i++) {
-                preParameters.LIST_OF_ASSETS = parametersRanges.LIST_OF_ASSETS[i]
+            addParamRangesRecursively(0)
+            return
 
-                for (let j = 0; j < parametersRanges.LIST_OF_TIMEFRAMES.length; j++) {
-                    preParameters.LIST_OF_TIMEFRAMES = parametersRanges.LIST_OF_TIMEFRAMES[j]
+            function addParamRangesRecursively(index) {
+                let propertyName = Object.keys(parametersRanges)[index]
+                if (propertyName !== undefined) {
+                    for (let i = 0; i < parametersRanges[propertyName].length; i++) {
+                        preParameters[propertyName] = parametersRanges[propertyName][i]
+                        addParamRangesRecursively(index + 1)
+                    }                    
+                } else {
+                    let parameters = getTestParameters(preParameters)
+                    let parametersHash = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.hash(JSON.stringify(parameters))
+                    let testCase = {
+                        id: thisObject.testCasesArray.length + 1,
+                        mainAsset: preParameters.LIST_OF_ASSETS[0],
+                        mainTimeFrame: preParameters.LIST_OF_TIMEFRAMES[0],
+                        parameters: parameters,
+                        parametersHash: parametersHash,
+                        status: 'Never Tested'
+                    }
 
-                    for (let k = 0; k < parametersRanges.NUMBER_OF_LAG_TIMESTEPS.length; k++) {
-                        preParameters.NUMBER_OF_LAG_TIMESTEPS = parametersRanges.NUMBER_OF_LAG_TIMESTEPS[k]
-
-                        for (let m = 0; m < parametersRanges.PERCENTAGE_OF_DATASET_FOR_TRAINING.length; m++) {
-                            preParameters.PERCENTAGE_OF_DATASET_FOR_TRAINING = parametersRanges.PERCENTAGE_OF_DATASET_FOR_TRAINING[m]
-
-                            for (let n = 0; n < parametersRanges.NUMBER_OF_EPOCHS.length; n++) {
-                                preParameters.NUMBER_OF_EPOCHS = parametersRanges.NUMBER_OF_EPOCHS[n]
-
-                                for (let p = 0; p < parametersRanges.NUMBER_OF_LSTM_NEURONS.length; p++) {
-                                    preParameters.NUMBER_OF_LSTM_NEURONS = parametersRanges.NUMBER_OF_LSTM_NEURONS[p]
-
-                                    let parameters = getTestParameters(preParameters)
-                                    let parametersHash = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.hash(JSON.stringify(parameters))
-                                    let testCase = {
-                                        id: thisObject.testCasesArray.length + 1,
-                                        mainAsset: preParameters.LIST_OF_ASSETS[0],
-                                        mainTimeFrame: preParameters.LIST_OF_TIMEFRAMES[0],
-                                        parameters: parameters,
-                                        parametersHash: parametersHash,
-                                        status: 'Never Tested'
-                                    }
-
-                                    let existingTestCase = thisObject.testCasesMap.get(parametersHash)
-                                    if (existingTestCase === undefined) {
-                                        thisObject.testCasesArray.push(testCase)
-                                    }
-                                }
-                            }
-                        }
+                    let existingTestCase = thisObject.testCasesMap.get(parametersHash)
+                    if (existingTestCase === undefined) {
+                        thisObject.testCasesArray.push(testCase)
                     }
                 }
             }
+
+
+            for (const property in parametersRanges) {
+
+            }
+
+
+            for (let q = 0; q < timeBasedFeatures.length; q++) {
+                let timeFeature = timeBasedFeatures[q]
+                preParameters[timeFeature] = 'ON'
+                addParamRanges()
+                preParameters[timeFeature] = 'OFF'
+                addParamRanges()
+            }
+
 
             function getTestParameters(preParameters) {
                 let parameters = {}

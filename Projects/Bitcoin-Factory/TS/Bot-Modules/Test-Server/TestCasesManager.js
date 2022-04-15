@@ -50,8 +50,18 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
 
         function generateTestCases() {
             let preParameters = {}
+
+            /*
+            Add Time Features to Param Ranges
+            */
+            for (let q = 0; q < timeBasedFeatures.length; q++) {
+                let timeFeature = timeBasedFeatures[q]
+                parametersRanges[timeFeature] = ['ON', 'OFF']
+            }
+            /*
+            Generate Cases based on Param Ranges
+            */
             addParamRangesRecursively(0)
-            return
 
             function addParamRangesRecursively(index) {
                 let propertyName = Object.keys(parametersRanges)[index]
@@ -75,24 +85,10 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
                     let existingTestCase = thisObject.testCasesMap.get(parametersHash)
                     if (existingTestCase === undefined) {
                         thisObject.testCasesArray.push(testCase)
+                        thisObject.testCasesMap.set(parametersHash, testCase)
                     }
                 }
             }
-
-
-            for (const property in parametersRanges) {
-
-            }
-
-
-            for (let q = 0; q < timeBasedFeatures.length; q++) {
-                let timeFeature = timeBasedFeatures[q]
-                preParameters[timeFeature] = 'ON'
-                addParamRanges()
-                preParameters[timeFeature] = 'OFF'
-                addParamRanges()
-            }
-
 
             function getTestParameters(preParameters) {
                 let parameters = {}

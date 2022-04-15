@@ -3,6 +3,7 @@ exports.newBitcoinFactoryUtilitiesMiscellaneous = function newBitcoinFacnewBitco
     Utilities functions goes here.
     */
     let thisObject = {
+        getRecordDefinition: getRecordDefinition,
         getUserProfileFilesList: getUserProfileFilesList,
         getUserProfileFile: getUserProfileFile,
         getIndicatorFile: getIndicatorFile,
@@ -52,6 +53,28 @@ exports.newBitcoinFactoryUtilitiesMiscellaneous = function newBitcoinFacnewBitco
 
     }
 
+    function getRecordDefinition(dataMine, indicatorName, productName) {
+        try {
+            for (let i = 0; i < dataMine.indicatorBots.length; i++) {
+                let indicatorBot = dataMine.indicatorBots[i]
+                let config = JSON.parse(indicatorBot.config)
+                if (config.codeName === indicatorName) {
+                    for (let j = 0; j < indicatorBot.products.length; j++) {
+                        let product = indicatorBot.products[j]
+                        let config = JSON.parse(product.config)
+                        if (config.codeName === productName) {
+                            return product.record.properties
+                        }
+                    }
+                }
+            }
+            return []
+        } catch (err) {
+            console.log((new Date()).toISOString(), err.stack)
+            return []
+        }
+    }
+
     function pad(str, max) {
         str = str.toString();
         return str.length < max ? pad("0" + str, max) : str;
@@ -87,7 +110,7 @@ exports.newBitcoinFactoryUtilitiesMiscellaneous = function newBitcoinFacnewBitco
             if (err.code === "ENOENT") {
                 return
             } else {
-                console.log(err.stack)
+                console.log((new Date()).toISOString(), err.stack)
                 throw ('Fatal Exception')
             }
         }

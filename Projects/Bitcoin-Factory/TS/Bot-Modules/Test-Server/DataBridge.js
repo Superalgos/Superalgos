@@ -11,6 +11,8 @@ exports.newDataBridge = function newDataBridge(processIndex) {
     }
 
     let savedDatasets
+    let loadedDataMinesFilesMap
+
     let timeSeriesFileFeatures = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.timeSeriesFile.features
     let timeSeriesFileLabels = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.timeSeriesFile.labels
 
@@ -18,6 +20,7 @@ exports.newDataBridge = function newDataBridge(processIndex) {
 
     function initialize() {
         savedDatasets = new Map()
+        loadedDataMinesFilesMap = new Map()
 
         /*
         Create Missing Folders, if needed.
@@ -41,6 +44,27 @@ exports.newDataBridge = function newDataBridge(processIndex) {
         dir = global.env.PATH_TO_BITCOIN_FACTORY + '/Test-Server/OutputData/TestReports'
         if (!SA.nodeModules.fs.existsSync(dir)) {
             SA.nodeModules.fs.mkdirSync(dir, { recursive: true });
+        }
+        /*
+        Load Data Mines Files
+        */
+        for (let q = 0; q < timeSeriesFileLabels.length; q++) {
+            let label = timeSeriesFileLabels[q]
+            addDataMineFile(label)
+        }
+
+        for (let q = 0; q < timeSeriesFileFeatures.length; q++) {
+            let feature = timeSeriesFileFeatures[q]
+            addDataMineFile(feature)
+        }
+
+        function addDataMineFile(featuresOrLabelsObject) {
+            let dataMine = loadedDataMinesFilesMap.get(featuresOrLabelsObject.dataMine)
+            if (dataMine !== undefined) { return }
+
+            let fileContent = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.loadFile(global.env.PATH_TO_PLUGINS + "/Data-Mining/Data-Mines/" + featuresOrLabelsObject.dataMine + ".json")
+            let dataMine = JSON.parse(fileContent)
+            loadedDataMinesFilesMap.set(featuresOrLabelsObject.dataMine)
         }
     }
 
@@ -185,15 +209,24 @@ exports.newDataBridge = function newDataBridge(processIndex) {
                             lastTimestamp = indicatorFile[indicatorFile.length - 1][4]
                         }
 
+                        let dataMine = loadedDataMinesFilesMap.get(featuresOrLabelsObject.dataMine)
+                        let recordDefinition = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.getRecordDefinition(dataMine, featuresOrLabelsObject.indicator, featuresOrLabelsObject.product)
+
                         for (let i = 0; i < indicatorFile.length - 1; i++) {
                             let objectArray = indicatorFile[i]
-                            let object = {
-                                min: objectArray[0],
-                                max: objectArray[1],
-                                open: objectArray[2],
-                                close: objectArray[3],
-                                begin: objectArray[4],
-                                end: objectArray[5]
+                            let object = {}
+
+                            for (let j = 0; j < recordDefinition.length; j++) {
+                                let recordProperty = recordDefinition[j]
+                                let config
+                                try {
+                                    config = JSON.parse(recordProperty.config)
+                                } catch (err) {
+                                    console.log((new Date()).toISOString(), err.stack)
+                                    continue
+                                }
+                                if (config.isCalculated === true) { continue }
+                                object[config.codeName] = objectArray[j]
                             }
 
                             let key = asset + "-" + featuresOrLabelsObject.objectName + "-" + timeFrameLabel + "-" + object.begin
@@ -292,16 +325,26 @@ exports.newDataBridge = function newDataBridge(processIndex) {
 
                                     let objectKey = asset + "-" + propertyName + "-" + timeFrameLabel + "-" + keyTimestamp
                                     let object = objectsMap.get(objectKey)
-
+             
                                     if (object === undefined) {
-                                        object = {
-                                            min: 0,
-                                            max: 0,
-                                            open: 0,
-                                            close: 0,
-                                            begin: 0,
-                                            end: 0
-                                        }
+
+                                        let dataMine = loadedDataMinesFilesMap.get(featuresOrLabelsObject.dataMine)
+                                        let recordDefinition = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.getRecordDefinition(dataMine, featuresOrLabelsObject.indicator, featuresOrLabelsObject.product)
+                                        /*
+                                        Set all the object properties to ZERO
+                                        */
+                                        for (let j = 0; j < recordDefinition.length; j++) {
+                                            let recordProperty = recordDefinition[j]
+                                            let config
+                                            try {
+                                                config = JSON.parse(recordProperty.config)
+                                            } catch (err) {
+                                                console.log((new Date()).toISOString(), err.stack)
+                                                continue
+                                            }
+                                            if (config.isCalculated === true) { continue }
+                                            object[config.codeName] = 0
+                                        }                                        
                                     }
                                     if (objectName === 'candle' && (object.max === 0 || object.min === 0 || object.open === 0)) {
                                         /* We will discard records where these candle properties are zero */

@@ -52,7 +52,7 @@ exports.newDataBridge = function newDataBridge(processIndex) {
         let mainAsset = testCase.parameters.LIST_OF_ASSETS[0]
         let assetsToInclude = testCase.parameters.LIST_OF_ASSETS
         let timeFramesToInclude = testCase.parameters.LIST_OF_TIMEFRAMES
-        let testCaseId = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.pad(testCase.id, 5)
+        let testCaseId = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.pad(testCase.id, 10)
 
         createParametersFile()
         await createTimeSeriesFile()
@@ -73,18 +73,14 @@ exports.newDataBridge = function newDataBridge(processIndex) {
 
             parametersFile = parametersFile +
                 /* Headers */
-                "PARAMETER" + "   " + "VALUE" + "\r\n" +
-                /* Values */
-                "LIST_OF_ASSETS" + "   " + testCase.parameters.LIST_OF_ASSETS + "\r\n" +
-                "LIST_OF_TIMEFRAMES" + "   " + testCase.parameters.LIST_OF_TIMEFRAMES + "\r\n" +
-                "NUMBER_OF_INDICATORS_PROPERTIES" + "   " + testCase.parameters.NUMBER_OF_INDICATORS_PROPERTIES + "\r\n" +
-                "NUMBER_OF_LAG_TIMESTEPS" + "   " + testCase.parameters.NUMBER_OF_LAG_TIMESTEPS + "\r\n" +
-                "NUMBER_OF_ASSETS" + "   " + testCase.parameters.NUMBER_OF_ASSETS + "\r\n" +
-                "NUMBER_OF_LABELS" + "   " + testCase.parameters.NUMBER_OF_LABELS + "\r\n" +
-                "PERCENTAGE_OF_DATASET_FOR_TRAINING" + "   " + testCase.parameters.PERCENTAGE_OF_DATASET_FOR_TRAINING + "\r\n" +
-                "NUMBER_OF_FEATURES" + "   " + testCase.parameters.NUMBER_OF_FEATURES + "\r\n" +
-                "NUMBER_OF_EPOCHS" + "   " + testCase.parameters.NUMBER_OF_EPOCHS + "\r\n" +
-                "NUMBER_OF_LSTM_NEURONS" + "   " + testCase.parameters.NUMBER_OF_LSTM_NEURONS + "\r\n"
+                "PARAMETER" + "   " + "VALUE" + "\r\n"
+            /* Values */
+            let parameters = Object.keys(testCase.parameters)
+            for (let i = 0; i < parameters.length; i++) {
+                let parameter = parameters[i]
+                parametersFile = parametersFile + parameter + "   " + testCase.parameters[parameter] + "\r\n"
+            }
+
             SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/OutputData/TestData/parameters-" + testCaseId + ".CSV", parametersFile)
 
             if (testCase.filesTimestaps === undefined) {
@@ -121,106 +117,92 @@ exports.newDataBridge = function newDataBridge(processIndex) {
             let lastTimestamp
             let maxTimeFrameValue = 0
 
-            for (let i = 0; i < TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.marketTimeFramesArray.length; i++) {
-                let timeFrameValue = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.marketTimeFramesArray[i][0]
-                let timeFrameLabel = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.marketTimeFramesArray[i][1]
-
-                if (timeFramesToInclude.includes(timeFrameLabel)) {
-                    for (let j = 0; j < assetsToInclude.length; j++) {
-                        let asset = assetsToInclude[j]
-                        await addMarketFile(asset, timeFrameValue, timeFrameLabel)
-                    }
-                }
-            }
-
+            addTimeFramesAndAssets()
             createFileContent()
+            saveTimeSeriesFile()
 
-            /*
-                We will save the file only if it is different from the previous one, and if we do,
-                we will remember the file saved, it's hash and we'll get for it a new expiration time.
-            */
-            let newFileHash = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.hash(timeSeriesFile)
-            if (currentFileHash === undefined || currentFileHash !== newFileHash) {
-
-                SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/OutputData/TestData/" + testCase.timeSeriesFileName + ".CSV", timeSeriesFile)
-                console.log((new Date()).toISOString(), 'Dataset File Saved: ' + testCase.timeSeriesFileName)
-
-                savedDataset = {
-                    fileHash: newFileHash,
-                    forcastedCandle: forcastedCandle,
-                    expiration: TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.getExpiration(testCase)
-                }
-                savedDatasets.set(testCase.timeSeriesFileName, savedDataset)
-            }
-
-            async function addMarketFile(asset, timeFrameValue, timeFrameLabel) {
-
-                if (timeFrameValue > maxTimeFrameValue) (maxTimeFrameValue = timeFrameValue)
-
-                let candlesFileContent = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.getIndicatorFile(
-                    'Candles',
-                    'Candles-Volumes',
-                    'Candles',
-                    'binance',
-                    asset,
-                    'USDT',
-                    'Multi-Time-Frame-Market',
-                    timeFrameLabel
-                )
-
-                let candlesFile = JSON.parse(candlesFileContent)
-                /*
-                First Candle and last Candle defines the First Timestamp and Last Timestamp
-                */
-                firstTimestamp = candlesFile[0][4]
-                lastTimestamp = candlesFile[candlesFile.length - 1][4]
-
-                for (let i = 0; i < candlesFile.length - 1; i++) {
-                    let candleArray = candlesFile[i]
-                    let candle = {
-                        min: candleArray[0],
-                        max: candleArray[1],
-                        open: candleArray[2],
-                        close: candleArray[3],
-                        begin: candleArray[4],
-                        end: candleArray[5]
-                    }
-
-                    let key = asset + "-" + "candle" + "-" + timeFrameLabel + "-" + candle.begin
-                    objectsMap.set(key, candle)
-
-                    if (i === candlesFile.length - 2 && mainTimeFrame === timeFrameLabel && mainAsset === asset) {
-                        forcastedCandle = {
-                            begin: candle.begin,
-                            end: candle.end,
-                            open: candle.close
+            function addTimeFramesAndAssets() {
+                for (let i = 0; i < TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.marketTimeFramesArray.length; i++) {
+                    let timeFrameValue = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.marketTimeFramesArray[i][0]
+                    let timeFrameLabel = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.marketTimeFramesArray[i][1]
+    
+                    if (timeFramesToInclude.includes(timeFrameLabel)) {
+                        for (let j = 0; j < assetsToInclude.length; j++) {
+                            let asset = assetsToInclude[j]
+                            await addMarketFile(asset, timeFrameValue, timeFrameLabel)
                         }
                     }
                 }
 
-                let volumesFileContent = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.getIndicatorFile(
-                    'Candles',
-                    'Candles-Volumes',
-                    'Volumes',
-                    'binance',
-                    asset,
-                    'USDT',
-                    'Multi-Time-Frame-Market',
-                    timeFrameLabel
-                )
+                async function addMarketFile(asset, timeFrameValue, timeFrameLabel) {
 
-                let volumesFile = JSON.parse(volumesFileContent)
-
-                for (let i = 0; i < volumesFile.length - 1; i++) {
-                    let volumeArray = volumesFile[i]
-                    let volume = {
-                        total: volumeArray[0] + volumeArray[1],
-                        begin: volumeArray[2],
-                        end: volumeArray[3]
+                    if (timeFrameValue > maxTimeFrameValue) (maxTimeFrameValue = timeFrameValue)
+    
+                    let candlesFileContent = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.getIndicatorFile(
+                        'Candles',
+                        'Candles-Volumes',
+                        'Candles',
+                        'binance',
+                        asset,
+                        'USDT',
+                        'Multi-Time-Frame-Market',
+                        timeFrameLabel
+                    )
+    
+                    let candlesFile = JSON.parse(candlesFileContent)
+                    /*
+                    First Candle and last Candle defines the First Timestamp and Last Timestamp
+                    */
+                    firstTimestamp = candlesFile[0][4]
+                    lastTimestamp = candlesFile[candlesFile.length - 1][4]
+    
+                    for (let i = 0; i < candlesFile.length - 1; i++) {
+                        let candleArray = candlesFile[i]
+                        let candle = {
+                            min: candleArray[0],
+                            max: candleArray[1],
+                            open: candleArray[2],
+                            close: candleArray[3],
+                            begin: candleArray[4],
+                            end: candleArray[5]
+                        }
+    
+                        let key = asset + "-" + "candle" + "-" + timeFrameLabel + "-" + candle.begin
+                        objectsMap.set(key, candle)
+    
+                        if (i === candlesFile.length - 2 && mainTimeFrame === timeFrameLabel && mainAsset === asset) {
+                            forcastedCandle = {
+                                begin: candle.begin,
+                                end: candle.end,
+                                open: candle.close
+                            }
+                        }
                     }
-
-                    let key = asset + "-" + "volume" + "-" + timeFrameLabel + "-" + volume.begin
-                    objectsMap.set(key, volume)
+    
+                    let volumesFileContent = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.getIndicatorFile(
+                        'Candles',
+                        'Candles-Volumes',
+                        'Volumes',
+                        'binance',
+                        asset,
+                        'USDT',
+                        'Multi-Time-Frame-Market',
+                        timeFrameLabel
+                    )
+    
+                    let volumesFile = JSON.parse(volumesFileContent)
+    
+                    for (let i = 0; i < volumesFile.length - 1; i++) {
+                        let volumeArray = volumesFile[i]
+                        let volume = {
+                            total: volumeArray[0] + volumeArray[1],
+                            begin: volumeArray[2],
+                            end: volumeArray[3]
+                        }
+    
+                        let key = asset + "-" + "volume" + "-" + timeFrameLabel + "-" + volume.begin
+                        objectsMap.set(key, volume)
+                    }
                 }
             }
 
@@ -351,6 +333,26 @@ exports.newDataBridge = function newDataBridge(processIndex) {
                             }
                         }
                     }
+                }
+            }
+
+            function saveTimeSeriesFile() {
+                /*
+                    We will save the file only if it is different from the previous one, and if we do,
+                    we will remember the file saved, it's hash and we'll get for it a new expiration time.
+                */
+                let newFileHash = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.hash(timeSeriesFile)
+                if (currentFileHash === undefined || currentFileHash !== newFileHash) {
+
+                    SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/OutputData/TestData/" + testCase.timeSeriesFileName + ".CSV", timeSeriesFile)
+                    console.log((new Date()).toISOString(), 'Dataset File Saved: ' + testCase.timeSeriesFileName)
+
+                    savedDataset = {
+                        fileHash: newFileHash,
+                        forcastedCandle: forcastedCandle,
+                        expiration: TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.getExpiration(testCase)
+                    }
+                    savedDatasets.set(testCase.timeSeriesFileName, savedDataset)
                 }
             }
         }

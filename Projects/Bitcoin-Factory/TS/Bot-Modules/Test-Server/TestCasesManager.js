@@ -69,7 +69,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
                     for (let i = 0; i < parametersRanges[propertyName].length; i++) {
                         preParameters[propertyName] = parametersRanges[propertyName][i]
                         addParamRangesRecursively(index + 1)
-                    }                    
+                    }
                 } else {
                     let parameters = getTestParameters(preParameters)
                     let parametersHash = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.hash(JSON.stringify(parameters))
@@ -128,6 +128,14 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
                 // hyper-parameters
                 parameters.NUMBER_OF_EPOCHS = preParameters.NUMBER_OF_EPOCHS
                 parameters.NUMBER_OF_LSTM_NEURONS = preParameters.NUMBER_OF_LSTM_NEURONS
+
+                /*
+                Add Time Features to Param Ranges
+                */
+                for (let q = 0; q < timeBasedFeatures.length; q++) {
+                    let timeFeature = timeBasedFeatures[q]
+                    parameters[timeFeature] = preParameters[timeFeature]
+                }
 
                 return parameters
             }

@@ -4,44 +4,107 @@
     "type": "Bitstamp Test Status",
     "definition": {
         "text": "Bitstamp is fully tested for data mining and trading.",
-        "updated": 1615141847424
+        "updated": 1615141847424,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Bitstamp полностью протестирован для добычи данных и торговли.",
+                "updated": 1646902637534
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Properties",
-            "updated": 1615143100216
+            "updated": 1615143100216,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сведения",
+                    "updated": 1646902644269
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "1-min OHLCVs Capability [*]: Yes."
+            "text": "1-min OHLCVs Capability [*]: Yes.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "1-минутные свечи OHLCV [*]: Да.",
+                    "updated": 1646902674114
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Market History: Starting on September 2017.",
-            "updated": 1615142912901
+            "updated": 1615142912901,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "История рынка: Начиная с сентября 2017 года.",
+                    "updated": 1646902682997
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Trading Capability [**]: Yes.",
-            "updated": 1615143016205
+            "updated": 1615143016205,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Возможность торговли [**]: Да.",
+                    "updated": 1646902689415
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Comments: Fully tested. ",
-            "updated": 1615142951363
+            "updated": 1615142951363,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Комментарии: Полностью протестирован.",
+                    "updated": 1646902696663
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "[*] The ability to fetch historic data for backtesting purposes has been verified."
+            "text": "[*] The ability to fetch historic data for backtesting purposes has been verified.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "[*] Возможность получения исторических данных для целей бэктестинга была проверена.",
+                    "updated": 1646902709372
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "[**] The ability to run strategies in live-trading mode has been verified."
+            "text": "[**] The ability to run strategies in live-trading mode has been verified.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "[**] Возможность запуска стратегий в режиме реальной торговли была проверена.",
+                    "updated": 1646902719562
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1646902725399
+                }
+            ]
         },
         {
             "style": "Json",

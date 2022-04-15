@@ -1,0 +1,13 @@
+{
+    "type": "Permissioned P2P Networks",
+    "definition": {
+        "text": "The Permissioned P2P Networks node holds definitions of restricted peer to peer networks.",
+        "updated": 1647061823515
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Right click and select the pencil button to enter edit mode."
+        }
+    ]
+}

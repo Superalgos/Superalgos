@@ -20,6 +20,21 @@
                 "language": "DE",
                 "text": "Sie fragen sich, wie Sie in CCXT Daten aus anderen Quellen als Börsen erhalten können? Messari? Twitter? Wir haben die Lösung für Sie!",
                 "updated": 1634590563604
+            },
+            {
+                "language": "TR",
+                "text": "CCXT'de borsalar dışındaki kaynaklardan nasıl veri alacağınızı merak ediyor musunuz? Messari? Twitter? Bunu da düşündük!",
+                "updated": 1639836892838
+            },
+            {
+                "language": "RU",
+                "text": "Вам интересно, как получить данные из других источников, кроме бирж, в CCXT? Messari? Twitter? Мы поможем вам!",
+                "updated": 1640877284248
+            },
+            {
+                "language": "ID",
+                "text": "Apakah kamu bertanya-tanya bagaimana cara mendapatkan data dari sumber selain exchanges di CCXT? Messari? Twitter? Kami akan membantu kamu!",
+                "updated": 1645562076868
             }
         ]
     },
@@ -39,6 +54,21 @@
                     "language": "DE",
                     "text": "Superalgos ermöglicht es Ihnen, Daten von jeder beliebigen API im Internet abzurufen, und Sie müssen dafür nicht programmieren! Stattdessen können Sie eine API Map entwerfen oder die mit dem System mitgelieferten verwenden!",
                     "updated": 1634590573292
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos, İnternet'teki herhangi bir API'den veri almanızı sağlar ve bunu yapmak için kod yazmanıza gerek yoktur! Bunun yerine, bir API Haritası ( API Map ) tasarlayabilir veya sistemle birlikte gönderilenleri kullanabilirsiniz!",
+                    "updated": 1639836924296
+                },
+                {
+                    "language": "RU",
+                    "text": "Superalgos позволяет вам получать данные из любого API в Интернете, и для этого не нужно писать код! Вместо этого вы можете разработать свой API Map или использовать те, которые поставляются вместе с системой!",
+                    "updated": 1640877320381
+                },
+                {
+                    "language": "ID",
+                    "text": "Superalgos memungkinkan kamu mengambil data dari API apa pun di Internet, dan kamu tidak perlu kode untuk melakukannya! Sebagai gantinya, kamu dapat merancang API Map atau menggunakan yang cocok dengan sistem!",
+                    "updated": 1645562171935
                 }
             ]
         },
@@ -57,6 +87,21 @@
                     "language": "DE",
                     "text": "Eine API Map ist eine Reihe von Definitionen, die festlegen, wie ein Bot auf eine bestimmte API zugreifen kann und wie die Antworten des Servers zu interpretieren sind.",
                     "updated": 1634590580114
+                },
+                {
+                    "language": "TR",
+                    "text": "API Haritası ( API Map ), bir botun belirli bir API'ye nasıl erişebileceğini ve sunucudan gelen yanıtların nasıl yorumlanacağını belirleyen bir dizi tanımdır.",
+                    "updated": 1639836950345
+                },
+                {
+                    "language": "RU",
+                    "text": "API Map - это набор определений, устанавливающих, как бот может получить доступ к определенному API и как интерпретировать ответы сервера.",
+                    "updated": 1640877362783
+                },
+                {
+                    "language": "ID",
+                    "text": "API Map adalah seperangkat definisi yang menentukan bagaimana bot dapat mengakses API tertentu dan cara menafsirkan respons dari server.",
+                    "updated": 1645562161029
                 }
             ]
         },
@@ -75,6 +120,21 @@
                     "language": "DE",
                     "text": "Tauchen Sie in diesen Abschnitt des Data-Mining-Themas ein, wenn Sie bereit sind, die API-Landschaft zu erkunden!",
                     "updated": 1634590587052
+                },
+                {
+                    "language": "TR",
+                    "text": "API ortamını keşfetmeye hazır olduğunuzda Veri Madenciliği konusunun bu bölümüne dalın!",
+                    "updated": 1639836993378
+                },
+                {
+                    "language": "RU",
+                    "text": "Погрузитесь в этот раздел темы Data Mining, когда будете готовы к изучению возможностей API!",
+                    "updated": 1640877401322
+                },
+                {
+                    "language": "ID",
+                    "text": "Dalami bagian topik Data Mining ini ketika kau siap menjelajahi API landscape!",
+                    "updated": 1645562217422
                 }
             ]
         }

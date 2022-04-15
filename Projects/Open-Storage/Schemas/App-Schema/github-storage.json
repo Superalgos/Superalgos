@@ -1,0 +1,50 @@
+{
+    "type": "Github Storage",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Github Storage Container",
+            "relatedUiObject": "Github Storage Container",
+            "relatedUiObjectProject": "Open-Storage"
+        },      
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{}"
+    },
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->User Storage->"
+    },
+    "propertyNameAtParent": "githubStorage",
+    "childrenNodesProperties": [
+        {
+            "name": "githubStorageContainers",
+            "type": "array",
+            "childType": "Github Storage Container",
+            "autoAdd": false
+        }
+    ]
+}

@@ -4,12 +4,26 @@
         {
             "style": "Text",
             "text": "The Social Bots node contains children nodes for each messaging bot. These messaging bots are used to configure the third party applications used to send announcements and receive incoming commands.",
-            "updated": 1618221943424
+            "updated": 1618221943424,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узел Social Bots содержит дочерние узлы для каждого бота обмена сообщениями. Эти боты для обмена сообщениями используются для настройки сторонних приложений, используемых для отправки объявлений и приема входящих команд.",
+                    "updated": 1645194407103
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "At present Superalgos only supports Telegram, Discord, and Slack messaging applications.",
-            "updated": 1619547181067
+            "updated": 1619547181067,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В настоящее время Superalgos поддерживает только приложения для обмена сообщениями Telegram, Discord и Slack.",
+                    "updated": 1645194418766
+                }
+            ]
         }
     ],
     "definition": {
@@ -20,6 +34,11 @@
                 "language": "ES",
                 "text": "Un nodo Social Bots se utiliza para definir los bots para cada aplicación de mensajería. Estos bots de mensajería se utilizan para enviar anuncios y recibir comandos que se utilizan para interactuar con Superalgos.",
                 "updated": 1628035119134
+            },
+            {
+                "language": "RU",
+                "text": "Узел Social Bots используется для определения ботов для каждого приложения обмена сообщениями. Эти боты для обмена сообщениями используются для отправки объявлений и получения команд, используемых для взаимодействия с Superalgos.",
+                "updated": 1645194393648
             }
         ]
     }

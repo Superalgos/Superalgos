@@ -1,0 +1,145 @@
+{
+    "topic": "quantum Data Mine",
+    "pageNumber": 8,
+    "type": "Williams Fractal - quantum Indicator",
+    "definition": {
+        "text": "The fractal indicator is based on a simple price pattern that is frequently seen in financial markets. The indicator isolates potential turning points on a price chart. It then draws arrows to indicate the existence of a pattern.",
+        "updated": 1611662439678,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Фрактальный индикатор основан на простом ценовом паттерне, который часто встречается на финансовых рынках. Индикатор выделяет потенциальные разворотные точки на графике. Затем он рисует стрелки, указывающие на существование паттерна.",
+                "updated": 1646899407783
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Williams Fractals On the Charts",
+            "updated": 1636853769,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Фракталы Вильямса на графиках",
+                    "updated": 1646899415103
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The Williams Fractal is an indicator, developed by Bill Williams, that aims to detect reversal points (highs and lows) and marks them with arrows. Up fractals and down fractals have specific shapes. The Williams Fractal indicator helps users determine in which direction price will develop. It is often used in combination with the Alligator Indicator with specific rules on when to enter and exit trades. A long signal would be if the fractal is above the alligator's teeth and a short signal would be if the fractal is below the alligator's teeth.",
+            "updated": 1611662450791,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Фрактал Вильямса - это индикатор, разработанный Биллом Вильямсом, который направлен на обнаружение точек разворота (максимумов и минимумов) и отмечает их стрелками. Фракталы вверх и фракталы вниз имеют специфические формы. Индикатор Williams Fractal помогает пользователям определить, в каком направлении будет развиваться цена. Он часто используется в сочетании с индикатором \" Alligator\" с определенными правилами, когда входить и выходить из сделок. Длинный сигнал будет, если фрактал находится выше \"зубов аллигатора\", а короткий сигнал - если фрактал находится ниже \"зубов аллигатора\".",
+                    "updated": 1646899446953
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The bullish fractal pattern signals the price could move higher. A bearish fractal signals the price could move lower. Bullish fractals are marked by an up arrow, and bearish fractals are marked by a down arrow.",
+            "updated": 1611662450791,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Бычий фрактал сигнализирует о том, что цена может пойти выше. Медвежий фрактал сигнализирует о возможности движения цены вниз. Бычьи фракталы отмечены стрелкой вверх, а медвежьи фракталы - стрелкой вниз.",
+                    "updated": 1646899458707
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Please keep in mind that this is a lagging indicator by nature, and the fractal is printed a short time after the pivot point happens.",
+            "updated": 1611662450791,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Следует помнить, что по своей природе это запаздывающий индикатор, и фрактал печатается через некоторое время после того, как произошла точка разворота.",
+                    "updated": 1646899471041
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-WilliamsFractal-on-the-chart.png",
+            "updated": 1636853769
+        },
+        {
+            "style": "Text",
+            "text": "Currently the indicator is set to look at 2 periods either side of the pivot, so the pattern needs to be 5 candles long before a fractal could be printed.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В настоящее время индикатор настроен на просмотр 2 периодов по обе стороны от разворотной точки, поэтому паттерн должен быть длиной в 5 свечей, чтобы можно было напечатать фрактал.",
+                    "updated": 1646899486488
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "Williams Fractal Products & Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукция и свойства Williams Fractal",
+                    "updated": 1646899492306
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Product Setting | Product Variable | Properties |\n| WilliamsFractal | WilliamsFractal | direction |",
+            "updated": 1611662546677,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "| Product Setting | Product Variable | Properties |\n| WilliamsFractal | WilliamsFractal | direction (направление)|",
+                    "updated": 1646899537787
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Possible values for direction is \"Up\", \"Down\", or \"None\" ",
+            "updated": 1611662641354,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Возможные значения для направления: \" Up (вверх)\", \"Down (вниз)\" или \"None (нет)\".",
+                    "updated": 1646899566509
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Examples:",
+            "updated": 1611662641354,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Примеры:",
+                    "updated": 1646899576387
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "A simple strategy can be built by entering a trade when the price action rises above an EMA and an Up fractal is produced.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Простая стратегия может быть построена путем входа в сделку, когда ценовое действие поднимается выше EMA и образуется фрактал Up.",
+                    "updated": 1646899594647
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at30min.WilliamsFractal.direction === \"Up\"",
+            "updated": 1611662656647
+        }
+    ]
+}

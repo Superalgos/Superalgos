@@ -28,6 +28,11 @@
                 "language": "TR",
                 "text": "Katkılarınız Superalgos Çatalınıza yüklendi ve ana Superalgos deposuna bir Çekme Talebi gönderildi.",
                 "updated": 1635576753406
+            },
+            {
+                "language": "RU",
+                "text": "Ваш вклад был загружен в ваш форк Superalgos, а запрос на извлечение был отправлен в главный репозиторий Superalgos.",
+                "updated": 1638270388157
             }
         ]
     },
@@ -53,6 +58,11 @@
                     "language": "TR",
                     "text": "Başka bir işlem yapmanız gerekmez. Birisi, Çekme Talebinizi gözden geçirecek ve her şeyin yolunda olması durumunda onu yazılımın en son sürümüyle birleştirecektir. Değişiklikleriniz herhangi bir nedenle reddedilirse, sorunu Github.com adresinden takip etmeniz gerekecektir.",
                     "updated": 1635576806375
+                },
+                {
+                    "language": "RU",
+                    "text": "Никаких дополнительных действий от вас не требуется. Кто-то рассмотрит ваш запрос на слияние и объединит его с последней версией программного обеспечения, если все будет в порядке. Если ваши изменения отклонены по какой-либо причине, вам придется следить за проблемой на Github.com.",
+                    "updated": 1638270432053
                 }
             ]
         }

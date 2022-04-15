@@ -56,7 +56,7 @@
         "config": true
     },
     "initialValues": {
-        "config": "{ \n\"codeName\": \"Type the name of the exchange\",\n \n\"sandBox\": \"false\"\n}"
+        "config": "{ \n\"codeName\": \"Type_the_name_of_the_exchange\",\n \n\"sandBox\": \"false\"\n}"
     },
     "attachingRules": {
         "compatibleTypes": "->Crypto Exchanges->"
@@ -83,6 +83,10 @@
         }
     ],
     "alternativeIcons": [
+        {
+            "codeName": "ascendex",
+            "iconName": "ascendex"
+        },
         {
             "codeName": "binance",
             "iconName": "binance"
@@ -176,6 +180,9 @@
             "iconName": "kucoin"
         },
         {
+            "codeName": "latoken",
+            "iconName": "latoken"
+        },{
             "codeName": "liquid",
             "iconName": "liquid"
         },

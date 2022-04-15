@@ -1,0 +1,86 @@
+{
+    "topic": "Turtles Data Mine",
+    "pageNumber": "1",
+    "type": "Turtles",
+    "definition": {
+        "text": "The Turtles Data Mine features the famous System 1 trading indicator as created by Richard Dennis and Bill Eckhardt in the early 1980s."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Turtles on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "This trading system is a trend following system that attempts to catch a breakout. It is similar to a Donchian Breakout strategy."
+        },
+        {
+            "style": "Link",
+            "text": "Turtles System 1(investopedia)->investopedia.com/articles/trading/08/turtle-trading.asp"
+        },
+        {
+            "style": "Text",
+            "text": "The classic turtles system contains the following rules:"
+        },
+        {
+            "style": "List",
+            "text": " 1.) Entry: Buy when the price breaks above the 20 day high"
+        },
+        {
+            "style": "List",
+            "text": "2.) Stop Loss: 2 ATR from the entry price",
+            "updated": 1647916119452
+        },
+        {
+            "style": "List",
+            "text": "3.) Trailing stop loss 10 day low",
+            "updated": 1647916125479
+        },
+        {
+            "style": "Text",
+            "text": "This indicator can be used in many timeframes, but as always with these types of indicators, the higher will give fewer false signals.",
+            "updated": 1647916134753
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Turtles-on-the-charts.png"
+        },
+        {
+            "style": "Text",
+            "text": "The length of the entry and exit ATR calculation can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"Turtle S1\" Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Turtles-params.png",
+            "updated": 1611673329568
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Turtle S1 | turtleS1 | direction, entryLow, entryHigh, exitLow, exitHigh, trend, exit, direction |"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "The turtle MFI could be used to enter a trade when the price action crosses above the trend value:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at04hs.candle.close > chart.at04hs.turtleS1.trend && chart.at04hs.candle.previous.close < chart.at04hs.turtleS1.previous.trend"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@suttridge->github.com/suttridge"
+        }
+    ]
+}

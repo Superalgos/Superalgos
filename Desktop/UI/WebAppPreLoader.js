@@ -62,11 +62,11 @@ function httpRequest(pContentToSend, pPath, callBackFunction) {
             try {
                 callBackFunction(undefined, xmlHttpRequest.responseText)
             } catch (err) {
-                console.log('[ERROR] httpRequest -> httpRequest -> err.stack = ' + err.stack)
-                console.log('[ERROR] httpRequest -> httpRequest -> pContentToSend = ' + pContentToSend)
-                console.log('[ERROR] httpRequest -> httpRequest -> pPath = ' + pPath)
-                console.log('[ERROR] httpRequest -> httpRequest -> xmlHttpRequest.responseText = ' + xmlHttpRequest.responseText)
-                console.log('[ERROR] httpRequest -> httpRequest -> callBackFunction = ' + callBackFunction)
+                console.log((new Date()).toISOString(), '[ERROR] httpRequest -> httpRequest -> err.stack = ' + err.stack)
+                console.log((new Date()).toISOString(), '[ERROR] httpRequest -> httpRequest -> pContentToSend = ' + pContentToSend)
+                console.log((new Date()).toISOString(), '[ERROR] httpRequest -> httpRequest -> pPath = ' + pPath)
+                console.log((new Date()).toISOString(), '[ERROR] httpRequest -> httpRequest -> xmlHttpRequest.responseText = ' + xmlHttpRequest.responseText)
+                console.log((new Date()).toISOString(), '[ERROR] httpRequest -> httpRequest -> callBackFunction = ' + callBackFunction)
 
             }
             return

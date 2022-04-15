@@ -1,0 +1,32 @@
+{
+    "type": "Available Storage",
+    "definition": {
+        "text": "The Available Storage node stores references to Open Storage locations available for use by the current hierarchy.",
+        "updated": 1643981961354
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1643982703770
+        },
+        {
+            "style": "Text",
+            "text": "The main hierarchies that make use of this node are:"
+        },
+        {
+            "style": "List",
+            "text": "Social Trading Bot"
+        },
+        {
+            "style": "List",
+            "text": "Social Persona",
+            "updated": 1643982149657
+        },
+        {
+            "style": "Success",
+            "text": "More than one open storage location can be defined for a particular bot or personal. This allows for a user to set up redundant locations to ensure uninterrupted availability to the stored data.",
+            "updated": 1647054334041
+        }
+    ]
+}

@@ -4,56 +4,200 @@
     "type": "Investigating Issues - Check the Integrity of Your Data",
     "definition": {
         "text": "When data mining processes are not shut down gracefully, your data may get corrupted.",
-        "updated": 1611515660531
+        "updated": 1611515660531,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Когда процессы добычи данных не завершаются должным образом, ваши данные могут быть повреждены.",
+                "updated": 1640539022636
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Veri madenciliği süreçleri düzgün bir şekilde kapatılmadığında verileriniz bozulabilir.",
+                "updated": 1647870470043
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Your PC may have been forcefully shut down or you may have closed the console running the Superalgos backend while running a data-mining operation. Such situations may cause some data to become corrupt.",
-            "updated": 1611515685392
+            "updated": 1611515685392,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Возможно, ваш компьютер был принудительно выключен или вы закрыли консоль, на которой запущен бэкэнд Superalgos, во время выполнения операции по добыче данных. Такие ситуации могут привести к повреждению некоторых данных.",
+                    "updated": 1640539062497
+                },
+                {
+                    "language": "TR",
+                    "text": "Bilgisayarınız zorla kapatılmış olabilir veya bir veri madenciliği işlemi yürütürken Superalgos arka ucunu çalıştıran konsolu kapatmış olabilirsiniz. Bu tür durumlar bazı verilerin bozulmasına neden olabilir.",
+                    "updated": 1647870481215
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "1. Check the Integrity of the Sensor Bot Data",
-            "updated": 1611515705862
+            "updated": 1611515705862,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "1. Проверка целостности данных сенсорного бота",
+                    "updated": 1640539073159
+                },
+                {
+                    "language": "TR",
+                    "text": "1. Sensör Bot Verilerinin Bütünlüğünü Kontrol Edin",
+                    "updated": 1647870503283
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Go to the Exchange-Raw-Data folder under Data-Storage > Exchange > Market > Masters and keep opening the subfolders to get to the last day available, and open the Data.json file. If the file opens fine, this may mean that the data you downloaded from the exchange is safe."
+            "text": "Go to the Exchange-Raw-Data folder under Data-Storage > Exchange > Market > Masters and keep opening the subfolders to get to the last day available, and open the Data.json file. If the file opens fine, this may mean that the data you downloaded from the exchange is safe.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Перейдите в папку Exchange-Raw-Data в разделе Data-Storage > Exchange > Market > Masters и продолжайте открывать вложенные папки, чтобы добраться до последнего доступного дня, и откройте файл Data.json. Если файл открывается нормально, это означает, что данные, загруженные с биржи, не повреждены.",
+                    "updated": 1640539139004
+                },
+                {
+                    "language": "TR",
+                    "text": "Data-Storage > Exchange > Market > Masters altında Exchange-Raw-Data klasörüne gidin ve mevcut son güne gitmek için alt klasörleri açmaya devam edin ve Data.json dosyasını açın. Dosya düzgün açılırsa, bu borsadan indirdiğiniz verilerin güvenli olduğu anlamına gelebilir.",
+                    "updated": 1647870515916
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If the last file in Exchange-Raw-Data does not open properly then delete the whole Data-Storage > Exchange > Market and run the data mining operation. This will have the OHLCV sensor bot download all the data from the exchange again, and all indicators calculated from scratch."
+            "text": "If the last file in Exchange-Raw-Data does not open properly then delete the whole Data-Storage > Exchange > Market and run the data mining operation. This will have the OHLCV sensor bot download all the data from the exchange again, and all indicators calculated from scratch.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если последний файл в Exchange-Raw-Data не открывается должным образом, удалите весь Data-Storage > Exchange > Market и запустите операцию добычи данных. В результате бот датчик OHLCV снова загрузит все данные с биржи, и все индикаторы будут рассчитаны с нуля.",
+                    "updated": 1640539269270
+                },
+                {
+                    "language": "TR",
+                    "text": "Exchange-Raw-Data'daki son dosya düzgün açılmazsa, Data-Storage > Exchange > Market'in tamamını silin ve veri madenciliği işlemini çalıştırın. Bu, OHLCV sensör botunun borsadaki tüm verileri tekrar indirmesini ve tüm göstergelerin sıfırdan hesaplanmasını sağlayacaktır.",
+                    "updated": 1647870535329
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If the sensor data seems fine, then proceed with the next step."
+            "text": "If the sensor data seems fine, then proceed with the next step.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если данные датчика в порядке, перейдите к следующему шагу.",
+                    "updated": 1640539254894
+                },
+                {
+                    "language": "TR",
+                    "text": "Sensör verileri iyi görünüyorsa, bir sonraki adıma geçin.",
+                    "updated": 1647870547078
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "2. Check the Integrity of Indicator’s Data",
-            "updated": 1611515724143
+            "updated": 1611515724143,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "2. Проверка целостности данных индикатора",
+                    "updated": 1640539282731
+                },
+                {
+                    "language": "TR",
+                    "text": "2. Gösterge Verilerinin Bütünlüğünü Kontrol Edin",
+                    "updated": 1647870607477
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If you are having issues with candles you need to check the data of the Candles Volumes indicator of the Masters Data Mine located deep in Multi-Time-Frame-Daily and Multi-Time-Frame-Market folders under Data-Storage > Exchange > Market > Masters > Candles-Volumes > Output > Candles."
+            "text": "If you are having issues with candles you need to check the data of the Candles Volumes indicator of the Masters Data Mine located deep in Multi-Time-Frame-Daily and Multi-Time-Frame-Market folders under Data-Storage > Exchange > Market > Masters > Candles-Volumes > Output > Candles.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если у вас возникли проблемы со свечами, вам необходимо проверить данные индикатора Candles Volumes источника Masters Data Mine, расположенной глубоко в папках Multi-Time-Frame-Daily и Multi-Time-Frame-Market в разделе Data-Storage > Exchange > Market > Masters > Candles-Volumes > Output > Candles.",
+                    "updated": 1640539326562
+                },
+                {
+                    "language": "TR",
+                    "text": "Mumlarla ilgili sorun yaşıyorsanız, Data Storage > Exchange > Marketplace > Masters > Candles-Volumes > Output > Candles altında Multi-Time-Frame-Daily ve Multi-Time-Frame-Market klasörlerinin derinliklerinde bulunan Masters Veri Madeni'nin Mum Hacimleri göstergesinin verilerini kontrol etmeniz gerekir.",
+                    "updated": 1647870625077
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If you find any .tmp files or you can’t open some of the latest Data.json files in a regular text editor, or some files are empty, chances are the files have been corrupted."
+            "text": "If you find any .tmp files or you can’t open some of the latest Data.json files in a regular text editor, or some files are empty, chances are the files have been corrupted.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если вы обнаружили какие-либо файлы \".tmp\" или не можете открыть некоторые из последних файлов Data.json в обычном текстовом редакторе, или некоторые файлы пусты, есть вероятность, что файлы были повреждены.",
+                    "updated": 1640539380994
+                },
+                {
+                    "language": "TR",
+                    "text": "Herhangi any.tmp dosyası bulursanız veya en son Data.json dosyalarından bazılarını normal bir metin düzenleyicide açamıyorsanız veya bazı dosyalar boşsa, dosyalar bozulmuş olabilir.",
+                    "updated": 1647870651603
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": " Note: Something similar may have happened with other indicators as well, so make sure you check the data storage folders of indicators that may not be working or that you may be experiencing issues with."
+            "text": " Note: Something similar may have happened with other indicators as well, so make sure you check the data storage folders of indicators that may not be working or that you may be experiencing issues with.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Примечание: Нечто подобное могло произойти и с другими индикаторами, поэтому обязательно проверьте папки хранения данных индикаторов, которые могут не работать или с которыми у вас возникли проблемы.",
+                    "updated": 1640539405286
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Diğer göstergelerde de benzer bir şey olmuş olabilir, bu nedenle çalışmayan veya sorun yaşıyor olabileceğiniz göstergelerin veri depolama klasörlerini kontrol ettiğinizden emin olun.",
+                    "updated": 1647870790539
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If that is the case, then you will delete the folder for each data mine within Data-Storage > Exchange > Market, but will leave Exchange-Raw-Data intact, and get the data mining operation running afterward. This will regenerate all indicators data products, including Candles Volumes."
+            "text": "If that is the case, then you will delete the folder for each data mine within Data-Storage > Exchange > Market, but will leave Exchange-Raw-Data intact, and get the data mining operation running afterward. This will regenerate all indicators data products, including Candles Volumes.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если это так, то удалите папку для каждого источника данных в Data-Storage > Exchange > Market, но оставите Exchange-Raw-Data нетронутой, и затем запустите операцию по сбору данных. Это приведет к регенерации всех продуктов данных индикаторов, включая Candles Volumes.",
+                    "updated": 1640539504457
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu durumda, Data-Storage > Exchange > Market içindeki her bir veri madeni için klasörü silecek, ancak Exchange-Raw-Data'yı olduğu gibi bırakacak ve daha sonra veri madenciliği operasyonunu çalıştıracaksınız. Bu, Mum Hacimleri de dahil olmak üzere tüm gösterge veri ürünlerini yeniden oluşturacaktır.",
+                    "updated": 1647870828488
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "3. Remember There is a Proper Way to Close the System!",
-            "updated": 1611515754787
+            "updated": 1611515754787,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "3. Помните, что существует правильный способ завершения работы системы!",
+                    "updated": 1640539554059
+                },
+                {
+                    "language": "TR",
+                    "text": "3. Unutmayın, Sistemi Kapatmanın Uygun Bir Yolu Vardır!",
+                    "updated": 1647870806783
+                }
+            ]
         }
     ]
 }

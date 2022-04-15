@@ -10,7 +10,7 @@ function newRateScale() {
         maxValue: undefined,
         isVisible: true,
         layersOn: undefined,
-        onKeyPressed: onKeyPressed, 
+        onKeyPressed: onKeyPressed,
         onUpstreamScaleChanged: onUpstreamScaleChanged,
         onMouseOverSomeTimeMachineContainer: onMouseOverSomeTimeMachineContainer,
         physics: physics,
@@ -216,7 +216,7 @@ function newRateScale() {
             }
         }
 
-        if (event.shiftKey === true || autoScale === true ) {
+        if (event.shiftKey === true || autoScale === true) {
             autoScaleButton.container.eventHandler.raiseEvent('onMouseWheel', event)
             return
         }
@@ -476,8 +476,10 @@ function newRateScale() {
         if (ratePoint.y < upCorner.y + thisObject.container.frame.height) { ratePoint.y = upCorner.y + thisObject.container.frame.height }
         if (ratePoint.y > bottonCorner.y) { ratePoint.y = bottonCorner.y }
 
+        const TAB_WIDTH = 60
+
         thisObject.container.frame.position.y = ratePoint.y - thisObject.container.frame.height
-        thisObject.container.frame.position.x = ratePoint.x - thisObject.container.frame.width
+        thisObject.container.frame.position.x = ratePoint.x - thisObject.container.frame.width - TAB_WIDTH
 
         thisObject.isVisible = true
         thisObject.payload.isVisible = true
@@ -551,8 +553,8 @@ function newRateScale() {
         if (thisObject.payload === undefined) { return }
         if (thisObject.payload.node === undefined) { return }
 
-        let icon1 = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.payload.parentNode.project, thisObject.payload.node.payload.parentNode.type)
-        let icon2 = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.payload.node.type)
+        let icon1 = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.payload.parentNode.project, thisObject.payload.node.payload.parentNode.type)
+        let icon2 = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.payload.node.type)
 
         let backgroundColor = UI_COLOR.BLACK
         let labels = scaleLabels(thisObject.rate, true)
@@ -568,8 +570,8 @@ function newRateScale() {
             rate = coordinateSystem.max.y
         }
 
-        let label 
-        
+        let label
+
         if (fixDecimals === true) {
             label = rate.toFixed(10)
         } else {

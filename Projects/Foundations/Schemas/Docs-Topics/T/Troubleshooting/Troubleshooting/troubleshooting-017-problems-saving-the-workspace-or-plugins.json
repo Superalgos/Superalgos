@@ -4,223 +4,789 @@
     "type": "Problems Saving The Workspace or Plugins",
     "definition": {
         "text": "Are you having problems saving your Workspace? Did your changes in the workspace disappear? Was the workspace reset? Or you believe the changes were lost? Are you confused on how the system handles the persistence of changes? Is your Workspace not saving your changes?",
-        "updated": 1620849519292
+        "updated": 1620849519292,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "У вас возникли проблемы с сохранением рабочего пространства? Ваши изменения в рабочем пространстве исчезли? Рабочее пространство было перезагружено? Или вы считаете, что изменения были потеряны? Вы запутались в том, как система обрабатывает сохранение изменений? Ваше рабочее пространство не сохраняет изменения?",
+                "updated": 1640541243812
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Çalışma Alanınızı ( Workspace ) kaydederken sorun mu yaşıyorsunuz? Çalışma alanındaki değişiklikleriniz kayboldu mu? Çalışma alanı sıfırlandı mı? Yoksa değişikliklerin kaybolduğuna mı inanıyorsun? Sistemin değişikliklerin kalıcılığını nasıl ele aldığı konusunda kafanız mı karıştı? Çalışma Alanınız ( Workspace ) değişikliklerinizi kaydetmiyor mu?",
+                "updated": 1647872060542
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Don't panic. Here you will find everything you need to know on how the system deals with persisting changes.",
-            "updated": 1620845748071
+            "updated": 1620845748071,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Не паникуйте. Здесь вы найдете все, что вам нужно знать о том, как система работает с сохранением изменений.",
+                    "updated": 1640541263844
+                },
+                {
+                    "language": "TR",
+                    "text": "Panik yapmayın. Burada, sistemin kalıcı değişikliklerle nasıl başa çıktığına dair bilmeniz gereken her şeyi bulacaksınız.",
+                    "updated": 1647872071763
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "There are 3 concepts you will need to understand in order to learn how we handle changes and how we save them.",
-            "updated": 1620846415625
+            "updated": 1620846415625,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для того чтобы узнать, как мы обрабатываем изменения и как их сохраняем, вам необходимо понять 3 основных понятия.",
+                    "updated": 1640541314881
+                },
+                {
+                    "language": "TR",
+                    "text": "Değişiklikleri nasıl ele aldığımızı ve bunları nasıl kaydettiğimizi öğrenmek için anlamanız gereken 3 kavram vardır.",
+                    "updated": 1647872083449
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Workspaces"
+            "text": "Workspaces",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Рабочее пространство",
+                    "updated": 1640541342800
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışma Alanı ( Workspaces )",
+                    "updated": 1647872196280
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "A workspace is a collection of data structures represented by nodes at the designer. They are stored at a single file.",
-            "updated": 1620846397585
+            "updated": 1620846397585,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Рабочее пространство - это набор структур данных, представленных узлами в редакторе. Они хранятся в одном файле.",
+                    "updated": 1640541403252
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışma alanı, tasarımcıda düğümler tarafından temsil edilen veri yapılarının bir koleksiyonudur. Tek bir dosyada saklanırlar.",
+                    "updated": 1647872224149
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Plugins"
+            "text": "Plugins",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Плагины",
+                    "updated": 1640541410541
+                },
+                {
+                    "language": "TR",
+                    "text": "Eklentiler ( Plugins )",
+                    "updated": 1647872238409
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Plugins are data structures located in files, which were developed by contributors and shared with the community as a plugin. The Plugins files are in folder inside the Projects folder. ",
-            "updated": 1620846521820
+            "updated": 1620846521820,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Плагины - это структуры данных, расположенные в файлах, которые были разработаны участниками и предоставлены сообществу в качестве подключаемого модуля. Файлы Plugins находятся в папке внутри папки Projects.",
+                    "updated": 1640541438056
+                },
+                {
+                    "language": "TR",
+                    "text": "Eklentiler ( Plugins ), katkıda bulunanlar tarafından geliştirilen ve bir eklenti olarak toplulukla paylaşılan dosyalarda bulunan veri yapılarıdır. Eklenti ( Plugins ) dosyaları, Projeler klasörünün içindeki klasördedir.",
+                    "updated": 1647872304563
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Plugins Workspaces"
+            "text": "Plugins Workspaces",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Плагины рабочего пространства",
+                    "updated": 1640541476601
+                },
+                {
+                    "language": "TR",
+                    "text": "Eklenti Çalışma Alanları",
+                    "updated": 1647872362717
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "These are a special type of plugins, since they are at the same time a workspace. When we talk about Plugins, we refer to non-workspaces plugins.",
-            "updated": 1620846458077
+            "updated": 1620846458077,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это особый тип плагинов, поскольку они одновременно являются рабочим пространством. Когда мы говорим о плагинах, мы имеем в виду плагины, не относящиеся к рабочим пространствам.",
+                    "updated": 1640541503793
+                },
+                {
+                    "language": "TR",
+                    "text": "Bunlar aynı zamanda bir çalışma alanı oldukları için özel bir eklenti türüdür. Eklentiler hakkında konuştuğumuzda, çalışma alanı olmayan eklentilere atıfta bulunuruz.",
+                    "updated": 1647872342231
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "How does all of this works?"
+            "text": "How does all of this works?",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как все это работает?",
+                    "updated": 1640541511566
+                },
+                {
+                    "language": "TR",
+                    "text": "Tüm bunlar nasıl çalışır?",
+                    "updated": 1647872378869
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "We will explore this at the following section.",
-            "updated": 1620846805227
+            "updated": 1620846805227,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Мы рассмотрим это в следующем разделе.",
+                    "updated": 1640541518947
+                },
+                {
+                    "language": "TR",
+                    "text": "Bunu aşağıdaki bölümde inceleyeceğiz.",
+                    "updated": 1647872401481
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Which workspace is loaded at startup?"
+            "text": "Which workspace is loaded at startup?",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Какое рабочее пространство загружается при запуске?",
+                    "updated": 1640541584172
+                },
+                {
+                    "language": "TR",
+                    "text": "Başlangıçta hangi çalışma alanı yüklenir?",
+                    "updated": 1647872422312
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Everytime you run Superalgos the system will try to load the latest loaded workspace. It remembers the last workspace because it stores at the browser's local storage the name of the latest successfully loaded workspace."
+            "text": "Everytime you run Superalgos the system will try to load the latest loaded workspace. It remembers the last workspace because it stores at the browser's local storage the name of the latest successfully loaded workspace.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Каждый раз, когда вы запускаете Superalgos, система будет пытаться загрузить последнее загруженное рабочее пространство. Она запоминает последнее рабочее пространство, поскольку хранит в локальном хранилище браузера название последнего успешно загруженного рабочего пространства.",
+                    "updated": 1640541623924
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos'u her çalıştırdığınızda, sistem en son yüklenen çalışma alanını yüklemeye çalışacaktır. En son başarıyla yüklenen çalışma alanının adını tarayıcının yerel deposunda sakladığı için son çalışma alanını hatırlar.",
+                    "updated": 1647872443360
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "This means that if you want Superalgos to forget the latest loaded workspace you can do that by deleting the local storage variable at the browser.",
-            "updated": 1620846746582
+            "updated": 1620846746582,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это означает, что если вы хотите, чтобы Superalgos забыл последнее загруженное рабочее пространство, вы можете сделать это, удалив переменную локального хранения в браузере.",
+                    "updated": 1640541650567
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Superalgos'un en son yüklenen çalışma alanını unutmasını istiyorsanız, bunu tarayıcıdaki yerel depolama değişkenini silerek yapabilirsiniz.",
+                    "updated": 1647872517581
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "What happens when there is no previous loaded workspace?",
-            "updated": 1620846920729
+            "updated": 1620846920729,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Что происходит, когда нет предыдущего загруженного рабочего пространства?",
+                    "updated": 1640541666172
+                },
+                {
+                    "language": "TR",
+                    "text": "Daha önce yüklenmiş bir çalışma alanı olmadığında ne olur?",
+                    "updated": 1647872538473
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "If the system does not find any name at the browser's local storage, or if it finds a name but can not find the file of that workspace, it will then try to load the 'default' workspace, which is the Getting Started Plugin Workspace.",
-            "updated": 1620846971983
+            "updated": 1620846971983,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если система не находит никакого названия в локальном хранилище браузера, или если она находит название, но не может найти файл этого рабочего пространства, то она попытается загрузить рабочее пространство \"по умолчанию\", которое является Getting Started Plugin Workspace.",
+                    "updated": 1640541727756
+                },
+                {
+                    "language": "TR",
+                    "text": "Sistem, tarayıcının yerel deposunda herhangi bir ad bulamazsa veya bir ad bulur ancak bu çalışma alanının dosyasını bulamazsa, 'varsayılan' çalışma alanını, yani Başlarken Eklenti Çalışma Alanı'nı ( Getting Started Plugin Workspace ) yüklemeye çalışır.",
+                    "updated": 1647872602958
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "This means that if you delete the latest workspace file from the My Workspaces folder, you will force the system to load the default workspace. "
+            "text": "This means that if you delete the latest workspace file from the My Workspaces folder, you will force the system to load the default workspace. ",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это означает, что если вы удалите последний файл рабочего пространства из папки My Workspaces, вы заставите систему загрузить рабочее пространство по умолчанию.",
+                    "updated": 1640541742730
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Çalışma Alanlarım klasöründen en son çalışma alanı dosyasını silerseniz, sistemi varsayılan çalışma alanını yüklemeye zorlayacağınız anlamına gelir.",
+                    "updated": 1647872648648
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "How do I create a new workspace?",
-            "updated": 1620847261059
+            "updated": 1620847261059,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как создать новое рабочее пространство?",
+                    "updated": 1640541751984
+                },
+                {
+                    "language": "TR",
+                    "text": "Nasıl yeni bir çalışma alanı oluştururum?",
+                    "updated": 1647872681248
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The first time you run Superalgos it will load the Getting Started Plugin Workspace. The system will try to save the loaded workspace every minute. But Plugin Workspaces can no be replaced by the one loaded, instead a copy of it is created at the My Workspaces folder with the name of the node of type Workspace, which represents the whole workspace. The way to create a new workspace is by renaming the workspace node and saving after that. "
+            "text": "The first time you run Superalgos it will load the Getting Started Plugin Workspace. The system will try to save the loaded workspace every minute. But Plugin Workspaces can no be replaced by the one loaded, instead a copy of it is created at the My Workspaces folder with the name of the node of type Workspace, which represents the whole workspace. The way to create a new workspace is by renaming the workspace node and saving after that. ",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "При первом запуске Superalgos будет загружено рабочее пространство Getting Started Plugin Workspace. Система будет пытаться сохранить загруженное рабочее пространство каждую минуту. Но рабочее пространство Plugin Workspaces не может быть заменено загруженным, вместо этого создается его копия в папке My Workspaces с названием узла типа Workspace, который представляет все рабочее пространство. Создать новое рабочее пространство можно, переименовав узел рабочего пространства и сохранив его после этого.",
+                    "updated": 1640541811121
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos'u ilk çalıştırdığınızda, Başlarken Eklenti Çalışma Alanını ( Plugin Workspace ) yükleyecektir. Sistem, yüklenen çalışma alanını her dakika kaydetmeye çalışacaktır. Ancak Eklenti Çalışma Alanları ( Plugin Workspace ), yüklenenle değiştirilemez, bunun yerine Çalışma Alanlarım klasöründe, tüm çalışma alanını temsil eden Çalışma Alanı ( Workspaces ) türü düğüm adıyla bir kopyası oluşturulur. Yeni bir çalışma alanı yaratmanın yolu, çalışma alanı düğümünü yeniden adlandırmak ve bundan sonra kaydetmektir.",
+                    "updated": 1647872763170
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "To save you can just wait one minute for the system to auto save or you can hit CTRL + SHIFT + S"
+            "text": "To save you can just wait one minute for the system to auto save or you can hit CTRL + SHIFT + S",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для сохранения вы можете просто подождать одну минуту, пока система автоматически сохранит данные, или нажать CTRL + SHIFT + S",
+                    "updated": 1640541825947
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Kaydetmek için sistemin otomatik kaydetmesi için bir dakika bekleyebilir veya CTRL + SHIFT + S tuşlarına basabilirsiniz.",
+                    "updated": 1647873255883
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "How do I access a modified / renamed workspace?",
-            "updated": 1620847383290
+            "updated": 1620847383290,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как получить доступ к измененному/переименованному рабочему пространству?",
+                    "updated": 1640541837716
+                },
+                {
+                    "language": "TR",
+                    "text": "Değiştirilmiş / yeniden adlandırılmış bir çalışma alanına nasıl erişirim?",
+                    "updated": 1647873266586
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Every time you open the left side bar, the system will search the Plugin Workspaces folder and place all the files found there at the left side panel. It will also scan all the My Workspaces folder and add those files to the bottom of the left side panel."
+            "text": "Every time you open the left side bar, the system will search the Plugin Workspaces folder and place all the files found there at the left side panel. It will also scan all the My Workspaces folder and add those files to the bottom of the left side panel.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Каждый раз, когда вы открываете левую боковую вкладку, система будет искать папку Plugin Workspaces и помещать все найденные там файлы в эту кладку. Она также просканирует всю папку My Workspaces и добавит эти файлы в нижнюю часть левой боковой вклади.",
+                    "updated": 1640541998896
+                },
+                {
+                    "language": "TR",
+                    "text": "Sol taraftaki çubuğu her açtığınızda, sistem Plugin Workspaces klasörünü arayacak ve orada bulunan tüm dosyaları sol taraftaki panele yerleştirecektir. Ayrıca tüm Çalışma Alanlarım klasörünü tarayacak ve bu dosyaları sol yan panelin altına ekleyecektir.",
+                    "updated": 1647873349212
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "To access a saved or renames workspace open the left side panel and scroll to the bottom, after the list of Plugin Workspaces finishes, you will see the ones saved / renamed by you."
+            "text": "To access a saved or renames workspace open the left side panel and scroll to the bottom, after the list of Plugin Workspaces finishes, you will see the ones saved / renamed by you.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы получить доступ к сохраненному или переименованному рабочему пространству, откройте вкладку слева и прокрутите ее вниз, после того как список рабочих пространств плагинов закончится, вы увидите те, которые были сохранены / переименованы вами.",
+                    "updated": 1640542073914
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "How do I recover the system if my latest workspace is not loading?",
-            "updated": 1620847636703
+            "updated": 1620847636703,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как восстановить систему, если последнее рабочее пространство не загружается?",
+                    "updated": 1640542093269
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "It might happen that the file got corrupted, or the system version changed and is not recognizing your file format. What you need to do is to move your workspace file out of the My Workspaces folder so that the system loads the default workspace, which will be the Getting Started Plugin Workspace. ",
-            "updated": 1620847650616
+            "updated": 1620847650616,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Возможно, файл был поврежден, или версия системы изменилась и не распознает ваш формат файла. Вам нужно переместить файл рабочего пространства из папки My Workspaces, чтобы система загрузила рабочее пространство по умолчанию, которым будет являться рабочее пространство Getting Started Plugin Workspace.",
+                    "updated": 1640542133436
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Kaydedilmiş veya yeniden adlandırılmış bir çalışma alanına erişmek için sol yan paneli açın ve aşağıya doğru kaydırın, Eklenti Çalışma Alanları ( Plugin Workspaces ) listesi tamamlandıktan sonra, sizin tarafınızdan kaydedilen / yeniden adlandırılanları göreceksiniz.",
+                    "updated": 1647873384836
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "Then you can check with a text editor your latest workspace file or read the README file of the new version of the software for instructions on how to migrate your workspace to the latest version."
+            "text": "Then you can check with a text editor your latest workspace file or read the README file of the new version of the software for instructions on how to migrate your workspace to the latest version.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Затем вы можете проверить с помощью текстового редактора ваш последний файл рабочего пространства или прочитать файл README новой версии программы для получения инструкций о том, как перенести ваше рабочее пространство на последнюю версию.",
+                    "updated": 1640542153129
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Ardından, en son çalışma alanı dosyanızı bir metin düzenleyiciyle kontrol edebilir veya çalışma alanınızı en son sürüme nasıl geçireceğinize ilişkin talimatlar için yazılımın yeni sürümünün BENİOKU dosyasını okuyabilirsiniz.",
+                    "updated": 1647873437309
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "How do I recover the system if I made a change at the workspace and now it does not run data mining, backtesting or trading tasks?",
-            "updated": 1620847825416
+            "updated": 1620847825416,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как восстановить систему, если я внес изменения в рабочее пространство и теперь она не выполняет задачи по добыче данных, бэктестингу или торговле?",
+                    "updated": 1640542192843
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışma alanında bir değişiklik yaptıysam ve şimdi veri madenciliği, geriye dönük test veya alım satım görevlerini çalıştırmıyorsa sistemi nasıl kurtarabilirim?",
+                    "updated": 1647873456523
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If you are using a Plugin Workspace, the way to recover is by loading that Plugin Workspace again. The system will naturally then save a copy at My Workspaces folder overwriting any changes you made. From there all tasks should run well."
+            "text": "If you are using a Plugin Workspace, the way to recover is by loading that Plugin Workspace again. The system will naturally then save a copy at My Workspaces folder overwriting any changes you made. From there all tasks should run well.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если вы используете подключаемое рабочее пространство (Plugin Workspace), способ восстановления заключается в повторной загрузке этого подключаемого рабочего пространства. Естественно, система сохранит копию в папке My Workspaces, перезаписав все внесенные вами изменения. После этого все задачи будут выполняться нормально.",
+                    "updated": 1640542235344
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Eklenti Çalışma Alanı ( Plugin Workspaces ) kullanıyorsanız, kurtarmanın yolu, o Eklenti Çalışma Alanını yeniden yüklemektir. Sistem, doğal olarak, yaptığınız değişikliklerin üzerine yazarak Çalışma Alanlarım ( Workspaces ) klasörüne bir kopya kaydedecektir. Oradan tüm görevler iyi çalışmalıdır.",
+                    "updated": 1647873830342
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Is it there an auto save feature?",
-            "updated": 1620847897572
+            "updated": 1620847897572,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Есть ли функция автоматического сохранения?",
+                    "updated": 1640542245389
+                },
+                {
+                    "language": "TR",
+                    "text": "Otomatik kaydetme özelliği var mıdır?",
+                    "updated": 1647873849583
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Yes there is, and it is always on."
+            "text": "Yes there is, and it is always on.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Да, есть, и он всегда включен.",
+                    "updated": 1640542256417
+                },
+                {
+                    "language": "TR",
+                    "text": "Evet var ve her zaman açık.",
+                    "updated": 1647873858615
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "The system will try to auto save the current loaded workspace every minute or so. If it can, it briefly displays a note at the slider bar."
+            "text": "The system will try to auto save the current loaded workspace every minute or so. If it can, it briefly displays a note at the slider bar.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Система будет пытаться автоматически сохранять текущее загруженное рабочее пространство каждую минуту или около того. Если это удается, на панели слайдера появляется короткая заметка.",
+                    "updated": 1640542290255
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Sistem, mevcut yüklü çalışma alanını her dakikada bir otomatik olarak kaydetmeye çalışacaktır. Mümkünse, kaydırma çubuğunda kısaca bir not görüntüler.",
+                    "updated": 1647873897604
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "You can manually save the workspace at any time with CTRL + SHIFT + S",
-            "updated": 1620847931560
+            "updated": 1620847931560,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы можете вручную сохранить рабочее пространство в любое время с помощью CTRL + SHIFT + S",
+                    "updated": 1640542301805
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Çalışma alanını istediğiniz zaman CTRL + SHIFT + S ile manuel olarak kaydedebilirsiniz.",
+                    "updated": 1647873929753
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "How do I create backups of my Workspace?",
-            "updated": 1620847976159
+            "updated": 1620847976159,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как создавать резервные копии рабочего пространства?",
+                    "updated": 1640542313923
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışma Alanımın yedeklerini nasıl oluşturabilirim?",
+                    "updated": 1647873941123
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If you change the name of the Workspace node (which represents the Workspace), the next time you save it, or it is auto saved, will be with the new name, not deleting the previous file."
+            "text": "If you change the name of the Workspace node (which represents the Workspace), the next time you save it, or it is auto saved, will be with the new name, not deleting the previous file.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если вы измените имя узла Workspace (который представляет рабочее пространство), то при следующем сохранении или автосохранении он будет сохранен с новым именем, не удаляя предыдущий файл.",
+                    "updated": 1640542437043
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışma Alanı düğümünün adını değiştirirseniz, onu bir sonraki kaydettiğinizde veya otomatik olarak kaydedildiğinde, önceki dosya silinmez, çalışma alanını yeniden adlandırılır.",
+                    "updated": 1647874060074
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "That means that for instance, if you add version 1, 2, 3 to the end of the workspace node's name, you will be creating several backups of your works.",
-            "updated": 1620848010694
+            "updated": 1620848010694,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это означает, что, например, если вы добавите в конец имени узла рабочего пространства версии 1, 2, 3, вы создадите несколько резервных копий своих работ.",
+                    "updated": 1640542376826
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bu, örneğin, çalışma alanı düğümünün adının sonuna 1, 2, 3 sürümlerini eklerseniz, çalışmalarınızın birkaç yedeğini oluşturacağınız anlamına gelir.",
+                    "updated": 1647874358469
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Another technique is to use the Backup icon at the workspace node.",
-            "updated": 1620848060973
+            "updated": 1620848060973,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Другая техника заключается в использовании значка резервного копирования в узле рабочего пространства.",
+                    "updated": 1640542406121
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Diğer bir teknik, çalışma alanı düğümündeki Yedekleme simgesini kullanmaktır.",
+                    "updated": 1647874658882
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "How do I add plugins to my workspace?",
-            "updated": 1620848171711
+            "updated": 1620848171711,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как добавить плагины в рабочее пространство?",
+                    "updated": 1640542454817
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışma alanıma eklentileri nasıl eklerim?",
+                    "updated": 1647874691006
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "To add plugins you need to set them up at the Plugins hierarchy."
+            "text": "To add plugins you need to set them up at the Plugins hierarchy.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы добавить плагины, необходимо установить их в иерархии Plugins.",
+                    "updated": 1640542467996
+                },
+                {
+                    "language": "TR",
+                    "text": "Eklentileri eklemek için, bunları Eklentiler hiyerarşisinde ayarlamanız gerekir.",
+                    "updated": 1647874880453
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "In the workspace there are 2 types of hierarchies:",
-            "updated": 1620848235418
+            "updated": 1620848235418,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В рабочем пространстве существует 2 типа иерархий:",
+                    "updated": 1640542478776
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışma alanında 2 tür hiyerarşi vardır:",
+                    "updated": 1647874966270
+                }
+            ]
         },
         {
             "style": "List",
             "text": "a) Plugins: like for example Data Mines, Trading Systems, and others.",
-            "updated": 1620848280450
+            "updated": 1620848280450,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "a) Плагины: например, Data Mines, Trading Systems и другие.",
+                    "updated": 1640542499690
+                },
+                {
+                    "language": "TR",
+                    "text": "a) Eklentiler: örneğin Veri Madenleri, Ticaret Sistemleri ve diğerleri gibi.",
+                    "updated": 1647874979654
+                }
+            ]
         },
         {
             "style": "List",
             "text": "b) Not Plugins: like the Network, Crypto Ecosystem and other.",
-            "updated": 1620848288818
+            "updated": 1620848288818,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "b) Не плагины: такие как Network, Crypto Ecosystem и другие.",
+                    "updated": 1640542512829
+                },
+                {
+                    "language": "TR",
+                    "text": "b) Eklentiler Olmayanlar: Ağ, Kripto Ekosistemi ve diğerleri gibi.",
+                    "updated": 1647875006316
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Plugins within the workspace are recognized because the ring surrounding the head of the hierarchy is closed. Not Plugins have that ring with openings.",
-            "updated": 1620848300738
+            "updated": 1620848300738,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Плагины в пределах рабочего пространства распознаются по тому, что кольцо, окружающее вершину иерархии, замкнуто. У неплагинов это кольцо с отверстиями.",
+                    "updated": 1640542572354
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Çalışma alanındaki eklentiler, hiyerarşinin başını çevreleyen halka kapalı olduğu için tanınır. Eklentiler Olmayanlar, açıklıkları olan halkaya sahiptir.",
+                    "updated": 1647875089229
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Why my changes were not saved?"
+            "text": "Why my changes were not saved?",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Почему мои изменения не были сохранены?",
+                    "updated": 1640542581098
+                },
+                {
+                    "language": "TR",
+                    "text": "Değişikliklerim neden kaydedilmedi?",
+                    "updated": 1647875098604
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Maybe because you made changes to a Plugin."
+            "text": "Maybe because you made changes to a Plugin.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Возможно, потому что вы внесли изменения в плагин.",
+                    "updated": 1640542594005
+                },
+                {
+                    "language": "TR",
+                    "text": "Belki bir Eklentide değişiklik yaptığınız içindir.",
+                    "updated": 1647875109427
+                }
+            ]
         },
         {
             "style": "Important",
             "text": "Changes to Plugins are not saved at the workspace. If yo want a change you make to a Plugin loaded into your workspace to be persisted you need to generate a backup of that plugin (with the Backup icon) and save it at the plugins folder. If you replace the current plugin file then your changes will be loaded next time you load the workspace that contains that plugin; if you save it with a different name then you will need to lset them up at the workspace using the Plugins hierarchy.",
-            "updated": 1620848508320
+            "updated": 1620848508320,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Изменения плагинов не сохраняются в рабочем пространстве. Если вы хотите, чтобы изменения, внесенные в плагин, загруженный в рабочее пространство, сохранялись, вам необходимо создать резервную копию этого плагина (с помощью значка Backup) и сохранить ее в папке plugins. Если вы замените текущий файл плагина, то ваши изменения будут загружены при следующей загрузке рабочего пространства, содержащего этот плагин; если вы сохраните его под другим именем, то вам нужно будет установить их в рабочем пространстве с помощью иерархии Plugins.",
+                    "updated": 1640542639157
+                },
+                {
+                    "language": "TR",
+                    "text": "Önemli: Eklentilerde yapılan değişiklikler çalışma alanına kaydedilmez. Çalışma alanınıza yüklenen bir Eklentide yaptığınız bir değişikliğin kalıcı olmasını istiyorsanız, o eklentinin bir yedeğini (Yedekleme simgesiyle) oluşturmanız ve eklentiler klasörüne kaydetmeniz gerekir. Geçerli eklenti dosyasını değiştirirseniz, o eklentiyi içeren çalışma alanını bir sonraki yüklediğinizde değişiklikleriniz yüklenir; farklı bir adla kaydederseniz, bunları çalışma alanında Eklentiler hiyerarşisini kullanarak ayarlamanız gerekir.",
+                    "updated": 1647875155788
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "How can I modify a Plugin and have the changes persisted?",
-            "updated": 1620848582919
+            "updated": 1620848582919,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как я могу изменить плагин и сохранить изменения?",
+                    "updated": 1640542650324
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Eklentiyi nasıl değiştirebilir ve değişikliklerin kalıcı olmasını sağlayabilirim?",
+                    "updated": 1647875172110
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "There are two ways. One is by backing up the modified Plugin and replacing the original Plugin file with the modified one. The second way is to incorporating the Plugin as non-plugin data structure.",
-            "updated": 1620848879457
+            "updated": 1620848879457,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Есть два способа. Первый - создать резервную копию измененного плагина (Plugin) и заменить оригинальный файл плагина на измененный. Второй способ - включить плагин в структуру данных, не относящуюся к плагину.",
+                    "updated": 1640542738172
+                },
+                {
+                    "language": "TR",
+                    "text": "İki yol var. Birincisi, değiştirilmiş Eklentiyi yedeklemek ve orijinal Eklenti dosyasını değiştirilmiş olanla değiştirmek. İkinci yol, Eklentiyi eklenti olmayan veri yapısı olarak dahil etmektir.",
+                    "updated": 1647875197243
+                }
+            ]
         },
         {
             "style": "Important",
-            "text": "If you backup a plugin structure and the throw it again into the workspace it will not be considered a plugin, because it was not loaded as part of the mechanism defined by the Plugins hierarchy, which means that it will be considered a non-plugin and become part of your workspace. The same happens when you drag and drop any file backed up, being a plugin or not. It will become part of your workspace and saved together with the workspace. Only plugin files loaded by the system when the workspace is loaded are considered plugins. Remember you tell the system which plugins to load at the Plugins Hierarchy."
+            "text": "If you backup a plugin structure and the throw it again into the workspace it will not be considered a plugin, because it was not loaded as part of the mechanism defined by the Plugins hierarchy, which means that it will be considered a non-plugin and become part of your workspace. The same happens when you drag and drop any file backed up, being a plugin or not. It will become part of your workspace and saved together with the workspace. Only plugin files loaded by the system when the workspace is loaded are considered plugins. Remember you tell the system which plugins to load at the Plugins Hierarchy.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если вы создадите резервную копию структуры плагина и снова перекинете ее в рабочее пространство, она не будет считаться плагином, поскольку не была загружена в рамках механизма, определенного иерархией Plugins, а значит, будет считаться неплагином и станет частью вашего рабочего пространства. То же самое происходит при перетаскивании любого файла резервного копирования, будь то плагин или нет. Он станет частью вашего рабочего пространства и будет сохранен вместе с рабочим пространством. Плагинами считаются только файлы плагинов, загружаемые системой при загрузке рабочего пространства. Помните, что вы указываете системе, какие плагины загружать в иерархии Plugins.",
+                    "updated": 1640542849597
+                },
+                {
+                    "language": "TR",
+                    "text": "Önemli: Bir eklenti yapısını yedeklerseniz ve onu tekrar çalışma alanına atarsanız, eklenti olarak kabul edilmeyecektir, çünkü Eklentiler hiyerarşisi tarafından tanımlanan mekanizmanın bir parçası olarak yüklenmemiştir, yani bir olmayan olarak kabul edilecektir. eklenti ve çalışma alanınızın bir parçası olun. Aynı şey, eklenti olsun ya da olmasın, yedeklenmiş herhangi bir dosyayı sürükleyip bıraktığınızda da olur. Çalışma alanınızın bir parçası olacak ve çalışma alanıyla birlikte kaydedilecektir. Yalnızca çalışma alanı yüklendiğinde sistem tarafından yüklenen eklenti dosyaları eklenti olarak kabul edilir. Eklentiler Hiyerarşisinde sisteme hangi eklentilerin yükleneceğini söylediğinizi unutmayın.",
+                    "updated": 1647875223096
+                }
+            ]
         },
         {
             "style": "Text",

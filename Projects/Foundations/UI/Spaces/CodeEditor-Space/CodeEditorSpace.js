@@ -110,6 +110,23 @@ function newFoundationsCodeEditorSpace() {
 
     function onClosing() {
         thisObject.isVisible = false
+        for (let historyObject of UI.projects.workspaces.spaces.designSpace.workspace.undoStackOnHold) {
+            if (historyObject.previousCode !== undefined) {
+                if (historyObject.action.node.code != historyObject.previousCode) {
+                    UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                    UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                    UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                }
+            }
+            if (historyObject.previousConfig !== undefined) {
+                if (historyObject.action.node.config != historyObject.previousConfig) {
+                    UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                    UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                    UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                }
+            }
+        }
+        UI.projects.workspaces.spaces.designSpace.workspace.undoStackOnHold = []
     }
 
     function draw() {
@@ -123,7 +140,7 @@ function newFoundationsCodeEditorSpace() {
     }
 
     function resize() {
-        thisObject.container.frame.width = 1000
+        thisObject.container.frame.width = 900
         thisObject.container.frame.height = browserCanvas.height // - TOP_SPACE_HEIGHT
         thisObject.container.frame.position.x = browserCanvas.width
         thisObject.container.frame.position.y = 0 // TOP_SPACE_HEIGHT

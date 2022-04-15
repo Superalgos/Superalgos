@@ -1,0 +1,38 @@
+.footerReply {
+    display: -ms-flexbox;
+    justify-content: flex-start;
+    width: 100%;
+    padding-top: 0.50rem;
+}
+
+.footerReplyStack {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
+.replyAvatarContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+}
+
+.replyBody {
+    padding: 0.5rem;
+    width: 93%;
+}
+
+.replyButton {
+    padding: 0.45rem 0.75rem;
+    width: auto;
+    justify-content: flex-end;
+}
+
+.replyButtonStyle {
+    height: 1.5rem;
+    width: 5rem;
+    border-radius: 20px !important;
+}

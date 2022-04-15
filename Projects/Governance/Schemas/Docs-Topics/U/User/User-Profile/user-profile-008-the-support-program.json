@@ -10,6 +10,16 @@
                 "language": "ES",
                 "text": "Premiemos a los Community Mods  para que ellos continúen haciendo un buen trabajo, y por eso más gente querrá sumarse al equipo!",
                 "updated": 1633543661376
+            },
+            {
+                "language": "RU",
+                "text": "Если вы умеете с хорошо объяснять вещи, находите удовольствие в помощи людям и хотите внести свой вклад в проект, то использование Community Mod может быть большим для вас и для проекта!",
+                "updated": 1639128935883
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Topluluk Modlarını ( Community Mods ) iyi çalışmaya devam etmeleri ve daha fazla insanın ekibe katılmak istemesi için ödüllendirelim!",
+                "updated": 1646302370074
             }
         ]
     },
@@ -25,7 +35,19 @@
         },
         {
             "style": "Title",
-            "text": "Your Favorite Supporters"
+            "text": "Your Favorite Supporters",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ваши лучшие помощники",
+                    "updated": 1639128754469
+                },
+                {
+                    "language": "TR",
+                    "text": "Favori Destekçileriniz",
+                    "updated": 1646302896522
+                }
+            ]
         },
         {
             "style": "Include",
@@ -37,7 +59,19 @@
         },
         {
             "style": "Title",
-            "text": "Becoming a Community Mod"
+            "text": "Becoming a Community Mod",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вступление в Community Mod",
+                    "updated": 1639128810007
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Topluluk Modu Olma",
+                    "updated": 1646302918317
+                }
+            ]
         },
         {
             "style": "Include",

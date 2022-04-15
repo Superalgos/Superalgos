@@ -29,13 +29,18 @@
             },
             {
                 "language": "TR",
-                "text": "Veri madenciliği operasyonunuz, veri ürünleri yapan botlara sahiptir. Her ürün, bir Katman Yöneticisindeki ( Layer Manager ) bir Katman ( Layer ) aracılığıyla çizelgelerde kullanılabilir hale getirilir.",
-                "updated": 1636096341967
+                "text": "Veri madenciliği operasyonunuz, veri ürünleri yaratan botlara sahiptir. Her ürün, bir Katman Yöneticisindeki ( Layer Manager ) bir Katman ( Layer ) aracılığıyla çizelgelerde kullanılabilir hale getirilir.",
+                "updated": 1639214551654
             },
             {
                 "language": "RU",
                 "text": "В Вашей операции интеллектуального анализа данных используются боты, создающие продукты данных. Каждый продукт доступен на диаграммах через Layer в Layer Manager.",
                 "updated": 1636566107941
+            },
+            {
+                "language": "ID",
+                "text": "Operasi penambangan data kamu menampilkan bot yang membuat produk data. Setiap produk tersedia di chart melalui Layer di Layer Manager.",
+                "updated": 1639587301848
             }
         ],
         "updated": 1616427338175
@@ -72,6 +77,11 @@
                     "language": "RU",
                     "text": "Первый менеджер слоев слева от это машины времени содержит три слоя. Это слои представляют собой продукты данных, которые Trading System использует для принятия торговых решений.",
                     "updated": 1636566329971
+                },
+                {
+                    "language": "ID",
+                    "text": "Layer Manager pertama di sebelah kiri mesin waktu ini memiliki tiga layer. Layer-layer tersebut mewakili produk data yang akan digunakan oleh Trading System yang akan kita uji nanti untuk membuat keputusan trading.",
+                    "updated": 1639587517441
                 }
             ]
         },
@@ -105,6 +115,11 @@
                     "language": "RU",
                     "text": "Чтобы включать и выключать слои, щелкните по ним левой кнопкой мыши!",
                     "updated": 1636566368102
+                },
+                {
+                    "language": "ID",
+                    "text": "Untuk menghidupkan dan mematikan layer, klik kiri pada mereka!",
+                    "updated": 1639587352062
                 }
             ]
         },
@@ -140,6 +155,11 @@
                     "language": "RU",
                     "text": "Superalgos поставляется со многими другими индикаторами, но они не настроены в этом Workspace. Вы ознакомитесь с ними позднее.",
                     "updated": 1636566459062
+                },
+                {
+                    "language": "ID",
+                    "text": "Superalgos berkerja dengan lebih banyak indikator, tetapi tidak dikonfigurasi di Workspace ini. Kamu akan belajar tentang mereka nanti!",
+                    "updated": 1639587415189
                 }
             ]
         }

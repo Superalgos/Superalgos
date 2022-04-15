@@ -7,16 +7,64 @@
             "project": "Foundations",
             "name": ""
         },
-        "text": "This is where the documentation web site is loaded. It's an HTML iFrame inside a DIV, animated in and out of the screen."
+        "text": "This is where the documentation web site is loaded. It's an HTML iFrame inside a DIV, animated in and out of the screen.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Hier wird die Dokumentations-Website geladen. Es handelt sich um einen HTML-iFrame in einem DIV, der auf dem Bildschirm ein- und ausgeblendet wird.",
+                "updated": 1641736246104
+        },
+        {                "language": "RU",
+                "text": "Здесь загружается веб-сайт документации. Это HTML iFrame внутри DIV, анимированный на экране и за его пределами.",
+                "updated": 1640931621573
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Dokümantasyon web sitesinin yüklendiği yer burasıdır. Bir DIV içinde, ekranın içinde ve dışında canlandırılan bir HTML iFrame'dir.",
+                "updated": 1643203203475
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "There is an ongoing effort to bring the documentation web site into the app. What you can see today is just the first step in that direction."
+            "text": "There is an ongoing effort to bring the documentation web site into the app. What you can see today is just the first step in that direction.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Es gibt laufende Bemühungen, die Dokumentations-Website in die App zu integrieren. Was Sie heute sehen können, ist nur der erste Schritt in diese Richtung.",
+                    "updated": 1641736255938
+        },
+        {                    "language": "RU",
+                    "text": "В настоящее время ведется работа по внедрению веб-сайта документации в приложение. То, что вы видите сегодня, - лишь первый шаг в этом направлении.",
+                    "updated": 1640931640816
+                },
+                {
+                    "language": "TR",
+                    "text": "Dokümantasyon web sitesini uygulamaya getirmek için devam eden bir çaba var. Bugün görebilecekleriniz, bu yöndeki ilk adımdır.",
+                    "updated": 1643203224262
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "The current documentation is implemented as a separate repository, hosted by Github Pages."
+            "text": "The current documentation is implemented as a separate repository, hosted by Github Pages.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die aktuelle Dokumentation ist in einem separaten Repository implementiert, das von Github Pages gehostet wird.",
+                    "updated": 1641736262530
+        },
+        {                    "language": "RU",
+                    "text": "Текущая документация реализована в виде отдельного репозитория, размещенного на Github.",
+                    "updated": 1640931687040
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Mevcut dokümantasyon, Github Sayfaları tarafından barındırılan ayrı bir depo olarak uygulanmaktadır.",
+                    "updated": 1643203298842
+                }
+            ]
         }
     ]
 }

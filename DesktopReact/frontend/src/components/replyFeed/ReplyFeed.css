@@ -1,0 +1,14 @@
+.middleSection {
+    width: 40rem;
+}
+
+.postPlaceholderButton {
+    height: 1.5rem;
+    width: 5rem;
+}
+
+.reply {
+    padding: 0.5rem;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+}

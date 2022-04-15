@@ -2,7 +2,19 @@
     "type": "Reputation",
     "definition": {
         "text": "The tokens you earn when contributing to the project determine your reputation. You may leverage reputation to increase your Voting Power! ",
-        "updated": 1630061607470
+        "updated": 1630061607470,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Los tokens que gana contribuyendo con el proyecto determina su reputatción. Puede aprovechar la reputación para incrementar su Voting Power!",
+                "updated": 1637427162178
+            },
+            {
+                "language": "RU",
+                "text": "Токены, которые вы зарабатываете, внося свой вклад в проект, определяют вашу репутацию. Вы можете использовать репутацию для увеличения своего Voting Power!",
+                "updated": 1640320175941
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -12,80 +24,281 @@
         },
         {
             "style": "Important",
-            "text": "Only the tokens you get for contributing to the project grant you reputation. Reputation is not transferable, so the tokens you acquire by any other means (buying, swapping, borrowing, trading, etc.) do not carry a reputation value."
+            "text": "Only the tokens you get for contributing to the project grant you reputation. Reputation is not transferable, so the tokens you acquire by any other means (buying, swapping, borrowing, trading, etc.) do not carry a reputation value.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Solamente los tokens que obtienes contribuyendo al proyecto le otorga reputación. La  Reputación ino es transferible, entonce los tokens que adquiere por todo concepto (comprar, intercambiar, préstamo, trading, etc.) no acarrean valor de reputación.",
+                    "updated": 1637427404031
+                },
+                {
+                    "language": "RU",
+                    "text": "Только токены, которые вы получаете за вклад в проект, дают вам репутацию. Репутация не передается, поэтому токены, которые вы приобретаете любым другим способом (покупка, обмен, заимствование, торговля и т.д.), не приносят репутации.",
+                    "updated": 1640320310224
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "The Utility of Reputation"
+            "text": "The Utility of Reputation",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Польза репутации",
+                    "updated": 1640320339677
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Superalgos SA Tokens in your Governance Address determine the Token Power you may use throughout the Governance System."
+            "text": "Superalgos SA Tokens in your Governance Address determine the Token Power you may use throughout the Governance System.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Los Superalgos SA Tokens en su  Governance Address determina el Token Power que puede utilizar a través del sistema de gobernanza.",
+                    "updated": 1637427518614
+                },
+                {
+                    "language": "RU",
+                    "text": "Токены Superalgos SA Tokens в вашем адресе управления Governance Address определяют Token Power, которую вы можете использовать в системе управления.",
+                    "updated": 1640320432522
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Your reputation grants you Reputation Power, which is added to the Token Power you direct into the Voting Program. That is, reputation augments your Voting Power."
+            "text": "Your reputation grants you Reputation Power, which is added to the Token Power you direct into the Voting Program. That is, reputation augments your Voting Power.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Su reputación le otorga  Reputation Power, el cuál es agregado al Token Power que derija al  Voting Program. Esto es, la reptación aumenta su Voting Power.",
+                    "updated": 1637427631306
+                },
+                {
+                    "language": "RU",
+                    "text": "Ваша репутация дает вам Reputation Power, которая добавляется к Token Power, направляемой вами в программу голосования Voting Program. Иными словами, репутация увеличивает ваш Voting Power.",
+                    "updated": 1640320576799
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Reputation may only be leveraged within the Voting Program. The rationale behind this is that Superalgos wishes contributors to have a bigger voice in the direction of development, but not an advantage to participate in financial programs or any other program for that matter."
+            "text": "Reputation may only be leveraged within the Voting Program. The rationale behind this is that Superalgos wishes contributors to have a bigger voice in the direction of development, but not an advantage to participate in financial programs or any other program for that matter.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "La reputación solo se puede aprovechar dentro del Voting Program. La razón detrás de esto es que Superalgos desea que los contribuyentes tengan una voz más grande en la dirección del desarrollo, pero no una ventaja para participar en programas financieros o cualquier otro programa para el caso.",
+                    "updated": 1637427807218
+                },
+                {
+                    "language": "RU",
+                    "text": "Репутация может быть использована только в рамках программы голосования. Это объясняется тем, что Superalgos желает, чтобы вкладчики имели большее право голоса в направлении развития, но не преимущество для участия в финансовых или любых других программах, если на то пошло.",
+                    "updated": 1640320641428
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "How Reputation is Determined"
+            "text": "How Reputation is Determined",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как определяется репутация",
+                    "updated": 1640320651408
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The way the system determines the reputation in your User Profile is by checking how many tokens your Governance Address ever got from the Treasury Account."
+            "text": "The way the system determines the reputation in your User Profile is by checking how many tokens your Governance Address ever got from the Treasury Account.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "La forma en que el sistema determina la reputación en su User Profile Es comprobando cuántos tokens su Governance Address alguna vez obtuvo de la Treasury Account.",
+                    "updated": 1637427891301
+                },
+                {
+                    "language": "RU",
+                    "text": "Система определяет репутацию в вашем профиле пользователя User Profile, проверяя, сколько токенов ваш адрес управления когда-либо получал с казначейского счета (Treasury Account).",
+                    "updated": 1640320718649
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "A Governance Address holds as much reputation as tokens it may have received from the Treasury Account, or as tokens it may currently have in its balance, whichever is the lesser."
+            "text": "A Governance Address holds as much reputation as tokens it may have received from the Treasury Account, or as tokens it may currently have in its balance, whichever is the lesser.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Una Governance Address contiene tanta reputación como cantidad de tokens que pueda haber recibido desde la Treasury Account, o como tokens que pueda tener actualmente en su saldo, el que sea menor.",
+                    "updated": 1637428039457
+                },
+                {
+                    "language": "RU",
+                    "text": "Адрес управления имеет столько репутации, сколько токенов он мог получить с казначейского счета или сколько токенов в настоящее время находится на его балансе, в зависимости от того, что меньше.",
+                    "updated": 1640320798573
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Let's unpack the above statement with an example.",
-            "updated": 1630089275940
+            "updated": 1630089275940,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Analicemos la declaración anterior con un ejemplo.",
+                    "updated": 1637428075852
+                },
+                {
+                    "language": "RU",
+                    "text": "Давайте разберем это утверждение на примере.",
+                    "updated": 1640320849104
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Let's say you contributed fixing a bug and you got 1,000 SA Tokens for your contribution in the latest distribution event. You now have 1,000 SA Tokens in your Governance Address. Because all of the tokens came from the Treasury Account, your reputation is equal to 1,000."
+            "text": "Let's say you contributed fixing a bug and you got 1,000 SA Tokens for your contribution in the latest distribution event. You now have 1,000 SA Tokens in your Governance Address. Because all of the tokens came from the Treasury Account, your reputation is equal to 1,000.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Supongamos que contribuyó a corregir un error y obtuvo 1,000 SA Tokens por su contribución en el último evento de distribución. Ahora tienes 1,000 Tokens SA en su Governance Address. Porque todos los tokens  vinieron de la Treasury Account, su reputación es igual a 1,000.",
+                    "updated": 1637435658659
+                },
+                {
+                    "language": "RU",
+                    "text": "Допустим, вы внесли свой вклад в исправление ошибки и получили 1 000 токенов SA за свой вклад в последнем событии распределения. Теперь у вас есть 1 000 токенов SA в вашем адресе управления. Поскольку все токены поступили с казначейского счета, ваша репутация равна 1 000.",
+                    "updated": 1640320935933
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Now, let's assume you send 100 SA Tokens to a friend to get him interested in the project and sell another 400 SA Tokens in the market."
+            "text": "Now, let's assume you send 100 SA Tokens to a friend to get him interested in the project and sell another 400 SA Tokens in the market.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Ahora, asumamos que envía 100 SA Tokens a un amigo para qe se interese en el proyecto y vende otros 400 SA Tokens en el mercado.",
+                    "updated": 1637435811525
+                },
+                {
+                    "language": "RU",
+                    "text": "Теперь предположим, что вы отправляете 100 токенов SA другу, чтобы заинтересовать его в проекте, и продаете еще 400 токенов SA на рынке.",
+                    "updated": 1640320969277
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Your Governance Address now has 500 SA Tokens in the balance, so your reputation is now 500. Notice that the total number of SA Tokens you ever got from the Treasury Account is still 1,000, but because you decided to part with some of them, your reputation is now indicated by the balance of your Governance Address, which is lesser.",
-            "updated": 1630064707717
+            "updated": 1630064707717,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Su Governance Address ahora tiene  500 SA Tokens en el balance, entonces su reputación es ahora 500. Note  que el número total de SA Tokens alguna vez obtuviste de la Treasury Account es aún 1,000, pero debido a que decidió desprenderse de algunos de ellos, su reputación ahora está indicada por el saldo de su Governance Address, la cuál es menor.",
+                    "updated": 1637436007518
+                },
+                {
+                    "language": "RU",
+                    "text": "На балансе вашего адреса управления теперь 500 токенов SA, поэтому ваша репутация теперь равна 500. Обратите внимание, что общее количество токенов SA, которые вы когда-либо получали с казначейского счета, по-прежнему равно 1 000, но поскольку вы решили расстаться с некоторыми из них, ваша репутация теперь определяется балансом вашего адреса управления, который стал меньше.",
+                    "updated": 1640321014640
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Imagine your friend comes to Superalgos and uses his existing address with the 100 SA Tokens you sent him to set up his User Profile. Because those 100 Tokens did not come from the Treasury Account, his Governance Address features 0 reputation, despite his balance is 100. In this case, the number of tokens the address got from the Treasury Account is lesser than the number of tokens in the balance."
+            "text": "Imagine your friend comes to Superalgos and uses his existing address with the 100 SA Tokens you sent him to set up his User Profile. Because those 100 Tokens did not come from the Treasury Account, his Governance Address features 0 reputation, despite his balance is 100. In this case, the number of tokens the address got from the Treasury Account is lesser than the number of tokens in the balance.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Imagine  que su amigo viene  a Superalgos y usa su dirección actual con el 100 SA Tokens que e enviaste para configurar su User Profile. Debido a que esos 100 tokens no provienen de la Treasury Account, si Governance Address manifiesta 0 reputación,a pesar de que su saldo es 100. En este caso, el número de tokens que la dirección obtuvo de la Treasury Account es menor que el número de tokens en el saldo.",
+                    "updated": 1637436226782
+                },
+                {
+                    "language": "RU",
+                    "text": "Представьте, что ваш друг приходит в Superalgos и использует свой существующий адрес со 100 токенами SA, которые вы отправили ему для создания профиля пользователя. Поскольку эти 100 токенов не были получены с казначейского счета, его адрес управления имеет 0 репутации, несмотря на то, что его баланс равен 100. В этом случае количество токенов, полученных адресом со счета казначейства, меньше, чем количество токенов на балансе.",
+                    "updated": 1640321212655
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Let's close the circle. Let's say you go to the market and buy 1,000 SA Tokens and send them to your Governance Address. The balance is now 1,500 SA Tokens, but because you only ever got 1,000 from the Treasury Account, your reputation is back to 1,000.",
-            "updated": 1630064784130
+            "updated": 1630064784130,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Cerremos el círculo. Supongamos que va al mercado y compra 1000 tokens SA y se los envía a su Governance Address. Su balance es ahora 1,500 SA Tokens, pero porque solo obtuviste 1,000 de la Treasury Account, su reputación es nuevamente 1,000.",
+                    "updated": 1637436344447
+                },
+                {
+                    "language": "RU",
+                    "text": "Давайте замкнем круг. Допустим, вы идете на рынок, покупаете 1 000 токенов SA и отправляете их на свой адрес управления. Теперь баланс составляет 1 500 токенов SA, но поскольку вы получили только 1 000 с казначейского счета, ваша репутация снова равна 1 000.",
+                    "updated": 1640321260558
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "The Rationale"
+            "text": "The Rationale",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Рациональное обоснование",
+                    "updated": 1640321281841
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Superalgos values contributions above everything else, that is why only contributors acquire reputation."
+            "text": "Superalgos values contributions above everything else, that is why only contributors acquire reputation.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Superalgos valora contribuciones por sobre todas las cosas, es por eso que solo los colaboradores adquieren reputación.",
+                    "updated": 1637436398076
+                },
+                {
+                    "language": "RU",
+                    "text": "Superalgos ценит вклад превыше всего, поэтому только вкладчики получают репутацию. Иными слвами \"Репутацию нельзя купить\".",
+                    "updated": 1640321437224
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "Once you have contributed to Superalgos, you should always be able to leverage your reputation in Governance. However, if you divest your Superalgos SA Token holdings, that is, if you remove some skin from the game, then your reputation will go down too. That said, you can always get your reputation back by putting skin back in the game.",
-            "updated": 1630089391699
+            "updated": 1630089391699,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Una vez que haya contribuido a Superalgos, siempre podrá aprovechar su reputación en la gobernanza. Sin embargo, si se deshace de su tenencia de Superalgos SA Token, esto es, si quitas algo de piel del juego, tu reputación también se reducirá. Dicho esto, siempre puedes recuperar tu reputación volviendo a poner piel en el juego.",
+                    "updated": 1637436496946
+                },
+                {
+                    "language": "RU",
+                    "text": "После того как вы внесли свой вклад в Superalgos, вы всегда должны иметь возможность использовать свою репутацию в управлении. Однако, если вы продадите свои активы Superalgos SA Token, то есть, если вы уберете часть своего участия в игре, ваша репутация также упадет. Тем не менее, вы всегда можете вернуть свою репутацию, вернув свое участие в игре.",
+                    "updated": 1640321364397
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "That is the game theory behind the reputation system.",
-            "updated": 1630064881383
+            "updated": 1630064881383,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Esa es la teoría del juego detrás del sistema de reputación..",
+                    "updated": 1637436517733
+                },
+                {
+                    "language": "RU",
+                    "text": "В этом и заключается теория игры, лежащая в основе системы репутации.",
+                    "updated": 1640321382301
+                }
+            ]
         }
     ]
 }

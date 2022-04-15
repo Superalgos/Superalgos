@@ -4,7 +4,29 @@
     "type": "Design Space Hierarchy",
     "definition": {
         "text": "Use this hierarchy to control the look, feel, and behavior of the Design Space.",
-        "updated": 1610039508226
+        "updated": 1610039508226,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Используйте эту иерархию для управления внешним видом, ощущениями и поведением Design Space.",
+                "updated": 1638381607881
+            },
+            {
+                "language": "EL",
+                "text": "Χρησιμοποιήστε αυτήν την ιεραρχία για να ελέγξετε την εμφάνιση, την αίσθηση και τη συμπεριφορά του Χώρου Σχεδίασης.",
+                "updated": 1639092458446
+            },
+            {
+                "language": "DE",
+                "text": "Verwenden Sie diese Hierarchie, um das Aussehen, die Handhabung und das Verhalten des Design Space zu steuern.",
+                "updated": 1642888984904
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Tasarım Alanının ( Design Space ) görünümünü, hissini ve davranışını kontrol etmek için bu hiyerarşiyi kullanın.",
+                "updated": 1645975857879
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -30,7 +52,19 @@
         {
             "style": "Title",
             "text": "Space Style",
-            "updated": 1610038698256
+            "updated": 1610038698256,
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Στυλ Χώρου",
+                    "updated": 1639092835221
+                },
+                {
+                    "language": "TR",
+                    "text": "Uzay Stili",
+                    "updated": 1645975888350
+                }
+            ]
         },
         {
             "style": "Include",
@@ -39,7 +73,19 @@
         {
             "style": "Title",
             "text": "Space Settings",
-            "updated": 1610038707204
+            "updated": 1610038707204,
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Ρυθμίσεις Χώρου",
+                    "updated": 1639092905448
+                },
+                {
+                    "language": "TR",
+                    "text": "Alan Ayarları",
+                    "updated": 1645975908534
+                }
+            ]
         },
         {
             "style": "Include",

@@ -20,6 +20,36 @@
             "relatedUiObjectProject": "Foundations"
         },
         {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "outgoingSignals",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Outgoing Signals",
+            "relatedUiObject": "Outgoing Signals",
+            "relatedUiObjectProject": "Trading-Signals"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "incomingSignals",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Incoming Signals",
+            "relatedUiObject": "Incoming Signals",
+            "relatedUiObjectProject": "Trading-Signals"
+        },     
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "portfolioManagedSystem",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Portfolio Managed System",
+            "relatedUiObject": "Portfolio Managed System",
+            "relatedUiObjectProject": "Portfolio-Management"
+        },        
+        {
             "action": "Delete UI Object",
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
@@ -47,6 +77,24 @@
             "childType": "Dynamic Indicators",
             "autoAdd": true,
             "project": "Foundations"
+        },
+        {
+            "name": "outgoingSignals",
+            "type": "node",
+            "childType": "Outgoing Signals",
+            "project": "Trading-Signals"
+        },
+        {
+            "name": "incomingSignals",
+            "type": "node",
+            "childType": "Incoming Signals",
+            "project": "Trading-Signals"
+        },
+        {
+            "name": "portfolioManagedSystem",
+            "type": "node",
+            "childType": "Portfolio Managed System",
+            "project": "Portfolio-Management"
         }
     ]
 }

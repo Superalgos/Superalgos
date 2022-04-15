@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Verwenden Sie diesen Befehl, um eine Seite aus den Docs zu löschen.",
                 "updated": 1633893956478
+            },
+            {
+                "language": "RU",
+                "text": "Используйте эту команду, чтобы удалить страницу из документов Docs.",
+                "updated": 1638528236486
             }
         ]
     },
@@ -17,7 +22,14 @@
         {
             "style": "Title",
             "text": "Single-Page Syntax",
-            "updated": 1613765905233
+            "updated": 1613765905233,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Одностраничный синтаксис",
+                    "updated": 1638528262362
+                }
+            ]
         },
         {
             "style": "Json",
@@ -33,6 +45,11 @@
                     "language": "DE",
                     "text": "Beispiele",
                     "updated": 1633893968452
+                },
+                {
+                    "language": "RU",
+                    "text": "Примеры",
+                    "updated": 1638528284766
                 }
             ]
         },
@@ -54,7 +71,14 @@
         {
             "style": "Title",
             "text": "Page-Collection Syntax",
-            "updated": 1613766298709
+            "updated": 1613766298709,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Синтаксис коллекции страниц",
+                    "updated": 1638528305804
+                }
+            ]
         },
         {
             "style": "Json",
@@ -70,6 +94,11 @@
                     "language": "DE",
                     "text": "Beispiele",
                     "updated": 1633893976480
+                },
+                {
+                    "language": "RU",
+                    "text": "Примеры",
+                    "updated": 1638528317029
                 }
             ]
         },
@@ -96,6 +125,11 @@
                     "language": "DE",
                     "text": "Parameter",
                     "updated": 1633894005892
+                },
+                {
+                    "language": "RU",
+                    "text": "Параметры",
+                    "updated": 1638528330539
                 }
             ]
         },
@@ -108,6 +142,11 @@
                     "language": "DE",
                     "text": "Project: Es ist das Projekt, in dem die Seite definiert ist.",
                     "updated": 1633894025155
+                },
+                {
+                    "language": "RU",
+                    "text": "Project: Это проект, в котором определена страница.",
+                    "updated": 1638528344689
                 }
             ]
         },
@@ -120,6 +159,11 @@
                     "language": "DE",
                     "text": "Docs Page Category: Eine der verfügbaren Kategorien.",
                     "updated": 1633894046298
+                },
+                {
+                    "language": "RU",
+                    "text": "Docs Page Category: Одна из доступных категорий.",
+                    "updated": 1638528356480
                 }
             ]
         },
@@ -132,6 +176,11 @@
                     "language": "DE",
                     "text": "Docs Page Name: Der Name der Seite.",
                     "updated": 1633894059389
+                },
+                {
+                    "language": "RU",
+                    "text": "Docs Page Name: Название страницы",
+                    "updated": 1638528375725
                 }
             ]
         }

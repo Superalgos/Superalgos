@@ -15,6 +15,21 @@
                 "text": "Echemos un vistazo más de cerca a la firma criptográfica en tu nuevo perfil.",
                 "updated": 1630888742337,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Yeni profilinizdeki kriptografik imzaya daha yakından bakalım.",
+                "updated": 1637244588517
+            },
+            {
+                "language": "RU",
+                "text": "Давайте подробнее рассмотрим криптографическую подпись в вашем новом профиле.",
+                "updated": 1639047574989
+            },
+            {
+                "language": "DE",
+                "text": "Schauen wir uns die kryptografische Signatur in Ihrem neuen Profil genauer an.",
+                "updated": 1640073446031
             }
         ]
     },
@@ -29,6 +44,21 @@
                     "text": "Haz clic en la opción de configuración en tu nodo User Profile y echa un vistazo a lo que hay dentro.",
                     "updated": 1630888787848,
                     "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Kullanıcı Profili ( User Profile ) düğümünüzdeki yapılandırma seçeneğine tıklayın ve içinde ne olduğuna bir göz atın.",
+                    "updated": 1637244643042
+                },
+                {
+                    "language": "RU",
+                    "text": "Щелкните параметр configure в узле User Profile и посмотрите, что внутри.",
+                    "updated": 1639067582587
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie auf die Konfigurationsoption in Ihrem Benutzerprofilknoten und sehen Sie sich an, was dort steht.",
+                    "updated": 1640073472809
                 }
             ]
         },
@@ -42,6 +72,21 @@
                     "text": "¡Vaya, son muchos números! Nuevamente, así es como el sistema de gobernanza sabrá que este User Profile pertenece a la clave privada que firmó el mensaje, que a su vez pertenece a la dirección que albergará los tokens que confieren tu perfil con Token Power.",
                     "updated": 1630888835905,
                     "style": "Note"
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Vay, ne kadar çok sayı var! Yönetim sistemi bu şekilde, bu Kullanıcı Profilinin ( User Profile ) mesajı imzalayan özel anahtara ait olduğunu bilecektir, bu da profilinize Token Gücü veren tokenleri tutacak adrese aittir.",
+                    "updated": 1637244772999
+                },
+                {
+                    "language": "RU",
+                    "text": "Ух ты, много цифр! Опять же, именно так система управления узнает, что этот профиль пользователя принадлежит закрытому ключу, подписавшему сообщение, который, в свою очередь, принадлежит адресу, который будет содержать токены, которые присваивают вашему профилю Token Power.",
+                    "updated": 1639047671461
+                },
+                {
+                    "language": "DE",
+                    "text": "Wow, das sind eine Menge Zahlen! So weiß das Governance-System, dass dieses Benutzerprofil ( User Profile ) zu dem privaten Schlüssel gehört, mit dem die Nachricht signiert wurde, der wiederum zu der Adresse gehört, die die Token enthält, mit denen Ihr Profil Token Power erhält.",
+                    "updated": 1640073506764
                 }
             ]
         }

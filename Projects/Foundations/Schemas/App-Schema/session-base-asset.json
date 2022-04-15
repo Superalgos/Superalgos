@@ -10,7 +10,7 @@
         },
         {
             "action": "Delete UI Object",
-"actionProject": "Visual-Scripting",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",
@@ -21,16 +21,13 @@
     ],
     "isTitleAllwaysVisible": true,
     "initialValues": {
-        "config": "{\n\"initialBalance\": 1,\n\"minimumBalance\": 0.5\n}"
+        "config": "{\n\"initialBalance\": 0\n}"
     },
     "addLeftIcons": true,
     "editors": {
         "config": true
     },
     "level": 3,
-    "referencingRules": {
-        "compatibleTypes": "->Exchange Account Asset->"
-    },
     "attachingRules": {
         "compatibleTypes": "->Trading Parameters->"
     },

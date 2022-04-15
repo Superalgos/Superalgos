@@ -1,7 +1,14 @@
 {
     "type": "Max",
     "definition": {
-        "text": "Max is the maximum rate registered by the exchange during the period between the datetimes of the begin and end properties, as provided by the exchange."
+        "text": "Max is the maximum rate registered by the exchange during the period between the datetimes of the begin and end properties, as provided by the exchange.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Max - максимальный курс, зарегистрированный биржей в период между датами свойств begin и end, как это предусмотрено биржей.",
+                "updated": 1645168701550
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,7 +17,14 @@
         },
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text."
+            "text": "Right click and Edit to enter edit mode and change this text.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст.",
+                    "updated": 1645168710257
+                }
+            ]
         }
     ]
 }

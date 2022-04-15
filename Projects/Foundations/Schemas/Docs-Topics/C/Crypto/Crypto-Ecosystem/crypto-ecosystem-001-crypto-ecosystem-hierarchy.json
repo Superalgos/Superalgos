@@ -4,7 +4,19 @@
     "type": "Crypto Ecosystem Hierarchy",
     "definition": {
         "text": "The crypto ecosystem hierarchy organizes the infrastructure of exchanges, markets and user accounts.",
-        "updated": 1611502351384
+        "updated": 1611502351384,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Иерархия криптоэкосистемы организует инфраструктуру бирж, рынков и учетных записей пользователей.",
+                "updated": 1640279400184
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Kripto ekosistem hiyerarşisi, borsaların, pazarların ve kullanıcı hesaplarının altyapısını düzenler.",
+                "updated": 1645355831079
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -20,7 +32,14 @@
         {
             "style": "Title",
             "text": "Crypto Exchanges",
-            "updated": 1611345864281
+            "updated": 1611345864281,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Kripto Borsaları",
+                    "updated": 1645356516122
+                }
+            ]
         },
         {
             "style": "Include",
@@ -34,7 +53,14 @@
         {
             "style": "Title",
             "text": "Crypto Exchange",
-            "updated": 1611346094494
+            "updated": 1611346094494,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Kripto Borsası",
+                    "updated": 1645356540143
+                }
+            ]
         },
         {
             "style": "Text",
@@ -57,7 +83,14 @@
         {
             "style": "Title",
             "text": "Exchange Assets",
-            "updated": 1611346189806
+            "updated": 1611346189806,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Borsa Varlıkları",
+                    "updated": 1645356556020
+                }
+            ]
         },
         {
             "style": "Include",
@@ -67,7 +100,14 @@
         {
             "style": "Title",
             "text": "Exchange Markets",
-            "updated": 1611346210580
+            "updated": 1611346210580,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Borsalar",
+                    "updated": 1645356618222
+                }
+            ]
         },
         {
             "style": "Include",
@@ -77,7 +117,14 @@
         {
             "style": "Title",
             "text": "Exchange Accounts",
-            "updated": 1611346229086
+            "updated": 1611346229086,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hesap Değişimleri",
+                    "updated": 1645356686988
+                }
+            ]
         },
         {
             "style": "Include",

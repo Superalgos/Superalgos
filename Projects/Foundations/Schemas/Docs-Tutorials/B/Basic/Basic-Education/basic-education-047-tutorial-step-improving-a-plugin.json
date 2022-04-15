@@ -6,7 +6,7 @@
         "text": "About the second scenario: let's say you are testing the EMA indicator, found a bug and know how to fix it. You intend to contribute the fix so that everyone benefits from it!",
         "icon": {
             "name": "indicator-bot",
-            "project": "Foundations"
+            "project": "Data-Mining"
         },
         "updated": 1629909327051,
         "translations": [
@@ -27,6 +27,21 @@
                 "text": "Zum zweiten Szenario: Nehmen wir an, Sie testen den EMA-Indikator, haben einen Fehler gefunden und wissen, wie man ihn beheben kann. Sie beabsichtigen, den Fehler zu beheben, damit alle davon profitieren!",
                 "updated": 1634589198766,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "İkinci senaryo şudur: Diyelim ki EMA göstergesini test ediyorsunuz, bir hata buldunuz ve nasıl düzeltileceğini biliyorsunuz. Herkesin bundan faydalanabilmesi için düzeltmeye katkıda bulunmayı düşünüyorsunuz!",
+                "updated": 1639818513811
+            },
+            {
+                "language": "RU",
+                "text": "Во втором сценарии: допустим, вы тестируете индикатор EMA, нашли ошибку и знаете, как ее исправить. Вы намерены внести исправление, чтобы все могли им воспользоваться!",
+                "updated": 1640874963360
+            },
+            {
+                "language": "ID",
+                "text": "Tentang skenario kedua: katakanlah kamu sedang menguji indikator EMA, menemukan bug dan tahu cara memperbaikinya. Kamu bermaksud berkontribusi untuk memperbaiki sehingga semua orang mendapat manfaat dari hal itu!",
+                "updated": 1645559461122
             }
         ]
     },
@@ -53,6 +68,21 @@
                     "text": "Dieser Indicator Bot ist Teil der Sparta Data Mine, die normalerweise als Plugin in einigen Plugin-Workspaces enthalten ist. Um das Plugin aus der UI Benutzeroberfläche heraus zu modifizieren und die Änderungen zu speichern, haben Sie zwei Möglichkeiten:",
                     "updated": 1634589206307,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu Indıcator Bot 'u, Sparta Veri Madeni'nin ( Data Mine ) bir parçasıdır. Eklentiyi kullanıcı arayüzünden ( UI ) değiştirmek ve değişiklikleri kaydetmek için iki seçeneğiniz vardır:",
+                    "updated": 1639818618736
+                },
+                {
+                    "language": "RU",
+                    "text": "Этот индикаторный бот (Indicator Bot) является частью Sparta Data Mine, который обычно включается в качестве плагина в некоторые рабочие пространства плагинов. Чтобы изменить плагин из пользовательского интерфейса и сохранить изменения, у вас есть два способа:",
+                    "updated": 1640875005766
+                },
+                {
+                    "language": "ID",
+                    "text": "Indikator Bot ini adalah bagian dari Sparta Data Mine, yang biasanya dimasukkan sebagai plugin di beberapa workspaces plugin. Untuk memodifikasi plugin dari dalam UI dan menyimpan perubahan, Kamu memiliki dua opsi :",
+                    "updated": 1645559526844
                 }
             ]
         },
@@ -65,12 +95,27 @@
                     "language": "DE",
                     "text": "Gehen Sie zu dem entsprechenden Plugin File in der Plugins-Hierarchie und wählen Sie im Menü die Option Enable Saving With Workspace. Jetzt wird die Plugin-Datei jedes Mal aktualisiert, wenn Sie den Arbeitsbereich speichern, um die von Ihnen vorgenommenen Änderungen zu berücksichtigen!",
                     "updated": 1634819321377
+                },
+                {
+                    "language": "TR",
+                    "text": "Plugin hiyerarşisinde ilgili Plugin Dosyasına gidin ve menüden \"Enable Saving With Workspace\"seçeneğini seçin. Artık eklenti dosyası, çalışma alanını her kaydettiğinizde, yapmış olabileceğiniz değişiklikleri içerecek şekilde güncellenir!",
+                    "updated": 1639818782919
+                },
+                {
+                    "language": "RU",
+                    "text": "Перейдите к соответствующему узлу Plugin File в иерархии Plugins и выберите в меню Enable Saving With Workspace. Теперь он будет обновляться каждый раз, когда вы сохраняете рабочее пространство, чтобы содержать изменения, которые вы могли внести!",
+                    "updated": 1640875166906
+                },
+                {
+                    "language": "ID",
+                    "text": "Buka File Plugin yang sesuai dalam hierarki Plugin dan pilih Enable Saving With Workspace pada menu. Sekarang file plugin diperbarui setiap kali kamu menyimpan workspace untuk memasukkan perubahan yang mungkin telah kamu perkenalkan!",
+                    "updated": 1645559587333
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Or use the Save Plugin option to manually save the plugin file whenever you wish to!",
+            "text": "Or use the Save Plugin File option to manually save the plugin file whenever you wish to!",
             "updated": 1629909705348,
             "translations": [
                 {
@@ -78,6 +123,21 @@
                     "text": "Oder verwenden Sie die Option \"Plugin speichern\", um die Plugin-Datei manuell zu speichern, wann immer Sie es wünschen!",
                     "updated": 1634589217431,
                     "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Veya eklenti dosyasını istediğiniz zaman manuel olarak kaydetmek için \"Save Plugin File\" seçeneğini kullanın!",
+                    "updated": 1639818865475
+                },
+                {
+                    "language": "RU",
+                    "text": "Или используйте опцию Save Plugin File, чтобы вручную сохранить файл плагина, когда захотите!",
+                    "updated": 1640875192451
+                },
+                {
+                    "language": "ID",
+                    "text": "Atau gunakan opsi Save Plugin File untuk menyimpan file plugin secara manual kapan pun kamu mau!",
+                    "updated": 1645559620656
                 }
             ]
         }

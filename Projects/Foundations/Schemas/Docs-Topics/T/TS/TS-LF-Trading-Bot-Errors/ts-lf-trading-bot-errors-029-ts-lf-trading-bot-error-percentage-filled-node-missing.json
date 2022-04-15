@@ -4,17 +4,38 @@
     "type": "TS LF Trading Bot Error - Percentage Filled Node Missing",
     "definition": {
         "text": "A Percentage Filled node was expected but not found at the node where the error originated.",
-        "updated": 1611649967038
+        "updated": 1611649967038,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Yüzde Doldurulmuş ( Percentage Filled ) bir düğüm bekleniyordu ancak hatanın kaynaklandığı düğümde bulunamadı.",
+                "updated": 1648938500631
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Error",
             "text": "Percentage Filled Node Missing",
-            "updated": 1611650726302
+            "updated": 1611650726302,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yüzde Dolu Düğüm Eksik. ( Percentage Filled Node Missing )",
+                    "updated": 1648938468728
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Add the missing node and try again."
+            "text": "Add the missing node and try again.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Eksik düğümü ekleyin ve tekrar deneyin.",
+                    "updated": 1648938492045
+                }
+            ]
         }
     ]
 }

@@ -8,8 +8,18 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "Para participar en la gobernanza, debes configurar tu User Profile — una jerarquía que define  cómo puede usar el the Token Power conferido por tu tenencia de token.",
-                "updated": 1633531879183
+                "text": "Para participar en la gobernanza, debe configurar Su User Profile — una jerarquía que define cómo puede usar el  Token Power conferido por Su tenencia de token.",
+                "updated": 1637426585587
+            },
+            {
+                "language": "RU",
+                "text": "Чтобы участвовать в управлении, вы должны настроить свой профиль пользователя User Profile — иерархию, которая определяет, как вы собираетесь использовать полномочия токенов Token Power, предоставляемые вашими токенами.",
+                "updated": 1638977517498
+            },
+            {
+                "language": "TR",
+                "text": "Yönetime katılmak için, token varlıklarınız tarafından verilen Token Gücünü (Token Power) nasıl kullanmayı düşündüğünüzü tanımlayan bir hiyerarşi olan Kullanıcı Profilinizi (User Profile) oluşturmalısınız.",
+                "updated": 1645181761233
             }
         ]
     },
@@ -23,6 +33,16 @@
                     "language": "ES",
                     "text": "Cómo use su Token Power está definido por diferentes programas incluídos en la jerarquía. Por ejemplo, los Claims Program le permite presentar declaraciones por el trabajo qe haya realizado. Cubriremos todos los programas en detalle.",
                     "updated": 1633532034348
+                },
+                {
+                    "language": "RU",
+                    "text": "То, как вы используете свои полномочия Token Power, определяется в нескольких программах в иерархии. Например, программа Claims Program позволяет вам подавать претензии в отношении проделанной вами работы. Мы подробно рассмотрим все программы.",
+                    "updated": 1638978650858
+                },
+                {
+                    "language": "TR",
+                    "text": "Token Gücünüzü nasıl kullandığınız, hiyerarşi içindeki çeşitli programlarda tanımlanır. Örneğin, Talepler Programı (Claims Program), yaptığınız iş için talepler sunmanıza olanak tanır. Tüm programları ayrıntılı olarak ele alacağız.",
+                    "updated": 1645181807885
                 }
             ]
         },
@@ -34,6 +54,16 @@
                     "language": "ES",
                     "text": "Sus puntos del User Profile marcan una dirección de Superalgos SA Token que usted crea desde dentro de Superalgos. Valida su dirección confirmando una prueba de firma criptográfica, también desde Superalgos, entonces el sistema se da cuenta de la cantidad de tokens en su dirección, y le asigna a su profile el monto equivalente de Token Power.",
                     "updated": 1633532428398
+                },
+                {
+                    "language": "RU",
+                    "text": "Ваш профиль пользователя User Profile указывает на адрес Superalgos SA Token, который вы создаете в Superalgos. Вы подтверждаете свой адрес, подписывая криптографическое доказательство, также из Superalgos, чтобы система знала количество токенов в адресе и присваивала вашему профилю эквивалентное количество Token Power.",
+                    "updated": 1638978834505
+                },
+                {
+                    "language": "TR",
+                    "text": "Kullanıcı Profiliniz (User Profile), Superalgos içinden oluşturduğunuz bir Superalgos SA Token adresini işaret eder. Sistemin adresteki jeton sayısından haberdar olması ve profilinize eşdeğer miktarda Token Gücü ataması için Superalgos içinden de bir kriptografik kanıt imzalayarak adresinizi doğrularsınız.",
+                    "updated": 1645181863350
                 }
             ]
         },
@@ -46,6 +76,16 @@
                     "language": "ES",
                     "text": "TLa dirección que genere es también la dirección donde el proyecto le envie los tokens que haya ganado por sus contribuciones. Nosotros la llamamos su Governance Address  ( dirección de gobernanza).",
                     "updated": 1633532569964
+                },
+                {
+                    "language": "RU",
+                    "text": "Сгенерированный вами адрес также является адресом, на который проект будет отправлять токены, которые вы зарабатываете за свои взносы. Мы называем это управленческим адресом Governance Address.",
+                    "updated": 1638978932977
+                },
+                {
+                    "language": "TR",
+                    "text": "Oluşturduğunuz adres aynı zamanda projenin katkılarınız karşılığında kazandığınız jetonları göndereceği adrestir. Biz buna Yönetim Adresi (Governance Address) diyoruz.",
+                    "updated": 1645181901663
                 }
             ]
         }

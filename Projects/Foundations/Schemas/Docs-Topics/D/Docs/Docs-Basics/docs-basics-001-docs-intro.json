@@ -3,8 +3,8 @@
     "pageNumber": 1,
     "type": "Docs Intro",
     "definition": {
-        "text": "The Docs is a Space within the Superalgos Project. It allows users to search for information relative to nodes, concepts, topics, tutorials, reviews, and books.",
-        "updated": 1613753494568,
+        "text": "The Docs is a Space within the Foundations Project. It allows users to search for information relative to nodes, concepts, topics, tutorials, reviews, and books.",
+        "updated": 1642935831112,
         "translations": [
             {
                 "language": "ID",
@@ -17,6 +17,16 @@
                 "text": "Die Docs sind ein Bereich innerhalb des Superalgos-Projekts. Es ermöglicht den Nutzern, nach Informationen zu Knoten, Konzepten, Themen, Tutorials, Rezensionen und Büchern zu suchen.\nDie Docs wurden ins deutsche übersetzt durch gitforkgit .",
                 "updated": 1633966515041,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Docs - это пространство в рамках проекта Foundations. Оно позволяет пользователям искать информацию по узлам, концепциям, темам, учебникам, обзорам и книгам.",
+                "updated": 1647781093549
+            },
+            {
+                "language": "TR",
+                "text": "Dokümanlar, Foundation Project içinde bir Alan'dır. Kullanıcıların düğümler, kavramlar, konular, öğreticiler, incelemeler ve kitaplarla ilgili bilgileri aramasına olanak tanır.",
+                "updated": 1646205526218
             }
         ]
     },
@@ -37,6 +47,11 @@
                     "text": "Jedes in Superalgos integrierte Projekt kann seine eigene Sammlung von Seiten haben, die die Projektdokumentation bilden.",
                     "updated": 1633805059356,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Каждый проект, интегрированный в Superalgos, может иметь свой собственный набор страниц, составляющих документацию проекта.",
+                    "updated": 1638457209931
                 }
             ]
         }

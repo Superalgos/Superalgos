@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Die Docs verfügen über eine Suchmaschine, die es den Nutzern ermöglicht, die Sammlung von Seiten zu durchsuchen.",
                 "updated": 1633863338682
+            },
+            {
+                "language": "RU",
+                "text": "Docs Search Engine - это поисковая система, которая позволяет пользователям выполнять поиск по всем страницам.",
+                "updated": 1637927883659
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "DE",
                     "text": "Die Suchmaschine erstellt einen Docs Search Engine Index, der später verwendet wird, um Übereinstimmungen mit den Begriffen zu finden, die die Benutzer in das Suchfeld eingeben.",
                     "updated": 1633863462621
+                },
+                {
+                    "language": "RU",
+                    "text": "Поисковая система создает Docs Search Engine Index, который позже используется для поиска совпадений с фразами, которые пользователи вводят в поле поиска.",
+                    "updated": 1637928189353
                 }
             ]
         }

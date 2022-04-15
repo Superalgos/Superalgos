@@ -29,13 +29,18 @@
             },
             {
                 "language": "TR",
-                "text": "Superalgos'un en son sürümü, uygulama içinden Makine öğrenimi'nden (ML)yararlanmak için deneysel bir TensorFlow entegrasyonuna sahiptir!",
-                "updated": 1636109475710
+                "text": "Superalgos'un en son sürümü, uygulama içinden Makine öğrenimi'nden yararlanmak için deneysel bir TensorFlow entegrasyonuna sahiptir!",
+                "updated": 1639221072679
             },
             {
                 "language": "RU",
                 "text": "Последняя версия Superalgos включает эксперементальную интеграцию TensorFlow \nдля использования ML из приложения!",
                 "updated": 1636748037813
+            },
+            {
+                "language": "ID",
+                "text": "Versi terbaru Superalgos menampilkan integrasi eksperimental TensorFlow untuk memanfaatkan leverage ML dari dalam aplikasi!",
+                "updated": 1639746338118
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "RU",
                     "text": "Интеграция отображает определение NodeJS TensorFlow Library с алгоритмом Supervised Learning и его Artificial Neural Network в той же структуре узлов, типичной для Superalgos.",
                     "updated": 1636749421416
+                },
+                {
+                    "language": "ID",
+                    "text": "Integrasi tersebut memetakan definisi NodeJS TensorFlow Library yang menampilkan algoritme Supervised Learning dan Artificial Neural Network dalam jenis struktur nodes yang sama dengan Superalgos.",
+                    "updated": 1639746418118
                 }
             ]
         },
@@ -105,6 +115,11 @@
                     "language": "RU",
                     "text": "Интеграция использует остальную инфраструктуру Superalgos, поэтому Вы можете использовать свои наборы данных для обучения алгоритмов ML и использовать полученные модели в торговых системах.",
                     "updated": 1636749603540
+                },
+                {
+                    "language": "ID",
+                    "text": "Integration leverages adalah sisa infrastruktur Superalgos, sehingga kamu dapat menggunakan kumpulan data untuk melatih ML algos dan menggunakan model yang dihasilkan dari dalam sistem trading!",
+                    "updated": 1639747091448
                 }
             ]
         },
@@ -139,6 +154,11 @@
                     "language": "RU",
                     "text": "Позже взгляните на ML CrossCategoricalEntropy Demo Plugin Workspace!",
                     "updated": 1636749639894
+                },
+                {
+                    "language": "ID",
+                    "text": "Nanti, lihat Ruang Kerja Plugin Demo CrossCategoricalEntropy ML!",
+                    "updated": 1639746475344
                 }
             ]
         }

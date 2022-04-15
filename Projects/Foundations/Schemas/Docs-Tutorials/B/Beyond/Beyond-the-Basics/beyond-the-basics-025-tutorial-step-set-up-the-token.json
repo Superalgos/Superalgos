@@ -26,6 +26,16 @@
                 "language": "DE",
                 "text": "Nachdem Sie auf die Schaltfläche \"Token generieren\" geklickt haben, erhalten Sie Ihren wertvollen Token! Verlassen Sie die Seite nicht, denn Sie werden ihn nie wieder sehen!",
                 "updated": 1635151146569
+            },
+            {
+                "language": "TR",
+                "text": "Belirteci Oluştur (Generate Token) düğmesine bastıktan sonra değerli kodunuzu alacaksınız! Sayfayı bir daha görmeyeceğiniz için şu anda lütfen terk etmeyin! (Bu arada kodunuzu ve secret key'inizi bir yere not alarak saklamanız tavsiye edilir)",
+                "updated": 1640001539935
+            },
+            {
+                "language": "RU",
+                "text": "После нажатия кнопки Generate Token вы получите свой драгоценный токен! Не покидайте страницу, так как вы больше никогда его не увидите!",
+                "updated": 1640162993353
             }
         ]
     },
@@ -50,6 +60,16 @@
                     "language": "DE",
                     "text": "Kopieren Sie das Token, öffnen Sie die Github-API Knotenkonfiguration und fügen Sie es zwischen den Anführungszeichen des Token-Parameters ein. Füllen Sie den Parameter username mit Ihrem GitHub.com-Benutzer aus, nicht mit Ihrer E-Mail!",
                     "updated": 1635151154637
+                },
+                {
+                    "language": "TR",
+                    "text": "Belirteci kopyalayın, Github API düğüm yapılandırmasını açın ve \"Token\" parametresinin karşısındaki çift tırnak işaretleri arasına yapıştırın. Username parametresinin karşışındaki çift tırnak işareti arasına da github.com'daki kullanıcı adınızı yazın.(e-posta adresinizi değil)",
+                    "updated": 1640001502701
+                },
+                {
+                    "language": "RU",
+                    "text": "Скопируйте токен, откройте конфигурацию узла Github API и вставьте его между двойными кавычками параметра token. Заполните параметр username своим именем пользователя GitHub.com, а не электронной почтой!",
+                    "updated": 1640163035110
                 }
             ]
         },
@@ -74,6 +94,16 @@
                     "language": "DE",
                     "text": "Superalgos speichert das Token in der Workspace-Datei, genau wie Ihren Exchange Account Key. Das Token wird zur Authentifizierung mit der API von GitHub.com verwendet, um den Pull Request zu erstellen. Es wird niemals an eine andere Stelle gesendet oder gespeichert.",
                     "updated": 1635151165009
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos, belirteci tıpkı Exchange Hesap Anahtarınız ( Exchange Account Key ) gibi çalışma alanı dosyasında saklar. Belirteç, Çekme İsteği oluşturmak için GitHub.com'un API'si ile kimlik doğrulaması yapmak için kullanılır. Asla başka bir yere gönderilmez veya saklanmaz.",
+                    "updated": 1640001610620
+                },
+                {
+                    "language": "RU",
+                    "text": "Superalgos хранит токен в файле рабочего пространства, как и ключ учетной записи Exchange Account Key. Токен используется для аутентификации с API GitHub.com для создания Pull Request. Он никогда не отправляется и не хранится где-либо еще.",
+                    "updated": 1640163090881
                 }
             ]
         }

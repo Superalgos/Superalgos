@@ -7,17 +7,68 @@
             "project": "Foundations",
             "name": "run"
         },
-        "text": "Now that you understand the implications of running this data mining operation, let's get on with it!"
+        "text": "Now that you understand the implications of running this data mining operation, let's get on with it!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Nun, da Sie die Auswirkungen dieser Data-Mining-Operation verstanden haben, können wir loslegen!",
+                "updated": 1639254691946
+            },
+            {
+                "language": "RU",
+                "text": "Теперь, когда вы понимаете последствия проведения операции по добыче данных, давайте приступим к делу!",
+                "updated": 1640933612912
+            },
+            {
+                "language": "TR",
+                "text": "Artık bu veri madenciliği işlemini yürütmenin sonuçlarını anladığınıza göre, başlayalım!",
+                "updated": 1641062954800
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
             "text": "If you didn't do the second tutorial in the series, select \"Run All Project Data Tasks\" on the Data Tasks node menu!",
-            "updated": 1622462310245
+            "updated": 1622462310245,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie das zweite Tutorial der Serie nicht gemacht haben, wählen Sie \"Run All Project Data Tasks\" im Data Tasks node Menü!",
+                    "updated": 1639254741699
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы не выполнили второй урок из этой серии, выберите \" Run All Project Data Tasks\" в меню узла Data Tasks!",
+                    "updated": 1640933635730
+                },
+                {
+                    "language": "TR",
+                    "text": "Serideki ikinci öğreticiyi yapmadıysanız, Veri Görevleri ( Data Tasks ) düğüm menüsünden \"Tüm Proje Veri Görevlerini Çalıştır ( All Project Data Tasks )\" ı seçin!",
+                    "updated": 1641063044508
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "If you are doing this tutorial after doing other tutorials, chances are you may already have part of the data required, which may make things faster! Either way, no need to wait for the data mining to get to the present time... you may keep going with the tutorial!"
+            "text": "If you are doing this tutorial after doing other tutorials, chances are you may already have part of the data required, which may make things faster! Either way, no need to wait for the data mining to get to the present time... you may keep going with the tutorial!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie dieses Lernprogramm nach anderen Lernprogrammen durchführen, haben Sie vielleicht schon einen Teil der benötigten Daten, was die Sache beschleunigen kann! In jedem Fall brauchen Sie nicht zu warten, bis die Datenerfassung zum jetzigen Zeitpunkt abgeschlossen ist... Sie können mit dem Lernprogramm fortfahren!",
+                    "updated": 1639254750312
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы изучаете этот учебник после изучения других учебников, есть вероятность, что у вас уже есть часть необходимых данных, что может ускорить процесс! В любом случае, нет необходимости ждать, пока добыча данных дойдет до настоящего времени... вы можете продолжать заниматься по этому учебнику!",
+                    "updated": 1640933669134
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bu öğreticiyi diğer öğreticileri yaptıktan sonra yapıyorsanız, gereken verilerin bir kısmına zaten sahip olabilirsiniz, bu da işleri daha hızlı hale getirebilir! Her iki durumda da, veri madenciliğinin şimdiki zamana gelmesini beklemenize gerek yok... öğretici ile devam edebilirsiniz!",
+                    "updated": 1641063083080
+                }
+            ]
         }
     ]
 }

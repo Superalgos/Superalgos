@@ -1,0 +1,146 @@
+[
+    {
+        "name": "Algorithmic-Trading",
+        "propertyName": "algorithmicTrading",
+        "systemMenu": []
+    },
+    {
+        "name": "Decentralized-Exchanges",
+        "propertyName": "decentralizedExchanges",
+        "systemMenu": []
+    },
+    {
+        "name": "Portfolio-Management",
+        "propertyName": "portfolioManagement",
+        "systemMenu": []
+    },
+    {
+        "name": "Machine-Learning",
+        "propertyName": "machineLearning",
+        "systemMenu": []
+        
+    },
+    {
+        "name": "Visual-Scripting",
+        "propertyName": "visualScripting",
+        "systemMenu": []
+    },
+    {
+        "name": "Foundations",
+        "propertyName": "foundations",
+        "systemMenu": []
+    },
+    {
+        "name": "Data-Mining",
+        "propertyName": "dataMining",
+        "systemMenu": []
+    },
+    {
+        "name": "Community-Plugins",
+        "propertyName": "communityPlugins",
+        "systemMenu": []
+    },
+    {
+        "name": "Ethereum",
+        "propertyName": "ethereum",
+        "systemMenu": []
+    },
+    {
+        "name": "TensorFlow",
+        "propertyName": "tensorflow",
+        "systemMenu": []
+    },
+    {
+        "name": "Education",
+        "propertyName": "education",
+        "systemMenu": []
+    },
+    {
+        "name": "Governance",
+        "propertyName": "governance",
+        "systemMenu": []
+    },
+    {
+        "name": "Network",
+        "propertyName": "network",
+        "systemMenu": []
+    },
+    {
+        "name": "Social-Trading",
+        "propertyName": "socialTrading",
+        "systemMenu": []
+    },
+    {
+        "name": "Social-Bots",
+        "propertyName": "socialBots",
+        "systemMenu": []
+    },
+    {
+        "name": "Trading-Signals",
+        "propertyName": "tradingSignals",
+        "systemMenu": []
+    },
+    {
+        "name": "Workspaces",
+        "propertyName": "workspaces",
+        "systemMenu": [
+            {
+                "label": "Undo/Redo",
+                "submenuConstructorFunction": {
+                    "name": "undoRedoSubmenu"
+                }
+            },
+            {
+                "label": "User Workspaces",
+                "submenuConstructorFunction": {
+                    "name": "workspacesSubmenu",
+                    "params": ["user"]
+                }
+            },
+            {
+                "label": "Plugin Workspaces",
+                "submenuConstructorFunction": {
+                    "name": "workspacesSubmenu",
+                    "params": ["plugin"]
+                }
+            },
+            {
+                "label": "Collapse All Root Nodes",
+                "action": {
+                    "name": "collapseAllRootNodes"
+                }
+            },
+            {
+                "label": "Save Workspace",
+                "action": {
+                    "name": "saveWorkspace"
+                }
+            }
+        ]
+    },
+    {
+        "name": "Contributions",
+        "propertyName": "contributions",
+        "systemMenu": [
+            {
+                "label": "Contribute all changes",
+                "action": {
+                    "name": "contributeAll"
+                }
+            },
+            {
+                "label": "Update App",
+                "action": {
+                    "name": "update"
+                }
+            },
+            {
+                "label": "Reset Local Repository",
+                "action": {
+                    "name": "reset"
+                } 
+                
+            }
+        ]
+    }
+]

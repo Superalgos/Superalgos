@@ -30,6 +30,16 @@
                 "language": "TR",
                 "text": "Trading Bot 'u, Limit Satın Alma Emri'ni ( Limit Buy Order ) dördüncü destek seviyesine yerleştirir! Bunun arkasındaki mantık nedir?",
                 "updated": 1636206183071
+            },
+            {
+                "language": "RU",
+                "text": "Вы поняли? Trading Bot размещает Limit Buy Order на четвертом уровне поддержки! Какая логика стоит за этим? ",
+                "updated": 1637755292494
+            },
+            {
+                "language": "ID",
+                "text": "Sudah paham? Trading Bot menempatkan Limit Buy Order pada level support keempat! Apa logika di balik ini?",
+                "updated": 1640564599187
             }
         ]
     },
@@ -59,6 +69,16 @@
                     "language": "TR",
                     "text": "Bu biraz keyfi bir durumdur, ancak strateji, düşen bıçağı (fiyatın ani düşüşünü), tek bir dakika içinde en az üç destek seviyesini aşabilen ve dördüncü seviyeye ulaşabilen fiyat hareketi olarak tanımlar. İstatistiksel olarak, bu tür olaylar - bu zaman çerçevesinde - sürekli daha fazla sıçrama üretir. Emir defterindeki alış/satış farkını geçici olarak artıran büyük piyasa emirlerinden kaynaklanabilirler.",
                     "updated": 1636206270568
+                },
+                {
+                    "language": "RU",
+                    "text": "Это происходит произвольно, но стратегия определяет падающий нож как ценовое действие, способное пробить, по крайней мере, три уровня поддержки, и добраться до четвертого в течение одной минуты. По статистике, подобные явления - в этот период времени - производят больше отскоков, чем продолжений. Они могут быть вызваны крупными рыночными ордерами, которые временно увеличивают спрос/предложение в книге заказов.",
+                    "updated": 1637755586430
+                },
+                {
+                    "language": "ID",
+                    "text": "Ini agak sewenang-wenang, tetapi strategi mendefinisikan falling knife sebagai aksi harga yang mampu menembus setidaknya tiga support levels dan mencapai yang keempat selama satu menit. Secara statistik, peristiwa semacam itu—dalam time frame ini—menghasilkan lebih banyak pantulan daripada kelanjutan. Mungkin disebabkan oleh pesanan pasar yang besar yang untuk sementara meningkatkan bid/ask yang ada di order book.",
+                    "updated": 1640564734842
                 }
             ]
         },
@@ -87,6 +107,16 @@
                     "language": "TR",
                     "text": "Satın alma siparişlerinin dördüncü destek seviyesinde verildiğini doğrulamak için bir dakikanızı ayırın!",
                     "updated": 1636206291919
+                },
+                {
+                    "language": "RU",
+                    "text": "Потратьте минуту, чтобы убедиться, что заказы на покупку размещены на четвертом уровне поддержки!",
+                    "updated": 1637755660080
+                },
+                {
+                    "language": "ID",
+                    "text": "Luangkan waktu sebentar untuk memverifikasi bahwa buy order ditempatkan di support level keempat!",
+                    "updated": 1640564815395
                 }
             ]
         }

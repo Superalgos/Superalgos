@@ -1,0 +1,28 @@
+{
+    "type": "Task Server App Reference",
+    "definition": {
+        "text": "This node stores a reference to the Task Server App node allowing its parent Task to access the Signing Account of the current user's task server.  ",
+        "updated": 1642820724358,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Этот узел хранит ссылку на узел Task Server App, позволяющий его родительской задаче получить доступ к учетной записи подписи сервера задач текущего пользователя.",
+                "updated": 1645183442185
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "By having access to the User's signing account, the current task will now be able to access the Superalgos peer to peer network.",
+            "updated": 1642820815167,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Получив доступ к учетной записи пользователя, текущая задача теперь сможет получить доступ к одноранговой сети Superalgos.",
+                    "updated": 1645183452744
+                }
+            ]
+        }
+    ]
+}

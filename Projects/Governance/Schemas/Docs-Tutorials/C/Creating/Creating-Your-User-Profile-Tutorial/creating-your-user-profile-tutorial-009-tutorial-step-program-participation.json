@@ -15,6 +15,21 @@
                 "text": "Cómo usas tu Token Power se define dentro de una serie de Governance Programs dentro de la jerarquía de su perfil.",
                 "updated": 1630875913309,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Token Gücünüzü ( Token Power ) nasıl kullandığınız, profil hiyerarşinizdeki bir dizi Yönetim Programında ( Govarnance Programs ) tanımlanır.",
+                "updated": 1637159684295
+            },
+            {
+                "language": "RU",
+                "text": "То, как вы используете свои токены, определяется рядом программ управления Governance Programs в иерархии вашего профиля.",
+                "updated": 1639046605191
+            },
+            {
+                "language": "DE",
+                "text": "Wie Sie Ihre Token Power einsetzen, wird in einer Reihe von Governance Programs innerhalb Ihrer Profilhierarchie festgelegt.",
+                "updated": 1640072792109
             }
         ]
     },
@@ -29,6 +44,21 @@
                     "text": "Estos programas ayudan a organizar los tipos de desarrollo y relaciones comunitarias que deseas recompensar.",
                     "updated": 1630877556436,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu programlar, ödüllendirmek istediğiniz geliştirme türlerini ve topluluk ilişkilerini düzenlemenize yardımcı olur.",
+                    "updated": 1637159700351
+                },
+                {
+                    "language": "RU",
+                    "text": "Эти программы помогают организовать типы развития и взаимоотношений с сообществом, которые вы хотите вознаградить.",
+                    "updated": 1639046620513
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese Programme helfen bei der Organisation der Arten von Entwicklung und Gemeinschaftsbeziehungen, die Sie belohnen möchten.",
+                    "updated": 1640072801388
                 }
             ]
         },
@@ -42,6 +72,21 @@
                     "text": "Por ejemplo, el Claims Program le permite presentar reclamaciones por el trabajo que ha realizado. Mientras que la Support Program te permite agradecer a otros usuarios de Superalgos que te han ayudado con el soporte técnico.",
                     "updated": 1630878873256,
                     "style": "Note"
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Örneğin, Talepler Programı ( Claims Program ), yaptığınız iş için taleplerde bulunmanıza izin verir. Destek Programı ( Support Program ), size teknik destek konusunda yardımcı olan diğer Superalgos kullanıcılarına teşekkür etmenizi sağlar.",
+                    "updated": 1637159752080
+                },
+                {
+                    "language": "RU",
+                    "text": "Например, программа Claims Program позволяет вам предъявлять претензии по выполненной вами работе. Программа Support Program позволяет вам благодарить других пользователей Superalgos, которые помогли вам с технической поддержкой.",
+                    "updated": 1639046715682
+                },
+                {
+                    "language": "DE",
+                    "text": "Mit dem Claims Program können Sie zum Beispiel Ansprüche für die von Ihnen geleistete Arbeit geltend machen. Mit dem Support Program können Sie anderen Superalgos-Benutzern danken, die Ihnen mit technischem Support geholfen haben.",
+                    "updated": 1640072818879
                 }
             ]
         },
@@ -54,6 +99,21 @@
                     "text": "¡Cubriremos todos estos y otros programas en detalle una vez que tengas un perfil funcional!",
                     "updated": 1630878930911,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışan bir profiliniz olduğunda tüm bunları ve diğer programları ayrıntılı olarak ele alacağız!",
+                    "updated": 1637159772746
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы подробно рассмотрим все эти и другие программы, когда у вас будет рабочий профиль!",
+                    "updated": 1639046733330
+                },
+                {
+                    "language": "DE",
+                    "text": "Wir werden alle diese und andere Programme im Detail behandeln, sobald Sie ein funktionierendes Profil haben!",
+                    "updated": 1640072824886
                 }
             ]
         }

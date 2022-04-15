@@ -10,11 +10,13 @@ function newContainer() {
         notDraggingOnX: false,
         notDraggingOnY: false,
         isClickeable: false,
+        isDoubleClickable: false,
         isWheelable: false,
         detectMouseOver: false,
         name: undefined,
         fitFunction: undefined,
         isVisibleFunction: undefined,
+        uiObject: undefined,
         displace: displace,
         initialize: initialize,
         finalize: finalize,
@@ -45,6 +47,15 @@ function newContainer() {
     let onDisplaceEventSubscriptionId
     let onDragStartedEventSubscriptionId
     let onDragFinishedEventSubscriptionId
+
+    /* for undo/redo dragging: */
+    let historyObject = {
+        action: {
+            name: 'Move Node',
+            node: undefined
+        },
+        previousPosition: undefined
+    }
 
     return thisObject
 
@@ -190,10 +201,24 @@ function newContainer() {
     }
 
     function onDragStarted(event) {
+        if (thisObject.uiObject.payload.node.payload.floatingObject.isPinned === true) {
+            historyObject.action.node = thisObject.uiObject.payload.node
+            historyObject.previousPosition = {
+                x: thisObject.uiObject.payload.position.x,
+                y: thisObject.uiObject.payload.position.y
+            }
+        }
+
         thisObject.eventHandler.raiseEvent('onDragStarted', event)
     }
 
     function onDragFinished(event) {
+        if (thisObject.uiObject.payload.node.payload.floatingObject.isPinned === true) {
+            UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+            UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+            UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+        }
+        
         thisObject.eventHandler.raiseEvent('onDragFinished', event)
     }
 
@@ -212,6 +237,11 @@ function newContainer() {
                     break
                 case GET_CONTAINER_PURPOSE.MOUSE_CLICK:
                     if (thisObject.isClickeable === true) {
+                        return true
+                    }
+                    break
+                case GET_CONTAINER_PURPOSE.DOUBLE_CLICK:
+                    if (thisObject.isDoubleClickable === true) {
                         return true
                     }
                     break

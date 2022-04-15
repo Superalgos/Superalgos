@@ -15,6 +15,21 @@
                 "text": "Antes de pasar a la gobernanza, es importante que sepas cómo funciona Superalgos.",
                 "updated": 1630871065288,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Yönetime geçmeden önce Superalgos'un nasıl çalıştığını bilmeniz önemlidir!",
+                "updated": 1637146291519
+            },
+            {
+                "language": "RU",
+                "text": "Прежде чем приступить к управлению, важно знать, как работает Superalgos!",
+                "updated": 1639044437637
+            },
+            {
+                "language": "DE",
+                "text": "Bevor Sie in die Verwaltung einsteigen, ist es wichtig, dass Sie wissen, wie Superalgos funktioniert!",
+                "updated": 1640072083243
             }
         ]
     },
@@ -29,6 +44,21 @@
                     "text": "Tenemos muchas cosas interesantes de las que hablar, pero quiero asegurarme de que pueda seguirlas fácilmente.",
                     "updated": 1630871195572,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Konuşacak çok heyecan verici şeylerimiz var ama önce bunları kolayca takip edebileceğinizden emin olmak istiyorum.",
+                    "updated": 1637146318583
+                },
+                {
+                    "language": "RU",
+                    "text": "У нас есть много интересных вещей, о которых можно поговорить, но я хочу убедиться, что вы легко сможете понять, о чем идет речь.",
+                    "updated": 1639044452483
+                },
+                {
+                    "language": "DE",
+                    "text": "Wir haben eine Menge spannender Dinge zu besprechen, aber ich möchte sicherstellen, dass Sie leicht folgen können.",
+                    "updated": 1640072092376
                 }
             ]
         },
@@ -42,6 +72,21 @@
                     "text": "Asegúrate de leer los tutoriales en el Getting Started Tutorials Plugin Workspace antes de continuar si aún no lo has hecho!",
                     "updated": 1630872016952,
                     "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Henüz yapmadıysanız, devam etmeden önce Başlarken Öğreticiler Eklentisi Çalışma Alanındaki ( Getting Started Tutorials Plugin Workspace ) öğreticileri gözden geçirdiğinizden emin olun!",
+                    "updated": 1637146372454
+                },
+                {
+                    "language": "RU",
+                    "text": "Обязательно ознакомьтесь с учебными материалами в Getting Started Tutorials Plugin Workspace, прежде чем продолжить, если вы еще этого не сделали!",
+                    "updated": 1639044502453
+                },
+                {
+                    "language": "DE",
+                    "text": "Stellen Sie sicher, dass Sie die Tutorials im Getting Started Tutorials Plugin Workspace durchgehen, bevor Sie fortfahren, falls Sie das noch nicht getan haben!",
+                    "updated": 1640072107099
                 }
             ]
         },
@@ -55,6 +100,21 @@
                     "text": "No es necesario ser un experto, pero necesitará algunos conocimientos generales del sistema para comprender de qué se trata.",
                     "updated": 1630872031627,
                     "style": "Success"
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Uzman olmanıza gerek yok, ancak sistemi nasıl çalıştıracağınızı bilmeniz gerekiyor! Aksi takdirde, süreç kafa karıştırıcı ve hatta sinir bozucu olabilir!",
+                    "updated": 1637146395009
+                },
+                {
+                    "language": "RU",
+                    "text": "Не нужно быть экспертом, но вам нужно знать, как работать с системой! В противном случае процесс может сбивать с толку и даже разочаровывать!",
+                    "updated": 1639044519182
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie müssen kein Experte sein, aber Sie müssen wissen, wie man das System bedient! Andernfalls kann der Prozess verwirrend und sogar frustrierend sein!",
+                    "updated": 1640072114850
                 }
             ]
         }

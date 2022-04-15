@@ -1,0 +1,225 @@
+{
+    "topic": "Pluvtech Data Mine",
+    "pageNumber": "15",
+    "type": "Percentages",
+    "definition": {
+        "text": "The Percentages indicator produces information for the current candle when compared to the close price, and the average of high/low/close of candles 1, 5 and 10 periods previous to the current one.",
+        "updated": 1622696264788,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Индикатор Percentages выдает информацию для текущей свечи по сравнению с ценой закрытия, а также среднее значение high/low/close свечей за 1, 5 и 10 периодов до текущей.",
+                "updated": 1645611503609
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Percentages on the Charts:",
+            "updated": 1622481793076,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Percentages на графиках:",
+                    "updated": 1645611524514
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The Percentages indicator does not show any plotted information. All data produced from this indicator can be seen in the panel in the charting space.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Индикатор Percentages не отображает никакой графической информации. Все данные, полученные с помощью этого индикатора, можно увидеть на панели в Charting Space.",
+                    "updated": 1645611582080
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The information in the panel shows the percentage increase or decrease for the following:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Информация на панели показывает процентное увеличение или уменьшение для следующего:",
+                    "updated": 1645611588698
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "p1Close: the percentage increase/decrease of the current candle close when compared to the candle close 1 period previous.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "p1Close: процентное увеличение/уменьшение закрытия текущей свечи по сравнению с закрытием свечи за 1 период до этого.",
+                    "updated": 1645611597633
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "p5Close: the percentage increase/decrease of the current candle close when compared to the candle close 5 periods previous.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "p5Close: процентное увеличение/уменьшение закрытия текущей свечи по сравнению с закрытием свечи за 5 периодов до этого.",
+                    "updated": 1645611604853
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "p10Close: the percentage increase/decrease of the current candle close when compared to the candle close 10 periods previous.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "p10Close: процентное увеличение/уменьшение закрытия текущей свечи по сравнению с закрытием свечи за 10 периодов до этого.",
+                    "updated": 1645611615425
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "phlc1: the percentage increase/decrease of the current candle average (high + low + close)/3 when compared to the candle average 1 period previous.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "phlc1: процентное увеличение/уменьшение среднего значения текущей свечи (high + low + close) / 3 по сравнению со средним значением свечи за 1 период до этого.",
+                    "updated": 1645611626698
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "phlc5: the percentage increase/decrease of the current candle average (high + low + close)/3 when compared to the candle average 5 periods previous.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "phlc5: процентное увеличение/уменьшение среднего значения текущей свечи (high + low + close) / 3 по сравнению со средним значением свечи за 5 периодов до этого.",
+                    "updated": 1645611648186
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "phlc10: the percentage increase/decrease of the current candle average (high + low + close)/3 when compared to the candle average 10 periods previous.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "phlc10: процентное увеличение/уменьшение среднего значения текущей свечи (high + low + close) / 3 по сравнению со средним значением свечи за 10 периодов до этого.",
+                    "updated": 1645611660853
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Pluvtech-Percentages.png",
+            "updated": 1611661370646
+        },
+        {
+            "style": "Text",
+            "text": "The period length parameter of the Percentages indicator calculation can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Initialization under ’Percentages’ Product Definition.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Параметр длины периода расчета показателя Percentage можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Initialization в разделе'Percentages'Product Definition.",
+                    "updated": 1645611719245
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Pluvtech-Percentages-params.png",
+            "updated": 1611673329568
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты и свойства",
+                    "updated": 1645611690323
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Доступны следующие свойства:",
+                    "updated": 1645611695666
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Percentages | Percentages | p1Close, p5Close, p10Close, phlc1, phlc5, phlc10 |",
+            "updated": 1636853769
+        },
+        {
+            "style": "Text",
+            "text": "Examples:",
+            "updated": 1611661674316,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Примеры:",
+                    "updated": 1645611700354
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The Percentage calculation could be used to set a take profit or stop loss limit based on the desired percentage change.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Расчет Percentage можно использовать для установки лимита тейк-профита или стоп-лосса на основе желаемого процентного изменения.",
+                    "updated": 1645611730992
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The following example would set a take profit signal if the current candle close price rose above 3% from the close price 5 candles ago:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Следующий пример устанавливает сигнал тейк-профита, если цена закрытия текущей свечи поднимается выше 3% от цены закрытия 5 свечей назад:",
+                    "updated": 1645611738702
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "if(chart.at01hs.Percentages.p5Close > 3){\n    let tp=chart.at01hs.candle.close\n    }\n tp \\\\returns take profit variable",
+            "updated": 1636853769
+        },
+        {
+            "style": "Text",
+            "text": "This indicator could also be used to provide a trailing stop loss when in a trade by checking if the candle close is still above the midPoint value.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Этот индикатор также можно использовать для установки трейлинг-стоп лосса при заключении сделки, проверяя, находится ли закрытие свечи все еще выше значения midPoint.",
+                    "updated": 1645611748981
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:",
+            "updated": 1622481793076
+        },
+        {
+            "style": "Link",
+            "text": "@pluvtech (Telegram)->t.me/pluvtech"
+        }
+    ]
+}

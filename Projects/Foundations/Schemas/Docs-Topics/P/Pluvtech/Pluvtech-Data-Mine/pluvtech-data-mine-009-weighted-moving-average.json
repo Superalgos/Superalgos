@@ -4,17 +4,107 @@
     "type": "Weighted Moving Average",
     "definition": {
         "text": "A Weighted Moving Average puts more weight on recent data and less on past data. This is done by multiplying each bar’s price by a weighting factor. Because of its unique calculation, WMA will follow prices more closely than a corresponding Simple Moving Average.",
-        "updated": 1622686933380
+        "updated": 1622686933380,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Взвешенная скользящая средняя (WMA) придает больший вес последним данным и меньший - прошлым. Это достигается путем умножения цены каждого бара на весовой коэффициент. Благодаря своему уникальному расчету, WMA будет следовать за ценами более внимательно, чем соответствующая простая скользящая средняя.",
+                "updated": 1645610729018
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Info:",
-            "updated": 1622481793076
+            "updated": 1622481793076,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Информация:",
+                    "updated": 1645610737606
+                }
+            ]
         },
         {
             "style": "Link",
             "text": "WMA - (Fidelity)->www.fidelity.com/learning-center/trading-investing/technical-analysis/technical-indicator-guide/wma"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Pluvtech-WMA.png",
+            "updated": 1611661370646
+        },
+        {
+            "style": "Text",
+            "text": "The length of the Weighted Moving Average indicator calculation can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Initialization under ’WMA’ Product Definition.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Период расчета индикатора взвешенной скользящей средней можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Initialization в разделе 'WMA' Product Definition.",
+                    "updated": 1645610766194
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Pluvtech-WMA-params.png",
+            "updated": 1611673329568
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты и свойства",
+                    "updated": 1645610772082
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Доступны следующие свойства:",
+                    "updated": 1645610777319
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Weighted Moving Average | WMA | wma |",
+            "updated": 1636853769
+        },
+        {
+            "style": "Text",
+            "text": "Example:",
+            "updated": 1611661674316,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пример:",
+                    "updated": 1645610783192
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The WMA indicator could be used to generate a buy signal when a candle closes above the WMA:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Индикатор WMA можно использовать для генерации сигнала на покупку, когда свеча закрывается выше WMA:",
+                    "updated": 1645610791758
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.candle.close > chart.at01hs.WMA.wma",
+            "updated": 1636853769
         },
         {
             "style": "Title",

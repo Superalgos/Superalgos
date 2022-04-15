@@ -228,7 +228,8 @@ function newUiObjectConstructor() {
         menuItemsInitialValues.push(
             {
                 action: 'Pin / Unpin',
-                actionFunction: floatingObject.pinToggle,
+                actionFunction: floatingObject.payload.executeAction,
+                actionProject: 'Visual-Scripting',
                 actionStatus: floatingObject.getPinStatus,
                 currentStatus: false,
                 label: undefined,
@@ -244,7 +245,8 @@ function newUiObjectConstructor() {
         menuItemsInitialValues.push(
             {
                 action: 'Change Tension Level',
-                actionFunction: floatingObject.angleToParentToggle,
+                actionFunction: floatingObject.payload.executeAction,
+                actionProject: 'Visual-Scripting',
                 actionStatus: floatingObject.getAngleToParent,
                 currentStatus: true,
                 label: undefined,
@@ -259,7 +261,8 @@ function newUiObjectConstructor() {
         menuItemsInitialValues.push(
             {
                 action: 'Change Distance to Parent',
-                actionFunction: floatingObject.distanceToParentToggle,
+                actionFunction: floatingObject.payload.executeAction,
+                actionProject: 'Visual-Scripting',
                 actionStatus: floatingObject.getDistanceToParent,
                 currentStatus: true,
                 label: undefined,
@@ -274,7 +277,8 @@ function newUiObjectConstructor() {
         menuItemsInitialValues.push(
             {
                 action: 'Change Arrangement Style',
-                actionFunction: floatingObject.arrangementStyleToggle,
+                actionFunction: floatingObject.payload.executeAction,
+                actionProject: 'Visual-Scripting',
                 actionStatus: floatingObject.getArrangementStyle,
                 currentStatus: true,
                 label: undefined,
@@ -289,7 +293,8 @@ function newUiObjectConstructor() {
         menuItemsInitialValues.push(
             {
                 action: 'Freeze / Unfreeze',
-                actionFunction: floatingObject.freezeToggle,
+                actionFunction: floatingObject.payload.executeAction,
+                actionProject: 'Visual-Scripting',
                 actionStatus: floatingObject.getFreezeStatus,
                 currentStatus: true,
                 label: undefined,
@@ -399,23 +404,6 @@ function newUiObjectConstructor() {
         )
         menuItemsInitialValues.push(
             {
-                action: 'Parent Detach',
-                askConfirmation: true,
-                confirmationLabel: "Confirm to Detach",
-                actionFunction: floatingObject.payload.executeAction,
-                actionProject: 'Visual-Scripting',
-                label: undefined,
-                visible: true,
-                iconPathOn: 'detach-node',
-                iconPathOff: 'detach-node',
-                rawRadius: 12,
-                targetRadius: 0,
-                currentRadius: 0,
-                ring: 3
-            }
-        )
-        menuItemsInitialValues.push(
-            {
                 action: 'Reference Detach',
                 askConfirmation: true,
                 confirmationLabel: "Confirm to Detach",
@@ -448,8 +436,41 @@ function newUiObjectConstructor() {
                 }
             )
         }
-
         menuItemsInitialValues.push(
+            {
+                action: 'Highlight Referencing Nodes',
+                actionFunction: floatingObject.payload.executeAction,
+                actionProject: 'Visual-Scripting',
+                actionStatus: floatingObject.payload.uiObject.getHighlightReferenceChildrenStatus,
+                label: undefined,
+                visible: true,
+                iconPathOn: 'highlight-referencing-nodes-on',
+                iconPathOff: 'highlight-referencing-nodes-off',
+                iconProject: 'Visual-Scripting',
+                rawRadius: 12,
+                targetRadius: 0,
+                currentRadius: 0,
+                ring: 3
+            }
+        )
+        menuItemsInitialValues.push(
+            {
+                action: 'Parent Detach',
+                askConfirmation: true,
+                confirmationLabel: "Confirm to Detach",
+                actionFunction: floatingObject.payload.executeAction,
+                actionProject: 'Visual-Scripting',
+                label: undefined,
+                visible: true,
+                iconPathOn: 'detach-node',
+                iconPathOff: 'detach-node',
+                rawRadius: 12,
+                targetRadius: 0,
+                currentRadius: 0,
+                ring: 4
+            }
+        )
+    menuItemsInitialValues.push(
             {
                 action: 'Open Documentation',
                 actionFunction: floatingObject.payload.executeAction,
@@ -513,42 +534,52 @@ function newUiObjectConstructor() {
                 floatingObject.positionLocked = true
             }
 
-            for (let i = 0; i < schemaDocument.menuItems.length; i++) {
-                let menutItemDefinition = schemaDocument.menuItems[i]
-                let newMenuItem = JSON.parse(JSON.stringify(menutItemDefinition))
+            processMenuItems(schemaDocument.menuItems, menuItemsInitialValues)
 
-                /* We need to reference the real function based on its name */
-                if (menutItemDefinition.actionFunction !== undefined) {
-                    try {
-                        newMenuItem.actionFunction = eval(menutItemDefinition.actionFunction)
-                    } catch (err) {
-                        console.log('Error at Menu Item Action Function: ' + menutItemDefinition.actionFunction + ' ' + err.stack)
-                        continue
+            function processMenuItems(menuItems, array) {
+
+                for (let i = 0; i < menuItems.length; i++) {
+
+                    let menuItemDefinition = menuItems[i]
+                    let newMenuItem = JSON.parse(JSON.stringify(menuItemDefinition))
+
+                    /* We need to reference the real function based on its name */
+                    if (menuItemDefinition.actionFunction !== undefined) {
+                        try {
+                            newMenuItem.actionFunction = eval(menuItemDefinition.actionFunction)
+                        } catch (err) {
+                            console.log('Error at Menu Item Action Function: ' + menuItemDefinition.actionFunction + ' ' + err.stack)
+                        }
                     }
-                }
 
-                /* Adding default values */
-                if (newMenuItem.visible === undefined) {
-                    newMenuItem.visible = true
-                }
+                    /* Adding default values */
+                    if (newMenuItem.visible === undefined && menuItemsInitialValues === array) {
+                        newMenuItem.visible = true
+                    }
 
-                if (newMenuItem.rawRadius === undefined) {
-                    newMenuItem.rawRadius = 12
-                }
+                    if (newMenuItem.rawRadius === undefined) {
+                        newMenuItem.rawRadius = 12
+                    }
 
-                if (newMenuItem.targetRadius === undefined) {
-                    newMenuItem.targetRadius = 0
-                }
+                    if (newMenuItem.targetRadius === undefined) {
+                        newMenuItem.targetRadius = 0
+                    }
 
-                if (newMenuItem.currentRadius === undefined) {
-                    newMenuItem.currentRadius = 0
-                }
+                    if (newMenuItem.currentRadius === undefined) {
+                        newMenuItem.currentRadius = 0
+                    }
 
-                if (newMenuItem.actionProject === undefined) {
-                    newMenuItem.actionProject = payload.node.project
-                }
+                    if (newMenuItem.actionProject === undefined) {
+                        newMenuItem.actionProject = payload.node.project
+                    }
 
-                menuItemsInitialValues.push(newMenuItem)
+                    if (menuItemDefinition.menuItems !== undefined) {
+                        newMenuItem.menuItems = []
+                        processMenuItems(menuItemDefinition.menuItems, newMenuItem.menuItems)
+                    }
+
+                    array.push(newMenuItem)
+                }
             }
         } else {
             if (ERROR_LOG === true) { logger.write('[ERROR] getMenuItemsInitialValues -> UI Object Type not Recognized -> type = ' + payload.node.type) }
@@ -566,7 +597,7 @@ function newUiObjectConstructor() {
 
         let schemaDocument = getSchemaDocument(payload.node)
         if (schemaDocument === undefined) {
-            console.log('[WARN] Set up of the object ' + payload.node.name + ' of type ' + payload.node.type + ' can not be completed becasue its definition can not be found at the APP SCHEMA.')
+            console.log((new Date()).toISOString(), '[WARN] Set up of the object ' + payload.node.name + ' of type ' + payload.node.type + ' can not be completed becasue its definition can not be found at the APP SCHEMA.')
             return
         }
 

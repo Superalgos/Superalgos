@@ -7,36 +7,172 @@
             "project": "Foundations",
             "name": "help"
         },
-        "text": "What we've got is a vague definition of the context and the entry point rules! We still need to formalize our hypothesis!"
+        "text": "What we've got is a vague definition of the context and the entry point rules! We still need to formalize our hypothesis!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Was wir haben, ist eine vage Definition des Kontexts und der Regeln für den Einstiegspunkt! Wir müssen unsere Hypothese noch formalisieren!",
+                "updated": 1639253523489
+            },
+            {
+                "language": "RU",
+                "text": "Все, что мы имеем, это расплывчатое определение контекста и правил точки входа! Нам все еще нужно сформулировать нашу гипотезу!",
+                "updated": 1640892078830
+            },
+            {
+                "language": "TR",
+                "text": "Elimizde, bağlamın ve giriş noktası kurallarının belirsiz bir tanımı var! Hala varsayımımızı resmileştirmeye ihtiyacımız var!",
+                "updated": 1640950261673
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Remember, our trading idea should:"
+            "text": "Remember, our trading idea should:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Denken Sie daran, unsere Handelsidee sollte:",
+                    "updated": 1639253531517
+                },
+                {
+                    "language": "RU",
+                    "text": "Помните, что наша торговая идея должна:",
+                    "updated": 1640892088605
+                },
+                {
+                    "language": "TR",
+                    "text": "Unutmayın, ticaret fikrimiz şunları yapmalıdır:",
+                    "updated": 1640950521792
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "propose a trading process, "
+            "text": "propose a trading process, ",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "einen Handelsprozess vorschlagen,",
+                    "updated": 1639253539666
+                },
+                {
+                    "language": "RU",
+                    "text": "предложить торговый процесс,",
+                    "updated": 1640892096374
+                },
+                {
+                    "language": "TR",
+                    "text": "bir ticaret süreci önermek,",
+                    "updated": 1640950587997
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "select the appropriate context; "
+            "text": "select the appropriate context; ",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "den geeigneten Kontext auswählen;",
+                    "updated": 1639253545355
+                },
+                {
+                    "language": "RU",
+                    "text": "выбрать соответствующий контекст;",
+                    "updated": 1640892107397
+                },
+                {
+                    "language": "TR",
+                    "text": "uygun içeriği seçin;",
+                    "updated": 1640950592011
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "define the main entry rules; "
+            "text": "define the main entry rules; ",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "die wichtigsten Einstiegsregeln definieren;",
+                    "updated": 1639253551107
+                },
+                {
+                    "language": "RU",
+                    "text": "определить основные правила входа;",
+                    "updated": 1640892117525
+                },
+                {
+                    "language": "TR",
+                    "text": "ana giriş kurallarını tanımlayın;",
+                    "updated": 1640950607750
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "predict a specific outcome; "
+            "text": "predict a specific outcome; ",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "ein bestimmtes Ergebnis vorhersagen;",
+                    "updated": 1639253557228
+                },
+                {
+                    "language": "RU",
+                    "text": "предсказать конкретный результат;",
+                    "updated": 1640892125758
+                },
+                {
+                    "language": "TR",
+                    "text": "belirli bir sonucu tahmin etmek;",
+                    "updated": 1640950618594
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "offer a specific testing mechanism! "
+            "text": "offer a specific testing mechanism! ",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "einen spezifischen Testmechanismus anbieten!",
+                    "updated": 1639253564191
+                },
+                {
+                    "language": "RU",
+                    "text": "предложить конкретный механизм тестирования!",
+                    "updated": 1640892139908
+                },
+                {
+                    "language": "TR",
+                    "text": "özel bir test mekanizması sunun!",
+                    "updated": 1640950628599
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Let's proceed with fulfilling those requirements!"
+            "text": "Let's proceed with fulfilling those requirements!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Lassen Sie uns mit der Erfüllung dieser Anforderungen fortfahren!",
+                    "updated": 1639253572715
+                },
+                {
+                    "language": "RU",
+                    "text": "Давайте приступим к выполнению этих требований!",
+                    "updated": 1640892149315
+                },
+                {
+                    "language": "TR",
+                    "text": "Haydi bu gereksinimleri yerine getirmeye devam edelim!",
+                    "updated": 1640950750111
+                }
+            ]
         }
     ]
 }

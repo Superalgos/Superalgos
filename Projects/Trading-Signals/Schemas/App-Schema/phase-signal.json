@@ -1,0 +1,66 @@
+{
+    "type": "Phase Signal",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "nextPhaseSignal",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Next Phase Signal",
+            "relatedUiObject": "Next Phase Signal",
+            "relatedUiObjectProject": "Trading-Signals"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Move To Phase Signal",
+            "relatedUiObject": "Move To Phase Signal",
+            "relatedUiObjectProject": "Trading-Signals"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{}"
+    },
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Managed Stop Loss Signals->"
+    },
+    "propertyNameAtParent": "phaseSignals",
+    "childrenNodesProperties": [
+        {
+            "name": "nextPhaseSignal",
+            "type": "node",
+            "childType": "Next Phase Signal",
+            "autoAdd": false
+        },
+        {
+            "name": "moveToPhaseSignals",
+            "type": "array",
+            "childType": "Move To Phase Signal",
+            "autoAdd": false
+        }
+    ]
+}

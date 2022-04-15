@@ -1,0 +1,27 @@
+{
+    "topic": "Trading Signal Overview",
+    "pageNumber": 5,
+    "type": "Social Trading Bots",
+    "definition": {
+        "text": "Social Trading Bots are a new kind of bot used within the Trading Signals process. They are the main interface between the signal provider and recipent.",
+        "updated": 1642564801085,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Social Trading Bots - это новый вид ботов, используемых в процессе торговли сигналами. Они являются основным интерфейсом между поставщиком и получателем сигналов.",
+                "updated": 1645623271924
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Sosyal Ticaret Botları (  Social Trading Bot ), Ticaret ( Trading ) Sinyalleri sürecinde kullanılan yeni bir bot türüdür. Sinyal sağlayıcı ve alıcı arasındaki ana arayüzdür.",
+                "updated": 1646297359804
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Social-Trading->Node->Social Trading Bot->Content"
+        }
+    ]
+}

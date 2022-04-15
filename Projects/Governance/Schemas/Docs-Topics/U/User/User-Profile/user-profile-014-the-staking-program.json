@@ -4,7 +4,19 @@
     "type": "The Staking Program",
     "definition": {
         "text": "Staking in Superalgos is as simple as it gets!",
-        "updated": 1630500044430
+        "updated": 1630500044430,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Staking en Superalgos es tan simple como parece!",
+                "updated": 1640960584552
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Superalgos'ta stake yapmak, olabildiğince basittir!",
+                "updated": 1646304918074
+            }
+        ]
     },
     "paragraphs": [
         {

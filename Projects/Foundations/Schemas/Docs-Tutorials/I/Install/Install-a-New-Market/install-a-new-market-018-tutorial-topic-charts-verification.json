@@ -18,6 +18,16 @@
                 "language": "DE",
                 "text": "Neben den Datenstrukturen, die in der Netzwerkhierarchie eingerichtet werden, richtet die Funktion Market installieren auch Charts ein, die zu den erstellten Handelssitzungen passen.",
                 "updated": 1636469963838
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Ağ hiyerarşisinde yapılandırılan veri yapılarının ötesinde, Install Market işlevi, oluşturulan ticaret oturumlarıyla eşleşen çizelgeleri de yapılandırır.",
+                "updated": 1642162166271
+            },
+            {
+                "language": "RU",
+                "text": "Помимо структур данных, установленных в иерархии Network, функция Install Market также устанавливает графики, соответствующие созданным торговым сессиям.",
+                "updated": 1643091292185
             }
         ]
     },
@@ -35,6 +45,16 @@
                     "language": "DE",
                     "text": "In den nächsten Schritten werden Sie überprüfen, ob die erwarteten Datenstrukturen erfolgreich erstellt wurden.",
                     "updated": 1636470004914
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki adımlarda, beklenen veri yapılarının doğru şekilde oluşturulduğunu doğrulayın.",
+                    "updated": 1642162214228
+                },
+                {
+                    "language": "RU",
+                    "text": "На следующих нескольких шагах вы убедитесь, что ожидаемые структуры данных были успешно созданы.",
+                    "updated": 1643091300683
                 }
             ]
         },
@@ -51,6 +71,16 @@
                     "language": "DE",
                     "text": "Die erstellten Charts ermöglichen es, mit jeder der Handelssitzungen unabhängig zu arbeiten.",
                     "updated": 1636470034665
+                },
+                {
+                    "language": "TR",
+                    "text": "Oluşturulan çizelgeler, İşlem Oturumları ile bağımsız olarak çalışılmasına izin verir.",
+                    "updated": 1642162360887
+                },
+                {
+                    "language": "RU",
+                    "text": "Созданные графики позволяют работать с каждой из торговых сессий независимо.",
+                    "updated": 1643091308290
                 }
             ]
         },
@@ -67,6 +97,16 @@
                     "language": "DE",
                     "text": "Beachten Sie bei der Organisation der Charts, dass Superalgos die Skalierung Ihrer Operation auf eine unbegrenzte Anzahl von Handelssystemen und Charts ermöglicht.",
                     "updated": 1636470077906
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Superalgos'un operasyonunuzu sınırsız çizelgelere ve ticaret sistemlerine ölçeklendirmenize izin verdiği çizelgelerin düzenlenmesinden gözlemleyin.",
+                    "updated": 1642162436008
+                },
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание на организацию графиков, что Superalgos позволяет масштабировать вашу работу до неограниченного количества торговых систем и графиков.",
+                    "updated": 1643091320255
                 }
             ]
         }

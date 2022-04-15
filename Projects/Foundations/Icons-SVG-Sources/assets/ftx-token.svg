@@ -1,54 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg
-   viewBox="0 0 511.99999 511.99999"
-   version="1.1"
-   id="svg11329"
-   width="512"
-   height="512"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:dc="http://purl.org/dc/elements/1.1/">
-  <defs
-     id="defs11315">
-    <style
-       id="style11313">.cls-1{fill:#02a6c2;}.cls-2{fill:#5fcade;}.cls-3{fill:#abebf4;}</style>
-  </defs>
-  <title
-     id="title11317">ftx--logo</title>
-  <g
-     id="Layer_2"
-     data-name="Layer 2"
-     transform="scale(0.25599616,0.29437632)">
-    <g
-       id="Layer_1-2"
-       data-name="Layer 1">
-      <path
-         class="cls-1"
-         d="m 565.41,0.11 q 717.21,-0.22 1434.51,0 0.22,231.83 0,463.58 -717.23,0.22 -1434.51,0 -0.23,-231.83 0,-463.58 z"
-         id="path11319" />
-      <path
-         class="cls-2"
-         d="m 0.6,638.1 q 231.39,-1.2 462.86,0 1.2,231.39 0,462.86 Q 232,1102.15 0.6,1101 -0.6,869.57 0.6,638.1 Z"
-         id="path11321" />
-      <path
-         class="cls-2"
-         d="m 565.77,638.1 q 517.67,-1.1 1035.27,0 1.1,231.39 0,462.86 -517.66,1.08 -1035.27,0 -1.08,-231.4 0,-462.86 z"
-         id="path11323" />
-      <path
-         class="cls-3"
-         d="m 566.2,1276.23 q 231,-2.51 461.92,0 2.4,230.85 0.07,461.92 -231,2.28 -461.91,-0.08 -2.4,-230.83 -0.08,-461.84 z"
-         id="path11325" />
-    </g>
-  </g>
-  <metadata
-     id="metadata11413">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:title>ftx--logo</dc:title>
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_1_338)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M256 136.527C341.326 136.539 426.65 136.529 511.971 136.499C512.009 91.0182 512.009 45.5292 511.971 0.0323814C426.644 0.00228736 341.32 -0.00683049 256 0.00502785V136.527Z" fill="#02A6C2"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M256 324.251C307.285 324.271 358.572 324.22 409.86 324.097C410.047 278.67 410.047 233.252 409.86 187.842C358.575 187.716 307.289 187.664 256 187.684V324.251Z" fill="#4ACFD9"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M206.874 512C205.694 512 204.515 512 203.335 512H206.874ZM256 511.747C258.404 511.723 260.809 511.698 263.213 511.671C263.611 466.323 263.605 420.997 263.195 375.692C260.797 375.662 258.398 375.634 256 375.608V511.747Z" fill="#4ACFD9"/>
+<path d="M0.153598 187.837C39.6436 187.601 79.1404 187.601 118.644 187.837C118.849 233.247 118.849 278.666 118.644 324.092C79.1421 324.325 39.6453 324.329 0.153598 324.104C-0.0511992 278.685 -0.0511992 233.263 0.153598 187.837Z" fill="#0295AA"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M256 0C218.913 0.00515454 181.828 0.0142724 144.742 0.0273535C144.703 45.5085 144.703 90.9975 144.742 136.494C181.829 136.507 218.914 136.517 256 136.522V0Z" fill="#365558"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M255.999 187.679C218.945 187.694 181.89 187.746 144.834 187.837C144.649 233.261 144.649 278.679 144.834 324.092C181.888 324.181 218.943 324.232 255.999 324.247V187.679Z" fill="#0295AA"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M255.999 375.603C218.987 375.197 181.969 375.225 144.944 375.687C144.548 421.023 144.555 466.341 144.965 511.642C181.969 512.077 218.981 512.11 255.999 511.742V375.603Z" fill="#0295AA"/>
+</g>
+<defs>
+<clipPath id="clip0_1_338">
+<rect width="512" height="512" fill="white"/>
+</clipPath>
+</defs>
 </svg>

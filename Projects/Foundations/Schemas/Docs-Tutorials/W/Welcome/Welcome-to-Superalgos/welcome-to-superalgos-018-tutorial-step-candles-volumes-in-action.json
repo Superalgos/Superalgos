@@ -89,14 +89,14 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Вы наблюдаете процесс увеличения объема свечей. Он превращает одноминутные свечи, которые сенсорный бот загружает с биржи, в свечи для всех временных рамок.",
-                    "updated": 1635594020777,
+                    "text": "Вы наблюдаете процесс увеличения объема свечей. Он превращает одноминутные свечи, которые сенсорный бот загружает с биржи, в свечи для всех таймфреймов.",
+                    "updated": 1641808271799,
                     "style": "Text"
                 },
                 {
                     "language": "TR",
-                    "text": "Mum Hacimlerini (Candles Volumes) sürçlerini izliyorsunuz. Sensör botunun borsadan indirdiği bir dakikalık mumları tüm zaman dilimleri için mumlara dönüştürüyor.",
-                    "updated": 1635944864225
+                    "text": "Mum Hacimlerini (Candles Volumes) sürçlerini izliyorsunuz. Sensör botunun borsadan indirdiği bir dakikalık mumları \"tüm zaman dilimleri\" için mumlara dönüştürüyor.",
+                    "updated": 1644850380103
                 }
             ]
         },
@@ -184,8 +184,8 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Другим ботам необходимы большие объемы свечей для полного окончания их работы для того, чтобы они могли приступить к своей. Представьте, что боту нужно рассчитать Simple Moving Average за 20 периодов для все временных рамок. Ему необходим Data Product, полученный по объемам свечей в качестве входных данных для рассчета SMA. Мы назывем такую потребность Data Dependency.",
-                    "updated": 1635594443248,
+                    "text": "Другим ботам необходимы большие объемы свечей для полного окончания их работы для того, чтобы они могли приступить к своей. Представьте, что боту нужно рассчитать Simple Moving Average за 20 периодов для всех таймфреймов. Ему необходим Data Product, полученный по объемам свечей в качестве входных данных для рассчета SMA. Мы назывем такую потребность Data Dependency.",
+                    "updated": 1641808328093,
                     "style": "Text"
                 },
                 {

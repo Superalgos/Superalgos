@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "Open es la tasa en la fecha y hora de la propiedad de inicio, según lo dispuesto por el exchange. Es decir, la tasa de apertura de la vela.",
                 "updated": 1628897429918
+            },
+            {
+                "language": "RU",
+                "text": "Open - это курс на момент времени свойства begin, предоставляемый биржей. То есть курс на момент открытия свечи.",
+                "updated": 1640176356929
             }
         ]
     },

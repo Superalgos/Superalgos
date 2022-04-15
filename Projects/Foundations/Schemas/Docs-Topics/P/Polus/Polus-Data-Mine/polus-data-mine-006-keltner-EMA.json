@@ -1,0 +1,66 @@
+{
+    "topic": "Polus Data Mine",
+    "pageNumber": "6",
+    "type": "Keltner Channel - EMA version",
+    "definition": {
+        "text": "Keltner Channel using Exponential Moving Average (EMA)."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Info:"
+        },
+        {
+            "style": "Text",
+            "text": "According to Investopedia, “Keltner Channels are volitility based bands that are placed on either side of an asset's price and can aid in determining the direction of a trend.”"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator uses the exponential moving average as a base of calculation to calulate the Average True Range (ATR)."
+        },
+		{
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-Keltner-EMA.png"
+        },
+		{
+            "style": "Text",
+            "text": "The parameters of the Keltner EMA indicator can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \u2019Keltner EMA\u2019 Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-Keltner-EMA-params.png"
+        },
+		{
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Keltner EMA | keltnerema | ema, upper, lower |"
+        },
+		{
+            "style": "Text",
+            "text": "Example:"
+        },
+		{
+            "style": "Text",
+            "text": "A simple strategy could be built using the price action breaking through the upper threshold:"
+        },
+		{
+            "style": "Javascript",
+            "text": "chart.at30min.candle.close > chart.at30min.keltnerema.upper &&\n chart.at30min.candle.open < chart.at30min.keltnerema.upper &&\n chart.at30min.candle.previous.close < chart.at30min.keltnerema.previous.upper"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@ThomasHuault (Telegram)->t.me/ThomasHuault"
+        }
+    ]
+}

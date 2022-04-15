@@ -2,7 +2,24 @@
     "type": "Airdrop Program",
     "definition": {
         "text": "We don't like meaningless airdrops. But what if airdrops bring users a step closer to participating in governance? The Airdrops program incentivizes users to take the first step to participate in governance: creating and submitting a User Profile.",
-        "updated": 1630221752804
+        "updated": 1630221752804,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "No nos gustan los lanzamientos airdrop sin sentido. Pero, ¿qué pasa si los lanzamientos airdrop acercan a los usuarios un paso más a participar en la gobernanza? El programa Airdrops incentiva a los usuarios a dar el primer paso para participar en la gobernanza: crear y enviar un User Profile.",
+                "updated": 1637845243827
+            },
+            {
+                "language": "RU",
+                "text": "Мы не любим бессмысленные раздачи токенов (Airdrop). Но что, если они приблизят пользователей на шаг к участию в управлении? Программа Airdrops Program побуждает пользователей сделать первый шаг к участию в управлении: создать и отправить профиль пользователя User Profile.",
+                "updated": 1638605752026
+            },
+            {
+                "language": "TR",
+                "text": "Biz anlamsız airdropları sevmiyoruz. Peki ya airdroplar kullanıcıları yönetime katılmaya bir adım daha yaklaştırırsa? Airdrops programı, kullanıcıları , kullanıcı Profili (User Profile) oluşturup ve göndererek. yönetişime katılmak için ilk adımı atmaya teşvik eder",
+                "updated": 1644481284653
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -13,16 +30,67 @@
         {
             "style": "Text",
             "text": "The Airdrop program distributes the Rewards Pool defined under the Governance Programs > Onboarding Programs section of the Superalgos Pools hierarchy.",
-            "updated": 1630221764293
+            "updated": 1630221764293,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El programa Airdrop distribuye la Rewards Pool definido bajo los Governance Programs > Onboarding Programs section de la jerarquía de  Superalgos Pools.",
+                    "updated": 1637845331924
+                },
+                {
+                    "language": "RU",
+                    "text": "Программа Airdrop распределяет пул вознаграждений Rewards Pool, определенный в разделе Governance Programs > Onboarding Programs иерархии Superalgos Pools.",
+                    "updated": 1638605544880
+                },
+                {
+                    "language": "TR",
+                    "text": "Airdrop program'ı, Superalgos Havuzları (Superalgos Pools) hiyerarşisinin Yönetişim Programları (Governance Programs) > Alıştırma Programları (Onboarding Programs) bölümünde tanımlanan Ödül Havuzunu (Reward Pool) dağıtır.",
+                    "updated": 1644481470999
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "Spawning the Airdrop Program and submitting your User Profile is the sole requirement to receive the airdropped tokens and is — at the same time — the first step to participate in governance and contribute to the project.",
-            "updated": 1630228015309
+            "updated": 1630228015309,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Generando el programa Airdrop y enviándole al User Profile es el único requisito para recibir los tokens lanzados del airdrop y, al mismo tiempo, es el primer paso para participar en la gobernanza y contribuir al proyecto.",
+                    "updated": 1637845446790
+                },
+                {
+                    "language": "RU",
+                    "text": "Запуск программы Airdrop и отправка вашего профиля пользователя User Profile - единственное требование для получения токенов, раздающихся по воздуху, и в то же время первый шаг к участию в управлении и внесению вклада в проект.",
+                    "updated": 1638605651266
+                },
+                {
+                    "language": "TR",
+                    "text": "Airdrop Programını oluşturmak ve Kullanıcı Profilinizi (User Profile) göndermek, airdrop jetonlarını almak için tek gerekliliktir ve aynı zamanda yönetişime katılmanın ve projeye katkıda bulunmanın ilk adımıdır.",
+                    "updated": 1644481512280
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The program distributes the Rewards Pool evenly to all existing profiles, with a cap of SA 1,000 per profile, on each release!"
+            "text": "The program distributes the Rewards Pool evenly to all existing profiles, with a cap of SA 1,000 per profile, on each release!",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El programa distribuye el Rewards Pool uniformemente a todos los perfiles existentes, con un límite de 1000 SA por perfil, en cada versión.",
+                    "updated": 1637845507274
+                },
+                {
+                    "language": "RU",
+                    "text": "Программа распределяет Rewards Pool равномерно по всем существующим профилям с лимитом в 1000 SA на профиль для каждого выпуска!",
+                    "updated": 1638606024273
+                },
+                {
+                    "language": "TR",
+                    "text": "Program, Ödül Havuzunu (Reward Pool) her sürümde profil başına 1.000 SA'lık bir üst sınırla mevcut tüm profillere eşit olarak dağıtır!",
+                    "updated": 1644481546961
+                }
+            ]
         },
         {
             "style": "Block",
@@ -30,7 +98,19 @@
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1638606037595
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırma",
+                    "updated": 1644481554225
+                }
+            ]
         }
     ]
 }

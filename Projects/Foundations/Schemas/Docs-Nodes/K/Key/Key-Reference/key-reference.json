@@ -1,7 +1,14 @@
 {
     "type": "Key Reference",
     "definition": {
-        "text": "The key reference is a reference to an exchange account key as defined in a specific user account, in a specific exchange, on the Crypto Ecosystem hierarchy."
+        "text": "The key reference is a reference to an exchange account key as defined in a specific user account, in a specific exchange, on the Crypto Ecosystem hierarchy.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Key Reference - это ссылка на ключ учетной записи биржи, как определено в конкретной учетной записи пользователя, в конкретной бирже в иерархии Crypto Ecosystem.",
+                "updated": 1638360087485
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,23 +17,58 @@
         },
         {
             "style": "Text",
-            "text": "Usually, exchanges require authentication via your exchange account key for monetary transactions only. However, some exchanges may require autentication in other contexts as well, for instance, to retrieve information above a certain quota, or to retrieve raw trades data instead of OHLCV data."
+            "text": "Usually, exchanges require authentication via your exchange account key for monetary transactions only. However, some exchanges may require autentication in other contexts as well, for instance, to retrieve information above a certain quota, or to retrieve raw trades data instead of OHLCV data.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Обычно биржи требуют аутентификации с помощью ключа вашей учетной записи только для денежных транзакций. Однако некоторые биржи могут потребовать аутентификации и в других контекстах, например, для получения информации сверх определенной квоты или для получения необработанных данных сделок вместо данных OHLCV.",
+                    "updated": 1638360137217
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "For those reasons, exchange key references are available both in the context of data mining and trading operations, and are always attached to the corresponding task."
+            "text": "For those reasons, exchange key references are available both in the context of data mining and trading operations, and are always attached to the corresponding task.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "По этим причинам ссылки на ключи биржи доступны как в контексте интеллектуального анализа данных, так и в торговых операциях и всегда привязаны к соответствующей задаче.",
+                    "updated": 1638360172550
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Forward testing and live trading sessions always require setting up key references, as that is the kind of scenario in which the user must validate with the exchange."
+            "text": "Forward testing and live trading sessions always require setting up key references, as that is the kind of scenario in which the user must validate with the exchange.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Форвард-тестирование и торговые сессии в реальном времени всегда требуют настройки ссылок на ключи, так как это тот сценарий, в котором пользователь должен пройти проверку на бирже.",
+                    "updated": 1638430243621
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In all cases, the key reference node must reference a valid exchange account key from an account with the exchange, as defined in the Crypto Ecosystem hierarchy."
+            "text": "In all cases, the key reference node must reference a valid exchange account key from an account with the exchange, as defined in the Crypto Ecosystem hierarchy.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Во всех случаях узел Key Reference должен ссылаться на действительный ключ учетной записи биржи, как определено в иерархии Crypto Ecosystem.",
+                    "updated": 1638360299740
+                }
+            ]
         },
         {
             "style": "Important",
-            "text": "Most exchanges do not allow the same exchange account key to be used with multiple processes querying the exchange API. This means that if you are trading with multiple trading systems or multiple sessions on the same exchange, each session requires different exchange account keys."
+            "text": "Most exchanges do not allow the same exchange account key to be used with multiple processes querying the exchange API. This means that if you are trading with multiple trading systems or multiple sessions on the same exchange, each session requires different exchange account keys.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Большинство бирж не позволяют использовать один и тот же ключ учетной записи биржи для нескольких процессов, запрашивающих API биржи. Это означает, что если вы торгуете с использованием нескольких торговых систем или нескольких сессий на одной и той же бирже, для каждой сессии требуются разные ключи учетной записи биржи.",
+                    "updated": 1638360345878
+                }
+            ]
         }
     ]
 }

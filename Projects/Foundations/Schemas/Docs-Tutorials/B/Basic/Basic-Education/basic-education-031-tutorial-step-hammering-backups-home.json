@@ -26,6 +26,21 @@
                 "language": "DE",
                 "text": "Gehen wir noch einmal die Beispiele durch, die Sie gerade gelesen haben, damit Sie das auswendig lernen!",
                 "updated": 1634585727295
+            },
+            {
+                "language": "TR",
+                "text": "Bunu iyice pekiştirmek için az önce okuduğunuz örneklerin üzerinden geçelim!",
+                "updated": 1639602759421
+            },
+            {
+                "language": "RU",
+                "text": "Давайте рассмотрим те же примеры, о которых вы только что прочитали, чтобы вы выучили их наизусть!",
+                "updated": 1640870699527
+            },
+            {
+                "language": "ID",
+                "text": "Mari kita membahas contoh yang sama yang baru saja Anda baca sehingga kamu dapat mempelajari ini dengan hati!",
+                "updated": 1644951040625
             }
         ]
     },
@@ -51,6 +66,21 @@
                     "language": "DE",
                     "text": "Erstellen Sie eine Sicherungskopie des Lightning Strike Tasks und stellen Sie diese wieder her, ohne den ursprünglichen Task zu löschen. Dann wiederholen Sie den Vorgang, löschen aber den ursprünglichen Task, bevor Sie die Sicherung wiederherstellen.",
                     "updated": 1634585740393
+                },
+                {
+                    "language": "TR",
+                    "text": " Lightning Strike Task düğümünün yedeğini alın ve orijinal görevi silmeden geri yükleyin. Ardından işlemi tekrarlayın, ancak yedeklemeyi geri yüklemeden önce orijinal görevi silin.",
+                    "updated": 1639602833481
+                },
+                {
+                    "language": "RU",
+                    "text": "Создайте резервную копию задачи Lightning Strike и восстановите ее, не удаляя исходную задачу (Task). Затем повторите операцию, но удалите исходную задачу перед восстановлением резервной копии.",
+                    "updated": 1640870770776
+                },
+                {
+                    "language": "ID",
+                    "text": "Buat cadangan dari Lightning Strike Task dan kembalikan tanpa menghapus tugas aslinya. Kemudian ulangi operasi tetapi hapus tugas asli sebelum mengembalikan cadangan.",
+                    "updated": 1644951119843
                 }
             ]
         },
@@ -75,6 +105,16 @@
                     "language": "DE",
                     "text": "Vergewissern Sie sich, dass in beiden Fällen die ausgehenden Verweise, die von den Knoten Trading System Reference und Trading Engine Reference ausgehen, erhalten bleiben.",
                     "updated": 1634585747278
+                },
+                {
+                    "language": "RU",
+                    "text": "Убедитесь, что в обоих случаях сохраняются исходящие ссылки, созданные на узлах Trading System Reference и Trading Engine Reference.",
+                    "updated": 1640870791755
+                },
+                {
+                    "language": "ID",
+                    "text": "Terverifikasi bahwa, dalam kedua kasus, outgoing references yang berasal dari Trading System Reference dan node Trading Engine Reference dijaga.",
+                    "updated": 1644951263028
                 }
             ]
         },
@@ -99,6 +139,21 @@
                     "language": "DE",
                     "text": "Denken Sie daran, dass ausgehende Referenzen immer erhalten bleiben!",
                     "updated": 1634585756386
+                },
+                {
+                    "language": "TR",
+                    "text": "Giden referansların her zaman korunduğunu unutmayın!",
+                    "updated": 1639602969456
+                },
+                {
+                    "language": "RU",
+                    "text": "Помните, что исходящие ссылки всегда сохраняются!",
+                    "updated": 1640870803361
+                },
+                {
+                    "language": "ID",
+                    "text": "Ingatlah bahwa outgoing references selalu dijaga!",
+                    "updated": 1644951289519
                 }
             ]
         }

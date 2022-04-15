@@ -4,13 +4,47 @@
     "type": "Average VS Average",
     "definition": {
         "text": "An oscillator that considers averages of price, volume and \"open interest\".",
-        "updated": 1617958214490
+        "updated": 1617958214490,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Осциллятор, учитывающий средние значения цены, объема и \"открытого интереса\".",
+                "updated": 1643525246740
+            },
+            {
+                "language": "DE",
+                "text": "Ein Oszillator, der Durchschnittswerte von Preis, Volumen und \"Open Interest\" berücksichtigt.",
+                "updated": 1647274042994
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Fiyat, hacim ve \"açık faiz\" ortalamalarını dikkate alan bir osilatör.",
+                "updated": 1647779435102
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Note",
             "text": "You can set different values for used periods at the top section of most indicators found in the Omega Data Mine -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code node.",
-            "updated": 1617958138349
+            "updated": 1617958138349,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы можете установить различные значения для используемых периодов в верхней части большинства индикаторов, расположенных в узле Omega Data Mine -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code.",
+                    "updated": 1643525258405
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können im oberen Abschnitt der meisten Indikatoren, die Sie unter Omega Data Mine -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code Knoten finden, verschiedene Werte für die verwendeten Perioden einstellen.",
+                    "updated": 1647272823736
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Omega Veri Madeni ( Data Mine ) -> Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Döngüsü ( Procedure Loop ) -> Prosedür Javascript Kodu ( Procedure Javascript Code ) düğümünde bulunan çoğu göstergenin üst kısmında kullanılan dönemler için farklı değerler ayarlayabilirsiniz.",
+                    "updated": 1647789034421
+                }
+            ]
         },
         {
             "style": "Png",
@@ -18,142 +52,664 @@
         },
         {
             "style": "Subtitle",
-            "text": "Average VS Average"
+            "text": "Average VS Average",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Durchschnitt VS Durchschnitt",
+                    "updated": 1647272871755
+                },
+                {
+                    "language": "TR",
+                    "text": "Ortalama VS Ortalama ( Average VS Average)",
+                    "updated": 1647779525164
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The Average VS Average Oscillator can be used to recognize changes between a fast average and a slow average. It measures Price Movement, Volume and a so called Open Interest.",
-            "updated": 1617958497266
+            "updated": 1617958497266,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Осциллятор Average VS Average можно использовать для распознавания изменений между быстрой средней и медленной средней. Он измеряет движение цены, объем и так называемый открытый интерес.",
+                    "updated": 1643525284396
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Average VS Average Oscillator kann verwendet werden, um Veränderungen zwischen einem schnellen und einem langsamen Durchschnitt zu erkennen. Er misst die Preisbewegung, das Volumen und das so genannte Open Interest.",
+                    "updated": 1647273995442
+                },
+                {
+                    "language": "TR",
+                    "text": "Ortalama VS Ortalama Osilatör ( Average VS Average), hızlı ortalama ve yavaş ortalama arasındaki değişiklikleri tanımak için kullanılabilir. Fiyat Hareketini, Hacmi ve Açık Pozisyonu ölçer.",
+                    "updated": 1647779551575
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The idea is to visualise if the trend weakens or gets stronger, within the current trend."
+            "text": "The idea is to visualise if the trend weakens or gets stronger, within the current trend.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Идея заключается в том, чтобы визуализировать ослабление или усиление тренда в рамках текущей тенденции.",
+                    "updated": 1643525294787
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Idee ist, zu visualisieren, ob der Trend innerhalb des aktuellen Trends schwächer oder stärker wird.",
+                    "updated": 1647273160953
+                },
+                {
+                    "language": "TR",
+                    "text": "Buradaki fikir, mevcut trend içinde trendin zayıflayıp zayıflamadığını veya güçlenip güçlenmediğini görselleştirmektir.",
+                    "updated": 1647779576064
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The indicator is a zero-line cross indicator that is best used with an own rate and scale (in order to place it below the candle chart)."
+            "text": "The indicator is a zero-line cross indicator that is best used with an own rate and scale (in order to place it below the candle chart).",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Индикатор представляет собой индикатор пересечения нулевой линии, который лучше всего использовать с собственной ставкой и шкалой (чтобы разместить его ниже свечного графика).",
+                    "updated": 1643525340803
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Indikator ist ein Nulllinien-Kreuzindikator, der am besten mit einem eigenen Kurs und einer eigenen Skala verwendet wird (um ihn unterhalb des Kerzencharts zu platzieren).",
+                    "updated": 1647273172621
+                },
+                {
+                    "language": "TR",
+                    "text": "Gösterge, en iyi kendi oranı ve ölçeğiyle (mum grafiğinin altına yerleştirmek için) kullanılan sıfır çizgili bir çapraz göstergedir.",
+                    "updated": 1647779593808
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The elements in the indicator are:"
+            "text": "The elements in the indicator are:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Элементами индикатора являются:",
+                    "updated": 1643525348210
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Elemente des Indikators sind:",
+                    "updated": 1647273183882
+                },
+                {
+                    "language": "TR",
+                    "text": "Göstergedeki unsurlar şunlardır:",
+                    "updated": 1647779642247
+                }
+            ]
         },
         {
             "style": "List",
             "text": "A mid-line that represents the slow average of the elements (it always has the value 1).",
-            "updated": 1617973206308
+            "updated": 1617973206308,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Средняя линия, которая представляет собой медленное среднее значение элементов (она всегда имеет значение 1).",
+                    "updated": 1643525357518
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine Mittellinie, die den langsamen Durchschnitt der Elemente darstellt (sie hat immer den Wert 1).",
+                    "updated": 1647273195414
+                },
+                {
+                    "language": "TR",
+                    "text": "Öğelerin yavaş ortalamasını temsil eden bir orta çizgi (her zaman 1 değerine sahiptir).",
+                    "updated": 1647779655565
+                }
+            ]
         },
         {
             "style": "List",
             "text": "A green line that shows fast average Bull Power compared to the slow average.",
-            "updated": 1617960429886
+            "updated": 1617960429886,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Зеленая линия, которая показывает быструю среднюю Bull Power по сравнению с медленной средней.",
+                    "updated": 1643525369002
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine grüne Linie, die den schnellen Durchschnitt der Bull Power im Vergleich zum langsamen Durchschnitt anzeigt.",
+                    "updated": 1647273204786
+                },
+                {
+                    "language": "TR",
+                    "text": "Yavaş ortalamaya kıyasla hızlı ortalama Boğa Gücünü gösteren yeşil bir çizgi.",
+                    "updated": 1647779668698
+                }
+            ]
         },
         {
             "style": "List",
             "text": "A dotted line that shows the fast average Open Interest compared to the slow average.",
-            "updated": 1617960458863
+            "updated": 1617960458863,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пунктирная линия, показывающая быстрый средний открытый интерес по сравнению с медленным средним.",
+                    "updated": 1643525377543
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine gepunktete Linie, die den schnellen Durchschnitt des Open Interest im Vergleich zum langsamen Durchschnitt anzeigt.",
+                    "updated": 1647274078453
+                },
+                {
+                    "language": "TR",
+                    "text": "Yavaş ortalamaya kıyasla hızlı ortalama Açık İlgiyi gösteren noktalı bir çizgi.",
+                    "updated": 1647779683658
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Faded green and red bars in the background that shows the fast average volume compared to the slow average volume. It changes colors depending on the previous value.",
-            "updated": 1617961835292
+            "updated": 1617961835292,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Блеклые зеленые и красные полосы на заднем плане, которые показывают быстрый средний объем по сравнению с медленным средним объемом. Он меняет цвет в зависимости от предыдущего значения.",
+                    "updated": 1643525389310
+                },
+                {
+                    "language": "DE",
+                    "text": "Verblassende grüne und rote Balken im Hintergrund, die das schnelle Durchschnittsvolumen im Vergleich zum langsamen Durchschnittsvolumen anzeigen. Die Farbe ändert sich je nach dem vorherigen Wert.",
+                    "updated": 1647273305321
+                },
+                {
+                    "language": "TR",
+                    "text": "Yavaş ortalama hacme kıyasla hızlı ortalama hacmi gösteren arka planda soluk yeşil ve kırmızı çubuklar. Önceki değere bağlı olarak renkleri değiştirir.",
+                    "updated": 1647779704712
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Non-faded green and red bars close to the zero-line showing the fast price average compared to the slow price average. It changes colors depending on the previous value.",
-            "updated": 1617961849374
+            "updated": 1617961849374,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Не затухающие зеленые и красные полосы вблизи нулевой линии, показывающие среднее значение быстрой цены по сравнению со средним значением медленной цены. Меняет цвет в зависимости от предыдущего значения.",
+                    "updated": 1643525402744
+                },
+                {
+                    "language": "DE",
+                    "text": "Nicht verblasste grüne und rote Balken in der Nähe der Nulllinie, die den schnellen Kursdurchschnitt im Vergleich zum langsamen Kursdurchschnitt anzeigen. Die Farbe ändert sich in Abhängigkeit vom vorherigen Wert.",
+                    "updated": 1647273316226
+                },
+                {
+                    "language": "TR",
+                    "text": "Yavaş fiyat ortalamasına kıyasla hızlı fiyat ortalamasını gösteren sıfır çizgisine yakın solmayan yeşil ve kırmızı çubuklar. Önceki değere bağlı olarak renkleri değiştirir.",
+                    "updated": 1647779719269
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "What is \"Open Interest\"?"
+            "text": "What is \"Open Interest\"?",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Что такое \"Open Interest\" (\"Открытый интерес\")?",
+                    "updated": 1643525424533
+                },
+                {
+                    "language": "DE",
+                    "text": "Was ist \"Open Interest\"?",
+                    "updated": 1647274130341
+                },
+                {
+                    "language": "TR",
+                    "text": "\"Açık Faiz\" nedir?",
+                    "updated": 1647779770487
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The idea of measuring Open Interest - is that a red candle might not be an indication of a bearish interest and vice versa. Considering volume, candle direction and amount movement defines the strength of Open Interest.",
-            "updated": 1617961616124
+            "updated": 1617961616124,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Идея измерения открытого интереса заключается в том, что красная свеча не может быть признаком медвежьего интереса и наоборот. Учет объема, направления свечи и количества движения определяет силу открытого интереса.",
+                    "updated": 1643525444522
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Gedanke bei der Messung des Open Interest ist, dass eine rote Kerze nicht unbedingt ein Hinweis auf ein bärisches Interesse ist und umgekehrt. Das Volumen, die Richtung der Kerze und der Betrag der Bewegung bestimmen die Stärke des Open Interest.",
+                    "updated": 1647274136194
+                },
+                {
+                    "language": "TR",
+                    "text": "Açık İlgiyi ölçme fikri - kırmızı bir mum, düşüş eğiliminin bir göstergesi olmayabilir ve bunun tersi de geçerlidir. Hacim, mum yönü ve miktarı göz önüne alındığında, hareket Açık Pozisyonun gücünü tanımlar.",
+                    "updated": 1647779817510
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Bull Candle and Volume Increase = Bull Interest"
+            "text": "Bull Candle and Volume Increase = Bull Interest",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Бычья свеча и увеличение объема = бычий интерес",
+                    "updated": 1643525458667
+                },
+                {
+                    "language": "DE",
+                    "text": "Bullenkerze und Volumenanstieg = Bulleninteresse",
+                    "updated": 1647274216707
+                },
+                {
+                    "language": "TR",
+                    "text": "Boğa Mumu ( Candle ) ve Hacim Artışı = Boğa Faizi",
+                    "updated": 1647779845603
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Bull Candle and Volume Decrease = Bear Interest"
+            "text": "Bull Candle and Volume Decrease = Bear Interest",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Бычья свеча и снижение объема = медвежий интерес",
+                    "updated": 1643525465691
+                },
+                {
+                    "language": "DE",
+                    "text": "Bullenkerze und Volumenrückgang = Bäreninteresse",
+                    "updated": 1647274230518
+                },
+                {
+                    "language": "TR",
+                    "text": "Boğa Mum ( Candle ) ve Hacim Düşüşü = Ayı Faizi",
+                    "updated": 1647779860452
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Bear Candle and Volume Increase = Bear Interest"
+            "text": "Bear Candle and Volume Increase = Bear Interest",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Медвежья свеча и увеличение объема = медвежий интерес",
+                    "updated": 1643525471690
+                },
+                {
+                    "language": "DE",
+                    "text": "Bären-Kerze und Volumenzunahme = Bären-Interesse",
+                    "updated": 1647274242674
+                },
+                {
+                    "language": "TR",
+                    "text": "Ayı Mumu ( Candle ) ve Hacim Artışı = Ayı Faizi",
+                    "updated": 1647779877676
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Bear Candle and Volume Decrease = Bull Interest"
+            "text": "Bear Candle and Volume Decrease = Bull Interest",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Медвежья свеча и снижение объема = бычий интерес",
+                    "updated": 1643525477578
+                },
+                {
+                    "language": "DE",
+                    "text": "Bärenkerze und Volumenrückgang = Bulleninteresse",
+                    "updated": 1647274254610
+                },
+                {
+                    "language": "TR",
+                    "text": "Ayı Mum ( Candle ) ve Hacim Azalışı = Boğa Faizi",
+                    "updated": 1647779892696
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "How is the Average VS Average calculated?"
+            "text": "How is the Average VS Average calculated?",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как рассчитывается Average VS Average?",
+                    "updated": 1643525492009
+                },
+                {
+                    "language": "DE",
+                    "text": "Wie wird der VS-Durchschnitt berechnet?",
+                    "updated": 1647274413060
+                },
+                {
+                    "language": "TR",
+                    "text": "Ortalama VS Ortalaması ( Average VS Average ) nasıl hesaplanır?",
+                    "updated": 1647779946486
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Bull Power is defined by measuring the value between candle min and candle close, out of the total candle range. Comparing the fast average Bull Power through the slow average Bull Power.",
-            "updated": 1617961207015
+            "updated": 1617961207015,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Bull Power определяется путем измерения значения между минимумом свечи и закрытием свечи, из общего диапазона свечей. Сравнение быстрой средней Bull Power с медленной средней Bull Power.",
+                    "updated": 1643525531913
+                },
+                {
+                    "language": "DE",
+                    "text": "Bull Power wird durch die Messung des Wertes zwischen Kerzenminimum und Kerzenschluss, aus dem gesamten Kerzenbereich, definiert. Man vergleicht den schnellen Durchschnitt der Bull Power mit dem langsamen Durchschnitt der Bull Power.",
+                    "updated": 1647274418572
+                },
+                {
+                    "language": "TR",
+                    "text": "Boğa Gücü, toplam mum aralığının dışında mum minimum ve mum kapanışı arasındaki değerin ölçülmesiyle tanımlanır. Hızlı ortalama Bull Power'ı yavaş ortalama Bull Power ile karşılaştırma.",
+                    "updated": 1647779961458
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Volume is measured by the fast average Total Volume through the slow average Total Volume.",
-            "updated": 1617961227511
+            "updated": 1617961227511,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Объем измеряется с помощью быстрого среднего Total Volume (\"Общий объем\") через медленный средний Total Volume (\"Общий объем\").",
+                    "updated": 1643525595365
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Volumen wird gemessen, indem der schnelle Durchschnitt des Gesamtvolumens mit dem langsamen Durchschnitt des Gesamtvolumens verglichen wird.",
+                    "updated": 1647274428762
+                },
+                {
+                    "language": "TR",
+                    "text": "Hacim, yavaş ortalama Toplam Hacim aracılığıyla hızlı ortalama Toplam Hacim ile ölçülür.",
+                    "updated": 1647779995666
+                }
+            ]
         },
         {
             "style": "List",
             "text": "The fast average Price is compared to the slow average Price.",
-            "updated": 1617961304593
+            "updated": 1617961304593,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Быстрая средняя цена сравнивается с медленной средней ценой.",
+                    "updated": 1643525608808
+                },
+                {
+                    "language": "DE",
+                    "text": "Der schnelle Durchschnittspreis wird mit dem langsamen Durchschnittspreis verglichen.",
+                    "updated": 1647274437829
+                },
+                {
+                    "language": "TR",
+                    "text": "Hızlı ortalama Fiyat, yavaş ortalama Fiyat ile karşılaştırılır.",
+                    "updated": 1647780014883
+                }
+            ]
         },
         {
             "style": "List",
             "text": "The fast average Open Interest is compared to the slow average Open Interest. ",
-            "updated": 1617961386984
+            "updated": 1617961386984,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Быстрый средний открытый интерес сравнивается с медленным средним открытым интересом.",
+                    "updated": 1643525616305
+                },
+                {
+                    "language": "DE",
+                    "text": "Der schnelle Durchschnitt des Open Interest wird mit dem langsamen Durchschnitt des Open Interest verglichen.",
+                    "updated": 1647274448008
+                },
+                {
+                    "language": "TR",
+                    "text": "Hızlı ortalama Açık Pozisyon, yavaş ortalama Açık Pozisyonla karşılaştırılır.",
+                    "updated": 1647780031518
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Change the input to optimise it for your use case!",
-            "updated": 1617953879921
+            "updated": 1617953879921,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Измените входные данные, чтобы оптимизировать их для вашего случая использования!",
+                    "updated": 1643525623597
+                },
+                {
+                    "language": "DE",
+                    "text": "Ändern Sie die Eingabe, um sie für Ihren Anwendungsfall zu optimieren!",
+                    "updated": 1647274650285
+                },
+                {
+                    "language": "TR",
+                    "text": "Kullanım durumunuza göre optimize etmek üzere girişi değiştirin!",
+                    "updated": 1647780060995
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Most of Omega indicators can use different period values. To change periods:",
-            "updated": 1617955135049
+            "updated": 1617955135049,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Большинство индикаторов Omega могут использовать различные значения периодов. Чтобы изменить периоды:",
+                    "updated": 1643525633734
+                },
+                {
+                    "language": "DE",
+                    "text": "Die meisten Omega Indikatoren können verschiedene Periodenwerte verwenden. Um Perioden zu ändern:",
+                    "updated": 1647274655417
+                },
+                {
+                    "language": "TR",
+                    "text": "Omega indikatörlerinin çoğu farklı periyot değerleri kullanabilir. Periyotları değiştirmek için:",
+                    "updated": 1647780085927
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Locate the Data Mine and expand it."
+            "text": "Locate the Data Mine and expand it.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Найдите Data Mine и разверните его.",
+                    "updated": 1643525642419
+                },
+                {
+                    "language": "DE",
+                    "text": "Suchen Sie die Data Mine und erweitern Sie sie.",
+                    "updated": 1647274678077
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri Madeni'ni ( Data Mine ) bulun ve genişletin.",
+                    "updated": 1647780109569
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Expand the Indicator Bot node."
+            "text": "Expand the Indicator Bot node.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Разверните узел Indicator Bot.",
+                    "updated": 1643525649883
+                },
+                {
+                    "language": "DE",
+                    "text": "Erweitern Sie den Knoten Indicator Bot.",
+                    "updated": 1647274690678
+                },
+                {
+                    "language": "TR",
+                    "text": "Gösterge Botu ( Indicator Bot ) düğümünü genişletin.",
+                    "updated": 1647780160300
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Find the Product Definition -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code."
+            "text": "Find the Product Definition -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Найдите Product Definition -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code.",
+                    "updated": 1643525664357
+                },
+                {
+                    "language": "DE",
+                    "text": "Suchen Sie die Product Definition -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code.",
+                    "updated": 1647274701056
+                },
+                {
+                    "language": "TR",
+                    "text": "Ürün Tanımı ( Product Definition ) -> Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Döngüsü ( Procedure Loop ) -> Prosedür Javascript Kodunu ( Procedure Javascript Code ) bulun.",
+                    "updated": 1647780230488
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Edit the Procedure Javascript Code node."
+            "text": "Edit the Procedure Javascript Code node.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Отредактируйте узел Procedure Javascript Code.",
+                    "updated": 1643525682892
+                },
+                {
+                    "language": "DE",
+                    "text": "<i>Bearbeiten</i> Sie den Knoten Procedure Javascript Code.",
+                    "updated": 1647333715522
+                },
+                {
+                    "language": "TR",
+                    "text": "Prosedür Javascript Kodu ( Procedure Javascript Code ) düğümünü düzenleyin.",
+                    "updated": 1647780250169
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Put the text marker in the edit box, and press Arrow Up until you reach the top of the code."
+            "text": "Put the text marker in the edit box, and press Arrow Up until you reach the top of the code.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Поместите текстовый маркер в поле редактирования и нажимайте стрелку вверх, пока не достигнете верхней части кода.",
+                    "updated": 1643525693663
+                },
+                {
+                    "language": "DE",
+                    "text": "Setzen Sie den Textmarker in das Bearbeitungsfeld und drücken Sie die Pfeiltaste nach oben, bis Sie den oberen Teil des Codes erreichen.",
+                    "updated": 1647274723772
+                },
+                {
+                    "language": "TR",
+                    "text": "Metin işaretçisini düzenleme kutusuna koyun ve kodun en üstüne ulaşana kadar Yukarı Ok'a basın.",
+                    "updated": 1647780302195
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Look for \"User defined values\".",
-            "updated": 1617954642138
+            "updated": 1617954642138,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Найдите \"User defined values\".",
+                    "updated": 1643525871149
+                },
+                {
+                    "language": "DE",
+                    "text": "Suchen Sie nach \"User defined values\".",
+                    "updated": 1647274733232
+                },
+                {
+                    "language": "TR",
+                    "text": "\"Kullanıcı tanımlı değerler ( User defined values )\" arayın.",
+                    "updated": 1647780328157
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Enter the values of your choice."
+            "text": "Enter the values of your choice.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Введите значения по своему выбору.",
+                    "updated": 1643525706367
+                },
+                {
+                    "language": "DE",
+                    "text": "Geben Sie die Werte Ihrer Wahl ein.",
+                    "updated": 1647274746555
+                },
+                {
+                    "language": "TR",
+                    "text": "Tercih ettiğiniz değerleri girin.",
+                    "updated": 1647780339738
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "Remember that you have to delete existing data for the indicator in the Data-Storage folder, and re-start the Data Tasks needed for the indicator in the Network node before you can see any changes.",
-            "updated": 1617954918128
+            "updated": 1617954918128,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Помните, что необходимо удалить существующие данные для индикатора в папке Data-Storage и заново запустить Data Tasks, необходимые для индикатора, в узле Network, прежде чем вы сможете увидеть какие-либо изменения.",
+                    "updated": 1643525717317
+                },
+                {
+                    "language": "DE",
+                    "text": "Denken Sie daran, dass Sie die vorhandenen Daten für den Indikator im Ordner Data-Storage löschen und die für den Indikator erforderlichen Data Tasks im Knoten Network neu starten müssen, bevor Sie die Änderungen sehen können.",
+                    "updated": 1647274855919
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Veri Depolama klasöründeki gösterge için mevcut verileri silmeniz ve herhangi bir değişikliği görebilmeniz,Ağ düğümündeki gösterge için gereken Veri Görevlerini ( Data Tasks ) yeniden başlatmanız gerektiğini unutmayın.",
+                    "updated": 1647780454674
+                }
+            ]
         },
         {
             "style": "Png",
@@ -168,12 +724,41 @@
         {
             "style": "Subtitle",
             "text": "Products, Properties & Examples",
-            "updated": 1617967853007
+            "updated": 1617967853007,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты, свойства и примеры",
+                    "updated": 1643525724657
+                },
+                {
+                    "language": "DE",
+                    "text": "Produkte, Eigenschaften und Beispiele",
+                    "updated": 1647274887631
+                },
+                {
+                    "language": "TR",
+                    "text": "Ürünler, Özellikler ve Örnekler",
+                    "updated": 1647780473009
+                }
+            ]
         },
         {
             "style": "Table",
             "text": "| Product Name | Product Variable | Properties |\n| Average VS Average | averageVsAverage | bullPriceDeviation, smaPrice, volumeDeviation, openInterestDeviation |",
-            "updated": 1617972838194
+            "updated": 1617972838194,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| Average VS Average | averageVsAverage | bullPriceDeviation, smaPrice, volumeDeviation, openInterestDeviation |\n",
+                    "updated": 1647274966635
+                },
+                {
+                    "language": "TR",
+                    "text": "| Ürün Adı | Ürün Değişkeni | Özellikler |\n| Average VS Average | averageVsAverage | bullPriceDeviation, smaPrice, volumeDeviation, openInterestDeviation |",
+                    "updated": 1647780506797
+                }
+            ]
         },
         {
             "style": "Javascript",

@@ -80,12 +80,22 @@ function newPlotterPanel() {
     }
 
     function onRecordChange(pCurrentRecord) {
-        currentRecord = pCurrentRecord
 
-        if (currentRecord === undefined) {
-            recordSet = new Map()
+        if (currentRecord !== undefined && pCurrentRecord !== undefined) {
+            /*
+            We want to prevent pannels showing the last record which overlap / shadow all the others (think episodes in daily)
+            For that reason if we already have a record, we ignore the others.
+            */
             return
         }
+
+        currentRecord = pCurrentRecord
+        if (currentRecord === undefined) {
+            recordSet = new Map()
+            currentRecord = undefined
+            return
+        }
+
         if (currentRecord.index !== undefined) {
             /*
             There is a situation when we expect to receive many records

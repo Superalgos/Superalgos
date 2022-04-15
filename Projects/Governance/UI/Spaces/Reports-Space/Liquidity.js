@@ -80,15 +80,15 @@ function newGovernanceReportsLiquidity() {
         /*
         Here we get from the workspace all User Profiles.
         */
-        let userProfiles = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
+        let userProfiles = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
         /*
         Transform the result array into table records.
         */
 
         for (let j = 0; j < userProfiles.length; j++) {
             let userProfile = userProfiles[j]
-            for (let j = 0; j < UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_ASSETS.length; j++) {
-                let asset = UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_ASSETS[j]
+            for (let j = 0; j < UI.projects.governance.globals.saToken.SA_TOKEN_BSC_LIQUIDITY_ASSETS.length; j++) {
+                let asset = UI.projects.governance.globals.saToken.SA_TOKEN_BSC_LIQUIDITY_ASSETS[j]
                 if (userProfile.tokenPowerSwitch === undefined) { continue }
                 let program = UI.projects.governance.utilities.validations.onlyOneProgramBasedOnConfigProperty(userProfile, programName, 'asset', asset)
                 if (program === undefined) { continue }

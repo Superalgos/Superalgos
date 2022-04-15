@@ -15,6 +15,21 @@
                 "text": "¡Has creado tu perfil con éxito! Ahora está configurado para participar en todos los Governance Programs.",
                 "updated": 1630891621231,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Profilinizi başarıyla oluşturdunuz! Artık çeşitli Yönetişim Programlarına ( Governance Programs ) katılmaya hazırsınız!",
+                "updated": 1637247513837
+            },
+            {
+                "language": "RU",
+                "text": "Вы успешно создали свой профиль! Теперь вы готовы участвовать во всех различных программах управления Governance Programs!",
+                "updated": 1639048112021
+            },
+            {
+                "language": "DE",
+                "text": "Sie haben Ihr Profil erfolgreich erstellt! Sie sind nun bereit, an den verschiedenen Governance Programs teilzunehmen!",
+                "updated": 1640077738322
             }
         ]
     },
@@ -29,6 +44,21 @@
                     "text": "Los Onboarding Programs son tu primera parada en el mundo de la gobernanza de Superalgos. ¡Así que añádalos a su perfil!",
                     "updated": 1630891657478,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Onboarding Programları ( Onboarding Programs ), Superalgos yönetişimi dünyasındaki ilk durağınızdır. Bu yüzden onları profilinize ekleyelim!",
+                    "updated": 1637247669076
+                },
+                {
+                    "language": "RU",
+                    "text": "Программы адаптации Onboarding Programs - это ваша первая остановка в мире управления Superalgos. Так что давайте добавим их в свой профиль!",
+                    "updated": 1639048151186
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Onboarding Programs sind Ihre erste Station in der Welt der Superalgos-Governance. Fügen wir sie also zu Ihrem Profil hinzu!",
+                    "updated": 1640077767988
                 }
             ]
         },
@@ -42,6 +72,21 @@
                     "text": "Encuentra el nodo Token Power Switch bajo el nodo User Profile y haz clic en Add Onboarding Programs en el menú.",
                     "updated": 1630891743028,
                     "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Kullanıcı Profili ( User Profile ) düğümünün altındaki Token Güç Anahtarı ( Token Power Switch ) düğümünü bulun ve menüden Onboarding Program Ekle'yi ( Onboarding Programs ) tıklayın.",
+                    "updated": 1637247814410
+                },
+                {
+                    "language": "RU",
+                    "text": "Найдите узел Token Power Switch под узлом User Profile и щелкните в меню Add Onboarding Programs.",
+                    "updated": 1639048172701
+                },
+                {
+                    "language": "DE",
+                    "text": "Suchen Sie den Knoten Token Power Switch unter dem Knoten User Profile und klicken Sie im Menü auf Onboarding-Programme hinzufügen.",
+                    "updated": 1640077830871
                 }
             ]
         },
@@ -54,6 +99,21 @@
                     "text": "El nodo Onboarding Programs debería aparecer como una descendencia del Token Power Switch.",
                     "updated": 1630891780832,
                     "style": "Success"
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Onboarding Programs düğümü, Token Güç Anahtarının ( Token Power Switch ) bir alt öğesi olarak görünmelidir.",
+                    "updated": 1637247866021
+                },
+                {
+                    "language": "RU",
+                    "text": "Узел Onboarding Programs должен появиться как потомок Token Power Switch.",
+                    "updated": 1639048205308
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Knoten Onboarding-Programme sollte als Ableger des Knotens Token Power Switch auftauchen.",
+                    "updated": 1640077840096
                 }
             ]
         }

@@ -15,6 +15,21 @@
                 "text": "Este es el Governance Project! Hoy te ayudaré a crear un User ProfileY únete a los primeros Governance Programs",
                 "updated": 1630870722161,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Bu bir Yönetişim Projesidir ( Governance Project )! Bugün bir Kullanıcı Profili oluşturmanıza ve ilk birkaç Yönetim Programına ( Governance Programs ) katılmanıza yardımcı olacağım!\n",
+                "updated": 1637146172021
+            },
+            {
+                "language": "RU",
+                "text": "Сегодня я помогу вам создать профиль пользователя и присоединиться к нескольким первым программам управления Governance Programs!",
+                "updated": 1639043293115
+            },
+            {
+                "language": "DE",
+                "text": "Dies ist das Governance Project ! Heute werde ich Ihnen helfen, ein Benutzerprofil ( User Profile ) zu erstellen und an den ersten Governance Programmen teilzunehmen!",
+                "updated": 1640071828303
             }
         ]
     },
@@ -29,6 +44,21 @@
                     "text": "Pero antes de comenzar, debe saber que solo puede enviar su perfil a la rama Develop , ¡así que es hora de cambiar!",
                     "updated": 1630870746617,
                     "style": "Note"
+                },
+                {
+                    "language": "TR",
+                    "text": "Ancak başlamadan önce, profilinizi yalnızca Geliştirme (Develop) şubesine gönderebileceğinizi bilmelisiniz, bu yüzden geliştirme şubesine geçiş zamanı!",
+                    "updated": 1637139022028
+                },
+                {
+                    "language": "RU",
+                    "text": "\"Но прежде чем начать, вы должны знать, что вы можете отправить свой профиль только в ветку Develop, так что пора переключиться!\"",
+                    "updated": 1639043338337
+                },
+                {
+                    "language": "DE",
+                    "text": "\"Aber bevor Sie beginnen, sollten Sie wissen, dass Sie Ihr Profil nur im Zweig \"Develop\" einreichen können, also ist es Zeit zu wechseln!",
+                    "updated": 1640071907480
                 }
             ]
         },
@@ -42,6 +72,21 @@
                     "text": "Ve al pie de página y cambia la rama Contrubutions  a la Develop. Luego cierra y reinicia la aplicación después del cambio. Una vez que estés de regreso, ejecuta el comando app.update para actualizarse con Develop, reiniciar, ¡y solo entonces podrá continuar con este tutorial!",
                     "updated": 1630870801873,
                     "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Sayfanın altına gidin ve hem Katkı (Contributions) Dalını hem de Mevcut (Current) Dalı Geliştirme (Develop) olarak değiştirin.  Şimdi Develop ile güncel kalmak için arama kutusuna app. update yazarak çalıştırın.İstemciyi (Client) ve Kullanıcı Arayüzünü (UI) yeniden başlatın. Ancak o zaman bu eğiticiye devam edebilirsiniz!",
+                    "updated": 1637146216750
+                },
+                {
+                    "language": "RU",
+                    "text": "Перейдите в нижний колонтитул и переключите ветвь Contributions и Current Branch на Develop. Теперь запустите команду app.update, чтобы получить последнюю версию Develop, перезапустите клиент Client и пользовательский интерфейс UI, и только после этого вы можете продолжить изучение этого руководства!",
+                    "updated": 1639043421197
+                },
+                {
+                    "language": "DE",
+                    "text": "Gehen Sie zur Fußzeile und schalten Sie sowohl den Beitragszweig als auch den aktuellen Zweig auf Develop um.<br><br>Führen Sie nun den Befehl app.update aus, um Develop auf den neuesten Stand zu bringen, starten Sie den Client und die Benutzeroberfläche ( UI ) neu, und erst dann können Sie mit diesem Tutorial fortfahren!",
+                    "updated": 1640901184246
                 }
             ]
         },

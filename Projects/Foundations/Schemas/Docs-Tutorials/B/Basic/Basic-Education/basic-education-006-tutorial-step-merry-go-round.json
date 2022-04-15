@@ -31,6 +31,16 @@
                 "language": "TR",
                 "text": "Varsayılan olarak, düğümler, üst düğümlerinin etrafında bir dönme simetrisine kilitlenir. Simetri, ayara bağlı olarak 360 derece veya daha az olabilir!",
                 "updated": 1636700229623
+            },
+            {
+                "language": "RU",
+                "text": "По умолчанию узлы фиксируются с вращательной симметрией вокруг своего родительского узла. Симметрия может охватывать 360 градусов или меньше, в зависимости от настройки!",
+                "updated": 1640859273812
+            },
+            {
+                "language": "ID",
+                "text": "Secara umum, node terkunci ke simetris rotational di sekitaran node induknya. simetris ini dapat menjangkau 360 derajat atau kurang, tergantung dari pengaturannya!",
+                "updated": 1643473526505
             }
         ]
     },
@@ -61,6 +71,16 @@
                     "language": "TR",
                     "text": "Ana düğümden Açı butonuna tıkladığınızda, beş farklı ayar arasında geçiş yaparsınız: 360, 180, 90 ve 45 derece ve ayrıca dönme simetrisini devre dışı bırakma seçeneği.",
                     "updated": 1636700351205
+                },
+                {
+                    "language": "RU",
+                    "text": "Когда вы нажимаете на кнопку Angle to Parent node, вы переключаетесь между пятью различными настройками: 360, 180, 90 и 45 градусов, плюс возможность отключения вращательной симметрии.",
+                    "updated": 1640865758665
+                },
+                {
+                    "language": "ID",
+                    "text": "Ketika kamu mengklik tombol Angle to Parent node, kamu berputar di antara lima pengaturan berbeda: 360, 180, 90, dan 45 derajat, ditambah opsi untuk menonaktifkan simetris rotational.",
+                    "updated": 1643473550089
                 }
             ]
         },
@@ -90,6 +110,16 @@
                     "language": "TR",
                     "text": "Lightning Strike Geri Test Oturumu ( Lightning Strike Backtesting Session ) düğümünün her bir öğesinde seçilen ayara hızlıca göz atın: İşlem Parametreleri ( Trading Parameters ), İşlem Sistemi Referansı ( Trading System Reference ) ve İşlem Motoru Referansı ( Trading Engine Reference ). Hepsi 180 dereceye ayarlanmış, değil mi?",
                     "updated": 1636700489786
+                },
+                {
+                    "language": "RU",
+                    "text": "Взгляните на настройки, выбранные в каждом из потомков узла Lightning Strike Backtesting Session: Trading Parameters, Trading System Reference и Trading Engine Reference. Все они установлены на 180 градусов, верно?",
+                    "updated": 1640865800071
+                },
+                {
+                    "language": "ID",
+                    "text": "Coba lihatlah pengaturan yang dipilih pada masing-masing turunan dari node Lightning Strike Backtesting Session : Trading Parameters, Trading System Reference, dan the Trading Engine Reference. Semuanya diatur ke 180 derajat, benar?",
+                    "updated": 1643473584884
                 }
             ]
         }

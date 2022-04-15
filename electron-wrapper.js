@@ -1,4 +1,4 @@
-const {app, Menu, BrowserWindow, ipcMain, dialog } = require('electron')
+const { app, Menu, BrowserWindow, ipcMain, dialog } = require('electron')
 
 const path = require('path')
 const fs = require('fs')
@@ -10,38 +10,56 @@ process.env.SA_MODE = 'gitDisable'
 process.env.PACKAGED_PATH = app.getAppPath()
 process.env.DATA_PATH = app.getPath('documents')
 
-const WINDOW_WIDTH = 1280
+const WINDOW_WIDTH = 1580
 const WINDOW_HEIGHT = 768
 
-let mainWindow, consoleWindow, platform
+let mainWindow, consoleWindow, selectWindow, platform
 
 const port = 34248 // Default HTTP port
 
-run()
+// Check if it's the first time you run this app
+function firstRun() {
+  const configPath = path.join(process.env.DATA_PATH, '/Superalgos_Data/FirstRun');
 
-function run() {
-  const { fork } = require('child_process')
-  platform = fork(path.join(__dirname, '/PlatformRoot.js'), ["noBrowser"], {stdio: ['pipe', 'pipe', 'pipe', 'ipc'], env: process.env})
+  if (fs.existsSync(configPath)) {
+    return false;
+  }
 
-  platform.on('message', _ => {
-    openMain()
-    openConsoleWindow()
-  })
+  try {
+    fs.writeFileSync(configPath, '')
+  } catch (error) {
+    if (error.code === 'ENOENT') {
+      fs.mkdirSync(path.join(process.env.DATA_PATH, '/Superalgos_Data/'), {recursive: true});
+      return firstRun();
+    }
+
+    throw error
+  }
+
+  return true
 }
 
-ipcMain.on("toMain", (event, args) => {
-  if (args === "ImAlive!" && consoleWindow) {
-    platform.stdout.setEncoding('utf8')
-    platform.stdout.on('data', (data) => {
-      if(consoleWindow != null) {
-        consoleWindow.webContents.send("fromMain", data);
+// iterate in the workspaces folder and get all *Onboarding ones to present in the selection page
+function getWorkspaces() {
+  const workspacePath = path.join(process.env.PACKAGED_PATH, 'Plugins/Foundations/Workspaces')
+  const workspaces = []
+  try {
+    const files = fs.readdirSync(workspacePath)
+    for(const file of files) {
+      if (file.includes('-Onboarding-')) {
+        workspaces.push(file)
       }
-    })
+    }
+  } catch (error) {
+    if (error) {
+      console.log(error)
+    }
   }
-})
+  return workspaces
+}
 
-
-function openMain () {
+// Create a selection window for first run
+function selectionWindow() {
   let bw_options = {
     width: WINDOW_WIDTH,
     height: WINDOW_HEIGHT,
@@ -50,6 +68,51 @@ function openMain () {
       nodeIntegration: false, // is default value after Electron v5
       contextIsolation: true, // protect against prototype pollution
       enableRemoteModule: false, // turn off remote
+      preload: path.join(__dirname, "preload.js") // use a preload script
+    }
+  }
+  selectWindow = new BrowserWindow(
+    bw_options
+  )
+  selectWindow.loadFile('./selection.html')
+}
+
+function run(workspace) {
+  const { fork } = require('child_process')
+  platform = fork(path.join(__dirname, '/PlatformRoot.js'), ["noBrowser"], {stdio: ['pipe', 'pipe', 'pipe', 'ipc'], env: process.env})
+
+  platform.on('message', () => {
+    openMain(workspace)
+    openConsoleWindow()
+    if (selectWindow) {selectWindow.close()}
+  })
+}
+
+ipcMain.on("toMain", (event, args) => {
+  if (args === "ImAlive!" && consoleWindow) {
+    platform.stdout.setEncoding('utf8')
+    platform.stdout.on('data', (data) => {
+      consoleWindow.webContents.send("fromMain", data);
+    })
+  } else if (args === "getExchanges") {
+    const workspaces = getWorkspaces()
+    selectWindow.webContents.send("fromMain", workspaces); //send to the renderer
+  } else if (args.includes(".json")) {
+    var workspace = args.split('.')[0]
+    run(workspace)
+  }
+})
+
+function openMain(workspace) {
+  let bw_options = {
+    width: WINDOW_WIDTH,
+    height: WINDOW_HEIGHT,
+    resizable: true,
+    webPreferences: {
+      nodeIntegration: false, // is default value after Electron v5
+      contextIsolation: true, // protect against prototype pollution
+      enableRemoteModule: false, // turn off remote
+      preload: path.join(__dirname, "preload.js") // use a preload script
     }
   }
 
@@ -58,8 +121,14 @@ function openMain () {
   )
 
   createMainMenus()
+  
+  if (workspace) {
+    var queryString = '/?initialWorkspaceName=' + workspace + '&initialWorkspaceProject=Foundations&initialWorkspaceType=Plugin'
+    mainWindow.loadURL("http://localhost:" + port + queryString)
+  } else {
+    mainWindow.loadURL("http://localhost:" + port)
+  }
 
-  mainWindow.loadURL("http://localhost:" + port)
 
   mainWindow.on('close', function (e) {
     if (consoleWindow.isVisible()) {
@@ -90,6 +159,10 @@ function openMain () {
   mainWindow.on('activate', function () {
     mainWindow.show()
   })
+
+  mainWindow.on('focus', function () {
+    createMainMenus()
+  })
 }
 
 function openConsoleWindow() {
@@ -115,7 +188,6 @@ function openConsoleWindow() {
 
   consoleWindow.setBackgroundColor('#000000')
   consoleWindow.loadFile('./console.html')
-
 
   consoleWindow.on('close', function (e) {
     if (mainWindow.isVisible()) {
@@ -144,14 +216,20 @@ function openConsoleWindow() {
     }    
   })
 
-  consoleWindow.on('show', function () {
+  consoleWindow.on('focus', function () {
     createConsoleMenus()
   })
 }
 
 app.on('ready', function () {
-  autoUpdater.checkForUpdatesAndNotify();
-  createMainMenus()
+  autoUpdater.checkForUpdatesAndNotify()
+  // Check for first run and present selection if true
+  const isFirstRun = firstRun()
+  if (isFirstRun) {
+    selectionWindow()
+  } else {
+    run()
+  }
 })
 
 app.on('window-all-closed', function () {
@@ -159,18 +237,12 @@ app.on('window-all-closed', function () {
 })
 
 app.on('activate', function () {
-  if (BrowserWindow.getAllWindows().length === 0) createWindow()
+  if (BrowserWindow.getAllWindows().length === 0) openMain()
 })
 
 function createMainMenus() {
-  function logsActive() {
-    if(consoleWindow) {
-      return true
-    } else {
-      return false
-    }
-  } 
-
+  let data
+  let modifiers = []
   const mainTemplate = [
     {
       label: 'File',
@@ -217,15 +289,49 @@ function createMainMenus() {
       ]
     },
     {
-      label: 'Logs',
-      enabled: logsActive(),
-      click () {
-        if(consoleWindow) {
-          consoleWindow.show()
-        } else {
-          openConsoleWindow()
+      label: 'Console',
+      submenu: [
+        {
+          label: 'Show logs',
+          click () {consoleWindow ? consoleWindow.show() : openConsoleWindow()}
+        },
+        {
+          label: 'Hide logs',
+          click () {consoleWindow.hide()}
         }
-      }
+      ]
+    },
+    {
+      label: 'Profile',
+      submenu: [
+        {
+          label: 'New/Update',
+          click: async () => {
+            data = {newUser: ["Governance", "Plugin → Token-Distribution-Superalgos"]}
+            mainWindow.webContents.send("fromMaster", data)
+          }
+        },
+        {
+          label: 'Save',
+          click: async () => {
+            let modifiers = []
+            modifiers.push('shift')
+            modifiers.push('control')
+            mainWindow.webContents.sendInputEvent({type: 'keyDown', modifiers, keyCode: "s"})
+            mainWindow.webContents.sendInputEvent({type: 'char', modifiers, keyCode: "s"})
+            mainWindow.webContents.sendInputEvent({type: 'keyUp', modifiers, keyCode: "s"})
+          }
+        },
+        {
+          label: 'Submit',
+          click: async () => {
+            data = {submit: ["gov.userProfile"]}
+            mainWindow.webContents.send("fromMaster", data)
+            mainWindow.webContents.sendInputEvent({type: 'keyDown', modifiers, keyCode: "Enter"})
+            mainWindow.webContents.sendInputEvent({type: 'keyUp', modifiers, keyCode: "Enter"})
+          }
+        }
+      ]
     }
   ]
 
@@ -234,15 +340,6 @@ function createMainMenus() {
 }
 
 function createConsoleMenus () {
-
-  function uiActive() {
-    if(mainWindow.isVisible()) {
-      return false
-    } else {
-      return true
-    }
-  }
-
   const consoleTemplate = [
     {
       label: 'File',
@@ -282,10 +379,7 @@ function createConsoleMenus () {
     {
       label: 'Show UI',
       id: 'ui',
-      enabled: uiActive(),
-      click () {
-        mainWindow.show()
-      }
+      click () {mainWindow.isVisible() ? mainWindow.focus() : mainWindow.show()}
     }
   ]
 

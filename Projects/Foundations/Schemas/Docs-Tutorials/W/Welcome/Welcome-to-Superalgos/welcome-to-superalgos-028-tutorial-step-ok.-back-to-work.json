@@ -7,7 +7,7 @@
             "name": "Data\\data-tasks",
             "project": "Foundations"
         },
-        "text": "Now that you're comfortable moving around, I want you to go on a little tour exploring the Data Tasks section of the Network Node.",
+        "text": "Now that you're comfortable moving around, I want you to go on a little tour exploring the Data Tasks section of the LAN Network Node.",
         "translations": [
             {
                 "language": "IT",
@@ -17,8 +17,8 @@
             },
             {
                 "language": "ID",
-                "text": "Sekarang kamu bisa nyaman kemana-mana, Aku ingin kamu untuk pergi tour kecil-kecilan untuk mengeksplor bagian Data Tasks dari hirarki.",
-                "updated": 1616770842957,
+                "text": "Sekarang setelah kamu merasa nyaman untuk bergerak, aku ingin kamu melakukan Tour kecil dalam menjelajahi bagian Data Tasks dari Node LAN Network.",
+                "updated": 1639745027223,
                 "style": "Definition"
             },
             {
@@ -29,23 +29,28 @@
             },
             {
                 "language": "DE",
-                "text": "Da Sie sich nun gut zurechtfinden, möchte ich Sie auf eine kleine Tour durch den Abschnitt Data Tasks des Network Node mitnehmen.",
-                "updated": 1634167620156,
+                "text": "Da Sie sich nun gut zurechtfinden, möchte ich Sie auf einen kleinen Rundgang durch den Abschnitt \"Data Tasks\" des LAN-Netzwerkknotens mitnehmen. ",
+                "updated": 1642150875099,
                 "style": "Definition"
             },
             {
                 "language": "RU",
-                "text": "Теперь, когда Вам удобно передвигаться, я хочу, чтобы Вы отправились в небольшую экскурсию по Network Node раздела Data Tasks.",
-                "updated": 1635630043831,
+                "text": "Теперь, когда вам стало удобнее перемещаться, я хочу, чтобы вы совершили небольшую экскурсию, исследуя раздел Data Tasks узла LAN Network.",
+                "updated": 1641809604919,
                 "style": "Definition"
             },
             {
                 "language": "TR",
-                "text": "Artık rahatça dolaşabildiğinize göre, Ağ Düğümü'nün ( Network Node ) Veri Görevleri ( Data Tasks ) bölümünü keşfetmek için küçük bir tura çıkmanızı istiyorum.",
-                "updated": 1636014280941
+                "text": "Artık rahatça dolaşabildiğinize göre, LAN Network Node düğümünün Veri Görevleri (Data Tasks) bölümünü keşfetmek için küçük bir tura çıkmanızı istiyorum.",
+                "updated": 1644909619412
+            },
+            {
+                "language": "NL",
+                "text": "Nu je jouw weg kan vinden, stel ik voor dat je de Data Tasks sectie van de LAN Network Node gaat verkennen.",
+                "updated": 1636979006293
             }
         ],
-        "updated": 1622194034630
+        "updated": 1636911021993
     },
     "paragraphs": [
         {
@@ -86,6 +91,11 @@
                     "language": "TR",
                     "text": "Aşağıdakilere dikkat edin:",
                     "updated": 1636014296432
+                },
+                {
+                    "language": "NL",
+                    "text": "Let op het volgende:",
+                    "updated": 1636979045649
                 }
             ]
         },
@@ -119,14 +129,19 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Раздел делится, в первую очередь, на проекты, биржи и рынки. Он поможет Вам организованно работать со множеством бирж и рынков.",
+                    "text": "Раздел делится, в первую очередь, на проекты, биржи и рынки. Он поможет вам организованно работать со множеством бирж и рынков.",
                     "updated": 1635630220075,
                     "style": "List"
                 },
                 {
                     "language": "TR",
-                    "text": "Bölüm, her şeyden önce proje, borsa ve pazara göre düzenlenmiştir. Bu, birden fazla borsa ve birden fazla pazarla düzenli bir şekilde çalışmanıza yardımcı olacaktır.",
-                    "updated": 1636014356317
+                    "text": "Bu bölüm, her şeyden önce proje, borsa ve işlem şiftine göre düzenlenmiştir. Bu, birden fazla borsa ve birden fazla işlem çiftiyle düzenli bir şekilde çalışmanıza yardımcı olacaktır.",
+                    "updated": 1644909758082
+                },
+                {
+                    "language": "NL",
+                    "text": "De sectie is eerst en vooral georganiseerd per project, exchange en markt. Dit helpt om overzichtelijk met meerdere exchanges en markten te werken.",
+                    "updated": 1636979188178
                 }
             ]
         },
@@ -166,8 +181,13 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Borsa Veri Görevleri ( Exchance Data Tasks ) ve Piyasa Veri Görevleri ( Market Data Tasks ) düğümleri, sırasıyla borsadaki ve pazardaki tüm görevleri kontrol edebilir.",
-                    "updated": 1636014775744
+                    "text": "Borsa Veri Görevleri ( Exchance Data Tasks ) ve Market Veri Görevleri ( Market Data Tasks ) düğümleri, sırasıyla borsadaki ve o işlem çiftindeki tüm görevleri kontrol edebilir.",
+                    "updated": 1644909782716
+                },
+                {
+                    "language": "NL",
+                    "text": "De Exchange Data Tasks en Market Data Tasks nodes controleren alle taken in de bijbehorende exchange en markt.",
+                    "updated": 1636979270117
                 }
             ]
         },
@@ -209,6 +229,11 @@
                     "language": "TR",
                     "text": "Şimdi bu düğümleri ve menülerini kontrol edin!",
                     "updated": 1636014827396
+                },
+                {
+                    "language": "NL",
+                    "text": "Verken de nodes en hun menu's maar eens!",
+                    "updated": 1636979384554
                 }
             ]
         }

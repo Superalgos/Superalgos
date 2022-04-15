@@ -1,13 +1,28 @@
 {
     "type": "Docs Space Style",
     "definition": {
-        "text": "This node is currently a place holder that will eventually allow users to adjust the visual appearance of the docs space.",
-        "updated": 1631589004055
+        "text": "Trough this Node you can adjust your UI through changing the Backround color or font size as well as font color.",
+        "updated": 1642631429639,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "С помощью этого узла вы можете настроить свой пользовательский интерфейс, изменив цвет фона или размер шрифта, а также цвет шрифта. ",
+                "updated": 1647781458275
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "There exists an explicit article about what colors can be added.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Существует отдельная статья о том, какие цвета можно добавлять.",
+                    "updated": 1647781484535
+                }
+            ],
+            "updated": 1642631433302
         }
     ]
 }

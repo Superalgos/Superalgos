@@ -8,6 +8,21 @@
                 "language": "ES",
                 "text": "Este libro lo guía por el camino que lo ayudará a aprender Superalgos de la manera más eficiente posible. Los tutoriales interactivos son la mejor herramienta para abordar la curva de aprendizaje. Es muy recomendable hacer los tutoriales en el orden propuesto.",
                 "updated": 1628207193722
+            },
+            {
+                "language": "RU",
+                "text": "Эта книга проведет вас по пути, который поможет вам изучить Superalgos наиболее эффективным способом. Интерактивные учебники - лучший инструмент для преодоления кривой обучения. Настоятельно рекомендуется выполнять учебники в предложенном порядке.",
+                "updated": 1637920073292
+            },
+            {
+                "language": "TR",
+                "text": "Bu kılavuz, Superalgos'u mümkün olan en verimli şekilde öğrenmenize yardımcı olacak yolda size rehberlik edecektir. Etkileşimli öğreticiler, öğrenme sürecinin üstesinden gelmek için en iyi araçtır. Öğreticileri önerilen sırayla yapmak şiddetle tavsiye edilir.",
+                "updated": 1638914991277
+            },
+            {
+                "language": "ID",
+                "text": "Book ini menuntun kamu melalui jalan yang akan membantu kamu mempelajari Superalgos dengan cara yang seefisien mungkin. Tutorial interaktif adalah alat terbaik untuk mengatasi learning curve. Melakukan tutorial sesuai urutan yang diusulkan sangat dianjurkan.",
+                "updated": 1640594637960
             }
         ]
     },
@@ -15,7 +30,24 @@
         {
             "style": "Title",
             "text": "How to Use This Book",
-            "updated": 1610955545072
+            "updated": 1610955545072,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как использовать эту книгу",
+                    "updated": 1637920084060
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu Kılavuz Nasıl Kullanılır?",
+                    "updated": 1638915016291
+                },
+                {
+                    "language": "ID",
+                    "text": "Cara Penggunaan Book ini",
+                    "updated": 1640594677771
+                }
+            ]
         },
         {
             "style": "Text",
@@ -25,6 +57,21 @@
                     "language": "ES",
                     "text": "Los Tutoriales proveen la mejor experiencia de aprendizaje práctico. Hacer todos los tutoriales existentes ha demostrado ser la forma más eficaz de abordar la curva de aprendizaje.",
                     "updated": 1636560408468
+                },
+                {
+                    "language": "RU",
+                    "text": "Учебники обеспечивают максимальный практический опыт обучения. Изучение всех существующих учебников оказалось наиболее эффективным способом преодоления кривой обучения.",
+                    "updated": 1637920111715
+                },
+                {
+                    "language": "TR",
+                    "text": "Öğreticiler, uygulamalı öğrenme deneyimi sağlar. Mevcut tüm eğitimleri yapmanın, öğrenme sürecinin üstesinden gelmenin en etkili yolu olduğu kanıtlanmıştır.",
+                    "updated": 1638915173767
+                },
+                {
+                    "language": "ID",
+                    "text": "Tutorial memberikan pengalaman belajar langsung yang luar biasa. Melakukan semua tutorial yang ada telah terbukti menjadi cara paling efektif untuk mengatasi learning curve.",
+                    "updated": 1640594758959
                 }
             ]
         },
@@ -37,6 +84,21 @@
                     "language": "ES",
                     "text": "Para hacer un tutorial, cargue el correspondiente plugin workspace,busque el tutorial en la parte inferior del espacio de diseño y seleccione Play en el menu.",
                     "updated": 1636560468727
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы сделать учебник, загрузите соответствующее рабочее пространство плагина, найдите учебник в нижней части пространства проектирования и выберите в меню пункт Play.",
+                    "updated": 1637920130755
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir öğretici başlatmak için ilgili eklenti çalışma alanını yükleyin, tasarım alanının altındaki öğreticiyi bulun ve menüden Oynat'ı seçin.",
+                    "updated": 1638915224839
+                },
+                {
+                    "language": "ID",
+                    "text": "Untuk melakukan tutorial, muat plugin workspace yang sesuai, temukan tutorial di bagian bawah design space, dan pilih Play pada menu.",
+                    "updated": 1640594831930
                 }
             ]
         },
@@ -48,6 +110,21 @@
                     "language": "ES",
                     "text": "Cuando necesite un repaso rápido, siempre puede volver atrás y rehacer todo el tutorial o algunos pasos. Debido a que los tutoriales se componen de páginas en las que se pueden realizar búsquedas, también puede escanear el contenido sin hacer el tutorial.",
                     "updated": 1636560519878
+                },
+                {
+                    "language": "RU",
+                    "text": "Когда вам нужно быстрое обновление, вы всегда можете вернуться и переделать весь учебник или несколько шагов. Поскольку учебники состоят из страниц с возможностью поиска, вы также можете сканировать содержимое, фактически не выполняя учебник.",
+                    "updated": 1637920230871
+                },
+                {
+                    "language": "TR",
+                    "text": "Hızlı bir tekrara ihtiyacınız olduğunda, her zaman geri dönüp tüm öğreticiyi veya birkaç adımı tekrarlayabilirsiniz. Öğreticiler aranabilir sayfalardan oluştuğundan, öğreticiyi gerçekten yapmadan içeriği de tarayabilirsiniz.",
+                    "updated": 1638915299829
+                },
+                {
+                    "language": "ID",
+                    "text": "Ketika kamu membutuhkan penyegaran cepat, kamu selalu dapat kembali dan mengulang seluruh tutorial atau beberapa langkah. Karena tutorial dibuat dari halaman yang dapat dicari, kamu juga dapat memindai konten tanpa benar-benar melakukan tutorial.",
+                    "updated": 1640594900422
                 }
             ]
         },
@@ -60,12 +137,44 @@
                     "language": "ES",
                     "text": "El orden recomendado viene dado por la lista a continuación, pero la verdad es que hacer todos los tutoriales es lo que importa, sin importar el orden.",
                     "updated": 1636560552820
+                },
+                {
+                    "language": "RU",
+                    "text": "Рекомендуемый порядок приведен в списке ниже, но правда в том, что все учебники имеют значение, независимо от порядка.",
+                    "updated": 1637920246813
+                },
+                {
+                    "language": "TR",
+                    "text": "Önerilen sıra aşağıdaki listede verilmiştir, ancak gerçek şu ki, sıra ne olursa olsun önemli olan tüm dersleri yapmaktır.",
+                    "updated": 1638915318393
+                },
+                {
+                    "language": "ID",
+                    "text": "Urutan yang disarankan ada dalam daftar di bawah ini, adapun yang benar yaitu melakukan semua tutorial penting, terlepas dari semua urutan yang ada.",
+                    "updated": 1640595019762
                 }
             ]
         },
         {
             "style": "Title",
-            "text": "List of Plugin Workspaces and Tutorials"
+            "text": "List of Plugin Workspaces and Tutorials",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Список рабочих пространств и учебников по плагинам",
+                    "updated": 1637920261835
+                },
+                {
+                    "language": "TR",
+                    "text": "Eklenti Çalışma Alanları (Plugin Workspaces) ve Öğreticilerin (Tutorial) Listesi",
+                    "updated": 1638915383541
+                },
+                {
+                    "language": "ID",
+                    "text": "Daftar Plugin Workspaces dan Tutorials",
+                    "updated": 1640595042286
+                }
+            ]
         },
         {
             "style": "Text",
@@ -76,6 +185,21 @@
                     "language": "ES",
                     "text": "Para su conveniencia, encuentre la relación del Plugin Workspaces y los tutoriales de cada uno de ellos.",
                     "updated": 1636560626471
+                },
+                {
+                    "language": "RU",
+                    "text": "Для вашего удобства приведено соотношение рабочих пространств плагинов (Plugin Workspaces) и учебников, которые есть в каждом из них.",
+                    "updated": 1637920336885
+                },
+                {
+                    "language": "TR",
+                    "text": "Size kolaylık sağlamak için, Eklenti Çalışma Alanları ile her birinin içerdiği öğreticilerin bir ilişkisini aşağıda listelenmiştir.",
+                    "updated": 1638915455745
+                },
+                {
+                    "language": "ID",
+                    "text": "Untuk kenyamanan kamu, temukan hubungan Plugin Workspaces dan tutorial dari masing-masing fitur.",
+                    "updated": 1640595103045
                 }
             ]
         },
@@ -138,6 +262,11 @@
             "style": "Chapter",
             "text": "XI->Foundations->Tutorial->Setting Up a New Chart->This tutorial walks through the basic inner workings of the Charting Space to help you learn how to create your own custom charts.",
             "updated": 1621991930816
+        },
+        {
+            "style": "Chapter",
+            "text": "XII->Governance->Tutorial->Creating Your User Profile Tutorial->This tutorial covers everything you need to know about adding a user profile within the  Superalgos Governance system.",
+            "updated": 1637591853047
         }
     ]
 }

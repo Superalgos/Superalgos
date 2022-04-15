@@ -66,7 +66,7 @@ function newFoundationsCockpitSpace() {
         thisObject.container.frame.position.x = 0
 
         let INITIAL_POSITION
-        if (UI.projects.foundations.spaces.designSpace.workspace.enabled === true) {
+        if (UI.projects.workspaces.spaces.designSpace.workspace.enabled === true) {
             let localStorage = window.localStorage.getItem(MODULE_NAME)
             if (localStorage !== null) {
                 storage = JSON.parse(localStorage)
@@ -138,8 +138,13 @@ function newFoundationsCockpitSpace() {
         statusCounter--
         if (statusCounter < 0) {
             statusCounter = 0
-            statusText = undefined,
-                statusType = undefined
+            statusText = undefined
+            statusType = undefined
+
+            if (UI.environment.DEMO_MODE === true) {
+                statusText = 'You are running Superalgos in DEMO MODE. That means that you will not be able to run or stop tasks. Remember Tutorials were designed for the full version, when you download the software.'
+                statusType = STATUS_TYPES.WARNING
+            }
         }
     }
 
@@ -158,7 +163,7 @@ function newFoundationsCockpitSpace() {
 
         thisObject.status = 'MIDDLE'
 
-        if (UI.projects.foundations.spaces.designSpace.workspace.enabled === true) {
+        if (UI.projects.workspaces.spaces.designSpace.workspace.enabled === true) {
             thisObject.container.isDraggeable = true
         } else {
             thisObject.container.isDraggeable = false
@@ -167,10 +172,10 @@ function newFoundationsCockpitSpace() {
         if (thisObject.container.frame.position.y > browserCanvas.height * 99.5 / 100 - COCKPIT_SPACE_HEIGHT) {
             thisObject.container.frame.position.y = browserCanvas.height - COCKPIT_SPACE_HEIGHT
             thisObject.status = 'BOTTOM'
-            UI.projects.foundations.spaces.designSpace.makeInvisible()
+            UI.projects.workspaces.spaces.designSpace.makeInvisible()
             UI.projects.foundations.spaces.floatingSpace.makeInvisible()
         } else {
-            UI.projects.foundations.spaces.designSpace.makeVisible()
+            UI.projects.workspaces.spaces.designSpace.makeVisible()
             UI.projects.foundations.spaces.floatingSpace.makeVisible()
         }
 
@@ -269,8 +274,8 @@ function newFoundationsCockpitSpace() {
             UI.projects.foundations.utilities.drawPrint.printLabel(statusText, undefined, undefined, position.x, position.y, 1, 15, textColor, 'Center', thisObject.container)
         }
 
-        if (UI.projects.foundations.spaces.designSpace !== undefined) {
-            if (UI.projects.foundations.spaces.designSpace.workspace.enabled === true && statusText === undefined) {
+        if (UI.projects.workspaces.spaces.designSpace !== undefined) {
+            if (UI.projects.workspaces.spaces.designSpace.workspace.enabled === true && statusText === undefined) {
                 arrow()
             }
         }

@@ -7,6 +7,16 @@
                 "language": "ES",
                 "text": "Un plotter o trazadores un dispositivo que se utiliza para producir una representación gráfica de conjuntos de datos generados por bots.",
                 "updated": 1624496084904
+            },
+            {
+                "language": "RU",
+                "text": "Plotter - это устройство, используемое для создания графического представления набора данных, сгенерированных ботами.",
+                "updated": 1639407333908
+            },
+            {
+                "language": "TR",
+                "text": "Bir çizici, botlar tarafından oluşturulan veri kümelerinin grafik üzerine aktarılması için kullanılan bir cihazdır.",
+                "updated": 1639214672803
             }
         ]
     },
@@ -17,23 +27,58 @@
         },
         {
             "style": "Text",
-            "text": "Plotters usually have a one-to-one relationship with bots, as they are often created as a customized solution. However, in practice, there is no constraint to creating any number of plotters for a single bot or a single plotter for multiple bots."
+            "text": "Plotters usually have a one-to-one relationship with bots, as they are often created as a customized solution. However, in practice, there is no constraint to creating any number of plotters for a single bot or a single plotter for multiple bots.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Плоттеры обычно имеют индивидуальные отношения с ботами, так как они часто создаются как индивидуальное решение. Однако на практике нет ограничений на создание любого количества плоттеров для одного бота или одного плоттера для нескольких ботов.",
+                    "updated": 1639407357344
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The overall workflow of a plotter, while reading a dataset, consists in:"
+            "text": "The overall workflow of a plotter, while reading a dataset, consists in:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Общий рабочий процесс плоттера при чтении набора данных состоит из:",
+                    "updated": 1639407367975
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Applying a set of rules to identify certain data points;"
+            "text": "Applying a set of rules to identify certain data points;",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Применение набора правил для идентификации определенных точек данных;",
+                    "updated": 1639407378629
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Use those points to form lines and polygons;"
+            "text": "Use those points to form lines and polygons;",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Использование этих точек для формирования линий и многоугольников;",
+                    "updated": 1639407481128
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Apply graphical styles to those lines and polygons."
+            "text": "Apply graphical styles to those lines and polygons.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Применение к этим линиям и многоугольникам графических стилей.",
+                    "updated": 1639407446587
+                }
+            ]
         },
         {
             "style": "Block",
@@ -42,16 +87,37 @@
         {
             "style": "Title",
             "text": "Plotter Configuration",
-            "updated": 1609790186907
+            "updated": 1609790186907,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурция Plotter",
+                    "updated": 1639407495387
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609790191953
+            "updated": 1609790191953,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1639407502122
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "codeName is the name of the plotter as it is used within the bot's code."
+            "text": "codeName is the name of the plotter as it is used within the bot's code.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "codeName - это название плоттера, используемое в коде бота.",
+                    "updated": 1639407530704
+                }
+            ]
         }
     ]
 }

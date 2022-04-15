@@ -1,0 +1,56 @@
+{
+    "type": "Server Apps",
+    "definition": {
+        "text": "The Server Apps hierarchy holds the definitions of all server apps associated with the current User Profile.  ",
+        "updated": 1643077689932,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Иерархия Server Apps содержит определения всех серверных приложений, связанных с текущим профилем пользователя.",
+                "updated": 1645253807935
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1643078376470
+        },
+        {
+            "style": "Text",
+            "text": "Server apps are used to access the Superalgos Peer to Peer network via a server like enviroment.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Серверные приложения используются для доступа к сети Superalgos Peer to Peer через среду, подобную серверу.",
+                    "updated": 1645253815514
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The two main server apps currently available are:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В настоящее время доступны два основных серверных приложения:",
+                    "updated": 1645253822948
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Task Server App",
+            "updated": 1643077781826
+        },
+        {
+            "style": "List",
+            "text": "Social Trading Server App"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

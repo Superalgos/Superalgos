@@ -1,7 +1,19 @@
 {
     "type": "Record Property",
     "definition": {
-        "text": "A record property is a piece of information that may be stored as part of the dataset or made available as a calculated property."
+        "text": "A record property is a piece of information that may be stored as part of the dataset or made available as a calculated property.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Record Property - это часть информации, которая может быть сохранена как часть набора данных или сделана доступной как вычисляемое свойство.",
+                "updated": 1639592498808
+            },
+            {
+                "language": "DE",
+                "text": "Eine record property (Datensatzeigenschaft) ist eine Information, die als Teil des Datasets (Datensatzes) gespeichert oder als berechnete property (Eigenschaft) verfügbar gemacht werden kann.",
+                "updated": 1640035168598
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -15,16 +27,37 @@
         },
         {
             "style": "Text",
-            "text": "Records may have as many properties as required."
+            "text": "Records may have as many properties as required.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Записи могут иметь столько свойств, сколько требуется.",
+                    "updated": 1639634735891
+                }
+            ]
         },
         {
             "style": "Important",
-            "text": "The order in which record properties are defined around the parent record definition node is the order in which they are stored in the actual record."
+            "text": "The order in which record properties are defined around the parent record definition node is the order in which they are stored in the actual record.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Порядок, в котором свойства записи определяются вокруг родительского узла определения записи Record Definition, соответствует порядку, в котором они хранятся в фактической записи.",
+                    "updated": 1639636337706
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "The first two records are usually the begin and end records, featuring the corresponding datetimes that indicate when the record starts and ends.",
-            "updated": 1609788556871
+            "updated": 1609788556871,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Первые две записи обычно являются начальными и конечными записями с указанием соответствующих дат и времени, которые указывают, когда запись начинается и заканчивается.",
+                    "updated": 1639634790411
+                }
+            ]
         },
         {
             "style": "Block",
@@ -33,29 +66,71 @@
         {
             "style": "Title",
             "text": "Property Configuration",
-            "updated": 1621969011509
+            "updated": 1621969011509,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Record Property",
+                    "updated": 1639593111427
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609788577195
+            "updated": 1609788577195,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1639593159327
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "codeName is the name of the record as it is used in the bot's code."
+            "text": "codeName is the name of the record as it is used in the bot's code.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "codeName - это имя записи, используемое в коде бота.",
+                    "updated": 1639593179672
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "isString determines if the field is a text string or if, in turn, is a numeric field. Dates are stored in the epoch format, which is numeric. The reason why this configuration is important is that fields that are strings need to be stored between “double quotes”."
+            "text": "isString determines if the field is a text string or if, in turn, is a numeric field. Dates are stored in the epoch format, which is numeric. The reason why this configuration is important is that fields that are strings need to be stored between “double quotes”.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "isString определяет, является ли поле текстовой строкой или, в свою очередь, числовым полем. Даты хранятся в числовом формате эпох. Причина, по которой эта конфигурация важна, заключается в том, что поля, которые являются строками, должны храниться между «двойными кавычками».",
+                    "updated": 1639593223054
+                }
+            ]
         },
         {
             "style": "List",
             "text": "isCalculated determines if the field is stored in the dataset or if, instead, is calculated at a later stage. A value true* means that the record is not stored. In the case isCalculated is not defined in the configuration, it is assumed to be false.",
-            "updated": 1621972714008
+            "updated": 1621972714008,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "isCalculated определяет, хранится ли поле в наборе данных или, вместо этого, рассчитывается на более позднем этапе. Значение true - означает, что запись не сохраняется. Если isCalculated не определен в конфигурации, предполагается, что он имеет значение false.",
+                    "updated": 1639593279385
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "aggregationMethod defines which is the method that is going to be used in order to aggregate information when converting one Dataset Type into another which requires data aggregation."
+            "text": "aggregationMethod defines which is the method that is going to be used in order to aggregate information when converting one Dataset Type into another which requires data aggregation.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "aggregationMethod определяет, какой метод будет использоваться для агрегирования информации при преобразовании одного типа набора данных в другой, который требует агрегирования данных.",
+                    "updated": 1639593302163
+                }
+            ]
         },
         {
             "style": "Include",

@@ -5,7 +5,7 @@ function newPluginsUtilitiesPlugins() {
         addMissingPluginFiles: addMissingPluginFiles,
         addMissingPluginFile: addMissingPluginFile,
         getProjectName: getProjectName,
-        savePluginFile: savePluginFile
+        savePluginFileAtClient: savePluginFileAtClient
     }
 
     return thisObject
@@ -25,16 +25,21 @@ function newPluginsUtilitiesPlugins() {
     }
 
     function addMissingPluginFiles(node, fileNames, pluginFolder, nodeType, project) {
+        let newUiObjects = []
         for (let i = 0; i < fileNames.length; i++) {
             let fileName = fileNames[i]
             fileName = fileName.replace('.json', '')
-            addMissingPluginFile(node, fileName, pluginFolder, nodeType, project, false)
+            let child = addMissingPluginFile(node, fileName, pluginFolder, nodeType, project, false)
+            if (child !== undefined && child.payload.parentNode === node) {
+                newUiObjects.push(child)
+            }
         }
+        return newUiObjects
     }
 
     function addMissingPluginFile(node, fileName, pluginFolder, nodeType, project, saveWithWorkspace) {
         if (UI.projects.visualScripting.utilities.nodeChildren.isMissingChildrenByName(node, fileName) === true) {
-            let child = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Plugin File', undefined, 'Community-Plugins')
+            let child = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(node, 'Plugin File', undefined, 'Community-Plugins')
             child.name = fileName
             child.config = JSON.stringify({
                 project: project,
@@ -73,6 +78,15 @@ function newPluginsUtilitiesPlugins() {
             case 'Trading System': {
                 return 'Trading-Systems'
             }
+            case 'Portfolio Engine': {
+                return 'Portfolio-Engines'
+            }
+            case 'Portfolio Mine': {
+                return 'Portfolio-Mines'
+            }
+            case 'Portfolio System': {
+                return 'Portfolio-Systems'
+            }
             case 'Assets': {
                 return 'Assets'
             }
@@ -87,6 +101,9 @@ function newPluginsUtilitiesPlugins() {
             }
             case 'User Profile': {
                 return 'User-Profiles'
+            }
+            case 'P2P Network': {
+                return 'P2P-Networks'
             }
         }
     }
@@ -110,7 +127,7 @@ function newPluginsUtilitiesPlugins() {
         return config.codeName
     }
 
-    function savePluginFile(pluginFile) {
+    function savePluginFileAtClient(pluginFile) {
         let project = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(pluginFile.payload, 'project')
         let fileName = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(pluginFile.payload, 'fileName')
         let folderName = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(pluginFile.payload, 'folderName')
@@ -129,14 +146,14 @@ function newPluginsUtilitiesPlugins() {
         Next thing to do is to find the Plugin Hierarchy at the Workspace, and send 
         a request to the Client to save it.
         */
-        let pluginToSave = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByCodeNameAndNodeType(fileName, nodeType)
+        let pluginToSave = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadsByCodeNameAndNodeType(fileName, nodeType)
 
         if (pluginToSave === undefined) {
             pluginFile.payload.uiObject.setWarningMessage('This Plugin could not be saved because it could not be found at the workspace.', 500)
             return
         }
         let fileContent = JSON.stringify(
-            UI.projects.visualScripting.functionLibraries.protocolNode.getProtocolNode(pluginToSave, false, false, true, true, true),
+            UI.projects.visualScripting.nodeActionFunctions.protocolNode.getProtocolNode(pluginToSave, false, false, true, true, true),
             undefined,
             4)
 
@@ -150,7 +167,7 @@ function newPluginsUtilitiesPlugins() {
                 pluginToSave.payload.uiObject.setInfoMessage('Plugin Saved.', 5)
                 return
             }
-            console.log('[ERROR] Saving Plugin File: ' + JSON.stringify(data))
+            console.log((new Date()).toISOString(), '[ERROR] Saving Plugin File: ' + JSON.stringify(data))
             pluginFile.payload.uiObject.setErrorMessage('This Plugin Could not be Saved. ' + JSON.stringify(data), 500)
         }
     }

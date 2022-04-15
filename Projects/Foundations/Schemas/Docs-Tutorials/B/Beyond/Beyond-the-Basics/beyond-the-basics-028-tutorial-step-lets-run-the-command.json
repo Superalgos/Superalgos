@@ -26,6 +26,16 @@
                 "language": "DE",
                 "text": "Fangen wir mit der Aufgabe an, die vor uns liegt! Kopieren Sie den unten stehenden Befehl, fügen Sie ihn in das Such-/Befehlsfeld oben in den Docs ein und drücken Sie die Eingabetaste!",
                 "updated": 1635151557353
+            },
+            {
+                "language": "TR",
+                "text": "Eğitime devam edelim! Aşağıdaki komutu kopyalayın, arama/komut kutusuna yapıştırın ve Enter'a basın!",
+                "updated": 1640002139013
+            },
+            {
+                "language": "RU",
+                "text": "Давайте приступим к выполнению поставленной задачи! Скопируйте приведенную ниже команду, вставьте ее в поле поиска/команды и нажмите Enter!",
+                "updated": 1640163425317
             }
         ]
     },
@@ -56,6 +66,16 @@
                     "language": "DE",
                     "text": "Unter Windows erscheint ein GitHub-Anmeldedialog, der Ihnen anbietet, sich mit Ihrem Token oder Passwort zu authentifizieren. Beides sollte funktionieren! Denken Sie daran, dass die neueste Version von Git erforderlich ist! Wenn Sie Probleme mit der neuesten Version haben, kann ein Neustart des PCs helfen. Auf Mac und Linux ist es das Terminal, das nach den Anmeldedaten fragt. Wenn Sie die Zwei-Faktor-Authentifizierung auf GitHub aktiviert haben, verwenden Sie den Token, auch wenn Sie nach dem Passwort gefragt werden!",
                     "updated": 1635151571393
+                },
+                {
+                    "language": "TR",
+                    "text": "Windows'ta, belirteciniz veya parolanızla kimlik doğrulaması yapmanızı sağlayan bir GitHub oturum açma iletişim kutusu açılır. Her ikiside işe yaramalıdır!Bu işlem için Git'in en son sürümünün gerekli olduğunu unutmayın! En son sürümle ilgili sorunlarınız varsa, bilgisayarı yeniden başlatmak yardımcı olabilir. Mac ve Linux'ta kimlik bilgilerini soran Terminal'dir. GitHub'da iki faktörlü kimlik doğrulamayı etkinleştirdiyseniz, şifre istense bile belirtecinizi kullanın!",
+                    "updated": 1640002336323
+                },
+                {
+                    "language": "RU",
+                    "text": "В Windows появится диалоговое окно входа в GitHub, предлагающее пройти аутентификацию с помощью токена или пароля. Любой из этих вариантов должен сработать! Помните, что требуется последняя версия Git! Если у вас проблемы с последней версией, перезагрузка компьютера может помочь. На Mac и Linux учетные данные запрашивает Терминал. Если вы включили двухфакторную аутентификацию на GitHub, используйте токен, даже если вас попросят ввести пароль!",
+                    "updated": 1640163486555
                 }
             ]
         }

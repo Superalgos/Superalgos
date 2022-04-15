@@ -1,0 +1,70 @@
+{
+    "topic": "Polus Data Mine",
+    "pageNumber": "10",
+    "type": "Volatility Adjusted Moving Average",
+    "definition": {
+        "text": "The Volatility Adjusted Moving Average (VAMA) is an indicator that takes into account both short and long term volatility. It creates a moving average that attempts to gauge an area of price action that is expected to produce a reaction when interacting with it."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Info:"
+        },
+        {
+            "style": "Text",
+            "text": "The Volatility Adjusted Moving Average (VAMA) is a technical indicator originally created by Tushar S. Chande. Commonly referred to as the Variable Index Moving Average, it is a powerful indicator that uses two standard deviation periods to account for recent volatility."
+        },
+		{
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-VAMA.png"
+        },
+		{
+            "style": "Text",
+            "text": "The Long period (L) and Short period (S) parameters of the VAMA can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \u2019Volatility Adjusted MA\u2019 Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-VAMA-params.png"
+        },
+		{
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Volatility Adjusted MA | VAMA | vama, trend |"
+        },
+		{
+            "style": "Text",
+            "text": "Example:"
+        },
+		{
+            "style": "Text",
+            "text": "A simple strategy could be built to open a trade when the trend is positive:"
+        },
+		{
+            "style": "Javascript",
+            "text": "chart.at04hs.VAMA.trend > 0"
+        },
+		{
+            "style": "Text",
+            "text": "Another example for a stop loss when the price action goes below the VAMA:"
+        },
+		{
+            "style": "Javascript",
+            "text": "chart.at15min.VAMA.vama"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@ThomasHuault (Telegram)->t.me/ThomasHuault"
+        }
+    ]
+}

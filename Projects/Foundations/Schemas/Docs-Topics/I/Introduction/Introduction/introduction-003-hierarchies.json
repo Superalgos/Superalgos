@@ -10,6 +10,21 @@
                 "language": "ES",
                 "text": "Un hierarchyes una estructura de datos que representa un concepto general de nivel superior, que da como resultado una larga cadena de nodos, generalmente con muchas ramificaciones. El sistema gestiona diferentes tipos de jerarquías, cada una de ellas con un enfoque específico.",
                 "updated": 1628044685355
+            },
+            {
+                "language": "RU",
+                "text": "Иерархия - это структура данных, представляющая всеобъемлющую концепцию верхнего уровня, приводящую к длинной цепочке узлов, обычно с множеством ответвлений. Система управляет разными типами иерархий, каждая из которых имеет определенную направленность.",
+                "updated": 1638271428517
+            },
+            {
+                "language": "EL",
+                "text": "Η ιεραρχία είναι μια δομή δεδομένων που αντιπροσωπεύει μια γενική έννοια ανώτατου επιπέδου, με αποτέλεσμα μια μακρά αλυσίδα κόμβων, συνήθως με πολλές διακλαδώσεις. Το σύστημα διαχειρίζεται διαφορετικούς τύπους ιεραρχιών, καθένας από αυτούς με μια συγκεκριμένη εστίαση.",
+                "updated": 1638970331511
+            },
+            {
+                "language": "DE",
+                "text": "Eine Hierarchie ist eine Datenstruktur, die ein übergreifendes, übergeordnetes Konzept darstellt, das in einer langen Kette von Nodes resultiert, in der Regel mit vielen Verzweigungen. Das System verwaltet verschiedene Arten von Hierarchien, die jeweils einen bestimmten Schwerpunkt haben.",
+                "updated": 1641760405719
             }
         ]
     },
@@ -17,32 +32,80 @@
         {
             "style": "Text",
             "text": " In the design space, the head or parent node of each hierarchy is represented by the corresponding icon surrounded by an ever-present white ring, so that they are easier to locate within the workspace.",
-            "updated": 1609944331184
+            "updated": 1609944331184,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В пространстве проектирования головной или родительский узел каждой иерархии представлен соответствующим значком, окруженным вездесущим белым кольцом, чтобы их было легче найти в рабочем пространстве.",
+                    "updated": 1638271513449
+                },
+                {
+                    "language": "EL",
+                    "text": "Στον χώρο σχεδίασης, η κεφαλή ή ο γονικός κόμβος κάθε ιεραρχίας αντιπροσωπεύεται από το αντίστοιχο εικονίδιο που περιβάλλεται από έναν πάντα παρόντα λευκό δακτύλιο, έτσι ώστε να είναι ευκολότερος ο εντοπισμός τους εντός του χώρου εργασίας.",
+                    "updated": 1638970391081
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Design Space wird der Kopf oder der übergeordnete Node jeder Hierarchie durch das entsprechende Symbol dargestellt, das von einem immer vorhandenen weißen Ring umgeben ist, so dass sie im Workspace leichter zu finden sind.",
+                    "updated": 1641760501185
+                }
+            ]
         },
         {
             "style": "Important",
             "text": " Hierarchies included in the workspace as plugins are not saved at the workspace level. As such, changes made in those hierarchies do not persist. If you wish to modify a plugin and keep working with the modified version in the future, you must either clone or backup the plugin and work on the resulting copy instead.",
-            "updated": 1609945802943
+            "updated": 1609945802943,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Иерархии, включенные в рабочее пространство как плагины, не сохраняются на уровне рабочего пространства. Таким образом, изменения, внесенные в эти иерархии, не сохраняются. Если вы хотите изменить плагин и продолжить работу с измененной версией в будущем, вы должны либо клонировать, либо сделать резервную копию плагина и вместо этого работать с полученной копией.",
+                    "updated": 1638271545874
+                },
+                {
+                    "language": "EL",
+                    "text": "Οι ιεραρχίες που περιλαμβάνονται στον χώρο εργασίας ως πρόσθετα δεν αποθηκεύονται σε επίπεδο χώρου εργασίας. Ως εκ τούτου, οι αλλαγές που έγιναν σε αυτές τις ιεραρχίες δεν παραμένουν. Εάν θέλετε να τροποποιήσετε ένα πρόσθετο και να συνεχίσετε να εργάζεστε με την τροποποιημένη έκδοση στο μέλλον, πρέπει είτε να κλωνοποιήσετε είτε να δημιουργήσετε αντίγραφα ασφαλείας του πρόσθετου και να εργαστείτε στο αντίγραφο που προκύπτει.",
+                    "updated": 1638970488797
+                },
+                {
+                    "language": "DE",
+                    "text": "Hierarchien, die als Plugin in einen Workspace eingebunden sind, werden nicht auf Workspace-Ebene gespeichert. Änderungen, die in diesen Hierarchien vorgenommen werden, bleiben daher nicht erhalten. Wenn Sie ein Plugin ändern und in Zukunft mit der geänderten Version weiterarbeiten möchten, müssen Sie das Plugin entweder klonen oder sichern und stattdessen mit der resultierenden Kopie arbeiten.",
+                    "updated": 1641760717804
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Foundations Project",
-            "updated": 1609945005370
+            "updated": 1609945005370,
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Foundations Project (Θεμέλια Έργου)",
+                    "updated": 1641829322472
+                }
+            ]
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Superalgos Project->Definition",
+            "text": "Foundations->Node->Foundations Project->Definition",
             "updated": 1609944933341
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Superalgos Project->Content",
+            "text": "Foundations->Node->Foundations Project->Content",
             "updated": 1609944944285
         },
         {
             "style": "Title",
             "text": "Design Space",
-            "updated": 1609945819410
+            "updated": 1609945819410,
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Design Space (Σχεδιαστικός Χώρος)",
+                    "updated": 1641829340807
+                }
+            ]
         },
         {
             "style": "Include",
@@ -56,7 +119,14 @@
         },
         {
             "style": "Title",
-            "text": "Crypto Ecosystem"
+            "text": "Crypto Ecosystem",
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Crypto Ecosystem (Οικοσύστημα Κρύπτο)",
+                    "updated": 1641829398687
+                }
+            ]
         },
         {
             "style": "Include",
@@ -71,7 +141,14 @@
         {
             "style": "Title",
             "text": "LAN Network",
-            "updated": 1609945037649
+            "updated": 1609945037649,
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "LAN Network (Τοπικό Δίκτυο)",
+                    "updated": 1641829428671
+                }
+            ]
         },
         {
             "style": "Include",
@@ -86,7 +163,14 @@
         {
             "style": "Title",
             "text": "Charting Space",
-            "updated": 1609945048562
+            "updated": 1609945048562,
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Charting Space (Χώρος Χαρτογράφησης)",
+                    "updated": 1641829459703
+                }
+            ]
         },
         {
             "style": "Include",
@@ -101,96 +185,145 @@
         {
             "style": "Title",
             "text": "Trading System",
-            "updated": 1609945101604
+            "updated": 1609945101604,
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Trading System (Σύστημα Συναλλαγών)",
+                    "updated": 1641829478309
+                }
+            ]
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Trading System->Definition",
+            "text": "Algorithmic-Trading->Node->Trading System->Definition",
             "updated": 1609945942207
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Trading System->Content",
+            "text": "Algorithmic-Trading->Node->Trading System->Content",
             "updated": 1609945952584
         },
         {
             "style": "Title",
-            "text": "Trading Mine"
+            "text": "Trading Mine",
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Trading Mine (Εξορυκτήριο Συναλλαγών)",
+                    "updated": 1641829495848
+                }
+            ]
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Trading Mine->Definition",
+            "text": "Algorithmic-Trading->Node->Trading Mine->Definition",
             "updated": 1609945981528
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Trading Mine->Content",
+            "text": "Algorithmic-Trading->Node->Trading Mine->Content",
             "updated": 1609945984960
         },
         {
             "style": "Title",
             "text": "Trading Engine",
-            "updated": 1609945113032
+            "updated": 1609945113032,
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Trading Engine (Μηχανή Συναλλαγών)",
+                    "updated": 1641829513089
+                }
+            ]
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Trading Engine->Definition",
+            "text": "Algorithmic-Trading->Node->Trading Engine->Definition",
             "updated": 1609945998216
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Trading Engine->Content",
+            "text": "Algorithmic-Trading->Node->Trading Engine->Content",
             "updated": 1609946001567
         },
         {
             "style": "Title",
             "text": "Data Mine",
-            "updated": 1609945134789
+            "updated": 1609945134789,
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Data Mine (Εξόρυξη Δεδομένων)",
+                    "updated": 1641829567621
+                }
+            ]
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Data Mine->Definition",
+            "text": "Data-Mining->Node->Data Mine->Definition",
             "updated": 1609946022992
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Data Mine->Content",
+            "text": "Data-Mining->Node->Data Mine->Content",
             "updated": 1609946026584
         },
         {
             "style": "Title",
             "text": "Plugins",
-            "updated": 1609945527199
+            "updated": 1609945527199,
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Plugins (Πρόσθετα)",
+                    "updated": 1641829590336
+                }
+            ]
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Plugins->Definition",
+            "text": "Community-Plugins->Node->Plugins->Definition",
             "updated": 1609946038957
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Plugins->Content",
+            "text": "Community-Plugins->Node->Plugins->Content",
             "updated": 1609946042538
         },
         {
             "style": "Title",
             "text": "Tutorial",
-            "updated": 1609946064589
+            "updated": 1609946064589,
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Tutorial (Οδηγός Εκμάθησης)",
+                    "updated": 1641829607889
+                }
+            ]
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Tutorial->Definition",
+            "text": "Education->Node->Tutorial->Definition",
             "updated": 1609946067573
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Tutorial->Content",
+            "text": "Education->Node->Tutorial->Content",
             "updated": 1609946070683
         },
         {
             "style": "Title",
             "text": "Super Scripts",
-            "updated": 1609945544452
+            "updated": 1609945544452,
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Super Scripts (Σούπερ Σενάρια)",
+                    "updated": 1641829613351
+                }
+            ]
         },
         {
             "style": "Include",

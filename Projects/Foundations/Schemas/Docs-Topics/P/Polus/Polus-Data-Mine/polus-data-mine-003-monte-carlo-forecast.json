@@ -1,0 +1,160 @@
+{
+    "topic": "Polus Data Mine",
+    "pageNumber": "3",
+    "type": "Monte Carlo Forecast",
+    "definition": {
+        "text": "The Monte-Carlo simulation is an algorithmic method used to approximate a numerical value with random processes.",
+        "updated": 1622686933380,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Моделирование Монте-Карло - это алгоритмический метод, используемый для аппроксимации числовой величины случайными процессами.",
+                "updated": 1645714821304
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Info:",
+            "updated": 1622481793076,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Информация:",
+                    "updated": 1645714830864
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Monte-Carlo is used where traditional analytic problems solving is difficult for specific deterministic problems or processes with a random distribution of outcomes.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Монте-Карло используется там, где решение традиционных аналитических задач затруднено для конкретных детерминированных задач или процессов со случайным распределением исходов.",
+                    "updated": 1645714905747
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "From investopedia: Monte Carlo simulations are used to model the probability of different outcomes in a process that cannot easily be predicted due to the intervention of random variables. It is a technique used to understand the impact of risk and uncertainty in prediction and forecasting models.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Из investopedia: Имитация Монте-Карло используется для моделирования вероятности различных исходов в процессе, который не может быть легко предсказан из-за вмешательства случайных переменных. Этот метод используется для понимания влияния риска и неопределенности в моделях прогнозирования и предсказания.",
+                    "updated": 1645714913366
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "Investopedia Link->www.investopedia.com/terms/m/montecarlosimulation.asp"
+        },
+        {
+            "style": "Text",
+            "text": "For an in depth look at the Monte-Carlo simulation, check out the medium article:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для более глубокого изучения моделирования Монте-Карло ознакомьтесь со статьей на Medium:",
+                    "updated": 1645714919708
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "Medium Article->medium.com/superalgos/implementing-a-monte-carlo-forecast-of-the-next-period-of-an-asset-in-superalgos-a4b760b1f5ac"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-monte-carlo.png",
+            "updated": 1611661370646
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the Monte Carlo Forecast can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under ’Monte Carlo Forecast’ Product Definition.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Параметры прогноза Монте-Карло можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Loop под продуктом 'Monte Carlo Forecast' Product Definition.",
+                    "updated": 1645714955100
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-monte-carlo-params.png",
+            "updated": 1611673329568
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты и свойства",
+                    "updated": 1645714962530
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Доступны следующие свойства:",
+                    "updated": 1645714968459
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Monte Carlo Forecast | MonteCarloForecast | forecast1, price1, price5, price10, price20, price30, price40, price45, price1d, price5d, price10d, price20d, price30d, price40d, price45d |",
+            "updated": 1636853769
+        },
+        {
+            "style": "Text",
+            "text": "Example:",
+            "updated": 1611661674316,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пример:",
+                    "updated": 1645714974843
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Examples of accessing this indicator can be found below:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Примеры обращения к этому показателю приведены ниже:",
+                    "updated": 1645714981142
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.MonteCarloForecast.forecast1 \n chart.at01hs.MonteCarloForecast.price1 \n chart.at01hs.MonteCarloForecast.price30 \n chart.at01hs.MonteCarloForecast.price5d \n chart.at01hs.MonteCarloForecast.price20d \n chart.at01hs.MonteCarloForecast.price45d \n ",
+            "updated": 1636853769
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:",
+            "updated": 1622481793076
+        },
+        {
+            "style": "Link",
+            "text": "@ThomasHuault (Telegram)->t.me/ThomasHuault"
+        }
+    ]
+}

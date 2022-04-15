@@ -4,116 +4,404 @@
     "type": "How to Upgrade Your Existing Installation",
     "definition": {
         "text": "Staying up to date with the latest version of the software is highly recommended. Learn how to do it and what precautions to take.",
-        "updated": 1611511361415
+        "updated": 1611511361415,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Настоятельно рекомендуется обновиться до последней версии программного обеспечения. Узнайте, как это сделать и какие меры предосторожности следует предпринять.",
+                "updated": 1640455088688
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Yazılımın en son sürümüyle güncel kalmanız önemle tavsiye edilir. Nasıl yapılacağını ve ne gibi önlemler alacağınızı öğrenin.",
+                "updated": 1647859755533
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "You should expect new releases of Superalgos to become available every few months. Release announcements are made through the official Superalgos Announcements Channel.",
-            "updated": 1617647047464
+            "updated": 1617647047464,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Новые версии Superalgos будут появляться каждые несколько месяцев. Анонсы релизов делаются через официальный канал объявлений Superalgos.",
+                    "updated": 1640455104122
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos'un yeni sürümlerinin birkaç ayda bir kullanıma sunulmasını beklemelisiniz. Sürüm duyuruları resmi Superalgos Duyuru Kanalı ( Announcements Channel ) aracılığıyla yapılır.",
+                    "updated": 1647859801645
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "During the beta stage, patches and new features may become available in the develop branch as frequently as several times per week. Due to the high frequency of their occurrence, minor updates go unannounced. If you ever experience a malfunction, make sure you upgrade your installation to the latest version available in the develop branch of the Superalgos repository before reporting a bug.",
-            "updated": 1617647903163
+            "updated": 1617647903163,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "На этапе бета-версии исправления и новые возможности могут появляться в ветке разработки с частотой несколько раз в неделю. Из-за высокой частоты их появления незначительные обновления не анонсируются. Если вы столкнулись с неполадками, убедитесь, что вы обновили свою программу до последней версии, доступной в ветке develop репозитория Superalgos, прежде чем сообщать об ошибке.",
+                    "updated": 1640455145253
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Beta aşamasında, yamalar ve yeni özellikler geliştirme dalında haftada birkaç kez olmak üzere sık sık kullanılabilir hale gelebilir. Oluşumlarının yüksek sıklığı nedeniyle, küçük güncellemeler haber verilmeden yapılır. Bir arıza yaşarsanız, bir hatayı bildirmeden önce kurulumunuzu Superalgos deposunun geliştirme dalında bulunan en son sürüme yükselttiğinizden emin olun.",
+                    "updated": 1647859960249
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Read the Announcement Carefully"
+            "text": "Read the Announcement Carefully",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Внимательно прочитайте анонс нового выпуска",
+                    "updated": 1640455327967
+                },
+                {
+                    "language": "TR",
+                    "text": "Duyuruyu Dikkatle Okuyun",
+                    "updated": 1647859979704
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Read and understand the announcement explaining the changes and how they may impact your workflow. Most importantly, find out if the new version requires upgrading your workspaces or the rest of the assets you may be working with (trading systems, data mines, etc).",
-            "updated": 1617646452770
+            "updated": 1617646452770,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Прочитайте и вникните в объявление, описывающее изменения и то, как они могут повлиять на ваш рабочий процесс. Самое главное, узнайте, требует ли новая версия обновления ваших рабочих пространств или остальных ресурсов, с которыми вы работаете (торговые системы, шахты данных и т.д.).",
+                    "updated": 1640455235089
+                },
+                {
+                    "language": "TR",
+                    "text": "Değişiklikleri ve iş akışınızı nasıl etkileyebileceklerini açıklayan duyuruyu okuyun ve anlayın. En önemlisi, yeni sürümün çalışma alanlarınızı veya birlikte çalışıyor olabileceğiniz diğer varlıkları (ticaret sistemleri, veri madenleri vb.) yükseltmeyi gerektirip gerektirmediğini öğrenin.",
+                    "updated": 1647860005078
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Back-Up Your Personal Work",
-            "updated": 1617647919380
+            "updated": 1617647919380,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сделайте резервное копирование вашей личной работы",
+                    "updated": 1640455553272
+                },
+                {
+                    "language": "TR",
+                    "text": "Kişisel Çalışmanızı Yedekleyin",
+                    "updated": 1647860026632
+                }
+            ]
         },
         {
             "style": "Important",
             "text": "Always back up your personal work. Whether the new version is backward-compatible or not, you may — for whatever reason — want to go back to the state of affairs before the upgrade.",
-            "updated": 1617647956316
+            "updated": 1617647956316,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Всегда создавайте резервные копии своих личных наработок. Независимо от того, является ли новая версия обратно совместимой или нет, вы можете - по какой-либо причине - захотеть вернуться к состоянию дел до обновления.",
+                    "updated": 1640455278123
+                },
+                {
+                    "language": "TR",
+                    "text": "Önemli: Kişisel çalışmalarınızı her zaman yedekleyin. Yeni sürüm geriye dönük uyumlu olsun ya da olmasın, - ne sebeple olursa olsun - yükseltmeden önceki duruma geri dönmek isteyebilirsiniz.",
+                    "updated": 1647860067150
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The new version will always ship with its own Plugin Workspaces. The release announcement should make it clear if the new version is backward-compatible or not. If it's not, the announcement should cover any consideration relevant to upgrading from the previous version.",
-            "updated": 1617648003762
+            "updated": 1617648003762,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Новая версия всегда будет поставляться с собственными рабочими пространствами плагинов. В анонсе релиза должно быть ясно, является ли новая версия обратно совместимой или нет. Если нет, то в анонсе должны быть освещены все соображения, связанные с переходом с предыдущей версии.",
+                    "updated": 1640455313557
+                },
+                {
+                    "language": "TR",
+                    "text": "Yeni sürüm her zaman kendi Eklenti Çalışma Alanlarıyla ( Plugin Workspaces ) birlikte gönderilir. Sürüm duyurusu, yeni sürümün geriye dönük uyumlu olup olmadığını açıkça belirtmelidir. Değilse, duyuru önceki sürümden yükseltme ile ilgili tüm hususları kapsamalıdır.",
+                    "updated": 1647860113590
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Put the House in Order"
+            "text": "Put the House in Order",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Наведите порядок",
+                    "updated": 1640455390313
+                },
+                {
+                    "language": "TR",
+                    "text": "Evi düzene sokun",
+                    "updated": 1647860136255
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Stop all tasks that may be running in the Network hierarchy. Allow a minute or two until all activity stops.",
-            "updated": 1617646656306
+            "updated": 1617646656306,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Остановите все задачи, которые могут быть запущены в иерархии Network. Подождите минуту или две, пока вся активность не прекратится.",
+                    "updated": 1640455383060
+                },
+                {
+                    "language": "TR",
+                    "text": "Ağ hiyerarşisinde çalışıyor olabilecek tüm görevleri durdurun. Tüm aktivite durana kadar bir veya iki dakika bekleyin.",
+                    "updated": 1647860153411
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Install the New Version",
-            "updated": 1611511465990
+            "updated": 1611511465990,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Установите новую версию",
+                    "updated": 1640455399504
+                },
+                {
+                    "language": "TR",
+                    "text": "Yeni Sürümü Kur",
+                    "updated": 1647860182970
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Run the App Update Command to install the new version of the app. Follow the instructions to close the browser and stop the client once the system is updated.",
-            "updated": 1617647599654
+            "updated": 1617647599654,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Запустите команду App Update Command для установки новой версии приложения. Следуйте инструкциям по закрытию браузера и остановке клиента после обновления системы.",
+                    "updated": 1640455413703
+                },
+                {
+                    "language": "TR",
+                    "text": "Uygulamanın yeni sürümünü yüklemek için Uygulama Güncelleme Komutunu ( App Update Command ) çalıştırın. Sistem güncellendiğinde tarayıcıyı kapatmak ve istemciyi durdurmak için talimatları izleyin.",
+                    "updated": 1647860217107
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Apply the Guidance in the Announcement",
-            "updated": 1617647633126
+            "updated": 1617647633126,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Применяйте указания, содержащиеся в объявлении",
+                    "updated": 1640455464512
+                },
+                {
+                    "language": "TR",
+                    "text": "Duyurudaki Rehberi Uygulayın",
+                    "updated": 1647860236080
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "If the official announcement provides information on how to upgrade your assets to use them in the new version, this is the time to follow the relevant guidance.",
-            "updated": 1617647676913
+            "updated": 1617647676913,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если официальное объявление содержит информацию о том, как обновить ваши ресурсы, чтобы использовать их в новой версии, самое время следовать соответствующему руководству.",
+                    "updated": 1640455498593
+                },
+                {
+                    "language": "TR",
+                    "text": "Resmi duyuru, varlıklarınızı yeni sürümde kullanmak için nasıl yükselteceğiniz konusunda bilgi veriyorsa, ilgili kılavuzu izlemenin tam zamanıdır.",
+                    "updated": 1647860253621
+                }
+            ]
         },
         {
             "style": "Important",
             "text": "Always beware of what random people may post in open Telegram groups or forums. Patches and releases will always be made available at the master branch of the Superalgos repository.",
-            "updated": 1611511536779
+            "updated": 1611511536779,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Всегда остерегайтесь того, что случайные люди могут написать в открытых группах Telegram или на форумах. Патчи и релизы всегда будут доступны в ветке master репозитория Superalgos.",
+                    "updated": 1640455527860
+                },
+                {
+                    "language": "TR",
+                    "text": "Önemli: Açık Telegram gruplarında veya forumlarında rastgele kişilerin neler yayınlayabileceğine her zaman dikkat edin. Yamalar ve sürümler her zaman Superalgos deposunun ana dalında sunulacaktır.",
+                    "updated": 1647860282394
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Empty Cache and Hard Reload"
+            "text": "Empty Cache and Hard Reload",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Опустошение кэша и жесткая перезагрузка",
+                    "updated": 1640455938223
+                },
+                {
+                    "language": "TR",
+                    "text": "Boş Önbellek ve Sabit Yeniden Yükleme",
+                    "updated": 1647860403401
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Once the system loads in your browser window and before you start working, it's always good practice to empty Chrome’s cache and do a hard reload to make sure the browser does use the newly installed files.",
-            "updated": 1617647736967
+            "updated": 1617647736967,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "После загрузки системы в окне браузера и перед началом работы всегда рекомендуется очистить кэш Chrome и выполнить полную перезагрузку, чтобы убедиться, что браузер действительно использует вновь установленные файлы.",
+                    "updated": 1640455714366
+                },
+                {
+                    "language": "TR",
+                    "text": "Sistem tarayıcı pencerenize yüklendikten sonra ve çalışmaya başlamadan önce, tarayıcının yeni yüklenen dosyaları kullandığından emin olmak için Chrome'un önbelleğini boşaltmak ve yeniden yükleme yapmak her zaman iyi bir uygulamadır.",
+                    "updated": 1647860438022
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Hit F12 to open Chrome’s Developer Tools. You do not need to use the Developers Tools, but opening it allows performing the next task.",
-            "updated": 1617647751232
+            "updated": 1617647751232,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Нажмите F12, чтобы открыть инструменты разработчика Chrome. Вам не обязательно использовать инструменты разработчика, но их открытие позволяет выполнить следующее действие.",
+                    "updated": 1640455745925
+                },
+                {
+                    "language": "TR",
+                    "text": "Chrome'un Geliştirici Araçlarını açmak için F12 'ye basın. Geliştirici Araçlarını kullanmanıza gerek yoktur, ancak onu açmanız bir sonraki görevi gerçekleştirmenizi sağlar.",
+                    "updated": 1647860509923
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Right-click on the refresh icon and select Empty Cache and Hard Reload from the drop-down menu. Once refreshed, you may close Developer Tools with F12.",
-            "updated": 1617647755781
+            "updated": 1617647755781,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши на значке обновления и выберите в выпадающем меню пункты Empty Cache (\"Очистить кэш\") и Hard Reload(\"Жесткая перезагрузка\"). После обновления вы можете закрыть Developer Tools с помощью F12.",
+                    "updated": 1640455928139
+                },
+                {
+                    "language": "TR",
+                    "text": "Yenile simgesine sağ tıklayın ve açılır menüden Boş Önbellek ve Sabit Yeniden Yükleme'yi seçin. Yenilendikten sonra Geliştirici Araçlarını F12 ile kapatabilirsiniz.",
+                    "updated": 1647860535839
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "F12 to open Developer Tools, then right-click on the refresh icon."
+            "text": "F12 to open Developer Tools, then right-click on the refresh icon.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "F12, чтобы открыть инструменты разработчика, затем щелкните правой кнопкой мыши на значке обновления.",
+                    "updated": 1640456073043
+                },
+                {
+                    "language": "TR",
+                    "text": "Geliştirici Araçlarını açmak için F12, ardından yenile simgesine sağ tıklayın.",
+                    "updated": 1647861044011
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Final Tuning and Testing"
+            "text": "Final Tuning and Testing",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Окончательная настройка и тестирование",
+                    "updated": 1640456089832
+                },
+                {
+                    "language": "TR",
+                    "text": "Son Ayar ve Test",
+                    "updated": 1647861063065
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Occasionally, the new version of the system may introduce changes that may require you to update your existing trading systems or some other parts of your workspace. If that is the case, an official announcement should explain how to proceed."
+            "text": "Occasionally, the new version of the system may introduce changes that may require you to update your existing trading systems or some other parts of your workspace. If that is the case, an official announcement should explain how to proceed.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Иногда в новую версию системы могут быть внесены изменения, которые могут потребовать от вас обновления существующих торговых систем или некоторых других частей вашего рабочего пространства. В этом случае официальное объявление должно объяснить, как действовать дальше.",
+                    "updated": 1640456109682
+                },
+                {
+                    "language": "TR",
+                    "text": "Zaman zaman, sistemin yeni sürümü, mevcut ticaret sistemlerinizi veya çalışma alanınızın diğer bazı bölümlerini güncellemenizi gerektirebilecek değişiklikler getirebilir. Bu durumda, resmi bir duyuru nasıl devam edileceğini açıklamalıdır.",
+                    "updated": 1647861086351
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "This is the time to restore any of the work you may have backed up earlier."
+            "text": "This is the time to restore any of the work you may have backed up earlier.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это время для восстановления всех работ, резервные копии которых были сделаны ранее.",
+                    "updated": 1640456127804
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu, daha önce yedeklemiş olabileceğiniz herhangi bir çalışmayı geri yükleme zamanıdır.",
+                    "updated": 1647861226147
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Before going deep back to work, it is always recommended to test the new version a bit and make sure that your existing work performs as you would expect.",
-            "updated": 1617648042507
+            "updated": 1617648042507,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Прежде чем вернуться к работе, всегда рекомендуется немного протестировать новую версию и убедиться, что ваша существующая работа работает так, как вы ожидаете.",
+                    "updated": 1640456146699
+                },
+                {
+                    "language": "TR",
+                    "text": "İşe geri dönmeden önce, her zaman yeni sürümü biraz test etmeniz ve mevcut çalışmanızın beklediğiniz gibi performans gösterdiğinden emin olmanız önerilir.",
+                    "updated": 1647861301019
+                }
+            ]
         }
     ]
 }

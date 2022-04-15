@@ -1,0 +1,27 @@
+{
+    "type": "P2P Network Nodes",
+    "definition": {
+        "text": "The P2P Network Nodes node holds the definitions of all P2P Network Nodes associated with current User Profile.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел P2P Network Nodes содержит определения всех узлов сети P2P, связанных с текущим профилем пользователя.",
+                "updated": 1647785258815
+            }
+        ],
+        "updated": 1647060483559
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Right click and select the pencil button to enter edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
+                    "updated": 1645181662026
+                }
+            ]
+        }
+    ]
+}

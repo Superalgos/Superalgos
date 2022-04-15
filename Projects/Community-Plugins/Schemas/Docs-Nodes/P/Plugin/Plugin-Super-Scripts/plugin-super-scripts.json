@@ -1,7 +1,14 @@
 {
     "type": "Plugin Super Scripts",
     "definition": {
-        "text": "The plugin super scripts node features the definitions of super scripts to be included as plugins in the current workspace."
+        "text": "The plugin super scripts node features the definitions of super scripts to be included as plugins in the current workspace.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Plugin Super Scripts содержит определения суперскриптов, которые должны быть включены в текущее рабочее пространство в качестве плагинов.",
+                "updated": 1645165504191
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,11 +17,25 @@
         },
         {
             "style": "Title",
-            "text": "Configuring Plugin Super Scripts"
+            "text": "Configuring Plugin Super Scripts",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Plugin Super Scripts",
+                    "updated": 1645165515295
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Select Configure on the menu to access the configuration."
+            "text": "Select Configure on the menu to access the configuration.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Выберите Configure в меню для доступа к конфигурации.",
+                    "updated": 1645165526110
+                }
+            ]
         }
     ]
 }

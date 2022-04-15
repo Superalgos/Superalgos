@@ -100,7 +100,7 @@ function newEducationDocSpace() {
                 /*
                 Getting the currentBranch
                 */
-                let workspace = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode
+                let workspace = UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode
 
                 httpRequest(undefined, 'App/Branch', onResponse)
                 /*
@@ -132,7 +132,7 @@ function newEducationDocSpace() {
                 /*
                 Getting the contributionsBranch
                 */
-                let workspace = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode
+                let workspace = UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode
                 let contributionsBranch = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(workspace.payload, 'contributionsBranch')
 
                 if (contributionsBranch === undefined) {
@@ -155,7 +155,7 @@ function newEducationDocSpace() {
                 /*
                 Getting the used preferred language
                 */
-                let workspace = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode
+                let workspace = UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode
                 let docsLanguage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(workspace.payload, 'docsLanguage')
 
                 if (docsLanguage === undefined) {
@@ -249,7 +249,7 @@ function newEducationDocSpace() {
             data = JSON.parse(data)
             if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
                 UI.projects.education.spaces.docsSpace.currentBranch = branch
-                let workspace = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode
+                let workspace = UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode
                 UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(workspace.payload, 'currentBranch', branch)
 
                 if (doNotNavigate === true) { return }
@@ -271,7 +271,7 @@ function newEducationDocSpace() {
 
     function changeContributionsBranch(branch, doNotNavigate) {
         UI.projects.education.spaces.docsSpace.contributionsBranch = branch
-        let workspace = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode
+        let workspace = UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode
         UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(workspace.payload, 'contributionsBranch', branch)
 
         if (doNotNavigate !== true) {
@@ -284,7 +284,7 @@ function newEducationDocSpace() {
         let languageLabel = UI.projects.education.utilities.languages.getLaguageLabel(UI.projects.education.spaces.docsSpace.language)
         UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'Docs In ' + languageLabel)
 
-        let workspace = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode
+        let workspace = UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode
         UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(workspace.payload, 'docsLanguage', UI.projects.education.spaces.docsSpace.language)
     }
 
@@ -393,7 +393,7 @@ function newEducationDocSpace() {
             UI.projects.education.spaces.docsSpace.currentBookBeingRendered = {
                 project: project,
                 category: category,
-                type: type.replace('AMPERSAND', '\''),
+                type: type.replaceAll('AMPERSAND', '\''),
                 anchor: anchor,
                 nodeId: nodeId,
                 placeholder: placeholder
@@ -403,7 +403,7 @@ function newEducationDocSpace() {
         UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered = {
             project: project,
             category: category,
-            type: type.replace('AMPERSAND', '\''),
+            type: type.replaceAll('AMPERSAND', '\''),
             anchor: anchor,
             nodeId: nodeId,
             placeholder: placeholder

@@ -1,0 +1,164 @@
+{
+    "topic": "The Art of Documenting",
+    "pageNumber": "3",
+    "type": "Definition Pages",
+    "definition": {
+        "text": "A definition page, also known as Docs Node Page, is the page that describes what a node is or represents in any given hierarchy, how it works, and how it interacts with other nodes. It's the page users access when clicking the help (?) button on a node's menu.",
+        "updated": 1643045362437
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "This page is the main source of information about the particular node. Think of definition pages as the place where people should find all the details about the behavior of the node, including its configuration.",
+            "updated": 1642949968941
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Topic->Docs Node Page->Content",
+            "updated": 1643045336873
+        },
+        {
+            "style": "Title",
+            "text": "Definition Box"
+        },
+        {
+            "style": "Text",
+            "text": "The definition box is the top paragraph on a definition page, rendered to the right of the icon representing the node, in bold.",
+            "updated": 1642950012785
+        },
+        {
+            "style": "Note",
+            "text": "Always have in mind that this paragraph is the one used to build tooltips throughout the Docs. It is the contextual information people gets about the node when you write the Node Type throughout the Docs.",
+            "updated": 1642950076905
+        },
+        {
+            "style": "Callout",
+            "text": "Use this space to write a concise, accurate, and careful description of WHAT the node is or represents. As part of this definition, you may include WHAT the node is used for, as it is the use of the node that determines what it is or represents in the first place.",
+            "updated": 1642950136950
+        },
+        {
+            "style": "Text",
+            "text": "Do not include any other type of information in the definition box. Do not explain how to use the node, how the system uses the node, or how the node interacts with other nodes. The definition box must answer the WHAT question, and nothing else."
+        },
+        {
+            "style": "Success",
+            "text": "Keep the definition box to a sentence or two whenever possible. Long definitions make cumbersome tooltips and are hard to read in bold."
+        },
+        {
+            "style": "Title",
+            "text": "Using Blocks and Includes"
+        },
+        {
+            "style": "Text",
+            "text": "The rest of the definition page is organized in blocks."
+        },
+        {
+            "style": "Text",
+            "text": "We build pages using blocks so that we may later include blocks of content on other pages. This concept of blocks and includes is crucial to avoid duplicating content. When writing a Topic page, you will many times want to refer to content that exists on another page. If that piece of content is set up as a block, then you may include it."
+        },
+        {
+            "style": "Text",
+            "text": "And this is the perfect example! I need to explain how to create blocks, but instead of writing the whole thing, I will include content from the Docs Block Style page."
+        },
+        {
+            "style": "Success",
+            "text": "Notice the faint quotation marks on the right-hand side of the page right after this paragraph. The quotes represent the point in which a block of content is included on the page. Triple-click to the left of quotes to select/highlight the include command that references the block of content I'm including.",
+            "updated": 1642950360363
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Topic->Docs Block Style->Definition",
+            "updated": 1642959663822
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Topic->Docs Block Style->Content"
+        },
+        {
+            "style": "Note",
+            "text": "Everything above this paragraph belongs to the Docs Block Style page, in particular, to the Definition and Content blocks. Notice how you can't edit the paragraph above. To edit the content that is included in a page, you must edit the source, not the included block.",
+            "updated": 1642959851690
+        },
+        {
+            "style": "Warning",
+            "text": "You will seldom need to include blocks of content in definition pages. I explained the concept of includes at this point because it helps understand the concept of blocks. You will certainly use blocks in definition pages, but you will not use includes. This is because definition pages refer solely to the node in question and shouldn't include any other kind of information that is not intimately tied to the node itself.",
+            "updated": 1642950616204
+        },
+        {
+            "style": "Title",
+            "text": "Content Block"
+        },
+        {
+            "style": "Text",
+            "text": "All definition pages must have a Content block. In fact, the first paragraph on the page must be the block definition."
+        },
+        {
+            "style": "Text",
+            "text": "Let's try with an example right here!",
+            "updated": 1642950852712
+        },
+        {
+            "style": "Note",
+            "text": "Notice that the paragraph right after this Note and before the green callout paragraph is the definition of a block named Content. You know there is a block because you can see the triangle turning black when you hover the mouse pointer below this box. You can see the block is called Content if you triple-click on the left of the triangle.",
+            "updated": 1642951014933
+        },
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Callout",
+            "text": "The content block is where you explain HOW the node works. This is where you explain how the system uses the node, how the node interacts with other nodes, and how users may use the node.",
+            "updated": 1642951098027
+        },
+        {
+            "style": "Success",
+            "text": "This is a good opportunity to go to any node in one of the well-known and properly documented hierarchies, click on the help button on the menu, and analyze how the definition page is structured! Try, for instance, the LAN Network Node. Notice that the page has two blocks: Content and Configuring!"
+        },
+        {
+            "style": "Title",
+            "text": "Configuring Block"
+        },
+        {
+            "style": "Text",
+            "text": "This block may or not be required, depending on the node. If the node has a configuration, then we use the Configuring block to explain each property."
+        },
+        {
+            "style": "Text",
+            "text": "Take a look at the LAN Network Node page for an example."
+        },
+        {
+            "style": "Text",
+            "text": "Notice that after the definition of the block, we write the title of the section as follows:"
+        },
+        {
+            "style": "Json",
+            "text": "Node Type + Configuration"
+        },
+        {
+            "style": "Text",
+            "text": "Following the earlier example, that would be:"
+        },
+        {
+            "style": "Json",
+            "text": "LAN Network Node Configuration"
+        },
+        {
+            "style": "Text",
+            "text": "We use a title to separate the two sections or blocks on the page, pretty much in the same way we use titles elsewhere. Notice that the title must be inside the Configuring  block so that the title is included as well if we ever wish to include this block on another page.",
+            "updated": 1642951199442
+        },
+        {
+            "style": "Text",
+            "text": "Also notice that we don't use a title after the definition of the Content block. It is simply unnecessary, and the page reads better without one."
+        },
+        {
+            "style": "Title",
+            "text": "Auto-generated Information"
+        },
+        {
+            "style": "Text",
+            "text": "Wherever the content you write ends, the system includes several automatically-generated sections. Take a look at this type of content just so that you notice that you don't need to manually include in your writeups any of the details the system generates automatically."
+        }
+    ]
+}

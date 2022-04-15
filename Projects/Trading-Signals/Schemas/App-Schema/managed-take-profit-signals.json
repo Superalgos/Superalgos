@@ -1,0 +1,50 @@
+{
+    "type": "Managed Take Profit Signals",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Phase Signal",
+            "relatedUiObject": "Phase Signal",
+            "relatedUiObjectProject": "Trading-Signals"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{}"
+    },
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Manage Stage Signals->"
+    },
+    "propertyNameAtParent": "managedTakeProfitSignals",
+    "childrenNodesProperties": [
+        {
+            "name": "phaseSignals",
+            "type": "array",
+            "childType": "Phase Signal",
+            "autoAdd": false
+        }
+    ]
+}

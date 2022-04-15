@@ -1,7 +1,14 @@
 {
     "type": "Trading Last",
     "definition": {
-        "text": "The last object stores instances of position and strategy objects, in particular the instances that were last open at the time of evaluation, hence the adjective last."
+        "text": "The last object stores instances of position and strategy objects, in particular the instances that were last open at the time of evaluation, hence the adjective last.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Последний объект хранит экземпляры объектов позиции и стратегии, в частности те экземпляры, которые были открыты последними на момент оценки, отсюда и прилагательное последний (last).",
+                "updated": 1640342028561
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,23 +17,58 @@
         },
         {
             "style": "Text",
-            "text": "Conceptually, last is used as an adjective applied to these concepts, such as the last position or the last strategy, providing the context on which those concepts exist."
+            "text": "Conceptually, last is used as an adjective applied to these concepts, such as the last position or the last strategy, providing the context on which those concepts exist.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Концептуально last используется как прилагательное, применяемое к этим понятиям, таким как последняя позиция или последняя стратегия, обеспечивая контекст, в котором эти понятия существуют.",
+                    "updated": 1640341788239
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The last context exists so that you may easily access information about the strategy that was last triggered or the position that was last opened."
+            "text": "The last context exists so that you may easily access information about the strategy that was last triggered or the position that was last opened.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Контекст last существует для того, чтобы вы могли легко получить доступ к информации о стратегии, которая была запущена последней, или о позиции, которая была открыта последней.",
+                    "updated": 1640341826597
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "This is valuable information, both for users and trading systems alike."
+            "text": "This is valuable information, both for users and trading systems alike.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это ценная информация, как для пользователей, так и для торговых систем.",
+                    "updated": 1640341841974
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "As a user, you will value being able to visually follow what happened with the last position after it closed, or the last strategy after it triggered off, and at the same time see what is going on with the current position or the current strategy."
+            "text": "As a user, you will value being able to visually follow what happened with the last position after it closed, or the last strategy after it triggered off, and at the same time see what is going on with the current position or the current strategy.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как пользователь, вы оцените возможность визуально проследить, что произошло с последней позицией после ее закрытия или последней стратегией после ее срабатывания, и в то же время увидеть, что происходит с текущей позицией или текущей стратегией.",
+                    "updated": 1640341862118
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "From within a trading system, your strategies may make decisions factoring in what happened with the last position or strategy. For example, you may want to affect the size of the next position depending on the result of the last one."
+            "text": "From within a trading system, your strategies may make decisions factoring in what happened with the last position or strategy. For example, you may want to affect the size of the next position depending on the result of the last one.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В рамках торговой системы ваши стратегии могут принимать решения с учетом того, что произошло с последней позицией или стратегией. Например, вы можете захотеть повлиять на размер следующей позиции в зависимости от результата последней.",
+                    "updated": 1640341880147
+                }
+            ]
         }
     ]
 }

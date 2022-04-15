@@ -5,7 +5,7 @@
     "definition": {
         "text": "Before you start creating custom charts you should make sure you know the basics of getting around within Superalgos.",
         "icon": {
-            "name": "Tutorial/tutorial",
+            "name": "tutorial",
             "project": "Foundations"
         },
         "updated": 1628362591021,
@@ -14,6 +14,21 @@
                 "language": "ES",
                 "text": "Antes de comenzar a crear gráficos personalizados, debes asegurate de conocer los conceptos básicos para moverse dentro de Superalgos.",
                 "updated": 1628638892014
+            },
+            {
+                "language": "DE",
+                "text": "Bevor Sie mit der Erstellung von benutzerdefinierten Diagrammen beginnen, sollten Sie sicherstellen, dass Sie sich mit den Grundlagen in Superalgos vertraut gemacht haben.",
+                "updated": 1637608746725
+            },
+            {
+                "language": "RU",
+                "text": "Прежде чем приступить к созданию пользовательских графиков, необходимо убедиться, что вы знаете основы работы в Superalgos.",
+                "updated": 1637914097943
+            },
+            {
+                "language": "TR",
+                "text": "Özel grafikler oluşturmaya başlamadan önce Superalgos'un temellerini bildiğinizden emin olmanız gerekir.",
+                "updated": 1642518250163
             }
         ]
     },
@@ -27,24 +42,87 @@
                     "language": "ES",
                     "text": "Antes de comenzar, este tutorial asume que has terminado los siguientes tutoriales:",
                     "updated": 1628638917375
+                },
+                {
+                    "language": "DE",
+                    "text": "Bevor wir beginnen, geht dieses Tutorial davon aus, dass Sie die folgenden Tutorials abgeschlossen haben:",
+                    "updated": 1637608800606
+                },
+                {
+                    "language": "RU",
+                    "text": "Прежде чем мы начнем, в этом руководстве предполагается, что вы закончили следующие руководства:",
+                    "updated": 1637914133306
+                },
+                {
+                    "language": "TR",
+                    "text": "Başlamadan önce, bu öğretici aşağıdaki öğreticileri tamamladığınızı varsayar:",
+                    "updated": 1642518264972
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Welcome to Superalgos Tutorial"
+            "text": "Welcome to Superalgos Tutorial",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Welcome to Superalgos Tutorial (Добро пожаловать в учебник Superalgos)",
+                    "updated": 1637914330246
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos Eğitimine Hoş Geldiniz ( Welcome to Superalgos Tutorial )",
+                    "updated": 1642518281740
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Basic Education Tutorial"
+            "text": "Basic Education Tutorial",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Basic Education Tutorial (Учебный курс по базовому образованию)",
+                    "updated": 1637914368864
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel Eğitim Kursu ( Basic Education Tutorial )",
+                    "updated": 1642518297187
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Beyond the Basics Tutorial"
+            "text": "Beyond the Basics Tutorial",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Beyond the Basics Tutorial (За пределами базового урока)",
+                    "updated": 1637914402201
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel Eğitimin Ötesinde ( Beyond the Basics Tutorial )",
+                    "updated": 1642518309859
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Install a New Market Tutorial"
+            "text": "Install a New Market Tutorial",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Install a New Market Tutorial (Установка нового учебника по рынку)",
+                    "updated": 1637914425622
+                },
+                {
+                    "language": "TR",
+                    "text": "Yeni Bir Pazar Kurun Eğitimi ( Install a New Market Tutorial )",
+                    "updated": 1642518338113
+                }
+            ]
         },
         {
             "style": "Text",
@@ -55,6 +133,21 @@
                     "language": "ES",
                     "text": "Si no has completado estos tutoriales y no tienes un conocimiento básico de cómo moverte dentro de tu Workspace, este tutorial puede resultar confuso. Te sugiero que hagas una pausa y vuelvas aquí una vez que conozcas un poco el camino.",
                     "updated": 1628638970811
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie diese Tutorials noch nicht absolviert haben und nicht wissen, wie Sie sich in Ihrem Arbeitsbereich bewegen, kann dieses Tutorial verwirrend sein. Ich würde vorschlagen, dass Sie eine Pause einlegen und hierher zurückkommen, sobald Sie sich ein wenig auskennen.",
+                    "updated": 1637609330133
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы не прошли эти уроки и не имеете базовых знаний о том, как перемещаться в рабочем пространстве (Workspace), этот урок может показаться вам непонятным. Я бы предложил вам сделать паузу и вернуться сюда, когда вы немного освоитесь.",
+                    "updated": 1637914221449
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu öğreticileri tamamlamadıysanız ve Çalışma Alanınızda ( Workspace ) nasıl dolaşılacağına dair temel bir çalışma bilgisine sahip değilseniz, bu öğretici kafa karıştırıcı olabilir. Biraz ara vermeni ve biraz daha rahatladığın zaman buraya gelmeni öneririm.",
+                    "updated": 1642518353719
                 }
             ]
         }

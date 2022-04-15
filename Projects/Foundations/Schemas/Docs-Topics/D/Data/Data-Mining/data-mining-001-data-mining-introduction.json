@@ -10,6 +10,16 @@
                 "language": "DE",
                 "text": "Data Mining in Superalgos bedeutet die Extraktion von Daten aus externen Quellen und die Verarbeitung dieser Daten, um sie für Handelsstrategien nutzbar zu machen. Ins deutsche übersetzt von gitforkgit.",
                 "updated": 1635521809616
+            },
+            {
+                "language": "RU",
+                "text": "Data Mining в Superalgos означает извлечение данных из внешних источников и обработку этих данных, чтобы они были готовы к использованию в торговых стратегиях.",
+                "updated": 1639375412227
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Superalgos'ta Veri Madenciliği, dış kaynaklardan veri çıkarmak ve bu verileri ticaret stratejileri ile tüketime hazır hale getirmek için işlemek anlamına gelir.",
+                "updated": 1645363226135
             }
         ]
     },
@@ -23,6 +33,16 @@
                     "language": "DE",
                     "text": "Superalgos bietet ein umfangreiches Set von Data-Mining-Tools. Mit diesen Werkzeugen können Benutzer Daten aus externen Quellen abrufen, diese Daten zu komplexeren Datensätzen verarbeiten, die Datensätze im Charting Space darstellen, die Modelle von ML Bot füttern und die Daten schließlich in ihre Handelsstrategien einfließen lassen.",
                     "updated": 1634502210131
+                },
+                {
+                    "language": "RU",
+                    "text": "Superalgos предлагает обширный набор инструментов интеллектуального анализа данных. Эти инструменты позволяют пользователям извлекать данные из внешних источников, преобразовывать эти данные в более сложные наборы данных, отображать наборы данных в пространстве Charting Space, загружать модели ML Bot и, в конечном итоге, использовать данные в своих торговых стратегиях.",
+                    "updated": 1639381920147
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos, kapsamlı bir Veri Madenciliği araçları seti sunar. Bu araçlar, kullanıcıların harici kaynaklardan veri almasına, bu verileri daha ayrıntılı veri kümelerinde işlemesine, Grafik Alanı içindeki veri kümelerini çizmesine, ML Bot modellerini beslemesine ve nihayetinde verileri ticaret stratejileri içinde tüketmesine olanak tanır.",
+                    "updated": 1645364750727
                 }
             ]
         },
@@ -35,6 +55,16 @@
                     "language": "DE",
                     "text": "Am Ende dieses Docs-Kapitels finden Sie eine Video-Serie, die Ihnen den gesamten Prozess der Erstellung eines Indicators Schritt für Schritt zeigt. Wenn Sie das Gefühl haben, dass Sie nicht wissen, wie Sie die in diesem Kapitel erläuterten Schritte praktisch durchführen können, schauen Sie sich einfach den letzten Artikel an: \"Data Mining - How to Build an Indicator - Video Series\"",
                     "updated": 1635521851687
+                },
+                {
+                    "language": "RU",
+                    "text": "В конце этой главы есть серия видео, в которой шаг за шагом показан весь процесс построения индикатора. Если вы чувствуете, что не знаете, как практически выполнить шаги, описанные в этой главе, просто прочтите последнюю статью: \"Data Mining - How to Build an Indicator - Video Series\".",
+                    "updated": 1639381990206
+                },
+                {
+                    "language": "TR",
+                    "text": "Önemli: Bu Dokümanlar-Bölümünün sonunda, size bir gösterge oluşturma sürecinin tamamını adım adım gösteren bir Video Serisi bulunmaktadır. Bu bölümde açıklanan adımları pratik olarak nasıl uygulayacağınızı bilmediğinizi düşünüyorsanız, son makaleye bir göz atın: \"Veri Madenciliği - Gösterge Nasıl Oluşturulur - Video Serisi\" (Data Mining - How to Build an Indicator - Video Series)",
+                    "updated": 1645364292623
                 }
             ]
         },
@@ -51,6 +81,16 @@
                     "language": "DE",
                     "text": "Das Große Ganze",
                     "updated": 1634502312960
+                },
+                {
+                    "language": "RU",
+                    "text": "Общая картина",
+                    "updated": 1639382016785
+                },
+                {
+                    "language": "TR",
+                    "text": "Büyük resim",
+                    "updated": 1645364309205
                 }
             ]
         },
@@ -67,6 +107,16 @@
                     "language": "DE",
                     "text": "Alle Daten innerhalb des Superalgos-Systems haben ihren Ursprung irgendwo außerhalb des Systems, normalerweise irgendwo im Internet. Derzeit gibt es 3 Möglichkeiten, Daten in das System einzubringen:",
                     "updated": 1634502941525
+                },
+                {
+                    "language": "RU",
+                    "text": "Все данные в системе Superalgos берут начало где-то вне системы, обычно где-то в Интернете. В настоящее время существует 3 способа ввода данных в систему:",
+                    "updated": 1639382042869
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos sistemi içindeki tüm veriler, sistemin dışında bir yerde, genellikle İnternet'te bir yerde bulunur. Şu anda sisteme veri getirmenin 3 yolu vardır:",
+                    "updated": 1645364329202
                 }
             ]
         },
@@ -79,6 +129,16 @@
                     "language": "DE",
                     "text": "Durch das Programmieren eines Algorithmus: Mit dieser Methode können Benutzer, die über Entwicklerfähigkeiten  (Programmierwissen) verfügen, Daten aus jeder erdenklichen Quelle extrahieren. Dies geschieht durch die Implementierung eines neuen Prozesses innerhalb des bereits bestehenden Sensor Bots. Mit anderen Worten: Der Sensor Bot ermöglicht es den Benutzern, Code zu schreiben, der Daten von verschiedenen Stellen außerhalb des Systems extrahiert. Diese Methode ist ideal, wenn es nicht möglich ist, die zweite unten aufgeführte Methode zu verwenden. Ein Beispiel für einen solchen Algorithmus ist der Historic-OHLCVs, der die Open-Source-Bibliothek CCXT verwendet, um einminütige Kerzen von jeder von dieser Bibliothek unterstützten Börse zu extrahieren.",
                     "updated": 1634503371051
+                },
+                {
+                    "language": "RU",
+                    "text": "Программируя алгоритм: с помощью этого метода пользователи, обладающие навыками разработчика, могут извлекать данные из любого вообразимого источника. Для этого нужно реализовать новый процесс в уже существующем Sensor Bot. Другими словами, Sensor Bot позволяет пользователям писать код, извлекающий данные из разных мест вне системы. Этот метод идеален, когда невозможно использовать второй метод, указанный ниже. Примером таких алгоритмов является Historic-OHLCVs, который использует библиотеку с открытым исходным кодом CCXT для извлечения одноминутных свечей из любого обмена, поддерживаемого этой библиотекой.",
+                    "updated": 1639382160115
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Algoritma kodlayarak: Bu yöntemle geliştirici becerilerine sahip kullanıcılar, akla gelebilecek herhangi bir kaynaktan veri çıkarabilir. Bunu yapmanın yolu, halihazırda mevcut olan Sensör Botu içinde yeni bir süreç uygulamaktır. Başka bir deyişle, sensör bot ( Sensor Bot ), kullanıcıların sistem dışındaki farklı yerlerden veri çıkaran kod yazmasına olanak tanır. Bu yöntem, aşağıda listelenen ikinci yöntemin kullanılmasının mümkün olmadığı durumlar için idealdir. Bu tür algoritmalara bir örnek, bu kitaplık tarafından desteklenen herhangi bir değiş tokuştan bir dakikalık mumları çıkarmak için CCXT açık kaynak kitaplığını kullanan Tarihi-OHLCV'lerdir.",
+                    "updated": 1645364417919
                 }
             ]
         },
@@ -91,6 +151,16 @@
                     "language": "DE",
                     "text": "Ohne einen Algorithmus zu programmieren: (verfügbar seit Beta 10) über den API Data Fetcher Bot. Bei dieser Methode wird eine API Map entworfen, die später zur Laufzeit an einen API Data Fetcher Bot übergeben wird. Von dort aus kann er Daten von APIs abrufen, ohne dass der Benutzer eine einzige Zeile Code schreiben muss.",
                     "updated": 1634503494799
+                },
+                {
+                    "language": "RU",
+                    "text": "Без программирования алгоритма: (доступно с Beta 10) через API Data Fetcher Bot. Этот метод включает в себя разработку API Map, которая позже передается боту API Data Fetcher Bot во время выполнения. Оттуда он может получать данные из API, не требуя от пользователя написания ни единой строчки кода.",
+                    "updated": 1639382286411
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Algoritmayı kodlamadan: (Beta 10'dan beri mevcuttur) API Veri Alıcı Botu ( API Data Fetcher Bot ) aracılığıyla. Bu yöntem, daha sonra çalışma zamanında bir API Veri Alıcısı Botuna beslenecek olan bir API Haritası ( API Map ) tasarlamayı içerir. Buradan, kullanıcının tek bir kod satırı yazmasına gerek kalmadan API'lerden ( APIs ) veri alabilir.",
+                    "updated": 1645364588387
                 }
             ]
         },
@@ -103,6 +173,16 @@
                     "language": "DE",
                     "text": "Externe Verarbeitung: Es ist auch möglich, Daten zu sammeln und sie außerhalb des Systems zu verarbeiten. Sobald die Daten auf diese Weise verarbeitet wurden, können sie in den richtigen Ordner mit dem richtigen Format gelegt werden, und das System übernimmt sie von dort. Dieser Anwendungsfall ist nicht der populärste, aber er ist eine gute Möglichkeit.",
                     "updated": 1634503579635
+                },
+                {
+                    "language": "RU",
+                    "text": "Внешняя обработка: также можно собирать данные и обрабатывать их вне системы. После обработки данных таким образом их можно поместить в нужную папку в нужном формате, и система заберет их оттуда. Этот вариант использования не самый популярный, но вполне допустимый.",
+                    "updated": 1639382311180
+                },
+                {
+                    "language": "TR",
+                    "text": "Harici işleme: Veri toplamak ve sistem dışında işlemek de mümkündür. Veriler bu şekilde işlendikten sonra, doğru formatta doğru klasöre konabilir ve sistem onu oradan alır. Bu kullanım durumu en popüler olanı değildir, ancak geçerli bir olasılıktır.",
+                    "updated": 1645364691613
                 }
             ]
         },
@@ -115,6 +195,16 @@
                     "language": "DE",
                     "text": "Sobald die Daten im System sind, werden sie aus verschiedenen Gründen von Indikator-Bots verarbeitet. Einige der verarbeiteten Daten werden geplottet, andere können Bots für maschinelles Lernen füttern, und wieder andere können von einer Trading Strategy (Handelsstrategie) genutzt werden.",
                     "updated": 1634504086365
+                },
+                {
+                    "language": "RU",
+                    "text": "Как только данные попадают в систему, они обрабатываются ботами Indicator Bots по разным причинам. Некоторые из обработанных данных могут быть нанесены на график, некоторые могут использоваться для машинного обучения, а некоторые могут быть использованы торговой стратегией.",
+                    "updated": 1639382399206
+                },
+                {
+                    "language": "TR",
+                    "text": "Veriler sisteme girdikten sonra Gösterge Botları tarafından farklı nedenlerle işlenir. İşlenen verilerin bazıları çizilebilir, bazıları makine öğrenimi botlarını besleyebilir ve bazıları bir Ticaret Stratejisi ( Trading Strategy ) tarafından tüketilebilir.",
+                    "updated": 1645364673889
                 }
             ]
         }

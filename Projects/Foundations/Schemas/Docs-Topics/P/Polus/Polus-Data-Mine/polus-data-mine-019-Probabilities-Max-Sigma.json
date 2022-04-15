@@ -1,0 +1,66 @@
+{
+    "topic": "Polus Data Mine",
+    "pageNumber": "19",
+    "type": "Probabilities: Max Sigma",
+    "definition": {
+        "text": "This is an indicator that uses the candle maximum, a Moving Average (MA) of 200 periods and Standard Deviation (sigma) to calculate it's output value."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Max Sigma on the Charts"
+        }, 
+        {
+            "style": "Text",
+            "text": "This indicator produces an output value, Z, by using the a 200MA, the sigma (standard deviation) value: Z = (Return - 200MA) / sigma"
+        }, 
+		{
+            "style": "List",
+            "text": "Return: the natural log of candle.max / candle.previous.min"			
+        },   
+		{
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-Probability-Max-Sigma.png"
+        },
+		{
+            "style": "Text",
+            "text": "The length of the calculation can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \u2019SR max sigma probability\u2019 Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-Probability-Max-Sigma-params.png"
+        },
+		{
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| R max sigma probability | RMax | Z |"
+        },
+		{
+            "style": "Text",
+            "text": "Example:"
+        },
+		{
+            "style": "Text",
+            "text": "Accessing the data for this indicator is shown below:"
+        },
+		{
+            "style": "Javascript",
+            "text": "chart.at01hs.RMax.Z"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@ThomasHuault (Telegram)->t.me/ThomasHuault"
+        }
+    ]
+}

@@ -1,0 +1,188 @@
+{
+    "topic": "quantum Data Mine",
+    "pageNumber": 7,
+    "type": "Choppy - quantum Indicator",
+    "definition": {
+        "text": "The indicator produces a volatiliy signal and is based on the indicator originally written by TradingRush channel on YouTube.",
+        "updated": 1611662439678,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Индикатор выдает сигнал волатильности и основан на индикаторе, первоначально написанном каналом TradingRush на YouTube.",
+                "updated": 1646899157347
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Choppy On the Charts",
+            "updated": 1636853769,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Choppy на графиках",
+                    "updated": 1646899175906
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The Choppy indicator has three components. When price movement is good, the Choppy indicator will show green bars. When the movement is very good, the bar will indicate dark green. If the movement is choppy, there will be no colored bars.",
+            "updated": 1611662450791,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Индикатор Choppy состоит из трех компонентов. Когда движение цены хорошее, индикатор Choppy будет показывать зеленые бары. Когда движение очень хорошее, столбики будут темно-зелеными. Если движение неровное, цветные столбики будут отсутствовать.",
+                    "updated": 1646899204536
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The line plot will increase for each green bar printed, indicating a moving market. The value of the line is between 0-100. Please not that this does not indicate the direction of the price movment, only that the market is trending.",
+            "updated": 1611662450791,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "График линии будет увеличиваться для каждого напечатанного зеленого бара, указывая на движущийся рынок. Значение линии находится в диапазоне 0-100. Пожалуйста, обратите внимание, что это не указывает на направление движения цены, а только на то, что рынок находится в тренде.",
+                    "updated": 1646899219295
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "When the line breaks through the printed bars, this indicates a strong trend, and a possible buy/sell signal.",
+            "updated": 1611662450791,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Когда линия пробивает напечатанные бары, это указывает на сильный тренд и возможный сигнал на покупку/продажу.",
+                    "updated": 1646899228743
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-Choppy-on-the-chart.png",
+            "updated": 1636853769
+        },
+        {
+            "style": "Text",
+            "text": "To change the parameters needed for the calculation to your needs, locate and open the Javascript Code under Data Building Procedure -> Procedure Loop under \"Choppy\" Product Definition. Changing the variable \"line\" adjusts the buy signal threshold line and defaults to 50. The Original default value on TradingRush was 20.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы изменить параметры, необходимые для расчета, в соответствии с вашими потребностями, найдите и откройте Javascript Code в разделе Data Building Procedure -> Procedure Loop в разделе \"Choppy\" Product Definition. Изменение переменной \"line\" настраивает пороговую линию сигнала на покупку и по умолчанию составляет 50. Первоначальное значение по умолчанию на TradingRush было 20.",
+                    "updated": 1646899247445
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-Choppy-params.png",
+            "updated": 1636853769
+        },
+        {
+            "style": "Title",
+            "text": "Choppy Products & Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты и свойства Choppy",
+                    "updated": 1646899261624
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Product Setting | Product Variable | Properties |\n| Choppy | Choppy | threshold, maProperty, graph |",
+            "updated": 1611662546677
+        },
+        {
+            "style": "Text",
+            "text": "The property functions are as follows:",
+            "updated": 1611662641354,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Функции свойств следующие:",
+                    "updated": 1646899270933
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "maProperty: the value of the histogram bar. Possible values are, from order of consolidation to trending;  Choppy, Slower, Slow, Up",
+            "updated": 1611662641354,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "maProperty: значение столбика гистограммы. Возможные значения: от порядка консолидации к тренду; Choppy, Slower, Slow, Up",
+                    "updated": 1646899288945
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "graph: the value of the plotted graph",
+            "updated": 1611662641354,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "graph: значение построенного графа",
+                    "updated": 1646899321282
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "threshold: the value where the trend graph becomes stronger than the histogram bar.",
+            "updated": 1611662641354,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "threshold: значение, при котором график тренда становится сильнее полосы гистограммы.",
+                    "updated": 1646899338295
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Examples:",
+            "updated": 1611662641354,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Примеры:",
+                    "updated": 1646899344806
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "A simple strategy can be built by entering a trade when the threshold rises above the histogram size.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Простая стратегия может быть построена путем входа в сделку, когда порог поднимается выше размера гистограммы.",
+                    "updated": 1646899357034
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at30min.Choppy.graph > chart.at30min.Choppy.threshold",
+            "updated": 1611662656647
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.Choppy.maProperty == \"Slow\" "
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at02hs.Choppy.maProperty == \"Up\" ",
+            "updated": 1611662681719
+        }
+    ]
+}

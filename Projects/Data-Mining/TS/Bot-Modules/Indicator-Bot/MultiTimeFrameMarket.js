@@ -1,4 +1,4 @@
-﻿exports.newDataMiningBotModulesMultiTimeFrameMarket = function (processIndex) {
+﻿exports.newDataMiningIndicatorMultiTimeFrameMarket = function (processIndex) {
     const MODULE_NAME = "Multi Time Frame Market"
     /*
     This module deals with Market Files, that are data files for Time Frames of 1 hour and above.
@@ -19,10 +19,10 @@
 
     return thisObject;
 
-    function initialize(pStatusDependencies, pStatusDependenciesModule, callBackFunction) {
+    function initialize(pStatusDependencies, pDataDependenciesModule, callBackFunction) {
 
         statusDependenciesModule = pStatusDependencies
-        dataDependenciesModule = pStatusDependenciesModule
+        dataDependenciesModule = pDataDependenciesModule
 
         indicatorOutputModule = TS.projects.dataMining.botModules.indicatorOutput.newDataMiningBotModulesIndicatorOutput(processIndex)
         indicatorOutputModule.initialize(callBackFunction)
@@ -151,7 +151,7 @@
 
             function writeTimeFramesFiles(callBack) {
                 let outputDatasets =
-                    TS.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
+                    SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
                 let outputDatasetIndex = -1;
                 controlLoop()
 

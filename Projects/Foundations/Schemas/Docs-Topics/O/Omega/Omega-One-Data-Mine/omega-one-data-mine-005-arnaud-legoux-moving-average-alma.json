@@ -1,0 +1,343 @@
+{
+    "topic": "Omega One Data Mine",
+    "pageNumber": "5",
+    "type": "Arnaud Legoux Moving Average (ALMA)",
+    "definition": {
+        "text": "Arnaud Legoux moving average (ALMA) indicator is a technical analysis tool that eliminates minor price fluctuations and enhances the trend of the market.",
+        "updated": 1617958214490,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Индикатор Arnaud Legoux moving average (ALMA) - это инструмент технического анализа, который устраняет незначительные колебания цены и усиливает тенденцию рынка.",
+                "updated": 1643525740207
+            },
+            {
+                "language": "DE",
+                "text": "Der Indikator des gleitenden Durchschnitts von Arnaud Legoux (ALMA) ist ein technisches Analyseinstrument, das geringfügige Kursschwankungen eliminiert und den Trend des Marktes verstärkt.",
+                "updated": 1647275423412
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Arnaud Legoux hareketli ortalama (ALMA) göstergesi, küçük fiyat dalgalanmalarını ortadan kaldıran ve piyasanın trendini iyileştiren bir teknik analiz aracıdır.",
+                "updated": 1647780552662
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The ALMA is a technical analysis tool that aims to give investors and traders a more reliable trading signal by reducing the noise that can interfere with traditional moving averages. It eliminates the small fluctuations in an asset price to make the trend clearer.",
+            "updated": 1617958138349,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "ALMA - это инструмент технического анализа, цель которого - дать инвесторам и трейдерам более надежный торговый сигнал за счет снижения шума, который может мешать традиционным скользящим средним. Он устраняет небольшие колебания цены актива, чтобы сделать тренд более четким.",
+                    "updated": 1643525753512
+                },
+                {
+                    "language": "DE",
+                    "text": "Der ALMA ist ein technisches Analyseinstrument, das Anlegern und Händlern ein zuverlässigeres Handelssignal liefern soll, indem es das Rauschen reduziert, das bei herkömmlichen gleitenden Durchschnitten stören kann. Er eliminiert die kleinen Schwankungen im Preis eines Vermögenswerts, um den Trend deutlicher zu machen.",
+                    "updated": 1647275490873
+                },
+                {
+                    "language": "TR",
+                    "text": "ALMA, geleneksel hareketli ortalamalara müdahale edebilecek gürültüyü azaltarak yatırımcılara ve tüccarlara daha güvenilir bir ticaret sinyali vermeyi amaçlayan bir teknik analiz aracıdır. Trendi daha net hale getirmek için bir varlık fiyatındaki küçük dalgalanmaları ortadan kaldırır.",
+                    "updated": 1647780586957
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The ALMA reduces price lag and creates a smoother line than other moving averages. Rather than a straightforward moving average for a certain period, it applies a moving average twice; from left to right as well as right to left.",
+            "updated": 1617958138349,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "ALMA уменьшает отставание цены и создает более плавную линию, чем другие скользящие средние. Вместо прямой скользящей средней за определенный период, она применяет скользящую среднюю дважды: слева направо, а также справа налево.",
+                    "updated": 1643525766352
+                },
+                {
+                    "language": "DE",
+                    "text": "Der ALMA reduziert die Kursverzögerung und erzeugt eine glattere Linie als andere gleitende Durchschnitte. Anstelle eines einfachen gleitenden Durchschnitts für einen bestimmten Zeitraum wird ein gleitender Durchschnitt zweimal angewandt: von links nach rechts und von rechts nach links.",
+                    "updated": 1647275502151
+                },
+                {
+                    "language": "TR",
+                    "text": "ALMA, fiyat gecikmesini azaltır ve diğer hareketli ortalamalardan daha yumuşak bir çizgi oluşturur. Belli bir dönem için basit bir hareketli ortalama yerine, iki kez hareketli ortalama uygular; soldan sağa ve sağdan sola.",
+                    "updated": 1647780596513
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Omega-One-ALMA-on-the-charts.png"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Change the input to optimise it for your use case!",
+            "updated": 1617953879921,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Измените входные данные, чтобы оптимизировать их для вашего случая использования!",
+                    "updated": 1643525774160
+                },
+                {
+                    "language": "DE",
+                    "text": "Ändern Sie die Eingabe, um sie für Ihren Anwendungsfall zu optimieren!",
+                    "updated": 1647275661774
+                },
+                {
+                    "language": "TR",
+                    "text": "Kullanım durumunuza göre optimize etmek üzere girişi değiştirin!",
+                    "updated": 1647780630470
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Most of Omega indicators can use different period values. To change periods:",
+            "updated": 1617955135049,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Большинство индикаторов Omega могут использовать различные значения периодов. Чтобы изменить периоды:",
+                    "updated": 1643525782188
+                },
+                {
+                    "language": "DE",
+                    "text": "Die meisten Omega Indikatoren können verschiedene Periodenwerte verwenden. Um Perioden zu ändern:",
+                    "updated": 1647275675574
+                },
+                {
+                    "language": "TR",
+                    "text": "Omega indikatörlerinin çoğu farklı periyot değerleri kullanabilir. Periyotları değiştirmek için:",
+                    "updated": 1647780649219
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Locate the Data Mine and expand it.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Найдите Data Mine и разверните его.",
+                    "updated": 1643525790207
+                },
+                {
+                    "language": "DE",
+                    "text": "Suchen Sie die Data Mine und erweitern Sie sie.",
+                    "updated": 1647275685477
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri Madeni'ni ( Data Mine ) bulun ve genişletin.",
+                    "updated": 1647780705562
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Expand the Indicator Bot node.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Разверните узел Indicator Bot.",
+                    "updated": 1643525795921
+                },
+                {
+                    "language": "DE",
+                    "text": "Erweitern Sie den Knoten Indicator Bot.",
+                    "updated": 1647275697604
+                },
+                {
+                    "language": "TR",
+                    "text": "Gösterge Botu ( Indicator Bot ) düğümünü genişletin.",
+                    "updated": 1647780718500
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Find the Product Definition -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Найдите Product Definition -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code.",
+                    "updated": 1643525803662
+                },
+                {
+                    "language": "DE",
+                    "text": "Suchen Sie die Product Definition -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code.",
+                    "updated": 1647275709164
+                },
+                {
+                    "language": "TR",
+                    "text": "Ürün Tanımı ( Product Definition ) -> Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Döngüsü ( Procedure Loop ) -> Prosedür Javascript Kodunu ( Procedure Javascript Code ) bulun.",
+                    "updated": 1647780831290
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Edit the Procedure Javascript Code node.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Отредактируйте узел Procedure Javascript Code.",
+                    "updated": 1643525817070
+                },
+                {
+                    "language": "DE",
+                    "text": "<i>Bearbeiten</i> Sie den Knoten Procedure Javascript Code.",
+                    "updated": 1647333691050
+                },
+                {
+                    "language": "TR",
+                    "text": "Prosedür Javascript Kodu ( Procedure Javascript Code ) düğümünü düzenleyin.",
+                    "updated": 1647780848642
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Put the text marker in the edit box, and press Arrow Up until you reach the top of the code.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Поместите текстовый маркер в поле редактирования и нажимайте стрелку вверх, пока не достигнете верхней части кода.",
+                    "updated": 1643525825215
+                },
+                {
+                    "language": "DE",
+                    "text": "Setzen Sie den Textmarker in das Bearbeitungsfeld und drücken Sie die Pfeiltaste nach oben, bis Sie den oberen Teil des Codes erreichen.",
+                    "updated": 1647275739725
+                },
+                {
+                    "language": "TR",
+                    "text": "Metin işaretçisini düzenleme kutusuna koyun ve kodun en üstüne ulaşana kadar Yukarı Ok'a basın.",
+                    "updated": 1647780864169
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Look for \"User defined values\".",
+            "updated": 1617954642138,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Найдите \"User defined values\".",
+                    "updated": 1643525835277
+                },
+                {
+                    "language": "DE",
+                    "text": "Suchen Sie nach \"User defined values\".",
+                    "updated": 1647275752681
+                },
+                {
+                    "language": "TR",
+                    "text": "\"Kullanıcı tanımlı değerler ( User defined values )\" arayın.",
+                    "updated": 1647780875000
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Enter the values of your choice.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Введите значения по своему выбору.",
+                    "updated": 1643525840529
+                },
+                {
+                    "language": "DE",
+                    "text": "Geben Sie die Werte Ihrer Wahl ein.",
+                    "updated": 1647275765229
+                },
+                {
+                    "language": "TR",
+                    "text": "Tercih ettiğiniz değerleri girin.",
+                    "updated": 1647780884212
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "Remember that you have to delete existing data for the indicator in the Data-Storage folder, and re-start the Data Tasks needed for the indicator in the Network node before you can see any changes.",
+            "updated": 1617954918128,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Помните, что необходимо удалить существующие данные для индикатора в папке Data-Storage и заново запустить Data Tasks, необходимые для индикатора, в узле Network, прежде чем вы сможете увидеть какие-либо изменения.",
+                    "updated": 1643525847832
+                },
+                {
+                    "language": "DE",
+                    "text": "Denken Sie daran, dass Sie die vorhandenen Daten für den Indikator im Ordner Data-Storage löschen und die für den Indikator erforderlichen Data Tasks im Knoten Network neu starten müssen, bevor Sie die Änderungen sehen können.",
+                    "updated": 1647275826486
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Veri Depolama klasöründeki gösterge için mevcut verileri silmeniz ve herhangi bir değişikliği görebilmeniz,Ağ düğümündeki gösterge için gereken Veri Görevlerini ( Data Tasks ) yeniden başlatmanız gerektiğini unutmayın.",
+                    "updated": 1647789016407
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Omega-One-ALMA-params.png",
+            "updated": 1617958956443
+        },
+        {
+            "style": "Subtitle",
+            "text": "Products, Properties & Examples",
+            "updated": 1617967853007,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты, свойства и примеры",
+                    "updated": 1643525858663
+                },
+                {
+                    "language": "DE",
+                    "text": "Produkte, Eigenschaften und Beispiele",
+                    "updated": 1647275859364
+                },
+                {
+                    "language": "TR",
+                    "text": "Ürünler, Özellikler ve Örnekler",
+                    "updated": 1647780918730
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| ALMA | ALMA | alma01 |",
+            "updated": 1617972838194,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| ALMA | ALMA | alma01 |",
+                    "updated": 1647275891658
+                },
+                {
+                    "language": "TR",
+                    "text": "| Ürün Adı | Ürün Değişkeni | Özellikler |\n| ALMA | ALMA | alma01 |",
+                    "updated": 1647780933353
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "/* EXAMPLE */\n\n// Candle close is above ALMA trend.\nchart.at01hs.candle.close > chart.at01hs.ALMA.alma01",
+            "updated": 1617973639173
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

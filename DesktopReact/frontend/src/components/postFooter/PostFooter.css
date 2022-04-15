@@ -1,0 +1,58 @@
+.postFooterContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.postFooterContainerSpeedDial { /* size of the reaction div */
+    width: 30%;
+    position: relative;
+}
+
+.footerCommentContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 36%;
+}
+
+.postFooterComment {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.commentIconButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.postFooterRepost {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.repostIconButton {
+}
+
+.reactionsButtons {
+    position: relative !important;
+    min-height: 0.5rem;
+    width: 1.8rem !important;
+    height: 1.8rem !important;
+    box-shadow: none !important;
+    margin: 0.20rem !important;
+}
+
+.MuiSpeedDial-actions {
+    margin-left: -45px !important;
+    bottom: 30px;
+    left: -43px;
+    pointer-events: auto !important; /* without this, the div component container of reactions wont be focusable */
+    border-radius: 20px;
+    background-clip: content-box;
+    position: absolute;
+    padding-left: 0px !important;
+    background-color: lightgray !important;
+}

@@ -4,30 +4,197 @@
     "type": "Screen Capture and Sharing",
     "definition": {
         "text": "Share you screen with friends and colleagues capturing still images or videos directly from within the frontend.",
-        "updated": 1611490773902
+        "updated": 1611490773902,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Teilen Sie Ihren Bildschirm mit Freunden und Kollegen, indem Sie Bilder oder Videos direkt aus dem Frontend heraus aufnehmen.",
+                "updated": 1640724286373
+            },
+            {
+                "language": "RU",
+                "text": "Поделитесь своим экраном с друзьями и коллегами, делая снимки или видео прямо из фронтенда.",
+                "updated": 1647355354612
+            }
+        ]
     },
     "paragraphs": [
         {
+            "style": "Title",
+            "text": "PNG Panorama Capture",
+            "updated": 1646841558213,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Drücken Sie Ctrl + F8, um ein statisches PNG-Bild zu erfassen.",
+                    "updated": 1640724325692
+                },
+                {
+                    "language": "RU",
+                    "text": "Съемка панорамы PNG",
+                    "updated": 1647355363008
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Put the charts on the datetime you wish to start the panorama (the chronological start date). Adjust the rate scale in a manner that shows whatever you wish to capture along the intended date range you wish to capture.",
+            "updated": 1646841591442,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Установите графики на дату, с которой вы хотите начать панораму (хронологическая дата начала). Настройте шкалу темпа таким образом, чтобы показать все, что вы хотите заснять, в предполагаемом диапазоне дат, который вы хотите охватить.",
+                    "updated": 1647355411878
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Hit Ctrl + F7 to start the capture.",
+            "updated": 1646841597682,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Нажмите Ctrl + F7, чтобы начать захват.",
+                    "updated": 1647355421860
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Hit the right arrow key → to pan the chart up to the end datetime.",
+            "updated": 1646841606399,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Нажмите клавишу со стрелкой вправо → для панорамирования графика до конечной даты.",
+                    "updated": 1647355434654
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Hit Ctrl + F7 again. A PNG file should download immediately...",
+            "updated": 1646841614940,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Снова нажмите Ctrl + F7. Файл PNG должен загрузиться немедленно...",
+                    "updated": 1647355443770
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "PNG screen capture",
+            "updated": 1646841570463,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Захват экрана в формате PNG",
+                    "updated": 1647355451284
+                }
+            ]
+        },
+        {
             "style": "List",
             "text": "Hit Ctrl + F8 to capture a static PNG image.",
-            "updated": 1611490790992
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Нажмите Ctrl + F8, чтобы захватить статическое изображение PNG.",
+                    "updated": 1647355459748
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "GIF Video Capture",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Drücken Sie Ctrl + F9, um die Aufnahme eines GIF-Videos zu starten, und drücken Sie die gleiche Tastenkombination erneut, um die Aufnahme zu beenden. Sobald die Aufnahme beendet ist, dauert es einige Zeit, bis die Aufnahme verarbeitet und die endgültige Datei erstellt ist.",
+                    "updated": 1640724366288
+                },
+                {
+                    "language": "RU",
+                    "text": "Захват видео в формате GIF",
+                    "updated": 1647355467733
+                }
+            ],
+            "updated": 1646841637314
         },
         {
             "style": "List",
-            "text": "Hit Ctrl + F9 to start capturing a GIF video, and hit the same key combination again to end the capture. Once the capture ends, it takes some time to process the capture and generate the final file."
+            "text": "Hit Ctrl + F9 to start capturing a GIF video, and hit the same key combination again to end the capture. Once the capture ends, it takes some time to process the capture and generate the final file.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Нажмите Ctrl + F9, чтобы начать захват GIF-видео, и нажмите ту же комбинацию клавиш еще раз, чтобы завершить захват. После завершения захвата потребуется некоторое время для его обработки и создания конечного файла.",
+                    "updated": 1647355482216
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "WEBM Video Capture",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Drücken Sie Ctrl + F10, um die Aufnahme eines WEBM-Videos zu starten, und drücken Sie dieselbe Tastenkombination erneut, um die Aufnahme zu beenden. WEBM-Videos werden sofort verarbeitet.",
+                    "updated": 1640724417583
+                },
+                {
+                    "language": "RU",
+                    "text": "Захват видео в формате WEBM",
+                    "updated": 1647355491059
+                }
+            ],
+            "updated": 1646841666650
         },
         {
             "style": "List",
-            "text": "Hit Ctrl + F10 to start capturing a WEBM video, and hit the same key combination again to end the capture. WEBM videos are processed instantly."
+            "text": "Hit Ctrl + F10 to start capturing a WEBM video, and hit the same key combination again to end the capture. WEBM videos are processed instantly.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Нажмите Ctrl + F10, чтобы начать захват WEBM-видео, и нажмите ту же комбинацию клавиш еще раз, чтобы завершить захват. WEBM-видео обрабатываются мгновенно.",
+                    "updated": 1647355503937
+                }
+            ]
         },
         {
-            "style": "Text",
-            "text": "In all three cases, the browser downloads the resulting file and makes it available in the downloads folder."
+            "style": "Success",
+            "text": "In all three cases, the browser downloads the resulting file and makes it available in the downloads folder.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "In allen drei Fällen lädt der Browser die resultierende Datei herunter und stellt sie im Ordner \"Downloads\" zur Verfügung.",
+                    "updated": 1640724537080
+                },
+                {
+                    "language": "RU",
+                    "text": "Во всех трех случаях браузер загружает полученный файл и делает его доступным в папке загрузок.",
+                    "updated": 1647355512886
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "GIF files tend to grow a lot in long captures, but are more universal, thus more devices can display them properly. WEBM files are a lot more efficient, but do not work in Apple and, potentially, other platforms or devices.",
-            "updated": 1611490891864
+            "updated": 1611490891864,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "GIF-Dateien neigen dazu, bei langen Aufnahmen sehr groß zu werden, sind aber universeller, so dass mehr Geräte sie richtig anzeigen können. WEBM-Dateien sind viel effizienter, funktionieren aber nicht auf Apple und möglicherweise auch nicht auf anderen Plattformen oder Geräten.",
+                    "updated": 1640724661066
+                },
+                {
+                    "language": "RU",
+                    "text": "Файлы GIF имеют тенденцию сильно увеличиваться при длительном захвате, но они более универсальны, поэтому больше устройств могут их правильно отображать. Файлы WEBM намного эффективнее, но не работают в Apple и, потенциально, на других платформах и устройствах.",
+                    "updated": 1647355531009
+                }
+            ]
         },
         {
             "style": "Text",

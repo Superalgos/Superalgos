@@ -1,7 +1,19 @@
 {
     "type": "Positions",
     "definition": {
-        "text": "Positions counts the number of times positions have been opened, in the context of the parent node."
+        "text": "Positions counts the number of times positions have been opened, in the context of the parent node.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Positions подсчитывают количество открытих позиций в контексте родительского узла.",
+                "updated": 1640346005956
+            },
+            {
+                "language": "TR",
+                "text": "Pozisyonlar, üst düğüm bağlamında pozisyonların kaç defa açıldığını sayar.",
+                "updated": 1641993997292
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,7 +22,19 @@
         },
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text."
+            "text": "Right click and Edit to enter edit mode and change this text.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст.",
+                    "updated": 1640346018410
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenleyin.",
+                    "updated": 1644572517193
+                }
+            ]
         },
         {
             "style": "Block",
@@ -20,17 +44,53 @@
         {
             "style": "Title",
             "text": "Positions Configuration",
-            "updated": 1609924961700
+            "updated": 1609924961700,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Positions",
+                    "updated": 1640346030953
+                },
+                {
+                    "language": "TR",
+                    "text": "Pozisyon Yapılandırması",
+                    "updated": 1644572531725
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609873980538
+            "updated": 1609873980538,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1640346039596
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1644572553798
+                }
+            ]
         },
         {
             "style": "List",
             "text": "initialValue allows resetting the initial state of the node to an arbitrary value.",
-            "updated": 1609875415147
+            "updated": 1609875415147,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
+                    "updated": 1640346049929
+                },
+                {
+                    "language": "TR",
+                    "text": "initialValue, düğümün başlangıç durumunun istenilen bir değere sıfırlanmasına izin verir.",
+                    "updated": 1644572576069
+                }
+            ]
         }
     ]
 }

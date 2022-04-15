@@ -1,0 +1,137 @@
+{
+    "topic": "Pluvtech Data Mine",
+    "pageNumber": "14",
+    "type": "Donchian-Tenkan",
+    "definition": {
+        "text": "The Donchian-Tenkan indicator is a short term support/resistance value that can highlight the momentum of an asset. It is a component in the Ichimoku cloud indicators.",
+        "updated": 1622696264788,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Индикатор Donchian-Tenkan - это краткосрочное значение поддержки/сопротивления, которое может подчеркнуть импульс актива. Он является компонентом индикаторов облака Ичимоку.",
+                "updated": 1645611397047
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Donchian-Tenkan on the Charts:",
+            "updated": 1622481793076,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Donchian-Tenkan на графиках:",
+                    "updated": 1645611416041
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The Donchian-Tenkan is calculated by averaging the previous highs and lows to create a donchian channel, and then using the midpoint of these extremes to create the returned value. This value can then be used as a support/resistance line.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Donchian-Tenkan рассчитывается путем усреднения предыдущих максимумов и минимумов для создания канала Donchian, а затем с помощью средней точки этих экстремумов для создания возвращаемого значения. Затем это значение можно использовать в качестве линии поддержки/сопротивления.",
+                    "updated": 1645611426437
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Pluvtech-Donchian-Tenkan.png",
+            "updated": 1611661370646
+        },
+        {
+            "style": "Text",
+            "text": "The period length parameter of the Donchian-Tenkan indicator calculation can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Initialization under ’Donchian-Tenkan’ Product Definition.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Параметр длины периода расчета индикатора Donchian-Tenkan можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Initialization в разделе 'Donchian-Tenkan' Product Definition.",
+                    "updated": 1645611446110
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Pluvtech-Donchian-Tenkan-params.png",
+            "updated": 1611673329568
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты и свойства",
+                    "updated": 1645611451571
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Доступны следующие свойства:",
+                    "updated": 1645611457471
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Donchian-Tenkan | donchianTenkan | midPoint, closePrice |",
+            "updated": 1636853769
+        },
+        {
+            "style": "Text",
+            "text": "Examples:",
+            "updated": 1611661674316,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Примеры:",
+                    "updated": 1645611462785
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The Donchian-Tenkan indicator could be used to generate a buy signal when the close price is above the midPoint value:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Индикатор Donchian-Tenkan может быть использован для генерирования сигнала на покупку, когда цена закрытия находится выше значения средней точки:",
+                    "updated": 1645611472537
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.candle.close > chart.at01hs.donchianTenkan.midPoint",
+            "updated": 1636853769
+        },
+        {
+            "style": "Text",
+            "text": "This indicator could also be used to provide a trailing stop loss when in a trade by checking if the candle close is still above the midPoint value.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Этот индикатор также можно использовать для установки трейлинг-стоп лосса при заключении сделки, проверяя, находится ли закрытие свечи все еще выше значения midPoint.",
+                    "updated": 1645611480870
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:",
+            "updated": 1622481793076
+        },
+        {
+            "style": "Link",
+            "text": "@pluvtech (Telegram)->t.me/pluvtech"
+        }
+    ]
+}

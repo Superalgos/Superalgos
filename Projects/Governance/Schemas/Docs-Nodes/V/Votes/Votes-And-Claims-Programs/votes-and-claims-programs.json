@@ -2,7 +2,24 @@
     "type": "Votes And Claims Programs",
     "definition": {
         "text": "Votes and claims are instruments the Community uses to determine what is incentivized and how contributions are compensated. Use this node to spawn the Claims Program and the Voting Program.",
-        "updated": 1630226336941
+        "updated": 1630226336941,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Голоса и претензии - это инструменты, которые Community использует для определения того, что поощряется и как возмещаются взносы. Используйте этот узел, чтобы создать программы Claims Program и Voting Program.",
+                "updated": 1638986119590
+            },
+            {
+                "language": "DE",
+                "text": "Votes (Abstimmungen) und Claims (Ansprüche) sind Instrumente, mit denen die Gemeinschaft bestimmt, was gefördert wird und wie Beiträge vergütet werden. Verwenden Sie diese Nodes, um das Claims Program und das Voting Program zu starten.",
+                "updated": 1640304162727
+            },
+            {
+                "language": "TR",
+                "text": "Oylar (Votes) ve talepler (Claims), Topluluğun neyin teşvik edildiğini ve katkıların nasıl ödüllendirleceğini belirlemek için kullandığı araçlardır. Talep Programını (Claims Program) ve Oylama Programını (Voting Program) oluşturmak için bu düğümü kullanın.",
+                "updated": 1645182024693
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -13,7 +30,24 @@
         {
             "style": "Success",
             "text": "Learn more about how Token Power Flows into these programs!",
-            "updated": 1630226462874
+            "updated": 1630226462874,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узнайте больше о том, как токен перетекает в эти программы Token Power Flows!",
+                    "updated": 1638986151659
+                },
+                {
+                    "language": "DE",
+                    "text": "Erfahren Sie mehr darüber, wie Token Power Flows in diese Programme fließt!",
+                    "updated": 1640304209039
+                },
+                {
+                    "language": "TR",
+                    "text": "Token Gücünün bu programlara nasıl aktığı hakkında daha fazla bilgi edinin!",
+                    "updated": 1645182042552
+                }
+            ]
         },
         {
             "style": "Block",
@@ -21,7 +55,19 @@
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1638986163127
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırma",
+                    "updated": 1645182051884
+                }
+            ]
         }
     ]
 }

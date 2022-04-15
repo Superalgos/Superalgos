@@ -13,9 +13,9 @@ exports.newPlatformApp = function newPlatformApp() {
                 console.log("The Superalgos Platform Client cannot be started. Reason: the port configured migth be being used by another application, or Superalgos Platform Client might be already running.")
                 return
             }
-            console.log('[ERROR] Platform App -> uncaughtException -> err.message = ' + err.message)
-            console.log('[ERROR] Platform App -> uncaughtException -> err.stack = ' + err.stack)
-            console.log('[ERROR] Platform App -> uncaughtException -> err = ' + err)
+            console.log((new Date()).toISOString(), '[ERROR] Platform App -> uncaughtException -> err.message = ' + err.message)
+            console.log((new Date()).toISOString(), '[ERROR] Platform App -> uncaughtException -> err.stack = ' + err.stack)
+            console.log((new Date()).toISOString(), '[ERROR] Platform App -> uncaughtException -> err = ' + err)
             process.exit(1)
         })
 
@@ -23,11 +23,11 @@ exports.newPlatformApp = function newPlatformApp() {
             // Signal user that a necessary node module is missing
             if (reason.code == 'MODULE_NOT_FOUND') {
                 console.log("[ERROR] Dependency library not found. Please try running the 'node setup' command and then restart the Superalgos Platform Client.")
-                console.log('[ERROR] Platform App -> reason = ' + JSON.stringify(reason))
+                console.log((new Date()).toISOString(), '[ERROR] Platform App -> reason = ' + JSON.stringify(reason))
                 process.exit(1)
             }
-            console.log('[ERROR] Platform App -> unhandledRejection -> reason = ' + JSON.stringify(reason))
-            console.log('[ERROR] Platform App -> unhandledRejection -> p = ' + JSON.stringify(p))
+            console.log((new Date()).toISOString(), '[ERROR] Platform App -> unhandledRejection -> reason = ' + JSON.stringify(reason))
+            console.log((new Date()).toISOString(), '[ERROR] Platform App -> unhandledRejection -> p = ' + JSON.stringify(p))
             process.exit(1)
         })
         try {
@@ -69,6 +69,7 @@ exports.newPlatformApp = function newPlatformApp() {
             let CCXT_SERVER = require('./Client/ccxtServer.js')
             let WEB3_SERVER = require('./Client/web3Server.js')
             let GITHUB_SERVER = require('./Client/githubServer.js')
+            let BITCOIN_FACTORY_SERVER = require('./Client/bitcoinFactoryServer.js')
 
             /* Network Interfaces */
             let WEB_SOCKETS_INTERFACE = require('./Client/webSocketsInterface.js')
@@ -130,6 +131,11 @@ exports.newPlatformApp = function newPlatformApp() {
             PL.servers.GITHUB_SERVER.run()
             console.log('Github Server ............................................... Started')
 
+            PL.servers.BITCOIN_FACTORY_SERVER = BITCOIN_FACTORY_SERVER.newBitcoinFactoryServer()
+            PL.servers.BITCOIN_FACTORY_SERVER.initialize()
+            PL.servers.BITCOIN_FACTORY_SERVER.run()
+            console.log('Bitcoin Factory Server ...................................... Started')
+
             console.log('')
             console.log('SUPERALGOS PLATFORM CLIENT INTERFACES:')
             console.log('')
@@ -140,9 +146,10 @@ exports.newPlatformApp = function newPlatformApp() {
             HTTP_INTERFACE = HTTP_INTERFACE.newHttpInterface()
             HTTP_INTERFACE.initialize(initialWorkspace)
             console.log('Http Interface .............................................. Listening at port ' + global.env.PLATFORM_HTTP_INTERFACE_PORT)
+            console.log('Initial Workspace............................................ ' + initialWorkspace.project + ' ' + initialWorkspace.name)
 
             console.log('')
-            console.log("You are running Superalgos Platform v.1.0")
+            console.log("You are running Superalgos Platform " + SA.version)
             console.log('')
             console.log("What's new? These are the main new features in this version:")
             console.log('')
@@ -159,7 +166,7 @@ exports.newPlatformApp = function newPlatformApp() {
             console.log('')
 
         } catch (err) {
-            console.log('[ERROR] Platform App -> Error = ' + err.stack)
+            console.log((new Date()).toISOString(), '[ERROR] Platform App -> Error = ' + err.stack)
         }
     }
 }

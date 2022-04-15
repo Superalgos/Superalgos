@@ -1,0 +1,70 @@
+{
+    "topic": "Polus Data Mine",
+    "pageNumber": "18",
+    "type": "Probabilities: Min Sigma",
+    "definition": {
+        "text": "This is an indicator that uses the candle minimum, a Moving Average (MA) of 20 periods and Standard Deviation to calculate it's output value."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Min Sigma on the Charts"
+        }, 
+        {
+            "style": "Text",
+            "text": "This indicator produces an output value, Z, by using the a 20MA, the sigma (standard deviation) value: Z = (candle.min - 20MA) / sigma"
+        }, 
+		{
+            "style": "Text",
+            "text": "A strike value is also available, which could be used as a trailing stop loss."
+        },   
+		{
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-Probability-Min-Sigma.png"
+        },
+		{
+            "style": "Text",
+            "text": "The length of the calculation can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \u2019SMin sigma probability\u2019 Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-Probability-Min-Sigma-params.png"
+        },
+		{
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Min sigma probability | Min_Sigma | Z, strike |"
+        },
+		{
+            "style": "Text",
+            "text": "Example:"
+        },
+		{
+            "style": "Text",
+            "text": "A simple buy signal could be triggered when the signal line crosses the red -2.34 line from below:"
+        },
+		{
+            "style": "Javascript",
+            "text": "chart.at01hs.Min_Sigma.previous.Z < -2.34 && chart.at01hs.Min_Sigma.Z > -2.34"
+        },
+		{
+            "style": "Javascript",
+            "text": "\\\\stop loss value\nchart.at01hs.Min_Sigma.strike"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@ThomasHuault (Telegram)->t.me/ThomasHuault"
+        }
+    ]
+}

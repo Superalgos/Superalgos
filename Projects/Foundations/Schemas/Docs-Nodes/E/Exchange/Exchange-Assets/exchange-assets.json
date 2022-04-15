@@ -2,7 +2,14 @@
     "type": "Exchange Assets",
     "definition": {
         "text": "The exchange assets node groups the definitions of assets that may be used to define markets under the Exchange Markets node.",
-        "updated": 1609771958983
+        "updated": 1609771958983,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Exchange Assets группирует определения активов, которые могут использоваться для определения рынков в узле Exchange Markets.",
+                "updated": 1638783148188
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -12,16 +19,37 @@
         {
             "style": "Title",
             "text": "Exchange Assets Configuration",
-            "updated": 1609771814727
+            "updated": 1609771814727,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Exchange Assets",
+                    "updated": 1638783162737
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609771820241
+            "updated": 1609771820241,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1638783171656
+                }
+            ]
         },
         {
             "style": "List",
-            "text": " addMissingAssets acts as a filter to determine which assets of a (potentially long) list of assets listed at the exchange will be added when the Add Missing Assets* option in the menu is used. Because many exchanges do not offer a list of assets, the system fetches assets from actual markets (pairs) listed at the exchange. You may add missing assets filtered by the quotedAsset or by the baseAsset. For example, the above configuration would add all assets listed in markets in which BTC is the quoted asset."
+            "text": " addMissingAssets acts as a filter to determine which assets of a (potentially long) list of assets listed at the exchange will be added when the Add Missing Assets* option in the menu is used. Because many exchanges do not offer a list of assets, the system fetches assets from actual markets (pairs) listed at the exchange. You may add missing assets filtered by the quotedAsset or by the baseAsset. For example, the above configuration would add all assets listed in markets in which BTC is the quoted asset.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "addMissingAssets действует как фильтр, чтобы определить, какие активы из (потенциально длинного) списка активов, перечисленных на бирже, будут добавлены при использовании параметра Add Missing Assets* в меню. Поскольку многие биржи не предлагают список активов, система извлекает активы с реальных рынков (торговых пар), котирующихся на бирже. Вы можете добавить недостающие активы, отфильтрованные по quotedAsset или baseAsset. Например, приведенная выше конфигурация добавит все активы, перечисленные на рынках, на которых BTC является котируемым активом.",
+                    "updated": 1638783327797
+                }
+            ]
         }
     ]
 }

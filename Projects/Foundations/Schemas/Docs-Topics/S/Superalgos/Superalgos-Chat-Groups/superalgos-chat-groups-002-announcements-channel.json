@@ -4,7 +4,19 @@
     "type": "Announcements Channel",
     "definition": {
         "text": "This is the official channel broadcasting news about releases, hot fixes, and critical info.",
-        "updated": 1618833395055
+        "updated": 1618833395055,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Bu  kanal, Superalgos'un yeni sürümleri, düzeltmeler ve kritik bilgiler hakkında haber yayınlayan resmi kanaldır.",
+                "updated": 1639389637191
+            },
+            {
+                "language": "RU",
+                "text": "Это официальный канал, транслирующий новости о релизах, срочных исправлениях и важную информацию.",
+                "updated": 1640353465085
+            }
+        ]
     },
     "paragraphs": [
         {

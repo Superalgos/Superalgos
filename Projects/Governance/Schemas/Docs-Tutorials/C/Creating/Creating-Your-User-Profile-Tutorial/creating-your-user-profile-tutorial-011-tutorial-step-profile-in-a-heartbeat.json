@@ -15,6 +15,21 @@
                 "text": "El Profile Constructor es el dispositivo que utilizarás para configurar tu perfil.",
                 "updated": 1630882802325,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Profil Oluşturucu ( Profile Constructor ), profilinizi ayarlamak için kullanacağınız aygıttır.",
+                "updated": 1637160279537
+            },
+            {
+                "language": "RU",
+                "text": "Конструктор профиля Profile Constructor- это устройство, которое вы будете использовать для настройки своего профиля.",
+                "updated": 1639046904844
+            },
+            {
+                "language": "DE",
+                "text": "Der Profile Constructor ist das Gerät, das Sie zum Einrichten Ihres Profils verwenden.",
+                "updated": 1640072911650
             }
         ]
     },
@@ -29,6 +44,21 @@
                     "text": "Crearás una billetera Binance Smart Chain única que está conectada con tu perfil: tu Governance Address.",
                     "updated": 1630886603829,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Profilinizle bağlantılı benzersiz bir Binance Akıllı Zincir cüzdanı oluşturacaktır: Yönetim Adresiniz. (Governance Address )",
+                    "updated": 1637160319359
+                },
+                {
+                    "language": "RU",
+                    "text": "Он создаст уникальный кошелек Binance Smart Chain, связанный с вашим профилем: вашим управленческим адресом Governance Address.",
+                    "updated": 1639046965050
+                },
+                {
+                    "language": "DE",
+                    "text": "Er erstellt eine einzigartige Binance Smart Chain-Brieftasche, die mit Ihrem Profil verbunden ist: Ihre Governance Adresse.",
+                    "updated": 1640072931374
                 }
             ]
         },
@@ -42,6 +72,21 @@
                     "text": "Sin embargo, si ya posees una billetera BSC, tendrás la opción de vincular esa dirección en lugar de crear una nueva.",
                     "updated": 1630886627305,
                     "style": "Note"
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Ancak, zaten bir BSC cüzdanınız varsa, yeni bir adres oluşturmak yerine bu adresi bağlama seçeneğiniz vardır.",
+                    "updated": 1637160351309
+                },
+                {
+                    "language": "RU",
+                    "text": "Однако, если у вас уже есть кошелек BSC, у вас будет возможность связать этот адрес вместо создания нового.",
+                    "updated": 1639046984711
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie jedoch bereits ein BSC-Wallet besitzen, haben Sie die Möglichkeit, diese Adresse zu verknüpfen, anstatt eine neue zu erstellen.",
+                    "updated": 1640072963422
                 }
             ]
         },
@@ -55,6 +100,21 @@
                     "text": "Tu Governance Address te permitirá recibir los tokens SA que ganes. Superalgos leerá el saldo de esta dirección para conocer la cantidad de Tokens SA que tiene y le asignará a tu perfil una cantidad equivalente de Token Power.",
                     "updated": 1630886677089,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Yönetim Adresiniz ( Governance Address ), kazandığınız SA Jetonlarını alabilmeniz için gereklidir. Superalgos, sahip olduğunuz SA Tokenlerinin sayısından haberdar olmak için bu adresin bakiyesini okuyacak ve profilinize eşdeğer miktarda Token Gücü ( Token Power ) atayacaktır.",
+                    "updated": 1637160430015
+                },
+                {
+                    "language": "RU",
+                    "text": "Ваш адрес управления Governance Address позволит вам получать заработанные вами токены SA. Superalgos прочитает баланс этого адреса, чтобы узнать количество токенов SA, которые у вас есть, и назначит вашему профилю эквивалентное количество Token Power.",
+                    "updated": 1639047055474
+                },
+                {
+                    "language": "DE",
+                    "text": "Ihre Governance Address ermöglicht es Ihnen, die SA-Token zu erhalten, die Sie verdienen. Superalgos liest den Kontostand dieser Adresse aus, um die Anzahl der von Ihnen gehaltenen SA-Token zu erfahren, und weist Ihrem Profil eine entsprechende Menge an Token Power zu.",
+                    "updated": 1640900909908
                 }
             ]
         }

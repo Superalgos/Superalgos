@@ -1,0 +1,46 @@
+{
+    "topic": "quantum Data Mine",
+    "pageNumber": 1,
+    "type": "quantum By @quantum8",
+    "definition": {
+        "text": "This data mine includes trend indicators such as Keltner Channel, Moving Volume Weighted Average Price (MVWAP), Parabolic Stop and Reverse (PSAR), a buy/sell inducator BeepBoop, and two indicators designed to help gauge trending or consolidating markets; Choppy and Chop Index.",
+        "updated": 1611685345604,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "В эти источники данных входят такие трендовые индикаторы, как канал Кельтнера, средневзвешенная цена скользящего объема (MVWAP), параболический стоп и реверс (PSAR), индуктор покупки/продажи BeepBoop, а также два индикатора, предназначенные для оценки трендовых или консолидирующихся рынков: Choppy и Chop Index.",
+                "updated": 1646897591284
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The quantum data mine is brought to you by...",
+            "updated": 1611685372883,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Источник данных quantum предоставлен вам...",
+                    "updated": 1646897635744
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8->github.com/quantum8/",
+            "updated": 1611685413223
+        },
+        {
+            "style": "Success",
+            "text": "Collaborate with this data mine and report issues directly at the Superalgos repository.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Участвуйте в работе с этим источником данных и сообщайте о проблемах непосредственно в хранилище Superalgos.",
+                    "updated": 1646897680707
+                }
+            ]
+        }
+    ]
+}

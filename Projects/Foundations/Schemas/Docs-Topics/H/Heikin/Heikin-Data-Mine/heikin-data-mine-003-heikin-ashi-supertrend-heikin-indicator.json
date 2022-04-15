@@ -1,0 +1,222 @@
+{
+    "topic": "Heikin Data Mine",
+    "pageNumber": 3,
+    "type": "Heikin Ashi Supertrend - Heikin Indicator",
+    "definition": {
+        "text": "Produce the supertrend indicator using the Heikin Ashi Candles as a basis for its calcuations.",
+        "updated": 1636853769,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Создайте индикатор супертренда, используя свечи Heikin Ashi в качестве основы для своих расчетов.",
+                "updated": 1643521546610
+            },
+            {
+                "language": "DE",
+                "text": "Erstellen Sie den Supertrend Indikator, indem Sie die Heikin Ashi Candles als Grundlage für seine Berechnungen verwenden.",
+                "updated": 1644726217034
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Heikin Ashi Supertrend On the Charts",
+            "updated": 1636853769,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Heikin Ashi Supertrend на графиках",
+                    "updated": 1643521773020
+                },
+                {
+                    "language": "DE",
+                    "text": "Heikin Ashi Supertrend auf den Charts",
+                    "updated": 1644726227771
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "A supertrend is a trend following indicator similar to moving averages. It is plotted on price and the current trend can simply be determined by its placement; a green lin below the price action is an uptrend, and a red line above the price action is a downtrend.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Супертренд - это индикатор следования за трендом, похожий на скользящие средние. Он строится на цене, и текущий тренд можно определить просто по его расположению; зеленая линия под ценовым действием - это восходящий тренд, а красная линия над ценовым действием - нисходящий тренд.",
+                    "updated": 1643521573235
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein Supertrend ist ein Trendfolgeindikator, der den gleitenden Durchschnitten ähnelt. Er wird auf den Kurs aufgetragen, und der aktuelle Trend kann einfach durch seine Platzierung bestimmt werden; eine grüne Linie unter dem Kursverlauf ist ein Aufwärtstrend, und eine rote Linie über dem Kursverlauf ist ein Abwärtstrend.",
+                    "updated": 1644726253637
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/heikin-supertrend-on-the-chart.png",
+            "updated": 1644726129696
+        },
+        {
+            "style": "Text",
+            "text": "This supertrend indicator uses Heikin Ashi candles instead of standard candles to calculate the average true range (ATR) before calculating the final trend values.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Этот индикатор супертрендов использует свечи Heikin Ashi вместо стандартных свечей для расчета среднего истинного диапазона (ATR) перед вычислением окончательных значений тренда.",
+                    "updated": 1643521599512
+                },
+                {
+                    "language": "DE",
+                    "text": "Dieser Supertrend Indikator verwendet Heikin Ashi Kerzen anstelle von Standardkerzen, um die durchschnittliche wahre Spanne (ATR) zu berechnen, bevor die endgültigen Trendwerte ermittelt werden.",
+                    "updated": 1644726266388
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "To change the parameters needed for the calculation as per your needs, locate and open the Javascript Code under Data Building Procedure -> Procedure Loop under \"Super Trend Heikin\" Product Definition. The two configurable parameters are:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы изменить параметры, необходимые для расчета в соответствии с вашими потребностями, найдите и откройте Javascript Code в разделе Data Building Procedure -> Procedure Loop в определении продукта \"Super Trend Heikin\". Двумя настраиваемыми параметрами являются:",
+                    "updated": 1643521652109
+                },
+                {
+                    "language": "DE",
+                    "text": "Um die für die Berechnung benötigten Parameter nach Ihren Bedürfnissen zu ändern, öffnen Sie den Javascript Code unter Data Building Procedure -> Procedure Loop unter \"Super Trend Heikin\" Product Definition. Die beiden konfigurierbaren Parameter sind:",
+                    "updated": 1644726284611
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Nperiod: the ATR length",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Nperiod: длина ATR",
+                    "updated": 1643521660297
+                },
+                {
+                    "language": "DE",
+                    "text": "<b>Nperiod:</b> die ATR Länge",
+                    "updated": 1644726296110
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "multiplier: the ATR multiplier",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "multiplier: множитель ATR",
+                    "updated": 1643521666318
+                },
+                {
+                    "language": "DE",
+                    "text": "<b>multiplier:</b> der ATR Multiplikator",
+                    "updated": 1644726308465
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/heikin-supertrend-params.png",
+            "updated": 1636853769
+        },
+        {
+            "style": "Title",
+            "text": "Heikin Super Trend Products & Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты и свойства Heikin Super Trend",
+                    "updated": 1643521685547
+                },
+                {
+                    "language": "DE",
+                    "text": "Heikin Super Trend Produkte & Eigenschaften",
+                    "updated": 1644726320207
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "There are five properties available:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Имеется пять свойств:",
+                    "updated": 1643521712246
+                },
+                {
+                    "language": "DE",
+                    "text": "Es sind fünf Eigenschaften verfügbar:",
+                    "updated": 1644726336076
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Super Trend Heikin | HeikinsuperTrend | trend, uptrend, downtrend, atrNPeriod, trueRange |",
+            "updated": 1636853769,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| Super Trend Heikin | HeikinsuperTrend | trend, uptrend, downtrend, atrNPeriod, trueRange |\n",
+                    "updated": 1644726349634
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Examples:",
+            "updated": 1636853769,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Примеры:",
+                    "updated": 1643521722788
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiele:",
+                    "updated": 1644726364700
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.HeikinsuperTrend.trend == 1",
+            "updated": 1636853769
+        },
+        {
+            "style": "Text",
+            "text": "Trend is downward, and price action remains under the trendline:",
+            "updated": 1636853769,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Тренд нисходящий, и ценовое движение остается под линией тренда:",
+                    "updated": 1643521744471
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Tendenz ist abwärts gerichtet, und der Kurs bewegt sich weiterhin unterhalb der Trendlinie:",
+                    "updated": 1644726387586
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at15min.HeikinsuperTrend.trend == -1 && ( chart.at15min.candle.max < chart.at15min.HeikinsuperTrend.downtrend)",
+            "updated": 1636853769
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

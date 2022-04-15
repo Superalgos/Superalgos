@@ -15,6 +15,21 @@
                 "text": "Entonces que estamos esperando. ¡Empecemos! Para participar en la gobernanza, necesitarás un User Profile.",
                 "updated": 1630874855704,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Peki ne bekliyoruz? Başlayalım! Yönetime katılmak için bir Kullanıcı Profiline ( User Profile ) ihtiyacınız olacak.",
+                "updated": 1637159477888
+            },
+            {
+                "language": "RU",
+                "text": "Так чего же мы ждем? Давайте начнем! Для участия в управлении вам потребуется профиль пользователя User Profile.",
+                "updated": 1639045468025
+            },
+            {
+                "language": "DE",
+                "text": "Worauf warten wir also noch? Fangen wir an! Um an der Governance teilnehmen zu können, benötigen Sie ein Benutzerprofil ( User Profile ).",
+                "updated": 1640072652939
             }
         ]
     },
@@ -29,6 +44,21 @@
                     "text": "Tu perfil está configurado como el resto del sistema Superalgos. Es una jerarquía de nodos. Solo esta jerarquía define cómo pretende utilizar el Token Power que has ganado o que otros usuarios te delegan.",
                     "updated": 1630875440411,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Profiliniz tıpkı Superalgos sisteminin geri kalanda olduğu gibi kurulur. Bu bir düğüm hiyerarşisidir. Yalnızca bu hiyerarşi, kazandığınız veya diğer kullanıcılar tarafından size devredilen Token Gücünü ( Token Power ) nasıl kullanmayı planladığınızı tanımlar.",
+                    "updated": 1637159542629
+                },
+                {
+                    "language": "RU",
+                    "text": "Ваш профиль настроен так же, как и остальная часть системы Superalgos. Это иерархия узлов. Только эта иерархия определяет, как вы собираетесь использовать свой Token Power, который вы заработали или делегировали вам другие пользователи.",
+                    "updated": 1639045524305
+                },
+                {
+                    "language": "DE",
+                    "text": "Ihr Profil ist genauso aufgebaut wie der Rest des Superalgos-Systems. Es ist eine Hierarchie von Knotenpunkten. Nur diese Hierarchie legt fest, wie Sie die Token Power, die Sie verdient haben oder die Ihnen von anderen Nutzern übertragen wurde, zu verwenden gedenken.",
+                    "updated": 1640072680734
                 }
             ]
         },
@@ -42,6 +72,21 @@
                     "text": "Al canalizar tu poder simbólico, ayudas a decidir qué partes del sistema se incentivarán para un mayor desarrollo y quiénes serán recompensados ​​por los roles comunitarios que han desempeñado.",
                     "updated": 1630875625415,
                     "style": "Note"
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Token gücünüzü kanalize ederek, sistemin hangi bölümlerinin daha fazla gelişme için teşvik edileceğine ve oynadıkları topluluk rolleri için kimlerin ödüllendirileceğine karar vermeye yardımcı olursunuz.",
+                    "updated": 1637159570272
+                },
+                {
+                    "language": "RU",
+                    "text": "Направляя свои токены, вы помогаете решить, какие части системы будут стимулироваться для дальнейшего развития, а кто будет вознагражден за роль в сообществе, которую они сыграли.",
+                    "updated": 1639045540003
+                },
+                {
+                    "language": "DE",
+                    "text": "Indem Sie Ihre Token-Power kanalisieren, entscheiden Sie mit, welche Teile des Systems Anreize für die Weiterentwicklung erhalten und wer für die von ihm übernommenen Gemeinschaftsaufgaben belohnt wird.",
+                    "updated": 1640072691002
                 }
             ]
         }

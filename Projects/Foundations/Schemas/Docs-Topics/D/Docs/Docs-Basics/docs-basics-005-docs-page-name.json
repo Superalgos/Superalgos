@@ -10,6 +10,16 @@
                 "language": "DE",
                 "text": "Der Name der Dokumentseite ist nicht nur der sichtbare Name einer Seite, der oben als Haupttitel angezeigt wird, sondern auch der eindeutige Bezeichner einer Seite innerhalb eines Project.",
                 "updated": 1633859779373
+            },
+            {
+                "language": "RU",
+                "text": "Docs Page Name - это не только название страницы, отображаемое в качестве основного заголовка вверху, но и уникальный идентификатор страницы в проекте Project.",
+                "updated": 1638460986853
+            },
+            {
+                "language": "TR",
+                "text": "Dokümanlar Sayfa Adı, yalnızca en üstte ana başlık olarak görüntülenen bir sayfanın görünen adı değil, aynı zamanda bir Proje (Project) içindeki bir sayfanın benzersiz tanımlayıcısıdır.",
+                "updated": 1646208148114
             }
         ]
     },
@@ -23,6 +33,16 @@
                     "language": "DE",
                     "text": "Der Seitenname wird immer als Haupttitel der Seite angezeigt, und keine zwei Seiten dürfen denselben Namen haben.",
                     "updated": 1633859841437
+                },
+                {
+                    "language": "RU",
+                    "text": "Название страницы всегда указывается в качестве основного заголовка страницы, и никакие две страницы не могут иметь одинаковое имя.",
+                    "updated": 1638461041771
+                },
+                {
+                    "language": "TR",
+                    "text": "Sayfa adı her zaman sayfanın ana başlığı olarak gösterilir ve aynı ada sahip iki sayfa olamaz.",
+                    "updated": 1646208175568
                 }
             ]
         },
@@ -35,6 +55,16 @@
                     "language": "DE",
                     "text": "Es ist wichtig, bei der Benennung einer Seite an die oben genannten Punkte zu denken. Sie sollten immer einen eindeutigen Namen für die Bezeichnung einer Seite verwenden.",
                     "updated": 1633859935042
+                },
+                {
+                    "language": "RU",
+                    "text": "Важно помнить вышесказанное во время присвоения названия странице. В качестве названия страницы всегда следует использовать однозначное описательное название.",
+                    "updated": 1638461202992
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir sayfaya isim verirken yukarıdakileri hatırlamak önemlidir. Bir sayfanın adı olarak her zaman açıklayıcı bir ad kullanmalısınız.",
+                    "updated": 1646208203734
                 }
             ]
         },
@@ -51,6 +81,16 @@
                     "language": "DE",
                     "text": "Zu diesem Zeitpunkt kann die Seitennummer nicht innerhalb des Docs-Interface geändert werden. Um die Seitennummer zu ändern, müssen Sie die entsprechende Datei manuell ändern, das Feld Seitennummer bearbeiten und die Seitennummer der Seite im Namen der Datei richtig zuordnen.",
                     "updated": 1633860025392
+                },
+                {
+                    "language": "RU",
+                    "text": "На этом этапе название страницы нельзя изменить в интерфейсе документов. Чтобы изменить название страницы, вам необходимо вручную изменить соответствующий файл, отредактировав поле типа и правильно сопоставив название страницы с именем файла.",
+                    "updated": 1638461297941
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu noktada sayfanın adı Docs arayüzünden değiştirilemez. Sayfanın adını değiştirmek için ilgili dosyayı manuel olarak değiştirmeniz, tür alanını düzenlemeniz ve sayfanın adını dosya adına uygun şekilde eşleştirmeniz gerekir.",
+                    "updated": 1646208242345
                 }
             ]
         },

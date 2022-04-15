@@ -1,10 +1,10 @@
 exports.newMultiProject = function () {
-
+ 
     let thisObject = {
         initialize: initialize
     }
 
-    return thisObject;
+    return thisObject
 
     function initialize(rootObject, rootObjectName) {
         /*

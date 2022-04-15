@@ -72,7 +72,7 @@ function loadSuperalgos() {
     function setupHTMLTextArea() {
         let textArea = document.createElement('textarea')
         textArea.id = "textArea"
-        textArea.spellcheck = false
+        textArea.spellcheck = true
         textArea.style = 'resize: none;' +
             ' border: none;' +
             ' outline: none;' +
@@ -93,7 +93,7 @@ function loadSuperalgos() {
     function setupHTMLInput() {
         let input = document.createElement('input')
         input.id = "input"
-        input.spellcheck = false
+        input.spellcheck = true
         input.style = "border: none; outline: none; box-shadow: none; overflow:hidden;  width: 0px; height: 0px;"
 
         let inputDiv = document.getElementById('inputDiv')
@@ -151,11 +151,11 @@ function httpRequest(pContentToSend, pPath, callBackFunction) {
             try {
                 callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, xmlHttpRequest.responseText)
             } catch(err) {
-                console.log('[ERROR] httpRequest -> httpRequest -> err.stack = '+ err.stack)
-                console.log('[ERROR] httpRequest -> httpRequest -> pContentToSend = '+ pContentToSend)
-                console.log('[ERROR] httpRequest -> httpRequest -> pPath = '+ pPath)
-                console.log('[ERROR] httpRequest -> httpRequest -> xmlHttpRequest.responseText = '+ xmlHttpRequest.responseText)
-                console.log('[ERROR] httpRequest -> httpRequest -> callBackFunction = '+ callBackFunction)
+                console.log((new Date()).toISOString(), '[ERROR] httpRequest -> httpRequest -> err.stack = '+ err.stack)
+                console.log((new Date()).toISOString(), '[ERROR] httpRequest -> httpRequest -> pContentToSend = '+ pContentToSend)
+                console.log((new Date()).toISOString(), '[ERROR] httpRequest -> httpRequest -> pPath = '+ pPath)
+                console.log((new Date()).toISOString(), '[ERROR] httpRequest -> httpRequest -> xmlHttpRequest.responseText = '+ xmlHttpRequest.responseText)
+                console.log((new Date()).toISOString(), '[ERROR] httpRequest -> httpRequest -> callBackFunction = '+ callBackFunction)
 
             }
             return
@@ -178,4 +178,37 @@ function httpRequest(pContentToSend, pPath, callBackFunction) {
             callBackFunction({ result: "Fail", message: err.message })
         }
     }
+}
+
+function httpRequestAsync(pContentToSend, pPath) {
+    return new Promise((resolve, reject) => {
+        let xmlHttpRequest = new XMLHttpRequest()
+
+        function xhrSuccess() {
+            if (xmlHttpRequest.readyState === 4) {
+                if (xmlHttpRequest.status === 200) {
+                    resolve({result: 'Ok', message: xmlHttpRequest.responseText})
+                } else {
+                    reject({result: 'Fail', message: xmlHttpRequest.responseText})
+                }
+            }
+        }
+        
+        function xhrError() {
+            reject({result: 'Fail', message: xmlHttpRequest.responseText})
+        }
+
+        if (pContentToSend === undefined) {
+            xmlHttpRequest.open("GET", pPath, true)
+            xmlHttpRequest.send()
+            xmlHttpRequest.onload = xhrSuccess
+            xmlHttpRequest.onerror = xhrError
+        } else {
+            let blob = new Blob([pContentToSend], { type: 'text/plain' })
+            xmlHttpRequest.open("POST", pPath, true)
+            xmlHttpRequest.send(blob)
+            xmlHttpRequest.onload = xhrSuccess
+            xmlHttpRequest.onerror = xhrError
+        }
+    })
 }

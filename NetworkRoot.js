@@ -47,27 +47,28 @@ exports.newNetworkRoot = function newNetworkRoot() {
             fs: require('fs'),
             path: require('path'),
             util: require('util'),
-            http: require('http'),            
+            http: require('http'),
             nodeFetch: require('node-fetch'),
             web3: require('web3'),
             ws: require('ws'),
-            simpleGit: require('simple-git')
+            simpleGit: require('simple-git'),
+            graphql: require("@octokit/graphql"),
+            axios: require('axios')
         }
+        SA.version = require('./package.json').version
+        /* 
+        Setting up the App Schema Memory Map. 
+        */
+        let APP_SCHEMAS = require('./AppSchemas.js')
+        let APP_SCHEMAS_MODULE = APP_SCHEMAS.newAppSchemas()
+        await APP_SCHEMAS_MODULE.initialize()
         /*
         Setting up Secrets.
         */
-        SA.secrets = {
-            array: require('./My-Secrets/Secrets.json').secrets,
-            map: new Map()
-        }
-        for (let i = 0; i < SA.secrets.array.length; i++) {
-            let secret = SA.secrets.array[i]
-            SA.secrets.map.set(secret.signingAccountChildCodeName, secret)
-        }
+        let SECRETS = require('./Secrets.js').newSecrets()
+        SECRETS.initialize()
 
-        NT.app = require('./Network/NetwokNode.js').newNetworkNode()
+        NT.app = require('./Network/NetwokApp.js').newNetworkApp()
         NT.app.run()
-
-        console.log('Superalgos Network is Running.')
     }
 }

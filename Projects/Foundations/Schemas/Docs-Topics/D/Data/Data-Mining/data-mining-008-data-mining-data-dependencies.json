@@ -10,6 +10,16 @@
                 "language": "DE",
                 "text": "Indicator-Bots haben Datenabhängigkeiten. Das bedeutet, dass sie ihren Input als Datasets (Datensätze) erhalten, die von anderen Bots erstellt wurden.",
                 "updated": 1634844427000
+            },
+            {
+                "language": "RU",
+                "text": "Боты Indicator Bots имеют зависимости данных. Это означает, что они получают свои входные данные в виде наборов данных, созданных другими ботами.",
+                "updated": 1639412146516
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Gösterge Botlarının veri bağımlılıkları vardır. Bu, girdilerini diğer Botlar tarafından oluşturulan Veri Kümeleri olarak aldıkları anlamına gelir.",
+                "updated": 1645902637524
             }
         ]
     },
@@ -23,6 +33,16 @@
                     "language": "DE",
                     "text": "Data Dependency Tree (Datenabhängigkeitsbaum):",
                     "updated": 1634845933837
+                },
+                {
+                    "language": "RU",
+                    "text": "Дерево зависимостей данных",
+                    "updated": 1639412156644
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri Bağımlılığı Ağacı",
+                    "updated": 1645902655505
                 }
             ]
         },
@@ -35,6 +55,16 @@
                     "language": "DE",
                     "text": "Sie können Datenabhängigkeiten als eine Art von Beziehung zwischen Bots betrachten. Bots, die Rohdaten produzieren (Sensor Bot und API Data Fetcher Bot), haben diese nicht, da ihre Aufgabe darin besteht, Daten aus einer externen Quelle zu extrahieren. Gleichzeitig sind sie aber auch die Wurzel des Beziehungsbaums der Datenabhängigkeit. Dieser Baum ist dem Ausführungsbaum sehr ähnlich, aber anstatt zu beschreiben, wie Bots ausgeführt werden, beschreibt er, wie Bots Datenprodukte senden und empfangen.",
                     "updated": 1634846209261
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы можете думать о зависимостях данных как о типе отношений между ботами. Боты, производящие необработанные данные (Sensor Bot и API Data Fetcher Bot), не имеют их, поскольку их задача - извлекать данные из внешнего источника. В то же время они также являются корнем дерева отношений зависимости данных. Это дерево очень похоже на дерево выполнения, но вместо описания того, как работают боты, оно описывает, как боты отправляют и получают продукты данных Data Products.",
+                    "updated": 1639412290651
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri bağımlılıklarını botlar arasındaki bir tür ilişki olarak düşünebilirsiniz. Ham veri üreten botlar (Sensör Botu ve API Veri Alıcı Botu (Sensor Bot and API Data Fetcher Bot) ), işleri harici bir kaynaktan veri çıkarmak olduğundan bunlara sahip değildir. Aynı zamanda, veri bağımlılığı ilişki ağacının da köküdürler. Bu ağaç, yürütme ağacına çok benzer, ancak botların nasıl çalıştığını açıklamak yerine, botların Veri Ürünlerini nasıl gönderip aldığını açıklar.",
+                    "updated": 1645902724348
                 }
             ]
         },
@@ -47,6 +77,16 @@
                     "language": "DE",
                     "text": "Definieren von Data Dependencies (Datenabhängigkeiten):",
                     "updated": 1634846239206
+                },
+                {
+                    "language": "RU",
+                    "text": "Определение зависимостей данных",
+                    "updated": 1639412309949
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri Bağımlılıklarının Tanımlanması",
+                    "updated": 1645902750812
                 }
             ]
         },
@@ -58,6 +98,16 @@
                     "language": "DE",
                     "text": "Die Definition der Datenabhängigkeiten erfolgt auf der Ebene der Process Definition. Jeder Prozess kann seinen eigenen Satz von Datenabhängigkeiten (Data Dependencies) haben. Das bedeutet, dass ein einzelner Bot viele unterschiedliche Abhängigkeiten haben kann, je nach der Anzahl der Prozessdefinitionen, die er enthält.",
                     "updated": 1634846341180
+                },
+                {
+                    "language": "RU",
+                    "text": "Определение зависимостей данных проводится на уровне определения процесса Process Definition. У каждого процесса может быть свой набор зависимостей данных. Это означает, что один бот может иметь множество различных зависимостей в зависимости от количества содержащихся в нем определений процессов.",
+                    "updated": 1639412371865
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri bağımlılıklarının tanımı, İşlem Tanımı ( Process Definition ) düzeyinde tutulur. Her işlemin kendi veri bağımlılıkları olabilir. Bu, tek bir botun içerdiği İşlem Tanımlarının sayısına bağlı olarak birçok farklı bağımlılığı olabileceği anlamına gelir.",
+                    "updated": 1645902797643
                 }
             ]
         },
@@ -70,6 +120,16 @@
                     "language": "DE",
                     "text": "Darüber hinaus ist es möglich, dass ein einzelner Bot-Prozess mehr als eine Datenabhängigkeit(Data Dependencies) hat (vom selben Bot oder von verschiedenen Bots). Das ist besonders nützlich, um Daten aus vielen Datensätzen in einem anderen zu aggregieren. Die abhängigen Datensätze können zu Bots in derselben Data Mine oder zu Bots in anderen Data Mines gehören.",
                     "updated": 1634846512050
+                },
+                {
+                    "language": "RU",
+                    "text": "Вдобавок к этому, процесс одного бота может иметь более одной зависимости данных (от одного или разных ботов). Это особенно полезно для агрегирования данных из многих наборов данных в другой. Зависимые наборы данных могут принадлежать ботам в том же Data Mine или ботам в других Data Mine.",
+                    "updated": 1639412463528
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Buna ek olarak, tek bir Bot'un işleminin birden fazla Veri Bağımlılığının ( Data Dependency ) olması mümkündür (aynı Bot'tan veya farklı Botlardan). Bu, birçok veri kümesinden başka bir veri kümesine veri toplamak için özellikle yararlıdır. Bağımlı veri kümeleri, aynı Veri Madenindeki Botlara veya diğer Veri Madenlerindeki ( Data Mines ) botlara ait olabilir.",
+                    "updated": 1645902964554
                 }
             ]
         },
@@ -82,6 +142,16 @@
                     "language": "DE",
                     "text": "Die erste deklarierte Abhängigkeit wird als Main Dependency bezeichnet und hat eine besondere Bedeutung. Sie wird vom Prozess des Bot verwendet, um zu iterieren. Das bedeutet, dass der Prozess eine Schleife über den Datensatz der Main Dependency durchläuft, um den Ausgabedatensatz zu erzeugen. Alle anderen Datenabhängigkeiten werden bei jeder Iteration verwendet, um zusätzliche Daten zu extrahieren.",
                     "updated": 1634846641215
+                },
+                {
+                    "language": "RU",
+                    "text": "Первая объявленная зависимость называется Основной зависимостью и имеет особое значение. Он используется ботом для итерации. Это означает, что процесс будет перебирать набор данных Dataset основной зависимости для создания выходного набора данных. Все остальные зависимости данных будут использоваться на каждой итерации для извлечения дополнительных данных.",
+                    "updated": 1639412570497
+                },
+                {
+                    "language": "TR",
+                    "text": "İlk bildirilen bağımlılığa Ana Bağımlılık denir ve özel bir anlamı vardır. Bot işlemi tarafından yineleme için kullanılır. Bunun anlamı, sürecin çıktı Veri Kümesini ( Dataset ) üretmek için Ana Bağımlılığın Veri Kümesi üzerinde döngü yapmasıdır. Diğer tüm veri bağımlılıkları, ek verileri çıkarmak için her yinelemede kullanılacaktır.",
+                    "updated": 1645903039659
                 }
             ]
         },
@@ -94,6 +164,16 @@
                     "language": "DE",
                     "text": "Wie bei der Bot-Ausführung können sich die abhängigen Datensätze physisch auf demselben Rechner oder auf mehreren verschiedenen Rechnern befinden. Wenn ein Bot jedoch eine Datenabhängigkeit von einem Datensatz hat, der von einem Bot erzeugt wurde, der in einer anderen Data Mine definiert ist, müssen beide Data Mines in dem Arbeitsbereich vorhanden sein, in dem der Bot gestartet werden soll.",
                     "updated": 1634846723896
+                },
+                {
+                    "language": "RU",
+                    "text": "Как и в случае с запуском бота, зависимые наборы данных могут физически располагаться на одном компьютере или на нескольких разных компьютерах. Однако, когда у бота есть зависимость данных для набора данных, созданного ботом, определенным в другом хранилище данных Data Mine, оба хранилища данных должны присутствовать в рабочем пространстве, где будет запускаться бот.",
+                    "updated": 1639412712042
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bot yürütmede olduğu gibi, bağımlı veri kümeleri fiziksel olarak aynı makinede veya birden çok farklı makinede bulunabilir. Ancak, bir Bot, farklı bir Veri Madeninde ( Data Mine ) tanımlanan bir Bot tarafından üretilen bir veri kümesinin Veri Bağımlılığına ( Data Dependency ) sahip olduğunda, her iki Veri Madeni de Bot'un başlatılacağı Çalışma Alanında bulunmalıdır.",
+                    "updated": 1645903108490
                 }
             ]
         },
@@ -106,6 +186,16 @@
                     "language": "DE",
                     "text": "Die Candles Data Mine ist die am häufigsten referenzierte Data Mine, da sie den Candles-Volumes Indicator Bot definiert, der die am häufigsten verwendeten Informationen für Handelssysteme liefert: Candles (Kerzen).",
                     "updated": 1634847014711
+                },
+                {
+                    "language": "RU",
+                    "text": "Candles Data Mine является наиболее упоминаемым Data Mine, потому что он определяет Indicator Bot \"Candles-Volumes\", который производит наиболее используемую информацию для торговых систем: свечи.",
+                    "updated": 1639412819330
+                },
+                {
+                    "language": "TR",
+                    "text": "Mumlar Veri Madeni, ticaret sistemleri için en çok kullanılan bilgiyi üreten Mum-Hacim Gösterge Botunu ( Indicator Bot ) tanımladığı için en çok başvurulan Veri Madenidir: Mumlar.",
+                    "updated": 1645903225920
                 }
             ]
         }

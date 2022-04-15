@@ -4,22 +4,70 @@
     "type": "How to Uninstall an Existing Market",
     "definition": {
         "text": "To uninstall an existing market, select Uninstall Market on the menu of the market you wish to uninstall.",
-        "updated": 1611650874487
+        "updated": 1611650874487,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Чтобы удалить существующий рынок, выберите Uninstall Market в меню рынка, который вы хотите удалить.",
+                "updated": 1640279610900
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Mevcut bir marketi kaldırmak için, kaldırmak istediğiniz marketin menüsünden Market'i Kaldır'ı seçin.",
+                "updated": 1645356814933
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "1. Expand the exchange markets node of your preferred crypto exchange in the crypto ecosystem hierarchy.",
-            "updated": 1611650884837
+            "updated": 1611650884837,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "1. Разверните узел Exchange Markets предпочитаемой вами криптобиржи в иерархии Crypto Ecosystem.",
+                    "updated": 1640279683706
+                },
+                {
+                    "language": "TR",
+                    "text": "1. Kripto ekosistem hiyerarşisinde tercih ettiğiniz kripto borsasının borsa pazarları düğümünü genişletin.",
+                    "updated": 1645356836392
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "2. Select Uninstall Market on the menu of the market you wish to uninstall."
+            "text": "2. Select Uninstall Market on the menu of the market you wish to uninstall.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "2. Выберите Uninstall Market в меню рынка, который вы хотите удалить.",
+                    "updated": 1640279698755
+                },
+                {
+                    "language": "TR",
+                    "text": "2. Kaldırmak istediğiniz marketin menüsünde Market'i Kaldır'ı seçin.",
+                    "updated": 1645356875292
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "The function deletes all the infrastructure associated with the market that may have been created using the Install Market function.",
-            "updated": 1611650909369
+            "updated": 1611650909369,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Функция удаляет всю инфраструктуру, связанную с рынком, которая могла быть создана с помощью функции Install Market.",
+                    "updated": 1640279725717
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: İşlev, Market Yükle işlevi kullanılarak oluşturulmuş olabilecek pazarla ilişkili tüm altyapıyı siler.",
+                    "updated": 1645356895280
+                }
+            ]
         },
         {
             "style": "Text",

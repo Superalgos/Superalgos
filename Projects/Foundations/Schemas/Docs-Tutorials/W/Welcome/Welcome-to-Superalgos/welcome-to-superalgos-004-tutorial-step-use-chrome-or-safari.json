@@ -36,8 +36,8 @@
             },
             {
                 "language": "TR",
-                "text": "Ön ucu çalıştırırken Chrome'u veya Mac'te Safari'yi kullanın! Başka tarayıcılarda test yapmıyoruz!",
-                "updated": 1633119819656,
+                "text": "Superalgos'u çalıştırırken Chrome'u veya Mac'te Safari'yi kullanın! Şu anda başka tarayıcılarda çalıştırmıyoruz!",
+                "updated": 1639118223952,
                 "style": "Definition"
             },
             {
@@ -323,7 +323,7 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Мы предлагаем online поддержку, но мы не можем помочь Вам в работе с каким-либо другим браузером!",
+                    "text": "Мы предлагаем online поддержку, но мы не можем помочь вам в работе с каким-либо другим браузером!",
                     "updated": 1635450697046
                 }
             ]

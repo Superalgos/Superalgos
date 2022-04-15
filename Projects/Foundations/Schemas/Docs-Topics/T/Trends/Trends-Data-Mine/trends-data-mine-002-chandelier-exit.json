@@ -1,0 +1,80 @@
+{
+    "topic": "Trends Data Mine",
+    "pageNumber": "2",
+    "type": "Chandelier Exit",
+    "definition": {
+        "text": "The Chandelier exit - this indicator uses the Average True Range (ATR) to identify stop loss exit points depending on the trend direction of the position taken.",
+        "updated": 1649137916107
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Chandelier Exit on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "Alexander Elder introduced Chuck LeBeau's Chandelier Exits trend-following system in his 2002 book Come Into My Trading Room. Chandelier Exits borrow their name from chandeliers that hang from the ceiling of a house."
+        },
+        {
+            "style": "Text",
+            "text": "Chandelier Exit is based on the Average True Range (ATR) indicator. It is designed to keep traders in the trend until a defined trend reversal happens. Traders use CE to maximize their returns in a trade and make stop loss exit decisions. It is based on the principle that a trend reversal is highly probable when the price of an asset moves against an existing trend up to three times the average volatility. It uses the high and low prices over a defined period of time to compute the CE value."
+        },
+        {
+            "style": "Link",
+            "text": "Chandelier Exit - (Corporate Finance Institute)->corporatefinanceinstitute.com/resources/knowledge/trading-investing/chandelier-exit/"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Trends-Chandelier-Exit.png"
+        },
+        {
+            "style": "Text",
+            "text": "The length of the ATR, and the multiplier can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under ’Chandelier Exit’ Procedure Loop.",
+            "updated": 1648596233940
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Trends-Chandelier-Exit-params.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Chandelier-Exit | CE | longStop, shortStop, dir |"
+        },
+        {
+            "style": "Text",
+            "text": "Examples:"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator can be used for calculating a stop loss value as below:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.CE.longstop"
+        },
+        {
+            "style": "Text",
+            "text": "It could also be used to enter a trade when a candle closes above the stop line and the trend direction is upwards (1):"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at30min.candle.close > chart.at30min.CE.longStop && chart.at30min.CE.dir == 1"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

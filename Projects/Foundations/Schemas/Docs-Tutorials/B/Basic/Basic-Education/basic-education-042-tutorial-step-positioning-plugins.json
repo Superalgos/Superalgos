@@ -6,8 +6,8 @@
         "text": "Here's the crazy bit... the Plugin File Position node determines where in the workspace the plugin is placed!",
         "updated": 1615921131447,
         "icon": {
-            "name": "Plugins\\plugin-file-position",
-            "project": "Foundations"
+            "name": "plugin-file-position",
+            "project": "Community-Plugins"
         },
         "translations": [
             {
@@ -26,6 +26,21 @@
                 "language": "DE",
                 "text": "Jetzt kommt der verrückte Teil... der Knoten Plugin File Position bestimmt, wo im Workspace das Plugin platziert wird!",
                 "updated": 1634588642076
+            },
+            {
+                "language": "TR",
+                "text": "İşte çılgın kısım... Plugin File Position düğümü, eklentinin çalışma alanında nereye yerleştirileceğini belirler!",
+                "updated": 1639812420896
+            },
+            {
+                "language": "RU",
+                "text": "А вот и самое интересное... узел Plugin File Position определяет, в каком месте рабочего пространства размещается плагин!",
+                "updated": 1640873487187
+            },
+            {
+                "language": "ID",
+                "text": "Ini sedikit gila... node Plugin File Position menentukan di mana workspace plugin ditempatkan!",
+                "updated": 1645558221563
             }
         ]
     },
@@ -51,6 +66,21 @@
                     "language": "DE",
                     "text": "Aus diesem Grund finden Sie den Knoten Trading System über dem Knoten Plugin File Position!",
                     "updated": 1634588653804
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu nedenle, Plugin File Position düğümünün üstünde Trading System düğümünü buldunuz!",
+                    "updated": 1639812506781
+                },
+                {
+                    "language": "RU",
+                    "text": "Вот почему вы нашли узел Trading System поверх узла Plugin File Position!",
+                    "updated": 1640873508309
+                },
+                {
+                    "language": "ID",
+                    "text": "Itulah mengapa kamu menemukan node Trading System diatas dari node Plugin File Position!",
+                    "updated": 1645558282845
                 }
             ]
         },
@@ -75,6 +105,21 @@
                     "language": "DE",
                     "text": "Wenn Sie den Knoten Trading System löschen, erscheint er wieder, wenn Sie den Workspace das nächste Mal neu laden! Plugins werden jedes Mal aus der Plugin-Datei geladen, wenn der Workspace geladen wird!",
                     "updated": 1634588661690
+                },
+                {
+                    "language": "TR",
+                    "text": "Trading System düğümünü sildiyseniz, çalışma alanını yeniden yüklediğinizde yeniden görünür! Çalışma alanı her yüklendiğinde eklentiler, eklenti dosyasından yüklenir!",
+                    "updated": 1639813038452
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы удалите узел Trading System, он снова появится при следующей перезагрузке рабочего пространства! Плагины загружаются из файла плагинов при каждой загрузке рабочего пространства!",
+                    "updated": 1640873532831
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika kamu menghapus node Trading System, itu akan muncul lagi saat berikutnya kamu mereload workspace! Plugin dimuat dari file plugin setiap kali workspace dimuat!",
+                    "updated": 1645558356190
                 }
             ]
         },
@@ -99,6 +144,21 @@
                     "language": "DE",
                     "text": "Probieren Sie es einfach aus! Wenn Sie möchten, können Sie den Knoten Trading System löschen und die Seite neu laden. Denken Sie daran, dass Sie das Tutorial zur Grundausbildung finden und im Menü auf Fortsetzen klicken müssen, um fortzufahren!",
                     "updated": 1634588669393
+                },
+                {
+                    "language": "TR",
+                    "text": "Denemekten çekinmeyin! Dilerseniz Trading System düğümünü silebilir ve sayfayı yenileyebilirsiniz. Devam etmek için Temel Eğitim Öğreticisini ( Basic Education Tutorial ) bulmanız ve menüdeki Devam Et' tuşuna  tıklamanız gerekeceğini unutmayın!",
+                    "updated": 1639813134383
+                },
+                {
+                    "language": "RU",
+                    "text": "Не стесняйтесь опробовать его! При желании вы можете удалить узел Trading System и обновить страницу. Имейте в виду, что вам нужно будет найти учебник Basic Education Tutorial и нажать кнопку Resume в меню, чтобы продолжить!",
+                    "updated": 1640873592970
+                },
+                {
+                    "language": "ID",
+                    "text": "Jangan ragu untuk mencobanya! Jika demikian yang kamu inginkan, kamu dapat menghapus node Trading System dan merefresh halaman. Ingatlah bahwa kamu perlu menemukan Basic Education Tutorial dan klik Resume pada menu untuk melanjutkan!",
+                    "updated": 1645558474676
                 }
             ]
         }

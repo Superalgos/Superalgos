@@ -1,0 +1,39 @@
+{
+    "type": "Managed Trading Bot",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Managed Trading Bot Engine",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "managedTradingBotEngine",
+            "relatedUiObject": "Managed Trading Bot Engine",
+            "relatedUiObjectProject": "Portfolio-Management",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Managed Trading Bots->"
+    },
+    "propertyNameAtParent": "managedTradingBots",
+    "childrenNodesProperties": [
+        {
+            "name": "managedTradingBotEngine",
+            "type": "node",
+            "childType": "Managed Trading Bot Engine",
+            "autoAdd": true
+        }
+    ]
+}

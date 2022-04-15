@@ -3,7 +3,24 @@
     "pageNumber": 36,
     "type": "Tutorial Step - Trading Systems Trigger Stage Test",
     "definition": {
-        "text": "This step will play a video in full screen mode."
+        "text": "This step will play a video in full screen mode.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "In diesem Schritt wird ein Video im Vollbildmodus abgespielt.",
+                "updated": 1639266626339
+            },
+            {
+                "language": "RU",
+                "text": "Этот шаг позволит воспроизвести видео в полноэкранном режиме.",
+                "updated": 1640950736222
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu adımda, Video tam ekran modunda oynatılır.",
+                "updated": 1641655475366
+            }
+        ]
     },
     "paragraphs": [
         {

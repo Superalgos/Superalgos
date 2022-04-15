@@ -67,14 +67,14 @@ function newConditionEditor() {
     }
 
     function initialize() {
-        timeFrameIcon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'time-frame')
-        dataMineIcon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'data-mine')
-        botIcon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'indicator-bot')
-        whenIcon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'trigger-on')
-        productIcon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'product-definition')
-        propertyIcon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'record-property')
-        operationIcon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'space-settings')
-        valueIcon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'trading-strategy')
+        timeFrameIcon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'time-frame')
+        dataMineIcon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'data-mine')
+        botIcon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'indicator-bot')
+        whenIcon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'trigger-on')
+        productIcon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'product-definition')
+        propertyIcon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'record-property')
+        operationIcon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'space-settings')
+        valueIcon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'trading-strategy')
     }
 
     function activate(action) {
@@ -537,7 +537,7 @@ function newConditionEditor() {
     function scanDataMines() {
         let selector = {}
 
-        let workspace = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode
+        let workspace = UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode
 
         for (let i = 0; i < workspace.rootNodes.length; i++) {
             let rootNode = workspace.rootNodes[i]
@@ -545,7 +545,7 @@ function newConditionEditor() {
             let dataMine = rootNode
             let dataMineName = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(dataMine.payload, 'codeName')
             selector[dataMineName] = {}
-            let bots = dataMine.sensorBots.concat(dataMine.apiDataFetcherBots).concat(dataMine.indicatorBots)
+            let bots = dataMine.sensorBots.concat(dataMine.apiDataFetcherBots).concat(dataMine.indicatorBots).concat(dataMine.studyBots)
             for (let j = 0; j < bots.length; j++) {
                 let bot = bots[j]
                 let botName = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(bot.payload, 'codeName')

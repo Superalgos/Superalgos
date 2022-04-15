@@ -201,7 +201,7 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                 if (recordProperty.apiResponseFieldReference !== undefined) {
                                     if (recordProperty.apiResponseFieldReference.referenceParent !== undefined) {
                                         let apiResponseField = recordProperty.apiResponseFieldReference.referenceParent
-                                        let endpointNodeFound = TS.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(apiResponseField, 'API Endpoint')
+                                        let endpointNodeFound = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(apiResponseField, 'API Endpoint')
                                         /*
                                         Every Record Property with an apiResponseFieldReference must be on the path 
                                         to a certain endpoint.
@@ -983,6 +983,23 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                     */
                                     let record = getRecord(dataReceivedObject)
                                     let timestamp = record.map.get('timestamp')
+                                    let startStamp = timestamp
+                                    let numberOfDigits = 0
+
+                                    while (startStamp != 0 && startStamp > 1) {
+                                            startStamp = startStamp / 10
+                                            numberOfDigits++
+                                        }
+                                    
+                                    if (numberOfDigits == 10) {
+                                        timestamp = timestamp * 1000
+                                        return timestamp
+                                    }
+
+                                    if (numberOfDigits == 19) {
+                                        timestamp = timestamp / 1000000
+                                        return timestamp
+                                    }
 
                                     if (timestamp === undefined) {
                                         /*

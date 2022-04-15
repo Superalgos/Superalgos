@@ -18,13 +18,18 @@
             },
             {
                 "language": "TR",
-                "text": "Bu video katman yöneticisi ve katanları öğrenmeniz içindir.",
-                "updated": 1636096574908
+                "text": "Bu video katman yöneticisi ve katmanları öğrenmeniz içindir.",
+                "updated": 1639214618551
             },
             {
                 "language": "RU",
                 "text": "Этот шаг воспроизводит видео в полноэкранном режиме.",
                 "updated": 1636566615423
+            },
+            {
+                "language": "ID",
+                "text": "Step ini akan menjalankan video mode layar penuh.",
+                "updated": 1639582632554
             }
         ]
     },

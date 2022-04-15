@@ -1,7 +1,14 @@
 {
     "type": "Rate",
     "definition": {
-        "text": "Rate is the rate at which the order is placed."
+        "text": "Rate is the rate at which the order is placed.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Rate - это ставка (цена), по которой размещается ордер (заявка).",
+                "updated": 1640350111107
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,15 +17,36 @@
         },
         {
             "style": "Text",
-            "text": "By default, it is the rate at the close of the last candle at the moment the order is placed. All market orders have the default rate value."
+            "text": "By default, it is the rate at the close of the last candle at the moment the order is placed. All market orders have the default rate value.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "По умолчанию это курс на момент закрытия последней свечи на момент размещения ордера. Все рыночные ордера имеют значение ставки по умолчанию.",
+                    "updated": 1639379750956
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In the case of limit orders, it is the rate as specified by the formula under the order rate node. If no such definition exists, then limit orders use the default value as well."
+            "text": "In the case of limit orders, it is the rate as specified by the formula under the order rate node. If no such definition exists, then limit orders use the default value as well.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В случае лимитных ордеров это ставка, указанная в формуле для узла Order Rate. Если такого определения не существует, то лимитные ордера также используют значение по умолчанию.",
+                    "updated": 1639379813536
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The rate is used by the system for all internal calculations affecting the accounts kept in both assets."
+            "text": "The rate is used by the system for all internal calculations affecting the accounts kept in both assets.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ставка используется системой для всех внутренних расчетов, влияющих на счета, хранящиеся в обоих активах.",
+                    "updated": 1639379827724
+                }
+            ]
         },
         {
             "style": "Block",
@@ -27,15 +55,36 @@
         {
             "style": "Title",
             "text": "Rate Configuration",
-            "updated": 1609927144593
+            "updated": 1609927144593,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Rate",
+                    "updated": 1639379845782
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Properties"
+            "text": "Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1639379901778
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "initialValue allows resetting the initial state of the node to an arbitrary value."
+            "text": "initialValue allows resetting the initial state of the node to an arbitrary value.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
+                    "updated": 1639379909340
+                }
+            ]
         }
     ]
 }

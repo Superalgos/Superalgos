@@ -4,11 +4,25 @@
         {
             "style": "Text",
             "text": "The node is created automatically when installing new markets.",
-            "updated": 1609784576182
+            "updated": 1609784576182,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узел создается автоматически при установке новых рынков.",
+                    "updated": 1638645041798
+                }
+            ]
         }
     ],
     "definition": {
         "text": "The Bot Layers node is an organizational device used to group layers originating on a specific bot.",
-        "updated": 1609784614091
+        "updated": 1609784614091,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Bot Layers - это организационное устройство, используемое для группировки слоев, происходящих от конкретного бота.",
+                "updated": 1638645008381
+            }
+        ]
     }
 }

@@ -2,7 +2,19 @@
     "type": "Referral Power",
     "definition": {
         "text": "Referral Power is the Token Power that goes into the Referral Program, and determines how strong your participation is in the program.",
-        "updated": 1624782228096
+        "updated": 1624782228096,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Die Referral Power ist die Token Power, die in das Referral Programm einfließt und bestimmt, wie stark Ihre Teilnahme am Programm ist.",
+                "updated": 1640643880353
+            },
+            {
+                "language": "RU",
+                "text": "Реферальная сила (Referral Power) - это сила токенов (Token Power), которая используется в реферальной программе (Referral Program) и определяет, насколько сильным будет ваше участие в программе.",
+                "updated": 1645083187728
+            }
+        ]
     },
     "paragraphs": [
         {

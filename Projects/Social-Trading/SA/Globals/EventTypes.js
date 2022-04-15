@@ -2,18 +2,18 @@ exports.newSocialTradingGlobalsEventTypes = function () {
 
     let thisObject = {
         /* Users Posts and Following Events */
-        NEW_USER_POST: 10,
-        REPLY_TO_USER_POST: 11,
-        REPOST_USER_POST: 12,
-        QUOTE_REPOST_USER_POST: 13,
+        NEW_SOCIAL_PERSONA_POST: 10,
+        REPLY_TO_SOCIAL_PERSONA_POST: 11,
+        REPOST_SOCIAL_PERSONA_POST: 12,
+        QUOTE_REPOST_SOCIAL_PERSONA_POST: 13,
         REMOVE_USER_POST: 14,
         FOLLOW_USER_PROFILE: 15,
         UNFOLLOW_USER_PROFILE: 16,
         /* Bots Posts and Following Events */
-        NEW_BOT_POST: 20,
-        REPLY_TO_BOT_POST: 21,
-        REPOST_BOT_POST: 22,
-        QUOTE_REPOST_BOT_POST: 23,
+        NEW_SOCIAL_TRADING_BOT_POST: 20,
+        REPLY_TO_SOCIAL_TRADING_BOT_POST: 21,
+        REPOST_SOCIAL_TRADING_BOT_POST: 22,
+        QUOTE_REPOST_SOCIAL_TRADING_BOT_POST: 23,
         REMOVE_BOT_POST: 24,
         FOLLOW_BOT_PROFILE: 25,
         UNFOLLOW_BOT_PROFILE: 26,
@@ -38,6 +38,7 @@ exports.newSocialTradingGlobalsEventTypes = function () {
         REMOVE_REACTION_SAD: 204,
         REMOVE_REACTION_ANGRY: 205,
         REMOVE_REACTION_CARE: 206
+        /* Add user profile events */
     }
 
     return thisObject

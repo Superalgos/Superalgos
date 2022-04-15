@@ -1,0 +1,78 @@
+{
+    "topic": "LAN Network",
+    "pageNumber": "11",
+    "type": "Data Mines Data Section",
+    "definition": {
+        "text": "The Data Mines Data section of the hierarchy controls where and how the sensor and indicator bots store the data they produce.",
+        "updated": 1610123085597,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Раздел иерархии Data Mines Data контролирует, где и как боты-сенсоры и индикаторы хранят производимые ими данные.",
+                "updated": 1639561802972
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Data Mines Data->Definition",
+            "updated": 1610123132919
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Data Mines Data->Content",
+            "updated": 1610123146269
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Concept->Reusable Snippets->Note for Hierarchy Tables",
+            "updated": 1610123161131
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Foundations->Data Mines Data->4",
+            "updated": 1610123554732
+        },
+        {
+            "style": "Title",
+            "text": "Project Data Products",
+            "updated": 1610123324369
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Project Data Products->Definition",
+            "updated": 1610123331661
+        },
+        {
+            "style": "Title",
+            "text": "Exchange Data Products",
+            "updated": 1610123361772
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Exchange Data Products->Definition",
+            "updated": 1610123388612
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Exchange Data Products->Content",
+            "updated": 1610123376323
+        },
+        {
+            "style": "Title",
+            "text": "Market Data Products",
+            "updated": 1610123413632
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Market Data Products->Definition",
+            "updated": 1610123424225
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Market Data Products->Content",
+            "updated": 1610123427005
+        }
+    ]
+}

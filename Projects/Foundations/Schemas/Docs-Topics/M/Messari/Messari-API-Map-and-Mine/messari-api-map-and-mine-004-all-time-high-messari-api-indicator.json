@@ -4,33 +4,75 @@
     "type": "All Time High - Messari API Indicator",
     "definition": {
         "text": "Displays and plots the all time high of the current asset.",
-        "updated": 1623067987267
+        "updated": 1623067987267,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Отображает и строит графики всех исторических максимумов текущего актива.",
+                "updated": 1643529057243
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Plotter panel holds the following values:",
-            "updated": 1623068006305
+            "updated": 1623068006305,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Панель плоттера (Plotter Panel) содержит следующие значения:",
+                    "updated": 1643529100658
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Rate: The highest recorded price of the current asset.",
-            "updated": 1623068342701
+            "updated": 1623068342701,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Rate: Самая высокая зарегистрированная цена текущего актива.",
+                    "updated": 1643529112178
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Date at: date the last all time high occurred.",
-            "updated": 1623068385383
+            "updated": 1623068385383,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Date at: дата достижения последнего исторического максимума.",
+                    "updated": 1643529119742
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Days Since:  days since all time high.",
-            "updated": 1623068160790
+            "updated": 1623068160790,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Days Since: количество дней с момента достижения исторического максимума.",
+                    "updated": 1643529166901
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Percent Down: Pecentage down since all time high.",
-            "updated": 1623068139620
+            "updated": 1623068139620,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Percent Down: Снижение доходности с рекордного уровня.",
+                    "updated": 1643529136492
+                }
+            ]
         },
         {
             "style": "Text",

@@ -47,7 +47,7 @@ function newGovernanceReportsCommmandInterface() {
             UI.projects.education.spaces.docsSpace.sidePanelTab.open()
 
             /* Find the Username and Password */
-            let apisNode = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadByNodeType('APIs')
+            let apisNode = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadByNodeType('APIs')
             if (apisNode === undefined) {
                 UI.projects.education.spaces.docsSpace.navigateTo('Governance', 'Topic', 'Gov Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
                 return
@@ -89,8 +89,8 @@ function newGovernanceReportsCommmandInterface() {
 
                 /* Lets check the result of the call through the http interface */
                 if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                    console.log('[ERROR] Call via HTTP Interface failed.' + err.stack)
-                    console.log('[ERROR] Params = ' + JSON.stringify(params))
+                    console.log((new Date()).toISOString(), '[ERROR] Call via HTTP Interface failed.' + err.stack)
+                    console.log((new Date()).toISOString(), '[ERROR] Params = ' + JSON.stringify(params))
                     return
                 }
 
@@ -98,8 +98,8 @@ function newGovernanceReportsCommmandInterface() {
 
                 /* Lets check the result of the method call */
                 if (response.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                    console.log('[ERROR] Call to Client Github Server failed.' + err.stack)
-                    console.log('[ERROR] Params = ' + JSON.stringify(params))
+                    console.log((new Date()).toISOString(), '[ERROR] Call to Client Github Server failed.' + err.stack)
+                    console.log((new Date()).toISOString(), '[ERROR] Params = ' + JSON.stringify(params))
                 }
 
                 /* Successful Call */
@@ -139,7 +139,7 @@ function newGovernanceReportsCommmandInterface() {
             UI.projects.education.spaces.docsSpace.sidePanelTab.open()
 
             /* Find the Username and Password */
-            let apisNode = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadByNodeType('APIs')
+            let apisNode = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadByNodeType('APIs')
             if (apisNode === undefined) {
                 UI.projects.education.spaces.docsSpace.navigateTo('Governance', 'Topic', 'Gov Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
                 return
@@ -213,7 +213,7 @@ function newGovernanceReportsCommmandInterface() {
             /*
             Here we get from the workspace all User Profiles.
             */
-            let userProfiles = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
+            let userProfiles = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
             /*
             Transform the result array into table records.
             */
@@ -235,7 +235,7 @@ function newGovernanceReportsCommmandInterface() {
                 paymentsArray.push(payment)
             }
             /* Let's get the Mnemonic */
-            let web3API = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('APIs')[0].web3API
+            let web3API = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('APIs')[0].web3API
             let mnemonic = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(web3API.payload, 'mnemonic')
 
             /* Lets execute this command against the Client */
@@ -256,8 +256,8 @@ function newGovernanceReportsCommmandInterface() {
 
                 /* Lets check the result of the call through the http interface */
                 if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                    console.log('[ERROR] Call via HTTP Interface failed.' + err.stack)
-                    console.log('[ERROR] Params = ' + JSON.stringify(params))
+                    console.log((new Date()).toISOString(), '[ERROR] Call via HTTP Interface failed.' + err.stack)
+                    console.log((new Date()).toISOString(), '[ERROR] Params = ' + JSON.stringify(params))
                     return
                 }
 
@@ -265,8 +265,8 @@ function newGovernanceReportsCommmandInterface() {
 
                 /* Lets check the result of the method call */
                 if (response.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                    console.log('[ERROR] Call to Client Github Server failed.' + err.stack)
-                    console.log('[ERROR] Params = ' + JSON.stringify(params))
+                    console.log((new Date()).toISOString(), '[ERROR] Call to Client Github Server failed.' + err.stack)
+                    console.log((new Date()).toISOString(), '[ERROR] Params = ' + JSON.stringify(params))
                 }
 
                 /* Successful Call */

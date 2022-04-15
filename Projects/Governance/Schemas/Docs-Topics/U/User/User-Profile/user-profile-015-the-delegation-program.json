@@ -4,7 +4,24 @@
     "type": "The Delegation Program",
     "definition": {
         "text": "Help your colleagues place their first few claims!",
-        "updated": 1630500145104
+        "updated": 1630500145104,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Помогите своим коллегам заявить о своих первых претензиях!",
+                "updated": 1639139866828
+            },
+            {
+                "language": "ES",
+                "text": "Ayude a sus colegas a realizar sus primeras declaraciones!",
+                "updated": 1640960645858
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Meslektaşlarınızın ilk birkaç iddiasını ortaya koymasına yardımcı olun!",
+                "updated": 1646304956911
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -19,7 +36,14 @@
         {
             "style": "Subtitle",
             "text": "Delegate Power Switch",
-            "updated": 1630500226629
+            "updated": 1630500226629,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Temsilci Güç Anahtarı",
+                    "updated": 1646304978448
+                }
+            ]
         },
         {
             "style": "Include",
@@ -32,7 +56,14 @@
         {
             "style": "Subtitle",
             "text": "User Delegate",
-            "updated": 1630500262556
+            "updated": 1630500262556,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Kullanıcı Temsilcisi",
+                    "updated": 1646304994493
+                }
+            ]
         },
         {
             "style": "Include",

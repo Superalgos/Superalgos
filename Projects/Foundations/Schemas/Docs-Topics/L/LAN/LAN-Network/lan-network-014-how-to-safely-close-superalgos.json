@@ -1,0 +1,97 @@
+{
+    "topic": "LAN Network",
+    "pageNumber": "14",
+    "type": "How to Safely Close Superalgos",
+    "definition": {
+        "text": "The correct way to close Superalgos is to stop all tasks in the data-mining and trading operations, wait a few seconds until the tasks stop, and only then close the browser. Before closing the console, you must wait around a minute until there is no further activity.",
+        "updated": 1611650579593,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Правильный способ закрыть Superalgos - остановить все задачи, связанные с анализом данных и торговыми операциями, подождать несколько секунд, пока задачи не остановятся, и только затем закрыть браузер. Перед тем как закрыть консоль, вы должны подождать около минуты, пока не прекратится дальнейшая активность.",
+                "updated": 1639151786309
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The backend application runs independently from the frontend browser-based application. You may close the browser at any point without affecting your data-mining operation or the bots you may be running in your testing or production environments. Once you restart the browser and navigate to the correct URL, the frontend app reconnects with the backend and you regain control over the whole operation.",
+            "updated": 1611650588719,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Внутреннее приложение работает независимо от внешнего веб-приложения. Вы можете закрыть браузер в любой момент, не влияя на работу по интеллектуальному анализу данных или на ботов, которые вы можете запускать в своей тестовой или производственной среде. После перезапуска браузера и перехода к правильному URL-адресу интерфейсное приложение повторно подключается к серверной части, и вы восстанавливаете контроль над всеми операциями.",
+                    "updated": 1639151846341
+                }
+            ]
+        },
+        {
+            "style": "Important",
+            "text": "If you wish to completely close Superalgos and stop all operations, there is a safe way to do this while preventing the corruption of files that may be processing at any point.",
+            "updated": 1611650597554,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если вы хотите полностью закрыть Superalgos и остановить все операции, есть безопасный способ сделать это, предотвращая повреждение файлов, которые могут обрабатываться в любой момент.",
+                    "updated": 1639151864462
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "Start Here",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Начало здесь",
+                    "updated": 1639151878237
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "1. Close all data-mining tasks. Select Stop All Exchange Data Tasks on the data mining node menu.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "1. Закройте все задачи интеллектуального анализа данных. Выберите Stop All Exchange Data Tasks в меню узла интеллектуального анализа данных.",
+                    "updated": 1639151963998
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "2. Close all tasks in the testing environment and the production environment. Select Stop All Task Managers in the testing and production environment nodes menus.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "2. Закройте все задачи в среде тестирования и производственной среде. Выберите Stop All Task Managers в меню узлов тестовой и производственной среды.",
+                    "updated": 1639152087659
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "3. Wait a few seconds until all tasks are stopped and close the browser.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "3. Подождите несколько секунд, пока все задачи не будут остановлены, и закройте браузер.",
+                    "updated": 1639152102420
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "4. Wait for about one minute until all activity stops in the console, then close it.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "4. Подождите примерно одну минуту, пока вся активность консоли не прекратится, затем закройте ее.",
+                    "updated": 1639152119649
+                }
+            ]
+        }
+    ]
+}

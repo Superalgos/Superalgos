@@ -2,17 +2,38 @@
     "type": "Activation Function",
     "definition": {
         "text": "A function (for example, ReLU or sigmoid) that takes in the weighted sum of all of the inputs from the previous layer and then generates and passes an output value (typically nonlinear) to the next layer.",
-        "updated": 1613243485558
+        "updated": 1613243485558,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Функция (например, ReLU или сигмоид), которая принимает взвешенную сумму всех входов предыдущего слоя, а затем генерирует и передает выходное значение (обычно нелинейное) на следующий слой.",
+                "updated": 1645195218348
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Activation function to use. If unspecified, no activation is applied.",
-            "updated": 1613243465795
+            "updated": 1613243465795,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Используемая функция активации. Если не указано, активация не применяется.",
+                    "updated": 1645195228058
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Possible Values"
+            "text": "Possible Values",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Возможные значения",
+                    "updated": 1645195234013
+                }
+            ]
         },
         {
             "style": "Javascript",

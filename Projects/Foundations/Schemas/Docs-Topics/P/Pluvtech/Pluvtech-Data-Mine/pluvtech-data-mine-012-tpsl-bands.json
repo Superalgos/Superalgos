@@ -4,74 +4,204 @@
     "type": "TPSL Bands",
     "definition": {
         "text": "This indicator is not a signal generating indicator but rather one of many methods of generating Take Profit and Stop Loss levels.",
-        "updated": 1622686933380
+        "updated": 1622686933380,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Этот индикатор не является индикатором генерации сигналов, а скорее одним из многих методов генерации уровней тейк-профита и стоп-лосса.",
+                "updated": 1645611052783
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Info:",
-            "updated": 1622481793076
+            "updated": 1622481793076,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Информация:",
+                    "updated": 1645611058137
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The primary usage of this indicator is for the data found in the panel and to reference from your Trading System although it does come with a plotter in case you'd like to view the levels on your chart. You set the parameters at the data mining task => indicator bot instance as the default values (below) are arbitrary and based on relativeMovingAverage(trueRange).",
-            "updated": 1622695020858
-        },
-        {
-            "style": "Title",
-            "text": "Default Values:",
-            "updated": 1622481793076
-        },
-        {
-            "style": "Text",
-            "text": "periods = 15;  (for calculation of the ATR)",
-            "updated": 1622694577540
+            "text": "The primary usage of this indicator is to use the calculated data (shown in the panel) for take profit and stop loss signal when a trase has already been entered.",
+            "updated": 1622695020858,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Основное использование этого индикатора заключается в использовании рассчитанных данных (показанных на панели) для сигнала тейк-профита и стоп-лосса, когда сделка уже была введена.",
+                    "updated": 1645611068019
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "take profit multiplier (of ATR) = 1;     (i.e.- 100% of ATR.)",
-            "updated": 1622694767558
+            "text": "There is a plotter shown on the chart in case you'd like to view the levels on your chart.",
+            "updated": 1622695020858,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "На случай, если вы захотите просмотреть уровни на графике, имеется плоттер.",
+                    "updated": 1645611074763
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Stop Loss Multiplier (of ATR) = 1.5; (i.e.- 150% of ATR.)",
-            "updated": 1622695076620
+            "text": "The default values (below) are arbitrary and based on relativeMovingAverage(trueRange).",
+            "updated": 1622695020858,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Значения по умолчанию (см. ниже) произвольны и основаны на relativeMovingAverage (trueRange).",
+                    "updated": 1645611089764
+                }
+            ]
         },
         {
-            "style": "Text",
-            "text": "*Note* TP1 = 100% ; TP2 = 200% ; TP3 = 300%",
-            "updated": 1622695096382
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Pluvtech-TPSL.png",
+            "updated": 1611661370646
         },
         {
             "style": "Title",
             "text": "Parameters for Indicator Bot Instance:",
-            "updated": 1622481793076
+            "updated": 1622481793076,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Параметры для экземпляра Indicator Bot:",
+                    "updated": 1645611104866
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "parameters at Indicator Bot Instance should look like this:",
-            "updated": 1622694828029
+            "text": "Periods = 15;  (for calculation of the ATR)",
+            "updated": 1622694577540,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Periods = 15; (для расчета ATR)",
+                    "updated": 1645611116084
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "{"
+            "text": "Take profit multiplier (of ATR) = 1;     (i.e.- 100% of ATR.)",
+            "updated": 1622694767558,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Множитель Take Profit (от ATR) = 1; (т.е. - 100% от ATR).",
+                    "updated": 1645611176078
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "<b>\"periods\": value,",
-            "updated": 1622694892884
+            "text": "Stop Loss Multiplier (of ATR) = 1.5; (i.e.- 150% of ATR.)",
+            "updated": 1622695076620,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Множитель Stop Loss (от ATR) = 1,5; (т.е. - 150% от ATR).",
+                    "updated": 1645611195550
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "\"tpMult\": value,"
+            "text": "*Note* TP1 = 100% ; TP2 = 200% ; TP3 = 300%",
+            "updated": 1622695096382,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "*Примечание* TP1 = 100% ; TP2 = 200% ; TP3 = 300%",
+                    "updated": 1645611209094
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "\"slMult\": value"
+            "text": "The length of the TPSL bands calculation can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Initialization under ’TPSL’ Product Definition.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Длину расчета полос TPSL можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Initialization в разделе 'TPSL' Product Definition.",
+                    "updated": 1645611228188
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Pluvtech-TPSL-params.png",
+            "updated": 1611673329568
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты и свойства",
+                    "updated": 1645611233431
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "</b>}"
+            "text": "The following properties are available to access:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Доступны следующие свойства:",
+                    "updated": 1645611238465
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| TPSL Bands | TPSL | tp1Up...tp3Up, |\n| | | tp1Down...tp3Down, |\n| | | slUp, |\n| | | slDown |",
+            "updated": 1636853769
+        },
+        {
+            "style": "Text",
+            "text": "Examples:",
+            "updated": 1611661674316,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Примеры:",
+                    "updated": 1645611246162
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The following examples would normally be used in the Manage Stage node of the Trading System for Managed Take Profit and Managed Stop Loss, but can be used anywhere you see fit:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Следующие примеры обычно используются в узле Manage Stage торговой системы для управляемого тейк-профита и управляемого стоп-лосса, но могут быть использованы в любом месте по вашему усмотрению:",
+                    "updated": 1645611256856
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "\\\\take profit\nchart.at01hs.candle.close > chart.at01hs.TPSL.tp2Up",
+            "updated": 1636853769
+        },
+        {
+            "style": "Javascript",
+            "text": "\\\\stop loss\nchart.at01hs.candle.close < chart.at01hs.TPSL.sl3Down",
+            "updated": 1636853769
         },
         {
             "style": "Title",

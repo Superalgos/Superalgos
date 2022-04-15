@@ -1,0 +1,22 @@
+/*noinspection CssInvalidPropertyValue*/
+.logo {
+    width: 100%;
+    height: 3rem;
+}
+
+.icon {
+    margin: 0 0.5rem;
+}
+
+.iconContainer {
+    display: flex;
+    align-items: center;
+    height: 3rem;
+}
+
+.linkLogo {
+    display: inline-flex;
+    align-items: center;
+    height: 3rem;
+    width: fit-content;
+}

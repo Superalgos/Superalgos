@@ -1,153 +1,168 @@
-# Superalgos v.1.0
+# :small_orange_diamond: Superalgos 1.2.0
 
 ![contributors](https://img.shields.io/github/contributors-anon/Superalgos/Superalgos?label=Contributors)
 ![pull-activity](https://img.shields.io/github/issues-pr-closed-raw/Superalgos/Superalgos?color=blueviolet)
 ![last-commit](https://img.shields.io/github/last-commit/Superalgos/Superalgos/develop?label=last%20commit%20to%20develop)
 ![bot-friendliness](https://img.shields.io/badge/Bot%20Friendliness%20Level-119%25-yellow)
 
-## Table of Contents
+# :small_orange_diamond: Table of Contents
 
-- [Table of Contents](#table-of-contents)
-- [Introduction](#introduction)
-- [Getting Started Guide](#getting-started-guide)
-- [Pre-Requisites](#pre-requisites)
-  - [Windows Install](#windows-install)
-  - [Mac OS Install](#mac-os-install)
-  - [Linux Install (e.g. Raspberry Pi running Raspberry Pi OS/Raspbian)](#linux-install--eg-raspberry-pi-running-raspberry-pi-os-raspbian-)
-- [Superalgos Platform Client Installation](#superalgos-platform-client-installation)
-  - [Fork the Superalgos Repository](#fork-the-superalgos-repository)
-  - [Clone Your Fork](#clone-your-fork)
-  - [Install Node Dependencies](#install-node-dependencies)
-    - [Troubleshooting Dependency Installation](#troubleshooting-dependency-installation)
-    - [Enable Desktop Shortcut in Ubuntu](#enable-desktop-shortcut-in-ubuntu)
-  - [Installation Notes](#installation-notes)
-  - [Uninstall](#uninstall)
-- [Usage](#usage)
-  - [Run the Client and GUI](#run-the-client-and-gui)
-    - [Using the shortcuts](#using-the-shortcuts)
-    - [Using the Command Line](#using-the-command-line)
-  - [Usage Notes](#usage-notes)
-  - [Running Superalgos on a Headless Linux Server as a Daemon](#running-superalgos-on-a-headless-linux-server-as-a-daemon)
-    - [Using Systemd](#using-systemd)
-  - [Docker Deployments](#docker-deployments)
-- [Welcome Tutorial](#welcome-tutorial)
-- [What is the Superalgos Platform?](#what-is-the-superalgos-platform-)
-  - [Superalgos Platform Features](#superalgos-platform-features)
-  - [Superalgos Development Pipeline](#superalgos-development-pipeline)
-  - [Superalgos is User-centric](#superalgos-is-user-centric)
-  - [Superalgos Platform Allows You To](#superalgos-platform-allows-you-to)
-  - [Superalgos Platform for Developers](#superalgos-platform-for-developers)
-  - [Superalgos Platform Saves You Time](#superalgos-platform-saves-you-time)
-  - [Superalgos Platform is Permissionless](#superalgos-platform-is-permissionless)
-  - [Superalgos Platform for Algo-Traders](#superalgos-platform-for-algo-trders)
-  - [Superalgos Platform Saves You Money](#superalgos-platform-saves-you-money)
-  - [Superalgos Platform Minimizes Risks](#superalgos-platform-minimizes-risks)
-  - [Superalgos Platform for Companies](#superalgos-platform-for-companies)
-- [Support](#support)
-- [Other Resources](#other-resources)
-- [Contributing](#contributing)
-- [License](#license)
+## Main Topics
 
-## Introduction
+- [Introduction](#small_orange_diamond-introduction)
+- [Before You Begin](#small_orange_diamond-before-you-begin)
+- [Getting Started](#small_orange_diamond-getting-started)
+- [Installation Options](#small_orange_diamond-installation-options)
+- [Installation for Developers and Contributors](#small_orange_diamond-installation-for-developers-and-contributors)
+  - [Pre-Requisites](#small_orange_diamond-pre-requisites)
+  - [Superalgos Platform Client Installation](#small_orange_diamond-superalgos-platform-client-installation)
+- [Usage](#small_orange_diamond-usage)
+- [Uninstall](#small_orange_diamond-uninstall)
+- [Get In Touch](#small_orange_diamond-get-in-touch)
+- [Other Resources](#small_orange_diamond-other-resources)
+- [Contributing](#small_orange_diamond-contributing)
+- [License](#small_orange_diamond-license)
 
-Superalgos is not just another open-source project. We are an open and welcoming community devised, nurtured, and incentivized with the project's native [Superalgos (SA) Token](https://superalgos.org/token-overview.shtml) to build an [open trading intelligence network](https://superalgos.org/).
+## Appendix
 
-You will notice the difference as soon as you join the [Telegram Community Group](https://t.me/superalgoscommunity) or the new [Discord Server](https://discord.gg/CGeKC6WQQb)!
+- [Workspace Refactoring for Version 1](#small_orange_diamond-workspace-refactoring-for-version-1)
+- [Pre-Requisites Notes](#small_orange_diamond-pre-requisites-notes)
+- [Troubleshooting Dependencies Installation](#small_orange_diamond-troubleshooting-dependencies-installation)
+- [WSL2 VSCode IDE Environment Setup](#wsl2-vscode-ide-environment-setup)
+- [Running Superalgos on a Headless Linux Server as a Daemon](#running-superalgos-on-a-headless-linux-server-as-a-daemon)
 
-> Can't wait to contribute? Start by giving a star to this repository in the top-right corner of this page!
+
+# :small_orange_diamond: Introduction
+
+Superalgos is not just another open-source project. We are an open and welcoming community nurtured and incentivized with the project's native [Superalgos (SA) Token](https://superalgos.org/token-overview.shtml), building an [open trading intelligence network](https://superalgos.org/). You will notice the difference as soon as you join the [Telegram Community Group](https://t.me/superalgoscommunity) or the new [Discord Server](https://discord.gg/CGeKC6WQQb)!
+
+Superalgos is a vast project. The focus of this README file is the [Superalgos Platform](https://superalgos.org/crypto-trading-bots-platform.shtml). Please, visit the platform's page on the website for an overview of features and functionality.
 
 ![superalgos-readme](https://user-images.githubusercontent.com/13994516/106380124-844d8980-63b0-11eb-9bd9-4f977b6c183b.gif)
 
-## Getting Started Guide
+# :small_orange_diamond: Before You Begin
 
-All procedures are the same for Windows, Linux, or Mac OS. Raspberry Pi terminal commands have been included for ease of use.
+Worth noting before you start:
 
-> **IMPORTANT:**
-> 
-> Remote installations and minimalist hardware — both virtual and physical — are better suited for production deployments, where the use of the GUI is minimal. We highly recommend learning Superalgos in a local installation. Mastering the system takes time, and the use of the GUI to go through in-app tutorials is crucial during the learning process. Your experience will be orders of magnitude better if you follow this advice: leave remote installations and minimalist hardware for when you are ready to start trading live.
+* [Online Demo](https://superalgos.org/crypto-trading-bots-platform-demo.shtml) | To get a feel of what Superalgos is about without installing anything, take the (limited) online demo for a spin!
+
+* [System requirements](https://superalgos.org/crypto-trading-bots-system-requirements.shtml)
+
+* FAQS:
+
+  * [Before you begin](https://superalgos.org/faqs-crypto-trading-bots-before-you-being.shtml)
+
+  * [Trust and safety](https://superalgos.org/faqs-crypto-trading-bots-trust-and-safety.shtml)
+
+  * [Trading with Superalgos](https://superalgos.org/faqs-crypto-trading-bots-trading-with-superalgos.shtml)
+
+  * [Open-source strategies](https://superalgos.org/faqs-crypto-trading-bots-open-source-crypto-trading-bots-strategies.shtml)
+
+* Documentation | The platform features interactive and searchable documentation counting over 1500 pages. At this point, the Docs are solely available within the app.
+
+# :small_orange_diamond: Getting Started
+
+Superalgos is an ever-growing ecosystem of tools and applications. This guide will walk you through the main ways to install the Superalgos Platform — the flagship application of the ecosystem.
+
+Once you install and launch the app, a series of interactive tutorials take you by the hand and walk you all around the system while you learn the basic skills required to use the interface, mine data, backtest strategies, and even run a live trading session. It is highly recommended to do all tutorials, as they are carefully crafted to make your onboarding as easy as possible. 
+
+> :white_check_mark: **NOTE:** Tutorials are the absolute best way to tackle the learning curve. You should do all tutorials before you start exploring other avenues on your own.
+
+![welcome-tutorial-00](https://user-images.githubusercontent.com/13994516/107038771-4a6bf100-67bd-11eb-92e0-353525a972a9.gif)
+
+The tutorial uses Binance or Binance US as the exchange of choice. If you don't have an account with Binance or Binance US, you will still be able to follow 100% of the tutorial. When you get to the live trading section, keep going even if you don't intend to run the session. You may learn how to work with other exchanges later on. If both Binance and Binance US are blocked in your region, you will need to set up a different exchange from the get-go. 
+
+# :small_orange_diamond: Installation Options
+
+There are a variety of methods to install the Superalgos Platform ranging from docker installations and packaged application installations to fine-grained technical installations ideal for developers and contributors.  
+
+We will briefly describe the options available. Click the link to go to the specific README file with further instructions for the installation method of your choice.
+
+1. [Packaged and portable apps](README_Packaged.md) | This option is optimized for non-technical users and is by far the easiest way to get started with Superalgos. These are not suitable for development or for contributing.
+
+2. [Docker deployments](README_Docker.md) | Docker installations are another avenue that allows for a clean installation. While a little bit more technical than the packaged applications, Docker offers the ability to install the platform in a clean and isolated environment. The standard Docker installation is not optimized for development or contributions, but some workarounds are offered.
+
+3. [Developers and Contributors](#small_orange_diamond-installation-for-developers-and-contributors) | This is the default installation for developers that wish to dive into the codebase and contribute to making Superalgos better. It is also the recommended installation for non-developers who wish to contribute improvements to the Docs, translations, design work, and so on. Instructions are available further down this same file.
+
+> :white_check_mark: **ABOUT REMOTE INSTALLATIONS AND MINIMALIST HARDWARE:** Remote installations and minimalist hardware — both virtual and physical — are better suited for production deployments, where the use of the GUI is minimal. We highly recommend learning Superalgos in a local installation, on a full-size PC. Mastering the system takes time, and the use of the GUI to go through in-app tutorials is crucial during the learning process. Your experience will be orders of magnitude better if you follow this advice: leave remote installations and minimalist hardware for when you are ready to start trading live.
+
+> :white_check_mark: **EXPERIENCING ISSUES INSTALLING SUPERALGOS?** If you're having trouble installing or running the app for the first time, do not open an issue. Instead, join the [Support Telegram Group](https://t.me/superalgossupport) and follow the instructions on the pinned message to ask for help. You may also join the [new Discord Server](https://discord.gg/CGeKC6WQQb), but bear in mind that the response time tends to be longer. Online support is provided by volunteers — please provide clear information and sufficient context about the issue you are facing, and be mindful of people's time.
+
+If you wish to try the [packaged and portable apps](README_Packaged.md) or the [docker deployments](README_Docker.md), there is nothing of critical importance left for you on this README file. That said, the [Get In Touch](#small_orange_diamond-get-in-touch), [Other Resources](#small_orange_diamond-other-resources), [Contributing](#small_orange_diamond-contributing), and [License](#small_orange_diamond-license) sections are certainly of interest.
+
+If you opt for the installation for developers and contributors, please keep on reading. Otherwise, click one of the other options above.
+
+# :small_orange_diamond: Installation for Developers and Contributors
+
+This is the purest, albeit more technical, way of installing Superalgos. It has no limitations to contributing, which is highly appreciated and rewarded with SA tokens, and gives you the most freedom for custom configurations.
+
+All procedures (other than pre-requisites) are the same for Windows, Linux, or Mac OS. Raspberry Pi terminal commands have been included for ease of use. Some edge cases are covered separately, further down this README.
 
 ## Pre-Requisites
 
-In order to run Superalgos on your computer, you will need the latest versions of Node JS and Git installed. You will also need a web browser to access the interface. Google Chrome is recommended as it is what the development team uses and supports.
+### :one: Install Node.JS, Git, and Chrome
+
+You will need the latest versions of Node JS and Git installed. You will also need a web browser to access the interface. Google Chrome is recommended because it is the most tested browser being used by the development team and power users.
+
+Follow the installation wizards to install the latest NodeJS and Git. If desired also install Chrome.
 
 - [Node.js download page](https://nodejs.org/en/download/)
+
 - [Git download page](https://git-scm.com/downloads)
+
 - [Google Chrome download page](https://www.google.com/chrome/)
 
-### Windows Install
+> :white_check_mark: **NOTE**: If you wish to test the (partial and incomplete) TensorFlow integration, you will also need Python 3.
 
-You can use the windows installer (Setup file) which will install all the necessary dependencies and files for you to run the platform. Also the shortcuts are placed. This application will notify you and update as new releases come (to be released).
+Additional notes about installing pre-requisites on specific environments and edge cases can be found in the [Pre-Requisites Notes](#small_orange_diamond-pre-requisites-notes) section in the Appendix.
 
- **IMPORTANT:**
- The single executable and the installer do not have Tensorflow active yet.
+### :two: Get Your Github.com Personal Access Token
 
-> **NOTE**
-> There's a known issue where the screen stays white. In this case, go to "View/Reload" and it should work. 
+You will need to get an access token from Github.com so that you may authenticate with the service from within the app and the terminal/command line.
 
-> **NOTE**
-> The application is not signed yet. The antivirus probably will flag the file as unsecure. You can force the installation and running or way for the signed app. 
+If you don't have a Github.com account, please open one! Once you are logged in, go to the [New Github Personal Access Token Page](https://github.com/settings/tokens/new) and create a new token.
 
-The manual installation option, tailored for users who are experienced and who want to contribute to the project (highly appreciated and rewarded with SA tokens). Follow the install wizards to install the latest NodeJS and Github Desktop applications.
+Make sure you give it the repo and workflow scopes. Check the clip below for clarity:
 
-- [Node.js download page](https://nodejs.org/en/download/). Select "Current" then "Windows Installer", then follow the wizard to install after the download completes.
-- [GitHub Desktop download page](https://desktop.github.com/). Click the "Download for Windows" button and follow the wizard to install after the download completes.
-- [Google Chrome download page](https://www.google.com/chrome/). After the install, it is recommended to set Chrome as the default browser.
-- If you intend on running the machine learning features (TensorFlow), you must [install Python 2](https://www.python.org/downloads/release/python-2718/) as well.
+![github-personal-access-token](https://user-images.githubusercontent.com/13994516/161605002-734ddc2a-9cb1-49ec-ac6a-d127850ab64a.gif)
 
-### Mac OS Install
-
-You can use the MacOS installer (DMG file) which will install all the necessary dependencies and files for you to run the platform. Also the shortcuts are placed. This application will notify you and update as new releases come (to be released).
-
-> **NOTE**
-> The application is not signed. To be able to run you have to permit it in System Preferences > Security & Privacy > General > Open Anyway. 
-
-[Homebrew](https://brew.sh/) can be used to install the requirements with minimal effort on Mac OS.  After you clone the repository, change directory to the Superalgos base and install the requirements using the Brewfile. Python 3 is only required for running machine learning (TensorFlow).
-
-```sh
-brew install git node npm python@3.9
-```
-
-Or use the `Brewfile` included in the code repository. After downloading, run this command in the same directory where the `Brewfile` resides:
-
-```sh
-brew bundle
-```
-
-You can use Safari or Google Chrome as your default browser. If you run into a bug in Safari, you will be asked to reproduce it in Chrome as the development team uses Chrome.
-
-### Linux Install (e.g. Raspberry Pi running Raspberry Pi OS/Raspbian)
-
-[Follow the Node.js package manager install instructions](https://nodejs.org/en/download/package-manager/) for your distribution to ensure you are getting the latest version of Node.js. Many distributions only maintain an older version in their default repositories. Python 3 is only required for running machine learning (TensorFlow).
-
-```sh
-curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-sudo apt-get install -y nodejs npm git python3
-```
-
-You may verify the installed versions with these commands:
-
-```sh
-node -v
-npm -v
-git --version
-```
-
-If you are running headless (i.e. as a server without a monitor attached) then you do not need to install a web browser and you can follow the tutorial for information on connecting remotely to the server.
+Once you get the token, copy it and save it somewhere in your local machine. You will need to retrieve it later on.
 
 ## Superalgos Platform Client Installation
 
-### Fork the Superalgos Repository
+Now that you have all the pre-requisites and optional environment configurations set up, we can get to the core installation of Superalgos!
 
-- Scroll the page all the way to the top. Find and click the **Fork** button to create your fork/copy of this repository. To fork Superalgos you need a Github account. If you don't have one, go ahead and create it.
+There are four steps required to install Superalgos:
 
-> **NOTE**
-> 
-> A Fork is required for your contributions to the project. The reason why Superalgos is free and open-source is that the project has set up a [collective business](https://superalgos.org) in which all users may participate. The way to participate is to [contribute](https://superalgos.org/community-contribute.shtml) to make Superalgos better. The project's [token](https://superalgos.org/token-overview.shtml) is distributed among contributors.
+1. Fork the Superalgos Repository
 
-### Clone Your Fork
+2. Clone Your Fork
 
-- Once the fork is created, you will land on the page of your fork. Copy the URL from your browser's address bar.
-- In your computer/laptop/server, open a command prompt or terminal. Make sure you are in a directory where you have write permissions (on most systems the terminal will open in your user's home directory, so you're good). Clone the git repository using the command:
+3. Install Node Dependencies
+
+4. Install Community Plugins 
+
+Let's get on with it!
+
+### :one: Fork the Superalgos Repository
+
+Scroll the page to the top. Find and click the **Fork** button to create your fork/copy of this repository. 
+
+To fork Superalgos you need a Github account. If you don't have one, go ahead and create it.
+
+> :white_check_mark: **NOTE**: A Fork is required so that the setup scripts may build the app from multiple repositories, and also for your contributions to the project. The reason why Superalgos is free and open-source is that the project has set up a collective business in which all users may participate. The way to participate is to [contribute](https://superalgos.org/community-contribute.shtml) to make Superalgos better. The project's [native SA token](https://superalgos.org/token-overview.shtml) is distributed among contributors.
+
+### :two: Clone Your Fork
+
+Once the fork is created, you will land on the page of your fork. Copy the complete URL from your browser's address bar.
+
+> :white_check_mark: **NOTE**: Notice it is your fork you will be cloning, not the upstream repository.
+
+In your computer/laptop/server, open a command prompt or terminal. Make sure you are in a directory where you have write permissions. 
+
+> :white_check_mark: **NOTE**: On most systems, the terminal will open in your user's home directory. It's better to install Superalgos at the root folder of any of your drives, or at least in a path that is not too long. Some systems may experience issues with long paths.
+
+Clone the git repository using the command:
 
 ```sh
 git clone <URL of your Superalgos fork>
@@ -161,83 +176,121 @@ git clone https://github.com/John/Superalgos
 
 This creates the `Superalgos` folder in the current directory, which contains the whole installation.
 
-### Install Node Dependencies
+### :three: Install Node Dependencies
 
-After the Superalgos directory has been installed, the final step of installation is to set up the necessary node dependencies. In the same command prompt or terminal you just used, type the following:
+After the Superalgos directory has been installed, you need to set up the necessary node dependencies. In the same command prompt or terminal you just used, type the following:
 
 ```sh
 cd Superalgos
 ```
 
-That should take you inside the Superalgos folder created by the `git clone` command earlier. Now type `node setup` to install the dependencies.
+That should take you inside the Superalgos folder created by the `git clone` command earlier. The `node setup` command installs the dependencies (notice there are a few options you may use).
 
 ```sh
 node setup
 ```
 
-By default, desktop shortcuts are created if they can be. Currently, Mac OS shortcuts are not created. Linux installations may require extra steps to view and use the shortcuts.
-
 Available Options:
 
 ```sh
-usage: node setup <options>
+node setup <options>
 ```
 
 | Option | Description |
 | --- | --- |
-| `noShortcuts` | Do not install desktop shortcuts |
-| `tensorflow` | Include the TensorFlow dependencies |
+| `shortcuts` | Use this option to create desktop shortcuts. Otherwise, you will launch the app from the command line/terminal. |
+| `tensorflow` | Use this option to include the TensorFlow dependencies, only if you intend to test the (partial and incomplete) TensorFlow integration. |
 
-> **NOTE FOR WINDOWS USERS INSTALLING TENSORFLOW DEPENDENCIES:**
-> 
-> You may get an error at the end of the set up process. If you do, please follow the instructions following the error message.
+If you experience any issues installing dependencies, check the [Troubleshooting Dependencies Installation](#small_orange_diamond-troubleshooting-dependencies-installation) section in the Appendix below.
 
-> **NOTE FOR USERS INSTALLING MULTIPLE INSTANCES OF SUPERALGOS ON THE SAME MACHINE:**
-> 
-> In order to avoid name conflicts between shortcuts, make sure to rename each Superalgos directory before running `node setup`.
+### :four: Install Community Plugins 
 
-Congratulations your installation is complete! Follow the "Running the Application" directions below.
+Before using the software, you will need to install the plugins built by the community. To do so, just run this command from the Superalgos main folder:
 
-#### Troubleshooting Dependency Installation
+```sh
+node setupPlugins <Your-Github-Username> <Your-Github-Personal-Access-Token>
+```
 
-If you are having difficulty running the node setup command here are a few common issues that may be getting in the way.
+For example:
 
-1. Check the version of node and npm you have installed. Make sure that you are running an updated version of node greater than version 12 and npm greater than version 5. You can check which version you have by typing `node -v` and `npm -v` into a command prompt or terminal. If your version numbers are below these, you can update your installation by following the instructions outlined in the "Node JS Installation" step above.
-2. If you are installing Superalgos in an administratively protected directory you will need to do one of the following:
-   - For Windows start your command prompt as an administrator.
-   - For Linux and Mac Systems make sure to add the sudo command to node setup.  This will look like `sudo node setup`.
-3. For Windows it is important that you have C:\Windows\System32 added to your global PATH.  For instructions on how to do this google "add to the path on Windows 10."
+```sh
+node setupPlugins John ghz_2pBD4Sas0iYtwQGPjTq1Xlm3Ot4KpH3RLcr5
+```
 
-#### Enable Desktop Shortcut in Ubuntu
+> :white_check_mark: **NOTE**: This is the token you created on earlier steps!`
 
-The majority of shortcuts that are automatically installed will work out of the box. Desktop shortcuts on Ubuntu, however, require a few additional steps to set up. First, desktop icons need to be enabled within the Tweaks app.
+This script is going to fork all Community Plugins repositories into your own Github account, and then it will clone each of these repositories into your local `Superalgos/Plugins` folder. The process is designed in a way that if someday a new type of plugin is added, you just need to run this command again and it will fork the new repo and clone it. This script will also find any missing forks needed and clone them too. You are safe running this script whenever you think is good.
 
-- Check if Tweaks is installed.
-- If not go to Ubuntu Software.
-- Install Tweaks.
-- Open Tweaks.
-- Under extensions turn on Desktop Icons
+> :white_check_mark: **NOTE**: If you ever have issues with your Plugins repos, you can delete individual folders inside `Superalgos/Plugins` and run this script to fix the problems for you. Also, if you have any issues with any of your plugin forks at your Github account, you can delete the offending fork and run this script again to fix the problem. 
 
-![enable-ubuntu-shortcut](https://user-images.githubusercontent.com/55707292/117553927-f0780300-b019-11eb-9e36-46b509653283.gif)
+**Congratulations! Your setup is complete. Now you may finally run the app for the first time. Please, follow the usage instructions below!**
 
-> **TIP:** If you do not see the desktop shortcut appear right away you may need to restart your computer.
+# :small_orange_diamond: Usage
 
-Finally, you will need to enable the desktop shortcut. Right click Superalgos.desktop and select Allow Launching.
+## Partner Exchanges
 
-![allow-launching](https://user-images.githubusercontent.com/55707292/117553933-fcfc5b80-b019-11eb-872c-4fad81b184d2.gif)
+The Superalgos Platform is exchange-agnostic, but [the project offers partner exchanges](https://superalgos.org/partner-exchanges.shtml) custom support and a curated onboarding experience for their customers. In turn, partner exchanges offer preferential trading fees and, in some cases, other benefits to Superalgos users.
 
-Now both launcher and desktop shortcuts will launch Superalgos like any other program on your computer.
+Find more information on how to get the benefits, join the corresponding Telegram group.
 
-### Installation Notes
+| Partner Exchange | Benefits | Telegram Group |
+|--- |--- |-- |
+| AscendEX | VIP 2 (7.5 bip Maker, 8.5 bip Taker) | https://t.me/superalgosascendex |
 
-- You need to make a fork so that you may contribute work. Superalgos is a Community project and you are expected to contribute, like everyone else. You don't need to be a technical person to contribute. Fixing a typo in the docs or translating a paragraph into your native language are valuable contributions too. Superalgos has built-in features that make contributing easy. Help make Superalgos better and Superalgos will better serve you! Free-riding is not cool, particularly on free, open-source, Community-driven projects.
-- The software includes an in-app self-update command / feature. It will help you stay up-to-date with the latest version of the software. Updates are on-demand, so don't worry about undesired updates. The project moves very fast and new features become available regularly, particularly if you choose to run the software in the `develop` branch (you may switch branches from within the app).
-- It is a good idea to periodically run the `node setup` command to keep the underlying dependencies for your Superalgos installation up to date.
-- Before installing the client on a remote computer in an attempt to access the UI from a different machine, we highly recommend you do a standard installation on your PC / laptop first. Leave your Raspberry Pi or VPS for later, once you have done all available tutorials. This single tip will save you a lot of time: you don't need to add complexity before you learn how to handle the app, and the GUI performs best in a local installation.
+Partner exchanges have custom workspaces for the onboarding of their users.
 
-### Uninstall
+## Run the Client and GUI
 
-Superalgos writes nothing outside of the `Superalgos` folder other than shortcut files. In order to quickly remove the shortcut files, open a terminal or command prompt, navigate to your main Superalgos directory, and type the following command:
+### Using the shortcuts
+
+> :white_check_mark: **NOTE**: This method launches the platform with the fallback workspace only. If you wish to launch with a partner exchange workspace, use the Command Line method instead.
+
+If you ran `node setup shortcuts` while installing dependencies, then you should have a desktop icon that you can double click to launch the Superalgos application. A terminal window will show the server is running, and a browser window will open with the GUI.
+
+### Using the Command Line
+
+To launch the platform with one of the Partner Exchanges custom workspaces, go to the Superalgos directory and run the command as per the following table. You will learn about other options further down this page.
+
+| Partner Exchange | Launch Command |
+|--- |--- |
+| AscendEX | `node platform Foundations 01-Onboarding-AscendEX` |
+
+> :white_check_mark: **NOTE ABOUT ASCENDEX:** An issue with AscendEX API may prevent the Welcome to Superalgos tutorial to run as expected. We suggest you use the fallback/default workspace in the meantime. The issue was reported to the exchange and is currently being investigated. 
+
+To run Superalgos with the default/fallback workspace, go to the Superalgos directory/folder and run this command:
+
+```sh
+node platform
+```
+
+Options usage:
+
+```sh
+node platform <options> <project> <workspace>
+```
+
+| Option | Description |
+| --- | --- |
+| `minMemo` | Run with minimal memory footprint. This is critical for running on platforms with 8GB of RAM or less, like a Raspberry Pi. |
+| `noBrowser` | Do not open the GUI in a browser. This is useful on headless servers where a UI is not available. |
+
+To load a specific workspace on launch, add any option you may require, then the project, then the workspace. For example, to load the Blank-Template workspace of the Foundations project with no options:
+
+```sh
+node platform Foundations Blank-Template
+```
+
+The Client will run on your terminal and the GUI will launch on your default browser. If Chrome/Safari is not your default browser, copy the URL, close the browser, open Chrome/Safari, and paste the URL. Be patient... it takes a few seconds to fully load the GUI.
+
+## Usage Notes
+
+We are testing the UI on Google Chrome and Safari on macOS only. It may work on other browsers as well — or not. If you are running on a different browser and ever need support, make sure you mention that fact upfront, or even better, try on Chrome/Safari first.
+
+> :white_check_mark: **TIP**: If your computer has 8 GB of RAM or less, use `node platform minMemo` to run the system with minimal RAM requirements.
+
+# :small_orange_diamond: Uninstall
+
+Superalgos writes nothing outside of the `Superalgos` folder other than shortcut files. To quickly remove the shortcut files, open a terminal or command prompt, navigate to your main Superalgos directory, and type the following command:
 
 ```sh
 node uninstall
@@ -245,52 +298,285 @@ node uninstall
 
 Then simply delete the `Superalgos` folder to completely remove the application.
 
-## Usage
+# :small_orange_diamond: Get In Touch
 
-### Run the Client and GUI
+We just opened a brand new [Discord server for Support and the Community](https://discord.gg/CGeKC6WQQb).
 
-#### Using the shortcuts
+We also meet on several Telegram groups, where it all started!
 
-If you ran `node setup` with no options above, then you should see a desktop icon which you can double click to launch the Superalgos application. A terminal window will show the server is running, and a browser window will open with the WebUI.
+> :warning: **BEWARE OF IMPERSONATORS — SCAMMERS ARE LURKING!** Superalgos Admins, the Core Team, and Community Mods will never contact you directly unless you contact them first. We will never ask you for API keys, coins, or cash. We will never ask you to trust us in any way. Our [Community Safety Policy](https://superalgos.org/community-safety-policy.shtml) explains why. In short, we want to make it clear that if someone contacts you directly claiming to work with or for the project, it is a scam. Please report scammers in the Community group so that they may be banned and to increase awareness of the problem, but also block them and report them to Telegram if the option is available.
 
-#### Using the Command Line
+- Via Telegram: online support through our [Superalgos Support Group](https://t.me/superalgossupport).
 
-To run Superalgos, go to the Superalgos directory/folder and run this command:
+- In-App Integrated Documentation: Superalgos features interactive documentation built into the system.
+
+- Video Tutorials: subscribe to the [Superalgos YouTube Channel](https://www.youtube.com/channel/UCmYSGbB151xFQPNxj7KfKBg).
+
+- In-App Tutorials: there are many interactive tutorials you may do and learn from.
+
+# :small_orange_diamond: Other Resources
+
+- Web Site
+
+  - For an overview of what Superalgos can do for you, check the [Superalgos Website](https://superalgos.org/).
+
+  - [List of community resources](https://superalgos.org/community-resources.shtml) featuring written, audiovisual, and interactive content.
+
+- Telegram
+
+  - For official news, join the [Superalgos Announcements Channel](https://t.me/superalgos).
+
+  - Meet other users in the [Superalgos Telegram Community Group](https://t.me/superalgoscommunity).
+
+  - Meet developers in the [Superalgos Telegram Developer's Group](https://t.me/superalgosdevelop).
+
+  - Users meet in other topic-specific Telegram Groups. There's a [complete list of groups](https://superalgos.org/community-join.shtml) on the website.
+
+- Blog: find official announcements and various articles on the [Superalgos Blog](https://medium.com/superalgos).
+
+- Twitter: to stay in the loop, follow [Superalgos on Twitter](https://twitter.com/superalgos). Help us spread the word!
+
+- Facebook: follow [Superalgos on Facebook](https://www.facebook.com/superalgos).
+
+# :small_orange_diamond: Contributing
+
+Superalgos is a Community Project built by users for users. Learn [how you may contribute](https://superalgos.org/community-contribute.shtml).
+
+# :small_orange_diamond: License
+
+Superalgos is open-source software released under [Apache License 2.0](LICENSE).
+
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+
+# APPENDIX
+
+# :small_orange_diamond: Workspace Refactoring for Version 1
+
+Version 1.2.0 carries with it a reorganization of the codebase where several projects were extracted from Foundations: Data-Mining, Algorithmic Trading, Machine Learning, and Community Plugins.
+
+This means that these projects can now have a project leader and a team working on them.
+
+To get your custom workspace upgraded to be compatible with beta 13 you will need to make a few changes:
+
+Project nodes need to be present in the workspace for things to work. The presence of the node of a project, somehow, enables that project features at a workspace. Go to the workspace node and click add missing projects.
+
+At the Plugins hierarchy, new guys appear, each one with their own type of plugin. Meaning that every workspace needs to be manually fixed because, currently, all plugins are loaded from the Foundations node there. The fix is easy though, it takes 2 - 3 min to delete the child nodes from the Foundation node, and add the same plugins from the project they belong to now.
+
+# :small_orange_diamond: Pre-Requisites Notes
+
+## Windows (Optional)
+
+For windows users interested in testing the (partial and incomplete) TensorFlow integration, you need to install Python.
+
+- [install Python 3.9](https://www.python.org/downloads/release/python-390/).
+
+Github Desktop is a helpful tool to manage Git conflicts and issues. You can install it using the following link.
+
+- [GitHub Desktop download page](https://desktop.github.com/). Click the "Download for Windows" button and follow the wizard to install after the download completes.
+
+
+## Mac OS Pre-Requisites Homebrew Installation
+
+Rather than manually installing NodeJS, Git, and Python, [Homebrew](https://brew.sh/) can be used to install the pre-requisites with minimal effort on Mac OS.  After you clone the repository, change the directory to the Superalgos base and install the requirements using Homebrew. 
+
+There are two ways to use Homebrew.  The first is to type:
 
 ```sh
-node platform
+brew install git node npm python@3.9
 ```
 
-Available Options:
+The second is to use the `Brewfile` included in the code repository. After downloading, run this command in the same directory where the `Brewfile` resides:
 
 ```sh
-usage: node platform <options>
+brew bundle
 ```
 
-| Option | Description |
-| --- | --- |
-| `minMemo` | Run with minimal memory footprint. This is critical for running on platforms with less than 8GB of ram, like a Raspberry Pi. |
-| `noBrowser` | Do not attempt to open the WebUI in a browser. This is useful on headless servers where a UI is not available. |
+> :white_check_mark: **NOTE**: You can use Safari or Google Chrome as your default browser. If you run into a bug in Safari, you will be asked to reproduce it in Chrome as the development team uses Chrome.
 
-The Client will run on your terminal and the GUI will launch on your default browser. If Chrome/Safari is not your default browser, copy the URL, close the browser, open Chrome/Safari, and paste the URL. Be patient... it takes a few seconds to fully load the GUI.
+## Linux (e.g. Ubuntu, or Raspberry Pi running Raspberry Pi OS/Raspbian) Pre-Requisites
 
-A Welcome Tutorial pops-up automatically. You must do this Tutorial to finish the setup and to learn the basics. It's the ultimate onboarding experience, superior to all other resources available, including videos and the Docs.
+[Follow the Node.js package manager install instructions](https://nodejs.org/en/download/package-manager/) for your distribution to ensure you are getting the latest version of Node.js. Many distributions only maintain an older version in their default repositories.
 
-![run-the-system-01](https://user-images.githubusercontent.com/13994516/107037804-e5fc6200-67bb-11eb-82f2-d0f40247fa14.gif)
+> :white_check_mark: **NOTE**: Python 3 is only required for testing the (partial and incomplete) TensorFlow integration.
 
-### Usage Notes
+```sh
+curl -sL https://deb.nodesource.com/setup_17.x | sudo -E bash - && sudo apt-get \
+install -y \
+nodejs npm git python3
+```
 
-We are testing the UI on Google Chrome and Safari on macOS only. It may work on other browsers as well &mdash; or not. If you are running on a different browser and ever need support, make sure you mention that fact upfront, or even better, try on Chrome/Safari first.
+You may verify the installed versions with this command string:
 
-> **TIP:**
+```sh
+node \
+-v && npm \
+-v && git --version
+```
+
+If you are running headless (i.e. as a server without a monitor attached) then you do not need to install a web browser and you can follow the tutorial for information on connecting remotely to the server.
+
+Alternatively, you can use [https://github.com/nymea/berrylan](https://github.com/nymea/berrylan) to set up a tool for using Bluetooth to quickly assign WPA2 access on a WLAN on a Raspbian based Distro. Nymea also has tools for automation of IoT products to allow setting up SuperAlgos as a timed function without needing to learn how to code.
+
+> :white_check_mark: **IMPORTANT**: 
 > 
-> If your computer has 8 GB of RAM or less, use `node platform minMemo` to run the system with minimal RAM requirements.
+> If you are having node version errors there is a chance you may need to read the information in the Debian Pre-Requisites section and use NVM to handle node versions. This is due to some distributions having out-of-date repositories in the package manager lists.
 
-### Running Superalgos on a Headless Linux Server as a Daemon
+## Debian or Debian WSL/WSL2 Pre-Requisites
+(NVM & NPM Fix)
 
-If you're running Superalgos on a headless linux server like a Raspberry Pi, you might want to run it as a daemon so it isn't attached to your current login session. The easiest, most standard way to go about this is probably using `systemd`. Most linux distributions use it as default init system/service manager.
+Debian distributions have been found to have some additional issues with installing the right version of NodeJS needed to run Superalgos. What follows are the steps to fix this issue.
 
-#### Using Systemd
+For this to work you will need to [use NVM to install and control node] (https://github.com/nvm-sh/nvm)
+
+- You will need to remove any versions of Node already installed on Debian due to the repositories currently being out of date.
+
+- __This is necessary before proceeding.__ 
+
+```sh
+sudo apt remove nodejs -y
+```
+
+```sh
+sudo apt \
+update && apt upgrade \
+-y sudo apt \
+install npm -y
+```
+
+```sh
+sudo apt \
+autoremove -y && \
+sudo apt autoclean -y
+```
+
+```sh
+sudo curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+```
+
+_Without running the next 3 commands, you will need to logout off your shell/WSL2 user account before you are to use NVM_
+ 
+```sh
+export NVM_DIR="$HOME/.nvm"
+```
+
+```sh
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+```
+
+```sh
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+```
+
+_Make sure things are up to date and packages not needed are removed_
+
+
+```sh
+sudo apt update &&\
+sudo apt upgrade && \
+apt autoremove -y
+```
+
+```sh
+cd Superalgos
+```
+
+into the directory of SuperAlgos
+and __run the install commands as follows__:
+
+```sh
+nvm run node <command string/var>
+```
+
+> :white_check_mark: **NOTE**: This is for node.js/node only, npm should work fine with Debian.
+
+# :small_orange_diamond: Troubleshooting Dependencies Installation
+
+## Edge Cases
+
+> :white_check_mark: **NOTE FOR WINDOWS USERS INSTALLING TENSORFLOW DEPENDENCIES:** You may get an error at the end of the setup process. If you do, please follow the instructions following the error message.
+
+> :white_check_mark: **NOTE FOR USERS INSTALLING MULTIPLE INSTANCES OF SUPERALGOS ON THE SAME MACHINE:** To avoid name conflicts between shortcuts, make sure to rename each Superalgos directory before running `node setup shortcuts`.
+
+> :white_check_mark: **NOTE FOR USERS INSTALLING ON LINUX:** If after running `node setup` you are prompted to address issues by running 'npm audit fix' ignore this step.
+
+## General Troubleshooting
+
+If you are having difficulty running the node setup command here are a few common issues that may be getting in the way.
+
+1. Check the version of node and npm you have installed. Make sure that you are running an updated version of node greater than version 16.6 and npm greater than version 5. You can check which version you have by typing `node -v` and `npm -v` into a command prompt or terminal. If your version numbers are below these, you can update your installation by following the instructions outlined in the "Node JS Installation" step above.
+
+2. If you are installing Superalgos in an administratively protected directory you will need to do one of the following:
+
+   - For Windows start your command prompt as an administrator.
+
+   - For Linux and Mac Systems make sure to add the sudo command to node setup.  This will look like `sudo node setup`.
+
+3. For Windows it is important that you have C:\Windows\System32 added to your global PATH.  For instructions on how to do this google "add to the path on Windows 10."
+
+## Enabling Desktop Shortcut in Ubuntu
+
+The majority of shortcuts that are installed will work out of the box. Desktop shortcuts on Ubuntu, however, require a few additional steps to set up. First, desktop icons need to be enabled within the Tweaks app.
+
+- Check if Tweaks is installed.
+
+- If not go to Ubuntu Software.
+
+- Install Tweaks.
+
+- Open Tweaks.
+
+- Under extensions turn on Desktop Icons
+
+![enable-ubuntu-shortcut](https://user-images.githubusercontent.com/55707292/117553927-f0780300-b019-11eb-9e36-46b509653283.gif)
+
+> :white_check_mark: **TIP:** If you do not see the desktop shortcut appear right away you may need to restart your computer.
+
+Finally, you will need to enable the desktop shortcut. Right-click Superalgos.desktop and select Allow Launching.
+
+![allow-launching](https://user-images.githubusercontent.com/55707292/117553933-fcfc5b80-b019-11eb-872c-4fad81b184d2.gif)
+
+Now both launcher and desktop shortcuts will launch Superalgos like any other program on your computer.
+
+# :small_orange_diamond: WSL2 VSCode IDE Environment Setup
+
+VSCode is a popular IDE. This short section covers some helpful tips for setting up the IDE's development environment.
+
+There are a few things that need to be configured to obtain full functionality from VSCode. These configurations will make it possible to run notebooks for ML/AI algos and turn VSCode and Windows into a development bench for working with Superalgos.
+
+On windows:
+
+- First, you need to install WSL and WSL2 [https://docs.microsoft.com/en-us/windows/wsl/install](https://docs.microsoft.com/en-us/windows/wsl/install) then reboot if prompted.
+
+  - You may want to review the Docker WSL2 Backend information for VSCode as well before proceeding. [https://aka.ms/vscode-remote/containers/docker-wsl2](https://aka.ms/vscode-remote/containers/docker-wsl2)
+
+  - Install Debian or Ubuntu from the Windows Store, Setup the VM as instructed.
+  
+On windows and Debian:
+
+To make managing these WSL instances a lot easier, we will now move to installing VSCode + Tools to allow for Dockerizing and rapidly deploying as well as editing and managing test/usage cases of Superalgos edit and forks you create and contribute.
+
+- Install VSCode [https://code.visualstudio.com/docs/?dv=win64user](https://code.visualstudio.com/docs/?dv=win64user)
+
+  - Install the remote container and remote docker plugins/extensions for Visual Studio Code [https://code.visualstudio.com/docs/remote/containers#_installation](https://code.visualstudio.com/docs/remote/containers#_installation) 
+
+    - _You may want to spend time reading the specifics of this documentation on their website._ 
+    
+  - *When prompted* install shell shortcuts for right-click options, this way you can open Superalgos easy inside of VSCode.
+
+> :white_check_mark: **IMPORTANT**: 
+> 
+> As mentioned above, you need to remove node.js/node from your system and install NVM if you are using Debian.
+> Please refer to the information above for properly setting up node.js and npm on Debian systems with complications regarding versions of node.
+
+Once the install finishes you can now use VSCode as an interactive IDE/Shell to access SuperAlgos, run Dockers for working with Superalgos, and more.
+
+# :small_orange_diamond: Running Superalgos on a Headless Linux Server as a Daemon
+
+If you're running Superalgos on a headless Linux server like a Raspberry Pi, you might want to run it as a daemon so it isn't attached to your current login session. The easiest, most standard way to go about this is probably using `systemd`. Most Linux distributions use it as the default init system/service manager.
 
 Create a `superalgos.service` file looking like this (change `<user>` to your user name and `/path/to/Superalgos` to your Superalgos folder, for instance `/home/John/Superalgos`):
 
@@ -308,7 +594,7 @@ ExecStart=/usr/bin/node platform minMemo noBrowser
 WantedBy=multi-user.target
 ```
 
-There is no need to run Superalgos as root so we're running it as a user. The `minMemo` option assumes you're running on a small machine like a Raspberry Pi, while `noBrowser` makes sense for running daemonized. Now, you'll need to move the file to `/etc/systemd/system/` in order for it to be recognized. You'll need then to enable and start the service.
+There is no need to run Superalgos as root so we're running it as a user. The `minMemo` option assumes you're running on a small machine like a Raspberry Pi, while `noBrowser` makes sense for running daemonized. Now, you'll need to move the file to `/etc/systemd/system/` for it to be recognized. You'll need then to enable and start the service.
 
 ```sh
 sudo mv superalgos.service /etc/systemd/system
@@ -328,192 +614,3 @@ or to follow the output with `-f`:
 ```sh
 journalctl -u superalgos -f
 ```
-
-### Docker Deployments
-
-See the [Docker Readme for more information](Docker/README.md).
-
-### Workspace Refactoring for beta 13
-Beta 13 carries with it a reorganization of the codebase where several projects where extracted from Foundations : Data-Mining, Algorithmic Trading, Machine Learning and Community Plugins.
-
-This means that these projects can now have a project leader and a team working on them.
-
-In order to get your custom workspace upgraded to be compatible with beta 13 you will need to make a few changes:
-
-Project nodes need to be present at the workspace for things to work. The presence of the node of a project, somehow, enables that projects features at a workspace. Go to the workspace node and click add missing projects.
-
-At the Plugins hierarchy, new guys appear, each one with their own type of plugins. Meaning that every workspace needs to be manually fixed, because currently all plugins are loaded from Foundations node there. The fix is easy though, it takes 2 - 3 min to delete the child nodes from the foundation node, and add the same plugins from the project they actually belong now.
-
-
-## Welcome Tutorial
-
-Once the app finishes loading, an interactive tutorial takes you by the hand and walks you all around the system while you learn the basic skills required to use the interface, mine data, backtest strategies, and even run a live trading session. It is highly recommended you follow the tutorial until the end, as it is carefully crafted to make your onboarding as easy as possible. Tutorials are the absolute best way to tackle the learning curve. You should do all tutorials before you start exploring other avenues on your own.
-
-![welcome-tutorial-00](https://user-images.githubusercontent.com/13994516/107038771-4a6bf100-67bd-11eb-92e0-353525a972a9.gif)
-
-> **NOTE:**
-> 
-> The tutorial uses Binance or Binance US as the exchange of choice. If you don't have an account with Binance or Binance US, you will still be able to follow 100% of the tutorial. When you get to the live trading section, keep going even if you don't intend to run the session. You may learn how to work with other exchanges later on.
-
-## What is the Superalgos Platform?
-
-Superalgos Platform is a set of tools to automate crypto-trading. It is implemented as a Node JS Client + Web App that runs on your hardware and scales from a single Raspberry Pi to a Trading Farm. The Platform is fully functional and has been used for trading live since 2020.
-
-At v.1.0, trading signals will be able to be sent to the Suerpalgos Network from the Superalgos Platform.
-
-### Superalgos Platform Features
-
-- A Visual Scripting Designer.
-- Integrated Charting System.
-- A Visual Strategy Debugger.
-- Data Mining Tools.
-- Coordinated Task Management across a Trading Farm.
-- Community-built strategies to learn and start from.
-- TensorFlow Machine Learning integration.
-- In-App Tutorials.
-- Complete In-App Documentation.
-- SA Token / Project Governance System.
-  
-### Superalgos Development Pipeline
-
-- **Superalgos P2P Network:** Will allow the project to distribute trading intelligence produced by algo-traders.
-- **Trading Signals:** Will allow providers to broadcast trading signals and be rewarded with SA Tokens.
-- **Superalgos Mobile:** Will allow users to consume trading signals for free and autonomously execute trades from their mobile phones.
-- **Ethereum Integration:** Will allow mining data from an Ethereum network node, and bring it into the Superalgos workflow.
-
-### Superalgos is User-centric
-
-- No ads, anywhere.
-- No sign-up / logins.
-- No user/usage data collection of any kind.
-- No user trading information collected or sold.
-- Runs 100% on uncompiled code anyone can read and audit.
-
-### Superalgos Platform Allows You To
-
-- Visually design your trading strategies.
-- Visually debug your trading strategies.
-- Visually design your indicators.
-- Visually design your plotters to visualize indicators or mined data.
-- Visually design your data-mining operations.
-- Download historical market data from crypto exchanges.
-- Backtest your strategies against historical data.
-- Run live trading sessions.
-- Run arbitrary data-mining operations of any size.
-- Feed your trading strategies with the data mined.
-- Use your token holdings to vote and influence the direction of the project development.
-- Produce real-time trading signals and send them via the p2p network. (under development)
-
-### Superalgos Platform for Developers
-
-- You may use Superalgos as a platform or as a component of a larger system.
-- No proprietary code/libraries. All open-source and free.
-- Superalgos features a library of community-contributed plugins (workspaces, strategies, indicators, plotters, tutorials, etc.).
-
-### Superalgos Platform Saves You Time
-
-- No need to code the download of historical data from crypto exchanges.
-- No need to code the streaming of market data from crypto exchanges.
-- No need to hardcode strategies. Use the visual designer for a more flexible approach.
-- No need to debug what went wrong, line by line, or dive into log files with tons of data. You can see each variable of the state of the Trading Engine at every candle by hovering the mouse over the charts.
-- No need to integrate a charting library, Superalgos features an integrated Charting System.
-- No need to manage task data or execution dependencies. Superalgos allows you to define Tasks and distribute them across a Trading Farm and takes care of the data and execution dependencies so that each task automatically starts when their dependencies are ready.
-
-### Superalgos Platform is Permissionless
-
-- Don't like the UI?
-- Don't like the icons used?
-- Don't like the Charting System?
-- Don't like the Visual Designer?
-- Don't like the Visual Debugger?
-- Don't like the Docs?
-- Don't like the Trading Bot?
-- Don't like the Indicators?
-- Don't like the Plotters?
-- Don't like any other part of the system?
-
-No problem, code or integrate libraries with your own version of any component and we promise we will merge your work and provide it as an alternative to users. We believe in Permissionless Innovation and that users, not team members, are the final judges and the ones who decide what they prefer to use. You are free to create an alternative for any part of the system that you believe that should work or should have been done in a different way. We will help you integrate your vision into the next release and enable a way for users to choose between different implementations of the same functionality. You will also be granted the title of maintainer of the functionality you provide and have decision power on how it evolves in the future.
-
-### Superalgos Platform for Algo-Traders
-
-- Superalgos is easy to install/uninstall.
-- Superalgos is easy to run.
-- Superalgos is easy to use.
-- Superalgos is easy to learn.
-- Superalgos is easy to debug.
-- Superalgos is well documented.
-- You have free online support via Telegram and Discord.
-
-### Superalgos Platform Saves You Money
-
-- There are no paid plans or anything that costs you money.
-- There is no locked functionality. You may use the full capacity of the software.
-- There is no limit to the number of backtests you may run.
-- There is no limit to the number of live sessions you may run.
-- There is no limit to the number of historical data you may download.
-- There is no limit to the volume of data you may process.
-- You may use all the plugins available (indicators, plotters, strategies, etc.)
-- You may install Superalgos in as many machines as you wish.
-- Your installations may be used by as many people as required.
-- You may connect to as many crypto exchanges as you wish.
-
-### Superalgos Platform Minimizes Risks
-
-- No one can know what strategies you design/run.
-- No one can front-run you.
-- No one can steal your trading ideas.
-- No one knows how much capital you trade.
-- No one can see your exchange keys.
-
-### Superalgos Platform for Companies
-
-- No need to buy expensive software for monitoring crypto markets or trading execution.
-- No need to hire your own developers.
-- All your employees can use Superalgos for free.
-- You can use Superalgos to its full capacity or just the features you are currently interested in.
-- Superalgos may be integrated into your existing operation, feeding to and from other systems.
-- You've got a growing community of algo-traders constantly improving the software at zero cost for you.
-- You've got free online customer support via Telegram or Discord.
-
-## Support
-
-We just opened a brand new [Discord server for Support and the Community](https://discord.gg/CGeKC6WQQb).
-
-We also meet on several Telegram groups, where it all started!
-
-> **BEWARE OF IMPERSONATORS — SCAMMERS ARE LURKING!**
-> 
-> Superalgos Admins, the Core Team, and Community Mods will never contact you directly unless you contact them first. We will never ask you for API keys, coins, or cash. In fact, we will never ask you to trust us in any way. Our [Community Safety Policy](https://superalgos.org/community-safety-policy.shtml) explains why. In short, we want to make it clear that if someone contacts you directly claiming to work with or for the project, it is a scam. Please report scammers in the Community group so that they may be banned, and to increase awareness of the problem, but also block them and report them to Telegram if the option is available.
-
-- Via Telegram
-  - Online support through our [Superalgos User's Support Group](https://t.me/superalgossupport).
-- In-App Integrated Documentation
-  - Superalgos features interactive documentation built-in the system.
-- Video Tutorials
-  - Subscribe to the [Superalgos YouTube Channel](https://www.youtube.com/channel/UCmYSGbB151xFQPNxj7KfKBg).
-- In-App Tutorials
-  - There are many interactive tutorials you may do and learn from.
-
-## Other Resources
-
-- Web Site
-  - For an overview of what Superalgos can do for you, check the [Superalgos Website](https://superalgos.org/).
-- Telegram
-  - For official news, join the [Superalgos Announcements Channel](https://t.me/superalgos).
-  - Meet other users in the [Superalgos Telegram Community Group](https://t.me/superalgoscommunity).
-  - Meet developers in the [Superalgos Telegram Developer's Group](https://t.me/superalgosdevelop).
-  - Users meet in other topic-specific Telegram Groups. There's a [complete list of groups](https://superalgos.org/community-join.shtml) on the website.
-- Blog
-  - Find official announcements and various articles on the [Superalgos Blog](https://medium.com/superalgos).
-- Twitter
-  - To stay in the loop, follow [Superalgos on Twitter](https://twitter.com/superalgos).
-- Facebook
-  - Or follow [Superalgos on Facebook](https://www.facebook.com/superalgos).
-
-## Contributing
-
-Superalgos is a Community Project built by users for users. Learn [how you may contribute](https://superalgos.org/community-contribute.shtml).
-
-## License
-
-Superalgos is open-source software released under [Apache License 2.0](LICENSE).

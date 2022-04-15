@@ -4,17 +4,53 @@
     "type": "Investigating Issues - I Think I Broke Something... How Do I Start Over?",
     "definition": {
         "text": "If you think you may have accidentally broken something within the workspace, you may easily go back to the original release settings.",
-        "updated": 1611515018864
+        "updated": 1611515018864,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Если вам кажется, что вы могли случайно сломать что-то в рабочем пространстве, вы можете легко вернуться к исходным настройкам программы.",
+                "updated": 1640538069099
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Çalışma alanında yanlışlıkla bir şeyi bozmuş olabileceğinizi düşünüyorsanız, orijinal sürüm ayarlarına kolayca geri dönebilirsiniz.",
+                "updated": 1647866444269
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Superalgos is a large system and the learning curve may be a little steep. In the beginning, you may feel a bit lost, and in an attempt to make something work, you may accidentally detach nodes from their hierarchies, remove references, delete nodes, or even entire data structures.",
-            "updated": 1611515027037
+            "updated": 1611515027037,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Superalgos - это большая система, и кривая обучения может быть достаточно крутой. Вначале вы можете почувствовать себя немного потерянным, и в попытке заставить что-то работать вы можете случайно отсоединить узлы от их иерархии, удалить ссылки, удалить узлы или даже целые структуры данных.",
+                    "updated": 1640538115904
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos büyük bir sistemdir ve öğrenme eğrisi biraz dik olabilir. Başlangıçta kendinizi biraz kaybolmuş hissedebilirsiniz ve bir şeyin işe yaraması için yanlışlıkla düğümleri hiyerarşilerinden ayırabilir, referansları kaldırabilir, düğümleri silebilir ve hatta tüm veri yapılarını silebilirsiniz.",
+                    "updated": 1647866476972
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If basic things are not working for you as expected and you think the issue may be that you accidentally broke something, do not panic! You can always go back to the original release settings by restoring a workspace the Getting Started plugin workspace by selecting it from the Workspaces Tab on the left-hand side of the screen."
+            "text": "If basic things are not working for you as expected and you think the issue may be that you accidentally broke something, do not panic! You can always go back to the original release settings by restoring a workspace the Getting Started plugin workspace by selecting it from the Workspaces Tab on the left-hand side of the screen.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если основные компоненты работают не так, как ожидалось, и вы думаете, что проблема может заключаться в том, что вы случайно что-то сломали, не паникуйте! Вы всегда можете вернуться к исходным настройкам релиза, восстановив рабочее пространство Getting Started Plugin Workspace, выбрав его на вкладке Workspaces в левой части экрана.",
+                    "updated": 1640538248209
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel şeyler beklediğiniz gibi çalışmıyorsa ve sorunun yanlışlıkla bir şeyi bozmuş olmanız olabileceğini düşünüyorsanız, panik yapmayın! Başlarken eklentisi çalışma alanını ekranın sol tarafındaki Çalışma Alanları ( Workspaces ) Sekmesinden seçerek bir çalışma alanını geri yükleyerek her zaman orijinal sürüm ayarlarına geri dönebilirsiniz.",
+                    "updated": 1647866571979
+                }
+            ]
         }
     ]
 }

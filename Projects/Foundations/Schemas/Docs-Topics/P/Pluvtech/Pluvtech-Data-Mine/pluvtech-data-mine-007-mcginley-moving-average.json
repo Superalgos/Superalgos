@@ -4,17 +4,129 @@
     "type": "McGinley Moving Average",
     "definition": {
         "text": "The McGinley Dynamic indicator is a type of moving average that was designed to track the market better than existing moving average indicators. It is a technical indicator that improves upon moving average lines by adjusting for shifts in market speed.",
-        "updated": 1622686933380
+        "updated": 1622686933380,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Индикатор McGinley Dynamic - это тип скользящей средней, который был разработан для отслеживания рынка лучше, чем существующие индикаторы скользящих средних. Это технический индикатор, который улучшает линии скользящей средней, корректируя изменения в скорости движения рынка.",
+                "updated": 1645610522384
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Info:",
-            "updated": 1622481793076
+            "updated": 1622481793076,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Информация:",
+                    "updated": 1645610557220
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "In his research, McGinley found moving averages had many problems. In the first place, they were inappropriately applied. Moving averages in different periods operate with varying degrees in different markets. For example, how can one know when to use a 10-day, 20-day, or 50-day moving average in a fast or slow market? In order to solve the problem of choosing the right length of the moving average, the McGinley Dynamic was built to automatically adjust to the current speed of the market.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В ходе своего исследования МакГинли обнаружил, что у скользящих средних много проблем. Прежде всего, они применялись неправильно. Скользящие средние за разные периоды действуют на разных рынках в разной степени. Например, как узнать, когда использовать 10-дневную, 20-дневную или 50-дневную скользящую среднюю на быстром или медленном рынке? Для того чтобы решить проблему выбора правильной длины скользящей средней, была построена система McGinley Dynamic, которая автоматически подстраивается под текущую скорость рынка.",
+                    "updated": 1645610591961
+                }
+            ]
         },
         {
             "style": "Link",
             "text": "McGinley - (Investopedia)->www.investopedia.com/terms/m/mcginley-dynamic.asp"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Pluvtech-McGinley.png",
+            "updated": 1611661370646
+        },
+        {
+            "style": "Text",
+            "text": "The length of the McGinley indicator calculation can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Initialization under ’McGinley’ Product Definition.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Период расчета индикатора McGinley можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Initialization в разделе'McGinley'Product Definition.",
+                    "updated": 1645610833870
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Pluvtech-McGinley-params.png",
+            "updated": 1611673329568
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты и свойства",
+                    "updated": 1645610618139
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Доступны следующие свойства:",
+                    "updated": 1645610623977
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| McGinley | MD | md |",
+            "updated": 1636853769
+        },
+        {
+            "style": "Text",
+            "text": "Example:",
+            "updated": 1611661674316,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пример:",
+                    "updated": 1645610631881
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The McGinley indicator could be used to generate a buy signal when a candle closes above the indicator value:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Индикатор McGinley можно использовать для генерации сигнала на покупку, когда свеча закрывается выше значения индикатора:",
+                    "updated": 1645610640217
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.candle.close > chart.at01hs.MD.md",
+            "updated": 1636853769
+        },
+        {
+            "style": "Text",
+            "text": "It is suggested that the McGinley indicator could be used in conjunction with completmentary indicators such as MACD, RSI or TDI",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Предлагается использовать индикатор McGinley в сочетании с дополнительными индикаторами, такими как MACD, RSI или TDI.",
+                    "updated": 1645610649330
+                }
+            ]
         },
         {
             "style": "Title",

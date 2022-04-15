@@ -1,7 +1,14 @@
 {
     "type": "Size",
     "definition": {
-        "text": "Size is the size set for the order through a combination of formulas and configurations defined in the trading system, and is the value passed on to the exchange as the size of the order."
+        "text": "Size is the size set for the order through a combination of formulas and configurations defined in the trading system, and is the value passed on to the exchange as the size of the order.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Size - это размер, установленный для ордера с помощью комбинации формул и конфигураций, определенных в торговой системе, и представляет собой значение, передаваемое на биржу в качестве размера ордера.",
+                "updated": 1640349803851
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,19 +17,47 @@
         },
         {
             "style": "Text",
-            "text": "The system provides a flexible and robust infrastructure to control execution. The size of a single order results from the combination of multiple settings."
+            "text": "The system provides a flexible and robust infrastructure to control execution. The size of a single order results from the combination of multiple settings.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Система обеспечивает гибкую и надежную инфраструктуру для контроля исполнения. Размер одного ордера является результатом комбинации нескольких параметров.",
+                    "updated": 1640349826532
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The target size in base asset or target size in quoted asset: The formulas under these nodes define the absolute maximum size allowed for the position. The implications of using one or the other are explained under the initial targets node in the open stage."
+            "text": "The target size in base asset or target size in quoted asset: The formulas under these nodes define the absolute maximum size allowed for the position. The implications of using one or the other are explained under the initial targets node in the open stage.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Целевой размер в базовом активе или целевой размер в котируемом активе: формулы в этих узлах определяют абсолютный максимальный размер, допустимый для позиции. Последствия использования того или иного варианта объясняются в узле начальных целей Initial Targets на этапе открытия.",
+                    "updated": 1640349886955
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The configuration of the execution algorithm: The parameter percentageOfStageTargetSize determines what fraction of the target size the algorithm will attempt to execute."
+            "text": "The configuration of the execution algorithm: The parameter percentageOfStageTargetSize determines what fraction of the target size the algorithm will attempt to execute.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация алгоритма выполнения: Параметр percentageOfStageTargetSize определяет, какую долю целевого размера алгоритм будет пытаться исполнить.",
+                    "updated": 1640349919243
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The configuration of the order: The parameter percentageOfAlgorithmSize determines what fraction of the size handled by the algorithm the order shall be constrained to."
+            "text": "The configuration of the order: The parameter percentageOfAlgorithmSize determines what fraction of the size handled by the algorithm the order shall be constrained to.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация заказа: Параметр percentageOfAlgorithmSize определяет, какой долей размера, обрабатываемого алгоритмом, должен быть ограничен ордер.",
+                    "updated": 1640349993191
+                }
+            ]
         },
         {
             "style": "Block",
@@ -32,15 +67,36 @@
         {
             "style": "Title",
             "text": "Size Configuration",
-            "updated": 1609927506777
+            "updated": 1609927506777,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Size",
+                    "updated": 1640350007445
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Properties"
+            "text": "Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1640350015026
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "initialValue allows resetting the initial state of the node to an arbitrary value."
+            "text": "initialValue allows resetting the initial state of the node to an arbitrary value.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
+                    "updated": 1640350023867
+                }
+            ]
         }
     ]
 }

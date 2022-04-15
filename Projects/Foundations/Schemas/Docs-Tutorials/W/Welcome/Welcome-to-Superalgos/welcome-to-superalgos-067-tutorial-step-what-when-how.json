@@ -24,13 +24,23 @@
                 "language": "TR",
                 "text": "Alım Satım Parametreleri ( Trading Parameters ), alım satım seansının nasıl yürütüldüğünün temel yönlerini belirler. Hızlı, yüzeysel bir göz atalım...",
                 "updated": 1636120903968
+            },
+            {
+                "language": "RU",
+                "text": "Trading Parameters определяют ключевые аспекты того, как проходит торговая сессия. Давайте быстро и поверхностно взглянем на это...",
+                "updated": 1636929360190
+            },
+            {
+                "language": "ID",
+                "text": "Trading Parameters menentukan aspek kunci dari bagaimana trading session dijalankan. Mari kita lihat sekilas...",
+                "updated": 1639747547017
             }
         ]
     },
     "paragraphs": [
         {
             "style": "List",
-            "text": "Session Base Asset: no capital is assigned in BTC.",
+            "text": "Session Base Asset : no capital is assigned in BTC.",
             "translations": [
                 {
                     "language": "IT",
@@ -51,10 +61,21 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Session Base Asset (Oturum Temel Varlığı:): BTC'ye sermaye tahsis edilmez.",
-                    "updated": 1636121181916
+                    "text": "Session Base Asset (Oturum Temel Varlığı:): BTC'de sermaye belirlenmez.",
+                    "updated": 1640627828558
+                },
+                {
+                    "language": "RU",
+                    "text": "Session Base Asset (Базовый актив сессии): капитал в BTC не назначается.",
+                    "updated": 1641832734731
+                },
+                {
+                    "language": "ID",
+                    "text": "Session Base Asset: tidak ada modal yang ditetapkan dalam BTC.",
+                    "updated": 1639747618439
                 }
-            ]
+            ],
+            "updated": 1640288657193
         },
         {
             "style": "List",
@@ -81,6 +102,16 @@
                     "language": "TR",
                     "text": "Session Quoted Asset (Oturumda Kote Edilen Varlık): 1000 USDT başlangıç sermayesi.",
                     "updated": 1636121192365
+                },
+                {
+                    "language": "RU",
+                    "text": "Session Quoted Asset (Котируемый актив сессии): 1000 USDT начального капитала.",
+                    "updated": 1641832810681
+                },
+                {
+                    "language": "ID",
+                    "text": "Session Quoted Asset: 1000 USDT dari modal awal.",
+                    "updated": 1639747647586
                 }
             ]
         },
@@ -109,6 +140,16 @@
                     "language": "TR",
                     "text": "Time Range (Zaman Aralığı): Tek bir günü test edeceğiz, 01 Eylül 2020",
                     "updated": 1636121263576
+                },
+                {
+                    "language": "RU",
+                    "text": "Time Range (Временной диапазон): мы будем тестировать один день, 2020-09-01.",
+                    "updated": 1641832891534
+                },
+                {
+                    "language": "ID",
+                    "text": "Time Range: kami akan menguji dalam satu hari, 2020-09-01.",
+                    "updated": 1639747681537
                 }
             ]
         },
@@ -137,6 +178,16 @@
                     "language": "TR",
                     "text": "Time Frame (Zaman periyodu): siparişler her dakika verilir/iptal edilir, bu nedenle 01 dakika uygundur.",
                     "updated": 1636121307468
+                },
+                {
+                    "language": "RU",
+                    "text": "Time Frame (Таймфрейм): ордера размещаются/отменяются каждую минуту, поэтому подходит 01-мин.",
+                    "updated": 1641832993200
+                },
+                {
+                    "language": "ID",
+                    "text": "Time Frame: order ditempatkan/dibatalkan setiap menit, jadi 01-menit sesuai.",
+                    "updated": 1639747733061
                 }
             ]
         },
@@ -166,12 +217,22 @@
                     "language": "TR",
                     "text": "Slippage (Kayma): Bu özel ticaret sistemi sadece limit emirleri kullandığından, bu durum için önemsizdir.",
                     "updated": 1636121458592
+                },
+                {
+                    "language": "RU",
+                    "text": "Slippage (Проскальзование): в данном случае это не имеет значения, т.к. данная конкретная торговая система использует только лимитные ордера.",
+                    "updated": 1641833026230
+                },
+                {
+                    "language": "ID",
+                    "text": "Slippage: itu tidak relevan untuk kasus ini, karena sistem perdagangan khusus ini hanya menggunakan pesanan terbatas.",
+                    "updated": 1639747757651
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Fee Structure: 0.1% is the lower Binance tier.",
+            "text": "Fee Structure: 0.1% is just an example.",
             "translations": [
                 {
                     "language": "IT",
@@ -192,10 +253,16 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Fee Structure (Komisyon): Binance için %0,1 olduğunu varsayalım.",
-                    "updated": 1636121571785
+                    "text": "Fee Structure (Komisyon): Borsa için %0,1 olduğunu varsayalım.",
+                    "updated": 1640627850968
+                },
+                {
+                    "language": "RU",
+                    "text": "Fee Structure (Структура комиссии): 0,1% - это просто пример.",
+                    "updated": 1641832713243
                 }
-            ]
+            ],
+            "updated": 1640359705451
         },
         {
             "style": "Text",
@@ -223,6 +290,16 @@
                     "language": "TR",
                     "text": "Kalan parametreler simülasyonu etkilemez. İşlem Parametreleri hakkında daha fazla bilgi edinmek için belgelere bakın.",
                     "updated": 1636121544786
+                },
+                {
+                    "language": "RU",
+                    "text": "Остальные параметры не влияют на моделирование. Чтобы узнать больше о Trading Parameters, ознакомьтесь с документацией.",
+                    "updated": 1636930345208
+                },
+                {
+                    "language": "ID",
+                    "text": "Parameter yang tersisa tidak mempengaruhi simulasi. Untuk mempelajari lebih lanjut tentang Trading Parameters, lihat documentation.",
+                    "updated": 1639747598611
                 }
             ]
         }

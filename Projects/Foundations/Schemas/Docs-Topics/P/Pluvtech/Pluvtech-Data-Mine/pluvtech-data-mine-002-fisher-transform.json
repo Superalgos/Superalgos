@@ -4,21 +4,140 @@
     "type": "Fisher Transform",
     "definition": {
         "text": "The Fisher Transform - An attempt to normalize a non-normal distribution.",
-        "updated": 1622686933380
+        "updated": 1622686933380,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Преобразование Фишера - попытка нормализации ненормального распределения.",
+                "updated": 1645609715261
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
-            "text": "Info:",
-            "updated": 1622481793076
+            "text": "Fisher Transform on the Charts",
+            "updated": 1622481793076,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Преобразование Фишера на графиках",
+                    "updated": 1645609729387
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "A technical indicator created by John F. Ehlers that converts prices into a Gaussian normal distribution. The indicator highlights when prices have moved to an extreme, based on recent prices. This may help in spotting turning points in the price of an asset. It also helps show the trend and isolate the price waves within a trend."
+            "text": "A technical indicator created by John F. Ehlers that converts prices into a Gaussian normal distribution. The indicator highlights when prices have moved to an extreme, based on recent prices. This may help in spotting turning points in the price of an asset. It also helps show the trend and isolate the price waves within a trend.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Технический индикатор, созданный Джоном Ф. Элерсом, который преобразует цены в гауссово нормальное распределение. Индикатор выделяет моменты, когда цены переходят в экстремальное положение, основываясь на последних ценах. Это может помочь в определении поворотных точек в цене актива. Он также помогает показать тренд и выделить ценовые волны в рамках тренда.",
+                    "updated": 1645609745523
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "This technical indicator is commonly used by traders looking for leading signals, rather than lagging indicators.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Этот технический индикатор обычно используется трейдерами, которые ищут опережающие сигналы, а не запаздывающие индикаторы.",
+                    "updated": 1645609757405
+                }
+            ]
         },
         {
             "style": "Link",
             "text": "Fisher Transform - (investopedia)->www.investopedia.com/terms/f/fisher-transform.asp"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Pluvtech-Fisher.png",
+            "updated": 1611661370646
+        },
+        {
+            "style": "Text",
+            "text": "The length of the fisher transform calculation can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Initialization under ’Fisher Transform’ Product Definition.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Длину расчета преобразования Фишера можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Initialization под продуктом 'Fisher Transform' Product Definition.",
+                    "updated": 1645609781306
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Pluvtech-Fisher-params.png",
+            "updated": 1611673329568
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты и свойства",
+                    "updated": 1645609786700
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Доступны следующие свойства:",
+                    "updated": 1645609795155
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Fisher Transform | Fisher | fisher, trigger |",
+            "updated": 1636853769
+        },
+        {
+            "style": "Text",
+            "text": "Example:",
+            "updated": 1611661674316,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пример:",
+                    "updated": 1645609803924
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The Fisher transform could be used to generate a buy signal when the Fisher line crosses the trigger line after an extreme low.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Преобразование Фишера можно использовать для генерирования сигнала на покупку, когда линия Фишера пересекает линию триггера после экстремального минимума.",
+                    "updated": 1645609814009
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at04hs.Fisher.fisher > chart.at04hs.Fisher.trigger && chart.at04hs.Fisher.fisher < -2",
+            "updated": 1636853769
+        },
+        {
+            "style": "Text",
+            "text": "To increase confirmation confidence, this indicator can be paired with other indicators such as Parabolic SAR or Bollinger Bands.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для повышения достоверности подтверждения этот индикатор можно использовать в паре с другими индикаторами, такими как Parabolic SAR или Bollinger Bands.",
+                    "updated": 1645609824572
+                }
+            ]
         },
         {
             "style": "Title",

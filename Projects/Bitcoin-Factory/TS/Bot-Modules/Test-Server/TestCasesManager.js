@@ -59,6 +59,9 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
             */
             for (let q = 0; q < timeSeriesFileLabels.length; q++) {
                 let label = timeSeriesFileLabels[q].parameter
+                if (label === undefined) {
+                    label = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.getParameterName(timeSeriesFileLabels[q])
+                }
                 parametersRanges[label] = timeSeriesFileLabels[q].range
             }
             /*
@@ -66,6 +69,9 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
             */
             for (let q = 0; q < timeSeriesFileFeatures.length; q++) {
                 let feature = timeSeriesFileFeatures[q].parameter
+                if (feature === undefined) {
+                    feature = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.getParameterName(timeSeriesFileFeatures[q])
+                }
                 parametersRanges[feature] = timeSeriesFileFeatures[q].range
             }
             /*
@@ -140,10 +146,23 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
                 parameters.NUMBER_OF_LSTM_NEURONS = preParameters.NUMBER_OF_LSTM_NEURONS
 
                 /*
-                Add Time Features to Param Ranges
+                Add Labels  
+                */
+                for (let q = 0; q < timeSeriesFileLabels.length; q++) {
+                    let label = timeSeriesFileLabels[q].parameter
+                    if (label === undefined) {
+                        label = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.getParameterName(timeSeriesFileLabels[q])
+                    }
+                    parameters[label] = preParameters[label]
+                }
+                /*
+                Add Features  
                 */
                 for (let q = 0; q < timeSeriesFileFeatures.length; q++) {
                     let feature = timeSeriesFileFeatures[q].parameter
+                    if (feature === undefined) {
+                        feature = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.getParameterName(timeSeriesFileFeatures[q])
+                    }
                     parameters[feature] = preParameters[feature]
                 }
 
@@ -200,8 +219,8 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
             let timeFrame = testCase.parameters.LIST_OF_TIMEFRAMES[i]
             fileName = fileName + "-" + timeFrame
         }
-        testCase.timeSeriesFileName = fileName + "-" + testCaseId 
-        testCase.parametersFileName = "parameters" + "-" + testCaseId 
+        testCase.timeSeriesFileName = fileName + "-" + testCaseId
+        testCase.parametersFileName = "parameters" + "-" + testCaseId
     }
 
     function setTestCaseResults(testResult, testedBy) {

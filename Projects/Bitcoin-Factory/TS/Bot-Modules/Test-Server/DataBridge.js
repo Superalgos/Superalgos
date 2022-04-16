@@ -185,6 +185,8 @@ exports.newDataBridge = function newDataBridge(processIndex) {
                     async function addToObjectMap(featuresOrLabelsObject) {
 
                         if (featuresOrLabelsObject.dataMine === undefined) { return }
+                        let parameterName = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.getParameterName(featuresOrLabelsObject)
+                        if (testCase.parameters[parameterName] !== 'ON') { return }
 
                         let indicatorKey = featuresOrLabelsObject.dataMine + '-' + featuresOrLabelsObject.indicator + '-' + featuresOrLabelsObject.product
                         let indicatorAlreadyProcessed = indicatorsMap.get(indicatorKey)

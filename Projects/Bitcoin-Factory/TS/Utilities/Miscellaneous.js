@@ -3,6 +3,7 @@ exports.newBitcoinFactoryUtilitiesMiscellaneous = function newBitcoinFacnewBitco
     Utilities functions goes here.
     */
     let thisObject = {
+        getParameterName: getParameterName,
         getRecordDefinition: getRecordDefinition,
         getUserProfileFilesList: getUserProfileFilesList,
         getUserProfileFile: getUserProfileFile,
@@ -51,6 +52,17 @@ exports.newBitcoinFactoryUtilitiesMiscellaneous = function newBitcoinFacnewBitco
 
     function finalize() {
 
+    }
+
+    function getParameterName(featuresOrLabelsObject) {
+        let name =
+            featuresOrLabelsObject.dataMine.toUpperCase() + "_" +
+            featuresOrLabelsObject.indicator.toUpperCase() + "_" +
+            featuresOrLabelsObject.product.toUpperCase() + "_" +
+            featuresOrLabelsObject.objectName.toUpperCase() + "_" +
+            featuresOrLabelsObject.propertyName.toUpperCase()
+
+        return name
     }
 
     function getRecordDefinition(dataMine, indicatorName, productName) {

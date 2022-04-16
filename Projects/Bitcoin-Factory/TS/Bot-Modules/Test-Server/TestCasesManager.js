@@ -24,11 +24,13 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
 
     async function initialize() {
         await loadTestCasesFile()
+        /*
         setInterval(updateTestDatasets, 60 * 1000)
 
         async function updateTestDatasets() {
             await generateTestDatasets()
         }
+        */
 
         async function loadTestCasesFile() {
             let fileContent = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.loadFile(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/StateData/TestCases/Test-Cases-Array-" + networkCodeName + ".json")
@@ -46,7 +48,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
             }
             generateTestCases()
             saveTestCasesFile()
-            await generateTestDatasets()
+            // await generateTestDatasets()
         }
 
         function generateTestCases() {
@@ -158,18 +160,6 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
             }
             saveTestCasesFile()
 
-            function getTimeSeriesFileName(testCase) {
-                let fileName = "time-series"
-                for (let i = 0; i < testCase.parameters.LIST_OF_ASSETS.length; i++) {
-                    let asset = testCase.parameters.LIST_OF_ASSETS[i]
-                    fileName = fileName + "-" + asset
-                }
-                for (let i = 0; i < testCase.parameters.LIST_OF_TIMEFRAMES.length; i++) {
-                    let timeFrame = testCase.parameters.LIST_OF_TIMEFRAMES[i]
-                    fileName = fileName + "-" + timeFrame
-                }
-                testCase.timeSeriesFileName = fileName
-            }
         }
     }
 
@@ -177,11 +167,16 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
 
     }
 
-    function getNextTestCase() {
+    async function getNextTestCase() {
         for (let i = 0; i < thisObject.testCasesArray.length; i++) {
             let testCase = thisObject.testCasesArray[i]
             if (testCase.status === 'Never Tested') {
                 testCase.status = 'Being Tested'
+
+                testCase.forcastedCandle = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.dataBridge.updateDatasetFiles(testCase)
+                getTimeSeriesFileName(testCase)
+                saveTestCasesFile()
+
                 let nextTestCase = {
                     id: testCase.id,
                     totalCases: thisObject.testCasesArray.length,
@@ -191,6 +186,22 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
                 return nextTestCase
             }
         }
+    }
+
+    function getTimeSeriesFileName(testCase) {
+        let testCaseId = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.pad(testCase.id, 10)
+
+        let fileName = "time-series"
+        for (let i = 0; i < testCase.parameters.LIST_OF_ASSETS.length; i++) {
+            let asset = testCase.parameters.LIST_OF_ASSETS[i]
+            fileName = fileName + "-" + asset
+        }
+        for (let i = 0; i < testCase.parameters.LIST_OF_TIMEFRAMES.length; i++) {
+            let timeFrame = testCase.parameters.LIST_OF_TIMEFRAMES[i]
+            fileName = fileName + "-" + timeFrame
+        }
+        testCase.timeSeriesFileName = fileName + "-" + testCaseId 
+        testCase.parametersFileName = "parameters" + "-" + testCaseId 
     }
 
     function setTestCaseResults(testResult, testedBy) {

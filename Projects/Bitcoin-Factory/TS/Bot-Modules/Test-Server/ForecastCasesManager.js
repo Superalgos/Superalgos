@@ -97,11 +97,15 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
         }
     }
 
-    function getNextForecastCase() {
+    async function getNextForecastCase() {
         for (let i = 0; i < thisObject.forecastCasesArray.length; i++) {
             let forecastCase = thisObject.forecastCasesArray[i]
             if (forecastCase.status === 'Model Not Built Yet') {
                 forecastCase.status = 'Model Buing Built'
+
+                let testCase = TS.projects.foundations.globals.taskConstants.TEST_SERVER.testCasesManager.testCasesMap.get(forecastCase.id)
+                forecastCase.forcastedCandle = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.dataBridge.updateDatasetFiles(testCase)
+
                 let nextForecastCase = {
                     id: forecastCase.id,
                     caseIndex: forecastCase.caseIndex, 
@@ -114,10 +118,14 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
         }
     }
 
-    function getThisForecastCase(forecastCaseId) {
+    async function getThisForecastCase(forecastCaseId) {
         for (let i = 0; i < thisObject.forecastCasesArray.length; i++) {
             let forecastCase = thisObject.forecastCasesArray[i]
             if (forecastCase.status === 'Forecasted' && forecastCase.id === forecastCaseId) {
+
+                let testCase = TS.projects.foundations.globals.taskConstants.TEST_SERVER.testCasesManager.testCasesMap.get(forecastCase.id)
+                forecastCase.forcastedCandle = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.dataBridge.updateDatasetFiles(testCase)
+
                 let thisForecastCase = {
                     id: forecastCase.id,
                     caseIndex: forecastCase.caseIndex, 

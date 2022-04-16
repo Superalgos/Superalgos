@@ -56,12 +56,12 @@ exports.newTestClientsManager = function newTestClientsManager(processIndex, net
         }
     }
 
-    function onMessageReceived(message, userProfile, clientInstanceName) {
+    async function onMessageReceived(message, userProfile, clientInstanceName) {
 
         switch (message.type) {
             case 'Get Next Test Case': {
                 console.log((new Date()).toISOString(), userProfile + ' / ' + clientInstanceName, 'requested a new Test Case')
-                let nextTestCase = TS.projects.foundations.globals.taskConstants.TEST_SERVER.testCasesManager.getNextTestCase()
+                let nextTestCase = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.testCasesManager.getNextTestCase()
                 if (nextTestCase !== undefined) {
                     console.log((new Date()).toISOString(), 'Test Case Id ' + nextTestCase.id + ' delivered to', userProfile + ' / ' + clientInstanceName)
                     nextTestCase.files.parameters = nextTestCase.files.parameters.toString()

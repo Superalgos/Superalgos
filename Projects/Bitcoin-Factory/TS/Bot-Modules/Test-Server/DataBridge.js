@@ -63,7 +63,7 @@ exports.newDataBridge = function newDataBridge(processIndex) {
             if (dataMine !== undefined) { return }
 
             let fileContent = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.loadFile(global.env.PATH_TO_PLUGINS + "/Data-Mining/Data-Mines/" + featuresOrLabelsObject.dataMine + ".json")
-            let dataMine = JSON.parse(fileContent)
+            dataMine = JSON.parse(fileContent)
             loadedDataMinesFilesMap.set(featuresOrLabelsObject.dataMine)
         }
     }
@@ -78,7 +78,6 @@ exports.newDataBridge = function newDataBridge(processIndex) {
         let mainAsset = testCase.parameters.LIST_OF_ASSETS[0]
         let assetsToInclude = testCase.parameters.LIST_OF_ASSETS
         let timeFramesToInclude = testCase.parameters.LIST_OF_TIMEFRAMES
-        let testCaseId = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.pad(testCase.id, 10)
 
         createParametersFile()
         await createTimeSeriesFile()
@@ -107,7 +106,7 @@ exports.newDataBridge = function newDataBridge(processIndex) {
                 parametersFile = parametersFile + parameter + "   " + testCase.parameters[parameter] + "\r\n"
             }
 
-            SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/OutputData/TestData/parameters-" + testCaseId + ".CSV", parametersFile)
+            SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/OutputData/TestData/" + parametersFileName + ".CSV", parametersFile)
 
             if (testCase.filesTimestaps === undefined) {
                 testCase.filesTimestaps = {}
@@ -325,7 +324,7 @@ exports.newDataBridge = function newDataBridge(processIndex) {
 
                                     let objectKey = asset + "-" + propertyName + "-" + timeFrameLabel + "-" + keyTimestamp
                                     let object = objectsMap.get(objectKey)
-             
+
                                     if (object === undefined) {
 
                                         let dataMine = loadedDataMinesFilesMap.get(featuresOrLabelsObject.dataMine)
@@ -344,7 +343,7 @@ exports.newDataBridge = function newDataBridge(processIndex) {
                                             }
                                             if (config.isCalculated === true) { continue }
                                             object[config.codeName] = 0
-                                        }                                        
+                                        }
                                     }
                                     if (objectName === 'candle' && (object.max === 0 || object.min === 0 || object.open === 0)) {
                                         /* We will discard records where these candle properties are zero */
@@ -390,9 +389,8 @@ exports.newDataBridge = function newDataBridge(processIndex) {
     }
 
     function getFiles(testCase) {
-        let testCaseId = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.pad(testCase.id, 5)
         let files = {}
-        files.parameters = SA.nodeModules.fs.readFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/OutputData/TestData/parameters-" + testCaseId + ".CSV")
+        files.parameters = SA.nodeModules.fs.readFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/OutputData/TestData/" + testCase.parametersFileName + ".CSV")
         files.timeSeries = SA.nodeModules.fs.readFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/OutputData/TestData/" + testCase.timeSeriesFileName + ".CSV")
         return files
     }

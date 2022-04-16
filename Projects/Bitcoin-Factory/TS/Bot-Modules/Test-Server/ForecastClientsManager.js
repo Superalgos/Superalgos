@@ -57,12 +57,12 @@ exports.newForecastClientsManager = function newForecastClientsManager(processIn
         }
     }
 
-    function onMessageReceived(message, userProfile, clientInstanceName) {
+    async function onMessageReceived(message, userProfile, clientInstanceName) {
 
         switch (message.type) {
             case 'Get Next Forecast Case': {
                 console.log((new Date()).toISOString(), userProfile + ' / ' + clientInstanceName, 'requested a new Forecast Case')
-                let nextForecastCase = TS.projects.foundations.globals.taskConstants.TEST_SERVER.forecastCasesManager.getNextForecastCase()
+                let nextForecastCase = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.forecastCasesManager.getNextForecastCase()
                 if (nextForecastCase !== undefined) {
                     console.log((new Date()).toISOString(), 'Forecast Case Id ' + nextForecastCase.id + ' delivered to', userProfile + ' / ' + clientInstanceName)
                     nextForecastCase.files.parameters = nextForecastCase.files.parameters.toString()
@@ -75,7 +75,7 @@ exports.newForecastClientsManager = function newForecastClientsManager(processIn
             }
             case 'Get This Forecast Case': {
                 console.log((new Date()).toISOString(), userProfile + ' / ' + clientInstanceName, 'requested the Forecast Case Id ' + message.forecastCaseId)
-                let thisForecastCase = TS.projects.foundations.globals.taskConstants.TEST_SERVER.forecastCasesManager.getThisForecastCase(message.forecastCaseId)
+                let thisForecastCase = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.forecastCasesManager.getThisForecastCase(message.forecastCaseId)
                 if (thisForecastCase !== undefined) {
                     console.log((new Date()).toISOString(), 'Forecast Case Id ' + thisForecastCase.id + ' delivered to', userProfile + ' / ' + clientInstanceName)
                     thisForecastCase.files.parameters = thisForecastCase.files.parameters.toString()

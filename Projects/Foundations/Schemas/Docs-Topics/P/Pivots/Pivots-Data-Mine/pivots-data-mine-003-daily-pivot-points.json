@@ -1,0 +1,104 @@
+{
+    "topic": "Pivots Data Mine",
+    "pageNumber": "3",
+    "type": "Daily Pivot Points",
+    "definition": {
+        "text": "The Daily Pivots indicator sums up the previous trading day's high, low and closing price and calculates the baseline pivot point. Resistance and support levels are then calculated using the baseline pivot.",
+        "updated": 1649741564112
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Daily Pivots on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "According to investopedia: used to determine the overall trend of the market over different time frames. The pivot point itself is simply the average of the intraday high and low, and the closing price from the previous trading day. On the subsequent day, trading above the pivot point is thought to indicate ongoing bullish sentiment, while trading below the pivot point indicates bearish sentiment."
+        },
+        {
+            "style": "Link",
+            "text": "Pivot Point - (investopedia)->www.investopedia.com/terms/p/pivotpoint.asp"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/pivots-daily-on-the-charts.png"
+        },
+        {
+            "style": "Text",
+            "text": "The support (S) and resistance (R) levels are calculated as follows:"
+        },
+        {
+            "style": "List",
+            "text": "S1: (Pivot x 2) - Yesterday's High"
+        },
+        {
+            "style": "List",
+            "text": "R1: (Pivot x 2) - Yesterday's Low"
+        },
+        {
+            "style": "List",
+            "text": "S2: Pivot - (High - Low)"
+        },
+        {
+            "style": "List",
+            "text": "R2: Pivot + (High - Low)"
+        },
+        {
+            "style": "List",
+            "text": "S(n): Pivot * n + (n * High - Low)"
+        },
+        {
+            "style": "List",
+            "text": "R(n): Pivot * n + (High - n * Low)"
+        },
+        {
+            "style": "Text",
+            "text": "While the indicator defaults to an open time of Midnight at UTC+0, the timezone offset, and opening hour and minute can be adjusted to suit your preferred market's daily open time by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under ’Daily Pivot Points’ Procedure Loop.",
+            "updated": 1649741576309
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/pivots-daily-params.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Daily-Pivot-Points | Daypivot | pivot, r1 to r4, s1 to s4 |"
+        },
+        {
+            "style": "Text",
+            "text": "Examples:"
+        },
+        {
+            "style": "Text",
+            "text": "A basic strategy could use price action to enter a trade if a candle rises above the pivot point:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.candle.close > chart.at01hs.Daypivot.pivot"
+        },
+        {
+            "style": "Text",
+            "text": "The indicator could then be used as a take profit value when the price action approaches the first resistance level:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.Daypivot.r1"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

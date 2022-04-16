@@ -173,8 +173,8 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
             if (testCase.status === 'Never Tested') {
                 testCase.status = 'Being Tested'
 
-                testCase.forcastedCandle = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.dataBridge.updateDatasetFiles(testCase)
                 getTimeSeriesFileName(testCase)
+                testCase.forcastedCandle = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.dataBridge.updateDatasetFiles(testCase)
                 saveTestCasesFile()
 
                 let nextTestCase = {

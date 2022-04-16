@@ -65,7 +65,7 @@ exports.newDataBridge = function newDataBridge(processIndex) {
 
             let fileContent = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.loadFile(global.env.PATH_TO_PLUGINS + "/Data-Mining/Data-Mines/" + featuresOrLabelsObject.dataMine + ".json")
             dataMine = JSON.parse(fileContent)
-            loadedDataMinesFilesMap.set(featuresOrLabelsObject.dataMine, true)
+            loadedDataMinesFilesMap.set(featuresOrLabelsObject.dataMine, dataMine)
         }
     }
 
@@ -184,6 +184,8 @@ exports.newDataBridge = function newDataBridge(processIndex) {
 
                     async function addToObjectMap(featuresOrLabelsObject) {
 
+                        if (featuresOrLabelsObject.dataMine === undefined) { return }
+
                         let indicatorKey = featuresOrLabelsObject.dataMine + '-' + featuresOrLabelsObject.indicator + '-' + featuresOrLabelsObject.product
                         let indicatorAlreadyProcessed = indicatorsMap.get(indicatorKey)
                         if (indicatorAlreadyProcessed !== undefined) { return }
@@ -212,19 +214,23 @@ exports.newDataBridge = function newDataBridge(processIndex) {
                         let dataMine = loadedDataMinesFilesMap.get(featuresOrLabelsObject.dataMine)
                         let recordDefinition = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.getRecordDefinition(dataMine, featuresOrLabelsObject.indicator, featuresOrLabelsObject.product)
 
+                        for (let j = 0; j < recordDefinition.length; j++) {
+                            let recordProperty = recordDefinition[j]
+                            try {
+                                recordProperty.parsedConfig = JSON.parse(recordProperty.config)
+                            } catch (err) {
+                                console.log((new Date()).toISOString(), err.stack)
+                                continue
+                            }
+                        }
+
                         for (let i = 0; i < indicatorFile.length - 1; i++) {
                             let objectArray = indicatorFile[i]
                             let object = {}
 
                             for (let j = 0; j < recordDefinition.length; j++) {
                                 let recordProperty = recordDefinition[j]
-                                let config
-                                try {
-                                    config = JSON.parse(recordProperty.config)
-                                } catch (err) {
-                                    console.log((new Date()).toISOString(), err.stack)
-                                    continue
-                                }
+                                let config = recordProperty.parsedConfig
                                 if (config.isCalculated === true) { continue }
                                 object[config.codeName] = objectArray[j]
                             }

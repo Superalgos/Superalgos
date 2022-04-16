@@ -59,12 +59,13 @@ exports.newDataBridge = function newDataBridge(processIndex) {
         }
 
         function addDataMineFile(featuresOrLabelsObject) {
+            if (featuresOrLabelsObject.dataMine === undefined) { return }
             let dataMine = loadedDataMinesFilesMap.get(featuresOrLabelsObject.dataMine)
             if (dataMine !== undefined) { return }
 
             let fileContent = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.loadFile(global.env.PATH_TO_PLUGINS + "/Data-Mining/Data-Mines/" + featuresOrLabelsObject.dataMine + ".json")
             dataMine = JSON.parse(fileContent)
-            loadedDataMinesFilesMap.set(featuresOrLabelsObject.dataMine)
+            loadedDataMinesFilesMap.set(featuresOrLabelsObject.dataMine, true)
         }
     }
 
@@ -106,7 +107,7 @@ exports.newDataBridge = function newDataBridge(processIndex) {
                 parametersFile = parametersFile + parameter + "   " + testCase.parameters[parameter] + "\r\n"
             }
 
-            SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/OutputData/TestData/" + parametersFileName + ".CSV", parametersFile)
+            SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/OutputData/TestData/" + testCase.parametersFileName + ".CSV", parametersFile)
 
             if (testCase.filesTimestaps === undefined) {
                 testCase.filesTimestaps = {}

@@ -81,6 +81,10 @@
         {
             "style": "Chapter",
             "text": "X->Foundations->Topic->Trends Data Mine->"
+        },
+        {
+            "style": "Chapter",
+            "text": "XI->Foundations->Topic->Pivots Data Mine->"
         }
     ]
 }

@@ -172,14 +172,14 @@ exports.newDataBridge = function newDataBridge(processIndex) {
                     */
                     for (let q = 0; q < timeSeriesFileLabels.length; q++) {
                         let label = timeSeriesFileLabels[q]
-                        addToObjectMap(label)
+                        await addToObjectMap(label)
                     }
                     /*
                     Add Features 
                     */
                     for (let q = 0; q < timeSeriesFileFeatures.length; q++) {
                         let feature = timeSeriesFileFeatures[q]
-                        addToObjectMap(feature)
+                        await addToObjectMap(feature)
                     }
 
                     async function addToObjectMap(featuresOrLabelsObject) {
@@ -241,9 +241,9 @@ exports.newDataBridge = function newDataBridge(processIndex) {
                             if (featuresOrLabelsObject.product === "Candles") {
                                 if (i === indicatorFile.length - 2 && mainTimeFrame === timeFrameLabel && mainAsset === asset) {
                                     forcastedCandle = {
-                                        begin: candle.begin,
-                                        end: candle.end,
-                                        open: candle.close
+                                        begin: object.begin,
+                                        end: object.end,
+                                        open: object.close
                                     }
                                 }
                             }
@@ -263,7 +263,7 @@ exports.newDataBridge = function newDataBridge(processIndex) {
                 while (timestamp <= lastTimestamp) {
                     let maxSubRecords = 0
                     let subRecords = []
-                    let header = "Timestamp"
+                    let header = "TIMESTAMP"
 
                     for (let i = 0; i < TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.marketTimeFramesArray.length; i++) {
                         let timeFrameValue = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.marketTimeFramesArray[i][0]
@@ -326,10 +326,15 @@ exports.newDataBridge = function newDataBridge(processIndex) {
                                 let subRecord = ""
 
                                 for (let j = 0; j < featuresOrLabelsObjects.length; j++) {
-                                    let propertyName = featuresOrLabelsObjects[j].propertyName
-                                    let objectName = featuresOrLabelsObjects[j].objectName
 
-                                    let objectKey = asset + "-" + propertyName + "-" + timeFrameLabel + "-" + keyTimestamp
+                                    let featuresOrLabelsObject = featuresOrLabelsObjects[j]
+
+                                    if (featuresOrLabelsObject.dataMine === undefined) { continue }
+
+                                    let propertyName = featuresOrLabelsObject.propertyName
+                                    let objectName = featuresOrLabelsObject.objectName
+
+                                    let objectKey = asset + "-" + objectName + "-" + timeFrameLabel + "-" + keyTimestamp
                                     let object = objectsMap.get(objectKey)
 
                                     if (object === undefined) {
@@ -339,6 +344,7 @@ exports.newDataBridge = function newDataBridge(processIndex) {
                                         /*
                                         Set all the object properties to ZERO
                                         */
+                                        object = {}
                                         for (let j = 0; j < recordDefinition.length; j++) {
                                             let recordProperty = recordDefinition[j]
                                             let config
@@ -361,7 +367,7 @@ exports.newDataBridge = function newDataBridge(processIndex) {
                                         "   " + object[propertyName]
 
                                     header = header +
-                                        "   " + asset + "-" + objectName + "." + propertyName + + "-" + timeFrameLabel + "-" + (i + 1)
+                                        "   " + asset + "-" + objectName.toUpperCase() + "-" + propertyName.toUpperCase() + "-" + timeFrameLabel.toUpperCase() + "-" + (i + 1)
                                 }
 
                                 if (subRecord !== "") {

@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Индикатор McGinley Dynamic - это тип скользящей средней, который был разработан для отслеживания рынка лучше, чем существующие индикаторы скользящих средних. Это технический индикатор, который улучшает линии скользящей средней, корректируя изменения в скорости движения рынка.",
                 "updated": 1645610522384
+            },
+            {
+                "language": "DE",
+                "text": " Der McGinley Dynamic Indikator ist eine Art gleitender Durchschnitt, der entwickelt wurde, um den Markt besser zu verfolgen als bestehende gleitende Durchschnittsindikatoren. Es handelt sich um einen technischen Indikator, der die gleitenden Durchschnittslinien verbessert, indem er Verschiebungen der Marktgeschwindigkeit ausgleicht.",
+                "updated": 1647855742198
             }
         ]
     },
@@ -34,6 +39,11 @@
                     "language": "RU",
                     "text": "В ходе своего исследования МакГинли обнаружил, что у скользящих средних много проблем. Прежде всего, они применялись неправильно. Скользящие средние за разные периоды действуют на разных рынках в разной степени. Например, как узнать, когда использовать 10-дневную, 20-дневную или 50-дневную скользящую среднюю на быстром или медленном рынке? Для того чтобы решить проблему выбора правильной длины скользящей средней, была построена система McGinley Dynamic, которая автоматически подстраивается под текущую скорость рынка.",
                     "updated": 1645610591961
+                },
+                {
+                    "language": "DE",
+                    "text": "Bei seinen Untersuchungen stellte McGinley fest, dass gleitende Durchschnitte viele Probleme aufwiesen. Erstens wurden sie in unangemessener Weise angewandt. Gleitende Durchschnitte in verschiedenen Zeiträumen funktionieren auf verschiedenen Märkten in unterschiedlichem Maße. Wie kann man zum Beispiel wissen, wann man einen 10-, 20- oder 50-tägigen gleitenden Durchschnitt in einem schnellen oder langsamen Markt verwenden sollte? Um das Problem der Wahl der richtigen Länge des gleitenden Durchschnitts zu lösen, wurde der McGinley Dynamic so konzipiert, dass er sich automatisch an die aktuelle Geschwindigkeit des Marktes anpasst.",
+                    "updated": 1647855758627
                 }
             ]
         },
@@ -54,6 +64,11 @@
                     "language": "RU",
                     "text": "Период расчета индикатора McGinley можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Initialization в разделе'McGinley'Product Definition.",
                     "updated": 1645610833870
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Länge der Berechnung des McGinley Indikators kann geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Initialization  unter’McGinley’ Product Definition gesucht und geöffnet wird.",
+                    "updated": 1647855850830
                 }
             ]
         },
@@ -70,6 +85,11 @@
                     "language": "RU",
                     "text": "Продукты и свойства",
                     "updated": 1645610618139
+                },
+                {
+                    "language": "DE",
+                    "text": "Produkte und Eigenschaften",
+                    "updated": 1647855893699
                 }
             ]
         },
@@ -81,13 +101,25 @@
                     "language": "RU",
                     "text": "Доступны следующие свойства:",
                     "updated": 1645610623977
+                },
+                {
+                    "language": "DE",
+                    "text": "Die folgenden Eigenschaften sind für den Zugriff verfügbar:",
+                    "updated": 1647855904068
                 }
             ]
         },
         {
             "style": "Table",
             "text": "| Product Name | Product Variable | Properties |\n| McGinley | MD | md |",
-            "updated": 1636853769
+            "updated": 1636853769,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| McGinley | MD | md |\n",
+                    "updated": 1647855950568
+                }
+            ]
         },
         {
             "style": "Text",
@@ -98,6 +130,11 @@
                     "language": "RU",
                     "text": "Пример:",
                     "updated": 1645610631881
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1647855978435
                 }
             ]
         },
@@ -109,6 +146,11 @@
                     "language": "RU",
                     "text": "Индикатор McGinley можно использовать для генерации сигнала на покупку, когда свеча закрывается выше значения индикатора:",
                     "updated": 1645610640217
+                },
+                {
+                    "language": "DE",
+                    "text": "Der McGinley Indikator könnte verwendet werden, um ein Kaufsignal zu generieren, wenn eine Kerze oberhalb des Indikatorwertes schließt:",
+                    "updated": 1647856010066
                 }
             ]
         },
@@ -125,13 +167,25 @@
                     "language": "RU",
                     "text": "Предлагается использовать индикатор McGinley в сочетании с дополнительными индикаторами, такими как MACD, RSI или TDI.",
                     "updated": 1645610649330
+                },
+                {
+                    "language": "DE",
+                    "text": "Es wird vorgeschlagen, dass der McGinley Indikator in Verbindung mit ergänzenden Indikatoren wie MACD, RSI oder TDI verwendet werden kann.",
+                    "updated": 1647856068758
                 }
             ]
         },
         {
             "style": "Title",
             "text": "Maintainer:",
-            "updated": 1622481793076
+            "updated": 1622481793076,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Betreuer:",
+                    "updated": 1647856094123
+                }
+            ]
         },
         {
             "style": "Link",

@@ -4,18 +4,39 @@
     "type": "TS LF Trading Bot Error - Percentage Of Algorithm Size Property Missing",
     "definition": {
         "text": "You must specify what percentage of the Size handled by the Execution Algorithm is to be handled by the Order.",
-        "updated": 1611941594343
+        "updated": 1611941594343,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Yürütme Algoritması ( Execution Algorithm ) tarafından işlenen Boyutun ( Size ) yüzde kaçının sipariş tarafından işleneceğini belirtmelisiniz.",
+                "updated": 1648672380363
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Error",
             "text": "Percentage Of Algorithm Size Property Missing",
-            "updated": 1611651040820
+            "updated": 1611651040820,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Algoritma Yüzdesi Boyut Özelliği Eksik. ( Size Property Missing )",
+                    "updated": 1648669899155
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Check the order's configuration and make sure the percentageOfAlgorithmSize property exists and is defined with a number greater than zero.",
-            "updated": 1611941646766
+            "updated": 1611941646766,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Siparişin yapılandırmasını kontrol edin ve Algoritma Boyutu yüzdesi özelliğinin var olduğundan ve sıfırdan büyük bir sayıyla tanımlandığından emin olun.",
+                    "updated": 1648672463420
+                }
+            ]
         }
     ]
 }

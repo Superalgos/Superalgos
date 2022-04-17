@@ -89,11 +89,11 @@
                     let managerResponse
                     switch (clientData.recipient) {
                         case 'Test Client Manager': {
-                            managerResponse = thisObject.testClientsManager.onMessageReceived(clientData.message, clientData.userProfile, clientData.clientInstanceName)
+                            managerResponse = await thisObject.testClientsManager.onMessageReceived(clientData.message, clientData.userProfile, clientData.clientInstanceName)
                             break
                         }
                         case 'Forecast Client Manager': {
-                            managerResponse = thisObject.forecastClientsManager.onMessageReceived(clientData.message, clientData.userProfile, clientData.clientInstanceName)
+                            managerResponse = await thisObject.forecastClientsManager.onMessageReceived(clientData.message, clientData.userProfile, clientData.clientInstanceName)
                             break
                         }
                     }

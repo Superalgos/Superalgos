@@ -332,6 +332,8 @@ exports.newDataBridge = function newDataBridge(processIndex) {
                                     let featuresOrLabelsObject = featuresOrLabelsObjects[j]
 
                                     if (featuresOrLabelsObject.dataMine === undefined) { continue }
+                                    let parameterName = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.getParameterName(featuresOrLabelsObject)
+                                    if (testCase.parameters[parameterName] !== 'ON') { continue }
 
                                     let propertyName = featuresOrLabelsObject.propertyName
                                     let objectName = featuresOrLabelsObject.objectName

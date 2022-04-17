@@ -24,13 +24,6 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
 
     async function initialize() {
         await loadTestCasesFile()
-        /*
-        setInterval(updateTestDatasets, 60 * 1000)
-
-        async function updateTestDatasets() {
-            await generateTestDatasets()
-        }
-        */
 
         async function loadTestCasesFile() {
             let fileContent = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.loadFile(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/StateData/TestCases/Test-Cases-Array-" + networkCodeName + ".json")
@@ -48,7 +41,6 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
             }
             generateTestCases()
             saveTestCasesFile()
-            // await generateTestDatasets()
         }
 
         function generateTestCases() {
@@ -168,17 +160,6 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
 
                 return parameters
             }
-        }
-
-        async function generateTestDatasets() {
-
-            for (let i = 0; i < thisObject.testCasesArray.length; i++) {
-                let testCase = thisObject.testCasesArray[i]
-                getTimeSeriesFileName(testCase)
-                testCase.forcastedCandle = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.dataBridge.updateDatasetFiles(testCase)
-            }
-            saveTestCasesFile()
-
         }
     }
 

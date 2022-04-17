@@ -129,6 +129,29 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                                     }
                                     break
                                 }
+                                case 'Machine Learning': {
+                                    if (NT.networkApp.machineLearningNetworkService !== undefined) {
+                                        response = await NT.networkApp.machineLearningNetworkService.clientInterface.messageReceived(
+                                            payload,
+                                            caller.userProfile,
+                                            thisObject.networkClients
+                                        )
+                                        boradcastTo = response.boradcastTo
+                                        response.boradcastTo = undefined
+                                        response.messageId = socketMessage.messageId
+                                        caller.socket.send(JSON.stringify(response))
+                                    } else {
+                                        let response = {
+                                            result: 'Error',
+                                            message: 'Bitcoin Factory Network Service Not Running.'
+                                        }
+                                        response.messageId = socketMessage.messageId
+                                        caller.socket.send(JSON.stringify(response))
+                                        caller.socket.close()
+                                        return
+                                    }
+                                    break
+                                }
                                 case 'Trading Signals': {
                                     break
                                 }

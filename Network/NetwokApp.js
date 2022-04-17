@@ -7,6 +7,7 @@ exports.newNetworkApp = function newNetworkApp() {
         webSocketsInterface: undefined,
         httpInterface: undefined,
         socialGraphNetworkService: undefined,
+        machineLearningNetworkService: undefined,
         tradingSignalsNetworkService: undefined,
         run: run
     }
@@ -75,6 +76,18 @@ exports.newNetworkApp = function newNetworkApp() {
                     thisObject.p2pNetworkReachableNodes
                 )
                 console.log('Social Graph Network Service ................................................. Running')
+            }
+
+            if (
+                thisObject.p2pNetworkNode.node.networkServices !== undefined &&
+                thisObject.p2pNetworkNode.node.networkServices.machineLearning !== undefined
+            ) {
+                thisObject.machineLearningNetworkService = NT.projects.bitcoinFactory.modules.machineLearningNetworkService.newBitcoinFactoryModulesMachineLearningNetworkService()
+                await thisObject.machineLearningNetworkService.initialize(
+                    thisObject.p2pNetworkNode,
+                    thisObject.p2pNetworkReachableNodes
+                )
+                console.log('Machine Learning Network Service ............................................. Running')
             }
 
             if (

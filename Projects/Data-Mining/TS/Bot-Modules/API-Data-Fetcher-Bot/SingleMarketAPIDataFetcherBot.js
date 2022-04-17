@@ -38,11 +38,15 @@ exports.newDataMiningBotModulesSingleMarketAPIDataFetcherBot = function (process
                 Here we will need to scan the PROJECTS SCHEMA in order to find the botModule 
                 defined for this Bot.
                 */
+                let botProject = TS.projects.foundations.globals.taskConstants.PROJECT_DEFINITION_NODE.config.codeName // default value
+                if (TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.project !== undefined) {
+                    botProject = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.project
+                }
                 let botModuleDefinition = TS.projects.foundations.functionLibraries.taskFunctions.getBotModuleByName(
-                    TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.botModule
+                    TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.botModule,
+                    botProject
                 )
-                let projectCodeName = TS.projects.foundations.globals.taskConstants.PROJECT_DEFINITION_NODE.config.codeName
-                let project = TS.projects[PROJECTS_SCHEMA_MAP.get(projectCodeName).propertyName]
+                let project = TS.projects[PROJECTS_SCHEMA_MAP.get(botProject).propertyName]
                 let botModule = project.botModules[botModuleDefinition.propertyName]
                 let moduleFunction = botModule[botModuleDefinition.functionName]
                 botModuleObject = moduleFunction(processIndex)

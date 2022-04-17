@@ -84,6 +84,7 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
                 mainTimeFrame: testCase.mainTimeFrame,
                 percentageErrorRMSE: testCase.percentageErrorRMSE,
                 parameters: JSON.parse(JSON.stringify(testCase.parameters)),
+                parametersHash: testCase.parametersHash,
                 predictions: JSON.parse(JSON.stringify(testCase.predictions)),
                 forcastedCandle: JSON.parse(JSON.stringify(testCase.forcastedCandle)),
                 timeSeriesFileName: testCase.timeSeriesFileName,
@@ -103,7 +104,7 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
             if (forecastCase.status === 'Model Not Built Yet') {
                 forecastCase.status = 'Model Buing Built'
 
-                let testCase = TS.projects.foundations.globals.taskConstants.TEST_SERVER.testCasesManager.testCasesMap.get(forecastCase.id)
+                let testCase = TS.projects.foundations.globals.taskConstants.TEST_SERVER.testCasesManager.testCasesMap.get(forecastCase.parametersHash)
                 forecastCase.forcastedCandle = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.dataBridge.updateDatasetFiles(testCase)
 
                 let nextForecastCase = {
@@ -111,7 +112,7 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
                     caseIndex: forecastCase.caseIndex, 
                     totalCases: thisObject.forecastCasesArray.length,
                     parameters: forecastCase.parameters,
-                    files: TS.projects.foundations.globals.taskConstants.TEST_SERVER.dataBridge.getFiles(forecastCase)
+                    files: TS.projects.foundations.globals.taskConstants.TEST_SERVER.dataBridge.getFiles(testCase)
                 }
                 return nextForecastCase
             }
@@ -123,14 +124,14 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
             let forecastCase = thisObject.forecastCasesArray[i]
             if (forecastCase.status === 'Forecasted' && forecastCase.id === forecastCaseId) {
 
-                let testCase = TS.projects.foundations.globals.taskConstants.TEST_SERVER.testCasesManager.testCasesMap.get(forecastCase.id)
+                let testCase = TS.projects.foundations.globals.taskConstants.TEST_SERVER.testCasesManager.testCasesMap.get(forecastCase.parametersHash)
                 forecastCase.forcastedCandle = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.dataBridge.updateDatasetFiles(testCase)
 
                 let thisForecastCase = {
                     id: forecastCase.id,
                     caseIndex: forecastCase.caseIndex, 
                     parameters: forecastCase.parameters,
-                    files: TS.projects.foundations.globals.taskConstants.TEST_SERVER.dataBridge.getFiles(forecastCase)
+                    files: TS.projects.foundations.globals.taskConstants.TEST_SERVER.dataBridge.getFiles(testCase)
                 }
                 return thisForecastCase
             }

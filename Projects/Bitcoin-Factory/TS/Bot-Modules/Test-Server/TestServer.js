@@ -63,51 +63,56 @@
                 queryMessage: JSON.stringify(queryMessage)
             }
             while (true) {
-                let response = await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClient.machineLearningNetworkServiceClient.sendMessage(messageHeader)
-
-                if (response.data.clientData === undefined) {
-                    /*
-                    In this case there were no requests for the server, we will prepare for the next message and go to sleep.
-                    */
-                    queryMessage = {
-                        sender: 'Test-Server'
-                    }
-
-                    messageHeader = {
-                        requestType: 'Query',
-                        networkService: 'Machine Learning',
-                        queryMessage: JSON.stringify(queryMessage)
-                    }
-                    await SA.projects.foundations.utilities.asyncFunctions.sleep(1000)
+                if (TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClient.machineLearningNetworkServiceClient === undefined) {
+                    console.log((new Date()).toISOString(), "Not connected to the Superalgos Network.")
+                    await SA.projects.foundations.utilities.asyncFunctions.sleep(5000)
                 } else {
-                    /*
-                    In this case there is a request that needs to be processed.
-                    */
-                    //console.log((new Date()).toISOString(), 'Query received at Test Server: ' + JSON.stringify(response))
+                    let response = await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClient.machineLearningNetworkServiceClient.sendMessage(messageHeader)
 
-                    let clientData = JSON.parse(response.data.clientData)
-                    let managerResponse
-                    switch (clientData.recipient) {
-                        case 'Test Client Manager': {
-                            managerResponse = await thisObject.testClientsManager.onMessageReceived(clientData.message, clientData.userProfile, clientData.clientInstanceName)
-                            break
+                    if (response.data.clientData === undefined) {
+                        /*
+                        In this case there were no requests for the server, we will prepare for the next message and go to sleep.
+                        */
+                        queryMessage = {
+                            sender: 'Test-Server'
                         }
-                        case 'Forecast Client Manager': {
-                            managerResponse = await thisObject.forecastClientsManager.onMessageReceived(clientData.message, clientData.userProfile, clientData.clientInstanceName)
-                            break
+    
+                        messageHeader = {
+                            requestType: 'Query',
+                            networkService: 'Machine Learning',
+                            queryMessage: JSON.stringify(queryMessage)
                         }
-                    }
-
-                    queryMessage = {
-                        messageId: clientData.messageId,
-                        sender: 'Test-Server',
-                        response: managerResponse
-                    }
-
-                    messageHeader = {
-                        requestType: 'Query',
-                        networkService: 'Machine Learning',
-                        queryMessage: JSON.stringify(queryMessage)
+                        await SA.projects.foundations.utilities.asyncFunctions.sleep(1000)
+                    } else {
+                        /*
+                        In this case there is a request that needs to be processed.
+                        */
+                        //console.log((new Date()).toISOString(), 'Query received at Test Server: ' + JSON.stringify(response))
+    
+                        let clientData = JSON.parse(response.data.clientData)
+                        let managerResponse
+                        switch (clientData.recipient) {
+                            case 'Test Client Manager': {
+                                managerResponse = await thisObject.testClientsManager.onMessageReceived(clientData.message, clientData.userProfile, clientData.clientInstanceName)
+                                break
+                            }
+                            case 'Forecast Client Manager': {
+                                managerResponse = await thisObject.forecastClientsManager.onMessageReceived(clientData.message, clientData.userProfile, clientData.clientInstanceName)
+                                break
+                            }
+                        }
+    
+                        queryMessage = {
+                            messageId: clientData.messageId,
+                            sender: 'Test-Server',
+                            response: managerResponse
+                        }
+    
+                        messageHeader = {
+                            requestType: 'Query',
+                            networkService: 'Machine Learning',
+                            queryMessage: JSON.stringify(queryMessage)
+                        }
                     }
                 }
             }

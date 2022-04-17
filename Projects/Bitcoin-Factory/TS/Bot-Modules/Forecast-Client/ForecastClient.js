@@ -372,7 +372,7 @@
                 continue
             } else {
                 console.log((new Date()).toISOString(), 'Forcast case ' + forecastCase.id + ' expired.', 'Reforecasting now.')
-                await reforecast(forecastCase)
+                await reforecast(forecastCase, i)
                     .then(onSuccess)
                     .catch(onError)
                 async function onSuccess() {
@@ -405,7 +405,7 @@
         console.table(logQueue)
     }
 
-    async function reforecast(forecastCase) {
+    async function reforecast(forecastCase, index) {
         return new Promise(promiseWork)
 
         async function promiseWork(resolve, reject) {
@@ -446,9 +446,10 @@
                                 /*
                                 Recalculate the expiration, timestamp, hash and save.
                                 */
+                                let forecastCase = thisObject.forecastCasesArray[index]
                                 forecastCase.expiration = thisObject.utilities.getExpiration(forecastCase)
                                 forecastCase.timestamp = (new Date()).valueOf()
-                                forecastCase.timeSeriesHash = thisObject.utilities.hash(newTimeSeriesHash)
+                                forecastCase.timeSeriesHash = newTimeSeriesHash
 
                                 saveForecastCasesFile()
                                 resolve()

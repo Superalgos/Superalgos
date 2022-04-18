@@ -262,7 +262,6 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
                                     testReportFileRow = testReportFileRow + label
                                     for (let j = 0; j < jsObject[property].length; j++) {
                                         testReportFileRow = testReportFileRow + ","
-                                        arrayItem = jsObject[property][j]
                                         testReportFileRow = testReportFileRow + label + ' ' + (j + 1)
                                     }
                                 } else {
@@ -291,7 +290,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
                                 testReportFileRow = testReportFileRow + jsObject[property].length
                                 for (let j = 0; j < jsObject[property].length; j++) {
                                     testReportFileRow = testReportFileRow + ","
-                                    arrayItem = jsObject[property][j]
+                                    let arrayItem = jsObject[property][j]
                                     testReportFileRow = testReportFileRow + arrayItem
                                 }
                             } else {

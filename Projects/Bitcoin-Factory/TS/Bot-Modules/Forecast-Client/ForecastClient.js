@@ -150,6 +150,11 @@
                 queryMessage: JSON.stringify(queryMessage)
             }
 
+            if (TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClient.machineLearningNetworkServiceClient === undefined) {
+                reject('Not connected to the Test Server yet... hold on...')
+                return
+            }
+            
             await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClient.machineLearningNetworkServiceClient.sendMessage(messageHeader)
                 .then(onSuccess)
                 .catch(onError)

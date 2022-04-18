@@ -111,7 +111,25 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
                 parameters.LIST_OF_TIMEFRAMES = preParameters.LIST_OF_TIMEFRAMES
 
                 // number of indicator properties that are at the raw dataset. Each set of indicators properties might be at many assets or timeframes.
-                parameters.NUMBER_OF_INDICATORS_PROPERTIES = 5
+                parameters.NUMBER_OF_INDICATORS_PROPERTIES = 0
+                for (let q = 0; q < timeSeriesFileLabels.length; q++) {
+                    let label = timeSeriesFileLabels[q].parameter
+                    if (label === undefined) {
+                        label = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.getParameterName(timeSeriesFileLabels[q])
+                    }
+                    if (preParameters[label] === "ON") {
+                        parameters.NUMBER_OF_INDICATORS_PROPERTIES++
+                    }
+                }
+                for (let q = 0; q < timeSeriesFileFeatures.length; q++) {
+                    let feature = timeSeriesFileFeatures[q].parameter
+                    if (feature === undefined) {
+                        feature = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.getParameterName(timeSeriesFileFeatures[q])
+                    }
+                    if (preParameters[feature] === "ON") {
+                        parameters.NUMBER_OF_INDICATORS_PROPERTIES++
+                    }
+                }
 
                 // number of timesteps in the secuence that we are going to use to feed the model.
                 parameters.NUMBER_OF_LAG_TIMESTEPS = preParameters.NUMBER_OF_LAG_TIMESTEPS

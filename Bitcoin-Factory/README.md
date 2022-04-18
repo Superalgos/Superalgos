@@ -26,17 +26,41 @@ This App does need Superalgos to save the best predictions as indicators in ther
 
 ### Example of Parameters [Fraction of the actual list]
 
-* PARAMETER   VALUE
-* LIST_OF_ASSETS   BTC   ETH
-* LIST_OF_TIMEFRAMES   24-hs   12-Hs
-* NUMBER_OF_INDICATORS_PROPERTIES   5
-* NUMBER_OF_LAG_TIMESTEPS   8
-* NUMBER_OF_ASSETS   1
-* NUMBER_OF_LABELS   2
-* PERCENTAGE_OF_DATASET_FOR_TRAINING   80
-* NUMBER_OF_FEATURES   5
-* NUMBER_OF_EPOCHS   10
-* NUMBER_OF_LSTM_NEURONS   50
+┌─────────────────────────────────────────────────────────────────────────┬─────────┬────────┐
+│                                 (index)                                 │    0    │ Values │
+├─────────────────────────────────────────────────────────────────────────┼─────────┼────────┤
+│                             LIST_OF_ASSETS                              │  'BTC'  │        │
+│                           LIST_OF_TIMEFRAMES                            │ '01-hs' │        │
+│                     NUMBER_OF_INDICATORS_PROPERTIES                     │         │   7    │
+│                         NUMBER_OF_LAG_TIMESTEPS                         │         │   5    │
+│                            NUMBER_OF_ASSETS                             │         │   1    │
+│                            NUMBER_OF_LABELS                             │         │   3    │
+│                   PERCENTAGE_OF_DATASET_FOR_TRAINING                    │         │   80   │
+│                           NUMBER_OF_FEATURES                            │         │   7    │
+│                            NUMBER_OF_EPOCHS                             │         │  100   │
+│                         NUMBER_OF_LSTM_NEURONS                          │         │   50   │
+│               CANDLES_CANDLES-VOLUMES_CANDLES_CANDLE_MAX                │         │  'ON'  │
+│               CANDLES_CANDLES-VOLUMES_CANDLES_CANDLE_MIN                │         │  'ON'  │
+│              CANDLES_CANDLES-VOLUMES_CANDLES_CANDLE_CLOSE               │         │  'ON'  │
+│                               HOUR_OF_DAY                               │         │ 'OFF'  │
+│                              DAY_OF_MONTH                               │         │ 'OFF'  │
+│                               DAY_OF_WEEK                               │         │ 'OFF'  │
+│                              WEEK_OF_YEAR                               │         │ 'OFF'  │
+│                              MONTH_OF_YEAR                              │         │ 'OFF'  │
+│                                  YEAR                                   │         │ 'OFF'  │
+│               CANDLES_CANDLES-VOLUMES_CANDLES_CANDLE_OPEN               │         │  'ON'  │
+│               CANDLES_CANDLES-VOLUMES_VOLUMES_VOLUME_BUY                │         │  'ON'  │
+│ MASTERS_RESISTANCES-AND-SUPPORTS_RESISTANCES_RESISTANCE_RESISTANCE1RATE │         │  'ON'  │
+│ MASTERS_RESISTANCES-AND-SUPPORTS_RESISTANCES_RESISTANCE_RESISTANCE2RATE │         │ 'OFF'  │
+│ MASTERS_RESISTANCES-AND-SUPPORTS_RESISTANCES_RESISTANCE_RESISTANCE3RATE │         │ 'OFF'  │
+│ MASTERS_RESISTANCES-AND-SUPPORTS_RESISTANCES_RESISTANCE_RESISTANCE4RATE │         │ 'OFF'  │
+│ MASTERS_RESISTANCES-AND-SUPPORTS_RESISTANCES_RESISTANCE_RESISTANCE5RATE │         │ 'OFF'  │
+│     MASTERS_RESISTANCES-AND-SUPPORTS_SUPPORTS_SUPPORT_SUPPORT1RATE      │         │  'ON'  │
+│     MASTERS_RESISTANCES-AND-SUPPORTS_SUPPORTS_SUPPORT_SUPPORT2RATE      │         │ 'OFF'  │
+│     MASTERS_RESISTANCES-AND-SUPPORTS_SUPPORTS_SUPPORT_SUPPORT3RATE      │         │ 'OFF'  │
+│     MASTERS_RESISTANCES-AND-SUPPORTS_SUPPORTS_SUPPORT_SUPPORT4RATE      │         │ 'OFF'  │
+│     MASTERS_RESISTANCES-AND-SUPPORTS_SUPPORTS_SUPPORT_SUPPORT5RATE      │         │ 'OFF'  │
+└─────────────────────────────────────────────────────────────────────────┴─────────┴────────┘
 
 ### Example of Dataset [Fraction of it]
 
@@ -128,9 +152,9 @@ And all that finding and forecasting is 100% automated. Only computers working t
 
 Having said that, please don't expect that at the begining the forecasts will be precise. We are brute forcing the discovery of which are the best combination of parameters and data for each Asset / Timeframe and that might take a while to produce models with reasonable performance, but once we have them, we have them forever.
 
-### Scalability
+### Superalgos Network
 
-Since the Test Client and Test Server interact in a p2p way via webRTC, that means that we can run a Test Server at home and get help to process Test Cases from anywhere in the world without the need to pay for cloud servers, and almost without limits regarding the amount of people that can help.
+The Test Client and Test Server interact in a p2p way via the Superalgos Network, that means that we can run a Test Server at home and get help to process Test Cases from anywhere in the world without the need to pay for cloud servers, and almost without limits regarding the amount of people that can help. Only one Superalgos Network Node needs to run at the Cloud, and it will take care of conecting the Client with the Server.
 
 ## Pre-Requisites
 
@@ -147,7 +171,7 @@ To run this software you need a Superalgos Profile with the node Forecast Provid
 
 For your Test Client App to work and be able to connect to the Test Server you need to:
 
-1. The Bitcoin Factory Forecast node must be named Mainnet.
+1. The Bitcoin Factory Forecast node must be named Testnet.
 2. You need a Test Client Instance for each process or instance of this Test Client App you want to keep ruuning. Name it as you like.
 3. You will need to assing each Test Client Instance some SA token power if you wish to receive the best crowd-sourced predictions at the end of each of your tests. How much token power for each prediction is to be determined in the near future once the assigned token power will be checked at a future release.
 
@@ -157,21 +181,28 @@ Note 2: In the future, pending a deeper integration with the Superalgos Governan
 
 ## Setup
 
-You need 2 repositories to run this App. One of the App itself and the second one of a WebRTC library used for communication between this Test Client app and the Test Server App.
+The current version of Bitcoin Factory is already integrated into Superalgos. You need to load the Bitcoin Factory Demo Plugin workspace.
 
-### Repositories Cloning 
+### Change the Config
 
-Clone the needed repositories.
+After that, open the config of the Test-Client Sensor Bot Instance. It looks like this:
 
 ```sh
-mkdir Bitcoin-Factory
-cd Bitcoin-Factory
-git clone http://github.com/Bitcoin-Factory/ML-Test-Client
-cd ML-Test-Client
-git clone http://github.com/Bitcoin-Factory/ML-Test-WebRTC
-npm install node-pre-gyp
-npm update
+{
+    "networkCodeName": "Testnet",
+    "targetSuperalgosHost": "localhost",
+    "targetSuperalgosHttpPort": 34248,
+    "logTrainingOutput": false,
+    "clientInstanceName": "Laptop-Lenovo-01"
+}
 ```
+
+* networkCodeName: We will use Testnet for now.
+* targetSuperalgosHost: You can leave this with the default. If you wish to send the forecasted candles to a different instance of Superalgos, then change the host here.
+* targetSuperalgosHttpPort: You can leave this with the default. If you wish to send the forecasted candles to a different instance of Superalgos, then change the port here.
+* logTrainingOutput: Set it to true if you want more detail of the Machile Learning process at the console.
+* clientInstanceName: IMPORTANT: Change this to match your own name created at your user profile.
+
 
 Second, build the Docker Image.
 
@@ -197,30 +228,9 @@ IMPORTANT NOTES:
 * 2. In linux you might need to add 'sudo' before the docker build command.
 * 3. The dot at the end of the docker build command is mandatory.
 
-### Environmet Settings
-
-There is an Environment.json file with settings you can adjust. As of today these are the only settings you can change.
-
-```sh
-{
-    "SUPERALGOS_HOST": "localhost",
-    "SUPERALGOS_HTTP_PORT": 34248,
-    "SUPERALGOS_USER_PROFILE": "Luis-Fernando-Molina",
-    "TEST_CLIENT_INSTANCE_NAME": "VSCode-Test-Client",
-    "BITCOIN_FACTORY_FORECASTS_NETWORK_NAME": "Testnet"
-}
-```
-
-This app will use this settings to send the best crowd-sourced forecasts to Superalgos so that they are saved there as an Indicator, that you can consume via the Bitcoin-Factory Data Mine.
-
-Note 1: You don't need to run Superalgos at the same machine you are running this Test Client. Superalgos can be running at any place reachable from this App.
-Note 2: You don't need more than one Superalgos installation even if you are running multiple instances of this App at one or more manchines. You can point them all to a single Superalgos installations and all of them will send the best crowd-sourced forecasts to the same Superalgos instance with not issues. 
-Note 3: Change the defaut values with your own Instance names defined at your own Superalgos user profile.
-Note 4: You are expected to use the "Mainnet" network, unless you are involved on the development of this Test Client App.
-
 ## Usage
 
-Run the Docker Container and then run the Test Client App. You will need 2 Terminals for that, at one of them the docker container will be running, and at the second one, you will run the App.
+Run the Docker Container and then run the Test Client Task located at the Bitcoin Factory Demo Plugin Workspace. You will need 2 Terminals for that, at one of them the docker container will be running, and at the second one, you will run the Superalgos and inside the Platform, the Test-Client Task.
 
 Once the docker container is running correctly you will see at the first terminal an ouput similar to this:
 
@@ -243,7 +253,7 @@ Once the docker container is running correctly you will see at the first termina
 
 At that terminal there is no further action required. 
 
-At the second terminal, once  you run the App, you will see, after 10 seconds an output similar to this one:
+At the Superalgos terminal, once  you run the Test Client Task, you will see, after 10 seconds an output similar to this one:
 
 ```sh
 -------------------------------------------------------- Test Case # 1 / 3192 --------------------------------------------------------
@@ -287,9 +297,11 @@ Best Crowd-Sourced Predictions:
 
 Once you see this at least once, that means that your Client App is running 100% well and you should leave it alone. Even if you see messages that the server is not available, don't worry, the server might need to be restarted from time to time, your app will automatically reconnect and continue processing Test Cases when they are available.
 
-### Multiple Instances of the Test App
+### Multiple Instances of the Test Client Task
 
-If you wish, you can run multiple instances of the Test App. For that you will need multiple Test Client Instances at your Superalgos User Profile. 
+If you wish, you can run multiple instances of the Test Client Task. Clone the current Task and attach it to the same Task Manager to have more Tasks to run. Do not forget to change the bot configuration at each task to assing a different name to each one of them. 
+
+You will also need multiple Test Client Instances at your Superalgos User Profile. Each instance name need to match the config at the bot insdide each task. 
 
 Only one Docker Container needs to be running even if you run more than one instance of the Test App.
 

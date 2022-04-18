@@ -118,7 +118,8 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
             the one we have on record for the user profile of the Network Node we are calling.
             */
             if (called.blockchainAccount !== thisObject.p2pNetworkNode.blockchainAccount) {
-                console.log((new Date()).toISOString(), '[ERROR] Socket Network Clients -> stepOneResponse -> The Network Node called does not have the expected Blockchain Account.')
+                console.log((new Date()).toISOString(), '[WARN] Socket Network Clients -> stepOneResponse -> The Network Node called does not have the expected Blockchain Account.')
+                console.log((new Date()).toISOString(), '[WARN] Socket Network Clients -> stepOneResponse -> Not possible to connect to node belonging to ' + thisObject.p2pNetworkNode.userProfile.name)
                 reject()
                 return
             }

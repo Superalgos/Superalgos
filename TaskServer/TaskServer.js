@@ -170,18 +170,22 @@ exports.newTaskServer = function newTaskServer() {
                     ) {
                         return
                     }
-                    TS.projects.foundations.globals.taskConstants.P2P_NETWORK = {}                                        
+                    TS.projects.foundations.globals.taskConstants.P2P_NETWORK = {}
                     /*
                     We set up the P2P Network Client.
                     */
                     TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClient = SA.projects.network.modules.p2pNetworkClient.newNetworkModulesP2PNetworkClient()
+                    let eventReceivedCallbackFunction
+                    if (TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS !== undefined) {
+                        eventReceivedCallbackFunction = TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS.incomingCandleSignals.signalReceived
+                    }
                     await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClient.initialize(
                         TS.projects.foundations.globals.taskConstants.TASK_NODE.taskServerAppReference.referenceParent.signingAccount.config.codeName,
-                        'P2P Network', // global.env.DESKTOP_TARGET_NETWORK_TYPE,
-                        'Testnet', // global.env.DESKTOP_TARGET_NETWORK_CODENAME,
+                        global.env.DESKTOP_TARGET_NETWORK_TYPE,
+                        global.env.DESKTOP_TARGET_NETWORK_CODENAME,
                         global.env.TASK_SERVER_APP_MAX_OUTGOING_PEERS,
                         global.env.TASK_SERVER_APP_MAX_OUTGOING_START_PEERS,
-                        TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS.incomingCandleSignals.signalReceived
+                        eventReceivedCallbackFunction
                     )
                 }
 

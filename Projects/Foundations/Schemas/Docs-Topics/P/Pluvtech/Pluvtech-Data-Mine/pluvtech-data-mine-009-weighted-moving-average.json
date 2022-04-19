@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Взвешенная скользящая средняя (WMA) придает больший вес последним данным и меньший - прошлым. Это достигается путем умножения цены каждого бара на весовой коэффициент. Благодаря своему уникальному расчету, WMA будет следовать за ценами более внимательно, чем соответствующая простая скользящая средняя.",
                 "updated": 1645610729018
+            },
+            {
+                "language": "DE",
+                "text": "Ein gewichteter gleitender Durchschnitt legt mehr Gewicht auf die jüngsten Daten und weniger auf die vergangenen Daten. Dies geschieht durch Multiplikation des Preises jedes Balkens mit einem Gewichtungsfaktor. Aufgrund seiner einzigartigen Berechnung folgt der WMA den Kursen genauer als ein entsprechender Simple Moving Average.",
+                "updated": 1647934020138
             }
         ]
     },
@@ -43,6 +48,11 @@
                     "language": "RU",
                     "text": "Период расчета индикатора взвешенной скользящей средней можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Initialization в разделе 'WMA' Product Definition.",
                     "updated": 1645610766194
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Länge der Berechnung des Indikators für den gewichteten gleitenden Durchschnitt kann geändert werden, indem Sie den Javascript Code unter Data Building Procedure -> Procedure Initialization unter ’WMA’ Product Definition suchen und öffnen.",
+                    "updated": 1647934103125
                 }
             ]
         },
@@ -59,6 +69,11 @@
                     "language": "RU",
                     "text": "Продукты и свойства",
                     "updated": 1645610772082
+                },
+                {
+                    "language": "DE",
+                    "text": "Produkte und Eigenschaften",
+                    "updated": 1647934137854
                 }
             ]
         },
@@ -70,13 +85,25 @@
                     "language": "RU",
                     "text": "Доступны следующие свойства:",
                     "updated": 1645610777319
+                },
+                {
+                    "language": "DE",
+                    "text": "Die folgenden Eigenschaften sind für den Zugriff verfügbar:",
+                    "updated": 1647934145852
                 }
             ]
         },
         {
             "style": "Table",
             "text": "| Product Name | Product Variable | Properties |\n| Weighted Moving Average | WMA | wma |",
-            "updated": 1636853769
+            "updated": 1636853769,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| Weighted Moving Average | WMA | wma |\n",
+                    "updated": 1647934179803
+                }
+            ]
         },
         {
             "style": "Text",
@@ -87,6 +114,11 @@
                     "language": "RU",
                     "text": "Пример:",
                     "updated": 1645610783192
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1647934208532
                 }
             ]
         },
@@ -98,6 +130,11 @@
                     "language": "RU",
                     "text": "Индикатор WMA можно использовать для генерации сигнала на покупку, когда свеча закрывается выше WMA:",
                     "updated": 1645610791758
+                },
+                {
+                    "language": "DE",
+                    "text": "Der WMA Indikator könnte verwendet werden, um ein Kaufsignal zu generieren, wenn eine Kerze oberhalb des WMA schließt:",
+                    "updated": 1647934224489
                 }
             ]
         },
@@ -109,7 +146,14 @@
         {
             "style": "Title",
             "text": "Maintainer:",
-            "updated": 1622481793076
+            "updated": 1622481793076,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Betreuer:",
+                    "updated": 1647934242082
+                }
+            ]
         },
         {
             "style": "Link",

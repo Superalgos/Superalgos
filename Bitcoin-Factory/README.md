@@ -332,7 +332,7 @@ node runTestClient TEST_CLIENT_INSTANCE_NAME
 Run the Docker Container:
 
 ```sh
-sudo docker run -it --rm --name Bitcoin-Factory-ML -v ~/Bitcoin-Factory/ML-Test-Client/notebooks:/tf/notebooks -p 8888:8888 bitcoin-factory-machine-learning
+sudo docker run -it --rm --name Bitcoin-Factory-ML -v ~/superalgos/Bitcoin-Factory/Test-Client/notebooks:/tf/notebooks -p 8888:8888 bitcoin-factory-machine-learning
 ```
 
 ```sh

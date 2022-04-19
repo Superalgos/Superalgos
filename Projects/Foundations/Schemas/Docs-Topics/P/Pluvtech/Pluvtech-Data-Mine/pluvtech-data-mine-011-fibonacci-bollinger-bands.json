@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Эти полосы Боллинджера имеют коррекции Фибоначчи, чтобы очень четко показать области поддержки и сопротивления. Основа рассчитывается на основе скользящей средней, взвешенной по объему. Полосы находятся на расстоянии 3 стандартных отклонений от среднего значения. 99,73% наблюдений должны находиться в этом диапазоне.",
                 "updated": 1645610974658
+            },
+            {
+                "language": "DE",
+                "text": "Diese Bollinger Bänder sind mit Fibonacci Retracements versehen, die sehr deutlich die Bereiche der Unterstützung und des Widerstands zeigen. Die Basis wird anhand des Volume Weighted Moving Average berechnet. Die Bänder liegen 3 Standardabweichungen vom Mittelwert entfernt. 99,73% der Beobachtungen sollten in diesem Bereich liegen.",
+                "updated": 1647935119135
             }
         ]
     },
@@ -42,6 +47,11 @@
                     "language": "RU",
                     "text": "Для расчета уровней сопротивления/отката используются следующие значения Фибоначчи: 0,236, 0,382, 0,5, 0,618, 0,764, 1,0",
                     "updated": 1645610991930
+                },
+                {
+                    "language": "DE",
+                    "text": "Die folgenden Fibonacci Werte werden zur Berechnung der Widerstands/Rücklauf Niveaus verwendet: 0,236, 0,382, 0,5, 0,618, 0,764, 1,0",
+                    "updated": 1647935428290
                 }
             ]
         },
@@ -58,6 +68,11 @@
                     "language": "RU",
                     "text": "Периоды и переменные множителя можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Initialization под продуктом 'Fibonacci-Bollinger' Product Definition.",
                     "updated": 1645611024191
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Perioden und Multiplikatorvariablen können geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Initialization unter ’Fibonacci-Bollinger’ Product Definition gesucht und geöffnet wird.",
+                    "updated": 1647935515253
                 }
             ]
         },
@@ -74,6 +89,11 @@
                     "language": "RU",
                     "text": "Продукты и свойства",
                     "updated": 1645611029643
+                },
+                {
+                    "language": "DE",
+                    "text": "Produkte und Eigenschaften",
+                    "updated": 1647935544025
                 }
             ]
         },
@@ -85,13 +105,25 @@
                     "language": "RU",
                     "text": "Доступны следующие свойства:",
                     "updated": 1645611035482
+                },
+                {
+                    "language": "DE",
+                    "text": "Die folgenden Eigenschaften sind für den Zugriff verfügbar:",
+                    "updated": 1647935553535
                 }
             ]
         },
         {
             "style": "Table",
             "text": "| Product Name | Product Variable | Properties |\n| Fibonacci-Bollinger | fibBB | basis, up1...up6, low1...low6 |",
-            "updated": 1636853769
+            "updated": 1636853769,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| Fibonacci-Bollinger | fibBB | basis, up1...up6, low1...low6 |\n",
+                    "updated": 1647935587259
+                }
+            ]
         },
         {
             "style": "Text",
@@ -102,6 +134,11 @@
                     "language": "RU",
                     "text": "Пример:",
                     "updated": 1645611041361
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1647935616067
                 }
             ]
         },
@@ -118,7 +155,14 @@
         {
             "style": "Title",
             "text": "Maintainer:",
-            "updated": 1622481793076
+            "updated": 1622481793076,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Betreuer:",
+                    "updated": 1647935634767
+                }
+            ]
         },
         {
             "style": "Link",

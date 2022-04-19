@@ -52,8 +52,8 @@
         },
         {
             "style": "List",
-            "text": "Trading Capability: Yes. The ability to run strategies in live-trading mode has not been verified.",
-            "updated": 1645133053866,
+            "text": "Trading Capability: Yes. The ability to run strategies in live-trading mode has been verified.",
+            "updated": 1650363568098,
             "translations": [
                 {
                     "language": "RU",

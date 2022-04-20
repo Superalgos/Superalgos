@@ -8,6 +8,11 @@
                 "language": "DE",
                 "text": "This article was created to show you which terms you should not translate because they are a fixed term. An example is the word Node. Created and maintained by gitforkgit ",
                 "updated": 1638052964966
+            },
+            {
+                "language": "RU",
+                "text": "Эта статья была создана для того, чтобы показать вам, какие термины не следует переводить, потому что они являются фиксированным термином. Примером может служить слово Node. Создана и поддерживается gitforkgit.",
+                "updated": 1645079902152
             }
         ]
     },
@@ -15,22 +20,50 @@
         {
             "style": "Text",
             "text": "One of our goals is to make Superalgos available for everyone for free and open source forever. For this, translations are extremely important and essential. However, there are some technical terms that should not be translated. Because otherwise it could be difficult when describing problems to others, start contributing, understanding superalgos...",
-            "updated": 1638052177612
+            "updated": 1638052177612,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Одна из наших целей - сделать Superalgos доступным для всех бесплатно и с открытым исходным кодом навсегда. Для этого переводы чрезвычайно важны и необходимы. Однако есть некоторые технические термины, которые не следует переводить. Потому что иначе могут возникнуть трудности при описании проблем другим людям, при внесении вклада, при изучении Superalgos...",
+                    "updated": 1645079949133
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "\"Below here is a table in which the terms are listed. Here the translators can orient themselves and each Superalgos user add terms of which he thinks that they should not be translated. If you translate articles please look here from time to time to see which terms you should leave as they are in the original. Translations in brackets behind the terms themselves are of course legitimate and welcome by readers of the articles.",
-            "updated": 1638052195441
+            "updated": 1638052195441,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ниже приведена таблица, в которой перечислены термины. Здесь переводчики могут сориентироваться, а каждый пользователь Superalgos добавить термины, которые, по его мнению, не следует переводить. Если вы переводите статьи, пожалуйста, заглядывайте сюда время от времени, чтобы узнать, какие термины следует оставить в оригинале. Переводы в скобках за самими терминами, конечно, законны и приветствуются читателями статей.",
+                    "updated": 1645079994853
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Feel free to add Terms in the table!",
-            "updated": 1638052209974
+            "updated": 1638052209974,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Не стесняйтесь добавлять термины в таблицу!",
+                    "updated": 1645080010792
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "Terms that should remain original in the translations of articles:",
-            "updated": 1638052228369
+            "updated": 1638052228369,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Термины, которые должны оставаться оригинальными в переводах статей:",
+                    "updated": 1645080021108
+                }
+            ]
         },
         {
             "style": "Table",
@@ -40,20 +73,48 @@
         {
             "style": "List",
             "text": "Workspace terms -> all Technical Terms related to the Workspace",
-            "updated": 1638487168731
+            "updated": 1638487168731,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Термины рабочего пространства (\"Workspace terms\") -> все технические термины, относящиеся к рабочему пространству",
+                    "updated": 1645080067297
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "node Terms ->  all Technical Terms related to Nodes "
+            "text": "node Terms ->  all Technical Terms related to Nodes ",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "термины узлов (\"node Terms\") -> все технические термины, связанные с узлами",
+                    "updated": 1645080079638
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Other Technical Terms ->  all Technical Terms that dont fit the other categories"
+            "text": "Other Technical Terms ->  all Technical Terms that dont fit the other categories",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Другие технические термины -> все технические термины, которые не входят в другие категории",
+                    "updated": 1645080102946
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "In the columns with translation as their header you can add the translation into your language, if your language is selected in the footer, otherwise the translations would be globally in the table what isn`t the Goal.",
-            "updated": 1638486873653
+            "updated": 1638486873653,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В колонках с переводом в качестве заголовка вы можете добавить перевод на ваш язык, если ваш язык выбран в нижнем колонтитуле, иначе переводы будут глобально в таблице, что не является целью.",
+                    "updated": 1645080165756
+                }
+            ]
         },
         {
             "style": "Text",

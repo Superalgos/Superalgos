@@ -1,0 +1,56 @@
+{
+    "topic": "Pivots Data Mine",
+    "pageNumber": "1",
+    "type": "Pivots by @quantum8",
+    "definition": {
+        "text": "The Pivots Data Mine features a collection of indicators that can be used to predict support and resistance levels based on the previous defined period's price action. This mine features many different types of pivot calculations, as well as key levels for major trading cycles such as daily, weekly, monthly, etc.",
+        "updated": 1649741796954
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Pivots:"
+        },
+        {
+            "style": "List",
+            "text": "1.) HL Pivot Points"
+        },
+        {
+            "style": "List",
+            "text": "2) Daily Pivot Points"
+        },
+        {
+            "style": "List",
+            "text": "3) Pivot Points Fib"
+        },
+        {
+            "style": "List",
+            "text": "4) Pivot Points Woodie"
+        },
+        {
+            "style": "List",
+            "text": "5) Pivot Points Camarilla"
+        },
+        {
+            "style": "List",
+            "text": "6) Pivot Points Denmark"
+        },
+        {
+            "style": "List",
+            "text": "7) Key Levels",
+            "updated": 1649747410757
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        },
+        {
+            "style": "Text",
+            "text": "@quantum8#7428 (discord)"
+        }
+    ]
+}

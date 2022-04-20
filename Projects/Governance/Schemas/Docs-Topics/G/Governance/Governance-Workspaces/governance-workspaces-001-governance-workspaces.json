@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Superalgos Pools - это иерархия верхнего уровня, с которой начинается определение всего проекта Superalgos. Она включает в себя определение нескольких узлов Pool, описывающих основные бласти развития проекта, которые Community желает стимулировать.",
                 "updated": 1640234966829
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos Havuzları (Superalgos Pools), tüm Superalgos Projesinin en üst düzey hiyerarşisidir. Topluluğun teşvik etmek istediği proje ve geliştirmenin ana alanlarını tanımlayan birkaç Havuz düğümünün tanımını içerir.",
+                "updated": 1645099302051
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "language": "RU",
                     "text": "Основной Governance Workspace",
                     "updated": 1639025240252
+                },
+                {
+                    "language": "TR",
+                    "text": "Ana Governance Workspaces",
+                    "updated": 1645098111854
                 }
             ]
         },
@@ -45,6 +55,11 @@
                     "language": "RU",
                     "text": "Рабочее пространство Token Distribution Superalgos Governance Workspace является основной рабочим пространством. Загрузите это рабочее пространство, чтобы начать взаимодействие с управлением. Здесь вы обычно создаете и настраиваете свой профиль пользователя User Profile.",
                     "updated": 1639025404132
+                },
+                {
+                    "language": "TR",
+                    "text": "Token Distribution Superalgos Plugin Workspace, ana çalışma alanıdır. Yönetişim ile etkileşiminizi başlatmak için bu çalışma alanını yükleyin. Burası genellikle Kullanıcı Profilinizi oluşturacağınız ve kuracağınız yerdir.",
+                    "updated": 1645098919092
                 }
             ]
         },
@@ -56,6 +71,11 @@
                     "language": "RU",
                     "text": "Соглашение о присвоени названий",
                     "updated": 1639025654462
+                },
+                {
+                    "language": "TR",
+                    "text": "Adlandırma Kuralı",
+                    "updated": 1645098936050
                 }
             ]
         },
@@ -72,6 +92,11 @@
                     "language": "RU",
                     "text": "Все рабочие пространства Governance Workspaces имеют аналогичную структуру названий, чтобы их было легко найти на вкладке Workspaces:",
                     "updated": 1639025636955
+                },
+                {
+                    "language": "TR",
+                    "text": "Tüm Yönetim Çalışma Alanları, Çalışma Alanları Sekmesinde kolayca fark edilmelerini sağlamak için benzer bir adlandırma yapısını izler:",
+                    "updated": 1645098954389
                 }
             ]
         },
@@ -118,6 +143,11 @@
                     "language": "RU",
                     "text": "Каждое из рабочих пространств Governance Workspaces содержит несколько иерархий Project Definition Hierarchies, описывающих пулы, ресурсы, функции и позиции соответствующего проекта Project.",
                     "updated": 1639025816807
+                },
+                {
+                    "language": "TR",
+                    "text": "Yönetim Çalışma Alanlarının her biri, ilgili Projenin Havuzlarını(Pools), Varlıklarını (Assets), Özelliklerini (Features) ve Konumları (Positions) tanımlayan birkaç Proje Tanım Hiyerarşisine (Project Definition Hierarchies) sahiptir.",
+                    "updated": 1645099082842
                 }
             ]
         },
@@ -138,6 +168,11 @@
                     "language": "RU",
                     "text": "Иерархия Superalgos Pools",
                     "updated": 1639025988114
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos Havuz Hiyerarşisi",
+                    "updated": 1645099102194
                 }
             ]
         },

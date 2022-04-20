@@ -773,7 +773,7 @@ function newFoundationsDocsDocumentPage() {
                             let imageName = appSchemaDocument.type.toLowerCase().replaceAll(' ', '-')
                             imageElement = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName(imageItem.project, imageName)
                             if (imageElement === undefined) {
-                                console.log('[WARN] Image for project (' + imageItem.project + ') with name (' + imageName + ') not found. As a consequence, the Docs Page will be rendered without the icon. ')
+                                console.log((new Date()).toISOString(), '[WARN] Image for project (' + imageItem.project + ') with name (' + imageName + ') not found. As a consequence, the Docs Page will be rendered without the icon. ')
                                 continue
                             }
                         } else {
@@ -781,14 +781,14 @@ function newFoundationsDocsDocumentPage() {
                                 /* This is the default behaviours */
                                 imageElement = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(imageItem.project, imageItem.type)
                                 if (imageElement === undefined) {
-                                    console.log('[WARN] Image for project (' + imageItem.project + ') with name (' + imageItem.type + ') not found. As a consequence, the Docs Page will be rendered without the icon. ')
+                                    console.log((new Date()).toISOString(), '[WARN] Image for project (' + imageItem.project + ') with name (' + imageItem.type + ') not found. As a consequence, the Docs Page will be rendered without the icon. ')
                                     continue
                                 }
                             } else {
                                 /* Here we take the image from the icon specification */
                                 imageElement = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName(imageItem.icon.project, imageItem.icon.name)
                                 if (imageElement === undefined) {
-                                    console.log('[WARN] Image for project (' + imageItem.icon.project + ') with name (' + imageItem.icon.name + ') not found. As a consequence, the Docs Page will be rendered without the icon. ')
+                                    console.log((new Date()).toISOString(), '[WARN] Image for project (' + imageItem.icon.project + ') with name (' + imageItem.icon.name + ') not found. As a consequence, the Docs Page will be rendered without the icon. ')
                                     continue
                                 }
                             }
@@ -813,20 +813,20 @@ function newFoundationsDocsDocumentPage() {
                                 let imageName = appSchemaDocument.type.toLowerCase().replaceAll(' ', '-')
                                 collectionImage = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName(imageItem.project, imageName)
                                 if (collectionImage === undefined) {
-                                    console.log('[WARN] Image for project (' + imageItem.project + ') with name (' + imageName + ') not found. As a consequence, the hierarchy will be rendered without the icon. ')
+                                    console.log((new Date()).toISOString(), '[WARN] Image for project (' + imageItem.project + ') with name (' + imageName + ') not found. As a consequence, the hierarchy will be rendered without the icon. ')
                                     continue
                                 }
                             } else {
                                 collectionImage = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(imageItem.project, imageItem.type)
                                 if (collectionImage === undefined) {
-                                    console.log('[WARN] Image for project (' + imageItem.project + ') with type (' + imageItem.type + ') not found. As a consequence, the hierarchy will be rendered without the icon. ')
+                                    console.log((new Date()).toISOString(), '[WARN] Image for project (' + imageItem.project + ') with type (' + imageItem.type + ') not found. As a consequence, the hierarchy will be rendered without the icon. ')
                                     continue
                                 }
                             }
                         } else {
                             collectionImage = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName(imageItem.project, imageItem.name)
                             if (collectionImage === undefined) {
-                                console.log('[WARN] Image for project (' + imageItem.project + ') with name (' + imageItem.name + ') not found. As a consequence, the hierarchy will be rendered without the icon. ')
+                                console.log((new Date()).toISOString(), '[WARN] Image for project (' + imageItem.project + ') with name (' + imageItem.name + ') not found. As a consequence, the hierarchy will be rendered without the icon. ')
                                 continue
                             }
                         }
@@ -1319,7 +1319,8 @@ function newFoundationsDocsDocumentPage() {
                     let propertyMap = new Map()
                     for (let i = 0; i < allNodesFound.length; i++) {
                         let node = allNodesFound[i]
-                        let config = JSON.parse(node.config)
+                        let config = {}
+                        try { config = JSON.parse(node.config) } catch(e) {}
                         for (const property in config) {
                             let value = JSON.stringify(config[property], undefined, 4)
                             let valueArray = propertyMap.get(property)

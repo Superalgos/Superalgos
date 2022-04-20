@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Используйте этот узел в качестве организационного устройства, чтобы порождать узлы Asset Contribution Claim и отображать целые структуры в иерархии Assets для одновременного размещения нескольких Contribution Claims.",
                 "updated": 1639133821099
+            },
+            {
+                "language": "TR",
+                "text": "Varlık Katkı Talebi düğümlerini (Asset Contribution Claim) oluşturmak ve aynı anda birden çok Katkı Talebi (Contribution Claims) yerleştirmek ve tüm talepleri bir Varlıklar hiyerarşisinde birleştirmek için bu düğümü kurumsal bir cihaz olarak kullanın.",
+                "updated": 1644497771898
             }
         ]
     },

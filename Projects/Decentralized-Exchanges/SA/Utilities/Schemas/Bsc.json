@@ -1,0 +1,189 @@
+{
+    "tokens": [
+      {
+        "symbol": "SA",
+        "name": "Superalgos",
+        "contractAddress": "0xfb981ed9a92377ca4d75d924b9ca06df163924fd"
+      },
+      {
+        "symbol": "ETH",
+        "name": "Ethereum",
+        "contractAddress": "0x2170ed0880ac9a755fd29b2688956bd959f933f8"
+      },
+      {
+        "symbol": "BSC-USD",
+        "name": "Binance-Peg BSC-USD",
+        "contractAddress": "0x55d398326f99059ff775485246999027b3197955"
+      },
+      {
+        "symbol": "WBNB",
+        "name": "Wrapped BNB",
+        "contractAddress": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"
+      },
+      {
+        "symbol": "USDC",
+        "name": "Binance-Peg USD Coin",
+        "contractAddress": "0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d"
+      },
+      {
+        "symbol": "XRP",
+        "name": "Binance-Peg XRP",
+        "contractAddress": "0x1d2f0da169ceb9fc7b3144628db156f3f6c60dbe"
+      },
+      {
+        "symbol": "ADA",
+        "name": "Binance-Peg Cardano",
+        "contractAddress": "0x3ee2200efb3400fabb9aacf31297cbdd1d435d47"
+      },
+      {
+        "symbol": "AVAX",
+        "name": "Binance-Peg Avalanche",
+        "contractAddress": "0x1ce0c2827e2ef14d5c4f29a091d735a204794041"
+      },
+      {
+        "symbol": "DOGE",
+        "name": "Binance-Peg Dogecoin",
+        "contractAddress": "0xba2ae424d960c26247dd6c32edc70b295c744c43"
+      },
+      {
+        "symbol": "DOT",
+        "name": "Binance-Peg Polkadot",
+        "contractAddress": "0x7083609fce4d1d8dc0c979aab8c869ea2c873402"
+      },
+      {
+        "symbol": "BUSD",
+        "name": "Binance-Peg BUSD",
+        "contractAddress": "0xe9e7cea3dedca5984780bafc599bd69add087d56"
+      },
+      {
+        "symbol": "SHIB",
+        "name": "Binance-Peg SHIBA INU",
+        "contractAddress": "0x2859e4544c4bb03966803b044a93563bd2d0dd4d"
+      },
+      {
+        "symbol": "UST",
+        "name": "Wrapped UST",
+        "contractAddress": "0x23396cf899ca06c4472205fc903bdb4de249d6fc"
+      },
+      {
+        "symbol": "DAI",
+        "name": "Binance-Peg Dai",
+        "contractAddress": "0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3"
+      },
+      {
+        "symbol": "LTC",
+        "name": "Binance-Peg Litecoin",
+        "contractAddress": "0x4338665cbb7b2485a8855a139b75d5e34ab0db94"
+      },
+      {
+        "symbol": "ATOM",
+        "name": "Binance-Peg Cosmos",
+        "contractAddress": "0x0eb3a705fc54725037cc9e008bdede697f62f335"
+      },
+      {
+        "symbol": "LINK",
+        "name": "Binance-Peg Chainlink",
+        "contractAddress": "0xf8a0bf9cf54bb92f17374d9e9a321e6a111a51bd"
+      },
+      {
+        "symbol": "BTCB",
+        "name": "Binance-Peg BTCB",
+        "contractAddress": "0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c"
+      },
+      {
+        "symbol": "NEAR",
+        "name": "Binance-Peg NEAR Protocol",
+        "contractAddress": "0x1fa4a73a3f0133f0025378af00236f3abdee5d63"
+      },
+      {
+        "symbol": "UNI",
+        "name": "Binance-Peg Uniswap",
+        "contractAddress": "0xbf5140a22578168fd562dccf235e5d43a02ce9b1"
+      },
+      {
+        "symbol": "TRX",
+        "name": "TRON",
+        "contractAddress": "0x85eac5ac2f758618dfa09bdbe0cf174e7d574d5b"
+      },
+      {
+        "symbol": "FTM",
+        "name": "Fantom",
+        "contractAddress": "0xad29abb318791d579433d831ed122afeaf29dcfe"
+      },
+      {
+        "symbol": "AXS",
+        "name": "Binance-Peg Axie Infinity Shard",
+        "contractAddress": "0x715d400f88c167884bbcc41c5fea407ed4d2f8a0"
+      },
+      {
+        "symbol": "EGLD",
+        "name": "Binance-Peg Elrond",
+        "contractAddress": "0xbf7c81fff98bbe61b40ed186e4afd6ddd01337fe"
+      },
+      {
+        "symbol": "XTZ",
+        "name": "Binance-Peg Tezos",
+        "contractAddress": "0x16939ef78684453bfdfb47825f8a5f714f12623a"
+      },
+      {
+        "symbol": "FRAX",
+        "name": "Frax",
+        "contractAddress": "0x90c97f71e18723b0cf0dfa30ee176ab653e89f40"
+      },
+      {
+        "symbol": "IOTA",
+        "name": "MIOTAC",
+        "contractAddress": "0xd944f1d1e9d5f9bb90b62f9d45e447d989580782"
+      },
+      {
+        "symbol": "BTT",
+        "name": "Binance-Peg BitTorrent",
+        "contractAddress": "0x8595f9da7b868b1822194faed312235e43007b49"
+      },
+      {
+        "symbol": "EOS",
+        "name": "Binance-Peg EOS",
+        "contractAddress": "0x56b6fb708fc5732dec1afc8d8556423a2edccbd6"
+      },
+      {
+        "symbol": "GALA",
+        "name": "pTokens GALA",
+        "contractAddress": "0x7ddee176f665cd201f93eede625770e2fd911990"
+      },
+      {
+        "symbol": "FLOW",
+        "name": "Binance-Peg FLOW",
+        "contractAddress": "0xc943c5320b9c18c153d1e2d12cc3074bebfb31a2"
+      },
+      {
+        "symbol": "MKR",
+        "name": "Binance-Peg Maker",
+        "contractAddress": "0x5f0da599bb2cccfcf6fdfd7d81743b6020864350"
+      },
+      {
+        "symbol": "ZEC",
+        "name": "Binance-Peg Zcash",
+        "contractAddress": "0x1ba42e5193dfa8b03d15dd1b86a3113bbbef8eeb"
+      },
+      {
+        "symbol": "Cake",
+        "name": "PancakeSwap",
+        "contractAddress": "0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82"
+      },
+      {
+        "symbol": "1INCH",
+        "name": "1INCH",
+        "contractAddress": "0x111111111117dc0aa78b770fa6a738034120c302"
+      },
+      {
+        "symbol": "BSW",
+        "name": "Biswap",
+        "contractAddress": "0x965f527d9159dce6288a2219db51fc6eef120dd1"
+      },
+      {
+        "symbol": "BIFI",
+        "name": "beefy.finance",
+        "contractAddress": "0xCa3F508B8e4Dd382eE878A314789373D80A5190A"
+      }
+    ]
+  }

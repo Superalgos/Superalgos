@@ -4,17 +4,38 @@
     "type": "TS LF Trading Bot Error - Size Node Missing",
     "definition": {
         "text": "A Size node was expected but not found at the node where the error originated.",
-        "updated": 1611650035884
+        "updated": 1611650035884,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Bir Boyut ( Size ) düğümü bekleniyordu ancak hatanın kaynaklandığı düğümde bulunamadı.",
+                "updated": 1648939346038
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Error",
             "text": "Size Node Missing",
-            "updated": 1611650784941
+            "updated": 1611650784941,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Boyut Düğümü Eksik. ( Size Node Missing )",
+                    "updated": 1648939376910
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Add the missing node and try again."
+            "text": "Add the missing node and try again.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Eksik düğümü ekleyin ve tekrar deneyin.",
+                    "updated": 1648939407268
+                }
+            ]
         }
     ]
 }

@@ -20,7 +20,14 @@
         {
             "style": "Text",
             "text": "The \"signal\" at a connection is a real number, and the output of each neuron is computed by some non-linear function of the sum of its inputs. The connections are called edges. Neurons and edges typically have a weight that adjusts as learning proceeds. The weight increases or decreases the strength of the signal at a connection. Neurons may have a threshold such that a signal is sent only if the aggregate signal crosses that threshold. Typically, neurons are aggregated into layers. Different layers may perform different transformations on their inputs. Signals travel from the first layer (the input layer), to the last layer (the output layer), possibly after traversing the layers multiple times.",
-            "updated": 1613198350617
+            "updated": 1613198350617,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "\"Сигнал\" на соединении - это вещественное число, а выход каждого нейрона вычисляется некоторой нелинейной функцией от суммы его входов. Соединения называются ребрами. Нейроны и ребра обычно имеют вес, который изменяется по мере обучения. Вес увеличивает или уменьшает силу сигнала на соединении. Нейроны могут иметь порог, при котором сигнал посылается только в том случае, если суммарный сигнал пересекает этот порог. Как правило, нейроны объединяются в слои. Разные слои могут выполнять различные преобразования на своих входах. Сигналы проходят от первого слоя (входной слой) до последнего слоя (выходной слой), возможно, после многократного прохождения слоев.",
+                    "updated": 1645195433762
+                }
+            ]
         }
     ]
 }

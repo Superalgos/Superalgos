@@ -26,13 +26,13 @@
             },
             {
                 "language": "RU",
-                "text": "Документы содержат шесть категорий страниц: Node, Concept, Topic, Tutorial, Review, and Book. Каждая категория представлена ​​вкладкой в ​​результатах поиска документов.",
-                "updated": 1638458497233
+                "text": "В Docs представлены семь категорий страниц: Node, Concept, Topic, Tutorial, Review, Book и Workspace. Каждая категория представлена вкладкой в результатах поиска документов.",
+                "updated": 1647781161686
             },
             {
                 "language": "TR",
-                "text": "Dokümanlar altı sayfa kategorisinde toplanmıştır: Düğüm ( Node ), Kavram ( Concept ), Konu ( Topic ), Eğitim ( Tutorial ), İnceleme ( Review ) ve Kitap ( Book ). Her kategori, Dokümanlar Arama Sonuçlarında bir sekme ile gösterilir.",
-                "updated": 1640610203305
+                "text": "Dokümanlar yedi sayfa kategorisinde toplanmıştır: Düğüm ( Node ), Kavram ( Concept ), Konu ( Topic ), Eğitim ( Tutorial ), İnceleme ( Review ), Kitap ( Book ) ve Çalışma Alanı (Workspace). Her kategori, Dokümanlar Arama Sonuçlarında bir sekme ile gösterilir.",
+                "updated": 1646206476988
             }
         ]
     },
@@ -62,6 +62,11 @@
                     "language": "RU",
                     "text": "Категория Node",
                     "updated": 1638458808149
+                },
+                {
+                    "language": "TR",
+                    "text": "Node Sayfa Kategorisi",
+                    "updated": 1646206605663
                 }
             ]
         },
@@ -85,6 +90,11 @@
                     "language": "RU",
                     "text": "Каждый узел Node, определенный в контексте проекта Project, имеет страницу Docs Node Page, объясняющую, что это за узел и как он используется. Это страница, которая открывается при нажатии кнопки справки в меню узла.",
                     "updated": 1638458755616
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Proje (Project) bağlamında tanımlanan her Düğüm (Node), Düğümün ne olduğunu ve nasıl kullanıldığını açıklayan bir Dokümanlar Düğüm Sayfası (Node Page) içerir. Bu, düğüm menüsündeki yardım düğmesine tıklandığında açılan sayfadır.",
+                    "updated": 1646206596115
                 }
             ]
         },
@@ -108,6 +118,11 @@
                     "language": "RU",
                     "text": "Категория Concept",
                     "updated": 1638458826439
+                },
+                {
+                    "language": "TR",
+                    "text": "Concept Sayfa Kategorisi",
+                    "updated": 1646206621244
                 }
             ]
         },
@@ -131,6 +146,11 @@
                     "language": "RU",
                     "text": "Концепции - это понятия или идеи, которые не представлены в виде узлов в иерархии. Страницы в категории Concept охватывают понятия или идеи, которые могут быть объяснены на одной странице. То есть концепции - это понятия, которые могут быть исчерпывающе рассмотрены на одной странице.",
                     "updated": 1638458973238
+                },
+                {
+                    "language": "TR",
+                    "text": "Concept, bir hiyerarşide düğümler olarak temsil edilmeyen kavramlar veya fikirlerdir. Concept kategorisindeki sayfalar, tek bir sayfada açıklanabilecek kavram veya fikirlerdir. Yani kavramlar, tek bir sayfada ayrıntılı olarak ele alınabilecek kavramlardır.",
+                    "updated": 1646206698209
                 }
             ]
         },
@@ -154,6 +174,11 @@
                     "language": "RU",
                     "text": "Категория Topic",
                     "updated": 1638459020247
+                },
+                {
+                    "language": "TR",
+                    "text": "Topic Sayfa Kategorisi",
+                    "updated": 1646206712587
                 }
             ]
         },
@@ -177,6 +202,11 @@
                     "language": "RU",
                     "text": "Темы - это многогранные, глубокие концепции, для правильного рассмотрения которых требуется более одной страницы. Темы представляют собой наборы тесно связанных понятий, расположенных в определенной последовательности. Однако это не страница сама по себе. Вместо этого это набор страниц.",
                     "updated": 1638459065579
+                },
+                {
+                    "language": "TR",
+                    "text": "Topics, doğru bir şekilde ele alınması için birden fazla sayfa gerektiren çok yönlü, derin kavramlardır. Bir sıra halinde düzenlenmiş, birbiriyle yakından ilişkili kavramlar kümesidir. Kendi başına bir sayfa değildir,bir sayfa koleksiyonudur.",
+                    "updated": 1646206838305
                 }
             ]
         },
@@ -200,6 +230,11 @@
                     "language": "RU",
                     "text": "Категория Tutorial",
                     "updated": 1638459083962
+                },
+                {
+                    "language": "TR",
+                    "text": "Tutorial Sayfa Kategorisi",
+                    "updated": 1646206849201
                 }
             ]
         },
@@ -223,6 +258,11 @@
                     "language": "RU",
                     "text": "Иерархия Tutorial может упорядочивать узлы различных типов, включая узлы Tutorial Topic и Tutorial Step. Каждый узел в иерархии указывает на страницу Tutorial Step Page в документах, из которой он черпает информацию. В контексте документов, страницы в учебнике расположены в последовательности, как и темы.",
                     "updated": 1638459807647
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir  Öğretici hiyerarşisi (Tutorial Hierarchy), Öğretici Konusu (Tutorial Topic) ve Öğretici Adım düğümleri (Tutorial Step Node) dahil olmak üzere farklı düğüm türlerini düzenleyebilir. Hiyerarşideki her düğüm, bilgi aldığı Dokümanlar'daki bir Eğitim Adımı Sayfasına işaret eder. Dokümanlar bağlamında, bir öğreticideki sayfalar, tıpkı konularda olduğu gibi bir sırayla ilerler.",
+                    "updated": 1646207561365
                 }
             ]
         },
@@ -246,6 +286,11 @@
                     "language": "RU",
                     "text": "Категория Reviews",
                     "updated": 1638459908013
+                },
+                {
+                    "language": "TR",
+                    "text": "Reviews Sayfa Kategorisi",
+                    "updated": 1646207577294
                 }
             ]
         },
@@ -269,6 +314,11 @@
                     "language": "RU",
                     "text": "Reviews - это создаваемый пользователями контент, в котором описывается их опыт работы с определенными компонентами Superalgos или других проектов.",
                     "updated": 1638459974909
+                },
+                {
+                    "language": "TR",
+                    "text": "Reviews , Superalgos'un belirli bileşenleri veya diğer projelerle ilgili deneyimlerini açıklayan, kullanıcı tarafından oluşturulan içeriktir.",
+                    "updated": 1646207607985
                 }
             ]
         },
@@ -292,6 +342,11 @@
                     "language": "RU",
                     "text": "Категория Books",
                     "updated": 1638460137112
+                },
+                {
+                    "language": "TR",
+                    "text": "Books Sayfa Kategorisi",
+                    "updated": 1646207619336
                 }
             ]
         },
@@ -315,6 +370,11 @@
                     "language": "RU",
                     "text": "Books - это страница сама по себе. На странице представлен список тем, каждая из которых составляет главу книги.",
                     "updated": 1638460105684
+                },
+                {
+                    "language": "TR",
+                    "text": "Kitap başlı başına bir sayfadır. Sayfa, her biri kitapta bir bölüm oluşturan konuların bir listesini içerir.",
+                    "updated": 1646207641102
                 }
             ]
         },
@@ -327,6 +387,11 @@
                     "language": "RU",
                     "text": "Категория Workspace",
                     "updated": 1638460132388
+                },
+                {
+                    "language": "TR",
+                    "text": "Workspace Sayfa Kategorisi",
+                    "updated": 1646207657370
                 }
             ]
         },
@@ -339,6 +404,11 @@
                     "language": "RU",
                     "text": "На вкладке Workspace фактически отображается не страница документов, а содержимое рабочих пространств. Это возможность поиска в рабочем пространстве по ключевому слову. Он показывает все узлы, связанные с ключевым словом. Сделайте запрос в строке поиска с ключевым словом, которое вам нужен (например, \"market\"), и посмотрите на категорию рабочего пространства.",
                     "updated": 1638460490413
+                },
+                {
+                    "language": "TR",
+                    "text": "Workspace sekmesi aslında bir dokümanlar sayfası değildir, çalışma alanlarından içerik görüntüler. Anahtar kelime ile çalışma alanlarında arama yapma imkanı verir. Anahtar kelimeyle ilgili tüm düğümleri gösterir. Arama çubuğunda bir anahtar kelimeyle (ör. \"market\") bir sorgu yapın ve Çalışma Alanı Kategorisine bakın.",
+                    "updated": 1646207756219
                 }
             ]
         },

@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "С каждым продуктом может быть связан один модуль плоттера Plotter Module. Этот модуль плоттера имеет все определения, необходимые для интерпретации наборов данных продукта и отображения информации на диаграмме.",
                 "updated": 1639580741790
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Her ürün, kendisiyle ilişkilendirilmiş bir Çizici Modülüne ( Plotter Module ) sahip olabilir. Bu Çizici Modülü, Ürünün veri kümelerini yorumlamak ve bilgileri bir çizelge üzerinde işlemek için gereken tüm tanımlara sahiptir.",
+                "updated": 1645963926578
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "RU",
                     "text": "Superalgos позволяет пользователям создавать плоттеры без написания кода. Плоттер определяется в пространстве Designer Space. Это делается посредством определения вершин и полигонов. Пользователи могут создавать собственные диаграммы для любого набора данных Dataset.",
                     "updated": 1639580856393
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos, kullanıcıları herhangi bir kod yazmadan çiziciler oluşturmasına izin verme yeteneğine sahiptir. Çizici, Tasarımcı Alanında tanımlanır. Bu, köşeleri ve çokgenleri tanımlayarak yapılır. Kullanıcılar, herhangi bir Veri Kümesi ( Dataset ) için özel grafikler oluşturabilir.",
+                    "updated": 1645964011882
                 }
             ]
         }

@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Для того чтобы данные были актуальными, необходимо, чтобы были запущены менеджеры задач Masters и Sparta.",
                 "updated": 1640460435041
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Verilerin güncel olması için Masters ve Sparta görev yöneticilerinin çalışıyor olması gerekir.",
+                "updated": 1647865906200
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Если вы запускаете систему впервые или на некоторое время прекратили ее работу, данные будут неактуальны. Каждый раз, когда вы запускаете систему, потребуется некоторое время, чтобы данные соответствовали текущему времени.",
                     "updated": 1640460453589
+                },
+                {
+                    "language": "TR",
+                    "text": "Sistemi ilk kez çalıştırıyorsanız veya sistemi çalıştırmayı bir süreliğine durdurduysanız, veriler güncel olmayacaktır. Sistemi her başlattığınızda, verilerin şimdiki zamana yetişmesi biraz zaman alacaktır.",
+                    "updated": 1647865936787
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Чтобы обновить свои наборы данных до настоящего времени, вам необходимо в менеджерах задач Masters и Sparta запустить все задачи для бирж и рынков, с которыми вы хотите работать, и предоставить процессам достаточно времени, чтобы обработать недостающие данные.",
                     "updated": 1640460596079
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri kümelerinizi bugüne kadar güncellemek için, çalışmak istediğiniz borsalar, pazarlar, Masters ve Sparta görev yöneticilerinizde Tüm Görevleri Çalıştırmanız işlemlerin eksik verileri geçmesi için yeterli zaman ayırmanız gerekir.",
+                    "updated": 1647866003649
                 }
             ]
         }

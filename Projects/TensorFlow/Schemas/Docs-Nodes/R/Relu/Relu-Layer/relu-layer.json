@@ -2,17 +2,38 @@
     "type": "Relu Layer",
     "definition": {
         "text": "Rectified Linear Unit activation function.",
-        "updated": 1613216977133
+        "updated": 1613216977133,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Функция активации выпрямленной линейной единицы.",
+                "updated": 1645249664574
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "List",
             "text": "Input shape: Arbitrary. Use the config field inputShape (Array of integers, does not include the sample axis) when using this layer as the first layer in a model.",
-            "updated": 1613216997299
+            "updated": 1613216997299,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Input shape: Произвольный. Используйте поле конфигурации inputShape (массив целых чисел, не включает ось образца) при использовании этого слоя в качестве первого слоя в модели.",
+                    "updated": 1645249672350
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Output shape: Same shape as the input."
+            "text": "Output shape: Same shape as the input.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Output shape: Та же форма, что и у входа.",
+                    "updated": 1645249678613
+                }
+            ]
         }
     ]
 }

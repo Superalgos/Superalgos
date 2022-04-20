@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Поймите, как система использует имеющееся оборудование, чтобы вы могли реализовать обходные пути и применить оптимальные решения.",
                 "updated": 1640457727438
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Geçici çözümleri ve en iyi uygulamaları uygulayabilmeniz için sistemin kullanılabilir donanımı nasıl kullandığını anlayın.",
+                "updated": 1647864020724
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Динамический рендеринг всех визуальных функций в системе создает значительную нагрузку на графический процессор (GPU) машины. Одновременное выполнение нескольких задач предъявляет высокие требования к центральному процессору (CPU). В зависимости от мощности вашего компьютера это может привести к тому, что система будет работать медленно, а иногда даже не реагировать на запросы.",
                     "updated": 1640457764216
+                },
+                {
+                    "language": "TR",
+                    "text": "Sistemdeki tüm görsel özellikleri dinamik olarak oluşturmak, makinenin grafik işleme birimine (GPU) önemli bir yük getirir. Aynı anda birden fazla görevi yürütmek, merkezi işlem birimi (CPU) için zorludur. Makinenizin kapasitesine bağlı olarak bu, sistemin yavaşlamasına ve hatta bazen yanıt vermemesine neden olabilir.",
+                    "updated": 1647864059316
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Если вы испытываете такие симптомы, есть несколько действий, которые вы можете предпринять для их смягчения.",
                     "updated": 1640457780655
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu tür belirtilerle karşılaşırsanız, bunları azaltmak için yapabileceğiniz birkaç işlem vardır.",
+                    "updated": 1647864070623
                 }
             ]
         },
@@ -46,6 +61,11 @@
                     "language": "RU",
                     "text": "Ознакомьтесь с системными требованиями, чтобы лучше понять, чего ожидать от производительности вашего оборудования.",
                     "updated": 1640457792798
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Donanımınızın performansı açısından ne bekleyeceğinizi daha iyi anlamak için sistem gereksinimleri hakkında bilgi edinin.",
+                    "updated": 1647864113104
                 }
             ]
         },
@@ -57,6 +77,11 @@
                     "language": "RU",
                     "text": "Закройте инструменты разработчика браузера",
                     "updated": 1640457804406
+                },
+                {
+                    "language": "TR",
+                    "text": "Tarayıcı Geliştirici Araçlarını Kapatın",
+                    "updated": 1647864138400
                 }
             ]
         },
@@ -68,6 +93,11 @@
                     "language": "RU",
                     "text": "Возможно, в какой-то момент вы открывали Developer Tools (\"Инструменты разработчика\"). Инструменты разработчика могут замедлить рендеринг анимации до одного кадра в секунду. Если он открыт, убедитесь, что вы закрыли Developer Tools.",
                     "updated": 1640457867837
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir noktada Geliştirici Araçlarını açmış olabilirsiniz. Geliştirici Araçları, animasyon oluşturma işlemlerini saniyede bir kare kadar yavaş bir taramaya kadar yavaşlatabilir. Açık olması durumunda, Geliştirici Araçlarını kapattığınızdan emin olun.",
+                    "updated": 1647864177922
                 }
             ]
         },
@@ -79,6 +109,11 @@
                     "language": "RU",
                     "text": "Прекратите выполнение задач по добыче данных, которые вам, возможно, не нужны",
                     "updated": 1640457885701
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışması Gerekmeyen Veri Madenciliği Görevlerini Durdurun",
+                    "updated": 1647864214772
                 }
             ]
         },
@@ -90,6 +125,11 @@
                     "language": "RU",
                     "text": "Добыча данных является процессороемкой деятельностью. Если вы разрабатываете стратегию, вам, вероятно, не нужен живой поток информации, обрабатываемой в режиме реального времени. Научитесь сегментировать свою деятельность и запускать только те задачи, которые необходимы для выполняемой работы.",
                     "updated": 1640457937453
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri madenciliği, CPU için yoğun bir faaliyettir. Bir strateji tasarlıyorsanız, muhtemelen gerçek zamanlı olarak işlenen canlı bir bilgi akışına ihtiyacınız yoktur. Faaliyetlerinizi bölümlere ayırmayı öğrenin ve yalnızca yaptığınız iş için ihtiyaç duyduğunuz görevleri başlatın.",
+                    "updated": 1647864266946
                 }
             ]
         },
@@ -102,6 +142,11 @@
                     "language": "RU",
                     "text": "Вы также можете рассмотреть возможность применения фильтра таймфреймов для обработки только тех, которые вам нужны.",
                     "updated": 1640457959818
+                },
+                {
+                    "language": "TR",
+                    "text": "Ayrıca, yalnızca ihtiyaç duyduklarınızı işlemek için bir Zaman Çerçevesi Filtresi ( Time Frames Filter ) uygulamayı da düşünebilirsiniz.",
+                    "updated": 1647864311455
                 }
             ]
         },
@@ -113,6 +158,11 @@
                     "language": "RU",
                     "text": "Откройте либо пространство проектирования (Design Space), либо пространство построения диаграмм (Charting Space).",
                     "updated": 1640458004186
+                },
+                {
+                    "language": "TR",
+                    "text": "Tasarım Alanını veya Grafik Alanını Açın",
+                    "updated": 1647864336763
                 }
             ]
         },
@@ -124,6 +174,11 @@
                     "language": "RU",
                     "text": "Если оставить ползунок на полпути вверх или вниз по экрану, это приведет к расходованию ресурсов как пространства проектирования, так и пространства построения диаграмм. Убедитесь, что ползунок полностью поднят или опущен.",
                     "updated": 1640458035435
+                },
+                {
+                    "language": "TR",
+                    "text": "Kaydırıcıyı ekranın yarısında yukarı veya aşağı bırakmak, hem tasarım alanının hem de grafik alanının kaynakları tüketmesine neden olur. Kaydırıcının tamamen yukarı veya aşağı olduğundan emin olun.",
+                    "updated": 1647864528970
                 }
             ]
         },
@@ -135,6 +190,11 @@
                     "language": "RU",
                     "text": "Отображение меньшего количества данных на графиках",
                     "updated": 1640458050493
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafiklerde Daha Az Veri Görüntüle",
+                    "updated": 1647864547877
                 }
             ]
         },
@@ -147,6 +207,11 @@
                     "language": "RU",
                     "text": "Убедитесь, что вы установили шкалу времени Time Scale в ручной режим и настроили ее так, чтобы на экране отображалось меньше свечей. Попробуйте переключить блок таймфреймов на более высокие таймфреймы, чтобы плотность свечей уменьшилась.",
                     "updated": 1640458142695
+                },
+                {
+                    "language": "TR",
+                    "text": "Zaman Ölçeğini ( Time Scale ) manuel moda ayarladığınızdan emin olun ve ekranda daha az mum görüntülenecek şekilde ayarlayın. Mum yoğunluğunu azaltmak için zaman çerçevesi kutusunu daha yüksek zaman çerçevelerine geçirmeyi deneyin.",
+                    "updated": 1647864606251
                 }
             ]
         },
@@ -158,6 +223,11 @@
                     "language": "RU",
                     "text": "Вы также можете отключить слои, которые вы, возможно, не используете. Помните, что каждый фрагмент графической информации, который вы видите на экране, представляет собой данные, которые ваша система считывает с диска и обрабатывает для отображения в графической форме.",
                     "updated": 1640458200380
+                },
+                {
+                    "language": "TR",
+                    "text": "Ayrıca kullanmadığınız katmanları kapatmak isteyebilirsiniz. Unutmayın, ekranda gördüğünüz her grafik bilgi parçası, sisteminizin diskinizden okuduğu ve grafik biçiminde görüntülemek için işlediği verileri temsil eder.",
+                    "updated": 1647864641336
                 }
             ]
         },
@@ -169,6 +239,11 @@
                     "language": "RU",
                     "text": "Также отключите слои в менеджерах слоев торгового движка и торговой системы. Эти слои взаимодействуют с пространством проектирования для отображения информации в реальном времени об иерархиях торгового движка и торговой системы.",
                     "updated": 1640458255908
+                },
+                {
+                    "language": "TR",
+                    "text": "Ayrıca Ticaret Motoru ( Trading Engine ) ve Ticaret Sistemi ( Trading System ) katman yöneticilerindeki katmanları kapatın. Bu katmanlar, ticaret motoru ve ticaret sistemi hiyerarşileri üzerindeki bilgileri gerçek zamanlı olarak göstermek için tasarım alanıyla etkileşime girer.",
+                    "updated": 1647864688154
                 }
             ]
         },
@@ -181,6 +256,11 @@
                     "language": "RU",
                     "text": "Сворачивание неиспользуемых иерархий",
                     "updated": 1640458369982
+                },
+                {
+                    "language": "TR",
+                    "text": "Kullanılmayan Hiyerarşileri Daralt",
+                    "updated": 1647864709996
                 }
             ]
         },
@@ -192,6 +272,11 @@
                     "language": "RU",
                     "text": "Физика, управляющая узлами в пространстве проектирования, помогает структурам узлов самоорганизовываться. За это приходится расплачиваться вычислительной мощностью GPU.",
                     "updated": 1640458420081
+                },
+                {
+                    "language": "TR",
+                    "text": "Tasarım alanındaki düğümleri yöneten fizik, düğüm yapılarının kendi kendine organize olmasına yardımcı olur. Bunun GPU işlem gücü açısından bir maliyeti vardır.",
+                    "updated": 1647864731208
                 }
             ]
         },
@@ -203,6 +288,11 @@
                     "language": "RU",
                     "text": "Убедитесь, что все иерархии, которые вы не используете, свернуты.",
                     "updated": 1640458431029
+                },
+                {
+                    "language": "TR",
+                    "text": "Kullanmadığınız tüm hiyerarşilerin daraltıldığından emin olun.",
+                    "updated": 1647864749960
                 }
             ]
         },
@@ -214,6 +304,11 @@
                     "language": "RU",
                     "text": "Вы также можете закрыть все структуры узлов, которые вы, возможно, не используете в иерархии, которую вам, возможно, придется расширять.",
                     "updated": 1640458521682
+                },
+                {
+                    "language": "TR",
+                    "text": "Ayrıca, genişletmeniz gerekebilecek hiyerarşi içinde kullanmadığınız düğüm yapılarından herhangi birini kapatmak isteyebilirsiniz.",
+                    "updated": 1647864767188
                 }
             ]
         },
@@ -226,6 +321,11 @@
                     "language": "RU",
                     "text": "Если эти обходные пути не решили вашу проблему и вы часто сталкиваетесь с медлительностью или неотзывчивостью при работе с компьютером, возможно, вам стоит подумать о модернизации оборудования. Не стоит рисковать своим капиталом, используя недостаточно мощную торговую инфраструктуру.",
                     "updated": 1640458562032
+                },
+                {
+                    "language": "TR",
+                    "text": "Önemli: Bu geçici çözümler sorununuzu çözmüyorsa ve bilgisayarınızı kullanırken sık sık yavaşlama veya yanıt vermeme sorunu yaşıyorsanız, donanımınızı yükseltmeyi düşünebilirsiniz. Yetersiz bir ticaret altyapısı ile sermayenizi riske atmamalısınız.",
+                    "updated": 1647864790024
                 }
             ]
         },
@@ -237,6 +337,11 @@
                     "language": "RU",
                     "text": "Наблюдайте за эффективностью своих действий",
                     "updated": 1640458594809
+                },
+                {
+                    "language": "TR",
+                    "text": "Eylemlerinizin Etkilerini Görün",
+                    "updated": 1647864811040
                 }
             ]
         },
@@ -248,6 +353,11 @@
                     "language": "RU",
                     "text": "Имеется удобный встроенный инструмент для измерения производительности анимации, который можно использовать, чтобы увидеть эффект от отключения слоев, снижения плотности информации и так далее.",
                     "updated": 1640458616372
+                },
+                {
+                    "language": "TR",
+                    "text": "Katmanları kapatmanın, bilgi yoğunluğunu düşürmenin vb. etkilerini görmek için kullanabileceğiniz, animasyonun performansını ölçmek için kullanışlı bir yerleşik araç vardır.",
+                    "updated": 1647864827802
                 }
             ]
         },
@@ -259,6 +369,11 @@
                     "language": "RU",
                     "text": "Нажмите Ctrl + Shift + Alt + F11, и на экране появятся следующие показания производительности:",
                     "updated": 1640458631180
+                },
+                {
+                    "language": "TR",
+                    "text": "Ctrl + Shift + Alt + F11'i tıkladığınızda ekranınızda aşağıdaki performans değerleri görünecektir:",
+                    "updated": 1647864853212
                 }
             ]
         },
@@ -275,6 +390,11 @@
                     "language": "RU",
                     "text": "Частота кадров, отображаемая внизу, должна увеличиваться по мере выполнения предложенных здесь действий.",
                     "updated": 1640458738903
+                },
+                {
+                    "language": "TR",
+                    "text": "Altta görüntülenen kare hızı, burada önerilen eylemlerin daha fazlasını uyguladığınızda artacaktır.",
+                    "updated": 1647864896188
                 }
             ]
         }

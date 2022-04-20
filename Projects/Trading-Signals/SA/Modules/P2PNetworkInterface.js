@@ -29,17 +29,17 @@ exports.newTradingSignalsModulesP2PNetworkInterface = function newTradingSignals
         try {
             messageHeader = JSON.parse(message)
         } catch (err) {
-            console.log('[WARN] P2P Network Interface -> message Not Correct JSON Format.')
+            console.log((new Date()).toISOString(), '[WARN] P2P Network Interface -> message Not Correct JSON Format.')
             return
         }
 
         if (messageHeader.requestType === undefined) {
-            console.log('[WARN] P2P Network Interface -> requestType Not Provided.')
+            console.log((new Date()).toISOString(), '[WARN] P2P Network Interface -> requestType Not Provided.')
             return
         }
 
         if (messageHeader.requestType !== 'Signal') {
-            console.log('[WARN] P2P Network Interface -> requestType Not Supported.')
+            console.log((new Date()).toISOString(), '[WARN] P2P Network Interface -> requestType Not Supported.')
             return
         }
 
@@ -47,7 +47,7 @@ exports.newTradingSignalsModulesP2PNetworkInterface = function newTradingSignals
         try {
             signalReceived = JSON.parse(messageHeader.signalMessage)
         } catch (err) {
-            console.log('[WARN] P2P Network Interface -> signalMessage Not Correct JSON Format.')
+            console.log((new Date()).toISOString(), '[WARN] P2P Network Interface -> signalMessage Not Correct JSON Format.')
         }
         /*
         At the Client Interface, events need to be emitted by Social Entities that 

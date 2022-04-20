@@ -4,34 +4,83 @@
     "type": "TS API Data Fetcher Bot Error - More Than Two Endpoints Detected",
     "definition": {
         "text": "Each process of the API Data Fetcher Bot is expected to fetch data from a single API Endpoint. The Bot detected that you configured the Record Properties referencing API Data Fields nodes that belongs to different API Endpoints. This is not supported and the API Data Fetcher bot will not proceed until you reference a set of API Response Fields that are descendants / belongs to a single API Endpoint.",
-        "updated": 1621860822884
+        "updated": 1621860822884,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Özet: API Veri Alıcısı Botunun her işleminin, tek bir API Uç Noktasından ( API Endpoint ) veri alması beklenir. Bot, farklı API Uç Noktalarına ait API Veri Alanları düğümlerine başvuran Kayıt Özelliklerini yapılandırdığınızı algıladı. Bu desteklenmez ve API Veri Alıcısı botu ( API Data Fetcher Bot ), siz soyundan gelen/tek bir API Uç Noktasına ( API Endpoint ) ait olan bir dizi API Yanıt Alanına başvuruda bulunana kadar ilerlemez",
+                "updated": 1647600592240
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Error",
             "text": "More Than Two Endpoints Detected",
-            "updated": 1621860374194
+            "updated": 1621860374194,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hata: İkiden Fazla Uç Nokta Algılandı",
+                    "updated": 1647600609707
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Error Info"
+            "text": "Error Info",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hata Bilgisi",
+                    "updated": 1647600718153
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In the following section, you will find the information recorded when the error occurred."
+            "text": "In the following section, you will find the information recorded when the error occurred.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki bölümde, hata oluştuğunda kaydedilen bilgileri bulacaksınız.",
+                    "updated": 1647600727388
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "You will only see the information if you opened this page as a result of the error actually occurring.",
-            "updated": 1611680880668
+            "updated": 1611680880668,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bilgileri ancak bu sayfayı gerçekten oluşan hatanın bir sonucu olarak açtıysanız göreceksiniz.",
+                    "updated": 1647600734781
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Error Message"
+            "text": "Error Message",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hata Mesajı",
+                    "updated": 1647600752189
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The following is the Error Message of the Exception that occurred at the API Data Fetcher Bot:"
+            "text": "The following is the Error Message of the Exception that occurred at the API Data Fetcher Bot:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "API Veri Alıcı Botunda ( API Data Fetcher Bot ) meydana gelen İstisnanın Hata Mesajı aşağıdadır:",
+                    "updated": 1647600746193
+                }
+            ]
         },
         {
             "style": "Placeholder",
@@ -39,11 +88,25 @@
         },
         {
             "style": "Subtitle",
-            "text": "Error Stack"
+            "text": "Error Stack",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hata Yığını",
+                    "updated": 1647600762840
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The following is the Error Stack of the Exception that occurred at the API Data Fetcher Bot:"
+            "text": "The following is the Error Stack of the Exception that occurred at the API Data Fetcher Bot:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "API Veri Alıcı Botunda ( API Data Fetcher Bot ) meydana gelen İstisnanın Hata Yığını aşağıdadır:",
+                    "updated": 1647600773401
+                }
+            ]
         },
         {
             "style": "Placeholder",
@@ -51,11 +114,25 @@
         },
         {
             "style": "Subtitle",
-            "text": "Error Code"
+            "text": "Error Code",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hata Kodu",
+                    "updated": 1647600779072
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The following is the Error Code of the Exception that occurred at the API Data Fetcher Bot:"
+            "text": "The following is the Error Code of the Exception that occurred at the API Data Fetcher Bot:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "API Veri Alıcı Botunda ( API Data Fetcher Bot ) meydana gelen İstisnanın Hata Kodu aşağıdadır:",
+                    "updated": 1647600791067
+                }
+            ]
         },
         {
             "style": "Placeholder",
@@ -63,11 +140,25 @@
         },
         {
             "style": "Subtitle",
-            "text": "Error Details"
+            "text": "Error Details",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hata Detayları",
+                    "updated": 1647600803691
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The following are all the Error details of the Exception that occurred at the API Data Fetcher Bot:"
+            "text": "The following are all the Error details of the Exception that occurred at the API Data Fetcher Bot:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "API Veri Alıcı Botunda ( API Data Fetcher Bot ) meydana gelen İstisnanın Hata Detayları aşağıdadır:",
+                    "updated": 1647600814512
+                }
+            ]
         },
         {
             "style": "Placeholder",
@@ -75,11 +166,25 @@
         },
         {
             "style": "Subtitle",
-            "text": "Node Name"
+            "text": "Node Name",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Düğüm Adı",
+                    "updated": 1647600821684
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The following is the node's name of the Node most related to this error:"
+            "text": "The following is the node's name of the Node most related to this error:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki, bu hatayla en çok ilgili olan Düğümün ( Node ) adıdır:",
+                    "updated": 1647600839024
+                }
+            ]
         },
         {
             "style": "Placeholder",
@@ -87,11 +192,25 @@
         },
         {
             "style": "Subtitle",
-            "text": "Node Code"
+            "text": "Node Code",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Düğüm Kodu",
+                    "updated": 1647600829501
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The following is the code stored at the node that produced the error at the API Data Fetcher Bot:"
+            "text": "The following is the code stored at the node that produced the error at the API Data Fetcher Bot:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "API Veri Alıcısı Botunda ( API Data Fetcher Bot ) hatayı oluşturan düğümde depolanan kod aşağıda verilmiştir:",
+                    "updated": 1647600850097
+                }
+            ]
         },
         {
             "style": "Placeholder",

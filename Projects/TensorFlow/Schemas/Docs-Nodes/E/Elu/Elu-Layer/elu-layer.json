@@ -2,13 +2,27 @@
     "type": "Elu Layer",
     "definition": {
         "text": "Exponential Linear Unit (ELU).",
-        "updated": 1613216664718
+        "updated": 1613216664718,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Экспоненциальная линейная единица (ELU).",
+                "updated": 1645247557899
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "It Follows",
-            "updated": 1613216728404
+            "updated": 1613216728404,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Она подчиняется",
+                    "updated": 1645247587852
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -16,11 +30,25 @@
         },
         {
             "style": "List",
-            "text": "Input shape: Arbitrary. Use the configuration inputShape when using this layer as the first layer in a model."
+            "text": "Input shape: Arbitrary. Use the configuration inputShape when using this layer as the first layer in a model.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Input shape: Произвольный. Используйте конфигурацию inputShape при использовании этого слоя в качестве первого слоя в модели.",
+                    "updated": 1645247603320
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Output shape: Same shape as the input."
+            "text": "Output shape: Same shape as the input.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Output shape: Та же форма, что и у входа.",
+                    "updated": 1645247614862
+                }
+            ]
         }
     ]
 }

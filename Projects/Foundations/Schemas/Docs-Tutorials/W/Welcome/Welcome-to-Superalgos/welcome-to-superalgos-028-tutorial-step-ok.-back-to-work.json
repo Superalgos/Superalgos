@@ -41,8 +41,8 @@
             },
             {
                 "language": "TR",
-                "text": "Artık rahatça dolaşabildiğinize göre, Ağ Düğümü'nün ( Network Node ) Veri Görevleri ( Data Tasks ) bölümünü keşfetmek için küçük bir tura çıkmanızı istiyorum.",
-                "updated": 1636014280941
+                "text": "Artık rahatça dolaşabildiğinize göre, LAN Network Node düğümünün Veri Görevleri (Data Tasks) bölümünü keşfetmek için küçük bir tura çıkmanızı istiyorum.",
+                "updated": 1644909619412
             },
             {
                 "language": "NL",
@@ -135,8 +135,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Bölüm, her şeyden önce proje, borsa ve pazara göre düzenlenmiştir. Bu, birden fazla borsa ve birden fazla pazarla düzenli bir şekilde çalışmanıza yardımcı olacaktır.",
-                    "updated": 1636014356317
+                    "text": "Bu bölüm, her şeyden önce proje, borsa ve işlem şiftine göre düzenlenmiştir. Bu, birden fazla borsa ve birden fazla işlem çiftiyle düzenli bir şekilde çalışmanıza yardımcı olacaktır.",
+                    "updated": 1644909758082
                 },
                 {
                     "language": "NL",
@@ -181,8 +181,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Borsa Veri Görevleri ( Exchance Data Tasks ) ve Piyasa Veri Görevleri ( Market Data Tasks ) düğümleri, sırasıyla borsadaki ve pazardaki tüm görevleri kontrol edebilir.",
-                    "updated": 1636014775744
+                    "text": "Borsa Veri Görevleri ( Exchance Data Tasks ) ve Market Veri Görevleri ( Market Data Tasks ) düğümleri, sırasıyla borsadaki ve o işlem çiftindeki tüm görevleri kontrol edebilir.",
+                    "updated": 1644909782716
                 },
                 {
                     "language": "NL",

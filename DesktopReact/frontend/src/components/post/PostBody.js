@@ -1,6 +1,6 @@
 import "./Post.css"
 import React from 'react';
-import {Avatar, Stack, Typography} from "@mui/material";
+import {Avatar, Typography} from "@mui/material";
 import pic from "../../images/superalgos.png"
 import {useNavigate, useParams} from "react-router-dom";
 
@@ -35,10 +35,10 @@ const Post = ({postData}) => {
                 <div className="grid-container">
                     <div className="postHeader">
                         <Typography className="postName">
-                            {name ? name : 'userProfileHandle'}
+                            { name || 'userProfileHandle'}
                         </Typography>
                         <Typography className="postUserName">
-                            @{username ? username : 'userProfileHandle'}
+                            @{ username || 'userProfileHandle'}
                         </Typography>
                     </div>
                     <div className="postAvatar">

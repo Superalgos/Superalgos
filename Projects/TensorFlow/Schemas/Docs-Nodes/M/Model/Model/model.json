@@ -2,21 +2,49 @@
     "type": "Model",
     "definition": {
         "text": "In machine learning, a model is a function with learnable parameters that maps an input to an output. The optimal parameters are obtained by training the model on data. A well-trained model will provide an accurate mapping from the input to the desired output.",
-        "updated": 1613200965382
+        "updated": 1613200965382,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "В машинном обучении модель - это функция с обучаемыми параметрами, которая отображает входные данные на выходные. Оптимальные параметры получаются путем обучения модели на данных. Хорошо обученная модель обеспечивает точное отображение входных данных на желаемый выход.",
+                "updated": 1645249016691
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "In TensorFlow.js there are two ways to create a machine learning model:",
-            "updated": 1613201440028
+            "updated": 1613201440028,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В TensorFlow.js существует два способа создания модели машинного обучения:",
+                    "updated": 1645249024667
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "using the Layers API where you build a model using layers."
+            "text": "using the Layers API where you build a model using layers.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "с помощью Layers API, где вы строите модель, используя слои.",
+                    "updated": 1645249052521
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "using the Core API with lower-level ops such as tf.matMul(), tf.add(), etc."
+            "text": "using the Core API with lower-level ops such as tf.matMul(), tf.add(), etc.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "использование Core API с операциями более низкого уровня, такими как tf.matMul(), tf.add() и т.д.",
+                    "updated": 1645249041243
+                }
+            ]
         }
     ]
 }

@@ -10,6 +10,16 @@
                 "language": "RU",
                 "text": "Точка прерывания - это определенное пользователем место в коде, где отладчик приостанавливается и позволяет вам изучить состояние дел! Это означает, что вы можете проанализировать текущее состояние переменных, входов и выходов функций, чтобы попытаться определить, где может быть причина проблемы.",
                 "updated": 1640281011184
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bir kesme noktası, hata ayıklayıcının duraklatacağı ve işlerin durumunu incelemenize izin vereceği kodda kullanıcı tanımlı bir yerdir! Bu, bir sorunun nedeninin nerede olabileceğini belirlemeye yardımcı olmak için değişkenlerin mevcut durumunu ve işlevlerin giriş ve çıkışlarını analiz edebileceğiniz anlamına gelir.",
+                "updated": 1645358589313
+            },
+            {
+                "language": "DE",
+                "text": "Ein Haltepunkt ist eine benutzerdefinierte Stelle im Code, an der der Debugger anhält und Ihnen erlaubt, den Stand der Dinge zu untersuchen! Das bedeutet, dass Sie den aktuellen Zustand von Variablen sowie Ein- und Ausgaben von Funktionen analysieren können, um die Ursache eines Problems zu ermitteln.",
+                "updated": 1647165704524
             }
         ]
     },
@@ -23,6 +33,16 @@
                     "language": "RU",
                     "text": "В данном примере мы будем отлаживать индикатор, поэтому откроем папку Projects и найдем файл с кодом, который формирует индикатор. В этом файле мы разместим точку прерывания.",
                     "updated": 1640281090646
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu örnek için bir göstergede hata ayıklayacağız, bu nedenle Projeler klasörüne genişletiyoruz ve göstergeleri oluşturan kodu içeren dosyayı buluyoruz. Bu dosyada bir kesme noktası yerleştireceğiz.",
+                    "updated": 1645358613874
+                },
+                {
+                    "language": "DE",
+                    "text": "In diesem Beispiel werden wir einen Indikator debuggen, also öffnen wir den Ordner Projekte und suchen die Datei mit dem Code, der die Indikatoren erstellt. In dieser Datei werden wir einen Haltepunkt setzen.",
+                    "updated": 1647165724905
                 }
             ]
         },
@@ -35,6 +55,16 @@
                     "language": "RU",
                     "text": "Точка прерывания - это преднамеренная остановка или пауза в программе, устанавливаемая в целях отладки. Это место, где выполнение кода приостанавливается, и вы можете проверить, как обстоят дела!",
                     "updated": 1640281117613
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Kesme noktası, bir programda hata ayıklama amacıyla yerleştirilen kasıtlı bir durdurma veya duraklatma yeridir. Kod yürütmenin durakladığı yer burasıdır ve işlerin durumunu kontrol edebilirsiniz!",
+                    "updated": 1645358636572
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein Haltepunkt ist eine absichtliche Unterbrechung oder Pause in einem Programm, die zu Debugging-Zwecken eingerichtet wurde. Hier wird die Codeausführung angehalten und Sie können den Status der Dinge überprüfen!",
+                    "updated": 1647165746235
                 }
             ]
         },
@@ -51,6 +81,16 @@
                     "language": "RU",
                     "text": "Раскройте папку Projects и откройте файл \"SingleMarketFunctions.js\" (...Superalgos/Projects/Superalgos/TS/Function-Libraries/SingleMarketFunctions.js).",
                     "updated": 1640281130717
+                },
+                {
+                    "language": "TR",
+                    "text": "Projeler klasörünü genişletin ve \"SingleMarketFunctions.js\" dosyasını açın (..Superalgos/Projects/Superalgos/TS/Function-Libraries/SingleMarketFunctions.js).",
+                    "updated": 1645358655166
+                },
+                {
+                    "language": "DE",
+                    "text": "Erweitern Sie den Ordner Projekte und öffnen Sie die Datei \"SingleMarketFunctions.js\" (..Superalgos/Projects/Superalgos/TS/Function-Libraries/SingleMarketFunctions.js).",
+                    "updated": 1647165768902
                 }
             ]
         },
@@ -68,6 +108,16 @@
                     "language": "RU",
                     "text": "Теперь нам нужно найти строку в коде, где мы хотели бы, чтобы процесс приостановился и показал нам, что происходит на самом деле. Этой точкой будет строка, содержащая:",
                     "updated": 1640281175905
+                },
+                {
+                    "language": "TR",
+                    "text": "Şimdi kodda, sürecin duraklatılmasını istediğimiz satırı bulmamız ve bize gerçekte ne olduğunu göstermemiz gerekecek. Bu nokta şunu söyleyen satır olacaktır:",
+                    "updated": 1645358695647
+                },
+                {
+                    "language": "DE",
+                    "text": "Nun müssen wir die Zeile im Code finden, in der wir möchten, dass der Prozess pausiert und uns zeigt, was wirklich passiert. Dieser Punkt wäre die Zeile, in der steht:",
+                    "updated": 1647165799808
                 }
             ]
         },
@@ -90,6 +140,16 @@
                     "language": "RU",
                     "text": "Щелкните чуть левее номера строки или нажмите F9, чтобы вставить точку прерывания на этой строке.",
                     "updated": 1640281199343
+                },
+                {
+                    "language": "TR",
+                    "text": "Satır numarasının hemen soluna tıklayın veya bu satıra bir kesme noktası eklemek için F9 tuşuna basın.",
+                    "updated": 1645358731551
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie links von der Zeilennummer, oder drücken Sie F9, um einen Haltepunkt in dieser Zeile einzufügen.",
+                    "updated": 1647165890305
                 }
             ]
         },
@@ -102,6 +162,16 @@
                     "language": "RU",
                     "text": "Использование \"CTRL+F\" позволяет нам найти то, что мы ищем в коде.",
                     "updated": 1640281213755
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: \"CTRL+F\" kullanmak, kodda aradığımız şeyi bulmamızı sağlar.",
+                    "updated": 1645358748102
+                },
+                {
+                    "language": "DE",
+                    "text": "Mit \"CTRL+F\" können wir das Gesuchte im Code finden.",
+                    "updated": 1647165899507
                 }
             ]
         },
@@ -114,6 +184,16 @@
                     "language": "RU",
                     "text": "Теперь у нас настроена точка прерывания, и мы можем попробовать запустить задачу (\"Task\"). Нажмите Next (\"Далее\"), чтобы пройти процесс запуска TS и инициирования точки прерывания.",
                     "updated": 1640281270607
+                },
+                {
+                    "language": "TR",
+                    "text": "Şimdi yapılandırılmış bir kesme noktamız var, bir Görev çalıştırmayı deneyebiliriz. TS'yi nasıl başlatacağınız ve kesme noktanızı nasıl tetikleyeceğiniz sürecini gözden geçirmek için İleri'ye tıklayın.",
+                    "updated": 1645358772301
+                },
+                {
+                    "language": "DE",
+                    "text": "Da wir nun einen Haltepunkt konfiguriert haben, können wir versuchen, einen Task auszuführen. Klicken Sie auf Weiter, um den TS zu starten und den Haltepunkt auszulösen.",
+                    "updated": 1647165925314
                 }
             ]
         }

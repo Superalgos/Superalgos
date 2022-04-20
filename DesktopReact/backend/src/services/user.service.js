@@ -1,4 +1,4 @@
-const getSocialPersonaId = async (req,res)=>{
+const getSocialPersonaId = async (req, res) => {
     let response = {};
     try {
         let socialPersona = SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_DEFAULT_SOCIAL_PERSONA);
@@ -9,10 +9,10 @@ const getSocialPersonaId = async (req,res)=>{
         response.userProfileHandle = socialPersona.userProfileHandle;
     } catch (error) {
         console.log(error);
-        response = { error: "Could not fetch Social Persona"}
+        response = {error: "Could not fetch Social Persona"}
     }
     return response;
-    
+
 }
 
 const paginateProfiles = async (initialIndex, pagination, res) => {
@@ -30,16 +30,15 @@ const paginateProfiles = async (initialIndex, pagination, res) => {
             queryMessage: JSON.stringify(queryMessage)
         }
         return webAppInterface.sendMessage(
-            JSON.stringify(query)
-        )
+            JSON.stringify(query))
             .then(rta => rta)
             .catch(e => {
                 console.log('catch from webapi', e)
                 return (e)
             })
-    } catch (e) {
-        console.log('error here')
-        return (e)
+    } catch (error) {
+        console.log(error);
+        return {status: 'Ko', message: error};
     }
 
 }
@@ -68,7 +67,7 @@ const followProfile = async (userProfileId, eventType, res) => {
     }
 };
 
-const loadProfile =  async (socialPersonaId, res) => {
+const loadProfile = async (socialPersonaId, res) => {
 
     try {
         let profileMessage = {
@@ -86,7 +85,7 @@ const loadProfile =  async (socialPersonaId, res) => {
             JSON.stringify(query)
         )
 
-        let response =  {}
+        let response = {}
         response.data = result.profileData;
         response.result = result.result;
 
@@ -94,10 +93,42 @@ const loadProfile =  async (socialPersonaId, res) => {
 
     } catch (error) {
         console.log(error);
+        return {status: 'Ko', message: error};
     }
 }
 
-const saveProfile =  async (body, res) => {
+const loadProfileData = async (socialPersonaId, res) => {
+
+    try {
+        let profileMessage = {
+            profileType: SA.projects.socialTrading.globals.profileTypes.GET_USER_PROFILE_INFO,
+            originSocialPersonaId: socialPersonaId
+        }
+
+        let query = {
+            networkService: 'Social Graph',
+            requestType: 'Profile',
+            profileMessage: JSON.stringify(profileMessage)
+        }
+
+        const result = await webAppInterface.sendMessage(
+            JSON.stringify(query)
+        )
+        console.log(result)
+
+        // let response = {}
+        // response.data = result.profileData;
+        // response.result = result.result;
+
+        return {status: 'Ko', message: 'functionality not implemented'}
+
+    } catch (error) {
+        console.log(error);
+        return {status: 'Ko', message: error};
+    }
+}
+
+const saveProfile = async (body, res) => {
 
     try {
         let profileMessage = {
@@ -118,10 +149,11 @@ const saveProfile =  async (body, res) => {
 
     } catch (error) {
         console.log(error);
+        return {status: 'Ko', message: error};
     }
 }
 
-const createProfile =  async (body, res) => {
+const createProfile = async (body, res) => {
 
     try {
         let profileMessage = {
@@ -129,7 +161,7 @@ const createProfile =  async (body, res) => {
             storageProviderName: "Github",
             storageProviderUsername: body.username,
             storageProviderToken: body.token,
-            userAppType:"Social Trading Desktop App"
+            userAppType: "Social Trading Desktop App"
         }
 
         let query = {
@@ -144,16 +176,17 @@ const createProfile =  async (body, res) => {
 
     } catch (error) {
         console.log(error);
+        return {status: 'Ko', message: error};
     }
 }
 
-const listSocialEntities =  async (req, res) => {
+const listSocialEntities = async (req, res) => {
 
     try {
         let profileMessage = {
             profileType: SA.projects.socialTrading.globals.profileTypes.LIST_SOCIAL_ENTITIES,
             socialEntityType: "Social Persona",
-            userAppType:"Social Trading Desktop App"
+            userAppType: "Social Trading Desktop App"
         }
 
         let query = {
@@ -168,17 +201,18 @@ const listSocialEntities =  async (req, res) => {
 
     } catch (error) {
         console.log(error);
+        return {status: 'Ko', message: error};
     }
 }
 
-const createSocialPersona =  async (body, res) => {
+const createSocialPersona = async (body, res) => {
 
     try {
         let profileMessage = {
             profileType: SA.projects.socialTrading.globals.profileTypes.CREATE_SOCIAL_ENTITY,
-            socialEntityHandle:body.name,
+            socialEntityHandle: body.name,
             socialEntityType: "Social Persona",
-            userAppType:"Social Trading Desktop App"
+            userAppType: "Social Trading Desktop App"
         }
 
         let query = {
@@ -193,10 +227,36 @@ const createSocialPersona =  async (body, res) => {
 
     } catch (error) {
         console.log(error);
+        return {status: 'Ko', message: error};
     }
 }
 
+const getSocialStats = async (body) => {
 
+    try {
+
+        let queryMessage = {
+            queryType: SA.projects.socialTrading.globals.queryTypes.SOCIAL_PERSONA_STATS,
+            originSocialPersonaId: body?.originSocialPersonaId,
+            targetSocialPersonaId: body?.targetSocialPersonaId,
+        }
+
+        let query = {
+            networkService: 'Social Graph',
+            requestType: 'Query',
+            queryMessage: JSON.stringify(queryMessage)
+        }
+
+        return await webAppInterface.sendMessage(
+            JSON.stringify(query)
+        )
+
+    } catch (error) {
+        console.log(error);
+        return {status: 'Ko', message: error};
+    }
+
+}
 
 
 module.exports = {
@@ -207,6 +267,8 @@ module.exports = {
     getSocialPersonaId,
     createProfile,
     listSocialEntities,
-    createSocialPersona
+    createSocialPersona,
+    loadProfileData,
+    getSocialStats
 };
 

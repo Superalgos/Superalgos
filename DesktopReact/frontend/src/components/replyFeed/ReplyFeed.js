@@ -61,7 +61,8 @@ const ReplyFeed = () => {
         if (result === STATUS_OK) {
             const creator = await loadPostCreator(data.originSocialPersona.socialPersonaId);
             setPost(assemblePostInfo(data, creator));
-        }  setLoadingPost(false)
+        }
+        setLoadingPost(false)
     }
 
     const loadReplies = async () => {

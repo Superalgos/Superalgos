@@ -1,6 +1,6 @@
 {
   "name": "superalgos",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Superalgos is a free, open-source crypto trading bot",
   "license": "Apache License 2.0",
   "homepage": "https://www.superalgos.org/",
@@ -9,8 +9,9 @@
   },
   "scripts": {
     "start": "node platform minMemo noBrowser",
-    "presetup": "git checkout develop && git pull upstream develop && git submodule update --init Plugins/*",
-    "setup": "node setup noShortcuts && node tf_setup.js",
+    "presetup": "git checkout develop && git pull upstream develop",
+    "setup": "node setup noShortcuts",
+    "setupWithTf": "node setupWithTf noShortcuts",
     "postsetup": "npm start",
     "dist": "electron-builder -c build/electron-builder.json",
     "postinstall": "electron-builder install-app-deps",
@@ -18,14 +19,20 @@
     "startDesktop": "node desktop",
     "installDesktopReact": "cd ./DesktopReact && npm ci",
     "startLocalDesktopReact": "start npm run startNetwork && cd ./DesktopReact && start npm run startDesktopReactBackend && start npm run startDesktopReactFrontend",
-    "startDesktopReact": "cd ./DesktopReact && start npm run startDesktopReactBackend && start npm run startDesktopReactFrontend"
+    "startDesktopReact": "cd ./DesktopReact && start npm run startDesktopReactBackend && start npm run startDesktopReactFrontend",
+    "unitTest": "jest --silent",
+    "unitTest:coverage": "jest --silent --coverage",
+    "unitTest:debug": "DEBUG=nock.* jest",
+    "lintAll": "eslint . --ext .js",
+    "lintFile": "eslint --ext .js",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@discordjs/rest": "^0.1.0-canary.0",
     "@octokit/rest": "^18.12.0",
     "@reduxjs/toolkit": "^1.6.2",
     "@slack/web-api": "^6.5.1",
-    "axios": "^0.24.0",
+    "axios": "^0.26.0",
     "ccxt": "^1.61.93",
     "child_process": "^1.0.2",
     "discord-api-types": "^0.25.2",
@@ -56,6 +63,33 @@
   },
   "devDependencies": {
     "electron": "^15.1.0",
-    "electron-builder": "^22.14.5"
+    "electron-builder": "^22.14.5",
+    "eslint": "^8.10.0",
+    "husky": "^7.0.4",
+    "jest": "^27.5.1",
+    "nock": "^13.2.4"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "verbose": true,
+    "transform": {
+      "^.+\\.[m|t|j]s?$": "babel-jest"
+    },
+    "testMatch": [
+      "**/.tests/**/?(*.)(test).js?(x)",
+      "**/.tests/?(*.)(test).js?(x)"
+    ],
+    "testPathIgnorePatterns": [
+      "node_modules"
+    ],
+    "coverageDirectory": "<rootDir>/.testsCoverage",
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/Launch-Scripts/*.ico",
+      "<rootDir>/Launch-Scripts/*.sh"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "json"
+    ]
   }
 }

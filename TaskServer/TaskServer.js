@@ -35,18 +35,21 @@ exports.newTaskServer = function newTaskServer() {
                     TS.projects.foundations.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent('Task Manager - ' + taskId, 'Nodejs Process Ready for Task')
                     function eventReceived(message) {
                         try {
-                            TS.projects.foundations.globals.taskConstants.TASK_NODE = JSON.parse(message.event.taskDefinition);
-                            TS.projects.foundations.globals.taskConstants.NETWORK_NODE = JSON.parse(message.event.networkDefinition);
-                            TS.projects.foundations.globals.taskConstants.MANAGED_TASKS = JSON.parse(message.event.managedTasksDefinition);
+                            TS.projects.foundations.globals.taskConstants.TASK_NODE = JSON.parse(message.event.taskDefinition)
+                            TS.projects.foundations.globals.taskConstants.NETWORK_NODE = JSON.parse(message.event.networkDefinition)
+                            TS.projects.foundations.globals.taskConstants.MANAGED_TASKS = JSON.parse(message.event.managedTasksDefinition)
+                            if (message.event.dependencyFilters !== undefined) {
+                                TS.projects.foundations.globals.taskConstants.DEPENDENCY_FILTERS = JSON.parse(message.event.dependencyFilters)
+                            }
                             TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_REFERENCES = SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE, 'Session Reference')
                             bootingProcess();
                         } catch (err) {
-                            console.log('[ERROR] Task Server -> Task -> preLoader -> eventReceived -> ' + err.stack)
+                            console.log((new Date()).toISOString(), '[ERROR] Task Server -> Task -> preLoader -> eventReceived -> ' + err.stack)
                         }
                     }
                 } catch (err) {
-                    console.log('[ERROR] Task Server -> Task -> preLoader -> TS.projects.foundations.globals.taskConstants.TASK_NODE -> ' + err.stack)
-                    console.log('[ERROR] Task Server -> Task -> preLoader -> TS.projects.foundations.globals.taskConstants.TASK_NODE = ' + JSON.stringify(TS.projects.foundations.globals.taskConstants.TASK_NODE).substring(0, 1000))
+                    console.log((new Date()).toISOString(), '[ERROR] Task Server -> Task -> preLoader -> TS.projects.foundations.globals.taskConstants.TASK_NODE -> ' + err.stack)
+                    console.log((new Date()).toISOString(), '[ERROR] Task Server -> Task -> preLoader -> TS.projects.foundations.globals.taskConstants.TASK_NODE = ' + JSON.stringify(TS.projects.foundations.globals.taskConstants.TASK_NODE).substring(0, 1000))
                 }
             }
             else {
@@ -60,17 +63,20 @@ exports.newTaskServer = function newTaskServer() {
                         try {
                             TS.projects.foundations.globals.taskConstants.TASK_NODE = JSON.parse(message.event.taskDefinition)
                             TS.projects.foundations.globals.taskConstants.NETWORK_NODE = JSON.parse(message.event.networkDefinition)
-                            TS.projects.foundations.globals.taskConstants.MANAGED_TASKS = JSON.parse(message.event.managedTasksDefinition);
+                            TS.projects.foundations.globals.taskConstants.MANAGED_TASKS = JSON.parse(message.event.managedTasksDefinition)
+                            if (message.event.dependencyFilters !== undefined) {
+                                TS.projects.foundations.globals.taskConstants.DEPENDENCY_FILTERS = JSON.parse(message.event.dependencyFilters)
+                            }
                             TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_REFERENCES = SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE, 'Session Reference')
                             bootingProcess()
 
                         } catch (err) {
-                            console.log('[ERROR] Task Server -> Task -> preLoader -> startDebugging -> ' + err.stack)
+                            console.log((new Date()).toISOString(), '[ERROR] Task Server -> Task -> preLoader -> startDebugging -> ' + err.stack)
                         }
                     }
                 } catch (err) {
-                    console.log('[ERROR] Task Server -> Task -> preLoader -> TS.projects.foundations.globals.taskConstants.TASK_NODE -> ' + err.stack)
-                    console.log('[ERROR] Task Server -> Task -> preLoader -> TS.projects.foundations.globals.taskConstants.TASK_NODE = ' + JSON.stringify(TS.projects.foundations.globals.taskConstants.TASK_NODE).substring(0, 1000))
+                    console.log((new Date()).toISOString(), '[ERROR] Task Server -> Task -> preLoader -> TS.projects.foundations.globals.taskConstants.TASK_NODE -> ' + err.stack)
+                    console.log((new Date()).toISOString(), '[ERROR] Task Server -> Task -> preLoader -> TS.projects.foundations.globals.taskConstants.TASK_NODE = ' + JSON.stringify(TS.projects.foundations.globals.taskConstants.TASK_NODE).substring(0, 1000))
                 }
             }
         }
@@ -164,18 +170,22 @@ exports.newTaskServer = function newTaskServer() {
                     ) {
                         return
                     }
-                    TS.projects.foundations.globals.taskConstants.P2P_NETWORK = {}                                        
+                    TS.projects.foundations.globals.taskConstants.P2P_NETWORK = {}
                     /*
                     We set up the P2P Network Client.
                     */
                     TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClient = SA.projects.network.modules.p2pNetworkClient.newNetworkModulesP2PNetworkClient()
+                    let eventReceivedCallbackFunction
+                    if (TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS !== undefined) {
+                        eventReceivedCallbackFunction = TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS.incomingCandleSignals.signalReceived
+                    }
                     await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClient.initialize(
                         TS.projects.foundations.globals.taskConstants.TASK_NODE.taskServerAppReference.referenceParent.signingAccount.config.codeName,
-                        'P2P Network', // global.env.DESKTOP_TARGET_NETWORK_TYPE,
-                        'Testnet', // global.env.DESKTOP_TARGET_NETWORK_CODENAME,
+                        global.env.DESKTOP_TARGET_NETWORK_TYPE,
+                        global.env.DESKTOP_TARGET_NETWORK_CODENAME,
                         global.env.TASK_SERVER_APP_MAX_OUTGOING_PEERS,
                         global.env.TASK_SERVER_APP_MAX_OUTGOING_START_PEERS,
-                        TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS.incomingCandleSignals.signalReceived
+                        eventReceivedCallbackFunction
                     )
                 }
 
@@ -239,7 +249,7 @@ exports.newTaskServer = function newTaskServer() {
                     }
                 }
             } catch (err) {
-                console.log('[ERROR] Task Server -> Task -> bootingProcess -> Fatal Error. Can not run this task. -> ' + err.stack)
+                console.log((new Date()).toISOString(), '[ERROR] Task Server -> Task -> bootingProcess -> Fatal Error. Can not run this task. -> ' + err.stack)
             }
         }
 

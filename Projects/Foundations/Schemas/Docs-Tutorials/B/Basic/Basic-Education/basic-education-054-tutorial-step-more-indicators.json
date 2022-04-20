@@ -36,6 +36,11 @@
                 "language": "RU",
                 "text": "Индикаторы создаются сообществом! Обычно разработчик создает несколько нужных ему индикаторов и вносит их в проект в новой Data Mine!",
                 "updated": 1640876027226
+            },
+            {
+                "language": "ID",
+                "text": "Indikator dibangun oleh Komunitas! Biasanya, developer akan membangun beberapa indikator yang dia butuhkan, dan berkontribusi pada projek di Data Mine baru!",
+                "updated": 1645561682561
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "RU",
                     "text": "Книга Community Data Mines - это место, где вы можете найти все существующие сборщики данных и их индикаторы! Каждая глава в книге соответствует добыче данных...",
                     "updated": 1640877157320
+                },
+                {
+                    "language": "ID",
+                    "text": "Community Data Mines Book adalah tempat kamu dapat menemukan semua data mines yang ada dan indikatornya! Setiap chapters dalam buku ini sesuai dengan Data Mine...",
+                    "updated": 1645561764976
                 }
             ]
         },
@@ -104,6 +114,11 @@
                     "language": "RU",
                     "text": "Просмотрите содержание каждой главы, чтобы получить представление о том, что доступно на данный момент!",
                     "updated": 1640877218761
+                },
+                {
+                    "language": "ID",
+                    "text": "Pindai isi setiap chapter untuk mendapatkan gambaran tentang apa yang tersedia pada titik ini!",
+                    "updated": 1645561755033
                 }
             ]
         },
@@ -138,6 +153,11 @@
                     "language": "RU",
                     "text": "Чтобы использовать Data Mine, вы должны включить его в рабочее пространство или как плагин и установить рынок. Все задачи Data Tasks будут созданы автоматически!",
                     "updated": 1640877259977
+                },
+                {
+                    "language": "ID",
+                    "text": "Untuk menggunakan Data Mine, kamu harus memasukkannya di workspace atau sebagai plugin, dan menginstal market. Semua Data Tasks akan dibuat secara otomatis!",
+                    "updated": 1645561819588
                 }
             ]
         }

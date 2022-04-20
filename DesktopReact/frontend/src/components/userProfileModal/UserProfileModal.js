@@ -4,24 +4,35 @@ import {setActualProfile} from "../../store/slices/Profile.slice";
 import {updateProfile} from "../../api/profile.httpService";
 import UserProfileModalView from './UserProfileModalView'
 import {STATUS_OK} from "../../api/httpConfig";
-import {validateFileSize} from "../../utils/helper";
+import {toBase64, validateFileSize} from "../../utils/helper";
 
 const UserProfileModal = ({user, close}) => {
     const loadedSocialPersona = useSelector(state => state.profile.socialPersona)
     const dispatch = useDispatch();
     const [errorState, setErrorState] = useState(false);
     const [userInfo, setUserInfo] = useState(user);
+    const [modalEditAvatar, setModalEditAvatar] = useState(false);
+    const handleClickCallback = () => setModalEditAvatar(!modalEditAvatar);
+    const [avatarEditor, setAvatarEditor] = useState(
+        {
+            image: userInfo.profilePic,
+            croppedImg: '',
+            allowZoomOut: false,
+            position: {x: 0.5, y: 0.5},
+            scale: 1,
+            rotate: 0,
+            borderRadius: 200,
+            preview: null,
+            width: 300,
+            height: 300,
+        }
+    )
 
     useEffect(() => {
         setUserInfo(user);
     }, []);
+    let editor = "";
 
-    const toBase64 = file => new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = () => resolve(reader.result);
-        reader.onerror = error => reject(error);
-    });
 
     const selectProfilePic = async (e) => {
         let profilePic = e.target.files[0];
@@ -30,9 +41,12 @@ const UserProfileModal = ({user, close}) => {
             let newInfo = {...userInfo};
             newInfo.profilePic = await toBase64(profilePic);
             setUserInfo(newInfo);
+            setModalEditAvatar(!modalEditAvatar); // todo needs better approach?
+            setAvatarEditor({...avatarEditor, image: profilePic})
         } else {
             alert('Image is too big or in a wrong format')
         }
+
     }
 
     const selectBannerPic = async (e) => {
@@ -71,6 +85,38 @@ const UserProfileModal = ({user, close}) => {
         let differentKey = Object.keys(user).find(key => user[key] !== userInfo[key]);
         return !differentKey;
     }
+    /*const UserProfileAvatarModal = () => {
+        return <UserProfileAvatarModal
+            modalEditAvatar={modalEditAvatar}
+            selectProfilePic={selectProfilePic}
+            close={handleClickCallback}
+        />
+    }*/
+    const handleNewImage = () => {
+        if (setEditorRef) {
+            const canvasScaled = editor.getImageScaledToCanvas();
+            const croppedImg = canvasScaled.toDataURL();
+            setAvatarEditor({
+                ...avatarEditor,
+                croppedImg: croppedImg
+            });
+            setUserInfo({
+                ...userInfo,
+                profilePic: croppedImg
+            })
+        }
+        handleClickCallback()
+    }
+    const handleScale = (e) => {
+        const scale = parseFloat(e.target.value);
+        setAvatarEditor({...avatarEditor, scale});
+    }
+    const handlePositionChange = position => {
+        setAvatarEditor({...avatarEditor, position});
+    }
+    const setEditorRef = (ed) => {
+        editor = ed;
+    };
 
     return <UserProfileModalView
         userInfo={userInfo}
@@ -81,6 +127,13 @@ const UserProfileModal = ({user, close}) => {
         isEquals={isEquals}
         errorState={errorState}
         close={close}
+        modalEditAvatar={modalEditAvatar}
+        handleClickCallback={handleClickCallback}
+        avatarEditor={avatarEditor}
+        handleNewImage={handleNewImage}
+        handleScale={handleScale}
+        handlePositionChange={handlePositionChange}
+        setEditorRef={setEditorRef}
     />
 }
 

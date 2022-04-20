@@ -169,17 +169,31 @@
                 {
                     "name": "Decentralized Exchanges Functions",
                     "propertyName": "decentralizedExchangesFunctions",
-                    "functionName": "newFoundationsFunctionLibraryDecentralizedExchangesFunctions"
+                    "functionName": "newDecentralizedExchangesFunctionLibraryDecentralizedExchangesFunctions"
                 }
             ],
             "systemActionFunctions": [],
             "functionLibraries": []
         },
-        "SA":{},
-        "TS": {
-            "functionLibraries": [],
-            "botModules": []
+        "SA": {
+            "modules": [
+                {
+                    "name": "Wallets",
+                    "propertyName": "wallets",
+                    "functionName": "newDecentralizedExchangesModulesWallets",
+                    "fileName": "Wallets.js"
+                }
+            ],
+            "utilities": [
+                {
+                    "name": "Bsc",
+                    "propertyName": "bsc",
+                    "functionName": "newDecentralizedExchangesUtilitiesBsc",
+                    "fileName": "Bsc.js"
+                }
+            ]
         },
+        "TS": {},
         "plugins": [],
         "tasks": []
     },
@@ -656,8 +670,8 @@
                     "animationDrawIndex": 0,
                     "onMouseWheelIndex": 6,
                     "onMouseOverIndex": 6,
-                    "onMouseClickIndex": 5,
-                    "onMouseDownIndex": 5
+                    "onMouseClickIndex": 6,
+                    "onMouseDownIndex": 6
                 },
                 {
                     "name": "Top Space",
@@ -707,8 +721,8 @@
                     "animationDrawIndex": 1,
                     "onMouseWheelIndex": 5,
                     "onMouseOverIndex": 4,
-                    "onMouseClickIndex": 6,
-                    "onMouseDownIndex": 6
+                    "onMouseClickIndex": 5,
+                    "onMouseDownIndex": 5
                 },
                 {
                     "name": "Side Space",
@@ -937,9 +951,7 @@
             ]
         },
         "PL": {
-            "utilities": [
-
-            ]
+            "utilities": []
         },
         "SA": {
             "globals": [
@@ -1094,16 +1106,16 @@
                     "folderName": "Indicator-Bot/Bollinger-Bands"
                 },
                 {
-                    "name": "Multi Time Frame Market",
-                    "propertyName": "multiTimeFrameMarket",
-                    "functionName": "newDataMiningBotModulesMultiTimeFrameMarket",
+                    "name": "Indicator Multi Time Frame Market",
+                    "propertyName": "indicatorMultiTimeFrameMarket",
+                    "functionName": "newDataMiningIndicatorMultiTimeFrameMarket",
                     "fileName": "MultiTimeFrameMarket.js",
                     "folderName": "Indicator-Bot"
                 },
                 {
-                    "name": "Multi Time Frame Daily",
-                    "propertyName": "multiTimeFrameDaily",
-                    "functionName": "newDataMiningBotModulesMultiTimeFrameDaily",
+                    "name": "Indicator Multi Time Frame Daily",
+                    "propertyName": "indicatorMultiTimeFrameDaily",
+                    "functionName": "newDataMiningIndicatorMultiTimeFrameDaily",
                     "fileName": "MultiTimeFrameDaily.js",
                     "folderName": "Indicator-Bot"
                 },
@@ -1134,6 +1146,35 @@
                     "functionName": "newDataMiningBotModulesCheckWebhook",
                     "fileName": "CheckWebhook.js",
                     "folderName": "Sensor-Bot/Webhooks"
+                },
+                {
+                    "name": "Single Market Study Bot",
+                    "propertyName": "singleMarketStudyBot",
+                    "functionName": "newDataMiningBotModulesSingleMarketStudyBot",
+                    "fileName": "SingleMarketStudyBot.js",
+                    "folderName": "Study-Bot",
+                    "botType": "Study Bot"
+                },
+                {
+                    "name": "Study Multi Time Frame Market",
+                    "propertyName": "studyMultiTimeFrameMarket",
+                    "functionName": "newDataMiningStudyMultiTimeFrameMarket",
+                    "fileName": "MultiTimeFrameMarket.js",
+                    "folderName": "Study-Bot"
+                },
+                {
+                    "name": "Study Multi Time Frame Daily",
+                    "propertyName": "studyMultiTimeFrameDaily",
+                    "functionName": "newDataMiningStudyMultiTimeFrameDaily",
+                    "fileName": "MultiTimeFrameDaily.js",
+                    "folderName": "Study-Bot"
+                },
+                {
+                    "name": "Study Output",
+                    "propertyName": "studyOutput",
+                    "functionName": "newDataMiningBotModulesStudyOutput",
+                    "fileName": "StudyOutput.js",
+                    "folderName": "Study-Bot"
                 }
             ]
         },
@@ -1232,7 +1273,7 @@
                     "propertyName": "pluginsAtGithub",
                     "functionName": "newPluginsUtilitiesPluginsAtGithub",
                     "fileName": "PluginsAtGithub.js"
-                },                
+                },
                 {
                     "name": "Nodes",
                     "propertyName": "nodes",
@@ -1667,6 +1708,18 @@
                     "fileName": "WebSocketsInterface.js"
                 },
                 {
+                    "name": "Web RTC Interface",
+                    "propertyName": "webRTCInterface",
+                    "functionName": "newNetworkModulesWebRTCInterface",
+                    "fileName": "WebRTCInterface.js"
+                },
+                {
+                    "name": "Socket Interfaces",
+                    "propertyName": "socketInterfaces",
+                    "functionName": "newNetworkModulesSocketInterfaces",
+                    "fileName": "SocketInterfaces.js"
+                },
+                {
                     "name": "Http Interface",
                     "propertyName": "httpInterface",
                     "functionName": "newNetworkModulesHttpInterface",
@@ -1696,6 +1749,18 @@
                     "propertyName": "webSocketsNetworkClient",
                     "functionName": "newNetworkModulesWebSocketsNetworkClient",
                     "fileName": "WebSocketsNetworkClient.js"
+                },
+                {
+                    "name": "Web RTC Network Client",
+                    "propertyName": "webRTCNetworkClient",
+                    "functionName": "newNetworkModulesWebRTCNetworkClient",
+                    "fileName": "WebRTCNetworkClient.js"
+                },
+                {
+                    "name": "Socket Network Clients",
+                    "propertyName": "socketNetworkClients",
+                    "functionName": "newNetworkModulesSocketNetworkClients",
+                    "fileName": "SocketNetworkClients.js"
                 },
                 {
                     "name": "Http Network Client",
@@ -1947,7 +2012,7 @@
                     "functionName": "newSocialTradingFunctionLibrariesUserProfile",
                     "fileName": "UserProfile.js"
                 }
-            ],            
+            ],
             "globals": [
                 {
                     "name": "Memory",
@@ -2254,5 +2319,156 @@
             "functionLibraries": []
         },
         "SA": {}
+    },
+    {
+        "name": "Contributions",
+        "propertyName": "contributions",
+        "UI": {
+            "nodeActionFunctions": [],
+            "systemActionFunctions": [],
+            "functionLibraries": [],
+            "globals": [],
+            "utilities": [],
+            "spaces": [
+                {
+                    "name": "Contributions Space",
+                    "folderName": "Contributions-Space",
+                    "propertyName": "contributionsSpace",
+                    "functionName": "newContributionsContributionsSpace",
+                    "initializationIndex": 15,
+                    "animationPhysicsIndex": 15,
+                    "animationDrawIndex": 15,
+                    "onMouseWheelIndex": 0,
+                    "onMouseOverIndex": 0,
+                    "onMouseClickIndex": 0,
+                    "onMouseDownIndex": 0
+                }
+            ]
+        },
+        "SA": {
+            "utilities": []
+        },
+        "TS": {},
+        "plugins": []
+    },
+    {
+        "name": "Bitcoin-Factory",
+        "propertyName": "bitcoinFactory",
+        "UI": {
+            "nodeActionFunctions": [],
+            "systemActionFunctions": [],
+            "functionLibraries": [],
+            "globals": [],
+            "utilities": [],
+            "spaces": []
+        },
+        "SA": {
+            "modules": [
+                {
+                    "name": "App Bootstraping Process",
+                    "propertyName": "appBootstrapingProcess",
+                    "functionName": "newBitoinFactoryAppBootstrapingProcess",
+                    "fileName": "AppBootstrapingProcess.js"
+                },
+                {
+                    "name": "Machine Learning Network Service Client",
+                    "propertyName": "machineLearningNetworkServiceClient",
+                    "functionName": "newBitcoinFactoryModulesMachineLearningNetworkServiceClient",
+                    "fileName": "MachineLearningNetworkServiceClient.js"
+                }
+            ]
+        },
+        "TS": {
+            "botModules":[
+                {
+                    "name": "Forecast-Client",
+                    "propertyName": "forecastClient",
+                    "functionName": "newBitcoinFactoryBotModulesForecastClient",
+                    "fileName": "ForecastClient.js",
+                    "folderName": "Forecast-Client"
+                },
+                {
+                    "name": "Test-Client",
+                    "propertyName": "testClient",
+                    "functionName": "newBitcoinFactoryBotModulesTestClient",
+                    "fileName": "TestClient.js",
+                    "folderName": "Test-Client"
+                },
+                {
+                    "name": "Test-Server",
+                    "propertyName": "testServer",
+                    "functionName": "newBitcoinFactoryBotModulesTestServer",
+                    "fileName": "TestServer.js",
+                    "folderName": "Test-Server"
+                },
+                {
+                    "name": "Data Bridge",
+                    "propertyName": "dataBridge",
+                    "functionName": "newDataBridge",
+                    "fileName": "DataBridge.js",
+                    "folderName": "Test-Server"
+                },
+                {
+                    "name": "Test Cases Manager",
+                    "propertyName": "testCasesManager",
+                    "functionName": "newTestCasesManager",
+                    "fileName": "TestCasesManager.js",
+                    "folderName": "Test-Server"
+                },
+                {
+                    "name": "Test Clients Manager",
+                    "propertyName": "testClientsManager",
+                    "functionName": "newTestClientsManager",
+                    "fileName": "TestClientsManager.js",
+                    "folderName": "Test-Server"
+                },
+                {
+                    "name": "Forecast Cases Manager",
+                    "propertyName": "forecastCasesManager",
+                    "functionName": "newForecastCasesManager",
+                    "fileName": "ForecastCasesManager.js",
+                    "folderName": "Test-Server"
+                },
+                {
+                    "name": "Forecast Clients Manager",
+                    "propertyName": "forecastClientsManager",
+                    "functionName": "newForecastClientsManager",
+                    "fileName": "ForecastClientsManager.js",
+                    "folderName": "Test-Server"
+                }
+            ],
+            "utilities":[
+                {
+                    "name": "Miscellaneous",
+                    "propertyName": "miscellaneous",
+                    "functionName": "newBitcoinFactoryUtilitiesMiscellaneous",
+                    "fileName": "Miscellaneous.js",
+                    "folderName": ""
+                }
+            ]
+        },
+        "NT": {
+            "modules":[
+                {
+                    "name": "Machine Learning Network Service",
+                    "propertyName": "machineLearningNetworkService",
+                    "functionName": "newBitcoinFactoryModulesMachineLearningNetworkService",
+                    "fileName": "MachineLearningNetworkService.js"
+                },
+                {
+                    "name": "Client Interface",
+                    "propertyName": "clientInterface",
+                    "functionName": "newBitcoinFactoryModulesClientInterface",
+                    "fileName": "ClientInterface.js"
+                },
+                {
+                    "name": "Server Interface",
+                    "propertyName": "serverInterface",
+                    "functionName": "newBitcoinFactoryModulesServerInterface",
+                    "fileName": "ServerInterface.js"
+                }
+            ]
+        },
+        "plugins": []
     }
 ]

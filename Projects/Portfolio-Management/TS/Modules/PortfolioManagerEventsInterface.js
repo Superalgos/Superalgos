@@ -35,7 +35,7 @@ exports.newPortfolioManagementModulesPortfolioManagerEventsInterface = function 
                     undefined,
                     onRequest)
 
-                function onRequest() {
+                function onRequest(eventMessage) {
                     if (tradingBotsInterfaceModuleObject === undefined) {
                         /*
                         This might happen when the Portfolio Bot goes to sleep.
@@ -53,15 +53,15 @@ exports.newPortfolioManagementModulesPortfolioManagerEventsInterface = function 
                         return
                     }
 
-                    let eventMessage = arguments[0]
-
                     let response = tradingBotsInterfaceModuleObject.processMessage(
                         SESSION_KEY,
+                        TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_REFERENCES[i].referenceParent.id,
                         eventMessage.event
                     )
                     /* 
                     Return Response 
                     */
+                    response.messageId = eventMessage.event.messageId
                     TS.projects.foundations.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent(
                         SESSION_KEY,
                         'Response From Portfolio Manager',

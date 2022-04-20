@@ -430,13 +430,13 @@ exports.newWeb3Server = function newWeb3Server() {
 
                     result = await web3.eth.sendSignedTransaction('0x' + transaction.serialize().toString('hex'))
                         .catch(err => {
-                            console.log('[ERROR] sendSignedTransaction -> err =' + JSON.stringify(err))
+                            console.log((new Date()).toISOString(), '[ERROR] sendSignedTransaction -> err =' + JSON.stringify(err))
                         })
 
                     console.log('Result:', result)
                     return result
                 } catch (err) {
-                    console.log('[ERROR] web3Server -> sendTokens -> err.stack = ' + err.stack)
+                    console.log((new Date()).toISOString(), '[ERROR] web3Server -> sendTokens -> err.stack = ' + err.stack)
                 }
             }
 

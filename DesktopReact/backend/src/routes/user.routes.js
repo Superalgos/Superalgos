@@ -4,35 +4,43 @@ const userController = require('../controllers/users.controller');
 const router = express.Router();
 
 router
-  .route('/social-persona')
-  .get(userController.getSocialPersonaId);
+    .route('/social-persona')
+    .get(userController.getSocialPersonaId);
 
 router
-  .route('/follow')
-  .post(userController.follow);
+    .route('/follow')
+    .post(userController.follow);
 
 router
-  .route('/profile')
-  .get(userController.loadProfile);
+    .route('/profile')
+    .get(userController.loadProfile);
 
 router
-  .route('/profile')
-  .post(userController.saveProfile);
+    .route('/profileData')
+    .get(userController.loadProfileData);
 
 router
-  .route('/paginate-profiles')
-  .post(userController.paginateProfiles)
+    .route('/profile')
+    .post(userController.saveProfile);
 
 router
-  .route('/create-profile')
-  .post(userController.createProfile)
+    .route('/social-stats')
+    .post(userController.getSocialStats);
 
 router
-  .route('/social-entities')
-  .get(userController.listSocialEntities)
+    .route('/paginate-profiles')
+    .post(userController.paginateProfiles)
 
 router
-  .route('/social-entities')
-  .post(userController.createSocialPersona)
+    .route('/create-profile')
+    .post(userController.createProfile)
+
+router
+    .route('/social-entities')
+    .get(userController.listSocialEntities)
+
+router
+    .route('/social-entities')
+    .post(userController.createSocialPersona)
 
 module.exports = router;

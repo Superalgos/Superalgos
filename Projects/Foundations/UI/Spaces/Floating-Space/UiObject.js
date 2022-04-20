@@ -1,10 +1,6 @@
 
 function newUiObject() {
     const MODULE_NAME = 'UI Object'
-    const ERROR_LOG = true
-
-    const logger = newWebDebugLog()
-
 
     let thisObject = {
         fitFunction: undefined,
@@ -172,6 +168,8 @@ function newUiObject() {
     let warningRingDirectionAnimation = 1
     let infoRingDirectionAnimation = 1
 
+    let schemaDocument
+
     thisObject.isRunning = false
 
     return thisObject
@@ -217,6 +215,8 @@ function newUiObject() {
         errorDocs = undefined
         warningDocs = undefined
         infoDocs = undefined
+
+        schemaDocument = undefined
     }
 
     function finalizeEventsServerClient() {
@@ -243,6 +243,7 @@ function newUiObject() {
 
     function initialize(payload, menuItemsInitialValues) {
         thisObject.payload = payload
+        schemaDocument = getSchemaDocument(thisObject.payload.node)
 
         /* Initialize the Menu */
 
@@ -272,7 +273,7 @@ function newUiObject() {
         iconPhysics()
 
         if (thisObject.icon === undefined) {
-            console.log('[ERROR] uiObject -> initialize -> err = Icon not found, Project: "' + thisObject.payload.node.project + '", Type: "' + thisObject.payload.node.type + '"')
+            console.log((new Date()).toISOString(), '[ERROR] uiObject -> initialize -> err = Icon not found, Project: "' + thisObject.payload.node.project + '", Type: "' + thisObject.payload.node.type + '"')
         }
 
         selfFocusEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onFocus', onFocus)
@@ -697,7 +698,7 @@ function newUiObject() {
 
         function highlightPhisycs() {
             highlightCounter--
-            if (highlightCounter < 0) {
+            if (highlightCounter < 0 || (thisObject.payload.parentNode === undefined && schemaDocument.isHierarchyHead !== true)) {
                 highlightCounter = 0
                 isHighlighted = false
             }
@@ -705,7 +706,7 @@ function newUiObject() {
 
         function runningAtBackendPhisycs() {
             runningAtBackendCounter--
-            if (runningAtBackendCounter < 0) {
+            if (runningAtBackendCounter < 0 || (thisObject.payload.parentNode === undefined && schemaDocument.isHierarchyHead !== true)) {
                 runningAtBackendCounter = 0
                 isRunningAtBackend = false
             }
@@ -713,7 +714,7 @@ function newUiObject() {
 
         function errorMessagePhisycs() {
             errorMessageCounter--
-            if (errorMessageCounter < 0) {
+            if (errorMessageCounter < 0 || (thisObject.payload.parentNode === undefined && schemaDocument.isHierarchyHead !== true)) {
                 errorMessageCounter = 0
                 thisObject.hasError = false
 
@@ -726,7 +727,7 @@ function newUiObject() {
 
         function warningMessagePhisycs() {
             warningMessageCounter--
-            if (warningMessageCounter < 0) {
+            if (warningMessageCounter < 0 || (thisObject.payload.parentNode === undefined && schemaDocument.isHierarchyHead !== true)) {
                 warningMessageCounter = 0
                 thisObject.hasWarning = false
 
@@ -739,7 +740,7 @@ function newUiObject() {
 
         function infoMessagePhisycs() {
             infoMessageCounter--
-            if (infoMessageCounter < 0) {
+            if (infoMessageCounter < 0 || (thisObject.payload.parentNode === undefined && schemaDocument.isHierarchyHead !== true)) {
                 infoMessageCounter = 0
                 thisObject.hasInfo = false
 
@@ -752,7 +753,7 @@ function newUiObject() {
 
         function valuePhisycs() {
             valueCounter--
-            if (valueCounter < 0) {
+            if (valueCounter < 0 || (thisObject.payload.parentNode === undefined && schemaDocument.isHierarchyHead !== true)) {
                 valueCounter = 0
                 hasValue = false
             }
@@ -760,7 +761,7 @@ function newUiObject() {
 
         function percentagePhisycs() {
             percentageCounter--
-            if (percentageCounter < 0) {
+            if (percentageCounter < 0 || (thisObject.payload.parentNode === undefined && schemaDocument.isHierarchyHead !== true)) {
                 percentageCounter = 0
                 hasPercentage = false
             }
@@ -768,7 +769,7 @@ function newUiObject() {
 
         function statusPhisycs() {
             statusCounter--
-            if (statusCounter < 0) {
+            if (statusCounter < 0 || (thisObject.payload.parentNode === undefined && schemaDocument.isHierarchyHead !== true)) {
                 statusCounter = 0
                 hasStatus = false
             }
@@ -1223,7 +1224,7 @@ function newUiObject() {
             answer to the command to stop. In those cases, we will stop execute the onStopped function anyways so as to 
             return the UI to its default state.
             */
-            setTimeout(returnToDefaultState, 15000)
+            setTimeout(returnToDefaultState, 10000)
             function returnToDefaultState() {
                 if (wasStopped === false) {
                     completeStop(callBackFunction, event)

@@ -4,17 +4,38 @@
     "type": "TS LF Trading Bot Error - Algorithm Name Node Missing",
     "definition": {
         "text": "An Algorithm Name node was expected but not found at the node where the error originated.",
-        "updated": 1611649859527
+        "updated": 1611649859527,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Bir Algoritma Adı ( Algorithm Name ) düğümü bekleniyordu ancak hatanın kaynaklandığı düğümde bulunamadı.",
+                "updated": 1648937053059
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Error",
             "text": "Algorithm Name Node Missing",
-            "updated": 1611650424447
+            "updated": 1611650424447,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Algoritma Adı,Düğüm Eksik. ( Algorithm Name Node Missing )",
+                    "updated": 1648937113395
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Add the missing node and try again."
+            "text": "Add the missing node and try again.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Eksik düğümü ekleyin ve tekrar deneyin.",
+                    "updated": 1648937143762
+                }
+            ]
         }
     ]
 }

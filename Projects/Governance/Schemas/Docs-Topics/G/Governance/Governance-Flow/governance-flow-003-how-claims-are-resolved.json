@@ -16,6 +16,11 @@
                 "language": "RU",
                 "text": "Все эти три понятия, Claim Power, Claim Votes и Token Rewards, тесно связаны между собой и составляют логику распределения токенов между вкладчиками.",
                 "updated": 1640324958655
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu üç kavram, Talep Gücü ( Claim Power ), Talep Oyları ( Claim Votes ) ve Jeton Ödülleri ( Token Rewards ) yakından ilişkilidir ve Katkıda Bulunanlar arasında jeton dağıtımının mantığını oluşturur.",
+                "updated": 1646738697981
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "language": "RU",
                     "text": "Работа с Claim Power",
                     "updated": 1640325003465
+                },
+                {
+                    "language": "TR",
+                    "text": "Talep Gücüyle Başa Çıkma",
+                    "updated": 1646738711296
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "RU",
                     "text": "Вы управляете потоком своего Claim Power таким образом, чтобы соответствующее значение достигло узла, с помощью которого вы хотите предъявить претензию. То есть, вы предъявляете претензии за определенное количество токенов, определяемое силой претензии, которая достигает соответствующего узла претензий.",
                     "updated": 1640325352338
+                },
+                {
+                    "language": "TR",
+                    "text": "Talep Gücünüzün ( Claim Power ) akışını, uygun değerin hak talebinde bulunmak istediğiniz düğüme ulaşması için siz kontrol edersiniz. Yani, ilgili talep düğümüne ulaşan Talep Gücü ( Claim Power ) tarafından belirlenen belirli sayıda jeton için talepler sunarsınız.",
+                    "updated": 1646738938642
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "RU",
                     "text": "Вы уже знаете, что показатель Token Rewards в узле определения - узле Position, Feature или Asset - определяет, сколько токенов доступно для стимулирования производства и/или обслуживания концепции, представленной этим узлом.",
                     "updated": 1640325458205
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir tanım düğümündeki (bir Konum, Özellik veya Varlık düğümü) Simge Ödüllerinin, düğüm tarafından temsil edilen kavramın üretimini ve/veya bakımını teşvik etmek için kaç simgenin mevcut olduğunu belirlediğini zaten biliyorsunuz.",
+                    "updated": 1646738975638
                 }
             ]
         },
@@ -83,6 +103,11 @@
                     "language": "RU",
                     "text": "Когда вы размещаете претензию на узел определения, вы заявляете, что хотите, чтобы Сообщество вознаградило вас количеством токенов в вашей претензии (Claim Power) за работу, проделанную над концепцией, воплощенной в соответствующем узле определения.",
                     "updated": 1640325507659
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir tanım düğümüne bir talepte bulunduğunuzda, ilgili tanım düğümü tarafından somutlaştırılan konsept üzerinde yapılan çalışma için, Talep Gücünüzdeki ( Claim Power ) belirteçlerin sayısıyla Topluluğun sizi ödüllendirmesini istediğinizi beyan ediyorsunuz.",
+                    "updated": 1646739028355
                 }
             ]
         },
@@ -99,6 +124,11 @@
                     "language": "RU",
                     "text": "До этого момента может возникнуть множество различных ситуаций.",
                     "updated": 1640325548173
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu noktaya kadar birçok farklı senaryo ortaya çıkabilir.",
+                    "updated": 1646739077975
                 }
             ]
         },
@@ -115,6 +145,11 @@
                     "language": "RU",
                     "text": "Например:",
                     "updated": 1640325561582
+                },
+                {
+                    "language": "TR",
+                    "text": "Örneğin:",
+                    "updated": 1646739090074
                 }
             ]
         },
@@ -132,6 +167,11 @@
                     "language": "RU",
                     "text": "Ваше требование может иметь величину Claim Power равную, меньшую или большую, чем Token Rewards, доступные в узле.",
                     "updated": 1640325689622
+                },
+                {
+                    "language": "TR",
+                    "text": "Talebiniz, düğümde mevcut olan Jeton Ödüllerine ( Token Rewards ) eşit, daha küçük veya daha yüksek Talep Gücüne ( Claim Power ) sahip olabilir.",
+                    "updated": 1646739142338
                 }
             ]
         },
@@ -148,6 +188,11 @@
                     "language": "RU",
                     "text": "Ваше требование может быть единственным в узле, или могут быть и другие требования.",
                     "updated": 1640325624358
+                },
+                {
+                    "language": "TR",
+                    "text": "Talebiniz düğümdeki tek hak talebi olabilir veya başka hak talepleri de olabilir.",
+                    "updated": 1646739159853
                 }
             ]
         },
@@ -164,6 +209,11 @@
                     "language": "RU",
                     "text": "Общий Claim Power во всех существующих требованиях может быть равным, меньшим или большим, чем Token Rewards, доступные в узле.",
                     "updated": 1640325736904
+                },
+                {
+                    "language": "TR",
+                    "text": "Mevcut tüm taleplerdeki toplam Talep Gücü ( Claim Power ), düğümde mevcut olan Jeton Ödüllerine ( Token Rewards )  eşit, daha küçük veya daha büyük olabilir.",
+                    "updated": 1646739200652
                 }
             ]
         },
@@ -180,12 +230,24 @@
                     "language": "RU",
                     "text": "И это еще не все! В дополнение к вышеперечисленным ситуациям, нам необходимо учесть Claim Votes!",
                     "updated": 1640325781265
+                },
+                {
+                    "language": "TR",
+                    "text": "Ve hepsi bu değil! Yukarıdaki senaryolara ek olarak, Talep Oylarını ( Claim Votes ) hesaba katmamız gerekiyor!",
+                    "updated": 1646739234500
                 }
             ]
         },
         {
             "style": "Title",
-            "text": "Adding Claim Votes in the Mix"
+            "text": "Adding Claim Votes in the Mix",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Karışıma Talep Oyu Ekleme ( Adding Claim Votes in the Mix )",
+                    "updated": 1646739301482
+                }
+            ]
         },
         {
             "style": "Include",
@@ -223,6 +285,11 @@
                     "language": "RU",
                     "text": "Другими словами, когда вы голосуете по чьей-то претензии, вы не обязательно голосуете за всю претензию. Ваш голос несет конкретную силу поддержки претензии, которая может быть равной, меньшей или большей, чем сила поддержки претензии!",
                     "updated": 1640326006690
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Talep Destek Gücünün ( Claim Support Power ) Talep Oylarına akışı, Oylama Programındaki geri kalan güç akışlarıyla aynı ilkeleri takip eder. Bu, Talep Oylarının belirli bir Talep Destek Gücüne sahip olduğu anlamına gelir, tıpkı iddiaların belirli bir Talep Gücüne sahip olması gibi.",
+                    "updated": 1646739415788
                 }
             ]
         },
@@ -240,6 +307,11 @@
                     "language": "RU",
                     "text": "Кроме того, за одно и то же заявление могут проголосовать несколько вкладчиков!",
                     "updated": 1640326019572
+                },
+                {
+                    "language": "TR",
+                    "text": "Ayrıca, daha fazla Katkıda bulunan aynı iddia için oy kullanabilir!",
+                    "updated": 1646739437218
                 }
             ]
         },
@@ -251,6 +323,11 @@
                     "language": "RU",
                     "text": "Правила",
                     "updated": 1640326028066
+                },
+                {
+                    "language": "TR",
+                    "text": "Kurallar",
+                    "updated": 1646739449025
                 }
             ]
         },
@@ -267,6 +344,11 @@
                     "language": "RU",
                     "text": "Как видите, факторов и возможных сценариев очень много. Давайте изложим общие правила, по которым рассчитывается, какие вознаграждения в виде токенов идут на те или иные требования.",
                     "updated": 1640326101931
+                },
+                {
+                    "language": "TR",
+                    "text": "Gördüğünüz gibi, değişkenler ve olası senaryolar çoktur. Hangi Token Ödüllerinin ( Token Rewards ) hangi taleplere gideceğinin hesaplanmasına rehberlik eden genel kuralları ortaya koyalım.",
+                    "updated": 1646739493228
                 }
             ]
         },
@@ -283,6 +365,11 @@
                     "language": "RU",
                     "text": "Token Rewards, доступные в узле, определяют максимальное количество токенов, которые могут быть распределены через этот узел. Ни в коем случае система не должна распределять больше токенов, чем указано в значении Token Rewards. Другими словами, Сообщество решает, какое максимальное количество токенов будет распределено через любой данный узел своими голосами Weight Votes.",
                     "updated": 1640326220210
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir düğümde bulunan Jeton Ödülleri, o düğüm aracılığıyla dağıtılabilecek maksimum jeton sayısını belirler. Sistem hiçbir durumda Jeton Ödülleri ( Token Rewards ) değerinin gösterdiğinden daha fazla jeton dağıtmayacaktır. Başka bir deyişle, Topluluk ( Community ), Ağırlık Oyları ( Weight Votes ) ile herhangi bir düğüm aracılığıyla dağıtılacak maksimum jeton sayısının ne olduğuna karar verir.",
+                    "updated": 1646739594201
                 }
             ]
         },
@@ -300,6 +387,11 @@
                     "language": "RU",
                     "text": "Максимальное количество Token Rewards, выделяемое на требование, определяется количеством Token Rewards, доступных в узле, Claim Power, связанным с требованием, или суммой Claim Support Power всех Claim Votes, связанных с требованием, в зависимости от того, что меньше.",
                     "updated": 1640326297582
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir hak talebine tahsis edilen maksimum Jeton Ödülleri, düğümde mevcut olan Jeton Ödülleri, taleple ilişkili Talep Gücü ( Claim Power ) veya taleple ilişkili tüm Talep Oylarının ( Claim Votes ) Talep Destek Gücünün ( Claim Support Power ) toplamı (hangisi daha küçükse) ile belirlenir.",
+                    "updated": 1646739709016
                 }
             ]
         },
@@ -317,6 +409,11 @@
                     "language": "RU",
                     "text": "Если сумма Claim Support Power всех голосов Claim Votes, связанных с претензией, меньше, чем Claim Power претензии, претензия не подлежит оплате в полном объеме. Вознаграждение в виде токенов ограничено суммой Claim Support Power всех голосов претендентов. Другими словами, претензии оплачиваются в пределах суммы, которую решит сообщество своими голосами за претензии.",
                     "updated": 1640326413573
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir taleple ilişkili tüm Talep Oylarının Talep Destek Gücü toplamı, talebin Talep Gücünden daha az olduğunda, talep tam olarak ödenmez. Token Ödülleri, tüm Talep Oylarının toplam Talep Destek Gücü ( Claim Support Power ) ile sınırlıdır. Diğer bir deyişle, Topluluğun Talep Oyları ile karar verdiği miktar kadar tazminat ödenir.",
+                    "updated": 1646739776290
                 }
             ]
         },
@@ -334,6 +431,11 @@
                     "language": "RU",
                     "text": "Когда количества Token Rewards достаточно для оплаты всех претензий, то каждая претензия оплачивается полностью, как и ожидалось. В более точных, хотя и сложных терминах, когда Token Rewards больше, чем сумма Сил поддержки требований для любого данного количества требований или сумма Claim Support Power для любого предоставленного количества требований, в зависимости от того, что меньше, каждое требование получает Token Rewards, равные его Claim Power или равные Claim Support Power связанных с ним Claim Votes, в зависимости от того, что меньше.",
                     "updated": 1640326608021
+                },
+                {
+                    "language": "TR",
+                    "text": "Token Ödülleri tüm talepleri ödemek için yeterli olduğunda, her talep beklendiği gibi tam olarak ödenir. Daha kesin olarak, karmaşık terimlerle ifade edilirse, Token Ödülleri herhangi bir sayıdaki talep için Talep Destek Gücünün toplamından veya herhangi bir belirli sayıdaki talep için Talep Gücünün toplamından daha büyük olduğunda, hangisi daha azsa, her talep Token Ödüllerini alır. Talep Gücüne eşit veya ilgili Talep Oylarının Talep Destek Gücüne eşit (hangisi daha düşükse).",
+                    "updated": 1646739826951
                 }
             ]
         },
@@ -351,6 +453,11 @@
                     "language": "RU",
                     "text": "Когда Token Rewards недостаточно для оплаты всех претензий, необходимо произвести корректировку, чтобы выплатить справедливую долю по каждой претензии, не превышая имеющиеся Token Rewards. В этом случае каждое требование уменьшается пропорционально сумме, на которую требования превышают Token Rewards. Например, если сумма всех претензий превышает Token Rewards на 10%, то каждая претензия уменьшается на 10%.",
                     "updated": 1640326695620
+                },
+                {
+                    "language": "TR",
+                    "text": "Token Ödülleri tüm talepleri ödemek için yeterli OLMADIĞINDA, mevcut Token Ödüllerini aşmadan her talep için adil bir oran ödemek için bir ayarlama yapılmalıdır. Böyle bir durumda, her talep, Token Ödüllerini aştığı miktarla orantılı olarak azaltılır. Örneğin, tüm taleplerin toplamı Token Ödüllerini %10 aşarsa, her talep %10 azalır.",
+                    "updated": 1646739867144
                 }
             ]
         }

@@ -174,11 +174,11 @@ For your Test Client App to work and be able to connect to the Test Server you n
 1. The Bitcoin Factory Forecast node must be named Testnet.
 2. You need a Test Client Instance for each process or instance of this Test Client App you want to keep ruuning. Name it as you like.
 3. You will need to assing each Test Client Instance some SA token power if you wish to receive the best crowd-sourced predictions at the end of each of your tests. How much token powe for each prediction is to be determined in the near future once the assigned token power will be checked at a future release.
-check the picture out for more visual clarity 
+check the picture out for more visual clarity. 
 
 ![photo_2022-04-20_07-21-37](https://user-images.githubusercontent.com/65282771/164156153-a478326c-ffef-4b9d-aa0b-91d22c43a32d.jpg)
 
-4. You need to create a User App with it's children
+4. You need to create a User App with it's children.
 
 ![photo_2022-04-20_09-00-38](https://user-images.githubusercontent.com/65282771/164169571-514e1283-8f46-4fb8-b9ef-32eb0c6f9146.jpg)
 
@@ -342,7 +342,7 @@ Run the App:
 In the Superalgos platform you need to look for the Bitcoin Factory workspace.
 
 1. Locate Bitcoin Factory Data Mine.
-2. You need to reference the Task Server App to the User App you created
+2. You need to reference the Task Server App to the User App you created.
 
 ![referecing task sever](https://user-images.githubusercontent.com/65282771/164172358-030a1e88-e59f-43d3-a4f0-141e24fd6291.jpg)
 

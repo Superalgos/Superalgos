@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Торговая инфраструктура, реализованная в Trading Systems и Trading Strategies, сама по себе несет в себе некоторую низкоуровневую торговую логику. Однако основная часть логики, специфичной для каждой стратегии, вытекает из того, как вы описываете рыночные ситуации и как вы определяете действия, которые должен предпринять торговый бот Trading Bot.",
                 "updated": 1639849493436
+            },
+            {
+                "language": "TR",
+                "text": " Özet: Ticaret Sistemleri ve Ticaret Stratejilerinde uygulanan ticaret çerçevesi kendi içinde düşük seviyeli bir ticaret mantığı taşımaktadır. Bununla birlikte, her stratejiye özgü mantığın büyük kısmı, piyasa durumlarını tanımlama şeklinizden ve Ticaret Botunun ( Trading Bot ) yapması gereken eylemleri nasıl tanımladığınızdan kaynaklanmaktadır.",
+                "updated": 1649836300683
             }
         ]
     },
@@ -17,7 +22,14 @@
         {
             "style": "Title",
             "text": "Situation",
-            "updated": 1610211543537
+            "updated": 1610211543537,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Durum ( Situation )",
+                    "updated": 1649836372522
+                }
+            ]
         },
         {
             "style": "Include",
@@ -32,7 +44,14 @@
         {
             "style": "Title",
             "text": "Condition",
-            "updated": 1610211561606
+            "updated": 1610211561606,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Koşul ( Condition )",
+                    "updated": 1649836468193
+                }
+            ]
         },
         {
             "style": "Include",
@@ -47,7 +66,14 @@
         {
             "style": "Title",
             "text": "Formula",
-            "updated": 1610211589034
+            "updated": 1610211589034,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Formül ( Formula )",
+                    "updated": 1649836501778
+                }
+            ]
         },
         {
             "style": "Include",

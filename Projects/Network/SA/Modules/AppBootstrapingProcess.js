@@ -13,11 +13,40 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
 
     */
     let thisObject = {
+        userAppCodeName: undefined,
+        p2pNetworkClientIdentity: undefined,
+        initialize: initialize,
         run: run
     }
     return thisObject
 
-    async function run(userAppCodeName, p2pNetworkClientIdentity) {
+    async function initialize(userAppCodeName, p2pNetworkClientIdentity) {
+
+        thisObject.userAppCodeName = userAppCodeName
+        thisObject.p2pNetworkClientIdentity = p2pNetworkClientIdentity
+        await run()
+        setInterval(run, 60000 * 5)
+
+    }
+
+    async function run() {
+        SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES = []
+        await pullProfiles()
+        await reloadAll()
+    }
+
+    async function pullProfiles() {
+        const simpleGit = SA.nodeModules.simpleGit
+        options = {
+            baseDir: SA.nodeModules.path.join(process.cwd(), 'Plugins', 'Governance'),
+            binary: 'git',
+            maxConcurrentProcesses: 6,
+        }
+        git = simpleGit(options)
+        await git.pull('origin')
+    }
+
+    async function reloadAll() {
 
         await loadUserP2PNetworksPlugins()
         await loadUserProfilesPlugins()
@@ -32,7 +61,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
 
         extractInfoFromUserProfiles()
 
-        if (p2pNetworkClientIdentity.node === undefined) {
+        if (thisObject.p2pNetworkClientIdentity.node === undefined) {
             throw ('The Network Client Identity does not match any node at User Profiles Plugins.')
         }
 
@@ -196,13 +225,13 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                             we match it with a node of the user profiles we are scanning, then we
                             store that node as our P2P Network Client Identity. 
                             */
-                            if (SA.secrets.signingAccountSecrets.map.get(userAppCodeName) === undefined) {
-                                throw ('Bad Configuration. Could not find any signing account node based on the configured userAppCodeName = ' + userAppCodeName)
+                            if (SA.secrets.signingAccountSecrets.map.get(thisObject.userAppCodeName) === undefined) {
+                                throw ('Bad Configuration. Could not find any signing account node based on the configured thisObject.userAppCodeName = ' + thisObject.userAppCodeName)
                             }
                             if (
-                                networkClient.id === SA.secrets.signingAccountSecrets.map.get(userAppCodeName).nodeId
+                                networkClient.id === SA.secrets.signingAccountSecrets.map.get(thisObject.userAppCodeName).nodeId
                             ) {
-                                if (p2pNetworkClientIdentity.initialize(
+                                if (thisObject.p2pNetworkClientIdentity.initialize(
                                     networkClient,
                                     userProfile,
                                     blockchainAccount
@@ -242,11 +271,11 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
             to this network, in order to use it later to enforce these permissions
             at the Network Interfaces.
             */
-            if (p2pNetworkClientIdentity.node.type !== "P2P Network Node") { return }
-            if (p2pNetworkClientIdentity.node.p2pNetworkReference.referenceParent.type !== "Permissioned P2P Network") { return }
+            if (thisObject.p2pNetworkClientIdentity.node.type !== "P2P Network Node") { return }
+            if (thisObject.p2pNetworkClientIdentity.node.p2pNetworkReference.referenceParent.type !== "Permissioned P2P Network") { return }
 
             let petmissionGrantedArray = SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(
-                p2pNetworkClientIdentity.node.p2pNetworkReference.referenceParent,
+                thisObject.p2pNetworkClientIdentity.node.p2pNetworkReference.referenceParent,
                 'Permission Granted'
             )
 

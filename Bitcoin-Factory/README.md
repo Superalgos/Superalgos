@@ -188,7 +188,7 @@ Note: In order to create a signing account you need to locate the profile constr
 ![profile constructor](https://user-images.githubusercontent.com/65282771/164171939-23fe5850-c775-4a87-88c4-0cd9646fbf04.jpg)
 
 
-Drag and drop your Profile constructor into the workspace and link it to you profile and clikc install signing account then confirm. Delete the profile constructor. It would be wise to Rename your User App node so that it's easier to locate your User App once the workspace is populated with user profiles.  
+Drag and drop your Profile constructor into the workspace, link it to your profile, click install signing account and then confirm. Delete the profile constructor. It would be wise to Rename your User App node so that it's easier to locate your User App once the workspace is populated with user profiles.  
 
 
 Note 1: Once you add those nodes to your profile you still needs to contribute it and it needs to be merged. After that you will need to wait until the Test Server updates it's Superalgos installation that as of today is a manual task. If you are exited and would like to speed this process up, please contact me on Telegram. (@luis_fernando_molina)

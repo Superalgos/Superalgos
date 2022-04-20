@@ -196,6 +196,9 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                             we match it with a node of the user profiles we are scanning, then we
                             store that node as our P2P Network Client Identity. 
                             */
+                            if (SA.secrets.signingAccountSecrets.map.get(userAppCodeName) === undefined) {
+                                throw ('Bad Configuration. Could not find any signing account node based on the configured userAppCodeName = ' + userAppCodeName)
+                            }
                             if (
                                 networkClient.id === SA.secrets.signingAccountSecrets.map.get(userAppCodeName).nodeId
                             ) {

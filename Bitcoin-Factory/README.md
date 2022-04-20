@@ -8,17 +8,17 @@ This Test Client App is to be used to crowd-test machine learning models with th
 
 ### Why do we need this?
 
-When working with Machine Learning models, soon you realize that even though they could work to make financial forecasts, you need to set a whole array of parameters that not only define the architecture of the model, but also the shape of the data and may other things. For each of these parameters, there is a valid range of values that could work, but only in combination with other parameters which also have their own valid ranges.
+When working with Machine Learning models, soon you realize that even though they could work to make financial forecasts, you need to set a whole array of parameters that not only define the architecture of the model, but also the shape of the data and many other things. For each of these parameters, there is a valid range of values that could work, but only in combination with other parameters which also have their own valid ranges.
 
 Nobody knows what combination is going to produce the best results for a particular Asset / Timeframe. Machine Learning models accuracy is determined by the error measured when producing forecasts using a test dataset after training the model. These forecasts are compared with the actual values and from there an objective Error measure is taken. 
 
-In order to obtain that error measure, first a ML model with certain parameters and certain data need to be created and trained, which usually takes time (from a few minutes to potentially hours). 
+In order to obtain that error measure, first the ML model with certain parameters and certain data need to be created and trained, which usually takes time (from a few minutes to potentially hours). 
 
 Testing combinations of parameters and data (with potentially hundreds of indicators to choose from, thousands of crypto assets, and dozens of time-frames) by hand, one by one, would be a nightmare. The system from which this App is part of, solves those problems by automating the discovery of the best performing ML models, for a certain range of parameters values and certain set of indicators, for each combination of Asset / Timeframe. 
 
 The System allows us to define for each parameter a range of valid values, creating a set of Test Cases based on all the possible combinations of all the values inside the valid  ranges for all parameters. Then we only need distributed processing power to test all the combinations in a reasonable time and find which parameters / data configurations produces the best results. Best results means the best forecasts with the lowest % of error.
 
-Over time, we will learn we will learn which set of parameters and data produces the best model for a certain Asset / Timeframe. If we never stop testing, we will over time get the best possible models. Even if we finish with all possible combinations, datasets are changing over time and the amount of records and the data itself influence the performance of a ML model. For that reason, testing models is a never ending task. 
+Over time, we will learn which set of parameters and data produces the best model for a certain Asset / Timeframe. If we never stop testing, we will over time get the best possible models. Even if we finish with all possible combinations, datasets are changing over time and the amount of records and the data itself influence the performance of a ML model. For that reason, testing models is a never ending task. 
 
 It is important to understand that this Test Client APP does not prepare the dataset to be tested. This is done by the Test Server App. That means that this app does not need to be ran together with Superalgos or any other data provider for the purpose of extracting data from it. It only depends on the Test Server which handles the management of the Test Cases and the generation of the datasets to be used at each one of the tests.
 
@@ -165,7 +165,7 @@ The Test Client and Test Server interact in a p2p way via the Superalgos Network
 
 ## Superalgos Profile
 
-To run this software you need a Superalgos Profile with the node Forecast Providers / Bitcoin Factory Forecast / Test Client Instance.
+To run this software you need a Superalgos Profile with the node Forecast Providers / Bitcoin Factory Forecast / Test Client Instance and User App with it's singning acoount.
 
 ### In Detail 
 
@@ -173,7 +173,23 @@ For your Test Client App to work and be able to connect to the Test Server you n
 
 1. The Bitcoin Factory Forecast node must be named Testnet.
 2. You need a Test Client Instance for each process or instance of this Test Client App you want to keep ruuning. Name it as you like.
-3. You will need to assing each Test Client Instance some SA token power if you wish to receive the best crowd-sourced predictions at the end of each of your tests. How much token power for each prediction is to be determined in the near future once the assigned token power will be checked at a future release.
+3. You will need to assing each Test Client Instance some SA token power if you wish to receive the best crowd-sourced predictions at the end of each of your tests. How much token powe for each prediction is to be determined in the near future once the assigned token power will be checked at a future release.
+check the picture out for more visual clarity. 
+
+![photo_2022-04-20_07-21-37](https://user-images.githubusercontent.com/65282771/164156153-a478326c-ffef-4b9d-aa0b-91d22c43a32d.jpg)
+
+4. You need to create a User App with it's children.
+
+![photo_2022-04-20_09-00-38](https://user-images.githubusercontent.com/65282771/164169571-514e1283-8f46-4fb8-b9ef-32eb0c6f9146.jpg)
+
+
+Note: In order to create a signing account you need to locate the profile constructor you backed up and deleted when you first created your User profile in the Governance program.
+
+![profile constructor](https://user-images.githubusercontent.com/65282771/164171939-23fe5850-c775-4a87-88c4-0cd9646fbf04.jpg)
+
+
+Drag and drop your Profile constructor into the workspace, link it to your profile, click install signing account and then confirm. Delete the profile constructor. It would be wise to Rename your User App node so that it's easier to locate your User App once the workspace is populated with user profiles.  
+
 
 Note 1: Once you add those nodes to your profile you still needs to contribute it and it needs to be merged. After that you will need to wait until the Test Server updates it's Superalgos installation that as of today is a manual task. If you are exited and would like to speed this process up, please contact me on Telegram. (@luis_fernando_molina)
 
@@ -323,9 +339,14 @@ docker run -it --rm --name Bitcoin-Factory-ML -v C:/Superalgos/Bitcoin-Factory/n
 
 Run the App:
 
-```sh
-node runTestClient TEST_CLIENT_INSTANCE_NAME
-```
+In the Superalgos platform you need to look for the Bitcoin Factory workspace.
+
+1. Locate Bitcoin Factory Data Mine.
+2. You need to reference the Task Server App to the User App you created.
+
+![referecing task sever](https://user-images.githubusercontent.com/65282771/164172358-030a1e88-e59f-43d3-a4f0-141e24fd6291.jpg)
+
+3. Run the Bitcoin Factory Data mining task, only after you ran the docker container.
 
 ### on Ubuntu Server
 

@@ -8,17 +8,17 @@ This Test Client App is to be used to crowd-test machine learning models with th
 
 ### Why do we need this?
 
-When working with Machine Learning models, soon you realize that even though they could work to make financial forecasts, you need to set a whole array of parameters that not only define the architecture of the model, but also the shape of the data and may other things. For each of these parameters, there is a valid range of values that could work, but only in combination with other parameters which also have their own valid ranges.
+When working with Machine Learning models, soon you realize that even though they could work to make financial forecasts, you need to set a whole array of parameters that not only define the architecture of the model, but also the shape of the data and many other things. For each of these parameters, there is a valid range of values that could work, but only in combination with other parameters which also have their own valid ranges.
 
 Nobody knows what combination is going to produce the best results for a particular Asset / Timeframe. Machine Learning models accuracy is determined by the error measured when producing forecasts using a test dataset after training the model. These forecasts are compared with the actual values and from there an objective Error measure is taken. 
 
-In order to obtain that error measure, first a ML model with certain parameters and certain data need to be created and trained, which usually takes time (from a few minutes to potentially hours). 
+In order to obtain that error measure, first the ML model with certain parameters and certain data need to be created and trained, which usually takes time (from a few minutes to potentially hours). 
 
 Testing combinations of parameters and data (with potentially hundreds of indicators to choose from, thousands of crypto assets, and dozens of time-frames) by hand, one by one, would be a nightmare. The system from which this App is part of, solves those problems by automating the discovery of the best performing ML models, for a certain range of parameters values and certain set of indicators, for each combination of Asset / Timeframe. 
 
 The System allows us to define for each parameter a range of valid values, creating a set of Test Cases based on all the possible combinations of all the values inside the valid  ranges for all parameters. Then we only need distributed processing power to test all the combinations in a reasonable time and find which parameters / data configurations produces the best results. Best results means the best forecasts with the lowest % of error.
 
-Over time, we will learn we will learn which set of parameters and data produces the best model for a certain Asset / Timeframe. If we never stop testing, we will over time get the best possible models. Even if we finish with all possible combinations, datasets are changing over time and the amount of records and the data itself influence the performance of a ML model. For that reason, testing models is a never ending task. 
+Over time, we will learn which set of parameters and data produces the best model for a certain Asset / Timeframe. If we never stop testing, we will over time get the best possible models. Even if we finish with all possible combinations, datasets are changing over time and the amount of records and the data itself influence the performance of a ML model. For that reason, testing models is a never ending task. 
 
 It is important to understand that this Test Client APP does not prepare the dataset to be tested. This is done by the Test Server App. That means that this app does not need to be ran together with Superalgos or any other data provider for the purpose of extracting data from it. It only depends on the Test Server which handles the management of the Test Cases and the generation of the datasets to be used at each one of the tests.
 

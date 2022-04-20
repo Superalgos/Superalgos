@@ -357,8 +357,15 @@ Apply & Restart makes the directory available to containers using Docker’s bin
 
 The command to run the container on Mac should be like this (mind Your-User-Name).
 
+In Linux:
+
 ```sh
-docker run -it --rm --name Bitcoin-Factory-ML -v /Users/Your-User-Name/Bitcoin-Factory/ML-Test-Client/notebooks:/tf/notebooks -p 8888:8888 bitcoin-factory-machine-learning
+docker run -it --rm --name Bitcoin-Factory-ML -v /Users/Your-User-Name/Superalgos/Bitcoin-Factory/Test-Client/notebooks:/tf/notebooks -p 8888:8888 bitcoin-factory-machine-learning
+```
+In Windows:
+
+```sh
+docker run -it --rm --name Bitcoin-Factory-ML -v C:/Superalgos/Bitcoin-Factory/Test-Client/notebooks:/tf/notebooks -p 8888:8888 bitcoin-factory-machine-learning
 ```
 
 Run the App:

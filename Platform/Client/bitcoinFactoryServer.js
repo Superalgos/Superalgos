@@ -52,7 +52,7 @@ exports.newBitcoinFactoryServer = function newBitcoinFactoryServer() {
                 /*
                 Read Current File from Superalgos Storage
                 */
-                forcastedCandlesFileContent = SA.nodeModules.fs.readFileSync(global.env.PATH_TO_DATA_STORAGE + '/Project/Data-Mining/Data-Mine/Bitcoin-Factory/Test-Server/binance/' + bestPrediction.mainAsset + '-USDT/Output/Forcasted-Candles/Multi-Time-Frame-Market/' + bestPrediction.mainTimeFrame + '/Data.json')
+                forcastedCandlesFileContent = SA.nodeModules.fs.readFileSync(global.env.PATH_TO_DATA_STORAGE + '/Project/Data-Mining/Data-Mine/Bitcoin-Factory/Test-Client/binance/' + bestPrediction.mainAsset + '-USDT/Output/Forcasted-Candles/Multi-Time-Frame-Market/' + bestPrediction.mainTimeFrame + '/Data.json')
 
                 let forcastedCandlesFile = JSON.parse(forcastedCandlesFileContent)
 
@@ -134,7 +134,7 @@ exports.newBitcoinFactoryServer = function newBitcoinFactoryServer() {
                 newForcastedCandlesFileContent = newForcastedCandlesFileContent + "]"
             }
             newForcastedCandlesFileContent = newForcastedCandlesFileContent + "]"
-            let filePath = global.env.PATH_TO_DATA_STORAGE + '/Project/Data-Mining/Data-Mine/Bitcoin-Factory/Test-Server/binance/' + bestPrediction.mainAsset + '-USDT/Output/Forcasted-Candles/Multi-Time-Frame-Market/' + bestPrediction.mainTimeFrame + '/'
+            let filePath = global.env.PATH_TO_DATA_STORAGE + '/Project/Data-Mining/Data-Mine/Bitcoin-Factory/Test-Client/binance/' + bestPrediction.mainAsset + '-USDT/Output/Forcasted-Candles/Multi-Time-Frame-Market/' + bestPrediction.mainTimeFrame + '/'
             SA.projects.foundations.utilities.filesAndDirectories.mkDirByPathSync(filePath)
             SA.nodeModules.fs.writeFileSync(filePath + 'Data.json', newForcastedCandlesFileContent)
         }

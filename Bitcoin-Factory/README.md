@@ -174,18 +174,22 @@ For your Test Client App to work and be able to connect to the Test Server you n
 1. The Bitcoin Factory Forecast node must be named Testnet.
 2. You need a Test Client Instance for each process or instance of this Test Client App you want to keep ruuning. Name it as you like.
 3. You will need to assing each Test Client Instance some SA token power if you wish to receive the best crowd-sourced predictions at the end of each of your tests. How much token powe for each prediction is to be determined in the near future once the assigned token power will be checked at a future release.
-check the picture out for more visual clarity ![photo_2022-04-20_07-21-37](https://user-images.githubusercontent.com/65282771/164156153-a478326c-ffef-4b9d-aa0b-91d22c43a32d.jpg)
-4. You need to create a User App with it's children ![photo_2022-04-20_09-00-38](https://user-images.githubusercontent.com/65282771/164169571-514e1283-8f46-4fb8-b9ef-32eb0c6f9146.jpg)
+check the picture out for more visual clarity 
+
+![photo_2022-04-20_07-21-37](https://user-images.githubusercontent.com/65282771/164156153-a478326c-ffef-4b9d-aa0b-91d22c43a32d.jpg)
+
+4. You need to create a User App with it's children
+
+![photo_2022-04-20_09-00-38](https://user-images.githubusercontent.com/65282771/164169571-514e1283-8f46-4fb8-b9ef-32eb0c6f9146.jpg)
 
 
-Note: In order to create a signing account you need to locate the profile constructor you backed up and deleted when you first created your User profile in the Governance program. Drag and drop your Profile constructor into the workspace and link it to you profile and clikc signing account then confirm. Delete the profile constructor. It would be wise to Rename your User App node so that it's easier to locate your User App once the workspace is populated with user profiles.  
+Note: In order to create a signing account you need to locate the profile constructor you backed up and deleted when you first created your User profile in the Governance program.
+
+![profile constructor](https://user-images.githubusercontent.com/65282771/164171939-23fe5850-c775-4a87-88c4-0cd9646fbf04.jpg)
 
 
-In the Superalgos platform you need to look for the Bitcoin Factory workspace.
+Drag and drop your Profile constructor into the workspace and link it to you profile and clikc install signing account then confirm. Delete the profile constructor. It would be wise to Rename your User App node so that it's easier to locate your User App once the workspace is populated with user profiles.  
 
-1. Locate Bitcoin Factory Data Mine.
-2. You need to reference the Task Server App to the User App you created
-3. Run the Bitcoin Factory Data mining task, only after you ran the docker container.
 
 Note 1: Once you add those nodes to your profile you still needs to contribute it and it needs to be merged. After that you will need to wait until the Test Server updates it's Superalgos installation that as of today is a manual task. If you are exited and would like to speed this process up, please contact me on Telegram. (@luis_fernando_molina)
 
@@ -335,9 +339,14 @@ docker run -it --rm --name Bitcoin-Factory-ML -v C:/Superalgos/Bitcoin-Factory/n
 
 Run the App:
 
-```sh
-node runTestClient TEST_CLIENT_INSTANCE_NAME
-```
+In the Superalgos platform you need to look for the Bitcoin Factory workspace.
+
+1. Locate Bitcoin Factory Data Mine.
+2. You need to reference the Task Server App to the User App you created
+
+![referecing task sever](https://user-images.githubusercontent.com/65282771/164172358-030a1e88-e59f-43d3-a4f0-141e24fd6291.jpg)
+
+3. Run the Bitcoin Factory Data mining task, only after you ran the docker container.
 
 ### on Ubuntu Server
 

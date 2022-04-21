@@ -4,13 +4,27 @@
     "type": "Definition Pages",
     "definition": {
         "text": "A definition page, also known as Docs Node Page, is the page that describes what a node is or represents in any given hierarchy, how it works, and how it interacts with other nodes. It's the page users access when clicking the help (?) button on a node's menu.",
-        "updated": 1643045362437
+        "updated": 1643045362437,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Özet: Dokümanlar Düğümü ( Docs Node Page ) Sayfası olarak da bilinen bir tanım sayfası, bir düğümün belirli bir hiyerarşide neyi temsil ettiğini, nasıl çalıştığını ve diğer düğümlerle nasıl etkileşime girdiğini açıklayan sayfadır. Kullanıcıların bir düğümün menüsündeki yardım (?) düğmesini tıkladıklarında eriştikleri sayfadır.",
+                "updated": 1650445299854
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "This page is the main source of information about the particular node. Think of definition pages as the place where people should find all the details about the behavior of the node, including its configuration.",
-            "updated": 1642949968941
+            "updated": 1642949968941,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bu sayfa, belirli bir düğüm hakkında ana bilgi kaynağıdır. Tanım sayfalarını, insanların yapılandırması da dahil olmak üzere düğümün davranışıyla ilgili tüm ayrıntıları bulması gereken yer olarak düşünün.",
+                    "updated": 1650445330865
+                }
+            ]
         },
         {
             "style": "Include",
@@ -19,51 +33,128 @@
         },
         {
             "style": "Title",
-            "text": "Definition Box"
+            "text": "Definition Box",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Tanım Kutusu",
+                    "updated": 1650445384519
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The definition box is the top paragraph on a definition page, rendered to the right of the icon representing the node, in bold.",
-            "updated": 1642950012785
+            "updated": 1642950012785,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Tanım kutusu, bir tanım sayfasının üst paragrafıdır ve düğümü temsil eden simgenin sağ tarafında kalın harflerle gösterilmiştir.",
+                    "updated": 1650445456960
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "Always have in mind that this paragraph is the one used to build tooltips throughout the Docs. It is the contextual information people gets about the node when you write the Node Type throughout the Docs.",
-            "updated": 1642950076905
+            "updated": 1642950076905,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Not: Bu paragrafın Dokümanlar'da araç ipuçları oluşturmak için kullanılan paragraf olduğunu her zaman aklınızda bulundurun. Düğüm Türünü Dokümanlar'a yazdığınızda, insanların düğüm hakkında aldığı bağlamsal bilgilerdir.",
+                    "updated": 1650445479465
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "Use this space to write a concise, accurate, and careful description of WHAT the node is or represents. As part of this definition, you may include WHAT the node is used for, as it is the use of the node that determines what it is or represents in the first place.",
-            "updated": 1642950136950
+            "updated": 1642950136950,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Düğümün ne olduğu veya neyi temsil ettiğinin kısa, doğru ve dikkatli bir açıklamasını yazmak için bu alanı kullanın. Bu tanımın parçası olarak, düğümün ne olduğunu veya neyi temsil ettiğini belirleyen düğümün kullanımı olduğundan, düğümün ne için kullanıldığını dahil edebilirsiniz.",
+                    "updated": 1650445537570
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Do not include any other type of information in the definition box. Do not explain how to use the node, how the system uses the node, or how the node interacts with other nodes. The definition box must answer the WHAT question, and nothing else."
+            "text": "Do not include any other type of information in the definition box. Do not explain how to use the node, how the system uses the node, or how the node interacts with other nodes. The definition box must answer the WHAT question, and nothing else.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Tanım kutusuna başka herhangi bir bilgi türü eklemeyin. Düğümün nasıl kullanılacağını, sistemin düğümü nasıl kullandığını veya düğümün diğer düğümlerle nasıl etkileşime girdiğini açıklamayın. Tanım kutusu NE sorusuna cevap vermelidir, başka bir şey değil.",
+                    "updated": 1650445591408
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Keep the definition box to a sentence or two whenever possible. Long definitions make cumbersome tooltips and are hard to read in bold."
+            "text": "Keep the definition box to a sentence or two whenever possible. Long definitions make cumbersome tooltips and are hard to read in bold.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İpucu: Tanım kutusunu mümkün olduğunca bir veya iki cümleyle tutun. Uzun tanımlar, hantal araç ipuçları oluşturur ve kalın harflerle okunması zordur.",
+                    "updated": 1650445632361
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Using Blocks and Includes"
+            "text": "Using Blocks and Includes",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Blokları ve İçeriği Kullanmak",
+                    "updated": 1650445656436
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The rest of the definition page is organized in blocks."
+            "text": "The rest of the definition page is organized in blocks.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Tanım sayfasının geri kalanı bloklar halinde organize edilmiştir.",
+                    "updated": 1650445689936
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "We build pages using blocks so that we may later include blocks of content on other pages. This concept of blocks and includes is crucial to avoid duplicating content. When writing a Topic page, you will many times want to refer to content that exists on another page. If that piece of content is set up as a block, then you may include it."
+            "text": "We build pages using blocks so that we may later include blocks of content on other pages. This concept of blocks and includes is crucial to avoid duplicating content. When writing a Topic page, you will many times want to refer to content that exists on another page. If that piece of content is set up as a block, then you may include it.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Daha sonra diğer sayfalara içerik blokları ekleyebilmemiz için blokları kullanarak sayfalar oluşturuyoruz. Bu blok ve içerme kavramı, içeriğin kopyalanmasını önlemek için çok önemlidir. Bir Konu sayfası yazarken, birçok kez başka bir sayfada bulunan içeriğe atıfta bulunmak isteyeceksiniz. Bu içerik parçası bir blok olarak ayarlanmışsa, onu dahil edebilirsiniz.",
+                    "updated": 1650445723792
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "And this is the perfect example! I need to explain how to create blocks, but instead of writing the whole thing, I will include content from the Docs Block Style page."
+            "text": "And this is the perfect example! I need to explain how to create blocks, but instead of writing the whole thing, I will include content from the Docs Block Style page.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ve bu mükemmel bir örnek! Blokların nasıl oluşturulacağını anlatmam gerekiyor ama tamamını yazmak yerine Docs Block Style sayfasından içerik ekleyeceğim.",
+                    "updated": 1650445786417
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Notice the faint quotation marks on the right-hand side of the page right after this paragraph. The quotes represent the point in which a block of content is included on the page. Triple-click to the left of quotes to select/highlight the include command that references the block of content I'm including.",
-            "updated": 1642950360363
+            "updated": 1642950360363,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bu paragraftan hemen sonra sayfanın sağ tarafındaki silik tırnak işaretlerine dikkat edin. Tırnak işaretleri, sayfaya bir içerik bloğunun eklendiği noktayı temsil eder. Dahil ettiğim içerik bloğuna başvuran dahil etme komutunu seçmek/vurgulamak için tırnak işaretlerinin soluna üç kez tıklayın.",
+                    "updated": 1650445825261
+                }
+            ]
         },
         {
             "style": "Include",
@@ -77,30 +168,72 @@
         {
             "style": "Note",
             "text": "Everything above this paragraph belongs to the Docs Block Style page, in particular, to the Definition and Content blocks. Notice how you can't edit the paragraph above. To edit the content that is included in a page, you must edit the source, not the included block.",
-            "updated": 1642959851690
+            "updated": 1642959851690,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Not: Bu paragrafın üzerindeki her şey Doküman Blok Stili ( Docs Block Style ) sayfasına, özellikle Tanım ve İçerik bloklarına aittir. Yukarıdaki paragrafı nasıl düzenleyemediğinize dikkat edin. Bir sayfaya dahil edilen içeriği düzenlemek için, dahil edilen bloğu değil kaynağı düzenlemelisiniz.",
+                    "updated": 1650445879780
+                }
+            ]
         },
         {
             "style": "Warning",
             "text": "You will seldom need to include blocks of content in definition pages. I explained the concept of includes at this point because it helps understand the concept of blocks. You will certainly use blocks in definition pages, but you will not use includes. This is because definition pages refer solely to the node in question and shouldn't include any other kind of information that is not intimately tied to the node itself.",
-            "updated": 1642950616204
+            "updated": 1642950616204,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Uyarı: Tanım sayfalarına içerik bloklarını nadiren eklemeniz gerekir. Bu noktada içerme kavramını açıkladım çünkü blok kavramını anlamaya yardımcı oluyor. Tanım sayfalarında blokları kesinlikle kullanacaksınız, ancak içerme kullanmayacaksınız. Bunun nedeni, tanım sayfalarının yalnızca söz konusu düğüme atıfta bulunması ve düğümün kendisine yakından bağlı olmayan başka tür bilgileri içermemesi gerektiğidir.",
+                    "updated": 1650445920561
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Content Block"
+            "text": "Content Block",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İçerik Bloğu",
+                    "updated": 1650445966189
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "All definition pages must have a Content block. In fact, the first paragraph on the page must be the block definition."
+            "text": "All definition pages must have a Content block. In fact, the first paragraph on the page must be the block definition.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Tüm tanım sayfalarının bir İçerik bloğu olmalıdır. Aslında sayfadaki ilk paragraf blok tanımı olmalıdır.",
+                    "updated": 1650445999010
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Let's try with an example right here!",
-            "updated": 1642950852712
+            "updated": 1642950852712,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hemen burada bir örnekle deneyelim!",
+                    "updated": 1650446008269
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "Notice that the paragraph right after this Note and before the green callout paragraph is the definition of a block named Content. You know there is a block because you can see the triangle turning black when you hover the mouse pointer below this box. You can see the block is called Content if you triple-click on the left of the triangle.",
-            "updated": 1642951014933
+            "updated": 1642951014933,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Not: Bu Nottan hemen sonra ve yeşil belirtme çizgili paragraftan önceki paragrafın, İçerik adlı bir bloğun tanımı olduğuna dikkat edin. Bir blok olduğunu biliyorsunuz çünkü fare işaretçisini bu kutunun altına getirdiğinizde üçgenin siyaha döndüğünü görebilirsiniz. Üçgenin soluna üç kez tıklarsanız, bloğun İçerik olarak adlandırıldığını görebilirsiniz.",
+                    "updated": 1650446086876
+                }
+            ]
         },
         {
             "style": "Block",
@@ -109,27 +242,69 @@
         {
             "style": "Callout",
             "text": "The content block is where you explain HOW the node works. This is where you explain how the system uses the node, how the node interacts with other nodes, and how users may use the node.",
-            "updated": 1642951098027
+            "updated": 1642951098027,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İçerik bloğu, düğümün NASIL çalıştığını açıkladığınız yerdir. Bu, sistemin düğümü nasıl kullandığını, düğümün diğer düğümlerle nasıl etkileşime girdiğini ve kullanıcıların düğümü nasıl kullanabileceğini açıkladığınız yerdir.",
+                    "updated": 1650446130400
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "This is a good opportunity to go to any node in one of the well-known and properly documented hierarchies, click on the help button on the menu, and analyze how the definition page is structured! Try, for instance, the LAN Network Node. Notice that the page has two blocks: Content and Configuring!"
+            "text": "This is a good opportunity to go to any node in one of the well-known and properly documented hierarchies, click on the help button on the menu, and analyze how the definition page is structured! Try, for instance, the LAN Network Node. Notice that the page has two blocks: Content and Configuring!",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bu, iyi bilinen ve düzgün bir şekilde belgelenmiş hiyerarşilerden birindeki herhangi bir düğüme gitmek, menüdeki yardım düğmesine tıklamak ve tanım sayfasının nasıl yapılandırıldığını analiz etmek için iyi bir fırsattır! Örneğin, LAN Ağ Düğümünü ( LAN Network Node ) deneyin. Sayfanın iki bloğu olduğuna dikkat edin: İçerik ve Yapılandırma!",
+                    "updated": 1650446195036
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Configuring Block"
+            "text": "Configuring Block",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Blok Yapılandırma",
+                    "updated": 1650446230289
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "This block may or not be required, depending on the node. If the node has a configuration, then we use the Configuring block to explain each property."
+            "text": "This block may or not be required, depending on the node. If the node has a configuration, then we use the Configuring block to explain each property.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Düğüme bağlı olarak, bu blok gerekli olabilir veya olmayabilir. Düğümün bir yapılandırması varsa, her özelliği açıklamak için Yapılandırma bloğunu kullanırız.",
+                    "updated": 1650446255126
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Take a look at the LAN Network Node page for an example."
+            "text": "Take a look at the LAN Network Node page for an example.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Örnek için LAN Ağ Düğümü ( LAN Network Node ) sayfasına bakın.",
+                    "updated": 1650446280607
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Notice that after the definition of the block, we write the title of the section as follows:"
+            "text": "Notice that after the definition of the block, we write the title of the section as follows:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Dikkat ederseniz bloğun tanımından sonra bölümün başlığını şu şekilde yazıyoruz:",
+                    "updated": 1650446350050
+                }
+            ]
         },
         {
             "style": "Json",
@@ -137,7 +312,14 @@
         },
         {
             "style": "Text",
-            "text": "Following the earlier example, that would be:"
+            "text": "Following the earlier example, that would be:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Önceki örneği takiben, bu şöyle olacaktır:",
+                    "updated": 1650446368556
+                }
+            ]
         },
         {
             "style": "Json",
@@ -146,19 +328,47 @@
         {
             "style": "Text",
             "text": "We use a title to separate the two sections or blocks on the page, pretty much in the same way we use titles elsewhere. Notice that the title must be inside the Configuring  block so that the title is included as well if we ever wish to include this block on another page.",
-            "updated": 1642951199442
+            "updated": 1642951199442,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Sayfadaki iki bölümü veya bloğu ayırmak için bir başlık kullanırız, hemen hemen başka yerlerde başlıklar kullandığımız gibi. Bu bloğu başka bir sayfaya dahil etmek istersek, başlığın da dahil edilmesi için başlığın Yapılandırma bloğunun içinde olması gerektiğine dikkat edin.",
+                    "updated": 1650446405084
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Also notice that we don't use a title after the definition of the Content block. It is simply unnecessary, and the page reads better without one."
+            "text": "Also notice that we don't use a title after the definition of the Content block. It is simply unnecessary, and the page reads better without one.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ayrıca İçerik bloğunun tanımından sonra başlık kullanmadığımıza dikkat edin. Bu tamamen gereksizdir ve sayfa bir tane olmadan daha iyi okunur.",
+                    "updated": 1650446459232
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Auto-generated Information"
+            "text": "Auto-generated Information",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Otomatik Olarak Oluşturulan Bilgiler",
+                    "updated": 1650446485823
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Wherever the content you write ends, the system includes several automatically-generated sections. Take a look at this type of content just so that you notice that you don't need to manually include in your writeups any of the details the system generates automatically."
+            "text": "Wherever the content you write ends, the system includes several automatically-generated sections. Take a look at this type of content just so that you notice that you don't need to manually include in your writeups any of the details the system generates automatically.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yazdığınız içeriğin bittiği yerde, sistem otomatik olarak oluşturulmuş birkaç bölüm içerir. Bu tür içeriğe bir göz atın, böylece sistemin otomatik olarak oluşturduğu ayrıntıların hiçbirini yazmalarınıza manuel olarak eklemeniz gerekmediğini fark edersiniz.",
+                    "updated": 1650446509237
+                }
+            ]
         }
     ]
 }

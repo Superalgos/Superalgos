@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Прошел тест реальной торговли, но Gate.io не поддерживает рыночные ордера",
                 "updated": 1646903016398
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Canlı İşlem Testini geçti ancak Gate.io, Piyasa Emirlerini desteklemiyor",
+                "updated": 1650572216998
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Сведения",
                     "updated": 1646903022741
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikleri",
+                    "updated": 1650572223225
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "RU",
                     "text": "1-минутные свечи OHLCV: Да",
                     "updated": 1646903057039
+                },
+                {
+                    "language": "TR",
+                    "text": "1 dakikalık OHLCV Yeteneği: Evet",
+                    "updated": 1650572231489
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "RU",
                     "text": "История рынка: С августа 2020 года",
                     "updated": 1646903062841
+                },
+                {
+                    "language": "TR",
+                    "text": "Market Geçmişi: Ağustos 2020'den itibaren",
+                    "updated": 1650572244997
                 }
             ]
         },
@@ -59,6 +79,11 @@
                     "language": "RU",
                     "text": "Возможность торговли: Да. Возможность создания и отмены лимитных ордеров в режиме реальной торговли была проверена.",
                     "updated": 1646903076458
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Yeteneği: Evet Canlı alım satım modunda limit emir oluşturma ve iptal etme özelliği doğrulandı.",
+                    "updated": 1650572261876
                 }
             ]
         },
@@ -71,6 +96,11 @@
                     "language": "RU",
                     "text": "Комментарии: Gate.io не поддерживает рыночные ордера",
                     "updated": 1646903086026
+                },
+                {
+                    "language": "TR",
+                    "text": "Yorumlar: Gate.io, Market Emirlerini desteklemiyor",
+                    "updated": 1650572284156
                 }
             ]
         },
@@ -82,6 +112,11 @@
                     "language": "RU",
                     "text": "Конфигурация",
                     "updated": 1646903093946
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırma",
+                    "updated": 1650572290391
                 }
             ]
         },

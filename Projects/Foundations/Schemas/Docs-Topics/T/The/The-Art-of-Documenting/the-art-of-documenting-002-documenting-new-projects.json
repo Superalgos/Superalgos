@@ -4,57 +4,141 @@
     "type": "Documenting New Projects",
     "definition": {
         "text": "Producing original documentation of new features or entirely new projects is a bit challenging. It requires a good understanding of the Docs infrastructure, and of how the existing documentation is built.",
-        "updated": 1642949576428
+        "updated": 1642949576428,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Özet: Yeni özelliklerin veya tamamen yeni projelerin orijinal belgelerini üretmek biraz zordur. Dokümanlar altyapısının ve mevcut dokümantasyonun nasıl oluşturulduğunun iyi anlaşılmasını gerektirir.",
+                "updated": 1650444730076
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Interview the Developers",
-            "updated": 1642949596712
+            "updated": 1642949596712,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Geliştiricilerle Görüşme",
+                    "updated": 1650444750039
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The first requirement is to fully understand what the new project or feature is about. The best approach is to interview the developers involved while recording the session on video."
+            "text": "The first requirement is to fully understand what the new project or feature is about. The best approach is to interview the developers involved while recording the session on video.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İlk gereksinim, yeni projenin veya özelliğin ne hakkında olduğunu tam olarak anlamaktır. En iyi yaklaşım, oturumu videoya kaydederken dahil olan geliştiricilerle röportaj yapmaktır.",
+                    "updated": 1650444772239
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "The developers should explain the new features conceptually, explain how things work, and even demo the features in a dedicated workspace. Make sure you cover what each node in each of the new hierarchies represents and how they work, as you will need to produce individual definition pages for each node.",
-            "updated": 1642949648818
+            "updated": 1642949648818,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Geliştiriciler, yeni özellikleri kavramsal olarak açıklamalı, işlerin nasıl çalıştığını açıklamalı ve hatta özellikleri özel bir çalışma alanında tanıtmalıdır. Her bir düğüm için ayrı tanım sayfaları oluşturmanız gerekeceğinden, yeni hiyerarşilerin her birindeki her bir düğümün neyi temsil ettiğini ve nasıl çalıştığını kapsadığınızdan emin olun.",
+                    "updated": 1650444822475
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Schedule as many interviews as required. Complex functionality may require several sessions."
+            "text": "Schedule as many interviews as required. Complex functionality may require several sessions.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İpucu: Gerektiğinden fazla görüşme planlayın. Karmaşık işlevsellik birkaç oturum gerektirebilir.",
+                    "updated": 1650444908927
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The video recordings will help you go back and review everything that was discussed. This is crucial, as you will probably not understand all the details during the live session, and will likely need to mature the concepts as you write."
+            "text": "The video recordings will help you go back and review everything that was discussed. This is crucial, as you will probably not understand all the details during the live session, and will likely need to mature the concepts as you write.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Video kayıtları, geri dönüp tartışılan her şeyi gözden geçirmenize yardımcı olacaktır. Canlı oturum sırasında muhtemelen tüm ayrıntıları anlamayacağınız ve yazarken kavramları olgunlaştırmanız gerekeceği için bu çok önemlidir.",
+                    "updated": 1650444979717
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Also, you may contribute the video material to the Superalgos Youtube Channel, or publish the content on your channel too."
+            "text": "Also, you may contribute the video material to the Superalgos Youtube Channel, or publish the content on your channel too.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ayrıca video materyalini Superalgos Youtube Kanalına katkıda bulunabilir veya içeriği kendi kanalınızda da yayınlayabilirsiniz.",
+                    "updated": 1650444993817
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Start With Definitions"
+            "text": "Start With Definitions",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Tanımlarla Başlayın",
+                    "updated": 1650445000483
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The very first writeups you will produce are the pages corresponding to each new node type involved. We call these the Definition Pages, as each page defines precisely what each node represents, how it works, and how it relates to other nodes.",
-            "updated": 1642949725862
+            "updated": 1642949725862,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Üreteceğiniz ilk yazılar, ilgili her yeni düğüm tipine karşılık gelen sayfalardır. Her sayfa, her bir düğümün neyi temsil ettiğini, nasıl çalıştığını ve diğer düğümlerle nasıl ilişkili olduğunu tam olarak tanımladığı için bunlara Tanım Sayfaları ( Definition Pages ) adını veriyoruz.",
+                    "updated": 1650445061253
+                }
+            ]
         },
         {
             "style": "Important",
             "text": "It may not be apparent why you should start with definitions, but I assure you it's crucial, mainly for two reasons!",
-            "updated": 1642949745894
+            "updated": 1642949745894,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Önemli: Neden tanımlarla başlamanız gerektiği açık olmayabilir, ancak sizi temin ederim ki bu çok önemli, özellikle iki nedenden dolayı!",
+                    "updated": 1650445103216
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Writing the definition of each node will help you understand each piece of the puzzle in sufficient detail so that you may grasp all the nuance in the overall behavior of the hierarchy. This level of understanding is crucial to figuring out what is the best way to explain the whole project or feature."
+            "text": "Writing the definition of each node will help you understand each piece of the puzzle in sufficient detail so that you may grasp all the nuance in the overall behavior of the hierarchy. This level of understanding is crucial to figuring out what is the best way to explain the whole project or feature.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Her bir düğümün tanımını yazmak, bulmacanın her bir parçasını yeterli ayrıntıda anlamanıza yardımcı olacaktır, böylece hiyerarşinin genel davranışındaki tüm nüansı kavrayabilirsiniz. Bu anlayış düzeyi, tüm projeyi veya özelliği açıklamanın en iyi yolunun ne olduğunu bulmak için çok önemlidir.",
+                    "updated": 1650445130288
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Pretty much like each node in a hierarchy is a piece in a puzzle of the new project or feature, each definition page is a piece in the puzzle of the documentation. In other words, a documentation Topic is comprised mostly of Definition Pages. I will expand on this later on.",
-            "updated": 1642949791650
+            "updated": 1642949791650,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hiyerarşideki her düğümün yeni proje veya özelliğin yapbozunun bir parçası olması gibi, her tanım sayfası da belge yapbozunun bir parçasıdır. Başka bir deyişle, bir dokümantasyon Konusu çoğunlukla Tanım Sayfalarından ( Definition Pages ) oluşur. Bu konuyu daha sonra genişleteceğim.",
+                    "updated": 1650445185462
+                }
+            ]
         }
     ]
 }

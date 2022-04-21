@@ -35,6 +35,7 @@ const expectedObject = {
   PATH_TO_MY_WORKSPACES: path.join(basePath, './Platform/My-Workspaces'),
   PATH_TO_SECRETS: path.join(basePath, './My-Secrets'),
   PATH_TO_FONTS: path.join(basePath, './Platform/WebServer/Fonts'),
+  PATH_TO_BITCOIN_FACTORY: path.join(basePath, './Bitcoin-Factory'),
   DESKTOP_APP_SIGNING_ACCOUNT: 'Social-Trading-Desktop-App-1',
   DESKTOP_APP_MAX_OUTGOING_PEERS: 1,
   DESKTOP_APP_MAX_OUTGOING_START_PEERS: 0,

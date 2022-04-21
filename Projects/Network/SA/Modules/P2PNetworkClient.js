@@ -46,7 +46,7 @@ exports.newNetworkModulesP2PNetworkClient = function newNetworkModulesP2PNetwork
             We will read all user profiles plugins and get from there our network identity.
             */
             thisObject.appBootstrapingProcess = SA.projects.network.modules.appBootstrapingProcess.newNetworkModulesAppBootstrapingProcess()
-            await thisObject.appBootstrapingProcess.run(
+            await thisObject.appBootstrapingProcess.initialize(
                 userAppSigningAccountCodeName,
                 thisObject.p2pNetworkClientIdentity
             )

@@ -4,14 +4,7 @@
     "type": "General Notions on Documenting",
     "definition": {
         "text": "The main challenge in producing collaborative documentation is in maintaining quality and consistency. Let's start with a few general guidelines that will help us set the tone for what's to come.",
-        "updated": 1642956159522,
-        "translations": [
-            {
-                "language": "TR",
-                "text": "Özet: İşbirliğine dayalı dokümantasyon üretmedeki ana zorluk, kalite ve tutarlılığı korumaktır. Gelecekteki gelişmelerin gidişatını belirlememize yardımcı olacak birkaç genel yönergeyle başlayalım.",
-                "updated": 1650444494712
-            }
-        ]
+        "updated": 1642956159522
     },
     "paragraphs": [
         {
@@ -29,36 +22,15 @@
         {
             "style": "Title",
             "text": "Beauty and Readability",
-            "updated": 1642962839272,
-            "translations": [
-                {
-                    "language": "TR",
-                    "text": "Güzellik ve Okunabilirlik",
-                    "updated": 1650444533674
-                }
-            ]
+            "updated": 1642962839272
         },
         {
             "style": "Text",
-            "text": "The ultimate goal of the Docs is to provide the tools that enable everyone to become power users as soon as possible. Beyond clear and accessible content, the Docs must also be easy to read.",
-            "translations": [
-                {
-                    "language": "TR",
-                    "text": "Dokümanlar'ın nihai amacı, herkesin mümkün olan en kısa sürede uzman kullanıcılar haline gelmesini sağlayan araçları sağlamaktır. Açık ve erişilebilir içeriğin ötesinde, Dokümanlar ayrıca okunması kolay olmalıdır.",
-                    "updated": 1650444584459
-                }
-            ]
+            "text": "The ultimate goal of the Docs is to provide the tools that enable everyone to become power users as soon as possible. Beyond clear and accessible content, the Docs must also be easy to read."
         },
         {
             "style": "Callout",
-            "text": "Long pages of plain text are quite painful to read… and are ugly! Instead, alternating different kinds of paragraph styles help make pages nicer and easier to read. Use the callout style for paragraphs that offer key insights or revelations that make up the core of the topic in discussion.",
-            "translations": [
-                {
-                    "language": "TR",
-                    "text": "Uzun düz metin sayfalarını okumak oldukça sıkıcı… Bunun yerine, farklı türde paragraf stillerinin değiştirilmesi, sayfaları daha güzel ve daha kolay okunur hale getirmeye yardımcı olur. Tartışmadaki konunun özünü oluşturan temel içgörüler veya açıklamalar sunan paragraflar için belirtme çizgisi stilini kullanın.",
-                    "updated": 1650444685829
-                }
-            ]
+            "text": "Long pages of plain text are quite painful to read… and are ugly! Instead, alternating different kinds of paragraph styles help make pages nicer and easier to read. Use the callout style for paragraphs that offer key insights or revelations that make up the core of the topic in discussion."
         },
         {
             "style": "Include",

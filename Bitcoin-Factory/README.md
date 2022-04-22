@@ -311,32 +311,22 @@ When you are running more than one instance, chances are that you will get the b
 
 ## Instructions for each OS
 
-For specific information on how to run the Docker Container and the App at different OS, please read the following sections:
+For specific information on how to run the Docker Container in different OS, please read the following sections:
 
 ### on Windows
 
 Run the container with this commnad. Change the path if you did not install this App at the commands location.
 
 ```sh
-docker run -it --rm --name Bitcoin-Factory-ML -v C:/Superalgos/Bitcoin-Factory/notebooks:/tf/notebooks -p 8888:8888 bitcoin-factory-machine-learning
-```
-
-Run the App:
-
-```sh
-node runTestClient TEST_CLIENT_INSTANCE_NAME
+docker run --gpus all -it --rm --name Bitcoin-Factory-ML -v C:/Superalgos/Bitcoin-Factory/notebooks:/tf/notebooks -p 8888:8888 bitcoin-factory-machine-learning
 ```
 
 ### on Ubuntu Server
 
-Run the Docker Container:
+Run the Docker container with this commnad. Change the path if you did not install this App at the commands location.
 
 ```sh
-sudo docker run -it --rm --name Bitcoin-Factory-ML -v ~/superalgos/Bitcoin-Factory/Test-Client/notebooks:/tf/notebooks -p 8888:8888 bitcoin-factory-machine-learning
-```
-
-```sh
-sudo node runTestClient TEST_CLIENT_INSTANCE_NAME
+sudo docker run --gpus all -it --rm --name Bitcoin-Factory-ML -v ~/Superalgos/Bitcoin-Factory/Test-Client/notebooks:/tf/notebooks -p 8888:8888 bitcoin-factory-machine-learning
 ```
 
 ### on Mac OS
@@ -353,40 +343,28 @@ To add the 'notebooks' Directory: Click + and navigate to the 'notebooks' direct
 
 Apply & Restart makes the directory available to containers using Docker’s bind mount (-v) feature.
 
-#### Run the Container & the App
+#### Run the Container
 
 The command to run the container on Mac should be like this (mind Your-User-Name).
+
+```sh
+docker run --gpus all -it --rm --name Bitcoin-Factory-ML -v /Users/Your-User-Name/Superalgos/Bitcoin-Factory/Test-Client/notebooks:/tf/notebooks -p 8888:8888 bitcoin-factory-machine-learning
+```
 
 In Linux:
 
 ```sh
-docker run -it --rm --name Bitcoin-Factory-ML -v /Users/Your-User-Name/Superalgos/Bitcoin-Factory/Test-Client/notebooks:/tf/notebooks -p 8888:8888 bitcoin-factory-machine-learning
+docker run --gpus all -it --rm --name Bitcoin-Factory-ML -v /Users/Your-User-Name/Superalgos/Bitcoin-Factory/Test-Client/notebooks:/tf/notebooks -p 8888:8888 bitcoin-factory-machine-learning
 ```
 In Windows:
 
 ```sh
-docker run -it --rm --name Bitcoin-Factory-ML -v C:/Superalgos/Bitcoin-Factory/Test-Client/notebooks:/tf/notebooks -p 8888:8888 bitcoin-factory-machine-learning
-```
-
-Run the App:
-
-```sh
-node runTestClient TEST_CLIENT_INSTANCE_NAME
+docker run --gpus all -it --rm --name Bitcoin-Factory-ML -v C:/Superalgos/Bitcoin-Factory/Test-Client/notebooks:/tf/notebooks -p 8888:8888 bitcoin-factory-machine-learning
 ```
 
 ### On Raspbian
 
 Early test on Raspbian has shown difficulties to build the docker image. If you manage to make it work with this OS please report back so that we update the specific instructions for it.
-
-## How to Upgrade
-
-The procedure to upgrade this App is the following: Open a Terminal at the ML-Test-Client folder. The you need to pull again the app repository and the WebRTC repository.
-
-```sh
-git pull
-cd ML-Test-WebRTC
-git pull
-```
 
 ## Troubleshooting - Docker Cheat Sheet
 

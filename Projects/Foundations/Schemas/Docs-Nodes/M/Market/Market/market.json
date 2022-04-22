@@ -53,6 +53,36 @@
                     "updated": 1642405469664
                 }
             ]
+        },
+        {
+            "style": "Text",
+            "text": "Superalgos lets you fine tune the connection to exchanges. For example if a user want to use Bybit Perpetuals then he have the ability to set up the trading system at the exchange level to have an hedge position. This must be reflected in the way Superalgos connects to the exchange. Additional parameters can be set up and passed to Superalgos with the following properties:",
+            "updated": 1650647470784
+        },
+        {
+            "style": "Text",
+            "text": "codeName It's the pair name to use for trading.",
+            "updated": 1650647533016
+        },
+        {
+            "style": "Text",
+            "text": "positionParameters It's an object that can be populated with exchange specific parameters.",
+            "updated": 1650647570917
+        },
+        {
+            "style": "Text",
+            "text": "Example:",
+            "updated": 1650647308494
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"codeName\": \"BIT/USDT\",\n    \"positionParams\": {\n        \"position_idx\": 0\n    }\n}",
+            "updated": 1650647635268
+        },
+        {
+            "style": "Important",
+            "text": "Usually these parameters are exchange specific and not interchangeable. This means that every exchange has its specific parameters to use.",
+            "updated": 1650647765349
         }
     ]
 }

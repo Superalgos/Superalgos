@@ -123,8 +123,8 @@
         },
         {
             "style": "Subtitle",
-            "text": "Properties",
-            "updated": 1609771684679,
+            "text": "Properties and Parameters",
+            "updated": 1650623361424,
             "translations": [
                 {
                     "language": "RU",
@@ -132,6 +132,11 @@
                     "updated": 1638648483805
                 }
             ]
+        },
+        {
+            "style": "Text",
+            "text": "Superalgos uses CCXT (CryptoCurrency eXchange Trading Library) to connect to exchanges. It supports hundreds of exchanges to which it connects through APIs created on the exchange by the user. One of the best feature of ccxt is that it is exchange agnostic. Whether you trade on FTX or Bybit the process to connect to the exchange is the same. The library accepts many parameters to fine tune the connection when needed. For well supported exchanges like Binance, all you need to connect to the exchange is to declare the codeName that is the name of the exchane you want to use, usually in lowercase letters.",
+            "updated": 1650647816973
         },
         {
             "style": "List",
@@ -151,14 +156,15 @@
         },
         {
             "style": "List",
-            "text": "sandBox setting this parameter to true allows SuperAlgos to perform live trading on the exchanges sandbox or testnet if one is available.",
+            "text": "sandBox some exchanges have a so called testnet/sandBox mode that enables traders to try out all the exchange features in a simulated environment. Set it to true to enable it. Please note that some exchanges (like Bittrex for example) can throw an error with this parameter set to false. Simply delete that line in such cases.",
             "translations": [
                 {
                     "language": "RU",
                     "text": "sandBox установка этого параметра в значение true позволяет Superego осуществлять реальную торговлю в песочнице бирж или тестовой сети, если таковая доступна.",
                     "updated": 1638648591939
                 }
-            ]
+            ],
+            "updated": 1650635009708
         },
         {
             "style": "List",
@@ -173,14 +179,95 @@
         },
         {
             "style": "List",
-            "text": "API holds a series of definitions used only in the case in which the sensor bot fetches trades (using the Historic-Trades process) instead of the OHLCV process that fetches one-minute candles and is the current default. In such a case, finding the right set of parameters to work with a specific exchange may be challenging, nd involves understanding how the exchanges API and the CCXT Library API work. In other words, there is no hard rule as of what each of the values should be. Determining each of this values requires exploring the exchange's API documentation, as well as the documentation of the CCXT Library.",
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "API содержит ряд определений, используемых только в том случае, когда бот-датчик выбирает сделки (используя процесс исторических сделок) вместо процесса OHLCV, который выбирает одноминутные свечи и является текущим значением по умолчанию. В таком случае поиск правильного набора параметров для работы с конкретным обменом может оказаться сложной задачей и требует понимания того, как работают API exchange и API библиотеки CCXT. Другими словами, нет жесткого правила относительно того, какой должна быть каждая из ценностей. Для определения каждого из этих значений требуется изучить документацию API биржи, а также документацию библиотеки CCXT.",
-                    "updated": 1638648888938
-                }
-            ]
+            "text": "rateLimit to override the default value set by ccxt library",
+            "updated": 1650633950484
+        },
+        {
+            "style": "List",
+            "text": "limit could be required by some exchanges in order to properly connect",
+            "updated": 1650639986743
+        },
+        {
+            "style": "List",
+            "text": "options: used as an object to pass aditional parameters to the exchange, for example when trading an inverse pair",
+            "updated": 1650646598123
+        },
+        {
+            "style": "List",
+            "text": "hostname to set custom hostname for the exchange",
+            "updated": 1650633976150
+        },
+        {
+            "style": "Text",
+            "text": "Example of use:"
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"codeName\": \"bybit\",\n    \"limit\": 50,\n    \"options\": {\n        \"adjustForTimeDifference\": \"true\",\n        \"defaultType\": \"inverse\"\n    }\n}",
+            "updated": 1650640075422
+        },
+        {
+            "style": "Note",
+            "text": "For well known exchanges setting up the correct codeName is enough to enable the connection and no additional parameters are needed!",
+            "updated": 1650646975734
+        },
+        {
+            "style": "Text",
+            "text": "Some exchanges do not accept a standard configuration for fetching candles. In this case a possible solution can be to use a different method to fetch candles. API holds a series of definitions used only in the case in which the sensor bot fetches trades (using the Historic-Trades process) instead of the OHLCV process that fetches one-minute candles and is the current default. In such a case, finding the right set of parameters to work with a specific exchange may be challenging and involves understanding how the exchanges API and the CCXT Library API work. In other words, there is no hard rule as of what each of the values should be. Determining each of this values requires exploring the exchange's API documentation, as well as the documentation of the CCXT Library. To enable the API use, first declare its use to have access to all its parameters."
+        },
+        {
+            "style": "List",
+            "text": "API.method fetch_ohlcv is required to enable the API parameters use",
+            "updated": 1650646783132
+        },
+        {
+            "style": "List",
+            "text": "API.class is used for declaring the \"exchangeId\"",
+            "updated": 1650646792335
+        },
+        {
+            "style": "List",
+            "text": "API.fetchOHLCVsMethod to use the fetchOHLCVsMethod",
+            "updated": 1650629783776
+        },
+        {
+            "style": "List",
+            "text": "API.firstId to declare the firstId",
+            "updated": 1650629788135
+        },
+        {
+            "style": "List",
+            "text": "API.rateLimit to change the default rateLimit",
+            "updated": 1650629792154
+        },
+        {
+            "style": "List",
+            "text": "API.limit to change the default exchange limit parameter",
+            "updated": 1650629796143
+        },
+        {
+            "style": "List",
+            "text": "API.hostname to change the default hostname",
+            "updated": 1650629800326
+        },
+        {
+            "style": "List",
+            "text": "API.fetchType is used in combination with API.useFetchTradesForFetchOHLCVs",
+            "updated": 1650629806813
+        },
+        {
+            "style": "List",
+            "text": "API.maxTradesPerFetch to set the maxRate when using API",
+            "updated": 1650629811132
+        },
+        {
+            "style": "Text",
+            "text": "Example of use:"
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"codeName\": \"exchangeName\",\n    \"API\": [\n        {\n            \"method\": \"fetch_ohlcv\",\n            \"limit\": 100\n        }\n    ]\n}",
+            "updated": 1650646759978
         }
     ]
 }

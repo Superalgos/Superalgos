@@ -79,7 +79,7 @@ This App does need Superalgos to save the best predictions as indicators in ther
 
 ### How does this Test Client App work?
 
-This app is used to autonomously test different set of parameters to see which Machine Learnning models can produce better forecasts.
+This app is used to autonomously test different set of parameters to see which Machine Learning models can produce better forecasts.
 
 This is part of a system that also has a Test Server App and another app called the Forecast Client. The Test Server app manages a set of different Test Cases that needs to be crowd-tested.
 
@@ -92,7 +92,7 @@ Once a Test Case is received, the Test Client app will write 2 files at the note
 
 After these files are written, the Test Client App will execute inside the TensorFlow container the Bitcoin_Factory_LSTM.py script. 
 
-This script reads boths files, and creates a ML model using the provided parameters and the data at the time-series file. It's execution could take several minutes. Once finished, a set of results are sent back from the Python script to the Test Client app, which in turn sends via webRTC the results to the Test Server app. 
+This script reads boths files, and creates a ML model using the provided parameters and the data at the time-series file. Its execution could take several minutes. Once finished, a set of results are sent back from the Python script to the Test Client app, which in turn sends via webRTC the results to the Test Server app. 
 
 The Test Server app remembers all the test results and organizes a collection with the best crowd-sourced forecasts for each Asset / Timeframe. 
 
@@ -122,7 +122,7 @@ This app feeds itself from the Test Server foracast cases. A forecast case is th
 
 ### Should I leave this Test Client App Running?
 
-Yes, if you want to be receiving the crowd-sourced forecasts over time. Each new hour, you will get new forecast obtenined with the best crowd-sourced models available for each Asset / Timeframe. 
+Yes, if you want to be receiving the crowd-sourced forecasts over time. Each new hour, you will get new forecast obtained with the best crowd-sourced models available for each Asset / Timeframe. 
 
 If you have this app running, you will be collecting all these forecasts and building over time historical dataset with the forecasts received. That could later be used for backtesting strategies which relies on these forecasts. 
 
@@ -172,10 +172,10 @@ To run this software you need a Superalgos Profile with the node Forecast Provid
 For your Test Client App to work and be able to connect to the Test Server you need to:
 
 1. The Bitcoin Factory Forecast node must be named Testnet.
-2. You need a Test Client Instance for each process or instance of this Test Client App you want to keep ruuning. Name it as you like.
-3. You will need to assing each Test Client Instance some SA token power if you wish to receive the best crowd-sourced predictions at the end of each of your tests. How much token power for each prediction is to be determined in the near future once the assigned token power will be checked at a future release.
+2. You need a Test Client Instance for each process or instance of this Test Client App you want to keep running. Name it as you like.
+3. You will need to assign each Test Client Instance some SA token power if you wish to receive the best crowd-sourced predictions at the end of each of your tests. How much token power for each prediction is to be determined in the near future once the assigned token power will be checked at a future release.
 
-Note 1: Once you add those nodes to your profile you still needs to contribute it and it needs to be merged. After that you will need to wait until the Test Server updates it's Superalgos installation that as of today is a manual task. If you are exited and would like to speed this process up, please contact me on Telegram. (@luis_fernando_molina)
+Note 1: Once you add those nodes to your profile you still needs to contribute it and it needs to be merged. After that you will need to wait until the Test Server updates it's Superalgos installation that as of today is a manual task. If you are excited and would like to speed this process up, please contact me on Telegram. (@luis_fernando_molina)
 
 Note 2: In the future, pending a deeper integration with the Superalgos Governance system, you will be able to receive SA tokens for each Test Case you have processed. We will start counting the solved Test Cases from now.
 

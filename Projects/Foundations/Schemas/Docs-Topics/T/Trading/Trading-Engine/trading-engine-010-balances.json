@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Следите за балансом каждого актива в разные моменты времени. На этой странице: Balance (Баланс), Begin Balance (Начальный баланс) и End Balance (Конечный баланс).",
                 "updated": 1640347468642
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Zamanın farklı noktalarında her bir varlığın bakiyelerini takip edin. Bu sayfada: Bakiye, Bakiyeyi Başlat ve Bakiyeyi Bitir ( Balance, Begin Balance, and End Balance ).",
+                "updated": 1650617815777
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Балансы являются основой функций ведения счета, благодаря которым вы можете точно знать, сколько каждого актива находится на счете в любой момент времени.",
                     "updated": 1640347567684
+                },
+                {
+                    "language": "TR",
+                    "text": "Bakiyeler, herhangi bir zamanda hesapta her bir varlığın ne kadarının bulunduğunu tam olarak bilebileceğiniz hesap tutma özelliklerinin temelidir.",
+                    "updated": 1650617774865
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Система отслеживает баланс в различных контекстах, а также сохраняет снимки баланса в ключевые моменты времени, чтобы эта информация была доступна как для изучения результатов операций, так и для использования в торговых стратегиях.",
                     "updated": 1640347635177
+                },
+                {
+                    "language": "TR",
+                    "text": "Sistem, birçok bağlamda bakiyeleri takip eder, ancak aynı zamanda önemli anlarda bakiyenin ne olduğunun anlık görüntülerini de kaydeder, böylece bu tür bilgiler hem operasyonların sonuçlarını incelemek için kullanılabilir hem de ticarette kullanılabilir.",
+                    "updated": 1650617755933
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "RU",
                     "text": "Важно понимать, что балансы - это внутренняя концепция, управляемая торговым движком, и рассчитываются на основе информации, обрабатываемой торговым ботом. Балансы не обязательно отражают фактическое количество активов на бирже.",
                     "updated": 1640347706152
+                },
+                {
+                    "language": "TR",
+                    "text": "Bakiyelerin, ticaret motoru tarafından yönetilen dahili bir kavram olduğunu ve ticaret botu tarafından işlenen bilgilere dayanarak hesaplandığını anlamak önemlidir. Bakiyeler, borsadaki varlıkların gerçek miktarını mutlaka yansıtmaz.",
+                    "updated": 1650617842459
                 }
             ]
         },

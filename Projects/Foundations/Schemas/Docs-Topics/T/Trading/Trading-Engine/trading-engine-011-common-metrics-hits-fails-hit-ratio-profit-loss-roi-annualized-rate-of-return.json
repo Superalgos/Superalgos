@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Эти показатели доступны в различных контекстах, например, на уровне Episode или Position, причем как для базовых, так и для котируемых активов.",
                 "updated": 1640347853331
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu metrikler farklı bağlamlarda, örneğin Bölüm, Pozisyon veya Pozisyon düzeyinde ve hem temel hem de teklif edilen varlıklar için mevcuttur.",
+                "updated": 1650617897558
             }
         ]
     },

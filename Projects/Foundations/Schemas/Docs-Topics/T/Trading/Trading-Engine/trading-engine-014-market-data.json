@@ -3,7 +3,14 @@
     "pageNumber": "14",
     "type": "Market Data",
     "definition": {
-        "text": "Write a summary for this topic page."
+        "text": "Write a summary for this topic page.",
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Özet: Bu konu sayfası için bir özet yazın.",
+                "updated": 1650618147597
+            }
+        ]
     },
     "paragraphs": [
         {

@@ -163,25 +163,24 @@ The Test Client and Test Server interact in a p2p way via the Superalgos Network
 * git
 * docker
 
-## Superalgos Profile
+## App Setup
+
+The current version of Bitcoin Factory is already integrated into Superalgos. You need to load the Bitcoin Factory Demo Plugin workspace, and from there you will run the Test Client task.
+
+## Setting up your Superalgos Profile and the Task to run
 
 To run this software you need a Superalgos Profile with the node Forecast Providers / Bitcoin Factory Forecast / Test Client Instance.
 
-### In Detail 
+### Overview
 
 For your Test Client App to work and be able to connect to the Test Server you need to check that:
 
-1. The Bitcoin Factory Forecast node must be named Testnet.
-2. You need a Test Client Instance for each process or instance of this Test Client App you want to keep running. Name it as you like.
-3. You will need to assign each Test Client Instance some SA token power if you wish to receive the best crowd-sourced predictions at the end of each of your tests. How much token power for each prediction is to be determined in the near future once the assigned token power will be checked at a future release.
+1. Update your User Profile with several nodes that today you might not have.
+2. Create the Signing Accounts to allow your Test Client app run with an indentity that the Superalgos Network can recognize.
+3. Reference from the Task -> Task Server App Reference one of the nodes you added to your profile.
+4. Change a config to specify the name of your Test Client, so that you can recognize it among other test clients on the execution reports.
 
-Note 1: Once you add those nodes to your profile you still needs to contribute your User Profile and it needs to be merged. After that you will need to wait until the Network Node updates it's Superalgos Plugins including the User Profiles, and that happens every 5 minutes. 
-
-Note 2: In the future, pending a deeper integration with the Superalgos Governance system, you will be able to receive SA tokens for each Test Case you have processed. We will start counting the solved Test Cases from now.
-
-## Setup
-
-The current version of Bitcoin Factory is already integrated into Superalgos. You need to load the Bitcoin Factory Demo Plugin workspace, and from there you will run the Test Client task.
+Continue reading this section for detailed step by step instructions of how to do the above.
 
 ### Update your User Profile
 
@@ -214,6 +213,8 @@ Node Config:
     "codeName": "Assign-A-Name"
 }
  ```
+
+### Signing Accounts
 
 Finally, you need to re-generate the signing accounts of your User Profile, so that a new node of type Signing Accounts is created under the "Task-Server-App-1" node. The procedure to do this is the following:
 
@@ -251,6 +252,8 @@ After that, open the config of the Test-Client Sensor Bot Instance. It looks lik
 * logTrainingOutput: Set it to true if you want more detail of the Machile Learning process at the console.
 * clientInstanceName: IMPORTANT: Change this to match your own name created at your user profile.
 
+
+## Docker Setup
 
 Build the Docker Image. Open a console at the Bitcoin-Factory folder inside Superalgos and follow the instructions according to your hardware:
 

@@ -39,7 +39,7 @@ exports.newNetworkApp = function newNetworkApp() {
             This is what we call the bootstrap process.
             */
             let appBootstrapingProcess = SA.projects.network.modules.appBootstrapingProcess.newNetworkModulesAppBootstrapingProcess()
-            await appBootstrapingProcess.initialize(global.env.P2P_NETWORK_NODE_SIGNING_ACCOUNT, thisObject.p2pNetworkNode)
+            await appBootstrapingProcess.initialize(global.env.P2P_NETWORK_NODE_SIGNING_ACCOUNT, thisObject.p2pNetworkNode, true)
             /*
             Let's discover which are the nodes at the p2p network and have an array of nodes
             to which we can connect to. This module will run the rules of who we can connect to.

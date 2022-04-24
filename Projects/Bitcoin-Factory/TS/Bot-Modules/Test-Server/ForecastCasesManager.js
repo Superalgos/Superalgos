@@ -91,31 +91,65 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
                 timestamp: testCase.timestamp,
                 when: testCase.when,
                 testedBy: testCase.testedBy,
-                status: 'Model Not Built Yet'
+                status: 'Never Forecasted'
             }
             thisObject.forecastCasesArray.push(forecastCase)
             thisObject.forecastCasesMap.set(forecastCase.id, forecastCase)
         }
     }
 
-    async function getNextForecastCase() {
+    async function getNextForecastCase(currentClientInstance) {
+        /*
+        The first thing we will try to do is to see if this Forecast Client Instance was not already assigned a Forecast case for which it never 
+        reported back. This is a common situation when some kind of error occured and the whole cycle was not closed.
+        */
         for (let i = 0; i < thisObject.forecastCasesArray.length; i++) {
             let forecastCase = thisObject.forecastCasesArray[i]
-            if (forecastCase.status === 'Model Not Built Yet') {
-                forecastCase.status = 'Model Buing Built'
-
-                let testCase = TS.projects.foundations.globals.taskConstants.TEST_SERVER.testCasesManager.testCasesMap.get(forecastCase.parametersHash)
-                forecastCase.forcastedCandle = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.dataBridge.updateDatasetFiles(testCase)
-
-                let nextForecastCase = {
-                    id: forecastCase.id,
-                    caseIndex: forecastCase.caseIndex, 
-                    totalCases: thisObject.forecastCasesArray.length,
-                    parameters: forecastCase.parameters,
-                    files: TS.projects.foundations.globals.taskConstants.TEST_SERVER.dataBridge.getFiles(testCase)
-                }
-                return nextForecastCase
+            if (forecastCase.status === 'Being Forecasted' && forecastCase.assignedTo === currentClientInstance) {
+                return await assignForecastCase(forecastCase)
             }
+        }
+        /*
+        The second thing we will try to do is to see if there are assigned forecast cases that have not been tested in more than 24 hours. 
+        If we find one of those, we will re assign them.
+        */
+        for (let i = 0; i < thisObject.forecastCasesArray.length; i++) {
+            let forecastCase = thisObject.forecastCasesArray[i]
+            let assignedTimestamp = forecastCase.assignedTimestamp
+            if (assignedTimestamp === undefined) { assignedTimestamp = 0 }
+            let now = (new Date()).valueOf()
+            let diff = now - assignedTimestamp
+            if (forecastCase.status === 'Being Forecasted' && diff > SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS) {
+                return await assignForecastCase(forecastCase)
+            }
+        }
+        /*
+        If we could not re assing an already assiged forecast case, then we will just find the next one.
+        */
+        for (let i = 0; i < thisObject.forecastCasesArray.length; i++) {
+            let forecastCase = thisObject.forecastCasesArray[i]
+            if (forecastCase.status === 'Never Forecasted') {
+                return await assignForecastCase(forecastCase)
+            }
+        }
+
+        async function assignForecastCase(forecastCase) {
+            forecastCase.status = 'Being Forecasted'
+            forecastCase.assignedTo = currentClientInstance
+            forecastCase.assignedTimestamp = (new Date()).valueOf()
+
+            let testCase = TS.projects.foundations.globals.taskConstants.TEST_SERVER.testCasesManager.testCasesMap.get(forecastCase.parametersHash)
+            forecastCase.forcastedCandle = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.dataBridge.updateDatasetFiles(testCase)
+            saveForecastCasesFile()
+
+            let nextForecastCase = {
+                id: forecastCase.id,
+                caseIndex: forecastCase.caseIndex,
+                totalCases: thisObject.forecastCasesArray.length,
+                parameters: forecastCase.parameters,
+                files: TS.projects.foundations.globals.taskConstants.TEST_SERVER.dataBridge.getFiles(forecastCase)
+            }
+            return nextForecastCase
         }
     }
 
@@ -129,7 +163,7 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
 
                 let thisForecastCase = {
                     id: forecastCase.id,
-                    caseIndex: forecastCase.caseIndex, 
+                    caseIndex: forecastCase.caseIndex,
                     parameters: forecastCase.parameters,
                     files: TS.projects.foundations.globals.taskConstants.TEST_SERVER.dataBridge.getFiles(testCase)
                 }

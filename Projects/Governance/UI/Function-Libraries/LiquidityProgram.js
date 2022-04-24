@@ -8,7 +8,8 @@ function newGovernanceFunctionLibraryLiquidityProgram() {
     function calculate(
         pools,
         userProfiles,
-        asset
+        asset,
+        exchange
     ) {
         let programPoolTokenReward
         /*
@@ -18,10 +19,22 @@ function newGovernanceFunctionLibraryLiquidityProgram() {
          */
         let accumulatedProgramPower = 0
 
+        if (exchange === undefined) { exchange = "PANCAKE" }
+        let configPropertyObject = {
+            "asset": asset,
+            "exchange": exchange
+        }
+        /* For backwards compatibility, treat empty exchange configurations as PANCAKE */
+        let configFallbackObject = {
+            "asset": asset,
+            "exchange": null
+        }
+        let assetExchange = asset + "-" + exchange
+
         /* Scan Pools Until finding the Pool for this program*/
         for (let i = 0; i < pools.length; i++) {
             let poolsNode = pools[i]
-            programPoolTokenReward = UI.projects.governance.utilities.pools.findPool(poolsNode, "Liquidity-Rewards-" + asset)
+            programPoolTokenReward = UI.projects.governance.utilities.pools.findPool(poolsNode, "Liquidity-Rewards-" + assetExchange)
             if (programPoolTokenReward !== undefined) { break }
         }
         if (programPoolTokenReward === undefined || programPoolTokenReward === 0) { return }
@@ -30,7 +43,13 @@ function newGovernanceFunctionLibraryLiquidityProgram() {
             let userProfile = userProfiles[i]
 
             if (userProfile.tokenPowerSwitch === undefined) { continue }
-            let program = UI.projects.governance.utilities.validations.onlyOneProgramBasedOnConfigProperty(userProfile, "Liquidity Program", 'asset', asset)
+            //let program = UI.projects.governance.utilities.validations.onlyOneProgramBasedOnConfigProperty(userProfile, "Liquidity Program", 'asset', asset)
+            let program = UI.projects.governance.utilities.validations.onlyOneProgramBasedOnMultipleConfigProperties(userProfile, "Liquidity Program", configPropertyObject)
+            /* If no result is found, take undefined exchanges as PANCAKE for backwards compatibility */
+            if (program === undefined && exchange === "PANCAKE")
+            {
+                program = UI.projects.governance.utilities.validations.onlyOneProgramBasedOnMultipleConfigProperties(userProfile, "Liquidity Program", configFallbackObject) 
+            }
             if (program === undefined) { continue }
             if (program.payload === undefined) { continue }
 
@@ -40,7 +59,12 @@ function newGovernanceFunctionLibraryLiquidityProgram() {
             let userProfile = userProfiles[i]
 
             if (userProfile.tokenPowerSwitch === undefined) { continue }
-            let program = UI.projects.governance.utilities.validations.onlyOneProgramBasedOnConfigProperty(userProfile, "Liquidity Program", 'asset', asset)
+            //let program = UI.projects.governance.utilities.validations.onlyOneProgramBasedOnConfigProperty(userProfile, "Liquidity Program", 'asset', asset)
+            let program = UI.projects.governance.utilities.validations.onlyOneProgramBasedOnMultipleConfigProperties(userProfile, "Liquidity Program", configPropertyObject)
+            if (program === undefined && exchange === "PANCAKE")
+            {
+                program = UI.projects.governance.utilities.validations.onlyOneProgramBasedOnMultipleConfigProperties(userProfile, "Liquidity Program", configFallbackObject) 
+            }
             if (program === undefined) { continue }
             if (program.payload === undefined) { continue }
 
@@ -50,7 +74,12 @@ function newGovernanceFunctionLibraryLiquidityProgram() {
             let userProfile = userProfiles[i]
 
             if (userProfile.tokenPowerSwitch === undefined) { continue }
-            let program = UI.projects.governance.utilities.validations.onlyOneProgramBasedOnConfigProperty(userProfile, "Liquidity Program", 'asset', asset)
+            //let program = UI.projects.governance.utilities.validations.onlyOneProgramBasedOnConfigProperty(userProfile, "Liquidity Program", 'asset', asset)
+            let program = UI.projects.governance.utilities.validations.onlyOneProgramBasedOnMultipleConfigProperties(userProfile, "Liquidity Program", configPropertyObject)
+            if (program === undefined && exchange === "PANCAKE")
+            {
+                program = UI.projects.governance.utilities.validations.onlyOneProgramBasedOnMultipleConfigProperties(userProfile, "Liquidity Program", configFallbackObject) 
+            }
             if (program === undefined) { continue }
             if (program.payload === undefined) { continue }
             if (program.payload.liquidityProgram.isActive === false) { continue }
@@ -61,7 +90,12 @@ function newGovernanceFunctionLibraryLiquidityProgram() {
             let userProfile = userProfiles[i]
 
             if (userProfile.tokenPowerSwitch === undefined) { continue }
-            let program = UI.projects.governance.utilities.validations.onlyOneProgramBasedOnConfigProperty(userProfile, "Liquidity Program", 'asset', asset)
+            //let program = UI.projects.governance.utilities.validations.onlyOneProgramBasedOnConfigProperty(userProfile, "Liquidity Program", 'asset', asset)
+            let program = UI.projects.governance.utilities.validations.onlyOneProgramBasedOnMultipleConfigProperties(userProfile, "Liquidity Program", configPropertyObject)
+            if (program === undefined && exchange === "PANCAKE")
+            {
+                program = UI.projects.governance.utilities.validations.onlyOneProgramBasedOnMultipleConfigProperties(userProfile, "Liquidity Program", configFallbackObject) 
+            }
             if (program === undefined) { continue }
             if (program.payload === undefined) { continue }
             if (program.payload.liquidityProgram.isActive === false) { continue }
@@ -124,7 +158,7 @@ function newGovernanceFunctionLibraryLiquidityProgram() {
             Here we will convert Liquidity Tokens into Liquidity Power. 
             As per system rules Liquidity Power = userProfile.payload.liquidityTokens
             */
-            let programPower = userProfile.payload.liquidityTokens[asset]
+            let programPower = userProfile.payload.liquidityTokens[assetExchange]
             programNode.payload.liquidityProgram.ownPower = programPower
 
             accumulatedProgramPower = accumulatedProgramPower + programPower

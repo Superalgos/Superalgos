@@ -32,44 +32,76 @@ exports.newBitcoinFactoryModulesMachineLearningNetworkServiceClient = function n
 
     async function sendMessage(messageHeader) {
 
-        switch (messageHeader.requestType) {
-            case 'Query': {
-                let queryMessage
-                try {
-                    queryMessage = JSON.parse(messageHeader.queryMessage)
-                } catch (err) {
+        return new Promise(promiseWork)
+
+        async function promiseWork(resolve, reject) {
+            let promiseStatus = 'Unresolved'
+            setTimeout(onTimeout, 6000)
+
+            switch (messageHeader.requestType) {
+                case 'Query': {
+                    let queryMessage
+                    try {
+                        queryMessage = JSON.parse(messageHeader.queryMessage)
+                    } catch (err) {
+                        promiseStatus = 'Rejected'
+                        let response = {
+                            result: 'Error',
+                            message: 'queryMessage Not Correct JSON Format.'
+                        }
+                        reject(JSON.stringify(response))
+                    }
+
+                    messageHeader.queryMessage = JSON.stringify(queryMessage)
+
+                    /*
+                    In general, all Queries go to the P2P Network to fetch information from the Bitcoin Factory Server. 
+                    */
+                    await thisObject.machineLearningNetworkServiceProxy.sendMessage(JSON.stringify(messageHeader))
+                        .then(onSuccess)
+                        .catch(onError)
+                    async function onSuccess(data) {
+                        if (promiseStatus === 'Unresolved') {
+                            promiseStatus = 'Resolved'
+                            let response = {
+                                result: 'Ok',
+                                message: 'Web App Interface Query Processed.',
+                                data: data
+                            }
+                            resolve(response)
+                        }
+                    }
+                    async function onError(data) {
+                        if (promiseStatus === 'Unresolved') {
+                            promiseStatus = 'Rejected'
+                            let response = {
+                                result: 'Error',
+                                message: 'Error sending the message.',
+                                data: data
+                            }
+                            reject(JSON.stringify(response))
+                        }
+                    }
+                }
+                default: {
+                    promiseStatus = 'Rejected'
                     let response = {
                         result: 'Error',
-                        message: 'queryMessage Not Correct JSON Format.'
+                        message: 'requestType Not Supported.'
                     }
-                    return JSON.stringify(response)
+                    reject(JSON.stringify(response))
                 }
-
-                messageHeader.queryMessage = JSON.stringify(queryMessage)
-
-                let response
-
-                // console.log((new Date()).toISOString(), '- Web App Interface', '- Query Message Received', JSON.stringify(queryMessage))
-
-                /*
-                In general, all Queries go to the P2P Network to fetch information from the Bitcoin Factory Server. 
-                */
-                response = {
-                    result: 'Ok',
-                    message: 'Web App Interface Query Processed.',
-                    data: await thisObject.machineLearningNetworkServiceProxy.sendMessage(JSON.stringify(messageHeader))
-                }
-
-                // console.log((new Date()).toISOString(), '- Web App Interface', '- Query Response Sent', JSON.stringify(response))
-
-                return response
             }
-            default: {
-                let response = {
-                    result: 'Error',
-                    message: 'requestType Not Supported.'
+
+            function onTimeout() {
+                if (promiseStatus === 'Unresolved') {
+                    promiseStatus = 'Rejected'
+                    let response = {
+                        result: 'Error',
+                        message: 'Timeout waiting for a Response.'
+                    }
+                    reject(JSON.stringify(response))
                 }
-                return JSON.stringify(response)
             }
         }
     }

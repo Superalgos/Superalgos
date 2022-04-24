@@ -183,6 +183,54 @@ Note 2: In the future, pending a deeper integration with the Superalgos Governan
 
 The current version of Bitcoin Factory is already integrated into Superalgos. You need to load the Bitcoin Factory Demo Plugin workspace, and from there you will run the Test Client task.
 
+### Update your User Profile
+
+You need to add a few things to your User Profile, and once you finish, you need to contribute it to the Governance repo and make sure that it was merged by the PR merging bot. 
+
+Here is the complete list of nodes you need to add to your profile, in case you don't already have them. All path are starting from the User Profile node.
+
+1. User Profile -> User Apps
+2. User Profile -> User Apps -> Server Apps
+3. User Profile -> User Apps -> Server Apps -> Task Server App
+
+Node Name: "Task-Server-App-1"
+Node Config:
+```sh
+{
+    "codeName": "Task-Server-App-1"
+}
+ ```
+
+4. User Profile -> Forecast Providers -> Server Apps
+5. User Profile -> Forecast Providers -> Bitcoin Factory Forecasts
+Node Name: "Testnet"
+
+6. User Profile -> Forecast Providers -> Bitcoin Factory Forecasts -> Test Client Instance
+
+Node Name: "Assign-A-Name"
+Node Config:
+```sh
+{
+    "codeName": "Assign-A-Name"
+}
+ ```
+
+Finally, you need to re-generate the signing accounts of your User Profile, so that a new node of type Signing Accounts is created under the "Task-Server-App-1" node. The procedure to do this is the following:
+
+1. At the Governance Project node create a Profile Constructor node.
+2. Reference the Profile Constructor to your User Profile.
+3. At the Profile Constructor menu, click on Install Signing Accounts. This will generate a new node under "Task-Server-App-1" and save a file to your My-Secrets folder with the Signing Accounds at your User Profile.
+
+Now you are done with your profile.
+
+Remember to save your User Profile plugin, contribute it and check that it was merged at the Governance repository.
+
+### Reference the Task Server App
+
+Locate the node Task Server App Reference, under your Test Client Task, and replace the current reference with a reference to the "Task-Server-App-1" node you created at your User Profile. 
+
+In this way you are defining that the Test Client Task will run with that identity, and will sign its messages with the Signing Accounts children of that node.
+
 ### Change the Config
 
 After that, open the config of the Test-Client Sensor Bot Instance. It looks like this:
@@ -203,7 +251,8 @@ After that, open the config of the Test-Client Sensor Bot Instance. It looks lik
 * logTrainingOutput: Set it to true if you want more detail of the Machile Learning process at the console.
 * clientInstanceName: IMPORTANT: Change this to match your own name created at your user profile.
 
-Second, build the Docker Image. Open a console at the Bitcoin-Factory folder inside Superalgos and follow the instructions according to your hardware:
+
+Build the Docker Image. Open a console at the Bitcoin-Factory folder inside Superalgos and follow the instructions according to your hardware:
 
 ### On x86 Processors
 

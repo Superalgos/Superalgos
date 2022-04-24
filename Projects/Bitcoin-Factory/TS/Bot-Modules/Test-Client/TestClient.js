@@ -133,6 +133,10 @@
                 .then(onSuccess)
                 .catch(onError)
             async function onSuccess(response) {
+                if (response.data.serverData === undefined) {
+                    reject('Not connected to Test Server')
+                    return
+                }
                 if (response.data.serverData.response !== 'NO TEST CASES AVAILABLE AT THE MOMENT') {
                     let nextTestCase = response.data.serverData.response
                     resolve(nextTestCase)

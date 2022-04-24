@@ -38,7 +38,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
     async function pullProfiles() {
         const simpleGit = SA.nodeModules.simpleGit
         options = {
-            baseDir: SA.nodeModules.path.join(process.cwd(), 'Plugins', 'Governance'),
+            baseDir: SA.nodeModules.path.join(global.env.PATH_TO_PLUGINS, 'Governance'),
             binary: 'git',
             maxConcurrentProcesses: 6,
         }

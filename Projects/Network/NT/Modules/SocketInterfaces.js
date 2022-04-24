@@ -439,7 +439,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                 }
                 caller.socket.send(JSON.stringify(response))
                 caller.socket.close()
-                console.log((new Date()).toISOString(), '[WARN] Socket Interfaces -> handshakeStepTwo -> userAppBlockchainAccount not associated with userProfile -> userAppBlockchainAccount = ' + userAppBlockchainAccount)
+                console.log((new Date()).toISOString(), '[WARN] Socket Interfaces -> handshakeStepTwo -> userAppBlockchainAccount not associated with userProfile -> userAppBlockchainAccount = ' + caller.userAppBlockchainAccount)
                 return
             }
             let signedMessage = JSON.parse(signature.message)

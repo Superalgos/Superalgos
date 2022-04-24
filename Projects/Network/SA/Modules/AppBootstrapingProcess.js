@@ -47,7 +47,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
             maxConcurrentProcesses: 6,
         }
         git = simpleGit(options)
-        await git.pull('upstream')
+        await git.pull('upstream', 'develop')
     }
 
     async function reloadAll() {

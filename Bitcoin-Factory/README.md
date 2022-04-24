@@ -192,6 +192,8 @@ Here is the complete list of nodes you need to add to your profile, in case you 
 2. User Profile -> User Apps -> Server Apps
 3. User Profile -> User Apps -> Server Apps -> Task Server App
 
+For this node, you need to assing the following name and the following config:
+
 Node Name: "Task-Server-App-1"
 
 Node Config:
@@ -207,6 +209,8 @@ Node Config:
 Node Name: "Testnet"
 
 6. User Profile -> Forecast Providers -> Bitcoin Factory Forecasts -> Test Client Instance
+
+For this node, you need to assing a name of your choice and that name needs also to be at the config:
 
 Node Name: "Assign-A-Name"
 

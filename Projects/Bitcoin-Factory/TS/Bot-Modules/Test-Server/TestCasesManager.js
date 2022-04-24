@@ -185,24 +185,57 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
 
     }
 
-    async function getNextTestCase() {
+    async function getNextTestCase(currentClientInstance) {
+        /*
+        The first thing we will try to do is to see if this Test Client Instance was not already assigned a Test case for which it never 
+        reported back. This is a common situation when some kind of error occured and the whole cycle was not closed.
+        */
+        for (let i = 0; i < thisObject.testCasesArray.length; i++) {
+            let testCase = thisObject.testCasesArray[i]
+            if (testCase.status === 'Being Tested' && testCase.assignedTo === currentClientInstance) {
+                return await assignTestCase(testCase)
+            }
+        }
+        /*
+        The second thing we will try to do is to see if there are assigned test cases that have not been tested in more than 24 hours. 
+        If we find one of those, we will re assign them.
+        */
+        for (let i = 0; i < thisObject.testCasesArray.length; i++) {
+            let testCase = thisObject.testCasesArray[i]
+            let assignedTimestamp = testCase.assignedTimestamp
+            if (assignedTimestamp === undefined) { assignedTimestamp = 0 }
+            let now = (new Date()).valueOf()
+            let diff = now - assignedTimestamp
+            if (testCase.status === 'Being Tested' && diff > SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS) {
+                return await assignTestCase(testCase)
+            }
+        }
+        /*
+        If we could not re assing an already assiged test case, then we will just find the next one.
+        */
         for (let i = 0; i < thisObject.testCasesArray.length; i++) {
             let testCase = thisObject.testCasesArray[i]
             if (testCase.status === 'Never Tested') {
-                testCase.status = 'Being Tested'
-
-                getTimeSeriesFileName(testCase)
-                testCase.forcastedCandle = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.dataBridge.updateDatasetFiles(testCase)
-                saveTestCasesFile()
-
-                let nextTestCase = {
-                    id: testCase.id,
-                    totalCases: thisObject.testCasesArray.length,
-                    parameters: testCase.parameters,
-                    files: TS.projects.foundations.globals.taskConstants.TEST_SERVER.dataBridge.getFiles(testCase)
-                }
-                return nextTestCase
+                return await assignTestCase(testCase)
             }
+        }
+
+        async function assignTestCase(testCase) {
+            testCase.status = 'Being Tested'
+            testCase.assignedTo = currentClientInstance
+            testCase.assignedTimestamp = (new Date()).valueOf()
+
+            getTimeSeriesFileName(testCase)
+            testCase.forcastedCandle = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.dataBridge.updateDatasetFiles(testCase)
+            saveTestCasesFile()
+
+            let nextTestCase = {
+                id: testCase.id,
+                totalCases: thisObject.testCasesArray.length,
+                parameters: testCase.parameters,
+                files: TS.projects.foundations.globals.taskConstants.TEST_SERVER.dataBridge.getFiles(testCase)
+            }
+            return nextTestCase
         }
     }
 
@@ -222,7 +255,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
         testCase.parametersFileName = "parameters" + "-" + testCaseId
     }
 
-    function setTestCaseResults(testResult, testedBy) {
+    function setTestCaseResults(testResult, currentClientInstance) {
 
         try {
             let testCase = thisObject.testCasesArray[testResult.id - 1]
@@ -233,7 +266,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
             testCase.enlapsedSeconds = testResult.enlapsedTime.toFixed(0)
             testCase.enlapsedMinutes = (testResult.enlapsedTime / 60).toFixed(2)
             testCase.enlapsedHours = (testResult.enlapsedTime / 3600).toFixed(2)
-            testCase.testedBy = testedBy
+            testCase.testedBy = currentClientInstance
             testCase.timestamp = (new Date()).valueOf()
 
             let logQueue = []
@@ -244,7 +277,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
                 }
                 logQueue.push(testCase)
             }
-            console.log((new Date()).toISOString(), testedBy + ' just tested Test Case Id ' + testCase.id)
+            console.log((new Date()).toISOString(), currentClientInstance + ' just tested Test Case Id ' + testCase.id)
             console.log((new Date()).toISOString(), 'Updated partial table of Test Cases:')
             console.table(logQueue)
             saveTestReportFile()

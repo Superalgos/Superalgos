@@ -58,36 +58,36 @@ exports.newForecastClientsManager = function newForecastClientsManager(processIn
     }
 
     async function onMessageReceived(message, userProfile, clientInstanceName) {
-
+        const currentClientInstance = userProfile + ' / ' + clientInstanceName
         switch (message.type) {
             case 'Get Next Forecast Case': {
-                console.log((new Date()).toISOString(), userProfile + ' / ' + clientInstanceName, 'requested a new Forecast Case')
-                let nextForecastCase = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.forecastCasesManager.getNextForecastCase()
+                console.log((new Date()).toISOString(), currentClientInstance, 'requested a new Forecast Case')
+                let nextForecastCase = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.forecastCasesManager.getNextForecastCase(currentClientInstance)
                 if (nextForecastCase !== undefined) {
-                    console.log((new Date()).toISOString(), 'Forecast Case Id ' + nextForecastCase.id + ' delivered to', userProfile + ' / ' + clientInstanceName)
+                    console.log((new Date()).toISOString(), 'Forecast Case Id ' + nextForecastCase.id + ' delivered to', currentClientInstance)
                     nextForecastCase.files.parameters = nextForecastCase.files.parameters.toString()
                     nextForecastCase.files.timeSeries = nextForecastCase.files.timeSeries.toString()
                     return nextForecastCase
                 } else {
-                    console.log((new Date()).toISOString(), 'No more Forecast Cases to Build. Could not deliver one to ' + userProfile + ' / ' + clientInstanceName)
+                    console.log((new Date()).toISOString(), 'No more Forecast Cases to Build. Could not deliver one to ' + currentClientInstance)
                     return'NO FORECAST CASES AVAILABLE AT THE MOMENT'
                 }
             }
             case 'Get This Forecast Case': {
-                console.log((new Date()).toISOString(), userProfile + ' / ' + clientInstanceName, 'requested the Forecast Case Id ' + message.forecastCaseId)
+                console.log((new Date()).toISOString(), currentClientInstance, 'requested the Forecast Case Id ' + message.forecastCaseId)
                 let thisForecastCase = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.forecastCasesManager.getThisForecastCase(message.forecastCaseId)
                 if (thisForecastCase !== undefined) {
-                    console.log((new Date()).toISOString(), 'Forecast Case Id ' + thisForecastCase.id + ' delivered to', userProfile + ' / ' + clientInstanceName)
+                    console.log((new Date()).toISOString(), 'Forecast Case Id ' + thisForecastCase.id + ' delivered to', currentClientInstance)
                     thisForecastCase.files.parameters = thisForecastCase.files.parameters.toString()
                     thisForecastCase.files.timeSeries = thisForecastCase.files.timeSeries.toString()
                     return thisForecastCase
                 } else {
-                    console.log((new Date()).toISOString(), 'Forecast Case ' + message.forecastCaseId + ' is Not Available Anymore. Could not deliver requested Case to ' + userProfile + ' / ' + clientInstanceName)
+                    console.log((new Date()).toISOString(), 'Forecast Case ' + message.forecastCaseId + ' is Not Available Anymore. Could not deliver requested Case to ' + currentClientInstance)
                     return'THIS FORECAST CASE IS NOT AVAILABLE ANYMORE'
                 }
             }
             case 'Set Forecast Case Results': {
-                TS.projects.foundations.globals.taskConstants.TEST_SERVER.forecastCasesManager.setForecastCaseResults(JSON.parse(message.payload), userProfile + ' / ' + clientInstanceName)
+                TS.projects.foundations.globals.taskConstants.TEST_SERVER.forecastCasesManager.setForecastCaseResults(JSON.parse(message.payload), currentClientInstance)
                 let response = JSON.stringify(TS.projects.foundations.globals.taskConstants.TEST_SERVER.forecastCasesManager.getForecasts())
                 return response
             }

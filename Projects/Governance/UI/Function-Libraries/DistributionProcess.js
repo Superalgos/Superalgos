@@ -110,8 +110,25 @@ function newGovernanceFunctionLibraryDistributionProcess() {
             userProfiles
         )
         /*
-        Run the Liquidity Program: One per SA Token Market
+        Run the Liquidity Program: One per SA Token Market and Exchange if contract address defined in SaToken.js
         */
+       const liqAssets = UI.projects.governance.globals.saToken.SA_TOKEN_BSC_LIQUIDITY_ASSETS
+       const liqExchanges = UI.projects.governance.globals.saToken.SA_TOKEN_BSC_EXCHANGES
+       for (let liqAsset of liqAssets) {
+           for (let liqExchange of liqExchanges) {
+               let contractIdentifier = 'UI.projects.governance.globals.saToken.SA_TOKEN_BSC_' + liqExchange + '_LIQUIDITY_POOL_' + liqAsset + '_CONTRACT_ADDRESS'
+               let marketContract = eval(contractIdentifier)
+               if (marketContract !== undefined) {
+                   UI.projects.governance.functionLibraries.liquidityProgram.calculate(
+                       pools,
+                       userProfiles,
+                       liqAsset,
+                       liqExchange
+                    )                    
+               }
+            }
+       }
+       /*
         UI.projects.governance.functionLibraries.liquidityProgram.calculate(
             pools,
             userProfiles,
@@ -132,6 +149,8 @@ function newGovernanceFunctionLibraryDistributionProcess() {
             userProfiles,
             'ETH'
         )
+        */
+
         /*
         Run the Claims Program
         */

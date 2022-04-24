@@ -261,6 +261,7 @@ After that, open the config of the Test-Client Sensor Bot Instance. It looks lik
 * logTrainingOutput: Set it to true if you want more detail of the Machile Learning process at the console.
 * clientInstanceName: IMPORTANT: Change this to match your own name created at your user profile.
 
+IMPORTANT: If you are going to be using 2 or more computers, you need to take care of the Signing Accounts file that needs to be present at both / all computers, and it must be the same file. In other words you can not generate the signing account at one computer and then generate it again at the second one. If you generate it at one computer and contributed your profile, then you need to copy the file inside the My-Secrets folder to the second computer/s.
 
 ## Docker Setup
 

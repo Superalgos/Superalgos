@@ -169,14 +169,14 @@ The current version of Bitcoin Factory is already integrated into Superalgos. Yo
 
 ## Setting up your Superalgos Profile and the Task to run
 
-To run this software you need a Superalgos Profile with the node Forecast Providers / Bitcoin Factory Forecast / Test Client Instance.
+To run this software you need a Superalgos Profile with some extra nodes and some configs to be in the right place. Continue reading for detailed instructions.
 
 ### Overview
 
-For your Test Client App to work and be able to connect to the Test Server you need to check that:
+For your Test Client App to work and be able to connect to the Test Server you need to:
 
 1. Update your User Profile with several nodes that today you might not have.
-2. Create the Signing Accounts to allow your Test Client app run with an indentity that the Superalgos Network can recognize.
+2. Create the Signing Account node to allow your Test Client app run with an indentity that the Superalgos Network can recognize.
 3. Reference from the Task -> Task Server App Reference one of the nodes you added to your profile.
 4. Change a config to specify the name of your Test Client, so that you can recognize it among other test clients on the execution reports.
 
@@ -184,15 +184,16 @@ Continue reading this section for detailed step by step instructions of how to d
 
 ### Update your User Profile
 
-You need to add a few things to your User Profile, and once you finish, you need to contribute it to the Governance repo and make sure that it was merged by the PR merging bot. 
+You need to add a few nodes to your User Profile, and once you finish, you need to contribute it to the Governance repo and make sure that it is merged by the PR merging bot. 
 
-Here is the complete list of nodes you need to add to your profile, in case you don't already have them. All path are starting from the User Profile node.
+Here is the complete list of nodes you need to add to your profile, in case you don't already have them. All paths are starting from the User Profile node.
 
 1. User Profile -> User Apps
 2. User Profile -> User Apps -> Server Apps
 3. User Profile -> User Apps -> Server Apps -> Task Server App
 
 Node Name: "Task-Server-App-1"
+
 Node Config:
 ```sh
 {
@@ -202,11 +203,13 @@ Node Config:
 
 4. User Profile -> Forecast Providers -> Server Apps
 5. User Profile -> Forecast Providers -> Bitcoin Factory Forecasts
+
 Node Name: "Testnet"
 
 6. User Profile -> Forecast Providers -> Bitcoin Factory Forecasts -> Test Client Instance
 
 Node Name: "Assign-A-Name"
+
 Node Config:
 ```sh
 {

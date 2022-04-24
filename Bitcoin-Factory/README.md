@@ -229,6 +229,8 @@ Now you are done with your profile.
 
 Remember to save your User Profile plugin, contribute it and check that it was merged at the Governance repository.
 
+IMPORTANT: It takes a few minutes for your profile to be auto-merged into the Governance repository and another 5 minutes to be picked up by the running Network Node. After changes to your profile, wait for around 10 minutes before expecting it to be able to connect to the Superalgos Network node.
+
 ### Reference the Task Server App
 
 Locate the node Task Server App Reference, under your Test Client Task, and replace the current reference with a reference to the "Task-Server-App-1" node you created at your User Profile. 

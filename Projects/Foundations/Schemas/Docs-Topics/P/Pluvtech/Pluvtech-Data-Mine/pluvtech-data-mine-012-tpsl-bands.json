@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Этот индикатор не является индикатором генерации сигналов, а скорее одним из многих методов генерации уровней тейк-профита и стоп-лосса.",
                 "updated": 1645611052783
+            },
+            {
+                "language": "DE",
+                "text": "Dieser Indikator ist kein signalgenerierender Indikator, sondern eher eine von vielen Methoden, um Take Profit und Stop Loss Levels zu generieren.",
+                "updated": 1647936351306
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "RU",
                     "text": "Основное использование этого индикатора заключается в использовании рассчитанных данных (показанных на панели) для сигнала тейк-профита и стоп-лосса, когда сделка уже была введена.",
                     "updated": 1645611068019
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Hauptanwendung dieses Indikators besteht darin, die berechneten Daten (die im Panel angezeigt werden) für Take-Profit- und Stop-Loss-Signale zu verwenden, wenn ein Handel bereits eingegangen wurde.",
+                    "updated": 1647936626872
                 }
             ]
         },
@@ -47,6 +57,11 @@
                     "language": "RU",
                     "text": "На случай, если вы захотите просмотреть уровни на графике, имеется плоттер.",
                     "updated": 1645611074763
+                },
+                {
+                    "language": "DE",
+                    "text": "Es gibt einen Plotter, der im Chart angezeigt wird, falls Sie die Levels in Ihrem Chart sehen möchten.",
+                    "updated": 1647936640691
                 }
             ]
         },
@@ -59,6 +74,11 @@
                     "language": "RU",
                     "text": "Значения по умолчанию (см. ниже) произвольны и основаны на relativeMovingAverage (trueRange).",
                     "updated": 1645611089764
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Standardwerte (unten) sind willkürlich und basieren auf relativeMovingAverage(trueRange).",
+                    "updated": 1647936662584
                 }
             ]
         },
@@ -76,6 +96,11 @@
                     "language": "RU",
                     "text": "Параметры для экземпляра Indicator Bot:",
                     "updated": 1645611104866
+                },
+                {
+                    "language": "DE",
+                    "text": "Parameter für Indikator Bot Instanz:",
+                    "updated": 1647936886938
                 }
             ]
         },
@@ -88,6 +113,11 @@
                     "language": "RU",
                     "text": "Periods = 15; (для расчета ATR)",
                     "updated": 1645611116084
+                },
+                {
+                    "language": "DE",
+                    "text": "Periods = 15; (für die Berechnung der ATR)",
+                    "updated": 1647936898135
                 }
             ]
         },
@@ -100,6 +130,11 @@
                     "language": "RU",
                     "text": "Множитель Take Profit (от ATR) = 1; (т.е. - 100% от ATR).",
                     "updated": 1645611176078
+                },
+                {
+                    "language": "DE",
+                    "text": "Take Profit Multiplikator (von ATR) = 1; (d.h. - 100% von ATR.)",
+                    "updated": 1647936917660
                 }
             ]
         },
@@ -112,6 +147,11 @@
                     "language": "RU",
                     "text": "Множитель Stop Loss (от ATR) = 1,5; (т.е. - 150% от ATR).",
                     "updated": 1645611195550
+                },
+                {
+                    "language": "DE",
+                    "text": "Stop Loss Multiplikator (von ATR) = 1,5; (d.h.- 150% von ATR.)",
+                    "updated": 1647936932385
                 }
             ]
         },
@@ -124,6 +164,11 @@
                     "language": "RU",
                     "text": "*Примечание* TP1 = 100% ; TP2 = 200% ; TP3 = 300%",
                     "updated": 1645611209094
+                },
+                {
+                    "language": "DE",
+                    "text": "*Anmerkung* TP1 = 100% ; TP2 = 200% ; TP3 = 300%",
+                    "updated": 1647936945254
                 }
             ]
         },
@@ -135,6 +180,11 @@
                     "language": "RU",
                     "text": "Длину расчета полос TPSL можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Initialization в разделе 'TPSL' Product Definition.",
                     "updated": 1645611228188
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Länge der Berechnung der TPSL Bänder kann geändert werden, indem der Javascript Code unter  Data Building Procedure -> Procedure Initialization unter  ’TPSL’ Product Definition gesucht und geöffnet wird.",
+                    "updated": 1647936960884
                 }
             ]
         },
@@ -151,6 +201,11 @@
                     "language": "RU",
                     "text": "Продукты и свойства",
                     "updated": 1645611233431
+                },
+                {
+                    "language": "DE",
+                    "text": "Produkte und Eigenschaften",
+                    "updated": 1647936989471
                 }
             ]
         },
@@ -162,13 +217,25 @@
                     "language": "RU",
                     "text": "Доступны следующие свойства:",
                     "updated": 1645611238465
+                },
+                {
+                    "language": "DE",
+                    "text": "Die folgenden Eigenschaften sind für den Zugriff verfügbar:",
+                    "updated": 1647937006728
                 }
             ]
         },
         {
             "style": "Table",
             "text": "| Product Name | Product Variable | Properties |\n| TPSL Bands | TPSL | tp1Up...tp3Up, |\n| | | tp1Down...tp3Down, |\n| | | slUp, |\n| | | slDown |",
-            "updated": 1636853769
+            "updated": 1636853769,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| TPSL Bands | TPSL | tp1Up...tp3Up, |\n||| tp1Down...tp3Down, |\n||| slUp, |\n||| slDown |",
+                    "updated": 1647937356041
+                }
+            ]
         },
         {
             "style": "Text",
@@ -179,6 +246,11 @@
                     "language": "RU",
                     "text": "Примеры:",
                     "updated": 1645611246162
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiele:",
+                    "updated": 1647937396342
                 }
             ]
         },
@@ -190,6 +262,11 @@
                     "language": "RU",
                     "text": "Следующие примеры обычно используются в узле Manage Stage торговой системы для управляемого тейк-профита и управляемого стоп-лосса, но могут быть использованы в любом месте по вашему усмотрению:",
                     "updated": 1645611256856
+                },
+                {
+                    "language": "DE",
+                    "text": "Die folgenden Beispiele werden normalerweise im Knoten Manage Stage des Trading System für Managed Take Profit und  Managed Stop Loss verwendet, können aber an jeder beliebigen Stelle eingesetzt werden:",
+                    "updated": 1647937482271
                 }
             ]
         },

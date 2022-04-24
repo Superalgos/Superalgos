@@ -10,6 +10,7 @@ exports.newNetworkModulesP2PNetworkClient = function newNetworkModulesP2PNetwork
         p2pNetworkNodesConnectedTo: undefined,
         p2pNetworkStart: undefined,
         socialGraphNetworkServiceClient: undefined,
+        machineLearningNetworkServiceClient: undefined,
         tradingSignalsNetworkServiceClient: undefined,
         eventReceivedCallbackFunction: undefined,
         initialize: initialize,
@@ -45,7 +46,7 @@ exports.newNetworkModulesP2PNetworkClient = function newNetworkModulesP2PNetwork
             We will read all user profiles plugins and get from there our network identity.
             */
             thisObject.appBootstrapingProcess = SA.projects.network.modules.appBootstrapingProcess.newNetworkModulesAppBootstrapingProcess()
-            await thisObject.appBootstrapingProcess.run(
+            await thisObject.appBootstrapingProcess.initialize(
                 userAppSigningAccountCodeName,
                 thisObject.p2pNetworkClientIdentity
             )
@@ -89,6 +90,15 @@ exports.newNetworkModulesP2PNetworkClient = function newNetworkModulesP2PNetwork
             */
             thisObject.socialGraphNetworkServiceClient = SA.projects.socialTrading.modules.socialGraphNetworkServiceClient.newSocialTradingModulesSocialGraphNetworkServiceClient()
             await thisObject.socialGraphNetworkServiceClient.initialize(
+                userAppSigningAccountCodeName,
+                thisObject.p2pNetworkNodesConnectedTo
+            )
+            /*
+            This is the Machine Learning Network Service Client that will allow us to 
+            send Messages to it's counterparty running inside a P2P Network Node. 
+            */
+            thisObject.machineLearningNetworkServiceClient = SA.projects.bitcoinFactory.modules.machineLearningNetworkServiceClient.newBitcoinFactoryModulesMachineLearningNetworkServiceClient()
+            await thisObject.machineLearningNetworkServiceClient.initialize(
                 userAppSigningAccountCodeName,
                 thisObject.p2pNetworkNodesConnectedTo
             )

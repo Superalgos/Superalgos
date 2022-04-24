@@ -4,18 +4,39 @@
     "type": "TS LF Trading Bot Error - Order Reference Missing",
     "definition": {
         "text": "Each order in the Trading System is expected to reference an order of the same type in the Trading Engine Data Structure. This reference tells the system where to track the values of the order properties while the bot is running.",
-        "updated": 1611940524337
+        "updated": 1611940524337,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Ticaret sistemi ( Trading System ) Sistemindeki her emrin, Ticaret Motoru ( Trading Engine ) Veri Yapısında aynı türden bir siparişi referans alması beklenir. Bu referans, sisteme bot çalışırken sipariş özelliklerinin değerlerini nerede izleyeceğini söyler.",
+                "updated": 1648672018182
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Error",
             "text": "Order Reference Missing",
-            "updated": 1611649632142
+            "updated": 1611649632142,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Sipariş Referansı Eksik. ( Reference Missing )",
+                    "updated": 1648650987615
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Set up the reference to an order of the same type in the Trading Engine and try again. Learn how to Establish and Remove References.",
-            "updated": 1611940690458
+            "updated": 1611940690458,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ticaret Motorunda ( Trading Engine ) aynı türden bir emir için referansı ayarlayın ve tekrar deneyin. Referansları Nasıl Oluşturacağınızı ve Kaldıracağınızı ( Establish and Remove References ) öğrenin.",
+                    "updated": 1648651181928
+                }
+            ]
         }
     ]
 }

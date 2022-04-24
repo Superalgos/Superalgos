@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Индикатор Donchian-Tenkan - это краткосрочное значение поддержки/сопротивления, которое может подчеркнуть импульс актива. Он является компонентом индикаторов облака Ичимоку.",
                 "updated": 1645611397047
+            },
+            {
+                "language": "DE",
+                "text": "Der Donchian-Tenkan Indikator ist ein kurzfristiger Unterstützungs-/Widerstandswert, der das Momentum eines Vermögenswerts hervorheben kann. Er ist eine Komponente der Ichimoku Cloud Indikatoren.",
+                "updated": 1647939120228
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Donchian-Tenkan на графиках:",
                     "updated": 1645611416041
+                },
+                {
+                    "language": "DE",
+                    "text": "Donchian-Tenkan in den Charts:",
+                    "updated": 1647939151944
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Donchian-Tenkan рассчитывается путем усреднения предыдущих максимумов и минимумов для создания канала Donchian, а затем с помощью средней точки этих экстремумов для создания возвращаемого значения. Затем это значение можно использовать в качестве линии поддержки/сопротивления.",
                     "updated": 1645611426437
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Donchian-Tenkan wird berechnet, indem der Durchschnitt der vorherigen Höchst- und Tiefstwerte gebildet wird, um einen Donchian-Kanal zu erstellen, und dann der Mittelpunkt dieser Extreme verwendet wird, um den zurückgegebenen Wert zu erstellen. Dieser Wert kann dann als Unterstützungs-/Widerstandslinie verwendet werden.",
+                    "updated": 1647939196608
                 }
             ]
         },
@@ -50,6 +65,11 @@
                     "language": "RU",
                     "text": "Параметр длины периода расчета индикатора Donchian-Tenkan можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Initialization в разделе 'Donchian-Tenkan' Product Definition.",
                     "updated": 1645611446110
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Parameter für die Periodenlänge der Berechnung des Donchian-Tenkan-Indikators kann geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Initialization unter ’Donchian-Tenkan’ Product Definition gesucht und geöffnet wird.",
+                    "updated": 1647939274755
                 }
             ]
         },
@@ -66,6 +86,11 @@
                     "language": "RU",
                     "text": "Продукты и свойства",
                     "updated": 1645611451571
+                },
+                {
+                    "language": "DE",
+                    "text": "Produkte und Eigenschaften",
+                    "updated": 1647939309404
                 }
             ]
         },
@@ -77,13 +102,25 @@
                     "language": "RU",
                     "text": "Доступны следующие свойства:",
                     "updated": 1645611457471
+                },
+                {
+                    "language": "DE",
+                    "text": "Die folgenden Eigenschaften sind für den Zugriff verfügbar:",
+                    "updated": 1647939319924
                 }
             ]
         },
         {
             "style": "Table",
             "text": "| Product Name | Product Variable | Properties |\n| Donchian-Tenkan | donchianTenkan | midPoint, closePrice |",
-            "updated": 1636853769
+            "updated": 1636853769,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| Donchian-Tenkan | donchianTenkan | midPoint, closePrice |",
+                    "updated": 1647939350157
+                }
+            ]
         },
         {
             "style": "Text",
@@ -94,6 +131,11 @@
                     "language": "RU",
                     "text": "Примеры:",
                     "updated": 1645611462785
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiele:",
+                    "updated": 1647939401847
                 }
             ]
         },
@@ -105,6 +147,11 @@
                     "language": "RU",
                     "text": "Индикатор Donchian-Tenkan может быть использован для генерирования сигнала на покупку, когда цена закрытия находится выше значения средней точки:",
                     "updated": 1645611472537
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Donchian-Tenkan-Indikator könnte verwendet werden, um ein Kaufsignal zu erzeugen, wenn der Schlusskurs über dem midPoint Wert liegt:",
+                    "updated": 1647939413121
                 }
             ]
         },
@@ -121,13 +168,25 @@
                     "language": "RU",
                     "text": "Этот индикатор также можно использовать для установки трейлинг-стоп лосса при заключении сделки, проверяя, находится ли закрытие свечи все еще выше значения midPoint.",
                     "updated": 1645611480870
+                },
+                {
+                    "language": "DE",
+                    "text": "Dieser Indikator kann auch dazu verwendet werden, einen Trailing-Stop-Loss zu setzen, indem überprüft wird, ob der Kerzenschluss noch über dem midPoint Wert liegt.",
+                    "updated": 1647939470294
                 }
             ]
         },
         {
             "style": "Title",
             "text": "Maintainer:",
-            "updated": 1622481793076
+            "updated": 1622481793076,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Betreuer:",
+                    "updated": 1647939508214
+                }
+            ]
         },
         {
             "style": "Link",

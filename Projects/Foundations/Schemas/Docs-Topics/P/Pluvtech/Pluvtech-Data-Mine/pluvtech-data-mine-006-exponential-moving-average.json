@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "EMA - это тип взвешенной скользящей средней (WMA), которая придает больший вес или значение последним ценовым данным.",
                 "updated": 1645610452184
+            },
+            {
+                "language": "DE",
+                "text": "Der EMA ist eine Art gewichteter gleitender Durchschnitt (WMA), der den jüngsten Kursdaten mehr Gewicht oder Bedeutung beimisst.",
+                "updated": 1647854902665
             }
         ]
     },
@@ -43,6 +48,11 @@
                     "language": "RU",
                     "text": "Период расчета индикатора экспоненциальной скользящей средней можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Initialization под продуктом'EMA'Product Definition.",
                     "updated": 1645610846527
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Länge der Berechnung des Indikators Exponential Moving Average kann geändert werden, indem Sie den Javascript Code unter Data Building Procedure -> Procedure Initialization  unter  ’EMA’ Product Definition suchen und öffnen.",
+                    "updated": 1647855002388
                 }
             ]
         },
@@ -59,6 +69,11 @@
                     "language": "RU",
                     "text": "Продукты и свойства",
                     "updated": 1645610486066
+                },
+                {
+                    "language": "DE",
+                    "text": "Produkte und Eigenschaften",
+                    "updated": 1647855056389
                 }
             ]
         },
@@ -70,13 +85,25 @@
                     "language": "RU",
                     "text": "Доступны следующие свойства:",
                     "updated": 1645610491909
+                },
+                {
+                    "language": "DE",
+                    "text": "Die folgenden Eigenschaften sind für den Zugriff verfügbar:",
+                    "updated": 1647855066789
                 }
             ]
         },
         {
             "style": "Table",
             "text": "| Product Name | Product Variable | Properties |\n| Exponential Moving Average | EMA | ema |",
-            "updated": 1636853769
+            "updated": 1636853769,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| Exponential Moving Average | EMA | ema |\n",
+                    "updated": 1647855100866
+                }
+            ]
         },
         {
             "style": "Text",
@@ -87,6 +114,11 @@
                     "language": "RU",
                     "text": "Пример:",
                     "updated": 1645610498522
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1647855128800
                 }
             ]
         },
@@ -98,6 +130,11 @@
                     "language": "RU",
                     "text": "Индикатор EMA можно использовать для генерации сигнала на покупку, когда свеча закрывается выше EMA:",
                     "updated": 1645610506572
+                },
+                {
+                    "language": "DE",
+                    "text": "Der EMA Indikator könnte verwendet werden, um ein Kaufsignal zu erzeugen, wenn eine Kerze oberhalb des EMA schließt:",
+                    "updated": 1647855146258
                 }
             ]
         },
@@ -109,7 +146,14 @@
         {
             "style": "Title",
             "text": "Maintainer:",
-            "updated": 1622481793076
+            "updated": 1622481793076,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Betreuer:",
+                    "updated": 1647855167836
+                }
+            ]
         },
         {
             "style": "Link",

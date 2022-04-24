@@ -36,3 +36,10 @@ tmp/
 Superalgos.desktop
 .dccache
 testfile.js
+ForecastCases
+TestCases
+OutputData
+parameters.CSV
+time-series.CSV
+instructions.CSV
+models

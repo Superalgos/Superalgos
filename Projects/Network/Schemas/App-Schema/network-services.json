@@ -24,6 +24,16 @@
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "machineLearning",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Machine Learning",
+            "relatedUiObject": "Machine Learning",
+            "relatedUiObjectProject": "Network"
+        },          
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "tradingSignals",
             "actionFunction": "payload.executeAction",
             "label": "Add Trading Signals",
@@ -67,6 +77,12 @@
             "name": "socialGraph",
             "type": "node",
             "childType": "Social Graph",
+            "autoAdd": false
+        },
+        {
+            "name": "machineLearning",
+            "type": "node",
+            "childType": "Machine Learning",
             "autoAdd": false
         },
         {

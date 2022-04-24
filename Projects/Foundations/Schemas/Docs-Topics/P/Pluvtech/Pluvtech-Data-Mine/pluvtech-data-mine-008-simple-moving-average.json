@@ -21,6 +21,11 @@
                 "language": "TR",
                 "text": "Basit hareketli ortalama (SMA), seçilen bir fiyat aralığında, genellikle kapanış fiyatlarının ortalamasını, bu aralıktaki dönem sayısına göre hesaplar.",
                 "updated": 1639142421942
+            },
+            {
+                "language": "DE",
+                "text": "Ein einfacher gleitender Durchschnitt (SMA) berechnet den Durchschnitt einer ausgewählten Preisspanne, in der Regel Schlusskurse, durch die Anzahl der Perioden in dieser Spanne.",
+                "updated": 1647933686107
             }
         ]
     },
@@ -54,6 +59,11 @@
                     "language": "RU",
                     "text": "Период расчета индикатора Simple Moving Average можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Initialization под продуктом'SMA'Product Definition.",
                     "updated": 1645610820850
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Länge der Berechnung des Simple Moving Average Indikators kann geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Initialization unter ’SMA’ Product Definition gesucht und geöffnet wird.",
+                    "updated": 1647933776649
                 }
             ]
         },
@@ -70,6 +80,11 @@
                     "language": "RU",
                     "text": "Продукты и свойства",
                     "updated": 1645610682495
+                },
+                {
+                    "language": "DE",
+                    "text": "Produkte und Eigenschaften",
+                    "updated": 1647933806309
                 }
             ]
         },
@@ -81,13 +96,25 @@
                     "language": "RU",
                     "text": "Доступны следующие свойства:",
                     "updated": 1645610687268
+                },
+                {
+                    "language": "DE",
+                    "text": "Die folgenden Eigenschaften sind für den Zugriff verfügbar:",
+                    "updated": 1647933816544
                 }
             ]
         },
         {
             "style": "Table",
             "text": "| Product Name | Product Variable | Properties |\n| Simple Moving Average | SMA | sma |",
-            "updated": 1636853769
+            "updated": 1636853769,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| Simple Moving Average | SMA | sma |\n",
+                    "updated": 1647933852271
+                }
+            ]
         },
         {
             "style": "Text",
@@ -98,6 +125,11 @@
                     "language": "RU",
                     "text": "Пример:",
                     "updated": 1645610692468
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1647933883442
                 }
             ]
         },
@@ -109,6 +141,11 @@
                     "language": "RU",
                     "text": "Индикатор SMA можно использовать для генерации сигнала на покупку, когда свеча закрывается выше SMA:",
                     "updated": 1645610700248
+                },
+                {
+                    "language": "DE",
+                    "text": "Der SMA Indikator könnte verwendet werden, um ein Kaufsignal zu erzeugen, wenn eine Kerze oberhalb des SMA schließt:",
+                    "updated": 1647933900186
                 }
             ]
         },
@@ -120,7 +157,14 @@
         {
             "style": "Title",
             "text": "Maintainer:",
-            "updated": 1622481793076
+            "updated": 1622481793076,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Betreuer:",
+                    "updated": 1647933928905
+                }
+            ]
         },
         {
             "style": "Link",

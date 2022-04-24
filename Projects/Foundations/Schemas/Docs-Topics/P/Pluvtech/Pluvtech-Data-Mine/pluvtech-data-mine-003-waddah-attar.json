@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Индикатор Waddah Attar может помочь определить вероятную тенденцию и/или поворотные моменты на рынке.",
                 "updated": 1645609837387
+            },
+            {
+                "language": "DE",
+                "text": "Der Waddah Attar Indikator kann helfen, den wahrscheinlichen Trend und/oder Wendepunkte auf dem Markt zu erkennen.",
+                "updated": 1647446786047
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Информация:",
                     "updated": 1645609843803
+                },
+                {
+                    "language": "DE",
+                    "text": "Infos:",
+                    "updated": 1647446797950
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Особым образом объединяет полосы Боллинджера и MACD. Это позволяет ему с очень высокой точностью определять начало ситуаций ценового всплеска. Такие всплески происходят каждый день, а иногда и несколько раз в день. Используя индикатор Waddah Attar Explosion, вы можете с высокой степенью успеха узнать, когда начинается такоие всплески и когда они заканчиваются.",
                     "updated": 1645609959792
+                },
+                {
+                    "language": "DE",
+                    "text": "Kombiniert die Bollinger Bänder und den MACD auf eine besondere Art und Weise. Dadurch kann er den Beginn von Preisexplosionen mit sehr hoher Genauigkeit erkennen. Diese Explosionen finden jeden Tag statt, manchmal sogar mehrmals am Tag. Mit dem Waddah Attar Explosion Indikator können Sie mit einem hohen Maß an Erfolg erkennen, wann diese Explosionen beginnen und wann sie enden.",
+                    "updated": 1647446836014
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "RU",
                     "text": "Индикатор Waddah Attar состоит из трех элементов:",
                     "updated": 1645609984680
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Waddah Attar Explosionsindikator besteht aus drei Elementen:",
+                    "updated": 1647446846852
                 }
             ]
         },
@@ -56,6 +76,11 @@
                     "language": "RU",
                     "text": "1. Explosion line: Ценовой всплеск начинается, когда линия всплеска находится на самом низком значении и начинает расти по мере ценового действия.",
                     "updated": 1645610021801
+                },
+                {
+                    "language": "DE",
+                    "text": "<b>1. Explosionslinie:</b> Die Kursexplosion beginnt, wenn die Explosionslinie ihren niedrigsten Wert erreicht hat und mit der Kursbewegung ansteigt.",
+                    "updated": 1647446857301
                 }
             ]
         },
@@ -67,6 +92,11 @@
                     "language": "RU",
                     "text": "2. Uptrend/Downtrend: Указывает на сильный тренд в направлении вверх (зеленый) или вниз (красный). Сигнал на покупку может быть сгенерирован, если тренд выше линии пробоя.",
                     "updated": 1645610053715
+                },
+                {
+                    "language": "DE",
+                    "text": "<b>2. Aufwärtstrend/Abwärtstrend:</b> Gibt einen starken Trend in Aufwärtsrichtung (grün) oder Abwärtsrichtung (rot) an. Ein Kaufsignal könnte generiert werden, wenn der Trend höher als die Explosionslinie ist.",
+                    "updated": 1647446871728
                 }
             ]
         },
@@ -78,6 +108,11 @@
                     "language": "RU",
                     "text": "3. Deadzone: Пытается отфильтровать слабые сигналы. Рекомендуется входить в сделку только тогда, когда значения всплеска и/или тренда находятся выше мертвой зоны.",
                     "updated": 1645610121671
+                },
+                {
+                    "language": "DE",
+                    "text": "<b>3. Totzone:</b> Versucht, schwache Signale herauszufiltern. Es wird empfohlen, nur dann in einen Handel einzusteigen, wenn die Explosions- und/oder Trendwerte oberhalb der Deadzone liegen.",
+                    "updated": 1647446883935
                 }
             ]
         },
@@ -94,6 +129,11 @@
                     "language": "RU",
                     "text": "Параметры индикатора Waddah Attar можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Initialization в разделе 'Waddah Attar' Product Definition.",
                     "updated": 1645610144863
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Parameter des Waddah Attar-Indikators können geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Initialization unter der Waddah Attar’ Product Definition gesucht und geöffnet wird.",
+                    "updated": 1647446989210
                 }
             ]
         },
@@ -110,6 +150,11 @@
                     "language": "RU",
                     "text": "Продукты и свойства",
                     "updated": 1645610150399
+                },
+                {
+                    "language": "DE",
+                    "text": "Produkte und Eigenschaften",
+                    "updated": 1647447031454
                 }
             ]
         },
@@ -121,13 +166,25 @@
                     "language": "RU",
                     "text": "Доступны следующие свойства:",
                     "updated": 1645610156321
+                },
+                {
+                    "language": "DE",
+                    "text": "Die folgenden Eigenschaften sind für den Zugriff verfügbar:",
+                    "updated": 1647447041468
                 }
             ]
         },
         {
             "style": "Table",
             "text": "| Product Name | Product Variable | Properties |\n| Waddah Attar | Waddah | trendUp, trendDown, explosion, deadZone |",
-            "updated": 1636853769
+            "updated": 1636853769,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| Waddah Attar | Waddah | trendUp, trendDown, explosion, deadZone |\n",
+                    "updated": 1647447069102
+                }
+            ]
         },
         {
             "style": "Text",
@@ -138,6 +195,11 @@
                     "language": "RU",
                     "text": "Пример:",
                     "updated": 1645610162177
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1647447120620
                 }
             ]
         },
@@ -149,6 +211,11 @@
                     "language": "RU",
                     "text": "Индикатор Waddah Attar можно использовать для генерирования сигнала на покупку, когда линия всплеска находится выше мертвой зоны, а восходящий тренд - выше линии всплеска:",
                     "updated": 1645610200828
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Waddah Attar Indikator könnte verwendet werden, um ein Kaufsignal zu generieren, wenn die Explosionslinie oberhalb der Totzone liegt und der Aufwärtstrend oberhalb der Explosionslinie verläuft:",
+                    "updated": 1647447131401
                 }
             ]
         },
@@ -165,13 +232,25 @@
                     "language": "RU",
                     "text": "Для повышения уверенности подтверждения этот индикатор можно использовать в паре с другими индикаторами, такими как индикаторы Supertrend или Average True Range (ATR).",
                     "updated": 1645610214876
+                },
+                {
+                    "language": "DE",
+                    "text": "Um das Vertrauen in die Bestätigung zu erhöhen, kann dieser Indikator mit anderen Indikatoren wie dem Supertrend oder dem Average True Range (ATR) Indikator gekoppelt werden.",
+                    "updated": 1647447210781
                 }
             ]
         },
         {
             "style": "Title",
             "text": "Maintainer:",
-            "updated": 1622481793076
+            "updated": 1622481793076,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Betreuer:",
+                    "updated": 1647447240524
+                }
+            ]
         },
         {
             "style": "Link",

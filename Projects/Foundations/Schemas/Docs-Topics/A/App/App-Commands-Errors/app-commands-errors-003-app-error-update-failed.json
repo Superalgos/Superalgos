@@ -28,6 +28,11 @@
                     "language": "RU",
                     "text": "Проверьте в следующем разделе подробную информацию о том, что могло произойти. После устранения проблемы вы можете повторить попытку.",
                     "updated": 1640235693442
+                },
+                {
+                    "language": "DE",
+                    "text": "Prüfen Sie den folgenden Abschnitt, um herauszufinden, was passiert sein könnte. Nachdem Sie das Problem behoben haben, können Sie es erneut versuchen.",
+                    "updated": 1650918126708
                 }
             ]
         },
@@ -51,6 +56,11 @@
                     "language": "RU",
                     "text": "В следующем разделе вы найдете информацию, записанную при возникновении ошибки.",
                     "updated": 1640235769275
+                },
+                {
+                    "language": "DE",
+                    "text": "Im folgenden Abschnitt finden Sie die Informationen, die beim Auftreten des Fehlers aufgezeichnet wurden.",
+                    "updated": 1650918150342
                 }
             ]
         },
@@ -63,6 +73,11 @@
                     "language": "RU",
                     "text": "Вы увидите информацию только в том случае, если вы открыли эту страницу в результате фактической ошибки.",
                     "updated": 1640235808864
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Informationen werden nur angezeigt, wenn Sie diese Seite geöffnet haben, weil der Fehler tatsächlich aufgetreten ist.",
+                    "updated": 1650918163650
                 }
             ]
         },
@@ -79,6 +94,11 @@
                     "language": "RU",
                     "text": "Ниже приведено сообщение об ошибке исключения, произошедшего на клиенте:",
                     "updated": 1640235844652
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Folgenden wird die Fehlermeldung der beim Client aufgetretenen Ausnahme angezeigt:",
+                    "updated": 1650918178577
                 }
             ]
         },
@@ -99,6 +119,11 @@
                     "language": "RU",
                     "text": "Ниже приведен стек ошибок исключения, произошедшего на клиенте:",
                     "updated": 1640235857685
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Folgenden ist der Fehler-Stack der beim Client aufgetretenen Exception dargestellt:",
+                    "updated": 1650918199841
                 }
             ]
         },
@@ -119,6 +144,11 @@
                     "language": "RU",
                     "text": "Ниже приведен код ошибки исключения, возникшего у клиента:",
                     "updated": 1640235869591
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Folgenden wird der Fehlercode der beim Client aufgetretenen Ausnahme angegeben:",
+                    "updated": 1650918213885
                 }
             ]
         },
@@ -138,6 +168,11 @@
                     "language": "RU",
                     "text": "Ниже приведены все детали ошибки исключения, возникшей у клиента:",
                     "updated": 1640235916516
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Folgenden werden alle Fehlerdetails der beim Client aufgetretenen Ausnahme aufgeführt:",
+                    "updated": 1650918227097
                 }
             ]
         },

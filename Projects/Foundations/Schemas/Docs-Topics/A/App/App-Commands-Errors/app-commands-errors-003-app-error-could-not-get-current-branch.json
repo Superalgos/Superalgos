@@ -7,9 +7,9 @@
         "updated": 1611129344277,
         "translations": [
             {
-                "language": "RU",
-                "text": "Возникла проблема при попытке получить текущую ветку (Current Branch). Проверьте консоль на наличие ошибок.",
-                "updated": 1640236071517
+                "language": "DE",
+                "text": "Es gab ein Problem beim Versuch, den aktuellen Branch abzurufen. Prüfen Sie die Konsole auf Fehler.",
+                "updated": 1650917943220
             }
         ]
     },
@@ -20,32 +20,25 @@
             "updated": 1611152967185,
             "translations": [
                 {
-                    "language": "RU",
-                    "text": "Проверьте в следующем разделе подробную информацию о том, что могло произойти. После устранения проблемы вы можете повторить попытку.",
-                    "updated": 1640236083790
+                    "language": "DE",
+                    "text": "Prüfen Sie den folgenden Abschnitt, um herauszufinden, was passiert sein könnte. Nachdem Sie das Problem behoben haben, können Sie es erneut versuchen.",
+                    "updated": 1650917967872
                 }
             ]
         },
         {
             "style": "Title",
             "text": "Error Info",
-            "updated": 1611154641024,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Информация об ошибке",
-                    "updated": 1640236093334
-                }
-            ]
+            "updated": 1611154641024
         },
         {
             "style": "Text",
             "text": "In the following section, you will find the information recorded when the error occurred.",
             "translations": [
                 {
-                    "language": "RU",
-                    "text": "В следующем разделе вы найдете информацию, записанную при возникновении ошибки.",
-                    "updated": 1640236104310
+                    "language": "DE",
+                    "text": "Im folgenden Abschnitt finden Sie die Informationen, die beim Auftreten des Fehlers aufgezeichnet wurden.",
+                    "updated": 1650917985611
                 }
             ]
         },
@@ -55,9 +48,9 @@
             "updated": 1611151375974,
             "translations": [
                 {
-                    "language": "RU",
-                    "text": "Вы увидите информацию только в том случае, если вы открыли эту страницу в результате фактического возникновения ошибки.",
-                    "updated": 1640236121441
+                    "language": "DE",
+                    "text": "Die Informationen werden nur angezeigt, wenn Sie diese Seite geöffnet haben, weil der Fehler tatsächlich aufgetreten ist.",
+                    "updated": 1650918006249
                 }
             ]
         },
@@ -71,9 +64,9 @@
             "updated": 1611151299633,
             "translations": [
                 {
-                    "language": "RU",
-                    "text": "Ниже приведено сообщение об ошибке исключения, произошедшего на клиенте:",
-                    "updated": 1640236134099
+                    "language": "DE",
+                    "text": "Im Folgenden wird die Fehlermeldung der beim Client aufgetretenen Ausnahme angezeigt:",
+                    "updated": 1650918026524
                 }
             ]
         },
@@ -91,9 +84,9 @@
             "updated": 1611151427220,
             "translations": [
                 {
-                    "language": "RU",
-                    "text": "Ниже приведен стек ошибок исключения, возникшего на клиенте:",
-                    "updated": 1640236160531
+                    "language": "DE",
+                    "text": "Im Folgenden ist der Fehler-Stack der Ausnahme, die beim Client aufgetreten ist, dargestellt:",
+                    "updated": 1650918051988
                 }
             ]
         },
@@ -111,9 +104,9 @@
             "updated": 1611151443562,
             "translations": [
                 {
-                    "language": "RU",
-                    "text": "Ниже приведен код ошибки исключения, возникшего у клиента:",
-                    "updated": 1640236170146
+                    "language": "DE",
+                    "text": "Im Folgenden wird der Fehlercode der beim Client aufgetretenen Ausnahme angegeben:",
+                    "updated": 1650918069836
                 }
             ]
         },
@@ -130,9 +123,9 @@
             "text": "The following are all the Error details of the Exception that occured at the Client:",
             "translations": [
                 {
-                    "language": "RU",
-                    "text": "Ниже приведены все детали ошибки исключения, возникшего у клиента:",
-                    "updated": 1640236189694
+                    "language": "DE",
+                    "text": "Im Folgenden werden alle Fehlerdetails der beim Client aufgetretenen Ausnahme aufgeführt:",
+                    "updated": 1650918086380
                 }
             ]
         },

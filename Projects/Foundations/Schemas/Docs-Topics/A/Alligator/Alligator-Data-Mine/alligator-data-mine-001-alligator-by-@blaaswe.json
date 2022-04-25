@@ -7,14 +7,9 @@
         "updated": 1611661320849,
         "translations": [
             {
-                "language": "TR",
-                "text": "Özet: Bu veri madeni Williams Timsah (Alligator) göstergesinden oluşmaktadır",
-                "updated": 1644587038398
-            },
-            {
-                "language": "RU",
-                "text": "Этот источник данных состоит из индикатора Williams Alligator",
-                "updated": 1646896227169
+                "language": "DE",
+                "text": "Diese Datenmine besteht aus dem Williams Alligator Indikator",
+                "updated": 1650917692300
             }
         ]
     },
@@ -22,14 +17,7 @@
         {
             "style": "Title",
             "text": "Alligator",
-            "updated": 1611661332955,
-            "translations": [
-                {
-                    "language": "TR",
-                    "text": "Timsah (Alligator)",
-                    "updated": 1644587048323
-                }
-            ]
+            "updated": 1611661332955
         },
         {
             "style": "Text",
@@ -37,14 +25,9 @@
             "updated": 1611764485658,
             "translations": [
                 {
-                    "language": "TR",
-                    "text": "Timsah (Alligator) göstergesi üç düzleştirilmiş hareketli ortalama (SMA) kullanır, ancak bunun için sıradan SMA yerine dudaklar için EMA kullanır.",
-                    "updated": 1644587056533
-                },
-                {
-                    "language": "RU",
-                    "text": "Индикатор Alligator использует три сглаженные скользящие средние (SMA), но вместо обычной SMA для этого индикатора используется EMA для губ (Lips).",
-                    "updated": 1646896289108
+                    "language": "DE",
+                    "text": "Der Alligator-Indikator verwendet drei geglättete gleitende Durchschnitte (SMA), aber anstelle des gewöhnlichen SMA verwendet man hier für die Lippen (lips) einen EMA.",
+                    "updated": 1650917835028
                 }
             ]
         },
@@ -58,14 +41,9 @@
             "text": "Standard Parameters:",
             "translations": [
                 {
-                    "language": "TR",
-                    "text": "Standart Parametreler:",
-                    "updated": 1644587083341
-                },
-                {
-                    "language": "RU",
-                    "text": "Стандартные параметры:",
-                    "updated": 1646896274406
+                    "language": "DE",
+                    "text": "Standard-Parameter:",
+                    "updated": 1650917828124
                 }
             ]
         },

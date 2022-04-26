@@ -67,53 +67,77 @@
                     console.log((new Date()).toISOString(), "Not connected to the Superalgos Network.")
                     await SA.projects.foundations.utilities.asyncFunctions.sleep(5000)
                 } else {
-                    let response = await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClient.machineLearningNetworkServiceClient.sendMessage(messageHeader)
+                    await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClient.machineLearningNetworkServiceClient.sendMessage(messageHeader)
+                        .then(onSuccess)
+                        .catch(onError)
+                    async function onSuccess(response) {
+                        if (response.data.clientData === undefined) {
+                            /*
+                            In this case there were no requests for the server, we will prepare for the next message and go to sleep.
+                            */
+                            getReadyForNewMessage()
+                            console.log((new Date()).toISOString(), 'Network Node Response: ' + response)
+                            await SA.projects.foundations.utilities.asyncFunctions.sleep(1000)
+                        } else {
+                            /*
+                            In this case there is a request that needs to be processed.
+                            */
+                            let clientData = JSON.parse(response.data.clientData)
+                            let managerResponse
 
-                    if (response.data.clientData === undefined) {
-                        /*
-                        In this case there were no requests for the server, we will prepare for the next message and go to sleep.
-                        */
-                        queryMessage = {
-                            sender: 'Test-Server'
-                        }
-    
-                        messageHeader = {
-                            requestType: 'Query',
-                            networkService: 'Machine Learning',
-                            queryMessage: JSON.stringify(queryMessage)
-                        }
-                        await SA.projects.foundations.utilities.asyncFunctions.sleep(1000)
-                    } else {
-                        /*
-                        In this case there is a request that needs to be processed.
-                        */
-                        //console.log((new Date()).toISOString(), 'Query received at Test Server: ' + JSON.stringify(response))
-    
-                        let clientData = JSON.parse(response.data.clientData)
-                        let managerResponse
-                        switch (clientData.recipient) {
-                            case 'Test Client Manager': {
-                                managerResponse = await thisObject.testClientsManager.onMessageReceived(clientData.message, clientData.userProfile, clientData.clientInstanceName)
-                                break
+                            try {
+                                switch (clientData.recipient) {
+                                    case 'Test Client Manager': {
+                                        managerResponse = await thisObject.testClientsManager.onMessageReceived(clientData.message, clientData.userProfile, clientData.clientInstanceName)
+                                        break
+                                    }
+                                    case 'Forecast Client Manager': {
+                                        managerResponse = await thisObject.forecastClientsManager.onMessageReceived(clientData.message, clientData.userProfile, clientData.clientInstanceName)
+                                        break
+                                    }
+                                }
+
+                                queryMessage = {
+                                    messageId: clientData.messageId,
+                                    sender: 'Test-Server',
+                                    response: managerResponse
+                                }
+
+                                messageHeader = {
+                                    requestType: 'Query',
+                                    networkService: 'Machine Learning',
+                                    queryMessage: JSON.stringify(queryMessage)
+                                }
+                            } catch (err) {
+                                /*
+                                If something bad happens, we wont let the server crash. We are not going to send 
+                                a response to the client, we will let it timeout and try again, in other words
+                                we will ignore messages that would crash the server.
+                                */
+                                console.log((new Date()).toISOString(), 'Query that produced an error at Test Server: ' + JSON.stringify(response))
+                                console.log((new Date()).toISOString(), 'err: ' + err)
+                                console.log((new Date()).toISOString(), 'err.stack: ' + err.stack)
+                                getReadyForNewMessage()
+                                await SA.projects.foundations.utilities.asyncFunctions.sleep(1000)
                             }
-                            case 'Forecast Client Manager': {
-                                managerResponse = await thisObject.forecastClientsManager.onMessageReceived(clientData.message, clientData.userProfile, clientData.clientInstanceName)
-                                break
-                            }
-                        }
-    
-                        queryMessage = {
-                            messageId: clientData.messageId,
-                            sender: 'Test-Server',
-                            response: managerResponse
-                        }
-    
-                        messageHeader = {
-                            requestType: 'Query',
-                            networkService: 'Machine Learning',
-                            queryMessage: JSON.stringify(queryMessage)
                         }
                     }
+                    async function onError(err) {
+                        console.log((new Date()).toISOString(), 'Error retrieving message from Network Node. ')
+                        console.log((new Date()).toISOString(), 'err: ' + err)
+                        getReadyForNewMessage()
+                    }
+                }
+            }
+            function getReadyForNewMessage() {
+                queryMessage = {
+                    sender: 'Test-Server'
+                }
+
+                messageHeader = {
+                    requestType: 'Query',
+                    networkService: 'Machine Learning',
+                    queryMessage: JSON.stringify(queryMessage)
                 }
             }
         }
@@ -121,7 +145,9 @@
             TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
             if (err !== undefined) {
                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                    "[ERROR] start -> err = " + err.stack)
+                    "[ERROR] start -> err = " + err)
+                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                    "[ERROR] start -> err.stack = " + err.stack)
             }
             callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
         }

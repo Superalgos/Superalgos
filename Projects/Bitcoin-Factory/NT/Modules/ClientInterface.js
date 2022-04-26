@@ -89,7 +89,11 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
     }
 
     async function testClientMessage(queryReceived) {
-        requestsToServer.push (queryReceived)
+        let requestToServer = {
+            queryReceived: queryReceived,
+            timestamp: (new Date()).valueOf()
+        }
+        requestsToServer.push(requestToServer)
         return new Promise(promiseWork)
 
         async function promiseWork(resolve, reject) {
@@ -106,7 +110,11 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
     }
 
     async function forecastClientMessage(queryReceived) {
-        requestsToServer.push (queryReceived)
+        let requestToServer = {
+            queryReceived: queryReceived,
+            timestamp: (new Date()).valueOf()
+        }
+        requestsToServer.push(requestToServer)
         return new Promise(promiseWork)
 
         async function promiseWork(resolve, reject) {
@@ -138,13 +146,25 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
                 }
                 resolve(response)
             } else {
-                let response = {
-                    result: 'Ok',
-                    message: 'Request Found.',
-                    clientData: JSON.stringify(requestsToServer[0])
+                let requestToServer = requestsToServer[0]
+                let now = (new Date()).valueOf()
+                if (now - requestToServer.timestamp < 60000) {
+                    let response = {
+                        result: 'Ok',
+                        message: 'Request Found.',
+                        clientData: JSON.stringify(requestToServer.queryReceived)
+                    }
+                    requestsToServer.splice(0, 1)
+                    resolve(response)
+                } else {
+                    let response = {
+                        result: 'Ok',
+                        message: 'Next Request Already Expired.'
+                    }
+                    requestsToServer.splice(0, 1)
+                    responseFunctions.delete(requestToServer.queryReceived.messageId)
+                    resolve(response)
                 }
-                requestsToServer.splice(0, 1)
-                resolve(response)
             }
         }
     }

@@ -167,6 +167,11 @@
         {
             "style": "Include",
             "text": "Trading-Signals->Node->Signal Context Formula->Content"
+        },
+        {
+            "style": "Success",
+            "text": "You may place as many Outgoing Signals nodes at any particular spot in a Trading System. This allows the user to send the same signal to any number of places.",
+            "updated": 1647052659035
         }
     ]
 }

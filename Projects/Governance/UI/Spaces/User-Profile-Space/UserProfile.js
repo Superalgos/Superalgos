@@ -159,11 +159,11 @@ function newGovernanceUserProfileSpace() {
                     let newReputation = previousReputation + currentReputation
                     reputationByAddress.set(transfer.to.toLowerCase(), newReputation)
                 }
-                //console.log('[INFO] tokenTransfers = ' + JSON.stringify(tokenTransfers))
+                //console.log((new Date()).toISOString(), '[INFO] tokenTransfers = ' + JSON.stringify(tokenTransfers))
                 if (tokenTransfers.length > 9000) {
-                    console.log('[WARN] The total amount of BSC SA Token transfers is above 9000. After 10k this method will need pagination or otherwise users will not get their reputation calculated correctly.')
+                    console.log((new Date()).toISOString(), '[WARN] The total amount of BSC SA Token transfers is above 9000. After 10k this method will need pagination or otherwise users will not get their reputation calculated correctly.')
                 } else {
-                    console.log('[INFO] ' + tokenTransfers.length + ' reputation transactions found at the blockchain. ')
+                    console.log((new Date()).toISOString(), '[INFO] ' + tokenTransfers.length + ' reputation transactions found at the blockchain. ')
                 }
                 waitingForResponses--
             }).catch(function (err) {
@@ -177,21 +177,21 @@ function newGovernanceUserProfileSpace() {
 
         let apisNode = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadByNodeType('APIs')
         if (apisNode === undefined) {
-            console.log('[WARN] Github Program Disabled because the Github Credentials are not present at this workspace. APIs node not found.')
+            console.log((new Date()).toISOString(), '[WARN] Github Program Disabled because the Github Credentials are not present at this workspace. APIs node not found.')
             return
         }
         if (apisNode.githubAPI === undefined) {
-            console.log('[WARN] Github Program Disabled because the Github Credentials are not present at this workspace. Github API node not found.')
+            console.log((new Date()).toISOString(), '[WARN] Github Program Disabled because the Github Credentials are not present at this workspace. Github API node not found.')
             return
         }
 
         let config = JSON.parse(apisNode.githubAPI.config)
         if (config.username === undefined || config.username === "") {
-            console.log('[WARN] Github Program Disabled because the Github Credentials are not present at this workspace. Github Username not configured.')
+            console.log((new Date()).toISOString(), '[WARN] Github Program Disabled because the Github Credentials are not present at this workspace. Github Username not configured.')
             return
         }
         if (config.token === undefined || config.token === "") {
-            console.log('[WARN] Github Program Disabled because the Github Credentials are not present at this workspace. Github Token not configured.')
+            console.log((new Date()).toISOString(), '[WARN] Github Program Disabled because the Github Credentials are not present at this workspace. Github Token not configured.')
             return
         }
         /*
@@ -216,8 +216,8 @@ function newGovernanceUserProfileSpace() {
 
                 /* Lets check the result of the call through the http interface */
                 if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                    console.log('[ERROR] Call via HTTP Interface failed. err.stack = ' + err.stack)
-                    console.log('[ERROR] params = ' + JSON.stringify(params))
+                    console.log((new Date()).toISOString(), '[ERROR] Call via HTTP Interface failed. err.stack = ' + err.stack)
+                    console.log((new Date()).toISOString(), '[ERROR] params = ' + JSON.stringify(params))
                     return
                 }
 
@@ -225,9 +225,9 @@ function newGovernanceUserProfileSpace() {
 
                 /* Lets check the result of the method call */
                 if (response.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                    console.log('[ERROR] Call to Client Github Server failed. err.stack = ' + err.stack)
-                    console.log('[ERROR] params = ' + JSON.stringify(params))
-                    console.log('[ERROR] response = ' + JSON.stringify(response))
+                    console.log((new Date()).toISOString(), '[ERROR] Call to Client Github Server failed. err.stack = ' + err.stack)
+                    console.log((new Date()).toISOString(), '[ERROR] params = ' + JSON.stringify(params))
+                    console.log((new Date()).toISOString(), '[ERROR] response = ' + JSON.stringify(response))
                     return
                 }
 
@@ -261,8 +261,8 @@ function newGovernanceUserProfileSpace() {
 
                 /* Lets check the result of the call through the http interface */
                 if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                    console.log('[ERROR] Call via HTTP Interface failed. err.stack = ' + err.stack)
-                    console.log('[ERROR] params = ' + JSON.stringify(params))
+                    console.log((new Date()).toISOString(), '[ERROR] Call via HTTP Interface failed. err.stack = ' + err.stack)
+                    console.log((new Date()).toISOString(), '[ERROR] params = ' + JSON.stringify(params))
                     return
                 }
 
@@ -270,9 +270,9 @@ function newGovernanceUserProfileSpace() {
 
                 /* Lets check the result of the method call */
                 if (response.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                    console.log('[ERROR] Call to Client Github Server failed. err.stack = ' + err.stack)
-                    console.log('[ERROR] params = ' + JSON.stringify(params))
-                    console.log('[ERROR] response = ' + JSON.stringify(response))
+                    console.log((new Date()).toISOString(), '[ERROR] Call to Client Github Server failed. err.stack = ' + err.stack)
+                    console.log((new Date()).toISOString(), '[ERROR] params = ' + JSON.stringify(params))
+                    console.log((new Date()).toISOString(), '[ERROR] response = ' + JSON.stringify(response))
                     return
                 }
 
@@ -306,8 +306,8 @@ function newGovernanceUserProfileSpace() {
 
                 /* Lets check the result of the call through the http interface */
                 if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                    console.log('[ERROR] Call via HTTP Interface failed. err.stack = ' + err.stack)
-                    console.log('[ERROR] params = ' + JSON.stringify(params))
+                    console.log((new Date()).toISOString(), '[ERROR] Call via HTTP Interface failed. err.stack = ' + err.stack)
+                    console.log((new Date()).toISOString(), '[ERROR] params = ' + JSON.stringify(params))
                     return
                 }
 
@@ -315,9 +315,9 @@ function newGovernanceUserProfileSpace() {
 
                 /* Lets check the result of the method call */
                 if (response.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                    console.log('[ERROR] Call to Client Github Server failed. err.stack = ' + err.stack)
-                    console.log('[ERROR] params = ' + JSON.stringify(params))
-                    console.log('[ERROR] response = ' + JSON.stringify(response))
+                    console.log((new Date()).toISOString(), '[ERROR] Call to Client Github Server failed. err.stack = ' + err.stack)
+                    console.log((new Date()).toISOString(), '[ERROR] params = ' + JSON.stringify(params))
+                    console.log((new Date()).toISOString(), '[ERROR] response = ' + JSON.stringify(response))
                     return
                 }
 
@@ -464,7 +464,7 @@ function newGovernanceUserProfileSpace() {
         }
 
         function getBlockchainTokens(userProfile, blockchainAccount) {
-            console.log('[INFO] Loading Blockchain Balance for User Profile: ', userProfile.name, 'blockchainAccount: ', blockchainAccount)
+            console.log((new Date()).toISOString(), '[INFO] Loading Blockchain Balance for User Profile: ', userProfile.name, 'blockchainAccount: ', blockchainAccount)
 
             let request = {
                 url: 'WEB3',
@@ -481,21 +481,21 @@ function newGovernanceUserProfileSpace() {
                 userProfile.payload.bloackchainBalancesLoading = false
                 userProfile.payload.isLoading = false
                 if (err.result === GLOBAL.DEFAULT_FAIL_RESPONSE) {
-                    console.log('[WARN] Error fetching blockchain tokens of user profile ' + userProfile.name)
+                    console.log((new Date()).toISOString(), '[WARN] Error fetching blockchain tokens of user profile ' + userProfile.name)
                     userProfile.payload.blockchainTokens = undefined
                 } else {
                     let commandResponse = JSON.parse(data)
                     if (commandResponse.result !== "Ok") {
-                        console.log('[WARN] Web3 Error fetching blockchain tokens of user profile ' + userProfile.name)
+                        console.log((new Date()).toISOString(), '[WARN] Web3 Error fetching blockchain tokens of user profile ' + userProfile.name)
                         return
                     }                    
                     userProfile.payload.uiObject.setInfoMessage('Blockchain Balance Successfully Loaded.',
                         UI.projects.governance.globals.designer.SET_INFO_COUNTER_FACTOR
                     )
                     userProfile.payload.blockchainTokens = Number(commandResponse.balance)
-                    console.log('[INFO] SA Balance of ' + userProfile.name + ' is ', userProfile.payload.blockchainTokens)
+                    console.log((new Date()).toISOString(), '[INFO] SA Balance of ' + userProfile.name + ' is ', userProfile.payload.blockchainTokens)
                     userProfile.payload.reputation = Math.min(reputationByAddress.get(blockchainAccount.toLowerCase()) | 0, userProfile.payload.blockchainTokens)
-                    console.log('[INFO] Reputation of ' + userProfile.name + ' is ', userProfile.payload.reputation)
+                    console.log((new Date()).toISOString(), '[INFO] Reputation of ' + userProfile.name + ' is ', userProfile.payload.reputation)
                 }
             }
         }
@@ -518,7 +518,7 @@ function newGovernanceUserProfileSpace() {
             
             let neededResponses = Object.keys(contracts).length
             for (let dex in contracts) {
-                //console.log('[INFO] Loading ' + dex + ' Balance for User Profile: ' + userProfile.name + ' blockchainAccount: ' + blockchainAccount + ' asset: ' + asset)
+                //console.log((new Date()).toISOString(), '[INFO] Loading ' + dex + ' Balance for User Profile: ' + userProfile.name + ' blockchainAccount: ' + blockchainAccount + ' asset: ' + asset)
                 let request = {
                     url: 'WEB3',
                     params: {
@@ -533,20 +533,20 @@ function newGovernanceUserProfileSpace() {
                 function onResponse(err, data) {
                     --neededResponses
                     if (err.result === GLOBAL.DEFAULT_FAIL_RESPONSE) {
-                        console.log('[WARN] Error fetching ' + dex + ' liquidity tokens for asset ' + asset + ' of user profile ' + userProfile.name)
+                        console.log((new Date()).toISOString(), '[WARN] Error fetching ' + dex + ' liquidity tokens for asset ' + asset + ' of user profile ' + userProfile.name)
                         userProfile.payload.blockchainTokens = undefined
                     } else {
                         let commandResponse = JSON.parse(data)
                         if (commandResponse.result !== "Ok") {
-                            console.log('[WARN] Web3 Error fetching ' + dex + ' liquidity tokens for asset ' + asset + ' of user profile ' + userProfile.name)
+                            console.log((new Date()).toISOString(), '[WARN] Web3 Error fetching ' + dex + ' liquidity tokens for asset ' + asset + ' of user profile ' + userProfile.name)
                             return
                         }
 
                         tokenTotal = tokenTotal + Number(commandResponse.balance)
-                        console.log('[INFO]', dex ,'Liquidity of', userProfile.name, 'for asset', asset, 'is ', Number(commandResponse.balance))
+                        console.log((new Date()).toISOString(), '[INFO]', dex ,'Liquidity of', userProfile.name, 'for asset', asset, 'is ', Number(commandResponse.balance))
                         if (neededResponses === 0) {
                             userProfile.payload.liquidityTokens[asset] = tokenTotal
-                            console.log('[INFO] TOTAL Liquidity of', userProfile.name, 'for asset', asset, 'is ', userProfile.payload.liquidityTokens[asset])
+                            console.log((new Date()).toISOString(), '[INFO] TOTAL Liquidity of', userProfile.name, 'for asset', asset, 'is ', userProfile.payload.liquidityTokens[asset])
                             userProfile.payload.uiObject.setInfoMessage('Balance Successfully Loaded for asset ' + asset,
                                 UI.projects.governance.globals.designer.SET_INFO_COUNTER_FACTOR
                             )

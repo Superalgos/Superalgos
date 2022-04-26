@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Раздел Initial Targets содержит первые несколько определений, необходимых для открытия позиции: определение целевой ставки Target Rate и размера цели Target Size.",
                 "updated": 1639758182002
+            },
+            {
+                "language": "TR",
+                "text": "Özet: İlk hedefler bölümü, bir pozisyon açmak için gereken ilk birkaç tanımı içerir: hedef oranın tanımı ve hedef boyutun tanımı.",
+                "updated": 1647849935893
             }
         ]
     },
@@ -17,7 +22,14 @@
         {
             "style": "Title",
             "text": "Open Stage",
-            "updated": 1610185795249
+            "updated": 1610185795249,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Açık Aşama ( Open Stage )",
+                    "updated": 1647849959444
+                }
+            ]
         },
         {
             "style": "Include",
@@ -47,13 +59,25 @@
                     "language": "RU",
                     "text": "На этой странице мы рассмотрим определения начальных целей Initial Targets.",
                     "updated": 1639763859557
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu sayfada İlk Hedefler ( Initial Targets ) tanımlarını ele alacağız.",
+                    "updated": 1647850035856
                 }
             ]
         },
         {
             "style": "Title",
             "text": "Initial Targets",
-            "updated": 1610185978859
+            "updated": 1610185978859,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İlk Hedefler ( Initial Targets )",
+                    "updated": 1647850050827
+                }
+            ]
         },
         {
             "style": "Include",
@@ -72,7 +96,14 @@
         {
             "style": "Title",
             "text": "Target Rate",
-            "updated": 1610186138633
+            "updated": 1610186138633,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hedef Oran",
+                    "updated": 1647850070176
+                }
+            ]
         },
         {
             "style": "Include",
@@ -87,7 +118,14 @@
         {
             "style": "Title",
             "text": "Target Size In Base Asset",
-            "updated": 1610186357107
+            "updated": 1610186357107,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Temel Varlıkta Hedef Büyüklük",
+                    "updated": 1647850149461
+                }
+            ]
         },
         {
             "style": "Include",
@@ -102,7 +140,14 @@
         {
             "style": "Title",
             "text": "Target Size In Quoted Asset",
-            "updated": 1610186383350
+            "updated": 1610186383350,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Kote Edilen Varlıkta Hedef Büyüklük",
+                    "updated": 1647850175100
+                }
+            ]
         },
         {
             "style": "Include",

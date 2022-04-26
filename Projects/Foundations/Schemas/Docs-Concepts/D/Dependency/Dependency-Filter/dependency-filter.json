@@ -1,0 +1,178 @@
+{
+    "type": "Dependency Filter",
+    "definition": {
+        "text": "The Dependency Filter is a mechanism that analyzes the code of all conditions, formulas and Study Bots in order to get from the code which data dependencies need to be loaded at the bot once ran.",
+        "updated": 1646057284735,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Фильтр зависимостей (Dependency Filter) - это механизм, который анализирует код всех условий, формул и ботов Study Bot, чтобы получить из кода, какие зависимости данных должны быть загружены в бот после запуска.",
+                "updated": 1647355857011
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Explanation",
+            "updated": 1646057319208
+        },
+        {
+            "style": "Subtitle",
+            "text": "What is the Dependency Filter?",
+            "updated": 1646057384029,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Что такое фильтр зависимостей?",
+                    "updated": 1647355871611
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The Dependency Filter is a mechanism that analyzes the code of all conditions, formulas and Study Bots in order to get from the code which data dependencies need to be loaded at the bot once ran. The procedure scans every line of code in search for the exchange, market or chart objects and once it finds them, it then breaks it down to understand which product will be needed for the bot. These filters are needed in order to prevent the bot to load all dependency files at all time frames when at the code many of these files are evidently not used.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Фильтр зависимостей - это механизм, который анализирует код всех условий, формул и ботов Study Bot, чтобы получить из кода, какие зависимости данных необходимо загрузить в бота после запуска. Процедура сканирует каждую строку кода в поисках объектов биржи, рынка или графика и, найдя их, разбивает на части, чтобы понять, какой продукт понадобится боту. Эти фильтры нужны для того, чтобы бот не загружал все файлы зависимостей на всех временных интервалах, когда в коде многие из этих файлов, очевидно, не используются.",
+                    "updated": 1647355921910
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "A Dependency Filter is a list of Indicators and Studies a Strategy depends on, that is later used to filter out all the other indicators and studies the Trading Bot depends on.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Фильтр зависимостей - это список индикаторов и исследований, от которых зависит стратегия, который впоследствии используется для фильтрации всех других индикаторов и исследований, от которых зависит торговый бот.",
+                    "updated": 1647355935033
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The function will scan a node branch, most likely a Trading System, looking into the code property of each node. It will analyze it's content and try to make a list of all indicators and studies mentioned at the code text and at which time frames they are mentioned.",
+            "updated": 1646056524485,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Функция сканирует ветвь узлов, скорее всего, торговую систему, просматривая свойство кода каждого узла. Она анализирует его содержимое и пытается составить список всех индикаторов и исследований, упомянутых в тексте кода, и на каких таймфреймах они упоминаются.",
+                    "updated": 1647355966919
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "It is important to note that all nodes that are not of the type Procedure Javascript, Javascript Code or Formula are going to be ignored.",
+            "updated": 1646056534040,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Важно отметить, что все узлы, которые не имеют типа Procedure Javascript, Javascript Code или Formula, будут проигнорированы.",
+                    "updated": 1647355978266
+                }
+            ]
+        },
+        {
+            "style": "Subtitle",
+            "text": "Examples",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Примеры",
+                    "updated": 1647355988470
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "These are instructions that the Dependency Filter will recognize without any problems:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это инструкции, которые фильтр зависимостей распознает без проблем:",
+                    "updated": 1647355997289
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "market.BTC.USDT.chart.at01hs.popularSMA.sma200 - market.ETC.USDT.chart.at01hs.popularSMA.sma100  < 10"
+        },
+        {
+            "style": "Text",
+            "text": "If you removed spaces between instructions then the Dependency Filter might get confused and you will get an undefined value for the indicator you are trying to use.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если вы удалили пробелы между инструкциями, то фильтр зависимостей может запутаться, и вы получите неопределенное значение для индикатора, который вы пытаетесь использовать.",
+                    "updated": 1647356012833
+                }
+            ]
+        },
+        {
+            "style": "Subtitle",
+            "text": "Advance Use",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Предварительное использование",
+                    "updated": 1647356024399
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "If you are coding and dynamically picking the Base Asset, Quote Asset, or Time Frame, then there are a couple of tricks for you, because the Dependency Filters will not be able to guess which markets you will need at which time frame, there are a few tricks on how to influence the Dependency Filter.",
+            "updated": 1646056897508,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если вы кодируете и динамически выбираете базовый актив, котируемый актив или таймфрейм, то для вас есть пара приемов, поскольку фильтры зависимостей не смогут угадать, какие рынки вам нужны на каком таймфрейме, есть несколько приемов, как повлиять на фильтр зависимостей.",
+                    "updated": 1647356043986
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Inside a commented area of the code you can write something like this:",
+            "updated": 1646056993223,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Внутри закомментированной области кода вы можете написать что-то вроде этого:",
+                    "updated": 1647356056381
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "market.anyBaseAsset.BTC.chart.atAnyTimeFrame.candle"
+        },
+        {
+            "style": "Text",
+            "text": "The valid keyworks are:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Действующими ключевыми словами являются:",
+                    "updated": 1647356065208
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "anyBaseAsset"
+        },
+        {
+            "style": "Text",
+            "text": "anyQuotedAsset"
+        },
+        {
+            "style": "Text",
+            "text": "atAnyTimeFrame"
+        }
+    ]
+}

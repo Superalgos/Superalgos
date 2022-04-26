@@ -34,8 +34,8 @@
             },
             {
                 "language": "RU",
-                "text": "Вы все еще здесь, теперь у вас за плечами первые два урока! Вы уже член семьи! Добро пожаловать в Сообщество (Community)!",
-                "updated": 1640154207923
+                "text": "Вы все еще здесь, теперь у вас за плечами первые два урока! Вы уже член семьи! Добро пожаловать в Community!",
+                "updated": 1645269583740
             }
         ]
     },
@@ -75,9 +75,9 @@
             ]
         },
         {
-            "style": "Note",
-            "text": "The skills you will learn will also allow you to start contributing to the project! Remember, this is a community project... We are all expected to give back and help improve the software!",
-            "updated": 1617034994342,
+            "style": "Warning",
+            "text": "This tutorial cover features relevant to users of the Installation for Contributors and Developers. If you're using the Packaged or Docker versions, many of the features described hereinafter will not work for you! That said, please do continue as you will also learn how to use the Docs!",
+            "updated": 1649176246476,
             "translations": [
                 {
                     "language": "IT",

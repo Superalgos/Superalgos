@@ -25,12 +25,12 @@ exports.newFoundationsUtilitiesHttpRequests = function () {
             })
 
             httpRequest.on('error', function (err) {
-                console.log('[ERROR] getBody -> err.stack = ' + err.stack)
+                console.log((new Date()).toISOString(), '[ERROR] getBody -> err.stack = ' + err.stack)
                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                 callback()
             })
         } catch (err) {
-            console.log('[ERROR] getBody -> err.stack = ' + err.stack)
+            console.log((new Date()).toISOString(), '[ERROR] getBody -> err.stack = ' + err.stack)
             SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
             callback()
         }

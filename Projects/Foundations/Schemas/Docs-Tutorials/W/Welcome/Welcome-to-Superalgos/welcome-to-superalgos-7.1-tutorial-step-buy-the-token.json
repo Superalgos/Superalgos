@@ -52,13 +52,13 @@
         },
         {
             "style": "Link",
-            "text": "Learn more about the Superalgos SA Token->https://superalgos.org/token-overview.shtml",
-            "updated": 1640335484013
+            "text": "Learn more about the Superalgos SA Token->superalgos.org/token-overview.shtml",
+            "updated": 1649169863194
         },
         {
             "style": "Link",
-            "text": "</br>How to buy the token using Trust Wallet->https://medium.com/superalgos/how-to-buy-the-superalgos-sa-token-using-trust-wallet-ca37aec0c0f5",
-            "updated": 1640335796928
+            "text": "</br>How to buy the token using Trust Wallet->medium.com/superalgos/how-to-buy-the-superalgos-sa-token-using-trust-wallet-ca37aec0c0f5",
+            "updated": 1649169929074
         }
     ]
 }

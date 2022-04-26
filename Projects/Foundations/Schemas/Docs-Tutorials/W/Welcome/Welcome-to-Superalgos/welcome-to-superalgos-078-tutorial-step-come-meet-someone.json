@@ -84,7 +84,7 @@
         },
         {
             "style": "Callout",
-            "text": "Take a few minutes to explore the nodes below the execution algorithm, check the formulas and conditions, and see what you can make of them!",
+            "text": "Take a few minutes to explore the nodes downstream from the execution algorithm, check the formulas and conditions, and see what you can make of them!",
             "translations": [
                 {
                     "language": "IT",
@@ -118,7 +118,8 @@
                     "text": "Luangkan waktu beberapa menit untuk menjelajahi node di bawah execution algorithm, periksa formulas dan conditions, dan lihat apa yang dapat kamu lakukan darinya!",
                     "updated": 1640565111657
                 }
-            ]
+            ],
+            "updated": 1649168063557
         }
     ]
 }

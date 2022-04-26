@@ -42,8 +42,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "You need to authenticate at GitHub.com for the Client to create the Pull Request on your behalf. To do that, you will create a Personal Access Token on GitHub.com:",
-            "updated": 1610827192524,
+            "text": "You need to authenticate at GitHub.com for the Client to create the Pull Request on your behalf. To do that, you will use the Github Personal Access Token you created while installing the platform or create a new one if you lost it!",
+            "updated": 1649178153308,
             "translations": [
                 {
                     "language": "IT",
@@ -88,8 +88,8 @@
         },
         {
             "style": "Callout",
-            "text": "Click the link and follow the instructions! Make sure you give the token the repo and workflow scopes. Check the clip on the next step for clarity...",
-            "updated": 1622028428181,
+            "text": "Make sure you give the token the repo and workflow scopes. Check the clip on the next step!",
+            "updated": 1649178220483,
             "translations": [
                 {
                     "language": "IT",
@@ -122,8 +122,8 @@
         },
         {
             "style": "Text",
-            "text": "I suggest you name the token after Superalgos so that you may recognize it later on, and make sure you check the repo checkbox to define the scope of the token.",
-            "updated": 1610812554380,
+            "text": "I suggest you name the token after Superalgos so that you may recognize it later on!",
+            "updated": 1649178264501,
             "translations": [
                 {
                     "language": "IT",

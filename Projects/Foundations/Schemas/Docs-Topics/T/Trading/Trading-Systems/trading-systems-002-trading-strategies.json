@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Торговые стратегии включают в себя логику для запуска стратегии Trading System из многих, которые могут существовать в торговой системе, открытия позиции, управления ею и закрытия позиции.",
                 "updated": 1639733954288
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Ticaret stratejileri ( Trading ), Ticaret Sisteminde ( Trading System ) var olabilecek birçok strateji arasından bir stratejiyi tetikleme, bir pozisyon alma, onu yönetme ve bir pozisyonu kapatma mantığını kapsar.",
+                "updated": 1647849496844
             }
         ]
     },

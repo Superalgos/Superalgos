@@ -58,7 +58,7 @@ function newFileStorage(host, port, scheme='http') {
     } catch (err) {
       if (verifyRetry(err.code) && currentRetry < MAX_RETRY) {
         currentRetry++
-        if (INFO_LOG === true) { console.log('[INFO] getTextFile -> Retrying connection to the server because received error: ' + err.code + '. Retry #: ' + currentRetry) }
+        if (INFO_LOG === true) { console.log((new Date()).toISOString(), '[INFO] getTextFile -> Retrying connection to the server because received error: ' + err.code + '. Retry #: ' + currentRetry) }
         getFileFromHost(filePath, callBackFunction)
       } else if (err.message === 'Request aborted') {
         let err = { code: 'The specified key does not exist.' }

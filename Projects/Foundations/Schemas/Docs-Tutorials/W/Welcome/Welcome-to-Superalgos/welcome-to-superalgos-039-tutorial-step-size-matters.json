@@ -89,8 +89,8 @@
         },
         {
             "style": "Callout",
-            "text": "Direct your mouse at one of the time machines and hit Ctrl + Shift + Alt + Key-A. Do the same with the other one!",
-            "updated": 1630943771557,
+            "text": "Direct your mouse at one of the time machines and hit Ctrl + Shift + Alt + Key-A. ",
+            "updated": 1649166936846,
             "translations": [
                 {
                     "language": "IT",
@@ -129,9 +129,9 @@
             ]
         },
         {
-            "style": "Success",
-            "text": "Leave the two time machines matching the aspect ratio of your screen. from now on!",
-            "updated": 1610622263656,
+            "style": "Text",
+            "text": "On Mac: Ctrl + Shift + Cmd + Key-A.",
+            "updated": 1649166910199,
             "translations": [
                 {
                     "language": "IT",
@@ -168,6 +168,11 @@
                     "updated": 1636202904158
                 }
             ]
+        },
+        {
+            "style": "Success",
+            "text": "Do the same with the other chart, and leave the two time machines matching the aspect ratio of your screen from now on!",
+            "updated": 1649167002906
         }
     ]
 }

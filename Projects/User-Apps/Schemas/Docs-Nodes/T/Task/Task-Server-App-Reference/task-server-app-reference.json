@@ -23,6 +23,11 @@
                     "updated": 1645183687408
                 }
             ]
+        },
+        {
+            "style": "Note",
+            "text": "Each task that connects to the peer to peer network will need to have a unique identity defined using its own Task Server App node.",
+            "updated": 1647053723672
         }
     ]
 }

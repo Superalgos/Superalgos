@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Биржа готова к листингу Superalgos. Плата за листинг составляет $25 тыс. плюс 1 BTC в токенах проекта.",
                 "updated": 1640785594250
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Borsa, Superalgos'u listelemeye hazır. Listeleme ücreti 25 bin dolar artı proje jetonlarında 1 BTC'dir.",
+                "updated": 1647007014335
             }
         ]
     },
@@ -22,21 +27,49 @@
         {
             "style": "Title",
             "text": "Listing Requirements",
-            "updated": 1628515442342
+            "updated": 1628515442342,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Listeleme Gereksinimleri",
+                    "updated": 1647007028555
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Exchange name: Probit Global"
+            "text": "Exchange name: Probit Global",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Exchange adı: Probit Global",
+                    "updated": 1647007069496
+                }
+            ]
         },
         {
             "style": "List",
             "text": "CMC ranking: 27",
-            "updated": 1628510522467
+            "updated": 1628510522467,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "CMC sıralaması: 27",
+                    "updated": 1647007077988
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Exchange home page: ",
-            "updated": 1628510560296
+            "updated": 1628510560296,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Değişim ana sayfası:",
+                    "updated": 1647007085003
+                }
+            ]
         },
         {
             "style": "Link",
@@ -46,7 +79,14 @@
         {
             "style": "List",
             "text": "Listing requirements page: ",
-            "updated": 1628510662586
+            "updated": 1628510662586,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Liste gereksinimleri sayfası:",
+                    "updated": 1647007096417
+                }
+            ]
         },
         {
             "style": "Link",
@@ -56,7 +96,14 @@
         {
             "style": "List",
             "text": "Listing request form page: ",
-            "updated": 1628510689962
+            "updated": 1628510689962,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Listeleme talep formu sayfası:",
+                    "updated": 1647007109409
+                }
+            ]
         },
         {
             "style": "Link",
@@ -66,7 +113,14 @@
         {
             "style": "List",
             "text": "Can list BEP 20 tokens in BSC: Yes",
-            "updated": 1628511590834
+            "updated": 1628511590834,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "BSC'de BEP 20 jetonlarını listeleyebilir: Evet",
+                    "updated": 1647007131444
+                }
+            ]
         },
         {
             "style": "List",
@@ -77,18 +131,37 @@
                     "language": "RU",
                     "text": "Listing fee: Бронза $25k, Серебро $50k, Золото $80k - плюс 1 BTC в токенах проекта.",
                     "updated": 1640785626034
+                },
+                {
+                    "language": "TR",
+                    "text": "Listeleme ücreti: Bronz 25 bin dolar, Gümüş 50 bin dolar, Altın 80 bin dolar - artı proje jetonlarında 1 BTC.",
+                    "updated": 1647007153544
                 }
             ]
         },
         {
             "style": "List",
             "text": "Security deposit: No",
-            "updated": 1628510838412
+            "updated": 1628510838412,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Güvenlik teminatı: Hayır",
+                    "updated": 1647007163363
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Volume requirements: No",
-            "updated": 1628510856025
+            "updated": 1628510856025,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hacim gereksinimleri: Hayır",
+                    "updated": 1647007172875
+                }
+            ]
         },
         {
             "style": "List",
@@ -104,18 +177,37 @@
                     "language": "RU",
                     "text": "Market-making requirements: Включается на 1 месяц во всех планах; после этого не требуется.",
                     "updated": 1640785676650
+                },
+                {
+                    "language": "TR",
+                    "text": "Piyasa Yapıcılığı Gereksinimleri: Tüm planlara 1 ay dahildir; sonrasında gerekli değildir.",
+                    "updated": 1647007186788
                 }
             ]
         },
         {
             "style": "List",
             "text": "Exchange users requirement: No",
-            "updated": 1628510904049
+            "updated": 1628510904049,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Exchange kullanıcıları gereksinimi: Hayır",
+                    "updated": 1647007204221
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Pairs available for first listing: USDT, BTC, ETH",
-            "updated": 1628510967084
+            "updated": 1628510967084,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İlk listeleme için mevcut çiftler: USDT, BTC, ETH",
+                    "updated": 1647007217151
+                }
+            ]
         },
         {
             "style": "List",
@@ -131,6 +223,11 @@
                     "language": "RU",
                     "text": "Waiting period: 2 недели.",
                     "updated": 1640785696814
+                },
+                {
+                    "language": "TR",
+                    "text": "Bekleme süresi: 2 hafta.",
+                    "updated": 1647007225495
                 }
             ]
         },
@@ -148,6 +245,11 @@
                     "language": "RU",
                     "text": "Legal entity: Обычно требуется создание юридического лица.",
                     "updated": 1640785724271
+                },
+                {
+                    "language": "TR",
+                    "text": "Tüzel kişilik: Genellikle bir şirket gereklidir.",
+                    "updated": 1647007235890
                 }
             ]
         },
@@ -165,13 +267,25 @@
                     "language": "RU",
                     "text": "Legal opinion: Как правило, требуется.",
                     "updated": 1640785740663
+                },
+                {
+                    "language": "TR",
+                    "text": "Hukuki görüş: Genellikle gereklidir.",
+                    "updated": 1647007247005
                 }
             ]
         },
         {
             "style": "List",
             "text": "Selection process: N/A.",
-            "updated": 1628511087443
+            "updated": 1628511087443,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Seçim süreci: Yok.",
+                    "updated": 1647007256889
+                }
+            ]
         },
         {
             "style": "List",
@@ -187,6 +301,11 @@
                     "language": "RU",
                     "text": "Researcher's comments: У меня есть открытый канал связи с командой листинга, и я прояснил некоторые вопросы, как объясняется в разделе \"Переговоры\" ниже.",
                     "updated": 1640785761418
+                },
+                {
+                    "language": "TR",
+                    "text": "Araştırmacının yorumları: Listeleme ekibiyle açık bir kanalım var ve aşağıdaki Müzakere başlığı altında açıklandığı gibi bazı konulara açıklık getirdim.",
+                    "updated": 1647007267438
                 }
             ]
         },
@@ -198,12 +317,26 @@
         {
             "style": "List",
             "text": "Researcher's Github.com Username: julian-molina",
-            "updated": 1628511321864
+            "updated": 1628511321864,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Araştırmacının Github.com Kullanıcı Adı: julian-molina",
+                    "updated": 1647007286180
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Researcher's Telegram Username: @julianmolina",
-            "updated": 1628511330617
+            "updated": 1628511330617,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Araştırmacının Telgraf Kullanıcı Adı: @julianmolina",
+                    "updated": 1647007293890
+                }
+            ]
         },
         {
             "style": "List",
@@ -214,6 +347,11 @@
                     "language": "RU",
                     "text": "Date of last revision: 9 августа 2021 года.",
                     "updated": 1640785781419
+                },
+                {
+                    "language": "TR",
+                    "text": "Son revizyon tarihi: 9 Ağustos 2021.",
+                    "updated": 1647007303752
                 }
             ]
         },
@@ -225,6 +363,11 @@
                     "language": "RU",
                     "text": "Переговоры",
                     "updated": 1640785795281
+                },
+                {
+                    "language": "TR",
+                    "text": "Müzakere",
+                    "updated": 1647007348926
                 }
             ]
         },
@@ -237,6 +380,11 @@
                     "language": "RU",
                     "text": "@julianmolina подтверждает это:",
                     "updated": 1640785835971
+                },
+                {
+                    "language": "TR",
+                    "text": "@julianmolina şunları doğruladı:",
+                    "updated": 1647007365228
                 }
             ]
         },
@@ -254,6 +402,11 @@
                     "language": "RU",
                     "text": "они принимают Superalgos для внесения в список;",
                     "updated": 1640785851434
+                },
+                {
+                    "language": "TR",
+                    "text": "listeleme için Superalgos'u kabul ederler;",
+                    "updated": 1647007374379
                 }
             ]
         },
@@ -270,6 +423,11 @@
                     "language": "RU",
                     "text": "мы можем согласовать дату листинга в соответствии с PR и маркетинговыми кампаниями.",
                     "updated": 1640785899629
+                },
+                {
+                    "language": "TR",
+                    "text": "Listeleme tarihini Halkla İlişkiler ve Pazarlama kampanyalarına uyacak şekilde koordine edebiliriz.",
+                    "updated": 1647007385217
                 }
             ]
         },
@@ -287,6 +445,11 @@
                     "language": "RU",
                     "text": "они могут отменить требование юридического заключения, если ясно, что токен не является ценной бумагой;",
                     "updated": 1640785893163
+                },
+                {
+                    "language": "TR",
+                    "text": "jetonun bir menkul kıymet olmadığı açıksa, yasal görüş şartını kaldırabilirler;",
+                    "updated": 1647007400097
                 }
             ]
         },
@@ -304,6 +467,11 @@
                     "language": "RU",
                     "text": "им не нужно юридическое лицо, чтобы подписать соглашение о листинге; руководитель (руководство проекта), прошедший проверку KYC, тоже подходит;",
                     "updated": 1640785994352
+                },
+                {
+                    "language": "TR",
+                    "text": "listeleme sözleşmesini imzalamak için bir şirkete ihtiyaçları yoktur; bir KYCed yöneticisi (proje liderliği) de çalışır;",
+                    "updated": 1647007413109
                 }
             ]
         },
@@ -321,6 +489,11 @@
                     "language": "RU",
                     "text": "мы можем предложить новые или улучшенные формулировки в соглашении о листинге для более сбалансированной защиты обеих сторон;",
                     "updated": 1640786018503
+                },
+                {
+                    "language": "TR",
+                    "text": "her iki tarafın daha dengeli bir şekilde korunması için listeleme sözleşmesinde yeni veya geliştirilmiş bir dil önerebiliriz;",
+                    "updated": 1647007422435
                 }
             ]
         },
@@ -338,6 +511,11 @@
                     "language": "RU",
                     "text": "мы можем иметь дополнительные счета с нулевой комиссией для создания рынка по $5k каждый;",
                     "updated": 1640786036159
+                },
+                {
+                    "language": "TR",
+                    "text": "her biri 5 bin dolar olan piyasa yapımı için ek sıfır ücretli hesaplarımız olabilir;",
+                    "updated": 1647007430779
                 }
             ]
         },
@@ -355,6 +533,11 @@
                     "language": "RU",
                     "text": "они не будут исключать из листинга из-за низкого объема по крайней мере в течение 6 месяцев.",
                     "updated": 1640786072138
+                },
+                {
+                    "language": "TR",
+                    "text": "en az 6 ay boyunca düşük hacim nedeniyle listeden çıkarılmazlar.",
+                    "updated": 1647007456477
                 }
             ]
         },
@@ -366,6 +549,11 @@
                     "language": "RU",
                     "text": "Оценка биржи",
                     "updated": 1640786083845
+                },
+                {
+                    "language": "TR",
+                    "text": "Borsa Değerlendirmesi",
+                    "updated": 1647007530453
                 }
             ]
         },
@@ -378,6 +566,11 @@
                     "language": "RU",
                     "text": "Корпоративная информация",
                     "updated": 1640786092195
+                },
+                {
+                    "language": "TR",
+                    "text": "Şirket bilgisi",
+                    "updated": 1647007539227
                 }
             ]
         },
@@ -390,6 +583,11 @@
                     "language": "RU",
                     "text": "Страна регистрации: Сейшельские острова (со страницы TOS и Соглашения о листинге).",
                     "updated": 1640786147609
+                },
+                {
+                    "language": "TR",
+                    "text": "Kayıtlı ülke: Seyşeller (TOS sayfasından ve Listeleme Sözleşmesinden).",
+                    "updated": 1647007583554
                 }
             ]
         },
@@ -401,6 +599,11 @@
                     "language": "RU",
                     "text": "Адрес: Suite 9, Ansuya Estate, Revolution Avenue, Victoria Mahe, Сейшельские острова (из Соглашения о листинге).",
                     "updated": 1640786163335
+                },
+                {
+                    "language": "TR",
+                    "text": "Adres: Suite 9, Ansuya Estate, Revolution Avenue, Victoria Mahe, Seyşeller (Listeleme Sözleşmesinden).",
+                    "updated": 1647007617823
                 }
             ]
         },
@@ -413,6 +616,11 @@
                     "language": "RU",
                     "text": "Год регистрации: Неизвестно",
                     "updated": 1640786171171
+                },
+                {
+                    "language": "TR",
+                    "text": "Kayıt yılı: Bilinmiyor",
+                    "updated": 1647007627741
                 }
             ]
         },
@@ -425,6 +633,11 @@
                     "language": "RU",
                     "text": "Физические офисы: Неизвестно",
                     "updated": 1640786188428
+                },
+                {
+                    "language": "TR",
+                    "text": "Fiziksel ofisler: Bilinmiyor",
+                    "updated": 1647007635148
                 }
             ]
         },
@@ -437,6 +650,11 @@
                     "language": "RU",
                     "text": "Лицензии: Неизвестно",
                     "updated": 1640786197302
+                },
+                {
+                    "language": "TR",
+                    "text": "Lisanslar: Bilinmiyor",
+                    "updated": 1647007642871
                 }
             ]
         },
@@ -448,6 +666,11 @@
                     "language": "RU",
                     "text": "Корпоративная прозрачность на сайте",
                     "updated": 1640786207719
+                },
+                {
+                    "language": "TR",
+                    "text": "Web Sitesinde Kurumsal Şeffaflık",
+                    "updated": 1647007724411
                 }
             ]
         },
@@ -460,6 +683,11 @@
                     "language": "RU",
                     "text": "Информация о компании: Probit Global Service Limited | регистрационный номер компании: 207189 | представитель: Рональд Чан. В процессе регистрации: Probit Exchange OÜ | Регистрационный номер компании: 14894573 | Представитель: Рональд Чан.",
                     "updated": 1640786226955
+                },
+                {
+                    "language": "TR",
+                    "text": "Altbilgi bilgisi: Probit Global Service Limited | Şirket Kayıt Numarası: 207189 | temsilci: Ronald Chan. Kayıt sürecinde: Probit Exchange OÜ | Şirket Kayıt Numarası: 14894573 | Temsilci: Ronald Chan.",
+                    "updated": 1647007732837
                 }
             ]
         },
@@ -472,6 +700,11 @@
                     "language": "RU",
                     "text": "Информация о странице: Н/Д.",
                     "updated": 1640786243055
+                },
+                {
+                    "language": "TR",
+                    "text": "Sayfa bilgisi hakkında: N/A.",
+                    "updated": 1647007739606
                 }
             ]
         },
@@ -483,6 +716,11 @@
                     "language": "RU",
                     "text": "Информация о странице руководства: Н/Д",
                     "updated": 1640786330108
+                },
+                {
+                    "language": "TR",
+                    "text": "Liderlik sayfası bilgisi: Yok",
+                    "updated": 1647007746153
                 }
             ]
         },
@@ -500,6 +738,11 @@
                     "language": "RU",
                     "text": "Наблюдения: Плохо. На веб-сайте нет четкого представления о том, где и как работает компания.",
                     "updated": 1640786343660
+                },
+                {
+                    "language": "TR",
+                    "text": "Gözlemler: Zayıf. Şirketin nerede ve nasıl çalıştığına dair web sitesinde çok az netlik var.",
+                    "updated": 1647007762146
                 }
             ]
         },
@@ -512,6 +755,11 @@
                     "language": "RU",
                     "text": "Привлекательность сайта",
                     "updated": 1640786354128
+                },
+                {
+                    "language": "TR",
+                    "text": "Web Sitesi Çekiş",
+                    "updated": 1647007785174
                 }
             ]
         },
@@ -524,6 +772,11 @@
                     "language": "RU",
                     "text": "Рейтинг сайта по Alexa: 3500",
                     "updated": 1640786383468
+                },
+                {
+                    "language": "TR",
+                    "text": "Alexa site sıralaması: 3500",
+                    "updated": 1647007794079
                 }
             ]
         },
@@ -534,7 +787,14 @@
         {
             "style": "List",
             "text": "Domain authority: 45",
-            "updated": 1628517390639
+            "updated": 1628517390639,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Etki alanı otoritesi: 45",
+                    "updated": 1647007813077
+                }
+            ]
         },
         {
             "style": "Link",
@@ -550,6 +810,11 @@
                     "language": "RU",
                     "text": "Рейтинг CMC: 27",
                     "updated": 1640786478761
+                },
+                {
+                    "language": "TR",
+                    "text": "CMC sıralaması: 27",
+                    "updated": 1647007837567
                 }
             ]
         },
@@ -561,6 +826,11 @@
                     "language": "RU",
                     "text": "Рейтинг CoinGecko: 63",
                     "updated": 1640786488388
+                },
+                {
+                    "language": "TR",
+                    "text": "CoinGecko sıralaması: 63",
+                    "updated": 1647007847237
                 }
             ]
         },
@@ -573,12 +843,24 @@
                     "language": "RU",
                     "text": "Топ 100 Google SERP? [*]: Нет",
                     "updated": 1640786503288
+                },
+                {
+                    "language": "TR",
+                    "text": "En İyi 100 Google SERP? [*]: Numara",
+                    "updated": 1647007859619
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Top 200 Google SERP? [*]: No"
+            "text": "Top 200 Google SERP? [*]: No",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "En İyi 200 Google SERP? [*]: Numara",
+                    "updated": 1647007869133
+                }
+            ]
         },
         {
             "style": "Text",
@@ -594,6 +876,11 @@
                     "language": "RU",
                     "text": "(*) Мы проводим поиск в Google (регион Великобритания, без персонализации) по ключевой фразе \"crypto exchange\". Домен либо попадает в топ X SERP, либо нет.",
                     "updated": 1640786531375
+                },
+                {
+                    "language": "TR",
+                    "text": "(*) Google'da (İngiltere bölgesi, kişiselleştirme yok) \"kripto değişimi\" anahtar kelimesini ararız. Alan, en iyi X SERP'de listelenir veya listelenmez.",
+                    "updated": 1647007889699
                 }
             ]
         },
@@ -606,6 +893,11 @@
                     "language": "RU",
                     "text": "Сообщество",
                     "updated": 1640786553878
+                },
+                {
+                    "language": "TR",
+                    "text": "Topluluk",
+                    "updated": 1647007900556
                 }
             ]
         },
@@ -618,6 +910,11 @@
                     "language": "RU",
                     "text": "Telegram: 29000",
                     "updated": 1640786561616
+                },
+                {
+                    "language": "TR",
+                    "text": "Telegram: 29 Bin",
+                    "updated": 1647007927038
                 }
             ]
         },
@@ -639,6 +936,11 @@
                     "language": "RU",
                     "text": "Наблюдения: Беглый взгляд на 9 августа 2021 года. Пользователи жалуются на то, что депозиты не выводятся и другие проблемы. Есть некоторый ответ от администраторов, сообщающих о проблеме с обновлением кошелька. Разговор кажется разумным.",
                     "updated": 1640786637643
+                },
+                {
+                    "language": "TR",
+                    "text": "Gözlemler: 9 Ağustos 2021'e hızlı bir bakış. Kullanıcılar, mevduatların temizlenmediğinden ve diğer sorunlardan şikayet ediyor. Yöneticilerden, cüzdan yükseltmeleriyle ilgili bir sorun bildiren bazı yanıtlar var. Konuşma mantıklı görünüyor.",
+                    "updated": 1647007970475
                 }
             ]
         },
@@ -650,12 +952,24 @@
                     "language": "RU",
                     "text": "Ликвидность и объем",
                     "updated": 1640786645497
+                },
+                {
+                    "language": "TR",
+                    "text": "Likidite ve Hacim",
+                    "updated": 1647007979121
                 }
             ]
         },
         {
             "style": "List",
-            "text": "1m BTC-USDT Chart"
+            "text": "1m BTC-USDT Chart",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "1 milyon BTC-USDT Tablosu",
+                    "updated": 1647007987058
+                }
+            ]
         },
         {
             "style": "Png",

@@ -38,7 +38,7 @@ exports.newPluginsUtilitiesPlugins = function () {
 
             function onFileRead(err, file) {
                 if (err) {
-                    console.log('[WARN] getPluginFileContent -> File not Found -> Path = ' + path)
+                    console.log((new Date()).toISOString(), '[WARN] getPluginFileContent -> File not Found -> Path = ' + path)
                     reject('File not Found')
                     return
                 }

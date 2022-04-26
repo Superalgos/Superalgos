@@ -89,8 +89,8 @@ function newGovernanceReportsCommmandInterface() {
 
                 /* Lets check the result of the call through the http interface */
                 if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                    console.log('[ERROR] Call via HTTP Interface failed.' + err.stack)
-                    console.log('[ERROR] Params = ' + JSON.stringify(params))
+                    console.log((new Date()).toISOString(), '[ERROR] Call via HTTP Interface failed.' + err.stack)
+                    console.log((new Date()).toISOString(), '[ERROR] Params = ' + JSON.stringify(params))
                     return
                 }
 
@@ -98,8 +98,8 @@ function newGovernanceReportsCommmandInterface() {
 
                 /* Lets check the result of the method call */
                 if (response.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                    console.log('[ERROR] Call to Client Github Server failed.' + err.stack)
-                    console.log('[ERROR] Params = ' + JSON.stringify(params))
+                    console.log((new Date()).toISOString(), '[ERROR] Call to Client Github Server failed.' + err.stack)
+                    console.log((new Date()).toISOString(), '[ERROR] Params = ' + JSON.stringify(params))
                 }
 
                 /* Successful Call */
@@ -256,8 +256,8 @@ function newGovernanceReportsCommmandInterface() {
 
                 /* Lets check the result of the call through the http interface */
                 if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                    console.log('[ERROR] Call via HTTP Interface failed.' + err.stack)
-                    console.log('[ERROR] Params = ' + JSON.stringify(params))
+                    console.log((new Date()).toISOString(), '[ERROR] Call via HTTP Interface failed.' + err.stack)
+                    console.log((new Date()).toISOString(), '[ERROR] Params = ' + JSON.stringify(params))
                     return
                 }
 
@@ -265,8 +265,8 @@ function newGovernanceReportsCommmandInterface() {
 
                 /* Lets check the result of the method call */
                 if (response.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                    console.log('[ERROR] Call to Client Github Server failed.' + err.stack)
-                    console.log('[ERROR] Params = ' + JSON.stringify(params))
+                    console.log((new Date()).toISOString(), '[ERROR] Call to Client Github Server failed.' + err.stack)
+                    console.log((new Date()).toISOString(), '[ERROR] Params = ' + JSON.stringify(params))
                 }
 
                 /* Successful Call */

@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Относится к названию темы. Страницы с одинаковым Docs Topic Name относятся к одной и той же теме.",
                 "updated": 1638463832753
+            },
+            {
+                "language": "TR",
+                "text": "Konunun adına atıfta bulunur. Aynı Dokümanlar Konu Adına sahip sayfalar, aynı konuya aittir.",
+                "updated": 1646208374982
             }
         ]
     },
@@ -31,15 +36,32 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Там нет страницы, описывающей тему. Вместо этого Docs Topic Name используется для группировки набора связанных страниц по определенной теме.",
-                    "updated": 1638463626687
+                    "text": "Обратите внимание, что темы сами по себе не являются страницами. Вместо этого название темы документа (Docs Topic Name) является свойством страницы документа (Docs Page).",
+                    "updated": 1647781257730
+                },
+                {
+                    "language": "TR",
+                    "text": "Konuların kendi başlarına sayfalar olmadığına dikkat edin. Bunun yerine Dokümanlar Konu Adı, Dokümanlar Sayfasının bir özelliğidir.",
+                    "updated": 1646208392350
                 }
             ]
         },
         {
             "style": "Text",
             "text": "In other words, there is no page describing a topic. Instead, the Docs Topic Name is used to group a set of related pages under a certain topic.",
-            "updated": 1644143474077
+            "updated": 1644143474077,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Başka bir deyişle, bir konuyu (Topic) açıklayan bir sayfa yoktur. Bunun yerine, Docs Topic Name, belirli bir konu altında bir dizi ilgili sayfayı gruplamak için kullanılır.",
+                    "updated": 1646208486093
+                },
+                {
+                    "language": "RU",
+                    "text": "Другими словами, не существует страницы, описывающей тему. Вместо этого название темы используется для группировки набора связанных страниц под определенной темой.",
+                    "updated": 1647781294980
+                }
+            ]
         }
     ]
 }

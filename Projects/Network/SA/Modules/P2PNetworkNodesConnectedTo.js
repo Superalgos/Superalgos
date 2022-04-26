@@ -88,9 +88,9 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
 
                 function onError(err) {
                     if (err !== undefined) {
-                        console.log('[ERROR] P2P Network Peers -> onError -> While connecting to node -> ' + peer.p2pNetworkNode.userProfile.config.codeName + ' -> ' + peer.p2pNetworkNode.node.name + ' -> ' + err.message)
+                        console.log((new Date()).toISOString(), '[ERROR] P2P Network Peers -> onError -> While connecting to node -> ' + peer.p2pNetworkNode.userProfile.config.codeName + ' -> ' + peer.p2pNetworkNode.node.name + ' -> ' + err.message)
                     } else {
-                        console.log('[WARN] P2P Network Peers -> onError -> Peer Not Available at the Moment -> ' + peer.p2pNetworkNode.userProfile.config.codeName + ' -> ' + peer.p2pNetworkNode.node.name)
+                        console.log((new Date()).toISOString(), '[WARN] P2P Network Peers -> onError -> Peer Not Available at the Moment -> ' + peer.p2pNetworkNode.userProfile.config.codeName + ' -> ' + peer.p2pNetworkNode.node.name)
                     }
                 }
 
@@ -128,7 +128,7 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
 
     async function sendMessage(message) {
         if (thisObject.peers.length === 0) {
-            console.log('[WARN] There are no network nodes available to process this message. Please try again later.')
+            console.log((new Date()).toISOString(), '[WARN] There are no network nodes available to process this message. Please try again later.')
             let response = {
                 result: 'Error',
                 message: 'No Network Node Available.'
@@ -142,7 +142,7 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
         let peerIndex = Math.max(Math.round(Math.random() * thisObject.peers.length) - 1, 0)
         let peer = thisObject.peers[peerIndex]
         if (peer === undefined) {
-            console.log('[ERROR] Selected Peer Undefined. Please try again later.')
+            console.log((new Date()).toISOString(), '[ERROR] Selected Peer Undefined. Please try again later.')
             let response = {
                 result: 'Error',
                 message: 'Peer Undefined.'

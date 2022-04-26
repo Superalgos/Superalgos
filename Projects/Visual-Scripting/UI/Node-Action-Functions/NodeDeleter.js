@@ -130,7 +130,7 @@ function newVisualScriptingFunctionLibraryNodeDeleter() {
                             }
                         }
                         if (removedFromParent === false) {
-                            console.log('[ERROR] Deleting Node: ' + node.type + ' ' + node.name + '. This node could not be deleted from its parent node (' + node.payload.parentNode.type + ') because its configured propertyNameAtParent (' + schemaDocument.propertyNameAtParent + ') does not match any of the properties of its parent.')
+                            console.log((new Date()).toISOString(), '[ERROR] Deleting Node: ' + node.type + ' ' + node.name + '. This node could not be deleted from its parent node (' + node.payload.parentNode.type + ') because its configured propertyNameAtParent (' + schemaDocument.propertyNameAtParent + ') does not match any of the properties of its parent.')
                             return false
                         }
                     }

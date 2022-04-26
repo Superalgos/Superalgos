@@ -4,12 +4,18 @@ function newContributionsContributionsPage() {
         githubUsername: undefined,
         githubToken: undefined,
         commandStatus: '',
-        reset:reset,
+
         initialize: initialize,
         finalize: finalize,
+        reset:reset,
+        setCommandStatus: setCommandStatus,
         getStatus: getStatus,
+        getCreds: getCreds,
         discardChange: discardChange,
-        getCreds: getCreds
+        update: update,
+        resetRepo: resetRepo,
+        contributeAll: contributeAll,
+        contributeSingleRepo: contributeSingleRepo
     }
 
     // add needed variables here let monacoInitialized = false
@@ -59,8 +65,28 @@ function newContributionsContributionsPage() {
         let repoNames = []
         let fileName
         for (const stat of thisObject.repoStatus) {
+
             // Overall diff in repo
-            HTML += '<div class="repo-title"><span class="docs-h3">' + stat[0] + '</span>' + '<span><span>Files Changed: ' + JSON.stringify(stat[1].changed) + ' </span><span class="insertion"> Insertions: ' + JSON.stringify(stat[1].insertions) +' </span><span class="deletion"> Deletions: ' + JSON.stringify(stat[1].deletions) + ' </span></span></div>'
+            HTML += '<div class="repo-title"><span class="docs-h3">' + stat[0] + '</span><span><span>Files Changed: ' + JSON.stringify(stat[1].changed) + ' </span><span class="insertion"> Insertions: ' + JSON.stringify(stat[1].insertions) +' </span><span class="deletion"> Deletions: ' + JSON.stringify(stat[1].deletions) + ' </span></span></div>'
+            // Status compared to upstream by branch 
+            if (stat[2] === undefined || stat[2].length === 0) {
+                HTML += '<div class="repo-update-stat">Something is wrong with the status of your local repository. Check the console</div>'
+            } else {
+    //TODO: needs localized for all supported languages 
+                for (const branch of stat[2]) {
+                    if (UI.projects.education.spaces.docsSpace.currentBranch === branch[0]) {
+                        if (branch[1] === 'local out of date'){
+                            HTML += '<div class="repo-update-stat" style="color:#b11a0f">Out dated. Please Update</div>'
+                        } else if (branch[1] === 'up to date' || branch[1] === "a jour"){
+                            HTML += '<div class="repo-update-stat" style="color:#10aa1d">Up to date!</div>'
+                        } else {
+                            HTML += '<div class="repo-update-stat">Local code is ' + branch[1] + ' </div>'
+                        }   
+                    } 
+                }
+            }
+
+            // Commit per repo tools 
             HTML += '<div class="contribute-box"><input id="' + stat[0] + '-input" type="text" class="contributions-input" placeholder="Type a commit message for these changes here" spellcheck="false" autocapitalize="false"></input><button id="' + stat[0] + '-contribute-button" class="credentials-save-button">Contribute</button></div>'
             repoNames.push(stat[0])
 
@@ -108,7 +134,7 @@ function newContributionsContributionsPage() {
         // Attach listener to Credentials save button
         document.getElementById('credentials-save-button').addEventListener('click', saveCreds)
 
-        //Attach listeners and animation to Main Buttons 
+        //Attach listeners to Main Buttons 
         document.getElementById('contribute-all').addEventListener('click', contributeAll)
         document.getElementById('update').addEventListener('click', update)
         document.getElementById('reset').addEventListener('click', resetRepo)
@@ -244,6 +270,7 @@ function newContributionsContributionsPage() {
             data = JSON.parse(data)
             if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.CUSTOM_OK_RESPONSE.result) {
                 //TODO: need to iterate through returned message in data result to give more specific result messages 
+                reset()
                 setCommandStatus("Updated Succesfully!") 
                 
             } else {
@@ -254,8 +281,10 @@ function newContributionsContributionsPage() {
 
     function resetRepo() {
            
-        setCommandStatus("Resetting Repository....") 
-        httpRequest(undefined, 'App/Reset/' + UI.projects.education.spaces.docsSpace.currentBranch, onResponse)
+        if(confirm("Are you sure you want to reset your local SA instance?")) {
+            setCommandStatus("Resetting Repository....") 
+            httpRequest(undefined, 'App/Reset/' + UI.projects.education.spaces.docsSpace.currentBranch, onResponse)
+        }
         
         function onResponse(err, data) {
             /* Lets check the result of the call through the http interface */

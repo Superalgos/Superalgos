@@ -21,6 +21,11 @@
                 "language": "RU",
                 "text": "Теперь у нас настроена точка прерывания, и мы можем запустить TS в Visual Studio Code. Затем в пользовательском интерфейсе Superalgos мы можем найти задачу и запустить ее в режиме отладки.",
                 "updated": 1640281308480
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Artık yapılandırılmış bir kesme noktamız var, TS'yi Visual Studio Kodunda başlatabiliriz. Ardından Superalgos kullanıcı arayüzünde ( UI ) bir Görev ( Task ) bulabilir ve bunu Hata Ayıklama modunu kullanarak başlatabiliriz.",
+                "updated": 1645358839506
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "language": "RU",
                     "text": "Как мы уже говорили, Superalgos состоит из трех основных компонентов: Client, TS и UI.",
                     "updated": 1640281325849
+                },
+                {
+                    "language": "TR",
+                    "text": "Daha önce ele aldığımız gibi, Superalgos, İstemci ( Client ), TS ve UI için üç temel bileşen vardır.",
+                    "updated": 1645358885021
                 }
             ]
         },
@@ -56,6 +66,11 @@
                     "language": "RU",
                     "text": "Во-первых, необходимо убедиться, что Client и UI запущены. Если они еще не запущены, вы можете запустить UI, перейдя в терминал, убедившись, что вы находитесь в корневом каталоге Superalgos, и введя \"node run\".",
                     "updated": 1640281349350
+                },
+                {
+                    "language": "TR",
+                    "text": "İlk olarak, Client ve UI'nin çalıştığından emin olmamız gerekiyor. Zaten çalışmıyorlarsa, Superalgos kök dizininde olduğunuzdan emin olarak terminale giderek kullanıcı arayüzünü başlatabilir ve \"node run\" yazabilirsiniz.",
+                    "updated": 1645358914556
                 }
             ]
         },
@@ -73,6 +88,11 @@
                     "language": "RU",
                     "text": "Если терминал не виден, нажмите View -> Terminal, и он должен появиться внизу.",
                     "updated": 1640281376425
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Terminal görünmüyorsa Görünüm -> Terminal'e tıklayın,altta görünecektir.",
+                    "updated": 1645358948379
                 }
             ]
         },
@@ -89,6 +109,11 @@
                     "language": "RU",
                     "text": "При необходимости вы можете запустить его с любыми параметрами, например \"node run minMemo noBrowser\".",
                     "updated": 1640281394038
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Gerekirse bunu \"node run minMemo noBrowser\" gibi herhangi bir parametreyle de çalıştırabilirsiniz.",
+                    "updated": 1645358982158
                 }
             ]
         },
@@ -111,6 +136,11 @@
                     "language": "RU",
                     "text": "На этом этапе вы должны иметь возможность получить доступ к Superalgos в браузере, используя http://localhost:34248/ (или конкретное имя хоста и порт, которые вы используете).",
                     "updated": 1640281412984
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu aşamada, tarayıcıda http://localhost:34248/ (veya kullandığınız belirli ana bilgisayar adı ve bağlantı noktası) kullanarak Superalgos'a erişebilmelisiniz.",
+                    "updated": 1645359006162
                 }
             ]
         },
@@ -128,6 +158,11 @@
                     "language": "RU",
                     "text": "Далее мы собираемся запустить TS в режиме отладки. Для этого запустите сеанс отладки в Visual Studio Code, нажав \"Run -> Start Debugging\" F5",
                     "updated": 1640281434218
+                },
+                {
+                    "language": "TR",
+                    "text": "Ardından, TS'yi hata ayıklama modunda başlatacağız. Bunu yapmak için, \"Çalıştır -> Hata Ayıklamayı Başlat\" F5'i tıklatarak Visual Studio Kodunda bir Hata Ayıklama Oturumu başlatın.",
+                    "updated": 1645359026081
                 }
             ]
         },
@@ -150,6 +185,11 @@
                     "language": "RU",
                     "text": "Чтобы убедиться, что TS запущен, вы можете щелкнуть на значке Run and Debug, который откроет новую левую панель. Здесь под стеком вызовов (\"Call Stack\") вы должны увидеть запущенный TaskServer.",
                     "updated": 1640281470468
+                },
+                {
+                    "language": "TR",
+                    "text": "TS'nin çalıştığını doğrulamak için, yeni bir sol panel açacak olan Çalıştır ve Hata Ayıklama simgesine tıklayabilirsiniz. Burada Çağrı Yığını altında TaskServer'ın çalıştığını görebilmeniz gerekir.",
+                    "updated": 1645359054107
                 }
             ]
         },
@@ -171,6 +211,11 @@
                     "language": "RU",
                     "text": "Теперь TS запущен, и мы можем запустить задачу с помощью действия Debug.",
                     "updated": 1640281504313
+                },
+                {
+                    "language": "TR",
+                    "text": "Artık TS çalışıyor, Hata Ayıklama eylemi aracılığıyla bir Görev başlatabiliriz.",
+                    "updated": 1645359075635
                 }
             ]
         },
@@ -187,6 +232,11 @@
                     "language": "RU",
                     "text": "Перейдите в узел Network и найдите Data Task для вашего индикатора.",
                     "updated": 1640281518305
+                },
+                {
+                    "language": "TR",
+                    "text": "Ağ düğümünüze gidin ve göstergeniz için Veri Görevini ( Data Task ) bulun.",
+                    "updated": 1645359107870
                 }
             ]
         },
@@ -209,6 +259,11 @@
                     "language": "RU",
                     "text": "Разверните Data Tasks, наведите курсор на узел Task для вашего индикатора и нажмите \"Debug\" (Задача запустится, но в режиме Debug).",
                     "updated": 1640281549332
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri Görevlerini ( Data Task ) genişletin ve göstergeniz için Görev düğümünün üzerine gelin ve \"Hata Ayıkla\" yı tıklayın (Görev başlar, ancak Hata Ayıklama modunda).",
+                    "updated": 1645359179564
                 }
             ]
         },
@@ -226,6 +281,11 @@
                     "language": "RU",
                     "text": "Если вы получите ошибку \"Parent Task Not Running\", ее можно проигнорировать. Поскольку мы используем действие Debug, задача все равно запустится.",
                     "updated": 1640281571919
+                },
+                {
+                    "language": "TR",
+                    "text": "Önemli: \"Üst Görev Çalışmıyor\" şeklinde bir hata alırsanız, bu göz ardı edilebilir. Hata Ayıklama eylemini kullandığımız için görev zaten başlayacaktır.",
+                    "updated": 1645359199820
                 }
             ]
         },
@@ -253,6 +313,11 @@
                     "language": "RU",
                     "text": "Если ваша задача имеет зависимости (например, выше мы отлаживаем Resistances и Supports, но для их запуска необходимы Exchange Raw Data и Candles), запустите необходимые задачи, связанные с вашим индикатором, наведя курсор на узлы и нажав \"Run\".",
                     "updated": 1640281597533
+                },
+                {
+                    "language": "TR",
+                    "text": "Görevinizin bağımlılıkları varsa (örneğin yukarıda Dirençler ve Desteklerde hata ayıklıyoruz, ancak bunlar çalışmadan önce Exchange Ham Verileri ( Raw Data ) ve Mumların çalışmasına ihtiyaç duyuyorsa), imleci düğümlerin üzerine getirerek göstergenize bağlı gerekli görevleri başlatın ve \"Çalıştır\" ı tıklayın.",
+                    "updated": 1645359318046
                 }
             ]
         },
@@ -280,6 +345,11 @@
                     "language": "RU",
                     "text": "Если вы посмотрите в терминал Debug Code, то увидите, что ваш индикатор работает в обычном режиме.",
                     "updated": 1640281617522
+                },
+                {
+                    "language": "TR",
+                    "text": "Hata Ayıklama Kodu terminaline bir göz atarsanız, göstergenizin normal şekilde çalıştığını görmelisiniz.",
+                    "updated": 1645359338272
                 }
             ]
         },
@@ -302,6 +372,11 @@
                     "language": "RU",
                     "text": "Удаление существующих данных из вашего индикатора в папке ...Superalgos/Data-Storage/ может ускорить процесс поиска данных.",
                     "updated": 1640281641941
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: ..Superalgos/Data-Storage/ klasöründeki göstergenizden mevcut verileri silmek, veri madenciliği sürecini hızlandırabilir.",
+                    "updated": 1645359356680
                 }
             ]
         }

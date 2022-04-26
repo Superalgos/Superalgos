@@ -82,6 +82,11 @@
                     "language": "DE",
                     "text": "Bedingung A: chart.at01hs.candle.close > chart.at01hs.bollingerBand.MovingAverage",
                     "updated": 1641636671025
+                },
+                {
+                    "language": "RU",
+                    "text": "Состояние A: chart.at01hs.candle.close > chart.at01hs.bollingerBand.MovingAverage",
+                    "updated": 1647435232859
                 }
             ]
         },
@@ -110,6 +115,11 @@
                     "language": "DE",
                     "text": "Bedingung B: chart.at01hs.candle.previous.max > chart.at01hs.bollingerBand.previous.MovingAverage",
                     "updated": 1641636717473
+                },
+                {
+                    "language": "RU",
+                    "text": "Состояние B: chart.at01hs.candle.previous.max > chart.at01hs.bollingerBand.previous.MovingAverage",
+                    "updated": 1647435240249
                 }
             ]
         },
@@ -136,8 +146,8 @@
             "translations": [
                 {
                     "language": "RU",
-                    "text": ".В приведенном выше примере условия A и B представляют собой операторы сравнения, которые могут оценивать как true, так и false. В случае, если оба будут оценивать как true, то ситуация 1 также будет верной.",
-                    "updated": 1638648000709
+                    "text": "В приведенном выше примере условия A и B представляют собой операторы сравнения, которые могут оценивать как true, так и false. В случае, если оба будут оценивать как true, то ситуация 1 также будет верной.",
+                    "updated": 1647435071578
                 },
                 {
                     "language": "DE",

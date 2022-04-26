@@ -13,8 +13,8 @@
             },
             {
                 "language": "RU",
-                "text": "Блок абзацев Block Paragraph определяет набор абзацев, которые могут быть включены с других страниц. Когда вы включаете блок, создавая абзац стиля Docs Include Style, вам необходимо ссылаться на абзац блока, созданный на странице, на которой есть набор абзацев для включения. Блок содержит весь абзац после себя до следующего блока или конца страницы.",
-                "updated": 1638544396175
+                "text": "Используйте блочные абзацы для определения блоков содержимого с любым количеством абзацев. Блок начинается с абзаца, которому присвоен стиль Docs Block Style, и заканчивается последним абзацем перед следующим абзацем со стилем Docs Block Style или местом окончания страницы.",
+                "updated": 1647784906947
             }
         ]
     },
@@ -38,16 +38,37 @@
         },
         {
             "style": "Text",
-            "text": "To start a new block, write the name of the block in a new paragraph and apply the Docs Block Style."
+            "text": "To start a new block, write the name of the block in a new paragraph and apply the Docs Block Style.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы начать новый блок, напишите название блока в новом абзаце и примените стиль Docs Block Style.",
+                    "updated": 1647784924749
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "Once you apply the Docs Block Style, the paragraph seems to disappear. It doesn't though. What happens is that the paragraph gets assigned a CSS style that makes invisible the name you wrote, and displays a faint triangle pointing downwards that is highlighted upon mouseover. The triangle now marks the start of the block.",
-            "updated": 1642950503111
+            "updated": 1642950503111,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "После применения стиля Docs Block Style абзац, кажется, исчезает. Однако это не так. Происходит следующее: абзацу присваивается стиль CSS, который делает невидимым написанное вами название и отображает слабый треугольник, направленный вниз, который подсвечивается при наведении курсора мыши. Треугольник теперь обозначает начало блока.",
+                    "updated": 1647784946524
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "To end a block, create a new block after it. If you don't, then the block ends wherever the page ends."
+            "text": "To end a block, create a new block after it. If you don't, then the block ends wherever the page ends.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы завершить блок, создайте после него новый блок. Если этого не сделать, то блок закончится там, где закончится страница.",
+                    "updated": 1647784957835
+                }
+            ]
         },
         {
             "style": "Block",
@@ -56,12 +77,26 @@
         },
         {
             "style": "Subtitle",
-            "text": "Example"
+            "text": "Example",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пример",
+                    "updated": 1647784964354
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "This example is set up as a block. Notice the dim triangle on the right-hand side of the page right above the Example title. Double click to the left of the triangle to select the hidden text. This is how you find the name of the block.",
-            "updated": 1642938905830
+            "updated": 1642938905830,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Этот пример настроен как блок. Обратите внимание на тусклый треугольник в правой части страницы прямо над заголовком \"Пример\". Дважды щелкните слева от треугольника, чтобы выделить скрытый текст. Так вы найдете название блока.",
+                    "updated": 1647785034196
+                }
+            ]
         },
         {
             "style": "Javascript",

@@ -10,6 +10,11 @@
                 "language": "TR",
                 "text": "Özet: Bu veri madeni Williams Timsah (Alligator) göstergesinden oluşmaktadır",
                 "updated": 1644587038398
+            },
+            {
+                "language": "RU",
+                "text": "Этот источник данных состоит из индикатора Williams Alligator",
+                "updated": 1646896227169
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "TR",
                     "text": "Timsah (Alligator) göstergesi üç düzleştirilmiş hareketli ortalama (SMA) kullanır, ancak bunun için sıradan SMA yerine dudaklar için EMA kullanır.",
                     "updated": 1644587056533
+                },
+                {
+                    "language": "RU",
+                    "text": "Индикатор Alligator использует три сглаженные скользящие средние (SMA), но вместо обычной SMA для этого индикатора используется EMA для губ (Lips).",
+                    "updated": 1646896289108
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "TR",
                     "text": "Standart Parametreler:",
                     "updated": 1644587083341
+                },
+                {
+                    "language": "RU",
+                    "text": "Стандартные параметры:",
+                    "updated": 1646896274406
                 }
             ]
         },

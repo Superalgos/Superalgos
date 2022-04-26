@@ -36,6 +36,11 @@
                 "language": "RU",
                 "text": "Нажмите кнопку справки на узле Trading Parameters, чтобы перейти на страницу документации узла. Я собираюсь показать вам кое-что...",
                 "updated": 1640868242738
+            },
+            {
+                "language": "ID",
+                "text": "Klik tombol help pada node Trading Parameters untuk mengakses halaman node Docs. Aku akan menunjukkan sesuatu kepada kamu...",
+                "updated": 1644947308982
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "RU",
                     "text": "Прокрутите страницу до самого низа, пока не найдете заголовок \"Правила присоединения торговых параметров\" (\"Trading Parameters Attaching Rules\").",
                     "updated": 1640868520513
+                },
+                {
+                    "language": "ID",
+                    "text": "Scroll halaman sampai ke bawah hingga kamu menemukan judul \"Trading Parameters Attaching Rules\".",
+                    "updated": 1644947349857
                 }
             ]
         },
@@ -105,6 +115,11 @@
                     "language": "RU",
                     "text": "Каждый узел может быть присоединен к определенным типам узлов. Эти правила присоединения перечислены на странице узла в документации.",
                     "updated": 1640868549651
+                },
+                {
+                    "language": "ID",
+                    "text": "Setiap node dapat dilampirkan ke jenis node tertentu. Aturan dalam melampirkan ini tercantum pada halaman node di Docs.",
+                    "updated": 1644947384200
                 }
             ]
         },
@@ -139,6 +154,11 @@
                     "language": "RU",
                     "text": "Когда есть несколько узлов, которые могут принять соединение, каждый кандидат отображает серое кольцо, указывающее на его готовность принять присоединение. Только тот кандидат, который находится ближе к узлу, подлежащему присоединению, выделяется оранжевым цветом.",
                     "updated": 1640868576676
+                },
+                {
+                    "language": "ID",
+                    "text": "Ketika ada beberapa node yang dapat menerima koneksi, setiap kandidat menampilkan cincin abu-abu yang menunjukkan kesiapan mereka untuk meng-attach. Hanya kandidat yang lebih dekat ke node yang akan di attach dan tersorot dalam warna oranye.",
+                    "updated": 1644949021786
                 }
             ]
         }

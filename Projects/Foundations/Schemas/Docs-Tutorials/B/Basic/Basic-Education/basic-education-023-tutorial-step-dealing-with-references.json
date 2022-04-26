@@ -36,6 +36,11 @@
                 "language": "RU",
                 "text": "Ссылки (References) - это способ, с помощью которого узел может получить информацию о другом, не связанном с ним узле. Это очень важная концепция, поэтому будьте внимательны!",
                 "updated": 1640868992374
+            },
+            {
+                "language": "ID",
+                "text": "References adalah bagaimana sebuah node dapat memperoleh informasi tentang node lain yang tidak terkait. Ini adalah konsep penting jadi benar-benar harus diperhatikan!",
+                "updated": 1644947567774
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "RU",
                     "text": "Внимательно прочитайте эту страницу! Если вы не являетесь разработчиком, возможно, вам захочется прочитать ее дважды, пока все не усвоится!",
                     "updated": 1640869009641
+                },
+                {
+                    "language": "ID",
+                    "text": "Baca halaman ini dengan cermat! Jika kamu bukan developer, Kamu mungkin ingin membacanya dua kali sampai benar-benar paham!",
+                    "updated": 1644947618882
                 }
             ]
         },
@@ -105,6 +115,11 @@
                     "language": "RU",
                     "text": "Короче говоря, ссылки...",
                     "updated": 1640869032650
+                },
+                {
+                    "language": "ID",
+                    "text": "Singkatnya, references miliki...",
+                    "updated": 1644947651386
                 }
             ]
         },
@@ -139,6 +154,11 @@
                     "language": "RU",
                     "text": "направление: исходящее или входящее,",
                     "updated": 1640869047240
+                },
+                {
+                    "language": "ID",
+                    "text": "Direction: keluaran atau masukan,",
+                    "updated": 1644947673116
                 }
             ]
         },
@@ -172,6 +192,11 @@
                     "language": "RU",
                     "text": "и область применения: внутренняя или внешняя.",
                     "updated": 1640869062653
+                },
+                {
+                    "language": "ID",
+                    "text": "Scope: internal atau eksternal.",
+                    "updated": 1644947703276
                 }
             ]
         },
@@ -206,6 +231,11 @@
                     "language": "RU",
                     "text": "Последнее понятие - объем ссылки - имеет решающее значение для понимания различий между резервными копиями (Backups) и клонами (Clones).",
                     "updated": 1640869114024
+                },
+                {
+                    "language": "ID",
+                    "text": "Konsep selanjutnya — ruang lingkup referensi — sangat penting untuk memahami perbedaan antara Backups dan Clones.",
+                    "updated": 1644947731155
                 }
             ]
         }

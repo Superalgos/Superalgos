@@ -73,6 +73,10 @@
         {
             "style": "Chapter",
             "text": "XIII->Foundations->Topic->CoinGecko API Map and Mine->"
+        },
+        {
+            "style": "Chapter",
+            "text": "IX->Foundations->Topic->Divergences Data Mine->"
         }
     ]
 }

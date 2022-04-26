@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Этот бот может получать данные из любого API в интернете, если ему предоставляется карта API Map во время выполнения.",
                 "updated": 1639657096978
+            },
+            {
+                "language": "DE",
+                "text": "Dieser Bot kann Daten von jeder beliebigen API im Internet abrufen, solange er zur Laufzeit mit einer API-Map versorgt wird.",
+                "updated": 1646078648485
             }
         ]
     },
@@ -21,6 +26,11 @@
                     "language": "RU",
                     "text": "API Data Fetcher Bot похож на Sensor Bot, за исключением того, что Sensor Bot требует, чтобы пользователи кодировали алгоритм для извлечения данных, в то время как API Data Fetcher Bot может делать это без кодирования с использованием API Map.",
                     "updated": 1639657268001
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein API Data Fetcher Bot ähnelt einem Sensor Bot, mit dem Unterschied, dass ein Sensor Bot von einem Entwickler einen Algorithmus zum Extrahieren der Daten benötigt, während ein API Data Fetcher Bot dies ohne Programmierung mit Hilfe einer API Map tun kann.",
+                    "updated": 1646078682264
                 }
             ]
         },
@@ -36,17 +46,38 @@
         {
             "style": "Title",
             "text": "API Data Fetcher Bot Configuration",
-            "updated": 1622895379480
+            "updated": 1622895379480,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "API Data Fetcher Bot Konfiguration",
+                    "updated": 1646078715510
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1622895415959
+            "updated": 1622895415959,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1646078747353
+                }
+            ]
         },
         {
             "style": "List",
             "text": "codeName Define the name of the bot that will be used in the code.",
-            "updated": 1622895425847
+            "updated": 1622895425847,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "codeName Definieren Sie den Namen des Bots, der im Code verwendet werden soll.",
+                    "updated": 1646078767997
+                }
+            ]
         }
     ]
 }

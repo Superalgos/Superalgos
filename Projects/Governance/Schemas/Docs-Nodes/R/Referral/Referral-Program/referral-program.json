@@ -16,8 +16,8 @@
             },
             {
                 "language": "TR",
-                "text": "Yönlendirme programı, projenin tanıtımını ya ağızdan ağza ya da makaleler, sosyal medya gönderileri, videolar ve diğer etkileyici pazarlama biçimleri aracılığıyla \"toplu olarak\" teşvik eder.",
-                "updated": 1640034611198
+                "text": "Yönlendirme programı, projenin tanıtımını ya ağızdan ağıza ya da makaleler, sosyal medya gönderileri, videolar ve diğer etkileyici pazarlama biçimleri aracılığıyla \"toplu olarak\" teşvik eder.",
+                "updated": 1645083071226
             }
         ]
     },
@@ -45,6 +45,11 @@
                     "language": "RU",
                     "text": "С помощью этой программы вы можете зарабатывать токены Superalgos SA Token для каждого пользователя, которого вы ссылаетесь на проект, а также для пользователей, которых они ссылаются!",
                     "updated": 1638984094214
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu programla, projeye yönlendirdiğiniz her kullanıcı için ve ayrıca onların tavsiye ettikleri kullanıcılar için Superalgos SA Tokenları kazanabilirsiniz!",
+                    "updated": 1645083121594
                 }
             ]
         },
@@ -61,6 +66,11 @@
                     "language": "RU",
                     "text": "Для участия вы должны запустить реферальную программу Referral Program и объявить своего реферера. Для этого добавьте узел User Referrer и используйте его, чтобы установить ссылку на профиль пользователя человека, который направил вас в Superalgos. Если у вас более одного реферера, просто добавьте больше узлов User Referrer.",
                     "updated": 1638984032303
+                },
+                {
+                    "language": "TR",
+                    "text": "Katılmak için Yönlendirme Programını (Referral Program) oluşturmalı ve yönlendireninizi bildirmelisiniz. Bunu yapmak için, bir Kullanıcı Yönlendiren düğümü (User Referrer) ekleyin ve sizi Superalgos'a yönlendiren kişinin Kullanıcı Profiline bir referans oluşturun. Birden fazla yönlendireniniz varsa, daha fazla User Referrer düğümü eklemeniz gerekir.",
+                    "updated": 1645083281050
                 }
             ]
         },
@@ -72,6 +82,11 @@
                     "language": "RU",
                     "text": "Может быть, вы узнали о Superalgos из статьи, видео, комментария на Reddit, твита, официального сайта или кого-то, кто рассказал вам о нас!",
                     "updated": 1638984116650
+                },
+                {
+                    "language": "TR",
+                    "text": "Belki de Superalgos'u bir makaleden, bir videodan, Reddit'teki bir yorumdan, bir tweet'ten, resmi web sitesinden veya size bizden bahseden birinden öğrendiniz!",
+                    "updated": 1645083308367
                 }
             ]
         },
@@ -88,6 +103,11 @@
                     "language": "RU",
                     "text": "Объявление ваших рефереров - лучший способ поблагодарить людей, которые, возможно, написали эту статью или твит, создали это видео, поддерживали веб-сайт или рассказали вам о Superalgos! Без них вас, наверное, еще бы здесь не было!",
                     "updated": 1638984144769
+                },
+                {
+                    "language": "TR",
+                    "text": "Yönlendirenlerinizi bildirmek, o makaleyi veya tweet'i yazan, o videoyu hazırlayan, web sitesinin bakımını yapan veya size Superalgos'tan bahseden kişilere teşekkür etmenin en iyi yoludur! Onlar olmasaydı muhtemelen burada olmazdınız!",
+                    "updated": 1645083341210
                 }
             ]
         },

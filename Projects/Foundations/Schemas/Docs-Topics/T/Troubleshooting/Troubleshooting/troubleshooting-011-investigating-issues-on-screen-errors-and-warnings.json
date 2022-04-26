@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "При запуске задачи или работе над стратегией, ошибки в сессии или синтаксисе усл��вий и формул сигнализируются на нарушающем узле.",
                 "updated": 1640538737242
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bir görevi yürütürken veya bir strateji üzerinde çalışırken, oturumdaki hatalar veya koşul ve formüllerin sözdizimi, sorunlu düğümde bildirilir.",
+                "updated": 1647866597833
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Приложение фронтенда отмечает ошибки, рисуя красное кольцо вокруг нарушившего узла и выводит краткое описание ошибки на экран. В то же время на вкладке документации становится доступной страница с подробным описанием ошибки.",
                     "updated": 1640538811833
+                },
+                {
+                    "language": "TR",
+                    "text": "Ön uç uygulaması, kusurlu düğümün etrafına kırmızı bir halka çizerek hataları işaretler ve ekranda hatanın kısa bir açıklamasını sunar. Aynı zamanda, dokümantasyon sekmesinde hata ayrıntılarını açıklayan bir sayfa açılır.",
+                    "updated": 1647866641862
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "При запуске торговой сессии узел сессии обычно показывает уведомление об ошибке.",
                     "updated": 1640538834519
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir ticaret oturumu çalıştırırken, oturum düğümü genellikle hata bildirimini gösteren düğümdür.",
+                    "updated": 1647866661806
                 }
             ]
         },
@@ -46,6 +61,11 @@
                     "language": "RU",
                     "text": "При работе над стратегией ошибки в синтаксисе или логике условий и формул отображаются аналогичным образом. В таком контексте обязательно включите слои Trading System Errors и Trading System Warnings соответствующей сессии и осмотритесь в своем рабочем пространстве. Наведите указатель мыши на узел с красным кольцом, и вы получите описание того, что является причиной неожиданного поведения.",
                     "updated": 1640538876894
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir strateji üzerinde çalışırken, koşulların ve formüllerin sözdizimindeki veya mantığındaki hatalar benzer şekilde görüntülenir. Böyle bir bağlamda, ilgili oturumun Ticaret Sistemi ( Trading System ) Hataları ve Ticaret Sistemi Uyarıları katmanlarını açtığınızdan emin olun ve çalışma alanınıza bakın. Fare işaretçisini kırmızı bir halka ile düğümün üzerine getirin ve beklenmeyen davranışa neyin neden olduğuna dair bir açıklama almalısınız.",
+                    "updated": 1647866759735
                 }
             ]
         }

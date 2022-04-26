@@ -1,28 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg
-   viewBox="0 0 512 512"
-   version="1.1"
-   id="svg4721"
-   width="512"
-   height="512"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
-  <defs
-     id="defs4725" />
-  <g
-     fill="none"
-     fill-rule="evenodd"
-     id="g4719"
-     transform="scale(16)">
-    <circle
-       cx="16"
-       cy="16"
-       fill="#2ab6f6"
-       r="16"
-       id="circle4715" />
-    <path
-       d="M 16,6 25,18.533 16,26 7,18.533 Z m -1.174,6.667 -3.913,5.333 3.913,3.2 z m 2.348,0 V 21.2 L 21.087,18 Z"
-       fill="#ffffff"
-       id="path4717" />
-  </g>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M255.848 511.999L486.247 320.844L255.848 0V511.999ZM285.902 389.12V170.675L386.075 307.2L285.902 389.12Z" fill="#4ACFD9"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M255.85 0.000934943L255.849 0L25.4492 320.845L255.849 512L255.85 511.999V0.000934943ZM125.622 307.2L225.795 170.675V389.12L125.622 307.2Z" fill="#0295AA"/>
 </svg>

@@ -1,14 +1,15 @@
 {
     "type": "P2P Network Nodes",
     "definition": {
-        "text": "Write the definition for this Node.",
+        "text": "The P2P Network Nodes node holds the definitions of all P2P Network Nodes associated with current User Profile.",
         "translations": [
             {
                 "language": "RU",
-                "text": "Напишите определение для этого узла.",
-                "updated": 1645181655099
+                "text": "Узел P2P Network Nodes содержит определения всех узлов сети P2P, связанных с текущим профилем пользователя.",
+                "updated": 1647785258815
             }
-        ]
+        ],
+        "updated": 1647060483559
     },
     "paragraphs": [
         {

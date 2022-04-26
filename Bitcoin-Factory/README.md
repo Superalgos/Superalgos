@@ -163,25 +163,83 @@ The Test Client and Test Server interact in a p2p way via the Superalgos Network
 * git
 * docker
 
-## Superalgos Profile
-
-To run this software you need a Superalgos Profile with the node Forecast Providers / Bitcoin Factory Forecast / Test Client Instance.
-
-### In Detail 
-
-For your Test Client App to work and be able to connect to the Test Server you need to check that:
-
-1. The Bitcoin Factory Forecast node must be named Testnet.
-2. You need a Test Client Instance for each process or instance of this Test Client App you want to keep running. Name it as you like.
-3. You will need to assign each Test Client Instance some SA token power if you wish to receive the best crowd-sourced predictions at the end of each of your tests. How much token power for each prediction is to be determined in the near future once the assigned token power will be checked at a future release.
-
-Note 1: Once you add those nodes to your profile you still needs to contribute your User Profile and it needs to be merged. After that you will need to wait until the Network Node updates it's Superalgos Plugins including the User Profiles, and that happens every 5 minutes. 
-
-Note 2: In the future, pending a deeper integration with the Superalgos Governance system, you will be able to receive SA tokens for each Test Case you have processed. We will start counting the solved Test Cases from now.
-
-## Setup
+## App Setup
 
 The current version of Bitcoin Factory is already integrated into Superalgos. You need to load the Bitcoin Factory Demo Plugin workspace, and from there you will run the Test Client task.
+
+## Setting up your Superalgos Profile and the Task to run
+
+To run this software you need a Superalgos Profile with some extra nodes and some configs to be in the right place. Continue reading for detailed instructions.
+
+### Overview
+
+For your Test Client App to work and be able to connect to the Test Server you need to:
+
+1. Update your User Profile with several nodes that today you might not have.
+2. Create the Signing Account node to allow your Test Client app run with an indentity that the Superalgos Network can recognize.
+3. Reference from the Task -> Task Server App Reference one of the nodes you added to your profile.
+4. Change a config to specify the name of your Test Client, so that you can recognize it among other test clients on the execution reports.
+
+Continue reading this section for detailed step by step instructions of how to do the above.
+
+### Update your User Profile
+
+You need to add a few nodes to your User Profile, and once you finish, you need to contribute it to the Governance repo and make sure that it is merged by the PR merging bot. 
+
+Here is the complete list of nodes you need to add to your profile, in case you don't already have them. All paths are starting from the User Profile node.
+
+1. User Profile -> User Apps
+2. User Profile -> User Apps -> Server Apps
+3. User Profile -> User Apps -> Server Apps -> Task Server App
+
+For this node, you need to assing the following name and the following config:
+
+Node Name: "Task-Server-App-1"
+
+Node Config:
+```sh
+{
+    "codeName": "Task-Server-App-1"
+}
+ ```
+
+4. User Profile -> Forecast Providers -> Server Apps
+5. User Profile -> Forecast Providers -> Bitcoin Factory Forecasts
+
+Node Name: "Testnet"
+
+6. User Profile -> Forecast Providers -> Bitcoin Factory Forecasts -> Test Client Instance
+
+For this node, you need to assing a name of your choice and that name needs also to be at the config:
+
+Node Name: "Assign-A-Name"
+
+Node Config:
+```sh
+{
+    "codeName": "Assign-A-Name"
+}
+ ```
+
+### Signing Accounts
+
+Finally, you need to re-generate the signing accounts of your User Profile, so that a new node of type Signing Accounts is created under the "Task-Server-App-1" node. The procedure to do this is the following:
+
+1. At the Governance Project node create a Profile Constructor node.
+2. Reference the Profile Constructor to your User Profile.
+3. At the Profile Constructor menu, click on Install Signing Accounts. This will generate a new node under "Task-Server-App-1" and save a file to your My-Secrets folder with the Signing Accounds at your User Profile.
+
+Now you are done with your profile.
+
+Remember to save your User Profile plugin, contribute it and check that it was merged at the Governance repository.
+
+IMPORTANT: It takes a few minutes for your profile to be auto-merged into the Governance repository and another 5 minutes to be picked up by the running Network Node. After changes to your profile, wait for around 10 minutes before expecting it to be able to connect to the Superalgos Network node.
+
+### Reference the Task Server App
+
+Locate the node Task Server App Reference, under your Test Client Task, and replace the current reference with a reference to the "Task-Server-App-1" node you created at your User Profile. 
+
+In this way you are defining that the Test Client Task will run with that identity, and will sign its messages with the Signing Accounts children of that node.
 
 ### Change the Config
 
@@ -203,7 +261,11 @@ After that, open the config of the Test-Client Sensor Bot Instance. It looks lik
 * logTrainingOutput: Set it to true if you want more detail of the Machile Learning process at the console.
 * clientInstanceName: IMPORTANT: Change this to match your own name created at your user profile.
 
-Second, build the Docker Image. Open a console at the Bitcoin-Factory folder inside Superalgos and follow the instructions according to your hardware:
+IMPORTANT: If you are going to be using 2 or more computers, you need to take care of the Signing Accounts file that needs to be present at both / all computers, and it must be the same file. In other words you can not generate the signing account at one computer and then generate it again at the second one. If you generate it at one computer and contributed your profile, then you need to copy the file inside the My-Secrets folder to the second computer/s.
+
+## Docker Setup
+
+Build the Docker Image. Open a console at the Bitcoin-Factory folder inside Superalgos and follow the instructions according to your hardware:
 
 ### On x86 Processors
 

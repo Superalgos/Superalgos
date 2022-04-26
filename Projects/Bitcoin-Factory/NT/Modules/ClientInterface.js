@@ -162,6 +162,7 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
                         message: 'Next Request Already Expired.'
                     }
                     requestsToServer.splice(0, 1)
+                    responseFunctions.delete(requestToServer.queryReceived.messageId)
                     resolve(response)
                 }
             }

@@ -76,8 +76,12 @@
                             In this case there were no requests for the server, we will prepare for the next message and go to sleep.
                             */
                             getReadyForNewMessage()
-                            console.log((new Date()).toISOString(), 'Network Node Response: ' + response)
-                            await SA.projects.foundations.utilities.asyncFunctions.sleep(1000)
+                            if (response.result === "Ok" && response.data.result === "Ok" && response.data.message === "Next Request Already Expired."  ) {
+                                console.log((new Date()).toISOString(), 'Network Node Response: Next Request Already Expired.' ) 
+                            } else {
+                                /* No request at the moment for the Test Server */
+                                await SA.projects.foundations.utilities.asyncFunctions.sleep(1000)
+                            }
                         } else {
                             /*
                             In this case there is a request that needs to be processed.

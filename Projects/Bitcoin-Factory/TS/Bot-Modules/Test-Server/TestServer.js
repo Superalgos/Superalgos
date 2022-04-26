@@ -76,6 +76,7 @@
                             In this case there were no requests for the server, we will prepare for the next message and go to sleep.
                             */
                             getReadyForNewMessage()
+                            console.log((new Date()).toISOString(), 'Network Node Response: ' + response)
                             await SA.projects.foundations.utilities.asyncFunctions.sleep(1000)
                         } else {
                             /*

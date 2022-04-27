@@ -380,16 +380,17 @@ For specific information on how to run the Docker Container in different OS, ple
 Run the container with this command. Change the path if you did not install this App at the commands location.
 
 ```sh
-docker run --gpus all -it --rm --name Bitcoin-Factory-ML -v C:/Superalgos/Bitcoin-Factory/notebooks:/tf/notebooks -p 8888:8888 bitcoin-factory-machine-learning
+docker run --gpus all -it --rm --name Bitcoin-Factory-ML -v C:/Superalgos/Bitcoin-Factory/Test-Client/notebooks:/tf/notebooks -p 8888:8888 bitcoin-factory-machine-learning
 ```
 
-### on Ubuntu Server
+### on Ubuntu Server / Linux
 
 Run the Docker container with this command. Change the path if you did not install this App at the commands location.
 
 ```sh
-sudo docker run --gpus all -it --rm --name Bitcoin-Factory-ML -v ~/Superalgos/Bitcoin-Factory/Test-Client/notebooks:/tf/notebooks -p 8888:8888 bitcoin-factory-machine-learning
+docker run --gpus all -it --rm --name Bitcoin-Factory-ML -v /Users/Your-User-Name/Superalgos/Bitcoin-Factory/Test-Client/notebooks:/tf/notebooks -p 8888:8888 bitcoin-factory-machine-learning
 ```
+
 
 ### on Mac OS
 
@@ -414,20 +415,10 @@ docker run --gpus all -it --rm --name Bitcoin-Factory-ML -v /Users/Your-User-Nam
 ```
 You will need to remove ```--gpus all``` for M1 based macs unless the docker image is specifically built to use the metal API.
 
-In Linux:
-
-```sh
-docker run --gpus all -it --rm --name Bitcoin-Factory-ML -v /Users/Your-User-Name/Superalgos/Bitcoin-Factory/Test-Client/notebooks:/tf/notebooks -p 8888:8888 bitcoin-factory-machine-learning
-```
-In Windows:
-
-```sh
-docker run --gpus all -it --rm --name Bitcoin-Factory-ML -v C:/Superalgos/Bitcoin-Factory/Test-Client/notebooks:/tf/notebooks -p 8888:8888 bitcoin-factory-machine-learning
-```
 
 ### On Raspbian
 
-Early test on Raspbian has shown difficulties to build the docker image. If you manage to make it work with this OS please report back so that we update the specific instructions for it.
+Early test on Raspbian has shown difficulties to build the docker image. Ensure you are using the latest 64 bit image. If you manage to make it work with this OS please report back so that we update the specific instructions for it.
 
 ## Troubleshooting - Docker Cheat Sheet
 
@@ -451,4 +442,4 @@ to fix it.
 "Fatal Error. Can not run this task. The Network Client Identity does not match any node at User Profiles Plugins."
 ```
 This error occurs when the signing account does not match the Governance plugin repository's account. To ensure they are the same, import your user profile on the workspace using the "Add specified User Profile" command under Plugins -> Plugin Project -> Plugin User Profiles. 
-Add the correct nodes, references and signing account to the plugin as detailed in [App Setup](##-app-setup). Save the plugin and push the changes to the Governance repository and wait 10 minutes for it to merge and be picked up by the Forecast Server.
+Add the correct nodes, references and signing account to the plugin as detailed in [App Setup](#app-setup). Save the plugin and push the changes to the Governance repository and wait 10 minutes for it to merge and be picked up by the Forecast Server.

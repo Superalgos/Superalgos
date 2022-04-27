@@ -144,7 +144,7 @@ The crowd-sourced forecasts you receive after each test, are the ones belonging 
 
 ### Why is this System Beautiful?
 
-Because the precision of the forecasts can only improve over time. Think about it; once we find the right set of parameters and data for BTC / 1Hs with an error value of 0.8 %, we will be forecasting with this model until the minute anyone in the crowd finds another set of parameters and data for BTC / 1Hs with a lower error. For exampleif the new error value is 0.6, from there on all forecasts will be done with the new ML model until the time someone else finds another model with even less % error.
+Because the precision of the forecasts can only improve over time. Think about it; once we find the right set of parameters and data for BTC / 1Hs with an error value of 0.8 %, we will be forecasting with this model until the minute anyone in the crowd finds another set of parameters and data for BTC / 1Hs with a lower error. For example, if the new error value is 0.6, from that point in time onwards all forecasts will be done with the new ML model until the time someone else finds another model with even less % error.
 
 It might take time, but our collective intelligence can only improve over time. 
 
@@ -449,4 +449,5 @@ to fix it.
 ```sh
 "Fatal Error. Can not run this task. The Network Client Identity does not match any node at User Profiles Plugins."
 ```
-Check your signing process has been completed, and your user profile updated and merged into the develop branch of the plugins Governance repository.
+This error occurs when the signing account does not match the Governance plugin repository's account. To ensure they are the same, import your user profile on the workspace using the "Add specified User Profile" command under Plugins -> Plugin Project -> Plugin User Profiles. 
+Add the correct nodes, references and signing account to the plugin as detailed in [App Setup](#-app-setup). Save the plugin and push the changes to the Governance repository and wait 10 minutes for it to merge and be picked up by the Forecast Server.

@@ -395,7 +395,7 @@ sudo docker run --gpus all -it --rm --name Bitcoin-Factory-ML -v ~/Superalgos/Bi
 
 #### File Sharing
 
-Before running that command for the first time, you will need to share the notebooks folder.
+Before running the docker command for the first time, you will need to share the notebooks folder.
 
 At the Settings of the Docker App, use File sharing to allow local directories on the Mac to be shared with Linux containers. By default the /Users, /Volume, /private, /tmp and /var/folders directory are shared. As this project is outside this directory then it must be added to the list. Otherwise you may get Mounts denied or cannot start service errors at runtime.
 
@@ -412,6 +412,7 @@ The command to run the container on Mac should be like this (mind Your-User-Name
 ```sh
 docker run --gpus all -it --rm --name Bitcoin-Factory-ML -v /Users/Your-User-Name/Superalgos/Bitcoin-Factory/Test-Client/notebooks:/tf/notebooks -p 8888:8888 bitcoin-factory-machine-learning
 ```
+You will need to remove ```--gpus all``` for M1 based macs unless the docker image is specifically built to use the metal API.
 
 In Linux:
 
@@ -450,4 +451,4 @@ to fix it.
 "Fatal Error. Can not run this task. The Network Client Identity does not match any node at User Profiles Plugins."
 ```
 This error occurs when the signing account does not match the Governance plugin repository's account. To ensure they are the same, import your user profile on the workspace using the "Add specified User Profile" command under Plugins -> Plugin Project -> Plugin User Profiles. 
-Add the correct nodes, references and signing account to the plugin as detailed in [App Setup](#-app-setup). Save the plugin and push the changes to the Governance repository and wait 10 minutes for it to merge and be picked up by the Forecast Server.
+Add the correct nodes, references and signing account to the plugin as detailed in [App Setup](##-app-setup). Save the plugin and push the changes to the Governance repository and wait 10 minutes for it to merge and be picked up by the Forecast Server.

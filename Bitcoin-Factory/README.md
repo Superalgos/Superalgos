@@ -144,7 +144,7 @@ The crowd-sourced forecasts you receive after each test, are the ones belonging 
 
 ### Why is this System Beautiful?
 
-Because the precision of the forecasts can only improve over time. Think about it; once we find the right set of parameters and data for BTC / 1Hs with an error value of 0.8 %, we will be forecasting with this model until the minute anyone in the crowd finds another set of parameters and data for BTC / 1Hs with a lower error. For exampleif the new error value is 0.6, from there on all forecasts will be done with the new ML model until the time someone else finds another model with even less % error.
+Because the precision of the forecasts can only improve over time. Think about it; once we find the right set of parameters and data for BTC / 1Hs with an error value of 0.8 %, we will be forecasting with this model until the minute anyone in the crowd finds another set of parameters and data for BTC / 1Hs with a lower error. For example, if the new error value is 0.6, from that point in time onwards all forecasts will be done with the new ML model until the time someone else finds another model with even less % error.
 
 It might take time, but our collective intelligence can only improve over time. 
 
@@ -380,22 +380,23 @@ For specific information on how to run the Docker Container in different OS, ple
 Run the container with this command. Change the path if you did not install this App at the commands location.
 
 ```sh
-docker run --gpus all -it --rm --name Bitcoin-Factory-ML -v C:/Superalgos/Bitcoin-Factory/notebooks:/tf/notebooks -p 8888:8888 bitcoin-factory-machine-learning
+docker run --gpus all -it --rm --name Bitcoin-Factory-ML -v C:/Superalgos/Bitcoin-Factory/Test-Client/notebooks:/tf/notebooks -p 8888:8888 bitcoin-factory-machine-learning
 ```
 
-### on Ubuntu Server
+### on Ubuntu Server / Linux
 
 Run the Docker container with this command. Change the path if you did not install this App at the commands location.
 
 ```sh
-sudo docker run --gpus all -it --rm --name Bitcoin-Factory-ML -v ~/Superalgos/Bitcoin-Factory/Test-Client/notebooks:/tf/notebooks -p 8888:8888 bitcoin-factory-machine-learning
+docker run --gpus all -it --rm --name Bitcoin-Factory-ML -v /Users/Your-User-Name/Superalgos/Bitcoin-Factory/Test-Client/notebooks:/tf/notebooks -p 8888:8888 bitcoin-factory-machine-learning
 ```
+
 
 ### on Mac OS
 
 #### File Sharing
 
-Before running that command for the first time, you will need to share the notebooks folder.
+Before running the docker command for the first time, you will need to share the notebooks folder.
 
 At the Settings of the Docker App, use File sharing to allow local directories on the Mac to be shared with Linux containers. By default the /Users, /Volume, /private, /tmp and /var/folders directory are shared. As this project is outside this directory then it must be added to the list. Otherwise you may get Mounts denied or cannot start service errors at runtime.
 
@@ -412,21 +413,12 @@ The command to run the container on Mac should be like this (mind Your-User-Name
 ```sh
 docker run --gpus all -it --rm --name Bitcoin-Factory-ML -v /Users/Your-User-Name/Superalgos/Bitcoin-Factory/Test-Client/notebooks:/tf/notebooks -p 8888:8888 bitcoin-factory-machine-learning
 ```
+You will need to remove ```--gpus all``` for M1 based macs unless the docker image is specifically built to use the metal API.
 
-In Linux:
-
-```sh
-docker run --gpus all -it --rm --name Bitcoin-Factory-ML -v /Users/Your-User-Name/Superalgos/Bitcoin-Factory/Test-Client/notebooks:/tf/notebooks -p 8888:8888 bitcoin-factory-machine-learning
-```
-In Windows:
-
-```sh
-docker run --gpus all -it --rm --name Bitcoin-Factory-ML -v C:/Superalgos/Bitcoin-Factory/Test-Client/notebooks:/tf/notebooks -p 8888:8888 bitcoin-factory-machine-learning
-```
 
 ### On Raspbian
 
-Early test on Raspbian has shown difficulties to build the docker image. If you manage to make it work with this OS please report back so that we update the specific instructions for it.
+Early test on Raspbian has shown difficulties to build the docker image. Ensure you are using the latest 64 bit image. If you manage to make it work with this OS please report back so that we update the specific instructions for it.
 
 ## Troubleshooting - Docker Cheat Sheet
 
@@ -449,4 +441,5 @@ to fix it.
 ```sh
 "Fatal Error. Can not run this task. The Network Client Identity does not match any node at User Profiles Plugins."
 ```
-Check your signing process has been completed, and your user profile updated and merged into the develop branch of the plugins Governance repository.
+This error occurs when the signing account does not match the Governance plugin repository's account. To ensure they are the same, import your user profile on the workspace using the "Add specified User Profile" command under Plugins -> Plugin Project -> Plugin User Profiles. 
+Add the correct nodes, references and signing account to the plugin as detailed in [App Setup](#app-setup). Save the plugin and push the changes to the Governance repository and wait 10 minutes for it to merge and be picked up by the Forecast Server.

@@ -48,7 +48,8 @@ exports.newNetworkModulesP2PNetworkClient = function newNetworkModulesP2PNetwork
             thisObject.appBootstrapingProcess = SA.projects.network.modules.appBootstrapingProcess.newNetworkModulesAppBootstrapingProcess()
             await thisObject.appBootstrapingProcess.initialize(
                 userAppSigningAccountCodeName,
-                thisObject.p2pNetworkClientIdentity
+                thisObject.p2pNetworkClientIdentity,
+                false
             )
             /*
             We set up the P2P Network reacheable nodes.

@@ -430,6 +430,7 @@ Early test on Raspbian has shown difficulties to build the docker image. If you 
 
 ## Troubleshooting - Docker Cheat Sheet
 
+### Response from daemon conflict
 If you get the error:
 
 ```sh
@@ -444,7 +445,7 @@ docker container prune
 
 to fix it.
 
-
+### Network Client Identity
 ```sh
 "Fatal Error. Can not run this task. The Network Client Identity does not match any node at User Profiles Plugins."
 ```

@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Отображает и строит графики всех исторических максимумов текущего актива.",
                 "updated": 1643529057243
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Mevcut yapının tüm zamanlarının en yüksek görünümü ve çizer.",
+                "updated": 1650627162716
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Панель плоттера (Plotter Panel) содержит следующие значения:",
                     "updated": 1643529100658
+                },
+                {
+                    "language": "TR",
+                    "text": "Plotter paneli aşağıdaki değerleri tutar:",
+                    "updated": 1650627179578
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "RU",
                     "text": "Rate: Самая высокая зарегистрированная цена текущего актива.",
                     "updated": 1643529112178
+                },
+                {
+                    "language": "TR",
+                    "text": "Oran ( Rate ): Mevcut varlığın kaydedilen en yüksek fiyatı.",
+                    "updated": 1650627200617
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "RU",
                     "text": "Date at: дата достижения последнего исторического максимума.",
                     "updated": 1643529119742
+                },
+                {
+                    "language": "TR",
+                    "text": "Tarih: en son tüm zamanların en yüksek seviyesinin gerçekleştiği tarih.",
+                    "updated": 1650627208026
                 }
             ]
         },
@@ -59,6 +79,11 @@
                     "language": "RU",
                     "text": "Days Since: количество дней с момента достижения исторического максимума.",
                     "updated": 1643529166901
+                },
+                {
+                    "language": "TR",
+                    "text": "Geçen Günler: Tüm zamanların en yüksek seviyesinden bu yana geçen gün sayısı.",
+                    "updated": 1650627216699
                 }
             ]
         },
@@ -71,6 +96,11 @@
                     "language": "RU",
                     "text": "Percent Down: Снижение доходности с рекордного уровня.",
                     "updated": 1643529136492
+                },
+                {
+                    "language": "TR",
+                    "text": "Yüzde Düşüş: Tüm zamanların en yüksek seviyesinden beri yüzde düşüş.",
+                    "updated": 1650627224613
                 }
             ]
         },

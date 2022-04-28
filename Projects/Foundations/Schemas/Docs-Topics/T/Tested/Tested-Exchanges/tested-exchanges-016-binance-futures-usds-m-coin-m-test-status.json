@@ -4,37 +4,86 @@
     "type": "Binance Futures USDS-M COIN-M Test Status",
     "definition": {
         "text": "Binance Futures Perpetual contracts are partially tested for data mining. Testing in progress for live trading.  Note that Quarterly Contract trading will be tested in the future based on users requirement/demand.",
-        "updated": 1615141847424
+        "updated": 1615141847424,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Özet: Binance Vadeli İşlemler Sürekli sözleşmeleri, veri madenciliği için kısmen test edilmiştir. Canlı ticaret için testler devam ediyor. Üç Aylık Sözleşme ticaretinin gelecekte kullanıcıların gereksinimlerine/taleplerine göre test edileceğini unutmayın.",
+                "updated": 1650572429618
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Properties",
-            "updated": 1615143100216
+            "updated": 1615143100216,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Özellikleri",
+                    "updated": 1650572436610
+                }
+            ]
         },
         {
             "style": "List",
             "text": "1-min OHLCVs Capability: Yes. The ability to fetch historic data for backtesting purposes has been verified.",
-            "updated": 1616003523813
+            "updated": 1616003523813,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "1 dakikalık OHLCV Yeteneği: Evet. Geriye dönük test amacıyla geçmiş verileri getirme yeteneği doğrulandı.",
+                    "updated": 1650572446250
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Market History: Starting 2019/09/13 04:00 AM (UTC) for most stable coin perpetual contracts.",
-            "updated": 1615142912901
+            "updated": 1615142912901,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Market Geçmişi: En istikrarlı jeton kalıcı sözleşmeleri için 2019/09/13 04:00 AM (UTC) itibarıyla başlıyor.",
+                    "updated": 1650572475531
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Trading Capability: Currently under review and testing for both USDⓈ-M/COIN-M.",
-            "updated": 1616003541160
+            "updated": 1616003541160,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ticaret Yeteneği: Şu anda hem USDⓈ-M/COIN-M için inceleniyor ve test ediliyor.",
+                    "updated": 1650572489678
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Comments: Ensure that the correct market symbol codes are choosen (refer to Binance as symbols are added and withdrawn regularly).  Sandbox/testnet facility available but not yet reviewed as it requires independent exchange API keys.",
-            "updated": 1615142951363
+            "updated": 1615142951363,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yorumlar: Doğru piyasa sembolü kodlarının seçildiğinden emin olun (simgeler düzenli olarak eklenip geri çekildiği için Binance'e bakın). Korumalı alan/testnet tesisi mevcut ancak bağımsız değişim API anahtarları gerektirdiğinden henüz incelenmedi.",
+                    "updated": 1650572498167
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Configuration for USDⓈ-M"
+            "text": "Configuration for USDⓈ-M",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "USDⓈ-M için Yapılandırma",
+                    "updated": 1650572515977
+                }
+            ]
         },
         {
             "style": "Json",
@@ -43,7 +92,14 @@
         },
         {
             "style": "Title",
-            "text": "Configuration for COIN-M"
+            "text": "Configuration for COIN-M",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "COIN-M için Yapılandırma",
+                    "updated": 1650572535305
+                }
+            ]
         },
         {
             "style": "Json",

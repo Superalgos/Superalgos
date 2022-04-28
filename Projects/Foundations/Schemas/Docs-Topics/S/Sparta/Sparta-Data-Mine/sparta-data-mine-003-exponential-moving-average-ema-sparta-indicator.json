@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Индикатор выдает экспоненциальную скользящую среднюю в нескольких вариантах, включая популярные 20, 50, 100 и 200, а также менее распространенные SMA на базе 7 и 11.",
                 "updated": 1643529587015
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Gösterge, popüler 20, 50, 100 ve 200'ün yanı sıra daha az sıklıkta taban 7 ve taban 11 SMA'lar dahil olmak üzere birden çok ayarda Üstel Hareketli Ortalama üretir.",
+                "updated": 1650620218306
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Экспоненциальная скользящая средняя на графиках",
                     "updated": 1643529593060
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafiklerde Üstel Hareketli Ortalama",
+                    "updated": 1650620229297
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Согласно Investopedia, \"экспоненциальная скользящая средняя (EMA) - это тип скользящей средней (MA), которая придает больший вес и значение самым последним точкам данных. Экспоненциальную скользящую среднюю также называют экспоненциально взвешенной скользящей средней. Экспоненциально взвешенная скользящая средняя реагирует на последние изменения цены более существенно, чем простая скользящая средняя (SMA), которая применяет равный вес ко всем наблюдениям за период.\"",
                     "updated": 1643529603822
+                },
+                {
+                    "language": "TR",
+                    "text": "Investopedia'ya göre, \"Üssel hareketli ortalama (EMA), en son veri noktalarına daha fazla ağırlık ve önem veren bir tür hareketli ortalamadır (MA). Üstel hareketli ortalama, üstel ağırlıklı hareketli ortalama olarak da adlandırılır. Üstel ağırlıklı bir hareketli ortalama, son fiyat değişikliklerine, dönemdeki tüm gözlemlere eşit ağırlık uygulayan basit bir hareketli ortalamaya (SMA) göre daha önemli tepki verir.",
+                    "updated": 1650620238969
                 }
             ]
         },
@@ -50,6 +65,11 @@
                     "language": "RU",
                     "text": "Те же объяснения, что и для SMA, применимы и к EMA.",
                     "updated": 1643529612306
+                },
+                {
+                    "language": "TR",
+                    "text": "SMA'lar için sunulan aynı açıklamalar EMA'lar için de geçerlidir.",
+                    "updated": 1650620251319
                 }
             ]
         },
@@ -61,6 +81,11 @@
                     "language": "RU",
                     "text": "Продукты и свойства Exponential Moving Average",
                     "updated": 1643529626094
+                },
+                {
+                    "language": "TR",
+                    "text": "Üstel Hareketli Ortalama Ürünler ve Özellikler",
+                    "updated": 1650620262405
                 }
             ]
         },
@@ -72,6 +97,11 @@
                     "language": "RU",
                     "text": "Продукты и периоды, доступные в EMA, в точности соответствуют продуктам и периодам, доступным в SMA. Чтобы использовать EMA, вам просто нужно заменить S на E. Для справки, вот полный список...",
                     "updated": 1643529636487
+                },
+                {
+                    "language": "TR",
+                    "text": "EMA'da bulunan ürünler ve dönemler, SMA'da bulunan ürünler ve dönemlerle tam olarak eşleşir. EMA'yı kullanmak için S'yi bir E ile değiştirmeniz yeterlidir. Bu, referansınız için tam listedir…",
+                    "updated": 1650620279709
                 }
             ]
         },
@@ -83,13 +113,25 @@
                     "language": "RU",
                     "text": "Как и в случае с SMA, есть три продукта, предварительно настроенные на начало расчетов сразу после запуска соответствующей задачи, каждый с различными конфигурациями периодов:",
                     "updated": 1643529645525
+                },
+                {
+                    "language": "TR",
+                    "text": "SMA'larda olduğu gibi, ilgili göreve başlar başlamaz hesaplamaya başlamak üzere önceden yapılandırılmış ve her biri farklı dönem konfigürasyonlarına sahip üç ürün vardır:",
+                    "updated": 1650620287159
                 }
             ]
         },
         {
             "style": "Table",
             "text": "| Product Name | Product Variable | Properties |\n| Popular EMAs | popularEMA | ema20, ema50, ema100, ema200 |\n| Base 7 | base7EMA | ema7, ema14, ema21, ema28, ema35, ema70, ema140, ema210, ema280, ema350, ema700, ema1400 |\n| Base 11 | base11EMA | ema11, ema22, ema33, ema55, ema111 |",
-            "updated": 1611661980687
+            "updated": 1611661980687,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "| Ürün Adı | Ürün Değişkeni | Özellikler |\n| Popular EMAs | popularEMA | ema20, ema50, ema100, ema200 |\n| Base 7 | base7EMA | ema7, ema14, ema21, ema28, ema35, ema70, ema140, ema210, ema280, ema350, ema700, ema1400 |\n| Base 11 | base11EMA | ema11, ema22, ema33, ema55, ema111 |",
+                    "updated": 1650620299885
+                }
+            ]
         },
         {
             "style": "Text",
@@ -100,13 +142,25 @@
                     "language": "RU",
                     "text": "Имеются еще четыре продукта, но они не будут рассчитаны, пока вы не создадите соответствующие выходы данных и не свяжете их с соответствующими наборами данных:",
                     "updated": 1643529654851
+                },
+                {
+                    "language": "TR",
+                    "text": "Mevcut dört ürün daha vardır, ancak ilgili veri çıktılarını oluşturup bunları ilgili veri kümelerine göndermediğiniz sürece bunlar hesaplanmayacaktır:",
+                    "updated": 1650620319202
                 }
             ]
         },
         {
             "style": "Table",
             "text": "| Product Name | Product Variable | Properties |\n| Base 5 | base5EMA | ema5, ema10, ema15, ema20, ema25, ema50, ema100, ema150, ema200, ema250, ema500, ema1000 |\n| Base 6 | base6EMA | ema6, ema12, ema18, ema24, ema30, ema60, ema120, ema180, ema240, ema300, ema600, ema1200 |\n| Base 12 | base12EMA | ema12, ema24, ema36, ema48, ema60, ema120, ema240, ema360, ema480, ema600, ema1200 |\n| Base 30 | base30EMA | ema30, ema60, ema90, ema120, ema150, ema300, ema600, ema900, ema1200, ema1500 |",
-            "updated": 1611662076042
+            "updated": 1611662076042,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "| Ürün Adı | Ürün Değişkeni | Özellikler |\n| Base 5 | base5EMA | ema5, ema10, ema15, ema20, ema25, ema50, ema100, ema150, ema200, ema250, ema500, ema1000 |\n| Base 6 | base6EMA | ema6, ema12, ema18, ema24, ema30, ema60, ema120, ema180, ema240, ema300, ema600, ema1200 |\n| Base 12 | base12EMA | ema12, ema24, ema36, ema48, ema60, ema120, ema240, ema360, ema480, ema600, ema1200 |\n| Base 30 | base30EMA | ema30, ema60, ema90, ema120, ema150, ema300, ema600, ema900, ema1200, ema1500 |",
+                    "updated": 1650620306682
+                }
+            ]
         },
         {
             "style": "Text",
@@ -117,6 +171,11 @@
                     "language": "RU",
                     "text": "Примеры:",
                     "updated": 1643529668847
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnekler:",
+                    "updated": 1650620326624
                 }
             ]
         },
@@ -133,6 +192,11 @@
                     "language": "RU",
                     "text": "Может ли тренд развернуться? Проверка, если быстрая 5-часовая экспоненциальная скользящая средняя опускается ниже более медленной 25-часовой EMA.",
                     "updated": 1643529684968
+                },
+                {
+                    "language": "TR",
+                    "text": "Trend tersine dönebilir mi? 5 saatlik hızlı üstel hareketli ortalamanın daha yavaş olan 25 saatlik EMA'nın altına düşüp düşmediğini kontrol etmek.",
+                    "updated": 1650620338262
                 }
             ]
         }

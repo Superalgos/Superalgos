@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Торговый бот хранит каждую обработанную информацию в файлах, делая все данные доступными для других, как онлайн, так и офлайн.",
                 "updated": 1640341032465
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Ticaret botu ( Trading Bot ) , işlenen her bilgiyi dosyalarda saklayarak tüm verilere hem çevrimiçi hem de çevrimdışı olarak erişilmesini sağlar.",
+                "updated": 1650574717425
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Как объясняется в другом месте, торговый бот делает обрабатываемую им информацию доступной для пользователей через иерархию Trading Engine, которая может быть визуализирована как на пространстве проектирования, так и над графиками. Он также делает ее доступной для торговых систем.",
                     "updated": 1640341127697
+                },
+                {
+                    "language": "TR",
+                    "text": "Başka bir yerde açıklandığı gibi, ticaret botu, hem tasarım alanında hem de çizelgeler üzerinde görselleştirilebilen ticaret motorunun hiyerarşisi aracılığıyla işlediği bilgileri kullanıcıların kullanımına sunar. Aynı zamanda ticaret sistemleri için kullanılabilir hale getirir.",
+                    "updated": 1650574747061
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Кроме того, информация также хранится в файлах, отсортированных по категориям. Это делает информацию о среде выполнения доступной для других процессов и внешних систем, причем доступ к ней можно получить как в режиме онлайн, то есть во время выполнения, так и в режиме офлайн.",
                     "updated": 1640341265695
+                },
+                {
+                    "language": "TR",
+                    "text": "Bunun da ötesinde, bilgiler konsepte göre sıralanmış dosyalarda da saklanır. Bunlar, çalışma zamanı bilgilerini hem çevrimiçi, yani çalışma zamanında, hem de çevrimdışı olarak erişilebilecek diğer süreçler ve harici sistemler için kullanılabilir hale getirir.",
+                    "updated": 1650574755156
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "RU",
                     "text": "Торговый бот выводит файлы на узел, на котором он работает, в частности, в следующее место:",
                     "updated": 1640341282965
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret botu ( Trading Bot ), üzerinde çalıştığı düğümdeki dosyaları, özellikle aşağıdaki konuma çıkarır:",
+                    "updated": 1650574797184
                 }
             ]
         },

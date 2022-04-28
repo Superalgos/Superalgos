@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Пройдено тестирование получение свечей OHLVC и бэктестинг. Живая торговля скоро будет протестирована.",
                 "updated": 1646900664043
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Getirilen OHLVC'ler ve Geriye Dönük Testi Geçildi. Canlı ticaret yakında test edilecektir.",
+                "updated": 1650570731074
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Сведения",
                     "updated": 1646900672588
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikleri",
+                    "updated": 1650570739513
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "RU",
                     "text": "1-минутные свечи OHLCV: Да. Возможность получения исторических данных для целей бэктестинга была проверена.",
                     "updated": 1646900696925
+                },
+                {
+                    "language": "TR",
+                    "text": "1 dakikalık OHLCV Yeteneği: Evet. Geriye dönük test amacıyla geçmiş verileri getirme yeteneği doğrulandı.",
+                    "updated": 1650570760122
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "RU",
                     "text": "История рынка: с 2020-01-01",
                     "updated": 1646900711621
+                },
+                {
+                    "language": "TR",
+                    "text": "Piyasa Geçmişi: 2020-01-01",
+                    "updated": 1650570766831
                 }
             ]
         },
@@ -59,6 +79,11 @@
                     "language": "RU",
                     "text": "Торговые возможности: Неизвестно. Возможность запуска стратегий в режиме реальной торговли не была проверена.",
                     "updated": 1646900720663
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Yeteneği: Bilinmiyor. Canlı ticaret modunda strateji çalıştırma yeteneği doğrulanmadı.",
+                    "updated": 1650570778716
                 }
             ]
         },
@@ -71,6 +96,11 @@
                     "language": "RU",
                     "text": "Комментарии: Добыча необработанных данных может быть медленной из-за ограничений обмена на их API, которые ограничивают количество данных, которые могут быть запрошены через Rest API.",
                     "updated": 1646900744638
+                },
+                {
+                    "language": "TR",
+                    "text": "Yorumlar: Rest API aracılığıyla istenebilecek veri sayısını sınırlayan API'lerindeki değişim kısıtlamaları nedeniyle Ham Veri madenciliği yavaş olabilir",
+                    "updated": 1650570792918
                 }
             ]
         },
@@ -82,6 +112,11 @@
                     "language": "RU",
                     "text": "Конфигурация",
                     "updated": 1646900754108
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırma",
+                    "updated": 1650570804803
                 }
             ]
         },

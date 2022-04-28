@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Индикатор выдает индикатор MACD в наиболее популярной настройке 12, 26, 9, а также в следующих менее распространенных настройках: быстрая 3, 10, 16, промежуточная 8, 17, 9 и медленная 24, 52, 9.",
                 "updated": 1643529817417
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Gösterge, en popüler 12, 26, 9 ayarında ve aşağıdaki daha az olağan ayarlarda de MACD göstergesi üretir: hızlı 3, 10, 16, orta seviye 8, 17, 9 ve yavaş 24, 52, 9 .",
+                "updated": 1650620511378
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Продукты и свойства конвергенции/дивергенции скользящих средних",
                     "updated": 1643529845729
+                },
+                {
+                    "language": "TR",
+                    "text": "Hareketli Ortalama Yakınsama/Iraksaklık Ürünleri ve Özellikleri",
+                    "updated": 1650621323111
                 }
             ]
         },
@@ -34,13 +44,25 @@
                     "language": "RU",
                     "text": "Существует четыре различных продукта, каждый из которых имеет определенные настройки для быстрой и медленной скользящих средних и сигнальной линии MACD.",
                     "updated": 1643529855677
+                },
+                {
+                    "language": "TR",
+                    "text": "Her biri hızlı ve yavaş hareket eden ortalamalar ve MACD Sinyal hattı için belirli bir ayarla yapılandırılmış dört farklı ürün vardır.",
+                    "updated": 1650621347836
                 }
             ]
         },
         {
             "style": "Table",
             "text": "| Product Setting | Product Variable | Properties |\n| MACD (12, 26, 9) | macd122609 | ema12, ema26 |\n| MACD (3, 10, 16) | macd031016 | ema3, ema10 |\n| MACD (8, 17, 9) | macd081709 | ema8, ema17 |\n| MACD (24, 52, 9) | macd245209 | ema24, ema52 |",
-            "updated": 1611662546677
+            "updated": 1611662546677,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "| Ürün Ayarı | Ürün Değişkeni | Özellikler |\n| MACD (12, 26, 9) | macd122609 | ema12, ema26 |\n| MACD (3, 10, 16) | macd031016 | ema3, ema10 |\n| MACD (8, 17, 9) | macd081709 | ema8, ema17 |\n| MACD (24, 52, 9) | macd245209 | ema24, ema52 |",
+                    "updated": 1650621359988
+                }
+            ]
         },
         {
             "style": "Text",
@@ -51,6 +73,11 @@
                     "language": "RU",
                     "text": "Первые несколько переменных, которые вы можете использовать из этих продуктов, соответствуют EMA, используемым для расчета линии MACD и сигнальной линии MACD, как показано в таблице выше.",
                     "updated": 1643529867503
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu ürünlerden kullanabileceğiniz ilk birkaç değişken, yukarıdaki tabloda gösterildiği gibi MACD hattını ve MACD sinyal hattını hesaplamak için kullanılan EMA'lara karşılık gelen değişkenlerdir.",
+                    "updated": 1650621399107
                 }
             ]
         },
@@ -62,6 +89,11 @@
                     "language": "RU",
                     "text": "Кроме того, каждый из продуктов, представленных в таблице выше, обладает следующими свойствами:",
                     "updated": 1643529874791
+                },
+                {
+                    "language": "TR",
+                    "text": "Ayrıca, yukarıdaki tablodaki ürünlerin her biri aşağıdaki özelliklere sahiptir:",
+                    "updated": 1650621409977
                 }
             ]
         },
@@ -74,6 +106,11 @@
                     "language": "RU",
                     "text": "| Property | Description |\n| line | Линия MACD, то есть быстрая EMA минус медленная EMA. |\n| signal | Сигнальная линия, то есть n-периодная EMA линии MACD (n - последняя настройка). |\n| histogram | Значение гистограммы, то есть разница между линией MACD и сигнальной линией MACD. |",
                     "updated": 1643529907494
+                },
+                {
+                    "language": "TR",
+                    "text": "| Özellik | Açıklama |\n| line | The MACD line, that is, the fast EMA minus the slow EMA. |\n| signal | The Signal line, that is, the n-period EMA of the MACD line (n is the last setting) |\n| histogram | The value of the histogram, that is, the difference between the MACD line and the MACD signal line. |",
+                    "updated": 1650621382677
                 }
             ]
         },
@@ -86,6 +123,11 @@
                     "language": "RU",
                     "text": "Примеры:",
                     "updated": 1643529912716
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnekler:",
+                    "updated": 1650621418922
                 }
             ]
         },
@@ -102,6 +144,11 @@
                     "language": "RU",
                     "text": "Пересечение центральной линии на 30-минутном графике.",
                     "updated": 1643529920112
+                },
+                {
+                    "language": "TR",
+                    "text": "30 dakikalık grafikte bir merkez çizgisi geçişi.",
+                    "updated": 1650621446230
                 }
             ]
         },
@@ -118,6 +165,11 @@
                     "language": "RU",
                     "text": "Пересечение сигнальной линии на 15-минутном графике.",
                     "updated": 1643529927966
+                },
+                {
+                    "language": "TR",
+                    "text": "15 dakikalık grafikte bir sinyal hattı geçişi.",
+                    "updated": 1650621454578
                 }
             ]
         }

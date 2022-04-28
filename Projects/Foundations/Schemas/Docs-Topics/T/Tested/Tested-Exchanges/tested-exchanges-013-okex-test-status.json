@@ -4,37 +4,86 @@
     "type": "OKEX Test Status",
     "definition": {
         "text": "Passed Live Trading Test but limited Historical Data ",
-        "updated": 1636810465259
+        "updated": 1636810465259,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Özet: Canlı Alım Satım Testinden Geçildi ancak Geçmiş Veriler Sınırlı",
+                "updated": 1650572070315
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Properties",
-            "updated": 1636811142009
+            "updated": 1636811142009,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Özellikleri",
+                    "updated": 1650572035042
+                }
+            ]
         },
         {
             "style": "List",
             "text": "1-min OHLCVs Capability: No. The ability to fetch historical data for backtesting purposes is not possible.",
-            "updated": 1636811644277
+            "updated": 1636811644277,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "1 dakikalık OHLCV Yeteneği: Hayır. Geriye dönük test amacıyla geçmiş verileri getirme yeteneği mümkün değildir.",
+                    "updated": 1650572080452
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Market History: From that day you to start mining historical data",
-            "updated": 1636811635789
+            "updated": 1636811635789,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Market Geçmişi: O günden itibaren geçmiş verileri madenciliğe başlayacaksınız.",
+                    "updated": 1650572093253
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Trading Capability: Yes The ability to place market orders, create and cancel limit orders in a live-trading mode has been verified.",
-            "updated": 1636811869127
+            "updated": 1636811869127,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ticaret Yeteneği: Evet Canlı alım satım modunda piyasa emirleri verme, limit emirleri oluşturma ve iptal etme yeteneği doğrulandı.",
+                    "updated": 1650572114193
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Comments: Raw Data mining is limited to a few minutes due to exchange restrictions on their API that limit the number of data it can be requested via Rest API",
-            "updated": 1636812202662
+            "updated": 1636812202662,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yorumlar: Ham Veri madenciliği, API'lerinde Rest API aracılığıyla talep edilebilecek veri sayısını sınırlayan değişim kısıtlamaları nedeniyle birkaç dakika ile sınırlıdır.",
+                    "updated": 1650572126080
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yapılandırma",
+                    "updated": 1650572027019
+                }
+            ]
         },
         {
             "style": "Json",
@@ -44,7 +93,14 @@
         {
             "style": "Title",
             "text": "User Exchange Account Configuration",
-            "updated": 1636811329265
+            "updated": 1636811329265,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Kullanıcı Exchange Hesabı Yapılandırması",
+                    "updated": 1650572159270
+                }
+            ]
         },
         {
             "style": "Title",
@@ -53,7 +109,14 @@
         {
             "style": "Note",
             "text": "That your PASSPHRASE is your password in the user exchanger account configuration",
-            "updated": 1636811457247
+            "updated": 1636811457247,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Not: PASSPHRASE'inizin, kullanıcı değiştirici hesap yapılandırmasındaki şifreniz olduğunu",
+                    "updated": 1650572190962
+                }
+            ]
         }
     ]
 }

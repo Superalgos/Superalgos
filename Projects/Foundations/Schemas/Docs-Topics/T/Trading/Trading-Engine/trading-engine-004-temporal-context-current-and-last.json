@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Большая часть информации, предоставляемой торговым движком, может быть доступна в любой момент времени как для текущего экземпляра объекта, так и для последнего открытого экземпляра.",
                 "updated": 1640341385381
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Ticaret motoru tarafından sağlanan bilgilerin çoğuna, herhangi bir zamanda, nesnenin mevcut örneği ve açık olan son örnek için erişilebilir.",
+                "updated": 1650574829214
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Иерархия торгового движка организована по контексту. То есть, основные узлы потомков - текущие, последние и биржевые ордера - описывают контекст, в котором живут их соответствующие потомки.",
                     "updated": 1640341416455
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret motoru hiyerarşisi bağlama göre düzenlenir. Diğer bir deyişle, ana yavru düğümler (mevcut, son ve takas emirleri) kendi yavrularının yaşadığı bağlamı tanımlar.",
+                    "updated": 1650574853924
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Например, понятие эпизода - целого цикла работы торгового бота - существует только в контексте текущего эпизода, поскольку система отслеживает только один эпизод за раз.",
                     "updated": 1640341441313
+                },
+                {
+                    "language": "TR",
+                    "text": "Örneğin, bir bölüm kavramı - ticaret botunun tüm çalışması - sistem aynı anda yalnızca bir bölümü takip ettiğinden, yalnızca mevcut bölüm bağlamında var olur.",
+                    "updated": 1650574860164
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "RU",
                     "text": "Однако понятие позиции отслеживается и как текущая позиция, и как последняя позиция. Это возможно потому, что система отслеживает все позиции, возникающие в течение эпизода.",
                     "updated": 1640341476909
+                },
+                {
+                    "language": "TR",
+                    "text": "Ancak pozisyon kavramı hem mevcut pozisyon hem de son pozisyon olarak izlenir. Bu mümkündür çünkü sistem bir epizod içinde meydana gelen tüm pozisyonları takip eder.",
+                    "updated": 1650574867335
                 }
             ]
         },
@@ -56,13 +76,25 @@
                     "language": "RU",
                     "text": "Разработчики Superalgos решили, что стоит предоставлять определенную информацию, например, позиции, в обоих контекстах, поскольку это позволяет вам - визуально и вашей торговой системе - используя простой синтаксис - получить доступ к информации о текущей позиции и последней позиции в любой момент времени.",
                     "updated": 1640341502228
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos geliştiricileri, örneğin her iki bağlamda da belirli bilgileri, pozisyonları sağlamanın buna değeceğini düşündüler, çünkü bu size - görsel olarak - ve ticaret sisteminize - basit sözdizimi kullanarak - mevcut pozisyon ve son pozisyon hakkında herhangi bir zamanda bilgilere erişmenizi sağlar. zamanda verilen nokta.",
+                    "updated": 1650574889795
                 }
             ]
         },
         {
             "style": "Title",
             "text": "Trading Current",
-            "updated": 1611254496763
+            "updated": 1611254496763,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İşlem Akımı ( Trading Current )",
+                    "updated": 1650574907295
+                }
+            ]
         },
         {
             "style": "Include",
@@ -86,7 +118,14 @@
         {
             "style": "Title",
             "text": "Trading Last",
-            "updated": 1611254547170
+            "updated": 1611254547170,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ticaret Sonu ( Trading Last )",
+                    "updated": 1650574948787
+                }
+            ]
         },
         {
             "style": "Include",

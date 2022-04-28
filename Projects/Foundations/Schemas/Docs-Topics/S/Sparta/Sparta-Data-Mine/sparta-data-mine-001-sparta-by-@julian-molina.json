@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Набор индикаторов, построенных в источнике данных Sparta, включает простую скользящую среднюю (SMA), экспоненциальную скользящую среднюю (EMA), индекс относительной силы (RSI) и дивергенцию схождения скользящих средних (MACD).",
                 "updated": 1643529332850
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Sparta veri madeninde yerleşik göstergeler seti, Basit Hareketli Ortalama (SMA), Üstel Hareketli Ortalama (EMA), Göreceli Güç Endeksi (RSI) ve Hareketli Ortalama yakınsama Iraksama'yı (MACD) içerir.",
+                "updated": 1650619901605
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "language": "RU",
                     "text": "Сотрудничайте по улучшению этого источника данных и сообщайте о проблемах непосредственно в хранилище Superalgos.",
                     "updated": 1643529449557
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bu veri madeni ile işbirliği yapın ve sorunları doğrudan Superalgos deposunda bildirin.",
+                    "updated": 1650619976043
                 }
             ]
         }

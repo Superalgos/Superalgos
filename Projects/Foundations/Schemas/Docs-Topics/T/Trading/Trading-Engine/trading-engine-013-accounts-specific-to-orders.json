@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Узнайте о счетах, специфичных для контекста ордеров. На этой странице: Rate, Actual Rate, Size, Percentage Filled, Fees Paid и Lock.",
                 "updated": 1640350066850
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Siparişlerin bağlamına özel hesaplar hakkında bilgi edinin. Bu sayfada: Oran, Gerçek Oran, Boyut, Doldurulan Yüzde, Ödenen Ücretler ve Kilit ( Rate, Actual Rate, Size, Percentage Filled, Fees Paid, and Lock ).",
+                "updated": 1650618107937
             }
         ]
     },

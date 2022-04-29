@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Coinbase Pro не полностью протестирован ни для добычи данных, ни для торговли в реальном времени.",
                 "updated": 1646902738633
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Coinbase Pro, veri madenciliği veya canlı ticaret için tam olarak test edilmemiştir.",
+                "updated": 1650571911082
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Сведения",
                     "updated": 1646902746175
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikleri",
+                    "updated": 1650571926876
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "RU",
                     "text": "1-минутные свечи OHLCV: Да. Резервное тестирование и бумажная торговля функционируют. Процесс поиска данных чрезвычайно медленный при получении полной истории из-за ограничений API, но он достаточен для целей реальной торговли.",
                     "updated": 1646902792406
+                },
+                {
+                    "language": "TR",
+                    "text": "1 dakikalık OHLCV Yeteneği: Evet. Geriye dönük test ve Kağıt ticareti işlevseldir. API limitleri nedeniyle tam geçmiş alınırken veri madenciliği süreci son derece yavaştır ancak canlı ticaret amaçları için yeterlidir.",
+                    "updated": 1650571920517
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "RU",
                     "text": "История рынка: Полный объем неизвестен, однако сенсорный бот начинает свою работу с 2021-05-01, даже если дата установки 2020-01-01",
                     "updated": 1646902809456
+                },
+                {
+                    "language": "TR",
+                    "text": "Market Geçmişi: Tam kapsam bilinmiyor, ancak sensör botu 2021-05-01'den ayarlanan tarih 2020-01-01'e kadar.",
+                    "updated": 1650571974569
                 }
             ]
         },
@@ -59,6 +79,11 @@
                     "language": "RU",
                     "text": "Возможность торговли: Частичная. При правильной конфигурации ключей размещение ордеров возможно. В настоящее время закрытие ордеров не полностью функционально, поэтому все типы торговых стратегий могут быть не полностью функциональны.",
                     "updated": 1646902822701
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Yeteneği: Kısmi. Uygun bir anahtar konfigürasyonu ile sipariş vermek mümkündür. Şu anda, kapanış emirleri tam olarak işlevsel değildir, bu nedenle her türlü ticaret stratejisi tam olarak işlevsel olmayabilir.",
+                    "updated": 1650571985447
                 }
             ]
         },
@@ -71,6 +96,11 @@
                     "language": "RU",
                     "text": "Комментарии: Получение необработанных данных происходит очень медленно из-за ограничений API, см. конфигурацию.",
                     "updated": 1646902832289
+                },
+                {
+                    "language": "TR",
+                    "text": "Yorumlar: API kısıtlamaları nedeniyle Ham Veriler son derece yavaş getiriliyor, bkz. config.",
+                    "updated": 1650571994178
                 }
             ]
         },
@@ -82,6 +112,11 @@
                     "language": "RU",
                     "text": "Конфигурация",
                     "updated": 1646902847765
+                },
+                {
+                    "language": "TR",
+                    "text": "Exchange Yapılandırması",
+                    "updated": 1650572002748
                 }
             ]
         },
@@ -98,6 +133,11 @@
                     "language": "RU",
                     "text": "Конфигурация ключа API",
                     "updated": 1646902858351
+                },
+                {
+                    "language": "TR",
+                    "text": "API Key Yapılandırması",
+                    "updated": 1650572012786
                 }
             ]
         },

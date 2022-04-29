@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Отслеживайте, сколько экземпляров определенных объектов существовало в данном контексте. На этой странице: Periods, Strategy, Positions, Orders и Days.",
                 "updated": 1640345970767
+            },
+            {
+                "language": "TR",
+                "text": "Belirli bir bağlamda belirli nesnelerin kaç örneğinin var olduğunu takip edin. Bu sayfada: Dönemler, Stratejiler, Pozisyonlar, Emirler ve Günler ( Periods, Strategies, Positions, Orders, and Days ).",
+                "updated": 1650616769161
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Счетчик отслеживает, сколько экземпляров определенных объектов появилось или приняло определенное значение за время действия определенного контекста.",
                     "updated": 1640346086817
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir sayaç, belirli bir bağlam süresi boyunca belirli nesnelerin kaç örneğinin var olduğunu veya belirli bir değer aldığını takip eder.",
+                    "updated": 1650616818199
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Например, сколько позиций было открыто в течение эпизода, или сколько из этих позиций было закрыто.",
                     "updated": 1640346179212
+                },
+                {
+                    "language": "TR",
+                    "text": "Örneğin, bir bölüm boyunca kaç tane pozisyon açıldı veya bu pozisyonlardan kaç tanesi isabet aldı.",
+                    "updated": 1650616821396
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "RU",
                     "text": "Счетчики ведутся одновременно в нескольких контекстах. В частности, вы найдете счетчики эпизодов, счетчики стратегий, счетчики позиций и счетчики ордеров.",
                     "updated": 1640346196289
+                },
+                {
+                    "language": "TR",
+                    "text": "Sayaçlar aynı anda birden çok bağlamda tutulur. Özellikle bölüm sayaçlarını, strateji sayaçlarını, konum sayaçlarını ve sipariş sayaçlarını bulacaksınız.",
+                    "updated": 1650616834978
                 }
             ]
         },
@@ -54,12 +74,26 @@
         },
         {
             "style": "Title",
-            "text": "Counter-specific Nodes"
+            "text": "Counter-specific Nodes",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Sayaca Özel Düğümler",
+                    "updated": 1650616848394
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Periods",
-            "updated": 1611259406618
+            "updated": 1611259406618,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "periyotlar ( Periods )",
+                    "updated": 1650616885132
+                }
+            ]
         },
         {
             "style": "Include",
@@ -69,7 +103,14 @@
         {
             "style": "Subtitle",
             "text": "Strategies",
-            "updated": 1611259416144
+            "updated": 1611259416144,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Stratejiler ( Strategies )",
+                    "updated": 1650616893571
+                }
+            ]
         },
         {
             "style": "Include",
@@ -79,7 +120,14 @@
         {
             "style": "Subtitle",
             "text": "Positions",
-            "updated": 1611259428759
+            "updated": 1611259428759,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Pozisyonlar ( Positions )",
+                    "updated": 1650616909370
+                }
+            ]
         },
         {
             "style": "Include",
@@ -89,7 +137,14 @@
         {
             "style": "Subtitle",
             "text": "Orders",
-            "updated": 1611259442020
+            "updated": 1611259442020,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Emirler ( Orders )",
+                    "updated": 1650616930941
+                }
+            ]
         },
         {
             "style": "Include",
@@ -99,7 +154,14 @@
         {
             "style": "Subtitle",
             "text": "Days",
-            "updated": 1611259453496
+            "updated": 1611259453496,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Günler ( Days )",
+                    "updated": 1650616943609
+                }
+            ]
         },
         {
             "style": "Include",
@@ -124,13 +186,25 @@
                     "language": "RU",
                     "text": "Другие свойства, характерные для счетчиков, определены в других местах, поскольку они не являются специфическими для счетчиков. Ниже приведены различные контексты, в которых встречаются счетчики.",
                     "updated": 1640346391905
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Sayaçlara özgü diğer özellikler, sayaçlara özgü olmadıklarından başka yerlerde tanımlanmıştır. Sayaçların bulunduğu farklı bağlamları aşağıda bulabilirsiniz.",
+                    "updated": 1650616991266
                 }
             ]
         },
         {
             "style": "Title",
             "text": "Trading Episode Counters",
-            "updated": 1611260075956
+            "updated": 1611260075956,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ticaret Bölüm Sayaçları ( Trading Episode Counters )",
+                    "updated": 1650617013938
+                }
+            ]
         },
         {
             "style": "Include",
@@ -148,7 +222,14 @@
         },
         {
             "style": "Title",
-            "text": "Strategy Counters"
+            "text": "Strategy Counters",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Strateji Sayaçları ( Strategy Counters )",
+                    "updated": 1650617038608
+                }
+            ]
         },
         {
             "style": "Include",
@@ -167,7 +248,14 @@
         {
             "style": "Title",
             "text": "Position Counters",
-            "updated": 1611259936812
+            "updated": 1611259936812,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Pozisyon Sayaçları ( Position Counters )",
+                    "updated": 1650617060895
+                }
+            ]
         },
         {
             "style": "Include",
@@ -186,7 +274,14 @@
         {
             "style": "Title",
             "text": "Order Counters",
-            "updated": 1611259959379
+            "updated": 1611259959379,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Sipariş Sayaçları ( Order Counters )",
+                    "updated": 1650617079207
+                }
+            ]
         },
         {
             "style": "Include",

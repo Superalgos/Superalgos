@@ -159,6 +159,10 @@
                 .then(onSuccess)
                 .catch(onError)
             async function onSuccess(response) {
+                if (response.data.serverData === undefined) {
+                    reject('Not connected to Test Server')
+                    return
+                }
                 if (response.data.serverData.response !== 'NO FORECAST CASES AVAILABLE AT THE MOMENT') {
                     let nextForecastCase = response.data.serverData.response
                     resolve(nextForecastCase)

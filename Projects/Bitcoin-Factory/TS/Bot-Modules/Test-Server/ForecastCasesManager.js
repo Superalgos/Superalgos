@@ -147,7 +147,7 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
                 caseIndex: forecastCase.caseIndex,
                 totalCases: thisObject.forecastCasesArray.length,
                 parameters: forecastCase.parameters,
-                files: TS.projects.foundations.globals.taskConstants.TEST_SERVER.dataBridge.getFiles(forecastCase)
+                files: TS.projects.foundations.globals.taskConstants.TEST_SERVER.dataBridge.getFiles(testCase)
             }
             return nextForecastCase
         }

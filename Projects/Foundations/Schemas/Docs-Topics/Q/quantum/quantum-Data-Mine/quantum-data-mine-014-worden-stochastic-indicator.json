@@ -1,0 +1,71 @@
+{
+    "topic": "quantum Data Mine",
+    "pageNumber": 14,
+    "type": "Worden Stochastic Indicator",
+    "definition": {
+        "text": "The Worden Stochastic indicator uses the percentile rank of the most recent closing price compared to other closing prices over a specified lookpack period."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Worden Stochastic the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "According to investopedia, The Worden Stochastics indicator was designed by Peter Worden to recognize a new trading range more quickly than traditional stochastics. Unlike traditional stochastics that incorporate high, low, and closing prices, the Worden Stochastics indicator uses rankings to avoid over-weighting in outlier periods, providing a potentially more accurate indication of the trading range.",
+            "updated": 1651225202850
+        },
+        {
+            "style": "Text",
+            "text": "Key concepts:"
+        },
+        {
+            "style": "List",
+            "text": "Ranks closing prices, assigning a value based on where the recent close ranks compared to prior closes."
+        },
+        {
+            "style": "List",
+            "text": "Provides overbought and oversold levels, as well as potential trade signals using signal line crossovers."
+        },
+        {
+            "style": "List",
+            "text": "A reading above 80 is considered overbought, while a reading below 20 is considered oversold."
+        },
+        {
+            "style": "Link",
+            "text": "Worden Stochastic(investopedia)->www.investopedia.com/terms/w/worden-stochastics.asp"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-worden-stoch.png"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the Worden Stochastic can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"Worden Stochastic\" Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-worden-stoch-params.png"
+        },
+        {
+            "style": "Title",
+            "text": "Worden Stochastic Products & Properties"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Setting | Product Variable | Properties |\n| Worden Stochastic | WordStoch | StochK, StochD |"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "A simple strategy can be built by entering a trade when the K value crosses the D value upwards when in the oversold region:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.WordStoch.StochK > chart.at01hs.WordStoch.StochD && chart.at01hs.WordStoch.StochK < 20"
+        }
+    ]
+}

@@ -135,8 +135,8 @@
         },
         {
             "style": "Text",
-            "text": "Superalgos uses CCXT (CryptoCurrency eXchange Trading Library) to connect to exchanges. It supports hundreds of exchanges to which it connects through APIs created on the exchange by the user. One of the best feature of ccxt is that it is exchange agnostic. Whether you trade on FTX or Bybit the process to connect to the exchange is the same. The library accepts many parameters to fine tune the connection when needed. For well supported exchanges like Binance, all you need to connect to the exchange is to declare the codeName that is the name of the exchane you want to use, usually in lowercase letters.",
-            "updated": 1650647816973
+            "text": "Superalgos uses CCXT (CryptoCurrency eXchange Trading Library) to connect to exchanges. It supports hundreds of exchanges to which it connects through APIs created on the exchange by the user. One of the best feature of ccxt is that it is exchange agnostic. Whether you trade on FTX or Bybit the process to connect to the exchange is the same. The library accepts many parameters to fine tune the connection when needed. For well supported exchanges like Binance, all you need to connect to the exchange is to declare the codeName that is the name of the exchange you want to use, usually in lowercase letters.",
+            "updated": 1650806161770
         },
         {
             "style": "List",
@@ -168,34 +168,35 @@
         },
         {
             "style": "List",
-            "text": "maxRate sets the maximum number of OHCLV that is pulled before the data is saved. This is only to be used when the exchange is kicking out the data-mine randomly and alows the user to save the data more often allowing for the data mining to move forward.",
+            "text": "maxRate sets the maximum number of OHCLV that is pulled before the data is saved. This is only to be used when the exchange is kicking out the data-mine randomly and to allow to the user to save the data more often allowing for the data mining to move forward.",
             "translations": [
                 {
                     "language": "RU",
                     "text": "maxRate устанавливает максимальное количество OHCLV, которое извлекается перед сохранением данных. Это должно использоваться только тогда, когда биржа случайным образом запускает извлчение данных и позволяет пользователю сохранять данные чаще, что позволяет продвигать интеллектуальный анализ данных.",
                     "updated": 1638648664286
                 }
-            ]
+            ],
+            "updated": 1650806325108
         },
         {
             "style": "List",
-            "text": "rateLimit to override the default value set by ccxt library",
-            "updated": 1650633950484
+            "text": "rateLimit to override the default value set by ccxt library.",
+            "updated": 1650806392602
         },
         {
             "style": "List",
-            "text": "limit could be required by some exchanges in order to properly connect",
-            "updated": 1650639986743
+            "text": "limit: could be required by some exchanges in order to properly connect.",
+            "updated": 1650806388686
         },
         {
             "style": "List",
-            "text": "options: used as an object to pass aditional parameters to the exchange, for example when trading an inverse pair",
-            "updated": 1650646598123
+            "text": "options: used as an object to pass aditional parameters to the exchange, for example when trading an inverse pair.",
+            "updated": 1650806383621
         },
         {
             "style": "List",
-            "text": "hostname to set custom hostname for the exchange",
-            "updated": 1650633976150
+            "text": "hostname: to set custom hostname for the exchange.",
+            "updated": 1650806377985
         },
         {
             "style": "Text",
@@ -208,8 +209,8 @@
         },
         {
             "style": "Note",
-            "text": "For well known exchanges setting up the correct codeName is enough to enable the connection and no additional parameters are needed!",
-            "updated": 1650646975734
+            "text": "For well known exchanges setting up the correct codeName is enough to enable the connection and no additional parameters are usually needed!",
+            "updated": 1650806420539
         },
         {
             "style": "Text",

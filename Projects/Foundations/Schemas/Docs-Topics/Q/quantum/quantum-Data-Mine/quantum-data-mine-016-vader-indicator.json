@@ -1,0 +1,63 @@
+{
+    "topic": "quantum Data Mine",
+    "pageNumber": 16,
+    "type": "VADER Indicator",
+    "definition": {
+        "text": "The Volume Accelerated Directional Energy Ratio (VADER) makes use of price moves (displacement) and the associated volume (effort) to estimate the positive (buying) and negative (selling) \"energy\" behind the scenes, enabling traders to read the market action in more details and adjust their trading decisions accordingly."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "VADER on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator is a conversion from TradingView's RedK. RedK explains that a price move is a displacement level, and the associated volume is the effort behind the action. Combining these two values together, the displacement and the effort, yeilds the underlying energy of the move. When both values are high, the resulting energy behind the move is high."
+        },
+        {
+            "style": "Text",
+            "text": "Key concepts:"
+        },
+        {
+            "style": "List",
+            "text": "the main signal to look for is when the value crosses the zero line."
+        },
+        {
+            "style": "List",
+            "text": "VADER provides a momentum value and should be used as a secondary indicator in combination with MACD, RSI, or other similar momentum indicators."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-vader.png"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the VADER indicator can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"VADER\" Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-vader-params.png"
+        },
+        {
+            "style": "Title",
+            "text": "VADER Products & Properties"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Setting | Product Variable | Properties |\n| VADER | vader | value, vader, sentiment |"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "A simple strategy can be built by entering a trade when the vader value crosses the zero value upwards:",
+            "updated": 1651231285780
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.vader.vader > 0 && chart.at01hs.vader.previous.vader < 0"
+        }
+    ]
+}

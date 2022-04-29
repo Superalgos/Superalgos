@@ -135,7 +135,7 @@
         },
         {
             "style": "Text",
-            "text": "Superalgos uses CCXT (CryptoCurrency eXchange Trading Library) to connect to exchanges. It supports hundreds of exchanges to which it connects through APIs created on the exchange by the user. One of the best feature of ccxt is that it is exchange agnostic. Whether you trade on FTX or Bybit the process to connect to the exchange is the same. The library accepts many parameters to fine tune the connection when needed. For well supported exchanges like Binance, all you need to connect to the exchange is to declare the codeName that is the name of the exchage you want to use, usually in lowercase letters.",
+            "text": "Superalgos uses CCXT (CryptoCurrency eXchange Trading Library) to connect to exchanges. It supports hundreds of exchanges to which it connects through APIs created on the exchange by the user. One of the best feature of ccxt is that it is exchange agnostic. Whether you trade on FTX or Bybit the process to connect to the exchange is the same. The library accepts many parameters to fine tune the connection when needed. For well supported exchanges like Binance, all you need to connect to the exchange is to declare the codeName that is the name of the exchange you want to use, usually in lowercase letters.",
             "updated": 1650806161770
         },
         {

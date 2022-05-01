@@ -7,48 +7,235 @@
             "project": "Foundations",
             "name": ""
         },
-        "text": "Most of the action happens on an HTML 5 Canvas animation. The rest is pure HTML + CSS, nothing else."
+        "text": "Most of the action happens on an HTML 5 Canvas animation. The rest is pure HTML + CSS, nothing else.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Der größte Teil der Aktion läuft über eine HTML 5 Canvas-Animation. Der Rest ist reines HTML + CSS, sonst nichts.",
+                "updated": 1641730136254
+            },
+            {       
+                "language": "RU",
+                "text": "Большая часть действий происходит на анимации HTML 5 Canvas. Остальное - чистый HTML + CSS, больше ничего.",
+                "updated": 1640930621919
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Eylemin çoğu bir HTML 5 Canvas animasyonunda gerçekleşir. Gerisi saf HTML + CSS, başka bir şey değil.",
+                "updated": 1643040412495
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The main object of the Canvas App is called canvas. It is essentially a collection of different space objects:"
+            "text": "The main object of the Canvas App is called canvas. It is essentially a collection of different space objects:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das Hauptobjekt der Canvas-App heißt Canvas. Es ist im Wesentlichen eine Sammlung von verschiedenen Raumobjekten:",
+                    "updated": 1641730145157
+                },
+                {   
+                    "language": "RU",
+                    "text": "Основной объект приложения Canvas называется холстом. По сути, это коллекция различных пространственных объектов:",
+                    "updated": 1640930639721
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Canvas uygulamasının ana nesnesine tuval denir. Esasen, farklı uzamsal nesnelerin bir koleksiyonudur:",
+                    "updated": 1643040425172
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Charting Space: Where charts are displayed,"
+            "text": "Charting Space: Where charts are displayed,",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Charting Space: Hier werden die Diagramme angezeigt,",
+                    "updated": 1641730152088
+                },
+                {           
+                    "language": "RU",
+                    "text": "Charting Space: Где отображаются графики.",
+                    "updated": 1640930660372
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafik Alanı (Charting Space): Grafiklerin görüntülendiği yer,",
+                    "updated": 1643040456233
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Design Space: Where definitions are maintained."
+            "text": "Design Space: Where definitions are maintained.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Design Space: Hier werden die Definitionen verwaltet.",
+                    "updated": 1641730167618
+                },
+                {   
+                    "language": "RU",
+                    "text": "Design Space: Где сохраняются определения.",
+                    "updated": 1640930671870
+                },
+                {
+                    "language": "TR",
+                    "text": "Tasarım Alanı (Design Space): Tanımların korunduğu yer.",
+                    "updated": 1643040465130
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Floating Space: Enables visual scripting."
+            "text": "Floating Space: Enables visual scripting.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Floating Space: Ermöglicht visuelles Scripting.",
+                    "updated": 1641730177362
+                },
+                {
+                    "language": "RU",
+                    "text": "Floating Space: Включает визуальное создание сценариев.",
+                    "updated": 1640930683465
+                },
+                {
+                    "language": "TR",
+                    "text": "Floating Space (Floating Space): Görsel kodlamayı etkinleştirir.",
+                    "updated": 1643040473493
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Side Space: Currently, the workspace selector."
+            "text": "Side Space: Currently, the workspace selector.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Side Space: Gegenwärtig der Arbeitsbereichsselektor.",
+                    "updated": 1641730200026
+                },
+                {
+                    "language": "RU",
+                    "text": "Side Space: В настоящее время селектор рабочего пространства.",
+                    "updated": 1640930695794
+                },
+                {
+                    "language": "TR",
+                    "text": "Yan Boşluk (Side Space): Şu anda, çalışma alanı seçicisi.",
+                    "updated": 1643040483736
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Docs Space: In-app documentation."
+            "text": "Docs Space: In-app documentation.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Docs Space: In-App-Dokumentation.",
+                    "updated": 1641730207880
+                },
+                {   
+                    "language": "RU",
+                    "text": "Docs Space: Документация в приложении.",
+                    "updated": 1640930707087
+                },
+                {
+                    "language": "TR",
+                    "text": "Dokümanlar Alanı (Docs Space): Uygulama içi dokümantasyon.",
+                    "updated": 1643040496344
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Tutorial Space: Enables tutorials like this one."
+            "text": "Tutorial Space: Enables tutorials like this one.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Tutorial Space: Ermöglicht Tutorials wie dieses.",
+                    "updated": 1641730217911
+                },
+                {   
+                    "language": "RU",
+                    "text": "Tutorial Space: Включает учебные пособия, подобные этому.",
+                    "updated": 1640930718642
+                },
+                {
+                    "language": "TR",
+                    "text": "Öğretici Alanı (Tutorial Space): Bunun gibi eğitimleri etkinleştirir.",
+                    "updated": 1643040505371
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Panel Space: Where plotter panels live."
+            "text": "Panel Space: Where plotter panels live.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Panel Space: Hier befinden sich die Plotter-Panels.",
+                    "updated": 1641730226036
+                },
+                {   
+                    "language": "RU",
+                    "text": "Panel Space: Где находятся панели плоттера.",
+                    "updated": 1640930730144
+                },
+                {
+                    "language": "TR",
+                    "text": "Panel Alanı (Panel Space): Plotter panellerinin bulunduğu yerdir.",
+                    "updated": 1643040515131
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Cockpit Space: Currently, the slider ."
+            "text": "Cockpit Space: Currently, the slider .",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Cockpit Space: Derzeit der Schieberegler.",
+                    "updated": 1641730233907
+                },
+                {           
+                    "language": "RU",
+                    "text": "Cockpit Space: В настоящее время - слайдер.",
+                    "updated": 1640930746581
+                },
+                {
+                    "language": "TR",
+                    "text": "Kokpit Alanı (Cockpit Space): Şu anda kaydırıcı.",
+                    "updated": 1643040525991
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Top Space: Currently, the top bar with logo."
+            "text": "Top Space: Currently, the top bar with logo.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Top Space: Zurzeit die obere Leiste mit dem Logo.",
+                    "updated": 1641730241268
+                },
+                {   
+                    "language": "RU",
+                    "text": "Top Space: В настоящее время верхняя панель с логотипом.",
+                    "updated": 1640930759568
+                },
+                {
+                    "language": "TR",
+                    "text": "Üst Boşluk (Top Space): Şu anda logolu üst çubuk.",
+                    "updated": 1643040540682
+                }
+            ]
         }
     ]
 }

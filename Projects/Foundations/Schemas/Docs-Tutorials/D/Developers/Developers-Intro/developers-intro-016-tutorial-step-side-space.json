@@ -7,24 +7,104 @@
             "project": "Foundations",
             "name": ""
         },
-        "text": "It is the section on the left, accessed by clicking a tab button. As of today, it features a Workspace selector for users to switch between different workspaces."
+        "text": "It is the section on the left, accessed by clicking a tab button. As of today, it features a Workspace selector for users to switch between different workspaces.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Es handelt sich um den Bereich auf der linken Seite, der durch Anklicken einer Registerkarte aufgerufen wird. Ab heute verfügt er über einen Workspace Selektor, mit dem die Benutzer zwischen verschiedenen Workspaces wechseln können.",
+                "updated": 1641736103861
+        },
+        {                "language": "RU",
+                "text": "Это раздел слева, доступ к которому осуществляется нажатием кнопки вкладки. На сегодняшний день в нем имеется селектор рабочего пространства, позволяющий пользователям переключаться между различными рабочими пространствами.",
+                "updated": 1640931391812
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bir sekme düğmesi tıklanarak erişilen soldaki bölümdür. Bugün itibariyle, kullanıcıların farklı çalışma alanları arasında geçiş yapabilmeleri için bir Çalışma Alanı ( Workspace ) seçicisine sahiptir.",
+                "updated": 1643203066898
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "On the Side Space users may:"
+            "text": "On the Side Space users may:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Im Seitenbereich können Benutzer:",
+                    "updated": 1641736114205
+        },
+        {                    "language": "RU",
+                    "text": "В Side Space пользователи могут:",
+                    "updated": 1640931409319
+                },
+                {
+                    "language": "TR",
+                    "text": "Yan Alanda kullanıcılar şunları yapabilir:",
+                    "updated": 1643203094780
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Select an included workspace: The system ships with one or more included workspaces that serve as examples or case studies."
+            "text": "Select an included workspace: The system ships with one or more included workspaces that serve as examples or case studies.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Einen enthaltenen Workspace auswählen: Das System wird mit einem oder mehreren Workspaces geliefert, die als Beispiele oder Fallstudien dienen.",
+                    "updated": 1641736146245
+        },
+        {                    "language": "RU",
+                    "text": "Выбрать встроенное рабочее пространство: Система поставляется с одним или несколькими встроенными рабочими пространствами, которые служат в качестве примеров или тематических исследований.",
+                    "updated": 1640931516752
+                },
+                {
+                    "language": "TR",
+                    "text": "Dahil edilen bir çalışma alanı seçin: Sistem, örnekler veya vaka çalışmaları olarak hizmet veren bir veya daha fazla dahil edilmiş çalışma alanıyla birlikte gelir.",
+                    "updated": 1643203117902
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Select one's own workspaces: By renaming any included workspace, the user may create a workspace and switch workspaces using the Side Space."
+            "text": "Select one's own workspaces: By renaming any included workspace, the user may create a workspace and switch workspaces using the Side Space.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Eigene Workspaces auswählen: Durch Umbenennen eines der enthaltenen Workspaces kann der Benutzer einen Workspace erstellen und über den Side Space zwischen den Workspaces wechseln.",
+                    "updated": 1641736153763
+        },
+        {                    "language": "RU",
+                    "text": "Выбрать собственные рабочие пространства: Путем переименования любого встроенного рабочего пространства пользователь может создать свое рабочее пространство и переключать рабочие пространства с помощью Side Space.",
+                    "updated": 1640931578292
+                },
+                {
+                    "language": "TR",
+                    "text": "Kendi çalışma alanlarınızı seçin: Kullanıcı, dahil edilen herhangi bir çalışma alanını yeniden adlandırarak bir çalışma alanı oluşturabilir ve Yan Boşluğu kullanarak çalışma alanlarını değiştirebilir.",
+                    "updated": 1643203136878
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "The Side Space is expected to grow in functionality in the future."
+            "text": "The Side Space is expected to grow in functionality in the future.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Es wird erwartet, dass die Funktionalität des Side Spaces in Zukunft noch zunehmen wird.",
+                    "updated": 1641736160078
+        },
+        {                    "language": "RU",
+                    "text": "Ожидается, что функциональность Side Space будет расти в будущем.",
+                    "updated": 1640931588087
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Yan Alanın gelecekte işlevsellik açısından büyümesi bekleniyor.",
+                    "updated": 1643203160236
+                }
+            ]
         }
     ]
 }

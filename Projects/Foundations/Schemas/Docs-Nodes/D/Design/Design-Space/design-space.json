@@ -12,13 +12,23 @@
             },
             {
                 "language": "RU",
-                "text": "Design Space - это визуальная среда, в которой размещаются все системные и пользовательские определения. С практической точки зрения - это черное пространство под ползунком, которое разделяет экран по горизонтали, отделяя пространства дизайна внизу от Charting Space - сверху. Как иерархия, он сожержит узлы, которые позволяют контролировать определенные аспекты внешнего вида, ощущения и поведения пространства.",
+                "text": "Design Space - это визуальная среда, в которой размещаются все системные и пользовательские определения. С практической точки зрения - это черное пространство под ползунком, которое разделяет экран по горизонтали, отделяя пространства проектирования внизу от Charting Space - сверху. Как иерархия, он сожержит узлы, которые позволяют контролировать определенные аспекты внешнего вида, ощущения и поведения пространства.",
                 "updated": 1638336016765
             },
             {
                 "language": "TR",
                 "text": "Tasarım Alanı, tüm sistem ve kullanıcı tanımlarını barındıran görsel ortamdır. Pratik anlamda, ekranı yatay olarak bölen, alttaki Tasarım Alanı ile üstteki Grafik Alanı'nı ( Chartibng Space ) ayıran kaydırıcının altındaki siyah boşluktur. Bir hiyerarşi olarak, alanın görünümü, hissi ve davranışının belirli yönleri üzerinde kullanıcı kontrolü sağlayan düğümler içerir.",
                 "updated": 1639142615774
+            },
+            {
+                "language": "EL",
+                "text": "Ο Σχεδιαστικός Χώρος είναι το οπτικό περιβάλλον που φιλοξενεί όλους τους ορισμούς του συστήματος και των χρηστών. Πρακτικά, είναι ο μαύρος χώρος κάτω από το ρυθμιστικό που χωρίζει την οθόνη οριζόντια, χωρίζοντας το Σχεδιαστικό Χώροςστο στο κάτω μέρος από το Charting Space (Χώρο Χαρτογράφησης) στο επάνω μέρος. Ως ιεραρχία, διαθέτει κόμβους που επιτρέπουν τον έλεγχο του χρήστη σε ορισμένες πτυχές της εμφάνισης, της αίσθησης και της συμπεριφοράς του χώρου.\n",
+                "updated": 1641827497657
+            },
+            {
+                "language": "DE",
+                "text": "Der Design Space (Designbereich) ist die visuelle Umgebung, die alle System- und Benutzerdefinitionen enthält. In der Praxis ist dies der schwarze Bereich unter dem Schieberegler, der den Bildschirm horizontal teilt und den Design Space unten vom Charting Space oben trennt. Die Hierarchie besteht aus Nodes, die es dem Benutzer ermöglichen, bestimmte Aspekte des Aussehens, der Atmosphäre und des Verhaltens des Design Space zu steuern.",
+                "updated": 1642890445978
             }
         ]
     },
@@ -33,8 +43,18 @@
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Считайте, пространство дизайна - это ваш рабочий стол или диспетчерская системы.",
+                    "text": "Считайте, пространство проектирования - это ваш рабочий стол или диспетчерская системы.",
                     "updated": 1638732146344
+                },
+                {
+                    "language": "EL",
+                    "text": "Σκεφτείτε τον χώρο σχεδιασμού ως την επιφάνεια εργασίας σας ή το δωμάτιο ελέγχου του συστήματος.",
+                    "updated": 1641827524706
+                },
+                {
+                    "language": "DE",
+                    "text": "Betrachten Sie den Design Space als Ihren Schreibtisch oder als den Kontrollraum des Systems.",
+                    "updated": 1642890522712
                 }
             ]
         }

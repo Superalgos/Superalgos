@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Это рабочее пространство содержит серию руководств по проектированию торговых систем. Это первый шаг, который пользователи должны сделать, чтобы узнать о стратегиях построения после завершения базового образования.",
                 "updated": 1639055690791
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu çalışma alanı, ticaret sistemleri tasarlama hakkında bir dizi öğretici içerir. Kullanıcıların temel eğitimlerini tamamladıktan sonra strateji oluşturma hakkında bilgi edinmeleri için atmaları gereken ilk adımdır.",
+                "updated": 1644675422405
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "language": "RU",
                     "text": "Учебники",
                     "updated": 1639055705011
+                },
+                {
+                    "language": "TR",
+                    "text": "Öğreticiler",
+                    "updated": 1644675448729
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "language": "ES",
                     "text": "Intro to Trading Systems Tutorial ( Tutorial Introducción a los sistemas de trading)",
                     "updated": 1636560845957
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Sistemleri Eğitimine Giriş ( Intro to Trading Systems Tutorial )",
+                    "updated": 1644675478123
                 }
             ]
         },
@@ -50,6 +65,11 @@
                     "language": "ES",
                     "text": "Defining a Trading Idea Tutorial ( Tutorial definiendo una idea de trading)",
                     "updated": 1636560878176
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Ticaret Fikrini Tanımlama Eğitimi ( Defining a Trading Idea Tutorial )",
+                    "updated": 1644675508159
                 }
             ]
         },
@@ -61,6 +81,11 @@
                     "language": "ES",
                     "text": "Testing a Trading Idea - The Trigger Stage Tutorial ( Tutorial probando una idea de trading- La etapa del gatillo)",
                     "updated": 1636560982680
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Ticaret Fikrini Test Etme - Tetikleme Aşaması Eğitimi ( Testing a Trading Idea - The Trigger Stage Tutorial )",
+                    "updated": 1644675530206
                 }
             ]
         },
@@ -72,6 +97,11 @@
                     "language": "ES",
                     "text": "Testing a Trading Idea - The Other Stages Tutorial Tutorial testeando una idea de trading - Las otras etapas)",
                     "updated": 1636560974924
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Ticaret Fikrini Test Etme - Diğer Aşamalar Eğitimi ( Testing a Trading Idea - The Other Stages Tutorial )",
+                    "updated": 1644675554765
                 }
             ]
         },
@@ -83,6 +113,11 @@
                     "language": "RU",
                     "text": "Эта серия должна продолжать расти, чтобы на конкретных примерах освещать исполнение сделок и управление торговлей.",
                     "updated": 1639055727339
+                },
+                {
+                    "language": "TR",
+                    "text": "Önemli: Bu seri, belirli örneklerle ticaret yürütme ve ticaret yönetimini kapsayacak şekilde büyümeye devam etmelidir.",
+                    "updated": 1644675575028
                 }
             ]
         },

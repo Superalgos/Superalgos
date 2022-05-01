@@ -4,13 +4,32 @@
     "type": "Masters by @luis_fernando_molina",
     "definition": {
         "text": "The Masters Data Mine features the Supports and Resistances indicator.",
-        "updated": 1622480871389
+        "updated": 1622480871389,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "В Masters Data Mine есть индикатор Supports and Resistances.",
+                "updated": 1643521837411
+            },
+            {
+                "language": "DE",
+                "text": "Das Masters Data Mine enthält den Indikator für Unterstützungen und Widerstände.",
+                "updated": 1645070200833
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Maintainer",
-            "updated": 1611685963401
+            "updated": 1611685963401,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Главный редактор",
+                    "updated": 1643521854300
+                }
+            ]
         },
         {
             "style": "Link",

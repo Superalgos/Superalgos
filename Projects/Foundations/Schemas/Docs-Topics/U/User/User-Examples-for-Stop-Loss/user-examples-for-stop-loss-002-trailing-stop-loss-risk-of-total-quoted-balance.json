@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Этот Trailing Stop Loss устанавливает Stop Loss в соответствии с процентом, которым вы готовы рискнуть от вашего общего котируемого баланса .",
                 "updated": 1640358652261
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu İzleyen Zarar Durdurma, Toplam Kote Edilen Bakiyenizden riske atmak istediğiniz yüzdeye göre Zarar Durdur'u ( Stop Loss) belirler.",
+                "updated": 1647092639058
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Измените значение \"RiskPercentage\" на то, которое вы считаете нужным",
                     "updated": 1640358743189
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: \"Risk Yüzdesi\" değerini uygun gördüğünüz değerle değiştirin",
+                    "updated": 1647092656599
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Риск общего котируемого баланса",
                     "updated": 1640358764067
+                },
+                {
+                    "language": "TR",
+                    "text": "Toplam Kotasyon Bakiyesi Riski",
+                    "updated": 1647092675323
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "RU",
                     "text": "Идея основана на том, что в каждой позиции, которую вы занимаете, вы хотите рисковать только определенным процентом от вашего общего баланса.",
                     "updated": 1640358779443
+                },
+                {
+                    "language": "TR",
+                    "text": "Fikir, aldığınız her pozisyonda, toplam bakiyenizden yalnızca belirli bir yüzdeyi riske atmak istediğinize dayanmaktadır.",
+                    "updated": 1647092705159
                 }
             ]
         },
@@ -56,6 +76,11 @@
                     "language": "RU",
                     "text": "Учитывая, что вы можете занять несколько позиций, этот код устанавливает стоп-лосс в точке, где потери будут равны проценту риска от вашего общего котируемого баланса.",
                     "updated": 1640358808487
+                },
+                {
+                    "language": "TR",
+                    "text": "Birkaç pozisyon alabileceğiniz göz önüne alındığında, bu kod, kaybın Toplam Kote Edilen Bakiyenizden Risk Yüzdesine eşit olacağı noktada zararı durdurmayı ayarlar.",
+                    "updated": 1647092724804
                 }
             ]
         },
@@ -67,6 +92,11 @@
                     "language": "RU",
                     "text": "Пример для длинной позиции",
                     "updated": 1640358820059
+                },
+                {
+                    "language": "TR",
+                    "text": "Uzun Pozisyon için Örnek",
+                    "updated": 1647092733176
                 }
             ]
         },
@@ -83,6 +113,11 @@
                     "language": "RU",
                     "text": "Пример для короткой позиции",
                     "updated": 1640358831579
+                },
+                {
+                    "language": "TR",
+                    "text": "Kısa Pozisyon için Örnek",
+                    "updated": 1647092801511
                 }
             ]
         },

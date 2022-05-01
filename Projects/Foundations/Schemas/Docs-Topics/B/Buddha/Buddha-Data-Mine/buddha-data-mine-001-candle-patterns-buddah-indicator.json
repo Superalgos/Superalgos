@@ -4,46 +4,211 @@
     "type": "Candle Patterns - Buddah Indicator",
     "definition": {
         "text": "The indicator features a pattern-recognition algorithm classifying candles in multiple groups such as Classic Candles, Marubozu Candles, Spinning Top Candles, Doji Candles, and grouping pattern into on, two, and three-candle sequences.",
-        "updated": 1611659834188
+        "updated": 1611659834188,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Der Indikator verfügt über einen Algorithmus zur Mustererkennung, der Kerzen in mehrere Gruppen einteilt, wie z. B. klassische Kerzen, Marubozu Kerzen, Kreisel Top Kerzen, Doji Kerzen, und Gruppiermuster in Ein-, Zwei- und Drei-Kerzen-Sequenzen gruppiert.",
+                "updated": 1642001078671
+            },
+            {
+                "language": "RU",
+                "text": "Индикатор имеет алгоритм распознавания паттернов, классифицирующий свечи в несколько групп, таких как Classic Candles, Marubozu Candles, Spinning Top Candles, Doji Candles, и группирующие паттерны в последовательности из одной, двух и трех свечей.",
+                "updated": 1643350003693
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Gösterge, mumları birkaç gruba ayıran bir model tanıma algoritmasına sahiptir, örneğin: Klasik Mumlar, Marubozu Mumları, Dönen Üst Mumlar, Doji Mumları ve Gruplandırma Modelleri bir, iki ve üç mum dizisi halinde gruplandırılmıştır.",
+                "updated": 1644492787128
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Candle Patterns On the Charts",
-            "updated": 1611659858573
+            "updated": 1611659858573,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Kerzenmuster auf den Diagrammen",
+                    "updated": 1642001124952
+                },
+                {
+                    "language": "RU",
+                    "text": "Свечные паттерны на графиках",
+                    "updated": 1643350011819
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafiklerdeki Mum Desenleri",
+                    "updated": 1644492831695
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Before we may identify elaborate candle patterns, basic candles must be defined, grouped, and parameterized. Patterns may be made up of one or more candles. For this reason, the Candle Patterns indicator features a layer for basic candles and a layer for each group of patterns."
+            "text": "Before we may identify elaborate candle patterns, basic candles must be defined, grouped, and parameterized. Patterns may be made up of one or more candles. For this reason, the Candle Patterns indicator features a layer for basic candles and a layer for each group of patterns.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bevor wir ein ausführliches Kerzenmuster identifizieren können, müssen die Basiskerze definiert, gruppiert und parametrisiert werden. Muster können sich aus einer oder mehreren Kerzen zusammensetzen. Aus diesem Grund verfügt der Candle Patterns Indikator über eine Ebene für basic candles und eine Ebene für jede Mustergruppe.",
+                    "updated": 1642436931109
+                },
+                {
+                    "language": "RU",
+                    "text": "Прежде чем мы сможем определить сложные свечные паттерны, необходимо определить, сгруппировать и параметризовать основные свечи. Паттерны могут состоять из одной или нескольких свечей. По этой причине индикатор Candle Patterns имеет слой для базовых свечей и слой для каждой группы паттернов.",
+                    "updated": 1643350029984
+                },
+                {
+                    "language": "TR",
+                    "text": "Ayrıntılı mum modellerini tanımlamadan önce, temel mumlar tanımlanmalı, gruplandırılmalı ve parametrelendirilmelidir. Desenler bir veya daha fazla mumdan oluşabilir. Bu nedenle, Mum Desenleri göstergesi ( Candle Patterns indicator ), temel mumlar için bir katman ve her bir desen grubu için bir katman içerir.",
+                    "updated": 1644493344351
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "In theory, candle patterns may contribute to predicting price action. In and of itself, the occurrence of a certain pattern may not necessarily be regarded as a signal. However, when combined with other Technical Analysis tools, and when the context is properly considered, candle patterns may provide valuable information.",
-            "updated": 1611659875005
+            "updated": 1611659875005,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Theoretisch können Kerzenmuster zur Vorhersage von Kursverläufen beitragen. Das Auftreten eines bestimmten Musters für sich genommen ist nicht unbedingt als Signal zu werten. In Kombination mit anderen Instrumenten der Technischen Analyse und unter Berücksichtigung des richtigen Kontextes können Kerzenmuster jedoch wertvolle Informationen liefern.",
+                    "updated": 1642001499957
+                },
+                {
+                    "language": "RU",
+                    "text": "Теоретически, свечные модели могут способствовать прогнозированию ценового действия. Само по себе появление определенного паттерна не обязательно может рассматриваться как сигнал. Однако в сочетании с другими инструментами технического анализа и при правильном рассмотрении контекста свечные модели могут дать ценную информацию.",
+                    "updated": 1643350054479
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Teoride, mum kalıpları fiyat hareketinin tahmin edilmesine katkıda bulunabilir. Kendi başına, belirli bir kalıbın ortaya çıkması mutlaka bir sinyal olarak görülmeyebilir. Bununla birlikte, diğer Teknik Analiz araçlarıyla birleştirildiğinde ve bağlam uygun şekilde düşünüldüğünde, mum kalıpları değerli bilgiler sağlayabilir.",
+                    "updated": 1644493381392
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Basic Candles"
+            "text": "Basic Candles",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Basiskerze",
+                    "updated": 1642436941603
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel Mumlar (Basic Candles)",
+                    "updated": 1644493398768
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The starting point to search for candle patterns is to establish standard criteria to name each candle. Because candles are made up of four prices, this gives rise to a large number of possible combinations. For example, there may be candles with one, two, or without shadows, which may be big or small relative to the body of the candle, which itself may be big or small in relation to other candles, and so on."
+            "text": "The starting point to search for candle patterns is to establish standard criteria to name each candle. Because candles are made up of four prices, this gives rise to a large number of possible combinations. For example, there may be candles with one, two, or without shadows, which may be big or small relative to the body of the candle, which itself may be big or small in relation to other candles, and so on.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Ausgangspunkt für die Suche nach Kerzenmustern ist die Festlegung von Standardkriterien für die Benennung jeder Kerze. Da Kerzen aus vier Kursen bestehen, ergibt sich eine große Anzahl möglicher Kombinationen. So kann es z. B. Kerzen mit einem, zwei oder ohne Schatten geben, die im Verhältnis zum Kerzenkörper groß oder klein sein können, die ihrerseits im Verhältnis zu anderen Kerzen groß oder klein sein können, und so weiter.",
+                    "updated": 1642002106842
+                },
+                {
+                    "language": "RU",
+                    "text": "Отправной точкой для поиска свечных паттернов является установление стандартных критериев для названия каждой свечи. Поскольку свечи состоят из четырех цен, это порождает большое количество возможных комбинаций. Например, могут быть свечи с одной, двумя или без теней, которые могут быть большими или маленькими относительно тела свечи, которая сама может бы��ь большой или маленькой по отношению к другим свечам, и так далее.",
+                    "updated": 1643350084664
+                },
+                {
+                    "language": "TR",
+                    "text": "Mum modellerini aramak için başlangıç noktası, her bir mumu adlandırmak için standart kriterler oluşturmaktır. Mumlar dört fiyattan oluştuğu için bu, çok sayıda olası kombinasyona yol açar. Örneğin, mumun gövdesine göre büyük veya küçük olabilen, diğer mumlara göre büyük veya küçük olabilen bir, iki veya gölgesiz mumlar olabilir, vb.",
+                    "updated": 1644493441955
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The Basic Candles layer features two blue lines and an orange one."
+            "text": "The Basic Candles layer features two blue lines and an orange one.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Basic Candles Ebene enthält zwei blaue und eine orangefarbene Linie.",
+                    "updated": 1642002120314
+                },
+                {
+                    "language": "RU",
+                    "text": "На слое Basic Candles есть две синие линии и одна оранжевая.",
+                    "updated": 1643350099234
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel Mumlar katmanında iki mavi çizgi ve bir turuncu çizgi bulunur.",
+                    "updated": 1644493459290
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The blue line in the bottom connects the low price of each candle."
+            "text": "The blue line in the bottom connects the low price of each candle.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die blaue Linie unten verbindet den Tiefstkurs jeder Kerze.",
+                    "updated": 1642002135400
+                },
+                {
+                    "language": "RU",
+                    "text": "Синяя линия в нижней части соединяет минимум цены каждой свечи.",
+                    "updated": 1643350222048
+                },
+                {
+                    "language": "TR",
+                    "text": "Alttaki mavi çizgi, her bir mumun düşük fiyatını birbirine bağlar.",
+                    "updated": 1644493499129
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The blue line on top results from averaging the length of the last ten candles and adding it to the low value of the current candle."
+            "text": "The blue line on top results from averaging the length of the last ten candles and adding it to the low value of the current candle.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die blaue Linie oben ergibt sich aus dem Durchschnitt der Länge der letzten zehn Kerzen, der zum Tiefstwert der aktuellen Kerze addiert wird.",
+                    "updated": 1642002146718
+                },
+                {
+                    "language": "RU",
+                    "text": "Синяя линия сверху является результатом усреднения длины последних десяти свечей и добавления ее к минимальному значению текущей свечи.",
+                    "updated": 1643350149935
+                },
+                {
+                    "language": "TR",
+                    "text": "Üstteki mavi çizgi, son on mumun uzunluğunun ortalamasının alınmasından ve mevcut mumun düşük değerine eklenmesinden kaynaklanır.",
+                    "updated": 1644493518963
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The orange line in the middle is calculated by multiplying the distance between the two blue lines by an arbitrary sizeFactor."
+            "text": "The orange line in the middle is calculated by multiplying the distance between the two blue lines by an arbitrary sizeFactor.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die orangefarbene Linie in der Mitte wird durch Multiplikation des Abstands zwischen den beiden blauen Linien mit einem beliebigen sizeFactor berechnet.",
+                    "updated": 1642002157841
+                },
+                {
+                    "language": "RU",
+                    "text": "Оранжевая линия в середине рассчитывается путем умножения расстояния между двумя синими линиями на произвольный sizeFactor.",
+                    "updated": 1643350194973
+                },
+                {
+                    "language": "TR",
+                    "text": "Ortadaki turuncu çizgi, iki mavi çizgi arasındaki mesafenin isteğe bağlı bir sizeFactor çarpılmasıyla hesaplanır.",
+                    "updated": 1644493607353
+                }
+            ]
         },
         {
             "style": "Gif",
@@ -52,49 +217,231 @@
         },
         {
             "style": "Text",
-            "text": "Therefore, the range between the blue lines is said to represent the average length of candles. The orange line in the middle serves to determine if a candle is short or long in relation to other candles. If the high of a candle lies above the orange line, it is said to be a Long candle, otherwise, it is a Short candle."
+            "text": "Therefore, the range between the blue lines is said to represent the average length of candles. The orange line in the middle serves to determine if a candle is short or long in relation to other candles. If the high of a candle lies above the orange line, it is said to be a Long candle, otherwise, it is a Short candle.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Daher wird der Bereich zwischen den blauen Linien als durchschnittliche Länge der Kerzen bezeichnet. Die orangefarbene Linie in der Mitte dient zur Bestimmung, ob eine Kerze im Verhältnis zu anderen Kerzen kurz oder lang ist. Liegt der Höchststand einer Kerze über der orangefarbenen Linie, so handelt es sich um eine Long Kerze, andernfalls um eine Short Kerze.",
+                    "updated": 1642002317896
+                },
+                {
+                    "language": "RU",
+                    "text": "Поэтому считается, что диапазон между синими линиями представляет собой среднюю длину свечей. Оранжевая линия посередине служит для определения того, является ли свеча короткой или длинной по отношению к другим свечам. Если максимум свечи находится выше оранжевой линии, то считается, что это Long-свеча, в противном случае - Short-свеча.",
+                    "updated": 1643350283173
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu nedenle, mavi çizgiler arasındaki aralığın, mumların ortalama uzunluğunu temsil ettiği söylenir. Ortadaki turuncu çizgi, bir mumun diğer mumlara göre kısa mı yoksa uzun mu olduğunu belirlemeye yarar. Bir mumun yüksekliği turuncu çizginin üzerindeyse, Uzun mum, aksi takdirde Kısa mum olduğu söylenir.",
+                    "updated": 1644493643471
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The corresponding layer panel features the following properties for each candle:"
+            "text": "The corresponding layer panel features the following properties for each candle:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das entsprechende Ebenen Panel weist für jede Kerze die folgenden Eigenschaften auf:",
+                    "updated": 1642002332543
+                },
+                {
+                    "language": "RU",
+                    "text": "Соответствующая панель слоев имеет следующие свойства для каждой свечи:",
+                    "updated": 1643350293783
+                },
+                {
+                    "language": "TR",
+                    "text": "Karşılık gelen katman paneli, her bir mum için aşağıdaki özellikleri içerir:",
+                    "updated": 1644493670322
+                }
+            ]
         },
         {
             "style": "Table",
             "text": "| Indicator Properties | Description |\n| Name | The name of the basic candle. |\n| Size | The relative size of the candle: Short or Long. |\n| Upper Shadow % | The percentage that the upper shadow covers in the total length of the candle. |\n| Body % | The percentage that the body represents in the total length of the candle. |\n| Lower Shadow % | The percentage that the lower shadow represents in the total length of the candle. |\n| Nbodies\tThe number of previous candles used to calculate the body average. |\n| dojiFactor % | A limit to the size of the body expressed as a percentage of the total length for a candle to be considered a doji. |\n| sizeFactor % | A factor used to calculate the orange line, which determines the relative size of candles, expressed as a percentage of the average length of the last few candles. |\n| Nlengths | The number of previous candles used to calculate the average candle lengths. |\n| Average Size Method | The method used to calculate the average of the total lengths of previous candles. |",
-            "updated": 1611660199319
+            "updated": 1611660199319,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Indikatoreigenschaften | Beschreibung|\n| Name | Bezeichnung der Basiskerze |\n| Size | Die relative Größe der Kerze: Kurz oder lang. |\n| Upper Shadow % | Der Prozentsatz, den der obere Schatten an der Gesamtlänge der Kerze ausmacht. |\n| Body % | Der Prozentsatz, den der Körper an der Gesamtlänge der Kerze ausmacht. |\n| Lower Shadow % | Der Prozentsatz, den der untere Schatten an der Gesamtlänge der Kerze ausmacht. |\n| Nbodies\t| Die Anzahl der vorherigen Kerzen, die zur Berechnung des Körper Durchschnitts verwendet werden. |\n| dojiFactor % | Ein Grenzwert für die Größe des Körpers, ausgedrückt als Prozentsatz der Gesamtlänge einer Kerze, die als Doji gilt. |\n| sizeFactor % | Ein Faktor, der zur Berechnung der orangefarbenen Linie verwendet wird, die die relative Größe der Kerzen bestimmt, ausgedrückt als Prozentsatz der durchschnittlichen Länge der letzten paar Kerzen. |\n| Nlengths | Die Anzahl der vorherigen Kerzen, die zur Berechnung der durchschnittlichen Kerzenlängen verwendet werden. |\n| Average Size Method | Die Methode, die zur Berechnung des Durchschnitts der Gesamtlängen der vorherigen Kerzen verwendet wird. |",
+                    "updated": 1642436998675
+                },
+                {
+                    "language": "RU",
+                    "text": "| Indicator Properties | Description |\n| Name | Название основной свечи. |\n| Size | Относительный размер свечи: Short или Long. |\n| Upper Shadow % | Процент, который занимает верхняя тень в общей длине свечи. |\n| Body % | Процент, который составляет тело в общей длине свечи. |\n| Lower Shadow % | Процент, который составляет нижняя тень в общей длине свечи. |\n| Nbodies | Количество предыдущих свечей, используемых для расчета среднего значения тела. |\n| dojiFactor % | Ограничение на размер тела, выраженное в процентах от общей длины для того, чтобы свеча считалась доджи. |\n| sizeFactor % | Коэффициент, используемый для расчета оранжевой линии, которая определяет относительный размер свечей, выраженный в процентах от средней длины нескольких последних свечей. |\n| Nlengths | Количество предыдущих свечей, используемых для расчета средней длины свечи. |\n| Average Size Method | Метод, используемый для расчета среднего значения общей длины предыдущих свечей. |",
+                    "updated": 1643350476122
+                },
+                {
+                    "language": "TR",
+                    "text": "| Gösterge Özellikleri | Açıklama |\n| İsim | Temel mumun adı. |\n| Boyut | Mumun göreceli boyutu: Kısa veya Uzun. |\n| Üst Gölge % (Upper Shadow %) | Mumun toplam uzunluğunda üst gölgenin kapladığı yüzde. |\n| Gövde % (Body %) | Gövdenin mumun toplam uzunluğunda temsil ettiği yüzde. |\n| Alt Gölge % (Lower Shadow %) | Alt gölgenin mumun toplam uzunluğunda temsil ettiği yüzde. |\n| Nbodies | Vücut ortalamasını hesaplamak için kullanılan önceki mumların sayısı. |\n| dojiFaktörü % (dojiFactor %) | Bir mumun doji olarak kabul edilebilmesi için toplam uzunluğunun yüzdesi olarak ifade edilen gövde boyutu sınırı. |\n| sizeFaktörü % (sizeFactor %) | Son birkaç mumun ortalama uzunluğunun yüzdesi olarak ifade edilen, göreli mum boyutunu belirleyen turuncu çizgiyi hesaplamak için kullanılan bir faktör. |\n| N uzunluklar (Nlengths) | Ortalama mum uzunluklarını hesaplamak için kullanılan önceki mumların sayısı. |\n| Ortalama Boyut Yöntemi (Average Size Method) | Önceki mumların toplam uzunluklarının ortalamasını hesaplamak için kullanılan yöntem. |",
+                    "updated": 1644494019054
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Below is the complete list of basic candles, grouped by families relative to certain characteristics they have in common."
+            "text": "Below is the complete list of basic candles, grouped by families relative to certain characteristics they have in common.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Nachstehend finden Sie die vollständige Liste der Basiskerzen, die nach Familien anhand bestimmter gemeinsamer Merkmale geordnet sind.",
+                    "updated": 1642437033722
+                },
+                {
+                    "language": "RU",
+                    "text": "Ниже приведен полный список основных свечей, сгруппированных по семействам в соответствии с определенными характеристиками, которые их объединяют.",
+                    "updated": 1643350496114
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıda, ailelerin ortak özelliklerine göre gruplandırılmış temel mumların tam listesi bulunmaktadır.",
+                    "updated": 1644494095754
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "Generally—in the literature— colors white and black are used to refer to bullish and bearish candles respectively. In our case, white has been changed to green and black to red.",
-            "updated": 1611660253621
+            "updated": 1611660253621,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Im Allgemeinen werden in der Literatur die Farben Weiß und Schwarz verwendet, um bullische bzw. bearische Kerzen zu kennzeichnen. In unserem Fall wurde Weiß in Grün und Schwarz in Rot geändert.",
+                    "updated": 1642003270232
+                },
+                {
+                    "language": "RU",
+                    "text": "Обычно в литературе белый и черный цвета используются для обозначения бычьих и медвежьих свечей соответственно. В нашем случае белый цвет был заменен на зеленый, а черный - на красный.",
+                    "updated": 1643350953857
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Genellikle - literatürde - beyaz ve siyah renkler sırasıyla yükseliş ve düşüş mumlarını ifade etmek için kullanılır. Bizim durumumuzda beyaz, yeşile ve siyahtan kırmızıya değiştirildi.",
+                    "updated": 1644494126160
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Classic Candles"
+            "text": "Classic Candles",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Klassische Kerzen",
+                    "updated": 1642087064446
+                },
+                {
+                    "language": "TR",
+                    "text": "Klasik Mumlar",
+                    "updated": 1644494144606
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "These candles have the following characteristics in common:"
+            "text": "These candles have the following characteristics in common:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Diese Kerzen haben die folgenden Merkmale gemeinsam:",
+                    "updated": 1642087118821
+                },
+                {
+                    "language": "RU",
+                    "text": "Эти свечи имеют следующие общие характеристики:",
+                    "updated": 1643350962870
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu mumlar aşağıdaki ortak özelliklere sahiptir:",
+                    "updated": 1644494164691
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Both shadows are present."
+            "text": "Both shadows are present.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beide Schatten sind vorhanden.",
+                    "updated": 1642087129703
+                },
+                {
+                    "language": "RU",
+                    "text": "Обе тени присутствуют.",
+                    "updated": 1643350972042
+                },
+                {
+                    "language": "TR",
+                    "text": "Her iki gölge de mevcut.",
+                    "updated": 1644494206461
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Each shadow is shorter than the body."
+            "text": "Each shadow is shorter than the body.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Jeder Schatten ist kürzer als der Körper.",
+                    "updated": 1642087144377
+                },
+                {
+                    "language": "RU",
+                    "text": "Каждая тень короче тела.",
+                    "updated": 1643350979473
+                },
+                {
+                    "language": "TR",
+                    "text": "Her gölge vücuttan daha kısadır.",
+                    "updated": 1644494219045
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The opening price differs from the closing price."
+            "text": "The opening price differs from the closing price.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Eröffnungskurs unterscheidet sich vom Schlusskurs.",
+                    "updated": 1642087154935
+                },
+                {
+                    "language": "RU",
+                    "text": "Цена открытия отличается от цены закрытия.",
+                    "updated": 1643350989032
+                },
+                {
+                    "language": "TR",
+                    "text": "Açılış fiyatı kapanış fiyatından farklıdır.",
+                    "updated": 1644494228806
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "According to their particular characteristics, they are named as follows:"
+            "text": "According to their particular characteristics, they are named as follows:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Je nach ihren besonderen Merkmalen werden sie wie folgt benannt:",
+                    "updated": 1642087171662
+                },
+                {
+                    "language": "RU",
+                    "text": "В соответствии со своими особенностями они называются следующим образом:",
+                    "updated": 1643351001011
+                },
+                {
+                    "language": "TR",
+                    "text": "Özelliklerine göre şu şekilde isimlendirilirler:",
+                    "updated": 1644494255291
+                }
+            ]
         },
         {
             "style": "Png",
@@ -103,12 +450,46 @@
         {
             "style": "List",
             "text": "Basic candle name: short green candle, short red candle.",
-            "updated": 1611664494948
+            "updated": 1611664494948,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "<b>Name der Basiskerze:</b> kurze grüne Kerze, kurze rote Kerze.",
+                    "updated": 1642437083468
+                },
+                {
+                    "language": "RU",
+                    "text": "Basic candle name: короткая зеленая свеча, короткая красная свеча.",
+                    "updated": 1643351021895
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel mum adı: kısa yeşil mum, kısa kırmızı mum.",
+                    "updated": 1644494753807
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Particular Characteristics: bullish or bearish, relative size: short.",
-            "updated": 1611664506719
+            "updated": 1611664506719,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Besondere Merkmale: bullisch oder bärisch, relative Größe: kurz.",
+                    "updated": 1642604983386
+                },
+                {
+                    "language": "RU",
+                    "text": "Particular Characteristics: бычий или медвежий, относительный размер: короткий.",
+                    "updated": 1643351034127
+                },
+                {
+                    "language": "TR",
+                    "text": "Belirli Özellikler: yükseliş veya düşüş, göreceli boyut: kısa.",
+                    "updated": 1644494774907
+                }
+            ]
         },
         {
             "style": "Png",
@@ -118,12 +499,46 @@
         {
             "style": "List",
             "text": "Basic candle name: green candle, red candle.",
-            "updated": 1611664477906
+            "updated": 1611664477906,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "<b>Name der Basiskerze:</b> grüne Kerze, rote Kerze.",
+                    "updated": 1642437096775
+                },
+                {
+                    "language": "RU",
+                    "text": "Basic candle name: зеленая свеча, красная свеча.",
+                    "updated": 1643351063238
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel mum adı: yeşil mum, kırmızı mum.",
+                    "updated": 1644494791317
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Particular Characteristics: bullish or bearish, relative size: long.",
-            "updated": 1611664467362
+            "updated": 1611664467362,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Besondere Merkmale: bullisch oder bärisch, relative Größe: lang.",
+                    "updated": 1642605012066
+                },
+                {
+                    "language": "RU",
+                    "text": "Particular Characteristics: бычий или медвежий, относительный размер: длинный.",
+                    "updated": 1643351072355
+                },
+                {
+                    "language": "TR",
+                    "text": "Belirli Özellikler: yükseliş veya düşüş eğilimi, göreceli boyut: uzun.",
+                    "updated": 1644494824777
+                }
+            ]
         },
         {
             "style": "Png",
@@ -133,40 +548,188 @@
         {
             "style": "List",
             "text": "Basic candle name: long green candle, long  red candle.",
-            "updated": 1611664647210
+            "updated": 1611664647210,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "<b>Name der Basiskerze:</b> lange grüne Kerze, lange rote Kerze.",
+                    "updated": 1642437108766
+                },
+                {
+                    "language": "RU",
+                    "text": "Basic candle name: длинная зеленая свеча, длинная красная свеча.",
+                    "updated": 1643351087951
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel mum adı: uzun yeşil mum, uzun kırmızı mum.",
+                    "updated": 1644494848618
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Particular Characteristics: bullish or bearish, relative size: the body is at least three times higher than the average of the previous bodies.",
-            "updated": 1611664803284
+            "updated": 1611664803284,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Besondere Merkmale: bullisch oder bärisch, relative Größe: der Körper ist mindestens dreimal höher als der Durchschnitt der vorherigen Körper.",
+                    "updated": 1642605021283
+                },
+                {
+                    "language": "RU",
+                    "text": "Particular Characteristics: бычий или медвежий, относительный размер: тело как минимум в три раза выше, чем среднее значение предыдущих тел.",
+                    "updated": 1643351098867
+                },
+                {
+                    "language": "TR",
+                    "text": "Belirli Özellikler: yükseliş veya düşüş eğilimi, göreceli boyut: gövde, önceki gövdelerin ortalamasından en az üç kat daha yüksektir.",
+                    "updated": 1644494859619
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Marubozu Candles"
+            "text": "Marubozu Candles",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Marubozu Kerzen",
+                    "updated": 1642431931810
+                },
+                {
+                    "language": "TR",
+                    "text": "Marubozu Mumları",
+                    "updated": 1644494884101
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "These candles have the following characteristics in common:"
+            "text": "These candles have the following characteristics in common:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Diese Kerzen haben die folgenden Merkmale gemeinsam:",
+                    "updated": 1642431968887
+                },
+                {
+                    "language": "RU",
+                    "text": "Эти свечи имеют следующие общие характеристики:",
+                    "updated": 1643351106536
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu mumlar aşağıdaki ortak özelliklere sahiptir:",
+                    "updated": 1644494916041
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Lack of at least one shadow."
+            "text": "Lack of at least one shadow.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Fehlen von mindestens einem Schatten.",
+                    "updated": 1642431977272
+                },
+                {
+                    "language": "RU",
+                    "text": "Отсутствие хотя бы одной тени.",
+                    "updated": 1643351113550
+                },
+                {
+                    "language": "TR",
+                    "text": "En az bir gölge eksikliği.",
+                    "updated": 1644494928493
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "If it has one shadow, it must be shorter than the body."
+            "text": "If it has one shadow, it must be shorter than the body.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn sie einen Schatten hat, muss dieser kürzer als der Körper sein.",
+                    "updated": 1642431988960
+                },
+                {
+                    "language": "RU",
+                    "text": "Если у него есть одна тень, она должна быть короче тела.",
+                    "updated": 1643351124248
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir gölgesi varsa, vücuttan daha kısa olmalıdır.",
+                    "updated": 1644494938771
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The opening price differs from the closing price."
+            "text": "The opening price differs from the closing price.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Eröffnungskurs weicht vom Schlusskurs ab.",
+                    "updated": 1642431999567
+                },
+                {
+                    "language": "RU",
+                    "text": "Цена открытия отличается от цены закрытия.",
+                    "updated": 1643351132681
+                },
+                {
+                    "language": "TR",
+                    "text": "Açılış fiyatı kapanış fiyatından farklıdır.",
+                    "updated": 1644494947864
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Relative Size: Short or Long."
+            "text": "Relative Size: Short or Long.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "<b>Relative Size:</b> Kurz oder lang.",
+                    "updated": 1642432025347
+                },
+                {
+                    "language": "RU",
+                    "text": "Относительный размер: короткий или длинный.",
+                    "updated": 1643351167803
+                },
+                {
+                    "language": "TR",
+                    "text": "Göreceli Boyut (Relative Size): Kısa veya Uzun.",
+                    "updated": 1644494975061
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "According to their particular characteristics, they are named as follows:"
+            "text": "According to their particular characteristics, they are named as follows:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Je nach ihren besonderen Merkmalen werden sie wie folgt bezeichnet:",
+                    "updated": 1642432040941
+                },
+                {
+                    "language": "RU",
+                    "text": "В соответствии со своими особенностями они называются следующим образом:В соответствии со своими особенностями они называются следующим образом:",
+                    "updated": 1643351176396
+                },
+                {
+                    "language": "TR",
+                    "text": "Özelliklerine göre şu şekilde isimlendirilirler:",
+                    "updated": 1644495013322
+                }
+            ]
         },
         {
             "style": "Png",
@@ -176,12 +739,46 @@
         {
             "style": "List",
             "text": "Basic candle name: green marubozu, red marubozu.",
-            "updated": 1611665164959
+            "updated": 1611665164959,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "<b>Name der Basiskerze:</b> grüne Marubozu, rote Marubozu.",
+                    "updated": 1642437151411
+                },
+                {
+                    "language": "RU",
+                    "text": "Basic candle name: зеленый марубодзу, красный марубодзу.",
+                    "updated": 1643351191752
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel mum adı: yeşil marubozu, kırmızı marubozu.",
+                    "updated": 1644495030317
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Particular Characteristics: bullish or bearish, no shadows.",
-            "updated": 1611665179855
+            "updated": 1611665179855,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Besondere Merkmale: bullisch oder bärisch, keine Schatten.",
+                    "updated": 1642605049029
+                },
+                {
+                    "language": "RU",
+                    "text": "Particular Characteristics: бычьи или медвежьи, без теней.",
+                    "updated": 1643351203716
+                },
+                {
+                    "language": "TR",
+                    "text": "Belirli Özellikler: boğa veya düşüş, gölge yok.",
+                    "updated": 1644495068573
+                }
+            ]
         },
         {
             "style": "Png",
@@ -191,12 +788,46 @@
         {
             "style": "List",
             "text": "Basic candle name: opening green marubozu.",
-            "updated": 1611665397197
+            "updated": 1611665397197,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "<b>Name der Basiskerze:</b> grüne Marubozu zur Eröffnung.",
+                    "updated": 1642437177731
+                },
+                {
+                    "language": "RU",
+                    "text": "Basic candle name: открытие зеленого марубодзу.",
+                    "updated": 1643351215419
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel mum adı: yeşil marubozu açmak.",
+                    "updated": 1644495094448
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Particular Characteristics: bullish, no lower shadow.",
-            "updated": 1611665409673
+            "updated": 1611665409673,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Besondere Merkmale: bullisch, kein unterer Schatten.",
+                    "updated": 1642605061433
+                },
+                {
+                    "language": "RU",
+                    "text": "Particular Characteristics: бычий, нет нижней тени.",
+                    "updated": 1643351230241
+                },
+                {
+                    "language": "TR",
+                    "text": "Belirli Özellikler: boğa, alt gölge yok.",
+                    "updated": 1644495103480
+                }
+            ]
         },
         {
             "style": "Png",
@@ -206,12 +837,46 @@
         {
             "style": "List",
             "text": "Basic candle name: closing green marubozu.",
-            "updated": 1611665439843
+            "updated": 1611665439843,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "<b>Name der Basiskerze:</b> grüne Schlusskerze Marubozu.",
+                    "updated": 1642437476768
+                },
+                {
+                    "language": "RU",
+                    "text": "Basic candle name: закрытие зеленого марубодзу.",
+                    "updated": 1643351243392
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel mum adı: kapanış yeşil marubozu.",
+                    "updated": 1644495123105
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Particular Characteristics: bullish, no upper shadow.",
-            "updated": 1611665456168
+            "updated": 1611665456168,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Besondere Merkmale: bullisch, kein oberer Schatten.",
+                    "updated": 1642605094976
+                },
+                {
+                    "language": "RU",
+                    "text": "Particular Characteristics: бычий, верхняя тень отсутствует.",
+                    "updated": 1643351251462
+                },
+                {
+                    "language": "TR",
+                    "text": "Belirli Özellikler: boğa, üst gölge yok.",
+                    "updated": 1644495133062
+                }
+            ]
         },
         {
             "style": "Png",
@@ -221,12 +886,46 @@
         {
             "style": "List",
             "text": "Basic candle name: opening red marubozu.",
-            "updated": 1611665508285
+            "updated": 1611665508285,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "<b>Name der Basiskerze:</b> rote Marubozu zur Eröffnung.",
+                    "updated": 1642437579943
+                },
+                {
+                    "language": "RU",
+                    "text": "Basic candle name: открытие красного марубодзу.",
+                    "updated": 1643351261305
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel mum adı: açılış kırmızı marubozu.",
+                    "updated": 1644495151052
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Particular Characteristics: bearish, no upper shadow.",
-            "updated": 1611665541639
+            "updated": 1611665541639,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Besondere Merkmale: bärische, kein oberer Schatten.",
+                    "updated": 1642605110205
+                },
+                {
+                    "language": "RU",
+                    "text": "Particular Characteristics: медвежий, нет верхней тени.",
+                    "updated": 1643351268857
+                },
+                {
+                    "language": "TR",
+                    "text": "Belirli Özellikler: düşüş eğilimi, üst gölge yok.",
+                    "updated": 1644495165601
+                }
+            ]
         },
         {
             "style": "Png",
@@ -236,37 +935,168 @@
         {
             "style": "List",
             "text": "Basic candle name: closing red marubozu.",
-            "updated": 1611665523586
+            "updated": 1611665523586,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "<b>Name der Basiskerze:</b> rote Schlusskerze Marubozu.",
+                    "updated": 1642437868900
+                },
+                {
+                    "language": "RU",
+                    "text": "Basic candle name: закрытие красного марубодзу.",
+                    "updated": 1643351279585
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel mum adı: kapanış kırmızı marubozu.",
+                    "updated": 1644495198384
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Particular Characteristics: bearish, no lower shadow.",
-            "updated": 1611665537621
+            "updated": 1611665537621,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Besondere Merkmale: bärische, kein unterer Schatten.",
+                    "updated": 1642605119306
+                },
+                {
+                    "language": "RU",
+                    "text": "Particular Characteristics: медвежий, нет нижней тени.",
+                    "updated": 1643351286842
+                },
+                {
+                    "language": "TR",
+                    "text": "Belirli Özellikler: düşüş eğilimi, alt gölge yok.",
+                    "updated": 1644495207819
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Spinning Top Candles",
-            "updated": 1611665696434
+            "updated": 1611665696434,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Spinning Top Kerzen",
+                    "updated": 1642598697484
+                },
+                {
+                    "language": "TR",
+                    "text": "Topaç Üst Mumlar",
+                    "updated": 1644495403701
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "These candles have the following characteristics in common:"
+            "text": "These candles have the following characteristics in common:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Diese Kerzen haben die folgenden Merkmale gemeinsam:",
+                    "updated": 1642598715444
+                },
+                {
+                    "language": "RU",
+                    "text": "Эти свечи имеют следующие общие характеристики:",
+                    "updated": 1643351294457
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu mumlar aşağıdaki ortak özelliklere sahiptir:",
+                    "updated": 1644495273212
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Have at least one shadow."
+            "text": "Have at least one shadow.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sie haben mindestens einen Schatten.",
+                    "updated": 1642598723265
+                },
+                {
+                    "language": "RU",
+                    "text": "Имеют хотя бы одну тень.",
+                    "updated": 1643351314327
+                },
+                {
+                    "language": "TR",
+                    "text": "En az bir gölgeniz olsun.",
+                    "updated": 1644495295034
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "At least one shadow is greater than the body."
+            "text": "At least one shadow is greater than the body.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Mindestens ein Schatten ist größer als der Körper.",
+                    "updated": 1642598734219
+                },
+                {
+                    "language": "RU",
+                    "text": "По крайней мере, одна тень больше тела.",
+                    "updated": 1643351322073
+                },
+                {
+                    "language": "TR",
+                    "text": "En az bir gölge vücuttan daha büyüktür.",
+                    "updated": 1644495303160
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The opening price differs from the closing price."
+            "text": "The opening price differs from the closing price.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Eröffnungskurs weicht vom Schlusskurs ab.",
+                    "updated": 1642598748132
+                },
+                {
+                    "language": "RU",
+                    "text": "Цена открытия отличается от цены закрытия.",
+                    "updated": 1643351330011
+                },
+                {
+                    "language": "TR",
+                    "text": "Açılış fiyatı kapanış fiyatından farklıdır.",
+                    "updated": 1644495310599
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "According to their particular characteristics, they are named as follows:"
+            "text": "According to their particular characteristics, they are named as follows:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Je nach ihren besonderen Merkmalen werden sie wie folgt benannt:",
+                    "updated": 1642598758207
+                },
+                {
+                    "language": "RU",
+                    "text": "В соответствии со своими особенностями они называются следующим образом:",
+                    "updated": 1643351338118
+                },
+                {
+                    "language": "TR",
+                    "text": "Özel özelliklerine göre aşağıdaki gibi adlandırılırlar:",
+                    "updated": 1644495318622
+                }
+            ]
         },
         {
             "style": "Png",
@@ -276,12 +1106,46 @@
         {
             "style": "List",
             "text": "Basic candle name: green spinning top, red spinning top.",
-            "updated": 1611665761239
+            "updated": 1611665761239,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "<b>Name der Basiskerze:</b> grüner spinning top, roter spinning top.",
+                    "updated": 1642598891426
+                },
+                {
+                    "language": "RU",
+                    "text": "Basic candle name: зелёный волчок, красный волчок.",
+                    "updated": 1643351627043
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel mum adı: yeşil topaç, kırmızı topaç.",
+                    "updated": 1644495365068
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Particular Characteristics: bullish or bearish, relative size: short or long. If it's relative size is long, none of the shadows can exceed three times the body.",
-            "updated": 1611665931065
+            "updated": 1611665931065,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Besondere Merkmale: bullisch oder bärische, relative Größe: kurz oder lang. Wenn die relative Größe lang ist, darf keiner der Schatten das Dreifache des Körpers überschreiten.",
+                    "updated": 1642605143228
+                },
+                {
+                    "language": "RU",
+                    "text": "Particular Characteristics: бычий или медвежий, относительный размер: короткий или длинный. Если относительный размер длинный, то ни одна из теней не может превышать трехкратный размер тела.",
+                    "updated": 1643351642739
+                },
+                {
+                    "language": "TR",
+                    "text": "Belirli Özellikler: yükseliş veya düşüş eğilimi, göreceli boyut: kısa veya uzun. Göreceli boyutu uzunsa, gölgelerin hiçbiri gövdenin üç katını aşamaz.",
+                    "updated": 1644495445341
+                }
+            ]
         },
         {
             "style": "Png",
@@ -291,44 +1155,175 @@
         {
             "style": "List",
             "text": "Basic candle name: high wave.",
-            "updated": 1611665879645
+            "updated": 1611665879645,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "<b>Name der Basiskerze:</b>  Hohe Welle.",
+                    "updated": 1642599037669
+                },
+                {
+                    "language": "RU",
+                    "text": "Basic candle name: большая волна.",
+                    "updated": 1643351718815
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel mum adı: yüksek dalga.",
+                    "updated": 1644495465607
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Particular Characteristics: bullish or bearish, relative size: long. The length of at least one shadow is at least 3 times larger than the body.",
-            "updated": 1611665965134
+            "updated": 1611665965134,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Besondere Merkmale: bullisch oder bärische, relative Größe: lang. Die Länge mindestens eines Schattens ist mindestens 3 Mal größer als der Körper.",
+                    "updated": 1642605154587
+                },
+                {
+                    "language": "RU",
+                    "text": "Particular Characteristics: бычья или медвежья, относительный размер: длинная. Длина хотя бы одной тени как минимум в 3 раза больше тела.",
+                    "updated": 1643351730618
+                },
+                {
+                    "language": "TR",
+                    "text": "Belirli Özellikler: yükseliş veya düşüş eğilimi, göreceli boyut: uzun. En az bir gölgenin uzunluğu vücuttan en az 3 kat daha büyüktür.",
+                    "updated": 1644495482524
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Doji Candles",
-            "updated": 1611666064552
+            "updated": 1611666064552,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Doji Kerzen",
+                    "updated": 1642600079742
+                },
+                {
+                    "language": "TR",
+                    "text": "Doji Mumları",
+                    "updated": 1644495494565
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "These candles have the following characteristics in common:"
+            "text": "These candles have the following characteristics in common:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Diese Kerzen haben die folgenden Merkmale gemeinsam:",
+                    "updated": 1642600332798
+                },
+                {
+                    "language": "RU",
+                    "text": "Эти свечи имеют следующие общие характеристики:Эти свечи имеют следующие общие характеристики:",
+                    "updated": 1643351737813
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu mumlar aşağıdaki ortak özelliklere sahiptir:",
+                    "updated": 1644495515844
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Have no body, or very small body if it is allowed."
+            "text": "Have no body, or very small body if it is allowed.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sie haben keinen Körper oder nur einen sehr kleinen Körper, wenn dies erlaubt ist.",
+                    "updated": 1642600387178
+                },
+                {
+                    "language": "RU",
+                    "text": "Не имеющие тела или очень маленькие, если это разрешено.",
+                    "updated": 1643351776864
+                },
+                {
+                    "language": "TR",
+                    "text": "Bedensiz veya izin veriliyorsa çok küçük bedenli olun.",
+                    "updated": 1644495541743
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "According to their particular characteristics, they are named as follows:"
+            "text": "According to their particular characteristics, they are named as follows:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Je nach ihren besonderen Merkmalen werden sie wie folgt benannt:",
+                    "updated": 1642600401177
+                },
+                {
+                    "language": "RU",
+                    "text": "В соответствии со своими особенностями они называются следующим образом:",
+                    "updated": 1643351783775
+                },
+                {
+                    "language": "TR",
+                    "text": "Özelliklerine göre şu şekilde isimlendirilirler:",
+                    "updated": 1644495557432
+                }
+            ]
         },
         {
-            "style": "Text",
+            "style": "Png",
             "text": "PNGs/Foundations/Docs/indicators/candle-patterns-four-price-doji.png",
             "updated": 1611666216757
         },
         {
             "style": "List",
             "text": "Basic candle name: Four-Price Doji",
-            "updated": 1611666227026
+            "updated": 1611666227026,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "<b>Name der Basiskerze: </b>Four-Price Doji",
+                    "updated": 1642600430380
+                },
+                {
+                    "language": "RU",
+                    "text": "Basic candle name: Доджи с четырьмя ценами",
+                    "updated": 1643351799094
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel mum adı: Dört Fiyat Doji",
+                    "updated": 1644495783945
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Particular Characteristics: No shadows. Relative Size: Short.",
-            "updated": 1611666247154
+            "updated": 1611666247154,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Besondere Merkmale: Keine Schatten. Relative Größe: Kurz.",
+                    "updated": 1642600440883
+                },
+                {
+                    "language": "RU",
+                    "text": "Particular Characteristics: Без теней. Относительный размер: короткий.",
+                    "updated": 1643351819043
+                },
+                {
+                    "language": "TR",
+                    "text": "Belirli Özellikler: Gölge yok. Göreceli Boyut: Kısa.",
+                    "updated": 1644495792670
+                }
+            ]
         },
         {
             "style": "Png",
@@ -338,12 +1333,46 @@
         {
             "style": "List",
             "text": "Basic candle name: Star Doji",
-            "updated": 1611666282629
+            "updated": 1611666282629,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Name der Basiskerze: Star Doji",
+                    "updated": 1642600560230
+                },
+                {
+                    "language": "RU",
+                    "text": "Basic candle name: Звезда доджи",
+                    "updated": 1643351845911
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel mum adı: Yıldız Doji",
+                    "updated": 1644495843115
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Particular Characteristics: The body is located nearly mid-range (between 60% and 40% of total length). Relative Size: Short.",
-            "updated": 1611666296442
+            "updated": 1611666296442,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Besondere Merkmale:  Der Körper befindet sich fast in der Mitte (zwischen 60% und 40% der Gesamtlänge). Relative Größe: Kurz.",
+                    "updated": 1642600569811
+                },
+                {
+                    "language": "RU",
+                    "text": "Particular Characteristics: Тело расположено почти посередине (между 60% и 40% от общей длины). Относительный размер: короткий.",
+                    "updated": 1643351865644
+                },
+                {
+                    "language": "TR",
+                    "text": "Belirli Özellikler: Vücut neredeyse orta menzilde (toplam uzunluğun %60'ı ile %40'ı arasında) bulunur. Göreceli Boyut: Kısa.",
+                    "updated": 1644495868018
+                }
+            ]
         },
         {
             "style": "Png",
@@ -353,12 +1382,46 @@
         {
             "style": "List",
             "text": "Basic candle name: Long-Legged Doji",
-            "updated": 1611666341819
+            "updated": 1611666341819,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Name der Basiskerze: Long-Legged Doji",
+                    "updated": 1642600643086
+                },
+                {
+                    "language": "RU",
+                    "text": "Basic candle name: Длинноногий доджи",
+                    "updated": 1643351881336
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel mum adı: Uzun Bacaklı Doji",
+                    "updated": 1644495891184
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Particular Characteristics: The body is located nearly mid-range (between 60% and 40% of total length). Relative Size: Long.",
-            "updated": 1611666354652
+            "updated": 1611666354652,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Besondere Merkmale: Der Körper befindet sich fast in der Mitte (zwischen 60% und 40% der Gesamtlänge). Relative Größe: Lang.",
+                    "updated": 1642600653166
+                },
+                {
+                    "language": "RU",
+                    "text": "Particular Characteristics: Тело расположено почти посередине (между 60% и 40% от общей длины). Относительный размер: длинный.",
+                    "updated": 1643351895984
+                },
+                {
+                    "language": "TR",
+                    "text": "Belirli Özellikler: Vücut neredeyse orta menzilde (toplam uzunluğun %60'ı ile %40'ı arasında) bulunur. Göreceli Boyut: Uzun.",
+                    "updated": 1644495909885
+                }
+            ]
         },
         {
             "style": "Png",
@@ -368,12 +1431,46 @@
         {
             "style": "List",
             "text": "Basic candle name: Dragonfly Doji",
-            "updated": 1611666387310
+            "updated": 1611666387310,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Name der Basiskerze:  Dragonfly Doji",
+                    "updated": 1642600724903
+                },
+                {
+                    "language": "RU",
+                    "text": "Basic candle name: Стрекоза доджи",
+                    "updated": 1643351932621
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel mum adı: Dragonfly Doji",
+                    "updated": 1644495950549
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Particular Characteristics: Upper shadow shorter than 1% of total candle length. Relative Size: Long.",
-            "updated": 1611666402256
+            "updated": 1611666402256,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Besondere Merkmale:  Oberer Schatten kürzer als 1% der gesamten Kerzenlänge. Relative Größe: Lang.",
+                    "updated": 1642600736444
+                },
+                {
+                    "language": "RU",
+                    "text": "Particular Characteristics: Верхняя тень короче 1% от общей длины свечи. Относительный размер: длинная.",
+                    "updated": 1643351949367
+                },
+                {
+                    "language": "TR",
+                    "text": "Belirli Özellikler: Üst gölge, toplam mum uzunluğunun %1'inden kısa. Göreceli Boyut: Uzun.",
+                    "updated": 1644495987674
+                }
+            ]
         },
         {
             "style": "Png",
@@ -383,12 +1480,46 @@
         {
             "style": "List",
             "text": "Basic candle name: Gravestone Doji",
-            "updated": 1611666434564
+            "updated": 1611666434564,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Name der Basiskerze: Gravestone Doji",
+                    "updated": 1642600830143
+                },
+                {
+                    "language": "RU",
+                    "text": "Basic candle name: Надгробный доджи",
+                    "updated": 1643351970443
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel mum adı: Mezar taşı Doji",
+                    "updated": 1644496026682
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Particular Characteristics: Lower shadow shorter than 1% of total candle length. Relative Size: Long.",
-            "updated": 1611666455595
+            "updated": 1611666455595,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Besondere Merkmale: Unterer Schatten kürzer als 1% der gesamten Kerzenlänge. Relative Größe: Lang.",
+                    "updated": 1642600818186
+                },
+                {
+                    "language": "RU",
+                    "text": "Particular Characteristics: Нижняя тень короче 1% от общей длины свечи. Относительный размер: длинная.",
+                    "updated": 1643351986295
+                },
+                {
+                    "language": "TR",
+                    "text": "Belirli Özellikler: alt gölge, toplam mum uzunluğunun %1'inden kısa. Göreceli Boyut: Uzun.",
+                    "updated": 1644496058393
+                }
+            ]
         },
         {
             "style": "Png",
@@ -398,25 +1529,95 @@
         {
             "style": "List",
             "text": "Basic candle name: Generic Doji",
-            "updated": 1611666485762
+            "updated": 1611666485762,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Name der Basiskerze: Generischer Doji",
+                    "updated": 1642600929149
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel mum adı: Genel Doji",
+                    "updated": 1644496202515
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Particular Characteristics: All doji candles that do not match the 5 mentioned above.",
-            "updated": 1611666494060
+            "updated": 1611666494060,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Besondere Merkmale: Alle Doji-Kerzen, die nicht den 5 oben genannten entsprechen.",
+                    "updated": 1642600941490
+                },
+                {
+                    "language": "RU",
+                    "text": "Particular Characteristics: Все свечи дожи, которые не соответствуют 5 вышеупомянутым.",
+                    "updated": 1643352009605
+                },
+                {
+                    "language": "TR",
+                    "text": "Belirli Özellikler: Yukarıda belirtilen 5'e uymayan tüm doji mumları.",
+                    "updated": 1644496222066
+                }
+            ]
         },
         {
-            "style": "Text",
+            "style": "Note",
             "text": " Note: It is worth noting that this initial set of definitions is what may be found in the general literature. However, the indicator may be expanded to identify other types of candles. We welcome ideas and contributions in that regard.",
-            "updated": 1611666624611
+            "updated": 1611666624611,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Hinweis: Es sei darauf hingewiesen, dass diese anfänglichen Definitionen denjenigen entsprechen, die in der allgemeinen Literatur zu finden sind. Der Indikator kann jedoch erweitert werden, um andere Kerzentypen zu identifizieren. Wir freuen uns über Ideen und Beiträge zu diesem Thema.",
+                    "updated": 1642600952469
+                },
+                {
+                    "language": "RU",
+                    "text": "Примечание: стоит отметить, что этот первоначальный набор определений - это то, что можно найти в общей литературе. Однако индикатор может быть расширен для определения других типов свечей. Мы приветствуем идеи и вклад в этом отношении.",
+                    "updated": 1643352070347
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bu ilk tanım dizisinin genel literatürde bulunabileceğini belirtmekte fayda var. Bununla birlikte, gösterge diğer mum türlerini tanımlamak için genişletilebilir. Bu konudaki fikir ve katkılara açığız.",
+                    "updated": 1644496249795
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "One-Candle Patterns"
+            "text": "One-Candle Patterns",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Tek Mumlu Desenler",
+                    "updated": 1644496327756
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "One-Candle Patterns consist of a single basic candle in a certain market context. Matching the type of basic candle with the analysis of the context in terms of the current trend as indicated by a 10-period exponential moving average (EMA) may help predict reversals or continuations."
+            "text": "One-Candle Patterns consist of a single basic candle in a certain market context. Matching the type of basic candle with the analysis of the context in terms of the current trend as indicated by a 10-period exponential moving average (EMA) may help predict reversals or continuations.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ein-Kerzen Muster bestehen aus einer einzigen Grundkerze in einem bestimmten Marktkontext. Die Abstimmung des Typs der Basiskerze mit der Analyse des Kontextes in Bezug auf den aktuellen Trend, wie er von einem exponentiellen gleitenden Durchschnitt (EMA) über 10 Perioden angezeigt wird, kann helfen, Umkehrungen oder Fortsetzungen vorherzusagen.",
+                    "updated": 1642602298576
+                },
+                {
+                    "language": "RU",
+                    "text": "Односвечные паттерны состоят из одной базовой свечи в определенном рыночном контексте. Сопоставление типа основной свечи с анализом контекста с точки зрения текущего тренда, на который указывает 10-периодная экспоненциальная скользящая средняя (EMA), может помочь предсказать развороты или продолжения.",
+                    "updated": 1643352100878
+                },
+                {
+                    "language": "TR",
+                    "text": "Tek Mum Kalıpları, belirli bir piyasa bağlamında tek bir temel mumdan oluşur. Temel mum türünü, 10 dönemlik üstel hareketli ortalama (EMA) ile gösterildiği gibi mevcut eğilim açısından bağlam analiziyle eşleştirmek, geri dönüşleri veya devamları tahmin etmeye yardımcı olabilir.",
+                    "updated": 1644496360803
+                }
+            ]
         },
         {
             "style": "Gif",
@@ -425,20 +1626,88 @@
         },
         {
             "style": "Text",
-            "text": "The layer features an EMA 10 drawn with a dark line. It also features green and red arrows below and above the one-candles patterns, indicating the position in which the pattern appears."
+            "text": "The layer features an EMA 10 drawn with a dark line. It also features green and red arrows below and above the one-candles patterns, indicating the position in which the pattern appears.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Auf der Ebene ist ein EMA 10 mit einer dunklen Linie eingezeichnet. Außerdem sind unter und über den Ein-Kerzen Mustern grüne und rote Pfeile eingezeichnet, die die Stelle angeben, in der das Muster erscheint.",
+                    "updated": 1642602708467
+                },
+                {
+                    "language": "RU",
+                    "text": "На слое темной линией нарисована EMA 10. Кроме того, под и над односвечными паттернами расположены зеленые и красные стрелки, указывающие на положение, в котором появляется паттерн.",
+                    "updated": 1643352116688
+                },
+                {
+                    "language": "TR",
+                    "text": "Katman, koyu bir çizgiyle çizilmiş bir EMA 10'a sahiptir. Ayrıca, tek mum desenlerinin altında ve üstünde, desenin göründüğü konumu gösteren yeşil ve kırmızı oklar bulunur.",
+                    "updated": 1644496384121
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If the candle is green and is pointing up, the pattern indicates a “Bullish Reversal” or a “Bullish Continuation” forecast when it’s trending downwards or upwards respectively. If the candle is red and is pointing down, it indicates a “Bearish Reversal” or “Bearish Continuation” forecast when the trend is up or down respectively."
+            "text": "If the candle is green and is pointing up, the pattern indicates a “Bullish Reversal” or a “Bullish Continuation” forecast when it’s trending downwards or upwards respectively. If the candle is red and is pointing down, it indicates a “Bearish Reversal” or “Bearish Continuation” forecast when the trend is up or down respectively.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn die Kerze grün ist und nach oben zeigt, deutet das Muster auf eine \"Bullish Umkehrung\"- oder eine \"Bullish Fortsetzung\" Prognose hin, wenn es sich um einen Abwärts- bzw. Aufwärtstrend handelt. Ist die Kerze rot und zeigt nach unten, handelt es sich um eine \"Bärische Umkehrung\"- oder \"Bärische Fortsetzung\"-Prognose, wenn der Trend aufwärts bzw. abwärts gerichtet ist.",
+                    "updated": 1642605205345
+                },
+                {
+                    "language": "RU",
+                    "text": "Если свеча зеленого цвета и направлена вверх, паттерн указывает на \"Бычий разворот\" или \"Бычье продолжение\" при тренде вниз или вверх соответственно. Если свеча красная и направлена вниз, то это указывает на прогноз \"Медвежий разворот\" или \"Медвежье продолжение\" при тренде вверх или вниз соответственно.",
+                    "updated": 1643352140913
+                },
+                {
+                    "language": "TR",
+                    "text": "Mum yeşilse ve yukarıyı gösteriyorsa, model sırasıyla aşağı veya yukarı trend olduğunda bir \"Ters Boğa\" veya bir \"Boğa Devam\" tahminini gösterir. Mum kırmızıysa ve aşağıyı gösteriyorsa, trend sırasıyla yukarı veya aşağı olduğunda bir \"Ayı Tersine Dönme\" veya \"Ayı Devam Etme\" tahminini gösterir.",
+                    "updated": 1644496414493
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The panel features the following properties:"
+            "text": "The panel features the following properties:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das Panel verfügt über die folgenden Eigenschaften:",
+                    "updated": 1642602738022
+                },
+                {
+                    "language": "RU",
+                    "text": "Панель обладает следующими свойствами:",
+                    "updated": 1643352152433
+                },
+                {
+                    "language": "TR",
+                    "text": "Panelde aşağıdaki özellikler bulunur:",
+                    "updated": 1644496432977
+                }
+            ]
         },
         {
             "style": "Table",
             "text": "| Indicator Properties | Description |\n| Pattern Name | The name of the pattern. |\n| Trend Direction | The market trend on which the pattern has formed, as indicated by the EMA 10. |\n| Forecast | The prediction given by the pattern forming in the current trend. |\n| Trend Line Method | The method used to calculate the moving average that represents the trend line. |\n| Trend Line Period | The number of periods used to calculate the moving average. |\n| Trend Line Value | The current value of the moving average. |",
-            "updated": 1611666767939
+            "updated": 1611666767939,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Indikator-Eigenschaften | Beschreibung |\n| Pattern Name| Der Name des Musters. |\n| Trend Direction | Der Markttrend, auf dem sich das Muster gebildet hat, wie durch den EMA 10 angezeigt. |\n| Forecast | Die Vorhersage, die das Muster im aktuellen Trend bildet. |\n| Trend Line Method | Die Methode, die zur Berechnung des gleitenden Durchschnitts verwendet wird, der die Trendlinie darstellt. |\n| Trend Line Period | Die Anzahl der Perioden, die zur Berechnung des gleitenden Durchschnitts verwendet werden. |\n| Trend Line Value | Der aktuelle Wert des gleitenden Durchschnitts. |",
+                    "updated": 1642602920494
+                },
+                {
+                    "language": "RU",
+                    "text": "| Indicator Properties | Description |\n| Pattern Name | Название паттерна. |\n| Trend Direction | Рыночный тренд, на котором сформировался паттерн, на что указывает EMA 10. |\n| Forecast | Прогноз, который дает паттерн, формирующийся в текущем тренде. |\n| Trend Line Method | Метод, используемый для расчета скользящей средней, которая представляет собой линию тренда. |\n| Trend Line Period | Количество периодов, используемых для расчета скользящей средней. |\n| Trend Line Value | Текущее значение скользящей средней. |",
+                    "updated": 1643352234309
+                },
+                {
+                    "language": "TR",
+                    "text": "| Gösterge Özellikleri | Açıklama |\n| Desen Adı | Desenin adı. |\n| Trend Yönü | EMA 10 tarafından belirtildiği gibi, modelin üzerinde oluştuğu piyasa eğilimi. |\n| Tahmin | Mevcut trendde oluşan model tarafından verilen tahmin. |\n| Trend Çizgisi Yöntemi | Eğilim çizgisini temsil eden hareketli ortalamayı hesaplamak için kullanılan yöntem. |\n| Trend Çizgisi Dönemi | Hareketli ortalamayı hesaplamak için kullanılan dönem sayısı. |\n| Trend Çizgisi Değeri | Hareketli ortalamanın mevcut değeri. |",
+                    "updated": 1644496456486
+                }
+            ]
         },
         {
             "style": "Text",
@@ -447,16 +1716,57 @@
         {
             "style": "Title",
             "text": "Two-Candles Patterns",
-            "updated": 1611666789921
+            "updated": 1611666789921,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İki Mumlu Desenler",
+                    "updated": 1644496502621
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Two-Candles Patterns are built from two basic candles."
+            "text": "Two-Candles Patterns are built from two basic candles.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Zwei-Kerzen Muster bestehen aus zwei Grundkerzen.",
+                    "updated": 1642603535808
+                },
+                {
+                    "language": "RU",
+                    "text": "Двухсвечные паттерны строятся из двух базовых свечей.",
+                    "updated": 1643352246375
+                },
+                {
+                    "language": "TR",
+                    "text": "İki Mumlu Desenler, iki temel mumdan yapılır.",
+                    "updated": 1644496534555
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "The same concepts regarding the context of the trend discussed for one-candle patterns apply for all patterns with two candles or more.",
-            "updated": 1611666841317
+            "updated": 1611666841317,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Für alle Muster mit zwei oder mehr Kerzen gelten die gleichen Konzepte hinsichtlich des Trendkontextes wie für Muster mit einer Kerze.",
+                    "updated": 1642603555872
+                },
+                {
+                    "language": "RU",
+                    "text": "Те же понятия относительно контекста тренда, которые обсуждались для односвечных паттернов, применимы ко всем паттернам с двумя и более свечами.",
+                    "updated": 1643352257691
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Tek mumlu desenler için tartışılan trendin bağlamıyla ilgili aynı kavramlar, iki veya daha fazla mumlu tüm desenler için geçerlidir.",
+                    "updated": 1644496576067
+                }
+            ]
         },
         {
             "style": "Gif",
@@ -465,32 +1775,141 @@
         },
         {
             "style": "Text",
-            "text": "When analyzing patterns of more than one candle, it is important to understand the following concepts:"
+            "text": "When analyzing patterns of more than one candle, it is important to understand the following concepts:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bei der Analyse von Mustern mit mehr als einer Kerze ist es wichtig, die folgenden Konzepte zu verstehen:",
+                    "updated": 1642603717688
+                },
+                {
+                    "language": "RU",
+                    "text": "При анализе паттернов из более чем одной свечи важно понимать следующие понятия:",
+                    "updated": 1643352269640
+                },
+                {
+                    "language": "TR",
+                    "text": "Birden fazla mumun modellerini analiz ederken, aşağıdaki kavramları anlamak önemlidir:",
+                    "updated": 1644496595461
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The first candle in the pattern is the first candle that is formed chronologically, and so on for the following candles."
+            "text": "The first candle in the pattern is the first candle that is formed chronologically, and so on for the following candles.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die erste Kerze des Musters ist die erste Kerze, die chronologisch gebildet wird, und so weiter für die folgenden Kerzen.",
+                    "updated": 1642603729544
+                },
+                {
+                    "language": "RU",
+                    "text": "Первая свеча в паттерне - это первая свеча, которая формируется в хронологическом порядке, и так далее для последующих свечей.",
+                    "updated": 1643352281848
+                },
+                {
+                    "language": "TR",
+                    "text": "Desendeki ilk mum, kronolojik olarak oluşturulan ilk mumdur ve sonraki mumlar için bu şekilde devam eder.",
+                    "updated": 1644496614916
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The first candle in the pattern is the one that defines the trend of the pattern. For this reason, the value and the direction of the trend line of the pattern corresponding to the trend line of the first candle."
+            "text": "The first candle in the pattern is the one that defines the trend of the pattern. For this reason, the value and the direction of the trend line of the pattern corresponding to the trend line of the first candle.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die erste Kerze im Muster ist diejenige, die den Trend des Musters definiert. Aus diesem Grund entsprechen der Wert und die Richtung der Trendlinie des Musters der Trendlinie der ersten Kerze.",
+                    "updated": 1642603741941
+                },
+                {
+                    "language": "RU",
+                    "text": "Первая свеча в паттерне является свечой, определяющей тренд паттерна. По этой причине значение и направление трендовой линии паттерна соответствуют трендовой линии первой свечи.",
+                    "updated": 1643352294656
+                },
+                {
+                    "language": "TR",
+                    "text": "Desendeki ilk mum, desenin trendini tanımlayan mumdur. Bu nedenle, ilk mumun trend çizgisine karşılık gelen formasyonun trend çizgisinin değeri ve yönü.",
+                    "updated": 1644496629940
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The arrow is drawn on the last candle that forms the pattern."
+            "text": "The arrow is drawn on the last candle that forms the pattern.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Pfeil wird auf die letzte Kerze gezeichnet, die das Muster bildet.",
+                    "updated": 1642603753878
+                },
+                {
+                    "language": "RU",
+                    "text": "Стрелка нарисована на последней свече, которая формирует паттерн.",
+                    "updated": 1643352305868
+                },
+                {
+                    "language": "TR",
+                    "text": "Deseni oluşturan son mumun üzerine ok çizilir.",
+                    "updated": 1644496643011
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "The three concepts explained above apply for all patterns with two candles or more",
-            "updated": 1611666907262
+            "updated": 1611666907262,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die drei oben erläuterten Konzepte gelten für alle Muster mit zwei oder mehr Kerzen",
+                    "updated": 1642603767913
+                },
+                {
+                    "language": "RU",
+                    "text": "Три концепции, описанные выше, применимы ко всем паттернам с двумя свечами или более",
+                    "updated": 1643352316186
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Yukarıda açıklanan üç kavram, iki veya daha fazla mum içeren tüm desenler için geçerlidir.",
+                    "updated": 1644496657846
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Three-Candles Patterns"
+            "text": "Three-Candles Patterns",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Üç Mumlu Desenler",
+                    "updated": 1644496678612
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Three-Candles Patterns are built from three basic candles."
+            "text": "Three-Candles Patterns are built from three basic candles.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Drei-Kerzen Muster werden aus drei Grundkerzen gebildet.",
+                    "updated": 1642603820011
+                },
+                {
+                    "language": "RU",
+                    "text": "Паттерны Three-Candles строятся из трех базовых свечей.",
+                    "updated": 1643352366673
+                },
+                {
+                    "language": "TR",
+                    "text": "Üç Mumlu Desenler üç temel mumdan yapılmıştır.",
+                    "updated": 1644496718951
+                }
+            ]
         },
         {
             "style": "Gif",
@@ -499,17 +1918,63 @@
         },
         {
             "style": "Title",
-            "text": "Candle Patterns Products & Properties"
+            "text": "Candle Patterns Products & Properties",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Kerzenmuster Produkte & Eigenschaften",
+                    "updated": 1642603947539
+                },
+                {
+                    "language": "RU",
+                    "text": "Продукты и свойства свечных паттернов",
+                    "updated": 1643352385039
+                },
+                {
+                    "language": "TR",
+                    "text": "Mum Desenleri Ürünler ve Özellikler",
+                    "updated": 1644496768865
+                }
+            ]
         },
         {
             "style": "Table",
             "text": "| Product Name | Product Variable | Property Variables |\n| Basic Candles | basicCandle | name, size, direction, upperShadow, body, lowerShadow, length, meanBody, meanLength |\n| One-Candle Patterns | oneCandlePattern | name, trend, forecast, trendLine |\n| Two-Candles Patterns | twoCandlePattern | name, trend, forecast, trendLine |\n| Three-Candles Patterns | threeCandlePattern | name, trend, forecast, trendLine |",
-            "updated": 1611667058514
+            "updated": 1611667058514,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaftsvariablen |\n| Basic Candles | basicCandle | name, size, direction, upperShadow, body, lowerShadow, length, meanBody, meanLength |\n| One-Candle Patterns | oneCandlePattern | name, trend, forecast, trendLine |\n| Two-Candles Patterns | twoCandlePattern | name, trend, forecast, trendLine |\n| Three-Candles Patterns | threeCandlePattern | name, trend, forecast, trendLine |",
+                    "updated": 1642604025049
+                },
+                {
+                    "language": "TR",
+                    "text": "| Ürün Adı | Ürün Değişkeni | Özellik Değişkenleri |\n| Temel Mumlar | temelMum | ad, boyut, yön, üst Gölge, gövde, alt Gölge, uzunluk, ortalamaBody, ortalamaUzunluk |\n| Tek Mum Desenleri | birMum Deseni | isim, trend, tahmin, trendLine |\n| İki Mum Desenleri | ikiMum Deseni | isim, trend, tahmin, trendLine |\n| Üç Mum Desenleri | üçMumDesen | isim, trend, tahmin, trendLine |",
+                    "updated": 1644496815614
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Examples:",
-            "updated": 1611667073840
+            "updated": 1611667073840,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiele:",
+                    "updated": 1642604043402
+                },
+                {
+                    "language": "RU",
+                    "text": "Примеры:",
+                    "updated": 1643352406975
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnekler : ",
+                    "updated": 1644496839351
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -518,7 +1983,24 @@
         },
         {
             "style": "Text",
-            "text": "Is Long Green Candle the name of the current basic candle?"
+            "text": "Is Long Green Candle the name of the current basic candle?",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ist Long Green Candle der Name der aktuellen Basiskerze?",
+                    "updated": 1642604100932
+                },
+                {
+                    "language": "RU",
+                    "text": "Является ли Long Green Candle названием текущей основной свечи?",
+                    "updated": 1643352425861
+                },
+                {
+                    "language": "TR",
+                    "text": "Mevcut temel mumun adı Uzun Yeşil Mum mu?",
+                    "updated": 1644496865843
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -527,124 +2009,478 @@
         },
         {
             "style": "Text",
-            "text": "Is the upper shadow longer than the body?"
+            "text": "Is the upper shadow longer than the body?",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ist der obere Schatten länger als der Körper?",
+                    "updated": 1642604141728
+                },
+                {
+                    "language": "RU",
+                    "text": "Верхняя тень длиннее тела?",
+                    "updated": 1643352434209
+                },
+                {
+                    "language": "TR",
+                    "text": "Üst gölge vücuttan uzun mu?",
+                    "updated": 1644496886190
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Basic Candles"
+            "text": "Basic Candles",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Temel Mumlar",
+                    "updated": 1644496897591
+                }
+            ]
         },
         {
             "style": "Table",
             "text": "| Variable | Description | Possible Values |\n| name | The name that has been assigned to the basic candle. | Short Green Candle, Short Red Candle, Green Candle, Red Candle, Long Green Candle, Long Red Candle, Green Marubozu, Opening Green Marubozu, Closing Green Marubozu, Red Marubozu, Opening Red Marubozu, Closing Red Marubozu, Red Spinning Top, Green Spinning Top, High Wave, Four-Price Doji, Star Doji, Long-Legged Doji, Dragonfly Doji, Gravestone Doji, Generic Doji |\n| size | The relative size of the candle | short, long |\n| direction | Indicates if it’s a bullish or a bearish candle | bullish, bearish |\n| upperShadow | The length of the upper shadow |  |\n| body | The length of the body |  |\n| lowerShadow | The length of the lower shadow |  |\n| length | The total length of the candle (candle.max - candle.min) |  |\n| meanBody | The moving average of the length of the bodies of previous candles |   |\n| meanLength | The moving average of the total length of previous candles |  |",
-            "updated": 1611667360206
+            "updated": 1611667360206,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Variable | Beschreibung | Mögliche Werte |\n| name | Der Name, der der Basiskerze zugewiesen wurde. | Short Green Candle, Short Red Candle, Green Candle, Red Candle, Long Green Candle, Long Red Candle, Green Marubozu, Opening Green Marubozu, Closing Green Marubozu, Red Marubozu, Opening Red Marubozu, Closing Red Marubozu, Red Spinning Top, Green Spinning Top, High Wave, Four-Price Doji, Star Doji, Long-Legged Doji, Dragonfly Doji, Gravestone Doji, Generic Doji |\n| size | Die relative Größe der Kerze | short, long |\n| direction | Zeigt an, ob es sich um eine bullische oder bärische Kerze handelt | bullish, bearish |\n| upperShadow | Die Länge des unteren Schattens |\n|body | Die Länge des Körpers || \n| lowerShadow | Die Länge des unteren Schattens || \n| length | Die Gesamtlänge der Kerze (candle.max - candle.min) || \n| meanBody | Der gleitende Durchschnitt der Länge der Kerzenkörper der vorherigen Kerzen || \n| meanLength | Der gleitende Durchschnitt der Gesamtlänge der vorangegangenen Kerzen |\n|\n",
+                    "updated": 1642604548606
+                },
+                {
+                    "language": "RU",
+                    "text": "| Variable | Description | Possible Values |\n| name | The name that has been assigned to the basic candle. | Short Green Candle, Short Red Candle, Green Candle, Red Candle, Long Green Candle, Long Red Candle, Green Marubozu, Opening Green Marubozu, Closing Green Marubozu, Red Marubozu, Opening Red Marubozu, Closing Red Marubozu, Red Spinning Top, Green Spinning Top, High Wave, Four-Price Doji, Star Doji, Long-Legged Doji, Dragonfly Doji, Gravestone Doji, Generic Doji |\n| size | Относительный размер свечи | short, long |\n| direction | Показывает, бычья это свеча или медвежья. | bullish, bearish |\n| upperShadow | Длина верхней тени ||\n| body | Длина тела ||\n| lowerShadow | Длина нижней тени ||\n| length | Общая длина свечи (candle.max - candle.min) ||\n| meanBody | Скользящее среднее значение длины тел предыдущих свечей ||\n| meanLength | Скользящее среднее значение общей длины предыдущих свечей ||",
+                    "updated": 1643352726551
+                },
+                {
+                    "language": "TR",
+                    "text": "| Değişken | Açıklama | Olası Değerler |\n| isim | Temel muma atanan isim. | Kısa Yeşil Mum, Kısa Kırmızı Mum, Yeşil Mum, Kırmızı Mum, Uzun Yeşil Mum, Uzun Kırmızı Mum, Yeşil Marubozu, Açılış Yeşil Marubozu, Kapanış Yeşil Marubozu, Kırmızı Marubozu, Açılış Kırmızı Marubozu, Kapanış Kırmızı Marubozu, Kırmızı Topaç, Yeşil Eğirme Üst, Yüksek Dalga, Dört Fiyat Doji, Yıldız Doji, Uzun Bacak Doji, Yusufçuk Doji, Mezar Taşı Doji, Genel Doji |\n| boyut | Mumun göreli boyutu | kısa, uzun |\n| yön | Yükseliş mi yoksa düşüş eğilimi mi olduğunu gösterir | yükseliş, düşüş |\n| üstGölge | Üst gölgenin uzunluğu |\n|| gövde | Vücudun uzunluğu |\n|| altGölge | Alt gölgenin uzunluğu |\n|| uzunluk | Mumun toplam uzunluğu (candle.max - mum.min) |\n|| ortalamaGövde | Önceki mumların gövdelerinin uzunluğunun hareketli ortalaması |\n|| ortalama Uzunluk | Önceki mumların toplam uzunluğunun hareketli ortalaması |\n|",
+                    "updated": 1644496954671
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "One-Candle Patterns",
-            "updated": 1611667454262
+            "updated": 1611667454262,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Tek Mumlu Desenler",
+                    "updated": 1644496974410
+                }
+            ]
         },
         {
             "style": "Table",
             "text": "| Variable | Description | Predefined Values |\n| name | The name assigned to the pattern | Bearish Strong Line, Bearish Belt Hold, Hanging Man, Shooting Star, Bullish Belt Hold, Hammer, Bullish Strong Line |\n| trend | The market trend during which the pattern has formed | Uptrend, Downtrend |\n| forecast | It is the possible future scenario that represents the formation of this pattern | Bullish Continuation, Bullish Reversal, Bearish Continuation, Bearish Reversal |\n| trendLine | The value of the Moving Average that represents the trend line on which the pattern was formed |  | ",
-            "updated": 1611667583593
+            "updated": 1611667583593,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Variable | Beschreibung | Vordefinierte Werte |\n| name | Der dem Muster zugewiesene Name | Bearish Strong Line, Bearish Belt Hold, Hanging Man, Shooting Star, Bullish Belt Hold, Hammer, Bullish Strong Line |\n| trend | Der Markttrend, in dem sich das Muster gebildet hat | Uptrend, Downtrend |\n| forecast | Es ist das mögliche Zukunftsszenario, das die Entstehung dieses Musters darstellt | Bullish Continuation, Bullish Reversal, Bearish Continuation, Bearish Reversal |\n| trendLine | Der Wert des gleitenden Durchschnitts, der die Trendlinie darstellt, auf der das Muster gebildet wurde |\n|",
+                    "updated": 1642606179797
+                },
+                {
+                    "language": "RU",
+                    "text": "| Variable | Description | Predefined Values |\n| name | Название, присвоенное паттерну | Bearish Strong Line, Bearish Belt Hold, Hanging Man, Shooting Star, Bullish Belt Hold, Hammer, Bullish Strong Line |\n| trend | Рыночная тенденция, в ходе которой сформировался паттерн | Uptrend, Downtrend |\n| forecast | Именно возможный сценарий будущего представляет собой формирование этого паттерна | Bullish Continuation, Bullish Reversal, Bearish Continuation, Bearish Reversal |\n| trendLine | Значение скользящей средней, представляющей линию тренда, на которой сформировался паттерн ||",
+                    "updated": 1643352700289
+                },
+                {
+                    "language": "TR",
+                    "text": "| Değişken | Açıklama | Önceden Tanımlanmış Değerler |\n| isim | Modele atanan ad | Güçlü Ayı Çizgisi, Ayı Kuşağı Tutuşu, Asılı Adam, Kayan Yıldız, Boğa Kuşağı Tutuşu, Çekiç, Güçlü Ayı Çizgisi |\n| eğilim | Modelin oluştuğu piyasa trendi | Yükseliş Eğilimi, Düşüş Eğilimi |\n| tahmin | Bu kalıbın oluşumunu temsil eden olası gelecek senaryosudur | Boğa Devamı, Boğa Ters Çevirme, Ayı Devamı, Ters Ayı |\n| trendLine | Modelin oluştuğu trend çizgisini temsil eden Hareketli Ortalama değeri |\n|",
+                    "updated": 1644496987518
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Two-Candles Patterns",
-            "updated": 1611667605300
+            "updated": 1611667605300,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İki Mumlu Desenler",
+                    "updated": 1644497005098
+                }
+            ]
         },
         {
             "style": "Table",
             "text": "| Variable | Description | Predefined Values |\n| name | It is the name that has been assigned to the pattern based on the configuration of the candles that make it up | Last Engulfing Bottom, Bearish Engulfing, Bearish Harami, Bearish Harami Cross, Bearish Tasuki Line, Descending Hawk, Tweezers Top, Two-Candle Shooting Star, Last Engulfing Top, Bullish Engulfing, Bullish Harami, Bullish Harami Cross, Bullish Tasuki Line, Tweezers Bottom |\n| trend | The market trend during which the pattern has formed | Uptrend, Downtrend |\n| forecast | It is the possible future scenario that represents the formation of this pattern | Bullish Continuation, Bullish Reversal, Bearish Continuation, Bearish Reversal |\n| trendLine | The value of the Moving Average that represents the trend line on which the pattern was formed | |",
-            "updated": 1611667750859
+            "updated": 1611667750859,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Variable | Beschreibung | Vordefinierte Werte |\n| name | Es ist der Name, der dem Muster aufgrund der Konfiguration der Kerzen, aus denen es besteht, zugewiesen wurde | Last Engulfing Bottom, Bearish Engulfing, Bearish Harami, Bearish Harami Cross, Bearish Tasuki Line, Descending Hawk, Tweezers Top, Two-Candle Shooting Star, Last Engulfing Top, Bullish Engulfing, Bullish Harami, Bullish Harami Cross, Bullish Tasuki Line, Tweezers Bottom |\n| trend | Der Markttrend, in dem sich das Muster gebildet hat | Uptrend, Downtrend |\n| forecast | Es ist das mögliche Zukunftsszenario, das die Entstehung dieses Musters darstellt | Bullish Continuation, Bullish Reversal, Bearish Continuation, Bearish Reversal |\n| trendLine | Der Wert des gleitenden Durchschnitts, der die Trendlinie darstellt, auf der das Muster gebildet wurde|\n|",
+                    "updated": 1642606277465
+                },
+                {
+                    "language": "RU",
+                    "text": "| Variable | Description | Predefined Values |\n| name | Это название, которое было присвоено паттерну на основе конфигурации свечей, входящих в его состав | Last Engulfing Bottom, Bearish Engulfing, Bearish Harami, Bearish Harami Cross, Bearish Tasuki Line, Descending Hawk, Tweezers Top, Two-Candle Shooting Star, Last Engulfing Top, Bullish Engulfing, Bullish Harami, Bullish Harami Cross, Bullish Tasuki Line, Tweezers Bottom |\n| trend | Рыночная тенденция, в ходе которой сформировался паттерн | Uptrend, Downtrend |\n| forecast | Именно возможный сценарий будущего представляет собой формирование этого паттерна | Bullish Continuation, Bullish Reversal, Bearish Continuation, Bearish Reversal |\n| trendLine | Значение скользящей средней, представляющей линию тренда, на которой сформировался паттерн ||",
+                    "updated": 1643352798727
+                },
+                {
+                    "language": "TR",
+                    "text": "| Değişken | Açıklama | Önceden Tanımlanmış Değerler |\n| isim | Onu oluşturan mumların konfigürasyonuna göre kalıba atanan isimdir | Son Yutan Alt, Yutulan Ayı, Harami Ayı, Haç Harami Ayı, Tasuki Çizgisi Ayı, Azalan Şahin, Cımbız Tepesi, İki Mum Kayan Yıldız, Son Yutan Tepe, Yutan Boğa, Harami Boğa, Haç Harami Boğa, Tasuki Çizgisi Boğa, Cımbız Alt |\n| eğilim | Modelin oluştuğu piyasa trendi | Yükseliş Eğilimi, Düşüş Eğilimi |\n| tahmin | Bu kalıbın oluşumunu temsil eden olası gelecek senaryosudur | Boğa Devamı, Boğa Ters Çevirme, Ayı Devamı, Ters Ayı |\n| trendLine | Modelin oluştuğu trend çizgisini temsil eden Hareketli Ortalama değeri |\n|",
+                    "updated": 1644497018105
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Three-Candles Patterns",
-            "updated": 1611667798063
+            "updated": 1611667798063,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Üç Mumlu Desenler",
+                    "updated": 1644497039086
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The following table details the variables that can be used in the conditions of the trading strategies:"
+            "text": "The following table details the variables that can be used in the conditions of the trading strategies:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "In der folgenden Tabelle sind die Variablen aufgeführt, die in den Bedingungen der Handelsstrategien verwendet werden können:",
+                    "updated": 1642606322255
+                },
+                {
+                    "language": "RU",
+                    "text": "В следующей таблице подробно описаны переменные, которые могут быть использованы в условиях торговых стратегий:",
+                    "updated": 1643352815323
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki tablo, ticaret stratejileri koşullarında kullanılabilecek değişkenleri detaylandırmaktadır:",
+                    "updated": 1644497059047
+                }
+            ]
         },
         {
             "style": "Table",
             "text": "| Variable | Description | Predefined Values |\n| name | It is the name that has been assigned to the pattern based on the configuration of the candles that make it up | Advance Block, Deliberation, Identical Three Crows, Three Inside Down, Three Outside Down, Three Inside Up, Three Outside Up |\n| trend | The market trend during which the pattern has formed | Uptrend, Downtrend |\n| forecast | It is the possible future scenario that represents the formation of this pattern | Bullish Continuation, Bullish Reversal, Bearish Continuation, Bearish Reversal |\n| trendLine | The value of the Moving Average that represents the trend line on which the pattern was formed | | ",
-            "updated": 1611667928056
+            "updated": 1611667928056,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Variable | Beschreibung | Vordefinierte Werte |\n| name | Es ist der Name, der dem Muster aufgrund der Konfiguration der Kerzen, aus denen es besteht, zugewiesen wurde | Advance Block, Deliberation, Identical Three Crows, Three Inside Down, Three Outside Down, Three Inside Up, Three Outside Up |\n| trend | Der Markttrend, in dem sich das Muster gebildet hat | Uptrend, Downtrend |\n| forecast | Es ist das mögliche Zukunftsszenario, das die Entstehung dieses Musters darstellt | Bullish Continuation, Bullish Reversal, Bearish Continuation, Bearish Reversal |\n| trendLine | Der Wert des gleitenden Durchschnitts, der die Trendlinie darstellt, auf der das Muster gebildet wurde |\n|",
+                    "updated": 1642606519694
+                },
+                {
+                    "language": "RU",
+                    "text": "| Variable | Description | Predefined Values |\n| name | Это название, которое было присвоено паттерну на основе конфигурации свечей, входящих в его состав | Advance Block, Deliberation, Identical Three Crows, Three Inside Down, Three Outside Down, Three Inside Up, Three Outside Up |\n| trend | Рыночная тенденция, в ходе которой сформировался паттерн | Uptrend, Downtrend |\n| forecast | Именно возможный сценарий будущего представляет собой формирование этого паттерна | Bullish Continuation, Bullish Reversal, Bearish Continuation, Bearish Reversal |\n| trendLine | Значение скользящей средней, представляющей линию тренда, на которой сформировался паттерн ||",
+                    "updated": 1643352873488
+                },
+                {
+                    "language": "TR",
+                    "text": "| Değişken | Açıklama | Önceden Tanımlanmış Değerler |\n| isim | Onu oluşturan mumların konfigürasyonuna göre kalıba atanan isimdir | İlerleme Blok, Müzakere, Aynı Üç Karga, Üç İçeriden Aşağı, Üç Dışarıdan Aşağı, Üç İçeriden Yukarı, Üç Dışarıdan Yukarı |\n| trend | Modelin oluştuğu piyasa trendi | Yükseliş Eğilimi, Düşüş Eğilimi |\n| forecast | Bu kalıbın oluşumunu temsil eden olası gelecek senaryosudur | Boğa Devamı, Boğa Ters Çevirme, Ayı Devamı, Ters Ayı |\n| trendLine | Modelin oluştuğu trend çizgisini temsil eden Hareketli Ortalama değeri |\n|",
+                    "updated": 1644497145595
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Calculation Parameters",
-            "updated": 1611668026071
+            "updated": 1611668026071,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Berechnungsparameter",
+                    "updated": 1642606596182
+                },
+                {
+                    "language": "TR",
+                    "text": "Hesaplama Parametreleri",
+                    "updated": 1644497163866
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Basic Candles"
+            "text": "Basic Candles",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Basis Kerzen",
+                    "updated": 1642606606299
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel Mumlar",
+                    "updated": 1644497177196
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The following table details the parameters that may be configured in the code of the indicator products:"
+            "text": "The following table details the parameters that may be configured in the code of the indicator products:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "In der folgenden Tabelle sind die Parameter aufgeführt, die im Code der Indikatorprodukte konfiguriert werden können:",
+                    "updated": 1642606612130
+                },
+                {
+                    "language": "RU",
+                    "text": "В следующей таблице подробно описаны параметры, которые могут быть настроены в коде индикаторных изделий:",
+                    "updated": 1643352886515
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki tablo, gösterge ürünlerinin kodunda konfigüre edilebilecek parametreleri detaylandırmaktadır:",
+                    "updated": 1644497203997
+                }
+            ]
         },
         {
             "style": "Table",
             "text": "| Parameter | Description | Default Value | Normal Values |\n| Nbodies | The number of previous candle bodies used to calculate “meanBody” | 10 | 5 to 20 |\n| dojiFactor | It is the maximum percentage allowed for the body in relation to the length for the candle to be included in the Doji family | 3 | 0 to 5 |\n| sizeFactor | It is the percentage of the “meanLength” used to determinate the “size” of a candle (orange line on the chart) | 75 | 60 to 80 |\n| Nlengths | The number of previous candle lengths used to calculate “meanLength” | 20 | 10 to 25 |\n| sizeMethod | The method used to calculate “meanLength” | EMA | SMA or EMA |",
-            "updated": 1611668176042
+            "updated": 1611668176042,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Parameter | Beschreibung | Standardwert | Normale Werte |\n| Nbodies | Die Anzahl der vorherigen Kerzenkörper, die zur Berechnung von \"meanBody\" verwendet wird | 10 | 5 to 20 |\n| dojiFactor | Dies ist der maximale Prozentsatz, den der Körper im Verhältnis zur Länge der Kerze haben darf, um in die Doji-Familie aufgenommen zu werden | 3 | 0 to 5 |\n| sizeFactor | Es ist der Prozentsatz der \"meanLength\", der verwendet wird, um die \"Größe\" einer Kerze zu bestimmen (orangefarbene Linie im Diagramm) | 75 | 60 to 80 |\n| Nlengths | Die Anzahl der vorherigen Kerzenlängen, die zur Berechnung von \"meanLength\" verwendet werden | 20 | 10 to 25 |\n| sizeMethod | Die zur Berechnung von \"meanLength\" verwendete Methode | EMA | SMA or EMA |",
+                    "updated": 1642606882462
+                },
+                {
+                    "language": "RU",
+                    "text": "| Parameter | Description | Default Value | Normal Values |\n| Nbodies | Количество тел предыдущих свечей, используемое для расчета \"meanBody\". | 10 | 5 to 20 |\n| dojiFactor | Это максимальный процент, допустимый для тела по отношению к длине для того, чтобы свеча была включена в семейство Doji | 3 | 0 to 5 |\n| sizeFactor | Это процент от \"средней длины\", используемый для определения \"размера\" свечи (оранжевая линия на графике). | 75 | 60 to 80 |\n| Nlengths | Количество предыдущих длин свечей, используемых для расчета \"meanLength\". | 20 | 10 to 25 |\n| sizeMethod | Метод, используемый для вычисления \"meanLength\" | EMA | SMA or EMA |",
+                    "updated": 1643352968314
+                },
+                {
+                    "language": "TR",
+                    "text": "| parametre | Açıklama | Varsayılan Değer | Normal Değerler |\n| Nbodies  | \"meanBody\" hesaplamak için kullanılan önceki mum gövdelerinin sayısı | 10 | 5 ila 20 |\n| dojiFactor | Doji ailesine dahil edilecek mumun uzunluğuna göre gövde için izin verilen maksimum yüzdedir | 3 | 0 ila 5 |\n| sizeFactor  | Bir mumun \"boyutunu\" belirlemek için kullanılan \"ortalama Uzunluk\" yüzdesidir (grafikte turuncu çizgi) | 75 | 60 ila 80 |\n| Nlengths | “MeanLength”i hesaplamak için kullanılan önceki mum uzunluklarının sayısı | 20 | 10 ila 25 |\n| sizeMethod | “MeanLength”i hesaplamak için kullanılan yöntem | EMA | SMA veya EMA |",
+                    "updated": 1644497292588
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "To change the above-mentioned parameters, open the Basic Candles product definition, open the JavaScript Code of the Procedure Loop, and find the parameters in the first part of the code.",
-            "updated": 1611668256856
+            "updated": 1611668256856,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Um die oben genannten Parameter zu ändern, öffnen Sie die Basic Candles Produktdefinition, öffnen Sie den JavaScript-Code der Procedure Loop, und suchen Sie die Parameter im ersten Teil des Codes.",
+                    "updated": 1642606984182
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы изменить вышеуказанные параметры, откройте определение продукта Basic Candles, откройте JavaScript-код цикла процедуры и найдите параметры в первой части кода.",
+                    "updated": 1643352987866
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Yukarıda belirtilen parametreleri değiştirmek için Temel Mumlar ürün tanımını açın, Prosedür Döngüsünün ( Procedure Loop ) JavaScript Kodunu açın ve kodun ilk kısmındaki parametreleri bulun.",
+                    "updated": 1644498015752
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Candle Patterns",
-            "updated": 1611668285348
+            "updated": 1611668285348,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Kerzenmuster",
+                    "updated": 1642607497670
+                },
+                {
+                    "language": "TR",
+                    "text": "Mum Desenleri",
+                    "updated": 1644498047103
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The following table details the parameters that may be configured in the code of the indicator products:"
+            "text": "The following table details the parameters that may be configured in the code of the indicator products:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "In der folgenden Tabelle sind die Parameter aufgeführt, die im Code der Indikatorprodukte konfiguriert werden können:",
+                    "updated": 1642607508935
+                },
+                {
+                    "language": "RU",
+                    "text": "В следующей таблице подробно описаны параметры, которые могут быть настроены в коде индикаторных изделий:",
+                    "updated": 1643353032204
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki tablo, gösterge ürünlerinin kodunda konfigüre edilebilecek parametreleri detaylandırmaktadır:",
+                    "updated": 1644498063241
+                }
+            ]
         },
         {
             "style": "Table",
             "text": "| Parameter | Description | Default Value | Normal Values |\n| N | It is the period of the moving average used to calculate the trend line | 10 | 5 to 20 |\n| trendMethod | The method used to calculate the trend line Moving Average | EMA | SMA or EMA |",
-            "updated": 1611668389582
+            "updated": 1611668389582,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Parameter | Beschreibung | Standardwert | Normale Werte |\n| N | Es ist die Periode des gleitenden Durchschnitts, der zur Berechnung der Trendlinie verwendet wird | 10 | 5 to 20 |\n| trendMethod | Die Methode zur Berechnung der Trendlinie Gleitender Durchschnitt | EMA | SMA or EMA |",
+                    "updated": 1642607608309
+                },
+                {
+                    "language": "RU",
+                    "text": "| Parameter | Description | Default Value | Normal Values |\n| N | Это период скользящей средней, используемый для расчета линии тренда | 10 | 5 to 20 |\n| trendMethod | Метод, используемый для расчета трендовой линии Moving Average | EMA | SMA or EMA |",
+                    "updated": 1643353015095
+                },
+                {
+                    "language": "TR",
+                    "text": "| Parametre | Açıklama | Varsayılan Değer | Normal Değerler |\n| N | Trend çizgisini hesaplamak için kullanılan hareketli ortalamanın periyodudur | 10 | 5 ila 20 |\n| trendMethod | Trend çizgisini hesaplamak için kullanılan yöntem Hareketli Ortalama | EMA | SMA veya EMA |",
+                    "updated": 1644498103499
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "The Theory Behind Candle Patterns",
-            "updated": 1611668433320
+            "updated": 1611668433320,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Theorie hinter Kerzenmustern",
+                    "updated": 1642607853638
+                },
+                {
+                    "language": "RU",
+                    "text": "Теория, лежащая в основе свечных моделей",
+                    "updated": 1643353076561
+                },
+                {
+                    "language": "TR",
+                    "text": "Mum Modellerinin Arkasındaki Teori",
+                    "updated": 1644498135070
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Introduction"
+            "text": "Introduction",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Einführung",
+                    "updated": 1642607864540
+                },
+                {
+                    "language": "RU",
+                    "text": "Введение",
+                    "updated": 1643353083163
+                },
+                {
+                    "language": "TR",
+                    "text": "Tanıtım",
+                    "updated": 1644498191584
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Candle patterns are a versatile tool that traders use to visually estimate the sentiment of market participants. The logic implemented in this indicator was distilled from content in the following works:"
+            "text": "Candle patterns are a versatile tool that traders use to visually estimate the sentiment of market participants. The logic implemented in this indicator was distilled from content in the following works:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Kerzenmuster sind ein vielseitiges Instrument, mit dem Händler die Stimmung der Marktteilnehmer visuell einschätzen können. Die in diesem Indikator implementierte Logik wurde aus den Inhalten der folgenden Werke destilliert:",
+                    "updated": 1642607874904
+                },
+                {
+                    "language": "RU",
+                    "text": "Свечные модели - это универсальный инструмент, который трейдеры исп��льзуют для визуальной оценки настроений участников рынка. Логика, реализованная в этом индикаторе, была почерпнута из содержания следующих работ:",
+                    "updated": 1643353099486
+                },
+                {
+                    "language": "TR",
+                    "text": "Mum Desenleri, tüccarların piyasa katılımcılarının duyarlılığını görsel olarak tahmin etmek için kullandıkları çok yönlü bir araçtır. Bu göstergede uygulanan mantık, aşağıdaki eserlerdeki içerikten damıtılmıştır:",
+                    "updated": 1644498244058
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "“Candlestick Charting Explained” - Author: Greg Morris"
+            "text": "“Candlestick Charting Explained” - Author: Greg Morris",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "“Candlestick Charting Explained” - Yazar: Greg Morris",
+                    "updated": 1644498279817
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "“Technical Analysis of The Financial Markets” - Author: John J. Murphy"
+            "text": "“Technical Analysis of The Financial Markets” - Author: John J. Murphy",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "“Technical Analysis of The Financial Markets” - Yazar: John J. Murphy",
+                    "updated": 1644498286620
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "“Encyclopedia of Candlestick Charts” - Author: Thomas N. Bulkowski"
+            "text": "“Encyclopedia of Candlestick Charts” - Author: Thomas N. Bulkowski",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "“Encyclopedia of Candlestick Charts” - Yazar: Thomas N. Bulkowski",
+                    "updated": 1644498299585
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "“Encyclopedia of Chart Patterns” - Author: Thomas N. Bulkowski"
+            "text": "“Encyclopedia of Chart Patterns” - Author: Thomas N. Bulkowski",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "“Encyclopedia of Chart Patterns” - Yazar: Thomas N. Bulkowski",
+                    "updated": 1644498311867
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "“Japanese Candlestick Charting Techniques” - Author: Steve Nison"
+            "text": "“Japanese Candlestick Charting Techniques” - Author: Steve Nison",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "“Japanese Candlestick Charting Techniques” - Yazar: Steve Nison",
+                    "updated": 1644498318429
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "You may also wish to visit the following sources:"
+            "text": "You may also wish to visit the following sources:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Vielleicht möchten Sie auch die folgenden Quellen besuchen:",
+                    "updated": 1642607900898
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы также можете посетить следующие источники:",
+                    "updated": 1643353117593
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki kaynakları da ziyaret etmek isteyebilirsiniz:",
+                    "updated": 1644498333096
+                }
+            ]
         },
         {
             "style": "List",
@@ -652,7 +2488,14 @@
         },
         {
             "style": "List",
-            "text": "Investopedia: Introduction to Technical Analysis Price Patterns"
+            "text": "Investopedia: Introduction to Technical Analysis Price Patterns",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Investopedia: Teknik Analize Giriş Fiyat Modelleri",
+                    "updated": 1644498376689
+                }
+            ]
         },
         {
             "style": "List",
@@ -660,111 +2503,570 @@
         },
         {
             "style": "Subtitle",
-            "text": "Parts of a Candle"
+            "text": "Parts of a Candle",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Teile einer Kerze",
+                    "updated": 1642608010785
+                },
+                {
+                    "language": "RU",
+                    "text": "Составные части свечи",
+                    "updated": 1643353136120
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Mumun Parçaları",
+                    "updated": 1644498414533
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Let’s start by agreeing on the basic vocabulary to describe candles."
+            "text": "Let’s start by agreeing on the basic vocabulary to describe candles.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Einigen wir uns zunächst auf das grundlegende Vokabular zur Beschreibung von Kerzen.",
+                    "updated": 1642608021897
+                },
+                {
+                    "language": "RU",
+                    "text": "Давайте начнем с того, что договоримся о базовой лексике для описания свечей.",
+                    "updated": 1643353148827
+                },
+                {
+                    "language": "TR",
+                    "text": "Mumları tanımlamak için temel sözcükler üzerinde anlaşarak başlayalım.",
+                    "updated": 1644498821569
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The first price from which the candle begins to form is the open price. The last price from which the candle finishes forming is the close price. The distance between both prices is called body. Market volatility may cause the price to fluctuate beyond both prices during candle formation, creating shadows. The upper shadow is the line that links the maximum price with the body. The lower shadow is the line that links the min price with the body."
+            "text": "The first price from which the candle begins to form is the open price. The last price from which the candle finishes forming is the close price. The distance between both prices is called body. Market volatility may cause the price to fluctuate beyond both prices during candle formation, creating shadows. The upper shadow is the line that links the maximum price with the body. The lower shadow is the line that links the min price with the body.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der erste Kurs, bei dem die Kerze beginnt, sich zu bilden, ist der Eröffnungskurs. Der letzte Kurs, bei dem die Kerze ihre Bildung beendet, ist der Schlusskurs. Der Abstand zwischen beiden Kursen wird als Körper bezeichnet. Die Marktvolatilität kann dazu führen, dass der Kurs während der Kerzenbildung über beide Kurse hinaus schwankt, wodurch Schatten entstehen. Der obere Schatten ist die Linie, die den Höchstkurs mit dem Körper verbindet. Der untere Schatten ist die Linie, die den Mindestpreis mit dem Körper verbindet.",
+                    "updated": 1642608039074
+                },
+                {
+                    "language": "RU",
+                    "text": "Первая цена, от которой начинает формироваться свеча, - это цена открытия. Последняя цена, от которой свеча заканчивает формирование, - это цена закрытия. Расстояние между обеими ценами называется телом. Волатильность рынка может привести к колебаниям цены за пределами обеих цен во время формирования свечи, создавая тени. Верхняя тень - это линия, которая связывает максимальную цену с телом. Нижняя тень - это линия, которая связывает минимальную цену с телом.",
+                    "updated": 1643353166037
+                },
+                {
+                    "language": "TR",
+                    "text": "Mumun oluşmaya başladığı ilk fiyat, açılış fiyatıdır. Mumun oluşumunu tamamladığı son fiyat, kapanış fiyatıdır. Her iki fiyat arasındaki mesafeye gövde denir. Piyasa oynaklığı, mum oluşumu sırasında fiyatın her iki fiyatın üzerinde dalgalanmasına neden olarak gölgeler oluşturabilir. Üst gölge, maksimum fiyatı gövdeye bağlayan çizgidir. alt gölge, minimum fiyatı gövdeye bağlayan çizgidir.",
+                    "updated": 1644498861903
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Regarding color:"
+            "text": "Regarding color:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bezüglich der Farbe:",
+                    "updated": 1642608046764
+                },
+                {
+                    "language": "RU",
+                    "text": "Что касается цвета:",
+                    "updated": 1643353173026
+                },
+                {
+                    "language": "TR",
+                    "text": "Renkle ilgili:",
+                    "updated": 1644498877865
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "When the closing price is greater than the open price, the body of the candle is green. This indicates that it is a bullish candle."
+            "text": "When the closing price is greater than the open price, the body of the candle is green. This indicates that it is a bullish candle.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn der Schlusskurs größer ist als der Eröffnungskurs, ist der Kerzenkörper grün. Dies zeigt an, dass es sich um eine bullische Kerze handelt.",
+                    "updated": 1642608060451
+                },
+                {
+                    "language": "RU",
+                    "text": "Когда цена закрытия больше цены открытия, тело свечи окрашивается в зеленый цвет. Это указывает на то, что свеча является бычьей.",
+                    "updated": 1643353183545
+                },
+                {
+                    "language": "TR",
+                    "text": "Kapanış fiyatı açılış fiyatından büyük olduğunda, mumun gövdesi yeşildir. Bu, yükseliş mumu olduğunu gösterir.",
+                    "updated": 1644498892957
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "When the closing price is lesser than the open price, the body of the candle is red. This indicates that it is a bearish candle."
+            "text": "When the closing price is lesser than the open price, the body of the candle is red. This indicates that it is a bearish candle.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn der Schlusskurs niedriger ist als der Eröffnungskurs, ist der Kerzenkörper rot. Dies zeigt an, dass es sich um eine bärische Kerze handelt.",
+                    "updated": 1642608072588
+                },
+                {
+                    "language": "RU",
+                    "text": "Когда цена закрытия меньше цены открытия, тело свечи окрашивается в красный цвет. Это указывает на то, что свеча является медвежьей.",
+                    "updated": 1643353194351
+                },
+                {
+                    "language": "TR",
+                    "text": "Kapanış fiyatı açılış fiyatından düşük olduğunda mumun gövdesi kırmızıdır. Bu, düşüş mumu olduğunu gösterir.",
+                    "updated": 1644498910362
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Body of Doji Candles"
+            "text": "Body of Doji Candles",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Körper von Doji Kerzen",
+                    "updated": 1642608269979
+                },
+                {
+                    "language": "RU",
+                    "text": "Тело свечи Доджи",
+                    "updated": 1643353205311
+                },
+                {
+                    "language": "TR",
+                    "text": "Doji Mumlarının Gövdesi",
+                    "updated": 1644498922054
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Japanese candle theory defines a doji candle as one in which the closing price equals the opening price. In other words, a doji candle should have no body. In practice, the following aspects must be taken into account:"
+            "text": "Japanese candle theory defines a doji candle as one in which the closing price equals the opening price. In other words, a doji candle should have no body. In practice, the following aspects must be taken into account:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die japanische Kerzentheorie definiert eine Doji Kerze als eine Kerze, bei der der Schlusskurs gleich dem Eröffnungskurs ist. Mit anderen Worten: Eine Doji-Kerze sollte keinen Körper haben. In der Praxis müssen die folgenden Aspekte berücksichtigt werden:",
+                    "updated": 1642608278566
+                },
+                {
+                    "language": "RU",
+                    "text": "Японская теория свечей определяет свечу доджи как свечу, в которой цена закрытия равна цене открытия. Другими словами, свеча доджи не должна иметь тела. На практике необходимо учитывать следующие аспекты:",
+                    "updated": 1643353229456
+                },
+                {
+                    "language": "TR",
+                    "text": "Japon mum teorisi, bir doji mumunu, kapanış fiyatının açılış fiyatına eşit olduğu mum olarak tanımlar. Başka bir deyişle, bir doji mumunun gövdesi olmamalıdır. Uygulamada, aşağıdaki hususlar dikkate alınmalıdır:",
+                    "updated": 1644498940220
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Price volatility"
+            "text": "Price volatility",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Preisvolatilität",
+                    "updated": 1642608287152
+                },
+                {
+                    "language": "RU",
+                    "text": "Волатильность цен",
+                    "updated": 1643353236771
+                },
+                {
+                    "language": "TR",
+                    "text": "Fiyat dalgalanması",
+                    "updated": 1644498978363
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The precision with which prices are recorded"
+            "text": "The precision with which prices are recorded",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Genauigkeit der Kursaufzeichnung",
+                    "updated": 1642608304309
+                },
+                {
+                    "language": "RU",
+                    "text": "Точность, с которой регистрируются цены",
+                    "updated": 1643353250278
+                },
+                {
+                    "language": "TR",
+                    "text": "Fiyatların kaydedildiği hassasiyet",
+                    "updated": 1644498986013
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "These two factors make it very unlikely that both prices match exactly and—in practice—there is always a body, even if it is very small. For this reason, we define a range of uncertainty in body length to determine whether a candle is a doji or not. By default, we assume that the doji’s body may be equal or lesser than 3% of the total length of the candle. This is the dojiFactor."
+            "text": "These two factors make it very unlikely that both prices match exactly and—in practice—there is always a body, even if it is very small. For this reason, we define a range of uncertainty in body length to determine whether a candle is a doji or not. By default, we assume that the doji’s body may be equal or lesser than 3% of the total length of the candle. This is the dojiFactor.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Aufgrund dieser beiden Faktoren ist es sehr unwahrscheinlich, dass beide Kurse genau übereinstimmen, und—in der Praxis—gibt es immer einen Körper, auch wenn er sehr klein ist. Aus diesem Grund definieren wir einen Unsicherheitsbereich für die Länge des Körpers, um zu bestimmen, ob eine Kerze ein Doji ist oder nicht. Standardmäßig gehen wir davon aus, dass der Doji Körper gleich oder kleiner als 3 % der Gesamtlänge der Kerze sein kann. Dies ist der dojiFactor.",
+                    "updated": 1642608316280
+                },
+                {
+                    "language": "RU",
+                    "text": "Эти два фактора делают очень маловероятным точное совпадение обеих цен, и на практике всегда есть тело, даже если оно очень маленькое. По этой причине мы определяем диапазон неопределенности длины тела, чтобы определить, является ли свеча дожи или нет. По умолчанию мы предполагаем, что тело дожи может быть равно или меньше 3% от общей длины свечи. Это и есть dojiFactor.",
+                    "updated": 1643353267341
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu iki faktör, her iki fiyatın da tam olarak eşleşmesini pek olası kılmaz ve - pratikte - çok küçük olsa bile her zaman bir gövde vardır. Bu nedenle, bir mumun doji olup olmadığını belirlemek için vücut uzunluğunda bir belirsizlik aralığı tanımlarız. Varsayılan olarak, dojinin gövdesinin mumun toplam uzunluğunun %3'üne eşit veya daha az olabileceğini varsayıyoruz. Bu dojiFactor 'dür.",
+                    "updated": 1644499084200
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Relative Size: Short or Long"
+            "text": "Relative Size: Short or Long",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Relative Größe: Kurz oder lang",
+                    "updated": 1642608523903
+                },
+                {
+                    "language": "RU",
+                    "text": "Относительный размер: короткий или длинный",
+                    "updated": 1643353277525
+                },
+                {
+                    "language": "TR",
+                    "text": "Göreceli Boyut: Kısa veya Uzun",
+                    "updated": 1644499104600
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "It is very important to understand this concept since during the study and identification of candle patterns we must differentiate the size of each particular candle, that is, which ones are long and which are short. Intuitively, this seems simple, but translating the logic into an algorithm requires defining what tools will be used and how they will be parameterized."
+            "text": "It is very important to understand this concept since during the study and identification of candle patterns we must differentiate the size of each particular candle, that is, which ones are long and which are short. Intuitively, this seems simple, but translating the logic into an algorithm requires defining what tools will be used and how they will be parameterized.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Es ist sehr wichtig, dieses Konzept zu verstehen, da wir bei der Untersuchung und Identifizierung von Kerzenmustern die Größe jeder einzelnen Kerze unterscheiden müssen, d. h. welche Kerzen lang und welche kurz sind. Intuitiv scheint dies einfach zu sein, aber um die Logik in einen Algorithmus zu übertragen, muss man festlegen, welche Instrumente verwendet werden und wie sie parametrisiert werden.",
+                    "updated": 1642608534421
+                },
+                {
+                    "language": "RU",
+                    "text": "Очень важно понять эту концепцию, поскольку в процессе изучения и идентификации свечных моделей мы должны различать размер каждой конкретной свечи, то есть какие из них длинные, а какие короткие. Интуитивно это кажется простым, но перевод логики в алгоритм требует определения того, какие инструменты будут использоваться и как они будут параметризованы.",
+                    "updated": 1643353295219
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu kavramı anlamak çok önemlidir, çünkü mum kalıplarının incelenmesi ve tanımlanması sırasında her bir mumun boyutunu, yani hangilerinin uzun ve hangilerinin kısa olduğunu ayırt etmemiz gerekir. Sezgisel olarak, bu basit görünüyor, ancak mantığı bir algoritmaya çevirmek, hangi araçların kullanılacağını ve bunların nasıl parametrelendirileceğini tanımlamayı gerektiriyor.",
+                    "updated": 1644499125878
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "To start, we need to establish some reference to decide what is long and what is short, since a long candle in some market context may be short in another context. When we look at a chart, our sight may deceive us since the context around a candle involves both past and future candles. However, when our algorithm is working on a live session, it may only see candles in the past."
+            "text": "To start, we need to establish some reference to decide what is long and what is short, since a long candle in some market context may be short in another context. When we look at a chart, our sight may deceive us since the context around a candle involves both past and future candles. However, when our algorithm is working on a live session, it may only see candles in the past.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Zunächst müssen wir einen Bezugspunkt festlegen, um zu entscheiden, was lang und was kurz ist, da eine lange Kerze in einem bestimmten Marktkontext in einem anderen Kontext short sein kann. Wenn wir ein Diagramm betrachten, kann unser Blick uns täuschen, da der Kontext einer Kerze sowohl vergangene als auch zukünftige Kerzen umfasst. Wenn unser Algorithmus jedoch mit einer Live-Sitzung arbeitet, kann er nur Kerzen in der Vergangenheit sehen.",
+                    "updated": 1642608601194
+                },
+                {
+                    "language": "RU",
+                    "text": "Для начала нам необходимо определить, что является длинной, а что короткой, поскольку длинная свеча в одном рыночном контексте может быть короткой в другом контексте. Когда мы смотрим на график, наше зрение может обманывать нас, поскольку контекст вокруг свечи включает в себя как прошлые, так и будущие свечи. Однако когда наш алгоритм работает на живой сессии, он может видеть только прошлые свечи.",
+                    "updated": 1643353317758
+                },
+                {
+                    "language": "TR",
+                    "text": "Başlamak için, neyin uzun neyin kısa olduğuna karar vermek için bazı referanslar belirlememiz gerekiyor, çünkü bazı piyasa koşullarında uzun bir mum başka bir bağlamda kısa olabilir. Bir grafiğe baktığımızda, bir mumun etrafındaki bağlam hem geçmiş hem de gelecek mumları içerdiğinden görüşümüz bizi yanıltabilir. Ancak, algoritmamız canlı bir oturum üzerinde çalışırken, geçmişte yalnızca mumları görebilir.",
+                    "updated": 1644499141016
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "It may be deduced that the average of the size of a certain number of past candles must be used as the frame of reference. This method arises from common sense and therefore it is the one observed to be widely used in the literature. Some authors differ in their criteria averaging only the bodies or averaging the total lengths including also the shadows."
+            "text": "It may be deduced that the average of the size of a certain number of past candles must be used as the frame of reference. This method arises from common sense and therefore it is the one observed to be widely used in the literature. Some authors differ in their criteria averaging only the bodies or averaging the total lengths including also the shadows.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Daraus lässt sich ableiten, dass der Durchschnitt der Größe einer bestimmten Anzahl von Kerzen in der Vergangenheit als Bezugsrahmen verwendet werden muss. Diese Methode ergibt sich aus dem gesunden Menschenverstand und ist daher die in der Literatur am häufigsten verwendete. Einige Autoren unterscheiden sich in ihren Kriterien, indem sie nur den Durchschnitt der Körper oder den Durchschnitt der Gesamtlängen, einschließlich der Schatten, berechnen.",
+                    "updated": 1642608629352
+                },
+                {
+                    "language": "RU",
+                    "text": "Из этого можно сделать вывод, что в качестве точки отсчета следует использовать среднее значение размера определенного количества прошлых свечей. Этот метод вытекает из здравого смысла, и поэтому он широко используется в литературе. Некоторые авторы различаются в своих критериях, усредняя только тела или усредняя общую длину, включая также тени.",
+                    "updated": 1643353336675
+                },
+                {
+                    "language": "TR",
+                    "text": "Referans çerçevesi olarak belirli sayıda geçmiş mumun boyutunun ortalamasının kullanılması gerektiği sonucuna varılabilir. Bu yöntem sağduyudan kaynaklanmaktadır ve bu nedenle literatürde yaygın olarak kullanıldığı gözlenen yöntemdir. Bazı yazarlar, yalnızca gövdelerin ortalamasını alma veya gölgeler de dahil olmak üzere toplam uzunlukların ortalamasını alma kriterlerinde farklılık gösterir.",
+                    "updated": 1644499157401
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "For this reason, we have made both criteria available:"
+            "text": "For this reason, we have made both criteria available:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Aus diesem Grund haben wir beide Kriterien zur Verfügung gestellt:",
+                    "updated": 1642608651998
+                },
+                {
+                    "language": "RU",
+                    "text": "По этой причине мы сделали доступными оба критерия:",
+                    "updated": 1643353345310
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu nedenle, her iki kriteri de kullanılabilir hale getirdik:",
+                    "updated": 1644499171297
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Body average: Bulkowski uses this criterion to detect candles of the type Long Green Candle and Long Red Candle. Since they are a particular case that occurs when the size of the body extends more than three times compared to the previous candle’s body average."
+            "text": "Body average: Bulkowski uses this criterion to detect candles of the type Long Green Candle and Long Red Candle. Since they are a particular case that occurs when the size of the body extends more than three times compared to the previous candle’s body average.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Body average: Bulkowski verwendet dieses Kriterium, um Kerzen vom Typ Long Green Candle und Long Red Candle zu erkennen. Denn sie sind ein Sonderfall, der auftritt, wenn die Größe des Körpers mehr als dreimal so groß ist wie der Körperdurchschnitt der vorherigen Kerze.",
+                    "updated": 1642608700941
+                },
+                {
+                    "language": "RU",
+                    "text": "Среднее тело: Bulkowski использует этот критерий для обнаружения свечей типа Long Green Candle и Long Red Candle. Поскольку они представляют собой особый случай, который возникает, когда размер тела расширяется более чем в три раза по сравнению со средним значением тела предыдущей свечи.",
+                    "updated": 1643353375484
+                },
+                {
+                    "language": "TR",
+                    "text": "Vücut ortalaması: Bulkowski, Uzun Yeşil Mum ve Uzun Kırmızı Mum türündeki mumları tespit etmek için bu kriteri kullanır. Çünkü bunlar, bir önceki mumun vücut ortalamasına kıyasla gövde boyutunun üç kattan fazla uzadığı zaman meydana gelen özel bir durum olduğundan.",
+                    "updated": 1644499197062
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Length average: this criterion is used in a general manner, for all basic candles, since it also includes doji candles which have no body (or have very small bodies); with the previous criterion they would always be sized as Short, which is not what we are looking for."
+            "text": "Length average: this criterion is used in a general manner, for all basic candles, since it also includes doji candles which have no body (or have very small bodies); with the previous criterion they would always be sized as Short, which is not what we are looking for.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Length average: Dieses Kriterium wird allgemein für alle Basiskerzen verwendet, da es auch Doji-Kerzen ohne Körper (oder mit sehr kleinen Körpern) einschließt; mit dem vorherigen Kriterium würden sie immer als Short eingestuft werden, was nicht das ist, wonach wir suchen.",
+                    "updated": 1642608815399
+                },
+                {
+                    "language": "RU",
+                    "text": "Средняя длина: этот критерий используется в общем случае для всех основных свечей, поскольку он также включает свечи доджи, которые не имеют тела (или имеют очень маленькое тело); при использовании предыдущего критерия они всегда будут иметь короткую длину, что не является тем, что мы ищем.",
+                    "updated": 1643353439010
+                },
+                {
+                    "language": "TR",
+                    "text": "Uzunluk ortalaması: Bu kriter, gövdesi olmayan (veya çok küçük gövdeleri olan) doji mumlarını da içerdiğinden, tüm temel mumlar için genel olarak kullanılır; önceki kriter ile her zaman Kısa olarak boyutlandırılırlardı, ki bu bizim aradığımız şey değil.",
+                    "updated": 1644499211375
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Pattern Validation"
+            "text": "Pattern Validation",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Validierung von Mustern",
+                    "updated": 1642609093417
+                },
+                {
+                    "language": "RU",
+                    "text": "Оценка моделей",
+                    "updated": 1643353578369
+                },
+                {
+                    "language": "TR",
+                    "text": "Model Doğrulama",
+                    "updated": 1644499255531
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "To find candle patterns on the chart, it is necessary to analyze the market context in which the basic candles appear and how they are related to each other. For this reason, the following concepts are necessary:"
+            "text": "To find candle patterns on the chart, it is necessary to analyze the market context in which the basic candles appear and how they are related to each other. For this reason, the following concepts are necessary:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Um Kerzenmuster auf dem Chart zu finden, ist es notwendig, den Marktkontext zu analysieren, in dem die Basiskerzen erscheinen und wie sie miteinander in Beziehung stehen. Aus diesem Grund sind die folgenden Konzepte erforderlich:",
+                    "updated": 1642609105172
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы найти свечные паттерны на графике, необходимо проанализировать рыночный контекст, в котором появляются основные свечи и как они связаны друг с другом. Для этого необходимо знать следующие понятия:",
+                    "updated": 1643353488355
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafikte mum modellerini bulmak için, temel mumların göründüğü piyasa bağlamını ve bunların birbirleriyle nasıl ilişkili olduğunu analiz etmek gerekir. Bu nedenle aşağıdaki kavramlar gereklidir:",
+                    "updated": 1644499269096
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Trend Line: To determine if prices are in an Uptrend or a Downtrend, a reference trend line is necessary, which is generally a moving average."
+            "text": "Trend Line: To determine if prices are in an Uptrend or a Downtrend, a reference trend line is necessary, which is generally a moving average.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Trend Line: Um festzustellen, ob sich die Kurse in einem Aufwärts- oder Abwärtstrend befinden, ist eine Referenztrendlinie erforderlich, bei der es sich im Allgemeinen um einen gleitenden Durchschnitt handelt.",
+                    "updated": 1642609116846
+                },
+                {
+                    "language": "RU",
+                    "text": "Линия тренда: Чтобы определить, находятся ли цены в восходящем или нисходящем тренде, необходима опорная линия тренда, которой обычно является скользящая средняя.",
+                    "updated": 1643353501295
+                },
+                {
+                    "language": "TR",
+                    "text": "Trend Çizgisi (Trend Line): Fiyatların Yükseliş Eğiliminde mi yoksa Düşüş Eğiliminde mi olduğunu belirlemek için, genellikle hareketli bir ortalama olan bir referans eğilim çizgisi gereklidir.",
+                    "updated": 1644499298218
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Minimum Trend Candles: It is the minimum number of candles that must be on the same trend line to validate a pattern. By default, 3 candles will be used."
+            "text": "Minimum Trend Candles: It is the minimum number of candles that must be on the same trend line to validate a pattern. By default, 3 candles will be used.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Minimum Trend Candles:Dies ist die Mindestanzahl von Kerzen, die auf derselben Trendlinie liegen müssen, um ein Muster zu bestätigen. Standardmäßig werden 3 Kerzen verwendet.",
+                    "updated": 1642609133856
+                },
+                {
+                    "language": "RU",
+                    "text": "Минимальное количество свечей тренда: Это минимальное количество свечей, которые должны находиться на одной и той же линии тренда для подтверждения паттерна. По умолчанию используется 3 свечи.",
+                    "updated": 1643353515112
+                },
+                {
+                    "language": "TR",
+                    "text": "Minimum Trend Mumları: Bir kalıbı doğrulamak için aynı trend çizgisinde olması gereken minimum mum sayısıdır. Varsayılan olarak 3 mum kullanılacaktır.",
+                    "updated": 1644499313267
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Forecast:"
+            "text": "Forecast:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Vorhersage:",
+                    "updated": 1642609138878
+                },
+                {
+                    "language": "RU",
+                    "text": "Прогноз:",
+                    "updated": 1643353522745
+                },
+                {
+                    "language": "TR",
+                    "text": "Tahmin etmek:",
+                    "updated": 1644499331466
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Bullish Reversal: In a downtrend, a pattern is considered valid when the body of the first candle is below the trend line."
+            "text": "Bullish Reversal: In a downtrend, a pattern is considered valid when the body of the first candle is below the trend line.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bullish Reversal:  In einem Abwärtstrend gilt ein Muster als gültig, wenn der Körper der ersten Kerze unterhalb der Trendlinie liegt.",
+                    "updated": 1642609150095
+                },
+                {
+                    "language": "RU",
+                    "text": "Бычий разворот: При нисходящем тренде паттерн считается действительным, если тело первой свечи находится ниже линии тренда.",
+                    "updated": 1643353535812
+                },
+                {
+                    "language": "TR",
+                    "text": "Ters Boğa: Bir düşüş trendinde, ilk mumun gövdesi trend çizgisinin altında olduğunda bir model geçerli kabul edilir.",
+                    "updated": 1644499343743
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Bullish Continuation: In an uptrend, a pattern is considered valid when at least open prices of all pattern candles are above the trend line."
+            "text": "Bullish Continuation: In an uptrend, a pattern is considered valid when at least open prices of all pattern candles are above the trend line.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bullish Continuation: In einem Aufwärtstrend gilt ein Muster als gültig, wenn mindestens die Eröffnungskurse aller Musterkerzen über der Trendlinie liegen.",
+                    "updated": 1642609164249
+                },
+                {
+                    "language": "RU",
+                    "text": "Бычье продолжение: При восходящем тренде паттерн считается действительным, если цены открытия всех свечей паттерна находятся выше линии тренда.",
+                    "updated": 1643353545839
+                },
+                {
+                    "language": "TR",
+                    "text": "Boğa Devamı: Bir yükseliş trendinde, tüm formasyon mumlarının en azından açık fiyatları trend çizgisinin üzerinde olduğunda bir formasyon geçerli kabul edilir.",
+                    "updated": 1644499358534
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Bearish Reversal: In an uptrend, a pattern is considered valid when the body of the first candle is above the trend line."
+            "text": "Bearish Reversal: In an uptrend, a pattern is considered valid when the body of the first candle is above the trend line.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bearish Reversal:  In einem Aufwärtstrend gilt ein Muster als gültig, wenn der Körper der ersten Kerze oberhalb der Trendlinie liegt.",
+                    "updated": 1642609174521
+                },
+                {
+                    "language": "RU",
+                    "text": "Медвежий разворот: При восходящем тренде паттерн считается действительным, если тело первой свечи находится выше линии тренда.",
+                    "updated": 1643353553575
+                },
+                {
+                    "language": "TR",
+                    "text": "Ters Ayı: Bir yükseliş trendinde, ilk mumun gövdesi trend çizgisinin üzerinde olduğunda bir model geçerli kabul edilir.",
+                    "updated": 1644499371739
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Bearish Continuation: In a downtrend, a pattern is considered valid when at least open prices of all candles are below the downtrend."
+            "text": "Bearish Continuation: In a downtrend, a pattern is considered valid when at least open prices of all candles are below the downtrend.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bearish Continuation:  In einem Abwärtstrend gilt ein Muster als gültig, wenn mindestens die Eröffnungskurse aller Kerzen unterhalb der Abwärtstrendlinie liegen.",
+                    "updated": 1642609184398
+                },
+                {
+                    "language": "RU",
+                    "text": "Медвежье продолжение: При нисходящем тренде модель считается действительной, если цены открытия всех свечей находятся ниже нисходящего тренда.",
+                    "updated": 1643353562109
+                },
+                {
+                    "language": "TR",
+                    "text": "Ayı Devamlılığı: Bir düşüş trendinde, tüm mumların en azından açık fiyatları düşüş trendinin altında olduğunda bir model geçerli kabul edilir.",
+                    "updated": 1644499383330
+                }
+            ]
         },
         {
             "style": "Text",

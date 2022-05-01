@@ -17,6 +17,11 @@
                 "language": "TR",
                 "text": "Formül, belirli bir özelliğe dinamik olarak uygulanacak sayısal bir değer belirlemeyi amaçlayan matematiksel bir ifadedir.",
                 "updated": 1639222589278
+            },
+            {
+                "language": "DE",
+                "text": "Eine Formel ist ein mathematischer Ausdruck zur Bestimmung eines numerischen Wertes, der dynamisch auf eine bestimmte Eigenschaft angewendet werden soll.",
+                "updated": 1641637218533
             }
         ]
     },
@@ -34,6 +39,16 @@
                     "language": "RU",
                     "text": "В контексте торговой системы Trading System, формулы используются для определения значений нескольких свойств, таких как Target Rate, Target Size, Managed Stop Loss, Managed Take Profit и т.д.",
                     "updated": 1638964455685
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Ticaret Sistemi bağlamında, Hedef Oran (Target Rate), Hedef Boyut (Target Size), Yönetilen Zarar Durdur (Managed Stop Loss), Yönetilen Kâr Al (Managed Take Profit) vb. gibi çeşitli özelliklerin değerlerini belirlemek için formüller kullanılır.",
+                    "updated": 1642514782736
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Zusammenhang mit einem Handelssystem werden Formeln verwendet, um die Werte für verschiedene Eigenschaften zu bestimmen, wie z. B. Zielkurs (Target Rate), Zielgröße (Target Size), Managed Stop Loss, Managed Take Profit, usw.",
+                    "updated": 1641637318740
                 }
             ]
         },
@@ -46,6 +61,16 @@
                     "language": "RU",
                     "text": "Формулы могут использовать индикаторы и свойства торгового механизма. Основное различие между написанием формулы Formula и написанием условия Condition заключается в том, что, хотя условия должны оцениваться как истинные (true) или ложные (false), результатом вычисления формулы должно быть числом.",
                     "updated": 1640089375833
+                },
+                {
+                    "language": "TR",
+                    "text": "Formüller, göstergeleri ve Trading Engine özelliklerini kullanabilir. Formül yazma ile Koşul yazma arasındaki temel fark, koşulların doğru (true) veya yanlış (false) olarak değerlendirilmesi gerekirken, formüllerin bir sayı olarak değerlendirilmesi gerektiğidir.",
+                    "updated": 1642514827746
+                },
+                {
+                    "language": "DE",
+                    "text": "Formeln können Indikatoren und Trading-Engine-Eigenschaften verwenden. Der Hauptunterschied zwischen dem Schreiben einer Formel und dem Schreiben einer Bedingung besteht darin, dass Bedingungen als wahr oder falsch ausgewertet werden müssen, während Formeln eine Zahl auswerten müssen.",
+                    "updated": 1641637368038
                 }
             ]
         },
@@ -66,6 +91,16 @@
                     "language": "RU",
                     "text": "Простой математический пример",
                     "updated": 1638964757714
+                },
+                {
+                    "language": "TR",
+                    "text": "Basit bir matematik örneği",
+                    "updated": 1642514840862
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein einfaches mathematisches Beispiel",
+                    "updated": 1641637406186
                 }
             ]
         },
@@ -77,6 +112,16 @@
                     "language": "RU",
                     "text": "Эта простая формула может использоваться для определения первоначальной цели тейк-профита на 3% выше ставки, по которой была открыта позиция.",
                     "updated": 1638964780163
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu basit formül, pozisyonun alındığı fiyatın %3 üzerinde bir ilk kâr alma hedefi tanımlamak için kullanılabilir.",
+                    "updated": 1642514870482
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese einfache Formel kann verwendet werden, um ein anfängliches Gewinnmitnahmeziel zu definieren, das 3 % über dem Kurs liegt, zu dem die Position eingegangen wurde.",
+                    "updated": 1641637386511
                 }
             ]
         },
@@ -92,6 +137,16 @@
                     "language": "RU",
                     "text": "Вы можете использовать любую переменную, доступную в торговой системе, как описано на странице с данными времени выполнения Accessing Runtime Data.",
                     "updated": 1638964916864
+                },
+                {
+                    "language": "TR",
+                    "text": "İşlem zamanı verileri sayfasında açıklandığı gibi, işlem motoru tarafından sağlanan herhangi bir değişkeni kullanabilirsiniz.",
+                    "updated": 1642514929336
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können jede Variable verwenden, die von der Trading Engine zur Verfügung gestellt wird, wie auf der Seite \"accessing runtime data\" erläutert.",
+                    "updated": 1641637490134
                 }
             ]
         },
@@ -104,6 +159,16 @@
                     "language": "RU",
                     "text": "Простой пример JavaScript",
                     "updated": 1638964935609
+                },
+                {
+                    "language": "TR",
+                    "text": "Basit bir JavaScript örneği",
+                    "updated": 1642514954111
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein einfaches JavaScript-Beispiel",
+                    "updated": 1641637504360
                 }
             ]
         },
@@ -115,6 +180,16 @@
                     "language": "RU",
                     "text": "Например, в этом случае мы спрашиваем, дает ли предложенная формула число больше, чем текущее значение стоп-лосса; если да, то используется предложенная формула; если нет, то текущее значение стоп-лосса остается как есть.",
                     "updated": 1638965202307
+                },
+                {
+                    "language": "TR",
+                    "text": "Koşullu ifadeleri tanıtan çok basit bir JavaScript, daha fazla zekaya izin verir.Örneğin, bu durumda, önerilen formülün mevcut stop loss değerinden daha büyük bir sayı ile sonuçlanıp sonuçlanmadığını sorarız; eğer öyleyse, önerilen formül kullanılır; değilse, mevcut stop loss değeri olduğu gibi bırakılır.",
+                    "updated": 1642515027062
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein wenig grundlegendes JavaScript, das bedingte Anweisungen einführt, ermöglicht mehr Intelligenz. In diesem Fall fragen wir zum Beispiel, ob die vorgeschlagene Formel eine Zahl ergibt, die größer ist als der aktuelle Stop-Loss-Wert; wenn ja, wird die vorgeschlagene Formel verwendet; wenn nicht, wird der aktuelle Stop-Loss-Wert beibehalten.",
+                    "updated": 1641637512148
                 }
             ]
         },
@@ -127,6 +202,16 @@
                     "language": "RU",
                     "text": "Это - в основном - скользящий стоп-лосс на 2% ниже скользящей средней полосы Боллинджера, который может увеличиваться, если скользящая средняя растет, но может никогда не снизиться - благодаря использованию конструкции IF / ELSE.",
                     "updated": 1638965258058
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu, temel olarak, Bollinger Bantları hareketli ortalamasının %2 altında bir ttrailing stop loss'tur  ve hareketli ortalama yükselirse daha yükseğe çıkabilir, ancak IF / ELSE yan tümcesinin kullanımı sayesinde asla düşmeyebilir.",
+                    "updated": 1642515128180
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Grunde handelt es sich hierbei um einen nachlaufenden Stop-Loss-Wert, der 2 % unter dem gleitenden Durchschnitt der Bollinger-Bänder liegt und der höher ausfallen kann, wenn der gleitende Durchschnitt steigt, aber er darf niemals fallen - dank der Verwendung der IF/ELSE-Klausel.",
+                    "updated": 1641637554522
                 }
             ]
         },
@@ -152,6 +237,16 @@
                     "language": "RU",
                     "text": "Для разработчиков",
                     "updated": 1638965269551
+                },
+                {
+                    "language": "TR",
+                    "text": "Geliştiriciler için",
+                    "updated": 1642515141049
+                },
+                {
+                    "language": "DE",
+                    "text": "Für Entwickler",
+                    "updated": 1641637597793
                 }
             ]
         },
@@ -164,6 +259,16 @@
                     "language": "RU",
                     "text": "Чтобы построить более сложную логику в формуле, создайте функцию, которая реализует логику и возвращает числовое значение, а затем вызовите функцию:",
                     "updated": 1638965287143
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir formül içinde daha karmaşık mantık oluşturmak için, mantığı uygulayan ve sayısal bir değer döndüren bir işlev oluşturun ve ardından işlevi çağırın:",
+                    "updated": 1642515160926
+                },
+                {
+                    "language": "DE",
+                    "text": "Um eine komplexere Logik in eine Formel einzubauen, erstellen Sie eine Funktion, die die Logik implementiert und einen numerischen Wert zurückgibt - und rufen dann die Funktion auf:",
+                    "updated": 1641637590452
                 }
             ]
         },

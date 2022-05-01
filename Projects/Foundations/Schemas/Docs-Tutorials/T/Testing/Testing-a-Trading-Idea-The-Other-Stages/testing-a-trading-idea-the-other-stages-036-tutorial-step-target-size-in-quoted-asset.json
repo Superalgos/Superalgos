@@ -13,6 +13,16 @@
                 "language": "DE",
                 "text": "Ich habe es nicht erwähnt: Wir werden die Zielgröße im quotierten Asset definieren, nicht im Basis-Asset, wie wir es in der Open Stage getan haben!",
                 "updated": 1639417915504
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bundan bahsetmedim: Hedef boyutu, Açık Aşamada yaptığımız gibi, temel varlıkta değil, kote varlıkta tanımlayacağız!",
+                "updated": 1641796942148
+            },
+            {
+                "language": "RU",
+                "text": "Я не упомянул об этом ранее: мы будем определять целевой размер в котируемом активе, а не в базовом активе, как мы делали для стадии открытия!",
+                "updated": 1642942575503
             }
         ]
     },
@@ -25,6 +35,16 @@
                     "language": "DE",
                     "text": "Das ist auch ganz natürlich, denn das ist das Asset, das wir jetzt haben!",
                     "updated": 1639417928856
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu da oldukça doğal çünkü şu anda sahip olduğumuz değer bu!",
+                    "updated": 1641796951794
+                },
+                {
+                    "language": "RU",
+                    "text": "Это естественно, ведь это наш актив!",
+                    "updated": 1642942586178
                 }
             ]
         },
@@ -36,6 +56,16 @@
                     "language": "DE",
                     "text": "<i>Löschen</i> Sie den Knoten \" Target Size \" im Base Asset Knoten!",
                     "updated": 1639417970793
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel Varlık düğümündeki Hedef Boyutu ( Target Size In Base Asset ) Silin!",
+                    "updated": 1641796967292
+                },
+                {
+                    "language": "RU",
+                    "text": "Удалите узел Target Size In Base Asset!",
+                    "updated": 1642942592702
                 }
             ]
         },
@@ -48,6 +78,16 @@
                     "language": "DE",
                     "text": "Ich habe dies für die Zielgrößenformel zum Kopieren von Pfaden erstellt... Verwenden Sie es und achten Sie darauf, dass Sie keine Zeilenumbrüche in die Pfade der Knoten einfügen!",
                     "updated": 1639417982215
+                },
+                {
+                    "language": "TR",
+                    "text": "Bunu yolları kopyalamak için hedef boyut formülü oluşturdum... Kullanın ve düğümlerin yollarına Satır sonları eklemediğinizden emin olun!",
+                    "updated": 1641796978411
+                },
+                {
+                    "language": "RU",
+                    "text": "Я создал это для формулы копирования путей целевого размера... Используйте его, убедившись, что вы не вводите разрывы строк на путях узлов!",
+                    "updated": 1642942637182
                 }
             ]
         },

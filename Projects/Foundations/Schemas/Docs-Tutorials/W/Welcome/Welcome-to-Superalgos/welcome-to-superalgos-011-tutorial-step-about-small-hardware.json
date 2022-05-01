@@ -55,11 +55,12 @@
             {
                 "language": "RU",
                 "text": "В то время как минималистическое аппаратное устройство, такое как Raspberry Pi, может обрабатывать Superalgos Client для выполнения как данных, так и торговых задач, некоторые из них могут быть слишком малы для активной работы.",
-                "updated": 1635581958903},
-                {
+                "updated": 1635581958903
+            },
+            {
                 "language": "TR",
-                "text": "Raspberry Pi gibi minimalist donanım, Superalgos İstemcisini ( Client ) hem veri hem de ticaret görevlerini yürütmek için idare edebilirken, bazıları aktif çalışma için çok küçük olabilir!",
-                "updated": 1635578710092
+                "text": "Raspberry Pi gibi minimalist donanım, Superalgos İstemcisini ( Client ) hem veri hem de ticaret görevlerini yürütmek için idare edebilirken, bazı makine ve donanımlar aktif çalışma için yeterli olmayabilir!",
+                "updated": 1644848540119
             }
         ]
     },
@@ -107,12 +108,13 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Основная идея, лежащая в основе запуска Клиента на небольшом физическом или виртуальном устройстве, заключается в максимилизации эффективности затрат при развертывании в производствнных условиях. В таких контекстах UI используется по минимуму.",
-                    "updated": 1635581983754},
-                    {
+                    "text": "Основная идея, лежащая в основе запуска Клиента на небольшом физическом или виртуальном устройстве, заключается в максимилизации эффективности затрат при развертывании в производствнных систем. В таких условиях UI используется по минимуму.",
+                    "updated": 1641803737183
+                },
+                {
                     "language": "TR",
-                    "text": "İstemciyi ( Client ) küçük fiziksel veya sanal donanımda çalıştırmanın arkasındaki temel fikir, üretim dağıtımlarında maliyet verimliliğini en üst düzeye çıkarmaktır. Bu tür bağlamlarda, kullanıcı arayüzü ( UI ) minimumda kullanılır.",
-                    "updated": 1635578789059
+                    "text": "İstemciyi ( Client ) küçük fiziksel veya sanal donanımda çalıştırmanın arkasındaki temel fikir, üretim dağıtımlarında maliyet verimliliğini en üst düzeye çıkarmaktır. Bu tür durumlarda, kullanıcı arayüzü ( UI ) minimum düzeyde kullanılır.",
+                    "updated": 1644848608661
                 }
             ]
         },
@@ -165,9 +167,10 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Мы настоятельно рекомендуем изучать Superalgos на полномасштабном устройстве во время работы. Если Вы заметили, что Ваше оборудование работает слишком медленно во время этого ознакомления с системой, рассмотрите возможность установки ее на обычное оборудование, пока Вы не изучите систему, не разработаете свои первые стратегии и не будете готовы к развитию. В обратном случае, Вы можете разочароваться.",
-                    "updated": 1635581399970},
-                    {
+                    "text": "Мы настоятельно рекомендуем изучать Superalgos, работая на полноценной машине. Если вы заметили, что ваше малогабаритное оборудование работает слишком медленно во время этого урока, подумайте об установке на обычное оборудование, пока вы не изучите систему, не построите свои первые стратегии и не будете готовы к развертыванию. В противном случае это может привести к разочарованию.",
+                    "updated": 1641803893582
+                },
+                {
                     "language": "TR",
                     "text": "Superalgos'u donanımı iyi bir makinede öğrenmenizi şiddetle tavsiye ederiz. Bu eğitim sırasında düşük donanımınızın çok yavaş olduğunu fark ederseniz, sistemi öğrenene, ilk stratejilerinizi oluşturana ve dağıtıma hazır olana kadar normal donanıma yüklemeyi düşünün. Aksi takdirde, sinir bozucu olabilir.",
                     "updated": 1635578874162

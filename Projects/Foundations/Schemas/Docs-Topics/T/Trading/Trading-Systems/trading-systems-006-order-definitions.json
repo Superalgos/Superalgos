@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Все типы ордеров имеют схожие определения. Единственное различие между рыночными и лимитными ордерами заключается в том, что рыночные ордера не имеют определения ставки ордера Order Rate.",
                 "updated": 1639845531784
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Tüm sipariş türleri benzer tanımlara sahiptir. Piyasa ve limit emirler arasındaki tek fark, piyasa emirlerinin Emir Oranı ( Order Rate ) tanımının olmamasıdır.",
+                "updated": 1647850969595
             }
         ]
     },
@@ -27,7 +32,14 @@
         {
             "style": "Title",
             "text": "Order Rate",
-            "updated": 1610197404420
+            "updated": 1610197404420,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Emir Oranı ( Order Rate )",
+                    "updated": 1647851004789
+                }
+            ]
         },
         {
             "style": "Include",
@@ -42,7 +54,14 @@
         {
             "style": "Title",
             "text": "Create Order Event",
-            "updated": 1610197420979
+            "updated": 1610197420979,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Emir Etkinliği Oluştur ( Create Order Event )",
+                    "updated": 1647851095865
+                }
+            ]
         },
         {
             "style": "Include",
@@ -57,7 +76,14 @@
         {
             "style": "Title",
             "text": "Cancel Order Event",
-            "updated": 1610197449295
+            "updated": 1610197449295,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Emir Etkinliğini İptal Et ( Cancel Order Event )",
+                    "updated": 1647851136896
+                }
+            ]
         },
         {
             "style": "Include",
@@ -72,7 +98,14 @@
         {
             "style": "Title",
             "text": "Simulated Exchange Events",
-            "updated": 1610197475143
+            "updated": 1610197475143,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Simüle Edilmiş Değişim Etkinlikleri ( Simulated Exchange Events )",
+                    "updated": 1647851172550
+                }
+            ]
         },
         {
             "style": "Include",
@@ -87,7 +120,14 @@
         {
             "style": "Subtitle",
             "text": "Simulated Partial Fill",
-            "updated": 1610197512649
+            "updated": 1610197512649,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Simüle Edilmiş Kısmi Doldurma ( Simulated Partial Fill )",
+                    "updated": 1647851199187
+                }
+            ]
         },
         {
             "style": "Include",
@@ -102,7 +142,14 @@
         {
             "style": "Subtitle",
             "text": "Simulated Actual Rate",
-            "updated": 1610197534951
+            "updated": 1610197534951,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Simüle Edilmiş Gerçek Oran ( Simulated Actual Rate )",
+                    "updated": 1647851223172
+                }
+            ]
         },
         {
             "style": "Include",
@@ -117,7 +164,14 @@
         {
             "style": "Subtitle",
             "text": "Simulated Fees Paid",
-            "updated": 1610197551998
+            "updated": 1610197551998,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ödenen Simüle Ücretler ( Simulated Fees Paid )",
+                    "updated": 1647851252802
+                }
+            ]
         },
         {
             "style": "Include",

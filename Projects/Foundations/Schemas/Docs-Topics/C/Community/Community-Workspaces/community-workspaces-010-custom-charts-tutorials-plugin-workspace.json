@@ -13,8 +13,13 @@
             },
             {
                 "language": "RU",
-                "text": "Это рабочее пространство проведет вас через все, что вам нужно знать о настройке пользовательских диаграмм в пространстве Design Space. Учебные пособия призваны предложить пошаговые инструкции, которые проведут вас от новичка в области построения графиков до эксперта в области построения графиков.",
+                "text": "Это рабочее пространство проведет вас через все, что вам нужно знать о настройке пользовательских диаграмм в пространстве Design Space. Учебные пособия призваны предложить пошаговые инструкции, которые проведут вас от новичка до эксперта в области построения графиков.",
                 "updated": 1639056750290
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu çalışma alanı, Tasarım Alanı ( Design Space ) içinde özel grafikler ayarlama hakkında bilmeniz gereken her şeyde size yol gösterecektir. Öğreticiler, sizi yeni başlayanlardan grafik uzmanına kadar adım adım rehberlik etmeyi amaçlamaktadır.",
+                "updated": 1644676337360
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "language": "RU",
                     "text": "Учебники",
                     "updated": 1639056760525
+                },
+                {
+                    "language": "TR",
+                    "text": "Öğreticiler",
+                    "updated": 1644676348563
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "language": "ES",
                     "text": "Setting Up a New Chart Tutorial ( Cómo configurar un nuevo tutorial de gráfico)",
                     "updated": 1636560294366
+                },
+                {
+                    "language": "TR",
+                    "text": "Yeni Bir Grafik Oluşturma Eğitimi ( Setting Up a New Chart Tutorial )",
+                    "updated": 1644676378224
                 }
             ]
         },

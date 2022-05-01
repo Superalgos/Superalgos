@@ -42,8 +42,8 @@
             },
             {
                 "language": "RU",
-                "text": "Получите доступ в мню узла Data Tasks и найдите кнопку \"Run all project data tasks\" в правом верхнем углу...",
-                "updated": 1635591220354,
+                "text": "Перейдите в меню узла Data Tasks и найдите кнопку \"Run All Project Data Tasks\" в правом верхнем углу...",
+                "updated": 1641804826657,
                 "style": "Definition"
             },
             {
@@ -91,14 +91,14 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Нажмите кнопку \"Run all project data tasks\"! Подтвердите запрос, нажав кнопку во второй раз.",
-                    "updated": 1635591295731,
+                    "text": "Нажмите кнопку \"Run All Project Data Tasks\"! Подтвердите запрос, нажав кнопку во второй раз.",
+                    "updated": 1641804835712,
                     "style": "Callout"
                 },
                 {
                     "language": "TR",
-                    "text": "\"Tüm proje veri görevlerini çalıştır\" (Run All Project Data Tasks) düğmesine tıklayın! Düğmeye ikinci kez tıklayarak isteği onaylayın.",
-                    "updated": 1635850977185
+                    "text": "\"Tüm proje veri görevlerini çalıştır\" (Run All Project Data Tasks) düğmesine tıklayın! Düğmeye ikinci kez tıklamak onayladığınız anlamına gelir ve işlemi başlatmış olursunuz",
+                    "updated": 1644849740065
                 }
             ]
         },
@@ -138,14 +138,14 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Примерно через 30 секунд Вы должны увидеть уведомление о состоянии под узлом Data Tasks nоказывающее, что 1 из 1 узла Exchange Data Tasks - запущен.",
-                    "updated": 1635591483326,
+                    "text": "Примерно через 30 секунд Вы должны увидеть уведомление о состоянии под узлом Data Tasks nоказывающее, что 1 из 1 задач Exchange Data Tasks - запущено.",
+                    "updated": 1641805161843,
                     "style": "Text"
                 },
                 {
                     "language": "TR",
-                    "text": "Yaklaşık 30 saniye içinde, Veri Görevleri (Data Tasks) düğümünün altında, 1 Borsa Veri Görevi (Exchange Data Tasks)  düğümünün çalıştığını belirten bir durum bildirimi görmelisiniz.",
-                    "updated": 1635851348844
+                    "text": "Yaklaşık 30 saniye içinde, Veri Görevleri (Data Tasks) düğümünün altında, Borsa Veri Görevi     (Exchange Data Tasks) düğümünün çalıştığını belirten bir durum bildirimi görmelisiniz.",
+                    "updated": 1644849789734
                 }
             ],
             "updated": 1622190035816

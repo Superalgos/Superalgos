@@ -2,12 +2,13 @@
     "type": "P2P Network",
     "menuItems": [
         {
-            "action": "Add UI Object",
-            "actionProject": "Visual-Scripting",
-            "label": "Add P2P Network Node",
-            "relatedUiObject": "P2P Network Node",
-            "actionFunction": "payload.executeAction",
-            "relatedUiObjectProject": "Network"
+            "action": "Configure",
+            "actionProject": "Foundations",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "dontShowAtFullscreen": true,
+            "actionFunction": "uiObject.configEditor.activate"
         },
         {
             "action": "Delete UI Object",
@@ -20,14 +21,14 @@
             "actionFunction": "payload.executeAction"
         }
     ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{ \n\"codeName\": \"\"\n}"
+    },
     "isHierarchyHead": true,
     "addLeftIcons": true,
     "level": 0,
-    "childrenNodesProperties": [
-        {
-            "name": "p2pNetworkNodes",
-            "type": "array",
-            "childType": "P2P Network Node"
-        }
-    ]
+    "childrenNodesProperties": []
 }

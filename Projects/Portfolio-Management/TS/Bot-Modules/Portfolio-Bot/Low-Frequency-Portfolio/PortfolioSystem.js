@@ -9,12 +9,13 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
         setThisEvent: setThisEvent,
         confirmThisFormula: confirmThisFormula,
         setThisFormula: setThisFormula,
-        mantain: mantain,
+        maintain: maintain,
         reset: reset,
         run: run,
         updateChart: updateChart,
         initialize: initialize,
-        finalize: finalize
+        finalize: finalize,
+        runUserDefinedCode: runUserDefinedCode
     }
 
     /*
@@ -24,11 +25,11 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
     let chart
     let exchange
     let market
-    var count = 0;
 
     let portfolioSystem
     let portfolioEngine
-    let sessionParameters
+    let sessionParameters           // Session Parameters of the Portfolio Bot
+    let managedSessionParameters    // Session Parameters of the Trading Bots that are being managed.
 
     let portfolioEventsManagerModuleObject
     let portfolioFormulasManagerModuleObject
@@ -44,6 +45,15 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
         portfolioSystem = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.portfolioSystem
         portfolioEngine = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.portfolioEngine
         sessionParameters = TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.portfolioParameters
+
+        /* Setup Managed Session Parameters */
+        managedSessionParameters = []
+        for (let i = 0; i < TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_REFERENCES.length; i++) {
+            let sessionReference = TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_REFERENCES[i]
+            if (sessionReference.referenceParent === undefined) { continue }
+            if (sessionReference.referenceParent.tradingParameters === undefined) { continue }
+            managedSessionParameters.push(sessionReference.referenceParent.tradingParameters)
+        }
 
         portfolioSystem.conditions = new Map()
         portfolioSystem.formulas = new Map()
@@ -170,7 +180,8 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
         //taskParameters = undefined
     }
 
-    function mantain() {
+    function maintain() {
+        // Move Current to Last:
 
     }
 
@@ -201,7 +212,6 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
         try {
 
 
-
         } catch (err) {
             /*
             If an error ocurred during execution, it was alreeady logged and
@@ -217,20 +227,30 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
         }
     }
 
-    function confirmThisEvent(event) {
-        return portfolioEventsManagerModuleObject.confirmThisEvent(event)
+    function runUserDefinedCode(whenToRun) {
+        if (portfolioSystem.userDefinedPortfolioCode == undefined || portfolioSystem.userDefinedPortfolioCode.config == undefined) { return; }
+        if (
+            (whenToRun === 'first' && portfolioSystem.userDefinedPortfolioCode.config.runBeforeCheckIns == true) ||
+            (whenToRun === 'last' && portfolioSystem.userDefinedPortfolioCode.config.runAfterCheckOuts == true)
+        ) {
+            portfolioSystem.evalUserCode(portfolioSystem.userDefinedPortfolioCode, 'User Defined Portfolio Code');
+        }
     }
 
-    function setThisEvent(event) {
-        return portfolioEventsManagerModuleObject.setThisEvent(event)
+    function confirmThisEvent(sessionId, event) {
+        return portfolioEventsManagerModuleObject.confirmThisEvent(sessionId, event)
     }
 
-    function confirmThisFormula(formula) {
-        return portfolioFormulasManagerModuleObject.confirmThisFormula(formula)
+    function setThisEvent(sessionId, event) {
+        return portfolioEventsManagerModuleObject.setThisEvent(sessionId, event)
     }
 
-    function setThisFormula(formula) {
-        return portfolioFormulasManagerModuleObject.setThisFormula(formula)
+    function confirmThisFormula(sessionId, formula) {
+        return portfolioFormulasManagerModuleObject.confirmThisFormula(sessionId, formula)
+    }
+
+    function setThisFormula(sessionId, formula) {
+        return portfolioFormulasManagerModuleObject.setThisFormula(sessionId, formula)
     }
 
     function evalNode(

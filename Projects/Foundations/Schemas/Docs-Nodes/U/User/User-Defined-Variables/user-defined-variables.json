@@ -2,33 +2,75 @@
     "type": "User Defined Variables",
     "definition": {
         "text": "The User Defined Variables node structure is an unused area of the Trading Engine users can access from within their Trading System to store data.",
-        "updated": 1622234154032
+        "updated": 1622234154032,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Структура узла User Defined Variables - это неиспользуемая область торгового движка, к которой пользователи могут обращаться из своей торговой системы для хранения данных.",
+                "updated": 1645180347518
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Overview",
-            "updated": 1622832251706
+            "updated": 1622832251706,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Краткий обзор",
+                    "updated": 1645180393700
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Oftentimes, when building a strategy, the need for a place to store some data may arise. The User Defined Variables nodes are the correct place to do this. The children nodes (User Defined variable nodes) of this node are unused by the base code of the Superalgos processes thus the data placed inside these variables will remain unchanged and available for the duration of the episode.",
-            "updated": 1622832401231
+            "updated": 1622832401231,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Часто при построении стратегии может возникнуть необходимость в месте для хранения некоторых данных. Узлы User Defined Variables являются подходящим местом для этого. Дочерние узлы (узлы User Defined Variable) этого узла не используются базовым кодом процессов Superalgos, поэтому данные, помещенные в эти переменные, останутся неизменными и доступными в течение всего эпизода.",
+                    "updated": 1645180462959
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Additional Info",
-            "updated": 1622832255099
+            "updated": 1622832255099,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Дополнительная информация",
+                    "updated": 1645180469264
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Persistence: It should be noted that these variables will persist throughout the System's episode; not just at the stage or strategy layer from which they are set.",
-            "updated": 1622832233531
+            "updated": 1622832233531,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Persistence: Следует отметить, что эти переменные будут сохраняться на протяжении всего эпизода системы, а не только на этапе или уровне стратегии, на котором они установлены.",
+                    "updated": 1645180494581
+                }
+            ]
         },
         {
             "style": "List",
             "text": "State: A user defined variable is mutable.",
-            "updated": 1622832241466
+            "updated": 1622832241466,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "State: Переменная, определяемая пользователем, является изменяемой.",
+                    "updated": 1645180515319
+                }
+            ]
         }
     ]
 }

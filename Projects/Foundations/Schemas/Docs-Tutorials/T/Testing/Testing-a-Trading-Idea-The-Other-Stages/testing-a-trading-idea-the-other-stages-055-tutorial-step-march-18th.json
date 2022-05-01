@@ -13,6 +13,16 @@
                 "language": "DE",
                 "text": "Diese Position ist ein neuer Fail, der sich am 18. März ereignete, nur wenige Tage nach einem der größten Marktcrashs der jüngeren Geschichte.",
                 "updated": 1639418809244
+            },
+            {
+                "language": "TR",
+                "text": "Bu pozisyon, 18 Mart'ta, yakın tarihin en büyük piyasa Çökmelerinden birinden sadece birkaç gün sonra meydana gelen yeni bir durumdur.",
+                "updated": 1641803107104
+            },
+            {
+                "language": "RU",
+                "text": "Эта позиция - новый провал, произошедший 18 марта, всего через несколько дней после одного из крупнейших обвалов рынка в новейшей истории.",
+                "updated": 1642945280090
             }
         ]
     },
@@ -25,6 +35,16 @@
                     "language": "DE",
                     "text": "Was können wir über diesen Einstieg sagen?",
                     "updated": 1639418816129
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu giriş hakkında ne söyleyebiliriz?",
+                    "updated": 1641803117397
+                },
+                {
+                    "language": "RU",
+                    "text": "Что мы можем сказать об этом входе?",
+                    "updated": 1642945293222
                 }
             ]
         },
@@ -36,6 +56,16 @@
                     "language": "DE",
                     "text": "Gehen Sie auf den 24-Stunden-Zeitrahmen und sehen Sie sich den Gesamtkontext an!",
                     "updated": 1639418822779
+                },
+                {
+                    "language": "TR",
+                    "text": "24 saatlik zaman aralığına gidin ve genel bağlamı görün!",
+                    "updated": 1641803127843
+                },
+                {
+                    "language": "RU",
+                    "text": "Перейдите на таймфрейм 24H и посмотрите на общий контекст!",
+                    "updated": 1642945302977
                 }
             ]
         },
@@ -47,6 +77,16 @@
                     "language": "DE",
                     "text": "Was ich sehe, ist eine Situation extremer Volatilität inmitten eines historischen, durch eine Pandemie ausgelösten globalen Wirtschaftscrashs.",
                     "updated": 1639418832550
+                },
+                {
+                    "language": "TR",
+                    "text": "Gördüğüm şey,pandeminin tetiklediği tarihi bir küresel ekonomik çöküşün ortasında aşırı oynaklık durumu.",
+                    "updated": 1641803136891
+                },
+                {
+                    "language": "RU",
+                    "text": "Я вижу ситуацию крайней волатильности на фоне исторического глобального экономического краха, вызванного пандемией.",
+                    "updated": 1642945314087
                 }
             ]
         },
@@ -58,6 +98,16 @@
                     "language": "DE",
                     "text": "Vielleicht sollten wir unter solchen Bedingungen nicht handeln?! Es scheint auf jeden Fall riskant zu sein!",
                     "updated": 1639418840592
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Belki de bu koşullar altında hareket etmemeliyiz?! Kesinlikle riskli görünüyor!",
+                    "updated": 1641803145620
+                },
+                {
+                    "language": "RU",
+                    "text": "Может быть, нам не стоит торговать в таких условиях?! Это, безусловно, выглядит рискованно!",
+                    "updated": 1642945339099
                 }
             ]
         }

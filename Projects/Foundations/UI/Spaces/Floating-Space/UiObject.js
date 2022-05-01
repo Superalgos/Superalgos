@@ -1,10 +1,6 @@
 
 function newUiObject() {
     const MODULE_NAME = 'UI Object'
-    const ERROR_LOG = true
-
-    const logger = newWebDebugLog()
-
 
     let thisObject = {
         fitFunction: undefined,
@@ -34,6 +30,9 @@ function newUiObject() {
         percentageAngleOffset: 0,
         statusAtAngle: false,
         statusAngleOffset: 0,
+        highlightReferenceChildren: false,
+        drawReferenceLine: false,
+        getHighlightReferenceChildrenStatus: getHighlightReferenceChildrenStatus,
         run: run,
         stop: stop,
         heartBeat: heartBeat,
@@ -57,6 +56,8 @@ function newUiObject() {
         resetPercentage: resetPercentage,
         setStatus: setStatus,
         resetStatus: resetStatus,
+        setQuickInfo: setQuickInfo,
+        resetQuickInfo: resetQuickInfo,
         physics: physics,
         invisiblePhysics: invisiblePhysics,
         drawBackground: drawBackground,
@@ -75,6 +76,7 @@ function newUiObject() {
     thisObject.container.frame.radius = 0
     thisObject.container.frame.position.x = 0
     thisObject.container.frame.position.y = 0
+    thisObject.container.uiObject = thisObject
 
     let icon
     let executingIcon
@@ -103,6 +105,8 @@ function newUiObject() {
 
     let hasStatus
     let statusCounter = 0
+
+    let hasQuickInfo
 
     let previousDistanceToChainParent
     let readyToChainAttachDisplayCounter = 5
@@ -138,6 +142,7 @@ function newUiObject() {
     let valueMinDecimals = undefined
     let currentPercentage = ''
     let currentStatus = ''
+    let currentQuickInfo = ''
     let rightDragging = false
 
     let eventSubscriptionIdOnError
@@ -162,6 +167,8 @@ function newUiObject() {
     let errorRingDirectionAnimation = 1
     let warningRingDirectionAnimation = 1
     let infoRingDirectionAnimation = 1
+
+    let schemaDocument
 
     thisObject.isRunning = false
 
@@ -208,6 +215,8 @@ function newUiObject() {
         errorDocs = undefined
         warningDocs = undefined
         infoDocs = undefined
+
+        schemaDocument = undefined
     }
 
     function finalizeEventsServerClient() {
@@ -234,6 +243,7 @@ function newUiObject() {
 
     function initialize(payload, menuItemsInitialValues) {
         thisObject.payload = payload
+        schemaDocument = getSchemaDocument(thisObject.payload.node)
 
         /* Initialize the Menu */
 
@@ -263,7 +273,7 @@ function newUiObject() {
         iconPhysics()
 
         if (thisObject.icon === undefined) {
-            console.log('[ERROR] uiObject -> initialize -> err = Icon not found, Project: "' + thisObject.payload.node.project + '", Type: "' + thisObject.payload.node.type + '"')
+            console.log((new Date()).toISOString(), '[ERROR] uiObject -> initialize -> err = Icon not found, Project: "' + thisObject.payload.node.project + '", Type: "' + thisObject.payload.node.type + '"')
         }
 
         selfFocusEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onFocus', onFocus)
@@ -352,7 +362,10 @@ function newUiObject() {
             }
         }
 
-        thisObject.payload.floatingObject.container.frame.radius = thisObject.payload.floatingObject.targetRadius + ((openMenuCount - 1) * (250 * UI.projects.foundations.spaces.floatingSpace.settings.node.menuItem.widthPercentage / 100))
+        thisObject.payload.floatingObject.container.frame.radius =
+            thisObject.payload.floatingObject.targetRadius +
+            ((openMenuCount - 1) *
+                (250 * UI.projects.foundations.spaces.floatingSpace.settings.node.menuItem.widthPercentage / 100))
 
         if (thisObject.conditionEditor !== undefined) {
             thisObject.conditionEditor.physics()
@@ -685,7 +698,7 @@ function newUiObject() {
 
         function highlightPhisycs() {
             highlightCounter--
-            if (highlightCounter < 0) {
+            if (highlightCounter < 0 || (thisObject.payload.parentNode === undefined && schemaDocument.isHierarchyHead !== true)) {
                 highlightCounter = 0
                 isHighlighted = false
             }
@@ -693,7 +706,7 @@ function newUiObject() {
 
         function runningAtBackendPhisycs() {
             runningAtBackendCounter--
-            if (runningAtBackendCounter < 0) {
+            if (runningAtBackendCounter < 0 || (thisObject.payload.parentNode === undefined && schemaDocument.isHierarchyHead !== true)) {
                 runningAtBackendCounter = 0
                 isRunningAtBackend = false
             }
@@ -701,7 +714,7 @@ function newUiObject() {
 
         function errorMessagePhisycs() {
             errorMessageCounter--
-            if (errorMessageCounter < 0) {
+            if (errorMessageCounter < 0 || (thisObject.payload.parentNode === undefined && schemaDocument.isHierarchyHead !== true)) {
                 errorMessageCounter = 0
                 thisObject.hasError = false
 
@@ -714,7 +727,7 @@ function newUiObject() {
 
         function warningMessagePhisycs() {
             warningMessageCounter--
-            if (warningMessageCounter < 0) {
+            if (warningMessageCounter < 0 || (thisObject.payload.parentNode === undefined && schemaDocument.isHierarchyHead !== true)) {
                 warningMessageCounter = 0
                 thisObject.hasWarning = false
 
@@ -727,7 +740,7 @@ function newUiObject() {
 
         function infoMessagePhisycs() {
             infoMessageCounter--
-            if (infoMessageCounter < 0) {
+            if (infoMessageCounter < 0 || (thisObject.payload.parentNode === undefined && schemaDocument.isHierarchyHead !== true)) {
                 infoMessageCounter = 0
                 thisObject.hasInfo = false
 
@@ -740,7 +753,7 @@ function newUiObject() {
 
         function valuePhisycs() {
             valueCounter--
-            if (valueCounter < 0) {
+            if (valueCounter < 0 || (thisObject.payload.parentNode === undefined && schemaDocument.isHierarchyHead !== true)) {
                 valueCounter = 0
                 hasValue = false
             }
@@ -748,7 +761,7 @@ function newUiObject() {
 
         function percentagePhisycs() {
             percentageCounter--
-            if (percentageCounter < 0) {
+            if (percentageCounter < 0 || (thisObject.payload.parentNode === undefined && schemaDocument.isHierarchyHead !== true)) {
                 percentageCounter = 0
                 hasPercentage = false
             }
@@ -756,7 +769,7 @@ function newUiObject() {
 
         function statusPhisycs() {
             statusCounter--
-            if (statusCounter < 0) {
+            if (statusCounter < 0 || (thisObject.payload.parentNode === undefined && schemaDocument.isHierarchyHead !== true)) {
                 statusCounter = 0
                 hasStatus = false
             }
@@ -1026,6 +1039,18 @@ function newUiObject() {
         statusCounter = 0
     }
 
+    function setQuickInfo(quickInfo) {
+        if (quickInfo !== undefined) {
+            currentQuickInfo = quickInfo
+            hasQuickInfo = true
+        }
+    }
+
+    function resetQuickInfo() {
+        currentQuickInfo = undefined
+        hasQuickInfo = false
+    }
+
     function heartBeat() {
         lastHeartBeat = new Date()
         thisObject.isRunning = true
@@ -1199,7 +1224,7 @@ function newUiObject() {
             answer to the command to stop. In those cases, we will stop execute the onStopped function anyways so as to 
             return the UI to its default state.
             */
-            setTimeout(returnToDefaultState, 15000)
+            setTimeout(returnToDefaultState, 10000)
             function returnToDefaultState() {
                 if (wasStopped === false) {
                     completeStop(callBackFunction, event)
@@ -1478,6 +1503,7 @@ function newUiObject() {
             drawValue()
             drawPercentage()
             drawStatus()
+            drawQuickInfo()
 
             if (drawTitle === true) {
                 thisObject.uiObjectTitle.draw()
@@ -1563,7 +1589,7 @@ function newUiObject() {
     }
 
     function drawReferenceLine() {
-        if (UI.projects.foundations.spaces.floatingSpace.drawReferenceLines === false && thisObject.isOnFocus === false) { return }
+        if (UI.projects.foundations.spaces.floatingSpace.drawReferenceLines === false && thisObject.drawReferenceLine === false && thisObject.isOnFocus === false) { return }
         if (thisObject.payload.referenceParent === undefined) { return }
         if (thisObject.payload.referenceParent.payload === undefined) { return }
         if (thisObject.payload.referenceParent.payload.floatingObject === undefined) { return }
@@ -1955,6 +1981,64 @@ function newUiObject() {
         }
     }
 
+    function drawQuickInfo() {
+        if (hasQuickInfo === false) { return }
+        if (UI.projects.foundations.spaces.floatingSpace.inMapMode === true) { return }
+
+        let position = {
+            x: 0,
+            y: 0
+        }
+
+        position = thisObject.container.frame.frameThisPoint(position)
+
+        let radius = thisObject.payload.floatingObject.container.frame.radius
+        /* Label Text */
+        let labelPoint
+        let fontSize = 20
+        let lineSeparator = 25
+        let label
+
+        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
+
+        if (radius > 6) {
+            const IDEAL_LABEL_LENGTH = 80
+
+            label = currentQuickInfo
+
+            if (label !== undefined && label !== null) {
+                if (label.length > IDEAL_LABEL_LENGTH) {
+                    if (label.length > IDEAL_LABEL_LENGTH * 3) {
+                        label = label.substring(0, IDEAL_LABEL_LENGTH * 3) + '...'
+                    }
+                }
+
+                /* Split the line into Phrases */
+                let phrases = splitTextIntoPhrases(label, 5)
+                if (phrases.length === 1) {
+                    phrases.push("")
+                }
+                if (phrases.length === 2) {
+                    phrases.push("")
+                }
+
+                for (let i = 0; i < phrases.length; i++) {
+                    let phrase = phrases[i]
+                    labelPoint = {
+                        x: position.x - getTextWidth(phrase) / 2,
+                        y: position.y + lineSeparator * (10 - phrases.length + 1 + i)
+                    }
+                    printMessage(phrase)
+                }
+
+                function printMessage(text) {
+                    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
+                    browserCanvasContext.fillText(text, labelPoint.x, labelPoint.y)
+                }
+            }
+        }
+    }
+
     function addIndexNumber(label) {
         switch (thisObject.payload.node.type) {
             case 'Phase': {
@@ -2079,7 +2163,7 @@ function newUiObject() {
             drawHierarchyHeadRing()
             drawProjectHeadRing()
             drawInfoRing()
-            drawWarningRing() 
+            drawWarningRing()
             drawErrorRing()
             drawHighlighted()
             drawReadyToChainAttach()
@@ -2252,6 +2336,9 @@ function newUiObject() {
             function drawHighlighted() {
                 if (isHighlighted === true) {
                     VISIBLE_RADIUS = thisObject.payload.floatingObject.container.frame.radius
+                    if (UI.projects.foundations.spaces.floatingSpace.inMapMode === true) {
+                        VISIBLE_RADIUS = UI.projects.foundations.spaces.floatingSpace.transformRadiusToMap(VISIBLE_RADIUS)
+                    }
                     let OPACITY = highlightCounter / 10
 
                     browserCanvasContext.beginPath()
@@ -2443,7 +2530,7 @@ function newUiObject() {
                 }
 
                 // If this UiObject is being loaded then display at half opacity
-                if(thisObject.payload.isLoading === true) {
+                if (thisObject.payload.isLoading === true) {
                     browserCanvasContext.globalAlpha = 0.5
                 } else {
                     browserCanvasContext.globalAlpha = 1
@@ -2477,5 +2564,9 @@ function newUiObject() {
                 }
             }
         }
+    }
+
+    function getHighlightReferenceChildrenStatus() {
+        return thisObject.highlightReferenceChildren
     }
 }

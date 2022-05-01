@@ -20,6 +20,11 @@
                 "language": "ES",
                 "text": "Superalgos simplifica y describe mediante jerarquías de nodos los conceptos fundamentales del Trading Inteligente. Los nodos pueden hacer referencia a otros nodos para acceder a información en otras jerarquías.",
                 "updated": 1641092262506
+            },
+            {
+                "language": "DE",
+                "text": "Superalgos bricht die Komplexität auf und beschreibt die grundlegenden Konzepte, die die Handelsintelligenz in Hierarchien von Nodes aufbauen. Nodes können auf andere Nodes verweisen, um auf Informationen in anderen Hierarchien zuzugreifen.",
+                "updated": 1641740211253
             }
         ]
     },
@@ -43,6 +48,11 @@
                     "language": "ES",
                     "text": "El Trading algorítmico es una aplicación basada en datos. Es la capacidad superior de derivar inteligencia de los datos, sobre todo, lo que le da al Trading automatizado una ventaja sobre el Trading manual.",
                     "updated": 1641092284771
+                },
+                {
+                    "language": "DE",
+                    "text": "Algorithmischer Handel ist eine datengesteuerte Anwendung. Es ist vor allem die überlegene Fähigkeit, Intelligenz aus Daten abzuleiten, die dem automatisierten Handel einen Vorteil gegenüber dem manuellen Handel verschafft.",
+                    "updated": 1641740288966
                 }
             ]
         },
@@ -64,6 +74,11 @@
                     "language": "ES",
                     "text": "Sin embargo, sería simplista suponer que el Trading Inteligente surge solo de los datos.",
                     "updated": 1641092296444
+                },
+                {
+                    "language": "DE",
+                    "text": "Es wäre jedoch zu einfach, anzunehmen, dass sich Handelsintelligenz allein aus Daten ergibt.",
+                    "updated": 1641740355686
                 }
             ]
         },
@@ -85,6 +100,11 @@
                     "language": "ES",
                     "text": "El Trading inteligente surge del aprovechamiento de las interacciones de múltiples conceptos complejos.",
                     "updated": 1641092305216
+                },
+                {
+                    "language": "DE",
+                    "text": "Handelsintelligenz entsteht durch die Nutzung des Zusammenspiels mehrerer komplexer Konzepte.",
+                    "updated": 1641740408555
                 }
             ]
         },
@@ -106,6 +126,11 @@
                     "language": "ES",
                     "text": "Superalgos es una infraestructura de software que contribuye a aprovechar esos conceptos e interacciones al dividir la complejidad en pequeñas unidades de información llamadas nodos y organizarlas en estructuras de datos más grandes llamadas jerarquías.",
                     "updated": 1641092315867
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos ist eine Software-Infrastruktur, die dazu beiträgt, diese Konzepte und Wechselwirkungen nutzbar zu machen, indem sie die Komplexität in kleine Informationseinheiten, so genannte Nodes (Knoten), zerlegt und diese in größeren Datenstrukturen, so genannten Hierarchien, anordnet.",
+                    "updated": 1641740634980
                 }
             ]
         },
@@ -127,6 +152,11 @@
                     "language": "ES",
                     "text": "Una jerarquía es una estructura de datos que representa un concepto general de alto nivel, que da como resultado una larga cadena de nodos, generalmente con muchas ramificaciones. El sistema gestiona diferentes tipos de jerarquías, cada una de ellas con un enfoque específico. Por ejemplo, ecosistema criptográfico, minas de datos o espacio de gráficos.",
                     "updated": 1641092327682
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine Hierarchie ist eine Datenstruktur, die ein übergreifendes Konzept auf oberster Ebene darstellt, das zu einer langen Kette von Nodes führt, in der Regel mit vielen Verzweigungen. Das System verwaltet verschiedene Arten von Hierarchien, wobei jede von ihnen einen bestimmten Schwerpunkt hat. Zum Beispiel Crypto Ecosystem, Data Mines oder Charting Space.",
+                    "updated": 1641740590308
                 }
             ]
         },
@@ -136,7 +166,7 @@
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Узел - это небольшая структура данных, содержащая информацию, которая может иметь отношение к рыночной информации, торговой информации, работе системы или другим концепциям. Они визуально представлены иконками в пространстве дизайна.",
+                    "text": "Узел - это небольшая структура данных, содержащая информацию, которая может иметь отношение к рыночной информации, торговой информации, работе системы или другим концепциям. Они визуально представлены иконками в пространстве проектирования.",
                     "updated": 1637938473696
                 },
                 {
@@ -148,6 +178,11 @@
                     "language": "ES",
                     "text": "Un nodo es una pequeña estructura de datos que contiene información que puede estar relacionada con información de mercado, Trading inteligente, el funcionamiento del sistema u otros conceptos. Están representados visualmente por iconos en el espacio de diseño.",
                     "updated": 1641092341548
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein Node ist eine kleine Datenstruktur, die Informationen enthält, die sich auf Marktinformationen, Handelsinformationen, den Betrieb des Systems oder andere Konzepte beziehen können. Sie werden visuell durch Symbole im Design Space dargestellt.",
+                    "updated": 1641740672837
                 }
             ]
         },
@@ -157,7 +192,7 @@
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Пространство дизайна - это визуальная среда, в которой размещены все системные и пользовательские определения. На практике это пространство под слайдером, которое разделяет экран по горизонтали, отделяя пространство дизайна внизу от пространства диаграммы вверху. Оно включает узлы, которые позволяют пользователю управлять определенными аспектами внешнего вида.",
+                    "text": "Пространство проектирования - это визуальная среда, в которой размещены все системные и пользовательские определения. На практике это пространство под слайдером, которое разделяет экран по горизонтали, отделяя пространство проектирования внизу от пространства диаграммы вверху. Оно включает узлы, которые позволяют пользователю управлять определенными аспектами внешнего вида.",
                     "updated": 1637938673092
                 },
                 {
@@ -169,6 +204,11 @@
                     "language": "ES",
                     "text": "El espacio de diseño es el entorno visual que alberga todas las definiciones de usuario y del sistema. En términos prácticos, es el espacio negro debajo del control deslizante que divide la pantalla horizontalmente separando el espacio de diseño en la parte inferior del espacio de gráficos en la parte superior. Como jerarquía, presenta nodos que permiten al usuario controlar ciertos aspectos de la apariencia, comodidad y el comportamiento del espacio.",
                     "updated": 1641093078859
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Design Space ist die visuelle Umgebung, die alle System- und Benutzerdefinitionen enthält. In der Praxis handelt es sich um den schwarzen Bereich unterhalb des Schiebereglers, der den Bildschirm horizontal teilt und den Design Space im unteren Bereich vom Charting Space im oberen Bereich trennt. Als Hierarchie enthält sie Nodes, die dem Benutzer die Kontrolle über bestimmte Aspekte des Aussehens, der Handhabung und des Verhaltens des Bereichs ermöglichen.",
+                    "updated": 1641740724784
                 }
             ]
         },
@@ -190,6 +230,11 @@
                     "language": "ES",
                     "text": "En otras palabras, los nodos organizados en estructuras de datos jerárquicas, describen los conceptos de alto nivel que componen al Trading inteligente, de una manera que ayuda a los usuarios a visualizarlos y comprenderlos mejor.",
                     "updated": 1641093222714
+                },
+                {
+                    "language": "DE",
+                    "text": "Mit anderen Worten: Die in hierarchischen Datenstrukturen angeordneten Nodes beschreiben die Top-Level-Konzepte, aus denen sich die Handelsintelligenz zusammensetzt, auf eine Art und Weise, die den Benutzern hilft, sie zu visualisieren und besser zu verstehen.",
+                    "updated": 1641740780043
                 }
             ]
         },
@@ -211,6 +256,11 @@
                     "language": "ES",
                     "text": "Estos conceptos de alto nivel representados como jerarquías interactúan con otros conceptos, es decir, con otras jerarquías. Las interacciones entre jerarquías se denominan referencias.",
                     "updated": 1641093258312
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese als Hierarchien beschriebenen Top-Level-Konzepte interagieren mit anderen Konzepten, d. h. mit anderen Hierarchien. Die Interaktionen zwischen den Hierarchien werden als References (Beziehungen) bezeichnet.",
+                    "updated": 1641740888555
                 }
             ]
         },
@@ -232,6 +282,11 @@
                     "language": "ES",
                     "text": "Una referencia es un mecanismo por el cual la información de un nodo está relaciona con otros nodos o es accedida por ellos. La capacidad de un nodo para establecer una referencia con otro nodo permite que el primero acceda a la información o características implicadas en el segundo.",
                     "updated": 1641093275261
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine Referenz ist ein Mechanismus, durch den Informationen in einem Node mit anderen Nodes in Beziehung gesetzt oder von ihnen abgerufen werden. Die Fähigkeit eines Nodes, einen Bezug zu einem anderen Node herzustellen, ermöglicht dem ersten Node den Zugang zu den Informationen oder Merkmalen, die der zweite Node beinhaltet.",
+                    "updated": 1641741082888
                 }
             ]
         },
@@ -241,7 +296,7 @@
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Чтобы организовать всю эту информацию, Superalgos упр��вляет концепцией рабочих пространств. Рабочая область - это объект, в котором хранится вся системная и пользовательская информация, за исключением состояния и содержимого подключаемых модулей. С технической точки зрения рабочая область - это файл JSON.",
+                    "text": "Чтобы организовать всю эту информацию, Superalgos управляет концепцией рабочих пространств. Рабочее пространство - это объект, в котором хранится вся системная и пользовательская информация, за исключением состояния и содержимого подключаемых модулей. С технической точки зрения рабочее пространство - это файл JSON.",
                     "updated": 1637938840496
                 },
                 {
@@ -253,6 +308,11 @@
                     "language": "ES",
                     "text": "Para organizar toda esta información, Superalgos gestiona el concepto de espacios de trabajo. Un espacio de trabajo es una entidad que almacena toda la información generada por el usuario y el sistema, excluyendo el estado y el contenido de los complementos. En términos técnicos, un espacio de trabajo es un archivo JSON.",
                     "updated": 1641093289711
+                },
+                {
+                    "language": "DE",
+                    "text": "Um all diese Informationen zu organisieren, verwaltet Superalgos das Konzept der Workspaces (Arbeitsbereiche). Ein Workspace ist eine Einheit, die alle System- und Benutzerinformationen speichert, mit Ausnahme des Zustands und der Inhalte von Plugins. Technisch gesehen ist ein Workspace eine JSON-Datei.",
+                    "updated": 1641741129226
                 }
             ]
         },
@@ -275,6 +335,11 @@
                     "language": "ES",
                     "text": "La página de Bots trae a tierra estas definiciones conceptuales y ofrece una descripción general de cómo son estos conceptos de alto nivel y cómo interactúan entre sí.",
                     "updated": 1641093295426
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Seite Bots bringt diese konzeptionellen Definitionen auf den Boden der Tatsachen zurück und bietet einen Überblick darüber, was diese Top-Level-Konzepte sind und wie sie miteinander interagieren.",
+                    "updated": 1641741163266
                 }
             ]
         }

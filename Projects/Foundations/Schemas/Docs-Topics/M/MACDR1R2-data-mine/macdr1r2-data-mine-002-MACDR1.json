@@ -4,7 +4,14 @@
     "type": "MACD R1 indicator",
     "definition": {
         "text": "This indicator produces the MACD R1 buy signals",
-        "updated": 1611661320849
+        "updated": 1611661320849,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Данный индикатор выдает сигналы на покупку MACD R1",
+                "updated": 1643523081092
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -15,11 +22,25 @@
         {
             "style": "Text",
             "text": "The MACD R1, of refinement 1 does the following:",
-            "updated": 1611764485658
+            "updated": 1611764485658,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "MACD R1, уточнение 1, делает следующее:",
+                    "updated": 1643523095703
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Wait for three (3) periods after the crossover to take a position, if during that period another crossover happens then it waits for another crossover"
+            "text": "Wait for three (3) periods after the crossover to take a position, if during that period another crossover happens then it waits for another crossover",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Выжидает три (3) периода после пересечения, чтобы занять позицию, если в течение этого периода происходит другое пересечение, то ждет другого пересечения.",
+                    "updated": 1643523115994
+                }
+            ]
         },
         {
             "style": "Png",
@@ -28,7 +49,14 @@
         },
         {
             "style": "Text",
-            "text": "Because of the delayed nature of the indicator it is recommended to use a Take-Proft incase price falls quickly, of course this is up to the user. The underlying calculations uses the standard MACD settings, 12-26-9"
+            "text": "Because of the delayed nature of the indicator it is recommended to use a Take-Proft incase price falls quickly, of course this is up to the user. The underlying calculations uses the standard MACD settings, 12-26-9",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Из-за запаздывающей природы индикатора рекомендуется использовать Take-Proft на случай быстрого падения цены, но это, конечно, на усмотрение пользователя. В расчетах используются стандартные настройки MACD, 12-26-9",
+                    "updated": 1643523135838
+                }
+            ]
         }
     ]
 }

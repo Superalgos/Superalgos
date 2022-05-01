@@ -24,6 +24,11 @@
                 "language": "DE",
                 "text": "Beim Hinzufügen von Zeitmaschinen ist zu beachten, dass sie über anderen Charts im Charting Space erscheinen können.",
                 "updated": 1639108908442
+            },
+            {
+                "language": "TR",
+                "text": "Zaman makineleri eklerken, Grafik Alanındaki ( Charting Space ) diğer çizelgelerin üstünde görünebileceklerini unutmayın.",
+                "updated": 1642586253767
             }
         ]
     },
@@ -47,6 +52,11 @@
                     "language": "DE",
                     "text": "Schauen wir uns im Charting Space um und finden wir die Zeitmaschine, die Sie hinzugefügt haben!",
                     "updated": 1639108962126
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafik alanına ( Charting Space ) bir göz atalım ve eklediğiniz zaman makinesini bulalım!",
+                    "updated": 1642586331801
                 }
             ]
         },
@@ -69,6 +79,11 @@
                     "language": "DE",
                     "text": "Verschieben Sie ggf. die Zeitmaschinen und suchen Sie den Titel, den Sie Ihrer Zeitmaschine im Design Space hinzugefügt haben.",
                     "updated": 1639109035686
+                },
+                {
+                    "language": "TR",
+                    "text": "Gerekirse zaman makinelerini hareket ettirin ve zaman makinesine eklediğiniz adı Tasarım Alanında ( Design Space ) bulun.",
+                    "updated": 1642586389885
                 }
             ]
         },
@@ -95,6 +110,11 @@
                     "language": "DE",
                     "text": "Um ein Diagramm zu verschieben, halten Sie die Shift Taste gedrückt und ziehen Sie es mit einem Linksklick.",
                     "updated": 1639113055262
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Grafiği hareket ettirmeyi unutmayın, Shift tuşunu basılı tutun ve farenin sol tuşuyla sürükleyin.",
+                    "updated": 1642586432270
                 }
             ]
         },

@@ -1,10 +1,10 @@
 exports.newMultiProject = function () {
-/* TODO add init method to DK*/
+ 
     let thisObject = {
         initialize: initialize
     }
 
-    return thisObject;
+    return thisObject
 
     function initialize(rootObject, rootObjectName) {
         /*

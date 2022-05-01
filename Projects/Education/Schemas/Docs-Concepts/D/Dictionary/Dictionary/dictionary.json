@@ -1,0 +1,49 @@
+{
+    "type": "Dictionary",
+    "definition": {
+        "text": "This page serves as a dictionary so you can look up Crypto/Superalgos terms or technical terms. This page simply serves as a dictionary with hopefully good explanations of those technical words.",
+        "updated": 1641858987368,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Эта страница служит в качестве словаря, чтобы вы могли найти Crypto/Superalgos термины или технические термины. Эта страница просто служит словарем с надеждой на хорошее объяснение этих технических слов.",
+                "updated": 1645079805817
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "However, do not accidentally confuse this dictionary with the \"technical terms\" page as the words listed on the \"technical terms\" page should not be translated into your language. ",
+            "updated": 1641858612684,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Однако не перепутайте случайно этот словарь со страницей \"Технические термины\", поскольку слова, перечисленные на странице \"Технические термины\", не должны быть переведены на ваш язык.",
+                    "updated": 1645079831262
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Technical/Superalgos Term | Explanation |\n| Blockchain | --- |\n| Bot | --- |\n| Exchange | --- |\n| Transaction Fees | --- |\n| Whale/-s | ---|\n| Data Mining | ---|",
+            "updated": 1641858963165
+        },
+        {
+            "style": "Text",
+            "text": "Feel free to add new Terms or explanations (remember to switch to english in the footer when you want to change the original).",
+            "updated": 1641858991983,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Не стесняйтесь добавлять новые термины или пояснения (не забудьте переключиться на английский язык в нижнем колонтитуле, если вы хотите изменить оригинал).",
+                    "updated": 1645079850119
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

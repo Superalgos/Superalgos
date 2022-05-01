@@ -41,14 +41,14 @@
             },
             {
                 "language": "RU",
-                "text": "Узел Data Tasks управляет всеми задачами интеллектуального анализа данных, определенными для Network Node.",
-                "updated": 1635611514856,
+                "text": "Узел Data Tasks управляет всеми задачами интеллектуального анализа данных, определенными для узла LAN Network Node.",
+                "updated": 1641803953590,
                 "style": "Definition"
             },
             {
                 "language": "TR",
-                "text": "Veri Görevleri düğümü ( Data Tasks ), bu LAN Ağ Düğümü ( LAN Network Node ) için tanımlanan tüm veri madenciliği görevlerini kontrol eder.",
-                "updated": 1640627348348
+                "text": "Veri Görevleri düğümü, ( Data Tasks ), LAN Ağ Düğümü ( LAN Network Node ) için tanımlanan tüm veri madenciliği görevlerini kontrol eder.",
+                "updated": 1644849084980
             }
         ],
         "updated": 1636910229969
@@ -137,14 +137,14 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Run a data mining, чтобы получить данны BTC/USDT Market от Binance.",
-                    "updated": 1635583091531,
+                    "text": "Запустить операцию по добыче данных, чтобы получить с биржи данные для рынка BTC/USDT.",
+                    "updated": 1641804289856,
                     "style": "List"
                 },
                 {
                     "language": "TR",
-                    "text": "Borsa'dan BTC/USDT Piyasası ( Market ) için veri almak üzere bir veri madenciliği operasyonu çalıştıracağız.",
-                    "updated": 1640627207922
+                    "text": "Borsa'dan BTC/USDT işlem çifti ( Market ) için veri almak üzere bir veri madenciliği operasyonu çalıştıracağız.",
+                    "updated": 1644849324942
                 }
             ],
             "updated": 1640350823953
@@ -185,13 +185,13 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Run a Backtesting Session с использованием существующей стратегии с открытым исходным кодом.",
-                    "updated": 1635583981313
+                    "text": "Запустить сессию бэктестинга (Backtesting Session) с существующей стратегией с открытым исходным кодом.",
+                    "updated": 1641804298897
                 },
                 {
                     "language": "TR",
-                    "text": "Mevcut bir açık kaynak stratejisiyle bir Geri Test Oturumu ( Backtesting Session ) çalıştıracağız.",
-                    "updated": 1635579517849
+                    "text": "Mevcut bir açık kaynak stratejisiyle bir Geri BackTest Oturumu ( Backtesting Session ) çalıştıracağız.",
+                    "updated": 1644849345417
                 }
             ],
             "updated": 1616414607531
@@ -232,8 +232,8 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Run a Live Trading Session с минимальными средствами, чтобы проверить критические аспекты системы.",
-                    "updated": 1635584028882
+                    "text": "Запустить реальную торговую сессию (Live Trading Session) с минимальными средствами, чтобы протестировать критические аспекты системы.",
+                    "updated": 1641804305254
                 },
                 {
                     "language": "TR",

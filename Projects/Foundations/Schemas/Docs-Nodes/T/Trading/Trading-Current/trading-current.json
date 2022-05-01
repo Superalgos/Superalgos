@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Объект current относится к контексту, в котором существуют экземпляры нескольких других объектов - эпизода, стратегии, позиции, стадии стратегии и так далее - в частности, экземпляры, которые открыты на момент оценки, отсюда прилагательное текущий (current).",
                 "updated": 1640341945983
+            },
+            {
+                "language": "TR",
+                "text": "Geçerli nesne, bölüm, strateji, konum, strateji aşamaları vb. gibi diğer birkaç nesnenin örneklerinin bulunduğu duruma, özellikle de değerlendirme anında açık olan örneklere, dolayısıyla geçerli duruma bulunur.",
+                "updated": 1641995026060
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Концептуально, current используется как прилагательное, применяемое к различным понятиям, таким как текущий эпизод, текущая стратегия, текущая позиция или текущая стадия стратегии, для обозначения случая, который проходит в данный момент.",
                     "updated": 1640341969161
+                },
+                {
+                    "language": "TR",
+                    "text": "Kavramsal olarak Current, o anda geçmekte olan örneği belirtmek için mevcut bölüm, mevcut strateji, mevcut konum veya mevcut satrateji aşaması gibi farklı kavramlara uygulanan bir sıfat olarak kullanılır.",
+                    "updated": 1641995228630
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Генерация узлов-потомков в текущей секции иерархии отслеживает информацию в рамках воплощенной концепции: эпизод, стратегия, позиция и так далее.",
                     "updated": 1640341615967
+                },
+                {
+                    "language": "TR",
+                    "text": "Hiyerarşinin mevcut bölümü altındaki yavru düğümlerin oluşturulması, kavram kapsamındaki bilgileri takip eder: bölüm, strateji, konum vb.",
+                    "updated": 1641995347264
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "RU",
                     "text": "Другими словами, узлы эпизода, стратегии и позиции в текущей секции иерархии содержат информацию относительно экземпляров эпизода, стратегии и позиции, которые проходят в данный момент, в любом промежутке времени.",
                     "updated": 1640341679501
+                },
+                {
+                    "language": "TR",
+                    "text": "Başka bir deyişle, hiyerarşinin mevcut bölümündeki bölüm, strateji ve konum düğümleri, herhangi bir zamanda, o anda geçmekte olan bölüm, strateji ve konum örneklerine ilişkin bilgileri içerir.",
+                    "updated": 1641995371891
                 }
             ]
         }

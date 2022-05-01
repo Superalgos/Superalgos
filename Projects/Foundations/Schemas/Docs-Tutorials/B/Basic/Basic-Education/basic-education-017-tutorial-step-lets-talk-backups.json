@@ -31,6 +31,16 @@
                 "language": "TR",
                 "text": "Yedeklemeler ( Backups ) çok güçlüdür ve çeşitli kullanım durumları vardır! Düğmeye tıkladığınızda, düğüm ve yavruları bir JSON dosyasına kaydedilir!",
                 "updated": 1636789947185
+            },
+            {
+                "language": "RU",
+                "text": "Создание резервных копий является очень мощным инструментом, и существуют различные варианты его использования! Когда вы нажимаете на кнопку, узел и его потомки сохраняются в JSON-файле!",
+                "updated": 1640867467058
+            },
+            {
+                "language": "ID",
+                "text": "Backups sangat dibutuhkan, dan ada di berbagai kasus penggunaan! Ketika kamu mengklik tombol, node dan turunannya disimpan pada file JSON!",
+                "updated": 1644515762097
             }
         ]
     },
@@ -61,6 +71,16 @@
                     "language": "TR",
                     "text": "Çalışmanızı korumak veya yapının bir kopyasını mevcut durumunda tutmak için bir düğüm yapısını yedeklemek isteyebilirsiniz.",
                     "updated": 1636789960355
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы можете захотеть создать резервную копию структуры узлов, чтобы обезопасить свою работу или сохранить копию структуры в ее текущем состоянии.",
+                    "updated": 1640867481764
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu mungkin ingin membuat cadangan struktur node untuk melindungi pekerjaanmu atau menyimpan salinan struktur dalam kondisi saat ini.",
+                    "updated": 1644515843802
                 }
             ]
         },
@@ -84,6 +104,16 @@
                     "language": "TR",
                     "text": "Lightning Strike ticaret sisteminin yedeğini alın ve indirilenler klasörünüzü kontrol edin!",
                     "updated": 1636789977365
+                },
+                {
+                    "language": "RU",
+                    "text": "Сделайте резервную копию торговой системы Lightning Strike и проверьте папку загрузок!",
+                    "updated": 1640867496530
+                },
+                {
+                    "language": "ID",
+                    "text": "Cobalah backup Lightning Strike trading system dan periksa folder unduhan kamu!",
+                    "updated": 1644515910551
                 }
             ]
         },
@@ -113,6 +143,16 @@
                     "language": "TR",
                     "text": "Dosya tarayıcı tarafından indirilir ve varsayılan İndirilenler klasöründe saklanır. Aynı dosyanın birden çok yedeğini alırsanız, tarayıcı dosyayı sıralı sayılarla yeniden adlandırır.",
                     "updated": 1636789994542
+                },
+                {
+                    "language": "RU",
+                    "text": "Файл загружается браузером и сохраняется в папке Downloads по умолчанию. Если вы создаете несколько резервных копий одного и того же файла, браузер переименовывает файл с помощью порядковых номеров.",
+                    "updated": 1640867514165
+                },
+                {
+                    "language": "ID",
+                    "text": "File diunduh oleh browser dan disimpan di folder Unduhan utama. Jika kamu mengambil multiple backup dari file yang sama, browser mengganti nama file dengan nomor urut.",
+                    "updated": 1644515968103
                 }
             ]
         }

@@ -17,6 +17,11 @@
                 "language": "TR",
                 "text": "Koşullar, bir durum içindeki kurallardır. Bir durum altındaki tüm koşullar doğru olduğunda, durum da doğrulanır ve ilgili olay tetiklenir.",
                 "updated": 1639222523066
+            },
+            {
+                "language": "DE",
+                "text": "Bedingungen (Conditions) sind Regeln innerhalb einer Situation. Wenn alle Bedingungen einer Situation wahr sind, wird die Situation ebenfalls bestätigt und das zugehörige Ereignis wird ausgelöst.",
+                "updated": 1641636654543
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "RU",
                     "text": "Таким образом, условия используются для математического описания того, что должно произойти с рынком для выполнения определенного действия.",
                     "updated": 1638647845891
+                },
+                {
+                    "language": "DE",
+                    "text": "Daher werden Bedingungen verwendet, um mathematisch zu beschreiben, was auf dem Markt geschehen muss, damit eine bestimmte Aktion durchgeführt werden kann.",
+                    "updated": 1641636595695
                 }
             ]
         },
@@ -44,6 +54,11 @@
                     "language": "RU",
                     "text": "Например:",
                     "updated": 1638647858497
+                },
+                {
+                    "language": "DE",
+                    "text": "Zum Beispiel:",
+                    "updated": 1641636604669
                 }
             ]
         },
@@ -61,7 +76,19 @@
         {
             "style": "List",
             "text": "Condition A: chart.at01hs.candle.close > chart.at01hs.bollingerBand.MovingAverage",
-            "updated": 1610211782596
+            "updated": 1610211782596,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bedingung A: chart.at01hs.candle.close > chart.at01hs.bollingerBand.MovingAverage",
+                    "updated": 1641636671025
+                },
+                {
+                    "language": "RU",
+                    "text": "Состояние A: chart.at01hs.candle.close > chart.at01hs.bollingerBand.MovingAverage",
+                    "updated": 1647435232859
+                }
+            ]
         },
         {
             "style": "Note",
@@ -71,13 +98,30 @@
                     "language": "RU",
                     "text": "Это означает, что последняя свеча на часовом графике закрылась выше скользящей средней полосы Боллинджера.",
                     "updated": 1638647890361
+                },
+                {
+                    "language": "DE",
+                    "text": "Dies bedeutet, dass die letzte Kerze auf dem 1-Stunden-Chart oberhalb des gleitenden Durchschnitts der Bollinger-Bänder geschlossen hat.",
+                    "updated": 1641636786807
                 }
             ]
         },
         {
             "style": "List",
             "text": "Condition B: chart.at01hs.candle.previous.max > chart.at01hs.bollingerBand.previous.MovingAverage",
-            "updated": 1610211804682
+            "updated": 1610211804682,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bedingung B: chart.at01hs.candle.previous.max > chart.at01hs.bollingerBand.previous.MovingAverage",
+                    "updated": 1641636717473
+                },
+                {
+                    "language": "RU",
+                    "text": "Состояние B: chart.at01hs.candle.previous.max > chart.at01hs.bollingerBand.previous.MovingAverage",
+                    "updated": 1647435240249
+                }
+            ]
         },
         {
             "style": "Note",
@@ -87,6 +131,11 @@
                     "language": "RU",
                     "text": "Это означает, что максимальное значение свечи перед последней было выше скользящей средней полосы Боллинджера.",
                     "updated": 1638647906181
+                },
+                {
+                    "language": "DE",
+                    "text": "Das bedeutet, dass der Höchstwert der vorletzten Kerze über dem gleitenden Durchschnitt der Bollinger-Bänder lag.",
+                    "updated": 1641636773781
                 }
             ]
         },
@@ -97,8 +146,13 @@
             "translations": [
                 {
                     "language": "RU",
-                    "text": ".В приведенном выше примере условия A и B представляют собой операторы сравнения, которые могут оценивать как true, так и false. В случае, если оба будут оценивать как true, то ситуация 1 также будет верной.",
-                    "updated": 1638648000709
+                    "text": "В приведенном выше примере условия A и B представляют собой операторы сравнения, которые могут оценивать как true, так и false. В случае, если оба будут оценивать как true, то ситуация 1 также будет верной.",
+                    "updated": 1647435071578
+                },
+                {
+                    "language": "DE",
+                    "text": "Im obigen Beispiel sind die Bedingungen A und B Vergleichsaussagen, die entweder als true oder false bewertet werden können. Wenn beide wahr werden, wird auch Situation 1 wahr.",
+                    "updated": 1641636898853
                 }
             ]
         },
@@ -110,6 +164,11 @@
                     "language": "RU",
                     "text": "Чтобы узнать, как писать условия, начните с обзора Syntax Overview.",
                     "updated": 1638648036555
+                },
+                {
+                    "language": "DE",
+                    "text": "Um zu lernen, wie man Bedingungen schreibt, beginnen Sie mit der Syntax Overview.",
+                    "updated": 1641636947172
                 }
             ]
         }

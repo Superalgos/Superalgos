@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Positions подсчитывают количество открытих позиций в контексте родительского узла.",
                 "updated": 1640346005956
+            },
+            {
+                "language": "TR",
+                "text": "Pozisyonlar, üst düğüm bağlamında pozisyonların kaç defa açıldığını sayar.",
+                "updated": 1641993997292
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст.",
                     "updated": 1640346018410
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenleyin.",
+                    "updated": 1644572517193
                 }
             ]
         },
@@ -40,6 +50,11 @@
                     "language": "RU",
                     "text": "Конфигурация Positions",
                     "updated": 1640346030953
+                },
+                {
+                    "language": "TR",
+                    "text": "Pozisyon Yapılandırması",
+                    "updated": 1644572531725
                 }
             ]
         },
@@ -52,6 +67,11 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1640346039596
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1644572553798
                 }
             ]
         },
@@ -64,6 +84,11 @@
                     "language": "RU",
                     "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
                     "updated": 1640346049929
+                },
+                {
+                    "language": "TR",
+                    "text": "initialValue, düğümün başlangıç durumunun istenilen bir değere sıfırlanmasına izin verir.",
+                    "updated": 1644572576069
                 }
             ]
         }

@@ -1,0 +1,69 @@
+{
+    "type": "Task Server App",
+    "definition": {
+        "text": "The Task Server App node allows a user to define an identity for a Task Server.",
+        "updated": 1643078111479,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Task Server App позволяет пользователю определить идентификатор для сервера задач.",
+                "updated": 1645253875643
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1643078288954
+        },
+        {
+            "style": "Text",
+            "text": "Defining an identity for a task server allows the current User Profile to connect an instance of the Superalgos Platform to the Superalgos Peer to Peer Network.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Определение идентификатора для сервера задач позволяет текущему профилю пользователя подключить экземпляр платформы Superalgos к одноранговой сети Superalgos.",
+                    "updated": 1645253883937
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "This is achieved through the creation of a Signing Account.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это достигается путем создания учетной записи (Signing Account).",
+                    "updated": 1645253955715
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Title",
+            "text": "Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1645253961521
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "codeName: This property defines the chosen name for a User's task server app.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "codeName: Это свойство определяет выбранное имя для приложения сервера задач пользователя.",
+                    "updated": 1645253967137
+                }
+            ]
+        }
+    ]
+}

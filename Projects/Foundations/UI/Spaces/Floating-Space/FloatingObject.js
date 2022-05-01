@@ -578,7 +578,11 @@ function newFloatingObject() {
 
             if (thisObject.isOnFocus === true) {
                 animationStepSize = (targetRadiusWithFocus() - targetRadiusWithoutFocus()) / ANIMATION_STEPS
-                if (thisObject.container.frame.radius >= targetRadiusWithFocus()) { return }
+                if (thisObject.container.frame.radius > targetRadiusWithFocus()) { 
+                    thisObject.container.frame.radius = targetRadiusWithFocus()
+                    thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
+                    return 
+                }
                 thisObject.container.frame.radius = thisObject.container.frame.radius + animationStepSize
                 if (thisObject.container.frame.radius >= targetRadiusWithFocus()) {
                     thisObject.container.frame.radius = targetRadiusWithFocus()
@@ -586,7 +590,11 @@ function newFloatingObject() {
                 thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
             } else {
                 animationStepSize = (targetRadiusWithoutFocus() - targetRadiusWithFocus()) / ANIMATION_STEPS
-                if (thisObject.container.frame.radius <= targetRadiusWithoutFocus()) { return }
+                if (thisObject.container.frame.radius < targetRadiusWithoutFocus()) { 
+                    thisObject.container.frame.radius = targetRadiusWithoutFocus()
+                    thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
+                    return 
+                }
                 thisObject.container.frame.radius = thisObject.container.frame.radius + animationStepSize
                 if (thisObject.container.frame.radius <= targetRadiusWithoutFocus()) {
                     thisObject.container.frame.radius = targetRadiusWithoutFocus()

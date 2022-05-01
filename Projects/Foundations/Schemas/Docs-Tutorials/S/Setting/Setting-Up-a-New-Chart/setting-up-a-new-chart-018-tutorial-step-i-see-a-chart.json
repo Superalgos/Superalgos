@@ -24,6 +24,11 @@
                 "language": "DE",
                 "text": "Hast du die Time Machine gefunden, die du hinzugefügt hast? Vergessen Sie nicht, sich im Charting Space zu bewegen, ich weiß, dass sie hier ist!",
                 "updated": 1639113202408
+            },
+            {
+                "language": "TR",
+                "text": "Eklediğiniz Zaman Makinesini ( Time Machine ) buldunuz mu? Grafik alanında ( Charting Space ) dolaşmayı unutma, onun burada olduğunu biliyorum!",
+                "updated": 1642586680356
             }
         ]
     },
@@ -47,6 +52,11 @@
                     "language": "DE",
                     "text": "Sie sollten drei Charts im Charting Space sehen.",
                     "updated": 1639113247073
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafik Alanında ( Charting Space ) üç grafik görmelisiniz",
+                    "updated": 1642586726089
                 }
             ]
         },
@@ -69,6 +79,11 @@
                     "language": "DE",
                     "text": "Lesen Sie die Titel und finden Sie den Titel, den Sie hinzugefügt haben!",
                     "updated": 1639113292655
+                },
+                {
+                    "language": "TR",
+                    "text": "Başlıkları okuyun ve eklediklerinizi bulun!",
+                    "updated": 1642586755663
                 }
             ]
         },
@@ -91,6 +106,11 @@
                     "language": "DE",
                     "text": "Wenn Sie heranzoomen, gibt es noch nicht viel zu sehen. Aber das ist in Ordnung. Wir sind auf dem Weg zu Ihrem ganz persönlichen Diagramm. Hurra! Machen wir weiter und fügen wir Ihrer neuen Time Machine einige Daten hinzu.",
                     "updated": 1639113345756
+                },
+                {
+                    "language": "TR",
+                    "text": "Eğer yakınlaştırırsanız, henüz görülecek bir şey yok. Ama bu normal. Kendi özel grafiğinizi oluşturmak için yola çıktık.Hadi devam edelim ve yeni Time Machine'inize ( Time Machine ) biraz veri ekleyelim.",
+                    "updated": 1642586877141
                 }
             ]
         },

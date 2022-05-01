@@ -13,6 +13,16 @@
                 "language": "DE",
                 "text": "Dies wird etwas länger dauern als der erste Backtest, da wir jetzt auf dem 1H-Zeitrahmen testen.",
                 "updated": 1639390161827
+            },
+            {
+                "language": "TR",
+                "text": "Şu anda 1H zaman diliminde test ettiğimiz için , ilk geriye dönük testten biraz daha uzun sürecektir.",
+                "updated": 1641663923271
+            },
+            {
+                "language": "RU",
+                "text": "Это займет немного больше времени, чем первый бэктест, поскольку теперь мы тестируем на таймфрейме 1H.",
+                "updated": 1642662128760
             }
         ]
     },
@@ -25,6 +35,16 @@
                     "language": "DE",
                     "text": "Wenn Ihre Handelsaufgabe noch läuft, wählen Sie Run im Menü \"Backtesting Session\" . Wenn nicht, wählen Sie zunächst Run im Task Menü.",
                     "updated": 1639390264606
+                },
+                {
+                    "language": "TR",
+                    "text": "Alım satım atamanız devam ediyorsa, Backtesting Session menüsünden Run'u seçin. Değilse, önce Görev menüsünden Çalıştır'ı seçin.",
+                    "updated": 1641663951125
+                },
+                {
+                    "language": "RU",
+                    "text": "Если ваша торговая задача все еще выполняется, выберите Run в меню Backtesting Session. Если нет, сначала выберите Run в меню Task.",
+                    "updated": 1642662143026
                 }
             ]
         },
@@ -36,6 +56,16 @@
                     "language": "DE",
                     "text": "Wenn die Fortschrittsanzeige der Trading Process Instance die 100 %-Marke erreicht, halten Sie die Aufgabe an und klicken Sie auf Weiter.",
                     "updated": 1639390297061
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: İşlem Süreci Eşgörünümü ( Trading Process Instance ) ilerleme çubuğu %100 işaretine ulaştığında görevi durdurun ve İleri'ye tıklayın.",
+                    "updated": 1641663973652
+                },
+                {
+                    "language": "RU",
+                    "text": "Когда уведомление о ходе выполнения экземпляра торгового процесса достигнет отметки 100%, остановите задачу и нажмите кнопку Next.",
+                    "updated": 1642662163376
                 }
             ]
         }

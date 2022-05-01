@@ -4,7 +4,14 @@
     "type": "Features Hierarchy",
     "definition": {
         "text": "Each project may define Features, so that the Community may incentivize desired directions of development.",
-        "updated": 1624720133681
+        "updated": 1624720133681,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Özet: Her proje, Topluluğun ( Community ) istenen gelişim yönlerini teşvik edebilmesi için Özellikler ( Features ) tanımlayabilir.",
+                "updated": 1646740288963
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -18,7 +25,14 @@
         },
         {
             "style": "Title",
-            "text": "Feature Class Nodes"
+            "text": "Feature Class Nodes",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Özellik Sınıfı Düğümleri",
+                    "updated": 1646740319224
+                }
+            ]
         },
         {
             "style": "Include",
@@ -30,7 +44,14 @@
         },
         {
             "style": "Title",
-            "text": "Feature Nodes"
+            "text": "Feature Nodes",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Özellik Düğümleri",
+                    "updated": 1646740332801
+                }
+            ]
         },
         {
             "style": "Include",

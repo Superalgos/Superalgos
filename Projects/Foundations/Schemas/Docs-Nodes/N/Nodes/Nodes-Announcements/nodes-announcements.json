@@ -9,6 +9,11 @@
                     "language": "DE",
                     "text": "Klicken Sie mit der rechten Maustaste auf \"Edit\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben.  ESC, um den Bearbeitungsmodus zu verlassen.",
                     "updated": 1636658179311
+                },
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER для написания новых абзацев. ESC для выхода из режима редактирования.",
+                    "updated": 1645169106924
                 }
             ]
         }
@@ -20,6 +25,11 @@
                 "language": "DE",
                 "text": "Klicken Sie mit der rechten Maustaste, um diesen Text zu bearbeiten und ihn durch eine Definition / Summary für diese Seite zu ersetzen. ESC, um den Bearbeitungsmodus zu verlassen.",
                 "updated": 1636658134491
+            },
+            {
+                "language": "RU",
+                "text": "Щелкните правой кнопкой мыши, чтобы отредактировать этот текст и заменить его на определение / резюме для этой страницы. ESC для выхода из режима редактирования.",
+                "updated": 1645169101566
             }
         ]
     }

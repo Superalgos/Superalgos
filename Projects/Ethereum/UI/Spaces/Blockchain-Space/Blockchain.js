@@ -160,7 +160,7 @@ function newEthereumBlockchainSpace() {
                     }
                 }
             } catch (err) {
-                console.log('[ERROR] checkStatus -> err = ' + err.stack)
+                console.log((new Date()).toISOString(), '[ERROR] checkStatus -> err = ' + err.stack)
             }
         }
     }

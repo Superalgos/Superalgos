@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Процессы получения данных из Интернета оптимизированы для доступа к широкому спектру доступных API. Тип набора данных, который они используют для хранения необработанных данных, обычно не лучший для потребления данных в системе. По этой причине необходимо выполнить преобразование типов набора данных.",
                 "updated": 1639392705857
+            },
+            {
+                "language": "TR",
+                "text": "Özet: İnternetten veri alma süreçleri, orada bulunan çok çeşitli API'lere ( APIs ) erişmek için optimize edilmiştir. Ham verileri depolamak için kullandıkları Veri Kümesi Türü ( Dataset Type ), genellikle sistem içindeki veri tüketimi için en iyisi değildir. Bu nedenle Veri Kümesi Türü ( Dataset Type ) dönüşümlerinin yapılması gerekiyor.",
+                "updated": 1645367369439
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "RU",
                     "text": "Типы преобразований Dataset",
                     "updated": 1639392731017
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri Kümesi Dönüşüm Türleri",
+                    "updated": 1645367402705
                 }
             ]
         },
@@ -44,6 +54,11 @@
                     "language": "RU",
                     "text": "В настоящее время в системе реализованы следующие типы преобразований:",
                     "updated": 1639392741604
+                },
+                {
+                    "language": "TR",
+                    "text": "Şu anda sistemde uygulanan dönüşüm türleri şunlardır:",
+                    "updated": 1645367413906
                 }
             ]
         },
@@ -56,6 +71,11 @@
                     "language": "RU",
                     "text": "Из One-Min-Daily Dataset в Multi-Time-Frame-Daily.",
                     "updated": 1639392757622
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Dakikalık Günlük Veri Kümesinden Çok Zamanlı Çerçeveli Günlük Veri Kümesine ( One-Min-Daily Dataset to Multi-Time-Frame-Daily ).",
+                    "updated": 1645367446905
                 }
             ]
         },
@@ -68,6 +88,11 @@
                     "language": "RU",
                     "text": "Из One-Min-Daily Dataset в Multi-Time-Frame-Market.",
                     "updated": 1639392771510
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Dakikalık Günlük Veri Kümesinden Çok Zamanlı Çerçeve Pazarına ( One-Min-Daily Dataset to Multi-Time-Frame-Market ). ",
+                    "updated": 1645367481922
                 }
             ]
         },
@@ -80,6 +105,11 @@
                     "language": "RU",
                     "text": "Как преобразовать один тип набора данных в другой",
                     "updated": 1639392787246
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Veri Kümesi Türünden Başka Bir Veri Kümesi Türüne Nasıl Dönüştürülür",
+                    "updated": 1645367493797
                 }
             ]
         },
@@ -97,6 +127,11 @@
                     "language": "RU",
                     "text": "Есть два способа преобразовать один тип набора данных в другой.",
                     "updated": 1639392799824
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Veri Kümesi ( Dataset ) türünden diğerine dönüştürmenin iki yolu vardır.",
+                    "updated": 1645367517492
                 }
             ]
         },
@@ -114,6 +149,11 @@
                     "language": "RU",
                     "text": "Пользовательский код: пользователи могут написать код для обработки преобразования в тех случаях, когда стандартный преобразователь недоступен для требуемого типа преобразования.",
                     "updated": 1639392825505
+                },
+                {
+                    "language": "TR",
+                    "text": "Özel Kod: Kullanıcılar, gereken dönüştürme türü için standart dönüştürücünün mevcut olmadığı durumlarda dönüştürmeyi işlemek için kod yazabilir.",
+                    "updated": 1645367544480
                 }
             ]
         },
@@ -131,6 +171,11 @@
                     "language": "RU",
                     "text": "Стандартный конвертер: используйте для работы стандартный конвертер. В настоящее время существует только один стандартный конвертер, и он работает с преобразованием типа One-Min-Daily в типы Multi-Time-Frame-Daily и Multi-Time-Frame-Market.",
                     "updated": 1639393115293
+                },
+                {
+                    "language": "TR",
+                    "text": ".Standart Dönüştürücü: İşi yapmak için standart bir dönüştürücü kullanın. Şu anda yalnızca bir Standart Dönüştürücü var ve Tek Dakikalık Günlük Veri Kümesi türünden Çok Zamanlı-Çerçeve-Günlük ve Çoklu Zamanlı-Çerçeve-Pazar (  One-Min-Daily Dataset type to Multi-Time-Frame-Daily and Multi-Time-Frame-Market Dataset  ) Veri Kümesi türlerine dönüştürmeye çalışıyor.",
+                    "updated": 1645367596961
                 }
             ]
         },
@@ -148,6 +193,11 @@
                     "language": "RU",
                     "text": "Пример пользовательского кода",
                     "updated": 1639392984374
+                },
+                {
+                    "language": "TR",
+                    "text": "Özel Kod Örneği",
+                    "updated": 1645367615182
                 }
             ]
         },
@@ -165,6 +215,11 @@
                     "language": "RU",
                     "text": "Индикатор Candles-Volumes в Master Data Mine конвертирует одноминутные свечи и объемы в свечи и объемы от 2 минут, 3 минут и т. д. До 24 часов. Для этого он запускает индивидуальный алгоритм, который агрегирует эту информацию, предоставленную ботом Raw Data Sensor Bot.",
                     "updated": 1639393136355
+                },
+                {
+                    "language": "TR",
+                    "text": "Ana Veri Madeni'ndeki ( Master Data Mine ) Mum-Hacimler göstergesi, Bir Dakikalık mumları ve hacimleri mumlara ve 2 dakika, 3 dakika ecc..'lik hacimlere 24 saate kadar dönüştürür. Bunu yapmak için, Exchange Ham Veri Sensörü Botu ( Raw Data Sensor Bot ) tarafından sağlanan bilgileri toplayan özel yapılmış bir algoritma çalıştırır.",
+                    "updated": 1645367712778
                 }
             ]
         },
@@ -182,6 +237,11 @@
                     "language": "RU",
                     "text": "Причина, по которой это было реализовано как пользовательский код, заключается в том, что, когда он был нужен, не было стандартного конвертера, и он не был перенесен в существующий в настоящее время.",
                     "updated": 1639393087068
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bunun özel kod olarak uygulanmasının nedeni, ihtiyaç duyulduğunda standart dönüştürücü olmaması ve şu anda mevcut olana taşınmamış olmasıdır.",
+                    "updated": 1645367739240
                 }
             ]
         },
@@ -199,6 +259,11 @@
                     "language": "RU",
                     "text": "Пример стандартного преобразователя",
                     "updated": 1639393107364
+                },
+                {
+                    "language": "TR",
+                    "text": "Standart Dönüştürücü Örneği",
+                    "updated": 1645367759792
                 }
             ]
         },
@@ -216,6 +281,11 @@
                     "language": "RU",
                     "text": "Бот Asset Metrics Indicator Bot, определенный в Messari Data Mine, использует стандартный конвертер из типа набора данных One-Min-Daily в типы данных Multi-Time-Frame-Daily и Multi-Time-Frame-Market. Чтобы использовать конвертер, узлы Process Definition должны иметь структуру конвертера, определенную в его конфигурации.",
                     "updated": 1639400365447
+                },
+                {
+                    "language": "TR",
+                    "text": "Messari Veri Madeni'nde ( Data Mine ) tanımlanan Varlık Metrikleri Gösterge Botu ( Asset Metrics Indicator Bot ), Bir Dakikalık Günlük Veri Kümesi türünden Çok Zamanlı-Çerçeve-Günlük ve Çok Zamanlı-Çerçeve-Pazar Veri Kümesi türlerine Standart Dönüştürücüyü kullanır ( One-Min-Daily Dataset type to Multi-Time-Frame-Daily and Multi-Time-Frame-Market Dataset types). Dönüştürücüyü kullanmak için, bot'un İşlem Tanımı ( Process Definition  ) düğümlerinin, yapılandırmasında tanımlanmış bir dönüştürücü çerçevesine sahip olması gerekir.",
+                    "updated": 1645367973044
                 }
             ]
         },
@@ -233,6 +303,11 @@
                     "language": "RU",
                     "text": "Чтобы преобразовать в Multi-Time-Frame-Daily, задайте имя фреймворка следующим образом:",
                     "updated": 1639400383258
+                },
+                {
+                    "language": "TR",
+                    "text": "Çok Zamanlı-Çerçeve-Günlük'e ( Multi-Time-Frame-Daily ) dönüştürmek için çerçeve adını aşağıdaki gibi ayarlayın:",
+                    "updated": 1645368009115
                 }
             ]
         },
@@ -255,6 +330,11 @@
                     "language": "RU",
                     "text": "Чтобы преобразовать в Multi-Time-Frame-Market, задайте имя фреймворка следующим образом:",
                     "updated": 1639400401580
+                },
+                {
+                    "language": "TR",
+                    "text": "Multi-Time-Frame-Market'e dönüştürmek için çerçeve adını şu şekilde ayarlayın:",
+                    "updated": 1645368039684
                 }
             ]
         },
@@ -277,6 +357,11 @@
                     "language": "RU",
                     "text": "Стандартный конвертер понадобится вам каждый раз, когда вы будете использовать бот API Data Fetcher Bot для извлечения данных из некоторого Inernet API. Бот обычно сохраняет данные в виде набора данных One-Min-Daily, и вам нужно будет настроить Indicator Bot с двумя процессами, чтобы преобразовать тип набора данных One-Min-Daily в тип набора данных Multi-Time-Frame-Market",
                     "updated": 1639400598952
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bazı Inernet API'lerinden veri çıkarmak için API Veri Alıcı Botunu ( API Data Fetcher Bot) her kullandığınızda standart dönüştürücüye ihtiyacınız olacaktır. Bot genellikle verileri Bir Dakikalık Günlük Veri Kümesi Türünde kaydeder ve Bir Dakikalık Günlük Veri Kümesi Türünü Çok Zamanlı Çerçeveli Günlük bir veriye dönüştürmek için iki işlemli bir Gösterge Botu ( Indicator Bot ) kurmanız gerekir. ve bir Çok Zamanlı Çerçeve-Pazar Veri Kümesi Türü.",
+                    "updated": 1645368176081
                 }
             ]
         }

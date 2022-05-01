@@ -88,13 +88,14 @@ exports.newFoundationsProcessModulesDataset = function (processIndex) {
             We will find the lanNetworkNode that leads to this Product Definition 
             and is related to this exchange and market. 
             */
-            let lanNetworkNode = fincNetworkNode(network, productDefinition, thisObject.exchange, thisObject.market)
+            let lanNetworkNode = findNetworkNode(network, productDefinition, thisObject.exchange, thisObject.market)
 
             if (lanNetworkNode === undefined) {
-                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[WARN] initialize -> Network Node not found.")
-                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[WARN] initialize -> Initialization Failed because we could not find where the data of this dataset is located within the network. Check the logs for more info.");
-                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[WARN] initialize -> Could not find where " + productDefinition.name + " for " + thisObject.exchange + " " + thisObject.market + " is stored within the network.");
-                callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE, false);
+                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] initialize -> Network Node not found.")
+                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] initialize -> Initialization Failed because we could not find where the data of this dataset is located within the network. Check the logs for more info.");
+                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] initialize -> Could not find where product = " + productDefinition.name + ", exchange = " + thisObject.exchange + ", market = " + thisObject.market + " is stored within the network.");
+                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] initialize -> If you have just added the Data Mine that contains this indicator to your workspace but you haven't reinstalled the market, please do it and try again.");
+                callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE, false);
                 return
             }
 
@@ -182,7 +183,7 @@ exports.newFoundationsProcessModulesDataset = function (processIndex) {
         }
     }
 
-    function fincNetworkNode(network, productDefinition, exchange, market) {
+    function findNetworkNode(network, productDefinition, exchange, market) {
         /*
         
         The problem that we need to solve here is the following:

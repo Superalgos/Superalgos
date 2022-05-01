@@ -2,12 +2,26 @@
     "type": "Execution Environment",
     "definition": {
         "text": "When a TensorFlow.js program is executed, the specific configuration is called the execution environment. The Execution Environment is comprised of a single global backend as well as a set of flags that control fine-grained features of TensorFlow.js.",
-        "updated": 1613060399329
+        "updated": 1613060399329,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Когда программа TensorFlow.js выполняется, конкретная конфигурация называется средой выполнения. Среда выполнения состоит из одного глобального бэкенда, а также набора флагов, которые управляют тонкими функциями TensorFlow.js.",
+                "updated": 1645247804549
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "Right click and select the pencil button to enter edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
+                    "updated": 1645247810001
+                }
+            ]
         }
     ]
 }

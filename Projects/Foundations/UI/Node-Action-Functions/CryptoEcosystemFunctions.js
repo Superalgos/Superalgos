@@ -9,7 +9,8 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
 
     return thisObject
 
-    function addMissingExchanges(node) {
+    async function addMissingExchanges(node) {
+        let newUiObjects = []
         currentExchanges = new Map()
         let parent = node.payload.parentNode
         if (parent !== undefined) {
@@ -31,108 +32,113 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
             }
         }
 
-        httpRequest(JSON.stringify(params), 'CCXT', onResponse)
+        let response = await httpRequestAsync(JSON.stringify(params), 'CCXT')
 
-        function onResponse(err, data) {
-            if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                node.payload.uiObject.setErrorMessage('Failed to Fetch Assets from the Exchange')
-                return
-            }
+        if (response.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+            node.payload.uiObject.setErrorMessage('Failed to Fetch Assets from the Exchange')
+            return
+        }
 
-            let exchanges = JSON.parse(data)
-            for (let i = 0; i < exchanges.length; i++) {
-                let exchange = exchanges[i]
-                let existingExchange = currentExchanges.get(exchange.id)
-                if (existingExchange === undefined) {
-                    let newExchange = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(node, 'Crypto Exchange')
-                    newExchange.name = exchange.name
-                    newExchange.config = '{ \n\"codeName\": \"' + exchange.id + '\"\n}'
-                    newExchange.payload.floatingObject.collapseToggle()
-                    newExchange.exchangeAssets.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
-                    newExchange.exchangeMarkets.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
-                    newExchange.exchangeAccounts.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
-                    newExchange.exchangeAssets.payload.floatingObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_050X
-                    newExchange.exchangeMarkets.payload.floatingObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_100X
-                    newExchange.exchangeAccounts.payload.floatingObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_025X
-                    newExchange.exchangeAssets.payload.floatingObject.arrangementStyle = ARRANGEMENT_STYLE.CONCAVE
-                    newExchange.exchangeMarkets.payload.floatingObject.arrangementStyle = ARRANGEMENT_STYLE.CONCAVE
-                    newExchange.exchangeAccounts.payload.floatingObject.arrangementStyle = ARRANGEMENT_STYLE.CONCAVE
-                }
+        let exchanges = JSON.parse(response.message)
+        for (let i = 0; i < exchanges.length; i++) {
+            let exchange = exchanges[i]
+            let existingExchange = currentExchanges.get(exchange.id)
+            if (existingExchange === undefined) {
+                let newExchange = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(node, 'Crypto Exchange')
+                newExchange.name = exchange.name
+                newExchange.config = '{ \n\"codeName\": \"' + exchange.id + '\"\n}'
+                newExchange.payload.floatingObject.collapseToggle()
+                newExchange.exchangeAssets.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+                newExchange.exchangeMarkets.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+                newExchange.exchangeAccounts.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+                newExchange.exchangeAssets.payload.floatingObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_050X
+                newExchange.exchangeMarkets.payload.floatingObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_100X
+                newExchange.exchangeAccounts.payload.floatingObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_025X
+                newExchange.exchangeAssets.payload.floatingObject.arrangementStyle = ARRANGEMENT_STYLE.CONCAVE
+                newExchange.exchangeMarkets.payload.floatingObject.arrangementStyle = ARRANGEMENT_STYLE.CONCAVE
+                newExchange.exchangeAccounts.payload.floatingObject.arrangementStyle = ARRANGEMENT_STYLE.CONCAVE
+
+                newUiObjects.push(newExchange)
             }
         }
+
+        return newUiObjects
     }
 
-    function addMissingAssets(node) {
+    async function addMissingAssets(node) {
         if (node.payload.parentNode === undefined) { return }
-
+        
         let currentAssets = new Map()
         for (let j = 0; j < node.assets.length; j++) {
             let asset = node.assets[j]
             let codeName = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(asset.payload, 'codeName')
             currentAssets.set(codeName, asset)
         }
-
+        
         let exchangeId = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(node.payload.parentNode.payload, 'codeName')
-
+        
         try {
+            let newUiObjects = []
             let params = {
                 exchangeId: exchangeId,
                 method: 'fetchMarkets'
             }
-            httpRequest(JSON.stringify(params), 'CCXT', onResponse)
 
-            function onResponse(err, data) {
-                if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                    node.payload.uiObject.setErrorMessage('Failed to Fetch Assets from the Exchange')
-                    return
-                }
-                let queryParams = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(node.payload, 'addMissingAssetsFilter')
+            let response = await httpRequestAsync(JSON.stringify(params), 'CCXT')
 
-                let markets = JSON.parse(data)
-
-                let totalAdded = 0
-                for (let i = 0; i < markets.length; i++) {
-                    let market = markets[i]
-
-                    if (queryParams !== undefined) {
-                        if (queryParams.baseAsset !== undefined) {
-                            if (market.base.indexOf(queryParams.baseAsset) < 0) {
-                                continue
-                            }
-                        }
-                        if (queryParams.quotedAsset !== undefined) {
-                            if (market.quote.indexOf(queryParams.quotedAsset) < 0) {
-                                continue
-                            }
-                        }
-                    }
-                    if (currentAssets.get(market.base) === undefined) {
-                        addAsset(market.base)
-                        totalAdded++
-                        currentAssets.set(market.base, market.base)
-                    }
-                    if (currentAssets.get(market.quote) === undefined) {
-                        addAsset(market.quote)
-                        totalAdded++
-                        currentAssets.set(market.quote, market.quote)
-                    }
-
-                    function addAsset(name) {
-                        let newAsseet = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(node, 'Asset')
-                        newAsseet.name = name
-                        newAsseet.config = '{ \n\"codeName\": \"' + name + '\"\n}'
-                    }
-                }
-                node.payload.uiObject.setInfoMessage(node.payload.parentNode.name + ' supports ' + markets.length + ' markets. Applying the filters at this node config ' + node.config + ' this process added ' + totalAdded + ' assets.', 4)
-
+            if (response.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                node.payload.uiObject.setErrorMessage('Failed to Fetch Assets from the Exchange')
+                return
             }
+            let queryParams = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(node.payload, 'addMissingAssetsFilter')
+
+            let markets = JSON.parse(response.message)
+
+            let totalAdded = 0
+            for (let i = 0; i < markets.length; i++) {
+                let market = markets[i]
+
+                if (queryParams !== undefined) {
+                    if (queryParams.baseAsset !== undefined) {
+                        if (market.base.indexOf(queryParams.baseAsset) < 0) {
+                            continue
+                        }
+                    }
+                    if (queryParams.quotedAsset !== undefined) {
+                        if (market.quote.indexOf(queryParams.quotedAsset) < 0) {
+                            continue
+                        }
+                    }
+                }
+                if (currentAssets.get(market.base) === undefined) {
+                    addAsset(market.base)
+                    totalAdded++
+                    currentAssets.set(market.base, market.base)
+                }
+                if (currentAssets.get(market.quote) === undefined) {
+                    addAsset(market.quote)
+                    totalAdded++
+                    currentAssets.set(market.quote, market.quote)
+                }
+
+                function addAsset(name) {
+                    let newAsset = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(node, 'Asset')
+                    newAsset.name = name
+                    newAsset.config = '{ \n\"codeName\": \"' + name + '\"\n}'
+
+                    newUiObjects.push(newAsset)
+                }
+            }
+            node.payload.uiObject.setInfoMessage(node.payload.parentNode.name + ' supports ' + markets.length + ' markets. Applying the filters at this node config ' + node.config + ' this process added ' + totalAdded + ' assets.', 4)
+
+            return newUiObjects
         } catch (err) {
             node.payload.uiObject.setErrorMessage('Failed to Fetch Assets from the Exchange')
             console.log(err.stack)
         }
     }
 
-    function addMissingMarkets(node) {
+    async function addMissingMarkets(node) {
         if (node.payload.parentNode === undefined) { return }
         if (node.payload.parentNode.exchangeAssets === undefined) { return }
         if (node.payload.parentNode.payload.parentNode === undefined) { return }
@@ -145,7 +151,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
             let codeName = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(asset.payload, 'codeName')
             currentAssets.set(codeName, asset)
         }
-
+        
         let currentMarkets = new Map()
         let exchangeMarkets = node
         for (let j = 0; j < exchangeMarkets.markets.length; j++) {
@@ -153,59 +159,62 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
             let codeName = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(asset.payload, 'codeName')
             currentMarkets.set(codeName, asset)
         }
-
+        
         let exchangeId = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(node.payload.parentNode.payload, 'codeName')
-
+        
         try {
+            let newUiObjects = []
             let params = {
                 exchangeId: exchangeId,
                 method: 'fetchMarkets'
             }
-            httpRequest(JSON.stringify(params), 'CCXT', onResponse)
 
-            function onResponse(err, data) {
-                if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                    node.payload.uiObject.setErrorMessage('Failed to Fetch Assets from the Exchange')
-                    return
+            let response = await httpRequestAsync(JSON.stringify(params), 'CCXT')
+
+            if (response.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                node.payload.uiObject.setErrorMessage('Failed to Fetch Assets from the Exchange')
+                return
+            }
+
+            let markets = JSON.parse(response.message)
+            for (let i = 0; i < markets.length; i++) {
+                let market = markets[i]
+                let baseAsset = currentAssets.get(market.base)
+                let quotedAsset = currentAssets.get(market.quote)
+
+                if (baseAsset === undefined) {
+                    continue
+                }
+                if (quotedAsset === undefined) {
+                    continue
                 }
 
-                let markets = JSON.parse(data)
-                for (let i = 0; i < markets.length; i++) {
-                    let market = markets[i]
-                    let baseAsset = currentAssets.get(market.base)
-                    let quotedAsset = currentAssets.get(market.quote)
+                if (currentMarkets.get(market.symbol) === undefined) {
+                    addMarket(market.symbol, baseAsset, quotedAsset)
+                }
 
-                    if (baseAsset === undefined) {
-                        continue
-                    }
-                    if (quotedAsset === undefined) {
-                        continue
-                    }
+                function addMarket(name, baseAsset, quotedAsset) {
+                    let newMarket = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(node, 'Market')
+                    newMarket.name = name
+                    newMarket.config = '{ \n\"codeName\": \"' + name + '\"\n}'
+                    newMarket.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+                    newMarket.payload.floatingObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_100X
+                    newMarket.payload.floatingObject.arrangementStyle = ARRANGEMENT_STYLE.CONCAVE
+                    newMarket.baseAsset.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_45
+                    newMarket.quotedAsset.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_45
+                    newMarket.baseAsset.payload.floatingObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_100X
+                    newMarket.quotedAsset.payload.floatingObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_100X
+                    newMarket.baseAsset.payload.floatingObject.arrangementStyle = ARRANGEMENT_STYLE.CONCAVE
+                    newMarket.quotedAsset.payload.floatingObject.arrangementStyle = ARRANGEMENT_STYLE.CONCAVE
+                    UI.projects.visualScripting.nodeActionFunctions.attachDetach.referenceAttachNode(newMarket.baseAsset, baseAsset)
+                    UI.projects.visualScripting.nodeActionFunctions.attachDetach.referenceAttachNode(newMarket.quotedAsset, quotedAsset)
 
-                    if (currentMarkets.get(market.symbol) === undefined) {
-                        addMarket(market.symbol, baseAsset, quotedAsset)
-                    }
-
-                    function addMarket(name, baseAsset, quotedAsset) {
-                        let newMarket = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(node, 'Market')
-                        newMarket.name = name
-                        newMarket.config = '{ \n\"codeName\": \"' + name + '\"\n}'
-                        newMarket.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
-                        newMarket.payload.floatingObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_100X
-                        newMarket.payload.floatingObject.arrangementStyle = ARRANGEMENT_STYLE.CONCAVE
-                        newMarket.baseAsset.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_45
-                        newMarket.quotedAsset.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_45
-                        newMarket.baseAsset.payload.floatingObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_100X
-                        newMarket.quotedAsset.payload.floatingObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_100X
-                        newMarket.baseAsset.payload.floatingObject.arrangementStyle = ARRANGEMENT_STYLE.CONCAVE
-                        newMarket.quotedAsset.payload.floatingObject.arrangementStyle = ARRANGEMENT_STYLE.CONCAVE
-                        UI.projects.visualScripting.nodeActionFunctions.attachDetach.referenceAttachNode(newMarket.baseAsset, baseAsset)
-                        UI.projects.visualScripting.nodeActionFunctions.attachDetach.referenceAttachNode(newMarket.quotedAsset, quotedAsset)
-
-                        currentMarkets.set(name, newMarket)
-                    }
+                    currentMarkets.set(name, newMarket)
+                    newUiObjects.push(newMarket)
                 }
             }
+
+            return newUiObjects
         } catch (err) {
             node.payload.uiObject.setErrorMessage('Failed to Fetch Assets from the Exchange')
             console.log(err.stack)
@@ -418,11 +427,11 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                             */
                             let portfolioTasks = UI.projects.visualScripting.utilities.branches.findInBranch(lanNetworkNode, environmentType, node, true)
                             if (portfolioTasks === undefined) {
-                                portfolioTasks = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(lanNetworkNode, environmentType)
+                                portfolioTasks = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(lanNetworkNode, environmentType, undefined, 'Portfolio-Management')
                             }
                             /*
-                             We will make ourselves sure that the Project Portfolio Tasks nodes are there.
-                             */
+                            We will make ourselves sure that the Project Portfolio Tasks nodes are there.
+                            */
                             portfolioTasks.payload.uiObject.menu.internalClick('Add Missing Project Portfolio Tasks')
                             portfolioTasks.payload.uiObject.menu.internalClick('Add Missing Project Portfolio Tasks')
 
@@ -430,7 +439,8 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                                 let projectPortfolioTasks = portfolioTasks.projectPortfolioTasks[i]
                                 projectPortfolioTasks.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_90
 
-                                if (projectPortfolioTasks.project === "Foundations") {
+                                if (projectPortfolioTasks.project === "Foundations" ||
+                                    projectPortfolioTasks.project === "Portfolio-Management") {
                                     installTheRestOfTheBranch(projectPortfolioTasks)
                                 }
                             }
@@ -631,7 +641,8 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                             let projectPortfolioProducts = portfolioMinesData.projectPortfolioProducts[i]
                             projectPortfolioProducts.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_45
 
-                            if (projectPortfolioProducts.project === "Foundations") {
+                            if (projectPortfolioProducts.project === "Foundations" ||
+                                projectPortfolioProducts.project === "Portfolio-Management") {
                                 installTheRestOfTheBranch(projectPortfolioProducts)
                             }
                         }
@@ -685,13 +696,13 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
 
                     for (let i = 0; i < dashboardsArray.length; i++) {
                         /*
-                        If the Dashboard we need is not already there we create a new one. 
+                        If the Dashboard we need is not already there we create a new one.
                         */
                         let arrayItem = dashboardsArray[i]
                         let dashboard = UI.projects.visualScripting.utilities.nodeChildren.findOrCreateChildWithReference(projectDashboards, 'Dashboard', arrayItem.environmentNode)
                         dashboard.name = arrayItem.environmentNode.type + ' ' + arrayItem.lanNetworkNode.name
                         /*
-                        We delete all the existing Time Machines related to the market we are currently installing. 
+                        We delete all the existing Time Machines related to the market we are currently installing.
                         For that, we make a new array with the existing Time Machines so that the deleting
                         of each node does not affect the processing of the whole set.
                         */
@@ -704,7 +715,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                             let timeMachine = timeMachines[i]
                             let session = timeMachine.payload.referenceParent
                             if (session === undefined || session.cleaned === true) {
-                                /* 
+                                /*
                                 This is what usually happens, that the install process make these
                                 time machines to lose their reference parent since the install
                                 process deletes them.
@@ -729,11 +740,11 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                             }
                         }
                         /*
-                        We create a time machine for each session added during the previous processing. 
+                        We create a time machine for each session added during the previous processing.
                         */
                         for (let j = 0; j < arrayItem.sessionsArray.length; j++) {
                             let session = arrayItem.sessionsArray[j]
-                            UI.projects.foundations.nodeActionFunctions.chartingSpaceFunctions.createTimeMachine(dashboard, session, node, arrayItem.lanNetworkNode, rootNodes)
+                            let timeMachine = UI.projects.foundations.nodeActionFunctions.chartingSpaceFunctions.createTimeMachine(dashboard, session, node, arrayItem.lanNetworkNode, rootNodes)
                         }
                     }
                 }
@@ -743,7 +754,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
 
     function uninstallMarket(node, rootNodes) {
 
-        node.payload.uiObject.setInfoMessage('This market is being uninstalled. Please hold on  that it might take a while.')
+        node.payload.uiObject.setInfoMessage('This market is being uninstalled. Please hold on, it might take a while.')
 
         setTimeout(uninstallMarketProcedure, 500)
 
@@ -766,20 +777,25 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                     let timeMachine = timeMachines[i]
                     let session = timeMachine.payload.referenceParent
                     if (session === undefined) { continue }
-                    let marketTradingTasks = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
-                    if (marketTradingTasks === undefined) { continue }
-                    if (marketTradingTasks.payload === undefined) { continue }
-                    if (marketTradingTasks.payload.referenceParent === undefined) { continue }
-                    if (marketTradingTasks.payload.referenceParent.id === market.id) {
-                        UI.projects.visualScripting.nodeActionFunctions.nodeDeleter.deleteUIObject(timeMachine, rootNodes)
+
+                    if (session.project === 'Foundations') {
+                        let marketTradingTasks = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
+                        if (marketTradingTasks === undefined) { continue }
+                        if (marketTradingTasks.payload === undefined) { continue }
+                        if (marketTradingTasks.payload.referenceParent === undefined) { continue }
+                        if (marketTradingTasks.payload.referenceParent.id === market.id) {
+                            UI.projects.visualScripting.nodeActionFunctions.nodeDeleter.deleteUIObject(timeMachine, rootNodes)
+                        }
                     }
 
-                    let marketPortfolioTasks = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(session, 'Market Portfolio Tasks', undefined, true, false, true, false)
-                    if (marketPortfolioTasks === undefined) { continue }
-                    if (marketPortfolioTasks.payload === undefined) { continue }
-                    if (marketPortfolioTasks.payload.referenceParent === undefined) { continue }
-                    if (marketPortfolioTasks.payload.referenceParent.id === market.id) {
-                        UI.projects.visualScripting.nodeActionFunctions.nodeDeleter.deleteUIObject(timeMachine, rootNodes)
+                    if (session.project === 'Portfolio-Management') {
+                        let marketPortfolioTasks = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(session, 'Market Portfolio Tasks', undefined, true, false, true, false)
+                        if (marketPortfolioTasks === undefined) { continue }
+                        if (marketPortfolioTasks.payload === undefined) { continue }
+                        if (marketPortfolioTasks.payload.referenceParent === undefined) { continue }
+                        if (marketPortfolioTasks.payload.referenceParent.id === market.id) {
+                            UI.projects.visualScripting.nodeActionFunctions.nodeDeleter.deleteUIObject(timeMachine, rootNodes)
+                        }
                     }
                 }
 
@@ -788,7 +804,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                 for (let i = 0; i < dashboardArray.length; i++) {
                     let dashboard = dashboardArray[i]
                     if (dashboard.timeMachines.length === 0) {
-                        /* 
+                        /*
                         If possible, after we delete the dashboards, we will also
                         delete the project reference.
                         */
@@ -833,14 +849,14 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                 uninstalMarketArray(marketTradingProductsArray)
                 uninstalMarketArray(marketPortfolioProductsArray)
                 uninstalMarketArray(marketLearningProductsArray)
-
+             
                 function uninstalMarketArray(marketArray) {
                     for (let i = 0; i < marketArray.length; i++) {
                         let marketReference = marketArray[i]
                         if (marketReference.payload === undefined) { continue }
                         if (marketReference.payload.referenceParent === undefined) { continue }
                         if (marketReference.payload.referenceParent.id === market.id) {
-                            /* 
+                            /*
                             If possible, after we delete the market reference, we will also
                             delete the exchange reference.
                             */
@@ -849,7 +865,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                             UI.projects.visualScripting.nodeActionFunctions.nodeDeleter.deleteUIObject(marketReference, rootNodes)
                             if (exchangeReference !== undefined && schemaDocument.propertyNameAtParent !== undefined) {
                                 if (exchangeReference[schemaDocument.propertyNameAtParent].length === 0) {
-                                    /* 
+                                    /*
                                     If possible, after we delete the exchange reference, we will also
                                     delete the project reference.
                                     */

@@ -18,6 +18,16 @@
                 "language": "TR",
                 "text": "Grafik alanı, grafiklerin konfigürasyonunu yöneten, aynı zamanda çizildiği iki boyutlu uzaydır.",
                 "updated": 1639144861164
+            },
+            {
+                "language": "EL",
+                "text": "Ο χώρος χαρτογράφησης είναι η ιεραρχία που διέπει τη διαμόρφωση των γραφημάτων και ο διδιάστατος χώρος στον οποίο σχεδιάζονται τα γραφήματα.",
+                "updated": 1641827845537
+            },
+            {
+                "language": "DE",
+                "text": "Der Charting Space ist die Hierarchie, die die Konfiguration der Diagramme bestimmt, und der zweidimensionale Raum, in dem die Diagramme gezeichnet werden.",
+                "updated": 1641761936760
             }
         ]
     },
@@ -34,6 +44,21 @@
                     "language": "RU",
                     "text": "Думайте о пространстве для графиков как о огромной доске для рисования. У вас может быть много информации, нанесенной на разные части пространства, и вы можете использовать окно просмотра, чтобы заглянуть в это пространство.",
                     "updated": 1638276112302
+                },
+                {
+                    "language": "EL",
+                    "text": "Σκεφτείτε τον χώρο χαρτογράφησης ως έναν τεράστιο πίνακα σχεδίασης. Μπορεί να έχετε πολλές πληροφορίες σχεδιασμένες σε διαφορετικά σημεία του χώρου και να χρησιμοποιήσετε ένα παράθυρο προβολής για να κοιτάξετε σε αυτόν τον χώρο.",
+                    "updated": 1641827864210
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafik alanını büyük bir çizim tahtası olarak düşünün. Alanın farklı kısımlarına işaretlenmiş birçok bilgiye sahip olabilirsiniz ve o alana bakmak için bir görünüm penceresi kullanabilirsiniz.",
+                    "updated": 1641756423162
+                },
+                {
+                    "language": "DE",
+                    "text": "Stellen Sie sich den Charting Space wie ein großes Zeichenbrett vor. Sie können viele Informationen auf verschiedenen Teilen des Raums aufzeichnen und ein Betrachtungsfenster verwenden, um in diesen Raum zu schauen.",
+                    "updated": 1641762000790
                 }
             ]
         },
@@ -45,6 +70,16 @@
                     "language": "RU",
                     "text": "Существует только одна иерархия графического пространства, поэтому здесь настраиваются все диаграммы. Как это часто бывает во всей системе, различные концепции и элементы диаграмм, такие как масштабы, уровни данных и т. Д., Представлены узлами в иерархии. Система обеспечивает большую гибкость в том, как визуализировать информацию на диаграммах, добавляя, конфигурирование и размещение этих узлов.",
                     "updated": 1638276317967
+                },
+                {
+                    "language": "TR",
+                    "text": "Yalnızca bir grafik alanı hiyerarşisi vardır, bu nedenle tüm grafikler burada yapılandırılır. Sistem genelinde yaygın olduğu gibi, ölçekler, veri katmanları vb. gibi grafiklerin farklı kavramları ve öğeleri hiyerarşideki düğümlerle temsil edilir. Sistem, bu düğümleri ekleyerek, yapılandırarak ve düzenleyerek grafikler üzerindeki bilgilerin nasıl görselleştirileceği konusunda büyük esneklik sağlar.",
+                    "updated": 1641756511110
+                },
+                {
+                    "language": "DE",
+                    "text": "Es gibt nur eine Charting-Space-Hierarchie, daher werden alle Diagramme hier konfiguriert. Wie im gesamten System üblich, werden verschiedene Konzepte und Elemente der Diagramme, wie z. B. Skalen, Datenebenen usw., durch Nodes in der Hierarchie dargestellt. Das System ermöglicht eine große Flexibilität bei der Visualisierung von Informationen über die Diagramme durch Hinzufügen, Konfigurieren und Anordnen dieser Nodes.",
+                    "updated": 1641762058533
                 }
             ]
         }

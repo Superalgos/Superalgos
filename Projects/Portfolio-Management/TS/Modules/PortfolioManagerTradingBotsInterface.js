@@ -10,6 +10,7 @@ exports.newPortfolioManagementModulesPortfolioManagerTradingBotsInterface = func
     }
     let portfolioManagedTradingBotsModuleObject
     let portfolioSystemModuleObject
+    let portfolioEngine
 
     return thisObject
 
@@ -26,6 +27,7 @@ exports.newPortfolioManagementModulesPortfolioManagerTradingBotsInterface = func
 
     function processMessage(
         SESSION_KEY,
+        sessionId,
         message
     ) {
         let response
@@ -41,30 +43,35 @@ exports.newPortfolioManagementModulesPortfolioManagerTradingBotsInterface = func
             case 'Check Out Candle': {
                 response = portfolioManagedTradingBotsModuleObject.checkOutCandle(
                     SESSION_KEY,
-                    message.candle
+                    message.candle,
+                    message.tradingEngine
                 )
                 break
             }
             case 'Confirm This Event': {
                 response = portfolioSystemModuleObject.confirmThisEvent(
+                    sessionId,
                     message.event
                 )
                 break
             }
             case 'Set This Event': {
                 response = portfolioSystemModuleObject.setThisEvent(
+                    sessionId,
                     message.event
                 )
                 break
             }
             case 'Confirm This Formula': {
                 response = portfolioSystemModuleObject.confirmThisFormula(
+                    sessionId,
                     message.formula
                 )
                 break
             }
             case 'Set This Formula': {
                 response = portfolioSystemModuleObject.setThisFormula(
+                    sessionId,
                     message.formula
                 )
                 break

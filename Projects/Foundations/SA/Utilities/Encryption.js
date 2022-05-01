@@ -5,8 +5,7 @@ exports.newFoundationsUtilitiesEncryption = function () {
         encrypt: encrypt,
         decrypt: decrypt
     }
-
-    const crypto = require('crypto')
+    
     const algorithm = 'aes-256-ctr'
     const IV_LENGTH = 16
 
@@ -18,6 +17,7 @@ exports.newFoundationsUtilitiesEncryption = function () {
     }
 
     function encrypt(text, password) {
+        const crypto = SA.nodeModules.crypto
         const iv = crypto.randomBytes(IV_LENGTH)
         const cipher = crypto.createCipheriv(algorithm, Buffer.concat([Buffer.from(password), Buffer.alloc(32)], 32), iv)
         let encrypted = cipher.update(text)
@@ -26,6 +26,7 @@ exports.newFoundationsUtilitiesEncryption = function () {
     }
 
     function decrypt(text, password) {
+        const crypto = SA.nodeModules.crypto
         const textParts = text.split(':')
         const iv = Buffer.from(textParts.shift(), 'hex')
         let encryptedText = Buffer.from(textParts.join(':'), 'hex')

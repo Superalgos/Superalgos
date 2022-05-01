@@ -2,13 +2,27 @@
     "type": "Kernel Regularizer",
     "definition": {
         "text": "Regularizer function applied to the kernel weights matrix.",
-        "updated": 1613244470025
+        "updated": 1613244470025,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Функция регуляризатора, применяемая к матрице весов ядра.",
+                "updated": 1645248312869
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Subtitle",
             "text": "Possible Values",
-            "updated": 1613244479696
+            "updated": 1613244479696,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Возможные значения",
+                    "updated": 1645248318348
+                }
+            ]
         },
         {
             "style": "Javascript",

@@ -1,0 +1,149 @@
+{
+    "type": "Social Trading Bot",
+    "definition": {
+        "text": "Social Trading Bots are a new kind of bot used within the Trading Signals process. A Social Trading Bot is the main interface between a signal provider and recipient.",
+        "updated": 1643080425503,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Social Trading Bot - это новый вид ботов, используемых в процессе торговли сигналами. Social Trading Bot - это основной интерфейс между поставщиком и получателем сигнала.",
+                "updated": 1645194866228
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1643080459294
+        },
+        {
+            "style": "Text",
+            "text": "A basic way to think about a Social Trading Bot is as a collection of signals, as well as all the information a recipient will need in order to subscribe and receive those signals.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Основной способ представить себе социального торгового бота - это коллекция сигналов, а также вся информация, необходимая получателю для подписки и получения этих сигналов.",
+                    "updated": 1645194881380
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Each Social Trading Bot defines the following information:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Каждый Social Trading Bot определяет следующую информацию:",
+                    "updated": 1645194889761
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "The bot’s Signing Account.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Регистрационная учетная запись бота.",
+                    "updated": 1645194914168
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Available Signals provided by this bot.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Available Signals (\"Доступные сигналы\"), предоставляемые этим ботом.",
+                    "updated": 1645194943224
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "The location of open storage where signal content is saved.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Расположение открытого хранилища, в котором сохраняется содержимое сигнала.",
+                    "updated": 1645194954807
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Other Social Trading Bots Followed.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "За ним следуют другие социальные торговые боты.",
+                    "updated": 1645194970321
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "These Social Trading Bots are defined under the User Profile of the provider. Since they live within the provider’s profile and can be referenced by recipients, the Social Trading Bot is the only interface between the provider and and the recipient. This means that only signal data is shared, no other sensitive data or configuration details are vulnerable on the network or saved publicly.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Эти социальные торговые боты определяются в профиле пользователя провайдера. Поскольку они находятся в профиле провайдера и на них могут ссылаться получатели, социальный торговый бот является единственным интерфейсом между провайдером и получателем. Это означает, что обмен осуществляется только сигнальными данными, никакие другие конфиденциальные данные или детали конфигурации не уязвимы в сети и не сохраняются в открытом доступе.",
+                    "updated": 1645195002013
+                }
+            ]
+        },
+        {
+            "style": "Block",
+            "text": "Configuration",
+            "updated": 1643080584759
+        },
+        {
+            "style": "Title",
+            "text": "Social Trading Bot Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Social Trading Bot",
+                    "updated": 1645195020248
+                }
+            ]
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1643399791705,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1645195032403
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "codeName This is the name this bot will use internally within the user's instance of the Superalgos Platform.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "codeName Это имя, которое бот будет использовать внутри пользовательского экземпляра платформы Superalgos.",
+                    "updated": 1645195041827
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "<code class=\"docs-code\">handle</code> This is the name this bot will use on the Superalgos peer to peer network.",
+            "updated": 1642907895972,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "handle Это имя, которое бот будет использовать в одноранговой сети Superalgos.",
+                    "updated": 1645195052522
+                }
+            ]
+        }
+    ]
+}

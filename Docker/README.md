@@ -55,7 +55,7 @@ Docker should automatically start after installation. If you don't see the whale
 
 ### Linux and BSD
 
-On Linux and BSD systems, Docker can be installed using the preferred package manager. [Step by step instructions for many different distributions](https://docs.docker.com/engine/install/debian/) of Linux can be found in the official Docker Docs. Since [Superalgos](https://github.com/Superalgos/Superalgos) runs well on Raspberry Pi 4 single-board computers, I'm going to illustrate the commands necessary to run [Superalgos](https://github.com/Superalgos/Superalgos) on the Raspbian Linux distribution.
+On Linux and BSD systems, Docker can be installed using the preferred package manager. [Step by step instructions for many different distributions](https://docs.docker.com/engine/install/) of Linux can be found in the official Docker Docs. Since [Superalgos](https://github.com/Superalgos/Superalgos) runs well on Raspberry Pi 4 single-board computers, I'm going to illustrate the commands necessary to run [Superalgos](https://github.com/Superalgos/Superalgos) on the Raspbian Linux distribution.
 
 ```shell
 # install the requirements
@@ -67,10 +67,10 @@ sudo apt-get install \
     gnupg \
     lsb-release
 
-# add the gpg keys to verify the packages
+# add the gpg keys to verify the packages (get the code for your distro at https://docs.docker.com/engine/install/)
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 
-# configure the official repository
+# configure the official repository (get the code for your distro at https://docs.docker.com/engine/install/)
 echo \
   "deb [arch=arm64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
@@ -101,7 +101,7 @@ We'll need to expose some ports so we can actually connect to it from our browse
 
 ```shell
 # create the data directories
-mkdir -p My-Data-Storage My-Log-Files My-Workspaces
+mkdir -p My-Data-Storage My-Log-Files My-Workspaces My-Network-Nodes-Data My-Social-Trading-Data
 
 # run the container with the extra options
 docker run \
@@ -114,6 +114,8 @@ docker run \
   -v $(pwd)/My-Data-Storage:/app/Platform/My-Data-Storage \
   -v $(pwd)/My-Log-Files:/app/Platform/My-Log-Files \
   -v $(pwd)/My-Workspaces:/app/Platform/My-Workspaces \
+  -v $(pwd)/My-Network-Nodes-Data:/app/Platform/My-Network-Nodes-Data \
+  -v $(pwd)/My-Social-Trading-Data:/app/Platform/My-Social-Trading-Data \
   ghcr.io/superalgos/superalgos:latest
 ```
 
@@ -138,6 +140,8 @@ docker run \
   -v $(pwd)/My-Data-Storage:/app/Platform/My-Data-Storage \
   -v $(pwd)/My-Log-Files:/app/Platform/My-Log-Files \
   -v $(pwd)/My-Workspaces:/app/Platform/My-Workspaces \
+  -v $(pwd)/My-Network-Nodes-Data:/app/Platform/My-Network-Nodes-Data \
+  -v $(pwd)/My-Social-Trading-Data:/app/Platform/My-Social-Trading-Data \
   ghcr.io/superalgos/superalgos:latest
 ```
 
@@ -172,13 +176,15 @@ services:
       - ./My-Data-Storage:/app/Platform/My-Data-Storage
       - ./My-Log-Files:/app/Platform/My-Log-Files
       - ./My-Workspaces:/app/Platform/My-Workspaces
+      - ./My-Network-Nodes-Data:/app/Platform/My-Network-Nodes-Data
+      - ./My-Social-Trading-Data:/app/Platform/My-Social-Trading-Data
     restart: on-failure
 ```
 
 You can see we have the same ports and volumes mapped. We also get a few extra settings like `command`, `environment`, and `restart`.
 
 - `command` adds an extra setting to the main startup, so the application ends up running with the full command `node platform noBrowser minMemo`. The base of that command is defined as the `ENTRYPOINT` in the `Dockerfile` that builds the container.
-- `user` defines the UID and GID the container should run as so that the data can be persisted with the correct permissions in the My-Data-Storage, My-Log-Files, and My-Workspaces directories that we created on the host. If you leave this out, the container will use the built in `superalgos` user which has `uid: 1001` and `gid: 1001`.  Instead of using variables, you could also hard-code these UID and GID numbers into the configuration.
+- `user` defines the UID and GID the container should run as so that the data can be persisted with the correct permissions in the My-Data-Storage, My-Log-Files, and My-Workspaces directories that we created on the host. If you leave this out, the container will use the built in `superalgos` user which has `uid: 1001` and `gid: 1001`.  Instead of using variables, you could also hard-code these UID and GID numbers into the configuration. You may have to tweak the My* folders permissions (chmod -R 777 M* and/or chgrp -R docker M*) if Superalgos throw an error when saving workspaces
 - `restart` tells Docker to restart the container if an error occurs.
 
 Save the file and exit the editor. If you are using `vim`, hit escape and then type `:wq!` or press `shift + Z + Z` (two capital Z's).

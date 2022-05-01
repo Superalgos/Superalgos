@@ -1,0 +1,152 @@
+{
+    "topic": "Polus Data Mine",
+    "pageNumber": "2",
+    "type": "Fisher MFI",
+    "definition": {
+        "text": "The Fisher MFI - this indicator normalizes price and volume action into a gaussian normal disctibution. This version of the Fisher Transform uses money flow index (MFI) as a base of calculations instead of just the price action.",
+        "updated": 1622686933380,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Fisher MFI - этот индикатор нормализует действия цены и объема в гауссову нормальную дисциплинку. Эта версия преобразования Фишера использует индекс денежного потока (MFI) в качестве основы для расчетов вместо простого ценового действия.",
+                "updated": 1645714720069
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Fisher MFI on the Charts",
+            "updated": 1622481793076,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Fisher MFI на графиках",
+                    "updated": 1645714725119
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "A technical indicator created by John F. Ehlers that converts prices into a Gaussian normal distribution. The indicator highlights when prices have moved to an extreme, based on recent prices. This may help in spotting turning points in the price of an asset. It also helps show the trend and isolate the price waves within a trend.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Технический индикатор, созданный Джоном Ф. Элерсом, который преобразует цены в гауссово нормальное распределение. Индикатор выделяет моменты, когда цены переходят в экстремальное положение, основываясь на последних ценах. Это может помочь в определении поворотных точек в цене актива. Он также помогает показать тренд и выделить ценовые волны в рамках тренда.",
+                    "updated": 1645714730724
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "This technical indicator is commonly used by traders looking for leading signals, rather than lagging indicators.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Этот технический индикатор обычно используется трейдерами, которые ищут опережающие сигналы, а не запаздывающие индикаторы.",
+                    "updated": 1645714735257
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "Fisher Transform - (investopedia)->www.investopedia.com/terms/f/fisher-transform.asp"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-Fisher-MFI.png",
+            "updated": 1611661370646
+        },
+        {
+            "style": "Text",
+            "text": "The length of the fisher transform calculation, as well as the sampling sice can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under ’Fisher MFI’ Product Definition.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Период расчета преобразования Фишера, а также размер выборки можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Loop под продуктом 'Fisher MFI' Product Definition.",
+                    "updated": 1645714754001
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-Fisher-MFI-params.png",
+            "updated": 1611673329568
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты и свойства",
+                    "updated": 1645714759222
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Доступны следующие свойства:",
+                    "updated": 1645714765585
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Fisher MFI | Fisher-MFI | fish, trig |",
+            "updated": 1636853769
+        },
+        {
+            "style": "Text",
+            "text": "Example:",
+            "updated": 1611661674316,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пример:",
+                    "updated": 1645714771547
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The Fisher MFI could be used to generate a buy signal when the Fisher line crosses the trigger line after an extreme low.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Fisher MFI можно использовать для генерирования сигнала на покупку, когда линия Фишера пересекает линию триггера после экстремального минимума.",
+                    "updated": 1645714799069
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at04hs.Fisher-MFI.fish > chart.at04hs.Fisher-MFI.trig && chart.at04hs.Fisher-MFI.fish < 1",
+            "updated": 1636853769
+        },
+        {
+            "style": "Text",
+            "text": "To increase confirmation confidence, this indicator can be paired with other indicators such as Parabolic SAR or Bollinger Bands.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для повышения достоверности подтверждения этот индикатор можно использовать в паре с другими индикаторами, такими как Parabolic SAR или Bollinger Bands.",
+                    "updated": 1645714805372
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:",
+            "updated": 1622481793076
+        },
+        {
+            "style": "Link",
+            "text": "@ThomasHuault (Telegram)->t.me/ThomasHuault"
+        }
+    ]
+}

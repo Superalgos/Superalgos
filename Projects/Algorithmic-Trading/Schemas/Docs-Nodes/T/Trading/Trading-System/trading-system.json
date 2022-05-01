@@ -22,6 +22,11 @@
                 "language": "TR",
                 "text": "Bir ticaret sistemi, ticaret stratejilerini uygulamak ve dağıtmak için kullanılan süreçleri ve yöntemleri yapılandırmaya hizmet eden düşük seviyeli mantığı işleyen bir sistemdir.",
                 "updated": 1639144651527
+            },
+            {
+                "language": "EL",
+                "text": "Ένα σύστημα συναλλαγών είναι ένα πλαίσιο που χειρίζεται τη λογική θεμελιώδους επιπέδου που χρησιμεύει στη δομή των διαδικασιών και των μεθόδων που χρησιμοποιούνται για την εφαρμογή και την ανάπτυξη στρατηγικής συναλλαγών.",
+                "updated": 1641827933473
             }
         ]
     },
@@ -43,6 +48,21 @@
                     "language": "RU",
                     "text": "С практической точки зрения торговая система - это иерархическая структура, организующая практические аспекты вашего инвестиционного плана. Иерархия содержит определения относительно любого количества торговых стратегий, работающих на одном рынке и имеющих одинаковое начальное распределение капитала.",
                     "updated": 1638338066276
+                },
+                {
+                    "language": "TR",
+                    "text": "Pratik anlamda, bir ticaret sistemi, yatırım planınızın uygulanabilir yönlerini düzenleyen hiyerarşik bir düzenlemedir. Hiyerarşi, tümü aynı piyasada faaliyet gösteren ve aynı başlangıç sermaye tahsisini paylaşan herhangi bir sayıda ticaret stratejisine ilişkin tanımları içerir.",
+                    "updated": 1642513001705
+                },
+                {
+                    "language": "EL",
+                    "text": "Πρακτικά, ένα σύστημα συναλλαγών είναι μια ιεραρχική ρύθμιση που οργανώνει τις δραστικές πτυχές του επενδυτικού σας σχεδίου. Η ιεραρχία περιέχει ορισμούς σχετικά με οποιονδήποτε αριθμό στρατηγικής συναλλαγών, όλες λειτουργούν στην ίδια αγορά και μοιράζονται την ίδια αρχική κατανομή κεφαλαίου.",
+                    "updated": 164182796164
+                },
+                {
+                    "language": "DE",
+                    "text": "In der Praxis ist ein Handelssystem eine hierarchische Anordnung, die die umsetzbaren Aspekte Ihres Investitionsplans organisiert. Die Hierarchie enthält Definitionen für eine beliebige Anzahl von Handelsstrategien, die alle auf demselben Markt operieren und dieselbe anfängliche Kapitalzuweisung teilen.",
+                    "updated": 1641657276395
                 }
             ]
         },
@@ -59,6 +79,21 @@
                     "language": "RU",
                     "text": "Вы используете торговую систему для определения стратегий, следуя протоколу Superalgos, разбивая стратегии на четыре стадии (этапа, ступени, фазы): срабатывание, открытие, управление и закрытие.",
                     "updated": 1640191081570
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos Protokolünü takip eden stratejileri tanımlamak, stratejileri dört aşamaya ayırmak için bir ticaret sistemi kullanırsınız. Bu aşamalar  Trigger, Open, Manage, and Close aşamalarıdır..",
+                    "updated": 1642513118816
+                },
+                {
+                    "language": "EL",
+                    "text": "Χρησιμοποιείτε ένα σύστημα συναλλαγών για να ορίσετε στρατηγικές ακολουθώντας το Πρωτόκολλο Superalgos, χωρίζοντας τις στρατηγικές σε τέσσερα στάδια: ενεργοποίηση, άνοιγμα, διαχείριση και κλείσιμο.",
+                    "updated": 1641827976391
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie verwenden ein Handelssystem, um Strategien nach dem Superalgos-Protokoll zu definieren, das die Strategien in vier Phasen unterteilt: Auslösen (trigger), Öffnen (open), Verwalten (manage) und Schließen (close).",
+                    "updated": 1641657258431
                 }
             ]
         },
@@ -75,6 +110,21 @@
                     "language": "RU",
                     "text": "Концепция поэтапного описания стратегий является фундаментальной для методического аспекта торговой системы, поскольку она обеспечивает основу для запуска каждой стратегии с одной и той же структурой, что способствует разработке масштабируемых торговых систем, которые могут расширяться до любого количества стратегий.",
                     "updated": 1638338107057
+                },
+                {
+                    "language": "TR",
+                    "text": "Stratejileri aşamalar halinde tanımlama kavramı, her stratejiyi aynı çerçeve ile yürütmek için bir çerçeve sağladığından ve herhangi bir sayıda stratejiye dönüşebilecek ölçeklenebilir ticaret sistemlerinin geliştirilmesine katkıda bulunduğundan, ticaret sisteminin metodik yönü için esastır.",
+                    "updated": 1642513147547
+                },
+                {
+                    "language": "EL",
+                    "text": "Η ιδέα της περιγραφής των στρατηγικών σταδιακά είναι θεμελιώδης για τη μεθοδική πτυχή του συστήματος συναλλαγών, καθώς παρέχει ένα πλαίσιο για την εκτέλεση κάθε στρατηγικής με το ίδιο πλαίσιο, το οποίο συμβάλλει στην ανάπτυξη κλιμακούμενων συστημάτων συναλλαγών που μπορούν να αναπτυχθούν σε οποιονδήποτε αριθμό στρατηγικών.",
+                    "updated": 1641828013314
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Konzept der stufenweisen Beschreibung von Strategien ist für den methodischen Aspekt des Handelssystems von grundlegender Bedeutung, da es einen Rahmen bietet, um jede Strategie mit demselben Rahmen auszuführen, was zur Entwicklung skalierbarer Handelssysteme beiträgt, die auf eine beliebige Anzahl von Strategien anwachsen können.",
+                    "updated": 1641657292077
                 }
             ]
         },
@@ -91,6 +141,21 @@
                     "language": "RU",
                     "text": "Когда торговая система использует более одной стратегии, первая стратегия имеет приоритет над второй, вторая над третьей и так далее. Это означает, что стратегии оцениваются последовательно. Когда данная стратегия срабатывает, оставшиеся в очереди стратегии больше не оцениваются, пока стратегия не сработает. Другими словами, когда несколько стратегий развернуты в одной торговой системе, только одна стратегия может торговать в любой момент времени, а приоритет отдается порядку, установленному вокруг узла торговой системы.",
                     "updated": 1638338139127
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir ticaret sistemi birden fazla stratejiye sahip olduğunda, birinci strateji ikinciye, ikinci strateji üçüncüye göre önceliğe sahiptir ve bu böyle devam eder. Bu, stratejilerin bir sırayla değerlendirildiği anlamına gelir. Belirli bir strateji tetiklendiğinde, kuyrukta kalan stratejiler, strateji tetiklenene kadar artık değerlendirilmez. Başka bir deyişle, tek bir ticaret sistemi içinde birden fazla strateji konuşlandırıldığında, herhangi bir anda yalnızca bir strateji ticaret yapabilir ve ticaret sistemi düğümü etrafındaki sipariş tarafından öncelik verilir.",
+                    "updated": 1642513191527
+                },
+                {
+                    "language": "EL",
+                    "text": "Όταν ένα σύστημα συναλλαγών διαθέτει περισσότερες από μία στρατηγικές, η πρώτη στρατηγική έχει προτεραιότητα έναντι της δεύτερης, η δεύτερη έναντι της τρίτης και ούτω καθεξής. Αυτό σημαίνει ότι οι στρατηγικές αξιολογούνται με μια σειρά. Όταν μια δεδομένη στρατηγική ενεργοποιείται, οι υπόλοιπες στρατηγικές στην ουρά δεν αξιολογούνται πλέον μέχρι να ενεργοποιηθεί η στρατηγική. Με άλλα λόγια, όταν αναπτύσσονται πολλαπλές στρατηγικές σε ένα μόνο σύστημα συναλλαγών, μόνο μία στρατηγική μπορεί να διαπραγματεύεται κάθε δεδομένη στιγμή και η προτεραιότητα δίνεται από τη σειρά γύρω από τον κόμβο του συστήματος συναλλαγών.",
+                    "updated": 1641828042117
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn ein Handelssystem mehr als eine Strategie enthält, hat die erste Strategie Vorrang vor der zweiten, die zweite vor der dritten und so weiter. Dies bedeutet, dass die Strategien in einer bestimmten Reihenfolge ausgewertet werden. Wenn eine bestimmte Strategie ausgelöst wird, werden die übrigen Strategien in der Warteschlange nicht mehr ausgewertet, bis die Strategie ausgelöst wird. Mit anderen Worten: Wenn mehrere Strategien in einem einzigen Handelssystem eingesetzt werden, kann zu einem bestimmten Zeitpunkt nur eine Strategie gehandelt werden, und der Vorrang ergibt sich aus der Reihenfolge um den Knoten des Handelssystems.",
+                    "updated": 1641657320329
                 }
             ]
         },
@@ -107,6 +172,21 @@
                     "language": "RU",
                     "text": "Как следствие вышесказанного, если вы хотите, чтобы стратегии работали на разных рынках, или вы хотите, чтобы стратегии могли открывать позиции одновременно, вы должны настроить эти стратегии в разных торговых системах.",
                     "updated": 1638338156830
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarıdakilerin bir sonucu olarak, stratejilerin farklı pazarlarda işlemesini veya stratejilerin aynı anda pozisyon alabilmesini istiyorsanız, bu stratejileri farklı ticaret sistemlerinde kurmalısınız.",
+                    "updated": 1642513209866
+                },
+                {
+                    "language": "EL",
+                    "text": "Ως συνέπεια των παραπάνω, εάν επιθυμείτε οι στρατηγικές να λειτουργούν σε διαφορετικές αγορές ή θέλετε οι στρατηγικές να μπορούν να λαμβάνουν θέσεις ταυτόχρονα, τότε πρέπει να ρυθμίσετε αυτές τις στρατηγικές σε διαφορετικά συστήματα συναλλαγών.",
+                    "updated": 1641828054664
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie also möchten, dass Strategien auf verschiedenen Märkten operieren oder gleichzeitig Positionen eingehen können, müssen Sie diese Strategien in verschiedenen Handelssystemen einrichten.",
+                    "updated": 1641657362414
                 }
             ]
         }

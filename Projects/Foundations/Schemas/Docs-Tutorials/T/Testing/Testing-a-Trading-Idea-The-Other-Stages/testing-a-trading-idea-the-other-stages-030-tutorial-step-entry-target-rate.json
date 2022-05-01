@@ -14,6 +14,16 @@
                 "language": "DE",
                 "text": "Wir befinden uns im Bereich Current > Position der Trading Engine und links davon der Knoten Entry Target Rate!",
                 "updated": 1639400148800
+            },
+            {
+                "language": "TR",
+                "text": "Ticaret Motoru ( Trading Engine ) alanının Mevcut> Konumunda (Position ) ve solunda Giriş Hedef Oranı ( Entry Target Rate ) düğümündeyiz!",
+                "updated": 1641749210211
+            },
+            {
+                "language": "RU",
+                "text": "Мы находимся в разделе Current > Position в Trading Engine и, слева от вас, узел Entry Target Rate!",
+                "updated": 1642941993141
             }
         ]
     },
@@ -26,6 +36,16 @@
                     "language": "DE",
                     "text": "Kopieren Sie den Knotenpfad aus dem Menü!",
                     "updated": 1639400155815
+                },
+                {
+                    "language": "TR",
+                    "text": "Menüden düğüm yolunu kopyalayın!",
+                    "updated": 1641749220610
+                },
+                {
+                    "language": "RU",
+                    "text": "Скопируйте путь узла из меню!",
+                    "updated": 1642942001363
                 }
             ]
         },
@@ -38,6 +58,16 @@
                     "language": "DE",
                     "text": "Jetzt fügen wir 3% zum Wert des Knotens hinzu:",
                     "updated": 1639400161870
+                },
+                {
+                    "language": "TR",
+                    "text": "Şimdi düğümün değerine %3 ekleyelim:",
+                    "updated": 1641749232477
+                },
+                {
+                    "language": "RU",
+                    "text": "Теперь добавим 3% к значению узла:",
+                    "updated": 1642942010113
                 }
             ]
         },
@@ -54,6 +84,16 @@
                     "language": "DE",
                     "text": "Verwenden Sie die obige Formel für den Stop Loss der Phase #1!",
                     "updated": 1639400181253
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Devam edin ve 1. Aşama ( Phase ) durdurma kaybı formülü için yukarıdakileri kullanın!",
+                    "updated": 1641749423675
+                },
+                {
+                    "language": "RU",
+                    "text": "Используйте вышеприведенную формулу для формулы стоп-лосса Phase #1!",
+                    "updated": 1642942026928
                 }
             ]
         }

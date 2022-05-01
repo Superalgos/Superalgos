@@ -14,6 +14,16 @@
                 "language": "DE",
                 "text": "Tippen Sie erneut auf die Fehlerkugel und beachten Sie, wie sich der design space an dem Knoten neu positioniert, der am meisten mit dem Fehler zu tun hat, in diesem Fall ein Bedingungsknoten. Dies ist eine wichtige Information!",
                 "updated": 1639267705419
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Hata topuna tekrar dokunun ve tasarım alanının hata ile en çok ilgisi olan düğüme nasıl yeniden konumlandığını fark edin; bu durum bir koşul ( Condition ) düğümü. Bu önemli bir bilgi!",
+                "updated": 1641660658243
+            },
+            {
+                "language": "RU",
+                "text": "Снова коснитесь символа ошибки и обратите внимание, как пространство проектирования переместится в узел, наиболее связанный с ошибкой, в данном случае это узел Condition. Это очень важная информация!",
+                "updated": 1642657243264
             }
         ]
     },
@@ -27,6 +37,16 @@
                     "language": "DE",
                     "text": "Überprüfen Sie den Bedingungsknoten (Condition Node)!",
                     "updated": 1639267723901
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Durum ( Condition Node ) Düğümünü kontrol edin!",
+                    "updated": 1641660677597
+                },
+                {
+                    "language": "RU",
+                    "text": "Проверьте этот узел!",
+                    "updated": 1642657276531
                 }
             ]
         },
@@ -38,6 +58,16 @@
                     "language": "DE",
                     "text": "Bis jetzt haben wir gute Informationen über:",
                     "updated": 1639267734609
+                },
+                {
+                    "language": "TR",
+                    "text": "Şimdiye kadar aşağıdaki konularda iyi bilgilere sahibiz:",
+                    "updated": 1641660690874
+                },
+                {
+                    "language": "RU",
+                    "text": "На данный момент мы получили отличную информацию о следующем:",
+                    "updated": 1642657323025
                 }
             ]
         },
@@ -49,6 +79,16 @@
                     "language": "DE",
                     "text": "wann der Fehler aufgetreten ist;",
                     "updated": 1639267741300
+                },
+                {
+                    "language": "TR",
+                    "text": "hata oluştuğunda;",
+                    "updated": 1641660714467
+                },
+                {
+                    "language": "RU",
+                    "text": "когда произошла ошибка;",
+                    "updated": 1642657334521
                 }
             ]
         },
@@ -60,6 +100,16 @@
                     "language": "DE",
                     "text": "worum es sich bei dem Fehler handelt;",
                     "updated": 1639267746964
+                },
+                {
+                    "language": "TR",
+                    "text": "hata nedir;",
+                    "updated": 1641660726955
+                },
+                {
+                    "language": "RU",
+                    "text": "в чем заключается ошибка;",
+                    "updated": 1642657345700
                 }
             ]
         },
@@ -71,6 +121,16 @@
                     "language": "DE",
                     "text": "und wo er aufgetreten ist!",
                     "updated": 1639267752727
+                },
+                {
+                    "language": "TR",
+                    "text": "ve nerede ortaya çıktı!",
+                    "updated": 1641660735809
+                },
+                {
+                    "language": "RU",
+                    "text": "и где это произошло!",
+                    "updated": 1642657356250
                 }
             ]
         },
@@ -83,6 +143,16 @@
                     "language": "DE",
                     "text": "Es scheint, als hätten wir alle Teile des Puzzles! Nehmen wir uns nun ein paar Minuten Zeit, um die Beweise zu analysieren!",
                     "updated": 1639267760509
+                },
+                {
+                    "language": "TR",
+                    "text": "Bulmacanın tüm parçaları elimizde gibi görünüyor! Şimdi kanıtları analiz etmek için birkaç dakika ayıralım!",
+                    "updated": 1641660747606
+                },
+                {
+                    "language": "RU",
+                    "text": "Кажется, что у нас есть все кусочки головоломки! Давайте потратим несколько минут на анализ улик!",
+                    "updated": 1642657375243
                 }
             ]
         }

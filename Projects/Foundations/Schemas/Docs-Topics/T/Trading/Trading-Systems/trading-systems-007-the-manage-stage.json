@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Стадия управления Manage Stage - это этап, на котором вы определяете, как осуществляется управление позициями с момента принятия решения о занятии позиции до момента принятия решения о выходе из позиции.",
                 "updated": 1639846779111
+            },
+            {
+                "language": "TR",
+                "text": "Yönetim Aşaması (Manage Stage), pozisyon alma kararının verildiği andan pozisyondan ayrılma kararının alındığı ana kadar pozisyonların nasıl yönetildiğini tanımladığınız yerdir.",
+                "updated": 1642428295236
             }
         ]
     },
@@ -40,7 +45,14 @@
         {
             "style": "Title",
             "text": "Managed Stop Loss",
-            "updated": 1610199422482
+            "updated": 1610199422482,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Zarar Durdur Yönetimi ( Managed Stop Loss )",
+                    "updated": 1647851341686
+                }
+            ]
         },
         {
             "style": "Include",
@@ -55,7 +67,14 @@
         {
             "style": "Title",
             "text": "Managed Take Profit",
-            "updated": 1610199457335
+            "updated": 1610199457335,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Kar Al Yönetimi",
+                    "updated": 1647851377457
+                }
+            ]
         },
         {
             "style": "Include",

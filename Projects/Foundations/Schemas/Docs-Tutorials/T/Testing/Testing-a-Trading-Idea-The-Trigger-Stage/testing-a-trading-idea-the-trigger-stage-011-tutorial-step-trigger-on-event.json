@@ -14,6 +14,16 @@
                 "language": "DE",
                 "text": "Das Trigger On Event definiert die Marktsituation, in der die Trading Strategy ausgelöst werden soll.",
                 "updated": 1639261670353
+            },
+            {
+                "language": "RU",
+                "text": "Событие Trigger On Event определяет рыночную ситуацию, в которой должна сработать торговая стратегия.",
+                "updated": 1640934430429
+            },
+            {
+                "language": "TR",
+                "text": "Tetikleme Olayı ( Trigger On Event ), Ticaret Stratejisinin ( Trading Strategy ) tetikleneceği piyasa Durumunu tanımlar.",
+                "updated": 1641652333999
             }
         ]
     },
@@ -26,6 +36,16 @@
                     "language": "DE",
                     "text": "Lassen Sie uns die grundlegenden Konzepte auffrischen! Die Auslösung einer Strategie hat zwei Hauptauswirkungen:",
                     "updated": 1639261679810
+                },
+                {
+                    "language": "RU",
+                    "text": "Давайте освежим в памяти основные понятия! Срабатывание стратегии имеет два основных последствия:",
+                    "updated": 1640934451294
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel kavramları yenileyelim! Bir stratejinin tetiklenmesinin iki ana unsuru vardır.",
+                    "updated": 1641652360560
                 }
             ]
         },
@@ -38,6 +58,16 @@
                     "language": "DE",
                     "text": "Die Strategie wird unter den anderen Strategien im Trading System ausgewählt und erhält das für die Handelssitzung verfügbare Kapital zugewiesen. Dies ist wichtig, weil wir schließlich zwei Strategien im Trading System haben werden!",
                     "updated": 1639261689023
+                },
+                {
+                    "language": "RU",
+                    "text": "Стратегия выбирается среди других стратегий в торговой системе, и ей присваивается капитал, доступный для торговой сессии. Это важно, потому что в конечном итоге у нас будет две стратегии в торговой системе!",
+                    "updated": 1640934472974
+                },
+                {
+                    "language": "TR",
+                    "text": "Strateji, Ticaret Sistemi'ndeki ( Trading System ) diğer stratejiler arasından seçilir ve işlem oturumu için mevcut sermayeye atanır. Bu önemlidir, çünkü sonunda ticaret sisteminde iki stratejimiz olacak!",
+                    "updated": 1641652374968
                 }
             ]
         },
@@ -49,6 +79,16 @@
                     "language": "DE",
                     "text": "Sobald eine Strategie ausgelöst wird, beginnt der Trading-Bot mit der Auswertung des Take Position Events und des Trigger Off Events. Wenn eines dieser beiden Ereignisse zutrifft, verlässt die Strategie die Trigger Stage!",
                     "updated": 1639261710206
+                },
+                {
+                    "language": "RU",
+                    "text": "Как только стратегия срабатывает, торговый бот начинает оценивать события Take Position Event и Trigger Off Event. Когда любое из этих двух событий подтверждается, стратегия выходит из стадии срабатывания (Trigger Stage)!",
+                    "updated": 1640934516669
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir strateji tetiklenir tetiklenmez, ticaret botu pozisyon alma olayını ( Take Position Event ) ve tetikleme olayını ( Trigger Off Event ) değerlendirmeye başlar. Bu iki olaydan biri gerçekleşirse strateji tetikleme aşamasından ( Trigger Stage ) çıkar!",
+                    "updated": 1641652389370
                 }
             ]
         }

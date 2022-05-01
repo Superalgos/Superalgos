@@ -4,13 +4,35 @@
     "type": "Gov Message - Paying Contributors",
     "definition": {
         "text": "The process to pay contributors has been started. Hold on!",
-        "translations": []
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Процесс выплаты за ваши вклады в проект начался. Подождите!",
+                "updated": 1645626989935
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Katkıda bulunanlara ödeme süreci başlatıldı. bekle!",
+                "updated": 1646741214197
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Success",
             "text": "You will soon get a notice informing you whether the process succeed to pay all contributors or not.",
-            "translations": [],
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вскоре вы получите уведомление, информирующее вас о том, удалось ли в ходе процесса выплатить все вклады или нет.",
+                    "updated": 1645627009224
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Yakında, sürecin tüm katkıda bulunanlara ödeme yapıp yapmadığını bildiren bir bildirim alacaksınız.",
+                    "updated": 1646741229539
+                }
+            ],
             "updated": 1627203557237
         }
     ]

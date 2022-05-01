@@ -25,6 +25,11 @@
                 "language": "DE",
                 "text": "Superalgos ist ein von der Gemeinschaft betriebenes Projekt, kein VC-finanziertes Startup! Wir zählen auf Ihre Hilfe bei der Mund-zu-Mund-Propaganda!",
                 "updated": 1640080438599
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos, herhangi biri ya da bir şirket tarafından finanse edilen bir proje değil, topluluk tarafından yürütülen bir projedir! Ağızdan ağza pazarlama konusunda bize yardımcı olacağınıza güveniyoruz!",
+                "updated": 1645100205504
             }
         ]
     },
@@ -44,6 +49,11 @@
                     "language": "DE",
                     "text": "Die Anreize, Ihre Freunde, Kollegen oder Ihre Anhängerschaft mitzubringen, sind beträchtlich! Unten finden Sie eine kurze Erklärung, und wenn Sie möchten, können Sie rechts in die Details eintauchen!",
                     "updated": 1640080454958
+                },
+                {
+                    "language": "TR",
+                    "text": "Arkadaşlarınızı, meslektaşlarınızı veya takipçilerinizi getirdiğinizde alacağınız teşvikler önemlidir! Aşağıdaki kısa açıklamaya bakın ya da dilerseniz sağdaki ayrıntılara dalın!",
+                    "updated": 1645100254487
                 }
             ]
         },
@@ -67,6 +77,11 @@
                     "language": "DE",
                     "text": "Dies ist die Kurzversion, wie diese Programme funktionieren:",
                     "updated": 1640080463311
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu programların nasıl çalıştığının kısa versiyonu:",
+                    "updated": 1645100269894
                 }
             ]
         },
@@ -90,6 +105,11 @@
                     "language": "DE",
                     "text": "Je mehr Leute Sie als Empfehlungsgeber angeben, desto mehr Token verdienen Sie für jede einzelne Version der Software, und zwar auf unbestimmte Zeit!",
                     "updated": 1640080473267
+                },
+                {
+                    "language": "TR",
+                    "text": "Ne kadar çok kişi sizi yönlendirenleri olarak ilan ederse, yazılımın her bir sürümünde süresiz olarak o kadar çok jeton kazanırsınız!",
+                    "updated": 1645100285570
                 }
             ]
         },
@@ -113,6 +133,11 @@
                     "language": "DE",
                     "text": "Wenn die Leute, die Sie zu Superalgos bringen, auch Leute mitbringen, verdienen Sie auch für diese, und für die, die diese mitbringen, verdienen Sie auch!",
                     "updated": 1640080485683
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos'a getirdiğiniz insanlar da başkalarını getiriyorsa, onlar için de kazanırsınız, bu böyle sürer gider.",
+                    "updated": 1645100341305
                 }
             ]
         },

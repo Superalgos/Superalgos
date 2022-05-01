@@ -10,11 +10,12 @@
     <link rel="stylesheet" href="docs.css" type="text/css" charset="utf-8"/>
     <link rel="stylesheet" href="governance.css" type="text/css" charset="utf-8"/>
     <link rel="stylesheet" href="code-editor.css" type="text/css" charset="utf-8"/>
+    <link rel="stylesheet" href="contributions.css" type="text/css" charset="utf-8"/>
     <link rel="stylesheet" href="context-menu.css" type="text/css" charset="utf-8"/>
     <link rel="stylesheet" href="font-awasome.css" type="text/css"/>
     <link rel="stylesheet" href="prism.css" type="text/css"/>
     <link rel="stylesheet" href="menu.css" type="text/css"/>
-    <link rel="shortcut icon" type="image/png/ico" href="Images/favicon.ico"/>
+
     <script src="externalScripts/jquery-3.6.0.js"></script>
     <script src="externalScripts/jquery-ui.js"></script>
     <script>
@@ -97,13 +98,6 @@
         function drawSplashText() {
             const splashTextArray = [
                 {
-                    "splashTextLine1Html": '<span class="credits-red">Every month, the project distributes 10M SA tokens with an approximate market value of $500,000 among contributors. </span>'
-                    ,
-                    "splashTextLine2Html": 'The October 2021 distribution counted around 50 contributors, with an average mining reward of $10,000 each. Contributing to Superalgos today is like mining Bitcoin in 2010! Ask Community Mods how to join a team to participate in the next distribution!'
-                    ,
-                    "splashTextLine3Html": ''
-                } /*,
-                {
                     "splashTextLine1Html": '<span class="credits-red">Superalgos is open source, forever free for everyone, and is constantly improving thanks to the involvement of contributors!</span>'
                     ,
                     "splashTextLine2Html": 'You may contribute, earn tokens, and participate in the governance of the project, no matter what your set of skills may be! It\'s as simple as sharing what you build for yourself, submitting a review, fixing a bug, or even a typo in the Docs!'
@@ -144,7 +138,7 @@
                     "splashTextLine2Html": 'Look around, find something that is missing and start coding! If you need help, ask in the chat groups to find a mentor!'
                     ,
                     "splashTextLine3Html": 'Follow our motto: Just code it!'
-                } */
+                } 
             ]
 
             let arrayIndex = Math.trunc(Math.random() * splashTextArray.length)
@@ -179,6 +173,10 @@
 </div>
 <div id="code-editor-space-div" class="docs-page" style="position:fixed; top:100000px; left:100000px">
     <div id="code-editor-content-div" class="code-editor-content-div">
+    </div>
+</div>
+<div id="contributions-space-div" class="docs-page" style="position:fixed; top:100000px; left:100000px">
+    <div id="contributions-content-div" class="contributions-content-div">
     </div>
 </div>
 <div id="chatApp" style="position:fixed; top:100000px; left:100000px">

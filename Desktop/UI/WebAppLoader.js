@@ -10,6 +10,7 @@ function newWebAppLoader() {
     async function loadModules() {
         try {
             let modulesArray = [
+                'WebSocketsWebAppClient.js',
                 'WebDebugLog.js',
                 'WebApp.js'
             ]
@@ -105,7 +106,7 @@ function newWebAppLoader() {
 
                     REQUIREJS([path], onRequired)
 
-                    function onRequired(pModule) {
+                    function onRequired() {
                         try {
 
                             downloadedCounter++
@@ -118,14 +119,14 @@ function newWebAppLoader() {
 
                             }
                         } catch (err) {
-                            console.log('[ERROR] loadModules -> onRequired -> err = ' + err.stack)
+                            console.log((new Date()).toISOString(), '[ERROR] loadModules -> onRequired -> err = ' + err.stack)
                         }
                     }
                 }
             }
 
         } catch (err) {
-            console.log('[ERROR] loadModules -> err = ' + err.stack)
+            console.log((new Date()).toISOString(), '[ERROR] loadModules -> err = ' + err.stack)
         }
     }
 }

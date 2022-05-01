@@ -93,6 +93,9 @@
 
             let botNode = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Indicator Bot')
             if (botNode === undefined) {
+                botNode = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Study Bot')
+            }
+            if (botNode === undefined) {
                 botNode = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Trading Bot')
             }
             if (botNode === undefined) {
@@ -310,7 +313,10 @@
         interExecutionMemory,
         processingDailyFiles,
         currentDay,
-        parametersDefinition
+        parametersDefinition,
+        chart,
+        market,
+        exchange,
     ) {
 
         /*
@@ -446,6 +452,28 @@
                     lastRecord = record
                     let product = {}
                     product[variableName] = {}
+
+                    if (exchange !== undefined) {
+                        /* 
+                        Positioning Data Structure 
+                        
+                        We are going to be reusing a function that was originally designed for the Trading Bot, 
+                        so we will need to emulate an episode candle to feed a parameter of the next fuction.
+                        */
+                        let episodeCandle = {
+                            begin: {
+                                value: record.current.end
+                            },
+                            end: {
+                                value: record.current.begin
+                            }
+                        }
+                        TS.projects.simulation.functionLibraries.simulationFunctions.positionDataStructuresAtCurrentCandle(
+                            episodeCandle,
+                            exchange,
+                            processIndex
+                        )
+                    }
 
                     /* This is Loop Code */
                     try {

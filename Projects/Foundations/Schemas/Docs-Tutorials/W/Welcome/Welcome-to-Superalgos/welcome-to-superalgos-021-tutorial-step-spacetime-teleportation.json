@@ -41,14 +41,14 @@
             },
             {
                 "language": "RU",
-                "text": "На самом деле Вы не собираетесь телепортироваться и не будете искривлять временное пространство, но это почти похоже на это! Пришло время научиться использовать карту пространство дизайна.",
+                "text": "На самом деле Вы не собираетесь телепортироваться и не будете искривлять временное пространство, но это почти похоже на это! Пришло время научиться использовать карту пространство проектирования.",
                 "updated": 1635608952753,
                 "style": "Definition"
             },
             {
                 "language": "TR",
-                "text": "Tamam, aslında ışınlanmayacaksınız ya da uzay-zamanı bükmeyeceksiniz, ama neredeyse öyleymiş gibi geliyor! Tasarım alanı haritasını kullanmayı öğrenmenin zamanı geldi.",
-                "updated": 1635946013543
+                "text": "Aslında ışınlanmayacaksınız ya da uzay-zamanı bükmeyeceksiniz, ama neredeyse öyleymiş gibi geliyor! Tasarım alanı haritasını kullanmayı öğrenmenin zamanı geldi.",
+                "updated": 1644906273037
             }
         ]
     },
@@ -185,14 +185,14 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Видите меня в левом нижнем углу пространства дизайна? Тепер Вы знаете, где меня найти!",
+                    "text": "Видите меня в левом нижнем углу пространства проектирования? Тепер Вы знаете, где меня найти!",
                     "updated": 1635609809487,
                     "style": "Text"
                 },
                 {
                     "language": "TR",
-                    "text": "Tasarım alanının sol alt köşesindeki bana baktın mı? Artık beni nerede bulacağını biliyorsun!",
-                    "updated": 1639213849460
+                    "text": "Tasarım alanının sol alt köşesine bakarsanız bu öğreticiyi görebilirsiniz. Artık beni nerede bulacağını biliyorsun!",
+                    "updated": 1644906356456
                 }
             ]
         }

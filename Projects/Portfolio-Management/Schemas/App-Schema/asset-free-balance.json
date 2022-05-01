@@ -1,0 +1,35 @@
+{
+   "type": "Asset Free Balance",
+   "menuItems": [
+      {
+         "action": "Configure",
+         "actionFunction": "uiObject.configEditor.activate",
+         "label": "Configure",
+         "iconPathOn": "configuration",
+         "iconPathOff": "configuration"
+      },
+      {
+         "action": "Delete UI Object",
+         "actionProject": "Visual-Scripting",
+         "askConfirmation": true,
+         "confirmationLabel": "Confirm to Delete",
+         "label": "Delete",
+         "iconPathOn": "delete-entity",
+         "iconPathOff": "delete-entity",
+         "actionFunction": "payload.executeAction"
+      }
+   ],
+   "isTitleAllwaysVisible": false,
+   "addLeftIcons": true,
+   "level": 4,
+   "editors": {
+      "config": true
+   },
+   "initialValues": {
+      "config": "{ \n\"free\": 0 \n}"
+   },
+   "attachingRules": {
+      "compatibleTypes": "->Exchange Managed Asset->"
+   },
+   "propertyNameAtParent": "assetFreeBalance"
+}

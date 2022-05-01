@@ -13,6 +13,16 @@
                 "language": "DE",
                 "text": "Lassen Sie uns einen Indikator ausprobieren, der den Informationen, die wir von diesem Indikator erhalten, eine zusätzliche Dimension verleiht!",
                 "updated": 1639262583659
+            },
+            {
+                "language": "RU",
+                "text": "Давайте попробуем индикатор, который вносит дополнительный смысл в информацию, которую мы получаем от этого индикатора!",
+                "updated": 1640935696803
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu göstergeden aldığımız bilgilere ekstra bir boyut katacak başka bir gösterge deneyelim!",
+                "updated": 1641653306847
             }
         ]
     },
@@ -25,6 +35,16 @@
                     "language": "DE",
                     "text": "Schalten Sie den Bollinger Channels Objects Layer aus! Schalten Sie nun die Bollinger SubChannels Objects-Layer ein!",
                     "updated": 1639262626749
+                },
+                {
+                    "language": "RU",
+                    "text": "Выключите слой \" Bollinger Channels Objects\"! Теперь включите слой \" Bollinger SubChannels Objects\"!",
+                    "updated": 1640935717561
+                },
+                {
+                    "language": "TR",
+                    "text": "Bollinger Kanal Nesneleri katmanından ( Bollinger Channels Objects layer ) çıkın! Şimdi Bollinger alt Kanal Nesneleri katmanını ( Bollinger SubChannels Objects layer ) açın!",
+                    "updated": 1641653321711
                 }
             ]
         },
@@ -36,6 +56,16 @@
                     "language": "DE",
                     "text": "Es geht immer noch viel hin und her mit den Auf- und Abwärtsrichtungen... aber!",
                     "updated": 1639262638903
+                },
+                {
+                    "language": "RU",
+                    "text": "В направлении \"вверх\" и \"вниз\" все еще много движения вперед и назад... но!",
+                    "updated": 1640935742323
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarı ve aşağı yönlerde hala çok fazla ileri ve geri gidiş var ... ama!",
+                    "updated": 1641653337819
                 }
             ]
         },
@@ -47,6 +77,16 @@
                     "language": "DE",
                     "text": "Bewegen Sie den Mauszeiger über den Chart und sehen Sie sich die Eigenschaft Slope im Plotter-Panel des Indikators an! Schalten Sie sie ein, falls sie ausgeschaltet ist!",
                     "updated": 1639262646318
+                },
+                {
+                    "language": "RU",
+                    "text": "Проведите указателем мыши по графику и посмотрите на свойство Slope на панели плоттера индикатора! Включите его, если оно выключено!",
+                    "updated": 1640935763000
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Grafiğin üzerine gelin ve göstergenin çizici panelindeki (plotter panel) Eğim özelliğine bakın! Kapalıysa açın!",
+                    "updated": 1641653347370
                 }
             ]
         }

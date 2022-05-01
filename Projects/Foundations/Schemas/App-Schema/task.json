@@ -67,6 +67,16 @@
                     "action": "Add UI Object",
                     "disableIfPropertyIsDefined": true,
                     "propertyToCheckFor": "bot",
+                    "label": "Add Study Bot Instance",
+                    "relatedUiObject": "Study Bot Instance",
+                    "actionFunction": "payload.executeAction",
+                    "actionProject": "Visual-Scripting",
+                    "relatedUiObjectProject": "Foundations"
+                },
+                {
+                    "action": "Add UI Object",
+                    "disableIfPropertyIsDefined": true,
+                    "propertyToCheckFor": "bot",
                     "label": "Add Trading Bot Instance",
                     "relatedUiObject": "Trading Bot Instance",
                     "actionFunction": "payload.executeAction",
@@ -81,7 +91,7 @@
                     "relatedUiObject": "Portfolio Bot Instance",
                     "actionFunction": "payload.executeAction",
                     "actionProject": "Visual-Scripting",
-                    "relatedUiObjectProject": "Foundations"
+                    "relatedUiObjectProject": "Portfolio-Management"
                 },
                 {
                     "action": "Add UI Object",
@@ -123,7 +133,7 @@
             "relatedUiObject": "Task Server App Reference",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
-            "relatedUiObjectProject": "Governance"
+            "relatedUiObjectProject": "User-Apps"
         },
         {
             "action": "Delete UI Object",
@@ -171,6 +181,11 @@
         {
             "name": "bot",
             "type": "node",
+            "childType": "Study Bot Instance"
+        },
+        {
+            "name": "bot",
+            "type": "node",
             "childType": "Learning Bot Instance"
         },
         {
@@ -187,8 +202,9 @@
             "name": "taskServerAppReference",
             "type": "node",
             "childType": "Task Server App Reference",
-            "project": "Governance"
+            "project": "User-Apps"
         }
     ],
-    "propertyNameAtParent": "tasks"
+    "propertyNameAtParent": "tasks",
+    "project": "Foundations"
 }

@@ -1,0 +1,27 @@
+{
+    "topic": "Trading Signal Overview",
+    "pageNumber": 4,
+    "type": "Signing Accounts",
+    "definition": {
+        "text": " Signing Accounts are the center of security within the Superalgos network.",
+        "updated": 1643078915732,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Учетные записи подписи являются центром безопасности в сети Superalgos.",
+                "updated": 1645625363722
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Hesap İmzalama, Superalgos ağı içindeki güvenliğin merkezidir.",
+                "updated": 1646297245130
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Governance->Node->Signing Account->Content"
+        }
+    ]
+}

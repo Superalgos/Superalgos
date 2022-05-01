@@ -1,0 +1,157 @@
+{
+    "tutorial": "Developers Intro",
+    "pageNumber": 4,
+    "type": "Tutorial Topic - Platform Client",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": ""
+        },
+        "text": "Is a collection of servers running on a single Node.js process.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Ist eine Sammlung von Servern, die auf einem einzigen Node.js-Prozess laufen.",
+                "updated": 1641729279193
+            },
+            {
+                "language": "RU",
+                "text": "Это набор серверов, работающих на одном процессе Node.js.",
+                "updated": 1640929257887
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Tek bir Node.js işleminde çalışan sunucular topluluğudur.",
+                "updated": 1643025912449
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The servers are:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Server sind:",
+                    "updated": 1641729286974
+                },
+                {
+                    "language": "RU",
+                    "text": "К серверам относятся:",
+                    "updated": 1640929268862
+                },
+                {
+                    "language": "TR",
+                    "text": "sunucular şunlardır:",
+                    "updated": 1643025927295
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Web Server: Serves all the JS files that form the User Interface to the browser.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Web Server: Liefert alle JS-Dateien, die die Benutzeroberfläche bilden, an den Browser.",
+                    "updated": 1641729295065
+                },
+                {
+                    "language": "RU",
+                    "text": "Web Server: Передает браузеру все JS-файлы, формирующие пользовательский интерфейс.",
+                    "updated": 1640929289557
+                },
+                {
+                    "language": "TR",
+                    "text": "Web Sunucusu: Kullanıcı arayüzünü (UI) oluşturan tüm JS dosyalarını tarayıcıya iletir.",
+                    "updated": 1643025976647
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Web Sockets Server: Enables the UI to reach the Client via WS.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Web Sockets Server: Ermöglicht es der Benutzeroberfläche, den Client über WS zu erreichen.",
+                    "updated": 1641729303749
+                },
+                {
+                    "language": "RU",
+                    "text": "Web Sockets Server: Позволяет пользовательскому интерфейсу связаться с клиентом через WS.",
+                    "updated": 1640929317198
+                },
+                {
+                    "language": "TR",
+                    "text": "Web Sockets Server: Kullanıcı arabiriminin (UI) WS aracılığıyla istemciyle (Client) iletişim kurmasını sağlar.",
+                    "updated": 1643026228933
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Events Server: Enables the UI to communicate with the Task Manager Server and all of the Task Servers process instances via events over WS.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Events Server: Ermöglicht der Benutzeroberfläche die Kommunikation mit dem Task-Manager-Server und allen Prozessinstanzen des Task-Servers über Ereignisse über WS.",
+                    "updated": 1641729315949
+                },
+                {
+                    "language": "RU",
+                    "text": "Events Server: Позволяет пользовательскому интерфейсу взаимодействовать с сервером Task Manager Server и всеми экземплярами процессов Task Servers через события по WS.",
+                    "updated": 1640929383956
+                },
+                {
+                    "language": "TR",
+                    "text": "Events Server: Kullanıcı arabiriminin (UI) , WS üzerinden olaylar aracılığıyla Görev Yöneticisi Sunucusu ( Task Manager Server ) ve Görev Sunucularının tüm örnekleriyle etkileşime girmesine izin verir.",
+                    "updated": 1643026311492
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Task Manager Server: Manges Task Servers processes based on users commands.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Task Manager Server: Ändert die Prozesse des Task-Servers auf der Grundlage von Benutzerbefehlen.",
+                    "updated": 1641729323973
+                },
+                {
+                    "language": "RU",
+                    "text": "Task Manager Server: Управление процессами Task Servers на основе команд пользователя.",
+                    "updated": 1640929426641
+                },
+                {
+                    "language": "TR",
+                    "text": "Task Manager Server: Kullanıcı komutlarına göre Görev Sunucuları ( Task Servers ) işlemlerini yönetir.",
+                    "updated": 1643026457919
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "All of these servers are custom built&mdash;in-house&mdash;for Superalgos. We prefer to build on top of rock-solid, widely-used, low-level libraries only, like WS, for instance.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Alle diese Server wurden speziell für Superalgos entwickelt. Wir ziehen es vor, nur auf grundsoliden, weit verbreiteten Low-Level-Bibliotheken aufzubauen, wie z.B. WS.",
+                    "updated": 1641729330917
+                },
+                {
+                    "language": "RU",
+                    "text": "Все эти серверы являются встроенными в Superalgos. Мы предпочитаем строить только на основе надежных, широко используемых низкоуровневых библиотек, таких как WS, например.",
+                    "updated": 1640929481445
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bu sunucuların tümü Superalgos için özel olarak üretilmiştir. Örneğin, yalnızca WS gibi sağlam, yaygın olarak kullanılan, düşük seviyeli kütüphanelerin üzerine inşa etmeyi tercih ediyoruz.",
+                    "updated": 1643026534160
+                }
+            ]
+        }
+    ]
+}

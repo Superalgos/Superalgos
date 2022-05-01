@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Стадия закрытия является зеркальным отражением стадии открытия, с определениями, касающимися закрытия позиции, включая выполнение закрытия.",
                 "updated": 1639847628100
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Kapanış aşaması, kapalı yürütme de dahil olmak üzere pozisyonun kapanmasıyla ilgili tanımlarla açık aşamanın aynasıdır.",
+                "updated": 1647851619521
             }
         ]
     },
@@ -38,6 +43,11 @@
                     "language": "RU",
                     "text": "Если структура данных, изображенная в таблице выше, выглядит знакомой, то это потому, что она является зеркальным отражением Open Stage. Обратитесь к этим определениям, если вам нужно освежить информацию.",
                     "updated": 1639847583819
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarıdaki tabloda gösterilen veri yapısı tanıdık geliyorsa, bunun nedeni Açık Sahnenin ( Open Stage ) bir aynası olmasıdır. Bilgi tazelemeye ihtiyaç duymanız durumunda bu tanımlara bakın.",
+                    "updated": 1647851701040
                 }
             ]
         }

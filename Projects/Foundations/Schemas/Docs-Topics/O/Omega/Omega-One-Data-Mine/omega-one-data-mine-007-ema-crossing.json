@@ -1,0 +1,329 @@
+{
+    "topic": "Omega One Data Mine",
+    "pageNumber": "7",
+    "type": "EMA Crossing",
+    "definition": {
+        "text": "This indicator contains two exponential moving average (EMA) products. For more information on the EMA indicator, see the EMA documentation in the Sparta data mine.",
+        "updated": 1617958214490,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Этот индикатор содержит два экспоненциальных скользящих средних (EMA). Для получения дополнительной информации об индикаторе EMA см. документацию по EMA в источнике данных Sparta.",
+                "updated": 1643526081299
+            },
+            {
+                "language": "DE",
+                "text": "Dieser Indikator enthält zwei Produkte des exponentiellen gleitenden Durchschnitts (EMA). Weitere Informationen über den EMA Indikator finden Sie in der EMA-Dokumentation in der Sparta Datenmine.",
+                "updated": 1647333298328
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu gösterge, iki üstel hareketli ortalama (EMA) ürünü içerir. EMA göstergesi hakkında daha fazla bilgi için Sparta veri madenindeki ( Sparta Data Mine ) EMA belgelerine bakın.",
+                "updated": 1647788472934
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "This indicator uses 2 separate EMA signals:",
+            "updated": 1617958138349,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Этот индикатор использует 2 отдельных сигнала EMA:",
+                    "updated": 1643526088329
+                },
+                {
+                    "language": "DE",
+                    "text": "Dieser Indikator verwendet 2 separate EMA Signale:",
+                    "updated": 1647333341089
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu gösterge 2 ayrı EMA sinyali kullanır:",
+                    "updated": 1647788502829
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "EMA 1 length: 12"
+        },
+        {
+            "style": "List",
+            "text": "EMA 2 length: 48"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Omega-One-EMA-crossing-on-the-charts.png"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Change the input to optimise it for your use case!",
+            "updated": 1617953879921,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Измените входные данные, чтобы оптимизировать их для вашего случая использования!",
+                    "updated": 1643526098183
+                },
+                {
+                    "language": "DE",
+                    "text": "Ändern Sie die Eingabe, um sie für Ihren Anwendungsfall zu optimieren!",
+                    "updated": 1647333408521
+                },
+                {
+                    "language": "TR",
+                    "text": "Kullanım durumunuza göre optimize etmek için girişi değiştirin!",
+                    "updated": 1647788548217
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Most of Omega indicators can use different period values. To change periods:",
+            "updated": 1617955135049,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Большинство индикаторов Omega могут использовать различные значения периодов. Чтобы изменить периоды:",
+                    "updated": 1643526104134
+                },
+                {
+                    "language": "DE",
+                    "text": "Die meisten Omega Indikatoren können verschiedene Periodenwerte verwenden. Um Perioden zu ändern:",
+                    "updated": 1647333419286
+                },
+                {
+                    "language": "TR",
+                    "text": "Omega indikatörlerinin çoğu farklı periyot değerleri kullanabilir. Periyotları değiştirmek için:",
+                    "updated": 1647788563528
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Locate the Data Mine and expand it.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Найдите Data Mine и разверните его.",
+                    "updated": 1643526113699
+                },
+                {
+                    "language": "DE",
+                    "text": "Suchen Sie die Data Mine und erweitern Sie sie.",
+                    "updated": 1647333430157
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri Madeni'ni ( Data Mine ) bulun ve genişletin.",
+                    "updated": 1647788573193
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Expand the Indicator Bot node.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Разверните узел Indicator Bot.",
+                    "updated": 1643526121276
+                },
+                {
+                    "language": "DE",
+                    "text": "Erweitern Sie den Knoten Indicator Bot.",
+                    "updated": 1647333440389
+                },
+                {
+                    "language": "TR",
+                    "text": "Gösterge Botu ( Indicator Bot ) düğümünü genişletin.",
+                    "updated": 1647788593477
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Find the Product Definition -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Найдите Product Definition -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code.",
+                    "updated": 1643526130256
+                },
+                {
+                    "language": "DE",
+                    "text": "Suchen Sie die Product Definition -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code.",
+                    "updated": 1647333450819
+                },
+                {
+                    "language": "TR",
+                    "text": "Ürün Tanımı ( Product Definition ) -> Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Döngüsü ( Procedure Loop ) -> Prosedür Javascript Kodunu ( Procedure Javascript Code ) bulun.",
+                    "updated": 1647788611294
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Edit the Procedure Javascript Code node.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Отредактируйте узел Procedure Javascript Code.",
+                    "updated": 1643526139971
+                },
+                {
+                    "language": "DE",
+                    "text": "<i>Bearbeiten</i> Sie den Knoten Procedure Javascript Code.",
+                    "updated": 1647333550395
+                },
+                {
+                    "language": "TR",
+                    "text": "Prosedür Javascript Kodu ( Procedure Javascript Code ) düğümünü düzenleyin.",
+                    "updated": 1647788624531
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Put the text marker in the edit box, and press Arrow Up until you reach the top of the code.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Поместите текстовый маркер в поле редактирования и нажимайте на стрелку вверх, пока не достигнете верхней части кода.",
+                    "updated": 1643526170361
+                },
+                {
+                    "language": "DE",
+                    "text": "Setzen Sie den Textmarker in das Bearbeitungsfeld und drücken Sie die Pfeiltaste nach oben, bis Sie den oberen Teil des Codes erreichen.",
+                    "updated": 1647333567028
+                },
+                {
+                    "language": "TR",
+                    "text": "Metin işaretçisini düzenleme kutusuna koyun ve kodun en üstüne ulaşana kadar Yukarı Ok'a basın.",
+                    "updated": 1647788637071
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Look for \"User defined values\".",
+            "updated": 1617954642138,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Найдите \"User defined values\".",
+                    "updated": 1643526180454
+                },
+                {
+                    "language": "DE",
+                    "text": "Suchen Sie nach \"User defined values\".",
+                    "updated": 1647333578300
+                },
+                {
+                    "language": "TR",
+                    "text": "\"Kullanıcı tanımlı değerler ( User defined values )\" arayın.",
+                    "updated": 1647788648818
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Enter the values of your choice.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Введите значения по своему выбору.",
+                    "updated": 1643526185326
+                },
+                {
+                    "language": "DE",
+                    "text": "Geben Sie die Werte Ihrer Wahl ein.",
+                    "updated": 1647333588771
+                },
+                {
+                    "language": "TR",
+                    "text": "Tercih ettiğiniz değerleri girin.",
+                    "updated": 1647788660618
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "Remember that you have to delete existing data for the indicator in the Data-Storage folder, and re-start the Data Tasks needed for the indicator in the Network node before you can see any changes.",
+            "updated": 1617954918128,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Помните, что необходимо удалить существующие данные для индикатора в папке Data-Storage и заново запустить Data Tasks, необходимые для индикатора, в узле Network, прежде чем вы сможете увидеть какие-либо изменения.",
+                    "updated": 1643526190762
+                },
+                {
+                    "language": "DE",
+                    "text": "Denken Sie daran, dass Sie die vorhandenen Daten für den Indikator im Ordner Data-Storage löschen und die für den Indikator erforderlichen Data Tasks im Knoten Network neu starten müssen, bevor Sie die Änderungen sehen können.",
+                    "updated": 1647333599976
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Veri Depolama klasöründeki gösterge için mevcut verileri silmeniz ve herhangi bir değişikliği görebilmeniz,Ağ düğümündeki gösterge için gereken Veri Görevlerini ( Data Tasks ) yeniden başlatmanız gerektiğini unutmayın.",
+                    "updated": 1647788990556
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Omega-One-EMA-crossing-params.png",
+            "updated": 1617958956443
+        },
+        {
+            "style": "Subtitle",
+            "text": "Products, Properties & Examples",
+            "updated": 1617967853007,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты, свойства и примеры",
+                    "updated": 1643526197339
+                },
+                {
+                    "language": "DE",
+                    "text": "Produkte, Eigenschaften und Beispiele",
+                    "updated": 1647333613419
+                },
+                {
+                    "language": "TR",
+                    "text": "Ürünler, Özellikler ve Örnekler",
+                    "updated": 1647788690342
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| EMA Crossing | emaCrossing | ema01, ema02 |",
+            "updated": 1617972838194,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| EMA Crossing | emaCrossing | ema01, ema02 |\n",
+                    "updated": 1647333645980
+                },
+                {
+                    "language": "TR",
+                    "text": "| Ürün Adı | Ürün Değişkeni | Özellikler |\n| EMA Crossing | emaCrossing | ema01, ema02 |",
+                    "updated": 1647788716487
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "/* EXAMPLE */\n\n//EMA1 is above EMA2\nchart.at01hs.emaCrossing.ema01 > chart.at01hs.emaCrossing.ema02",
+            "updated": 1617973639173
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

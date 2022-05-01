@@ -13,6 +13,16 @@
                 "language": "DE",
                 "text": "Das waren die Trigger Stage und die Open Stage. Schauen wir uns nun die Manage Stage und die Close Stage an!",
                 "updated": 1639418421799
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu Tetik Aşaması (trigger stage) ve Açık Aşamaydı (open stages). Şimdi Yönetme Aşamasına (manage stage) ve Kapatma Aşamasına (close stage) bir göz atalım!",
+                "updated": 1641802241031
+            },
+            {
+                "language": "RU",
+                "text": "Это были стадии срабатывания и открытия. Давайте рассмотрим стадии управления и закрытия!",
+                "updated": 1642944052589
             }
         ]
     },
@@ -25,6 +35,16 @@
                     "language": "DE",
                     "text": "Manage Stage: Wird zusammen mit der Open Stage eröffnet und bleibt offen, während der Kurs unter dem Stop Loss und über dem Ziel für die Positionsübernahme schwankt. Wenn die 22-Stunden-Kerze am 2. März das Stop-Loss-Ziel markiert, wird die Manage Stage geschlossen.",
                     "updated": 1639418430645
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşamayı Yönet(Manage Stage): Açık Aşama ile birlikte açılır,fiyat, Zarar Durdur'un altında ve pozisyon alma hedefinin üzerinde dalgalanırken açık kalır. 22 saatlik mum, 2 Mart'ta stop-loss hedefini işaretlediğinde, Yönetim Aşaması kapatılacaktır.",
+                    "updated": 1641802251803
+                },
+                {
+                    "language": "RU",
+                    "text": "Manage Stage: Открывается вместе со стадией открытия и остается открытой, пока цена отскакивает ниже стоп-лосса и выше цели для взятия позиции. Когда свеча 22 hs от 2 марта отметит цель стоп-лосса, стадия управления закрывается.",
+                    "updated": 1642944091309
                 }
             ]
         },
@@ -36,6 +56,16 @@
                     "language": "DE",
                     "text": "Close Stage: Eröffnet nach der Markierung des Stop Loss und schließt eine Stunde später (!?) nach der Platzierung der Marktkauforder!",
                     "updated": 1639418438809
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşamayı Kapat(Close Stage): Zarar Durdur'un etiketlenmesinden sonra açılır ve piyasa alım emri verildikten bir saat sonra (!?) kapanır!",
+                    "updated": 1641802262018
+                },
+                {
+                    "language": "RU",
+                    "text": "Close Stage: Открывается после выставления стоп-лосса, а закрывается через час (!?) после выставления рыночного ордера на покупку!",
+                    "updated": 1642944103441
                 }
             ]
         },
@@ -47,6 +77,16 @@
                     "language": "DE",
                     "text": "Das Geheimnis von einer Stunde später... Nehmen Sie sich eine Minute Zeit, um über dieses Verhalten nachzudenken.",
                     "updated": 1639418446057
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bir saat sonrasının sırrı... Bu davranışı düşünmek için bir dakikanızı ayırın.",
+                    "updated": 1641802270108
+                },
+                {
+                    "language": "RU",
+                    "text": "Через час снова загадка... Потратьте минуту на размышление о таком поведении.",
+                    "updated": 1642944111837
                 }
             ]
         }

@@ -29,20 +29,20 @@
             },
             {
                 "language": "DE",
-                "text": "Da Sie sich nun gut zurechtfinden, möchte ich Sie auf eine kleine Tour durch den Abschnitt Data Tasks des Network Node mitnehmen.",
-                "updated": 1634167620156,
+                "text": "Da Sie sich nun gut zurechtfinden, möchte ich Sie auf einen kleinen Rundgang durch den Abschnitt \"Data Tasks\" des LAN-Netzwerkknotens mitnehmen. ",
+                "updated": 1642150875099,
                 "style": "Definition"
             },
             {
                 "language": "RU",
-                "text": "Теперь, когда Вам удобно передвигаться, я хочу, чтобы Вы отправились в небольшую экскурсию по Network Node раздела Data Tasks.",
-                "updated": 1635630043831,
+                "text": "Теперь, когда вам стало удобнее перемещаться, я хочу, чтобы вы совершили небольшую экскурсию, исследуя раздел Data Tasks узла LAN Network.",
+                "updated": 1641809604919,
                 "style": "Definition"
             },
             {
                 "language": "TR",
-                "text": "Artık rahatça dolaşabildiğinize göre, Ağ Düğümü'nün ( Network Node ) Veri Görevleri ( Data Tasks ) bölümünü keşfetmek için küçük bir tura çıkmanızı istiyorum.",
-                "updated": 1636014280941
+                "text": "Artık rahatça dolaşabildiğinize göre, LAN Network Node düğümünün Veri Görevleri (Data Tasks) bölümünü keşfetmek için küçük bir tura çıkmanızı istiyorum.",
+                "updated": 1644909619412
             },
             {
                 "language": "NL",
@@ -129,14 +129,14 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Раздел делится, в первую очередь, на проекты, биржи и рынки. Он поможет Вам организованно работать со множеством бирж и рынков.",
+                    "text": "Раздел делится, в первую очередь, на проекты, биржи и рынки. Он поможет вам организованно работать со множеством бирж и рынков.",
                     "updated": 1635630220075,
                     "style": "List"
                 },
                 {
                     "language": "TR",
-                    "text": "Bölüm, her şeyden önce proje, borsa ve pazara göre düzenlenmiştir. Bu, birden fazla borsa ve birden fazla pazarla düzenli bir şekilde çalışmanıza yardımcı olacaktır.",
-                    "updated": 1636014356317
+                    "text": "Bu bölüm, her şeyden önce proje, borsa ve işlem şiftine göre düzenlenmiştir. Bu, birden fazla borsa ve birden fazla işlem çiftiyle düzenli bir şekilde çalışmanıza yardımcı olacaktır.",
+                    "updated": 1644909758082
                 },
                 {
                     "language": "NL",
@@ -181,8 +181,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Borsa Veri Görevleri ( Exchance Data Tasks ) ve Piyasa Veri Görevleri ( Market Data Tasks ) düğümleri, sırasıyla borsadaki ve pazardaki tüm görevleri kontrol edebilir.",
-                    "updated": 1636014775744
+                    "text": "Borsa Veri Görevleri ( Exchance Data Tasks ) ve Market Veri Görevleri ( Market Data Tasks ) düğümleri, sırasıyla borsadaki ve o işlem çiftindeki tüm görevleri kontrol edebilir.",
+                    "updated": 1644909782716
                 },
                 {
                     "language": "NL",

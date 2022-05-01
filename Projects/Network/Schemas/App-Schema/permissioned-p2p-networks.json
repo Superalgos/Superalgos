@@ -1,0 +1,51 @@
+{
+    "type": "Permissioned P2P Networks",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Permissioned P2P Network",
+            "relatedUiObject": "Permissioned P2P Network",
+            "relatedUiObjectProject": "Network"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{}"
+    },
+    "addLeftIcons": true,
+    "level": 1,
+    "attachingRules": {
+        "compatibleTypes": "->User Profile->"
+    },
+    "propertyNameAtParent": "permissionedP2PNetworks",
+    "childrenNodesProperties": [
+        {
+            "name": "permissionedP2PNetworks",
+            "type": "array",
+            "childType": "Permissioned P2P Network",
+            "project": "Network",     
+            "autoAdd": false
+        }
+    ]
+}

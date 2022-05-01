@@ -35,6 +35,11 @@
                 "language": "ID",
                 "text": "The Trading Engine mengelola kompleksitas yang disyaratkan dalam automated trading dengan membuat informasi dapat diakses oleh pengguna dan trading systems.",
                 "updated": 1640566966022
+            },
+            {
+                "language": "RU",
+                "text": "Trading Engine управляет сложностями, связанными с автоматизированной торговлей, делая информацию доступной для пользователей и торговых систем.",
+                "updated": 1642769208149
             }
         ]
     },
@@ -70,6 +75,11 @@
                     "language": "ID",
                     "text": "Ingat komentar saya tentang granularity? Ingat bagaimana formula pada trading system mengambil nilai dari exit target rate? Ini pengingat singkat :",
                     "updated": 1640567056696
+                },
+                {
+                    "language": "RU",
+                    "text": "Помните мои комментарии о гранулярности? Помните, как формула торговой системы вычисляла значение целевой ставки выхода (Exit Target Rate)? Вот краткое напоминание:",
+                    "updated": 1642769268803
                 }
             ]
         },
@@ -108,6 +118,11 @@
                     "language": "ID",
                     "text": "String ini memegang jalur ke informasi itu dalam data structure dari Trading Engine hierarchy! Bisakah kamu menemukan  Exit Target Rate node? Expand hierarki dan ikuti breadcrumb trail!",
                     "updated": 1640567181383
+                },
+                {
+                    "language": "RU",
+                    "text": "Эта строка содержит путь к данному фрагменту информации в структуре данных иерархии Trading Engine! Можете ли вы найти узел Exit Target Rate? Разверните иерархию и следуйте по \"хлебным крошкам\"!",
+                    "updated": 1642769299874
                 }
             ]
         }

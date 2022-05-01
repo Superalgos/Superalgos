@@ -33,6 +33,11 @@
                 "updated": 1636699565557
             },
             {
+                "language": "RU",
+                "text": "Когда узел закреплен, он становится фиксированным в определенном положении независимо от настройки остальных свойств расположения!",
+                "updated": 1640859196486
+            },
+            {
                 "language": "ID",
                 "text": "Ketika sebuah node disematkan, ia menjadi tetap pada suatu posisi terlepas dari aturan terhadap properti pengaturan lainnya!",
                 "updated": 1641095066263
@@ -68,6 +73,11 @@
                     "updated": 1636699582052
                 },
                 {
+                    "language": "RU",
+                    "text": "Вы можете закрепить узел, структуру узлов и даже всю иерархию. Давайте попробуем кое-что другое...",
+                    "updated": 1640859212621
+                },
+                {
                     "language": "ID",
                     "text": "Kamu dapat menyematkan node, structure nodes, dan bahkan hierarchy lengkap. Mari kita coba yang lain...",
                     "updated": 1641095118415
@@ -99,6 +109,11 @@
                     "language": "TR",
                     "text": "İşlem Parametreleri ( Trading Parameters ) düğümünü sabitleyin ve sürükleyin!",
                     "updated": 1636699715298
+                },
+                {
+                    "language": "RU",
+                    "text": "Закрепите узел Trading Parameters и перетащите его!",
+                    "updated": 1640859222936
                 },
                 {
                     "language": "ID",
@@ -133,6 +148,11 @@
                     "language": "TR",
                     "text": "Tüm yavru düğümlerin ana düğümü nasıl takip ettiğine dikkat edin. Ancak, Oturum Temel Varlık ( Session Base Asset ) düğümü konumunda kalır! Devam etmeden önce, çalışma alanını düzenli tutmak için tüm düğümlerin sabitlemesini kaldırın!",
                     "updated": 1636699753332
+                },
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание, как все дочерние узлы следуют за родительским узлом. Однако узел Session Base Asset остается на месте! Прежде чем двигаться дальше, открепите все узлы, чтобы сохранить порядок в рабочем пространстве!",
+                    "updated": 1640859248958
                 },
                 {
                     "language": "ID",

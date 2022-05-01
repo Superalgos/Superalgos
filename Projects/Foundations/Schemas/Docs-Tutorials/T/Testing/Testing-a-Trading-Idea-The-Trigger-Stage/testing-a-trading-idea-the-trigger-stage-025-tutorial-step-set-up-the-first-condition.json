@@ -13,6 +13,16 @@
                 "language": "DE",
                 "text": "Ich habe Sie zur Definition des Trigger On Event  gebracht, damit Sie die erste Bedingung einrichten können!",
                 "updated": 1639265227898
+            },
+            {
+                "language": "RU",
+                "text": "Я привел вас к определению события Trigger On Event, чтобы вы могли установить первое условие!",
+                "updated": 1640940494226
+            },
+            {
+                "language": "TR",
+                "text": "İlk koşulu ayarlayabilmek için sizi Olay Tetikleyici’nin (Trigger On Event) tanımına getirdim.",
+                "updated": 1641654079877
             }
         ]
     },
@@ -25,6 +35,16 @@
                     "language": "DE",
                     "text": "Fügen Sie die Bedingung in den Javascript Code Knoten ein!",
                     "updated": 1639265336381
+                },
+                {
+                    "language": "RU",
+                    "text": "Вставьте условие в узел Javascript Code!",
+                    "updated": 1640940502201
+                },
+                {
+                    "language": "TR",
+                    "text": "Koşulu Javascript Kodu ( Javascript Code ) düğümüne yapıştırın!",
+                    "updated": 1641654089581
                 }
             ]
         },
@@ -37,6 +57,16 @@
                     "language": "DE",
                     "text": "Folgen Sie der Struktur der Knoten unter der Situation und gelangen Sie zum Knoten Javascript Code unter dem Condition Konten. Klicken Sie im Menü auf Edit, markieren und löschen Sie den Platzhaltertext und fügen Sie die folgende Bedingung ein:",
                     "updated": 1639265473708
+                },
+                {
+                    "language": "RU",
+                    "text": "Следуя структуре узлов под Situation, дойдите до узла Javascript Code под узлом Condition. Нажмите кнопку Edit в меню, выделите и удалите текст-заполнитель и вставьте приведенное ниже условие:",
+                    "updated": 1640940546530
+                },
+                {
+                    "language": "TR",
+                    "text": "Durum ( Situation ) altındaki düğümlerin yapısını takip edin ve Koşul ( Condition  ) düğümü altındaki Javascript Kodu ( Javascript Code ) düğümüne gidin. Menüde Düzenle'ye tıklayın, yer tutucu metni seçip silin ve aşağıdaki koşulu yapıştırın:",
+                    "updated": 1641654105775
                 }
             ]
         },
@@ -52,6 +82,16 @@
                     "language": "DE",
                     "text": "Beschriften Sie den Bedingungsknoten 24H Down, damit Sie schnell erkennen können, worum es bei der Bedingung geht.",
                     "updated": 1639265484031
+                },
+                {
+                    "language": "RU",
+                    "text": "Пометьте узел состояния 24H Down, чтобы можно было быстро сориентироваться, о чем идет речь.",
+                    "updated": 1640940565434
+                },
+                {
+                    "language": "TR",
+                    "text": "Koşulun ne hakkında olduğuna dair hızlı bir referans almak için koşul düğümünü 24H Down olarak etiketleyin.",
+                    "updated": 1641654131986
                 }
             ]
         }

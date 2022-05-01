@@ -15,6 +15,11 @@
                 "language": "EL",
                 "text": "Για να αποσυνδέσετε έναν κόμβο, κάντε κλικ στο κουμπί αποσύνδεσης στο μενού του κόμβου. Για να επισυνάψετε έναν κόμβο, κάντε δεξί κλικ στον κόμβο και σύρετέ τον πιο κοντά στον κόμβο στον οποίο θέλετε να τον προσαρτήσετε. Αφήστε το δεξί κλικ όταν επισημανθεί ο κόμβος προορισμού.",
                 "updated": 1639092024022
+            },
+            {
+                "language": "DE",
+                "text": "Um einen Node abzutrennen, klicken Sie auf die Schaltfläche \"Trennen\" im Menü des Nodes. Um einen Node anzuhängen, klicken Sie mit der rechten Maustaste auf den Node und ziehen ihn näher an den Node, an den Sie ihn anhängen möchten. Lassen Sie die rechte Maustaste los, wenn der Ziel-Node hervorgehoben ist.",
+                "updated": 1641768187741
             }
         ]
     },
@@ -31,8 +36,13 @@
                 },
                 {
                     "language": "EL",
-                    "text": "Δομή Κόμβων",
-                    "updated": 1638972581810
+                    "text": "Structure of Nodes (Δομή Κόμβων)",
+                    "updated": 1641830315993
+                },
+                {
+                    "language": "DE",
+                    "text": "Struktur von Nodes (Knoten)",
+                    "updated": 1641767511260
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "EL",
                     "text": "Οι κόμβοι μπορούν να συνδεθούν αλυσιδωτά σχηματίζοντας δομές κόμβων. Σε κάθε δομή κόμβων υπάρχει ένας γονικός κόμβος με απογόνους. Δηλαδή, μια δομή κόμβων είναι μια δομή δεδομένων που αποτελείται από οποιονδήποτε κόμβο και τους απογόνους του.",
                     "updated": 1638972663600
+                },
+                {
+                    "language": "DE",
+                    "text": "Nodes können miteinander verkettet werden und bilden so eine Struktur von Nodes. In jeder Struktur von Nodes gibt es einen Eltern-Node mit Nachkommen. Das heißt, eine Node-Struktur ist eine Datenstruktur, die aus einem beliebigen Node und seinen Nachkommen besteht.",
+                    "updated": 1641767534896
                 }
             ]
         },
@@ -65,6 +80,11 @@
                     "language": "EL",
                     "text": "Κατά συνέπεια, οι δομές των κόμβων είναι ιεραρχικές δομές και μια λογική αναπαράσταση του τρόπου με τον οποίο οι έννοιες που ενσωματώνονται από κάθε κόμβο σχετίζονται μεταξύ τους.",
                     "updated": 1638972685549
+                },
+                {
+                    "language": "DE",
+                    "text": "Folglich sind Strukturen von Nodes hierarchische Strukturen und eine logische Darstellung der Beziehungen zwischen den Konzepten, die von jedem Node verkörpert werden.",
+                    "updated": 1641767548520
                 }
             ]
         },
@@ -79,8 +99,13 @@
                 },
                 {
                     "language": "EL",
-                    "text": "Σχέσεις Κόμβων Γονέων και Κόμβων Απογόνων",
-                    "updated": 1638972737153
+                    "text": "Parent-Offspring Relationships (Σχέσεις Κόμβων Γονέων-Απογόνων)",
+                    "updated": 1641830372986
+                },
+                {
+                    "language": "DE",
+                    "text": "Eltern-Nachkommen-Beziehungen",
+                    "updated": 1641767565254
                 }
             ]
         },
@@ -97,6 +122,11 @@
                     "language": "EL",
                     "text": "Οι κόμβοι στις δομές των κόμβων συνδέονται μεταξύ τους με τις λεγόμενες σχέσεις γονέα-απογόνου. Αυτές οι σχέσεις αντιπροσωπεύονται οπτικά με πορτοκαλί διακεκομμένες γραμμές, οι οποίες μπορεί να γίνουν κίτρινες ή μπλε ανάλογα με ορισμένες ιδιότητες οπτικοποίησης που μπορεί να ελέγξει ο χρήστης. Όταν οι κόμβοι συνδέονται μεταξύ τους, σχηματίζουν δομές κόμβων.",
                     "updated": 1638972800112
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Nodes in Strukturen von Nodes sind durch sogenannte Parent-Offspring-Beziehungen miteinander verkettet. Diese Beziehungen werden visuell durch orangefarbene gepunktete Linien dargestellt, die sich je nach bestimmten Visualisierungseigenschaften, die der Benutzer steuern kann, gelb oder blau färben können. Wenn Nodes miteinander verkettet sind, bilden sie Strukturen von Nodes.",
+                    "updated": 1641767780001
                 }
             ]
         },
@@ -113,6 +143,11 @@
                     "language": "EL",
                     "text": "Η κατεύθυνση της σχέσης καθορίζεται, στις περισσότερες περιπτώσεις, από την ικανότητα ενός κόμβου να παράγει τον κόμβο απόγονο. Δηλαδή, ο γονικός κόμβος είναι αυτός που, από τη σχεδίαση λογισμικού, μπορεί να παράγει τον κόμβο απόγονο.",
                     "updated": 1638972853901
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Richtung der Beziehung wird in den meisten Fällen durch die Fähigkeit eines Nodes bestimmt, den Nachfolge-Node zu erzeugen. Das heißt, der übergeordnete Node ist derjenige, der aufgrund des Software-Designs den Nachfolge-Node erzeugen kann.",
+                    "updated": 1641767809012
                 }
             ]
         },
@@ -127,8 +162,13 @@
                 },
                 {
                     "language": "EL",
-                    "text": "Πώς να Αποσυνδέσετε και να Συνδέσετε Κόμβους",
-                    "updated": 1638976596429
+                    "text": "How to Detach and Attach Nodes (Πώς να Αποσυνδέσετε και να Συνδέσετε Κόμβους)",
+                    "updated": 1641830388928
+                },
+                {
+                    "language": "DE",
+                    "text": "Lösen und Verbinden von Nodes",
+                    "updated": 1641767765640
                 }
             ]
         },

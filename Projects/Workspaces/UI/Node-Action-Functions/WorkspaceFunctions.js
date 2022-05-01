@@ -9,6 +9,7 @@ function newWorkspacesNodeActionWorkspaceFunctions() {
     return thisObject
 
     function addMissingWorkspaceProjects(node, rootNodes) {
+        let newUiObjects = []
         for (let k = 0; k < PROJECTS_SCHEMA.length; k++) {
             let projectDefinition = PROJECTS_SCHEMA[k]
             let project = projectDefinition.name
@@ -31,11 +32,14 @@ function newWorkspacesNodeActionWorkspaceFunctions() {
                     child.projectDefinition.name = project
                     child.projectDefinition.config = "{ \n  \"codeName\": \"" + project + "\"\n}"
                 }
+                newUiObjects.push(child)
             }
         }
+
+        return newUiObjects
     }
 
-    function addSpecifiedWorkspaceProject(node, rootNodes) {
+    function addSpecifiedWorkspaceProject(node, rootNodes, historyObject) {
         let action = { node: node }
         let validProjects = PROJECTS_SCHEMA
 
@@ -65,8 +69,15 @@ function newWorkspacesNodeActionWorkspaceFunctions() {
         node.payload.uiObject.listSelector.activate(action, projectList, eventSubscriptionId)
 
         function onListSelect(event) {
-            UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(node, event.selectedNode + ' Project', rootNodes, event.selectedNode)
+            let project = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(node, event.selectedNode + ' Project', rootNodes, event.selectedNode)
             node.payload.uiObject.container.eventHandler.stopListening('listSelectorClicked')
+
+            if (project !== undefined) {
+                historyObject.newUiObjects = [project]
+                UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+            }
         }
 
     }

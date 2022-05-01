@@ -31,6 +31,16 @@
                 "language": "TR",
                 "text": "Düğüm Ekleme Kurallarında ( Node Attaching Rules ) olduğu gibi, referans oluşturabilecek düğümlerin de bu konuda kuralları vardır.",
                 "updated": 1639562245710
+            },
+            {
+                "language": "RU",
+                "text": "Как и в случае с правилами присоединения узлов, узлы, которые могут устанавливать ссылки, также имеют правила в этом отношении.",
+                "updated": 1640870391880
+            },
+            {
+                "language": "ID",
+                "text": "Cukup mirip dengan Node Attaching Rules, node yang dapat membuat referensi juga memiliki aturan dalam hal itu.",
+                "updated": 1644949574169
             }
         ]
     },
@@ -61,6 +71,16 @@
                     "language": "TR",
                     "text": "İşlem Sistemi Referansı ( Trading System Reference ) menüsüne gidin, yardım düğmesine tıklayın ve sayfanın en altına gidin!",
                     "updated": 1639562324910
+                },
+                {
+                    "language": "RU",
+                    "text": "Перейдите в меню узла Trading System Reference, нажмите кнопку справки и прокрутите страницу до самого низа!",
+                    "updated": 1640870412894
+                },
+                {
+                    "language": "ID",
+                    "text": "Buka menu node  Trading System Reference, klik tombol help , dan scroll ke bagian bawah halaman!",
+                    "updated": 1644949608821
                 }
             ]
         },
@@ -90,6 +110,16 @@
                     "language": "TR",
                     "text": "Eğer bir geliştiriciyseniz, Düğüm Ekleme Kuralları ve Düğüm Başvuru Kurallarının ( Node Attaching Rules and Node Referencing Rules ) projenin Şema klasöründeki AppSchema.json dosyasında tanımlanmıştır. ",
                     "updated": 1639563431641
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы являетесь разработчиком, вам может быть интересно узнать, что правила присоединения узлов и правила для установления ссылок на узлы определяются в файле AppSchema.json в папке Schema проекта.",
+                    "updated": 1640870531024
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika kamu seorang developer, kamu mungkin ingin tahu bahwa Node Attaching Rules dan Node Referencing Rules didefinisikan dalam file AppSchema.json di folder Schema dari Project.",
+                    "updated": 1644949704675
                 }
             ]
         }

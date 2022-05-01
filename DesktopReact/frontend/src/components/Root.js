@@ -5,7 +5,8 @@ import UserProfile from "./userProfile/UserProfile";
 import NotFound from "./notFound/NotFound";
 import Feed from "./feed/Feed";
 import PostPlaceholder from "./postPlaceholder/PostPlaceholder";
-import Post from "./post/Post";
+import Signup from "./signUp/Signup";
+import ReplyFeed from "./replyFeed/ReplyFeed";
 
 const Root = () => {
     return (
@@ -13,14 +14,13 @@ const Root = () => {
             <Routes>
                 <Route path='/' element={<App/>}>
                     <Route path='' element={<Feed/>}/>
-                    <Route path='Profile' element={<UserProfile/>}>
+                    <Route path='profile' element={<UserProfile/>}>
                         <Route path=':userId' element={<UserProfile/>}/>
                     </Route>
-                    <Route path='PostPlaceholder' element={<PostPlaceholder/>}/>
-                    <Route path='post'>
-                        <Route path={':postId'} element={<Post/>}/> {/* TODO handle this post data*/}
-                    </Route>
+                    <Route path='postPlaceholder' element={<PostPlaceholder/>}/>
+                    <Route path={'post'} element={<ReplyFeed/>}/> {/* TODO handle this post data*/}
                 </Route>
+                <Route path='/signUp' element={<Signup/>}/>
                 <Route
                     path="*"
                     element={

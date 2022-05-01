@@ -107,6 +107,10 @@
                     "updated": 1640555531810
                 }
             ]
+        },
+        {
+            "style": "Text",
+            "text": "If you are using the Packaged or Docker installations, keep hitting Next and ignoring the instructions that are not available for your version of the software."
         }
     ]
 }

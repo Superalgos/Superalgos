@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Эта шахта данных обрабатывает данные, полученные из Messsari API Map.",
                 "updated": 1643528093561
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu veri madeni, Messsari API Haritasından alınan verileri işler.",
+                "updated": 1650625672519
             }
         ]
     },
@@ -22,13 +27,25 @@
                     "language": "RU",
                     "text": "Продукты бота",
                     "updated": 1643528104189
+                },
+                {
+                    "language": "TR",
+                    "text": "Bot Ürünleri",
+                    "updated": 1650625881407
                 }
             ]
         },
         {
             "style": "Subtitle",
             "text": "Asset Metrics",
-            "updated": 1623067631138
+            "updated": 1623067631138,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Varlık Metrikleri",
+                    "updated": 1650625887831
+                }
+            ]
         },
         {
             "style": "Text",
@@ -38,6 +55,11 @@
                     "language": "RU",
                     "text": "Сохраняет необработанные данные API в совместимые с Superalgos файлы Multi-Time-Frame-Daily и Multi-Time-Frame-Market.",
                     "updated": 1643528116945
+                },
+                {
+                    "language": "TR",
+                    "text": "Ham API verilerini Superalgos uyumlu Çok Zamanlı Çerçeve Günlük ve Çok Zamanlı Çerçeve Pazarı dosyalarına kaydeder. ( Multi-Time-Frame-Daily and Multi-Time-Frame-Market )",
+                    "updated": 1650625937419
                 }
             ]
         },
@@ -50,13 +72,25 @@
                     "language": "RU",
                     "text": "Индикаторные боты News, All-Time-High, Market Data, Supply и Blockchain Stats обрабатывают эти необработанные данные в упорядоченные наборы данных, перечисленные ниже.",
                     "updated": 1643528196809
+                },
+                {
+                    "language": "TR",
+                    "text": "Haberler, Tüm Zamanların En Yüksek, Piyasa Verileri, Arz ve Blok Zinciri İstatistikleri gösterge botları, bu ham verileri aşağıda listelenen organize veri kümelerinde işler.",
+                    "updated": 1650626011179
                 }
             ]
         },
         {
             "style": "Subtitle",
             "text": "News",
-            "updated": 1623067696301
+            "updated": 1623067696301,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Haberler",
+                    "updated": 1650626017538
+                }
+            ]
         },
         {
             "style": "Text",
@@ -66,6 +100,11 @@
                     "language": "RU",
                     "text": "Собирает собранные новостные материалы в формат данных типа Single-File.",
                     "updated": 1643528209766
+                },
+                {
+                    "language": "TR",
+                    "text": "Getirilen haber öykülerini Tek Dosyalı bir veri türü biçiminde toplar.",
+                    "updated": 1650626038428
                 }
             ]
         },
@@ -77,6 +116,11 @@
                     "language": "RU",
                     "text": "Обработанные значения:",
                     "updated": 1643528217761
+                },
+                {
+                    "language": "TR",
+                    "text": "İşlenmiş Değerler:",
+                    "updated": 1650626044587
                 }
             ]
         },
@@ -89,6 +133,11 @@
                     "language": "RU",
                     "text": "Timestamp: Дата выхода статьи.",
                     "updated": 1643528224567
+                },
+                {
+                    "language": "TR",
+                    "text": "Zaman damgası ( Timestamp ): Haber makalesinin tarihi.",
+                    "updated": 1650626069445
                 }
             ]
         },
@@ -101,6 +150,11 @@
                     "language": "RU",
                     "text": "Record Id: Id сохраненной статьи.",
                     "updated": 1643528254606
+                },
+                {
+                    "language": "TR",
+                    "text": "Kayıt Kimliği: Depolanan makalenin kimliği.",
+                    "updated": 1650626076864
                 }
             ]
         },
@@ -113,6 +167,11 @@
                     "language": "RU",
                     "text": "Author: Автор статьи.",
                     "updated": 1643528260376
+                },
+                {
+                    "language": "TR",
+                    "text": "Yazar: Makalenin yazarı.",
+                    "updated": 1650626083471
                 }
             ]
         },
@@ -125,6 +184,11 @@
                     "language": "RU",
                     "text": "Title: Название статьи.",
                     "updated": 1643528269000
+                },
+                {
+                    "language": "TR",
+                    "text": "Başlık: Makalenin başlığı.",
+                    "updated": 1650626090730
                 }
             ]
         },
@@ -137,13 +201,25 @@
                     "language": "RU",
                     "text": "Content: Содержание статьи.",
                     "updated": 1643528274766
+                },
+                {
+                    "language": "TR",
+                    "text": "İçerik: Makalenin içeriği.",
+                    "updated": 1650626096655
                 }
             ]
         },
         {
             "style": "Subtitle",
             "text": "All-Time-High",
-            "updated": 1623067732191
+            "updated": 1623067732191,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Tüm Zamanların En Yüksek Seviyesi",
+                    "updated": 1650626133991
+                }
+            ]
         },
         {
             "style": "Text",
@@ -153,6 +229,11 @@
                     "language": "RU",
                     "text": "Сохраняет данные о всех временных максимумах для индикатора All Time High (исторический максимум).",
                     "updated": 1643528498468
+                },
+                {
+                    "language": "TR",
+                    "text": "Tüm zamanların en yüksek göstergesi için tüm zamanların en yüksek verilerini kaydeder.",
+                    "updated": 1650626142465
                 }
             ]
         },
@@ -164,6 +245,11 @@
                     "language": "RU",
                     "text": "Обработанные значения:",
                     "updated": 1643528291951
+                },
+                {
+                    "language": "TR",
+                    "text": "İşlenmiş Değerler:",
+                    "updated": 1650626149473
                 }
             ]
         },
@@ -176,6 +262,11 @@
                     "language": "RU",
                     "text": "Date At: дата All Time High.",
                     "updated": 1643528303641
+                },
+                {
+                    "language": "TR",
+                    "text": "Tarih At: Tüm Zamanların En Yüksek tarihi.",
+                    "updated": 1650626176606
                 }
             ]
         },
@@ -188,6 +279,11 @@
                     "language": "RU",
                     "text": "Percent Down: текущий процент снижения с All Time High.",
                     "updated": 1643528357145
+                },
+                {
+                    "language": "TR",
+                    "text": "Yüzde Azaltma: Tüm Zamanların En Yüksek seviyesinden mevcut düşüş yüzdesi.",
+                    "updated": 1650626188974
                 }
             ]
         },
@@ -200,6 +296,11 @@
                     "language": "RU",
                     "text": "Days Since: количество дней с момента All Time High.",
                     "updated": 1643528452257
+                },
+                {
+                    "language": "TR",
+                    "text": "Son Günler: Tüm Zamanların En Yüksekinden bu yana geçen gün sayısı.",
+                    "updated": 1650626198196
                 }
             ]
         },
@@ -212,6 +313,11 @@
                     "language": "RU",
                     "text": "Rate: цена All Time High.",
                     "updated": 1643528466238
+                },
+                {
+                    "language": "TR",
+                    "text": "Oran: Tüm Zamanların En Yüksek fiyatı.",
+                    "updated": 1650626206386
                 }
             ]
         },
@@ -224,6 +330,11 @@
                     "language": "RU",
                     "text": "Begin: начало просмотренного периода.",
                     "updated": 1643528484733
+                },
+                {
+                    "language": "TR",
+                    "text": "Başlangıç: izlenen zaman diliminin başlangıcı.",
+                    "updated": 1650626217675
                 }
             ]
         },
@@ -236,12 +347,24 @@
                     "language": "RU",
                     "text": "End: окончание срока наблюдения.",
                     "updated": 1643528508066
+                },
+                {
+                    "language": "TR",
+                    "text": "Bitiş: İzlenen zaman diliminin sonu.",
+                    "updated": 1650626225624
                 }
             ]
         },
         {
             "style": "Subtitle",
-            "text": "Market Data"
+            "text": "Market Data",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Piyasa verileri",
+                    "updated": 1650626249961
+                }
+            ]
         },
         {
             "style": "Text",
@@ -251,6 +374,11 @@
                     "language": "RU",
                     "text": "Сохраняет различные рыночные данные для текущего актива.",
                     "updated": 1643528515946
+                },
+                {
+                    "language": "TR",
+                    "text": "Mevcut varlık için çeşitli piyasa verilerini kaydeder.",
+                    "updated": 1650626275867
                 }
             ]
         },
@@ -262,6 +390,11 @@
                     "language": "RU",
                     "text": "Обработанные значения:",
                     "updated": 1643528522083
+                },
+                {
+                    "language": "TR",
+                    "text": "İşlenmiş Değerler:",
+                    "updated": 1650626282744
                 }
             ]
         },
@@ -274,6 +407,11 @@
                     "language": "RU",
                     "text": "Percent Change BTC Last 24 Hs: Процентное изменение BTC за последние 24 часа.",
                     "updated": 1643528529690
+                },
+                {
+                    "language": "TR",
+                    "text": "Yüzde Değişim BTC Son 24 Saat: BTC'deki son 24 saatteki yüzde değişim.",
+                    "updated": 1650626293445
                 }
             ]
         },
@@ -286,6 +424,11 @@
                     "language": "RU",
                     "text": "Percent Change USD Last 24 Hs: Процентное изменение в USD за последние 24 часа.",
                     "updated": 1643528540554
+                },
+                {
+                    "language": "TR",
+                    "text": "Yüzde Değişim USD Son 24 Saat: USD cinsinden son 24 saatteki yüzde değişim.",
+                    "updated": 1650626299987
                 }
             ]
         },
@@ -298,6 +441,11 @@
                     "language": "RU",
                     "text": "Real Volume Last 24 Hs: Отфильтрованный объем за последние 24 часа.",
                     "updated": 1643528547579
+                },
+                {
+                    "language": "TR",
+                    "text": "Gerçek Hacim Son 24 Saat: Son 24 saat için filtrelenmiş hacim.",
+                    "updated": 1650626307060
                 }
             ]
         },
@@ -310,6 +458,11 @@
                     "language": "RU",
                     "text": "Volume Last 24 Hs: Нефильтрованный объем за последние 24 часа.",
                     "updated": 1643528555973
+                },
+                {
+                    "language": "TR",
+                    "text": "Hacim Son 24 Saat: Son 24 saat için filtrelenmemiş hacim.",
+                    "updated": 1650626322226
                 }
             ]
         },
@@ -322,6 +475,11 @@
                     "language": "RU",
                     "text": "Price BTC: рыночная цена в BTC.",
                     "updated": 1643528564281
+                },
+                {
+                    "language": "TR",
+                    "text": "Fiyat BTC: BTC cinsinden piyasa fiyatı.",
+                    "updated": 1650626329683
                 }
             ]
         },
@@ -334,6 +492,11 @@
                     "language": "RU",
                     "text": "Price USD: рыночная цена в USD.",
                     "updated": 1643528573732
+                },
+                {
+                    "language": "TR",
+                    "text": "Fiyat USD: USD cinsinden piyasa fiyatı.",
+                    "updated": 1650626337607
                 }
             ]
         },
@@ -346,6 +509,11 @@
                     "language": "RU",
                     "text": "Begin: начало просмотренного периода.",
                     "updated": 1643528591155
+                },
+                {
+                    "language": "TR",
+                    "text": "Başlangıç: izlenen zaman diliminin başlangıcı.",
+                    "updated": 1650626346427
                 }
             ]
         },
@@ -358,13 +526,25 @@
                     "language": "RU",
                     "text": "End: конец наблюдаемого периода.",
                     "updated": 1643528610675
+                },
+                {
+                    "language": "TR",
+                    "text": "Bitiş: İzlenen zaman diliminin sonu.",
+                    "updated": 1650626355317
                 }
             ]
         },
         {
             "style": "Subtitle",
             "text": "Supply",
-            "updated": 1623068607880
+            "updated": 1623068607880,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Tedarik",
+                    "updated": 1650626752105
+                }
+            ]
         },
         {
             "style": "Text",
@@ -375,6 +555,11 @@
                     "language": "RU",
                     "text": "Сохраняет различные данные о поставках для текущего актива.",
                     "updated": 1643528619418
+                },
+                {
+                    "language": "TR",
+                    "text": "Mevcut varlık için çeşitli tedarik verilerini kaydeder.",
+                    "updated": 1650626768268
                 }
             ]
         },
@@ -386,6 +571,11 @@
                     "language": "RU",
                     "text": "Обработанные значения:",
                     "updated": 1643528632560
+                },
+                {
+                    "language": "TR",
+                    "text": "İşlenmiş Değerler:",
+                    "updated": 1650626774813
                 }
             ]
         },
@@ -398,6 +588,11 @@
                     "language": "RU",
                     "text": "Stock to Flow: Stock to Flow рассчитывается путем взятия сегодняшнего Liquid Supply и деления на прогнозируемый 12-месячный рост Liquid Supply. По сути, это обратная величина текущей инфляции Current Inflation. Значение равно нулю для активов с фиксированным или уменьшающимся запасом ликвидности.",
                     "updated": 1643528685659
+                },
+                {
+                    "language": "TR",
+                    "text": "Stok Akışı: Stok Akışı, bugünkü Sıvı Arzını alarak ve Sıvı Arzında öngörülen 12 aylık artışa bölünerek hesaplanır. Bu, esasen Mevcut Enflasyonun tersidir. Sabit veya azalan Likit Arzı olan varlıklar için değer boştur.",
+                    "updated": 1650626788180
                 }
             ]
         },
@@ -410,6 +605,11 @@
                     "language": "RU",
                     "text": "Circulating: Circulating Supply (Циркулирующее предложение) относится к токенам, которые существуют на цепи и которые, как известно, не обременены никакими контрактами (программными или юридическими).",
                     "updated": 1643528722619
+                },
+                {
+                    "language": "TR",
+                    "text": "Dolaşan: Dolaşan Tedarik, zincir üzerinde var olan ve herhangi bir sözleşme (programatik veya yasal) tarafından engellendiği bilinmeyen jetonları ifade eder.",
+                    "updated": 1650626798001
                 }
             ]
         },
@@ -422,6 +622,11 @@
                     "language": "RU",
                     "text": "Liquid: Liquid Supply (Текущее предложение) относится к токенам, которые существуют на цепочке, и которые, как известно, не обременены никакими контрактами - ни программными, ни юридическими.",
                     "updated": 1643528759470
+                },
+                {
+                    "language": "TR",
+                    "text": "Liquid: Liquid Supply, zincir üzerinde bulunan ve herhangi bir sözleşme (programatik veya yasal) tarafından engellendiği bilinmeyen tokenleri ifade eder.",
+                    "updated": 1650626810236
                 }
             ]
         },
@@ -434,6 +639,11 @@
                     "language": "RU",
                     "text": "Plus 10 Issued Percent: Процент предложения \"Год+10\", который сегодня ликвиден на рынке.",
                     "updated": 1643528772946
+                },
+                {
+                    "language": "TR",
+                    "text": "Artı 10 Çıkarılan Yüzde: Bugün piyasada şu anda likit olan Yıl+10 arzının yüzdesi.",
+                    "updated": 1650626828796
                 }
             ]
         },
@@ -446,6 +656,11 @@
                     "language": "RU",
                     "text": "Y Plus 10: Ожидаемое предложение через 10 лет.",
                     "updated": 1643528780693
+                },
+                {
+                    "language": "TR",
+                    "text": "Y Plus 10: Bundan 10 yıl sonra beklenen arz.",
+                    "updated": 1650626836120
                 }
             ]
         },
@@ -458,6 +673,11 @@
                     "language": "RU",
                     "text": "Y 2050 Percent Issued: Процент уже выпущенного объема предложения Y2050.",
                     "updated": 1643528796367
+                },
+                {
+                    "language": "TR",
+                    "text": "Y 2050 Verilen Yüzde: Daha önce verilmiş olan Y2050 arzının yüzdesi.",
+                    "updated": 1650626849620
                 }
             ]
         },
@@ -470,6 +690,11 @@
                     "language": "RU",
                     "text": "Y 2050: Ожидаемое предложение на 1 января 2050 года.",
                     "updated": 1643528805292
+                },
+                {
+                    "language": "TR",
+                    "text": "Y 2050: 1 Ocak 2050'de beklenen arz.",
+                    "updated": 1650626857577
                 }
             ]
         },
@@ -481,6 +706,11 @@
                     "language": "RU",
                     "text": "Begin: начало просмотренного периода.",
                     "updated": 1643528814468
+                },
+                {
+                    "language": "TR",
+                    "text": "Başlangıç: izlenen zaman diliminin başlangıcı.",
+                    "updated": 1650626865067
                 }
             ]
         },
@@ -492,12 +722,24 @@
                     "language": "RU",
                     "text": "End: конец просмотренного периода.",
                     "updated": 1643528825098
+                },
+                {
+                    "language": "TR",
+                    "text": "Bitiş: İzlenen zaman diliminin sonu.",
+                    "updated": 1650626872541
                 }
             ]
         },
         {
             "style": "Subtitle",
-            "text": "Blockchain Stats"
+            "text": "Blockchain Stats",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Blockchain İstatistikleri",
+                    "updated": 1650626885182
+                }
+            ]
         },
         {
             "style": "Text",
@@ -508,6 +750,11 @@
                     "language": "RU",
                     "text": "Сохраняет различные данные статистики блокчейна для текущего актива.",
                     "updated": 1643528832546
+                },
+                {
+                    "language": "TR",
+                    "text": "Mevcut varlık için çeşitli blok zinciri istatistik verilerini kaydeder.",
+                    "updated": 1650626891785
                 }
             ]
         },
@@ -519,6 +766,11 @@
                     "language": "RU",
                     "text": "Обработанные значения:",
                     "updated": 1643528838655
+                },
+                {
+                    "language": "TR",
+                    "text": "İşlenmiş Değerler:",
+                    "updated": 1650626898709
                 }
             ]
         },
@@ -531,6 +783,11 @@
                     "language": "RU",
                     "text": "Supply Moved Off Chain: Объем предложения, перемещенного из цепочки за последние 24 часа.",
                     "updated": 1643528870432
+                },
+                {
+                    "language": "TR",
+                    "text": "Tedarik Zincirden Çıkarıldı: Son 24 saat içinde zincirden çıkarılan tedarik miktarı.",
+                    "updated": 1650626932516
                 }
             ]
         },
@@ -543,6 +800,11 @@
                     "language": "RU",
                     "text": "Count of Block Added: Количество добавленных блоков за последние 24 часа.Количество добавленных блоков за последние 24 часа.",
                     "updated": 1643528877512
+                },
+                {
+                    "language": "TR",
+                    "text": "Eklenen Blok Sayısı: Son 24 saat için eklenen blok sayısı.",
+                    "updated": 1650626939325
                 }
             ]
         },
@@ -555,6 +817,11 @@
                     "language": "RU",
                     "text": "Kilobytes Added: Количество килобайт, добавленных в цепочку за последние 24 часа.",
                     "updated": 1643528886603
+                },
+                {
+                    "language": "TR",
+                    "text": "Eklenen Kilobayt: Son 24 saat içinde zincire eklenen killobayt miktarı.",
+                    "updated": 1650626946698
                 }
             ]
         },
@@ -567,6 +834,11 @@
                     "language": "RU",
                     "text": "Average Difficulty: Средняя сложность добытых блоков за последние 24 часа.",
                     "updated": 1643528893614
+                },
+                {
+                    "language": "TR",
+                    "text": "Ortalama Zorluk: Son 24 saat için mayınlı blokların ortalama zorluğu.",
+                    "updated": 1650626954988
                 }
             ]
         },
@@ -579,6 +851,11 @@
                     "language": "RU",
                     "text": "New Issuance: Количество новых выпущенных монет за последние 24 часа.",
                     "updated": 1643528901372
+                },
+                {
+                    "language": "TR",
+                    "text": "Yeni İhraç: Son 24 saatte çıkarılan yeni madeni para miktarı.",
+                    "updated": 1650626962961
                 }
             ]
         },
@@ -591,6 +868,11 @@
                     "language": "RU",
                     "text": "Count of Payments: Количество платежей за последние 24 часа.",
                     "updated": 1643528915049
+                },
+                {
+                    "language": "TR",
+                    "text": "Ödeme Sayısı: Son 24 saatteki ödeme sayısı.",
+                    "updated": 1650626984718
                 }
             ]
         },
@@ -603,6 +885,11 @@
                     "language": "RU",
                     "text": "Count of Tx: Количество транзакций за последние 24 часа.",
                     "updated": 1643528922921
+                },
+                {
+                    "language": "TR",
+                    "text": "Tx Sayısı: Son 24 saatteki işlem sayısı.",
+                    "updated": 1650626993993
                 }
             ]
         },
@@ -615,6 +902,11 @@
                     "language": "RU",
                     "text": "Count of Active Addresses: Активные адреса за последние 24 часа.",
                     "updated": 1643528935092
+                },
+                {
+                    "language": "TR",
+                    "text": "Aktif Adres Sayısı: Son 24 saat için aktif adresler.",
+                    "updated": 1650627002947
                 }
             ]
         },
@@ -627,6 +919,11 @@
                     "language": "RU",
                     "text": "Median Tx Fee: Медианная комиссия за транзакцию за последние 24 часа.",
                     "updated": 1643528943354
+                },
+                {
+                    "language": "TR",
+                    "text": "Medyan Tx Ücreti: Son 24 saat için medyan işlem ücreti.",
+                    "updated": 1650627013269
                 }
             ]
         },
@@ -639,6 +936,11 @@
                     "language": "RU",
                     "text": "Median Tx Value: Медианная стоимость сделки за последние 24 часа.",
                     "updated": 1643528950079
+                },
+                {
+                    "language": "TR",
+                    "text": "Medyan Tx Değeri: Son 24 saat için medyan işlem değeri.",
+                    "updated": 1650627023889
                 }
             ]
         },
@@ -651,6 +953,11 @@
                     "language": "RU",
                     "text": "Sum of Fees: Общая сумма сборов за последние 24 часа.",
                     "updated": 1643528957182
+                },
+                {
+                    "language": "TR",
+                    "text": "Ücret Toplamı: Son 24 saat için toplam ücret.",
+                    "updated": 1650627033459
                 }
             ]
         },
@@ -663,6 +970,11 @@
                     "language": "RU",
                     "text": "NVT: NVT рассчитывается путем деления стоимости сети (= рыночной стоимости) на общий объем сделок в USD за последние 24 часа.",
                     "updated": 1643528975774
+                },
+                {
+                    "language": "TR",
+                    "text": "NVT: NVT, Ağ Değerinin (= Piyasa Değeri) son 24 saat içinde USD cinsinden toplam işlem hacmine bölünmesiyle hesaplanır.",
+                    "updated": 1650627058211
                 }
             ]
         },
@@ -675,6 +987,11 @@
                     "language": "RU",
                     "text": "Transaction Volume: Объем транзакций за последние 24 часа.",
                     "updated": 1643528983395
+                },
+                {
+                    "language": "TR",
+                    "text": "İşlem Hacmi: Son 24 saatteki işlem hacmi.",
+                    "updated": 1650627065434
                 }
             ]
         },
@@ -686,6 +1003,11 @@
                     "language": "RU",
                     "text": "Begin: начало периода наблюдения.",
                     "updated": 1643528993726
+                },
+                {
+                    "language": "TR",
+                    "text": "Başlangıç: izlenen zaman diliminin başlangıcı.",
+                    "updated": 1650627072211
                 }
             ]
         },
@@ -697,6 +1019,11 @@
                     "language": "RU",
                     "text": "End: конец наблюдаемого периода.",
                     "updated": 1643529015834
+                },
+                {
+                    "language": "TR",
+                    "text": "Bitiş: İzlenen zaman diliminin sonu.",
+                    "updated": 1650627078804
                 }
             ]
         },
@@ -708,13 +1035,25 @@
                     "language": "RU",
                     "text": "Индикаторы",
                     "updated": 1643529030318
+                },
+                {
+                    "language": "TR",
+                    "text": "İndikatörler ( Indicators i9",
+                    "updated": 1650627108781
                 }
             ]
         },
         {
             "style": "List",
             "text": "All Time High - Messari API Indicator",
-            "updated": 1623068679468
+            "updated": 1623068679468,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Tüm Zamanların En Yüksek Seviyesi - Messari API Göstergesi ( All Time High - Messari API Indicator )",
+                    "updated": 1650627118885
+                }
+            ]
         },
         {
             "style": "Title",

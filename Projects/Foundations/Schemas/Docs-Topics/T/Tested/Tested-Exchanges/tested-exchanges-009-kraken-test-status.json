@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Kraken тестируется для добычи данных, но не для реальной торговли.",
                 "updated": 1646902465103
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Kraken, veri madenciliği için test edilmiştir, ancak canlı ticaret için test edilmemiştir.",
+                "updated": 1650571420308
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Сведения",
                     "updated": 1646902471759
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikleri",
+                    "updated": 1650571427494
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "RU",
                     "text": "1-минутные свечи OHLCV: Да. Возможность получения исторических данных для целей бэктестинга была проверена.",
                     "updated": 1646902507414
+                },
+                {
+                    "language": "TR",
+                    "text": "1 dakikalık OHLCV Yeteneği: Evet. Geriye dönük test amacıyla geçmiş verileri getirme yeteneği doğrulandı.",
+                    "updated": 1650571436302
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "RU",
                     "text": "История рынка: Неизвестно",
                     "updated": 1646902513190
+                },
+                {
+                    "language": "TR",
+                    "text": "Market Geçmişi: Bilinmiyor",
+                    "updated": 1650571448767
                 }
             ]
         },
@@ -59,6 +79,11 @@
                     "language": "RU",
                     "text": "Торговые возможности [**]: Неизвестно. Возможность запуска стратегий в режиме реальной торговли не была проверена.",
                     "updated": 1646902522460
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Yeteneği [**]: Bilinmiyor. Canlı ticaret modunda strateji çalıştırma yeteneği doğrulanmadı.",
+                    "updated": 1650571833409
                 }
             ]
         },
@@ -71,6 +96,11 @@
                     "language": "RU",
                     "text": "Комментарии: При стандартных настройках извлекаются необработанные данные только за один день. Чтобы получить необработанные данные в Kraken, пары в конфигурации меняются местами. Поведение при бэктестинге и реальной торговле неизвестно",
                     "updated": 1646902544917
+                },
+                {
+                    "language": "TR",
+                    "text": "Yorumlar: Standart ayarlarla yalnızca bir günlük Ham Veri alınır. Kraken'de Ham Verileri almak için yapılandırmadaki çiftler tersine çevrilir. Geriye dönük test ve Canlı Ticaret davranışı bilinmiyor",
+                    "updated": 1650571484258
                 }
             ]
         },
@@ -82,6 +112,11 @@
                     "language": "RU",
                     "text": "Конфигурация",
                     "updated": 1646902551135
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırma",
+                    "updated": 1650571391973
                 }
             ]
         },

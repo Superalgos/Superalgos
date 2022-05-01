@@ -16,7 +16,7 @@ In order to obtain that error measure, first a ML model with certain parameters 
 
 Testing combinations of parameters and data (with potentially hundreds of indicators to choose from, thousands of crypto assets, and dozens of time-frames) by hand, one by one, would be a nightmare. The system from which this App is part of, solves those problems by automating the discovery of the best performing ML models, for a certain range of parameters values and certain set of indicators, for each combination of Asset / Timeframe. 
 
-The System allows us to define for each parameter a range of valid values, creating a set of Test Cases based on all the possible combinations of all the values inside the valid  ranges for all parameters. Then we only need distributed processing power to test all the combinations in a reasonable time and find which parameters / data configurations produces the best results. Best results means the best forecasts with the lowest % of error.
+The System allows us to define for each parameter a range of valid values, creating a set of Test Cases based on all the possible combinations of all the values inside the valid ranges for all parameters. Then we only need distributed processing power to test all the combinations in a reasonable time and find which parameters / data configurations produces the best results. Best results means the best forecasts with the lowest % of error.
 
 Over time, we will learn we which set of parameters and data produces the best model for a certain Asset / Timeframe. If we never stop testing, we will over time get the best possible models. Even if we finish with all possible combinations, datasets are changing over time and the amount of records and the data itself influence the performance of a ML model. For that reason, testing models is a never ending task. 
 
@@ -92,15 +92,15 @@ Once a Test Case is received, the Test Client app will write 2 files at the note
 
 After these files are written, the Test Client App will execute inside the TensorFlow container the Bitcoin_Factory_LSTM.py script. 
 
-This script reads boths files, and creates a ML model using the provided parameters and the data at the time-series file. Its execution could take several minutes. Once finished, a set of results are sent back from the Python script to the Test Client app, which in turn sends via the Superalgos Network node the results to the Test Server app. 
+This script reads both files, and creates a ML model using the provided parameters and the data at the time-series file. Its execution could take several minutes. Once finished, a set of results are sent back from the Python script to the Test Client app, which in turn sends via the Superalgos Network node the results to the Test Server app. 
 
 The Test Server app remembers all the test results and organizes a collection with the best crowd-sourced forecasts for each Asset / Timeframe. 
 
 This consolidated collection with the best crowd-sourced forecasts is sent back to each Test Client as a response to their own report with the results of their latest test.  
 
-The Test Client app once it receives this report, it send it to Superalgos so that it can be saved as a regular indicator under the Bitcoin-Factory Data Mine. The Test Client app then wait for 10 seconds and repeat the process again, requesting a new Test Case to test.
+The Test Client app receives this report, then sends it to Superalgos so that it can be saved as a regular indicator under the Bitcoin-Factory Data Mine. The Test Client app then wait for 10 seconds and repeat the process again, requesting a new Test Case to test.
 
-### How does the overal System Work?
+### How does the overall System Work?
 
 As mentioned before the system consist of 3 different apps:
 
@@ -110,15 +110,15 @@ As mentioned before the system consist of 3 different apps:
 
 #### The Test Server
 
-This app manages all test and forecasts cases, but it does not run the tests or do the forecasts. Everytime a test client finds a parameter combination with a lower Error for a certain Asset / Timeframe, the test case is transformed into a Forecast Case replacing the previous best performing Forecast case for that same Asset / Timeframe. This app is ran by the Bitcoin Factory. 
+This app manages all test and forecasts cases, but it does not run the tests or do the forecasts. Every time a test client finds a parameter combination with a lower Error for a certain Asset / Timeframe, the test case is transformed into a Forecast Case replacing the previous best performing Forecast case for that same Asset / Timeframe. This app is run by the Bitcoin Factory. 
 
 #### The Test Client
 
-This app feeds itself from the Test Server with test cases. It runs each Test Case at the Tensor Flow Docker Container, reports bact to the Test Server the test results, receives the latest best-forecasts, and sends them to Superalgos to be saved as an indicator.
+This app feeds itself from the Test Server with test cases. It runs each Test Case at the Tensor Flow Docker Container, reports back to the Test Server the test results, receives the latest best-forecasts, and sends them to Superalgos to be saved as an indicator.
 
 #### The Forecast Client
 
-This app feeds itself from the Test Server foracast cases. A forecast case is the best known set of parameters for a certain Asseet / Timeframe. The job of this App is to recreate the model discovered by a Tester using the Test App, and once created, start forcasting with it the next candle for that Asset / Timeframe. The forecasts produced by this App are sent to the Test Server and from there distributed to the Test App users every time they test a new case, and finally they end up in their user's Superalgos data storage as indicator data. 
+This app feeds itself from the Test Server forecast cases. A forecast case is the best known set of parameters for a certain Asset / Timeframe. The job of this App is to recreate the model discovered by a Tester using the Test App, and once created, start forecasting with it the next candle for that Asset / Timeframe. The forecasts produced by this App are sent to the Test Server and from there distributed to the Test App users every time they test a new case, and finally they end up in their user's Superalgos data storage as indicator data. 
 
 ### Should I leave this Test Client App Running?
 
@@ -126,7 +126,7 @@ Yes, if you want to be receiving the crowd-sourced forecasts over time. Each new
 
 If you have this app running, you will be collecting all these forecasts and building over time historical dataset with the forecasts received. That could later be used for backtesting strategies which relies on these forecasts. 
 
-If you already have a strategy that uses forcasts and you want to live trade with it, then you will need at least one Test Client App running to receive updated forecasts over time. If you run more than one Test Client at the same time, chances are that you will be updated with these forecasts more often, since the crowd-sourced forcasts are received after each test you make (which might take several minutes), having more than one app doing tests increases the frequency in which you get new forecasts.
+If you already have a strategy that uses forecasts and you want to live trade with it, then you will need at least one Test Client App running to receive updated forecasts over time. If you run more than one Test Client at the same time, chances are that you will be updated with these forecasts more often, since the crowd-sourced forecasts are received after each test you make (which might take several minutes), having more than one app doing tests increases the frequency in which you get new forecasts.
 
 ### How do we know which are the best Forecasts?
 
@@ -144,17 +144,17 @@ The crowd-sourced forecasts you receive after each test, are the ones belonging 
 
 ### Why is this System Beautiful?
 
-Because the precision of the forcasts can only improve over time. Think about it, once we find for instance the right set of parameters and data for BTC / 1Hs, that have for instance a 0.8 % of error, we will be forcasting with this model until the minute anyone in the crowd finds another set of parameters and data for BTC / 1Hs with a lower error, let's say 0.6, and you guess, from there on, all forcast will be done with that ML model until the day someone else finds another one with even less % error.
+Because the precision of the forecasts can only improve over time. Think about it; once we find the right set of parameters and data for BTC / 1Hs with an error value of 0.8 %, we will be forecasting with this model until the minute anyone in the crowd finds another set of parameters and data for BTC / 1Hs with a lower error. For example, if the new error value is 0.6, from that point in time onwards all forecasts will be done with the new ML model until the time someone else finds another model with even less % error.
 
 It might take time, but our collective intelligence can only improve over time. 
 
-And all that finding and forecasting is 100% automated. Only computers working together. The more people join the effort, the faster we find better models, the better the forecasts become for all the people participating. Beautiful, ins't it?
+And all that finding and forecasting is 100% automated. Only computers working together. The more people join the effort, the faster we find better models, the better the forecasts become for all the people participating. Beautiful, isn't it?
 
-Having said that, please don't expect that at the begining the forecasts will be precise. We are brute forcing the discovery of which are the best combination of parameters and data for each Asset / Timeframe and that might take a while to produce models with reasonable performance, but once we have them, we have them forever.
+Having said that, please don't expect that at the beginning the forecasts will be precise. We are brute forcing the discovery of which are the best combination of parameters and data for each Asset / Timeframe and that might take a while to produce models with reasonable performance, but once we have them, we have them forever.
 
 ### Superalgos Network
 
-The Test Client and Test Server interact in a p2p way via the Superalgos Network, that means that we can run a Test Server at home and get help to process Test Cases from anywhere in the world without the need to pay for cloud servers, and almost without limits regarding the amount of people that can help. Only one Superalgos Network Node needs to run at the Cloud, and it will take care of conecting the Client with the Server.
+The Test Client and Test Server interact in a p2p way via the Superalgos Network, that means that we can run a Test Server at home and get help to process Test Cases from anywhere in the world without the need to pay for cloud servers, and almost without limits regarding the amount of people that can help. Only one Superalgos Network Node needs to run at the Cloud, and it will take care of connecting the Client with the Server.
 
 ## Pre-Requisites
 
@@ -163,25 +163,83 @@ The Test Client and Test Server interact in a p2p way via the Superalgos Network
 * git
 * docker
 
-## Superalgos Profile
-
-To run this software you need a Superalgos Profile with the node Forecast Providers / Bitcoin Factory Forecast / Test Client Instance.
-
-### In Detail 
-
-For your Test Client App to work and be able to connect to the Test Server you need to check that:
-
-1. The Bitcoin Factory Forecast node must be named Testnet.
-2. You need a Test Client Instance for each process or instance of this Test Client App you want to keep running. Name it as you like.
-3. You will need to assign each Test Client Instance some SA token power if you wish to receive the best crowd-sourced predictions at the end of each of your tests. How much token power for each prediction is to be determined in the near future once the assigned token power will be checked at a future release.
-
-Note 1: Once you add those nodes to your profile you still needs to contribute your User Profile and it needs to be merged. After that you will need to wait until the Network Node updates it's Superalgos Plugins including the User Profiles, and that happens every 5 minutes. 
-
-Note 2: In the future, pending a deeper integration with the Superalgos Governance system, you will be able to receive SA tokens for each Test Case you have processed. We will start counting the solved Test Cases from now.
-
-## Setup
+## App Setup
 
 The current version of Bitcoin Factory is already integrated into Superalgos. You need to load the Bitcoin Factory Demo Plugin workspace, and from there you will run the Test Client task.
+
+## Setting up your Superalgos Profile and the Task to run
+
+To run this software you need a Superalgos Profile with some extra nodes and some configs to be in the right place. Continue reading for detailed instructions.
+
+### Overview
+
+For your Test Client App to work and be able to connect to the Test Server you need to:
+
+1. Update your User Profile with several nodes that today you might not have.
+2. Create the Signing Account node to allow your Test Client app run with an identity that the Superalgos Network can recognize.
+3. Reference from the Task -> Task Server App Reference one of the nodes you added to your profile.
+4. Change a config to specify the name of your Test Client, so that you can recognize it among other test clients on the execution reports.
+
+Continue reading this section for detailed step by step instructions of how to do the above.
+
+### Update your User Profile
+
+You need to add a few nodes to your User Profile, and once you finish, you need to contribute it to the Governance repo and make sure that it is merged by the PR merging bot. 
+
+Here is the complete list of nodes you need to add to your profile, in case you don't already have them. All paths are starting from the User Profile node.
+
+1. User Profile -> User Apps
+2. User Profile -> User Apps -> Server Apps
+3. User Profile -> User Apps -> Server Apps -> Task Server App
+
+For this node, you need to assign the following name and the following config:
+
+Node Name: "Task-Server-App-1"
+
+Node Config:
+```sh
+{
+    "codeName": "Task-Server-App-1"
+}
+ ```
+
+4. User Profile -> Forecast Providers -> Server Apps
+5. User Profile -> Forecast Providers -> Bitcoin Factory Forecasts
+
+Node Name: "Testnet"
+
+6. User Profile -> Forecast Providers -> Bitcoin Factory Forecasts -> Test Client Instance
+
+For this node, you need to assign a name of your choice and that name needs also to be at the config:
+
+Node Name: "Assign-A-Name"
+
+Node Config:
+```sh
+{
+    "codeName": "Assign-A-Name"
+}
+ ```
+
+### Signing Accounts
+
+Finally, you need to re-generate the signing accounts of your User Profile, so that a new node of type Signing Accounts is created under the "Task-Server-App-1" node. The procedure to do this is the following:
+
+1. At the Governance Project node create a Profile Constructor node.
+2. Reference the Profile Constructor to your User Profile.
+3. At the Profile Constructor menu, click on Install Signing Accounts. This will generate a new node under "Task-Server-App-1" and save a file to your My-Secrets folder with the Signing Accounts at your User Profile.
+
+Now you are done with your profile.
+
+Remember to save your User Profile plugin, contribute it and check that it was merged at the Governance repository.
+
+IMPORTANT: It takes a few minutes for your profile to be auto-merged into the Governance repository and another 5 minutes to be picked up by the running Network Node. After changes to your profile, wait for around 10 minutes before expecting it to be able to connect to the Superalgos Network node.
+
+### Reference the Task Server App
+
+Locate the node Task Server App Reference, under your Test Client Task, and replace the current reference with a reference to the "Task-Server-App-1" node you created at your User Profile. 
+
+In this way you are defining that the Test Client Task will run with that identity and will sign its messages with the Signing Accounts children of that node.
 
 ### Change the Config
 
@@ -200,10 +258,14 @@ After that, open the config of the Test-Client Sensor Bot Instance. It looks lik
 * networkCodeName: We will use Testnet for now.
 * targetSuperalgosHost: You can leave this with the default. If you wish to send the forecasted candles to a different instance of Superalgos, then change the host here.
 * targetSuperalgosHttpPort: You can leave this with the default. If you wish to send the forecasted candles to a different instance of Superalgos, then change the port here.
-* logTrainingOutput: Set it to true if you want more detail of the Machile Learning process at the console.
+* logTrainingOutput: Set it to true if you want more detail of the Machine Learning process at the console.
 * clientInstanceName: IMPORTANT: Change this to match your own name created at your user profile.
 
-Second, build the Docker Image. Open a console at the Bitcoin-Factory folder inside Superalgos and follow the instructions according to your hardware:
+IMPORTANT: If you are going to be using 2 or more computers, you need to take care of the Signing Accounts file that needs to be present at both / all computers, and it must be the same file. In other words you cannot generate the signing account at one computer and then generate it again at the second one. If you generate it at one computer and contributed your profile, then you need to copy the file inside the My-Secrets folder to the second computer/s.
+
+## Docker Setup
+
+Build the Docker Image. Open a console at the Bitcoin-Factory folder inside Superalgos and follow the instructions according to your hardware:
 
 ### On x86 Processors
 
@@ -230,9 +292,9 @@ IMPORTANT NOTES:
 
 ## Usage
 
-Run the Docker Container and then run the Test Client Task located at the Bitcoin Factory Demo Plugin Workspace. You will need 2 Terminals for that, at one of them the docker container will be running, and at the second one, you will run the Superalgos and inside the Platform, the Test-Client Task.
+Run the Docker Container (See below in the "Instructions for each OS" section), and then run the Test Client Task located at the Bitcoin Factory Demo Plugin Workspace. You will need 2 Terminals for that, at one of them the docker container will be running, and at the second one, you will run the Superalgos and inside the Platform, the Test-Client Task.
 
-Once the docker container is running correctly you will see at the first terminal an ouput similar to this:
+Once the docker container is running correctly you will see at the first terminal an output similar to this:
 
 ```sh
 [I 12:58:36.546 NotebookApp] Writing notebook server cookie secret to /home/ubuntu/.local/share/jupyter/runtime/notebook_cookie_secret
@@ -299,15 +361,15 @@ Once you see this at least once, that means that your Client App is running 100%
 
 ### Multiple Instances of the Test Client Task
 
-If you wish, you can run multiple instances of the Test Client Task. Clone the current Task and attach it to the same Task Manager to have more Tasks to run. Do not forget to change the bot configuration at each task to assing a different name to each one of them. 
+If you wish, you can run multiple instances of the Test Client Task. Clone the current Task and attach it to the same Task Manager to have more Tasks to run. Do not forget to change the bot configuration at each task to assign a different name to each one of them. 
 
-You will also need multiple Test Client Instances at your Superalgos User Profile. Each instance name need to match the config at the bot insdide each task. 
+You will also need multiple Test Client Instances at your Superalgos User Profile. Each instance name need to match the config at the bot inside each task. 
 
 Only one Docker Container needs to be running even if you run more than one instance of the Test App.
 
 Depending on your hardware, your machine might do well with 2 or 3 instances running, monitor the CPU usage to see which is the limit for your specific hardware.
 
-When you are running more than one instance, chances are that you will get the best crowd-sourced forcasts more often.
+When you are running more than one instance, chances are that you will get the best crowd-sourced forecasts more often.
 
 ## Instructions for each OS
 
@@ -315,25 +377,26 @@ For specific information on how to run the Docker Container in different OS, ple
 
 ### on Windows
 
-Run the container with this commnad. Change the path if you did not install this App at the commands location.
+Run the container with this command. Change the path if you did not install this App at the commands location.
 
 ```sh
-docker run --gpus all -it --rm --name Bitcoin-Factory-ML -v C:/Superalgos/Bitcoin-Factory/notebooks:/tf/notebooks -p 8888:8888 bitcoin-factory-machine-learning
+docker run --gpus all -it --rm --name Bitcoin-Factory-ML -v C:/Superalgos/Bitcoin-Factory/Test-Client/notebooks:/tf/notebooks -p 8888:8888 bitcoin-factory-machine-learning
 ```
 
-### on Ubuntu Server
+### on Ubuntu Server / Linux
 
-Run the Docker container with this commnad. Change the path if you did not install this App at the commands location.
+Run the Docker container with this command. Change the path if you did not install this App at the commands location.
 
 ```sh
-sudo docker run --gpus all -it --rm --name Bitcoin-Factory-ML -v ~/Superalgos/Bitcoin-Factory/Test-Client/notebooks:/tf/notebooks -p 8888:8888 bitcoin-factory-machine-learning
+docker run --gpus all -it --rm --name Bitcoin-Factory-ML -v /Users/Your-User-Name/Superalgos/Bitcoin-Factory/Test-Client/notebooks:/tf/notebooks -p 8888:8888 bitcoin-factory-machine-learning
 ```
+
 
 ### on Mac OS
 
 #### File Sharing
 
-Before running that command for the first time, you will need to share the notebooks folder.
+Before running the docker command for the first time, you will need to share the notebooks folder.
 
 At the Settings of the Docker App, use File sharing to allow local directories on the Mac to be shared with Linux containers. By default the /Users, /Volume, /private, /tmp and /var/folders directory are shared. As this project is outside this directory then it must be added to the list. Otherwise you may get Mounts denied or cannot start service errors at runtime.
 
@@ -350,24 +413,16 @@ The command to run the container on Mac should be like this (mind Your-User-Name
 ```sh
 docker run --gpus all -it --rm --name Bitcoin-Factory-ML -v /Users/Your-User-Name/Superalgos/Bitcoin-Factory/Test-Client/notebooks:/tf/notebooks -p 8888:8888 bitcoin-factory-machine-learning
 ```
+You will need to remove ```--gpus all``` for M1 based macs unless the docker image is specifically built to use the metal API.
 
-In Linux:
-
-```sh
-docker run --gpus all -it --rm --name Bitcoin-Factory-ML -v /Users/Your-User-Name/Superalgos/Bitcoin-Factory/Test-Client/notebooks:/tf/notebooks -p 8888:8888 bitcoin-factory-machine-learning
-```
-In Windows:
-
-```sh
-docker run --gpus all -it --rm --name Bitcoin-Factory-ML -v C:/Superalgos/Bitcoin-Factory/Test-Client/notebooks:/tf/notebooks -p 8888:8888 bitcoin-factory-machine-learning
-```
 
 ### On Raspbian
 
-Early test on Raspbian has shown difficulties to build the docker image. If you manage to make it work with this OS please report back so that we update the specific instructions for it.
+Early test on Raspbian has shown difficulties to build the docker image. Ensure you are using the latest 64 bit image. If you manage to make it work with this OS please report back so that we update the specific instructions for it.
 
 ## Troubleshooting - Docker Cheat Sheet
 
+### Response from daemon conflict
 If you get the error:
 
 ```sh
@@ -381,3 +436,10 @@ docker container prune
 ```
 
 to fix it.
+
+### Network Client Identity
+```sh
+"Fatal Error. Can not run this task. The Network Client Identity does not match any node at User Profiles Plugins."
+```
+This error occurs when the signing account does not match the Governance plugin repository's account. To ensure they are the same, import your user profile on the workspace using the "Add specified User Profile" command under Plugins -> Plugin Project -> Plugin User Profiles. 
+Add the correct nodes, references and signing account to the plugin as detailed in [App Setup](#app-setup). Save the plugin and push the changes to the Governance repository and wait 10 minutes for it to merge and be picked up by the Forecast Server.

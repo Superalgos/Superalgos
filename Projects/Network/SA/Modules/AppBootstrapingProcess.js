@@ -13,6 +13,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
 
     */
     let thisObject = {
+        pullUserProfiles: undefined,
         userAppCodeName: undefined,
         p2pNetworkClientIdentity: undefined,
         initialize: initialize,
@@ -20,18 +21,21 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
     }
     return thisObject
 
-    async function initialize(userAppCodeName, p2pNetworkClientIdentity) {
-
+    async function initialize(userAppCodeName, p2pNetworkClientIdentity, pullUserProfiles) {
+        thisObject.pullUserProfiles = pullUserProfiles
         thisObject.userAppCodeName = userAppCodeName
         thisObject.p2pNetworkClientIdentity = p2pNetworkClientIdentity
         await run()
-        setInterval(run, 60000 * 5)
-
+        if (thisObject.pullUserProfiles === true) {
+            setInterval(run, 60000 * 5)
+        }
     }
 
     async function run() {
         SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES = []
-        await pullProfiles()
+        if (thisObject.pullUserProfiles === true) {
+            await pullProfiles()
+        }
         await reloadAll()
     }
 
@@ -43,7 +47,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
             maxConcurrentProcesses: 6,
         }
         git = simpleGit(options)
-        await git.pull('origin')
+        await git.pull('upstream', 'develop')
     }
 
     async function reloadAll() {

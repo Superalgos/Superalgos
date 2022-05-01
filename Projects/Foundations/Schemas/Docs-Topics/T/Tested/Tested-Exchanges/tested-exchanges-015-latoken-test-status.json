@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Прошел тест живой торговли, но исторические данные ограничены",
                 "updated": 1646903108094
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Canlı Alım Satım Testinden Geçildi ancak Geçmiş Veriler Sınırlı",
+                "updated": 1650572322919
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Сведения",
                     "updated": 1646903115147
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikleri",
+                    "updated": 1650572331307
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "RU",
                     "text": "1-минутные свечи OHLCV: Нет. Возможность получения исторических данных для целей бэктестинга невозможна.",
                     "updated": 1646903142421
+                },
+                {
+                    "language": "TR",
+                    "text": "1 dakikalık OHLCV Yeteneği: Hayır. Geriye dönük test amacıyla geçmiş verileri getirme yeteneği mümkün değildir.",
+                    "updated": 1650572340263
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "RU",
                     "text": "История рынка: С этого же момента вы можете начать добывать исторические данные",
                     "updated": 1646903171356
+                },
+                {
+                    "language": "TR",
+                    "text": "Market Geçmişi: O günden itibaren geçmiş verileri madenciliğe başlayacaksınız",
+                    "updated": 1650572352914
                 }
             ]
         },
@@ -59,6 +79,11 @@
                     "language": "RU",
                     "text": "Возможность торговли: Да. Возможность размещать рыночные ордера, создавать и отменять лимитные ордера в режиме реальной торговли была проверена.",
                     "updated": 1646903183256
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Yeteneği: Evet Canlı alım satım modunda piyasa emirleri verme, limit emirleri oluşturma ve iptal etme yeteneği doğrulandı.",
+                    "updated": 1650572370075
                 }
             ]
         },
@@ -71,6 +96,11 @@
                     "language": "RU",
                     "text": "Комментарии: Поиск необработанных данных ограничен несколькими минутами из-за ограничений обмена на их API, которые ограничивают количество данных, которые можно запросить через Rest API.",
                     "updated": 1646903194742
+                },
+                {
+                    "language": "TR",
+                    "text": "Yorumlar: Ham Veri madenciliği, API'lerinde Rest API aracılığıyla talep edilebilecek veri sayısını sınırlayan değişim kısıtlamaları nedeniyle birkaç dakika ile sınırlıdır.",
+                    "updated": 1650572382677
                 }
             ]
         },
@@ -82,6 +112,11 @@
                     "language": "RU",
                     "text": "Конфигурация",
                     "updated": 1646903202332
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırma",
+                    "updated": 1650572389285
                 }
             ]
         },

@@ -11,7 +11,7 @@
                 "text": "Этот источник данных включает свечной стиль Heikin Ashi, а также основанный на Heikin Ashi индикатор Supertrend.",
                 "updated": 1643521285362
             },
-            {
+			{
                 "language": "DE",
                 "text": "Diese Datenmine enthält den Heikin Ashi Kerzenstil sowie einen Heikin Ashi basierten Supertrend-Indikator.",
                 "updated": 1644722728393
@@ -29,7 +29,7 @@
                     "text": "Источник данных Heikin предоставил вам...",
                     "updated": 1643521344255
                 },
-                {
+				{
                     "language": "DE",
                     "text": "Die Heikin Datenmine wird Ihnen präsentiert von...",
                     "updated": 1644722741972
@@ -50,7 +50,7 @@
                     "text": "Сотрудничайте с этим источником данных и сообщайте о проблемах непосредственно в репозиторий Superalgos.",
                     "updated": 1643521369046
                 },
-                {
+				{
                     "language": "DE",
                     "text": "Arbeiten Sie mit dieser Datenmine zusammen und melden Sie Probleme direkt an das Superalgos Repository.",
                     "updated": 1644722754571

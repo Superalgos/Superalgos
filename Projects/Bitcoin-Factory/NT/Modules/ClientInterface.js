@@ -117,6 +117,7 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
         }
         requestsToServer.push(requestToServer)
         console.log((new Date()).toISOString(), '[WARN] Request From Forecast Client       -> timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) + ' -> Queue Size = ' + requestsToServer.length + ' -> userProfile = ' + userProfile)
+
         return new Promise(promiseWork)
 
         async function promiseWork(resolve, reject) {
@@ -157,10 +158,10 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
                         clientData: JSON.stringify(requestToServer.queryReceived)
                     }
                     requestsToServer.splice(0, 1)
-                    console.log((new Date()).toISOString(), '[WARN] Request Sent to Server -> timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) + ' -> Queue Size = ' + requestsToServer.length + ' -> userProfile = ' + userProfile)
+                    console.log((new Date()).toISOString(), '[WARN] Request Sent to Server             -> timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) + ' -> Queue Size = ' + requestsToServer.length + ' -> userProfile = ' + userProfile)
                     resolve(response)
                 } else {
-                    console.log((new Date()).toISOString(), '[WARN] Request Expired        -> timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) + ' -> Queue Size = ' + requestsToServer.length + ' -> userProfile = ' + userProfile + ' -> requestToServer.queryReceived = ' + JSON.stringify(requestToServer.queryReceived))
+                    console.log((new Date()).toISOString(), '[WARN] Request Expired                    -> timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) + ' -> Queue Size = ' + requestsToServer.length + ' -> userProfile = ' + userProfile + ' -> requestToServer.queryReceived = ' + JSON.stringify(requestToServer.queryReceived))
                     let response = {
                         result: 'Ok',
                         message: 'Next Request Already Expired.'

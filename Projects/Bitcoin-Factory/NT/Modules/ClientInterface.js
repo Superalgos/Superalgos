@@ -94,7 +94,7 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
             timestamp: (new Date()).valueOf()
         }
         requestsToServer.push(requestToServer)
-        console.log((new Date()).toISOString(), '[WARN] Request From Test Client -> timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) + ' -> userProfile = ' + userProfile + ' -> requestsToServer.length = ' + requestsToServer.length)
+        console.log((new Date()).toISOString(), '[WARN] Request From Test Client           -> timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) + ' -> userProfile = ' + userProfile + ' -> requestsToServer.length = ' + requestsToServer.length)
         return new Promise(promiseWork)
 
         async function promiseWork(resolve, reject) {
@@ -116,7 +116,7 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
             timestamp: (new Date()).valueOf()
         }
         requestsToServer.push(requestToServer)
-        console.log((new Date()).toISOString(), '[WARN] Request From Forecast Client -> timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) + ' -> userProfile = ' + userProfile + ' -> requestsToServer.length = ' + requestsToServer.length)
+        console.log((new Date()).toISOString(), '[WARN] Request From Forecast Client       -> timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) + ' -> userProfile = ' + userProfile + ' -> requestsToServer.length = ' + requestsToServer.length)
         return new Promise(promiseWork)
 
         async function promiseWork(resolve, reject) {
@@ -160,7 +160,7 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
                     console.log((new Date()).toISOString(), '[WARN] Request Sent to Server -> timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) + ' -> userProfile = ' + userProfile + ' -> requestsToServer.length = ' + requestsToServer.length)
                     resolve(response)
                 } else {
-                    console.log((new Date()).toISOString(), '[WARN] Request Expired -> timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) + ' -> userProfile = ' + userProfile + ' -> requestToServer.queryReceived = ' + JSON.stringify(requestToServer.queryReceived))
+                    console.log((new Date()).toISOString(), '[WARN] Request Expired        -> timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) + ' -> userProfile = ' + userProfile + ' -> requestToServer.queryReceived = ' + JSON.stringify(requestToServer.queryReceived))
                     let response = {
                         result: 'Ok',
                         message: 'Next Request Already Expired.'

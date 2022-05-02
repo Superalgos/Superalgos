@@ -73,7 +73,7 @@ exports.newTestClientsManager = function newTestClientsManager(processIndex, net
                 }
             }
             case 'Set Test Case Results': {
-                TS.projects.foundations.globals.taskConstants.TEST_SERVER.testCasesManager.setTestCaseResults(JSON.parse(message.payload), currentClientInstance)
+                TS.projects.foundations.globals.taskConstants.TEST_SERVER.testCasesManager.setTestCaseResults(JSON.parse(message.payload), currentClientInstance, userProfile)
                 let response = JSON.stringify(TS.projects.foundations.globals.taskConstants.TEST_SERVER.forecastCasesManager.getForecasts())
                 return response
             }

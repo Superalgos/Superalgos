@@ -76,24 +76,25 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
         switch (queryReceived.sender) {
             case 'Test-Client': {
                 queryReceived.userProfile = userProfile.name
-                return await testClientMessage(queryReceived)
+                return await testClientMessage(queryReceived, userProfile.name)
             }
             case 'Forecast-Client': {
                 queryReceived.userProfile = userProfile.name
-                return await forecastClientMessage(queryReceived)
+                return await forecastClientMessage(queryReceived, userProfile.name)
             }
             case 'Test-Server': {
-                return await testServerMessage(queryReceived)
+                return await testServerMessage(queryReceived, userProfile.name)
             }
         }
     }
 
-    async function testClientMessage(queryReceived) {
+    async function testClientMessage(queryReceived, userProfile) {
         let requestToServer = {
             queryReceived: queryReceived,
             timestamp: (new Date()).valueOf()
         }
         requestsToServer.push(requestToServer)
+        console.log((new Date()).toISOString(), '[WARN] Request From Test Client           -> timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) + ' -> Queue Size = ' + requestsToServer.length + ' -> userProfile = ' + userProfile)
         return new Promise(promiseWork)
 
         async function promiseWork(resolve, reject) {
@@ -109,12 +110,14 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
         }
     }
 
-    async function forecastClientMessage(queryReceived) {
+    async function forecastClientMessage(queryReceived, userProfile) {
         let requestToServer = {
             queryReceived: queryReceived,
             timestamp: (new Date()).valueOf()
         }
         requestsToServer.push(requestToServer)
+        console.log((new Date()).toISOString(), '[WARN] Request From Forecast Client       -> timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) + ' -> Queue Size = ' + requestsToServer.length + ' -> userProfile = ' + userProfile)
+
         return new Promise(promiseWork)
 
         async function promiseWork(resolve, reject) {
@@ -130,7 +133,7 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
         }
     }
 
-    async function testServerMessage(queryReceived) {
+    async function testServerMessage(queryReceived, userProfile) {
         if (queryReceived.messageId !== undefined) {
             let onResponseFromServer = responseFunctions.get(queryReceived.messageId)
             onResponseFromServer(queryReceived)
@@ -155,8 +158,10 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
                         clientData: JSON.stringify(requestToServer.queryReceived)
                     }
                     requestsToServer.splice(0, 1)
+                    console.log((new Date()).toISOString(), '[WARN] Request Sent to Server             -> timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) + ' -> Queue Size = ' + requestsToServer.length + ' -> userProfile = ' + userProfile)
                     resolve(response)
                 } else {
+                    console.log((new Date()).toISOString(), '[WARN] Request Expired                    -> timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) + ' -> Queue Size = ' + requestsToServer.length + ' -> userProfile = ' + userProfile + ' -> requestToServer.queryReceived = ' + JSON.stringify(requestToServer.queryReceived))
                     let response = {
                         result: 'Ok',
                         message: 'Next Request Already Expired.'

@@ -80,21 +80,21 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
             }
             case 'Forecast-Client': {
                 queryReceived.userProfile = userProfile.name
-                return await forecastClientMessage(queryReceived)
+                return await forecastClientMessage(queryReceived, userProfile.name)
             }
             case 'Test-Server': {
-                return await testServerMessage(queryReceived)
+                return await testServerMessage(queryReceived, userProfile.name)
             }
         }
     }
 
-    async function testClientMessage(queryReceived) {
+    async function testClientMessage(queryReceived, userProfile) {
         let requestToServer = {
             queryReceived: queryReceived,
             timestamp: (new Date()).valueOf()
         }
         requestsToServer.push(requestToServer)
-        console.log((new Date()).toISOString(), '[WARN] Request From Test Client -> timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) + ' -> requestsToServer.length = ' + requestsToServer.length)
+        console.log((new Date()).toISOString(), '[WARN] Request From Test Client -> timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) + ' -> userProfile = ' + userProfile + ' -> requestsToServer.length = ' + requestsToServer.length)
         return new Promise(promiseWork)
 
         async function promiseWork(resolve, reject) {
@@ -110,13 +110,13 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
         }
     }
 
-    async function forecastClientMessage(queryReceived) {
+    async function forecastClientMessage(queryReceived, userProfile) {
         let requestToServer = {
             queryReceived: queryReceived,
             timestamp: (new Date()).valueOf()
         }
         requestsToServer.push(requestToServer)
-        console.log((new Date()).toISOString(), '[WARN] Request From Forecast Client -> timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) + ' -> requestsToServer.length = ' + requestsToServer.length)
+        console.log((new Date()).toISOString(), '[WARN] Request From Forecast Client -> timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) + ' -> userProfile = ' + userProfile + ' -> requestsToServer.length = ' + requestsToServer.length)
         return new Promise(promiseWork)
 
         async function promiseWork(resolve, reject) {

@@ -76,7 +76,7 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
         switch (queryReceived.sender) {
             case 'Test-Client': {
                 queryReceived.userProfile = userProfile.name
-                return await testClientMessage(queryReceived)
+                return await testClientMessage(queryReceived, userProfile.name)
             }
             case 'Forecast-Client': {
                 queryReceived.userProfile = userProfile.name
@@ -132,7 +132,7 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
         }
     }
 
-    async function testServerMessage(queryReceived) {
+    async function testServerMessage(queryReceived, userProfile) {
         if (queryReceived.messageId !== undefined) {
             let onResponseFromServer = responseFunctions.get(queryReceived.messageId)
             onResponseFromServer(queryReceived)
@@ -157,10 +157,10 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
                         clientData: JSON.stringify(requestToServer.queryReceived)
                     }
                     requestsToServer.splice(0, 1)
-                    console.log((new Date()).toISOString(), '[WARN] Request Sent to Server -> timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) + ' -> requestsToServer.length = ' + requestsToServer.length)
+                    console.log((new Date()).toISOString(), '[WARN] Request Sent to Server -> timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) + ' -> userProfile = ' + userProfile + ' -> requestsToServer.length = ' + requestsToServer.length)
                     resolve(response)
                 } else {
-                    console.log((new Date()).toISOString(), '[WARN] Request Expired -> timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) + ' -> requestToServer.queryReceived = ' + JSON.stringify(requestToServer.queryReceived))
+                    console.log((new Date()).toISOString(), '[WARN] Request Expired -> timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) + ' -> userProfile = ' + userProfile + ' -> requestToServer.queryReceived = ' + JSON.stringify(requestToServer.queryReceived))
                     let response = {
                         result: 'Ok',
                         message: 'Next Request Already Expired.'

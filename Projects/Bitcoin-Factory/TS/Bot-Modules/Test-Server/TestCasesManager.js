@@ -255,7 +255,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
         testCase.parametersFileName = "parameters" + "-" + testCaseId
     }
 
-    function setTestCaseResults(testResult, currentClientInstance) {
+    function setTestCaseResults(testResult, currentClientInstance, userProfile) {
 
         try {
             let testCase = thisObject.testCasesArray[testResult.id - 1]
@@ -266,7 +266,8 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
             testCase.enlapsedSeconds = testResult.enlapsedTime.toFixed(0)
             testCase.enlapsedMinutes = (testResult.enlapsedTime / 60).toFixed(2)
             testCase.enlapsedHours = (testResult.enlapsedTime / 3600).toFixed(2)
-            testCase.testedBy = currentClientInstance
+            testCase.testedByInstance = currentClientInstance
+            testCase.testedByProfile = currentClientInstance
             testCase.timestamp = (new Date()).valueOf()
 
             let logQueue = []

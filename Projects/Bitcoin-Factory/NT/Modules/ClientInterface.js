@@ -157,6 +157,7 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
                     requestsToServer.splice(0, 1)
                     resolve(response)
                 } else {
+                    console.log((new Date()).toISOString(), '[WARN] Client Interface-> requestToServer.timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) + ' -> requestToServer.queryReceived = ' + requestToServer.queryReceived)
                     let response = {
                         result: 'Ok',
                         message: 'Next Request Already Expired.'

@@ -94,6 +94,7 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
             timestamp: (new Date()).valueOf()
         }
         requestsToServer.push(requestToServer)
+        console.log((new Date()).toISOString(), '[WARN] Request From Test Client -> timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) + ' -> requestsToServer.length = ' + requestsToServer.length)
         return new Promise(promiseWork)
 
         async function promiseWork(resolve, reject) {
@@ -115,6 +116,7 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
             timestamp: (new Date()).valueOf()
         }
         requestsToServer.push(requestToServer)
+        console.log((new Date()).toISOString(), '[WARN] Request From Forecast Client -> timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) + ' -> requestsToServer.length = ' + requestsToServer.length)
         return new Promise(promiseWork)
 
         async function promiseWork(resolve, reject) {
@@ -155,9 +157,10 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
                         clientData: JSON.stringify(requestToServer.queryReceived)
                     }
                     requestsToServer.splice(0, 1)
+                    console.log((new Date()).toISOString(), '[WARN] Request Sent to Server -> timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) + ' -> requestsToServer.length = ' + requestsToServer.length)
                     resolve(response)
                 } else {
-                    console.log((new Date()).toISOString(), '[WARN] Client Interface-> requestToServer.timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) + ' -> requestToServer.queryReceived = ' + requestToServer.queryReceived)
+                    console.log((new Date()).toISOString(), '[WARN] Request Expired -> timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) + ' -> requestToServer.queryReceived = ' + JSON.stringify(requestToServer.queryReceived))
                     let response = {
                         result: 'Ok',
                         message: 'Next Request Already Expired.'

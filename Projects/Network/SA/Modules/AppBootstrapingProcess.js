@@ -235,13 +235,11 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                             if (
                                 networkClient.id === SA.secrets.signingAccountSecrets.map.get(thisObject.userAppCodeName).nodeId
                             ) {
-                                if (thisObject.p2pNetworkClientIdentity.initialize(
+                                thisObject.p2pNetworkClientIdentity.initialize(
                                     networkClient,
                                     userProfile,
                                     blockchainAccount
-                                ) === false) {
-                                    throw ('Bad Configuration. P2P Network Node needs to have a Network Reference with a Reference Parent.')
-                                }
+                                )
                             }
                         }
                     }

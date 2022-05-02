@@ -62,13 +62,14 @@ exports.newTestClientsManager = function newTestClientsManager(processIndex, net
             case 'Get Next Test Case': {
                 console.log((new Date()).toISOString(), currentClientInstance, 'requested a new Test Case')
                 let nextTestCase = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.testCasesManager.getNextTestCase(currentClientInstance)
-                if (nextTestCase !== undefined) {
+                if (
+                    nextTestCase !== 'NO CASES FOR YOU'
+                ) {
                     console.log((new Date()).toISOString(), 'Test Case Id ' + nextTestCase.id + ' delivered to', currentClientInstance)
                     nextTestCase.files.parameters = nextTestCase.files.parameters.toString()
                     nextTestCase.files.timeSeries = nextTestCase.files.timeSeries.toString()
                     return nextTestCase
                 } else {
-                    console.log((new Date()).toISOString(), 'No more Test Cases. Could not deliver one to ' + currentClientInstance)
                     return 'NO TEST CASES AVAILABLE AT THE MOMENT'
                 }
             }

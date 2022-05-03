@@ -52,7 +52,7 @@
 
     async function start(callBackFunction) {
         try {
-
+            console.log((new Date()).toISOString(), "Test Server is Starting Now.")
             let queryMessage = {
                 sender: 'Test-Server'
             }
@@ -63,6 +63,11 @@
                 queryMessage: JSON.stringify(queryMessage)
             }
             while (true) {
+                if (TS.projects.foundations.globals.taskVariables.IS_TASK_STOPPING === true) {
+                    console.log((new Date()).toISOString(), "Test Server is Stopping Now.")
+                    callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
+                    return
+                }
                 if (TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClient.machineLearningNetworkServiceClient === undefined) {
                     console.log((new Date()).toISOString(), "Not connected to the Superalgos Network.")
                     await SA.projects.foundations.utilities.asyncFunctions.sleep(5000)

@@ -12,6 +12,7 @@ exports.newDataBridge = function newDataBridge(processIndex) {
 
     let savedDatasets
     let loadedDataMinesFilesMap
+    let indicatorFileContentMap
 
     let timeSeriesFileFeatures = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.timeSeriesFile.features
     let timeSeriesFileLabels = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.timeSeriesFile.labels
@@ -21,6 +22,7 @@ exports.newDataBridge = function newDataBridge(processIndex) {
     function initialize() {
         savedDatasets = new Map()
         loadedDataMinesFilesMap = new Map()
+        indicatorFileContentMap = new Map()
 
         /*
         Create Missing Folders, if needed.
@@ -70,7 +72,9 @@ exports.newDataBridge = function newDataBridge(processIndex) {
     }
 
     function finalize() {
-
+        savedDatasets = undefined
+        loadedDataMinesFilesMap = undefined
+        indicatorFileContentMap = undefined
     }
 
     async function updateDatasetFiles(testCase) {
@@ -188,22 +192,61 @@ exports.newDataBridge = function newDataBridge(processIndex) {
                         let parameterName = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.getParameterName(featuresOrLabelsObject)
                         if (testCase.parameters[parameterName] !== 'ON') { return }
 
+                        /*
+                        We will avoid rebuilding the same indicator product more than once.
+                        */
                         let indicatorKey = featuresOrLabelsObject.dataMine + '-' + featuresOrLabelsObject.indicator + '-' + featuresOrLabelsObject.product
                         let indicatorAlreadyProcessed = indicatorsMap.get(indicatorKey)
                         if (indicatorAlreadyProcessed !== undefined) { return }
-
-                        let candlesFileContent = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.getIndicatorFile(
-                            featuresOrLabelsObject.dataMine,
-                            featuresOrLabelsObject.indicator,
-                            featuresOrLabelsObject.product,
-                            'binance',
-                            asset,
-                            'USDT',
-                            'Multi-Time-Frame-Market',
+                        /*
+                        We will avoid requesting the same indicator file more than once because it is resource intensive.
+                        */
+                        let indicatorFileKey =
+                            featuresOrLabelsObject.dataMine + '-' +
+                            featuresOrLabelsObject.indicator + '-' +
+                            featuresOrLabelsObject.product + '-' +
+                            'binance' + '-' +
+                            asset + '-' +
+                            'USDT' + '-' +
+                            'Multi-Time-Frame-Market' + '-' +
                             timeFrameLabel
-                        )
 
-                        let indicatorFile = JSON.parse(candlesFileContent)
+                        let cachedIndicator = indicatorFileContentMap.get(indicatorFileKey)
+                        if (cachedIndicator === undefined) {
+                            cachedIndicator = {
+                                fileContent: '',
+                                expiration: 0
+                            }
+                        }
+                        let now = (new Date()).valueOf()
+                        let indicatorFileContent
+                        if (cachedIndicator.expiration < now) {
+                            /*
+                            Request the File content to Superalgos Platform.
+                            */
+                            indicatorFileContent = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.getIndicatorFile(
+                                featuresOrLabelsObject.dataMine,
+                                featuresOrLabelsObject.indicator,
+                                featuresOrLabelsObject.product,
+                                'binance',
+                                asset,
+                                'USDT',
+                                'Multi-Time-Frame-Market',
+                                timeFrameLabel
+                            )
+                            /*
+                            Store the info received at the cache
+                            */
+                            cachedIndicator = {
+                                fileContent: indicatorFileContent,
+                                expiration: Math.trunc(((new Date()).valueOf()) / timeFrameValue) * timeFrameValue + timeFrameValue
+                            }
+                            indicatorFileContentMap.set(indicatorFileKey, cachedIndicator)
+                        } else {
+                            indicatorFileContent = cachedIndicator.fileContent
+                        }
+
+                        let indicatorFile = JSON.parse(indicatorFileContent)
 
                         if (featuresOrLabelsObject.product === "Candles") {
                             /*

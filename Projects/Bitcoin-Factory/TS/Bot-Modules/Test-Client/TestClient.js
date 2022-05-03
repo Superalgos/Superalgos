@@ -209,9 +209,25 @@
                 /*
                 Removing Carriedge Return from string.
                 */
+
+		let percentage = 0
+		let statusText = 'Test Case: ' +  nextTestCase.id + ' of ' + nextTestCase.totalCases
+
+		if (data.substring(0,5) === 'Epoch') {
+			let regEx = new RegExp('Epoch (\\d+)/(\\d+)','gim')
+
+			let match = regEx.exec(data)
+
+			let heartbeatText = match[0]
+
+        	        percentage = Math.round(match[1] / match[2] * 100)
+
+	                TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, heartbeatText, percentage, statusText)
+		}
+
                 if (BOT_CONFIG.logTrainingOutput === true) {
                     console.log(data)
-                }
+		}
                 for (let i = 0; i < 1000; i++) {
                     data = data.replace(/\n/, "")
                 }

@@ -212,12 +212,14 @@ exports.newBitcoinFactoryUtilitiesMiscellaneous = function newBitcoinFacnewBitco
                 dataset: dataset,
                 timeFrameLabel: timeFrameLabel
             }
-
+            console.time('getIndicatorFile')
+            console.log((new Date()).toISOString(), 'Requesting file to Superalgos...', dataMine, indicator, product, timeFrameLabel)
             const axios = require("axios")
             axios
                 .post('http://' + BOT_CONFIG.targetSuperalgosHost + ':' + BOT_CONFIG.targetSuperalgosHttpPort + '/Bitcoin-Factory', params)
                 .then(res => {
                     if (res.data.result === 'Ok') {
+                        console.timeEnd('getIndicatorFile')
                         resolve(res.data.fileContent)
                     } else {
                         reject()

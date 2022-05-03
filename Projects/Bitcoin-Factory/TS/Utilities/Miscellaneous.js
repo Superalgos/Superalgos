@@ -218,7 +218,7 @@ exports.newBitcoinFactoryUtilitiesMiscellaneous = function newBitcoinFacnewBitco
                 .post('http://' + BOT_CONFIG.targetSuperalgosHost + ':' + BOT_CONFIG.targetSuperalgosHttpPort + '/Bitcoin-Factory', params)
                 .then(res => {
                     if (res.data.result === 'Ok') {
-                        console.timeEnd('getIndicatorFile')
+                        console.timeEnd('getIndicatorFile', dataMine, indicator, product)
                         resolve(res.data.fileContent)
                     } else {
                         reject()

@@ -68,6 +68,7 @@ exports.newTestClientsManager = function newTestClientsManager(processIndex, net
                     console.log((new Date()).toISOString(), 'Test Case Id ' + nextTestCase.id + ' delivered to', currentClientInstance)
                     nextTestCase.files.parameters = nextTestCase.files.parameters.toString()
                     nextTestCase.files.timeSeries = nextTestCase.files.timeSeries.toString()
+                    nextTestCase.pythonScriptName = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.pythonScriptName
                     return nextTestCase
                 } else {
                     return 'NO TEST CASES AVAILABLE AT THE MOMENT'

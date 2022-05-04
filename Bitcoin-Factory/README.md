@@ -237,6 +237,8 @@ IMPORTANT: It takes a few minutes for your profile to be auto-merged into the Go
 
 ### Reference the Task Server App
 
+Go to Bitcoin-Factory-Demo Workspace, change it's name and save it (so to have your own instance of that workspace). Go to Plugins Node and then import your User Profile into the Workspace
+
 Locate the node Task Server App Reference, under your Test Client Task, and replace the current reference with a reference to the "Task-Server-App-1" node you created at your User Profile. 
 
 In this way you are defining that the Test Client Task will run with that identity and will sign its messages with the Signing Accounts children of that node.
@@ -374,6 +376,8 @@ When you are running more than one instance, chances are that you will get the b
 ## Instructions for each OS
 
 For specific information on how to run the Docker Container in different OS, please read the following sections:
+
+! Very important, if you choose to run docker under a sudo user on Linux distros, make sure you run Superalgos also under sudo, otherwise it might not work.
 
 ### on Windows
 

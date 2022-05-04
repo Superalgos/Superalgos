@@ -207,14 +207,12 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                                 }
 
                                 let p2pNetworkNode = SA.projects.network.modules.p2pNetworkNode.newNetworkModulesP2PNetworkNode()
-                                let response = p2pNetworkNode.initialize(
+                                p2pNetworkNode.initialize(
                                     networkClient,
                                     userProfile,
                                     blockchainAccount
                                 )
-                                if (response === true) {
-                                    SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES.push(p2pNetworkNode)
-                                }
+                                SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES.push(p2pNetworkNode)
                             }
                         }
 

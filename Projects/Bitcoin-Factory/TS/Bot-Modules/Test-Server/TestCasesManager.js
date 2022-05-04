@@ -193,7 +193,20 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
         for (let i = 0; i < thisObject.testCasesArray.length; i++) {
             let testCase = thisObject.testCasesArray[i]
             if (testCase.status === 'Being Tested' && testCase.assignedTo === currentClientInstance) {
-                return await assignTestCase(testCase)
+                /*
+                If this same case is being requested again by the same test client instance in a too short period of time, we will ignore it, to protect the
+                server CPU usage
+                */
+                let assignedTimestamp = testCase.assignedTimestamp
+                if (assignedTimestamp === undefined) { assignedTimestamp = 0 }
+                let now = (new Date()).valueOf()
+                let diff = now - assignedTimestamp
+                if ( diff < SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS * 10) {
+                    console.log((new Date()).toISOString(), 'Test Case already delivered in the last 10 minutes. Did not deliver again to ' + currentClientInstance)
+                    return 'NO CASES FOR YOU'
+                } else {
+                    return await assignTestCase(testCase)
+                }
             }
         }
         /*
@@ -219,6 +232,9 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
                 return await assignTestCase(testCase)
             }
         }
+
+        console.log((new Date()).toISOString(), 'No more Test Cases. Could not deliver one to ' + currentClientInstance)
+        return 'NO CASES FOR YOU'
 
         async function assignTestCase(testCase) {
             testCase.status = 'Being Tested'
@@ -255,7 +271,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
         testCase.parametersFileName = "parameters" + "-" + testCaseId
     }
 
-    function setTestCaseResults(testResult, currentClientInstance) {
+    function setTestCaseResults(testResult, currentClientInstance, userProfile) {
 
         try {
             let testCase = thisObject.testCasesArray[testResult.id - 1]
@@ -266,7 +282,8 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
             testCase.enlapsedSeconds = testResult.enlapsedTime.toFixed(0)
             testCase.enlapsedMinutes = (testResult.enlapsedTime / 60).toFixed(2)
             testCase.enlapsedHours = (testResult.enlapsedTime / 3600).toFixed(2)
-            testCase.testedBy = currentClientInstance
+            testCase.testedByInstance = currentClientInstance
+            testCase.testedByProfile = currentClientInstance
             testCase.timestamp = (new Date()).valueOf()
 
             let logQueue = []

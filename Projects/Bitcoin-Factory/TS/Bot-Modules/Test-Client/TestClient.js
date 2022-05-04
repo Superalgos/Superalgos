@@ -186,6 +186,7 @@
     }
 
     async function buildModel(nextTestCase) {
+        if (nextTestCase.pythonScriptName === undefined) {nextTestCase.pythonScriptName = "Bitcoin_Factory_LSTM.py"}
         console.log('')
         console.log('-------------------------------------------------------- Test Case # ' + nextTestCase.id + ' / ' + nextTestCase.totalCases + ' --------------------------------------------------------')
         console.log('')
@@ -193,6 +194,7 @@
         console.log('')
         console.log('Parameters Received for this Test:')
         console.table(nextTestCase.parameters)
+        console.log('Ready to run this script inside the Docker Container:'+ nextTestCase.pythonScriptName)
         console.log('')
 
         let processExecutionResult
@@ -202,13 +204,27 @@
         async function promiseWork(resolve, reject) {
 
             const { spawn } = require('child_process');
-            const ls = spawn('docker', ['exec', 'Bitcoin-Factory-ML', 'python', '/tf/notebooks/Bitcoin_Factory_LSTM.py']);
+            const ls = spawn('docker', ['exec', 'Bitcoin-Factory-ML', 'python', '/tf/notebooks/' + nextTestCase.pythonScriptName]);
             let dataReceived = ''
             ls.stdout.on('data', (data) => {
                 data = data.toString()
                 /*
                 Removing Carriedge Return from string.
                 */
+
+                let percentage = 0
+                let statusText = 'Test Case: ' + nextTestCase.id + ' of ' + nextTestCase.totalCases
+
+                if (data.substring(0, 5) === 'Epoch') {
+                    let regEx = new RegExp('Epoch (\\d+)/(\\d+)', 'gim')
+                    let match = regEx.exec(data)
+                    let heartbeatText = match[0]
+
+                    percentage = Math.round(match[1] / match[2] * 100)
+
+                    TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, heartbeatText, percentage, statusText)
+                }
+
                 if (BOT_CONFIG.logTrainingOutput === true) {
                     console.log(data)
                 }

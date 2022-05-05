@@ -240,7 +240,7 @@
                 let statusText = 'Test Case: ' + nextTestCase.id + ' of ' + nextTestCase.totalCases
 
                 if (data.substring(0, 5) === 'Epoch') {
-                    let regEx = new RegExp('Epoch (\\d+) / (\\d+)', 'gim')
+                    let regEx = new RegExp('Epoch (\\d+)/(\\d+)', 'gim')
                     let match = regEx.exec(data)
                     let heartbeatText = match[0]
 

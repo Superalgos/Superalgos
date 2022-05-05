@@ -62,17 +62,20 @@ exports.newTestClientsManager = function newTestClientsManager(processIndex, net
             case 'Get Next Test Case': {
                 console.log((new Date()).toISOString(), currentClientInstance, 'requested a new Test Case')
                 let nextTestCase = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.testCasesManager.getNextTestCase(currentClientInstance)
-                if (
-                    nextTestCase !== 'NO CASES FOR YOU'
-                ) {
-                    console.log((new Date()).toISOString(), 'Test Case Id ' + nextTestCase.id + ' delivered to', currentClientInstance)
-                    nextTestCase.files.parameters = nextTestCase.files.parameters.toString()
-                    nextTestCase.files.timeSeries = nextTestCase.files.timeSeries.toString()
-                    nextTestCase.pythonScriptName = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.pythonScriptName
-                    return nextTestCase
-                } else {
+                if (nextTestCase === 'NO CASES FOR YOU') {
+                    return 'NO TEST CASES AVAILABLE AT THE MOMENT'
+                    return 'ALREADY SENT YOU A CASE, WAIT 10 MINUTES TO ASK AGAIN'
+                }
+                if (nextTestCase === 'NO TEST CASES AVAILABLE AT THE MOMENT') {
                     return 'NO TEST CASES AVAILABLE AT THE MOMENT'
                 }
+
+                console.log((new Date()).toISOString(), 'Test Case Id ' + nextTestCase.id + ' delivered to', currentClientInstance)
+                nextTestCase.files.parameters = nextTestCase.files.parameters.toString()
+                nextTestCase.files.timeSeries = nextTestCase.files.timeSeries.toString()
+                nextTestCase.pythonScriptName = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.pythonScriptName
+                return nextTestCase
+
             }
             case 'Set Test Case Results': {
                 TS.projects.foundations.globals.taskConstants.TEST_SERVER.testCasesManager.setTestCaseResults(JSON.parse(message.payload), currentClientInstance, userProfile)

@@ -162,6 +162,7 @@
                     reject(response.data.serverData.response)
                     return
                 }                
+
                 resolve(nextTestCase)
             }
             async function onError(err) {

@@ -13,6 +13,7 @@
 
     function initialize(pStatusDependenciesModule, callBackFunction) {
         try {
+            console.log((new Date()).toISOString(), 'Running Test Client v.0.4.0')
             callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
         } catch (err) {
             TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
@@ -23,7 +24,7 @@
     }
 
     async function start(callBackFunction) {
-        try {
+        try {            
             await getNextTestCase()
                 .then(onSuccess)
                 .catch(onError)
@@ -155,12 +156,12 @@
                     reject('No more test cases at the Test Server.')
                     return
                 }
+
+                let nextTestCase = response.data.serverData.response
                 if (nextTestCase.id === undefined) { // if it is not a Test Case, then it is a new error message that I still don't have at the current version.
                     reject(response.data.serverData.response)
                     return
-                }
-
-                let nextTestCase = response.data.serverData.response
+                }                
                 resolve(nextTestCase)
             }
             async function onError(err) {

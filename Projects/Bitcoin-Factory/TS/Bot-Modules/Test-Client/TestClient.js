@@ -37,22 +37,32 @@
                         .catch(onError)
 
                     async function onSuccess(testResult) {
-                        if (testResult !== undefined) {
-                            testResult.id = nextTestCase.id
-                            await setTestCaseResults(testResult)
-                                .then(onSuccess)
-                                .catch(onError)
-                            async function onSuccess(response) {
-                                let bestPredictions = JSON.parse(response.data.serverData.response)
-                                console.log(' ')
-                                console.log('Best Crowd-Sourced Predictions:')
-                                console.table(bestPredictions)
-                                updateSuperalgos(bestPredictions)
-                                callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
-                            }
-                            async function onError(err) {
-                                console.log((new Date()).toISOString(), 'Failed to send a Report to the Test Server with the Test Case Results and get a Reward for that. Err:', err, 'Aborting the processing of this case and retrying the main loop in 30 seconds...')
-                                callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
+                        let testResultsAccepted = false
+
+                        while (testResultsAccepted === false) {
+                            if (testResult !== undefined) {
+                                testResult.id = nextTestCase.id
+                                await setTestCaseResults(testResult)
+                                    .then(onSuccess)
+                                    .catch(onError)
+
+                                if (testResultsAccepted === false) {
+                                    await SA.projects.foundations.utilities.asyncFunctions.sleep(60000)
+                                }
+                                async function onSuccess(response) {
+                                    testResultsAccepted = false
+                                    let bestPredictions = JSON.parse(response.data.serverData.response)
+                                    console.log(' ')
+                                    console.log('Best Crowd-Sourced Predictions:')
+                                    console.table(bestPredictions)
+                                    updateSuperalgos(bestPredictions)
+                                    callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
+                                }
+                                async function onError(err) {
+                                    console.log((new Date()).toISOString(), 'Failed to send a Report to the Test Server with the Test Case Results.')
+                                    console.log((new Date()).toISOString(), 'Reason why I could not deliver the Test Report:', err)
+                                    console.log((new Date()).toISOString(), 'Retrying to send the Test Report in 60 seconds...')
+                                }
                             }
                         }
                     }
@@ -137,12 +147,21 @@
                     reject('Not connected to Test Server')
                     return
                 }
-                if (response.data.serverData.response !== 'NO TEST CASES AVAILABLE AT THE MOMENT') {
-                    let nextTestCase = response.data.serverData.response
-                    resolve(nextTestCase)
-                } else {
-                    reject('No more test cases at the Test Server')
+                if (response.data.serverData.response === 'ALREADY SENT YOU A CASE, WAIT 10 MINUTES TO ASK AGAIN') {
+                    reject('The Test Server says that it already sent me a Test Case and I need to wait for 10 minutes to request a new one.')
+                    return
                 }
+                if (response.data.serverData.response === 'NO TEST CASES AVAILABLE AT THE MOMENT') {
+                    reject('No more test cases at the Test Server.')
+                    return
+                }
+                if (nextTestCase.id === undefined) { // if it is not a Test Case, then it is a new error message that I still don't have at the current version.
+                    reject(response.data.serverData.response)
+                    return
+                }
+
+                let nextTestCase = response.data.serverData.response
+                resolve(nextTestCase)
             }
             async function onError(err) {
                 reject(err)
@@ -154,6 +173,9 @@
         return new Promise(promiseWork)
 
         async function promiseWork(resolve, reject) {
+
+            testResult.trainingOutput = undefined // delete this to save bandwidth
+
             let message = {
                 type: 'Set Test Case Results',
                 payload: JSON.stringify(testResult)
@@ -186,7 +208,7 @@
     }
 
     async function buildModel(nextTestCase) {
-        if (nextTestCase.pythonScriptName === undefined) {nextTestCase.pythonScriptName = "Bitcoin_Factory_LSTM.py"}
+        if (nextTestCase.pythonScriptName === undefined) { nextTestCase.pythonScriptName = "Bitcoin_Factory_LSTM.py" }
         console.log('')
         console.log('-------------------------------------------------------- Test Case # ' + nextTestCase.id + ' / ' + nextTestCase.totalCases + ' --------------------------------------------------------')
         console.log('')
@@ -194,7 +216,7 @@
         console.log('')
         console.log('Parameters Received for this Test:')
         console.table(nextTestCase.parameters)
-        console.log('Ready to run this script inside the Docker Container:'+ nextTestCase.pythonScriptName)
+        console.log('Ready to run this script inside the Docker Container: ' + nextTestCase.pythonScriptName)
         console.log('')
 
         let processExecutionResult
@@ -216,7 +238,7 @@
                 let statusText = 'Test Case: ' + nextTestCase.id + ' of ' + nextTestCase.totalCases
 
                 if (data.substring(0, 5) === 'Epoch') {
-                    let regEx = new RegExp('Epoch (\\d+)/(\\d+)', 'gim')
+                    let regEx = new RegExp('Epoch (\\d+) / (\\d+)', 'gim')
                     let match = regEx.exec(data)
                     let heartbeatText = match[0]
 

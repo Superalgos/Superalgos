@@ -435,11 +435,11 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
             if (userProfileByBlockchainAccount === undefined) {
                 let response = {
                     result: 'Error',
-                    message: 'userProfile Not Found.'
+                    message: 'userProfile Not Found. This means that the signing account used to sign the message sent to the Network Node is not the same that the one the Network Node knows. The reason could be that 1) you did not generate the Signing Accounts, 2) You did not save your User Profile Plugin, 3) Your User Profile was not merged at the Governance Repo (it takes a few minutes to merge when the merging bot is running, check the repo) 4) The Network Node did not git pull your User Profile yet. '
                 }
                 caller.socket.send(JSON.stringify(response))
                 caller.socket.close()
-                console.log((new Date()).toISOString(), '[WARN] Socket Interfaces -> handshakeStepTwo -> userAppBlockchainAccount not associated with userProfile -> userAppBlockchainAccount = ' + caller.userAppBlockchainAccount + ' -> caller.userProfile.name = ' + caller.userProfile.name)
+                console.log((new Date()).toISOString(), '[WARN] Socket Interfaces -> handshakeStepTwo -> userAppBlockchainAccount not associated with userProfile -> userAppBlockchainAccount = ' + caller.userAppBlockchainAccount )
                 return
             }
             let signedMessage = JSON.parse(signature.message)

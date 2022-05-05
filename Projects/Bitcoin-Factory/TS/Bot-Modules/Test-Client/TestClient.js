@@ -155,6 +155,10 @@
                     reject('No more test cases at the Test Server.')
                     return
                 }
+                if (nextTestCase.id === undefined) { // if it is not a Test Case, then it is a new error message that I still don't have at the current version.
+                    reject(response.data.serverData.response)
+                    return
+                }
 
                 let nextTestCase = response.data.serverData.response
                 resolve(nextTestCase)

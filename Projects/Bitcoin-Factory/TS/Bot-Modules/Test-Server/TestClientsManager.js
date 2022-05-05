@@ -63,6 +63,7 @@ exports.newTestClientsManager = function newTestClientsManager(processIndex, net
                 console.log((new Date()).toISOString(), currentClientInstance, 'requested a new Test Case')
                 let nextTestCase = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.testCasesManager.getNextTestCase(currentClientInstance)
                 if (nextTestCase === 'NO CASES FOR YOU') {
+                    return 'NO TEST CASES AVAILABLE AT THE MOMENT'
                     return 'ALREADY SENT YOU A CASE, WAIT 10 MINUTES TO ASK AGAIN'
                 }
                 if (nextTestCase === 'NO TEST CASES AVAILABLE AT THE MOMENT') {

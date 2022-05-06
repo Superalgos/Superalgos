@@ -13,7 +13,7 @@
 
     function initialize(pStatusDependenciesModule, callBackFunction) {
         try {
-            console.log((new Date()).toISOString(), 'Running Test Client v.0.4.0')
+            console.log((new Date()).toISOString(), 'Running Test Client v.0.4.1')
             callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
         } catch (err) {
             TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
@@ -51,7 +51,7 @@
                                     await SA.projects.foundations.utilities.asyncFunctions.sleep(60000)
                                 }
                                 async function onSuccess(response) {
-                                    testResultsAccepted = false
+                                    testResultsAccepted = true
                                     let bestPredictions = JSON.parse(response.data.serverData.response)
                                     console.log(' ')
                                     console.log('Best Crowd-Sourced Predictions:')

@@ -22,6 +22,27 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
         thisObject.networkClients = []
         thisObject.networkPeers = []
         thisObject.callersMap = new Map()
+
+        setInterval(cleanIdleConnections, 60000)
+
+        function cleanIdleConnections() {
+            let now = (new Date()).valueOf()
+            for (let i = 0; i < thisObject.networkClients.length; i++) {
+                let caller = thisObject.networkClients[i]
+                if (caller.timestamp < now - 10 * 60 * 1000) {
+                    caller.socket.close()
+                    console.log((new Date()).toISOString(), '[WARN] Socket Interfaces -> cleanIdleConnections -> Client Idle by more than 10 minutes -> caller.userProfile.name = ' + caller.userProfile.name)
+                    return
+                }
+                /*
+                if (caller.timestamp < now - 60 * 60 * 1000) {
+                    caller.socket.close()
+                    console.log((new Date()).toISOString(), '[WARN] Socket Interfaces -> cleanIdleConnections -> Idle client disconnected -> caller.userProfile.name = ' + caller.userProfile.name)
+                    return
+                }
+                */
+            }
+        }
     }
 
     function finalize() {
@@ -99,7 +120,10 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                         caller.socket.close()
                         return
                     }
-
+                    /*
+                    Record some activity from this caller
+                    */
+                    caller.timestamp = (new Date()).valueOf()
                     let response
                     let boradcastTo
 
@@ -439,7 +463,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                 }
                 caller.socket.send(JSON.stringify(response))
                 caller.socket.close()
-                console.log((new Date()).toISOString(), '[WARN] Socket Interfaces -> handshakeStepTwo -> userAppBlockchainAccount not associated with userProfile -> userAppBlockchainAccount = ' + caller.userAppBlockchainAccount )
+                console.log((new Date()).toISOString(), '[WARN] Socket Interfaces -> handshakeStepTwo -> userAppBlockchainAccount not associated with userProfile -> userAppBlockchainAccount = ' + caller.userAppBlockchainAccount)
                 return
             }
             let signedMessage = JSON.parse(signature.message)

@@ -384,7 +384,7 @@ For specific information on how to run the Docker Container in different OS, ple
 Run the container with this command. Change the path if you did not install this App at the commands location.
 
 ```sh
-docker run --gpus all -it --rm --shm-size=4.37gb -name Bitcoin-Factory-ML -v C:/Superalgos/Bitcoin-Factory/Test-Client/notebooks:/tf/notebooks -p 8888:8888 bitcoin-factory-machine-learning
+docker run --gpus all -it --rm --shm-size=4.37gb --name Bitcoin-Factory-ML -v C:/Superalgos/Bitcoin-Factory/Test-Client/notebooks:/tf/notebooks -p 8888:8888 bitcoin-factory-machine-learning
 ```
 
 ### on Ubuntu Server / Linux

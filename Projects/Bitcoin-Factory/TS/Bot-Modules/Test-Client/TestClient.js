@@ -1,6 +1,7 @@
 ﻿exports.newBitcoinFactoryBotModulesTestClient = function (processIndex) {
 
     const MODULE_NAME = "Test-Client"
+    const TEST_CLIENT_VERSION = 5
 
     let thisObject = {
         initialize: initialize,
@@ -13,7 +14,7 @@
 
     function initialize(pStatusDependenciesModule, callBackFunction) {
         try {
-            console.log((new Date()).toISOString(), 'Running Test Client v.0.4.1')
+            console.log((new Date()).toISOString(), 'Running Test Client v.' + TEST_CLIENT_VERSION)
             callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
         } catch (err) {
             TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
@@ -24,7 +25,7 @@
     }
 
     async function start(callBackFunction) {
-        try {            
+        try {
             await getNextTestCase()
                 .then(onSuccess)
                 .catch(onError)
@@ -127,7 +128,8 @@
                 sender: 'Test-Client',
                 clientInstanceName: TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.clientInstanceName,
                 recipient: 'Test Client Manager',
-                message: message
+                message: message,
+                testClientVersion: TEST_CLIENT_VERSION
             }
 
             let messageHeader = {
@@ -156,12 +158,16 @@
                     reject('No more test cases at the Test Server.')
                     return
                 }
+                if (response.data.serverData.response === 'CLIENT VERSION IS TOO OLD') {
+                    reject('This Client Version is too old. You need to app.update and restart your client in order for the Test Server be able to process your request.')
+                    return
+                }
 
                 let nextTestCase = response.data.serverData.response
                 if (nextTestCase.id === undefined) { // if it is not a Test Case, then it is a new error message that I still don't have at the current version.
                     reject(response.data.serverData.response)
                     return
-                }                
+                }
 
                 resolve(nextTestCase)
             }
@@ -188,7 +194,8 @@
                 sender: 'Test-Client',
                 clientInstanceName: TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.clientInstanceName,
                 recipient: 'Test Client Manager',
-                message: message
+                message: message,
+                testClientVersion: TEST_CLIENT_VERSION
             }
 
             let messageHeader = {

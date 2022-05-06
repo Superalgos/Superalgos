@@ -29,9 +29,11 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
             let now = (new Date()).valueOf()
             for (let i = 0; i < thisObject.networkClients.length; i++) {
                 let caller = thisObject.networkClients[i]
-                if (caller.timestamp < now - 10 * 60 * 1000) {
+                let diff = Math.trunc((now - caller.timestamp) / 60000)
+                if (diff > 10) {
                     caller.socket.close()
-                    console.log((new Date()).toISOString(), '[WARN] Socket Interfaces -> cleanIdleConnections -> Client Idle by more than 10 minutes -> caller.userProfile.name = ' + caller.userProfile.name)
+
+                    console.log((new Date()).toISOString(), '[WARN] Socket Interfaces -> cleanIdleConnections -> Client Idle by more than ' + diff + ' minutes -> caller.userProfile.name = ' + caller.userProfile.name)
                     return
                 }
                 /*

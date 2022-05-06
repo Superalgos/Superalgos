@@ -12,6 +12,7 @@
         finalize: finalize,
         start: start
     }
+    const MIN_TEST_CLIENT_VERSION = 4
 
     let networkCodeName = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.networkCodeName
 
@@ -81,8 +82,8 @@
                             In this case there were no requests for the server, we will prepare for the next message and go to sleep.
                             */
                             getReadyForNewMessage()
-                            if (response.result === "Ok" && response.data.result === "Ok" && response.data.message === "Next Request Already Expired."  ) {
-                                console.log((new Date()).toISOString(), 'Network Node Response: Next Request Already Expired.' ) 
+                            if (response.result === "Ok" && response.data.result === "Ok" && response.data.message === "Next Request Already Expired.") {
+                                console.log((new Date()).toISOString(), 'Network Node Response: Next Request Already Expired.')
                             } else {
                                 /* No request at the moment for the Test Server */
                                 await SA.projects.foundations.utilities.asyncFunctions.sleep(1000)
@@ -95,9 +96,15 @@
                             let managerResponse
 
                             try {
+
                                 switch (clientData.recipient) {
                                     case 'Test Client Manager': {
-                                        managerResponse = await thisObject.testClientsManager.onMessageReceived(clientData.message, clientData.userProfile, clientData.clientInstanceName)
+                                        if (clientData.testClientVersion === undefined || clientData.testClientVersion < MIN_TEST_CLIENT_VERSION) {
+                                            console.log((new Date()).toISOString(), 'Cound not process request from ' + clientData.userProfile + ' / ' + clientData.clientInstanceName + ' becasuse is running an outdated version of the Test Client. Version = ' + clientData.testClientVersion)
+                                            managerResponse = 'CLIENT VERSION IS TOO OLD'
+                                        } else {
+                                            managerResponse = await thisObject.testClientsManager.onMessageReceived(clientData.message, clientData.userProfile, clientData.clientInstanceName)
+                                        }
                                         break
                                     }
                                     case 'Forecast Client Manager': {

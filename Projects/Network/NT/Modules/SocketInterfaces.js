@@ -435,7 +435,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
             if (userProfileByBlockchainAccount === undefined) {
                 let response = {
                     result: 'Error',
-                    message: 'userProfile Not Found. This means that the signing account used to sign the message sent to the Network Node is not the same that the one the Network Node knows. The reason could be that 1) you did not generate the Signing Accounts, 2) You did not save your User Profile Plugin, 3) Your User Profile was not merged at the Governance Repo (it takes a few minutes to merge when the merging bot is running, check the repo) 4) The Network Node did not git pull your User Profile yet. '
+                    message: 'userProfile Not Found. This means that the signing account used to sign the message sent to the Network Node is not the same that the one the Network Node knows. The reason could be that 1) you did not generate the Signing Accounts, 2) You did not save your User Profile Plugin, 3) Your User Profile was not merged at the Governance Repo (it takes a few minutes to merge when the merging bot is running, check the repo) 4) The Network Node did not git pull your User Profile yet. 5) The Task you are running is not referencing the Task App at your own profile. Check carefuly those points to figure out which one is causing this problem for you.'
                 }
                 caller.socket.send(JSON.stringify(response))
                 caller.socket.close()

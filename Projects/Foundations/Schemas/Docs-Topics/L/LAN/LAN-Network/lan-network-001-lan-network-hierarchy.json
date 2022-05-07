@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Иерархия LAN Network организует инфраструктуру для запуска ботов и хранения данных. Это иерархия, которую вы будете использовать чаще всего для управления системой.",
                 "updated": 1639561679466
+            },
+            {
+                "language": "DE",
+                "text": "Die LAN-Netzwerkhierarchie organisiert die Infrastruktur für den Betrieb von Bots und die Speicherung von Daten. Dies ist die Hierarchie, die Sie am häufigsten für den Betrieb des Systems verwenden werden.",
+                "updated": 1651909558942
             }
         ]
     },
@@ -51,12 +56,26 @@
         {
             "style": "Title",
             "text": "Main Sections Under a Network Node",
-            "updated": 1610049583621
+            "updated": 1610049583621,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Hauptabschnitte unter einem Network Node",
+                    "updated": 1651910642029
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "We will briefly mention the main data structures under a Network Node, and study each of them in detail in the next few pages.",
-            "updated": 1610049737464
+            "updated": 1610049737464,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wir werden die wichtigsten Datenstrukturen unter einem Netzwerkknoten kurz erwähnen und jede von ihnen auf den nächsten Seiten im Detail untersuchen.",
+                    "updated": 1651910673052
+                }
+            ]
         },
         {
             "style": "Title",

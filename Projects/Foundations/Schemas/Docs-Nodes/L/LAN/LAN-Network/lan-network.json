@@ -15,8 +15,8 @@
             },
             {
                 "language": "DE",
-                "text": "\nDie network hierarchy (Netzhierarchie) bietet die Kontrollfunktionen für die Durchführung von DataMining und trading operations (Handelsoperationen). Da die Operationen entweder auf einem einzigen Rechner oder über ein Netz von Rechnern verteilt ausgeführt werden können, enthält sie auch Definitionen bezüglich des physischen Standorts, an dem die Knoten leben oder arbeiten.\nDie network hierarchy (Netzhierarchie) bietet die Kontrollfunktionen für die Durchführung von DataMining und trading operations (Handelsoperationen). Da die Operationen entweder auf einem einzigen Rechner oder über ein Netz von Rechnern verteilt ausgeführt werden können, enthält sie auch Definitionen bezüglich des physischen Standorts, an dem die Knoten leben oder arbeiten.",
-                "updated": 1639568652528
+                "text": "Die network hierarchy (Netzhierarchie) bietet die Kontrollfunktionen für die Durchführung von DataMining und trading operations (Handelsoperationen). Da die Operationen entweder auf einem einzigen Rechner oder über ein Netz von Rechnern verteilt ausgeführt werden können, enthält sie auch Definitionen bezüglich des physischen Standorts, an dem die Knoten leben oder arbeiten.",
+                "updated": 1651909645557
             },
             {
                 "language": "EL",
@@ -174,7 +174,7 @@
                 },
                 {
                     "language": "EL",
-                    "text": "Σε αυτό το στάδιο, το σύστημα δεν εφαρμόζει κανενός είδους μέτρα ασφαλείας, επομένως, το Superalgos πρέπει να εκτελείται μόνο στο πλαίσιο ενός περιορισμένου τοπικού δικτύου, εκτός εάν εφαρμόζετε τη δική σας ασφάλεια δικτύου.",
+                    "text": "Σε αυτό το στάδιο, το σύστημα δεν εφαρμόζει κανενός είδους μέτρα ασφαλείας, επομένως, το Superalgos ��ρέπει να εκτελείται μόνο στο πλαίσιο ενός περιορισμένου τοπικού δικτύου, εκτός εάν εφαρμόζετε τη δική σας ασφάλεια δικτύου.",
                     "updated": 1641827797173
                 }
             ]

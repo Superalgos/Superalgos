@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Plugin File - это файл JSON, составляющий плагин. В контексте иерархии плагинов, плагин - это определение иерархии.",
                 "updated": 1645164981627
+            },
+            {
+                "language": "TR",
+                "text": "Eklenti dosyası, eklentiyi oluşturan JSON dosyasıdır. Eklenti hiyerarşisi bağlamında eklenti, hiyerarşinin tanımıdır.",
+                "updated": 1651950501163
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "language": "RU",
                     "text": "Файлы плагинов, распространяемые вместе с системой, хранятся в соответствующих папках по следующему пути:",
                     "updated": 1645165011078
+                },
+                {
+                    "language": "TR",
+                    "text": "Sistemle birlikte dağıtılan eklenti dosyaları, aşağıdaki yoldaki ilgili klasörlerde saklanır:",
+                    "updated": 1651950523507
                 }
             ]
         },
@@ -45,6 +55,11 @@
                     "language": "RU",
                     "text": "Чтобы создать плагин и сделать его доступным для системы, необходимо:",
                     "updated": 1645165021746
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir eklenti oluşturmak ve sistem tarafından kullanılabilir hale getirmek için yapmanız gerekenler:",
+                    "updated": 1651950561972
                 }
             ]
         },
@@ -57,6 +72,11 @@
                     "language": "RU",
                     "text": "Сделайте резервную копию иерархии.",
                     "updated": 1645165028001
+                },
+                {
+                    "language": "TR",
+                    "text": "Hiyerarşinin yedeğini alın.",
+                    "updated": 1651950575802
                 }
             ]
         },
@@ -69,6 +89,11 @@
                     "language": "RU",
                     "text": "Поместите его в соответствующую папку пути.",
                     "updated": 1645165051561
+                },
+                {
+                    "language": "TR",
+                    "text": "Yolun uygun klasörüne yerleştirin.",
+                    "updated": 1651950589410
                 }
             ]
         },
@@ -81,6 +106,11 @@
                     "language": "RU",
                     "text": "Иерархии, включенные в рабочее пространство в качестве подключаемых модулей, не сохраняются на уровне рабочего пространства. Поэтому изменения, внесенные в эти иерархии, не сохраняются. Если вы хотите изменить плагин и продолжить работу с измененной версией в будущем, вы должны либо клонировать, либо создать резервную копию плагина и работать с полученной копией.",
                     "updated": 1645165196927
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışma alanına eklenti olarak dahil edilen hiyerarşiler, çalışma alanı düzeyinde kaydedilmez. Bu nedenle, bu hiyerarşilerde yapılan değişiklikler kalıcı değildir. Bir eklentiyi değiştirmek ve gelecekte değiştirilmiş sürümle çalışmaya devam etmek istiyorsanız, eklentiyi klonlamalı veya yedeklemeli ve bunun yerine ortaya çıkan kopya üzerinde çalışmalısınız.",
+                    "updated": 1651950623371
                 }
             ]
         },

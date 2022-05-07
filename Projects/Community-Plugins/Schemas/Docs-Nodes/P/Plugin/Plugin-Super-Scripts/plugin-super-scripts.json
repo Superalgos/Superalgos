@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Узел Plugin Super Scripts содержит определения суперскриптов, которые должны быть включены в текущее рабочее пространство в качестве плагинов.",
                 "updated": 1645165504191
+            },
+            {
+                "language": "TR",
+                "text": "Eklenti süper komut dosyaları düğümü, mevcut çalışma alanına eklentiler olarak dahil edilecek süper komut dosyalarının tanımlarını içerir.",
+                "updated": 1651951706831
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Конфигурация Plugin Super Scripts",
                     "updated": 1645165515295
+                },
+                {
+                    "language": "TR",
+                    "text": "Eklenti Süper Komut Dosyalarını Yapılandırma",
+                    "updated": 1651951727576
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Выберите Configure в меню для доступа к конфигурации.",
                     "updated": 1645165526110
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırmaya erişmek için menüden Yapılandır'ı seçin.",
+                    "updated": 1651951742866
                 }
             ]
         }

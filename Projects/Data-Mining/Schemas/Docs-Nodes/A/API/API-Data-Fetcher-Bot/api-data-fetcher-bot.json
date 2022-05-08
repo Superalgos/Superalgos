@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Dieser Bot kann Daten von jeder beliebigen API im Internet abrufen, solange er zur Laufzeit mit einer API-Map versorgt wird.",
                 "updated": 1646078648485
+            },
+            {
+                "language": "TR",
+                "text": "Bu bot, çalışma zamanında bir API Haritası ( API Map ) sağlandığı sürece internetteki herhangi bir API'den veri getirebilir.",
+                "updated": 1652012709979
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "language": "DE",
                     "text": "Ein API Data Fetcher Bot ähnelt einem Sensor Bot, mit dem Unterschied, dass ein Sensor Bot von einem Entwickler einen Algorithmus zum Extrahieren der Daten benötigt, während ein API Data Fetcher Bot dies ohne Programmierung mit Hilfe einer API Map tun kann.",
                     "updated": 1646078682264
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir API Veri Toplayıcı Botu, bir Sensör Botuna benzer, ancak bir Sensör Botu ( Sensor Bot ), dev kullanıcılarının verileri ayıklamak için bir algoritmayı kodlamasını gerektirirken, bir API Veri Toplayıcı Botu bunu bir API Haritası ( API Map )  kullanarak kodlamadan yapabilir.",
+                    "updated": 1652012801447
                 }
             ]
         },
@@ -52,6 +62,11 @@
                     "language": "DE",
                     "text": "API Data Fetcher Bot Konfiguration",
                     "updated": 1646078715510
+                },
+                {
+                    "language": "TR",
+                    "text": "API Veri Alıcısı Bot Yapılandırması",
+                    "updated": 1652012841513
                 }
             ]
         },
@@ -64,6 +79,11 @@
                     "language": "DE",
                     "text": "Eigenschaften",
                     "updated": 1646078747353
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikleri",
+                    "updated": 1652012851236
                 }
             ]
         },
@@ -76,6 +96,11 @@
                     "language": "DE",
                     "text": "codeName Definieren Sie den Namen des Bots, der im Code verwendet werden soll.",
                     "updated": 1646078767997
+                },
+                {
+                    "language": "TR",
+                    "text": "codeName Kodda kullanılacak botun adını tanımlayın.",
+                    "updated": 1652012867065
                 }
             ]
         }

@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Страница, которую вы пытаетесь удалить, не существует.",
                 "updated": 1638530352655
+            },
+            {
+                "language": "TR",
+                "text": "Silmeye çalıştığınız sayfa mevcut değil.",
+                "updated": 1652038640072
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "DE",
                     "text": "Die Seite existiert nicht.",
                     "updated": 1633899488761
+                },
+                {
+                    "language": "TR",
+                    "text": "Sayfa mevcut değil.",
+                    "updated": 1652038792367
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "RU",
                     "text": "Проверьте имя страницы документов Docs Page Name, которое вы использовали в команде. Похоже, страницы с таким названием не существует.",
                     "updated": 1638530389737
+                },
+                {
+                    "language": "TR",
+                    "text": "Komutta kullandığınız Dokümanlar Sayfası Adını ( Docs Page Name ) kontrol edin. Görünüşe göre böyle bir ada sahip bir sayfa yok.",
+                    "updated": 1652038754232
                 }
             ]
         },

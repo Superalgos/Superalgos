@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Сетевая иерархия поддерживает развертывание с несколькими биржами, несколькими рынками и несколькими шахтами, и задачи организованы по этим критериям.",
                 "updated": 1638357947652
+            },
+            {
+                "language": "DE",
+                "text": "Die Netzwerkhierarchie unterstützt den Einsatz mehrerer Börsen, Märkte und Minen, und die Aufgaben werden nach diesen Kriterien organisiert.",
+                "updated": 1651910723729
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Прежде чем погрузиться в работу каждой из операций, которые вы можете определять и контролировать из сетевой иерархии, стоит указать на определенную общность между ними.",
                     "updated": 1638357973058
+                },
+                {
+                    "language": "DE",
+                    "text": "Bevor Sie sich mit der Funktionsweise der einzelnen Vorgänge befassen, die Sie in der Netzwerkhierarchie definieren und steuern können, sollten Sie auf einige Gemeinsamkeiten zwischen ihnen hinweisen.",
+                    "updated": 1651910747159
                 }
             ]
         },
@@ -34,13 +44,25 @@
                     "language": "RU",
                     "text": "Поскольку Superalgos поддерживает развертывание интеллектуального анализа данных и торговых операций на нескольких биржах, на нескольких рынках и с использованием ботов, происходящих из нескольких источников данных и торговых рудников, организация различных структур данных в узле сети следует одному и тому же шаблону в каждом из них:",
                     "updated": 1638358006810
+                },
+                {
+                    "language": "DE",
+                    "text": "Da Superalgos den Einsatz von Data-Mining- und Trading-Operationen an mehreren Börsen und Märkten sowie die Verwendung von Bots aus mehreren Data- und Trading-Mines unterstützt, folgt die Organisation der verschiedenen Datenstrukturen unter jedem Netzwerkknoten demselben Muster:",
+                    "updated": 1651910800905
                 }
             ]
         },
         {
             "style": "Callout",
             "text": "Type of operation > Project Reference > Crypto Exchange Reference > Market Reference > Mine involved in the operation.",
-            "updated": 1610050392306
+            "updated": 1610050392306,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Art des Vorgangs > Projektreferenz > Krypto-Börsenreferenz > Marktreferenz > An dem Vorgang beteiligte Mine.",
+                    "updated": 1651910830215
+                }
+            ]
         },
         {
             "style": "Text",
@@ -51,6 +73,11 @@
                     "language": "RU",
                     "text": "Например, это структура данных в разделе Data Tasks:",
                     "updated": 1638358102441
+                },
+                {
+                    "language": "DE",
+                    "text": "Dies ist zum Beispiel die Struktur unter Data Tasks:",
+                    "updated": 1651910859279
                 }
             ]
         },
@@ -68,6 +95,11 @@
                     "language": "RU",
                     "text": "Обратите внимание, как шаблон повторяется под узлом Testing Trading Tasks:",
                     "updated": 1638358129563
+                },
+                {
+                    "language": "DE",
+                    "text": "Beachten Sie, wie sich das Muster unter dem Knoten Testing Trading Tasks wiederholt:",
+                    "updated": 1651910911019
                 }
             ]
         },
@@ -89,6 +121,11 @@
                     "language": "RU",
                     "text": "Структура данных Production Trading Tasks практически такая же:",
                     "updated": 1638358150300
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Datenstruktur der Production Trading Tasks ist praktisch identisch:",
+                    "updated": 1651910927426
                 }
             ]
         },
@@ -106,6 +143,11 @@
                     "language": "RU",
                     "text": "Случай с хранилищем данных Data Storage немного отличается, потому что структура разделена на данные Data Mines, данные Trading Mines и данные Learning Mines. Однако каждая из результирующих структур узлов имеет сходство с организационными критериями, описанными выше:",
                     "updated": 1638358249953
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Fall bei Data Storage ist etwas anders, da es eine Aufteilung der Struktur in Data Mines Data, Trading Mines Data und Learning Mines Data gibt. Jede der daraus resultierenden Knotenstrukturen weist jedoch eine Ähnlichkeit mit den oben erläuterten organisatorischen Kriterien auf:",
+                    "updated": 1651911014819
                 }
             ]
         },
@@ -123,6 +165,11 @@
                     "language": "RU",
                     "text": "Такая организация необходима для масштабируемых операций, поскольку она помогает сохранять логическую группировку задач и помогает избежать смешения задач с разных бирж, рынков или шахт.",
                     "updated": 1638358283632
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese Art der Organisation ist für einen skalierbaren Betrieb erforderlich, da sie dazu beiträgt, eine logische Gruppierung von Aufgaben beizubehalten und die Vermischung von Aufgaben aus verschiedenen Börsen, Märkten oder Minen zu vermeiden.",
+                    "updated": 1651911070799
                 }
             ]
         }

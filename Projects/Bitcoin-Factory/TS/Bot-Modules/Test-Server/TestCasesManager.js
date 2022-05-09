@@ -385,14 +385,14 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
         Fixing the Dataset
         */
         for (let i = 0; i < thisObject.testCasesArray.length; i++) {
-            let testCase = thisObject.testCasesArray
+            let testCase = thisObject.testCasesArray[i]
             if (testCase.testedBy !== undefined) {
                 testCase.testedByInstance = testCase.testedBy
                 testCase.testedByProfile = testCase.testedBy.split(' / ')[0]
                 testCase.testedBy = undefined
             }
             if (testCase.testedByProfile !== undefined && testCase.testedByProfile.split(' / ')[1] !== undefined) {
-                testCase.testedByProfile = testCase.testedBy.split(' / ')[0]
+                testCase.testedByProfile = testCase.testedByProfile.split(' / ')[0]
             }
         }
 

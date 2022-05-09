@@ -394,6 +394,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
             if (testCase.testedByProfile !== undefined && testCase.testedByProfile.split(' / ')[1] !== undefined) {
                 testCase.testedByProfile = testCase.testedByProfile.split(' / ')[0]
             }
+            testCase.testedBy = undefined
         }
 
         let fileContent = JSON.stringify(thisObject.testCasesArray, undefined, 4)

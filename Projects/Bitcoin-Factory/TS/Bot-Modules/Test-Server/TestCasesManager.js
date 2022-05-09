@@ -322,6 +322,17 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
                         addHeaderFromObject(testCase)
                         function addHeaderFromObject(jsObject) {
                             for (const property in jsObject) {
+                                if (
+                                    property === "TestedBy" ||
+                                    property === "timestamp" ||
+                                    property === "when" ||
+                                    property === "parameters" ||
+                                    property === "filesTimestaps" ||
+                                    property === "parametersHash" ||
+                                    property === "predictions" 
+                                ) {
+                                    continue
+                                }
                                 let label = property.replace('NUMBER_OF_', '').replace('LIST_OF_', '')
                                 if (testReportFileRow !== "") {
                                     testReportFileRow = testReportFileRow + ","

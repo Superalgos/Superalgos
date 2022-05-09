@@ -187,9 +187,9 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
 
     async function getNextTestCase(currentClientInstance) {
         /*
-        The first thing we will try to do is to see if this Test Client Instance was not already assigned a Test case for which it never 
-        reported back. This is a common situation when some kind of error occured and the whole cycle was not closed.
-        */
+       The first thing we will try to do is to see if this Test Client Instance was not already assigned a Test case for which it never 
+       reported back. This is a common situation when some kind of error occured and the whole cycle was not closed.
+       */
         for (let i = 0; i < thisObject.testCasesArray.length; i++) {
             let testCase = thisObject.testCasesArray[i]
             if (testCase.status === 'Being Tested' && testCase.assignedTo === currentClientInstance) {
@@ -325,11 +325,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
                                 if (
                                     property === "testedBy" ||
                                     property === "timestamp" ||
-                                    property === "when" ||
-                                    property === "parameters" ||
-                                    property === "filesTimestaps" ||
-                                    property === "parametersHash" ||
-                                    property === "predictions" 
+                                    property === "when"
                                 ) {
                                     continue
                                 }
@@ -365,14 +361,10 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
                             if (
                                 property === "testedBy" ||
                                 property === "timestamp" ||
-                                property === "when" ||
-                                property === "parameters" ||
-                                property === "filesTimestaps" ||
-                                property === "parametersHash" ||
-                                property === "predictions" 
+                                property === "when"
                             ) {
                                 continue
-                            }                            
+                            }
                             if (testReportFileRow !== "") {
                                 testReportFileRow = testReportFileRow + ","
                             }

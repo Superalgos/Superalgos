@@ -201,7 +201,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
                 if (assignedTimestamp === undefined) { assignedTimestamp = 0 }
                 let now = (new Date()).valueOf()
                 let diff = now - assignedTimestamp
-                if ( diff < SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS * 10) {
+                if (diff < SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS * 10) {
                     console.log((new Date()).toISOString(), 'Test Case already delivered in the last 10 minutes. Did not deliver again to ' + currentClientInstance)
                     return 'NO CASES FOR YOU'
                 } else {
@@ -283,7 +283,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
             testCase.enlapsedMinutes = (testResult.enlapsedTime / 60).toFixed(2)
             testCase.enlapsedHours = (testResult.enlapsedTime / 3600).toFixed(2)
             testCase.testedByInstance = currentClientInstance
-            testCase.testedByProfile = currentClientInstance
+            testCase.testedByProfile = userProfile
             testCase.timestamp = (new Date()).valueOf()
 
             let logQueue = []
@@ -381,6 +381,18 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
     }
 
     function saveTestCasesFile() {
+        /*
+        Fixing the Dataset
+        */
+        for (let i = 0; i < thisObject.testCasesArray.length; i++) {
+            let testCase = thisObject.testCasesArray
+            if (testCase.testedBy !== undefined) {
+                testCase.testedByInstance = testCase.testedBy
+                testCase.testedByProfile = testCase.testedBy.split(' / ')[0]
+                testCase.testedBy = undefined
+            }
+        }
+
         let fileContent = JSON.stringify(thisObject.testCasesArray, undefined, 4)
         SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/StateData/TestCases/Test-Cases-Array-" + networkCodeName + ".json", fileContent)
     }

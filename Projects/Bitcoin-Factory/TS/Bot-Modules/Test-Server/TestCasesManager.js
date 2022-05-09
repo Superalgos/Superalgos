@@ -391,7 +391,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
                 testCase.testedByProfile = testCase.testedBy.split(' / ')[0]
                 testCase.testedBy = undefined
             }
-            if (testCase.testedByProfile.split(' / ')[1] !== undefined) {
+            if (testCase.testedByProfile !== undefined && testCase.testedByProfile.split(' / ')[1] !== undefined) {
                 testCase.testedByProfile = testCase.testedBy.split(' / ')[0]
             }
         }

@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Узел Plugin Tutorials содержит определения учебников, которые должны быть включены в текущее рабочее пространство в качестве плагинов.",
                 "updated": 1645166028861
+            },
+            {
+                "language": "TR",
+                "text": "Eklenti öğreticileri düğümü, mevcut çalışma alanına eklentiler olarak dahil edilecek öğreticilerin tanımlarını içerir.",
+                "updated": 1651952329383
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "language": "RU",
                     "text": "Учебники, включенные в рабочее пространство в качестве плагинов, не отслеживают прогресс пользователя, поэтому он не может вернуться к последнему шагу с помощью кнопки Resume в меню.",
                     "updated": 1645166044312
+                },
+                {
+                    "language": "TR",
+                    "text": "Eklenti olarak çalışma alanına dahil edilen öğreticiler, kullanıcıların ilerlemesini takip etmez, bu, menüdeki Devam düğmesini kullanarak son adıma dönmeyebilir.",
+                    "updated": 1651952379034
                 }
             ]
         },
@@ -43,6 +53,11 @@
                     "language": "RU",
                     "text": "Конфигурация Plugin Tutorials",
                     "updated": 1645166057934
+                },
+                {
+                    "language": "TR",
+                    "text": "Eklenti Eğitimlerini Yapılandırma",
+                    "updated": 1651952437396
                 }
             ]
         },
@@ -59,6 +74,11 @@
                     "language": "RU",
                     "text": "Выберите Configure в меню для доступа к конфигурации.",
                     "updated": 1645166062911
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırmaya erişmek için menüden Yapılandır'ı seçin.",
+                    "updated": 1651952452058
                 }
             ]
         }

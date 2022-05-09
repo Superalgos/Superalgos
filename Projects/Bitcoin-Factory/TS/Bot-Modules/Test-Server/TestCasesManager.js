@@ -323,7 +323,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
                         function addHeaderFromObject(jsObject) {
                             for (const property in jsObject) {
                                 if (
-                                    property === "TestedBy" ||
+                                    property === "testedBy" ||
                                     property === "timestamp" ||
                                     property === "when" ||
                                     property === "parameters" ||
@@ -362,6 +362,17 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
                     addDataFromObject(testCase)
                     function addDataFromObject(jsObject) {
                         for (const property in jsObject) {
+                            if (
+                                property === "testedBy" ||
+                                property === "timestamp" ||
+                                property === "when" ||
+                                property === "parameters" ||
+                                property === "filesTimestaps" ||
+                                property === "parametersHash" ||
+                                property === "predictions" 
+                            ) {
+                                continue
+                            }                            
                             if (testReportFileRow !== "") {
                                 testReportFileRow = testReportFileRow + ","
                             }

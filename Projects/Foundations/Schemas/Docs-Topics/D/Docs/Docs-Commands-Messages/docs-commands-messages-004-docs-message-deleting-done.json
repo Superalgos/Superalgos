@@ -21,6 +21,11 @@
                 "language": "RU",
                 "text": "Команда docs.delete удалила из памяти запрошенную вами страницу.",
                 "updated": 1638461569361
+            },
+            {
+                "language": "TR",
+                "text": "docs.delete komutu, istediğiniz sayfayı bellekten sildi.",
+                "updated": 1652203790727
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Страница была отмечена для удаления. Она будет удалена из коллекции страниц после запуска команды Docs Save Command, которая указывает клиенту Client удалить файл с диска. Чтобы удалить страницу из индекса, вы должны запустить команду Docs Reindex Command.",
                     "updated": 1638461829275
+                },
+                {
+                    "language": "TR",
+                    "text": "Sayfa silinmek üzere işaretlendi. Belgeleri Kaydetme Komutunu ( Docs Save Command ) çalıştırdığınızda, bellek içi sayfa koleksiyonundan kaldırılacaktır. Dokümanları Kaydetme Komutu ( Docs Save Command ) İstemciye dosyayı diskten silmesini söyler. Sayfayı dizinden kaldırmak için Dokümanları indexleme ( Docs Reindex Command )Komutunu çalıştırmalısınız.",
+                    "updated": 1652204084183
                 }
             ]
         }

@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Actual rate - это число, указанное биржей в качестве курса, по которому была исполнена заявка.",
                 "updated": 1638622472910
+            },
+            {
+                "language": "TR",
+                "text": "Gerçek oran, bir emrin yerine getirildiği oran olarak döviz tarafından bildirilen sayıdır.",
+                "updated": 1652017508810
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Когда система проверяет статус открытых ордеров на бирже, биржа отвечает заполненным размером и фактическим курсом для конкретного ордера. Если ордер исполняется постепенно, значение обновляется соответствующим образом.",
                     "updated": 1638622573324
+                },
+                {
+                    "language": "TR",
+                    "text": "Sistem, açık emirlerin durumunu borsa ile görüştüğünde, borsa, belirli bir emir için doldurulan miktar ve gerçek kur ile yanıt verir. Kademeli olarak sipariş verilmesi durumunda değer buna göre güncellenir.",
+                    "updated": 1652017517346
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Система использует фактический курс для обновления расчета остатков, которые в противном случае по умолчанию рассчитываются с использованием исходного курса.",
                     "updated": 1638622609744
+                },
+                {
+                    "language": "TR",
+                    "text": "Sistem, aksi takdirde varsayılan olarak orijinal oran ile hesaplanan bakiye hesaplamasını güncellemek için gerçek oranı kullanır.",
+                    "updated": 1652017525236
                 }
             ]
         },
@@ -51,6 +66,11 @@
                     "language": "RU",
                     "text": "Конфигурация Actual Rate",
                     "updated": 1638622635546
+                },
+                {
+                    "language": "TR",
+                    "text": "Gerçek Oran Yapılandırması",
+                    "updated": 1652017562673
                 }
             ]
         },
@@ -63,6 +83,11 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1638622658924
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikleri",
+                    "updated": 1652017578619
                 }
             ]
         },
@@ -75,6 +100,11 @@
                     "language": "RU",
                     "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
                     "updated": 1638622678585
+                },
+                {
+                    "language": "TR",
+                    "text": "initialValue düğümün başlangıç ​​durumunun keyfi bir değere sıfırlanmasına izin verir.",
+                    "updated": 1652017612829
                 }
             ]
         }

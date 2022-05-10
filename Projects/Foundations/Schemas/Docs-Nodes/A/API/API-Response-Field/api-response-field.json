@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "API отвечает объектом JSON. Каждое свойство объекта отображается как узел этого типа. У этого узла могут быть дочерние элементы одного и того же типа, что позволяет пользователям отображать сложную структуру данных.",
                 "updated": 1638630022212
+            },
+            {
+                "language": "TR",
+                "text": "API, bir JSON nesnesiyle yanıt verir. Nesnenin her özelliği, bu türden bir düğüm olarak eşlenir. Bu düğüm, kullanıcıların karmaşık bir veri yapısını eşlemelerine olanak tanıyan aynı türde düğümlere sahip olabilir.",
+                "updated": 1652022243031
             }
         ]
     },
@@ -21,6 +26,11 @@
                     "language": "RU",
                     "text": "Конфигурация API Response Field",
                     "updated": 1638630037537
+                },
+                {
+                    "language": "TR",
+                    "text": "API Yanıt Alanı Yapılandırması",
+                    "updated": 1652022260041
                 }
             ]
         },
@@ -32,6 +42,11 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1638630044738
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikleri",
+                    "updated": 1652022268714
                 }
             ]
         },
@@ -44,6 +59,11 @@
                     "language": "RU",
                     "text": "codeName: сodeName должен быть точным именем свойства, содержащегося в объекте JSON ответа.",
                     "updated": 1638630068012
+                },
+                {
+                    "language": "TR",
+                    "text": "codeName: codeName, yanıt JSON nesnesinde tutulan özelliğin tam adı olmalıdır.",
+                    "updated": 1652022279967
                 }
             ]
         },
@@ -55,6 +75,11 @@
                     "language": "RU",
                     "text": "Для первого объекта, поскольку это особый случай, мы обычно используем codeName rootObject.",
                     "updated": 1638630097836
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: İlk nesne için, özel bir durum olduğundan, genellikle rootObject'in codeName'ini kullanırız.",
+                    "updated": 1652022288990
                 }
             ]
         },
@@ -67,6 +92,11 @@
                     "language": "RU",
                     "text": "fieldType: Это свойство объявляет, являются ли данные числом, строкой, объектом или массивом.",
                     "updated": 1639632043484
+                },
+                {
+                    "language": "TR",
+                    "text": "fieldType: Bu özellik, verilerin bir sayı, dize, nesne veya dizi olup olmadığını bildirir.",
+                    "updated": 1652022299562
                 }
             ]
         },
@@ -78,6 +108,11 @@
                     "language": "RU",
                     "text": "description: Ожидается, что API Map будет использоваться не только пользователем, который создал, но и когда-то внесен в качестве подключаемого модуля, всеми другими пользователями. Это свойство полезно для хранения описания этого поля, как оно было написано в документации по серверу API, чтобы другие пользователи не пошли его искать.",
                     "updated": 1638630157177
+                },
+                {
+                    "language": "TR",
+                    "text": "description: API Haritasının ( API Map ) yalnızca oluşturan kullanıcı tarafından değil, bir kez Eklenti olarak katkıda bulunan diğer tüm kullanıcılar tarafından kullanılması beklenir. Bu özellik, diğer kullanıcıların gidip onu aramasını önlemek için API Sunucusu ( API Server ) belgelerinde yazıldığı gibi bu alanın açıklamasını saklamak için kullanışlıdır.",
+                    "updated": 1652022330487
                 }
             ]
         },
@@ -90,6 +125,11 @@
                     "language": "RU",
                     "text": "Возможные значения для свойства Field Type",
                     "updated": 1638630191675
+                },
+                {
+                    "language": "TR",
+                    "text": "Alan Türü Özelliği için Olası Değerler",
+                    "updated": 1652022339779
                 }
             ]
         },
@@ -102,6 +142,11 @@
                     "language": "RU",
                     "text": "Это свойство очень важно и должно быть очень хорошо определено. Это свойство определяет структуру структуры данных ответа и должно быть очень точным. Возможные значения:",
                     "updated": 1638630241986
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu özellik çok önemlidir ve çok iyi tanımlanması gerekir. Bu özellik, yanıt veri yapısının yapısını tanımlar ve çok kesin olması gerekir. Olası değerler şunlardır:",
+                    "updated": 1652022347799
                 }
             ]
         },
@@ -114,6 +159,11 @@
                     "language": "RU",
                     "text": "number: В эту категорию попадают любые типы чисел, включая даты и временные метки (timestamp) в числах.",
                     "updated": 1638630348885
+                },
+                {
+                    "language": "TR",
+                    "text": "number: Sayılardaki tarih zaman damgaları da dahil olmak üzere her tür sayı bu kategoriye girer.",
+                    "updated": 1652022358353
                 }
             ]
         },
@@ -126,6 +176,11 @@
                     "language": "RU",
                     "text": "string: В эту категорию попадают любые строки, включая даты в строковом формате.",
                     "updated": 1638630335455
+                },
+                {
+                    "language": "TR",
+                    "text": "string: Dize biçimindeki tarihler de dahil olmak üzere tüm dizeler bu kategoriye girer.",
+                    "updated": 1652022367641
                 }
             ]
         },
@@ -138,6 +193,11 @@
                     "language": "RU",
                     "text": "object: Используйте это значение, если вы обнаружите, что поле содержит объект JSON, заключенный в {  }",
                     "updated": 1638630394663
+                },
+                {
+                    "language": "TR",
+                    "text": "object: Alanın { and } içinde bir JSON nesnesi tuttuğunu bulduğunuzda bu değeri kullanın.",
+                    "updated": 1652022384324
                 }
             ]
         },
@@ -150,6 +210,11 @@
                     "language": "RU",
                     "text": "array: Используйте этот тип, если значение поля представляет собой массив JSON, заключенный в [  ]",
                     "updated": 1638630420783
+                },
+                {
+                    "language": "TR",
+                    "text": "array: Alanın değeri, [ and ] içine alınmış bir JSON dizisi olduğunda bu türü kullanın.",
+                    "updated": 1652022397371
                 }
             ]
         }

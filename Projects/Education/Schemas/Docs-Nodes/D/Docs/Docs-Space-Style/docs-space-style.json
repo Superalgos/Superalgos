@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "С помощью этого узла вы можете настроить свой пользовательский интерфейс, изменив цвет фона или размер шрифта, а также цвет шрифта. ",
                 "updated": 1647781458275
+            },
+            {
+                "language": "TR",
+                "text": "Bu Düğüm aracılığıyla, Arka Plan rengini veya yazı tipi boyutunu ve yazı tipi rengini değiştirerek UI'nizi ayarlayabilirsiniz.",
+                "updated": 1652014236549
             }
         ]
     },
@@ -20,6 +25,11 @@
                     "language": "RU",
                     "text": "Существует отдельная статья о том, какие цвета можно добавлять.",
                     "updated": 1647781484535
+                },
+                {
+                    "language": "TR",
+                    "text": "Hangi renklerin eklenebileceği hakkında açık bir makale var.",
+                    "updated": 1652014248357
                 }
             ],
             "updated": 1642631433302

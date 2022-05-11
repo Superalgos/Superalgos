@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Annualized Rate Of Return - это эквивалентная рентабельность инвестиций в один год.",
                 "updated": 1638623262847
+            },
+            {
+                "language": "TR",
+                "text": "Yıllık getiri oranı, bir yıla ölçeklenen eşdeğer yatırım getirisidir.",
+                "updated": 1652018465870
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Другими словами, это эквивалентный годовой доход, полученный за определенный период.",
                     "updated": 1638623282898
+                },
+                {
+                    "language": "TR",
+                    "text": "Başka bir deyişle, belirli bir süre boyunca alınan eşdeğer yıllık getiridir.",
+                    "updated": 1652018475840
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Формула:",
                     "updated": 1638623296446
+                },
+                {
+                    "language": "TR",
+                    "text": "Formül:",
+                    "updated": 1652018494716
                 }
             ]
         },
@@ -50,6 +65,11 @@
                     "language": "RU",
                     "text": "В контексте базового актива эпизода и указанного актива эпизода расчет выполняется относительно соответствующих активов и общего контекста.",
                     "updated": 1638623339930
+                },
+                {
+                    "language": "TR",
+                    "text": "Bölüm temel varlık ve bölüm alıntı varlık bağlamında, hesaplama ilgili varlıklara ve genel bağlama göre yapılır.",
+                    "updated": 1652018513579
                 }
             ]
         },
@@ -61,6 +81,11 @@
                     "language": "RU",
                     "text": "Формулы:",
                     "updated": 1638623349674
+                },
+                {
+                    "language": "TR",
+                    "text": "Formül:",
+                    "updated": 1652018520450
                 }
             ]
         },
@@ -77,6 +102,11 @@
                     "language": "RU",
                     "text": "Код JavaScript:",
                     "updated": 1638623384490
+                },
+                {
+                    "language": "TR",
+                    "text": "JavaScript kodu:",
+                    "updated": 1652018529789
                 }
             ]
         },
@@ -93,6 +123,11 @@
                     "language": "RU",
                     "text": "В контексте статистики по эпизодам расчет выполняется с использованием консолидированного баланса, как объяснено в определении убытка по прибыли.",
                     "updated": 1638623407530
+                },
+                {
+                    "language": "TR",
+                    "text": "Dönem istatistikleri bağlamında, hesaplama, kar zararı tanımında açıklandığı gibi konsolide bakiye kullanılarak yapılır.",
+                    "updated": 1652018538179
                 }
             ]
         },
@@ -104,6 +139,11 @@
                     "language": "RU",
                     "text": "Если контекст не относится ни к одному из активов в частности, то оба баланса активов консолидируются и выражаются в указанном активе.",
                     "updated": 1638623436030
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bağlam özellikle varlıklardan herhangi birine atıfta bulunmadığında, her iki varlık bakiyesi konsolide edilir ve kote varlıkta gösterilir.",
+                    "updated": 1652018555907
                 }
             ]
         },
@@ -115,6 +155,11 @@
                     "language": "RU",
                     "text": "Код JavaScript:",
                     "updated": 1638623448250
+                },
+                {
+                    "language": "TR",
+                    "text": "JavaScript kodu:",
+                    "updated": 1652018564263
                 }
             ]
         },
@@ -137,6 +182,11 @@
                     "language": "RU",
                     "text": "Конфигурация Annualized Rate Of Return",
                     "updated": 1638623470455
+                },
+                {
+                    "language": "TR",
+                    "text": "Yıllık Getiri Oranı Yapılandırması",
+                    "updated": 1652018573203
                 }
             ]
         },
@@ -149,6 +199,11 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1638623478781
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikleri",
+                    "updated": 1652018582143
                 }
             ]
         },
@@ -161,6 +216,11 @@
                     "language": "RU",
                     "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
                     "updated": 1638623490865
+                },
+                {
+                    "language": "TR",
+                    "text": "initialValue düğümün başlangıç ​​durumunun keyfi bir değere sıfırlanmasına izin verir.",
+                    "updated": 1652018590081
                 }
             ]
         }

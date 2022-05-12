@@ -203,7 +203,7 @@ Node Config:
 }
  ```
 
-4. User Profile -> Forecast Providers -> Server Apps
+4. User Profile -> Forecast Providers
 5. User Profile -> Forecast Providers -> Bitcoin Factory Forecasts
 
 Node Name: "Testnet"

@@ -14,6 +14,11 @@
                 "language": "RU",
                 "text": "Используйте этот стиль для форматирования кода JSON, например, в конфигурациях.",
                 "updated": 1638534175573
+            },
+            {
+                "language": "TR",
+                "text": "Yapılandırmalardaki gibi JSON kodunu biçimlendirmek için bu stili kullanın.",
+                "updated": 1652385405650
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "language": "RU",
                     "text": "Разрывы строк в этом стиле не создают новые абзацы.",
                     "updated": 1638534201355
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu stildeki satır sonları yeni paragraflar oluşturmaz.",
+                    "updated": 1652385426887
                 }
             ]
         },
@@ -47,6 +57,11 @@
                     "language": "RU",
                     "text": "Пример:",
                     "updated": 1638534210572
+                },
+                {
+                    "language": "TR",
+                    "text": "Misal:",
+                    "updated": 1652385436716
                 }
             ]
         },

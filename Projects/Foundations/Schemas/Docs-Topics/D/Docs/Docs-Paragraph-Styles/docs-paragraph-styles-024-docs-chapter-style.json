@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Этот стиль используется в книге документаций для определения новой главы этой книги. Этот стиль отображает на странице книги указатель упомянутых тем документации.",
                 "updated": 1637931127565
+            },
+            {
+                "language": "TR",
+                "text": "Bu stil, Dokümanlar Kitaplarında söz konusu kitap için yeni bir bölüm tanımlamak için kullanılır. Stil, kitabın sayfasında başvurulan Belge Konularının dizinini oluşturur.",
+                "updated": 1652387873967
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "language": "RU",
                     "text": "Синтаксис",
                     "updated": 1637931138643
+                },
+                {
+                    "language": "TR",
+                    "text": "Sözdizimi",
+                    "updated": 1652387890429
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "RU",
                     "text": "Параметры",
                     "updated": 1637931161374
+                },
+                {
+                    "language": "TR",
+                    "text": "Parametreler",
+                    "updated": 1652387905796
                 }
             ]
         },
@@ -66,6 +81,11 @@
                     "language": "RU",
                     "text": "Number: любая строка, представляющая номер отображаемой главы.",
                     "updated": 1638545532856
+                },
+                {
+                    "language": "TR",
+                    "text": "Chapter Number: Görüntülenecek bölüm numarasını temsil eden herhangi bir dize.",
+                    "updated": 1652387953397
                 }
             ]
         },
@@ -82,6 +102,11 @@
                     "language": "RU",
                     "text": "Project: это проект, которому принадлежит страница документации Docs Page.",
                     "updated": 1638545547477
+                },
+                {
+                    "language": "TR",
+                    "text": "Project: Dokümanlar Sayfasının ( Docs Page ) ait olduğu projedir.",
+                    "updated": 1652388007240
                 }
             ]
         },
@@ -99,6 +124,11 @@
                     "language": "RU",
                     "text": "Docs Page Category: тема или учебное пособие Tutorial.",
                     "updated": 1638545559093
+                },
+                {
+                    "language": "TR",
+                    "text": "Docs Page Category: Konu veya Öğretici ( Tutorial ).",
+                    "updated": 1652388066821
                 }
             ]
         },
@@ -116,6 +146,11 @@
                     "language": "RU",
                     "text": "Docs Category Name: для тем - название темы, для руководств - это название учебника.",
                     "updated": 1638545571325
+                },
+                {
+                    "language": "TR",
+                    "text": "Docs Category Name: Konular için konunun adı, öğreticiler için öğreticinin adıdır.",
+                    "updated": 1652388097205
                 }
             ]
         },
@@ -133,6 +168,11 @@
                     "language": "RU",
                     "text": "Intruction Text: это текст введения, который отображается между заголовком главы и указателем главы Index. Это необязательный параметр.",
                     "updated": 1638545588059
+                },
+                {
+                    "language": "TR",
+                    "text": "Introduction Text: Bölüm Başlığı ile Bölüm Dizini ( Index ) arasında görüntülenecek bir giriş metnidir. Bu parametre isteğe bağlıdır.",
+                    "updated": 1652388156195
                 }
             ]
         },
@@ -150,6 +190,11 @@
                     "language": "RU",
                     "text": "Примеры:",
                     "updated": 1637931942649
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnekler:",
+                    "updated": 1652388179745
                 }
             ]
         },

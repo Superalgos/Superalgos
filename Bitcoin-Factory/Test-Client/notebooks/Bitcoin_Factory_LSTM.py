@@ -18,7 +18,7 @@
 
 # ## Libraries Used
 
-# In[1]:
+# In[2]:
 
 
 
@@ -38,7 +38,7 @@ from keras.layers import LSTM
 
 # ## Functions Used
 
-# In[2]:
+# In[17]:
 
 
 # convert series to supervised learning
@@ -70,47 +70,45 @@ def series_to_supervised(data, n_in=1, n_out=1, dropnan=True):
 # ## Load the Parameters Dataset
 # 
 
-# In[3]:
+# In[6]:
 
 
 parameters_dataset = read_csv(
     '/tf/notebooks/parameters.csv', 
-    header=0, 
     sep=' ', 
-    skipinitialspace=True
 )
 
 parameters_dataset
 
 
-# In[4]:
+# In[8]:
 
 
 # number of indicator properties that are at the raw dataset. Each set of indicators properties might be at many assets or timeframes.
-NUMBER_OF_INDICATORS_PROPERTIES = int(parameters_dataset.values[2][1])
+NUMBER_OF_INDICATORS_PROPERTIES = int(parameters_dataset['NUMBER_OF_INDICATORS_PROPERTIES'][0])
 
 # number of timesteps in the secuence that we are going to use to feed the model.
-NUMBER_OF_LAG_TIMESTEPS = int(parameters_dataset.values[3][1])
+NUMBER_OF_LAG_TIMESTEPS = int(parameters_dataset['NUMBER_OF_LAG_TIMESTEPS'][0])
 
 # number of assets included at the raw dataset.
-NUMBER_OF_ASSETS = int(parameters_dataset.values[4][1])
+NUMBER_OF_ASSETS = int(parameters_dataset['NUMBER_OF_ASSETS'][0])
 
 # number of things we are going to predict.
-NUMBER_OF_LABELS = int(parameters_dataset.values[5][1])
+NUMBER_OF_LABELS = int(parameters_dataset['NUMBER_OF_LABELS'][0])
 
 # definition of how the raw dataset is going to be divided between a Traing Dataset and a Test Dataset.
-PERCENTAGE_OF_DATASET_FOR_TRAINING = int(parameters_dataset.values[6][1])
+PERCENTAGE_OF_DATASET_FOR_TRAINING = int(parameters_dataset['PERCENTAGE_OF_DATASET_FOR_TRAINING'][0])
 
-NUMBER_OF_FEATURES = int(parameters_dataset.values[7][1])
+NUMBER_OF_FEATURES = int(parameters_dataset['NUMBER_OF_FEATURES'][0])
 
 # hyper-parameters
-NUMBER_OF_EPOCHS = int(parameters_dataset.values[8][1])
-NUMBER_OF_LSTM_NEURONS = int(parameters_dataset.values[9][1])
+NUMBER_OF_EPOCHS = int(parameters_dataset['NUMBER_OF_EPOCHS'][0])
+NUMBER_OF_LSTM_NEURONS = int(parameters_dataset['NUMBER_OF_LSTM_NEURONS'][0])
 
 
 # ## Load the Time-Series Dataset
 
-# In[5]:
+# In[9]:
 
 
 timeseries_dataset = read_csv(
@@ -128,27 +126,27 @@ timeseries_dataset
 
 # The reframing process shift each record to the left of the shifting window, producing that the last record of data is ignored at the last prediction. To fix this we will duplicate the last record so that the last prediction belongs to the the last piece of information available.
 
-# In[6]:
+# In[10]:
 
 
 values = timeseries_dataset.values
 
 
-# In[7]:
+# In[11]:
 
 
 last_record = values[-1:,:]
 last_record
 
 
-# In[8]:
+# In[12]:
 
 
 all_records = concatenate((values, last_record), axis=0)
 all_records
 
 
-# In[9]:
+# In[13]:
 
 
 # ensure all data is float
@@ -159,7 +157,7 @@ values = all_records.astype('float32')
 
 # We plot our raw data just to be sure with a glimpse that it is alright.
 
-# In[10]:
+# In[14]:
 
 
 # specify columns to plot
@@ -179,7 +177,7 @@ pyplot.show()
 
 # Normalizing or removing the scale, is a standar prodcedure of any machine learning workflow. 
 
-# In[11]:
+# In[15]:
 
 
 # normalize features
@@ -191,14 +189,14 @@ scaled = scaler.fit_transform(values)
 
 # Each Raw record needs to be expanded with the previous records in order to be suitable for beeing fed into a LSTM model. Some fields of the record at time = 0 will be used as labels and the ones at time < 0 as features.
 
-# In[12]:
+# In[18]:
 
 
 # frame as supervised learning
 reframed = series_to_supervised(scaled, NUMBER_OF_LAG_TIMESTEPS, 1)
 
 
-# In[13]:
+# In[19]:
 
 
 reframed
@@ -208,7 +206,7 @@ reframed
 
 # The first part of the dataset will be used to train the model. The last part for calculating the prediction error. Later we will generate the predictions for the test dataset and measure how accurate they were.
 
-# In[14]:
+# In[20]:
 
 
 # get values from reframed dataset
@@ -218,7 +216,7 @@ records_for_training = int(record_count * PERCENTAGE_OF_DATASET_FOR_TRAINING / 1
 records_for_training
 
 
-# In[15]:
+# In[21]:
 
 
 # split into train and test sets
@@ -226,13 +224,13 @@ train = values[:records_for_training, :]
 test = values[records_for_training:, :]
 
 
-# In[16]:
+# In[22]:
 
 
 train.shape
 
 
-# In[17]:
+# In[23]:
 
 
 test.shape
@@ -243,7 +241,7 @@ test.shape
 # Here we will split both the Train and the Test datasets into features and labels. 
 # Features will be all the information where time < 0. For the labels, we will pick only the first 2 fields of each set of indicator properties, which we expect them to contain the Candle Max and Candle Min for each Asset.
 
-# In[18]:
+# In[24]:
 
 
 # split into input and outputs
@@ -256,13 +254,13 @@ test_X = test[:, :n_obs]
 test_y = test[:, -NUMBER_OF_FEATURES:-(NUMBER_OF_FEATURES-NUMBER_OF_LABELS)]
 
 
-# In[19]:
+# In[25]:
 
 
 train_X
 
 
-# In[20]:
+# In[26]:
 
 
 train_y
@@ -272,7 +270,7 @@ train_y
 
 # This type of Network Architecture requires the features to be in a 3D shape.
 
-# In[21]:
+# In[27]:
 
 
 # reshape input to be 3D [samples, timesteps, features]
@@ -284,7 +282,7 @@ test_X = test_X.reshape((test_X.shape[0], NUMBER_OF_LAG_TIMESTEPS, NUMBER_OF_FEA
 
 # Here we are using an LSTM architecture for our neural network. This is the type of architecture usually used for problems involving time-series.
 
-# In[22]:
+# In[28]:
 
 
 # design network
@@ -298,7 +296,7 @@ model.compile(loss='mae', optimizer='adam')
 
 # We print this output so that the caller program can get the results in a JSON object.
 
-# In[23]:
+# In[29]:
 
 
 print('{')

@@ -1,1 +1,12 @@
-<svg id="Layer_3" data-name="Layer 3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><defs><style>.cls-1{fill:#e6eaea;}.cls-2{fill:#ff8c29;stroke:#f0b90b;}.cls-3{fill:#fd6a33;}</style></defs><title>binance-usd</title><path class="cls-1" d="M0,256C0,397.4,114.6,512,256,512V0C114.6,0,0,114.6,0,256Z"/><path class="cls-1" d="M256,0V512c141.4,0,256-114.6,256-256S397.4,0,256,0Z"/><g id="Layer_1-2" data-name="Layer 1-2"><path class="cls-2" d="M256,88l41.5,42.5L193,235l-41.5-41.5Z"/><path class="cls-2" d="M319,151l41.5,42.5L193,361l-41.5-41.5Z"/><path class="cls-2" d="M130,214l41.5,42.5L130,298,88.5,256.5Z"/><path class="cls-2" d="M382,214l41.5,42.5L256,424l-41.5-41.5Z"/></g><polygon class="cls-3" points="193 235 256 172 256 88 151.5 193.5 193 235"/><polygon class="cls-3" points="193 361 256 298 256 214.38 151.5 319.5 193 361"/><polygon class="cls-3" points="130 214 88.5 256.5 130 298 171.5 256.5 130 214"/><polygon class="cls-3" points="214.5 382.5 256 424 256 340.75 214.5 382.5"/></svg>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M256 0V512C114.615 512 0 397.385 0 256C0 114.615 114.615 0 256 0Z" fill="#E6EAEA"/>
+<path d="M256 512V0C397.385 0 512 114.615 512 256C512 397.385 397.385 512 256 512Z" fill="white"/>
+<path d="M255.5 88L297 130.5L192.5 235L151 193.5L255.5 88Z" fill="#FF8C29" stroke="#F0B90B"/>
+<path d="M318.5 151L360 193.5L192.5 361L151 319.5L318.5 151Z" fill="#FF8C29" stroke="#F0B90B"/>
+<path d="M129.5 214L171 256.5L129.5 298L88 256.5L129.5 214Z" fill="#FF8C29" stroke="#F0B90B"/>
+<path d="M381.5 214L423 256.5L255.5 424L214 382.5L381.5 214Z" fill="#FF8C29" stroke="#F0B90B"/>
+<path d="M192.5 235L255.5 172V88L151 193.5L192.5 235Z" fill="#FD6A33"/>
+<path d="M192.5 360.999L255.5 297.999V214.379L151 319.499L192.5 360.999Z" fill="#FD6A33"/>
+<path d="M129.5 214L88 256.5L129.5 298L171 256.5L129.5 214Z" fill="#FD6A33"/>
+<path d="M214 382.5L255.5 424V340.75L214 382.5Z" fill="#FD6A33"/>
+</svg>

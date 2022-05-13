@@ -16,9 +16,9 @@ In order to obtain that error measure, first a ML model with certain parameters 
 
 Testing combinations of parameters and data (with potentially hundreds of indicators to choose from, thousands of crypto assets, and dozens of time-frames) by hand, one by one, would be a nightmare. The system from which this App is part of, solves those problems by automating the discovery of the best performing ML models, for a certain range of parameters values and certain set of indicators, for each combination of Asset / Timeframe. 
 
-The System allows us to define for each parameter a range of valid values, creating a set of Test Cases based on all the possible combinations of all the values inside the valid ranges for all parameters. Then we only need distributed processing power to test all the combinations in a reasonable time and find which parameters / data configurations produces the best results. Best results means the best forecasts with the lowest % of error.
+The System allows us to define each parameter for a range of valid values, creating a set of Test Cases based on all the possible combinations of all the values inside the valid ranges for all parameters. Then we only need distributed processing power to test all the combinations in a reasonable time and find which parameters / data configurations produces the best results. Best results means the best forecasts with the lowest % of error.
 
-Over time, we will learn we which set of parameters and data produces the best model for a certain Asset / Timeframe. If we never stop testing, we will over time get the best possible models. Even if we finish with all possible combinations, datasets are changing over time and the amount of records and the data itself influence the performance of a ML model. For that reason, testing models is a never ending task. 
+Over time, we will learn which set of parameters and data produces the best model for a certain Asset / Timeframe. If we never stop testing, we will over time get the best possible models. Even if we finish with all possible combinations, datasets are changing over time and the amount of records and the data itself influence the performance of a ML model. For that reason, testing models is a never ending task. 
 
 It is important to understand that this Test Client APP does not prepare the dataset to be tested. This is done by the Test Server App. That means that this app does not need Superalgos or any other data provider for the purpose of extracting data from it. It only depends on the Test Server which handles the management of the Test Cases and the generation of the datasets to be used at each one of the tests.
 
@@ -79,11 +79,11 @@ This App does need Superalgos to save the best predictions as indicators in ther
 
 ### How does this Test Client App work?
 
-This app is used to autonomously test different set of parameters to see which Machine Learning models can produce better forecasts.
+This app is used to autonomously test different set's of parameters to see which Machine Learning models can produce better forecasts.
 
 This is part of a system that also has a Test Server App and another app called the Forecast Client. The Test Server app manages a set of different Test Cases that needs to be crowd-tested.
 
-Each Test Client app, connects to the Test Server app via a Superalgos Network Node. Once connected, it will enter into an infinite loop requesting new Test Cases to the Test Server.
+Each Test Client app, connects to the Test Server app via a Superalgos Network Node. Once connected, it will enter into an infinite loop requesting new Test Cases from the Test Server.
 
 Once a Test Case is received, the Test Client app will write 2 files at the notebooks folder (which is a shared volume with the Tensor Flow container):
 
@@ -98,7 +98,7 @@ The Test Server app remembers all the test results and organizes a collection wi
 
 This consolidated collection with the best crowd-sourced forecasts is sent back to each Test Client as a response to their own report with the results of their latest test.  
 
-The Test Client app receives this report, then sends it to Superalgos so that it can be saved as a regular indicator under the Bitcoin-Factory Data Mine. The Test Client app then wait for 10 seconds and repeat the process again, requesting a new Test Case to test.
+The Test Client app receives this report, then sends it to Superalgos so that it can be saved as a regular indicator under the Bitcoin-Factory Data Mine. The Test Client app will then wait for 10 seconds and repeat the process again, requesting a new Test Case to test.
 
 ### How does the overall System Work?
 
@@ -176,7 +176,7 @@ To run this software you need a Superalgos Profile with some extra nodes and som
 For your Test Client App to work and be able to connect to the Test Server you need to:
 
 1. Update your User Profile with several nodes that today you might not have.
-2. Create the Signing Account node to allow your Test Client app run with an identity that the Superalgos Network can recognize.
+2. Create the Signing Account node to allow your Test Client app to run with an identity that the Superalgos Network can recognize.
 3. Reference from the Task -> Task Server App Reference one of the nodes you added to your profile.
 4. Change a config to specify the name of your Test Client, so that you can recognize it among other test clients on the execution reports.
 
@@ -203,7 +203,7 @@ Node Config:
 }
  ```
 
-4. User Profile -> Forecast Providers -> Server Apps
+4. User Profile -> Forecast Providers
 5. User Profile -> Forecast Providers -> Bitcoin Factory Forecasts
 
 Node Name: "Testnet"
@@ -227,7 +227,7 @@ Finally, you need to re-generate the signing accounts of your User Profile, so t
 
 1. At the Governance Project node create a Profile Constructor node.
 2. Reference the Profile Constructor to your User Profile.
-3. At the Profile Constructor menu, click on Install Signing Accounts. This will generate a new node under "Task-Server-App-1" and save a file to your My-Secrets folder with the Signing Accounts at your User Profile.
+3. At the Profile Constructor menu, click on Install Signing Accounts. This will generate a new node under "Task-Server-App-1" and save a file to your My-Secrets folder with the Signing Accounts of your User Profile.
 
 Now you are done with your profile.
 
@@ -290,7 +290,7 @@ IMPORTANT NOTES:
 * 1. You need to have a 64 bit version of your OS, otherwise this is not going to work.
 * 2. In linux you might need to add 'sudo' before the docker build command.
 * 3. The dot at the end of the docker build command is mandatory.
-* 4. This build is required only once. Once your docker image is build you don't need to do it again unless there is a new release that explicitly tells you to do so.
+* 4. This build is required only once. Once your docker image is built you don't need to do it again unless there is a new release that explicitly tells you to do so.
 
 ## Usage
 
@@ -365,7 +365,7 @@ Once you see this at least once, that means that your Client App is running 100%
 
 If you wish, you can run multiple instances of the Test Client Task. Clone the current Task and attach it to the same Task Manager to have more Tasks to run. Do not forget to change the bot configuration at each task to assign a different name to each one of them. 
 
-You will also need multiple Test Client Instances at your Superalgos User Profile. Each instance name need to match the config at the bot inside each task. 
+You will also need multiple Test Client Instances at your Superalgos User Profile. Each instance name needs to match the config at the bot inside each task. 
 
 Only one Docker Container needs to be running even if you run more than one instance of the Test App.
 

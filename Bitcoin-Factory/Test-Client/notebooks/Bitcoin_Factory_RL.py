@@ -3,7 +3,7 @@
 
 # ## Import needed deps
 
-# In[3]:
+# In[1]:
 
 
 import random
@@ -38,40 +38,51 @@ from tabulate import tabulate
 # In[ ]:
 
 
-get_ipython().run_line_magic('load_ext', 'tensorboard')
-get_ipython().run_line_magic('tensorboard', '--logdir "/tf/notebooks/ray_results/" --host 0.0.0.0')
+# %load_ext tensorboard
+# %tensorboard --logdir "/tf/notebooks/ray_results/" --host 0.0.0.0
 
 
 # ### Set of parameters received from Test Server
 
-# In[56]:
+# In[29]:
+
+
+parameters = pd.read_csv(
+    '/tf/notebooks/parameters.csv', 
+    sep=' ', 
+)
+
+
+parameters
+
+
+# In[45]:
 
 
 EXPERIMENT_NAME = "Trading_Signal_Predictor_RL_V01"
 PERCENTAGE_OF_DATASET_FOR_TRAINING = 80
-TRAINING_ITERATIONS = 10000
-OBSERVATION_WINDOW_SIZE = 24
-INITIAL_QUOTE_ASSET = 10000
-INITIAL_BASE_ASSET = 0
-TRADING_FEE = 0.0075
-ENV_VERSION = "v1"
-ENV_NAME = 'SimpleTrading'
-EXPLORE_ON_EVAL = False
-ALGORITHM = "PPO"
+TRAINING_ITERATIONS = parameters['TRAINING_ITERATIONS'][0]
+OBSERVATION_WINDOW_SIZE = parameters['OBSERVATION_WINDOW_SIZE'][0]
+INITIAL_QUOTE_ASSET = parameters['INITIAL_QUOTE_ASSET'][0]
+INITIAL_BASE_ASSET = parameters['INITIAL_BASE_ASSET'][0]
+TRADING_FEE = parameters['TRADING_FEE'][0]
+ENV_VERSION = parameters['ENV_VERSION'][0]
+ENV_NAME =  parameters['ENV_NAME'][0]
+EXPLORE_ON_EVAL = parameters['EXPLORE_ON_EVAL'][0]
+
 # Hyper-parameters, in case we want to really control them from the test server not from ray
+ALGORITHM = parameters['ALGORITHM'][0]
+ROLLOUT_FRAGMENT_LENGTH = parameters['ROLLOUT_FRAGMENT_LENGTH'][0]
+TRAIN_BATCH_SIZE = parameters['TRAIN_BATCH_SIZE'][0]
+SGD_MINIBATCH_SIZE = parameters['SGD_MINIBATCH_SIZE'][0]
+BATCH_MODE = parameters['BATCH_MODE'][0]
+#VF_CLIP_PARAM = parameters['VF_CLIP_PARAM'][0]
+FC_SIZE = [parameters['FC_SIZE'][0]]
+LEARNING_RATE = parameters['LEARNING_RATE'][0]
+GAMMA = parameters['GAMMA'][0]
 
-ROLLOUT_FRAGMENT_LENGTH = 200
-TRAIN_BATCH_SIZE = 2048
-SGD_MINIBATCH_SIZE = 64
-BATCH_MODE = "complete_episodes"
-VF_CLIP_PARAM = 100
-FC_SIZE = [[256, 256]]
-LEARNING_RATE = 0.00001
-MINIBATCH_SIZE = 64
-GAMMA = 0.95
 
-
-# In[43]:
+# In[44]:
 
 
 df = pd.read_csv(
@@ -83,7 +94,7 @@ df = pd.read_csv(
 )
 
 
-# In[44]:
+# In[9]:
 
 
 def prepare_data(df):
@@ -110,13 +121,10 @@ data
 
 # # Setup which data to use for training and which data to use for evaluation of RL Model
 
-# In[45]:
-
+# In[10]:
 
 
 def split_data(data):
-    X = data.copy()
-    y = X['close'].pct_change()
 
     X_train_test, X_valid, y_train_test, y_valid =         train_test_split(data, data['close'].pct_change(), train_size=0.67, test_size=0.33, shuffle=False)
 
@@ -125,7 +133,7 @@ def split_data(data):
     return X_train, X_test, X_valid, y_train, y_test, y_valid
 
 
-# In[46]:
+# In[11]:
 
 
 X_train, X_test, X_valid, y_train, y_test, y_valid =     split_data(data)
@@ -133,7 +141,7 @@ X_train, X_test, X_valid, y_train, y_test, y_valid =     split_data(data)
 
 # ## Normalize the dataset subsets to make the model converge faster
 
-# In[47]:
+# In[12]:
 
 
 scaler_type = MinMaxScaler
@@ -201,7 +209,7 @@ def normalize_data(X_train, X_test, X_valid):
 train_test_scalers, train_test_valid_scalers, X_train_scaled, X_test_scaled, X_valid_scaled, X_valid_scaled_leaking =     normalize_data(X_train, X_test, X_valid)
 
 
-# In[48]:
+# In[13]:
 
 
 X_train_scaled.tail()
@@ -817,13 +825,13 @@ ppo_trainer_config = {
 
 # ### Run ray tune 
 
-# In[59]:
+# In[3]:
 
 
 cli_reporter = CLIReporter(max_report_frequency=300) # write progress to logs each 5 minutes
 
 analysis = tune.run(
-    run_or_experiment="PPO",  
+    run_or_experiment=ALGORITHM,
     name=EXPERIMENT_NAME,
     metric='episode_reward_mean',
     mode='max',

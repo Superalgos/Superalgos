@@ -1,9 +1,8 @@
-***
 <h1 align="center">Bitcoin-Factory Round 5</h1>
 
-## List Of All Data Mines Included In Round 5 Indicator List
+ ## List Of All Data Mines Included In Round 5 Indicator List
 
-#### _&nbsp;   &nbsp;   &nbsp;   &nbsp;Note: Data Mines Awaiting Review Have Not Been Included_
+#### _&nbsp;   &nbsp;Note: Data Mines Awaiting Review Have Not Been Included_
 
 <br>
 
@@ -39,7 +38,7 @@
  30. Weighted EMA Cross Strategy Data Mine
  31. Zeus Data Mine
 
-#### _&nbsp;   &nbsp;   &nbsp;Data Mines Still Awaiting Review Can Be Found [HERE.](https://github.com/theblockchainarborist/Bitcoin-Factory-Indicators/tree/main/Awaiting_Review)_
+#### _&nbsp;&nbsp;Data Mines Still Awaiting Review Can Be Found [HERE.](https://github.com/theblockchainarborist/Bitcoin-Factory-Indicators/tree/main/Awaiting_Review)_
 
 <br>
 <h2>

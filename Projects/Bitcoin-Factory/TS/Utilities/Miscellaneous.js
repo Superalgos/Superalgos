@@ -8,7 +8,6 @@ exports.newBitcoinFactoryUtilitiesMiscellaneous = function newBitcoinFacnewBitco
         getUserProfileFilesList: getUserProfileFilesList,
         getUserProfileFile: getUserProfileFile,
         getIndicatorFile: getIndicatorFile,
-        pad: pad,
         getHHMMSS: getHHMMSS,
         marketTimeFramesArray: undefined,
         marketTimeFramesMap: undefined,
@@ -85,11 +84,6 @@ exports.newBitcoinFactoryUtilitiesMiscellaneous = function newBitcoinFacnewBitco
             console.log((new Date()).toISOString(), err.stack)
             return []
         }
-    }
-
-    function pad(str, max) {
-        str = str.toString();
-        return str.length < max ? pad("0" + str, max) : str;
     }
 
     function getHHMMSS(timestamp) {

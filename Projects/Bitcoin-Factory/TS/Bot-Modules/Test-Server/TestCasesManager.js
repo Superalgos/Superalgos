@@ -256,7 +256,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
     }
 
     function getTimeSeriesFileName(testCase) {
-        let testCaseId = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.pad(testCase.id, 10)
+        let testCaseId = SA.projects.foundations.utilities.miscellaneousFunctions.pad(testCase.id, 10)
 
         let fileName = "time-series"
         for (let i = 0; i < testCase.parameters.LIST_OF_ASSETS.length; i++) {

@@ -59,6 +59,11 @@ exports.newDataBridge = function newDataBridge(processIndex) {
             let feature = timeSeriesFileFeatures[q]
             addDataMineFile(feature)
         }
+        /*
+        Remove from features and labels all the ones that can not be ON, to improve performance.
+        */
+        timeSeriesFileFeatures = removeOnlyOff(timeSeriesFileFeatures)
+        timeSeriesFileLabels = removeOnlyOff(timeSeriesFileLabels)
 
         function addDataMineFile(featuresOrLabelsObject) {
             if (featuresOrLabelsObject.dataMine === undefined) { return }
@@ -68,6 +73,19 @@ exports.newDataBridge = function newDataBridge(processIndex) {
             let fileContent = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.loadFile(global.env.PATH_TO_PLUGINS + "/Data-Mining/Data-Mines/" + featuresOrLabelsObject.dataMine + ".json")
             dataMine = JSON.parse(fileContent)
             loadedDataMinesFilesMap.set(featuresOrLabelsObject.dataMine, dataMine)
+        }
+
+        function removeOnlyOff(featuresOrLabels) {
+            let newArray = []
+            for (let q = 0; q < featuresOrLabels.length; q++) {
+                let object = featuresOrLabels[q]
+                if (object.range.length === 1 && object.range[0] === 'OFF') {
+                    /* We don't need this object */
+                } else {
+                    newArray.push(object)
+                }
+            }
+            return newArray
         }
     }
 

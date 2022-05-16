@@ -86,16 +86,18 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
                 }
             }
         }
-    
+
         async function testClientMessage(queryReceived, userProfile) {
             let requestToServer = {
                 queryReceived: queryReceived,
                 timestamp: (new Date()).valueOf()
             }
+            let testClientVersion = queryReceived.testClientVersion
+            if (testClientVersion === undefined) { testClientVersion = 4 }
             requestsToServer.push(requestToServer)
-            console.log((new Date()).toISOString(), '[WARN] Request From Test Client           -> timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) + ' -> Websockets Clients = ' + connectedUserProfilesLabel + ' -> Clients Requests Queue Size = ' + requestsToServer.length + ' -> userProfile = ' + userProfile)
+            console.log((new Date()).toISOString(), '[WARN] Request From Test Client v.' + testClientVersion + '       -> timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) + ' -> Websockets Clients = ' + connectedUserProfilesLabel + ' -> Clients Requests Queue Size = ' + requestsToServer.length + ' -> userProfile = ' + userProfile)
             return new Promise(promiseWork)
-    
+
             async function promiseWork(resolve, reject) {
                 responseFunctions.set(queryReceived.messageId, onResponseFromServer)
                 function onResponseFromServer(queryReceived) {
@@ -108,7 +110,7 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
                 }
             }
         }
-    
+
         async function forecastClientMessage(queryReceived, userProfile) {
             let requestToServer = {
                 queryReceived: queryReceived,
@@ -116,9 +118,9 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
             }
             requestsToServer.push(requestToServer)
             console.log((new Date()).toISOString(), '[WARN] Request From Forecast Client       -> timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) + ' -> Websockets Clients = ' + connectedUserProfilesLabel + ' -> Clients Requests Queue Size = ' + requestsToServer.length + ' -> userProfile = ' + userProfile)
-    
+
             return new Promise(promiseWork)
-    
+
             async function promiseWork(resolve, reject) {
                 responseFunctions.set(queryReceived.messageId, onResponseFromServer)
                 function onResponseFromServer(queryReceived) {
@@ -131,7 +133,7 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
                 }
             }
         }
-    
+
         async function testServerMessage(queryReceived, userProfile) {
             if (queryReceived.messageId !== undefined) {
                 let onResponseFromServer = responseFunctions.get(queryReceived.messageId)
@@ -139,7 +141,7 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
                 responseFunctions.delete(queryReceived.messageId)
             }
             return new Promise(promiseWork)
-    
+
             async function promiseWork(resolve, reject) {
                 if (requestsToServer.length === 0) {
                     let response = {

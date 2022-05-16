@@ -150,7 +150,7 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
                 } else {
                     let requestToServer = requestsToServer[0]
                     let now = (new Date()).valueOf()
-                    if (now - requestToServer.timestamp < 60000) {
+                    if (now - requestToServer.timestamp < 2 * 60 * 1000) {
                         let response = {
                             result: 'Ok',
                             message: 'Request Found.',

@@ -1,7 +1,7 @@
 ﻿exports.newBitcoinFactoryBotModulesTestClient = function (processIndex) {
 
     const MODULE_NAME = "Test-Client"
-    const TEST_CLIENT_VERSION = 5
+    const TEST_CLIENT_VERSION = 6
 
     let thisObject = {
         initialize: initialize,

@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Begin Rate - это ставка (цена) закрытия свечи, соответствующая дате и времени начала продажи.",
                 "updated": 1640350660071
+            },
+            {
+                "language": "TR",
+                "text": "Başlangıç ​​oranı ( Begin rate ) , başlangıç ​​özelliğinin tarih saatine karşılık gelen mumun kapanış oranıdır.",
+                "updated": 1652796096680
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "В контексте стратегии это курс закрытия последней закрытой свечи в момент срабатывания стратегии.",
                     "updated": 1638644656300
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir strateji bağlamında, stratejinin tetiklendiği andaki son kapatılan mumun kapanış oranıdır.",
+                    "updated": 1652796109049
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "В контексте позиции это курс закрытия последней закрытой свечи в момент срабатывания события закрытия позиции.",
                     "updated": 1638644671589
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir pozisyon bağlamında, pozisyon alma olayının tetiklendiği andaki son kapatılan mumun kapanış oranıdır.",
+                    "updated": 1652796119787
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "RU",
                     "text": "В контексте эпизода это курс закрытия последней закрытой свечи в момент начала эпизода.",
                     "updated": 1638644682701
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir bölüm bağlamında, bölümün başladığı anda son kapatılan mumun kapanış oranıdır.",
+                    "updated": 1652796131983
                 }
             ]
         },
@@ -62,6 +82,11 @@
                     "language": "RU",
                     "text": "Конфигурация Begin Rate",
                     "updated": 1638644698269
+                },
+                {
+                    "language": "TR",
+                    "text": "Begin Rate Yapılandırması",
+                    "updated": 1652796141091
                 }
             ]
         },
@@ -74,6 +99,11 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1638644704886
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikleri",
+                    "updated": 1652796147237
                 }
             ]
         },
@@ -86,6 +116,11 @@
                     "language": "RU",
                     "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
                     "updated": 1638644713925
+                },
+                {
+                    "language": "TR",
+                    "text": "initialValue, düğümün başlangıç ​​durumunun keyfi bir değere sıfırlanmasına izin verir.",
+                    "updated": 1652796155367
                 }
             ]
         }

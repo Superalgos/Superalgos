@@ -18,6 +18,11 @@
                 "language": "ES",
                 "text": "Esta página enumera fragmentos de texto utilizados en varias páginas. Mantener estos fragmentos en un lugar único facilita el mantenimiento y evita la duplicación de contenidos. Cada fragmento de texto está situado en un bloque con el mismo nombre que el título que aparece antes del fragmento. Para utilizar estos fragmentos, incluya el bloque correspondiente en la página de destino.",
                 "updated": 1641093602566
+            },
+            {
+                "language": "TR",
+                "text": "Bu sayfada, birden çok sayfada bulunması gereken metin snippet'leri listelenir. Snippet'leri merkezi bir konumda tutmak, bakımı kolaylaştırır ve içeriğin çoğaltılmasını önler. Her snippet, snippet'ten önce görüntülenen başlıkla aynı adı taşıyan bir blok altında düzenlenir. Bu snippet'leri kullanmak için, hedef sayfaya ilgili bloğu ekleyin.",
+                "updated": 1652681972973
             }
         ]
     },
@@ -36,6 +41,11 @@
                     "language": "ES",
                     "text": "Nota para Tablas Jerárquicas",
                     "updated": 1641093686506
+                },
+                {
+                    "language": "TR",
+                    "text": "Hiyerarşi Tabloları için Not",
+                    "updated": 1652681999564
                 }
             ]
         },
@@ -62,6 +72,11 @@
                     "language": "ES",
                     "text": "En esta página aborda la información de más alto nivel sobre la sección de la jerarquía correspondiente a la tabla adjunta. Haga clic en cualquiera de los nodos para obtener los detalles, incluyendo detalles sobre su configuración, cuando sea aplicable.",
                     "updated": 1641093797835
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu sayfada, aşağıdaki tabloda temsil edilen hiyerarşi bölümü hakkındaki üst düzey bilgiler ele alınmaktadır. Uygun olduğunda, yapılandırmalarıyla ilgili ayrıntılar da dahil olmak üzere ayrıntıları almak için düğümlerden herhangi birine tıklayın.",
+                    "updated": 1652681934786
                 }
             ]
         },
@@ -111,6 +126,11 @@
                     "language": "ES",
                     "text": "Haga clic en cualquiera de los nodos para obtener los detalles, incluida la información sobre su configuración, cuando sea aplicable.",
                     "updated": 1641093877597
+                },
+                {
+                    "language": "TR",
+                    "text": "Uygun olduğunda, yapılandırmalarıyla ilgili ayrıntılar da dahil olmak üzere ayrıntıları almak için düğümlerden herhangi birine tıklayın",
+                    "updated": 1652682032939
                 }
             ]
         },
@@ -132,6 +152,11 @@
                     "language": "ES",
                     "text": "Importante para Live Sessions",
                     "updated": 1641093891481
+                },
+                {
+                    "language": "TR",
+                    "text": "Canlı Oturumlar için Önemli",
+                    "updated": 1652682046629
                 }
             ]
         },
@@ -158,6 +183,11 @@
                     "language": "ES",
                     "text": "La ejecución de una sesión en vivo requiere la configuración de una referencia clave en el Task. También requiere una entrada de datos en tiempo real, lo que significa que la Instancia del Sensor Bot correspondiente, junto con todos los indicadores utilizados por el Trading System referenciado, deben estar en ejecución. Por lo último, una sesión en vivo precisa al menos 48 horas de datos históricos de mercado. Tenga en cuenta que el Trading System puede requerir incluso más datos históricos de mercado para analizar adecuadamente el mercado dependiendo de los indicadores utilizados.",
                     "updated": 1641094191650
+                },
+                {
+                    "language": "TR",
+                    "text": "Canlı oturum çalıştırmak, Görev'de (Task) bir anahtar başvurusunun (borsa API anahtarı) ayarlanmasını gerektirir. Ayrıca canlı bir veri akışı gerektirir, yani ilgili Sensör Bot Örneği (Sensor Bot Instance), referans verilen İşlem Sistemi tarafından kullanılan tüm göstergelerle birlikte çalışır durumda olmalıdır. Son olarak, canlı bir oturum aynı zamanda en az 48 saatlik geçmiş piyasa verisi gerektirir. Ticaret Sisteminin (Trading System), kullanılan göstergelere bağlı olarak piyasayı doğru bir şekilde analiz etmek için daha fazla tarihsel piyasa verisi gerektirebileceğini unutmayın.",
+                    "updated": 1652682247665
                 }
             ]
         },
@@ -179,6 +209,11 @@
                     "language": "ES",
                     "text": "Advertencia sobre la eliminación del Nodo",
                     "updated": 1641094233823
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğüm Uyarısını Silme",
+                    "updated": 1652682262861
                 }
             ]
         },
@@ -210,6 +245,11 @@
                     "language": "ES",
                     "text": "La eliminación de este nodo hace que los scripts de instalación y desinstalación del Market dejen de funcionar, incluso si el nodo se vuelve a crear después de haber sido eliminado.",
                     "updated": 1641094302371
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu düğümün silinmesi, düğüm silindikten sonra yeniden oluşturulsa bile, market yükleme ve kaldırma komut dosyalarının çalışmayı durdurmasına neden olur.",
+                    "updated": 1652682338966
                 }
             ]
         },
@@ -232,6 +272,11 @@
                     "language": "ES",
                     "text": "Advertencia de Lectura de Pagina Completa",
                     "updated": 1641094325041
+                },
+                {
+                    "language": "TR",
+                    "text": "Tüm Sayfa Uyarısını Oku",
+                    "updated": 1652682352218
                 }
             ]
         },
@@ -259,6 +304,11 @@
                     "language": "ES",
                     "text": "El trading, el trading con bots y el trading con trading systems compartidos por la comunidad conlleva riesgos. Asegúrese de leer toda la página, incluyendo las advertencias al final de la misma. Usted debe entender completamente cómo funciona este Trading System para que pueda tomar sus propias decisiones sobre cómo utilizarlo. Por favor, utilice este Trading System bajo su propio riesgo.",
                     "updated": 1641094422897
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret yapmak, botlarla ticaret yapmak ve Topluluk tarafından paylaşılan ticaret sistemleriyle işlem yapmak riskler içerir. Sayfanın altındaki uyarılar da dahil olmak üzere tüm sayfayı okuduğunuzdan emin olun. Bu ticaret sisteminin nasıl çalıştığını tam olarak anlamalısınız, böylece nasıl kullanacağınız konusunda kendi bilinçli kararlarınızı verebilirsiniz. Bu ticaret sistemini kullanmanın riski size aittir.",
+                    "updated": 1652682387101
                 }
             ]
         },
@@ -281,6 +331,11 @@
                     "language": "ES",
                     "text": "Advertencia de Trading en Vivo",
                     "updated": 1641094432265
+                },
+                {
+                    "language": "TR",
+                    "text": "Canlı Ticaret Uyarısı",
+                    "updated": 1652682410031
                 }
             ]
         },
@@ -308,6 +363,11 @@
                     "language": "ES",
                     "text": "Superalgos es un programa informático. Como con cualquier software, pueden producirse errores en cualquier momento, incluso errores que pueden hacerle perder dinero. Usted es responsable de tomar todas las precauciones que considere oportunas antes de operar en vivo. Incluso si toma todas las medidas de precaución posibles, las cosas pueden salir mal y pueden producirse errores. Al utilizar este software para operar en vivo a pesar de las advertencias, usted reconoce que es consciente de los riesgos inherentes al comercio y al uso de software para ese fin. El proyecto Superalgos ofrece el software TAL CUAL, sin garantías explícitas o implícitas de ningún tipo. El proyecto, el software, el sitio web superalgos.org, esta documentación y la Comunidad no ofrecen asesoramiento financiero. Aunque las estrategias que se envían con el sistema pueden ser totalmente funcionales, Superalgos no hace ninguna recomendación expresa o implícita sobre cómo debe utilizarlas. Compartimos las estrategias sólo con fines educativos. Opere bajo su responsabilidad y bajo su propio riesgo. El uso del software está sujeto a los términos de la <a href=\"https://github.com/Superalgos/Superalgos/blob/master/LICENSE\" target=\"_blank\">LICENCIA</a>.",
                     "updated": 1641094505966
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos bir bilgisayar yazılımı parçasıdır. Herhangi bir yazılımda olduğu gibi, para kaybetmenize neden olabilecek hatalar da dahil olmak üzere herhangi bir noktada hatalar oluşabilir. Canlı işlem yapmadan önce uygun gördüğünüz tüm önlemleri almaktan siz sorumlusunuz. Olası tüm ihtiyati tedbirleri alsanız bile, işler yine de ters gidebilir ve hatalar oluşabilir. Uyarılara rağmen canlı ticaret yapmak için bu yazılımı kullanarak, ticaretteki ve bu amaçla yazılım kullanmanın doğal risklerinin farkında olduğunuzu kabul edersiniz. Superalgos projesi, yazılımı OLDUĞU GİBİ, herhangi bir açık veya zımni garanti olmaksızın sunar. Proje, yazılım, superalgos.org web sitesi, bu belgeler ve Topluluk finansal danışmanlık sunmamaktadır. Sistemle birlikte gönderilen stratejiler tamamen işlevsel olsa da, Superalgos bunları nasıl kullanmanız gerektiğine dair açık veya zımni bir öneride bulunmaz. Sadece eğitim amaçlı stratejileri paylaşıyoruz. Sizin sorumluluğunuz altında ve riski size ait olmak üzere ticaret yapın. Yazılımın kullanımı LİSANS şartlarına tabidir.",
+                    "updated": 1652682961065
                 }
             ]
         },
@@ -330,6 +390,11 @@
                     "language": "ES",
                     "text": "Descargo de Responsabilidad del Trading System",
                     "updated": 1641094551237
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Sistemi Sorumluluk Reddi",
+                    "updated": 1652682986602
                 }
             ]
         },
@@ -357,6 +422,11 @@
                     "language": "ES",
                     "text": "ESTO NO ES ASESORAMIENTO FINANCIERO. AUNQUE LAS ESTRATEGIAS QUE SE ENVÍAN CON SUPERALGOS PUEDEN SER TOTALMENTE FUNCIONALES, SUPERALGOS NO HACE NINGUNA RECOMENDACIÓN EXPRESA O IMPLÍCITA SOBRE CÓMO DEBE UTILIZARLAS. COMPARTIMOS LAS ESTRATEGIAS SÓLO CON FINES EDUCATIVOS. OPERE BAJO SU PROPIO RIESGO.<br/><br/><b> El rendimiento en el backtesting no es una indicación del rendimiento de las operaciones en vivo.</b> El rendimiento en vivo puede variar en relación con el rendimiento en el backtesting, para bien o para mal, muy probablemente para mal. Esto ocurre porque el diseño de las estrategias de trading se realiza a posteriori, con la retrospectiva de lo ocurrido en un determinado rango del mercado. Los patrones en los que se basan las estrategias pueden seguir ocurriendo o no. Las estrategias de trading intentan interpretar los patrones y predecir lo que puede suceder, pero están lejos de ser perfectas o precisas. El mejor escenario es que una estrategia acierte más veces de las que se equivoque.<br/><br/><b> El rendimiento en vivo no es una indicación del rendimiento futuro.</b>Del mismo modo, incluso cuando una estrategia ha obtenido un determinado rendimiento operando en directo, no hay ninguna garantía del rendimiento que la estrategia pueda alcanzar en el futuro. Los resultados del rendimiento en vivo son ciertamente más valiosos que el backtesting o el rendimiento simulado, pero siguen sin poder predecir el futuro.<br/><br/><b> Las estrategias de trading pierden eficacia con el tiempo.</b> ¿Cuánto tiempo? Nadie lo sabe. Los mercados evolucionan, cambian, pasan por diferentes ciclos, tanto a largo como a corto plazo, algunos de los cuales pueden no haber sido probados. Esto es cierto para todos los mercados, y no digamos para el cripto, que es un mercado muy joven, todavía en sus primeras etapas. Los mercados de criptomonedas cambian con gran rapidez, a medida que aumenta la capitalización del mercado, entran en el espacio más operadores profesionales, más dinero inteligente aporta mayores capitales, más bots se encargan de las operaciones de volúmenes cada vez mayores, se añade más complejidad al ecosistema con la disponibilidad de mercados de derivados, etc.</br>",
                     "updated": 1641095261339
+                },
+                {
+                    "language": "TR",
+                    "text": "BU FINANSAL TAVSIYE DEĞILDIR. SUPERALGOS ILE GÖNDERIM STRATEJILERI TAMAMEN IŞLEVSEL OLSA DA, SUPERALGOS BUNLARI NASIL KULLANMANIZ GEREKTIĞI KONUSUNDA AÇIK VEYA ZIMNI BIR ÖNERIDE BULUNMAZ. STRATEJILERI YALNIZCA EĞITIM AMAÇLI PAYLAŞIYORUZ. KENDI SORUMLULUĞUNUZDA IŞLEM YAPIN. Backtest'teki performans, canlı işlem performansının bir göstergesi değildir. Canlı performans, geri testteki performansa bağlı olarak, daha iyi veya daha kötü, büyük olasılıkla daha kötüsü için değişebilir. Bunun nedeni, ticaret stratejilerinin tasarımının, piyasanın belirli bir aralığında olanların arka planında, olaydan sonra yapılmasıdır. Stratejilerin dayanabileceği kalıplar oluşmaya devam edebilir veya etmeyebilir. Ticaret stratejileri kalıpları yorumlamaya ve neyin takip edebileceğini tahmin etmeye çalışır, ancak mükemmel veya doğru olmaktan uzaktırlar. En iyi senaryo, bir stratejinin yanlış olduğundan daha fazla doğru olmasıdır. Canlı performans, gelecekteki performansın bir göstergesi değildir. Benzer şekilde, bir strateji belirli bir performans ticaretini canlı olarak sunsa bile, stratejinin gelecekte hangi performansı elde edebileceğinin garantisi yoktur. Canlı performans sonuçları, geri test veya simüle edilmiş performanstan kesinlikle daha değerlidir, ancak yine de geleceği tahmin edemez. Ticaret stratejileri zamanla etkinliğini kaybeder. Ne kadar zaman? Kimse bilmiyor. Piyasalar gelişir, değişir, hem uzun hem de kısa vadeli, bazıları test edilmemiş olabilecek farklı döngülerden geçer. Bu, çok genç bir pazar olan kriptoyu bir kenara bırakın, hala çok erken aşamalarında olan tüm pazarlar için geçerlidir. Kripto piyasaları, piyasa değeri arttıkça, daha fazla profesyonel tüccar alana girdikçe, daha fazla akıllı para daha büyük sermayeler döktükçe, daha fazla bot sürekli artan hacimli operasyonları devraldıkça ekosisteme daha fazla karmaşıklık eklendikçe çarpıcı bir şekilde hızlı değişiyor. ",
+                    "updated": 1652683193687
                 }
             ]
         },
@@ -373,6 +443,11 @@
                     "language": "RU",
                     "text": "Напоминание относительно вкладов",
                     "updated": 1640259487348
+                },
+                {
+                    "language": "TR",
+                    "text": "Katkılar için Hatırlatma",
+                    "updated": 1652683230943
                 }
             ]
         },
@@ -389,6 +464,11 @@
                     "language": "RU",
                     "text": "Переключение ветки и обновление перед началом работы",
                     "updated": 1640258741017
+                },
+                {
+                    "language": "TR",
+                    "text": "Dalları Değiştirme ve Başlamadan Önce Güncelleştirme",
+                    "updated": 1652683251186
                 }
             ]
         },
@@ -410,6 +490,11 @@
                     "language": "RU",
                     "text": "Все материалы для документации и плагинов должны быть отправлены в ветку Develop. Все материалы для кодовой базы должны быть отправлены в ветку Develop. Убедитесь, что вы обновились до последней версии в новой ветке и что все, что вы вносите, работает правильно в этой версии.",
                     "updated": 1647781545232
+                },
+                {
+                    "language": "TR",
+                    "text": "Dokümanlara ve eklentilere yapılan tüm katkılar Geliştirme dalına gönderilmelidir. Kod tabanına yapılan tüm katkılar da Geliştirme dalına gönderilmelidir. Yeni dalda en son sürüme güncelleştirdiğinizden ve gönderdiğiniz her şeyin bu sürümde düzgün çalıştığından emin olun.",
+                    "updated": 1652683276686
                 }
             ]
         },
@@ -422,6 +507,11 @@
                     "language": "RU",
                     "text": "Ветка Plugins-Docs была упразднена. Все материалы теперь направляются в ветку Develop.",
                     "updated": 1647781571598
+                },
+                {
+                    "language": "TR",
+                    "text": "Plugins-Docs Dalı kullanımdan kaldırıldı. Tüm katkılar artık Geliştirme (Develop) dalına yapılmaktadır",
+                    "updated": 1652683309766
                 }
             ]
         },
@@ -438,6 +528,11 @@
                     "language": "RU",
                     "text": "Переключение ветки",
                     "updated": 1640258766048
+                },
+                {
+                    "language": "TR",
+                    "text": "Dal (Şube) Değiştirme",
+                    "updated": 1652683343360
                 }
             ]
         },
@@ -455,6 +550,11 @@
                     "language": "RU",
                     "text": "Чтобы перключиться на ветку: ",
                     "updated": 1647781626835
+                },
+                {
+                    "language": "TR",
+                    "text": "Mevcut Şuıbenizi değiştirmek için;",
+                    "updated": 1652683373437
                 }
             ]
         },
@@ -471,6 +571,11 @@
                     "language": "RU",
                     "text": "Перейдите в нижний колонтитул этой страницы (прокрутите вниз). ",
                     "updated": 1647781643644
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu sayfanın en altına gidin (aşağı kaydırın)",
+                    "updated": 1652683413759
                 }
             ],
             "updated": 1642956536861
@@ -489,6 +594,11 @@
                     "language": "RU",
                     "text": "Выберите Develop или Master под заголовком Contributions Branch.",
                     "updated": 1647781664886
+                },
+                {
+                    "language": "TR",
+                    "text": "Katkılar (Contributions) Dalı başlığı altında Develeop veya Master'ı seçin.",
+                    "updated": 1652683479512
                 }
             ]
         },
@@ -506,6 +616,11 @@
                     "language": "RU",
                     "text": "Затем выберите Develop или Master под заголовком Choose the Current Branch.",
                     "updated": 1647781701665
+                },
+                {
+                    "language": "TR",
+                    "text": "Ardından, Geçerli Dalı Seç başlığının altında (Choose the Current Branch), Develop veya Master'ı seçin.",
+                    "updated": 1652683535107
                 }
             ]
         },
@@ -523,6 +638,11 @@
                     "language": "RU",
                     "text": "Следуйте инструкциям, чтобы закрыть и перезапустить приложение.",
                     "updated": 1638295087147
+                },
+                {
+                    "language": "TR",
+                    "text": "Uygulamayı kapatıp yeniden başlatmak için yönergeleri izleyin.",
+                    "updated": 1652683563724
                 }
             ]
         },
@@ -534,6 +654,11 @@
                     "language": "RU",
                     "text": "Обновление до последней версии",
                     "updated": 1640259506132
+                },
+                {
+                    "language": "TR",
+                    "text": "En son sürüme güncelleme",
+                    "updated": 1652683584403
                 }
             ]
         },
@@ -551,6 +676,11 @@
                     "language": "RU",
                     "text": "Запустите команду App Update Command, введя ее в поле поиска в верхней части вкладки Docs",
                     "updated": 1647781762916
+                },
+                {
+                    "language": "TR",
+                    "text": "Uygulama Güncelleme Komutu'nu Dokümanlar'ın (Docs) üst kısmındaki arama alanına yazarak çalıştırın.",
+                    "updated": 1652683626227
                 }
             ]
         },
@@ -571,6 +701,11 @@
                     "language": "RU",
                     "text": "Теперь закройте приложение и перезапустите его.",
                     "updated": 1647781778605
+                },
+                {
+                    "language": "TR",
+                    "text": "Uygulamayı kapatın ve tekrar başlatın.",
+                    "updated": 1652683642727
                 }
             ],
             "updated": 1642956712859
@@ -600,6 +735,11 @@
                     "language": "RU",
                     "text": "Прежде чем идти дальше, ознакомьтесь с учебником Beyond the Basics в рабочем пространстве плагина Getting Started, чтобы изучить основы работы с вкладом из приложения. Учебное пособие поможет вам правильно настроить вашу работу, чтобы ваши вклады были безупречными.",
                     "updated": 1640249646861
+                },
+                {
+                    "language": "TR",
+                    "text": "Daha ileri gitmeden önce, Başlarken eklenti çalışma alanındaki (Getting Started Plugin) Beyond The Basics Tutorial'ı yapın, böylece uygulamanın içinden katkılarla nasıl başa çıkılacağına ilişkin temel bilgileri öğrenirsiniz. Öğretici, katkıların sorunsuz olması için kurulumunuzu doğru yapmanıza yardımcı olacaktır.",
+                    "updated": 1652683763928
                 }
             ]
         },

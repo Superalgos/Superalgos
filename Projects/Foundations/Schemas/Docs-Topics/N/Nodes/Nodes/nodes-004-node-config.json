@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Узлы могут иметь конфигурацию - только при необходимости - которая используется для хранения информации, связанной с этим узлом. Когда это так, они обычно позволяют пользователям получить к нему доступ через один из пунктов меню узла. Конфигурация узла позже используется задачами или ботами во время их работы.",
                 "updated": 1640356225848
+            },
+            {
+                "language": "TR",
+                "text": "Düğümler, yalnızca gerektiğinde, bu düğümle ilgili bilgileri depolamak için kullanılan bir yapılandırmaya sahip olabilir. Bunu yaptıklarında, genellikle kullanıcıların Düğüm Menü ( Node Menu ) öğelerinden biri aracılığıyla erişmelerine izin verirler. Düğüm Yapılandırması daha sonra Görevler veya Önyüklemeler tarafından işlenirken kullanılır.",
+                "updated": 1652804625025
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Каждый тип узла может иметь определение с начальными значениями для его конфигурации. Начальные значения устанавливаются на узле при первом создании узла.",
                     "updated": 1640356249680
+                },
+                {
+                    "language": "TR",
+                    "text": "Her düğüm türü, yapılandırması için başlangıç değerlerine sahip bir tanıma sahip olabilir. Düğüm ( Node ) ilk oluşturulduğunda başlangıç Değerleri düğümde ayarlanır.",
+                    "updated": 1652804685508
                 }
             ]
         }

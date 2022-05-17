@@ -77,7 +77,9 @@ parameters_dataset = read_csv(
     '/tf/notebooks/parameters.csv', 
     header=0, 
     sep=' ', 
-    skipinitialspace=True
+    skipinitialspace=True,
+    error_bad_lines=False,
+    warn_bad_lines=True
 )
 
 parameters_dataset
@@ -118,7 +120,9 @@ timeseries_dataset = read_csv(
     header=0, 
     index_col=0,    #The first colum is a timestamp that will be used to index all the data.
     sep=' ', 
-    skipinitialspace=True
+    skipinitialspace=True,
+    error_bad_lines=False,
+    warn_bad_lines=True
 )
 
 timeseries_dataset

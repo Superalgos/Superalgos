@@ -12,7 +12,7 @@
         finalize: finalize,
         start: start
     }
-    const MIN_TEST_CLIENT_VERSION = 4
+    const MIN_TEST_CLIENT_VERSION = 6
 
     let networkCodeName = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.networkCodeName
 

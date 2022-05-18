@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Close Stage Event определяет набор правил, которые необходимо соблюдать для закрытия соответствующего этапа.",
                 "updated": 1638647655127
+            },
+            {
+                "language": "TR",
+                "text": "Kapatma aşaması olayı, karşılık gelen aşamanın kapatılması için karşılanması gereken kurallar kümesini tanımlar.",
+                "updated": 1652798036129
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Обе стадии открытия и закрытия закрываются, как только целевой размер заполнен.",
                     "updated": 1638647673308
+                },
+                {
+                    "language": "TR",
+                    "text": "Hedef boyut dolduğunda hem açık hem de kapalı aşamalar kapatılır.",
+                    "updated": 1652798045300
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Однако Superalgos предоставляет дополнительный уровень контроля, так что пользователь может выбрать закрытие любого этапа в конкретных рыночных ситуациях. Такова цель Close Stage Event.",
                     "updated": 1638647790431
+                },
+                {
+                    "language": "TR",
+                    "text": "Bununla birlikte, Superalgos, kullanıcının belirli piyasa durumlarına göre herhangi bir aşamayı kapatmayı seçebilmesi için ekstra bir kontrol düzeyi sağlar. Yakın sahne olayının amacı budur.",
+                    "updated": 1652798053898
                 }
             ]
         }

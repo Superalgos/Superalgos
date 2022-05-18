@@ -36,7 +36,7 @@ exports.newBitcoinFactoryModulesMachineLearningNetworkServiceClient = function n
 
         async function promiseWork(resolve, reject) {
             let promiseStatus = 'Unresolved'
-            setTimeout(onTimeout, 60000)
+            setTimeout(onTimeout, 3 * 60 * 1000)
 
             switch (messageHeader.requestType) {
                 case 'Query': {

@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Узел выполнения закрытия группирует все алгоритмы выполнения, участвующие в процессе закрытия позиции.",
                 "updated": 1638646656797
+            },
+            {
+                "language": "TR",
+                "text": "Yakın yürütme düğümü, bir pozisyonu kapatma sürecinde yer alan tüm yürütme algoritmalarını gruplandırır.",
+                "updated": 1652797981812
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Секция выполнения закрытия на этапе закрытия работает аналогично открытому исполнению на этапе открытия. Пожалуйста, обратитесь к объяснениям открытого этапа для получения подробной информации.",
                     "updated": 1638646699239
+                },
+                {
+                    "language": "TR",
+                    "text": "Kapalı aşamadaki kapalı yürütme bölümü, açık aşamadaki açık yürütmeye benzer şekilde çalışır. Detaylar için lütfen açık sahne açıklamalarına bakınız.",
+                    "updated": 1652797993519
                 }
             ]
         }

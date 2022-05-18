@@ -10,33 +10,36 @@
  2. Alpha Data Mine
  3. Anchored VWAP Data Mine
  4. Barcelona Data Mine
- 5. Chande Data Mine
- 6. Coppock Data Mine
- 7. Delta Data Mine
- 8. Enhanced Bollinger Stochastic Data Mine
- 9. Expontential Moving Averages Data Mine
- 10. Fibonacci Data Mine
- 11. HannWindow Data Mine
- 12. Heikin Data Mine
- 13. Keltner Bollinger Strategy Data Mine
- 14. Madi System Mine Data Mine
- 15. Mayer Multiple Data Mine
- 16. Normalized Momentum Data Mine
- 17. Omega-Grids Data Mine
- 18. Omega-One Data Mine
- 19. Optimized Trend Tracker Data Mine
- 20. Over Sampled Data Mine
- 21. Pivots Data Mine
- 22. Pluvtech Data Mine
- 23. Quantum Data Mine
- 24. Relative Vigor Index Data Mine
- 25. Schaff Trend Data Mine
- 26. Smart Money Data Mine
- 27. Sparta Data Mine
- 28. Trends Data Mine
- 29. Turtles Data Mine
- 30. Weighted EMA Cross Strategy Data Mine
- 31. Zeus Data Mine
+ 5. Bollinger Data Mine
+ 6. Candles Data Mine
+ 7. Chande Data Mine
+ 8. Coppock Data Mine
+ 9. Delta Data Mine
+ 10. Enhanced Bollinger Stochastic Data Mine
+ 11. Expontential Moving Averages Data Mine
+ 12. Fibonacci Data Mine
+ 13. HannWindow Data Mine
+ 14. Heikin Data Mine
+ 15. Keltner Bollinger Strategy Data Mine
+ 16. Madi System Mine Data Mine
+ 17. Masters Data Mine
+ 18. Mayer Multiple Data Mine
+ 19. Normalized Momentum Data Mine
+ 20. Omega-Grids Data Mine
+ 21. Omega-One Data Mine
+ 22. Optimized Trend Tracker Data Mine
+ 23. Over Sampled Data Mine
+ 24. Pivots Data Mine
+ 25. Pluvtech Data Mine
+ 26. Quantum Data Mine
+ 27. Relative Vigor Index Data Mine
+ 28. Schaff Trend Data Mine
+ 29. Smart Money Data Mine
+ 30. Sparta Data Mine
+ 31. Trends Data Mine
+ 32. Turtles Data Mine
+ 33. Weighted EMA Cross Strategy Data Mine
+ 34. Zeus Data Mine
 
 #### _&nbsp;&nbsp;Data Mines Still Awaiting Review Can Be Found [HERE.](https://github.com/theblockchainarborist/Bitcoin-Factory-Indicators/tree/main/Awaiting_Review)_
 
@@ -45,6 +48,241 @@
  <details>
   <summary>Full List Of Data Mine Indicators</summary>
 
+    {
+    "networkCodeName": "Testnet",
+    "targetSuperalgosHost": "192.168.1.156",
+    "targetSuperalgosHttpPort": 34248,
+    "pythonScriptName": "Bitcoin_Factory_LSTM.py",
+    "timeSeriesFile": {
+        "labels": [
+            {
+                "dataMine": "Candles",
+                "indicator": "Candles-Volumes",
+                "product": "Candles",
+                "objectName": "candle",
+                "propertyName": "max",
+                "range": [
+                    "ON"
+                ]
+            },
+            {
+                "dataMine": "Candles",
+                "indicator": "Candles-Volumes",
+                "product": "Candles",
+                "objectName": "candle",
+                "propertyName": "min",
+                "range": [
+                    "ON"
+                ]
+            },
+            {
+                "dataMine": "Candles",
+                "indicator": "Candles-Volumes",
+                "product": "Candles",
+                "objectName": "candle",
+                "propertyName": "close",
+                "range": [
+                    "ON"
+                ]
+            }
+        ],
+        "features": [
+            {
+                "parameter": "HOUR_OF_DAY",
+                "range": [
+                    "OFF"
+                ]
+            },
+            {
+                "parameter": "DAY_OF_MONTH",
+                "range": [
+                    "OFF"
+                ]
+            },
+            {
+                "parameter": "DAY_OF_WEEK",
+                "range": [
+                    "OFF"
+                ]
+            },
+            {
+                "parameter": "WEEK_OF_YEAR",
+                "range": [
+                    "OFF"
+                ]
+            },
+            {
+                "parameter": "MONTH_OF_YEAR",
+                "range": [
+                    "OFF"
+                ]
+            },
+            {
+                "parameter": "YEAR",
+                "range": [
+                    "OFF"
+                ]
+            },
+            {
+                "dataMine": "Candles",
+                "indicator": "Candles-Volumes",
+                "product": "Candles",
+                "objectName": "candle",
+                "propertyName": "open",
+                "range": [
+                    "ON"
+                ]
+            },
+            {
+                "dataMine": "Candles",
+                "indicator": "Candles-Volumes",
+                "product": "Volumes",
+                "objectName": "volume",
+                "propertyName": "buy",
+                "range": [
+                    "ON"
+                ]
+            },
+            {
+                "dataMine": "Masters",
+                "indicator": "Resistances-And-Supports",
+                "product": "Resistances",
+                "objectName": "resistance",
+                "propertyName": "resistance1Rate",
+                "range": [
+                    "OFF"
+                ]
+            },
+            {
+                "dataMine": "Masters",
+                "indicator": "Resistances-And-Supports",
+                "product": "Resistances",
+                "objectName": "resistance",
+                "propertyName": "resistance2Rate",
+                "range": [
+                    "OFF"
+                ]
+            },
+            {
+                "dataMine": "Masters",
+                "indicator": "Resistances-And-Supports",
+                "product": "Resistances",
+                "objectName": "resistance",
+                "propertyName": "resistance3Rate",
+                "range": [
+                    "OFF"
+                ]
+            },
+            {
+                "dataMine": "Masters",
+                "indicator": "Resistances-And-Supports",
+                "product": "Resistances",
+                "objectName": "resistance",
+                "propertyName": "resistance4Rate",
+                "range": [
+                    "OFF"
+                ]
+            },
+            {
+                "dataMine": "Masters",
+                "indicator": "Resistances-And-Supports",
+                "product": "Resistances",
+                "objectName": "resistance",
+                "propertyName": "resistance5Rate",
+                "range": [
+                    "OFF"
+                ]
+            },
+            {
+                "dataMine": "Masters",
+                "indicator": "Resistances-And-Supports",
+                "product": "Supports",
+                "objectName": "support",
+                "propertyName": "support1Rate",
+                "range": [
+                    "OFF"
+                ]
+            },
+            {
+                "dataMine": "Masters",
+                "indicator": "Resistances-And-Supports",
+                "product": "Supports",
+                "objectName": "support",
+                "propertyName": "support2Rate",
+                "range": [
+                    "OFF"
+                ]
+            },
+            {
+                "dataMine": "Masters",
+                "indicator": "Resistances-And-Supports",
+                "product": "Supports",
+                "objectName": "support",
+                "propertyName": "support3Rate",
+                "range": [
+                    "OFF"
+                ]
+            },
+            {
+                "dataMine": "Masters",
+                "indicator": "Resistances-And-Supports",
+                "product": "Supports",
+                "objectName": "support",
+                "propertyName": "support4Rate",
+                "range": [
+                    "OFF"
+                ]
+            },
+            {
+                "dataMine": "Masters",
+                "indicator": "Resistances-And-Supports",
+                "product": "Supports",
+                "objectName": "support",
+                "propertyName": "support5Rate",
+                "range": [
+                    "OFF"
+                ]
+            },
+            {
+                "dataMine": "Bollinger",
+                "indicator": "Bollinger-Bands",
+                "product": "Bollinger-Bands",
+                "objectName": "bollingerBand",
+                "propertyName": "movingAverage",
+                "range": [
+                    "OFF"
+                ]
+            },
+            {
+                "dataMine": "Bollinger",
+                "indicator": "Bollinger-Bands",
+                "product": "Bollinger-Bands",
+                "objectName": "bollingerBand",
+                "propertyName": "deviation",
+                "range": [
+                    "OFF"
+                ]
+            },
+            {
+                "dataMine": "Bollinger",
+                "indicator": "Bollinger-Bands",
+                "product": "Percentage-Bandwidth",
+                "objectName": "percentageBandwidth",
+                "propertyName": "movingAverage",
+                "range": [
+                    "OFF"
+                ]
+            },
+            {
+                "dataMine": "Bollinger",
+                "indicator": "Bollinger-Bands",
+                "product": "Percentage-Bandwidth",
+                "objectName": "percentageBandwidth",
+                "propertyName": "bandwidth",
+                "range": [
+                    "OFF"
+                ]
+            },
             {
                 "dataMine": "Alligator",
                 "indicator": "Alligator",
@@ -52,7 +290,6 @@
                 "objectName": "Alligator",
                 "propertyName": "last13",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -63,7 +300,6 @@
                 "objectName": "Alligator",
                 "propertyName": "previousEMA5",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -74,7 +310,6 @@
                 "objectName": "Alligator",
                 "propertyName": "jaw",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -85,7 +320,6 @@
                 "objectName": "Alligator",
                 "propertyName": "teeth",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -96,7 +330,6 @@
                 "objectName": "Alligator",
                 "propertyName": "lips",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -107,7 +340,6 @@
                 "objectName": "atrRMA",
                 "propertyName": "atr14",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -118,7 +350,6 @@
                 "objectName": "atrRMA",
                 "propertyName": "atr3",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -129,7 +360,6 @@
                 "objectName": "atrRMA",
                 "propertyName": "atr2",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -140,7 +370,6 @@
                 "objectName": "atrSMA",
                 "propertyName": "atr14",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -151,7 +380,6 @@
                 "objectName": "atrSMA",
                 "propertyName": "atr3",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -162,7 +390,6 @@
                 "objectName": "atrSMA",
                 "propertyName": "atr2",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -173,7 +400,6 @@
                 "objectName": "roc76",
                 "propertyName": "value",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -184,7 +410,6 @@
                 "objectName": "roc32",
                 "propertyName": "value",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -195,7 +420,6 @@
                 "objectName": "roc9",
                 "propertyName": "value",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -206,7 +430,6 @@
                 "objectName": "stoch1433",
                 "propertyName": "slowLine",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -217,7 +440,6 @@
                 "objectName": "stoch1433",
                 "propertyName": "fastLine",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -294,7 +516,6 @@
                 "objectName": "koncorde",
                 "propertyName": "histogram",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -305,7 +526,6 @@
                 "objectName": "koncorde",
                 "propertyName": "signal",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -316,7 +536,6 @@
                 "objectName": "koncorde",
                 "propertyName": "green",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -327,7 +546,6 @@
                 "objectName": "koncorde",
                 "propertyName": "brown",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -338,7 +556,6 @@
                 "objectName": "koncorde",
                 "propertyName": "blue",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -349,7 +566,6 @@
                 "objectName": "koncorde_pattern",
                 "propertyName": "pattern",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -360,7 +576,6 @@
                 "objectName": "koncorde_pattern",
                 "propertyName": "trend",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -371,7 +586,6 @@
                 "objectName": "CFO",
                 "propertyName": "CFO",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -382,7 +596,6 @@
                 "objectName": "CMO",
                 "propertyName": "CMO",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -393,7 +606,6 @@
                 "objectName": "CKS",
                 "propertyName": "shortStop",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -404,7 +616,6 @@
                 "objectName": "CKS",
                 "propertyName": "longStop",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -415,7 +626,6 @@
                 "objectName": "cCurve",
                 "propertyName": "cCurve",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -426,7 +636,6 @@
                 "objectName": "rsiw14",
                 "propertyName": "overbought",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -437,7 +646,6 @@
                 "objectName": "rsiw14",
                 "propertyName": "oversold",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -448,7 +656,6 @@
                 "objectName": "rsiw14",
                 "propertyName": "value",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -459,7 +666,6 @@
                 "objectName": "mfi",
                 "propertyName": "oversold",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -470,7 +676,6 @@
                 "objectName": "mfi",
                 "propertyName": "overbought",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -481,7 +686,6 @@
                 "objectName": "mfi",
                 "propertyName": "value",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -492,7 +696,6 @@
                 "objectName": "ebollinger",
                 "propertyName": "lower",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -503,7 +706,6 @@
                 "objectName": "ebollinger",
                 "propertyName": "upper",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -514,7 +716,6 @@
                 "objectName": "ebollinger",
                 "propertyName": "ema",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -525,7 +726,6 @@
                 "objectName": "stochastic",
                 "propertyName": "k",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -536,7 +736,6 @@
                 "objectName": "ATR",
                 "propertyName": "atr",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -591,7 +790,7 @@
                 "objectName": "autoFibRetracement",
                 "propertyName": "F1618",
                 "range": [
-                    
+                    "ON",
                     "OFF"
                 ]
             },
@@ -602,7 +801,7 @@
                 "objectName": "autoFibRetracement",
                 "propertyName": "F1000",
                 "range": [
-                    
+                    "ON",
                     "OFF"
                 ]
             },
@@ -613,7 +812,7 @@
                 "objectName": "autoFibRetracement",
                 "propertyName": "F0786",
                 "range": [
-                    
+                    "ON",
                     "OFF"
                 ]
             },
@@ -624,7 +823,7 @@
                 "objectName": "autoFibRetracement",
                 "propertyName": "F0618",
                 "range": [
-                    
+                    "ON",
                     "OFF"
                 ]
             },
@@ -635,7 +834,7 @@
                 "objectName": "autoFibRetracement",
                 "propertyName": "F0500",
                 "range": [
-                    
+                    "ON",
                     "OFF"
                 ]
             },
@@ -646,7 +845,7 @@
                 "objectName": "autoFibRetracement",
                 "propertyName": "F0382",
                 "range": [
-                    
+                    "ON",
                     "OFF"
                 ]
             },
@@ -657,7 +856,7 @@
                 "objectName": "autoFibRetracement",
                 "propertyName": "F0236",
                 "range": [
-                    
+                    "ON",
                     "OFF"
                 ]
             },
@@ -668,7 +867,7 @@
                 "objectName": "autoFibRetracement",
                 "propertyName": "F0",
                 "range": [
-                    
+                    "ON",
                     "OFF"
                 ]
             },
@@ -679,7 +878,7 @@
                 "objectName": "autoFibRetracement",
                 "propertyName": "low",
                 "range": [
-                    
+                    "ON",
                     "OFF"
                 ]
             },
@@ -690,7 +889,7 @@
                 "objectName": "autoFibRetracement",
                 "propertyName": "high",
                 "range": [
-                    
+                    "ON",
                     "OFF"
                 ]
             },
@@ -701,7 +900,6 @@
                 "objectName": "DMH",
                 "propertyName": "DMH",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -712,7 +910,6 @@
                 "objectName": "RSIH",
                 "propertyName": "RSIH",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -723,7 +920,6 @@
                 "objectName": "MADH",
                 "propertyName": "maLong",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -734,7 +930,6 @@
                 "objectName": "MADH",
                 "propertyName": "maShort",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -745,7 +940,6 @@
                 "objectName": "MADH",
                 "propertyName": "MADH",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -756,7 +950,6 @@
                 "objectName": "HeikinsuperTrend",
                 "propertyName": "trend",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -767,7 +960,6 @@
                 "objectName": "HeikinsuperTrend",
                 "propertyName": "downtrend",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -778,7 +970,6 @@
                 "objectName": "HeikinsuperTrend",
                 "propertyName": "uptrend",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -789,7 +980,6 @@
                 "objectName": "HeikinsuperTrend",
                 "propertyName": "atrNPeriod",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -800,7 +990,6 @@
                 "objectName": "HeikinsuperTrend",
                 "propertyName": "trueRange",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -811,7 +1000,6 @@
                 "objectName": "heikincandle",
                 "propertyName": "HeikinDirection",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -822,7 +1010,6 @@
                 "objectName": "heikincandle",
                 "propertyName": "min",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -833,7 +1020,6 @@
                 "objectName": "heikincandle",
                 "propertyName": "max",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -844,7 +1030,6 @@
                 "objectName": "heikincandle",
                 "propertyName": "close",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -855,7 +1040,6 @@
                 "objectName": "heikincandle",
                 "propertyName": "open",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -866,7 +1050,6 @@
                 "objectName": "superTrend143",
                 "propertyName": "trend",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -877,7 +1060,6 @@
                 "objectName": "superTrend143",
                 "propertyName": "downtrend",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -888,7 +1070,6 @@
                 "objectName": "superTrend143",
                 "propertyName": "uptrend",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -899,7 +1080,6 @@
                 "objectName": "superTrend143",
                 "propertyName": "atrNPeriod",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -910,7 +1090,6 @@
                 "objectName": "superTrend143",
                 "propertyName": "trueRange",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -921,7 +1100,6 @@
                 "objectName": "MAMA",
                 "propertyName": "closePrice",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -932,7 +1110,6 @@
                 "objectName": "MAMA",
                 "propertyName": "fama",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -943,7 +1120,6 @@
                 "objectName": "MAMA",
                 "propertyName": "mama",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -954,7 +1130,6 @@
                 "objectName": "keltner",
                 "propertyName": "lower",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -965,7 +1140,6 @@
                 "objectName": "keltner",
                 "propertyName": "upper",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -976,7 +1150,6 @@
                 "objectName": "keltner",
                 "propertyName": "MAMA",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -987,7 +1160,6 @@
                 "objectName": "keltnerema",
                 "propertyName": "lower",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -998,7 +1170,6 @@
                 "objectName": "keltnerema",
                 "propertyName": "upper",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1009,7 +1180,6 @@
                 "objectName": "keltnerema",
                 "propertyName": "ema",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1020,7 +1190,6 @@
                 "objectName": "ebollinger",
                 "propertyName": "lower",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1031,7 +1200,6 @@
                 "objectName": "ebollinger",
                 "propertyName": "upper",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1042,7 +1210,6 @@
                 "objectName": "ebollinger",
                 "propertyName": "ema",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1053,7 +1220,6 @@
                 "objectName": "ATR",
                 "propertyName": "atr",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1064,7 +1230,6 @@
                 "objectName": "rsi",
                 "propertyName": "valueD",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1075,7 +1240,6 @@
                 "objectName": "rsi",
                 "propertyName": "valueK",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1086,7 +1250,6 @@
                 "objectName": "rsi",
                 "propertyName": "stochRSI",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1097,7 +1260,6 @@
                 "objectName": "rsi",
                 "propertyName": "rsi",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1108,7 +1270,6 @@
                 "objectName": "MADI",
                 "propertyName": "d",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1119,7 +1280,6 @@
                 "objectName": "MADI",
                 "propertyName": "lower",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1130,7 +1290,6 @@
                 "objectName": "MADI",
                 "propertyName": "upper",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1141,7 +1300,6 @@
                 "objectName": "MADI",
                 "propertyName": "madi",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1174,7 +1332,6 @@
                 "objectName": "Normalized_Stochastic",
                 "propertyName": "maz",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1185,7 +1342,6 @@
                 "objectName": "Normalized_Stochastic",
                 "propertyName": "lower",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1196,7 +1352,6 @@
                 "objectName": "Normalized_Stochastic",
                 "propertyName": "z",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1207,7 +1362,6 @@
                 "objectName": "Normalized_Stochastic",
                 "propertyName": "upper",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1218,7 +1372,6 @@
                 "objectName": "Normalized_RSI",
                 "propertyName": "maz",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1229,7 +1382,6 @@
                 "objectName": "Normalized_RSI",
                 "propertyName": "lower",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1240,7 +1392,6 @@
                 "objectName": "Normalized_RSI",
                 "propertyName": "z",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1251,7 +1402,6 @@
                 "objectName": "Normalized_RSI",
                 "propertyName": "upper",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1262,7 +1412,6 @@
                 "objectName": "Normalized_auto_RSI",
                 "propertyName": "maz",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1273,7 +1422,6 @@
                 "objectName": "Normalized_auto_RSI",
                 "propertyName": "lower",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1284,7 +1432,6 @@
                 "objectName": "Normalized_auto_RSI",
                 "propertyName": "z",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1295,7 +1442,6 @@
                 "objectName": "Normalized_auto_RSI",
                 "propertyName": "upper",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1306,7 +1452,6 @@
                 "objectName": "Kinetic_Detrender",
                 "propertyName": "maz",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1317,7 +1462,6 @@
                 "objectName": "Kinetic_Detrender",
                 "propertyName": "lower",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1328,7 +1472,6 @@
                 "objectName": "Kinetic_Detrender",
                 "propertyName": "z",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1339,7 +1482,6 @@
                 "objectName": "Kinetic_Detrender",
                 "propertyName": "upper",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1350,7 +1492,6 @@
                 "objectName": "fixedPercentageGrid",
                 "propertyName": "gridRange",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1361,7 +1502,6 @@
                 "objectName": "fixedPercentageGrid",
                 "propertyName": "grid20",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1372,7 +1512,6 @@
                 "objectName": "fixedPercentageGrid",
                 "propertyName": "grid19",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1383,7 +1522,6 @@
                 "objectName": "fixedPercentageGrid",
                 "propertyName": "grid18",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1394,7 +1532,6 @@
                 "objectName": "fixedPercentageGrid",
                 "propertyName": "grid17",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1405,7 +1542,6 @@
                 "objectName": "fixedPercentageGrid",
                 "propertyName": "grid16",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1416,7 +1552,6 @@
                 "objectName": "fixedPercentageGrid",
                 "propertyName": "grid15",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1427,7 +1562,6 @@
                 "objectName": "fixedPercentageGrid",
                 "propertyName": "grid14",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1438,7 +1572,6 @@
                 "objectName": "fixedPercentageGrid",
                 "propertyName": "grid13",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1449,7 +1582,6 @@
                 "objectName": "fixedPercentageGrid",
                 "propertyName": "grid12",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1460,7 +1592,6 @@
                 "objectName": "fixedPercentageGrid",
                 "propertyName": "grid11",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1471,7 +1602,6 @@
                 "objectName": "fixedPercentageGrid",
                 "propertyName": "grid10",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1482,7 +1612,6 @@
                 "objectName": "fixedPercentageGrid",
                 "propertyName": "grid9",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1493,7 +1622,6 @@
                 "objectName": "fixedPercentageGrid",
                 "propertyName": "grid8",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1504,7 +1632,6 @@
                 "objectName": "fixedPercentageGrid",
                 "propertyName": "grid7",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1515,7 +1642,6 @@
                 "objectName": "fixedPercentageGrid",
                 "propertyName": "grid6",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1526,7 +1652,6 @@
                 "objectName": "fixedPercentageGrid",
                 "propertyName": "grid5",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1537,7 +1662,6 @@
                 "objectName": "fixedPercentageGrid",
                 "propertyName": "grid4",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1548,7 +1672,6 @@
                 "objectName": "fixedPercentageGrid",
                 "propertyName": "grid3",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1559,7 +1682,6 @@
                 "objectName": "fixedPercentageGrid",
                 "propertyName": "grid2",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1570,7 +1692,6 @@
                 "objectName": "fixedPercentageGrid",
                 "propertyName": "grid1",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1581,7 +1702,6 @@
                 "objectName": "fixedPercentageGrid",
                 "propertyName": "grid0",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1592,7 +1712,6 @@
                 "objectName": "atrBasedGrid",
                 "propertyName": "gridRange",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1603,7 +1722,6 @@
                 "objectName": "atrBasedGrid",
                 "propertyName": "grid20",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1614,7 +1732,6 @@
                 "objectName": "atrBasedGrid",
                 "propertyName": "grid19",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1625,7 +1742,6 @@
                 "objectName": "atrBasedGrid",
                 "propertyName": "grid18",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1636,7 +1752,6 @@
                 "objectName": "atrBasedGrid",
                 "propertyName": "grid17",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1647,7 +1762,6 @@
                 "objectName": "atrBasedGrid",
                 "propertyName": "grid16",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1658,7 +1772,6 @@
                 "objectName": "atrBasedGrid",
                 "propertyName": "grid15",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1669,7 +1782,6 @@
                 "objectName": "atrBasedGrid",
                 "propertyName": "grid14",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1680,7 +1792,6 @@
                 "objectName": "atrBasedGrid",
                 "propertyName": "grid13",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1691,7 +1802,6 @@
                 "objectName": "atrBasedGrid",
                 "propertyName": "grid12",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1702,7 +1812,6 @@
                 "objectName": "atrBasedGrid",
                 "propertyName": "grid11",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1713,7 +1822,6 @@
                 "objectName": "atrBasedGrid",
                 "propertyName": "grid10",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1724,7 +1832,6 @@
                 "objectName": "atrBasedGrid",
                 "propertyName": "grid9",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1735,7 +1842,6 @@
                 "objectName": "atrBasedGrid",
                 "propertyName": "grid8",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1746,7 +1852,6 @@
                 "objectName": "atrBasedGrid",
                 "propertyName": "grid7",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1757,7 +1862,6 @@
                 "objectName": "atrBasedGrid",
                 "propertyName": "grid6",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1768,7 +1872,6 @@
                 "objectName": "atrBasedGrid",
                 "propertyName": "grid5",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1779,7 +1882,6 @@
                 "objectName": "atrBasedGrid",
                 "propertyName": "grid4",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1790,7 +1892,6 @@
                 "objectName": "atrBasedGrid",
                 "propertyName": "grid3",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1801,7 +1902,6 @@
                 "objectName": "atrBasedGrid",
                 "propertyName": "grid2",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1812,7 +1912,6 @@
                 "objectName": "atrBasedGrid",
                 "propertyName": "grid1",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1823,7 +1922,6 @@
                 "objectName": "atrBasedGrid",
                 "propertyName": "grid0",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1834,7 +1932,6 @@
                 "objectName": "periodBasedGrid",
                 "propertyName": "gridRange",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1845,7 +1942,6 @@
                 "objectName": "periodBasedGrid",
                 "propertyName": "grid20",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1856,7 +1952,6 @@
                 "objectName": "periodBasedGrid",
                 "propertyName": "grid19",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1867,7 +1962,6 @@
                 "objectName": "periodBasedGrid",
                 "propertyName": "grid18",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1878,7 +1972,6 @@
                 "objectName": "periodBasedGrid",
                 "propertyName": "grid17",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1889,7 +1982,6 @@
                 "objectName": "periodBasedGrid",
                 "propertyName": "grid16",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1900,7 +1992,6 @@
                 "objectName": "periodBasedGrid",
                 "propertyName": "grid15",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1911,7 +2002,6 @@
                 "objectName": "periodBasedGrid",
                 "propertyName": "grid14",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1922,7 +2012,6 @@
                 "objectName": "periodBasedGrid",
                 "propertyName": "grid13",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1933,7 +2022,6 @@
                 "objectName": "periodBasedGrid",
                 "propertyName": "grid12",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1944,7 +2032,6 @@
                 "objectName": "periodBasedGrid",
                 "propertyName": "grid11",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1955,7 +2042,6 @@
                 "objectName": "periodBasedGrid",
                 "propertyName": "grid10",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1966,7 +2052,6 @@
                 "objectName": "periodBasedGrid",
                 "propertyName": "grid9",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1977,7 +2062,6 @@
                 "objectName": "periodBasedGrid",
                 "propertyName": "grid8",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1988,7 +2072,6 @@
                 "objectName": "periodBasedGrid",
                 "propertyName": "grid7",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -1999,7 +2082,6 @@
                 "objectName": "periodBasedGrid",
                 "propertyName": "grid6",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2010,7 +2092,6 @@
                 "objectName": "periodBasedGrid",
                 "propertyName": "grid5",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2021,7 +2102,6 @@
                 "objectName": "periodBasedGrid",
                 "propertyName": "grid4",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2032,7 +2112,6 @@
                 "objectName": "periodBasedGrid",
                 "propertyName": "grid3",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2043,7 +2122,6 @@
                 "objectName": "periodBasedGrid",
                 "propertyName": "grid2",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2054,7 +2132,6 @@
                 "objectName": "periodBasedGrid",
                 "propertyName": "grid1",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2065,7 +2142,6 @@
                 "objectName": "periodBasedGrid",
                 "propertyName": "grid0",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2076,7 +2152,6 @@
                 "objectName": "bbGrid",
                 "propertyName": "gridRange",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2087,7 +2162,6 @@
                 "objectName": "bbGrid",
                 "propertyName": "grid20",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2098,7 +2172,6 @@
                 "objectName": "bbGrid",
                 "propertyName": "grid19",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2109,7 +2182,6 @@
                 "objectName": "bbGrid",
                 "propertyName": "grid18",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2120,7 +2192,6 @@
                 "objectName": "bbGrid",
                 "propertyName": "grid17",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2131,7 +2202,6 @@
                 "objectName": "bbGrid",
                 "propertyName": "grid16",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2142,7 +2212,6 @@
                 "objectName": "bbGrid",
                 "propertyName": "grid15",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2153,7 +2222,6 @@
                 "objectName": "bbGrid",
                 "propertyName": "grid14",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2164,7 +2232,6 @@
                 "objectName": "bbGrid",
                 "propertyName": "grid13",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2175,7 +2242,6 @@
                 "objectName": "bbGrid",
                 "propertyName": "grid12",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2186,7 +2252,6 @@
                 "objectName": "bbGrid",
                 "propertyName": "grid11",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2197,7 +2262,6 @@
                 "objectName": "bbGrid",
                 "propertyName": "grid10",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2208,7 +2272,6 @@
                 "objectName": "bbGrid",
                 "propertyName": "grid9",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2219,7 +2282,6 @@
                 "objectName": "bbGrid",
                 "propertyName": "grid8",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2230,7 +2292,6 @@
                 "objectName": "bbGrid",
                 "propertyName": "grid7",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2241,7 +2302,6 @@
                 "objectName": "bbGrid",
                 "propertyName": "grid6",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2252,7 +2312,6 @@
                 "objectName": "bbGrid",
                 "propertyName": "grid5",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2263,7 +2322,6 @@
                 "objectName": "bbGrid",
                 "propertyName": "grid4",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2274,7 +2332,6 @@
                 "objectName": "bbGrid",
                 "propertyName": "grid3",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2285,7 +2342,6 @@
                 "objectName": "bbGrid",
                 "propertyName": "grid2",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2296,7 +2352,6 @@
                 "objectName": "bbGrid",
                 "propertyName": "grid1",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2307,7 +2362,6 @@
                 "objectName": "bbGrid",
                 "propertyName": "grid0",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2318,7 +2372,6 @@
                 "objectName": "smoothedAtrGrid",
                 "propertyName": "gridRange",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2329,7 +2382,6 @@
                 "objectName": "smoothedAtrGrid",
                 "propertyName": "grid20",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2340,7 +2392,6 @@
                 "objectName": "smoothedAtrGrid",
                 "propertyName": "grid19",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2351,7 +2402,6 @@
                 "objectName": "smoothedAtrGrid",
                 "propertyName": "grid18",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2362,7 +2412,6 @@
                 "objectName": "smoothedAtrGrid",
                 "propertyName": "grid17",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2373,7 +2422,6 @@
                 "objectName": "smoothedAtrGrid",
                 "propertyName": "grid16",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2384,7 +2432,6 @@
                 "objectName": "smoothedAtrGrid",
                 "propertyName": "grid15",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2395,7 +2442,6 @@
                 "objectName": "smoothedAtrGrid",
                 "propertyName": "grid14",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2406,7 +2452,6 @@
                 "objectName": "smoothedAtrGrid",
                 "propertyName": "grid13",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2417,7 +2462,6 @@
                 "objectName": "smoothedAtrGrid",
                 "propertyName": "grid12",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2428,7 +2472,6 @@
                 "objectName": "smoothedAtrGrid",
                 "propertyName": "grid11",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2439,7 +2482,6 @@
                 "objectName": "smoothedAtrGrid",
                 "propertyName": "grid10",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2450,7 +2492,6 @@
                 "objectName": "smoothedAtrGrid",
                 "propertyName": "grid9",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2461,7 +2502,6 @@
                 "objectName": "smoothedAtrGrid",
                 "propertyName": "grid8",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2472,7 +2512,6 @@
                 "objectName": "smoothedAtrGrid",
                 "propertyName": "grid7",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2483,7 +2522,6 @@
                 "objectName": "smoothedAtrGrid",
                 "propertyName": "grid6",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2494,7 +2532,6 @@
                 "objectName": "smoothedAtrGrid",
                 "propertyName": "grid5",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2505,7 +2542,6 @@
                 "objectName": "smoothedAtrGrid",
                 "propertyName": "grid4",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2516,7 +2552,6 @@
                 "objectName": "smoothedAtrGrid",
                 "propertyName": "grid3",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2527,7 +2562,6 @@
                 "objectName": "smoothedAtrGrid",
                 "propertyName": "grid2",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2538,7 +2572,6 @@
                 "objectName": "smoothedAtrGrid",
                 "propertyName": "grid1",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2549,7 +2582,6 @@
                 "objectName": "smoothedAtrGrid",
                 "propertyName": "grid0",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2560,7 +2592,6 @@
                 "objectName": "chaikinOscillator",
                 "propertyName": "zeroLine",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2571,7 +2602,6 @@
                 "objectName": "chaikinOscillator",
                 "propertyName": "chaikinOscillator",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2582,7 +2612,6 @@
                 "objectName": "slowARPS",
                 "propertyName": "percentageApsBear",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2593,7 +2622,6 @@
                 "objectName": "slowARPS",
                 "propertyName": "percentageApsBull",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2604,7 +2632,6 @@
                 "objectName": "slowARPS",
                 "propertyName": "percentageARPS",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2615,7 +2642,6 @@
                 "objectName": "slowARPS",
                 "propertyName": "SMA",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2626,7 +2652,6 @@
                 "objectName": "slowARPS",
                 "propertyName": "apsBear",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2637,7 +2662,6 @@
                 "objectName": "slowARPS",
                 "propertyName": "apsBull",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2648,7 +2672,6 @@
                 "objectName": "slowARPS",
                 "propertyName": "ARPS",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2659,7 +2682,6 @@
                 "objectName": "fastARPS",
                 "propertyName": "percentageApsBear",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2670,7 +2692,6 @@
                 "objectName": "fastARPS",
                 "propertyName": "percentageApsBull",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2681,7 +2702,6 @@
                 "objectName": "fastARPS",
                 "propertyName": "percentageARPS",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2692,7 +2712,6 @@
                 "objectName": "fastARPS",
                 "propertyName": "SMA",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2703,7 +2722,6 @@
                 "objectName": "fastARPS",
                 "propertyName": "apsBear",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2714,7 +2732,6 @@
                 "objectName": "fastARPS",
                 "propertyName": "apsBull",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2725,7 +2742,6 @@
                 "objectName": "fastARPS",
                 "propertyName": "ARPS",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2736,7 +2752,6 @@
                 "objectName": "averageVsAverage",
                 "propertyName": "openInterestDeviation",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2747,7 +2762,6 @@
                 "objectName": "averageVsAverage",
                 "propertyName": "volumeDeviation",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2758,7 +2772,6 @@
                 "objectName": "averageVsAverage",
                 "propertyName": "smaPrice",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2769,7 +2782,6 @@
                 "objectName": "averageVsAverage",
                 "propertyName": "bullPriceDeviation",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2780,7 +2792,6 @@
                 "objectName": "tripleALMA",
                 "propertyName": "alma03",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2791,7 +2802,6 @@
                 "objectName": "tripleALMA",
                 "propertyName": "alma02",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2802,7 +2812,6 @@
                 "objectName": "tripleALMA",
                 "propertyName": "alma01",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2813,7 +2822,6 @@
                 "objectName": "emaCrossing",
                 "propertyName": "ema02",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2824,7 +2832,6 @@
                 "objectName": "emaCrossing",
                 "propertyName": "ema01",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2835,7 +2842,6 @@
                 "objectName": "cma",
                 "propertyName": "cma",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2846,7 +2852,6 @@
                 "objectName": "ALMA",
                 "propertyName": "alma01",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2857,7 +2862,6 @@
                 "objectName": "anchoredVwapChannel",
                 "propertyName": "devLo2",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2868,7 +2872,6 @@
                 "objectName": "anchoredVwapChannel",
                 "propertyName": "devLo1",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2879,7 +2882,6 @@
                 "objectName": "anchoredVwapChannel",
                 "propertyName": "devHi2",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2890,7 +2892,6 @@
                 "objectName": "anchoredVwapChannel",
                 "propertyName": "devHi1",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2901,7 +2902,6 @@
                 "objectName": "anchoredVwapChannel",
                 "propertyName": "vwap",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2912,7 +2912,6 @@
                 "objectName": "VAR_OTT",
                 "propertyName": "close",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2923,7 +2922,6 @@
                 "objectName": "VAR_OTT",
                 "propertyName": "h",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2934,7 +2932,6 @@
                 "objectName": "VAR_OTT",
                 "propertyName": "var",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2945,7 +2942,6 @@
                 "objectName": "VAR_OTT",
                 "propertyName": "ott",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2956,7 +2952,6 @@
                 "objectName": "Laguerre_OTT",
                 "propertyName": "close",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2967,7 +2962,6 @@
                 "objectName": "Laguerre_OTT",
                 "propertyName": "h",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2978,7 +2972,6 @@
                 "objectName": "Laguerre_OTT",
                 "propertyName": "var",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -2989,7 +2982,6 @@
                 "objectName": "Laguerre_OTT",
                 "propertyName": "ott",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3000,7 +2992,6 @@
                 "objectName": "Butterworth_OTT",
                 "propertyName": "close",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3011,7 +3002,6 @@
                 "objectName": "Butterworth_OTT",
                 "propertyName": "h",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3022,7 +3012,6 @@
                 "objectName": "Butterworth_OTT",
                 "propertyName": "var",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3033,7 +3022,6 @@
                 "objectName": "Butterworth_OTT",
                 "propertyName": "ott",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3044,7 +3032,6 @@
                 "objectName": "MinSigma",
                 "propertyName": "map",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3055,7 +3042,6 @@
                 "objectName": "MinSigma",
                 "propertyName": "sigma",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3066,7 +3052,6 @@
                 "objectName": "MinSigma",
                 "propertyName": "ma",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3077,7 +3062,6 @@
                 "objectName": "MinSigma",
                 "propertyName": "insta",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3088,7 +3072,6 @@
                 "objectName": "MinSigma",
                 "propertyName": "slope",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3099,7 +3082,6 @@
                 "objectName": "MinSigma",
                 "propertyName": "lower",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3110,7 +3092,6 @@
                 "objectName": "MinSigma",
                 "propertyName": "upper",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3121,7 +3102,6 @@
                 "objectName": "MinSigma",
                 "propertyName": "strike",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3132,7 +3112,6 @@
                 "objectName": "MinSigma",
                 "propertyName": "Z",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3143,7 +3122,6 @@
                 "objectName": "rmax",
                 "propertyName": "lower",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3154,7 +3132,6 @@
                 "objectName": "rmax",
                 "propertyName": "upper",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3165,7 +3142,6 @@
                 "objectName": "rmax",
                 "propertyName": "Z",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3176,7 +3152,6 @@
                 "objectName": "OverSampled_Bollinger_Bands",
                 "propertyName": "lower",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3187,7 +3162,6 @@
                 "objectName": "OverSampled_Bollinger_Bands",
                 "propertyName": "upper",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3198,7 +3172,6 @@
                 "objectName": "OverSampled_Bollinger_Bands",
                 "propertyName": "MA",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3209,7 +3182,6 @@
                 "objectName": "CloseSigma",
                 "propertyName": "map",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3220,7 +3192,6 @@
                 "objectName": "CloseSigma",
                 "propertyName": "sigma",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3231,7 +3202,6 @@
                 "objectName": "CloseSigma",
                 "propertyName": "ma",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3242,7 +3212,6 @@
                 "objectName": "CloseSigma",
                 "propertyName": "insta",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3253,7 +3222,6 @@
                 "objectName": "CloseSigma",
                 "propertyName": "slope",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3264,7 +3232,6 @@
                 "objectName": "CloseSigma",
                 "propertyName": "lower",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3275,7 +3242,6 @@
                 "objectName": "CloseSigma",
                 "propertyName": "upper",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3286,7 +3252,6 @@
                 "objectName": "CloseSigma",
                 "propertyName": "strike",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3297,7 +3262,6 @@
                 "objectName": "CloseSigma",
                 "propertyName": "Z",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3308,7 +3272,6 @@
                 "objectName": "MAX_Z_Probability",
                 "propertyName": "map",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3319,7 +3282,6 @@
                 "objectName": "MAX_Z_Probability",
                 "propertyName": "sigma",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3330,7 +3292,6 @@
                 "objectName": "MAX_Z_Probability",
                 "propertyName": "ma",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3341,7 +3302,6 @@
                 "objectName": "MAX_Z_Probability",
                 "propertyName": "insta",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3352,7 +3312,6 @@
                 "objectName": "MAX_Z_Probability",
                 "propertyName": "slope",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3363,7 +3322,6 @@
                 "objectName": "MAX_Z_Probability",
                 "propertyName": "lower",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3374,7 +3332,6 @@
                 "objectName": "MAX_Z_Probability",
                 "propertyName": "upper",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3385,7 +3342,6 @@
                 "objectName": "MAX_Z_Probability",
                 "propertyName": "strike",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3396,7 +3352,6 @@
                 "objectName": "MAX_Z_Probability",
                 "propertyName": "Z",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3407,7 +3362,6 @@
                 "objectName": "HLpivot",
                 "propertyName": "candleLoPrevLoc",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3418,7 +3372,6 @@
                 "objectName": "HLpivot",
                 "propertyName": "candleHiPrevLoc",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3429,7 +3382,6 @@
                 "objectName": "HLpivot",
                 "propertyName": "candleLowLoc",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3440,7 +3392,6 @@
                 "objectName": "HLpivot",
                 "propertyName": "candleHighLoc",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3451,7 +3402,6 @@
                 "objectName": "HLpivot",
                 "propertyName": "candleLowValPrev",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3462,7 +3412,6 @@
                 "objectName": "HLpivot",
                 "propertyName": "candleHighValPrev",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3473,7 +3422,6 @@
                 "objectName": "HLpivot",
                 "propertyName": "candleLowVal",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3484,7 +3432,6 @@
                 "objectName": "HLpivot",
                 "propertyName": "candleHighVal",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3495,7 +3442,6 @@
                 "objectName": "Daypivot",
                 "propertyName": "s4",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3506,7 +3452,6 @@
                 "objectName": "Daypivot",
                 "propertyName": "s3",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3517,7 +3462,6 @@
                 "objectName": "Daypivot",
                 "propertyName": "s2",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3528,7 +3472,6 @@
                 "objectName": "Daypivot",
                 "propertyName": "s1",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3539,7 +3482,6 @@
                 "objectName": "Daypivot",
                 "propertyName": "r4",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3550,7 +3492,6 @@
                 "objectName": "Daypivot",
                 "propertyName": "r3",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3561,7 +3502,6 @@
                 "objectName": "Daypivot",
                 "propertyName": "r2",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3572,7 +3512,6 @@
                 "objectName": "Daypivot",
                 "propertyName": "r1",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3583,7 +3522,6 @@
                 "objectName": "Daypivot",
                 "propertyName": "pivot",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3594,7 +3532,6 @@
                 "objectName": "PivotFib",
                 "propertyName": "s3",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3605,7 +3542,6 @@
                 "objectName": "PivotFib",
                 "propertyName": "s2",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3616,7 +3552,6 @@
                 "objectName": "PivotFib",
                 "propertyName": "s1",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3627,7 +3562,6 @@
                 "objectName": "PivotFib",
                 "propertyName": "r3",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3638,7 +3572,6 @@
                 "objectName": "PivotFib",
                 "propertyName": "r2",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3649,7 +3582,6 @@
                 "objectName": "PivotFib",
                 "propertyName": "r1",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3660,7 +3592,6 @@
                 "objectName": "PivotFib",
                 "propertyName": "pivot",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3671,7 +3602,6 @@
                 "objectName": "PivotWoodie",
                 "propertyName": "s4",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3682,7 +3612,6 @@
                 "objectName": "PivotWoodie",
                 "propertyName": "s3",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3693,7 +3622,6 @@
                 "objectName": "PivotWoodie",
                 "propertyName": "s2",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3704,7 +3632,6 @@
                 "objectName": "PivotWoodie",
                 "propertyName": "s1",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3715,7 +3642,6 @@
                 "objectName": "PivotWoodie",
                 "propertyName": "r4",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3726,7 +3652,6 @@
                 "objectName": "PivotWoodie",
                 "propertyName": "r3",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3737,7 +3662,6 @@
                 "objectName": "PivotWoodie",
                 "propertyName": "r2",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3748,7 +3672,6 @@
                 "objectName": "PivotWoodie",
                 "propertyName": "r1",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3759,7 +3682,6 @@
                 "objectName": "PivotWoodie",
                 "propertyName": "pivot",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3770,7 +3692,6 @@
                 "objectName": "PivotCamarilla",
                 "propertyName": "s4",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3781,7 +3702,6 @@
                 "objectName": "PivotCamarilla",
                 "propertyName": "s3",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3792,7 +3712,6 @@
                 "objectName": "PivotCamarilla",
                 "propertyName": "s2",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3803,7 +3722,6 @@
                 "objectName": "PivotCamarilla",
                 "propertyName": "s1",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3814,7 +3732,6 @@
                 "objectName": "PivotCamarilla",
                 "propertyName": "r4",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3825,7 +3742,6 @@
                 "objectName": "PivotCamarilla",
                 "propertyName": "r3",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3836,7 +3752,6 @@
                 "objectName": "PivotCamarilla",
                 "propertyName": "r2",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3847,7 +3762,6 @@
                 "objectName": "PivotCamarilla",
                 "propertyName": "r1",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3858,7 +3772,6 @@
                 "objectName": "PivotCamarilla",
                 "propertyName": "pivot",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3869,7 +3782,6 @@
                 "objectName": "PivotDenmark",
                 "propertyName": "s1",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3880,7 +3792,6 @@
                 "objectName": "PivotDenmark",
                 "propertyName": "r1",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3891,7 +3802,6 @@
                 "objectName": "PivotDenmark",
                 "propertyName": "pivot",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3902,7 +3812,6 @@
                 "objectName": "KeyLevel",
                 "propertyName": "yearly",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3913,7 +3822,6 @@
                 "objectName": "KeyLevel",
                 "propertyName": "quarterly",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3924,7 +3832,6 @@
                 "objectName": "KeyLevel",
                 "propertyName": "monthly",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3935,7 +3842,6 @@
                 "objectName": "KeyLevel",
                 "propertyName": "weekly",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3946,7 +3852,6 @@
                 "objectName": "KeyLevel",
                 "propertyName": "daily",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3957,7 +3862,6 @@
                 "objectName": "PrevKeyLevel",
                 "propertyName": "yearlyPrev",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3968,7 +3872,6 @@
                 "objectName": "PrevKeyLevel",
                 "propertyName": "quarterlyPrev",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3979,7 +3882,6 @@
                 "objectName": "PrevKeyLevel",
                 "propertyName": "monthlyPrev",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -3990,7 +3892,6 @@
                 "objectName": "PrevKeyLevel",
                 "propertyName": "weeklyPrev",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4001,7 +3902,6 @@
                 "objectName": "PrevKeyLevel",
                 "propertyName": "dailyPrev",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4012,7 +3912,6 @@
                 "objectName": "PrevKeyLevel",
                 "propertyName": "yearly",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4023,7 +3922,6 @@
                 "objectName": "PrevKeyLevel",
                 "propertyName": "quarterly",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4034,7 +3932,6 @@
                 "objectName": "PrevKeyLevel",
                 "propertyName": "monthly",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4045,7 +3942,6 @@
                 "objectName": "PrevKeyLevel",
                 "propertyName": "weekly",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4056,7 +3952,6 @@
                 "objectName": "PrevKeyLevel",
                 "propertyName": "daily",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4067,7 +3962,6 @@
                 "objectName": "PrevHLKeyLevel",
                 "propertyName": "yearlyLowPrev",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4078,7 +3972,6 @@
                 "objectName": "PrevHLKeyLevel",
                 "propertyName": "yearlyHighPrev",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4089,7 +3982,6 @@
                 "objectName": "PrevHLKeyLevel",
                 "propertyName": "quarterLowPrev",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4100,7 +3992,6 @@
                 "objectName": "PrevHLKeyLevel",
                 "propertyName": "quarterHighPrev",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4111,7 +4002,6 @@
                 "objectName": "PrevHLKeyLevel",
                 "propertyName": "monthlyLowPrev",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4122,7 +4012,6 @@
                 "objectName": "PrevHLKeyLevel",
                 "propertyName": "monthlyHighPrev",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4133,7 +4022,6 @@
                 "objectName": "PrevHLKeyLevel",
                 "propertyName": "weeklyLowPrev",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4144,7 +4032,6 @@
                 "objectName": "PrevHLKeyLevel",
                 "propertyName": "weeklyHighPrev",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4155,7 +4042,6 @@
                 "objectName": "PrevHLKeyLevel",
                 "propertyName": "dailyLowPrev",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4166,7 +4052,6 @@
                 "objectName": "PrevHLKeyLevel",
                 "propertyName": "dailyHighPrev",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4177,7 +4062,6 @@
                 "objectName": "Fisher",
                 "propertyName": "trigger",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4188,7 +4072,6 @@
                 "objectName": "Fisher",
                 "propertyName": "fisher",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4199,7 +4082,6 @@
                 "objectName": "HMA",
                 "propertyName": "hma",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4210,7 +4092,6 @@
                 "objectName": "MD",
                 "propertyName": "closePrice",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4221,7 +4102,6 @@
                 "objectName": "MD",
                 "propertyName": "md",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4232,7 +4112,6 @@
                 "objectName": "WMA",
                 "propertyName": "closePrice",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4243,7 +4122,6 @@
                 "objectName": "WMA",
                 "propertyName": "wma",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4254,7 +4132,6 @@
                 "objectName": "VWMA",
                 "propertyName": "closePrice",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4265,7 +4142,6 @@
                 "objectName": "VWMA",
                 "propertyName": "vwma",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4276,7 +4152,6 @@
                 "objectName": "fibBB",
                 "propertyName": "low6",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4287,7 +4162,6 @@
                 "objectName": "fibBB",
                 "propertyName": "low5",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4298,7 +4172,6 @@
                 "objectName": "fibBB",
                 "propertyName": "low4",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4309,7 +4182,6 @@
                 "objectName": "fibBB",
                 "propertyName": "low3",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4320,7 +4192,6 @@
                 "objectName": "fibBB",
                 "propertyName": "low2",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4331,7 +4202,6 @@
                 "objectName": "fibBB",
                 "propertyName": "low1",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4342,7 +4212,6 @@
                 "objectName": "fibBB",
                 "propertyName": "up6",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4353,7 +4222,6 @@
                 "objectName": "fibBB",
                 "propertyName": "up5",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4364,7 +4232,6 @@
                 "objectName": "fibBB",
                 "propertyName": "up4",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4375,7 +4242,6 @@
                 "objectName": "fibBB",
                 "propertyName": "up3",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4386,7 +4252,6 @@
                 "objectName": "fibBB",
                 "propertyName": "up2",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4397,7 +4262,6 @@
                 "objectName": "fibBB",
                 "propertyName": "up1",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4408,7 +4272,6 @@
                 "objectName": "fibBB",
                 "propertyName": "basis",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4419,7 +4282,6 @@
                 "objectName": "MAMA",
                 "propertyName": "closePrice",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4430,7 +4292,6 @@
                 "objectName": "MAMA",
                 "propertyName": "fama",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4441,7 +4302,6 @@
                 "objectName": "MAMA",
                 "propertyName": "mama",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4452,7 +4312,6 @@
                 "objectName": "sRVI",
                 "propertyName": "trigger",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4463,7 +4322,6 @@
                 "objectName": "sRVI",
                 "propertyName": "sRVI",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4474,7 +4332,6 @@
                 "objectName": "sRVIoneline",
                 "propertyName": "sRVI",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4485,7 +4342,6 @@
                 "objectName": "sRVIoneline",
                 "propertyName": "trigger",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4496,7 +4352,6 @@
                 "objectName": "sfRVI",
                 "propertyName": "trigger",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4507,7 +4362,6 @@
                 "objectName": "sfRVI",
                 "propertyName": "sfRVI",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4518,7 +4372,6 @@
                 "objectName": "sfRVIoneline",
                 "propertyName": "trigger",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4529,7 +4382,6 @@
                 "objectName": "sfRVIoneline",
                 "propertyName": "sfRVI",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4540,7 +4392,6 @@
                 "objectName": "aRVI",
                 "propertyName": "trigger",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -4551,7 +4402,6 @@
                 "objectName": "aRVI",
                 "propertyName": "aRVI",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5453,7 +5303,6 @@
                 "objectName": "popularSMA",
                 "propertyName": "sma200",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5464,7 +5313,6 @@
                 "objectName": "popularSMA",
                 "propertyName": "sma100",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5475,7 +5323,6 @@
                 "objectName": "popularSMA",
                 "propertyName": "sma50",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5486,7 +5333,6 @@
                 "objectName": "popularSMA",
                 "propertyName": "sma20",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5497,7 +5343,6 @@
                 "objectName": "base7SMA",
                 "propertyName": "sma1400",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5508,7 +5353,6 @@
                 "objectName": "base7SMA",
                 "propertyName": "sma700",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5519,7 +5363,6 @@
                 "objectName": "base7SMA",
                 "propertyName": "sma350",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5530,7 +5373,6 @@
                 "objectName": "base7SMA",
                 "propertyName": "sma280",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5541,7 +5383,6 @@
                 "objectName": "base7SMA",
                 "propertyName": "sma210",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5552,7 +5393,6 @@
                 "objectName": "base7SMA",
                 "propertyName": "sma140",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5563,7 +5403,6 @@
                 "objectName": "base7SMA",
                 "propertyName": "sma70",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5574,7 +5413,6 @@
                 "objectName": "base7SMA",
                 "propertyName": "sma35",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5585,7 +5423,6 @@
                 "objectName": "base7SMA",
                 "propertyName": "sma28",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5596,7 +5433,6 @@
                 "objectName": "base7SMA",
                 "propertyName": "sma21",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5607,7 +5443,6 @@
                 "objectName": "base7SMA",
                 "propertyName": "sma14",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5618,7 +5453,6 @@
                 "objectName": "base7SMA",
                 "propertyName": "sma7",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5629,7 +5463,6 @@
                 "objectName": "base11SMA",
                 "propertyName": "sma111",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5640,7 +5473,6 @@
                 "objectName": "base11SMA",
                 "propertyName": "sma55",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5651,7 +5483,6 @@
                 "objectName": "base11SMA",
                 "propertyName": "sma33",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5662,7 +5493,6 @@
                 "objectName": "base11SMA",
                 "propertyName": "sma22",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5673,7 +5503,6 @@
                 "objectName": "base11SMA",
                 "propertyName": "sma11",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5684,7 +5513,6 @@
                 "objectName": "base5SMA",
                 "propertyName": "sma1000",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5695,7 +5523,6 @@
                 "objectName": "base5SMA",
                 "propertyName": "sma500",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5706,7 +5533,6 @@
                 "objectName": "base5SMA",
                 "propertyName": "sma250",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5717,7 +5543,6 @@
                 "objectName": "base5SMA",
                 "propertyName": "sma200",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5728,7 +5553,6 @@
                 "objectName": "base5SMA",
                 "propertyName": "sma150",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5739,7 +5563,6 @@
                 "objectName": "base5SMA",
                 "propertyName": "sma100",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5750,7 +5573,6 @@
                 "objectName": "base5SMA",
                 "propertyName": "sma50",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5761,7 +5583,6 @@
                 "objectName": "base5SMA",
                 "propertyName": "sma25",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5772,7 +5593,6 @@
                 "objectName": "base5SMA",
                 "propertyName": "sma20",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5783,7 +5603,6 @@
                 "objectName": "base5SMA",
                 "propertyName": "sma15",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5794,7 +5613,6 @@
                 "objectName": "base5SMA",
                 "propertyName": "sma10",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5805,7 +5623,6 @@
                 "objectName": "base5SMA",
                 "propertyName": "sma5",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5816,7 +5633,6 @@
                 "objectName": "base6SMA",
                 "propertyName": "sma1200",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5827,7 +5643,6 @@
                 "objectName": "base6SMA",
                 "propertyName": "sma600",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5838,7 +5653,6 @@
                 "objectName": "base6SMA",
                 "propertyName": "sma300",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5849,7 +5663,6 @@
                 "objectName": "base6SMA",
                 "propertyName": "sma240",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5860,7 +5673,6 @@
                 "objectName": "base6SMA",
                 "propertyName": "sma180",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5871,7 +5683,6 @@
                 "objectName": "base6SMA",
                 "propertyName": "sma120",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5882,7 +5693,6 @@
                 "objectName": "base6SMA",
                 "propertyName": "sma60",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5893,7 +5703,6 @@
                 "objectName": "base6SMA",
                 "propertyName": "sma30",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5904,7 +5713,6 @@
                 "objectName": "base6SMA",
                 "propertyName": "sma24",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5915,7 +5723,6 @@
                 "objectName": "base6SMA",
                 "propertyName": "sma18",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5926,7 +5733,6 @@
                 "objectName": "base6SMA",
                 "propertyName": "sma12",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5937,7 +5743,6 @@
                 "objectName": "base6SMA",
                 "propertyName": "sma6",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5948,7 +5753,6 @@
                 "objectName": "base12SMA",
                 "propertyName": "sma1200",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5959,7 +5763,6 @@
                 "objectName": "base12SMA",
                 "propertyName": "sma600",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5970,7 +5773,6 @@
                 "objectName": "base12SMA",
                 "propertyName": "sma480",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5981,7 +5783,6 @@
                 "objectName": "base12SMA",
                 "propertyName": "sma360",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -5992,7 +5793,6 @@
                 "objectName": "base12SMA",
                 "propertyName": "sma240",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6003,7 +5803,6 @@
                 "objectName": "base12SMA",
                 "propertyName": "sma120",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6014,7 +5813,6 @@
                 "objectName": "base12SMA",
                 "propertyName": "sma60",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6025,7 +5823,6 @@
                 "objectName": "base12SMA",
                 "propertyName": "sma48",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6036,7 +5833,6 @@
                 "objectName": "base12SMA",
                 "propertyName": "sma36",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6047,7 +5843,6 @@
                 "objectName": "base12SMA",
                 "propertyName": "sma24",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6058,7 +5853,6 @@
                 "objectName": "base12SMA",
                 "propertyName": "sma12",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6069,7 +5863,6 @@
                 "objectName": "base30SMA",
                 "propertyName": "sma1500",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6080,7 +5873,6 @@
                 "objectName": "base30SMA",
                 "propertyName": "sma1200",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6091,7 +5883,6 @@
                 "objectName": "base30SMA",
                 "propertyName": "sma900",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6102,7 +5893,6 @@
                 "objectName": "base30SMA",
                 "propertyName": "sma600",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6113,7 +5903,6 @@
                 "objectName": "base30SMA",
                 "propertyName": "sma300",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6124,7 +5913,6 @@
                 "objectName": "base30SMA",
                 "propertyName": "sma150",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6135,7 +5923,6 @@
                 "objectName": "base30SMA",
                 "propertyName": "sma120",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6146,7 +5933,6 @@
                 "objectName": "base30SMA",
                 "propertyName": "sma90",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6157,7 +5943,6 @@
                 "objectName": "base30SMA",
                 "propertyName": "sma60",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6168,7 +5953,6 @@
                 "objectName": "base30SMA",
                 "propertyName": "sma30",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6179,7 +5963,6 @@
                 "objectName": "popularEMA",
                 "propertyName": "ema200",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6190,7 +5973,6 @@
                 "objectName": "popularEMA",
                 "propertyName": "ema100",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6201,7 +5983,6 @@
                 "objectName": "popularEMA",
                 "propertyName": "ema50",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6212,7 +5993,6 @@
                 "objectName": "popularEMA",
                 "propertyName": "ema20",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6223,7 +6003,6 @@
                 "objectName": "base5EMA",
                 "propertyName": "ema1000",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6234,7 +6013,6 @@
                 "objectName": "base5EMA",
                 "propertyName": "ema500",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6245,7 +6023,6 @@
                 "objectName": "base5EMA",
                 "propertyName": "ema250",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6256,7 +6033,6 @@
                 "objectName": "base5EMA",
                 "propertyName": "ema200",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6267,7 +6043,6 @@
                 "objectName": "base5EMA",
                 "propertyName": "ema150",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6278,7 +6053,6 @@
                 "objectName": "base5EMA",
                 "propertyName": "ema100",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6289,7 +6063,6 @@
                 "objectName": "base5EMA",
                 "propertyName": "ema50",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6300,7 +6073,6 @@
                 "objectName": "base5EMA",
                 "propertyName": "ema25",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6311,7 +6083,6 @@
                 "objectName": "base5EMA",
                 "propertyName": "ema20",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6322,7 +6093,6 @@
                 "objectName": "base5EMA",
                 "propertyName": "ema15",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6333,7 +6103,6 @@
                 "objectName": "base5EMA",
                 "propertyName": "ema10",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6344,7 +6113,6 @@
                 "objectName": "base5EMA",
                 "propertyName": "ema5",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6355,7 +6123,6 @@
                 "objectName": "base6EMA",
                 "propertyName": "ema1200",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6366,7 +6133,6 @@
                 "objectName": "base6EMA",
                 "propertyName": "ema600",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6377,7 +6143,6 @@
                 "objectName": "base6EMA",
                 "propertyName": "ema300",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6388,7 +6153,6 @@
                 "objectName": "base6EMA",
                 "propertyName": "ema240",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6399,7 +6163,6 @@
                 "objectName": "base6EMA",
                 "propertyName": "ema180",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6410,7 +6173,6 @@
                 "objectName": "base6EMA",
                 "propertyName": "ema120",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6421,7 +6183,6 @@
                 "objectName": "base6EMA",
                 "propertyName": "ema60",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6432,7 +6193,6 @@
                 "objectName": "base6EMA",
                 "propertyName": "ema30",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6443,7 +6203,6 @@
                 "objectName": "base6EMA",
                 "propertyName": "ema24",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6454,7 +6213,6 @@
                 "objectName": "base6EMA",
                 "propertyName": "ema18",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6465,7 +6223,6 @@
                 "objectName": "base6EMA",
                 "propertyName": "ema12",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6476,7 +6233,6 @@
                 "objectName": "base6EMA",
                 "propertyName": "ema6",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6487,7 +6243,6 @@
                 "objectName": "base7EMA",
                 "propertyName": "ema1400",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6498,7 +6253,6 @@
                 "objectName": "base7EMA",
                 "propertyName": "ema700",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6509,7 +6263,6 @@
                 "objectName": "base7EMA",
                 "propertyName": "ema350",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6520,7 +6273,6 @@
                 "objectName": "base7EMA",
                 "propertyName": "ema280",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6531,7 +6283,6 @@
                 "objectName": "base7EMA",
                 "propertyName": "ema210",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6542,7 +6293,6 @@
                 "objectName": "base7EMA",
                 "propertyName": "ema140",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6553,7 +6303,6 @@
                 "objectName": "base7EMA",
                 "propertyName": "ema70",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6564,7 +6313,6 @@
                 "objectName": "base7EMA",
                 "propertyName": "ema35",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6575,7 +6323,6 @@
                 "objectName": "base7EMA",
                 "propertyName": "ema28",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6586,7 +6333,6 @@
                 "objectName": "base7EMA",
                 "propertyName": "ema21",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6597,7 +6343,6 @@
                 "objectName": "base7EMA",
                 "propertyName": "ema14",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6608,7 +6353,6 @@
                 "objectName": "base7EMA",
                 "propertyName": "ema7",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6619,7 +6363,6 @@
                 "objectName": "base11EMA",
                 "propertyName": "ema111",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6630,7 +6373,6 @@
                 "objectName": "base11EMA",
                 "propertyName": "ema55",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6641,7 +6383,6 @@
                 "objectName": "base11EMA",
                 "propertyName": "ema33",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6652,7 +6393,6 @@
                 "objectName": "base11EMA",
                 "propertyName": "ema22",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6663,7 +6403,6 @@
                 "objectName": "base11EMA",
                 "propertyName": "ema11",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6674,7 +6413,6 @@
                 "objectName": "base12EMA",
                 "propertyName": "ema1200",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6685,7 +6423,6 @@
                 "objectName": "base12EMA",
                 "propertyName": "ema600",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6696,7 +6433,6 @@
                 "objectName": "base12EMA",
                 "propertyName": "ema480",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6707,7 +6443,6 @@
                 "objectName": "base12EMA",
                 "propertyName": "ema360",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6718,7 +6453,6 @@
                 "objectName": "base12EMA",
                 "propertyName": "ema240",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6729,7 +6463,6 @@
                 "objectName": "base12EMA",
                 "propertyName": "ema120",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6740,7 +6473,6 @@
                 "objectName": "base12EMA",
                 "propertyName": "ema60",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6751,7 +6483,6 @@
                 "objectName": "base12EMA",
                 "propertyName": "ema48",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6762,7 +6493,6 @@
                 "objectName": "base12EMA",
                 "propertyName": "ema36",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6773,7 +6503,6 @@
                 "objectName": "base12EMA",
                 "propertyName": "ema24",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6784,7 +6513,6 @@
                 "objectName": "base12EMA",
                 "propertyName": "ema12",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6795,7 +6523,6 @@
                 "objectName": "base30EMA",
                 "propertyName": "ema1500",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6806,7 +6533,6 @@
                 "objectName": "base30EMA",
                 "propertyName": "ema1200",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6817,7 +6543,6 @@
                 "objectName": "base30EMA",
                 "propertyName": "ema900",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6828,7 +6553,6 @@
                 "objectName": "base30EMA",
                 "propertyName": "ema600",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6839,7 +6563,6 @@
                 "objectName": "base30EMA",
                 "propertyName": "ema300",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6850,7 +6573,6 @@
                 "objectName": "base30EMA",
                 "propertyName": "ema150",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6861,7 +6583,6 @@
                 "objectName": "base30EMA",
                 "propertyName": "ema120",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6872,7 +6593,6 @@
                 "objectName": "base30EMA",
                 "propertyName": "ema90",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6883,7 +6603,6 @@
                 "objectName": "base30EMA",
                 "propertyName": "ema60",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6894,7 +6613,6 @@
                 "objectName": "base30EMA",
                 "propertyName": "ema30",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6905,7 +6623,6 @@
                 "objectName": "macd122609",
                 "propertyName": "histogram",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6916,7 +6633,6 @@
                 "objectName": "macd031016",
                 "propertyName": "histogram",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6927,7 +6643,6 @@
                 "objectName": "macd081709",
                 "propertyName": "histogram",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6938,7 +6653,6 @@
                 "objectName": "macd245209",
                 "propertyName": "histogram",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6949,7 +6663,6 @@
                 "objectName": "rsi14",
                 "propertyName": "value",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6960,7 +6673,6 @@
                 "objectName": "KAMA",
                 "propertyName": "value",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6971,7 +6683,6 @@
                 "objectName": "turtleS1",
                 "propertyName": "direction",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6982,7 +6693,6 @@
                 "objectName": "turtleS1",
                 "propertyName": "exit",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -6993,7 +6703,6 @@
                 "objectName": "turtleS1",
                 "propertyName": "trend",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -7004,7 +6713,6 @@
                 "objectName": "turtleS1",
                 "propertyName": "exitLow",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -7015,7 +6723,6 @@
                 "objectName": "turtleS1",
                 "propertyName": "exitHighi",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -7026,7 +6733,6 @@
                 "objectName": "turtleS1",
                 "propertyName": "entryLow",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -7037,7 +6743,6 @@
                 "objectName": "turtleS1",
                 "propertyName": "entryHigh",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -7048,7 +6753,6 @@
                 "objectName": "EMA",
                 "propertyName": "ema5",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -7059,7 +6763,6 @@
                 "objectName": "EMA",
                 "propertyName": "ema4",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -7070,7 +6773,6 @@
                 "objectName": "EMA",
                 "propertyName": "ema3",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -7081,7 +6783,6 @@
                 "objectName": "EMA",
                 "propertyName": "ema2",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -7092,7 +6793,6 @@
                 "objectName": "EMA",
                 "propertyName": "ema1",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -7103,7 +6803,6 @@
                 "objectName": "MBO",
                 "propertyName": "MBO5",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -7114,7 +6813,6 @@
                 "objectName": "MBO",
                 "propertyName": "MBO4",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -7125,7 +6823,6 @@
                 "objectName": "MBO",
                 "propertyName": "MBO3",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -7136,7 +6833,6 @@
                 "objectName": "MBO",
                 "propertyName": "MBO2",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -7147,7 +6843,6 @@
                 "objectName": "MBO",
                 "propertyName": "MBO1",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -7158,7 +6853,6 @@
                 "objectName": "T2I",
                 "propertyName": "t2i2",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -7169,7 +6863,6 @@
                 "objectName": "T2I",
                 "propertyName": "t2i1",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -7180,7 +6873,6 @@
                 "objectName": "BSV6",
                 "propertyName": "bsv6",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -7191,7 +6883,6 @@
                 "objectName": "BSV36",
                 "propertyName": "bsv36",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -7202,7 +6893,6 @@
                 "objectName": "RMO",
                 "propertyName": "ratio",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -7213,7 +6903,6 @@
                 "objectName": "WEMAsignal",
                 "propertyName": "color",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -7224,7 +6913,6 @@
                 "objectName": "WEMAsignal",
                 "propertyName": "filtered",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -7235,7 +6923,6 @@
                 "objectName": "WEMAsignal",
                 "propertyName": "signal",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -7246,7 +6933,6 @@
                 "objectName": "DMI",
                 "propertyName": "adx",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -7257,7 +6943,6 @@
                 "objectName": "DMI",
                 "propertyName": "minusDI",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -7268,7 +6953,6 @@
                 "objectName": "DMI",
                 "propertyName": "plusDI",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -7279,7 +6963,6 @@
                 "objectName": "harsi",
                 "propertyName": "StochD",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -7290,7 +6973,6 @@
                 "objectName": "harsi",
                 "propertyName": "StochK",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -7301,7 +6983,6 @@
                 "objectName": "harsi",
                 "propertyName": "HaMin",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -7312,7 +6993,6 @@
                 "objectName": "harsi",
                 "propertyName": "HaMax",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -7323,7 +7003,6 @@
                 "objectName": "harsi",
                 "propertyName": "HaClose",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -7334,7 +7013,6 @@
                 "objectName": "harsi",
                 "propertyName": "HaOpen",
                 "range": [
-                    
                     "OFF"
                 ]
             },
@@ -7345,8 +7023,35 @@
                 "objectName": "harsi",
                 "propertyName": "rsi",
                 "range": [
-                    
                     "OFF"
                 ]
-            },
+            }
+        ]
+    },
+    "librariesIndicators": [],
+    "parametersRanges": {
+        "LIST_OF_ASSETS": [
+            [
+                "BTC"
+            ]
+        ],
+        "LIST_OF_TIMEFRAMES": [
+            [
+                "01-hs"
+            ]
+        ],
+        "NUMBER_OF_LAG_TIMESTEPS": [
+            10
+        ],
+        "PERCENTAGE_OF_DATASET_FOR_TRAINING": [
+            80
+        ],
+        "NUMBER_OF_EPOCHS": [
+            750
+        ],
+        "NUMBER_OF_LSTM_NEURONS": [
+            50
+        ]
+    }
+}
 </details>

@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Подсчитывает периоды с момента последнего создания заказа.",
                 "updated": 1638648073841
+            },
+            {
+                "language": "TR",
+                "text": "Bir siparişin en son oluşturulduğu zamandan bu yana geçen süreyi sayar.",
+                "updated": 1652798680985
             }
         ]
     },
@@ -19,6 +24,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
                     "updated": 1638648083348
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle. Yeni paragraflar yazmak için ENTER'a basın. Düzenleme modundan çıkmak için ESC.",
+                    "updated": 1652798692540
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "RU",
                     "text": "Конфигурация Create Order",
                     "updated": 1638648096602
+                },
+                {
+                    "language": "TR",
+                    "text": "Create Order Yapılandırması",
+                    "updated": 1652798701020
                 }
             ]
         },
@@ -46,6 +61,11 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1638648104324
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikleri",
+                    "updated": 1652798706858
                 }
             ]
         },
@@ -57,6 +77,11 @@
                     "language": "RU",
                     "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
                     "updated": 1638648113852
+                },
+                {
+                    "language": "TR",
+                    "text": "initialValue, düğümün başlangıç ​​durumunun keyfi bir değere sıfırlanmasına izin verir.",
+                    "updated": 1652798715249
                 }
             ]
         }

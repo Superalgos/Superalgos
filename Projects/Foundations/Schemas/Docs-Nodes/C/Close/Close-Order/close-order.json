@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Подсчитывает периоды с момента последнего закрытия ордера.",
                 "updated": 1638646772025
+            },
+            {
+                "language": "TR",
+                "text": "Bir siparişin en son kapatıldığından beri geçen süreyi sayar.",
+                "updated": 1652798147757
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст.",
                     "updated": 1638646782055
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle.",
+                    "updated": 1652798157028
                 }
             ]
         },
@@ -40,6 +50,11 @@
                     "language": "RU",
                     "text": "Конфигурация Close Order",
                     "updated": 1638646797169
+                },
+                {
+                    "language": "TR",
+                    "text": "Close Order Yapılandırması",
+                    "updated": 1652798171211
                 }
             ]
         },
@@ -52,6 +67,11 @@
                     "language": "RU",
                     "text": "Сыойства",
                     "updated": 1638646804916
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikleri",
+                    "updated": 1652798181005
                 }
             ]
         },
@@ -64,6 +84,11 @@
                     "language": "RU",
                     "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
                     "updated": 1638646814239
+                },
+                {
+                    "language": "TR",
+                    "text": "initialValue, düğümün başlangıç ​​durumunun keyfi bir değere sıfırlanmasına izin verir.",
+                    "updated": 1652798189404
                 }
             ]
         }

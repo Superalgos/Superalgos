@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Close - это курс на момент закрытия свечи.",
                 "updated": 1638646593241
+            },
+            {
+                "language": "TR",
+                "text": "Kapanış, borsa tarafından sağlanan son mülkün tarih saatindeki orandır. Yani, mumun kapanışındaki oran.",
+                "updated": 1652797586569
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст.",
                     "updated": 1638646609689
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle.",
+                    "updated": 1652797603337
                 }
             ]
         }

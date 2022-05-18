@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Торговый бот выполняет свои обязанности в отношении биржевых ордеров и счетов в два последовательных цикла для каждой свечи.",
                 "updated": 1637596581446
+            },
+            {
+                "language": "TR",
+                "text": "Ticaret botu, her mum için birbirini izleyen iki döngüde emir ve hesap alışverişi ile ilgili görevlerini yerine getirir.",
+                "updated": 1652799612808
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "language": "RU",
                     "text": "В первом цикле он проверяет статус ордеров на бирже, синхронизирует счета и проверяет, выполняются ли условия для размещения новых ордеров.",
                     "updated": 1638649170403
+                },
+                {
+                    "language": "TR",
+                    "text": "İlk döngüde, borsadaki emirlerin durumunu kontrol eder, hesapları senkronize eder ve yeni emir verme koşullarının karşılanıp karşılanmadığını doğrular.",
+                    "updated": 1652799621731
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "language": "RU",
                     "text": "Во втором цикле он создает ордера на бирже при условии, что выполнялись условия в предыдущем цикле.",
                     "updated": 1638649186261
+                },
+                {
+                    "language": "TR",
+                    "text": "İkinci döngüde, bir önceki döngüde karşılanan koşullar sağlanarak borsada emirleri oluşturur.",
+                    "updated": 1652799629932
                 }
             ]
         },
@@ -50,6 +65,11 @@
                     "language": "RU",
                     "text": "Два возможных значения для узла цикла - Первое и Второе.",
                     "updated": 1638649219103
+                },
+                {
+                    "language": "TR",
+                    "text": "Döngü düğümü için iki olası değer Birinci ve İkinci'dir.",
+                    "updated": 1652799637499
                 }
             ]
         }

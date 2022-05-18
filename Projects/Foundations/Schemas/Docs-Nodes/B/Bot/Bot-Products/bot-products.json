@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Узел Bot Products - это организационное устройство, используемое для организации продуктов данных, соответствующих конкретному боту.",
                 "updated": 1638645086501
+            },
+            {
+                "language": "TR",
+                "text": "Bir bot ürünleri düğümü, belirli bir bota karşılık gelen veri ürünlerini düzenlemek için kullanılan kurumsal bir cihazdır.",
+                "updated": 1652796385450
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "language": "RU",
                     "text": "Устройство существует как потомок узла данных или хранилища торговых продуктов и не требует ссылки на бота.",
                     "updated": 1638645309497
+                },
+                {
+                    "language": "TR",
+                    "text": "Cihaz, bir veri veya ticari maden ürünleri düğümünün ürünü olarak bulunur ve verilen verilerde veya ticaret madeninde bir bot referansı gerektirmez.",
+                    "updated": 1652796403572
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "language": "RU",
                     "text": "Использование узла Bot Products необязательно, так как продукты данных также могут существовать за пределами продуктов ботов.",
                     "updated": 1638645454646
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri ürünleri bot ürünlerinin dışında da bulunabileceğinden, bot ürünleri düğümünün kullanımı isteğe bağlıdır.",
+                    "updated": 1652796413138
                 }
             ]
         }

@@ -252,6 +252,13 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                 }
             }
 
+            for (let i = 0; i < rootNodes.length; i++) {
+                let rootNode = rootNodes[i]
+                if (rootNode.type === 'Trading Mine' && rootNode.name === 'Masters') {
+                    installInMasterTradingMine(rootNode)
+                }
+            }
+
             node.payload.uiObject.setInfoMessage('Market installation is complete.')
 
             function installInNetwork(network) {
@@ -747,6 +754,48 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                             let timeMachine = UI.projects.foundations.nodeActionFunctions.chartingSpaceFunctions.createTimeMachine(dashboard, session, node, arrayItem.lanNetworkNode, rootNodes)
                         }
                     }
+                }
+            }
+
+            function installInMasterTradingMine(mastersTradingMine){
+                for (let i = 0; i < rootNodes.length; i++) {
+                    let rootNode = rootNodes[i]
+                    // Start with looping through all the root nodes of the workspace to find currently loaded data mines.
+                    if (rootNode.type === 'Data Mine') {
+                        // Walk down the Masters Trading Mine to get to the Process Dependencies Node that holds references to All data mines
+                        let tradingBots = mastersTradingMine.payload.node.tradingBots
+                        let processDefinitions 
+                        let dataMineDataDependencies 
+                        let tradingMineDependency = false
+                        for (let x = 0; x < tradingBots.length; x++) {
+                            processDefinitions = tradingBots[x].processes
+                            for (let y = 0; y < processDefinitions.length; y++) {
+                                dataMineDataDependencies = processDefinitions[y].processDependencies.dataMineDataDependencies
+                                // Now compare the Master Trading Mine's data dependencies with the current Data Mine present in the workspace
+                                // If there is no dependiecy within the Masters Trading Mine flag the Data mine
+                                for (let z = 0; z < dataMineDataDependencies.length; z++) {
+                                    if (rootNode.name === dataMineDataDependencies[z].name) {
+                                        tradingMineDependency = true
+                                    }
+                                }
+                            }
+                        }
+                        // If Trading Mine Data Dependency is not present create it now , otherwise continue loop
+                        if (tradingMineDependency === false) {
+                            console.log(rootNode.name, ' data mine does not have a dependency in the master trading mine')
+                            // Note: Assumes there is only one process definition in the Masters Trading Mine
+                            let processDependenciesNode = processDefinitions[0].processDependencies
+                            let newDataDependency = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(processDependenciesNode, 'Data Mine Data Dependencies')
+                            UI.projects.visualScripting.nodeActionFunctions.attachDetach.referenceAttachNode(newDataDependency, rootNode)
+                            newDataDependency.payload.uiObject.menu.internalClick('Add All Data Dependencies')
+                            newDataDependency.payload.uiObject.menu.internalClick('Add All Data Dependencies')
+                            console.log('this is after referneces', newDataDependency)
+
+                            // Save the Masters Trading Mine with new data dependency 
+                            UI.projects.communityPlugins.nodeActionFunctions.pluginsFunctions.savePluginHierarchy(mastersTradingMine.payload.node, mastersTradingMine.rootNodes)
+                        } 
+                    }
+
                 }
             }
         }

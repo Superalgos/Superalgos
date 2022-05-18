@@ -7052,6 +7052,7 @@
         "NUMBER_OF_LSTM_NEURONS": [
             50
         ]
+      }
     }
-}
+
 </details>

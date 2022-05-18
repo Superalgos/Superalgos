@@ -422,7 +422,17 @@ You will need to remove ```--gpus all``` for M1 based macs unless the docker ima
 
 ### On Raspbian
 
-Early test on Raspbian has shown difficulties to build the docker image. Ensure you are using the latest 64 bit image. If you manage to make it work with this OS please report back so that we update the specific instructions for it.
+Confirmed working on Raspberry Pi OS (64 bit)
+ - Node.js install
+   ```
+   curl -fsSL https://deb.nodesource.com/setup_17.x | sudo -E bash -
+   ```
+   ```
+   sudo apt-get install -y nodejs
+   ```
+ - Docker install following either [Repository](https://docs.docker.com/engine/install/debian/#install-using-the-repository) or [Convenience Script](https://docs.docker.com/engine/install/debian/#install-using-the-convenience-script) install steps on [docs.docker.com](https://docs.docker.com/engine/install/debian/#installation-methods)
+    
+    
 
 ## Troubleshooting - Docker Cheat Sheet
 

@@ -222,7 +222,7 @@
                 ]
             },
             {
-                "dataMine": "Anchored VWAP",
+                "dataMine": "Anchored_VWAP",
                 "indicator": "anchoredVWAP",
                 "product": "anchoredVWAP",
                 "objectName": "anchoredVWAP",
@@ -233,7 +233,7 @@
                 ]
             },
             {
-                "dataMine": "Anchored VWAP",
+                "dataMine": "Anchored_VWAP",
                 "indicator": "anchoredVWAP",
                 "product": "anchoredVWAP",
                 "objectName": "anchoredVWAP",
@@ -244,7 +244,7 @@
                 ]
             },
             {
-                "dataMine": "Anchored VWAP",
+                "dataMine": "Anchored_VWAP",
                 "indicator": "anchoredVWAP",
                 "product": "anchoredVWAP",
                 "objectName": "anchoredVWAP",
@@ -255,7 +255,7 @@
                 ]
             },
             {
-                "dataMine": "Anchored VWAP",
+                "dataMine": "Anchored_VWAP",
                 "indicator": "anchoredVWAP",
                 "product": "anchoredVWAP",
                 "objectName": "anchoredVWAP",
@@ -266,7 +266,7 @@
                 ]
             },
             {
-                "dataMine": "Anchored VWAP",
+                "dataMine": "Anchored_VWAP",
                 "indicator": "anchoredVWAP",
                 "product": "anchoredVWAP",
                 "objectName": "anchoredVWAP",
@@ -277,7 +277,7 @@
                 ]
             },
             {
-                "dataMine": "Anchored VWAP",
+                "dataMine": "Anchored_VWAP",
                 "indicator": "anchoredVWAP",
                 "product": "anchoredVWAP",
                 "objectName": "anchoredVWAP",
@@ -541,7 +541,7 @@
                 ]
             },
             {
-                "dataMine": "Expontential Moving Averages",
+                "dataMine": "Expontential_Moving_Averages",
                 "indicator": "DEMA",
                 "product": "DEMA",
                 "objectName": "DEMA",
@@ -552,7 +552,7 @@
                 ]
             },
             {
-                "dataMine": "Expontential Moving Averages",
+                "dataMine": "Expontential_Moving_Averages",
                 "indicator": "TEMA",
                 "product": "TEMA",
                 "objectName": "TEMA",
@@ -563,7 +563,7 @@
                 ]
             },
             {
-                "dataMine": "Expontential Moving Averages",
+                "dataMine": "Expontential_Moving_Averages",
                 "indicator": "QEMA",
                 "product": "QEMA",
                 "objectName": "QEMA",
@@ -574,7 +574,7 @@
                 ]
             },
             {
-                "dataMine": "Expontential Moving Averages",
+                "dataMine": "Expontential_Moving_Averages",
                 "indicator": "PEMA",
                 "product": "PEMA",
                 "objectName": "PEMA",
@@ -1146,7 +1146,7 @@
                 ]
             },
             {
-                "dataMine": "Mayer Multiple",
+                "dataMine": "Mayer_Multiple",
                 "indicator": "MayerMultiple",
                 "product": "MayerMultiple",
                 "objectName": "MayerMultiple",
@@ -1157,7 +1157,7 @@
                 ]
             },
             {
-                "dataMine": "Mayer Multiple",
+                "dataMine": "Mayer_Multiple",
                 "indicator": "MayerMultipleEMA",
                 "product": "MayerMultipleEMA",
                 "objectName": "MayerMultipleEMA",
@@ -4556,7 +4556,7 @@
                 ]
             },
             {
-                "dataMine": "Schaff Trend Cycle",
+                "dataMine": "Schaff_Trend_Cycle",
                 "indicator": "STC",
                 "product": "STC",
                 "objectName": "STC",
@@ -4567,7 +4567,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "orderBlock",
                 "product": "OB",
                 "objectName": "OB",
@@ -4578,7 +4578,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "orderBlock",
                 "product": "OB",
                 "objectName": "OB",
@@ -4589,7 +4589,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "orderBlock",
                 "product": "OB",
                 "objectName": "OB",
@@ -4600,7 +4600,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "orderBlock",
                 "product": "OB",
                 "objectName": "OB",
@@ -4611,7 +4611,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "orderBlock",
                 "product": "OB",
                 "objectName": "OB",
@@ -4622,7 +4622,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "orderBlock",
                 "product": "OB",
                 "objectName": "OB",
@@ -4633,7 +4633,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "orderBlock",
                 "product": "OB",
                 "objectName": "OB",
@@ -4644,7 +4644,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "orderBlock",
                 "product": "OB",
                 "objectName": "OB",
@@ -4655,7 +4655,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "orderBlock",
                 "product": "OB",
                 "objectName": "OB",
@@ -4666,7 +4666,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "orderBlock",
                 "product": "OB",
                 "objectName": "OB",
@@ -4677,7 +4677,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "orderBlock",
                 "product": "OB",
                 "objectName": "OB",
@@ -4688,7 +4688,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "orderBlock",
                 "product": "OB",
                 "objectName": "OB",
@@ -4699,7 +4699,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "orderBlock",
                 "product": "OB",
                 "objectName": "OB",
@@ -4710,7 +4710,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "orderBlock",
                 "product": "OB",
                 "objectName": "OB",
@@ -4721,7 +4721,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "orderBlock",
                 "product": "OB",
                 "objectName": "OB",
@@ -4732,7 +4732,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "orderBlock",
                 "product": "OB",
                 "objectName": "OB",
@@ -4743,7 +4743,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "fairValueGap",
                 "product": "FVG",
                 "objectName": "FVG",
@@ -4754,7 +4754,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "fairValueGap",
                 "product": "FVG",
                 "objectName": "FVG",
@@ -4765,7 +4765,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "fairValueGap",
                 "product": "FVG",
                 "objectName": "FVG",
@@ -4776,7 +4776,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "fairValueGap",
                 "product": "FVG",
                 "objectName": "FVG",
@@ -4787,7 +4787,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "fairValueGap",
                 "product": "FVG",
                 "objectName": "FVG",
@@ -4798,7 +4798,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "fairValueGap",
                 "product": "FVG",
                 "objectName": "FVG",
@@ -4809,7 +4809,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "fairValueGap",
                 "product": "FVG",
                 "objectName": "FVG",
@@ -4820,7 +4820,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "fairValueGap",
                 "product": "FVG",
                 "objectName": "FVG",
@@ -4831,7 +4831,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "fairValueGap",
                 "product": "FVG",
                 "objectName": "FVG",
@@ -4842,7 +4842,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "fairValueGap",
                 "product": "FVG",
                 "objectName": "FVG",
@@ -4853,7 +4853,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "fairValueGap",
                 "product": "FVG",
                 "objectName": "FVG",
@@ -4864,7 +4864,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "fairValueGap",
                 "product": "FVG",
                 "objectName": "FVG",
@@ -4875,7 +4875,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "fairValueGap",
                 "product": "FVG",
                 "objectName": "FVG",
@@ -4886,7 +4886,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "fairValueGap",
                 "product": "FVG",
                 "objectName": "FVG",
@@ -4897,7 +4897,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "fairValueGap",
                 "product": "FVG",
                 "objectName": "FVG",
@@ -4908,7 +4908,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "fairValueGap",
                 "product": "FVG",
                 "objectName": "FVG",
@@ -4919,7 +4919,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "BreakOfStructureBlock",
                 "product": "BOS",
                 "objectName": "BOS",
@@ -4930,7 +4930,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "BreakOfStructureBlock",
                 "product": "BOS",
                 "objectName": "BOS",
@@ -4941,7 +4941,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "BreakOfStructureBlock",
                 "product": "BOS",
                 "objectName": "BOS",
@@ -4952,7 +4952,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "BreakOfStructureBlock",
                 "product": "BOS",
                 "objectName": "BOS",
@@ -4963,7 +4963,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "BreakOfStructureBlock",
                 "product": "BOS",
                 "objectName": "BOS",
@@ -4974,7 +4974,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "BreakOfStructureBlock",
                 "product": "BOS",
                 "objectName": "BOS",
@@ -4985,7 +4985,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "BreakOfStructureBlock",
                 "product": "BOS",
                 "objectName": "BOS",
@@ -4996,7 +4996,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "BreakOfStructureBlock",
                 "product": "BOS",
                 "objectName": "BOS",
@@ -5007,7 +5007,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "BreakOfStructureBlock",
                 "product": "BOS",
                 "objectName": "BOS",
@@ -5018,7 +5018,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "BreakOfStructureBlock",
                 "product": "BOS",
                 "objectName": "BOS",
@@ -5029,7 +5029,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "BreakOfStructureBlock",
                 "product": "BOS",
                 "objectName": "BOS",
@@ -5040,7 +5040,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "BreakOfStructureBlock",
                 "product": "BOS",
                 "objectName": "BOS",
@@ -5051,7 +5051,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "BreakOfStructureBlock",
                 "product": "BOS",
                 "objectName": "BOS",
@@ -5062,7 +5062,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "BreakOfStructureBlock",
                 "product": "BOS",
                 "objectName": "BOS",
@@ -5073,7 +5073,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "BreakOfStructureBlock",
                 "product": "BOS",
                 "objectName": "BOS",
@@ -5084,7 +5084,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "BreakOfStructureBlock",
                 "product": "BOS",
                 "objectName": "BOS",
@@ -5095,7 +5095,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "HL-Pivot-Points",
                 "product": "HL-Pivot-Points",
                 "objectName": "HLpivot",
@@ -5106,7 +5106,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "HL-Pivot-Points",
                 "product": "HL-Pivot-Points",
                 "objectName": "HLpivot",
@@ -5117,7 +5117,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "HL-Pivot-Points",
                 "product": "HL-Pivot-Points",
                 "objectName": "HLpivot",
@@ -5128,7 +5128,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "HL-Pivot-Points",
                 "product": "HL-Pivot-Points",
                 "objectName": "HLpivot",
@@ -5139,7 +5139,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "HL-Pivot-Points",
                 "product": "HL-Pivot-Points",
                 "objectName": "HLpivot",
@@ -5150,7 +5150,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "HL-Pivot-Points",
                 "product": "HL-Pivot-Points",
                 "objectName": "HLpivot",
@@ -5161,7 +5161,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "HL-Pivot-Points",
                 "product": "HL-Pivot-Points",
                 "objectName": "HLpivot",
@@ -5172,7 +5172,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "HL-Pivot-Points",
                 "product": "HL-Pivot-Points",
                 "objectName": "HLpivot",
@@ -5183,7 +5183,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "rejectionBlock",
                 "product": "RJB",
                 "objectName": "RJB",
@@ -5194,7 +5194,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "rejectionBlock",
                 "product": "RJB",
                 "objectName": "RJB",
@@ -5205,7 +5205,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "rejectionBlock",
                 "product": "RJB",
                 "objectName": "RJB",
@@ -5216,7 +5216,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "rejectionBlock",
                 "product": "RJB",
                 "objectName": "RJB",
@@ -5227,7 +5227,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "rejectionBlock",
                 "product": "RJB",
                 "objectName": "RJB",
@@ -5238,7 +5238,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "rejectionBlock",
                 "product": "RJB",
                 "objectName": "RJB",
@@ -5249,7 +5249,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "rejectionBlock",
                 "product": "RJB",
                 "objectName": "RJB",
@@ -5260,7 +5260,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "rejectionBlock",
                 "product": "RJB",
                 "objectName": "RJB",
@@ -5271,7 +5271,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "rejectionBlock",
                 "product": "RJB",
                 "objectName": "RJB",
@@ -5282,7 +5282,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "rejectionBlock",
                 "product": "RJB",
                 "objectName": "RJB",
@@ -5293,7 +5293,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "rejectionBlock",
                 "product": "RJB",
                 "objectName": "RJB",
@@ -5304,7 +5304,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "rejectionBlock",
                 "product": "RJB",
                 "objectName": "RJB",
@@ -5315,7 +5315,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "rejectionBlock",
                 "product": "RJB",
                 "objectName": "RJB",
@@ -5326,7 +5326,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "rejectionBlock",
                 "product": "RJB",
                 "objectName": "RJB",
@@ -5337,7 +5337,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "rejectionBlock",
                 "product": "RJB",
                 "objectName": "RJB",
@@ -5348,7 +5348,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "rejectionBlock",
                 "product": "RJB",
                 "objectName": "RJB",
@@ -5359,7 +5359,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "PPDD",
                 "product": "PPDD",
                 "objectName": "PPDD",
@@ -5370,7 +5370,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "PPDD",
                 "product": "PPDD",
                 "objectName": "PPDD",
@@ -5381,7 +5381,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "PPDD",
                 "product": "PPDD",
                 "objectName": "PPDD",
@@ -5392,7 +5392,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "PPDD",
                 "product": "PPDD",
                 "objectName": "PPDD",
@@ -5403,7 +5403,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "PPDD",
                 "product": "PPDD",
                 "objectName": "PPDD",
@@ -5414,7 +5414,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "PPDD",
                 "product": "PPDD",
                 "objectName": "PPDD",
@@ -5425,7 +5425,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "highVolumeBar",
                 "product": "HVB",
                 "objectName": "HVB",
@@ -5436,7 +5436,7 @@
                 ]
             },
             {
-                "dataMine": "Smart Money",
+                "dataMine": "Smart_Money",
                 "indicator": "highVolumeBar",
                 "product": "HVB",
                 "objectName": "HVB",

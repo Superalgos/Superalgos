@@ -120,6 +120,7 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
             if (called.blockchainAccount !== thisObject.p2pNetworkNode.blockchainAccount) {
                 console.log((new Date()).toISOString(), '[WARN] Socket Network Clients -> stepOneResponse -> The Network Node called does not have the expected Blockchain Account.')
                 console.log((new Date()).toISOString(), '[WARN] Socket Network Clients -> stepOneResponse -> Not possible to connect to node belonging to ' + thisObject.p2pNetworkNode.userProfile.name)
+                console.log((new Date()).toISOString(), '[WARN] Socket Network Clients -> stepOneResponse -> This error happens when 1) The user profile that owns the Network Node you are connecting to, it is not up-to-date at your machine. Run an app.update to get the latest version of all User Profile plugins and try again. 2) The Network Node you are trying to connect to does not have in memory the latest version of the User Profile Plugin that owns that Network Node. The Network Node updates itself every 5 minutes, so you should wait at least that time and try again.')
                 reject()
                 return
             }

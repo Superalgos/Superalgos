@@ -156,7 +156,7 @@
         },
         {
             "style": "Text",
-            "text": "Above: a bullish divergence(leftmost, green), a red bearish divergence (centre, red), and a bullish (green) divergence.",
+            "text": "Above: a bullish divergence (leftmost, green), a red bearish divergence (centre, red), and a bullish (green) divergence.",
             "translations": [
                 {
                     "language": "RU",
@@ -168,7 +168,8 @@
                     "text": "Yukarıda: bir yükseliş sapma (en soldaki, yeşil), bir kırmızı düşüş sapma (ortada, kırmızı) ve bir yükseliş (yeşil) sapma.",
                     "updated": 1647716878439
                 }
-            ]
+            ],
+            "updated": 1652685465913
         },
         {
             "style": "Text",

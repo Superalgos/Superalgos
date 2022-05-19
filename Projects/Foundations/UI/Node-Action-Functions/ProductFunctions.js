@@ -190,7 +190,15 @@ function newFoundationsFunctionLibraryProductFunctions() {
                     function createApiProcessInstanceIfNotPresent(apiBot) {
                         for (let m = 0; m < productParentBot.processes.length; m++) {
                             let processDefinition = productParentBot.processes[m]
-                            UI.projects.visualScripting.utilities.nodeChildren.findOrCreateChildWithReference(apiBot, 'API Data Fetcher Process Instance', processDefinition)
+                            let processInstance = UI.projects.visualScripting.utilities.nodeChildren.findOrCreateChildWithReference(apiBot, 'API Data Fetcher Process Instance', processDefinition)
+                            console.log('this is the product parent bot', productParentBot)
+
+                            // Attach reference to API Map
+                            for (let i = 0; i < rootNodes.length; i++) {
+                                if (rootNodes[i].type === 'API Map' && rootNodes[i].name === productParentBot.payload.chainParent.name) {
+                                    UI.projects.visualScripting.nodeActionFunctions.attachDetach.referenceAttachNode(processInstance.payload.node.apiMapReference, rootNodes[i])
+                                }
+                            }
                         }
                     }
 

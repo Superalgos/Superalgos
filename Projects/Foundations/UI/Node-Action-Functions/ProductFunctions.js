@@ -105,6 +105,11 @@ function newFoundationsFunctionLibraryProductFunctions() {
                                             createIndicatorProcessInstanceIfNotPresent(indicatorBot)
                                             break
                                         }
+                                        case 'API Data Fetcher Bot': {
+                                            let apiFetcherBot = createApiBotIfNotPresent(task)
+                                            createApiProcessInstanceIfNotPresent(apiFetcherBot)
+                                            break
+                                        }
                                         case 'Study Bot': {
                                             let studyBot = createStudyBotIfNotPresent(task)
                                             createStudyProcessInstanceIfNotPresent(studyBot)
@@ -122,6 +127,12 @@ function newFoundationsFunctionLibraryProductFunctions() {
                                             let task = ceateTaskIfNotPresent(newTaskManager)
                                             let indicatorBot = createIndicatorBotIfNotPresent(task)        
                                             createIndicatorProcessInstanceIfNotPresent(indicatorBot)
+                                            break
+                                        }
+                                        case 'API Data Fetcher Bot': {
+                                            let task = ceateTaskIfNotPresent(newTaskManager)
+                                            let apiFetcherBot = createApiBotIfNotPresent(task)
+                                            createApiProcessInstanceIfNotPresent(apiFetcherBot)
                                             break
                                         }
                                         case 'Study Bot': {
@@ -162,6 +173,32 @@ function newFoundationsFunctionLibraryProductFunctions() {
                         for (let m = 0; m < productParentBot.processes.length; m++) {
                             let processDefinition = productParentBot.processes[m]
                             UI.projects.visualScripting.utilities.nodeChildren.findOrCreateChildWithReference(indicatorBot, 'Indicator Process Instance', processDefinition)
+                        }
+                    }
+                    
+                    function createApiBotIfNotPresent(task) {
+                        let botInstance = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(task, 'API Data Fetcher Bot Instance', undefined, false, true, false, false)
+                        if (botInstance === undefined) {
+                            let newBotInstance = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(task, 'API Data Fetcher Bot Instance')
+                            newBotInstance.name = productParentBot.name
+
+                            return newBotInstance
+                        }
+                        return botInstance
+                    }
+
+                    function createApiProcessInstanceIfNotPresent(apiBot) {
+                        for (let m = 0; m < productParentBot.processes.length; m++) {
+                            let processDefinition = productParentBot.processes[m]
+                            let processInstance = UI.projects.visualScripting.utilities.nodeChildren.findOrCreateChildWithReference(apiBot, 'API Data Fetcher Process Instance', processDefinition)
+                            console.log('this is the product parent bot', productParentBot)
+
+                            // Attach reference to API Map
+                            for (let i = 0; i < rootNodes.length; i++) {
+                                if (rootNodes[i].type === 'API Map' && rootNodes[i].name === productParentBot.payload.chainParent.name) {
+                                    UI.projects.visualScripting.nodeActionFunctions.attachDetach.referenceAttachNode(processInstance.payload.node.apiMapReference, rootNodes[i])
+                                }
+                            }
                         }
                     }
 

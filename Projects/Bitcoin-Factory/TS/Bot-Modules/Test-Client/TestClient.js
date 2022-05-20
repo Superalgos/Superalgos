@@ -314,7 +314,7 @@
 
             function onFinished(dataReceived) {
                 try {
-                if (data.includes('RL_SCENARIO_END')) {
+                if (dataReceived.includes('RL_SCENARIO_END')) {
                     //TODO: read from the evaluation_results.json file
                 } else {
                     

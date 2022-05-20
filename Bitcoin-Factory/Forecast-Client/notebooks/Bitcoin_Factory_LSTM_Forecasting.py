@@ -77,9 +77,7 @@ instructions_dataset = read_csv(
     '/tf/notebooks/instructions.csv', 
     header=0, 
     sep=' ', 
-    skipinitialspace=True,
-    error_bad_lines=False,
-    warn_bad_lines=True
+    skipinitialspace=True
 )
 
 instructions_dataset
@@ -105,37 +103,59 @@ parameters_dataset = read_csv(
     '/tf/notebooks/parameters.csv', 
     header=0, 
     sep=' ', 
-    skipinitialspace=True,
-    error_bad_lines=False,
-    warn_bad_lines=True
+    skipinitialspace=True
 )
 
 parameters_dataset
 
 
-# In[6]:
+# In[ ]:
 
 
-# number of indicator properties that are at the raw dataset. Each set of indicators properties might be at many assets or timeframes.
-NUMBER_OF_INDICATORS_PROPERTIES = int(parameters_dataset.values[2][1])
+# supporting both positional access and by name
 
-# number of timesteps in the secuence that we are going to use to feed the model.
-NUMBER_OF_LAG_TIMESTEPS = int(parameters_dataset.values[3][1])
+if set(['PARAMETER']).issubset(parameters_dataset.columns):
+        # number of indicator properties that are at the raw dataset. Each set of indicators properties might be at many assets or timeframes.
+    NUMBER_OF_INDICATORS_PROPERTIES = int(parameters_dataset.values[2][1])
 
-# number of assets included at the raw dataset.
-NUMBER_OF_ASSETS = int(parameters_dataset.values[4][1])
+    # number of timesteps in the secuence that we are going to use to feed the model.
+    NUMBER_OF_LAG_TIMESTEPS = int(parameters_dataset.values[3][1])
 
-# number of things we are going to predict.
-NUMBER_OF_LABELS = int(parameters_dataset.values[5][1])
+    # number of assets included at the raw dataset.
+    NUMBER_OF_ASSETS = int(parameters_dataset.values[4][1])
 
-# definition of how the raw dataset is going to be divided between a Traing Dataset and a Test Dataset.
-PERCENTAGE_OF_DATASET_FOR_TRAINING = int(parameters_dataset.values[6][1])
+    # number of things we are going to predict.
+    NUMBER_OF_LABELS = int(parameters_dataset.values[5][1])
 
-NUMBER_OF_FEATURES = int(parameters_dataset.values[7][1])
+    # definition of how the raw dataset is going to be divided between a Traing Dataset and a Test Dataset.
+    PERCENTAGE_OF_DATASET_FOR_TRAINING = int(parameters_dataset.values[6][1])
 
-# hyper-parameters
-NUMBER_OF_EPOCHS = int(parameters_dataset.values[8][1])
-NUMBER_OF_LSTM_NEURONS = int(parameters_dataset.values[9][1])
+    NUMBER_OF_FEATURES = int(parameters_dataset.values[7][1])
+
+    # hyper-parameters
+    NUMBER_OF_EPOCHS = int(parameters_dataset.values[8][1])
+    NUMBER_OF_LSTM_NEURONS = int(parameters_dataset.values[9][1])
+
+else:
+    
+    NUMBER_OF_INDICATORS_PROPERTIES = int(parameters_dataset['NUMBER_OF_INDICATORS_PROPERTIES'][0])
+    # number of timesteps in the secuence that we are going to use to feed the model.
+    NUMBER_OF_LAG_TIMESTEPS = int(parameters_dataset['NUMBER_OF_LAG_TIMESTEPS'][0])
+
+    # number of assets included at the raw dataset.
+    NUMBER_OF_ASSETS = int(parameters_dataset['NUMBER_OF_ASSETS'][0])
+
+    # number of things we are going to predict.
+    NUMBER_OF_LABELS = int(parameters_dataset['NUMBER_OF_LABELS'][0])
+
+    # definition of how the raw dataset is going to be divided between a Traing Dataset and a Test Dataset.
+    PERCENTAGE_OF_DATASET_FOR_TRAINING = int(parameters_dataset['PERCENTAGE_OF_DATASET_FOR_TRAINING'][0])
+
+    NUMBER_OF_FEATURES = int(parameters_dataset['NUMBER_OF_FEATURES'][0])
+
+    # hyper-parameters
+    NUMBER_OF_EPOCHS = int(parameters_dataset['NUMBER_OF_EPOCHS'][0])
+    NUMBER_OF_LSTM_NEURONS = int(parameters_dataset['NUMBER_OF_LSTM_NEURONS'][0])
 
 
 # ## Load the Time-Series Dataset
@@ -148,9 +168,7 @@ timeseries_dataset = read_csv(
     header=0, 
     index_col=0,    #The first colum is a timestamp that will be used to index all the data.
     sep=' ', 
-    skipinitialspace=True,
-    error_bad_lines=False,
-    warn_bad_lines=True
+    skipinitialspace=True
 )
 
 timeseries_dataset

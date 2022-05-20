@@ -131,6 +131,27 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
                     }
                 }
 
+                // parameters for RL, they are range paramsters
+                parameters.TIMESTEPS_TO_TRAIN = preParameters.TIMESTEPS_TO_TRAIN
+                parameters.OBSERVATION_WINDOW_SIZE = preParameters.OBSERVATION_WINDOW_SIZE
+                parameters.INITIAL_QUOTE_ASSET = preParameters.INITIAL_QUOTE_ASSET
+                parameters.INITIAL_BASE_ASSET = preParameters.INITIAL_BASE_ASSET
+                parameters.TRADING_FEE = preParameters.TRADING_FEE
+                parameters.ENV_NAME = preParameters.ENV_NAME
+                parameters.ENV_VERSION = preParameters.ENV_VERSION
+                parameters.REWARD_FUNCTION = preParameters.REWARD_FUNCTION
+                parameters.EXPLORE_ON_EVAL = preParameters.EXPLORE_ON_EVAL
+                //hyperparameters for RL
+                parameters.ALGORITHM = preParameters.ALGORITHM
+                parameters.ROLLOUT_FRAGMENT_LENGTH = preParameters.ROLLOUT_FRAGMENT_LENGTH
+                parameters.TRAIN_BATCH_SIZE = preParameters.TRAIN_BATCH_SIZE
+                parameters.SGD_MINIBATCH_SIZE = preParameters.SGD_MINIBATCH_SIZE
+                parameters.BATCH_MODE = preParameters.BATCH_MODE
+                parameters.FC_SIZE = preParameters.FC_SIZE
+                parameters.LEARNING_RATE = preParameters.LEARNING_RATE
+                parameters.GAMMA = preParameters.GAMMA
+                // end of parameters for RL
+
                 // number of timesteps in the secuence that we are going to use to feed the model.
                 parameters.NUMBER_OF_LAG_TIMESTEPS = preParameters.NUMBER_OF_LAG_TIMESTEPS
 
@@ -226,7 +247,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
         /*
         If we could not re assing an already assiged test case, then we will just find the next one.
         */
-        for (let i = 0; i < thisObject.testCasesArray.length; i++) {
+        for (let i = 0; i < thisObject.testCasesArray.length;  i++) {
             let testCase = thisObject.testCasesArray[i]
             if (testCase.status === 'Never Tested') {
                 return await assignTestCase(testCase)

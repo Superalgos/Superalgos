@@ -38,7 +38,7 @@
                         .then(onSuccess)
                         .catch(onError)
 
-                    async function onSuccess(testResult) {
+                    async function onSuccess(testResult) { 
                         let testResultsAccepted = false
 
                         while (testResultsAccepted === false) {
@@ -235,34 +235,59 @@
         async function promiseWork(resolve, reject) {
 
             const { spawn } = require('child_process');
-            const ls = spawn('docker', ['exec', 'Bitcoin-Factory-ML', 'python', '/tf/notebooks/' + nextTestCase.pythonScriptName]);
+            const ls = spawn('docker', ['exec', 'Bitcoin-Factory-ML', 'python', '-u', '/tf/notebooks/' + nextTestCase.pythonScriptName]);
             let dataReceived = ''
             ls.stdout.on('data', (data) => {
                 data = data.toString()
                 /*
                 Removing Carriedge Return from string.
+                Check if data contains rl output to switch reading from a file instead of parsing the output.
                 */
+                
+                if (data.includes('RL_SCENARIO_START') || data.includes('episodeRewardMean')) {
+                    // Sometimes the filecontent is broken until it's regenerated or it's not yet available, we can just ignore it and get the status from the next output.
+                    try {
+                        let fileContent = SA.nodeModules.fs.readFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Client/notebooks/training_results.json")
 
-                let percentage = 0
-                let statusText = 'Test Case: ' + nextTestCase.id + ' of ' + nextTestCase.totalCases
+                        if (fileContent !== undefined) {
+                            let percentage = 0
+                            let statusText = 'Test Case: ' + nextTestCase.id + ' of ' + nextTestCase.totalCases
+                            
+                                data = JSON.parse(fileContent)
 
-                if (data.substring(0, 5) === 'Epoch') {
-                    let regEx = new RegExp('Epoch (\\d+)/(\\d+)', 'gim')
-                    let match = regEx.exec(data)
-                    let heartbeatText = match[0]
+                                percentage = Math.round(data.timestepsExecuted / data.timestepsTotal * 100)
+                                let heartbeatText = 'Episode reward mean: ' + data.episodeRewardMean + ' | Episode reward max: ' + data.episodeRewardMax + ' | Episode reward min: ' + data.episodeRewardMin
+                                
+                                TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, heartbeatText, percentage, statusText)
 
-                    percentage = Math.round(match[1] / match[2] * 100)
+                                dataReceived = dataReceived + data.toString()
+                        }
+                    } catch(err) {}
 
-                    TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, heartbeatText, percentage, statusText)
+                } else {
+                    let percentage = 0
+                    let statusText = 'Test Case: ' + nextTestCase.id + ' of ' + nextTestCase.totalCases
+    
+                    if (data.substring(0, 5) === 'Epoch') { 
+                        let regEx = new RegExp('Epoch (\\d+)/(\\d+)', 'gim')
+                        let match = regEx.exec(data)
+                        let heartbeatText = match[0]
+    
+                        percentage = Math.round(match[1] / match[2] * 100)
+    
+                        TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, heartbeatText, percentage, statusText)
+                    }
+
+                    for (let i = 0; i < 1000; i++) {
+                        data = data.replace(/\n/, "")
+                    }
+                    dataReceived = dataReceived + data.toString()
                 }
 
                 if (BOT_CONFIG.logTrainingOutput === true) {
                     console.log(data)
                 }
-                for (let i = 0; i < 1000; i++) {
-                    data = data.replace(/\n/, "")
-                }
-                dataReceived = dataReceived + data.toString()
+                
             });
 
             ls.stderr.on('data', (data) => {
@@ -276,7 +301,7 @@
                 } else {
                     console.log((new Date()).toISOString(), '[ERROR] Unexpected error trying to execute a Python script inside the Docker container. ')
                     console.log((new Date()).toISOString(), '[ERROR] Check at a console if you can run this command: ')
-                    console.log((new Date()).toISOString(), '[ERROR] docker exec -it Bitcoin-Factory-ML python /tf/notebooks/Bitcoin_Factory_LSTM.py')
+                    console.log((new Date()).toISOString(), '[ERROR] docker exec -it Bitcoin-Factory-ML python /tf/notebooks/' + nextTestCase.pythonScriptName)
                     console.log((new Date()).toISOString(), '[ERROR] Once you can sucessfully run it at the console you might want to try to run this App again. ')
                     reject('Unexpected Error.')
                 }
@@ -289,28 +314,32 @@
 
             function onFinished(dataReceived) {
                 try {
+                if (data.includes('RL_SCENARIO_END')) {
+                    //TODO: read from the evaluation_results.json file
+                } else {
+                    
 
-                    processExecutionResult = JSON.parse(dataReceived)
-                    processExecutionResult.predictions = fixJSON(processExecutionResult.predictions)
-                    processExecutionResult.predictions = JSON.parse(processExecutionResult.predictions)
+                        processExecutionResult = JSON.parse(dataReceived)
+                        processExecutionResult.predictions = fixJSON(processExecutionResult.predictions)
+                        processExecutionResult.predictions = JSON.parse(processExecutionResult.predictions)
 
-                    console.log('Prediction RMSE Error: ' + processExecutionResult.errorRMSE)
-                    console.log('Predictions [candle.max, candle.min, candle.close]: ' + processExecutionResult.predictions)
+                        console.log('Prediction RMSE Error: ' + processExecutionResult.errorRMSE)
+                        console.log('Predictions [candle.max, candle.min, candle.close]: ' + processExecutionResult.predictions)
 
-                    let endingTimestamp = (new Date()).valueOf()
-                    processExecutionResult.enlapsedTime = (endingTimestamp - startingTimestamp) / 1000
-                    console.log('Enlapsed Time (HH:MM:SS): ' + (new Date(processExecutionResult.enlapsedTime * 1000).toISOString().substr(14, 5)) + ' ')
+                        let endingTimestamp = (new Date()).valueOf()
+                        processExecutionResult.enlapsedTime = (endingTimestamp - startingTimestamp) / 1000
+                        console.log('Enlapsed Time (HH:MM:SS): ' + (new Date(processExecutionResult.enlapsedTime * 1000).toISOString().substr(14, 5)) + ' ')
 
-                } catch (err) {
+                }
+            } catch (err) {
 
-                    if (processExecutionResult !== undefined && processExecutionResult.predictions !== undefined) {
-                        console.log('processExecutionResult.predictions:' + processExecutionResult.predictions)
-                    }
-
-                    console.log(err.stack)
-                    console.error(err)
+                if (processExecutionResult !== undefined && processExecutionResult.predictions !== undefined) {
+                    console.log('processExecutionResult.predictions:' + processExecutionResult.predictions)
                 }
 
+                console.log(err.stack)
+                console.error(err)
+            }
                 resolve(processExecutionResult)
             }
         }

@@ -3,7 +3,7 @@
 
 # ## Import needed deps
 
-# In[3]:
+# In[15]:
 
 
 import random
@@ -13,10 +13,10 @@ from sklearn import preprocessing
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-import os
 import time
 import ray
 import os
+import sys
 import math
 import json
 from ray import tune
@@ -27,51 +27,56 @@ from sklearn.preprocessing import MinMaxScaler
 from tabulate import tabulate
 
 
-# In[ ]:
-
-
-
-
-
 # ## Run tensorboard for data visualisation
 
-# In[ ]:
+# In[16]:
 
 
-get_ipython().run_line_magic('load_ext', 'tensorboard')
-get_ipython().run_line_magic('tensorboard', '--logdir "/tf/notebooks/ray_results/" --host 0.0.0.0')
+# %load_ext tensorboard
+# %tensorboard --logdir "/tf/notebooks/ray_results/" --host 0.0.0.0
 
 
 # ### Set of parameters received from Test Server
 
-# In[56]:
+# In[17]:
+
+
+parameters = pd.read_csv(
+    '/tf/notebooks/parameters.csv', 
+    sep=' ', 
+)
+
+
+parameters
+
+
+# In[18]:
 
 
 EXPERIMENT_NAME = "Trading_Signal_Predictor_RL_V01"
 PERCENTAGE_OF_DATASET_FOR_TRAINING = 80
-TRAINING_ITERATIONS = 10000
-OBSERVATION_WINDOW_SIZE = 24
-INITIAL_QUOTE_ASSET = 10000
-INITIAL_BASE_ASSET = 0
-TRADING_FEE = 0.0075
-ENV_VERSION = "v1"
-ENV_NAME = 'SimpleTrading'
-EXPLORE_ON_EVAL = False
-ALGORITHM = "PPO"
+TIMESTEPS_TO_TRAIN = parameters['TIMESTEPS_TO_TRAIN'][0]
+OBSERVATION_WINDOW_SIZE = parameters['OBSERVATION_WINDOW_SIZE'][0]
+INITIAL_QUOTE_ASSET = parameters['INITIAL_QUOTE_ASSET'][0]
+INITIAL_BASE_ASSET = parameters['INITIAL_BASE_ASSET'][0]
+TRADING_FEE = parameters['TRADING_FEE'][0]
+ENV_VERSION = parameters['ENV_VERSION'][0]
+ENV_NAME =  parameters['ENV_NAME'][0]
+EXPLORE_ON_EVAL = parameters['EXPLORE_ON_EVAL'][0]
+
 # Hyper-parameters, in case we want to really control them from the test server not from ray
+ALGORITHM = parameters['ALGORITHM'][0]
+ROLLOUT_FRAGMENT_LENGTH = parameters['ROLLOUT_FRAGMENT_LENGTH'][0]
+TRAIN_BATCH_SIZE = parameters['TRAIN_BATCH_SIZE'][0]
+SGD_MINIBATCH_SIZE = parameters['SGD_MINIBATCH_SIZE'][0]
+BATCH_MODE = parameters['BATCH_MODE'][0]
+#VF_CLIP_PARAM = parameters['VF_CLIP_PARAM'][0]
+FC_SIZE = [parameters['FC_SIZE'][0]]
+LEARNING_RATE = parameters['LEARNING_RATE'][0]
+GAMMA = parameters['GAMMA'][0]
 
-ROLLOUT_FRAGMENT_LENGTH = 200
-TRAIN_BATCH_SIZE = 2048
-SGD_MINIBATCH_SIZE = 64
-BATCH_MODE = "complete_episodes"
-VF_CLIP_PARAM = 100
-FC_SIZE = [[256, 256]]
-LEARNING_RATE = 0.00001
-MINIBATCH_SIZE = 64
-GAMMA = 0.95
 
-
-# In[43]:
+# In[19]:
 
 
 df = pd.read_csv(
@@ -83,7 +88,7 @@ df = pd.read_csv(
 )
 
 
-# In[44]:
+# In[20]:
 
 
 def prepare_data(df):
@@ -110,30 +115,28 @@ data
 
 # # Setup which data to use for training and which data to use for evaluation of RL Model
 
-# In[45]:
-
+# In[21]:
 
 
 def split_data(data):
-    X = data.copy()
-    y = X['close'].pct_change()
 
-    X_train_test, X_valid, y_train_test, y_valid =         train_test_split(data, data['close'].pct_change(), train_size=0.67, test_size=0.33, shuffle=False)
-
-    X_train, X_test, y_train, y_test =         train_test_split(X_train_test, y_train_test, train_size=0.50, test_size=0.50, shuffle=False)
-
-    return X_train, X_test, X_valid, y_train, y_test, y_valid
+    X_train_test, X_valid =         train_test_split(data, train_size=0.67, test_size=0.33, shuffle=False)
+    
+    X_train, X_test =         train_test_split(X_train_test, train_size=0.50, test_size=0.50, shuffle=False)
 
 
-# In[46]:
+    return X_train, X_test, X_valid
 
 
-X_train, X_test, X_valid, y_train, y_test, y_valid =     split_data(data)
+# In[22]:
+
+
+X_train, X_test, X_valid =     split_data(data)
 
 
 # ## Normalize the dataset subsets to make the model converge faster
 
-# In[47]:
+# In[23]:
 
 
 scaler_type = MinMaxScaler
@@ -201,7 +204,7 @@ def normalize_data(X_train, X_test, X_valid):
 train_test_scalers, train_test_valid_scalers, X_train_scaled, X_test_scaled, X_valid_scaled, X_valid_scaled_leaking =     normalize_data(X_train, X_test, X_valid)
 
 
-# In[48]:
+# In[24]:
 
 
 X_train_scaled.tail()
@@ -209,7 +212,7 @@ X_train_scaled.tail()
 
 # # Defining the environment
 
-# In[49]:
+# In[25]:
 
 
 class SimpleTradingEnv(gym.Env):
@@ -428,7 +431,7 @@ class SimpleTradingEnv(gym.Env):
             self._obs_env_history.append([self._net_worth, self._base_asset, self._quote_asset])
 
 
-# In[ ]:
+# In[26]:
 
 
 import random
@@ -673,7 +676,7 @@ class BTCAccumulationEnv(gym.Env):
 
 # ### Allocate optimal resources method
 
-# In[53]:
+# In[27]:
 
 
 def find_optimal_resource_allocation(available_cpu, available_gpu):
@@ -707,7 +710,7 @@ def find_optimal_resource_allocation(available_cpu, available_gpu):
 
 # ### Init ray and trainer config
 
-# In[57]:
+# In[28]:
 
 
 import os
@@ -775,7 +778,7 @@ tune.register_env(eval_env_key, lambda _: eval_env)
 ppo_trainer_config = {
         "env": training_env_key, # Ray will automatically create multiple environments and vectorize them if needed
         "horizon": len(X_train_scaled) - 30,
-        "log_level": "WARN",
+        "log_level": "INFO",
         "framework": "tf",
         #"eager_tracing": True,
         "ignore_worker_failures": True, 
@@ -815,28 +818,90 @@ ppo_trainer_config = {
     }
 
 
+# ### Custom reporter to get progress in Superalgos
+
+# In[36]:
+
+
+from ray.tune import ProgressReporter
+from typing import Dict, List, Optional, Union
+import json
+
+class CustomReporter(ProgressReporter):
+
+    def __init__(
+        self,
+        max_report_frequency: int = 10, # in seconds
+        location: str = "/tf/notebooks/",
+    ):
+        self._max_report_freqency = max_report_frequency
+        self._last_report_time = 0
+        self._location = location
+
+    def should_report(self, trials, done=False):
+        if time.time() - self._last_report_time > self._max_report_freqency:
+            self._last_report_time = time.time()
+            return True
+        return done
+
+    def report(self, trials, *sys_info):
+
+        trial_status_dict = {}
+        for trial in trials:
+            trial_status_dict['status'] = trial.status
+            trial_status_dict['name'] = trial.trial_id
+            trial_status_dict['episodeRewardMax'] = int(trial.last_result['episode_reward_max']) if trial.last_result.get("episode_reward_max") else 0
+            trial_status_dict['episodeRewardMean'] = int(trial.last_result['episode_reward_mean']) if trial.last_result.get("episode_reward_mean") else 0
+            trial_status_dict['episodeRewardMin'] = int(trial.last_result['episode_reward_min']) if trial.last_result.get("episode_reward_min") else 0
+            trial_status_dict['timestepsExecuted'] = int(trial.last_result['timesteps_total']) if trial.last_result.get("timesteps_total") else 0
+            trial_status_dict['timestepsTotal'] = int(TIMESTEPS_TO_TRAIN)
+
+        
+        sys.stdout.write(json.dumps(trial_status_dict))
+        sys.stdout.write('\n')
+
+        # Write the results to JSON file
+        with open(self._location + "training_results.json", "w+") as f:
+            json.dump(trial_status_dict, f)
+            f.close()
+    
+    def set_start_time(self, timestamp: Optional[float] = None):
+        if timestamp is not None:
+            self._start_time = time.time()
+        else:
+            self._start_time = timestamp
+
+custom_reporter = CustomReporter(max_report_frequency=10)
+
+
+# In[ ]:
+
+
+# Before starting printing a custom text to let Superalgos know that we are in a RL scenario
+sys.stdout.write('RL_SCENARIO')
+sys.stdout.write('\n')
+
+
 # ### Run ray tune 
 
-# In[59]:
+# In[32]:
 
-
-cli_reporter = CLIReporter(max_report_frequency=300) # write progress to logs each 5 minutes
 
 analysis = tune.run(
-    run_or_experiment="PPO",  
+    run_or_experiment=ALGORITHM,
     name=EXPERIMENT_NAME,
     metric='episode_reward_mean',
     mode='max',
     stop={
         # An iteration is equal with one SGD round which in our case is equal to train_batch_size. If after X iterations we still don't have a good result, we stop the trial
-        "training_iteration": TRAINING_ITERATIONS,       
+        "timesteps_total": TIMESTEPS_TO_TRAIN      
     },
     config=ppo_trainer_config,
     num_samples=1,  # Have one sample for each hyperparameter combination. You can have more to average out randomness.
     keep_checkpoints_num=30,  # Keep the last X checkpoints
     checkpoint_freq=5,  # Checkpoint every X iterations (save the model)
     local_dir="/tf/notebooks/ray_results/",  # Local directory to store checkpoints and results, we are using tmp folder until we move the notebook to a docker instance and we can use the same directory across all instances, no matter the underlying OS
-    progress_reporter=cli_reporter,
+    progress_reporter=custom_reporter,
     fail_fast="raise",
     resume=False # Resume training from the last checkpoint if any exists
 )
@@ -844,85 +909,71 @@ analysis = tune.run(
 
 # ### Evaluate trained model restoring it from checkpoint
 # 
-# #### We should do it with both exploration True and False
+# #### Store the results in a file to be picked up by Superalgos
 
-# In[60]:
+# In[33]:
 
 
 best_trial = analysis.get_best_trial(metric="episode_reward_mean", mode="max", scope="all") 
 best_checkpoint = analysis.get_best_checkpoint(best_trial, metric="episode_reward_mean")
 
 
-agent = ppo.PPOTrainer(config=best_trial.config)
+agent = ppo.PPOTrainer(config=ppo_trainer_config)
 agent.restore(best_checkpoint)
 
-results_table = []
-json_dict_list = []
+json_dict = {}
+net_worths = []
+q_assets = []
+b_assets = []
+net_worths_at_end = []
+q_assets_at_end = []
+b_assets_at_end = []
+episodes_to_run = 1
 
+for i in range(episodes_to_run):
+    episode_reward = 0
+    done = False
+    obs = eval_env.reset() # we are using the evaluation environment for evaluation
+    last_info = None
+    while not done:
+        action = agent.compute_single_action(obs, explore=True) # stochastic evaluation
+        obs, reward, done, info = eval_env.step(action)
+        net_worths.append(info['net_worth']) # Add all historical net worths to a list to print statistics at the end of the episode
+        q_assets.append(info['quote_asset']) # Add all historical quote assets to a list to print statistics at the end of the episode
+        b_assets.append(info['base_asset']) # Add all historical base assets to a list to print statistics at the end of the episode
+        episode_reward += reward
+        last_info = info
 
-exploration_types = [True, False] # True for stochastic, False for deterministic
-envs = [eval_env, training_env]
+    net_worths_at_end.append(last_info['net_worth']) # Add all historical net worths to a list to print statistics at the end of the episode
+    q_assets_at_end.append(last_info['quote_asset']) # Add all historical quote assets to a list to print statistics at the end of the episode
+    b_assets_at_end.append(last_info['base_asset']) # Add all historical base assets to a list to print statistics at the end of the episode
 
-for iter, env in enumerate(envs):
-    for exploration_type in exploration_types:
-        episodes_to_run = 5 if exploration_type else 1 # 5 episodes for stochastic exploration to average out randomness, 1 for deterministic
-        
-        for i in range(episodes_to_run):
-            episode_reward = 0
-            done = False
-            obs = eval_env.reset() # we are using the evaluation environment for evaluation
-            net_worths = []
-            while not done:
-                action = agent.compute_single_action(obs, explore=exploration_type) # stochastic evaluation, it's not deterministic and seems to be the best for PPO training
-                obs, reward, done, info = eval_env.step(action)
+json_dict['meanNetWorth'] = np.mean(net_worths)
+json_dict['stdNetWorth'] = np.std(net_worths)
+json_dict['minNetWorth'] = np.min(net_worths)
+json_dict['maxNetWorth'] = np.max(net_worths)
+json_dict['stdQuoteAsset'] = np.std(q_assets)
+json_dict['minQuoteAsset'] = np.min(q_assets)
+json_dict['maxQuoteAsset'] = np.max(q_assets)
+json_dict['stdBaseAsset'] = np.std(b_assets)
+json_dict['minBaseAsset'] = np.min(b_assets)
+json_dict['maxBaseAsset'] = np.max(b_assets)
+json_dict['meanNetWorthAtEnd'] = np.mean(net_worths_at_end)
+json_dict['stdNetWorthAtEnd'] = np.std(net_worths_at_end)
+json_dict['minNetWorthAtEnd'] = np.min(net_worths_at_end)
+json_dict['maxNetWorthAtEnd'] = np.max(net_worths_at_end)
 
-                net_worths.append(info['net_worth']) # Add all historical net worths to a list to print some statistics at the end of the episode
-                episode_reward += reward
-
-            results_table.append([i, "evaluation" if iter == 0 else "training" ,exploration_type, episode_reward, (episode_reward/len(net_worths)),net_worths[-1], np.mean(net_worths), 
-            np.std(net_worths), np.max(net_worths), np.min(net_worths)])
-
-            tba = {"environments" : 
-                {
-                    "name": "evaluation" if iter == 0 else "training",
-                    "explorationType": "stochastic" if exploration_type else "deterministic",
-                    "episodes": [
-                        {
-                            "episode": i,
-                            "reward": episode_reward,
-                            "accumulatedEpisodeReward": episode_reward,
-                            "episodeRewardMean": episode_reward/len(net_worths),
-                            "netWorthEndOfEp": net_worths[-1],
-                            "netWorthMean": np.mean(net_worths),
-                            "netWorthStd": np.std(net_worths),
-                            "netWorthMax": np.max(net_worths),
-                            "netWorthMin": np.min(net_worths)
-                        }
-                    ]
-            }}
-
-            json_dict_list.append(tba)
-
-
-
-headers=[
-    "Episode",
-    "Env",
-    "Stochastic",
-    "Acc. ep. reward end of the eval ep",
-    "Avg. ep. reward", 
-    "Net worth end of the eval ep.",
-    "Avg. net worth over the eval ep.",
-    "Std of net worth over the eval. ep.",
-    "Max net worth",
-    "Min net worth",
-
-]
-
-
-print(tabulate(results_table, headers))
 
 # Write the results to JSON file
-with open("results.json", "w") as f:
-    json.dump(json_dict_list, f)
+with open("evaluation_results.json", "w+") as f:
+    json.dump(json_dict, f)
+
+
+# In[35]:
+
+
+# Cleanup
+os.remove('/tf/notebooks/training_results.json')
+os.remove('/tf/notebooks/evaluation_results.json')
+ray.shutdown()
 

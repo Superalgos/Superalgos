@@ -18,7 +18,7 @@
 
 # ## Libraries Used
 
-# In[2]:
+# In[1]:
 
 
 
@@ -38,7 +38,7 @@ from keras.layers import LSTM
 
 # ## Functions Used
 
-# In[17]:
+# In[2]:
 
 
 # convert series to supervised learning
@@ -70,7 +70,7 @@ def series_to_supervised(data, n_in=1, n_out=1, dropnan=True):
 # ## Load the Parameters Dataset
 # 
 
-# In[6]:
+# In[3]:
 
 
 parameters_dataset = read_csv(
@@ -81,7 +81,7 @@ parameters_dataset = read_csv(
 parameters_dataset
 
 
-# In[8]:
+# In[4]:
 
 
 # number of indicator properties that are at the raw dataset. Each set of indicators properties might be at many assets or timeframes.
@@ -108,7 +108,7 @@ NUMBER_OF_LSTM_NEURONS = int(parameters_dataset['NUMBER_OF_LSTM_NEURONS'][0])
 
 # ## Load the Time-Series Dataset
 
-# In[9]:
+# In[5]:
 
 
 timeseries_dataset = read_csv(
@@ -126,27 +126,27 @@ timeseries_dataset
 
 # The reframing process shift each record to the left of the shifting window, producing that the last record of data is ignored at the last prediction. To fix this we will duplicate the last record so that the last prediction belongs to the the last piece of information available.
 
-# In[10]:
+# In[6]:
 
 
 values = timeseries_dataset.values
 
 
-# In[11]:
+# In[7]:
 
 
 last_record = values[-1:,:]
 last_record
 
 
-# In[12]:
+# In[8]:
 
 
 all_records = concatenate((values, last_record), axis=0)
 all_records
 
 
-# In[13]:
+# In[9]:
 
 
 # ensure all data is float
@@ -157,7 +157,7 @@ values = all_records.astype('float32')
 
 # We plot our raw data just to be sure with a glimpse that it is alright.
 
-# In[14]:
+# In[10]:
 
 
 # specify columns to plot
@@ -177,7 +177,7 @@ pyplot.show()
 
 # Normalizing or removing the scale, is a standar prodcedure of any machine learning workflow. 
 
-# In[15]:
+# In[11]:
 
 
 # normalize features
@@ -189,14 +189,14 @@ scaled = scaler.fit_transform(values)
 
 # Each Raw record needs to be expanded with the previous records in order to be suitable for beeing fed into a LSTM model. Some fields of the record at time = 0 will be used as labels and the ones at time < 0 as features.
 
-# In[18]:
+# In[12]:
 
 
 # frame as supervised learning
 reframed = series_to_supervised(scaled, NUMBER_OF_LAG_TIMESTEPS, 1)
 
 
-# In[19]:
+# In[13]:
 
 
 reframed
@@ -206,7 +206,7 @@ reframed
 
 # The first part of the dataset will be used to train the model. The last part for calculating the prediction error. Later we will generate the predictions for the test dataset and measure how accurate they were.
 
-# In[20]:
+# In[14]:
 
 
 # get values from reframed dataset
@@ -216,7 +216,7 @@ records_for_training = int(record_count * PERCENTAGE_OF_DATASET_FOR_TRAINING / 1
 records_for_training
 
 
-# In[21]:
+# In[15]:
 
 
 # split into train and test sets
@@ -224,13 +224,13 @@ train = values[:records_for_training, :]
 test = values[records_for_training:, :]
 
 
-# In[22]:
+# In[16]:
 
 
 train.shape
 
 
-# In[23]:
+# In[17]:
 
 
 test.shape
@@ -241,7 +241,7 @@ test.shape
 # Here we will split both the Train and the Test datasets into features and labels. 
 # Features will be all the information where time < 0. For the labels, we will pick only the first 2 fields of each set of indicator properties, which we expect them to contain the Candle Max and Candle Min for each Asset.
 
-# In[24]:
+# In[18]:
 
 
 # split into input and outputs
@@ -254,13 +254,13 @@ test_X = test[:, :n_obs]
 test_y = test[:, -NUMBER_OF_FEATURES:-(NUMBER_OF_FEATURES-NUMBER_OF_LABELS)]
 
 
-# In[25]:
+# In[19]:
 
 
 train_X
 
 
-# In[26]:
+# In[20]:
 
 
 train_y
@@ -270,7 +270,7 @@ train_y
 
 # This type of Network Architecture requires the features to be in a 3D shape.
 
-# In[27]:
+# In[21]:
 
 
 # reshape input to be 3D [samples, timesteps, features]
@@ -282,7 +282,7 @@ test_X = test_X.reshape((test_X.shape[0], NUMBER_OF_LAG_TIMESTEPS, NUMBER_OF_FEA
 
 # Here we are using an LSTM architecture for our neural network. This is the type of architecture usually used for problems involving time-series.
 
-# In[28]:
+# In[22]:
 
 
 # design network
@@ -296,7 +296,7 @@ model.compile(loss='mae', optimizer='adam')
 
 # We print this output so that the caller program can get the results in a JSON object.
 
-# In[29]:
+# In[23]:
 
 
 print('{')
@@ -430,13 +430,13 @@ diff
 
 # Here we are returning the predictions to the caller program. Only the last row of predictions are needed because they belong to the latest closed candle. 
 
-# In[35]:
+# In[34]:
 
 
 print(',"predictions": "', inv_yhat[-1], '"' )
 
 
-# In[38]:
+# In[35]:
 
 
 print(',"errorRMSE": %.3f' % rmse)

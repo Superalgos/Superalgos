@@ -132,7 +132,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
                 }
 
                 // parameters for RL, they are range paramsters
-                parameters.TRAINING_ITERATIONS = preParameters.TRAINING_ITERATIONS
+                parameters.TIMESTEPS_TO_TRAIN = preParameters.TIMESTEPS_TO_TRAIN
                 parameters.OBSERVATION_WINDOW_SIZE = preParameters.OBSERVATION_WINDOW_SIZE
                 parameters.INITIAL_QUOTE_ASSET = preParameters.INITIAL_QUOTE_ASSET
                 parameters.INITIAL_BASE_ASSET = preParameters.INITIAL_BASE_ASSET
@@ -222,7 +222,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
                 if (assignedTimestamp === undefined) { assignedTimestamp = 0 }
                 let now = (new Date()).valueOf()
                 let diff = now - assignedTimestamp
-                if (diff < SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS * 10) {
+                if (diff < SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS * 0.1) {
                     console.log((new Date()).toISOString(), 'Test Case already delivered in the last 10 minutes. Did not deliver again to ' + currentClientInstance)
                     return 'NO CASES FOR YOU'
                 } else {
@@ -247,7 +247,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
         /*
         If we could not re assing an already assiged test case, then we will just find the next one.
         */
-        for (let i = 0; i < thisObject.testCasesArray.length; i++) {
+        for (let i = 0; i < thisObject.testCasesArray.length;  i++) {
             let testCase = thisObject.testCasesArray[i]
             if (testCase.status === 'Never Tested') {
                 return await assignTestCase(testCase)

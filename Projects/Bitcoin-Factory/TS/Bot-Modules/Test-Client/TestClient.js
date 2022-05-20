@@ -217,7 +217,7 @@
     }
 
     async function buildModel(nextTestCase) {
-        if (nextTestCase.pythonScriptName === undefined) { nextTestCase.pythonScriptName = "Bitcoin_Factory_RL.py" }
+        if (nextTestCase.pythonScriptName === undefined) { nextTestCase.pythonScriptName = "Bitcoin_Factory_LSTM.py" }
         console.log('')
         console.log('-------------------------------------------------------- Test Case # ' + nextTestCase.id + ' / ' + nextTestCase.totalCases + ' --------------------------------------------------------')
         console.log('')

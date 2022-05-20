@@ -75,7 +75,6 @@ def series_to_supervised(data, n_in=1, n_out=1, dropnan=True):
 
 parameters_dataset = read_csv(
     '/tf/notebooks/parameters.csv', 
-    header=0, 
     sep=' ', 
     skipinitialspace=True,
     error_bad_lines=False,
@@ -89,25 +88,25 @@ parameters_dataset
 
 
 # number of indicator properties that are at the raw dataset. Each set of indicators properties might be at many assets or timeframes.
-NUMBER_OF_INDICATORS_PROPERTIES = int(parameters_dataset.values[2][1])
+NUMBER_OF_INDICATORS_PROPERTIES = int(parameters_dataset['NUMBER_OF_INDICATORS_PROPERTIES'][0])
 
 # number of timesteps in the secuence that we are going to use to feed the model.
-NUMBER_OF_LAG_TIMESTEPS = int(parameters_dataset.values[3][1])
+NUMBER_OF_LAG_TIMESTEPS = int(parameters_dataset['NUMBER_OF_LAG_TIMESTEPS'][0])
 
 # number of assets included at the raw dataset.
-NUMBER_OF_ASSETS = int(parameters_dataset.values[4][1])
+NUMBER_OF_ASSETS = int(parameters_dataset['NUMBER_OF_ASSETS'][0])
 
 # number of things we are going to predict.
-NUMBER_OF_LABELS = int(parameters_dataset.values[5][1])
+NUMBER_OF_LABELS = int(parameters_dataset['NUMBER_OF_LABELS'][0])
 
 # definition of how the raw dataset is going to be divided between a Traing Dataset and a Test Dataset.
-PERCENTAGE_OF_DATASET_FOR_TRAINING = int(parameters_dataset.values[6][1])
+PERCENTAGE_OF_DATASET_FOR_TRAINING = int(parameters_dataset['PERCENTAGE_OF_DATASET_FOR_TRAINING'][0])
 
-NUMBER_OF_FEATURES = int(parameters_dataset.values[7][1])
+NUMBER_OF_FEATURES = int(parameters_dataset['NUMBER_OF_FEATURES'][0])
 
 # hyper-parameters
-NUMBER_OF_EPOCHS = int(parameters_dataset.values[8][1])
-NUMBER_OF_LSTM_NEURONS = int(parameters_dataset.values[9][1])
+NUMBER_OF_EPOCHS = int(parameters_dataset['NUMBER_OF_EPOCHS'][0])
+NUMBER_OF_LSTM_NEURONS = int(parameters_dataset['NUMBER_OF_LSTM_NEURONS'][0])
 
 
 # ## Load the Time-Series Dataset
@@ -436,13 +435,13 @@ diff
 
 # Here we are returning the predictions to the caller program. Only the last row of predictions are needed because they belong to the latest closed candle. 
 
-# In[35]:
+# In[34]:
 
 
 print(',"predictions": "', inv_yhat[-1], '"' )
 
 
-# In[38]:
+# In[35]:
 
 
 print(',"errorRMSE": %.3f' % rmse)

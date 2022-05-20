@@ -36,7 +36,7 @@
         },
         {
             "style": "Important",
-            "text": "All references originating at the same Record Definition must be to API Data Field s living at the same API Endpoint.",
+            "text": "All references originating at the same Record Definition must be to API Data Fields living at the same API Endpoint.",
             "translations": [
                 {
                     "language": "RU",
@@ -48,7 +48,8 @@
                     "text": "Önemli: Aynı Kayıt Tanımından ( Record Definition ) kaynaklanan tüm referanslar, aynı API Uç Noktasında ( API Endpoint ) yaşayan API Veri Alanına olmalıdır.",
                     "updated": 1652022619980
                 }
-            ]
+            ],
+            "updated": 1652772276957
         },
         {
             "style": "Title",

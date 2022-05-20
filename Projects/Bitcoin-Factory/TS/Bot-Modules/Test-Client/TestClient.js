@@ -250,13 +250,13 @@
                         let fileContent = SA.nodeModules.fs.readFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Client/notebooks/training_results.json")
 
                         if (fileContent !== undefined) {
-                            percentage = 0
+                            let percentage = 0
                             let statusText = 'Test Case: ' + nextTestCase.id + ' of ' + nextTestCase.totalCases
                             
                                 data = JSON.parse(fileContent)
 
                                 percentage = Math.round(data.timestepsExecuted / data.timestepsTotal * 100)
-                                heartbeatText = 'Episode reward mean: ' + data.episodeRewardMean + ' | Episode reward max: ' + data.episodeRewardMax + ' | Episode reward min: ' + data.episodeRewardMin
+                                let heartbeatText = 'Episode reward mean: ' + data.episodeRewardMean + ' | Episode reward max: ' + data.episodeRewardMax + ' | Episode reward min: ' + data.episodeRewardMin
                                 
                                 TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, heartbeatText, percentage, statusText)
 

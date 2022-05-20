@@ -22,6 +22,8 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
     let called = {}
     let onMessageFunctionsMap = new Map()
 
+    const TEST_SERVER_VERSION = 1
+
     return thisObject
 
     function finalize() {
@@ -59,7 +61,7 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
         web3 = new SA.nodeModules.web3()
 
         thisObject.id = SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId()
-
+        console.log((new Date()).toISOString(), 'Running Test Server v.' + TEST_SERVER_VERSION)
     }
 
     function handshakeProcedure(resolve, reject) {

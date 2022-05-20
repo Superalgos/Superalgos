@@ -13,6 +13,7 @@ exports.newNetworkApp = function newNetworkApp() {
     }
 
     NT.networkApp = thisObject
+    const NETWORK_NODE_VERSION = 1
 
     return thisObject
 
@@ -22,6 +23,7 @@ exports.newNetworkApp = function newNetworkApp() {
         await setupNetworkServices()
         setupNetworkInterfaces()
 
+        console.log('Network Node Version ......................................................... ' + NETWORK_NODE_VERSION)
         console.log('Network Type ................................................................. ' + thisObject.p2pNetworkNode.node.p2pNetworkReference.referenceParent.type)
         console.log('Network Code Name ............................................................ ' + thisObject.p2pNetworkNode.node.p2pNetworkReference.referenceParent.config.codeName)
         console.log('Network App .................................................................. Running')

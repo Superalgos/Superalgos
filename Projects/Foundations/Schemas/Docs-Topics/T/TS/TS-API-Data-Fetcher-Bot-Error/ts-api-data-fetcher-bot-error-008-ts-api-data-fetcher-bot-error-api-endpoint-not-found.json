@@ -16,8 +16,8 @@
     "paragraphs": [
         {
             "style": "Error",
-            "text": "More Than Two Endpoints Detected",
-            "updated": 1621860374194,
+            "text": "API Endpoint Not Found",
+            "updated": 1652782932888,
             "translations": [
                 {
                     "language": "TR",

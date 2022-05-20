@@ -24,8 +24,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "An API Data Fetcher Bot is similar to a Sensor Bot, except that a Sensor Bot requires a dev users to code an algorithm to extract the data, while an API Data Fetcher Bot can do it without coding using an API Map.",
-            "updated": 1622895168429,
+            "text": "An API Data Fetcher Bot is similar to a Sensor Bot, except that a Sensor Bot requires a developer to code an algorithm to extract the data, while an API Data Fetcher Bot can retrieve information without coding by using an API Map.",
+            "updated": 1652829674713,
             "translations": [
                 {
                     "language": "RU",

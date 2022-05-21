@@ -107,30 +107,24 @@ exports.newDataBridge = function newDataBridge(processIndex) {
 
         return forcastedCandle
 
-        function createParametersFile() {
-            /*
-            We will prevent creating a parameters file more than once.
-            */
-            if (testCase.filesTimestaps !== undefined && testCase.filesTimestaps.parameters !== undefined) {
-                return
+        /*
+        Function that creates the parameters file as CSV using the parameters object keys as column headers for easier accessing later in python.
+        */
+       function createParametersFile() {
+            let parametersFile = ''
+            let keys = Object.keys(testCase.parameters)
+            for (let q = 0; q < keys.length; q++) {
+                let key = keys[q]
+                parametersFile += key + ' '
             }
-            /*
-            Prepering the Parameters File
-            */
-            let parametersFile = ""
-
-            parametersFile = parametersFile +
-                /* Headers */
-                "PARAMETER" + "   " + "VALUE" + "\r\n"
-            /* Values */
-            let parameters = Object.keys(testCase.parameters)
-            for (let i = 0; i < parameters.length; i++) {
-                let parameter = parameters[i]
-                parametersFile = parametersFile + parameter + "   " + testCase.parameters[parameter] + "\r\n"
+            parametersFile = parametersFile.slice(0, -1)
+            parametersFile += '\n'
+            for (let q = 0; q < keys.length; q++) {
+                let key = keys[q]
+                parametersFile += testCase.parameters[key] + ' '
             }
-
+            parametersFile = parametersFile.slice(0, -1)
             SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/OutputData/TestData/" + testCase.parametersFileName + ".CSV", parametersFile)
-
             if (testCase.filesTimestaps === undefined) {
                 testCase.filesTimestaps = {}
             }

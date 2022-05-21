@@ -43,3 +43,6 @@ parameters.CSV
 time-series.CSV
 instructions.CSV
 models
+Bitcoin-Factory/Test-Client/notebooks/parameters.csv
+Bitcoin-Factory/Test-Client/notebooks/time-series.csv
+Bitcoin-Factory/Test-Client/notebooks/ray_results/

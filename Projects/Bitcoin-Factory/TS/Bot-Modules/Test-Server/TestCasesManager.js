@@ -26,7 +26,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
         await loadTestCasesFile()
 
         async function loadTestCasesFile() {
-            let fileContent = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.loadFile(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/StateData/TestCases/Test-Cases-Array-" + networkCodeName + ".json")
+            let fileContent = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.loadFile(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/" + TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName + "/StateData/TestCases/Test-Cases-Array-" + networkCodeName + ".json")
             if (fileContent === undefined) {
                 thisObject.testCasesArray = []
                 thisObject.testCasesMap = new Map()
@@ -411,7 +411,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
                 }
             }
 
-            SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/OutputData/TestReports/" + REPORT_NAME + ".CSV", testReportFile)
+            SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/" + TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName + "/OutputData/TestReports/" + REPORT_NAME + ".CSV", testReportFile)
         }
     }
 
@@ -433,6 +433,6 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
         }
 
         let fileContent = JSON.stringify(thisObject.testCasesArray, undefined, 4)
-        SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/StateData/TestCases/Test-Cases-Array-" + networkCodeName + ".json", fileContent)
+        SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/" + TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName + "/StateData/TestCases/Test-Cases-Array-" + networkCodeName + ".json", fileContent)
     }
 }

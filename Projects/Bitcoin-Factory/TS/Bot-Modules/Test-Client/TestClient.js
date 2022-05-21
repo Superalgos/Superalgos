@@ -1,7 +1,7 @@
 ﻿exports.newBitcoinFactoryBotModulesTestClient = function (processIndex) {
 
     const MODULE_NAME = "Test-Client"
-    const TEST_CLIENT_VERSION = 6
+    const TEST_CLIENT_VERSION = 7
 
     let thisObject = {
         initialize: initialize,
@@ -38,13 +38,14 @@
                         .then(onSuccess)
                         .catch(onError)
 
-                    async function onSuccess(testResult) { 
+                    async function onSuccess(testResult) {
                         let testResultsAccepted = false
 
                         while (testResultsAccepted === false) {
                             if (testResult !== undefined) {
                                 testResult.id = nextTestCase.id
-                                await setTestCaseResults(testResult)
+
+                                await setTestCaseResults(testResult, nextTestCase.testServer)
                                     .then(onSuccess)
                                     .catch(onError)
 
@@ -126,7 +127,7 @@
             let queryMessage = {
                 messageId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                 sender: 'Test-Client',
-                clientInstanceName: TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.clientInstanceName,
+                instance: TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.clientInstanceName,
                 recipient: 'Test Client Manager',
                 message: message,
                 testClientVersion: TEST_CLIENT_VERSION
@@ -168,7 +169,10 @@
                     reject(response.data.serverData.response)
                     return
                 }
-
+                nextTestCase.testServer = {
+                    userProfile: response.data.serverData.userProfile,
+                    instance: response.data.serverData.instance
+                }
                 resolve(nextTestCase)
             }
             async function onError(err) {
@@ -177,7 +181,7 @@
         }
     }
 
-    async function setTestCaseResults(testResult) {
+    async function setTestCaseResults(testResult, testServer) {
         return new Promise(promiseWork)
 
         async function promiseWork(resolve, reject) {
@@ -192,8 +196,9 @@
             let queryMessage = {
                 messageId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                 sender: 'Test-Client',
-                clientInstanceName: TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.clientInstanceName,
+                instance: TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.clientInstanceName,
                 recipient: 'Test Client Manager',
+                testServer: testServer,
                 message: message,
                 testClientVersion: TEST_CLIENT_VERSION
             }
@@ -217,17 +222,36 @@
     }
 
     async function buildModel(nextTestCase) {
+        /*
+        Set default script name.
+        */
         if (nextTestCase.pythonScriptName === undefined) { nextTestCase.pythonScriptName = "Bitcoin_Factory_LSTM.py" }
+        /*
+        Remove from Parameters the properties that are in OFF
+        */
+        let relevantParameters = {}
+        for (const property in nextTestCase.parameters) {
+            if (nextTestCase.parameters[property] !== 'OFF') {
+                relevantParameters[property] = nextTestCase.parameters[property]
+            }
+        }
+        /*
+        Show something nice to the user.
+        */
         console.log('')
         console.log('-------------------------------------------------------- Test Case # ' + nextTestCase.id + ' / ' + nextTestCase.totalCases + ' --------------------------------------------------------')
         console.log('')
-        console.log((new Date()).toISOString(), 'Starting processing this Case')
+        console.log('Test Server: ' + nextTestCase.testServer.userProfile + ' / ' + nextTestCase.testServer.instance)
         console.log('')
         console.log('Parameters Received for this Test:')
-        console.table(nextTestCase.parameters)
+        console.table(relevantParameters)
         console.log('Ready to run this script inside the Docker Container: ' + nextTestCase.pythonScriptName)
         console.log('')
-
+        console.log((new Date()).toISOString(), 'Starting to process this Case')
+        console.log('')
+        /*
+        Return Promise
+        */
         let processExecutionResult
         let startingTimestamp = (new Date()).valueOf()
         return new Promise(promiseWork)
@@ -243,7 +267,7 @@
                 Removing Carriedge Return from string.
                 Check if data contains rl output to switch reading from a file instead of parsing the output.
                 */
-                
+
                 if (data.includes('RL_SCENARIO_START') || data.includes('episodeRewardMean')) {
                     // Sometimes the filecontent is broken until it's regenerated or it's not yet available, we can just ignore it and get the status from the next output.
                     try {
@@ -252,29 +276,29 @@
                         if (fileContent !== undefined) {
                             let percentage = 0
                             let statusText = 'Test Case: ' + nextTestCase.id + ' of ' + nextTestCase.totalCases
-                            
-                                data = JSON.parse(fileContent)
 
-                                percentage = Math.round(data.timestepsExecuted / data.timestepsTotal * 100)
-                                let heartbeatText = 'Episode reward mean: ' + data.episodeRewardMean + ' | Episode reward max: ' + data.episodeRewardMax + ' | Episode reward min: ' + data.episodeRewardMin
-                                
-                                TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, heartbeatText, percentage, statusText)
+                            data = JSON.parse(fileContent)
 
-                                dataReceived = dataReceived + data.toString()
+                            percentage = Math.round(data.timestepsExecuted / data.timestepsTotal * 100)
+                            let heartbeatText = 'Episode reward mean: ' + data.episodeRewardMean + ' | Episode reward max: ' + data.episodeRewardMax + ' | Episode reward min: ' + data.episodeRewardMin
+
+                            TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, heartbeatText, percentage, statusText)
+
+                            dataReceived = dataReceived + data.toString()
                         }
-                    } catch(err) {}
+                    } catch (err) { }
 
                 } else {
                     let percentage = 0
                     let statusText = 'Test Case: ' + nextTestCase.id + ' of ' + nextTestCase.totalCases
-    
-                    if (data.substring(0, 5) === 'Epoch') { 
+
+                    if (data.substring(0, 5) === 'Epoch') {
                         let regEx = new RegExp('Epoch (\\d+)/(\\d+)', 'gim')
                         let match = regEx.exec(data)
                         let heartbeatText = match[0]
-    
+
                         percentage = Math.round(match[1] / match[2] * 100)
-    
+
                         TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, heartbeatText, percentage, statusText)
                     }
 
@@ -287,7 +311,7 @@
                 if (BOT_CONFIG.logTrainingOutput === true) {
                     console.log(data)
                 }
-                
+
             });
 
             ls.stderr.on('data', (data) => {
@@ -314,10 +338,9 @@
 
             function onFinished(dataReceived) {
                 try {
-                if (dataReceived.includes('RL_SCENARIO_END')) {
-                    //TODO: read from the evaluation_results.json file
-                } else {
-                    
+                    if (dataReceived.includes('RL_SCENARIO_END')) {
+                        //TODO: read from the evaluation_results.json file
+                    } else {
 
                         processExecutionResult = JSON.parse(dataReceived)
                         processExecutionResult.predictions = fixJSON(processExecutionResult.predictions)
@@ -330,16 +353,16 @@
                         processExecutionResult.enlapsedTime = (endingTimestamp - startingTimestamp) / 1000
                         console.log('Enlapsed Time (HH:MM:SS): ' + (new Date(processExecutionResult.enlapsedTime * 1000).toISOString().substr(14, 5)) + ' ')
 
-                }
-            } catch (err) {
+                    }
+                } catch (err) {
 
-                if (processExecutionResult !== undefined && processExecutionResult.predictions !== undefined) {
-                    console.log('processExecutionResult.predictions:' + processExecutionResult.predictions)
-                }
+                    if (processExecutionResult !== undefined && processExecutionResult.predictions !== undefined) {
+                        console.log('processExecutionResult.predictions:' + processExecutionResult.predictions)
+                    }
 
-                console.log(err.stack)
-                console.error(err)
-            }
+                    console.log(err.stack)
+                    console.error(err)
+                }
                 resolve(processExecutionResult)
             }
         }

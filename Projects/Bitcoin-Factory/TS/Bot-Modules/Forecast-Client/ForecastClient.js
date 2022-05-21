@@ -278,6 +278,19 @@
         SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Forecast-Client/notebooks/instructions.csv", instructionsFile)
     }
 
+    function getRelevantParameters(parameters) {
+        /*
+        Remove from Parameters the properties that are in OFF
+        */
+        let relevantParameters = {}
+        for (const property in parameters) {
+            if (parameters[property] !== 'OFF') {
+                relevantParameters[property] = parameters[property]
+            }
+        }
+        return relevantParameters
+    }
+
     async function buildModel(nextForecastCase) {
         console.log('')
         console.log('------------------------------------------- Building Forecast Case # ' + nextForecastCase.id + ' ---- ' + (nextForecastCase.caseIndex + 1) + ' / ' + nextForecastCase.totalCases + ' --------------------------------------------------------')
@@ -285,7 +298,7 @@
         console.log('Test Server: ' + nextForecastCase.testServer.userProfile + ' / ' + nextForecastCase.testServer.instance)
         console.log('')
         console.log('Parameters Received for this Forecast:')
-        console.table(nextForecastCase.parameters)
+        console.table(getRelevantParameters(nextForecastCase.parameters))
         console.log('')
         console.log((new Date()).toISOString(), 'Starting to process this Case')
         console.log('')
@@ -299,12 +312,13 @@
         console.log('')
         console.log('------------------------------------------------------- Reforcasting Case # ' + nextForecastCase.id + ' ------------------------------------------------------------')
         console.log('')
-        console.log((new Date()).toISOString(), 'Starting processing this Case')
+        console.log('Test Server: ' + nextForecastCase.testServer.userProfile + ' / ' + nextForecastCase.testServer.instance)
         console.log('')
         console.log('Parameters Received for this Forecast:')
-        console.table(nextForecastCase.parameters)
+        console.table(getRelevantParameters(nextForecastCase.parameters))
         console.log('')
-
+        console.log((new Date()).toISOString(), 'Starting to process this Case')
+        console.log('')
 
         writePhytonInstructionsFile("LOAD_MODEL_AND_PREDICT", nextForecastCase)
 

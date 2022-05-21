@@ -255,7 +255,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
         }
 
         console.log((new Date()).toISOString(), 'No more Test Cases. Could not deliver one to ' + currentClientInstance)
-        return 'NO CASES FOR YOU'
+        return 'NO TEST CASES AVAILABLE AT THE MOMENT'
 
         async function assignTestCase(testCase) {
             testCase.status = 'Being Tested'

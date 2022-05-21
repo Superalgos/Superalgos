@@ -1,7 +1,7 @@
 ﻿exports.newBitcoinFactoryBotModulesTestClient = function (processIndex) {
 
     const MODULE_NAME = "Test-Client"
-    const TEST_CLIENT_VERSION = 6
+    const TEST_CLIENT_VERSION = 7
 
     let thisObject = {
         initialize: initialize,
@@ -240,14 +240,14 @@
         */
         console.log('')
         console.log('-------------------------------------------------------- Test Case # ' + nextTestCase.id + ' / ' + nextTestCase.totalCases + ' --------------------------------------------------------')
-        console.log('Test Server:')
-        console.log(nextTestCase.testServer.userProfile + ' / ' + nextTestCase.testServer.instance)
         console.log('')
-        console.log((new Date()).toISOString(), 'Starting processing this Case')
+        console.log('Test Server: ' + nextTestCase.testServer.userProfile + ' / ' + nextTestCase.testServer.instance)
         console.log('')
         console.log('Parameters Received for this Test:')
         console.table(relevantParameters)
         console.log('Ready to run this script inside the Docker Container: ' + nextTestCase.pythonScriptName)
+        console.log('')
+        console.log((new Date()).toISOString(), 'Starting to process this Case')
         console.log('')
         /*
         Return Promise

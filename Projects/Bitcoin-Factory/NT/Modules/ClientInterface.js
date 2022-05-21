@@ -96,7 +96,11 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
             let testClientVersion = queryReceived.testClientVersion
             if (testClientVersion === undefined) { testClientVersion = 4 }
             requestsToServer.push(requestToServer)
-            console.log((new Date()).toISOString(), '[WARN] Request From Test Client v.' + testClientVersion + '       -> timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) + ' -> Websockets Clients = ' + connectedUserProfilesLabel + ' -> Clients Requests Queue Size = ' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(requestsToServer.length, 3) + ' -> userProfile = ' + userProfile)
+            console.log((new Date()).toISOString(), '[WARN] Request From Test Client v.' + testClientVersion +
+                '                 -> timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) +
+                ' -> Websockets Clients = ' + connectedUserProfilesLabel +
+                ' -> Clients Requests Queue Size = ' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(requestsToServer.length, 3) +
+                ' -> userProfile = ' + userProfile)
             return new Promise(promiseWork)
 
             async function promiseWork(resolve, reject) {
@@ -117,9 +121,14 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
                 queryReceived: queryReceived,
                 timestamp: (new Date()).valueOf()
             }
+            let forecastClientVersion = queryReceived.testClientVersion
+            if (forecastClientVersion === undefined) { forecastClientVersion = 1 }
             requestsToServer.push(requestToServer)
-            console.log((new Date()).toISOString(), '[WARN] Request From Forecast Client       -> timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) + ' -> Websockets Clients = ' + connectedUserProfilesLabel + ' -> Clients Requests Queue Size = ' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(requestsToServer.length, 3) + ' -> userProfile = ' + userProfile)
-
+            console.log((new Date()).toISOString(), '[WARN] Request From Forecast Client v.' + forecastClientVersion +
+                '                 -> timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) +
+                ' -> Websockets Clients = ' + connectedUserProfilesLabel +
+                ' -> Clients Requests Queue Size = ' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(requestsToServer.length, 3) +
+                ' -> userProfile = ' + userProfile)
             return new Promise(promiseWork)
 
             async function promiseWork(resolve, reject) {
@@ -174,7 +183,7 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
                     for (let i = 0; i < requestsToServer.length; i++) {
                         let requestToServer = requestsToServer[i]
                         if (
-                            requestToServer.testServer === undefined 
+                            requestToServer.testServer === undefined
                         ) {
                             requestsToServer.splice(i, 1)
                             checkExpiration(requestToServer)
@@ -199,11 +208,20 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
                                 message: 'Request Found.',
                                 clientData: JSON.stringify(requestToServer.queryReceived)
                             }
-                            
-                            console.log((new Date()).toISOString(), '[WARN] Request Sent to Server             -> timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) + ' -> Websockets Clients = ' + connectedUserProfilesLabel + ' -> Clients Requests Queue Size = ' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(requestsToServer.length, 3) + ' -> userProfile = ' + userProfile)
+
+                            console.log((new Date()).toISOString(), '[WARN] Request Sent to Server                       -> timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) +
+                                ' -> Websockets Clients = ' + connectedUserProfilesLabel +
+                                ' -> Clients Requests Queue Size = ' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(requestsToServer.length, 3) +
+                                ' -> userProfile = ' + userProfile +
+                                ' -> instance = ' + queryReceived.instance)
                             resolve(response)
                         } else {
-                            console.log((new Date()).toISOString(), '[WARN] Request Expired                    -> timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) + ' -> Websockets Clients = ' + connectedUserProfilesLabel + ' -> Clients Requests Queue Size = ' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(requestsToServer.length, 3) + ' -> userProfile = ' + userProfile + ' -> requestToServer.queryReceived = ' + JSON.stringify(requestToServer.queryReceived))
+                            console.log((new Date()).toISOString(), '[WARN] Request Expired                              -> timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) +
+                                ' -> Websockets Clients = ' + connectedUserProfilesLabel +
+                                ' -> Clients Requests Queue Size = ' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(requestsToServer.length, 3) +
+                                ' -> userProfile = ' + userProfile +
+                                ' -> instance = ' + queryReceived.instance + 
+                                ' -> requestToServer.queryReceived = ' + JSON.stringify(requestToServer.queryReceived))
                             let response = {
                                 result: 'Ok',
                                 message: 'Next Request Already Expired.'

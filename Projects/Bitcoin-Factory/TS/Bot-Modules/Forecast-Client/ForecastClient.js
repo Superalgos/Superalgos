@@ -141,7 +141,7 @@
             let queryMessage = {
                 messageId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                 sender: 'Forecast-Client',
-                clientInstanceName: TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.clientInstanceBuilder,
+                instance: TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.clientInstanceBuilder,
                 recipient: 'Forecast Client Manager',
                 message: message,
                 forecastClientVersion: FORECAST_CLIENT_VERSION
@@ -196,7 +196,7 @@
             let queryMessage = {
                 messageId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                 sender: 'Forecast-Client',
-                clientInstanceName: TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.clientInstanceForecaster,
+                instance: TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.clientInstanceForecaster,
                 recipient: 'Forecast Client Manager',
                 testServer: forecastCase.testServer,
                 message: message,
@@ -215,6 +215,10 @@
             async function onSuccess(response) {
                 if (response.data.serverData.response !== 'THIS FORECAST CASE IS NOT AVAILABLE ANYMORE') {
                     let thisForecastCase = response.data.serverData.response
+                    thisForecastCase.testServer = {
+                        userProfile: response.data.serverData.userProfile,
+                        instance: response.data.serverData.instance
+                    }
                     resolve(thisForecastCase)
                 } else {
                     reject(response.data.serverData.response)
@@ -238,7 +242,7 @@
             let queryMessage = {
                 messageId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                 sender: 'Forecast-Client',
-                clientInstanceName: TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config[clientInstanceConfigPropertyName],
+                instance: TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config[clientInstanceConfigPropertyName],
                 recipient: 'Forecast Client Manager',
                 testServer: testServer,
                 message: message,

@@ -126,7 +126,7 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
             if (forecastClientVersion === undefined) { forecastClientVersion = 1 }
             requestsToServer.push(requestToServer)
             console.log((new Date()).toISOString(), '[INFO] Request From Forecast Client v.' + forecastClientVersion +
-                '                 -> timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) +
+                '             -> timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) +
                 ' -> Websockets Clients = ' + connectedUserProfilesLabel +
                 ' -> Clients Requests Queue Size = ' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(requestsToServer.length, 3) +
                 ' -> userProfile = ' + userProfile +

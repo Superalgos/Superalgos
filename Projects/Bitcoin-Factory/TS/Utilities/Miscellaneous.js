@@ -219,11 +219,12 @@ exports.newBitcoinFactoryUtilitiesMiscellaneous = function newBitcoinFacnewBitco
                         console.timeEnd('getIndicatorFile')
                         resolve(res.data.fileContent)
                     } else {
+                        console.log((new Date()).toISOString(), 'File requested not found. Please verify that you are running the Data Mining operation that includes this indactor and that this file exist on disk.')
                         reject()
                     }
                 })
                 .catch(error => {
-                    console.log((new Date()).toISOString(), 'Checking with Superalgos...', 'Could not check with Superalgos. Had this error: ' + error)
+                    console.log((new Date()).toISOString(), 'Error trying to get an indicator file from Superalgos...', ' error: ' + error)
                     reject()
                 })
         }

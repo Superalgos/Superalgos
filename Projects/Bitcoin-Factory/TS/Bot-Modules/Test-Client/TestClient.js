@@ -44,7 +44,7 @@
                         while (testResultsAccepted === false) {
                             if (testResult !== undefined) {
                                 testResult.id = nextTestCase.id
-                       
+
                                 await setTestCaseResults(testResult, nextTestCase.testServer)
                                     .then(onSuccess)
                                     .catch(onError)
@@ -222,7 +222,22 @@
     }
 
     async function buildModel(nextTestCase) {
+        /*
+        Set default script name.
+        */
         if (nextTestCase.pythonScriptName === undefined) { nextTestCase.pythonScriptName = "Bitcoin_Factory_LSTM.py" }
+        /*
+        Remove from Parameters the properties that are in OFF
+        */
+        let relevantParameters = {}
+        for (const property in nextTestCase.parameters) {
+            if (nextTestCase.parameters[property] !== 'OFF') {
+                relevantParameters[property] = nextTestCase.parameters[property]
+            }
+        }
+        /*
+        Show something nice to the user.
+        */
         console.log('')
         console.log('-------------------------------------------------------- Test Case # ' + nextTestCase.id + ' / ' + nextTestCase.totalCases + ' --------------------------------------------------------')
         console.log('Test Server:')
@@ -231,10 +246,12 @@
         console.log((new Date()).toISOString(), 'Starting processing this Case')
         console.log('')
         console.log('Parameters Received for this Test:')
-        console.table(nextTestCase.parameters)
+        console.table(relevantParameters)
         console.log('Ready to run this script inside the Docker Container: ' + nextTestCase.pythonScriptName)
         console.log('')
-
+        /*
+        Return Promise
+        */
         let processExecutionResult
         let startingTimestamp = (new Date()).valueOf()
         return new Promise(promiseWork)
@@ -321,10 +338,9 @@
 
             function onFinished(dataReceived) {
                 try {
-                if (dataReceived.includes('RL_SCENARIO_END')) {
-                    //TODO: read from the evaluation_results.json file
-                } else {
-                    
+                    if (dataReceived.includes('RL_SCENARIO_END')) {
+                        //TODO: read from the evaluation_results.json file
+                    } else {
 
                         processExecutionResult = JSON.parse(dataReceived)
                         processExecutionResult.predictions = fixJSON(processExecutionResult.predictions)

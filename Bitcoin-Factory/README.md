@@ -1,6 +1,61 @@
 # Bitcoin Factory Crowd-Testing of Machine Learning Models.
 
 ## Introduction
+What if I told you the price of the next market candle?  What would you do or pay to get that information? It may seem like there must be a crystal ball or gimick involved, but here at the Bitcoin Factory, we are putting together the power of advanced data mining and machine learning to do just that! 
+
+The thing about Machine Learning, however, is that it takes a lot of processing power. Way more than the average person can afford. That is why the Bitcoin Factory has set out to crowd source the processing power needed to push the prediction power of the colletive forward!
+
+What this means is that with limited data mining or machien learning expereince, you can help make telling the future more and more of a reality! All you need is some basic technical abilities to run Superalgos (our open-source crypto trading automation platform) and contribute some CPU/GPU cycles to the collective effort!
+
+The way this works behind the scenes is by collectivly testing all possible combinations of techincal indicators to find the most finetuned and successful combination. In order for this to be successful, all possible combinations of parameters that define the architecture and data structure of the machine learning model (each with a range of possible values) need to be tested for each and every market and time frame you wish to work with. There is no way to know which data sets are the most relevant to make useful predictions, so training the machine learning model needs to test not just thousands, but millons of cases in order to reach a good amount of stability. Now add that markets evolve and change all the time, meaning that even if you found the perfect set of parameters for today’s predictions, the model will eventually become obsolete!
+
+The continual and never-ending task of brute-force testing all possible combinations is the perfect candidate for a crowdsourced effort because no individual can run all the required tests on their own unless they are willing to make substantial investments to set up and operate a significant data processing facility. Not only that, but running such an operation as an individual opens up the door for directed attacks and disruptions. However, working as a colletive will make it impossible to shutdown or beat a distributed, ever-growing crowdsourced effort, and that is why you will want to join!
+
+If that wasn't enough to get you excited about joining the Bitcoin Factory's efforts there is one more huge set of insentives. When you run the ML Test Client and contribute processing power, the test client will keep track of the test cases your hardware solves.  It then sends the results to the ML Test Server which logs the work performed by your User Profile. This contributed processing power will be rewarded each month with Superalgos' native token! Once you have accumulated enough tokens for your contributions, you will be granted access to the best available predictions of the next candle for top crypto assets paired against USDT for time frames of 1, 2, 3, 4, 6, 8, 12, and 24 hours. You will also be granted access to buy and sell signals derived from other collective ML models we are training. You can use the predictions and signals to trade manually or incorporate them into automated strategies you may build using Superalgos. 
+
+The idea is simple, a crowd test each parameters /data combination using their own hardware, and after each test is complete, each one receives a list with the best forecasts at the moment, calculated with the best performing ML models discovered at that time by the crowd that is testing. These forecasts are saved in Superalgos as a new indicator that can be used in strategies.
+
+Once a set of parameters and data is discovered to have better performance than the previous one known, then the last replaces the previous, and all the forecasts for that asset / timeframe are then calculated with the best performant ML model from there on, until it is eventually replaced again by some other ML model in the future.
+
+As you can see, the accuracy of predictions should improve overtime.
+
+Being able to know which is the min, max and close of the next candle is a big deal, and something that anyone would like to know. Of course it will take time to lower the ML models % error, but as I explained, they can only improve over time.
+
+### Overview of Architecture 
+
+The ML Test Client runs from within the Superalgos Platform and connects to a remote ML Test Server run by community members. The server administers test cases and distributes them among platform users running the ML Test Client.
+
+the Test Clients, Forecasters, Test Server and Superalgos Network Node without issues.
+
+
+You may also contribute to the project in many other ways to increase your token balance much faster!
+
+How to Start
+1. Download and Install Superalgos
+Once you’re ready to go, click this link to go to the Superalgos Github repository and follow the instructions on the README file to get up and running with the Installation for Developers and Contributors (other installations are not tested for the ML project).
+
+If you have any issues with the installation or the learning curve, join the Superalgos Support group on Telegram or the Superalgos Discord server to get help from the community.
+
+You should also join the Superalgos Machine Learning group on Telegram to get help with running the testing tasks and to get in touch with the crowd driving the ML area of the project.
+
+2. Do the First Three Tutorials
+You need to get familiar with Superalgos before you may participate in the crowd-testing efforts.
+
+I’ll be completely honest with you… Superalgos is a vast system designed to unleash incredible power — but requires time to master. It’ll take anything from two to three hours to complete the first three in-app interactive tutorials.
+
+Those first few tutorials will give you an overall understanding of how the system works. There are many more tutorials that you can go through, and over 1500 pages of documentation built into the app.
+
+The whole thing may not be suitable for a weekend adventure. But if you’re interested in trading, automation, and ML, then I’m confident Superalgos will blow your mind and I’m certain the learning process will be worth every second of your time!
+
+3. Create and Contribute Your User Profile
+Your user profile is your identity within the project. You will need it to authenticate with the test server.
+
+To create your profile you will go to the Token-Distribution-Superalgos workspace and do the Creating Your User Profile Tutorial.
+
+4. Learn How to Run the ML Test Client
+By the time you’re familiar with Superalgos and have created your User Profile, you’ll be ready to start participating in the testing efforts!
+
+Go to the Bitcoin Factoryfolder on your Superalgos installation and follow the instructions on the theREADMEfile to get up and running! You can take a look at the README in the repo before installing if you wish to learn more before you deep dive into Superalgos!
 
 ### What is this?
 

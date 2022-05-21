@@ -107,15 +107,15 @@
                                 switch (clientData.recipient) {
                                     case 'Test Client Manager': {
                                         if (clientData.testClientVersion === undefined || clientData.testClientVersion < MIN_TEST_CLIENT_VERSION) {
-                                            console.log((new Date()).toISOString(), 'Cound not process request from ' + clientData.userProfile + ' / ' + clientData.clientInstanceName + ' becasuse is running an outdated version of the Test Client. Version = ' + clientData.testClientVersion)
+                                            console.log((new Date()).toISOString(), 'Cound not process request from ' + clientData.userProfile + ' / ' + clientData.instance + ' becasuse is running an outdated version of the Test Client. Version = ' + clientData.testClientVersion)
                                             managerResponse = 'CLIENT VERSION IS TOO OLD'
                                         } else {
-                                            managerResponse = await thisObject.testClientsManager.onMessageReceived(clientData.message, clientData.userProfile, clientData.clientInstanceName)
+                                            managerResponse = await thisObject.testClientsManager.onMessageReceived(clientData.message, clientData.userProfile, clientData.instance)
                                         }
                                         break
                                     }
                                     case 'Forecast Client Manager': {
-                                        managerResponse = await thisObject.forecastClientsManager.onMessageReceived(clientData.message, clientData.userProfile, clientData.clientInstanceName)
+                                        managerResponse = await thisObject.forecastClientsManager.onMessageReceived(clientData.message, clientData.userProfile, clientData.instance)
                                         break
                                     }
                                 }

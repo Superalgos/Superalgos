@@ -127,7 +127,7 @@
             let queryMessage = {
                 messageId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                 sender: 'Test-Client',
-                clientInstanceName: TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.clientInstanceName,
+                instance: TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.clientInstanceName,
                 recipient: 'Test Client Manager',
                 message: message,
                 testClientVersion: TEST_CLIENT_VERSION
@@ -196,7 +196,7 @@
             let queryMessage = {
                 messageId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                 sender: 'Test-Client',
-                clientInstanceName: TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.clientInstanceName,
+                instance: TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.clientInstanceName,
                 recipient: 'Test Client Manager',
                 testServer: testServer,
                 message: message,

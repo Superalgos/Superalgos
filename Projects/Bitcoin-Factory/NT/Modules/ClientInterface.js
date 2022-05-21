@@ -96,11 +96,12 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
             let testClientVersion = queryReceived.testClientVersion
             if (testClientVersion === undefined) { testClientVersion = 4 }
             requestsToServer.push(requestToServer)
-            console.log((new Date()).toISOString(), '[WARN] Request From Test Client v.' + testClientVersion +
+            console.log((new Date()).toISOString(), '[INFO] Request From Test Client v.' + testClientVersion +
                 '                 -> timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) +
                 ' -> Websockets Clients = ' + connectedUserProfilesLabel +
                 ' -> Clients Requests Queue Size = ' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(requestsToServer.length, 3) +
-                ' -> userProfile = ' + userProfile)
+                ' -> userProfile = ' + userProfile +
+                ' -> instance = ' + queryReceived.instance)
             return new Promise(promiseWork)
 
             async function promiseWork(resolve, reject) {
@@ -124,11 +125,12 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
             let forecastClientVersion = queryReceived.testClientVersion
             if (forecastClientVersion === undefined) { forecastClientVersion = 1 }
             requestsToServer.push(requestToServer)
-            console.log((new Date()).toISOString(), '[WARN] Request From Forecast Client v.' + forecastClientVersion +
+            console.log((new Date()).toISOString(), '[INFO] Request From Forecast Client v.' + forecastClientVersion +
                 '                 -> timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) +
                 ' -> Websockets Clients = ' + connectedUserProfilesLabel +
                 ' -> Clients Requests Queue Size = ' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(requestsToServer.length, 3) +
-                ' -> userProfile = ' + userProfile)
+                ' -> userProfile = ' + userProfile +
+                ' -> instance = ' + queryReceived.instance)
             return new Promise(promiseWork)
 
             async function promiseWork(resolve, reject) {
@@ -209,7 +211,7 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
                                 clientData: JSON.stringify(requestToServer.queryReceived)
                             }
 
-                            console.log((new Date()).toISOString(), '[WARN] Request Sent to Server                       -> timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) +
+                            console.log((new Date()).toISOString(), '[INFO] Request Sent to Server                       -> timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) +
                                 ' -> Websockets Clients = ' + connectedUserProfilesLabel +
                                 ' -> Clients Requests Queue Size = ' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(requestsToServer.length, 3) +
                                 ' -> userProfile = ' + userProfile +
@@ -220,7 +222,7 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
                                 ' -> Websockets Clients = ' + connectedUserProfilesLabel +
                                 ' -> Clients Requests Queue Size = ' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(requestsToServer.length, 3) +
                                 ' -> userProfile = ' + userProfile +
-                                ' -> instance = ' + queryReceived.instance + 
+                                ' -> instance = ' + queryReceived.instance +
                                 ' -> requestToServer.queryReceived = ' + JSON.stringify(requestToServer.queryReceived))
                             let response = {
                                 result: 'Ok',

@@ -57,8 +57,8 @@ exports.newForecastClientsManager = function newForecastClientsManager(processIn
         }
     }
 
-    async function onMessageReceived(message, userProfile, clientInstanceName) {
-        const currentClientInstance = userProfile + ' / ' + clientInstanceName
+    async function onMessageReceived(message, userProfile, instance) {
+        const currentClientInstance = userProfile + ' / ' + instance
         switch (message.type) {
             case 'Get Next Forecast Case': {
                 console.log((new Date()).toISOString(), currentClientInstance, 'requested a new Forecast Case')

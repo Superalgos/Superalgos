@@ -148,8 +148,11 @@ exports.newBitcoinFactoryUtilitiesMiscellaneous = function newBitcoinFacnewBitco
                     }
                 })
                 .catch(error => {
-                    console.log((new Date()).toISOString(), 'Checking with Superalgos...', 'Could not check with Superalgos. Had this error: ' + error)
-                    reject()
+                    const errorMessage = 'Could not reach the Superalgos Platform with the configured host and port in order to get the User Profile File List. Please check that Superalgos is running at the specified location.'
+                    console.log((new Date()).toISOString(), 'Checking with Superalgos...', 'http://' + BOT_CONFIG.targetSuperalgosHost + ':' + BOT_CONFIG.targetSuperalgosHttpPort )
+                    console.log((new Date()).toISOString(), 'Could not check with Superalgos. Had this error: ' + error)
+                    console.log((new Date()).toISOString(), errorMessage)
+                    reject(errorMessage)
                 })
         }
     }
@@ -216,11 +219,12 @@ exports.newBitcoinFactoryUtilitiesMiscellaneous = function newBitcoinFacnewBitco
                         console.timeEnd('getIndicatorFile')
                         resolve(res.data.fileContent)
                     } else {
+                        console.log((new Date()).toISOString(), 'File requested not found. Please verify that you are running the Data Mining operation that includes this indactor and that this file exist on disk.')
                         reject()
                     }
                 })
                 .catch(error => {
-                    console.log((new Date()).toISOString(), 'Checking with Superalgos...', 'Could not check with Superalgos. Had this error: ' + error)
+                    console.log((new Date()).toISOString(), 'Error trying to get an indicator file from Superalgos...', ' error: ' + error)
                     reject()
                 })
         }

@@ -56,8 +56,8 @@ exports.newTestClientsManager = function newTestClientsManager(processIndex, net
         }
     }
 
-    async function onMessageReceived(message, userProfile, clientInstanceName) {
-        const currentClientInstance = userProfile + ' / ' + clientInstanceName
+    async function onMessageReceived(message, userProfile, instance) {
+        const currentClientInstance = userProfile + ' / ' + instance
         switch (message.type) {
             case 'Get Next Test Case': {
                 console.log((new Date()).toISOString(), currentClientInstance, 'requested a new Test Case')

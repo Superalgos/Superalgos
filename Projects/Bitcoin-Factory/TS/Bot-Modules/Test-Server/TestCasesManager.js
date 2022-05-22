@@ -26,7 +26,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
         await loadTestCasesFile()
 
         async function loadTestCasesFile() {
-            let fileContent = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.loadFile(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/StateData/TestCases/Test-Cases-Array-" + networkCodeName + ".json")
+            let fileContent = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.loadFile(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/" + TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName + "/StateData/TestCases/Test-Cases-Array-" + networkCodeName + ".json")
             if (fileContent === undefined) {
                 thisObject.testCasesArray = []
                 thisObject.testCasesMap = new Map()
@@ -247,7 +247,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
         /*
         If we could not re assing an already assiged test case, then we will just find the next one.
         */
-        for (let i = 0; i < thisObject.testCasesArray.length;  i++) {
+        for (let i = 0; i < thisObject.testCasesArray.length; i++) {
             let testCase = thisObject.testCasesArray[i]
             if (testCase.status === 'Never Tested') {
                 return await assignTestCase(testCase)
@@ -255,7 +255,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
         }
 
         console.log((new Date()).toISOString(), 'No more Test Cases. Could not deliver one to ' + currentClientInstance)
-        return 'NO CASES FOR YOU'
+        return 'NO TEST CASES AVAILABLE AT THE MOMENT'
 
         async function assignTestCase(testCase) {
             testCase.status = 'Being Tested'
@@ -411,7 +411,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
                 }
             }
 
-            SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/OutputData/TestReports/" + REPORT_NAME + ".CSV", testReportFile)
+            SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/" + TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName + "/OutputData/TestReports/" + REPORT_NAME + ".CSV", testReportFile)
         }
     }
 
@@ -433,6 +433,6 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
         }
 
         let fileContent = JSON.stringify(thisObject.testCasesArray, undefined, 4)
-        SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/StateData/TestCases/Test-Cases-Array-" + networkCodeName + ".json", fileContent)
+        SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/" + TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName + "/StateData/TestCases/Test-Cases-Array-" + networkCodeName + ".json", fileContent)
     }
 }

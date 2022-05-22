@@ -39,6 +39,9 @@
     let limit = 1000 // This is the default value
     let hostname
     let lastCandleOfTheDay
+    let sandBox
+    let maxRate
+    
     /*
     The following variables are used for exchanges that do not provide any method in their API to retrieve OHLCV data.
     In the CCTX library, such exchanges have the fetchOHLCV method as being "emulated", and as such, you can only
@@ -64,7 +67,7 @@
     function initialize(pStatusDependencies, callBackFunction) {
         let exchangeClass
         /*
-        This is what we are going to do hereL
+        This is what we are going to do here
 
         1. Parameters set by SA user at the Crypto Exchange node are extracted. There might be parameters for each supported method at the CCXT library.
         2. The CCXT class for the configured exchange is instantiated, with whatever options where configured.
@@ -73,15 +76,39 @@
         */
         try {
             statusDependencies = pStatusDependencies;
+            
+    		/*
+	    	maxRate - sets the  maximum number of OHCLV that is pulled before the data is saved.
+    		This is only to be used when the exchange is kicking out the data-mine randomly and alows the user to
+		    save the data more often allowing for the data mining to move forward.
+    		*/
 
-            exchangeId = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.codeName
-		/*
-		maxRate - sets the  maximum number of OHCLV that is pulled before the data is saved.
-		This is only to be used when the exchange is kicking out the data-mine randomly and alows the user to
-		save the data more often allowing for the data mining to move forward.
-		*/
-		maxRate = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.maxRate
+            let exchangeConfig = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config
+        
+            // Take the codeName and check if sandBox mode is to enable
+            exchangeId = exchangeConfig.codeName        
+            sandBox = exchangeConfig.sandBox || false   // true for sandBox mode if available
+            // Check options to pass to the exchange constructor
+            if (exchangeConfig.options !== undefined) {
+                options = exchangeConfig.options
+            }
+            if (exchangeConfig.maxRate !== undefined) {
+                maxRate = exchangeConfig.maxRate            // Max number of fetched candles before saving
+            }                                           
+            if (exchangeConfig.limit !== undefined) {
+                limit = exchangeConfig.limit                // Some exchanges need this parameter -> Bybit
+            }
+            if (exchangeConfig.rateLimit !== undefined) {
+                rateLimit = exchangeConfig.rateLimit        // Custom rateLimit
+            }
+            if (exchangeConfig.hostname !== undefined) {
+                hostname = exchangeConfig.hostname          // Custom hostname
+            }
 
+        
+
+		
+            // ***** The next IF-FOR block of code is left for backward-compatibility *****
             /* Applying the parameters defined by the user at the Exchange Node Config */
             if (TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API !== undefined) {
                 /*
@@ -127,7 +154,7 @@
 
             let key
             let secret
-
+            
             exchangeClass = ccxt[exchangeId]
             const exchangeConstructorParams = {
                 'apiKey': key,
@@ -137,6 +164,8 @@
                 verbose: false,
                 options: options
             }
+            
+            // This code is left for retro-compatibility with the code above "API"
             if (rateLimit !== undefined) {
                 exchangeConstructorParams.rateLimit = rateLimit
             }
@@ -144,7 +173,23 @@
                 exchangeConstructorParams.hostname = hostname
             }
 
+            // Exchange instantiation
             exchange = new exchangeClass(exchangeConstructorParams)
+            
+            if (sandBox) {                
+                exchange.setSandboxMode(sandBox)
+                /* Uncomment to log
+                console.log('Exchange HistoricOHLCVs connection starting.... ')
+                console.log('Sandbox mode is: ' + sandBox)
+                console.log(exchange.urls.api)
+                console.log('')
+                console.log('exchangeConstructorParams:')
+                console.log(exchangeConstructorParams)
+                console.log('')
+                console.log('limit is: ' + limit)
+                */
+            }
+            
 
             callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE);
 

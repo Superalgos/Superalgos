@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Индикатор Percentages выдает информацию для текущей свечи по сравнению с ценой закрытия, а также среднее значение high/low/close свечей за 1, 5 и 10 периодов до текущей.",
                 "updated": 1645611503609
+            },
+            {
+                "language": "DE",
+                "text": "Der Indikator Percentages liefert Informationen für die aktuelle Kerze im Vergleich zum Schlusskurs und den Durchschnitt von Hoch/Tief/Schluss der Kerzen 1, 5 und 10 Perioden vor der aktuellen Kerze.",
+                "updated": 1647961193030
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Percentages на графиках:",
                     "updated": 1645611524514
+                },
+                {
+                    "language": "DE",
+                    "text": "Percentages auf den Charts:",
+                    "updated": 1647961256986
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Индикатор Percentages не отображает никакой графической информации. Все данные, полученные с помощью этого индикатора, можно увидеть на панели в Charting Space.",
                     "updated": 1645611582080
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Indikator \"Prozentsätze\" zeigt keine grafischen Informationen an. Alle Daten, die von diesem Indikator erzeugt werden, sind in der Tafel im Diagrammbereich zu sehen.",
+                    "updated": 1647961492851
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "RU",
                     "text": "Информация на панели показывает процентное увеличение или уменьшение для следующего:",
                     "updated": 1645611588698
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Informationen im Panel zeigen den prozentualen Anstieg oder Rückgang für Folgendes an:",
+                    "updated": 1647961507767
                 }
             ]
         },
@@ -56,6 +76,11 @@
                     "language": "RU",
                     "text": "p1Close: процентное увеличение/уменьшение закрытия текущей свечи по сравнению с закрытием свечи за 1 период до этого.",
                     "updated": 1645611597633
+                },
+                {
+                    "language": "DE",
+                    "text": "<b>p1Close:</b> der prozentuale Anstieg/Abfall des aktuellen Kerzenschlusses im Vergleich zum Kerzenschluss der 1 Periode zuvor.",
+                    "updated": 1647961519912
                 }
             ]
         },
@@ -67,6 +92,11 @@
                     "language": "RU",
                     "text": "p5Close: процентное увеличение/уменьшение закрытия текущей свечи по сравнению с закрытием свечи за 5 периодов до этого.",
                     "updated": 1645611604853
+                },
+                {
+                    "language": "DE",
+                    "text": "<b>p5Close:</b> der prozentuale Anstieg/Verringerung des aktuellen Kerzenschlusses im Vergleich zum Kerzenschluss der 5 vorangegangenen Perioden.",
+                    "updated": 1647961564994
                 }
             ]
         },
@@ -78,6 +108,11 @@
                     "language": "RU",
                     "text": "p10Close: процентное увеличение/уменьшение закрытия текущей свечи по сравнению с закрытием свечи за 10 периодов до этого.",
                     "updated": 1645611615425
+                },
+                {
+                    "language": "DE",
+                    "text": "<b>p10Close:</b> der prozentuale Anstieg/Abfall des aktuellen Kerzenschlusses im Vergleich zum Kerzenschluss der 10 vorangegangenen Perioden.",
+                    "updated": 1647961586026
                 }
             ]
         },
@@ -89,6 +124,11 @@
                     "language": "RU",
                     "text": "phlc1: процентное увеличение/уменьшение среднего значения текущей свечи (high + low + close) / 3 по сравнению со средним значением свечи за 1 период до этого.",
                     "updated": 1645611626698
+                },
+                {
+                    "language": "DE",
+                    "text": "<b>phlc1:</b> der prozentuale Anstieg/Abfall des aktuellen Kerzendurchschnitts (Hoch + Tief + Schluss)/3 im Vergleich zum Kerzendurchschnitt 1 Periode zuvor.",
+                    "updated": 1647961620062
                 }
             ]
         },
@@ -100,6 +140,11 @@
                     "language": "RU",
                     "text": "phlc5: процентное увеличение/уменьшение среднего значения текущей свечи (high + low + close) / 3 по сравнению со средним значением свечи за 5 периодов до этого.",
                     "updated": 1645611648186
+                },
+                {
+                    "language": "DE",
+                    "text": "<b>phlc5:</b> der prozentuale Anstieg/Abfall des aktuellen Kerzendurchschnitts (Hoch + Tief + Schluss)/3 im Vergleich zum Kerzendurchschnitt der letzten 5 Perioden.",
+                    "updated": 1647961640060
                 }
             ]
         },
@@ -111,6 +156,11 @@
                     "language": "RU",
                     "text": "phlc10: процентное увеличение/уменьшение среднего значения текущей свечи (high + low + close) / 3 по сравнению со средним значением свечи за 10 периодов до этого.",
                     "updated": 1645611660853
+                },
+                {
+                    "language": "DE",
+                    "text": "<b>phlc10:</b> der prozentuale Anstieg/Abfall des aktuellen Kerzendurchschnitts (Hoch + Tief + Schluss)/3 im Vergleich zum Kerzendurchschnitt der letzten 10 Perioden.",
+                    "updated": 1647961653158
                 }
             ]
         },
@@ -127,6 +177,11 @@
                     "language": "RU",
                     "text": "Параметр длины периода расчета показателя Percentage можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Initialization в разделе'Percentages'Product Definition.",
                     "updated": 1645611719245
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Parameter Periodenlänge der Berechnung des Indikators Prozentsätze kann geändert werden, indem Sie den Javascript Code unter Data Building Procedure -> Procedure Initialization unter der ’Percentages’ Product Definition suchen und öffnen.",
+                    "updated": 1647961763539
                 }
             ]
         },
@@ -143,6 +198,11 @@
                     "language": "RU",
                     "text": "Продукты и свойства",
                     "updated": 1645611690323
+                },
+                {
+                    "language": "DE",
+                    "text": "Produkte und Eigenschaften",
+                    "updated": 1647961801941
                 }
             ]
         },
@@ -154,13 +214,25 @@
                     "language": "RU",
                     "text": "Доступны следующие свойства:",
                     "updated": 1645611695666
+                },
+                {
+                    "language": "DE",
+                    "text": "Die folgenden Eigenschaften sind für den Zugriff verfügbar:",
+                    "updated": 1647961810910
                 }
             ]
         },
         {
             "style": "Table",
             "text": "| Product Name | Product Variable | Properties |\n| Percentages | Percentages | p1Close, p5Close, p10Close, phlc1, phlc5, phlc10 |",
-            "updated": 1636853769
+            "updated": 1636853769,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| Percentages | Percentages | p1Close, p5Close, p10Close, phlc1, phlc5, phlc10 |",
+                    "updated": 1647961911456
+                }
+            ]
         },
         {
             "style": "Text",
@@ -171,6 +243,11 @@
                     "language": "RU",
                     "text": "Примеры:",
                     "updated": 1645611700354
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiele:",
+                    "updated": 1647961949261
                 }
             ]
         },
@@ -182,6 +259,11 @@
                     "language": "RU",
                     "text": "Расчет Percentage можно использовать для установки лимита тейк-профита или стоп-лосса на основе желаемого процентного изменения.",
                     "updated": 1645611730992
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Berechnung des Prozentsatzes kann verwendet werden, um ein Take-Profit- oder Stop-Loss-Limit auf der Grundlage der gewünschten prozentualen Veränderung festzulegen.",
+                    "updated": 1647961960111
                 }
             ]
         },
@@ -193,6 +275,11 @@
                     "language": "RU",
                     "text": "Следующий пример устанавливает сигнал тейк-профита, если цена закрытия текущей свечи поднимается выше 3% от цены закрытия 5 свечей назад:",
                     "updated": 1645611738702
+                },
+                {
+                    "language": "DE",
+                    "text": "Das folgende Beispiel würde ein Take-Profit-Signal setzen, wenn der Schlusskurs der aktuellen Kerze um mehr als 3 % gegenüber dem Schlusskurs vor 5 Kerzen gestiegen ist:",
+                    "updated": 1647961995872
                 }
             ]
         },
@@ -209,13 +296,25 @@
                     "language": "RU",
                     "text": "Этот индикатор также можно использовать для установки трейлинг-стоп лосса при заключении сделки, проверяя, находится ли закрытие свечи все еще выше значения midPoint.",
                     "updated": 1645611748981
+                },
+                {
+                    "language": "DE",
+                    "text": "Dieser Indikator kann auch dazu verwendet werden, einen Trailing-Stop-Loss zu setzen, indem überprüft wird, ob der Kerzenschluss noch über dem midPoint Wert liegt.",
+                    "updated": 1647962079058
                 }
             ]
         },
         {
             "style": "Title",
             "text": "Maintainer:",
-            "updated": 1622481793076
+            "updated": 1622481793076,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Betreuer:",
+                    "updated": 1647962106155
+                }
+            ]
         },
         {
             "style": "Link",

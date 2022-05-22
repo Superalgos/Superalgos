@@ -1102,6 +1102,33 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                             }
 
                                             /*
+                                                Check that timestamps are saved in 13 digits.
+                                                If not convert the timestamp's value to 13 digits.
+                                            */    
+
+                                                if (recordProperty.config.codeName === 'timestamp') {      
+
+                                                let startStamp = (recordProperty.config.codeName, value)
+                                                let numberOfDigits = 0
+                                                let timestamp = (recordProperty.config.codeName, value)
+
+                                                while (startStamp != 0 && startStamp > 1) {
+                                                    startStamp = startStamp / 10
+                                                    numberOfDigits++
+                                                }
+
+                                                if (numberOfDigits == 10) {
+                                                    timestamp = timestamp * 1000
+                                                    value = timestamp
+                                                }
+            
+                                                if (numberOfDigits == 19) {
+                                                    timestamp = timestamp / 1000000
+                                                    value = timestamp
+                                                }
+                                            }
+
+                                            /*
                                             Check that we do not accept values that will break the JSON format of the file.
                                             */
                                             if (recordProperty.config.isString !== true && recordProperty.config.isBoolean !== true) {

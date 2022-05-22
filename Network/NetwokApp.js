@@ -7,11 +7,13 @@ exports.newNetworkApp = function newNetworkApp() {
         webSocketsInterface: undefined,
         httpInterface: undefined,
         socialGraphNetworkService: undefined,
+        machineLearningNetworkService: undefined,
         tradingSignalsNetworkService: undefined,
         run: run
     }
 
     NT.networkApp = thisObject
+    const NETWORK_NODE_VERSION = 1
 
     return thisObject
 
@@ -21,6 +23,7 @@ exports.newNetworkApp = function newNetworkApp() {
         await setupNetworkServices()
         setupNetworkInterfaces()
 
+        console.log('Network Node Version ......................................................... ' + NETWORK_NODE_VERSION)
         console.log('Network Type ................................................................. ' + thisObject.p2pNetworkNode.node.p2pNetworkReference.referenceParent.type)
         console.log('Network Code Name ............................................................ ' + thisObject.p2pNetworkNode.node.p2pNetworkReference.referenceParent.config.codeName)
         console.log('Network App .................................................................. Running')
@@ -38,7 +41,7 @@ exports.newNetworkApp = function newNetworkApp() {
             This is what we call the bootstrap process.
             */
             let appBootstrapingProcess = SA.projects.network.modules.appBootstrapingProcess.newNetworkModulesAppBootstrapingProcess()
-            await appBootstrapingProcess.run(global.env.P2P_NETWORK_NODE_SIGNING_ACCOUNT, thisObject.p2pNetworkNode)
+            await appBootstrapingProcess.initialize(global.env.P2P_NETWORK_NODE_SIGNING_ACCOUNT, thisObject.p2pNetworkNode, true)
             /*
             Let's discover which are the nodes at the p2p network and have an array of nodes
             to which we can connect to. This module will run the rules of who we can connect to.
@@ -75,6 +78,18 @@ exports.newNetworkApp = function newNetworkApp() {
                     thisObject.p2pNetworkReachableNodes
                 )
                 console.log('Social Graph Network Service ................................................. Running')
+            }
+
+            if (
+                thisObject.p2pNetworkNode.node.networkServices !== undefined &&
+                thisObject.p2pNetworkNode.node.networkServices.machineLearning !== undefined
+            ) {
+                thisObject.machineLearningNetworkService = NT.projects.bitcoinFactory.modules.machineLearningNetworkService.newBitcoinFactoryModulesMachineLearningNetworkService()
+                await thisObject.machineLearningNetworkService.initialize(
+                    thisObject.p2pNetworkNode,
+                    thisObject.p2pNetworkReachableNodes
+                )
+                console.log('Machine Learning Network Service ............................................. Running')
             }
 
             if (

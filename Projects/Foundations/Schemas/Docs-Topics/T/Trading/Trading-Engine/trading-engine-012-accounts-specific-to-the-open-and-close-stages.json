@@ -4,13 +4,27 @@
     "type": "Accounts Specific to the Open and Close Stages",
     "definition": {
         "text": "Learn about accounts specific to the context of the open and close stages. On this page: Target Size, Size Placed, Size Filled, and Fees Paid.",
-        "updated": 1611335734722
+        "updated": 1611335734722,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Özet: Açık ve kapalı aşamaların bağlamına özel hesaplar hakkında bilgi edinin. Bu sayfada: Hedef Boyut, Yerleştirilen Boyut, Doldurulan Boyut ve Ödenen Ücretler ( Target Size, Size Placed, Size Filled, and Fees Paid ).",
+                "updated": 1650618041162
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Target Size",
-            "updated": 1611335751425
+            "updated": 1611335751425,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hedef Boyutu ( Target Size )",
+                    "updated": 1650618061689
+                }
+            ]
         },
         {
             "style": "Include",

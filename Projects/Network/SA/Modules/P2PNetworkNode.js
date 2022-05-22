@@ -34,16 +34,21 @@ exports.newNetworkModulesP2PNetworkNode = function newNetworkModulesP2PNetworkNo
         thisObject.blockchainAccount = blockchainAccount
        
         if (
-            thisObject.node.p2pNetworkReference === undefined ||
-            thisObject.node.p2pNetworkReference.referenceParent === undefined ||
-            thisObject.node.p2pNetworkReference.referenceParent.config === undefined
+            thisObject.node.p2pNetworkReference === undefined  
         ) {
-            /*
-            Bad Configuration. P2P Network Node needs to have a Network Reference with a Reference Parent.
-            */
-            return false
-        } else {
-            return true
+            throw ('Bad Configuration -> thisObject.node.p2pNetworkReference === undefined')
+        }
+
+        if (
+            thisObject.node.p2pNetworkReference.referenceParent === undefined  
+        ) {
+            throw ('Bad Configuration -> thisObject.node.p2pNetworkReference.referenceParent === undefined')
+        }
+
+        if (
+            thisObject.node.p2pNetworkReference.referenceParent.config === undefined  
+        ) {
+            throw ('Bad Configuration -> thisObject.node.p2pNetworkReference.referenceParent.config === undefined')
         }
     }
 }

@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Отслеживайте популярную статистику, объединяющую как базовый, так и котируемый актив. На этой странице: Episode Statistics, Position Statistics и Order Statistics.",
                 "updated": 1640346971272
+            },
+            {
+                "language": "TR",
+                "text": "Hem temel varlığı hem de kote edilen varlığı konsolide eden popüler istatistikleri izleyin. Bu sayfada: Bölüm İstatistikleri, Konum İstatistikleri ve Sıra İstatistikleri ( Episode Statistics, Position Statistics, and Order Statistics ).",
+                "updated": 1650617131043
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Статистика - это счета и показатели эффективности, рассчитанные путем объединения базового актива и котируемого актива, то есть с учетом обоих активов.",
                     "updated": 1640347026059
+                },
+                {
+                    "language": "TR",
+                    "text": "İstatistikler, temel varlık ile kote edilen varlığın konsolide edilmesiyle hesaplanan hesaplar ve performans ölçümleridir, yani her iki varlık da dikkate alınır.",
+                    "updated": 1650617205169
                 }
             ]
         },
@@ -34,13 +44,25 @@
                     "language": "RU",
                     "text": "Механика того, как объединяются оба актива и как это влияет на расчеты, объясняется в определениях каждого из понятий.",
                     "updated": 1640347052190
+                },
+                {
+                    "language": "TR",
+                    "text": "Her iki varlığın nasıl konsolide edildiğinin ve konsolidasyonun hesaplamaları nasıl etkilediğinin mekaniği, her bir kavramın tanımlarında açıklanmaktadır.",
+                    "updated": 1650617222864
                 }
             ]
         },
         {
             "style": "Title",
             "text": "Trading Episode Statistics",
-            "updated": 1611260256691
+            "updated": 1611260256691,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ticaret Bölüm İstatistikleri ( Trading Episode Statistics )",
+                    "updated": 1650617237311
+                }
+            ]
         },
         {
             "style": "Include",
@@ -59,7 +81,14 @@
         {
             "style": "Title",
             "text": "Position Statistics",
-            "updated": 1611260273697
+            "updated": 1611260273697,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Pozisyon İstatistikleri ( Position Statistics )",
+                    "updated": 1650617257962
+                }
+            ]
         },
         {
             "style": "Include",
@@ -78,7 +107,14 @@
         {
             "style": "Title",
             "text": "Order Statistics",
-            "updated": 1611260292859
+            "updated": 1611260292859,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Emir İstatistikleri ( Order Statistics )",
+                    "updated": 1650617309688
+                }
+            ]
         },
         {
             "style": "Include",

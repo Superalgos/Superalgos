@@ -8,13 +8,25 @@
                 "language": "RU",
                 "text": "Узел Plugin API Maps содержит определения учебников, которые должны быть включены в текущее рабочее пространство в качестве плагинов.",
                 "updated": 1645164778025
+            },
+            {
+                "language": "TR",
+                "text": "Eklenti API Haritaları düğümü, mevcut çalışma alanına eklentiler olarak dahil edilecek öğreticilerin tanımlarını içerir.",
+                "updated": 1651949789834
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "Right click and select the pencil button to enter edit mode.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
+                    "updated": 1651949804645
+                }
+            ]
         }
     ]
 }

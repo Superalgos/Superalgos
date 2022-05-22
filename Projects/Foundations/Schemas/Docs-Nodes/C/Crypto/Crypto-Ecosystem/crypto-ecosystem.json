@@ -58,6 +58,11 @@
                     "language": "DE",
                     "text": "Es gibt nur eine Crypto-Ecosystem-Hierarchie. Sie verwenden sie, um festzulegen, mit welchen Börsen und Märkten Sie arbeiten möchten, und um die Details Ihrer Konten bei diesen Börsen zu definieren.",
                     "updated": 1641761803930
+                },
+                {
+                    "language": "TR",
+                    "text": "Yalnızca bir kripto ekosistem hiyerarşisi vardır. Hangi borsalar ve hangi pazarlarla çalışmak istediğinizi ve bu borsalardaki hesaplarınızın ayrıntılarını tanımlamak için kullanacaksınız.",
+                    "updated": 1652798957800
                 }
             ]
         }

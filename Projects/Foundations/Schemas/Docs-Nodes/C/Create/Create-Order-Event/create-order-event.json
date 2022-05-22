@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Create Order Event контролирует размещение ордеров.",
                 "updated": 1638648176725
+            },
+            {
+                "language": "TR",
+                "text": "Sipariş oluşturma olayı, siparişlerin yerleşimini kontrol eder.",
+                "updated": 1652798860066
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Даже если решение открыть позицию могло быть принято, пользователь все равно может принять решение о дополнительном контроле над размещением ордеров. Такова цель события Create Order Event.",
                     "updated": 1638648234620
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir pozisyon alma kararı verilmiş olsa bile, kullanıcı yine de emirlerin verilmesi üzerinde ek kontrol uygulamaya karar verebilir. Create order olayının amacı budur.",
+                    "updated": 1652798868336
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Порядок, определенный в алгоритме выполнения, будет выполнен, только если событие оценивается как true.",
                     "updated": 1638648264876
+                },
+                {
+                    "language": "TR",
+                    "text": "Yürütme algoritmasında tanımlanan bir sipariş, yalnızca olayın true olarak değerlendirilmesi durumunda yürütülür.",
+                    "updated": 1652798892681
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "RU",
                     "text": "Если вы хотите, чтобы ордера размещались, как определено, сразу после того, как было инициировано событие открытия позиции, используйте оператор true для вашего единственного условия события создания ордера.",
                     "updated": 1638648287533
+                },
+                {
+                    "language": "TR",
+                    "text": "Pozisyon alma olayının tetiklenmesinden hemen sonra emirlerin tanımlandığı gibi verilmesini istiyorsanız, sadece emir oluşturma olay koşulunuz için true ifadesini kullanın.",
+                    "updated": 1652798919883
                 }
             ]
         }

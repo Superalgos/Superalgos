@@ -52,13 +52,13 @@
         },
         {
             "style": "Callout",
-            "text": "Spawn one Liquidity Program Node for each asset you have pooled with the Superalgos Token. Click \"Configure\" and enter the code of the paired asset to the node configuration.",
-            "updated": 1644173239186,
+            "text": "Spawn one Liquidity Program Node for each asset you have pooled with the Superalgos Token. Click \"Configure\" and enter the codes of the paired asset and of the exchange to the node configuration.",
+            "updated": 1648995998419,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Fügen Sie eine Liquidity Program Node für jedes Asset hinzu, das Sie in einem Liquidity Pool mit dem Superalgos Token halten. Klicken Sie dann auf \"Configure\" und geben Sie das Kürzel des Assets ein, das sich mit dem Superalgos Token im Liquidity Pool befindet.",
-                    "updated": 1644743545534
+                    "text": "Fügen Sie eine separate Liquidity Program Node für jedes Asset hinzu, das Sie in einem Liquidity Pool mit dem Superalgos Token halten. Klicken Sie dann auf \"Configure\" und geben Sie das Kürzel des Assets und der Börse ein.",
+                    "updated": 1648996824032
                 },
                 {
                     "language": "RU",
@@ -68,19 +68,68 @@
             ]
         },
         {
-            "style": "Note",
-            "text": "If you hold the same liquidity pool on multiple supported exchanges, do not add additional nodes per exchange. The balances of all supported exchanges are automatically summarized under the asset.",
-            "updated": 1644173429132,
+            "style": "Text",
+            "text": "Example:",
+            "updated": 1648996059714,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Wenn Sie denselben Liquidity Pool auf mehreren unterstützten Börsen halten, fügen Sie keine zusätzlichen Liquidity Program Nodes je Börse hinzu. Guthaben aller unterstützten Börsen werden automatisch unter dem Asset aufsummiert.",
-                    "updated": 1644743657782
+                    "text": "Beispiel:",
+                    "updated": 1648996735804
                 },
                 {
                     "language": "RU",
                     "text": "Если вы держите один и тот же пул ликвидности на нескольких поддерживаемых биржах, не добавляйте дополнительные узлы на каждую биржу. Остатки на всех поддерживаемых биржах автоматически суммируются под активом.",
                     "updated": 1645181318536
+                }
+            ]
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"asset\": \"BNB\",\n    \"exchange\": \"BISWAP\"\n}",
+            "updated": 1648996272204
+        },
+        {
+            "style": "Text",
+            "text": "Valid parameter values:",
+            "updated": 1648995488220,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Zulässige Werte:",
+                    "updated": 1648996772301
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "asset: \"BTCB\", \"BNB\", \"BUSD\", \"ETH\""
+        },
+        {
+            "style": "List",
+            "text": "exchange: \"PANCAKE\", \"1INCH\", \"BISWAP\""
+        },
+        {
+            "style": "Success",
+            "text": "If you hold the same liquidity pool on multiple supported exchanges, make sure to add one dedicated node for each combination of asset and exchange.",
+            "updated": 1648995878473,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Falls Sie denselben Liquidity Pool an mehreren unterstützten Börsen halten, legen Sie eine separate Node für jede Kombination aus Asset und Börse an.",
+                    "updated": 1648996921061
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "When the exchange parameter is missing, the system uses PANCAKE per default.",
+            "updated": 1648995832298,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sollte der Parameter \"exchange\" fehlen, wird standardmäßig \"PANCAKE\" verwendet.",
+                    "updated": 1648996957182
                 }
             ]
         },

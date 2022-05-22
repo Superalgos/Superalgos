@@ -1,3 +1,26 @@
 {
-    "type": "Back Learning Session"
+    "type": "Back Learning Session",
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle. Yeni paragraflar yazmak için ENTER'a basın. Düzenleme modundan çıkmak için ESC. Ardından, değişikliklerinizi kaydetmek için docs.save'i ve ana depoya göndermek için app.contribute'i kullanabilirsiniz.",
+                    "updated": 1652795019737
+                }
+            ]
+        }
+    ],
+    "definition": {
+        "text": "Right click and select the pencil button to edit this tex. Replace it with a definition / summary. Hit ESC to exit edit mode.",
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Bu metni düzenlemek için sağ tıklayın ve kalem düğmesini seçin. Bir tanım / özet ile değiştirin. Düzenleme modundan çıkmak için ESC'ye basın.",
+                "updated": 1652794998294
+            }
+        ]
+    }
 }

@@ -73,7 +73,7 @@ Having said that, please don't expect that forecasts will be precise in the begi
 
 ## How to Start
 1. Download and Install Superalgos
-Once you’re ready to go, click this link to go to the Superalgos Github repository and follow the instructions on the main README file to get up and running with the Installation for Developers and Contributors (other installations are not tested for the ML project).
+Once you’re ready to go, click this link https://github.com/Superalgos/Superalgos#readme to go to the Superalgos Github repository and follow the instructions on the main README file to get up and running with the Installation for Developers and Contributors (other installations are not tested for the ML project).
 
 If you have any issues with the installation or the learning curve, join the Superalgos Support group on Telegram or the Superalgos Discord server to get help from the community.
 

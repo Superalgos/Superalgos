@@ -73,27 +73,27 @@ Having said that, please don't expect that forecasts will be precise in the begi
 
 ## How to Start
 1. Download and Install Superalgos
-Once you’re ready to go, click this link https://github.com/Superalgos/Superalgos#readme to go to the Superalgos Github repository and follow the instructions on the main README file to get up and running with the Installation for Developers and Contributors (other installations are not tested for the ML project).
+- Once you’re ready to go, click this link https://github.com/Superalgos/Superalgos#readme to go to the Superalgos Github repository and follow the instructions on the main README file to get up and running with the Installation for Developers and Contributors (other installations are not tested for the ML project).
 
-If you have any issues with the installation or the learning curve, join the Superalgos Support group on Telegram or the Superalgos Discord server to get help from the community.
+- If you have any issues with the installation or the learning curve, join the Superalgos Support group on Telegram or the Superalgos Discord server to get help from the community.
 
-You should also join the Superalgos Machine Learning group on Telegram to get help with running the testing tasks and to get in touch with the crowd driving the ML area of the project.
+- You should also join the Superalgos Machine Learning group on Telegram to get help with running the testing tasks and to get in touch with the crowd driving the ML area of the project.
 
 2. Do the First Three Tutorials
 You need to get familiar with Superalgos before you may participate in the crowd-testing efforts.
 
-I’ll be completely honest with you… Superalgos is a vast system designed to unleash incredible power — but requires time to master. It’ll take anything from two to three hours to complete the first three in-app interactive tutorials.
+- I’ll be completely honest with you… Superalgos is a vast system designed to unleash incredible power — but requires time to master. It’ll take anything from two to three hours to complete the first three in-app interactive tutorials.
 
-Those first few tutorials will give you an overall understanding of how the system works. There are many more tutorials that you can go through, and over 1500 pages of documentation built into the app.
+- Those first few tutorials will give you an overall understanding of how the system works. There are many more tutorials that you can go through, and over 1500 pages of documentation built into the app.
 
-The whole thing may not be suitable for a weekend adventure. But if you’re interested in trading, automation, and ML, then I’m confident Superalgos will blow your mind and I’m certain the learning process will be worth every second of your time!
+- The whole thing may not be suitable for a weekend adventure. But if you’re interested in trading, automation, and ML, then I’m confident Superalgos will blow your mind and I’m certain the learning process will be worth every second of your time!
 
 3. Create and Contribute Your User Profile
-Your user profile is your identity within the project. You will need it to authenticate with the test server.
+- Your user profile is your identity within the project. You will need it to authenticate with the test server.
 
-To create your profile you will go to the Token-Distribution-Superalgos workspace and do the Creating Your User Profile Tutorial.
+- To create your profile you will go to the Token-Distribution-Superalgos workspace and do the Creating Your User Profile Tutorial.
 
 4. Learn How to Run the ML Test Client
-By the time you’re familiar with Superalgos and have created your User Profile, you’ll be ready to start participating in the testing efforts!
+- By the time you’re familiar with Superalgos and have created your User Profile, you’ll be ready to start participating in the testing efforts!
 
-Go to the Bitcoin Factory folder open the Test-Client directory and follow the instructions in the Test Client's README file to get up and running!
+- Go to the Bitcoin Factory folder open the Test-Client directory and follow the instructions in the Test Client's README file to get up and running!

@@ -5,6 +5,7 @@ exports.newBitcoinFactoryServer = function newBitcoinFactoryServer() {
         updateForecastedCandles: updateForecastedCandles,
         getUserProfileFilesList: getUserProfileFilesList,
         getUserProfileFile: getUserProfileFile,
+        getRewardsFile: getRewardsFile,
         getIndicatorFile: getIndicatorFile,
         initialize: initialize,
         finalize: finalize,
@@ -200,6 +201,73 @@ exports.newBitcoinFactoryServer = function newBitcoinFactoryServer() {
             userProfilePluginFile: userProfilePluginFile.toString()
         }
     }
+
+    function getRewardsFile(firstTimestamp, lastTimestamp) {
+        let rewardsFile = ""
+        try {
+            rewardsFile = SA.nodeModules.fs.readFileSync('./Bitcoin-Factory/Testnet.csv')
+        }
+        catch(err) {
+            console.log((new Date()).toISOString(), "[WARN] Unable to open Governance Rewards File ./Bitcoin-Factory/Testnet.csv")
+            return {
+                result: 'Not Ok'
+            }
+        }
+        /* Parse CSV file, convert to JSON objects */
+        const csvToJsonResult = []
+        let cleanResult = rewardsFile.toString().replace(/\r/g, "")
+        let array = cleanResult.split("\n")
+        const headers = array[0].split(",")
+        for (let i = 1; i < array.length - 1; i++) {
+            const jsonObject = {}
+            const currentArrayString = array[i]
+            let string = ''
+            /* Escape quotation marks, convert , to | */
+            let quoteFlag = 0
+            for (let character of currentArrayString) {
+                if (character === '"' && quoteFlag === 0) {
+                    quoteFlag = 1
+                }
+                else if (character === '"' && quoteFlag == 1) quoteFlag = 0
+                if (character === ',' && quoteFlag === 0) character = '|'
+                if (character !== '"') string += character
+            }
+            let jsonProperties = string.split("|")
+            for (let j in headers) {
+                if (jsonProperties[j].includes(",")) {
+                jsonObject[headers[j]] = jsonProperties[j]
+                    .split(",").map(item => item.trim())
+                }
+                else jsonObject[headers[j]] = jsonProperties[j]
+            }
+            /* Push the genearted JSON object to result array */
+            csvToJsonResult.push(jsonObject)
+        }
+
+        /* Filter results for timestamp range */
+        let uploadTimestamp = 0
+        const testsPerUser = {}
+        for (let x = 0; x < csvToJsonResult.length; x++) {
+            if (isNaN(csvToJsonResult[x].assignedTimestamp) === false) {
+                uploadTimestamp = parseInt(csvToJsonResult[x].assignedTimestamp)
+            }
+            let profile = csvToJsonResult[x].testedByProfile
+            if (csvToJsonResult[x].status === "Tested" && uploadTimestamp >= parseInt(firstTimestamp) && uploadTimestamp <= parseInt(lastTimestamp)) {
+                if (testsPerUser[profile] !== undefined) {
+                    testsPerUser[profile] = testsPerUser[profile] + 1
+                } else {
+                    testsPerUser[profile] = 1
+                }
+            }
+        }
+
+        return {
+            result: 'Ok',
+            executedTests: testsPerUser
+        }
+    }
+
+
 
     function getIndicatorFile(
         dataMine,

@@ -14,6 +14,11 @@
                 "language": "RU",
                 "text": "Используйте этот стиль для отображения заголовков на странице документов.",
                 "updated": 1638532759086
+            },
+            {
+                "language": "TR",
+                "text": "Dokümanlar sayfasında başlıkları oluşturmak için bu stili kullanın.",
+                "updated": 1652384119153
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "language": "RU",
                     "text": "Как следует из названия, стиль заголовка просто делает все, что вы вводите во время редактирования, видимым как заголовок на странице документов.",
                     "updated": 1638532794274
+                },
+                {
+                    "language": "TR",
+                    "text": "Adından da anlaşılacağı gibi, başlık stili, düzenlerken yazdığınız her şeyi dokümanlar sayfasında başlık olarak görünür hale getirir.",
+                    "updated": 1652384138266
                 }
             ]
         },
@@ -47,6 +57,11 @@
                     "language": "RU",
                     "text": "Пример:",
                     "updated": 1638532842101
+                },
+                {
+                    "language": "TR",
+                    "text": "Misal:",
+                    "updated": 1652384147749
                 }
             ]
         },
@@ -63,6 +78,11 @@
                     "language": "RU",
                     "text": "Предыдущий - это абзац в стиле заголовка.",
                     "updated": 1638532822687
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir önceki, başlık stilinde bir paragraftır.",
+                    "updated": 1652384156299
                 }
             ]
         }

@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Каждому абзацу на странице Docs Page назначается стиль. По умолчанию и чаще всего используется стиль Docs Text Style.",
                 "updated": 1638464178400
+            },
+            {
+                "language": "TR",
+                "text": "Dokümanlar Sayfasındaki ( Docs Page ) her paragrafa bir stil atanır. Varsayılan ve en sık kullanılan stil Dokümanlar Metin Stili ( Docs Text Style ) dir. ",
+                "updated": 1652645662717
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "RU",
                     "text": "Стили описаны в теме Docs Paragraph Styles.",
                     "updated": 1638464229136
+                },
+                {
+                    "language": "TR",
+                    "text": "Stiller, Dokümanlar Paragraf Stilleri konusunda ele alınmıştır.",
+                    "updated": 1652645690591
                 }
             ]
         }

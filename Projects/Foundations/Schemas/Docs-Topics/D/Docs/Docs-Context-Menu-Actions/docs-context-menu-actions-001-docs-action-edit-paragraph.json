@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Используйте это действие для редактирования текста абзаца. Затем используйте клавишу ESC, чтобы выйти из режима редактирования.",
                 "updated": 1638532068326
+            },
+            {
+                "language": "TR",
+                "text": "Bir paragrafın metnini düzenlemek için bu eylemi kullanın. Ardından düzenleme modundan çıkmak için ESC tuşunu kullanın.",
+                "updated": 1652213460774
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
                     "updated": 1638532081277
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenleyin. Yeni paragraflar yazmak için ENTER'a basın. Düzenleme modundan çıkmak için ESC.",
+                    "updated": 1652213969607
                 }
             ]
         }

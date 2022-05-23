@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Слово «from» является частью синтаксиса команды и отсутствует.",
                 "updated": 1638530031769
+            },
+            {
+                "language": "TR",
+                "text": "\"from\" sözcüğü, komutun sözdiziminin bir parçasıdır ve eksiktir.",
+                "updated": 1652037990559
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "language": "DE",
                     "text": "Syntax Error. Das Wort \"from\" fehlt.",
                     "updated": 1633897969340
+                },
+                {
+                    "language": "TR",
+                    "text": "Sözdizimi Hatası. \"from\" kelimesi eksik. ",
+                    "updated": 1652038039951
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "RU",
                     "text": "Проверьте синтаксис команды и посмотрите, где разместить слово «from».",
                     "updated": 1638530058357
+                },
+                {
+                    "language": "TR",
+                    "text": "Komutun sözdizimini kontrol edin ve \"from\" kelimesinin nereye yerleştirileceğini görün.",
+                    "updated": 1652038087841
                 }
             ]
         },

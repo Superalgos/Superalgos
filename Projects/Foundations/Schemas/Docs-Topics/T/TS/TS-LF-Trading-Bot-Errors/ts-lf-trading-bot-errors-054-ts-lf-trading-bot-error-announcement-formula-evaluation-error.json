@@ -4,38 +4,94 @@
     "type": "TS LF Trading Bot Error - Announcement Formula Evaluation Error",
     "definition": {
         "text": "While evaluating the Announcement Formula code, the system encountered an error with the code you provided for that formula.\n\n",
-        "updated": 1616474653668
+        "updated": 1616474653668,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Duyuru Formül ( Announcement Formula ) kodunu değerlendirirken, sistem bu formül için sağladığınız kodda bir hatayla karşılaştı.",
+                "updated": 1650841853725
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Error",
             "text": "Announcement Unexpected Error",
-            "updated": 1616474673437
+            "updated": 1616474673437,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Duyuru,Beklenmeyen Hata. ( Announcement Unexpected Error )",
+                    "updated": 1650841899064
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Check the validity of the Javascript code in the Announcement Formula and try again.",
-            "updated": 1616474702091
+            "updated": 1616474702091,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Duyuru Formülündeki ( Announcement Formula ) Javascript kodunun geçerliliğini kontrol edin ve tekrar deneyin.",
+                    "updated": 1650841957945
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Error Info"
+            "text": "Error Info",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hata Bilgisi",
+                    "updated": 1650841991365
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In the following section, you will find the information recorded when the error occurred."
+            "text": "In the following section, you will find the information recorded when the error occurred.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki bölümde, hata oluştuğunda kaydedilen bilgileri bulacaksınız.",
+                    "updated": 1650842006174
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "You will only see the information if you opened this page as a result of the error actually occurring."
+            "text": "You will only see the information if you opened this page as a result of the error actually occurring.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bilgileri yalnızca bu sayfayı gerçekte meydana gelen hatanın bir sonucu olarak açtıysanız görürsünüz.",
+                    "updated": 1650842025379
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Error Message"
+            "text": "Error Message",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hata İletisi",
+                    "updated": 1650842039665
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The following is the Error Message of the Exception that occurred at the LF Trading Bot:"
+            "text": "The following is the Error Message of the Exception that occurred at the LF Trading Bot:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "LF ( LF Trading ) Ticaret Botunda oluşan Özel Durumun Hata İletisi aşağıdadır:",
+                    "updated": 1650842075942
+                }
+            ]
         },
         {
             "style": "Placeholder",
@@ -43,11 +99,25 @@
         },
         {
             "style": "Subtitle",
-            "text": "Error Stack"
+            "text": "Error Stack",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hata Yığını",
+                    "updated": 1650842095035
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The following is the Error Stack of the Exception that occurred at the LF Trading Bot:"
+            "text": "The following is the Error Stack of the Exception that occurred at the LF Trading Bot:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "LF ( LF Trading Bot ) Ticaret Botunda oluşan Özel Durumun Hata Yığını aşağıdadır:",
+                    "updated": 1650842127545
+                }
+            ]
         },
         {
             "style": "Placeholder",
@@ -55,11 +125,25 @@
         },
         {
             "style": "Subtitle",
-            "text": "Error Code"
+            "text": "Error Code",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hata Kodu",
+                    "updated": 1650842138640
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The following is the Error Code of the Exception that occurred at the LF Trading Bot:"
+            "text": "The following is the Error Code of the Exception that occurred at the LF Trading Bot:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "LF ( LF Trading Bot ) Ticaret Botunda oluşan Özel Durumun Hata Kodu aşağıdadır:",
+                    "updated": 1650842161161
+                }
+            ]
         },
         {
             "style": "Placeholder",
@@ -67,11 +151,25 @@
         },
         {
             "style": "Subtitle",
-            "text": "Error Details"
+            "text": "Error Details",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hata Ayrıntıları",
+                    "updated": 1650842173826
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The following are all the Error details of the Exception that occurred at the LF Trading Bot:"
+            "text": "The following are all the Error details of the Exception that occurred at the LF Trading Bot:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "LF ( LF Trading Bot ) Ticaret Botunda meydana gelen İstisnanın tüm Hata ayrıntıları aşağıdadır:",
+                    "updated": 1650842195578
+                }
+            ]
         },
         {
             "style": "Placeholder",
@@ -79,11 +177,25 @@
         },
         {
             "style": "Subtitle",
-            "text": "Node Name"
+            "text": "Node Name",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Düğüm Adı",
+                    "updated": 1650842210448
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The following is the node's name of the Node most related to this error:"
+            "text": "The following is the node's name of the Node most related to this error:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki, bu hatayla en çok ilgili olan Düğümün ( Node ) adıdır:",
+                    "updated": 1650842245231
+                }
+            ]
         },
         {
             "style": "Placeholder",
@@ -91,11 +203,25 @@
         },
         {
             "style": "Subtitle",
-            "text": "Node Code"
+            "text": "Node Code",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Düğüm Kodu",
+                    "updated": 1650842257941
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The following is the code stored at the node that produced the error at the LF Trading Bot:"
+            "text": "The following is the code stored at the node that produced the error at the LF Trading Bot:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "LF ( LF Trading ) Ticaret Bot'ta hatayı üreten düğümde depolanan kod aşağıdadır:",
+                    "updated": 1650842280407
+                }
+            ]
         },
         {
             "style": "Placeholder",

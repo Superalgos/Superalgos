@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Каждый узел должен иметь иконку, которая представляет узел в Design Space.",
                 "updated": 1640356659778
+            },
+            {
+                "language": "TR",
+                "text": "Her Düğümün ( Node ) Tasarım Alanındaki Düğümü ( Node ) temsil eden bir simgeye sahip olması gerekir.",
+                "updated": 1652901953564
             }
         ]
     },
@@ -22,6 +27,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
                     "updated": 1640356669892
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle . Yeni paragraflar yazmak için ENTER'a basın. Düzenleme modundan çıkmak için ESC.",
+                    "updated": 1652901973480
                 }
             ]
         }

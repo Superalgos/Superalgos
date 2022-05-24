@@ -13,8 +13,10 @@
         start: start
     }
     const MIN_TEST_CLIENT_VERSION = 6
+    const TEST_SERVER_VERSION = 1
 
     let networkCodeName = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.networkCodeName
+    let serverInstanceName = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName
 
     thisObject.utilities = TS.projects.bitcoinFactory.utilities.miscellaneous
     thisObject.dataBridge = TS.projects.bitcoinFactory.botModules.dataBridge.newDataBridge(processIndex)
@@ -33,11 +35,15 @@
             await thisObject.testClientsManager.initialize()
             thisObject.forecastCasesManager.initialize()
             await thisObject.forecastClientsManager.initialize()
+            console.log((new Date()).toISOString(), 'Running Test Server v.' + TEST_SERVER_VERSION)
             callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
         } catch (err) {
             TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
-            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                "[ERROR] initialize -> err = " + err.stack)
+            if (err.stack !== undefined) {
+                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                    "[ERROR] initialize -> err = " + err.stack)
+            }
+
             callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
         }
     }
@@ -55,7 +61,8 @@
         try {
             console.log((new Date()).toISOString(), "Test Server is Starting Now.")
             let queryMessage = {
-                sender: 'Test-Server'
+                sender: 'Test-Server',
+                instance: serverInstanceName
             }
 
             let messageHeader = {
@@ -100,15 +107,15 @@
                                 switch (clientData.recipient) {
                                     case 'Test Client Manager': {
                                         if (clientData.testClientVersion === undefined || clientData.testClientVersion < MIN_TEST_CLIENT_VERSION) {
-                                            console.log((new Date()).toISOString(), 'Cound not process request from ' + clientData.userProfile + ' / ' + clientData.clientInstanceName + ' becasuse is running an outdated version of the Test Client. Version = ' + clientData.testClientVersion)
+                                            console.log((new Date()).toISOString(), 'Cound not process request from ' + clientData.userProfile + ' / ' + clientData.instance + ' becasuse is running an outdated version of the Test Client. Version = ' + clientData.testClientVersion)
                                             managerResponse = 'CLIENT VERSION IS TOO OLD'
                                         } else {
-                                            managerResponse = await thisObject.testClientsManager.onMessageReceived(clientData.message, clientData.userProfile, clientData.clientInstanceName)
+                                            managerResponse = await thisObject.testClientsManager.onMessageReceived(clientData.message, clientData.userProfile, clientData.instance)
                                         }
                                         break
                                     }
                                     case 'Forecast Client Manager': {
-                                        managerResponse = await thisObject.forecastClientsManager.onMessageReceived(clientData.message, clientData.userProfile, clientData.clientInstanceName)
+                                        managerResponse = await thisObject.forecastClientsManager.onMessageReceived(clientData.message, clientData.userProfile, clientData.instance)
                                         break
                                     }
                                 }
@@ -116,6 +123,7 @@
                                 queryMessage = {
                                     messageId: clientData.messageId,
                                     sender: 'Test-Server',
+                                    instance: serverInstanceName,
                                     response: managerResponse
                                 }
 
@@ -147,7 +155,8 @@
             }
             function getReadyForNewMessage() {
                 queryMessage = {
-                    sender: 'Test-Server'
+                    sender: 'Test-Server',
+                    instance: serverInstanceName
                 }
 
                 messageHeader = {

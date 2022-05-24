@@ -14,6 +14,11 @@
                 "language": "RU",
                 "text": "Этот стиль будет отображаться в синем поле со словом \"Примечание\" в качестве префикса.",
                 "updated": 1638533056075
+            },
+            {
+                "language": "TR",
+                "text": "Bu stil, ön ek olarak not kelimesiyle birlikte mavi bir kutuda işlenecektir.",
+                "updated": 1652384300035
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "language": "RU",
                     "text": "При редактировании абзаца этого стиля просто введите текст, который должен отображаться внутри поля. Слово \"Примечание\" добавляется автоматически.",
                     "updated": 1638533089541
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu stilin bir paragrafını düzenlerken, kutunun içinde görünmesini istediğiniz metni yazmanız yeterlidir. Kelime notu otomatik olarak eklenir.",
+                    "updated": 1652384346919
                 }
             ]
         },
@@ -47,6 +57,11 @@
                     "language": "RU",
                     "text": "Пример:",
                     "updated": 1638533097266
+                },
+                {
+                    "language": "TR",
+                    "text": "Misal:",
+                    "updated": 1652384355695
                 }
             ]
         },
@@ -63,6 +78,11 @@
                     "language": "RU",
                     "text": "Это пример абзаца в стиле примечания.",
                     "updated": 1638533114392
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu, not stilinde bir paragraf örneğidir.",
+                    "updated": 1652384387836
                 }
             ]
         }

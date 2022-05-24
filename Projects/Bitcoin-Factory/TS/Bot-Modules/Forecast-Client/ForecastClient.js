@@ -1,6 +1,7 @@
 ﻿exports.newBitcoinFactoryBotModulesForecastClient = function (processIndex) {
 
     const MODULE_NAME = "Forecast-Client"
+    const FORECAST_CLIENT_VERSION = 1
 
     let thisObject = {
         forecastCasesArray: undefined,
@@ -23,6 +24,7 @@
             /*
             Create Missing Folders, if needed.
             */
+            console.log((new Date()).toISOString(), 'Running Forecast Client v.' + FORECAST_CLIENT_VERSION)
             let dir
             dir = global.env.PATH_TO_BITCOIN_FACTORY + '/Forecast-Client/StateData/ForecastCases'
             if (!SA.nodeModules.fs.existsSync(dir)) {
@@ -87,7 +89,7 @@
                         if (forecastResult !== undefined) {
                             forecastResult.id = nextForecastCase.id
                             forecastResult.caseIndex = nextForecastCase.caseIndex
-                            await setForecastCaseResults(forecastResult, 'clientInstanceBuilder')
+                            await setForecastCaseResults(forecastResult, 'clientInstanceBuilder', nextForecastCase.testServer)
                                 .then(onSuccess)
                                 .catch(onError)
                             async function onSuccess(response) {
@@ -139,9 +141,10 @@
             let queryMessage = {
                 messageId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                 sender: 'Forecast-Client',
-                clientInstanceName: TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.clientInstanceBuilder,
+                instance: TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.clientInstanceBuilder,
                 recipient: 'Forecast Client Manager',
-                message: message
+                message: message,
+                forecastClientVersion: FORECAST_CLIENT_VERSION
             }
 
             let messageHeader = {
@@ -154,7 +157,7 @@
                 reject('Not connected to the Test Server yet... hold on...')
                 return
             }
-            
+
             await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClient.machineLearningNetworkServiceClient.sendMessage(messageHeader)
                 .then(onSuccess)
                 .catch(onError)
@@ -165,6 +168,10 @@
                 }
                 if (response.data.serverData.response !== 'NO FORECAST CASES AVAILABLE AT THE MOMENT') {
                     let nextForecastCase = response.data.serverData.response
+                    nextForecastCase.testServer = {
+                        userProfile: response.data.serverData.userProfile,
+                        instance: response.data.serverData.instance
+                    }
                     resolve(nextForecastCase)
                 } else {
                     reject('No more forecast cases at the Test Server')
@@ -189,9 +196,11 @@
             let queryMessage = {
                 messageId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                 sender: 'Forecast-Client',
-                clientInstanceName: TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.clientInstanceForecaster,
+                instance: TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.clientInstanceForecaster,
                 recipient: 'Forecast Client Manager',
-                message: message
+                testServer: forecastCase.testServer,
+                message: message,
+                forecastClientVersion: FORECAST_CLIENT_VERSION
             }
 
             let messageHeader = {
@@ -206,6 +215,10 @@
             async function onSuccess(response) {
                 if (response.data.serverData.response !== 'THIS FORECAST CASE IS NOT AVAILABLE ANYMORE') {
                     let thisForecastCase = response.data.serverData.response
+                    thisForecastCase.testServer = {
+                        userProfile: response.data.serverData.userProfile,
+                        instance: response.data.serverData.instance
+                    }
                     resolve(thisForecastCase)
                 } else {
                     reject(response.data.serverData.response)
@@ -217,7 +230,7 @@
         }
     }
 
-    async function setForecastCaseResults(forecastResult, clientInstanceConfigPropertyName) {
+    async function setForecastCaseResults(forecastResult, clientInstanceConfigPropertyName, testServer) {
         return new Promise(promiseWork)
 
         async function promiseWork(resolve, reject) {
@@ -229,9 +242,11 @@
             let queryMessage = {
                 messageId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                 sender: 'Forecast-Client',
-                clientInstanceName: TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config[clientInstanceConfigPropertyName],
+                instance: TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config[clientInstanceConfigPropertyName],
                 recipient: 'Forecast Client Manager',
-                message: message
+                testServer: testServer,
+                message: message,
+                forecastClientVersion: FORECAST_CLIENT_VERSION
             }
 
             let messageHeader = {
@@ -267,14 +282,29 @@
         SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Forecast-Client/notebooks/instructions.csv", instructionsFile)
     }
 
+    function getRelevantParameters(parameters) {
+        /*
+        Remove from Parameters the properties that are in OFF
+        */
+        let relevantParameters = {}
+        for (const property in parameters) {
+            if (parameters[property] !== 'OFF') {
+                relevantParameters[property] = parameters[property]
+            }
+        }
+        return relevantParameters
+    }
+
     async function buildModel(nextForecastCase) {
         console.log('')
         console.log('------------------------------------------- Building Forecast Case # ' + nextForecastCase.id + ' ---- ' + (nextForecastCase.caseIndex + 1) + ' / ' + nextForecastCase.totalCases + ' --------------------------------------------------------')
         console.log('')
-        console.log((new Date()).toISOString(), 'Starting processing this Case')
+        console.log('Test Server: ' + nextForecastCase.testServer.userProfile + ' / ' + nextForecastCase.testServer.instance)
         console.log('')
         console.log('Parameters Received for this Forecast:')
-        console.table(nextForecastCase.parameters)
+        console.table(getRelevantParameters(nextForecastCase.parameters))
+        console.log('')
+        console.log((new Date()).toISOString(), 'Starting to process this Case')
         console.log('')
 
         writePhytonInstructionsFile("BUILD_AND_SAVE_MODEL", nextForecastCase)
@@ -286,12 +316,13 @@
         console.log('')
         console.log('------------------------------------------------------- Reforcasting Case # ' + nextForecastCase.id + ' ------------------------------------------------------------')
         console.log('')
-        console.log((new Date()).toISOString(), 'Starting processing this Case')
+        console.log('Test Server: ' + nextForecastCase.testServer.userProfile + ' / ' + nextForecastCase.testServer.instance)
         console.log('')
         console.log('Parameters Received for this Forecast:')
-        console.table(nextForecastCase.parameters)
+        console.table(getRelevantParameters(nextForecastCase.parameters))
         console.log('')
-
+        console.log((new Date()).toISOString(), 'Starting to process this Case')
+        console.log('')
 
         writePhytonInstructionsFile("LOAD_MODEL_AND_PREDICT", nextForecastCase)
 
@@ -444,7 +475,7 @@
                         if (forecastResult !== undefined) {
                             forecastResult.id = thisForecastCase.id
                             forecastResult.caseIndex = thisForecastCase.caseIndex
-                            await setForecastCaseResults(forecastResult, 'clientInstanceForecaster')
+                            await setForecastCaseResults(forecastResult, 'clientInstanceForecaster', thisForecastCase.testServer)
                                 .then(onSuccess)
                                 .catch(onError)
                             async function onSuccess(response) {

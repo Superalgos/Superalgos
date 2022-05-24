@@ -4,17 +4,38 @@
     "type": "TS LF Trading Bot Error - Social Bots Node Missing",
     "definition": {
         "text": "A Social Bots node was expected but not found at the node where the error originated.",
-        "updated": 1611732443032
+        "updated": 1611732443032,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Bir Sosyal Botlar ( Social Bots ) düğümü bekleniyordu, ancak hatanın kaynaklandığı düğümde bulunamadı.",
+                "updated": 1650402854337
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Error",
             "text": "Social Bots Node Missing",
-            "updated": 1611732472465
+            "updated": 1611732472465,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Sosyal Botlar Düğümü Eksik. ( Social Bots Node Missing )",
+                    "updated": 1650403005911
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Add the missing node and try again."
+            "text": "Add the missing node and try again.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Eksik düğümü ekleyin ve yeniden deneyin.",
+                    "updated": 1650403024370
+                }
+            ]
         }
     ]
 }

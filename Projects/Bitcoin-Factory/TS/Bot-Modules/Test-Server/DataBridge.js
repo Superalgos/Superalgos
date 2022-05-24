@@ -28,22 +28,22 @@ exports.newDataBridge = function newDataBridge(processIndex) {
         Create Missing Folders, if needed.
         */
         let dir
-        dir = global.env.PATH_TO_BITCOIN_FACTORY + '/Test-Server/StateData/TestCases'
+        dir = global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/" + TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName + "/StateData/TestCases"
         if (!SA.nodeModules.fs.existsSync(dir)) {
             SA.nodeModules.fs.mkdirSync(dir, { recursive: true });
         }
 
-        dir = global.env.PATH_TO_BITCOIN_FACTORY + '/Test-Server/StateData/ForecastCases'
+        dir = global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/" + TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName + "/StateData/ForecastCases"
         if (!SA.nodeModules.fs.existsSync(dir)) {
             SA.nodeModules.fs.mkdirSync(dir, { recursive: true });
         }
 
-        dir = global.env.PATH_TO_BITCOIN_FACTORY + '/Test-Server/OutputData/TestData'
+        dir = global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/" + TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName + "/OutputData/TestData"
         if (!SA.nodeModules.fs.existsSync(dir)) {
             SA.nodeModules.fs.mkdirSync(dir, { recursive: true });
         }
 
-        dir = global.env.PATH_TO_BITCOIN_FACTORY + '/Test-Server/OutputData/TestReports'
+        dir = global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/" + TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName + "/OutputData/TestReports"
         if (!SA.nodeModules.fs.existsSync(dir)) {
             SA.nodeModules.fs.mkdirSync(dir, { recursive: true });
         }
@@ -124,7 +124,7 @@ exports.newDataBridge = function newDataBridge(processIndex) {
                 parametersFile += testCase.parameters[key] + ' '
             }
             parametersFile = parametersFile.slice(0, -1)
-            SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/OutputData/TestData/" + testCase.parametersFileName + ".CSV", parametersFile)
+            SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/" + TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName + "/OutputData/TestData/" + testCase.parametersFileName + ".CSV", parametersFile)
             if (testCase.filesTimestaps === undefined) {
                 testCase.filesTimestaps = {}
             }
@@ -446,7 +446,7 @@ exports.newDataBridge = function newDataBridge(processIndex) {
                 let newFileHash = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.hash(timeSeriesFile)
                 if (currentFileHash === undefined || currentFileHash !== newFileHash) {
 
-                    SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/OutputData/TestData/" + testCase.timeSeriesFileName + ".CSV", timeSeriesFile)
+                    SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/" + TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName + "/OutputData/TestData/" + testCase.timeSeriesFileName + ".CSV", timeSeriesFile)
                     console.log((new Date()).toISOString(), 'Dataset File Saved: ' + testCase.timeSeriesFileName)
 
                     savedDataset = {
@@ -462,8 +462,8 @@ exports.newDataBridge = function newDataBridge(processIndex) {
 
     function getFiles(testCase) {
         let files = {}
-        files.parameters = SA.nodeModules.fs.readFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/OutputData/TestData/" + testCase.parametersFileName + ".CSV")
-        files.timeSeries = SA.nodeModules.fs.readFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/OutputData/TestData/" + testCase.timeSeriesFileName + ".CSV")
+        files.parameters = SA.nodeModules.fs.readFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/" + TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName + "/OutputData/TestData/" + testCase.parametersFileName + ".CSV")
+        files.timeSeries = SA.nodeModules.fs.readFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/" + TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName + "/OutputData/TestData/" + testCase.timeSeriesFileName + ".CSV")
         return files
     }
 }

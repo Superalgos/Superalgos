@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Страница существует, но пуста.",
                 "updated": 1638529668036
+            },
+            {
+                "language": "TR",
+                "text": "Sayfa var ama boş.",
+                "updated": 1652019423147
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "language": "DE",
                     "text": "Der von Ihnen angegebene Docs Page Name wurde gefunden,  enthält jedoch keine Absätze. Die Seite existiert, ist aber leer.",
                     "updated": 1633896994091
+                },
+                {
+                    "language": "TR",
+                    "text": "Belirttiğiniz Dokümanlar Sayfa Adı ( Docs Page Name ) bulundu, ancak içinde paragraf yok.",
+                    "updated": 1652019520602
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "RU",
                     "text": "Пожалуйста, помогите нам исправить эту страницу!",
                     "updated": 1638529697705
+                },
+                {
+                    "language": "TR",
+                    "text": "Lütfen bu sayfayı düzeltmemize yardım edin!",
+                    "updated": 1652019555635
                 }
             ]
         },

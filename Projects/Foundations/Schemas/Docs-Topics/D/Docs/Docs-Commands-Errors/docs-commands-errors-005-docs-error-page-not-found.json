@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Страница не существует в указанной категории.",
                 "updated": 1638529455645
+            },
+            {
+                "language": "TR",
+                "text": "Sayfa, belirtilen kategoride mevcut değil.",
+                "updated": 1652019340093
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "language": "DE",
                     "text": "Der Docs Page Name den sie angegeben haben, kann nicht in der Sammlung der Seiten der angegebenen Kategorie gefunden werden.",
                     "updated": 1633896616360
+                },
+                {
+                    "language": "TR",
+                    "text": "Belirttiğiniz Dokümanlar Sayfası Adı ( Docs Page Name ) sağladığınız Dokümanlar Sayfası Kategorisinin ( Docs Page Category ) sayfa koleksiyonunda bulunamadı.",
+                    "updated": 1652019177770
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "RU",
                     "text": "Дважды проверьте правильность написания название страницы документов Docs Page Name и его принадлежность к указанной категории страниц документов Docs Page Category.",
                     "updated": 1638529581475
+                },
+                {
+                    "language": "TR",
+                    "text": "Dokümanlar Sayfası Adının ( Docs Page Name ) doğru yazıldığını ve sağlanan Dokümanlar Sayfası Kategorisine ( Docs Page Category ) ait olduğunu iki kez kontrol edin.",
+                    "updated": 1652019262557
                 }
             ]
         },

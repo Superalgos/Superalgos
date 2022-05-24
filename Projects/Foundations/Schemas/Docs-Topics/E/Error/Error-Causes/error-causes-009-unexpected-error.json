@@ -10,11 +10,16 @@
                 "language": "RU",
                 "text": "Неожиданная ошибка - это ошибка, произошедшая во время выполнения, которая не имеет запрограммированного способа ее обработки, и обычно вызывает процедуру, в которой она останавливается. Для этих ошибок мы сохраняем всю доступную информацию и отображаем ее в документах Docs, чтобы пользователи могли их анализировать.",
                 "updated": 1638553423837
-                },
-                {
+            },
+            {
                 "language": "DE",
                 "text": "Ein unerwarteter Fehler ist ein Fehler, der zur Laufzeit (Runtime) aufgetreten ist und für den es keine programmierte Lösung gibt, und der normalerweise dazu führt, dass die Prozedur angehalten wird. Für diese Fehler bewahren wir alle verfügbaren Informationen auf und zeigen sie in den Docs an, damit die Benutzer sie analysieren können.",
                 "updated": 1638747534471
+            },
+            {
+                "language": "TR",
+                "text": "Beklenmeyen bir Hata, çalışma zamanında gerçekleşen ve onu işlemek için programlanmış bir yolu olmayan bir hatadır ve genellikle durdurulması gereken yordamı üretir. Bu hatalar için mevcut tüm bilgileri saklar ve kullanıcıların bunları analiz edebilmesi için Dokümanlarda görüntüleriz.",
+                "updated": 1652297360061
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "language": "DE",
                     "text": "Wechsle bevor du etwas zu dem Artikel an sich hinzufügen möchtest zu englisch damit die Änderungen global sind. Speichere vorher aber alle bisherigen Änderungen/Übersetzungen. Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen. Dann können Sie docs.save verwenden, um Ihre Änderungen zu speichern und app.contribute, um sie an das Haupt-Repository zu senden.",
                     "updated": 1638747650192
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle. Yeni paragraflar yazmak için ENTER'a basın. Düzenleme modundan çıkmak için ESC. Ardından docs.save değişikliklerinizi kaydetmek ve app.contribute ana depoya göndermek için kullanabilirsiniz.",
+                    "updated": 1652297270246
                 }
             ]
         }

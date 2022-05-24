@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Каждый узел, определенный в контексте проекта, имеет страницу Docs Node Page, также называемую страницей определения, объясняющую, что это за узел и как он используется.",
                 "updated": 1647781341890
+            },
+            {
+                "language": "TR",
+                "text": "Bir Proje ( Project ) bağlamında tanımlanan her Düğüm ( Node ) Düğümün ( Node ) ne olduğunu ve nasıl kullanıldığını açıklayan bir tanım sayfası olarak da adlandırılan bir Dokümanlar Notu Sayfasına sahiptir.",
+                "updated": 1652645853756
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "RU",
                     "text": "Функции Docs Node Page:",
                     "updated": 1638464528762
+                },
+                {
+                    "language": "TR",
+                    "text": "Dokümanlar Düğüm Sayfası özellikleri:",
+                    "updated": 1652645911552
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "RU",
                     "text": "Определение: краткое описание того, что представляет собой узел и что он представляет в иерархии. Определение отображается слева от значка узла.",
                     "updated": 1638464553314
+                },
+                {
+                    "language": "TR",
+                    "text": "Definition: Düğümün ne olduğu ve hiyerarşide neyi temsil ettiğinin kısa bir açıklaması. Tanım, düğüm simgesinin solunda görüntülenir.",
+                    "updated": 1652645947083
                 }
             ]
         },
@@ -83,6 +98,11 @@
                     "language": "RU",
                     "text": "Содержимое: вся информация, относящаяся к узлу, с точки зрения того, как узел используется, как он влияет на операции или как он относится к другим узлам.",
                     "updated": 1638464573425
+                },
+                {
+                    "language": "TR",
+                    "text": "Content: Düğümün nasıl kullanıldığı, işlemleri nasıl etkilediği veya diğer düğümlerle nasıl ilişkili olduğu açısından düğüme ilişkin tüm bilgiler.",
+                    "updated": 1652645973184
                 }
             ]
         },
@@ -99,6 +119,11 @@
                     "language": "RU",
                     "text": "Конфигурация: раздел, описывающий элементы файла конфигурации узла.",
                     "updated": 1638464588762
+                },
+                {
+                    "language": "TR",
+                    "text": "Configuration: Düğümün yapılandırma dosyasının öğelerini açıklayan bölüm.",
+                    "updated": 1652645996124
                 }
             ]
         },
@@ -115,6 +140,11 @@
                     "language": "RU",
                     "text": "Автоматически сгенерированный контент: информация, извлеченная из системы, рабочего пространства и т.д., для обеспечения технического контекста, в котором существует узел.",
                     "updated": 1638464694797
+                },
+                {
+                    "language": "TR",
+                    "text": "Auto-generated content: Düğümün bulunduğu teknik bağlamı sağlamak için sistemden, çalışma alanından vb. çıkarılan bilgiler.",
+                    "updated": 1652646047356
                 }
             ]
         },

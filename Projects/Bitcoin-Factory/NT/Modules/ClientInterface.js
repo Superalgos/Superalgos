@@ -29,7 +29,7 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
         connectedUserProfiles
     ) {
 
-        let connectedUserProfilesLabel = SA.projects.foundations.utilities.miscellaneousFunctions.pad(connectedUserProfiles.length, 3)  + ' / ' + global.env.P2P_NETWORK_NODE_MAX_INCOMING_CLIENTS
+        let connectedUserProfilesLabel = SA.projects.foundations.utilities.miscellaneousFunctions.pad(connectedUserProfiles.length, 3) + ' / ' + global.env.P2P_NETWORK_NODE_MAX_INCOMING_CLIENTS
         if (messageHeader.requestType === undefined) {
             let response = {
                 result: 'Error',
@@ -82,6 +82,7 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
                     return await forecastClientMessage(queryReceived, userProfile.name)
                 }
                 case 'Test-Server': {
+                    queryReceived.userProfile = userProfile.name
                     return await testServerMessage(queryReceived, userProfile.name)
                 }
             }
@@ -95,7 +96,12 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
             let testClientVersion = queryReceived.testClientVersion
             if (testClientVersion === undefined) { testClientVersion = 4 }
             requestsToServer.push(requestToServer)
-            console.log((new Date()).toISOString(), '[WARN] Request From Test Client v.' + testClientVersion + '       -> timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) + ' -> Websockets Clients = ' + connectedUserProfilesLabel + ' -> Clients Requests Queue Size = ' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(requestsToServer.length, 3) + ' -> userProfile = ' + userProfile)
+            console.log((new Date()).toISOString(), '[INFO] Request From Test Client v.' + testClientVersion +
+                '                 -> timestamp = ' + (new Date(requestToServer.timestamp)).toISOString() +
+                ' -> Websockets Clients = ' + connectedUserProfilesLabel +
+                ' -> Clients Requests Queue Size = ' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(requestsToServer.length, 3) +
+                ' -> userProfile = ' + userProfile +
+                ' -> instance = ' + queryReceived.instance)
             return new Promise(promiseWork)
 
             async function promiseWork(resolve, reject) {
@@ -116,9 +122,15 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
                 queryReceived: queryReceived,
                 timestamp: (new Date()).valueOf()
             }
+            let forecastClientVersion = queryReceived.testClientVersion
+            if (forecastClientVersion === undefined) { forecastClientVersion = 1 }
             requestsToServer.push(requestToServer)
-            console.log((new Date()).toISOString(), '[WARN] Request From Forecast Client       -> timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) + ' -> Websockets Clients = ' + connectedUserProfilesLabel + ' -> Clients Requests Queue Size = ' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(requestsToServer.length, 3) + ' -> userProfile = ' + userProfile)
-
+            console.log((new Date()).toISOString(), '[INFO] Request From Forecast Client v.' + forecastClientVersion +
+                '             -> timestamp = ' + (new Date(requestToServer.timestamp)).toISOString() +
+                ' -> Websockets Clients = ' + connectedUserProfilesLabel +
+                ' -> Clients Requests Queue Size = ' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(requestsToServer.length, 3) +
+                ' -> userProfile = ' + userProfile +
+                ' -> instance = ' + queryReceived.instance)
             return new Promise(promiseWork)
 
             async function promiseWork(resolve, reject) {
@@ -149,27 +161,77 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
                         message: 'No Requests at the Moment.'
                     }
                     resolve(response)
+                    return
                 } else {
-                    let requestToServer = requestsToServer[0]
-                    let now = (new Date()).valueOf()
-                    if (now - requestToServer.timestamp < 2 * 60 * 1000) {
-                        let response = {
-                            result: 'Ok',
-                            message: 'Request Found.',
-                            clientData: JSON.stringify(requestToServer.queryReceived)
+                    /*
+                    First we will try to find a request sent specifically to the Test Server Instance sending this message.
+                    If there is none, we will give it a generic request.
+                    */
+                    for (let i = 0; i < requestsToServer.length; i++) {
+                        let requestToServer = requestsToServer[i]
+                        if (
+                            requestToServer.testServer !== undefined &&
+                            requestToServer.testServer.userProfile === userProfile &&
+                            requestToServer.testServer.instance === queryReceived.instance
+                        ) {
+                            requestsToServer.splice(i, 1)
+                            checkExpiration(requestToServer)
+                            return
                         }
-                        requestsToServer.splice(0, 1)
-                        console.log((new Date()).toISOString(), '[WARN] Request Sent to Server             -> timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) + ' -> Websockets Clients = ' + connectedUserProfilesLabel + ' -> Clients Requests Queue Size = ' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(requestsToServer.length, 3) + ' -> userProfile = ' + userProfile)
-                        resolve(response)
-                    } else {
-                        console.log((new Date()).toISOString(), '[WARN] Request Expired                    -> timestamp = ' + (new Date()).toISOString(requestToServer.timestamp) + ' -> Websockets Clients = ' + connectedUserProfilesLabel + ' -> Clients Requests Queue Size = ' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(requestsToServer.length, 3) + ' -> userProfile = ' + userProfile + ' -> requestToServer.queryReceived = ' + JSON.stringify(requestToServer.queryReceived))
-                        let response = {
-                            result: 'Ok',
-                            message: 'Next Request Already Expired.'
+                    }
+                    /*
+                    There are not request specific for this Test Server Instance, so we can assing the next generic one.
+                    */
+                    for (let i = 0; i < requestsToServer.length; i++) {
+                        let requestToServer = requestsToServer[i]
+                        if (
+                            requestToServer.testServer === undefined
+                        ) {
+                            requestsToServer.splice(i, 1)
+                            checkExpiration(requestToServer)
+                            return
                         }
-                        requestsToServer.splice(0, 1)
-                        responseFunctions.delete(requestToServer.queryReceived.messageId)
-                        resolve(response)
+                    }
+                    /*
+                    For this Test Server Instance there are no requests at all.
+                    */
+                    let response = {
+                        result: 'Ok',
+                        message: 'No Requests at the Moment.'
+                    }
+                    resolve(response)
+                    return
+
+                    function checkExpiration(requestToServer) {
+                        let now = (new Date()).valueOf()
+                        if (now - requestToServer.timestamp < 2 * 60 * 1000) {
+                            let response = {
+                                result: 'Ok',
+                                message: 'Request Found.',
+                                clientData: JSON.stringify(requestToServer.queryReceived)
+                            }
+
+                            console.log((new Date()).toISOString(), '[INFO] Request Sent to Server                       -> timestamp = ' + (new Date(requestToServer.timestamp)).toISOString() +
+                                ' -> Websockets Clients = ' + connectedUserProfilesLabel +
+                                ' -> Clients Requests Queue Size = ' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(requestsToServer.length, 3) +
+                                ' -> userProfile = ' + userProfile +
+                                ' -> instance = ' + queryReceived.instance)
+                            resolve(response)
+                        } else {
+                            console.log((new Date()).toISOString(), '[WARN] Request Expired                              -> timestamp = ' + (new Date(requestToServer.timestamp)).toISOString() +
+                                ' -> Websockets Clients = ' + connectedUserProfilesLabel +
+                                ' -> Clients Requests Queue Size = ' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(requestsToServer.length, 3) +
+                                ' -> userProfile = ' + userProfile +
+                                ' -> instance = ' + queryReceived.instance +
+                                ' -> requestToServer.queryReceived = ' + JSON.stringify(requestToServer.queryReceived))
+                            let response = {
+                                result: 'Ok',
+                                message: 'Next Request Already Expired.'
+                            }
+
+                            responseFunctions.delete(requestToServer.queryReceived.messageId)
+                            resolve(response)
+                        }
                     }
                 }
             }

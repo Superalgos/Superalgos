@@ -932,7 +932,12 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                 Currently loads current file and then looks through timestamps to determine 
                                 if current record should be appended to file.
                                 */
-                                await readDatasetFile("/" + dateForPath) 
+                                if (file.date !== dateForPath) {
+                                   existingFileContent = "[]"
+                                }
+                                else {
+                                    await readDatasetFile("/" + dateForPath)
+                                }
                                 appendToExistingDataset()
                                 await saveDatasetFile("/" + dateForPath)
 

@@ -1,0 +1,64 @@
+{
+    "topic": "quantum Data Mine",
+    "pageNumber": 17,
+    "type": "Coppock Curve Indicator",
+    "definition": {
+        "text": "The Coppock Curve is a long-term price momentum indicator used primarily to recognize major downturns and upturns in an asset.",
+        "updated": 1653352265377
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Coppock Curve on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "According to Investopedia: The Coppock formula was introduced in Barron's in 1962 by Edwin Coppock. It is calculated as a 10 period weighted moving average of the sum of the 14 period rate of change and the 11 period rate of change for the index. It is also known as the \"Coppock Guide.\"",
+            "updated": 1653351972855
+        },
+        {
+            "style": "Text",
+            "text": "Key concepts:"
+        },
+        {
+            "style": "List",
+            "text": "A reading above zero on the indicator signals a buy, while a drop below zero is a sell signal."
+        },
+        {
+            "style": "Link",
+            "text": "Coppock Curve (investopedia)->www.investopedia.com/terms/c/coppockcurve.asp"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-coppock-on-the-chart.png"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the Coppock Curve indicator can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"Coppock Curve\" Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-coppock-params.png"
+        },
+        {
+            "style": "Title",
+            "text": "Coppock Curve Products & Properties"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Setting | Product Variable | Properties |\n| Coppock Curve | coppock | value |"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "A simple strategy can be built by entering a trade when the coppock value crosses above the zero line upwards:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.coppock.value > 0 && chart.at01hs.coppock.previous.value < 0"
+        }
+    ]
+}

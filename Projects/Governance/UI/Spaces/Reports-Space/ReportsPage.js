@@ -47,7 +47,8 @@ function newGovernanceReportsReportsPage() {
                 'Assets',
                 'Features',
                 'Positions',
-                'Mining'
+                'Mining',
+                'Computing'
             ]
             let HTML = ''
             HTML = HTML + '<section id="governance-report-page-div" class="governance-search-page-container">'
@@ -172,6 +173,12 @@ function newGovernanceReportsReportsPage() {
                     }
                     case 'Mining': {
                         let response = UI.projects.governance.spaces.reportsSpace.mining.addHTML(17, filters)
+                        HTML = HTML + response.HTML
+                        resultCounter = response.resultCounter
+                        break
+                    }
+                    case 'Computing': {
+                        let response = UI.projects.governance.spaces.reportsSpace.computing.addHTML(18, filters)
                         HTML = HTML + response.HTML
                         resultCounter = response.resultCounter
                         break

@@ -4,17 +4,38 @@
     "type": "TS LF Trading Bot Error - Target Size Node Missing",
     "definition": {
         "text": "A Target Size node was expected but not found at the node where the error originated.",
-        "updated": 1611677647791
+        "updated": 1611677647791,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Bir Hedef Boyut ( Target Size ) düğümü bekleniyordu ancak hatanın kaynaklandığı düğümde bulunamadı.",
+                "updated": 1649627345116
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Error",
             "text": "Target Size Node Missing",
-            "updated": 1611678342962
+            "updated": 1611678342962,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hedef Boyut Düğümü Eksik. ( Target Size Node Missing )",
+                    "updated": 1649627374762
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Add the missing node and try again."
+            "text": "Add the missing node and try again.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Eksik düğümü ekleyin ve tekrar deneyin.",
+                    "updated": 1649627409692
+                }
+            ]
         }
     ]
 }

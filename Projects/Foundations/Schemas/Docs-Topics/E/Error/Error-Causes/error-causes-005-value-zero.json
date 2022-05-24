@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Во время выполнения некоторые узлы Node могут получить значение, и когда ожидается, что оно не будет равно нулю, появится ошибка этого типа. Чтобы избежать этого типа ошибки, убедитесь, что узел, на котором возникла ошибка, никогда не получает нулевое значение.",
                 "updated": 1638553236013
+            },
+            {
+                "language": "TR",
+                "text": "Çalışma zamanında bazı düğümler ( Node ) bir değer elde edebilir ve sıfır olmaması beklendiğinde bu tür bir hata açılır. Bu tür bir hatadan kaçınmak için, hatanın açıldığı Düğümün hiçbir zaman sıfır değeri almadığından emin olun.",
+                "updated": 1652296914745
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования. Затем вы можете использовать docs.save для сохранения изменений и app.contribute для отправки в основной репозиторий.",
                     "updated": 1638553250880
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle. Yeni paragraflar yazmak için ENTER'a basın. Düzenleme modundan çıkmak için ESC. Ardından docs.save değişikliklerinizi kaydetmek ve app.contribute ana depoya göndermek için kullanabilirsiniz.",
+                    "updated": 1652296944945
                 }
             ]
         }

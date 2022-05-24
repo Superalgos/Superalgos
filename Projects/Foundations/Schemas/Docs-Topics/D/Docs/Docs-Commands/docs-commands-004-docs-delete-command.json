@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Используйте эту команду, чтобы удалить страницу из документов Docs.",
                 "updated": 1638528236486
+            },
+            {
+                "language": "TR",
+                "text": "Dokümanlar'dan bir sayfa silmek için bu komutu kullanın.",
+                "updated": 1652129293577
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "language": "RU",
                     "text": "Одностраничный синтаксис",
                     "updated": 1638528262362
+                },
+                {
+                    "language": "TR",
+                    "text": "Tek Sayfa Sözdizimi",
+                    "updated": 1652129311347
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "RU",
                     "text": "Примеры",
                     "updated": 1638528284766
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnekler",
+                    "updated": 1652129321313
                 }
             ]
         },
@@ -77,6 +92,11 @@
                     "language": "RU",
                     "text": "Синтаксис коллекции страниц",
                     "updated": 1638528305804
+                },
+                {
+                    "language": "TR",
+                    "text": "Sayfa Koleksiyonu Sözdizimi",
+                    "updated": 1652129332315
                 }
             ]
         },
@@ -99,6 +119,11 @@
                     "language": "RU",
                     "text": "Примеры",
                     "updated": 1638528317029
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnekler",
+                    "updated": 1652129342215
                 }
             ]
         },
@@ -130,6 +155,11 @@
                     "language": "RU",
                     "text": "Параметры",
                     "updated": 1638528330539
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnekler",
+                    "updated": 1652129361241
                 }
             ]
         },
@@ -147,6 +177,11 @@
                     "language": "RU",
                     "text": "Project: Это проект, в котором определена страница.",
                     "updated": 1638528344689
+                },
+                {
+                    "language": "TR",
+                    "text": "Project: Sayfanın tanımlandığı projedir.",
+                    "updated": 1652129414503
                 }
             ]
         },
@@ -164,6 +199,11 @@
                     "language": "RU",
                     "text": "Docs Page Category: Одна из доступных категорий.",
                     "updated": 1638528356480
+                },
+                {
+                    "language": "TR",
+                    "text": "Docs Page Category: Mevcut kategorilerden biri.",
+                    "updated": 1652129437381
                 }
             ]
         },
@@ -181,6 +221,11 @@
                     "language": "RU",
                     "text": "Docs Page Name: Название страницы",
                     "updated": 1638528375725
+                },
+                {
+                    "language": "TR",
+                    "text": "Docs Page Name: Sayfanın adı.",
+                    "updated": 1652129453489
                 }
             ]
         }

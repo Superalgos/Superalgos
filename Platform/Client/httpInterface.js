@@ -2382,6 +2382,17 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                     return
                                 }
+                                
+                                case 'getRewardsFile': {
+
+                                    let serverResponse = PL.servers.BITCOIN_FACTORY_SERVER.getRewardsFile(
+                                        params.firstTimestamp,
+                                        params.lastTimestamp
+                                    )
+
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
+                                    return
+                                }
 
                                 case 'UserProfile': {
                                     try {

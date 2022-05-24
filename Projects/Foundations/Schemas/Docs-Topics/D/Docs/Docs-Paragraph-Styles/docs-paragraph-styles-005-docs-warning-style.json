@@ -14,6 +14,11 @@
                 "language": "RU",
                 "text": "Используйте этот стиль для выделения текста в рамку в качестве предупреждения для читателей.",
                 "updated": 1638533152668
+            },
+            {
+                "language": "TR",
+                "text": "Metni okuyuculara uyarı olarak kaydetmek için bu stili kullanın.",
+                "updated": 1652384455961
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "language": "RU",
                     "text": "Все, что вы вводите при редактировании абзаца этого стиля, будет отображаться внутри поля предупреждения.",
                     "updated": 1638533167327
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu stilin bir paragrafını düzenlerken yazdığınız her şey uyarı kutusunun içinde işlenecektir.",
+                    "updated": 1652384513550
                 }
             ]
         },
@@ -47,6 +57,11 @@
                     "language": "RU",
                     "text": "Пример:",
                     "updated": 1638533763082
+                },
+                {
+                    "language": "TR",
+                    "text": "Misal:",
+                    "updated": 1652384523077
                 }
             ]
         },
@@ -63,6 +78,11 @@
                     "language": "RU",
                     "text": "Это пример абзаца в стиле предупреждения.",
                     "updated": 1638533179127
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu, uyarı stilinde bir paragraf örneğidir.",
+                    "updated": 1652384536444
                 }
             ]
         }

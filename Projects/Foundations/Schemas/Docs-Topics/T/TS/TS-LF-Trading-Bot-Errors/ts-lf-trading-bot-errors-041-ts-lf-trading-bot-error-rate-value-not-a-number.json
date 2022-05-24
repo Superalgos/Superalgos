@@ -4,18 +4,39 @@
     "type": "TS LF Trading Bot Error - Rate Value Not A Number",
     "definition": {
         "text": "The Formula under the Rate node must evaluate to a number.",
-        "updated": 1611943345629
+        "updated": 1611943345629,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Oran ( Rate ) düğümünün altındaki Formül ( Formula ) bir sayı olarak değerlendirilmelidir.",
+                "updated": 1649277081940
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Error",
             "text": "Rate Value Not A Number",
-            "updated": 1611651124687
+            "updated": 1611651124687,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Oran Değeri Sayı Değil. ( Rate Value Not A Number )",
+                    "updated": 1649277125626
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Make sure the Formula evaluates to a number and try again.",
-            "updated": 1611943385190
+            "updated": 1611943385190,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Formülün ( Formula ) bir sayı olarak değerlendirildiğinden emin olun ve tekrar deneyin.",
+                    "updated": 1649277204550
+                }
+            ]
         }
     ]
 }

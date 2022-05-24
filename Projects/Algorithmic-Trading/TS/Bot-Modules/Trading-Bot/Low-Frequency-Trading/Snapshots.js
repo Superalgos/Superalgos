@@ -12,6 +12,7 @@ exports.newAlgorithmicTradingBotModulesSnapshots = function(processIndex) {
         positionExit: positionExit,
         addCodeToSnapshot: addCodeToSnapshot,
         initialize: initialize,
+        returnChart: () => { return chart },
         finalize: finalize
     }
 

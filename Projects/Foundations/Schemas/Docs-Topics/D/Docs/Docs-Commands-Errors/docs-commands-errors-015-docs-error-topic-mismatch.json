@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Указанное название темы документов Docs Topic Name не совпадает с названием темы на странице, которую вы хотите удалить.",
                 "updated": 1638531209313
+            },
+            {
+                "language": "TR",
+                "text": "Sağlanan Dokümanlar Konu Adı ( Docs Topic Name ) silmek istediğiniz sayfada bulunan Dokümanlar Konu Adıyla ( Docs Topic Name ) eşleşmiyor. ",
+                "updated": 1652041495002
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "DE",
                     "text": "Der angegebene Name des Docs-Topics stimmt nicht mit dem Namen des Docs-Topics der zu löschenden Seite überein.",
                     "updated": 1633899999761
+                },
+                {
+                    "language": "TR",
+                    "text": "Konu Numarası Uyuşmazlığı. Sağlanan Dokümanlar Konu Adı ( Docs Topic Name ) silinecek sayfanın Dokümanlar Konu Adıyla ( Docs Topic Name ) eşleşmiyor. ",
+                    "updated": 1652041595601
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "RU",
                     "text": "Проверьте страницу, которую вы хотите удалить, и получите правильное название темы документа Docs Topic Name, которое будет использоваться в команде.",
                     "updated": 1638531322369
+                },
+                {
+                    "language": "TR",
+                    "text": "Silmek istediğiniz sayfayı kontrol edin ve komutta kullanılacak doğru Dokümanlar Konu Adını ( Docs Topic Name ) alın.",
+                    "updated": 1652041672561
                 }
             ]
         },

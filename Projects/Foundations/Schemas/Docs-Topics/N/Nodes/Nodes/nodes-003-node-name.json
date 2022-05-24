@@ -8,8 +8,13 @@
         "translations": [
             {
                 "language": "RU",
-                "text": "Каждый экземпляр узла может иметь имя, назначенное пользователем, или имя по умолчанию, присвоенное ему системой в момент создания узла. В пространстве проектирования имя узла отображается над значком узла.",
+                "text": "Каждый экземпляр узла может иметь имя, назначенное пользо��ателем, или имя по умолчанию, присвоенное ему системой в момент создания узла. В пространстве проектирования имя узла отображается над значком узла.",
                 "updated": 1640356152681
+            },
+            {
+                "language": "TR",
+                "text": "Bir Düğümün ( Node ) her örneğinin, kullanıcı tarafından atanan bir adı veya Düğüm ( Node ) oluşturulduğu anda sistem tarafından kendisine atanan varsayılan bir adı olabilir. Tasarım Alanında ( Design Space ) Düğüm Simgesinin ( Node Icon ) üzerinde bir Düğümün adı görünür.",
+                "updated": 1652804371200
             }
         ]
     },
@@ -22,6 +27,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER для написания новых абзацев. ESC для выхода из режима редактирования.",
                     "updated": 1640356167622
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle. Yeni paragraflar yazmak için ENTER'a basın. Düzenleme modundan çıkmak için ESC.",
+                    "updated": 1652804448579
                 }
             ]
         }

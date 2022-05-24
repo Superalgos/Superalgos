@@ -1578,6 +1578,11 @@
                     "name": "Airdrop Program",
                     "propertyName": "airdropProgram",
                     "functionName": "newGovernanceFunctionLibraryAirdropProgram"
+                },
+                {
+                    "name": "Computing Program",
+                    "propertyName": "computingProgram",
+                    "functionName": "newGovernanceFunctionLibraryComputingProgram"
                 }
             ],
             "globals": [

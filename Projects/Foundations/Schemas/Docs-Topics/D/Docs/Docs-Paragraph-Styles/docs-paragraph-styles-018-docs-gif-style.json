@@ -14,6 +14,11 @@
                 "language": "RU",
                 "text": "На страницу документов можно встраивать гифки.",
                 "updated": 1638542691143
+            },
+            {
+                "language": "TR",
+                "text": "Bir Dokümanlar sayfasına gifler eklemek mümkündür.",
+                "updated": 1652386688656
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "language": "RU",
                     "text": "Встраиваемый gif-файл должен находиться в папке проекта GIF / Docs. Синтаксис для этого следующий:",
                     "updated": 1638542711937
+                },
+                {
+                    "language": "TR",
+                    "text": "Eklenecek gıf'in projenin GIF'ler / Dokümanlar klasöründe bulunması gerekir. Bunu yapmak için sözdizimi aşağıdaki gibidir:",
+                    "updated": 1652386727180
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "RU",
                     "text": "Пример:",
                     "updated": 1638542722763
+                },
+                {
+                    "language": "TR",
+                    "text": "Misal:",
+                    "updated": 1652386742190
                 }
             ]
         },
@@ -71,6 +86,11 @@
                     "language": "RU",
                     "text": "Выглядит так: ",
                     "updated": 1638542735705
+                },
+                {
+                    "language": "TR",
+                    "text": "Buna benzer:",
+                    "updated": 1652386760204
                 }
             ]
         },

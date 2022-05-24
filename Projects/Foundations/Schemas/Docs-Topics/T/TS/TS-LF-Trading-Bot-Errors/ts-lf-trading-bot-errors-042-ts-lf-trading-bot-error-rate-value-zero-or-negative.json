@@ -4,17 +4,38 @@
     "type": "TS LF Trading Bot Error - Rate Value Zero Or Negative",
     "definition": {
         "text": "The Rate of the order can not be zero or a negative number.",
-        "updated": 1611943419426
+        "updated": 1611943419426,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Emrin Oranı ( Rate ) sıfır veya negatif bir sayı olamaz.",
+                "updated": 1649277356299
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Error",
             "text": "Rate Value Zero Or Negative",
-            "updated": 1611651177927
+            "updated": 1611651177927,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Oran Değeri Sıfır veya Negatif. ( Rate Value Zero Or Negative )",
+                    "updated": 1649277418174
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Check the Formula under the Rate node and make sure it evaluates to a number greater than zero."
+            "text": "Check the Formula under the Rate node and make sure it evaluates to a number greater than zero.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Oran ( Rate ) düğümü altındaki Formülü ( Formula ) kontrol edin ve sıfırdan büyük bir sayı olarak değerlendirdiğinden emin olun.",
+                    "updated": 1649277529811
+                }
+            ]
         }
     ]
 }

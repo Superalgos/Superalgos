@@ -4,17 +4,38 @@
     "type": "TS LF Trading Bot Error - Stage Quoted Asset Node Missing",
     "definition": {
         "text": "A Stage Quoted Asset node was expected but not found at the node where the error originated.",
-        "updated": 1611945462430
+        "updated": 1611945462430,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Bir Aşamalı Koteli Varlık ( Stage Quoted Asset ) düğümü bekleniyordu, ancak hatanın kaynaklandığı düğümde bulunamadı.",
+                "updated": 1649627101296
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Error",
             "text": "Stage Quoted Asset Node Missing",
-            "updated": 1611678239797
+            "updated": 1611678239797,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Aşamalı Alıntı Varlık Düğümü Eksik. ( Stage Quoted Asset Node Missing )",
+                    "updated": 1649627128913
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Add the missing node and try again."
+            "text": "Add the missing node and try again.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Eksik düğümü ekleyin ve tekrar deneyin.",
+                    "updated": 1649627169373
+                }
+            ]
         }
     ]
 }

@@ -1032,6 +1032,11 @@
                     "name": "Mine Functions",
                     "propertyName": "mineFunctions",
                     "functionName": "newDataMiningFunctionLibraryMineFunctions"
+                },
+                {
+                    "name": "API Maintenance Functions",
+                    "propertyName": "apiMaintenanceFunctions",
+                    "functionName": "newApiMaintenanceFunctions"
                 }
             ],
             "systemActionFunctions": [],
@@ -1573,6 +1578,11 @@
                     "name": "Airdrop Program",
                     "propertyName": "airdropProgram",
                     "functionName": "newGovernanceFunctionLibraryAirdropProgram"
+                },
+                {
+                    "name": "Computing Program",
+                    "propertyName": "computingProgram",
+                    "functionName": "newGovernanceFunctionLibraryComputingProgram"
                 }
             ],
             "globals": [

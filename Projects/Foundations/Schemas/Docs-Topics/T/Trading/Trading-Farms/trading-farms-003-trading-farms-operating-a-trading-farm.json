@@ -10,11 +10,6 @@
                 "language": "RU",
                 "text": "Выполняйте задачи на удаленных узлах точно так же, как если бы они выполнялись на домашнем узле.",
                 "updated": 1640368502266
-            },
-            {
-                "language": "TR",
-                "text": "Özet: Uzak düğümlerdeki görevleri ana düğümde çalışıyormuş gibi çalıştırın.",
-                "updated": 1649927784461
             }
         ]
     },
@@ -27,11 +22,6 @@
                     "language": "RU",
                     "text": "Управление торговой фермой осуществляется изнутри домашнего узла. Нет необходимости использовать приложение с пользовательским интерфейсом с любым другим узлом в сети, хотя при желании вы можете это сделать.",
                     "updated": 1640368564096
-                },
-                {
-                    "language": "TR",
-                    "text": "Bir ticaret çiftliğinin çalışması, ana düğümün içinden yapılır. UI uygulamasını ağdaki başka bir düğümle kullanmanıza gerek yoktur, ancak isterseniz kullanabilirsiniz.",
-                    "updated": 1649927811466
                 }
             ]
         },
@@ -43,11 +33,6 @@
                     "language": "RU",
                     "text": "Запуск или остановка заданий, расположенных в любом из узлов сети, является прозрачной операцией и работает так же, как если бы задания находились в домашнем узле. При запуске задания процесс делает снимок состояния сети на данный момент и отслеживает все зависимости, прежде чем приступить к выполнению задания.",
                     "updated": 1640368599846
-                },
-                {
-                    "language": "TR",
-                    "text": "Ağ düğümlerinden herhangi birinde bulunan görevleri çalıştırmak veya durdurmak şeffaf bir işlemdir ve görevler ana düğümdeymiş gibi çalışır. Bir görev başlatıldığında, süreç o noktadaki ağın durumunun anlık görüntüsünü alır ve eldeki işe başlamadan önce tüm bağımlılıkları izler.",
-                    "updated": 1649927833217
                 }
             ]
         },
@@ -59,11 +44,6 @@
                     "language": "RU",
                     "text": "Это означает, что изменения, внесенные в распределение задач в сети в любой точке, распознаются каждой задачей при запуске.",
                     "updated": 1640368683225
-                },
-                {
-                    "language": "TR",
-                    "text": "Bu, ağdaki görevlerin dağılımında herhangi bir noktada yapılan değişikliklerin, başlatıldığında her görev tarafından tanınması anlamına gelir.",
-                    "updated": 1649927870520
                 }
             ]
         },
@@ -75,11 +55,6 @@
                     "language": "RU",
                     "text": "Однако объекты, которые не выполняются в задачах, такие как машины времени и временные диаграммы в пространстве диаграмм, функционируют в соответствии с состоянием сети при запуске приложения с пользовательским интерфейсом. Это означает, что, например, если вы переместите задачу добычи данных на другой узел, связанная с ней диаграмма будет отображать данные на прежнем узле до тех пор, пока вы не обновите браузер.",
                     "updated": 1640368735453
-                },
-                {
-                    "language": "TR",
-                    "text": "Ancak, grafik alanındaki zaman makineleri ve zaman çizelgesi çizelgeleri gibi görevlerde çalışmayan varlıklar, UI uygulamasını başlattıktan sonra ağın durumuyla çalışır. Bu, örneğin, bir veri madenciliği görevini farklı bir düğüme taşırsanız, ilişkili grafiğin, siz tarayıcıyı yenileyene kadar önceki düğümdeki verileri göstereceği anlamına gelir.",
-                    "updated": 1649927895477
                 }
             ]
         },
@@ -91,11 +66,6 @@
                     "language": "RU",
                     "text": "Наконец, при удалении рынка система попытается удалить соответствующие задачи на всех узлах сети. Если вы хотите удалить рынки только на определенных узлах, вы можете удалить структуры данных по отдельности.",
                     "updated": 1640368755136
-                },
-                {
-                    "language": "TR",
-                    "text": "Son olarak, bir marketi kaldırırken, sistem tüm ağ düğümlerinde karşılık gelen görevleri kaldırmaya çalışacaktır. Yalnızca belirli düğümlerdeki pazarları kaldırmak istiyorsanız, bunun yerine veri yapılarını tek tek silebilirsiniz.",
-                    "updated": 1649927915170
                 }
             ]
         }

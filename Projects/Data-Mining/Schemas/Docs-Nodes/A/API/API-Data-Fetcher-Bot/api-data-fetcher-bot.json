@@ -103,6 +103,11 @@
                     "updated": 1652012867065
                 }
             ]
+        },
+        {
+            "style": "List",
+            "text": "apiEndpoint this property defines the endpoint with which the current fetcher bot will connect to from the API Map. It needs to match the codeName of the appropriate API Endpoint node.",
+            "updated": 1653143444187
         }
     ]
 }

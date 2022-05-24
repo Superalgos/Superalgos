@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Привязанные абзацы используются вместе с командой Docs Goto Command. Если вы хотите создать ссылку на документы для определенной части страницы документов, вам сначала нужно создать абзац привязки, чтобы иметь возможность создать ссылку на конкретный абзац на странице.",
                 "updated": 1638543215710
+            },
+            {
+                "language": "TR",
+                "text": "Bağlantı paragrafları Dokümanlar Git Komutuyla ( Docs Goto Command ) birlikte kullanılır. Dokümanlar Sayfasının belirli bir bölümüne Dokümanlar Bağlantısı oluşturmak istediğinizde, önce sayfadaki belirli paragrafa bağlantı oluşturabilmeniz için bir Bağlantı paragrafı oluşturmanız gerekir.",
+                "updated": 1652387043875
             }
         ]
     },
@@ -33,12 +38,24 @@
                     "language": "RU",
                     "text": "Чтобы правильно определить привязанный абзац, вам необходимо следовать следующему синтаксису:",
                     "updated": 1638543205045
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Bağlantı Paragrafını doğru bir şekilde tanımlamak için aşağıdaki sözdizimini izlemeniz gerekir:",
+                    "updated": 1652387057264
                 }
             ]
         },
         {
             "style": "Javascript",
-            "text": "Anchor Name"
+            "text": "Anchor Name",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bağlantı Adı",
+                    "updated": 1652388988089
+                }
+            ]
         },
         {
             "style": "List",
@@ -53,6 +70,11 @@
                     "language": "RU",
                     "text": "Name: Это относится к любому имени, которое вы хотели бы дать вновь созданному якору. Имя должно быть уникальным на странице.",
                     "updated": 1638543431751
+                },
+                {
+                    "language": "TR",
+                    "text": "Anchor Name: Bu, yeni oluşturulan bağlantı vermek istediğiniz herhangi bir adı ifade eder. Ad, sayfa içinde benzersiz olmalıdır.",
+                    "updated": 1652387109130
                 }
             ]
         }

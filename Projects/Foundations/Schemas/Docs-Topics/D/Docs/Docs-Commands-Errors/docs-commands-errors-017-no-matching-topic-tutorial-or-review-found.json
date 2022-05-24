@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Указанная вами тема Topic или учебное пособие Tutorial не привело ни к каким совпадающим страницам в рамках этой темы или учебного пособия.",
                 "updated": 1638531557004
+            },
+            {
+                "language": "TR",
+                "text": "Belirttiğiniz Konu veya Öğretici ( Tutorial ) bu Konu veya Öğretici ( Tutorial ) içinde eşleşen sayfalarda bulunamadı.",
+                "updated": 1652042082504
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "language": "DE",
                     "text": "No pages found. Es gibt keine Topics oder Tutorials mit dem angegebenen Namen.",
                     "updated": 1633900934165
+                },
+                {
+                    "language": "TR",
+                    "text": "Sayfa bulunamadı. Belirtilen ada sahip Konu veya Öğretici yok.",
+                    "updated": 1652042152853
                 }
             ]
         },
@@ -45,6 +55,11 @@
                     "language": "RU",
                     "text": "Убедитесь, что название темы Topic или учебного пособия Tutorial написано правильно.",
                     "updated": 1638531603909
+                },
+                {
+                    "language": "TR",
+                    "text": "Sağlanan Konu veya Öğretici ( Tutorial ) adının doğru yazıldığından emin olun.",
+                    "updated": 1652042422252
                 }
             ]
         },

@@ -1,6 +1,6 @@
 exports.newDataMiningBotModulesFromOneMinToMultiTimeFrameDaily = function (processIndex) {
     /*
-        This module is about converting a One-Min Daily typeo of data set into a Multi Time Frame Daily type.
+        This module is about converting a One-Min Daily type of data set into a Multi Time Frame Daily type.
 
         The process to do so involves:
     

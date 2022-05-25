@@ -77,6 +77,7 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
         saveForecastCasesFile()
 
         function addForcastCase(testCase) {
+            if (testCase.forcastedCandle === undefined) { testCase.forcastedCandle = {} }
             let forecastCase = {
                 id: testCase.id,
                 caseIndex: thisObject.forecastCasesArray.length,

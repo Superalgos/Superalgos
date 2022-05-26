@@ -113,6 +113,17 @@ function newGovernanceFunctionLibraryTokenMining() {
 
             calculateProgram(userProfile, program, "airdropProgram")
         }
+        for (let i = 0; i < userProfiles.length; i++) {
+            let userProfile = userProfiles[i]
+
+            if (userProfile.tokenPowerSwitch === undefined) { continue }
+            let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, "Computing Program")
+            if (program === undefined) { continue }
+            if (program.payload === undefined) { continue }
+
+            calculateProgram(userProfile, program, "computingProgram")
+        }
+
         /* Liquidity Program - Iterate per available asset-exchange-combination */
         const liqAssets = UI.projects.governance.globals.saToken.SA_TOKEN_BSC_LIQUIDITY_ASSETS
         const liqExchanges = UI.projects.governance.globals.saToken.SA_TOKEN_BSC_EXCHANGES

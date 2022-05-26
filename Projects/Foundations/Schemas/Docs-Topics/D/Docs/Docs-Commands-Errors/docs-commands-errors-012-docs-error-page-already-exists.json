@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Страница, которую вы пытаетесь добавить, уже существует.",
                 "updated": 1638530231184
+            },
+            {
+                "language": "TR",
+                "text": "Eklemeye çalıştığınız sayfa zaten var.",
+                "updated": 1652038483992
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "DE",
                     "text": "Die Seite existiert bereits.",
                     "updated": 1633898447049
+                },
+                {
+                    "language": "TR",
+                    "text": "Sayfa zaten var.",
+                    "updated": 1652038506274
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "RU",
                     "text": "Проверьте название страницы документов Docs Page Name, которое вы использовали в команде. Кажется, что страница с таким именем уже существует.",
                     "updated": 1638530309100
+                },
+                {
+                    "language": "TR",
+                    "text": "Komutta kullandığınız Dokümanlar Sayfası Adını ( Docs Page Name ) kontrol edin. Aynı ada sahip bir sayfa zaten var gibi görünüyor.",
+                    "updated": 1652038596217
                 }
             ]
         },

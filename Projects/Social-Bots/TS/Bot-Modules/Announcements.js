@@ -36,7 +36,7 @@ exports.newSocialBotsBotModulesAnnouncements = function (processIndex) {
         TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.messagesSent = undefined
     }
 
-    function makeAnnouncements(node, status='Open') {
+    function makeAnnouncements(node, chart, status='Open') {
         if (node === undefined) { return }
         if (node.announcements === undefined) { return }
 

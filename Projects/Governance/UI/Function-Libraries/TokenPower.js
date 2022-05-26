@@ -4,7 +4,7 @@ function newGovernanceFunctionLibraryTokenPower() {
         calculateDelegatedPower: calculateDelegatedPower
     }
 
-    const OPAQUE_NODES_TYPES = ['Tokens Mined', 'Signing Accounts', 'Onboarding Programs', 'Liquidity Programs']
+    const OPAQUE_NODES_TYPES = ['Tokens Mined', 'Signing Accounts', 'Onboarding Programs', 'Liquidity Programs', 'Bitcoin Factory Programs']
     return thisObject
 
     function calculateTokenPower(

@@ -15,11 +15,6 @@
                 "language": "RU",
                 "text": "Установите Superalgos на каждую машину, чтобы затем создать и настроить сетевой узел для каждой машины.",
                 "updated": 1640364746482
-            },
-            {
-                "language": "TR",
-                "text": "Özet: Superalgos'u diğer makineye kurun, ardından diğer makine için bir ağ düğümü oluşturun ve kurun.",
-                "updated": 1649925018178
             }
         ]
     },
@@ -38,11 +33,6 @@
                     "language": "RU",
                     "text": "Здесь возможны два варианта.",
                     "updated": 1640364771293
-                },
-                {
-                    "language": "TR",
-                    "text": "Burada temelde iki yaklaşım var.",
-                    "updated": 1649925044435
                 }
             ]
         },
@@ -60,11 +50,6 @@
                     "language": "RU",
                     "text": "Установить все в одном узле: Первый и, вероятно, самый простой вариант - сначала установить рынки на одном сетевом узле, а затем переместить ветви, которые вы хотите переместить, на другие сетевые узлы.",
                     "updated": 1640364858652
-                },
-                {
-                    "language": "TR",
-                    "text": "Hepsi Bir Arada Düğüm Kurun: Birincisi ve muhtemelen en kolayı, önce pazarları bir Ağ Düğümünde kurmak ve daha sonra taşımak istediğiniz şubeleri diğer Ağ Düğümlerine taşımaktır.",
-                    "updated": 1649925072588
                 }
             ]
         },
@@ -81,11 +66,6 @@
                     "language": "RU",
                     "text": "Установить все на всех узлах: При таком подходе вы сначала создаете все узлы сети и устанавливаете рынки, с которыми хотите работать, процедура установки установит каждый рынок на всех узлах, поэтому затем вам придется вручную удалить все дубликаты.",
                     "updated": 1640364890664
-                },
-                {
-                    "language": "TR",
-                    "text": "Tümünü Tüm Düğümlerde Kur: Bu yaklaşımda, önce tüm Ağ Düğümlerini yaratırsınız ve birlikte çalışmak istediğiniz pazarları kurarsınız, kurulum prosedürü her bir pazarı tüm düğümlere kurar, bu nedenle tüm yinelenen öğeleri silmeniz gerekir.",
-                    "updated": 1649925119045
                 }
             ]
         },
@@ -102,11 +82,6 @@
                     "language": "RU",
                     "text": "Установка рынка",
                     "updated": 1640364907680
-                },
-                {
-                    "language": "TR",
-                    "text": "Market'i Yükle",
-                    "updated": 1649925136793
                 }
             ]
         },
@@ -124,11 +99,6 @@
                     "language": "RU",
                     "text": "Процедура установки сетевого узла заключается в выполнении пункта меню Install Market определенного узла Market. Это сложная процедура, которая соединит для вас все точки от А до Я. Вы можете выполнить эту процедуру вручную, но это займет у вас много времени, и вам нужно будет знать все детали того, как соединить все вместе.",
                     "updated": 1640364940998
-                },
-                {
-                    "language": "TR",
-                    "text": "Bir Ağ Düğümü kurma prosedürü, belirli bir Pazar düğümünün Pazarı Yükle menü seçeneğini yürütmektir. Bu, A'dan Z'ye sizin için tüm noktaları birleştirecek karmaşık bir prosedürdür. Bu prosedürün yaptığını elle yapabilirsiniz, ancak çok zamanınızı alacak ve nasıl yapılacağının tüm ayrıntılarını bilmeniz gerekecek. her şeyi birbirine bağlayın.",
-                    "updated": 1649925176030
                 }
             ]
         },
@@ -145,11 +115,6 @@
                     "language": "RU",
                     "text": "Одна из самых важных вещей, которые нужно понять в этой процедуре, заключается в том, что она учитывает вещи, которые находятся в рабочем пространстве в тот момент, когда вы выполняете эту команду.",
                     "updated": 1640364972802
-                },
-                {
-                    "language": "TR",
-                    "text": "Önemli: Bu prosedürde anlaşılması gereken en önemli şeylerden biri, bu komutu çalıştırdığınız anda çalışma alanında sahip olduğunuz şeyleri hesaba katmasıdır.",
-                    "updated": 1649925331859
                 }
             ]
         },
@@ -167,11 +132,6 @@
                     "language": "RU",
                     "text": "Например: если у вас есть 2 торговые системы, он автоматически создаст задачи бэктестинга и реальной торговли для обеих.",
                     "updated": 1640364991866
-                },
-                {
-                    "language": "TR",
-                    "text": "Örneğin: 2 ticaret sisteminiz varsa, her ikisi için otomatik olarak geriye dönük test ve canlı ticaret görevleri oluşturur.",
-                    "updated": 1649925372990
                 }
             ]
         },
@@ -189,11 +149,6 @@
                     "language": "RU",
                     "text": "Процедура также будет применена к каждому сетевому узлу Network, находящемуся в рабочем пространстве, предполагая, что позже вы удалите задачи или другие ненужные вам ветви. Но чтобы сделать это, вам нужно знать, что добавляется в результате выполнения этой процедуры.",
                     "updated": 1640365100509
-                },
-                {
-                    "language": "TR",
-                    "text": "Prosedür ayrıca, ihtiyacınız olmayan Görevleri veya diğer dalları daha sonra sileceğiniz varsayılarak, çalışma alanında bulunan her Ağ Düğümü'ne de uygulanacaktır. Ancak bunu yapabilmek için, bu yürütme sonucunda nelerin eklendiğini bilmeniz gerekir.",
-                    "updated": 1649925404326
                 }
             ]
         },
@@ -210,11 +165,6 @@
                     "language": "RU",
                     "text": "В иерархии LAN Network",
                     "updated": 1640365162994
-                },
-                {
-                    "language": "TR",
-                    "text": "LAN Network Hiyerarşisinde",
-                    "updated": 1649925435308
                 }
             ]
         },
@@ -232,11 +182,6 @@
                     "language": "RU",
                     "text": "Здесь эта процедура добавит, по сути, 2 вещи:",
                     "updated": 1640365176444
-                },
-                {
-                    "language": "TR",
-                    "text": "Burada bu prosedür esasen 2 şey ekleyecektir:",
-                    "updated": 1649925444331
                 }
             ]
         },
@@ -253,11 +198,6 @@
                     "language": "RU",
                     "text": "Tasks (Задачи): Сюда входит бэктестинг, реальная торговля, обучение или любой другой поддерживаемый тип задачи.",
                     "updated": 1640365221771
-                },
-                {
-                    "language": "TR",
-                    "text": "Görevler: Bu, Geriye Dönük Testi, Canlı Alım Satımını, Öğrenmeyi veya desteklenen diğer Görev türlerini içerir.",
-                    "updated": 1649925471314
                 }
             ]
         },
@@ -275,11 +215,6 @@
                     "language": "RU",
                     "text": "Data Products (Продукты данных): Можно считать, что это ссылки на физические данные. Эти определения говорят системе в целом, где физически находятся данные.",
                     "updated": 1640365256044
-                },
-                {
-                    "language": "TR",
-                    "text": "Veri Ürünleri ( Data Products ): Bunu fiziksel verilere referans olarak düşünebilirsiniz. Bu tanımlar, sisteme genel olarak verilerin fiziksel olarak nerede bulunduğunu söyleyenlerdir.",
-                    "updated": 1649925502485
                 }
             ]
         },
@@ -296,11 +231,6 @@
                     "language": "RU",
                     "text": "В иерархии Charting Space",
                     "updated": 1640365278356
-                },
-                {
-                    "language": "TR",
-                    "text": "Grafik Alanı Hiyerarşisinde",
-                    "updated": 1649925519363
                 }
             ]
         },
@@ -318,11 +248,6 @@
                     "language": "RU",
                     "text": "Здесь эта процедура добавит машины времени с временными диаграммами внутри них. Глубже в этой ветви вы найдете узел Layer, который ссылается на продукты данных в иерархии LAN Network. Эта ссылка очень важна для того, чтобы система знала, когда вы включаете слой на диаграммах, откуда нужно получить данные (с какого клиента).",
                     "updated": 1640365355595
-                },
-                {
-                    "language": "TR",
-                    "text": "İşte bu prosedür, içinde Zaman Çizelgesi ( Timeline Chart ) Tablosu bulunan Zaman Makinesi 'lerini ( Time Machine ) ekleyecektir. Bu dalın daha derinlerinde, LAN Ağı Hiyerarşisindeki ( LAN Network Hierarchy ) Veri Ürünlerine başvuran Katman düğümünü bulacaksınız. Bu referans, sistemin, grafiklerde bir Katmanı ne zaman açtığınızda, verilerin nereden alınması gerektiğini (hangi İstemciden) bilmesi çok önemlidir.",
-                    "updated": 1649925655220
                 }
             ]
         },
@@ -340,11 +265,6 @@
                     "language": "RU",
                     "text": "Если вам понятны все предыдущие взаимосвязи, вы можете пойти дальше и установить рынок во всех сетевых узлах одновременно, а затем попытаться удалить все дублирующиеся определения. Если вам не все понятно, рекомендуется установить все рынки в одном сетевом узле, а затем переместить нужные вам ветви из одного сетевого узла в другой.",
                     "updated": 1640365396948
-                },
-                {
-                    "language": "TR",
-                    "text": "İpucu: Önceki tüm ilişkileri anlıyorsanız, aynı anda tüm Ağ Düğümlerinde bir pazar kurabilir ve ardından tüm yinelenen tanımları silmeyi deneyebilirsiniz. Tüm bu netliğe sahip değilseniz, tüm marketlerinizi tek bir Ağ Düğümünde kurmanız ve ardından istediğiniz şubeleri bir Ağ Düğümünden diğerine taşımanız önerilir.",
-                    "updated": 1649925703273
                 }
             ]
         },
@@ -361,11 +281,6 @@
                     "language": "RU",
                     "text": "Перемещение задач",
                     "updated": 1640365410641
-                },
-                {
-                    "language": "TR",
-                    "text": "Hareketli Görevler",
-                    "updated": 1649925770754
                 }
             ]
         },
@@ -383,11 +298,6 @@
                     "language": "RU",
                     "text": "Предполагая, что вы будете придерживаться стратегии установки сначала одного сетевого узла, вот что вам нужно знать о том, как переместить задачи на другие сетевые узлы.",
                     "updated": 1640366222973
-                },
-                {
-                    "language": "TR",
-                    "text": "İlk önce bir Ağ Düğümü kurma stratejisiyle gideceğinizi varsayarsak, Task 'leri diğer Ağ Düğümlerine nasıl taşıyacağınız konusunda bilmeniz gerekenler bunlardır.",
-                    "updated": 1649925806923
                 }
             ]
         },
@@ -405,11 +315,6 @@
                     "language": "RU",
                     "text": "Существуют различные типы задач, и каждая из них должна быть перемещена вместе с соответствующими определениями продуктов данных (Data Products), чтобы система могла отслеживать зависимости. Определения продуктов данных находятся в узле Data Storage узла Network. Они подразделяются на различные ветви в зависимости от типа данных, проекта, биржи, рынка и многого другого, но в итоге вы найдете узлы Data Product, которые ссылаются на Product Definitions внутри Mines. Когда вы перемещаете задачи из одного узла Network в другой, вам также необходимо переместить связанную ветвь в Data Storage в тот же узел Network.",
                     "updated": 1640366554432
-                },
-                {
-                    "language": "TR",
-                    "text": "Farklı Görev türleri vardır ve sistemin bağımlılıkları izleyebilmesi için her birinin karşılık gelen Veri Ürünleri tanımlarıyla birlikte taşınması gerekir. Veri Ürünleri ( Data Products ) tanımları, bir Ağ Düğümünün Veri Depolama ( Data Storage ) düğümü altındaki tanımlardır. Veri Türü, Proje, Değişim, Pazar ve diğer birçok şeye bağlı olarak farklı dallara ayrılırlar, ancak sonunda Madenlerde Ürün Tanımlarına başvuran Veri Ürünü düğümlerini bulacaksınız. Görevleri bir Ağ Düğümünden diğerine taşıdığınızda, Veri Depolamadaki ilgili şubeyi de aynı Ağ Düğümüne taşımanız gerekir.",
-                    "updated": 1649925916630
                 }
             ]
         },
@@ -426,11 +331,6 @@
                     "language": "RU",
                     "text": "Всегда помните, что системе нужно только определить, где вы хотите запускать задачи и размещать данные, но между задачами и данными существует неявная связь, поскольку задача производит определенные данные, и эти определения должны быть последовательными и находиться на одном и том же узле сети.",
                     "updated": 1640366590709
-                },
-                {
-                    "language": "TR",
-                    "text": "Her zaman, sistemin yalnızca Görevlerin nerede çalışmasını ve Verilerin Barındırılmasını istediğinizi tanımlamanıza ihtiyacı olduğunu unutmayın, ancak Görevler ve Veriler arasında örtük bir ilişki vardır, çünkü bir Görev belirli Veriler üretir ve bu tanımın tutarlı olması ve olması gerekir. aynı Ağ Düğümünde bulunur.",
-                    "updated": 1649925994348
                 }
             ]
         },
@@ -447,11 +347,6 @@
                     "language": "RU",
                     "text": "Если вы переместите только задачу и не переместите связанные с ней определения продуктов данных, скорее всего, все перестанет работать прямо на этом месте.",
                     "updated": 1640367568490
-                },
-                {
-                    "language": "TR",
-                    "text": "Uyarı: Yalnızca bir Görevi taşır ve ilgili Veri Ürünleri tanımlarını taşımazsanız, büyük olasılıkla işler orada çalışmayı durduracaktır.",
-                    "updated": 1649926016945
                 }
             ]
         },
@@ -469,11 +364,6 @@
                     "language": "RU",
                     "text": "Определения в иерархии Charting System вообще не нужно изменять. Они будут продолжать указывать на продукты данных, на которые они указывали, независимо от того, куда вы переместили эти определения продуктов данных. Если вы переместили их с одного сетевого узла на другой, плоттер (Plotter) просто получит данные с того сетевого узла, где вы оставили эти определения продуктов данных.",
                     "updated": 1640367659558
-                },
-                {
-                    "language": "TR",
-                    "text": "İpucu: Grafik Sistemi hiyerarşisindeki tanımların hiç değiştirilmesi gerekmez. Bu Veri Ürünleri tanımlarını nereye taşımış olursanız olun, işaret edildikleri Veri Ürünlerini işaret etmeye devam edecekler. Bunları bir Ağ Düğümünden diğerine değiştirdiyseniz, Plotter, Veri Ürününün tanımlarını bıraktığınız Ağ Düğümünden verileri alacaktır.",
-                    "updated": 1649926057045
                 }
             ]
         },
@@ -491,11 +381,6 @@
                     "language": "RU",
                     "text": "Когда мы говорим о перемещении, мы имеем в виду отсоединение ветви узла и повторное присоединение этой же ветви в другом месте. Обратите внимание, что если вы, например, сделаете резервную копию ветви, восстановите ее в другом месте, не удалив сначала исходную ве��вь, вы непреднамеренно создадите новые идентификаторы для каждого узла в этой ветви и испортите входящие ссылки, что приведет к тому, что все перестанет работать.",
                     "updated": 1640367697881
-                },
-                {
-                    "language": "TR",
-                    "text": "Not: Taşıma dediğimizde, bir Düğüm dalını ayırıp aynı dalı başka bir yere yeniden eklemekten bahsediyoruz. Örneğin, bir dalın yedeğini alırsanız, ilk önce orijinal dalı silmeden başka bir yere geri yüklerseniz, istemeden bu daldaki her Düğüm için yeni kimlikler oluşturacağınızı ve gelen referansları karıştıracağınızı ve bunun da bazı şeylere neden olacağını unutmayın.",
-                    "updated": 1649926135894
                 }
             ]
         },
@@ -516,11 +401,6 @@
                     "language": "RU",
                     "text": "Прежде чем начать",
                     "updated": 1640367714392
-                },
-                {
-                    "language": "TR",
-                    "text": "Başlamadan Önce",
-                    "updated": 1649926151973
                 }
             ]
         },
@@ -537,11 +417,6 @@
                     "language": "RU",
                     "text": "Составьте быстрый список с названием, которое вы хотите дать каждому узлу, и соответствующим IP-адресом в сети. Они понадобятся для настройки каждого узла сети.",
                     "updated": 1640367741942
-                },
-                {
-                    "language": "TR",
-                    "text": "Her bir düğüme vermek istediğiniz ad ve ağdaki ilgili IP adresi ile hızlı bir liste yapın. Her ağ düğümünü yapılandırmak için bunlara ihtiyacınız olacak.",
-                    "updated": 1649926178947
                 }
             ]
         },
@@ -558,11 +433,6 @@
                     "language": "RU",
                     "text": "Кроме того, вы, возможно, захотите продумать, как должна выглядеть ваша операция.",
                     "updated": 1640367767082
-                },
-                {
-                    "language": "TR",
-                    "text": "Ayrıca, operasyonunuzun nasıl görünmesi gerektiğini planlamak isteyebilirsiniz.",
-                    "updated": 1649926188173
                 }
             ]
         },
@@ -579,11 +449,6 @@
                     "language": "RU",
                     "text": "Прежде всего, вы должны решить, на каком узле будет находиться рабочее пространство, на котором будет настроена сеть узлов. Мы называем его узлом home (домашний узел).",
                     "updated": 1640368150929
-                },
-                {
-                    "language": "TR",
-                    "text": "Her şeyden önce, düğüm ağının yapılandırılacağı çalışma alanını hangi düğümde tutacağınıza karar vermek isteyebilirsiniz. Biz buna ev düğümü diyoruz.",
-                    "updated": 1649926208656
                 }
             ]
         },
@@ -600,11 +465,6 @@
                     "language": "RU",
                     "text": "Это не является обязательным требованием, поскольку вы можете держать разные рабочие пространства в разных узлах и даже устанавливать разные сети на разных рабочих пространствах, но это самая обычная настройка.",
                     "updated": 1640367807043
-                },
-                {
-                    "language": "TR",
-                    "text": "Farklı düğümlerde farklı çalışma alanlarını tutabileceğiniz ve hatta farklı çalışma alanlarında farklı ağlar kurabileceğiniz için bu bir gereklilik değildir, ancak en olağan kurulumdur.",
-                    "updated": 1649926262281
                 }
             ]
         },
@@ -621,11 +481,6 @@
                     "language": "RU",
                     "text": "Кроме того, вы, возможно, захотите спланировать, какие узлы в сети должны выполнять задачи по обработке данных, какие узлы должны выполнять торговые сессии и так далее. Как уже говорилось на странице фундаментальных концепций, возможности бесконечны, поэтому мы не будем рассматривать здесь альтернативные варианты. Если вы точно знаете, что хотите сделать, это будет легко реализовать. Тем не менее, вы можете свободно исследовать и экспериментировать.",
                     "updated": 1640367843444
-                },
-                {
-                    "language": "TR",
-                    "text": "Ayrıca, ağdaki hangi düğümlerin hangi veri madenciliği görevlerini, hangi düğümlerin hangi ticaret oturumlarını çalıştıracağını vb. planlamak isteyebilirsiniz. Temel kavramlar sayfasında ima edildiği gibi, olasılıklar sonsuzdur, bu nedenle burada alternatifleri ele almayacağız. Ne yapmak istediğinizi tam olarak biliyorsanız, uygulaması kolay olmalıdır. Bununla birlikte, keşfetmek ve denemekte özgürsünüz.",
-                    "updated": 1649926296954
                 }
             ]
         },
@@ -642,11 +497,6 @@
                     "language": "RU",
                     "text": "Начинайте здесь",
                     "updated": 1640367858501
-                },
-                {
-                    "language": "TR",
-                    "text": "Buradan başla",
-                    "updated": 1649926320241
                 }
             ]
         },
@@ -663,11 +513,6 @@
                     "language": "RU",
                     "text": "1. Установите Superalgos на каждой машине. После установки Superalgos запустите систему в первый раз с помощью команды node run noBrowser. Параметр noBrowser запускает клиент без запуска пользовательского интерфейса.",
                     "updated": 1640367889174
-                },
-                {
-                    "language": "TR",
-                    "text": "1. Diğer makineye Superalgos'u kurun. Superalgos kurulduktan sonra, node run noBrowser komutunu kullanarak sistemi ilk kez çalıştırın. noBrowser parametresi, Kullanıcı Arayüzünü başlatmadan İstemciyi çalıştırır.",
-                    "updated": 1649926536488
                 }
             ]
         },
@@ -684,11 +529,6 @@
                     "language": "RU",
                     "text": "2. Запустите пользовательский интерфейс для доступа к узлу home.",
                     "updated": 1640367933825
-                },
-                {
-                    "language": "TR",
-                    "text": "2. Ana düğüme erişmek için kullanıcı arayüzünü çalıştırın.",
-                    "updated": 1649926413055
                 }
             ]
         },
@@ -705,11 +545,6 @@
                     "language": "RU",
                     "text": "Вы можете получить доступ к узлу home локально, то есть запустив браузер на машине, на которой запущен узел home, или вы можете запустить браузер на любой другой машине в физической сети - даже на той, на которой не запущен Superalgos - перейдя на IP-адрес узла home.",
                     "updated": 1640368045668
-                },
-                {
-                    "language": "TR",
-                    "text": "Ana düğüme yerel olarak erişebilir, yani tarayıcıyı ana düğümün çalıştığı makinede çalıştırabilir veya ana düğüme giderek tarayıcıyı fiziksel ağdaki başka herhangi bir makinede (Superalgos çalıştırmıyor olsa bile) çalıştırabilirsiniz. düğümün IP adresi.",
-                    "updated": 1649926517627
                 }
             ]
         },
@@ -727,11 +562,6 @@
                     "language": "RU",
                     "text": "Если вы получаете удаленный доступ к домашнему узлу, вам необходимо настроить сетевой узел My Computer на использование IP-адреса машины вместо localhost в параметре host. Это позволит установить соединение через веб-сокеты.",
                     "updated": 1640368081747
-                },
-                {
-                    "language": "TR",
-                    "text": "Not: Ana düğüme uzaktan erişiyorsanız, Bilgisayarım ağ düğümünü ana bilgisayar parametresinde yerel ana bilgisayar yerine makinenin IP adresini kullanacak şekilde yapılandırmanız gerekir. Bu, web soketleri bağlantısını sağlar.",
-                    "updated": 1649926571463
                 }
             ]
         },
@@ -749,11 +579,6 @@
                     "language": "RU",
                     "text": "В организационных целях и во избежание путаницы в дальнейшем рекомендуется очистить рабочее пространство домашнего узла, удалив ненужные рынки.",
                     "updated": 1640368127784
-                },
-                {
-                    "language": "TR",
-                    "text": "İpucu: Organizasyonel amaçlar için ve daha sonra karışıklığı önlemek için, ihtiyacınız olmayan pazarları kaldırarak ana düğümün çalışma alanını temizlemeniz önerilir.",
-                    "updated": 1649926594482
                 }
             ]
         },
@@ -770,11 +595,6 @@
                     "language": "RU",
                     "text": "Нажмите, чтобы узнать, как удалить существующий рынок",
                     "updated": 1640368213588
-                },
-                {
-                    "language": "TR",
-                    "text": "Mevcut bir marketin nasıl kaldırılacağını öğrenmek için tıklayın",
-                    "updated": 1649926634463
                 }
             ]
         },
@@ -791,11 +611,6 @@
                     "language": "RU",
                     "text": "3. Добавьте и настройте сетевой узел для каждой машины.",
                     "updated": 1640368236012
-                },
-                {
-                    "language": "TR",
-                    "text": "3. Diğer makine için bir ağ düğümü ekleyin ve yapılandırın.",
-                    "updated": 1649926674443
                 }
             ]
         },
@@ -812,11 +627,6 @@
                     "language": "RU",
                     "text": "Добавление сетевого узла",
                     "updated": 1640368248205
-                },
-                {
-                    "language": "TR",
-                    "text": "Ağ Düğümü Ekleme",
-                    "updated": 1649926682711
                 }
             ]
         },
@@ -833,11 +643,6 @@
                     "language": "RU",
                     "text": "Чтобы добавить сетевой узел, выберите Add LAN Network Node в меню узла Superalgos Network. Сетевой узел добавляется вместе с базовой структурой узлов для настройки узла.",
                     "updated": 1640368305563
-                },
-                {
-                    "language": "TR",
-                    "text": "Bir ağ düğümü eklemek için Superalgos Ağ ( Superalgos Network ) düğümü menüsünde LAN Ağ ( LAN Network ) Düğümü Ekle'yi seçin. Bir düğüm oluşturmak için düğümlerin temel yapısıyla birlikte bir ağ düğümü eklenir.",
-                    "updated": 1649926738597
                 }
             ]
         },
@@ -854,11 +659,6 @@
                     "language": "RU",
                     "text": "Настройка сетевого узла",
                     "updated": 1640368323817
-                },
-                {
-                    "language": "TR",
-                    "text": "Ağ Düğümünü Yapılandırma",
-                    "updated": 1649926750528
                 }
             ]
         },
@@ -875,11 +675,6 @@
                     "language": "RU",
                     "text": "Выберите Configure в меню для доступа к конфигурации.",
                     "updated": 1640368335053
-                },
-                {
-                    "language": "TR",
-                    "text": "Yapılandırmaya erişmek için menüden Yapılandır'ı seçin.",
-                    "updated": 1649926758456
                 }
             ]
         },
@@ -902,11 +697,6 @@
                     "language": "RU",
                     "text": "host - это машина или оборудование, представленное сетевым узлом. Параметр по умолчанию - localhost, но если вы собираетесь получить доступ к клиентским службам этого узла с удаленного компьютера, то необходимо изменить localhost на IP-адрес машины, на которой работает узел, например, на 147.0.0.1. Используйте точечный IP-адрес, а не название узла, так как это сокращает поиск по названию узла.",
                     "updated": 1640368381471
-                },
-                {
-                    "language": "TR",
-                    "text": "ana bilgisayar, ağ düğümü tarafından temsil edilen makine veya donanımdır. Varsayılan parametre localhost'tur, ancak bu düğümün İstemci hizmetlerine uzak bir bilgisayardan erişmeyi düşünüyorsanız, düğümün çalıştığı makinenin IP Adresi için localhost'u örneğin 147.0.0.1 olarak değiştirmelisiniz. Ana bilgisayar adı aramalarını azalttığından, ana bilgisayar adı yerine noktalı IP adresini kullanın.",
-                    "updated": 1649926773733
                 }
             ]
         },
@@ -923,11 +713,6 @@
                     "language": "RU",
                     "text": "webPort - это порт, используемый веб-сервером, на данном этапе 34248.",
                     "updated": 1640368396695
-                },
-                {
-                    "language": "TR",
-                    "text": "webPort, Web Sunucusu tarafından kullanılan bağlantı noktasıdır, bu aşamada 34248.",
-                    "updated": 1649926791086
                 }
             ]
         },
@@ -944,11 +729,6 @@
                     "language": "RU",
                     "text": "webSocketsPort - порт, используемый системой для связи по локальной сети, по умолчанию установлен на 18041.",
                     "updated": 1640368414874
-                },
-                {
-                    "language": "TR",
-                    "text": "webSocketsPort, sistem tarafından yerel alan ağı üzerinden iletişim kurmak için kullanılan ve varsayılan olarak 18041 olarak ayarlanan bağlantı noktasıdır.",
-                    "updated": 1649926813161
                 }
             ]
         },
@@ -965,11 +745,6 @@
                     "language": "RU",
                     "text": "Настройте первый узел и нажмите F5, чтобы обновить страницу. После перезагрузки страницы в верхней части экрана появится уведомление о том, что система подключается к новому сетевому узлу. Повторите этот процесс для каждой машины.",
                     "updated": 1640368436677
-                },
-                {
-                    "language": "TR",
-                    "text": "İlk düğümü yapılandırın ve sayfayı yenilemek için F5'e basın. Sayfa yeniden yüklendiğinde, ekranın üst kısmında sistemin yeni ağ düğümüne bağlandığını belirten bir bildirim görüntülenecektir. Her makine için işlemi tekrarlayın.",
-                    "updated": 1649926851729
                 }
             ]
         }

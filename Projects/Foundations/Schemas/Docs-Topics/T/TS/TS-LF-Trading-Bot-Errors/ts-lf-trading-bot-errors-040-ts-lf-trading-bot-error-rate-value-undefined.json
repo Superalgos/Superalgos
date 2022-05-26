@@ -4,18 +4,39 @@
     "type": "TS LF Trading Bot Error - Rate Value Undefined",
     "definition": {
         "text": "You must properly define a Rate for the order by using a valid Formula under the Rate node.",
-        "updated": 1611943140877
+        "updated": 1611943140877,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Oran düğümü altında geçerli bir Formül ( Formula ) kullanarak sipariş için bir Oranı ( Rate ) düzgün bir şekilde tanımlamanız gerekir.",
+                "updated": 1649105567440
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Error",
             "text": "Rate Value Undefined",
-            "updated": 1611651100958
+            "updated": 1611651100958,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Oran değeri tanımsız. ( Rate Value Undefined )",
+                    "updated": 1649105651375
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Fix the Formula under the Rate node and try again.",
-            "updated": 1611943184070
+            "updated": 1611943184070,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Oranı ( Rate ) düğümünün altındaki Formülü ( Formula ) düzeltin ve tekrar deneyin.",
+                    "updated": 1649105753568
+                }
+            ]
         }
     ]
 }

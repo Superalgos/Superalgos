@@ -222,7 +222,9 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
                 if (assignedTimestamp === undefined) { assignedTimestamp = 0 }
                 let now = (new Date()).valueOf()
                 let diff = now - assignedTimestamp
-                if (diff < SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS * 10) {
+                if (
+                    diff < SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS * 10 &&
+                    TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.forceTestClientsToWait10Minutes === true) {
                     console.log((new Date()).toISOString(), 'Test Case already delivered in the last 10 minutes. Did not deliver again to ' + currentClientInstance)
                     return 'NO CASES FOR YOU'
                 } else {

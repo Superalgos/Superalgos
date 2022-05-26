@@ -341,18 +341,21 @@
                     if (dataReceived.includes('RL_SCENARIO_END')) {
                         //TODO: read from the evaluation_results.json file
                     } else {
+                        try {
+                            processExecutionResult = JSON.parse(dataReceived)
+                            processExecutionResult.predictions = fixJSON(processExecutionResult.predictions)
+                            processExecutionResult.predictions = JSON.parse(processExecutionResult.predictions)
 
-                        processExecutionResult = JSON.parse(dataReceived)
-                        processExecutionResult.predictions = fixJSON(processExecutionResult.predictions)
-                        processExecutionResult.predictions = JSON.parse(processExecutionResult.predictions)
+                            console.log('Prediction RMSE Error: ' + processExecutionResult.errorRMSE)
+                            console.log('Predictions [candle.max, candle.min, candle.close]: ' + processExecutionResult.predictions)
 
-                        console.log('Prediction RMSE Error: ' + processExecutionResult.errorRMSE)
-                        console.log('Predictions [candle.max, candle.min, candle.close]: ' + processExecutionResult.predictions)
-
-                        let endingTimestamp = (new Date()).valueOf()
-                        processExecutionResult.enlapsedTime = (endingTimestamp - startingTimestamp) / 1000
-                        console.log('Enlapsed Time (HH:MM:SS): ' + (new Date(processExecutionResult.enlapsedTime * 1000).toISOString().substr(14, 5)) + ' ')
-
+                            let endingTimestamp = (new Date()).valueOf()
+                            processExecutionResult.enlapsedTime = (endingTimestamp - startingTimestamp) / 1000
+                            console.log('Enlapsed Time (HH:MM:SS): ' + (new Date(processExecutionResult.enlapsedTime * 1000).toISOString().substr(14, 5)) + ' ')
+                        } catch (err) {
+                            console.log('Error parsing the information generated at the Docker Container executing the Python script. err.stack = ' + err.stack)
+                            console.log('The data that can not be parsed is = ' + dataReceived)
+                        }
                     }
                 } catch (err) {
 

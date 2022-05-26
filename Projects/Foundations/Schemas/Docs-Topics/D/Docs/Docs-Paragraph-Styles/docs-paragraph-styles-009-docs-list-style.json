@@ -14,6 +14,11 @@
                 "language": "RU",
                 "text": "Этот стиль визуализирует текст как элемент маркированного списка.",
                 "updated": 1638533603641
+            },
+            {
+                "language": "TR",
+                "text": "Bu stil, metni madde işareti listesinin bir öğesi olarak işleyecektir.",
+                "updated": 1652384933095
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "language": "RU",
                     "text": "Любой текст, введенный вами при редактировании абзаца этого стиля, будет отображаться в виде элемента списка, представленного в виде текста после маркера. Если вы используете кавычки с двоеточием в каком-либо месте текста, кроме конца, весь текст перед двоеточием будет выделен жирным шрифтом.",
                     "updated": 1638533695035
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu stilin bir paragrafını düzenlerken yazdığınız herhangi bir metin, madde işaretinden sonra metin olarak temsil edilen bir liste öğesi olarak görüntülenecektir. Metninizin sonunda hariç bir noktasında iki nokta üst üste tırnak işareti kullanırsanız, iki nokta üst üste işaretinden önceki tüm metin kalın olarak gösterilecektir.",
+                    "updated": 1652385030852
                 }
             ]
         },
@@ -47,6 +57,11 @@
                     "language": "RU",
                     "text": "Пример:",
                     "updated": 1638533708178
+                },
+                {
+                    "language": "TR",
+                    "text": "Misal:",
+                    "updated": 1652385043476
                 }
             ]
         },
@@ -63,6 +78,11 @@
                     "language": "RU",
                     "text": "Перед двоеточием выделен жирным шрифтом: после двоеточия - обычный текст.",
                     "updated": 1638533722773
+                },
+                {
+                    "language": "TR",
+                    "text": "Before colon is bold: kolondan sonra normal metindir.",
+                    "updated": 1652385085733
                 }
             ]
         }

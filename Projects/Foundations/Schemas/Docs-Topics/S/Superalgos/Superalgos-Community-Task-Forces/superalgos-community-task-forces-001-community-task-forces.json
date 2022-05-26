@@ -15,11 +15,6 @@
                 "language": "ES",
                 "text": "Las Fuerzas de Trabajo de la Comunidad son grupos abiertos en una misión liderada por los principales contribuyentes y abiertos a todos. los miembros de la Community. Los grupos de trabajo son la forma en que Superalgos organiza la Community para aprovechar la fuerza inherente a un gran número de personas que colaboran. Unirse a un grupo de trabajo es una excelente manera de contribuir al proyecto!",
                 "updated": 1640979568543
-            },
-            {
-                "language": "TR",
-                "text": "Özet: Topluluk ( Community ) Görev Güçleri, en çok katkıda bulunanlar tarafından yönetilen ve tüm Topluluk üyelerine açık bir misyona sahip açık gruplardır. Görev güçleri, Superalgos'un, işbirliği yapan çok sayıda insanın doğasında var olan gücü kullanmak için Topluluğu nasıl organize ettiğidir. Bir görev gücüne katılmak, projeye katkıda bulunmanın harika bir yoludur!",
-                "updated": 1650539910729
             }
         ]
     },
@@ -38,11 +33,6 @@
                     "language": "ES",
                     "text": "Si desea contribuir a Superalgos pero no está seguro de por dónde empezar o necesita una tarea específica en la que trabajar, ¡unirse a un grupo de trabajo puede ser su mejor opción!",
                     "updated": 1640979634309
-                },
-                {
-                    "language": "TR",
-                    "text": "Superalgos'a katkıda bulunmak istiyor ancak nereden başlayacağınızdan emin değilseniz veya üzerinde çalışmak için belirli bir göreve ihtiyacınız varsa, bir görev gücüne katılmak en iyi seçeneğiniz olabilir!",
-                    "updated": 1650539932383
                 }
             ]
         },
@@ -60,11 +50,6 @@
                     "language": "ES",
                     "text": "Diferentes grupos de trabajo se involucran en diferentes áreas de desarrollo del proyecto y pueden beneficiarse de habilidades y experiencia particulares. ¡Consulte los grupos de trabajo existentes en el TOC a continuación y únase a los que más le interesen!",
                     "updated": 1640979616079
-                },
-                {
-                    "language": "TR",
-                    "text": "Farklı görev güçleri, projenin farklı gelişim alanlarıyla ilgilenir ve belirli becerilerden ve uzmanlıktan yararlanabilir. Aşağıdaki TOC'deki mevcut görev güçlerini kontrol edin ve en çok ilgilendiklerinize katılın!",
-                    "updated": 1650539954615
                 }
             ]
         },

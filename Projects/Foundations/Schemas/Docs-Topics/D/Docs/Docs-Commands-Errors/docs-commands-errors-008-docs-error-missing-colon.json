@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Убедитесь, что вы используете \":\" в нужном месте.",
                 "updated": 1638529839586
+            },
+            {
+                "language": "TR",
+                "text": "\":\" işaretini uygun konumda kullandığınızdan emin olun.",
+                "updated": 1652019703756
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "DE",
                     "text": "Syntax Error. Das Doppelpunkt-Zeichen \":\" fehlt.",
                     "updated": 1633897408928
+                },
+                {
+                    "language": "TR",
+                    "text": "Sözdizimi hatası. İki nokta üst üste karakteri \":\" eksik.",
+                    "updated": 1652019762679
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "RU",
                     "text": "Проверьте синтаксис выполняемой команды и посмотрите, где разместить символ двоеточия «:». Символ может быть не обнаружен, если за ним не стоит пробел.",
                     "updated": 1638529863188
+                },
+                {
+                    "language": "TR",
+                    "text": "Yürüttüğünüz komutun sözdizimini kontrol edin ve iki nokta üst üste \":\" karakterinin nereye yerleştirileceğini görün. Karakterin arkasında bir boşluk yoksa karakter algılanmayabilir.",
+                    "updated": 1652019825339
                 }
             ]
         },

@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Каждый тип узла может иметь набор правил, определяющих, с каким типом узла он может установить ссылку.",
                 "updated": 1640356616144
+            },
+            {
+                "language": "TR",
+                "text": "Her Düğüm Türü ( Node Type ) hangi Düğüm Türüyle ( Node Type ) başvuru oluşturabileceğini tanımlayan bir kurallar kümesine sahip olabilir.",
+                "updated": 1652901804081
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
                     "updated": 1640356624548
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle . Yeni paragraflar yazmak için ENTER'a basın. Düzenleme modundan çıkmak için ESC.",
+                    "updated": 1652901839913
                 }
             ]
         }

@@ -4,18 +4,39 @@
     "type": "TS LF Trading Bot Error - Percentage Of Algorithm Size Property Not A Number",
     "definition": {
         "text": "You must specify what percentage of the Size handled by the Execution Algorithm is to be handled by the Order.",
-        "updated": 1611945332194
+        "updated": 1611945332194,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Yürütme Algoritması ( Execution Algorithm ) tarafından işlenen Boyutun ( Size ) yüzde kaçının Sipariş tarafından işleneceğini belirtmelisiniz.",
+                "updated": 1649626480383
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Error",
             "text": "Percentage Of Algorithm Size Property Not A Number",
-            "updated": 1611651354529
+            "updated": 1611651354529,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Aşama Hedef Boyutu Yüzdesi Özelliği Sayı Değil. ( Target Size Property Not A Number )",
+                    "updated": 1649626561649
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Check the order's configuration and make sure the percentageOfAlgorithmSize property exists and is defined with a number greater than zero.",
-            "updated": 1611945342589
+            "updated": 1611945342589,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Algoritmanın yapılandırmasını kontrol edin ve aşma dışı hedef boyutun yüzdesi özelliğinin var olduğundan ve sıfırdan büyük bir sayıyla tanımlandığından emin olun.",
+                    "updated": 1649626642798
+                }
+            ]
         }
     ]
 }

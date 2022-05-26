@@ -9,6 +9,7 @@ function newGovernanceUserProfileSpace() {
         physics: physics,
         draw: draw,
         getContainer: getContainer,
+        getRewardedTimeRange: getRewardedTimeRange,
         reset: reset,
         finalize: finalize,
         initialize: initialize
@@ -38,6 +39,9 @@ function newGovernanceUserProfileSpace() {
         thisObject.githubStars = new Map()
         thisObject.githubWatchers = new Map()
         thisObject.githubForks = new Map()
+
+        /* Bitcoin Factory Computing Program Test Cases per User */
+        thisObject.executedTestCases = new Map()
 
         thisObject.container = newContainer()
         thisObject.container.initialize(MODULE_NAME)
@@ -331,7 +335,60 @@ function newGovernanceUserProfileSpace() {
                 }
             }
         }
+
+        /* Obtain executed Bitcoin Factory test cases */
+        getExecutedTestCases()
+        function getExecutedTestCases() {
+            const [firstTimestamp, lastTimestamp] = getRewardedTimeRange()
+            let request = {
+                url: 'GOV',
+                params: {
+                    method: "getRewardsFile",
+                    firstTimestamp: firstTimestamp,
+                    lastTimestamp: lastTimestamp
+                }
+            }
+
+            httpRequest(JSON.stringify(request.params), request.url, onResponse) 
+
+            function onResponse(err, data) {
+                if (err.result === GLOBAL.DEFAULT_FAIL_RESPONSE) {
+                    console.log((new Date()).toISOString(), '[WARN] Error fetching executed test cases from Bitcoin Factory Server')
+                    return
+                } else {    
+                    let response = JSON.parse(data)
+                    if (response.result === 'Not Ok') {
+                        console.log((new Date()).toISOString(), '[WARN] Error fetching executed test cases from Bitcoin Factory Server - ./Bitcoin-Factory/Testnet.csv not found')
+                        return
+                    }
+                    
+                    let executedTests = response.executedTests
+
+                    for (let user in executedTests) {
+                        if (executedTests.hasOwnProperty(user)) {
+                            thisObject.executedTestCases.set(user, executedTests[user])
+                        }
+                    }                        
+                }
+            }            
+        }
     }
+
+    function getRewardedTimeRange() {
+        /* Obtains timestamps from first and last day of previous month */
+        let date = new Date()
+        let firstOfMonth = Date.UTC(date.getUTCFullYear(), date.getUTCMonth() - 1, 1)
+        let endOfMonth = Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), 0, 23, 59, 59, 999)
+        let fom = new Date(firstOfMonth)
+        let eom = new Date(endOfMonth)
+        fomTimestamp = fom.getTime()
+        eomTimestamp = eom.getTime()
+
+        /* Special handling for first distribution: Set from timestamp to 0. Delete this line for distros later than May 22, executed in June 22 */
+        fomTimestamp = 0
+        return [fomTimestamp, eomTimestamp]
+    }
+
 
     function finalize() {
 
@@ -340,6 +397,7 @@ function newGovernanceUserProfileSpace() {
         thisObject.githubStars = undefined
         thisObject.githubWatchers = undefined
         thisObject.githubForks = undefined
+        thisObject.executedTestCases = undefined
 
         if (thisObject.container !== undefined) {
             thisObject.container.finalize()
@@ -547,6 +605,7 @@ function newGovernanceUserProfileSpace() {
                 }
             }                         
         }
+
     }
 
     function draw() {

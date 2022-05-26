@@ -14,6 +14,11 @@
                 "language": "RU",
                 "text": "На страницу документов можно встраивать изображения PNG.",
                 "updated": 1638542754361
+            },
+            {
+                "language": "TR",
+                "text": "PNG görüntülerini bir Dokümanlar sayfasına eklemek mümkündür.",
+                "updated": 1652386794215
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "language": "RU",
                     "text": "Чтобы вставить изображение PNG на страницу документов, вам необходимо следовать этому синтаксису:",
                     "updated": 1638542947360
+                },
+                {
+                    "language": "TR",
+                    "text": "PNG görüntüsünü Dokümanlar sayfasına eklemek için şu söz dizimini izlemeniz gerekir:",
+                    "updated": 1652386816614
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "RU",
                     "text": "Пример:",
                     "updated": 1638542967388
+                },
+                {
+                    "language": "TR",
+                    "text": "Misal:",
+                    "updated": 1652386831691
                 }
             ]
         },
@@ -71,6 +86,11 @@
                     "language": "RU",
                     "text": "Выглядит так:",
                     "updated": 1638542998979
+                },
+                {
+                    "language": "TR",
+                    "text": "Buna benzer:",
+                    "updated": 1652386841430
                 }
             ]
         },

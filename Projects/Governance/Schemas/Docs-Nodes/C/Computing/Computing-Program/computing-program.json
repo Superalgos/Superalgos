@@ -1,0 +1,38 @@
+{
+    "type": "Computing Program",
+    "definition": {
+        "text": "The Computing Program rewards the contribution of computing power to the testing of Machine Learning models.",
+        "updated": 1653672165311
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "At the Bitcoin Factory, we combine the powers of Advanced Data Mining and Machine Learning to obtain market predictions.",
+            "updated": 1653672477964
+        },
+        {
+            "style": "Text",
+            "text": "The thing about Machine Learning, however, is that it takes a lot of processing power. Way more than the average person can afford. That is why the Bitcoin Factory has set out to crowd-source the processing power needed to push the prediction power of the collective forward!",
+            "updated": 1653672497015
+        },
+        {
+            "style": "Text",
+            "text": "The Computing Program rewards users who have contributed to these efforts by executing test cycles for Machine Learning models.",
+            "updated": 1653672879274
+        },
+        {
+            "style": "Text",
+            "text": "Users spawning a Computing Program node will be rewarded with Superalgos Tokens from the Computing Program Rewards pool. The reward will be based on the share of test cases the user has executed in relation to all executed test cases of the reward period.",
+            "updated": 1653672922184
+        },
+        {
+            "style": "Text",
+            "text": "Rewards are allocated automatically, based on user name. The node does not require further configuration options."
+        },
+        {
+            "style": "Note",
+            "text": "Do you want to learn more about how to get started with the Bitcoin Factory? Check the Readme in the /Bitcoin-Factory subfolder of your Superalgos installation!",
+            "updated": 1653673046621
+        }
+    ]
+}

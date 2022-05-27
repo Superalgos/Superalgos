@@ -298,6 +298,14 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
 
         try {
             let testCase = thisObject.testCasesArray[testResult.id - 1]
+            if (testCase === undefined) {
+                console.log((new Date()).toISOString(), currentClientInstance + ' just tested Test Case Id ' + testCase.id + ' but this Id could not be found at the current Test Cases Array. If you changed the Test Cases Array recentily by reconfiguring which indicators to test, then it is possible that a Test Client was processing a Test Case from before and has just finished it without knowing that it is not valid. In that case just ignore this warning message. If you as an operator of a Test Server are seing this message without having changed the Test Server configuration and deleting the Test Cases Array file, then problably there is something wrong going on and you should report this as a bug.')
+                return
+            }
+            if (testCase.status !== 'Being Tested') {
+                console.log((new Date()).toISOString(), currentClientInstance + ' just tested Test Case Id ' + testCase.id + ' but this Id does not match any a Test Case at the current Test Cases Array with an status of Being Tested. If you changed the Test Cases Array recentily by reconfiguring which indicators to test, then it is possible that a Test Client was processing a Test Case from before and has just finished it without knowing that it is not valid. In that case just ignore this warning message. If you as an operator of a Test Server are seing this message without having changed the Test Server configuration and deleting the Test Cases Array file, then problably there is something wrong going on and you should report this as a bug.')
+                return
+            }
             testCase.status = 'Tested'
             testCase.predictions = testResult.predictions
             testCase.errorRMSE = testResult.errorRMSE

@@ -54,7 +54,7 @@ function updateRepo(cloneDir, repo) {
         maxConcurrentProcesses: 6,
     };
     const git = simpleGit(options)
-    let remotes = git.getRemotes(true).then(remote => {
+    git.getRemotes(true).then(remote => {
         checkRepository(remote, git).then(r => {
             if (!r) {
                 return false
@@ -64,8 +64,7 @@ function updateRepo(cloneDir, repo) {
     }).catch((err => {
         console.log(err)
     }));
-    console.log(remotes)
-    git.status((err, status) => {
+    git.status((err) => {
         if (!err) {
             const branch = 'develop'
             git.fetch('upstream', branch)

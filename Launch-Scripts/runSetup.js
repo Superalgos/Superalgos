@@ -6,7 +6,6 @@ const https = require('https')
 const externalScriptsDir = path.join(process.cwd(), 'Platform', 'WebServer', 'externalScripts')
 const env = require('../Environment').newEnvironment()
 const externalScriptsURLs = env.EXTERNAL_SCRIPTS
-const projectPluginMap = require('../Plugins/project-plugin-map.json')
 
 const errorResp = (e) => {
   console.error(e)
@@ -32,7 +31,7 @@ const installExternalScripts = () => {
         writeStream.on('finish', () => writeStream.close())
         return 5555
       }
-    })    
+    })
   }
   return 'External scripts installed'
 }
@@ -45,13 +44,13 @@ const setUpstreamAndOrigin = async (dir, repo='Superalgos') => {
       binary: 'git',
       maxConcurrentProcesses: 6,
   }
-  
+
   // main app repo should be the working directory
   if (repo === 'Superalgos') options.baseDir = dir || process.cwd()
   // if repo is not main app repo, assume it is a plugin, in ./Plugins.
   else options.baseDir = path.join(process.cwd(), 'Plugins', dir)
   const git = simpleGit(options)
-  
+
   // Check to see it main repo has been set as upstream
   let remotes = await git.getRemotes(true).catch(errorResp)
   let isUpstreamSet
@@ -69,7 +68,7 @@ const setUpstreamAndOrigin = async (dir, repo='Superalgos') => {
 
   // If upstream has not been set. Set it now
   if (isUpstreamSet === false) {
-    await git.addRemote('upstream', `https://github.com/Superalgos/${repo}`).catch(errorResp)
+    await git.addRemote('upstream', `https://github.com/Superalgos/${repo}.git`).catch(errorResp)
   }
 
   let gitUser
@@ -132,12 +131,12 @@ const runSetup = (tfjs=false) => {
   if (tfjs !== false) {
     console.log('Including tensorflow.js in your setup...')
 
-    path.join(process.cwd(), 
-              "Projects", 
-              "TensorFlow", 
-              "TS", 
-              "Bot-Modules", 
-              "Learning-Bot", 
+    path.join(process.cwd(),
+              "Projects",
+              "TensorFlow",
+              "TS",
+              "Bot-Modules",
+              "Learning-Bot",
               "Low-Frequency-Learning")
   }
 
@@ -174,18 +173,13 @@ const runSetup = (tfjs=false) => {
   console.log('')
   installExternalScripts()
 
-  // wait until node installation is complete
-  nodeInstPromise.then(() => {
-    // Initialize and update git repositories
-    // Ensure upstream and origin are set for this repo and submodules
-
-    setUpstreamAndOrigin().then(async () => {
-      Object.values(projectPluginMap).forEach(plugin => {
-        setUpstreamAndOrigin(plugin.dir, plugin.repo)
-      })
-    }).catch(errorResp)
-  })
+  // Set upstream and origin
+  setUpstreamAndOrigin().then(async () => {
+    // wait npm ci to finish
+    await nodeInstPromise
+  }).catch(errorResp)
   return 'Setup complete'
+
 }
 
 module.exports = {

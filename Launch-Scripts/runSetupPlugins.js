@@ -16,7 +16,7 @@ function checkUsername() {
   return true
 }
 
-const updateFromUpstreamPromise = async (resolve) => {
+const updateFromUpstreamPromise = async () => {
   if (!checkUsername()) {
     return 'no username'
   }

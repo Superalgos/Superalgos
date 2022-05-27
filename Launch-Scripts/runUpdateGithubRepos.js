@@ -3,6 +3,9 @@ const { exec } = require("child_process")
 const path = require("path")
 let ENVIRONMENT = require('../Environment')
 const simpleGit = require("simple-git")
+const {Octokit} = require("@octokit/rest");
+
+let originUserName
 
 const checkDirectory = (directory) => {
     if (!fs.existsSync(directory)) {
@@ -13,6 +16,7 @@ const checkDirectory = (directory) => {
 
 async function checkRepository(remote, git) {
     const origin = remote.find(remote => remote.name === 'origin')
+    originUserName = origin.refs.fetch.split('/')[3];
     const upstream = remote.find(remote => remote.name === 'upstream')
     let upstreamUsername
     //if there is no upstream, then we are adding remote
@@ -35,7 +39,15 @@ async function checkRepository(remote, git) {
     return true;
 }
 
-function updateRepo(cloneDir) {
+function getCred() {
+    let secretsDiv = global.env.PATH_TO_SECRETS
+    if (fs.existsSync(secretsDiv)) {
+        let rawFile = fs.readFileSync(secretsDiv + '/githubCredentials.json')
+        return JSON.parse(rawFile)
+    }
+}
+
+function updateRepo(cloneDir, repo) {
     const options = {
         baseDir: cloneDir,
         binary: 'git',
@@ -55,17 +67,39 @@ function updateRepo(cloneDir) {
     console.log(remotes)
     git.status((err, status) => {
         if (!err) {
-            git.fetch('upstream', status.current)
-            git.pull('upstream', status.current).catch((err) => {
+            const branch = 'develop'
+            git.fetch('upstream', branch)
+            git.pull('upstream', branch).catch((err) => {
                 console.log(err)
             }).then(() => {
-                console.log('[INFO] push to github start')
-                git.push('origin', status.current).catch((err) => {
-                    console.log(err)
-                }).then(() => {
-                    console.log('[INFO] Repository updated')
+                const token = getCred().githubToken
+
+                const octokit = new Octokit({
+                    auth: token,
+                    userAgent: 'Superalgos'
                 })
-                console.log('[INFO] push to github fisnihed')
+
+                octokit.git.getRef({
+                    owner: 'Superalgos',
+                    repo: repo,
+                    ref: `heads/${branch}`
+                }).catch((err) => {
+                    console.log(err)
+                }).then(value => {
+                    const sha = value.data.object.sha
+                    octokit.git.updateRef({
+                        owner: originUserName,
+                        repo: repo,
+                        ref: `heads/${branch}`,
+                        sha: sha,
+                        force: true
+                    }).catch((err) => {
+                        console.log(err)
+                    })
+
+                })
+
+
             })
         } else {
             console.log(err)
@@ -98,14 +132,23 @@ const updateFromUpstreamPromise = async () => {
             })
         child.stdout.pipe(process.stdout)
         child.on('exit', () => {
+
+            // update plugin repos
             for (const propertyName in global.env.PROJECT_PLUGIN_MAP) {
                 let cloneDir = path.join(global.env.PATH_TO_PLUGINS, global.env.PROJECT_PLUGIN_MAP[propertyName].dir)
+                let repo = global.env.PROJECT_PLUGIN_MAP[propertyName].repo
                 if (!checkDirectory(cloneDir)) {
                     console.log(`[INFO] Please run node setupPlugins <username> <github_token> to setup the plugins.`)
                     return 'No Plugins'
                 }
-                updateRepo(cloneDir);
+                updateRepo(cloneDir, repo);
             }
+
+            //update main repo
+            updateRepo(process.cwd(), 'Superalgos');
+
+            console.log('')
+            console.log('[INFO] All repositories are updated.')
         })
     })
 

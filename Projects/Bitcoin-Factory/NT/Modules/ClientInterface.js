@@ -6,12 +6,17 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
     */
     let thisObject = {
         messageReceived: messageReceived,
+        getStats: getStats,
         initialize: initialize,
         finalize: finalize
     }
 
     let requestsToServer = []
     let responseFunctions = new Map()
+    let statsByNetworkClients = new Map()
+    let stats = {
+
+    }
 
     return thisObject
 
@@ -89,6 +94,9 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
         }
 
         async function testClientMessage(queryReceived, userProfile) {
+            /*
+            Process the Request
+            */
             let requestToServer = {
                 queryReceived: queryReceived,
                 timestamp: (new Date()).valueOf()
@@ -102,16 +110,50 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
                 ' -> Clients Requests Queue Size = ' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(requestsToServer.length, 3) +
                 ' -> userProfile = ' + userProfile +
                 ' -> instance = ' + queryReceived.instance)
+
+            /*
+            Update the Statistics
+            */
+            let networkClientKey = queryReceived.sender + '/' + userProfile + '/' + queryReceived.instance
+            statsByNetworkClient = statsByNetworkClients.get(networkClientKey)
+            if (statsByNetworkClient === undefined) {
+                statsByNetworkClient = {
+                    userProfile: userProfile,
+                    instance: queryReceived.instance,
+                    type: queryReceived.sender,
+                    clientVersion: queryReceived.testClientVersion,
+                    requestsCount: 0,
+                    responsesCount: 0,
+                    requestNextTestCaseCount: 0,
+                    lastSeen: 0
+                }
+            }
+            if (queryReceived.message.type === "Get Next Test Case") {
+                statsByNetworkClient.requestNextTestCaseCount++
+            }
+            statsByNetworkClient.requestsCount++
+            statsByNetworkClient.lastSeen = (new Date()).valueOf()
+            statsByNetworkClients.set(networkClientKey, statsByNetworkClient)
+
             return new Promise(promiseWork)
 
             async function promiseWork(resolve, reject) {
                 responseFunctions.set(queryReceived.messageId, onResponseFromServer)
                 function onResponseFromServer(queryReceived) {
+                    /*
+                    Process the Response
+                    */
                     let response = {
                         result: 'Ok',
                         message: 'Server Responded.',
                         serverData: queryReceived
                     }
+                    /*
+                    Update the Statistics
+                    */
+                    statsByNetworkClient = statsByNetworkClients.get(networkClientKey)
+                    statsByNetworkClient.responsesCount++
+                    statsByNetworkClient.lastSeen = (new Date()).valueOf()
                     resolve(response)
                 }
             }
@@ -236,5 +278,15 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
                 }
             }
         }
+    }
+
+    function getStats() {
+        let response = {
+            networkNode: {
+                messageQueueSize: requestsToServer.length
+            },
+            networkClients: Array.from(statsByNetworkClients)
+        }
+        return response
     }
 }

@@ -13,7 +13,7 @@ exports.newNetworkApp = function newNetworkApp() {
     }
 
     NT.networkApp = thisObject
-    const NETWORK_NODE_VERSION = 1
+    const NETWORK_NODE_VERSION = 2
 
     return thisObject
 

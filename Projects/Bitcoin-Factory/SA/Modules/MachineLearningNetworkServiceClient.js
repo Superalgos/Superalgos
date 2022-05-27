@@ -57,7 +57,7 @@ exports.newBitcoinFactoryModulesMachineLearningNetworkServiceClient = function n
                     /*
                     In general, all Queries go to the P2P Network to fetch information from the Bitcoin Factory Server. 
                     */
-                    await thisObject.machineLearningNetworkServiceProxy.sendMessage(JSON.stringify(messageHeader))
+                    await thisObject.machineLearningNetworkServiceProxy.sendMessage(JSON.stringify(messageHeader), TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.networkNodeUserProfile)
                         .then(onSuccess)
                         .catch(onError)
                     async function onSuccess(data) {

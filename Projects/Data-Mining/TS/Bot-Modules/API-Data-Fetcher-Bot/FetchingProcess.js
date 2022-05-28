@@ -929,14 +929,21 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                 contextVariables.lastFile = file.date
                                 /*
                                 Note: Possible optimation is to not read daily file but to simply append to it. 
-                                Currently loads current file and then looks through timestamps to determine 
+                                Currently loads last file date, loads current file and then looks through timestamps to determine 
                                 if current record should be appended to file.
                                 */
-                                lastFileDate = file.year + '/' + 
-                                SA.projects.foundations.utilities.miscellaneousFunctions.pad(file.month, 2) + '/' + 
-                                SA.projects.foundations.utilities.miscellaneousFunctions.pad(file.day, 2)
+                                if (thisReport.file.lastFile !== undefined) {
+                                    let lastRecordDate = thisReport.file.lastFile
+                                    let lastRecordDateString = JSON.stringify(lastRecordDate)
+                                    let lastRecordDateYear = lastRecordDateString.substring(1, 5)
+                                    let lastRecordDateMonth = lastRecordDateString.substring(6, 8)
+                                    let lastRecordDateDay = lastRecordDateString.substring(9, 11)
+                                    lastDate = lastRecordDateYear + "/" + lastRecordDateMonth + "/" + lastRecordDateDay
+                                } else {
+                                    lastDate = ""
+                                }
 
-                                if (lastFileDate !== dateForPath) {
+                                if (lastDate !== dateForPath) {
                                     existingFileContent = "[]" 
                                 }
                                 else {

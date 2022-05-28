@@ -16,6 +16,10 @@ const checkDirectory = (directory) => {
 
 async function checkRepository(remote, git) {
     const origin = remote.find(remote => remote.name === 'origin')
+    if (!origin) {
+        console.log('[ERROR] There are no remotes configured for this repository. Please add a remote to this repository and try again.');
+        return false
+    }
     originUserName = origin.refs.fetch.split('/')[3];
     const upstream = remote.find(remote => remote.name === 'upstream')
     let upstreamUsername
@@ -28,10 +32,6 @@ async function checkRepository(remote, git) {
         upstreamUsername = upstream.refs.fetch.split('/')[3];
     }
 
-    if (!origin) {
-        console.log('[ERROR] There are no remotes configured for this repository. Please add a remote to this repository and try again.');
-        return false
-    }
     if (upstreamUsername !== 'Superalgos') {
         console.log('[ERROR] Upstream repository username is wrong!: ' + upstreamUsername)
         return false;
@@ -68,36 +68,32 @@ function updateRepo(cloneDir, repo) {
         if (!err) {
             const branch = 'develop'
             git.fetch('upstream', branch)
-            git.pull('upstream', branch).catch((err) => {
+            const token = getCred().githubToken
+
+            const octokit = new Octokit({
+                auth: token,
+                userAgent: 'Superalgos'
+            })
+
+            octokit.git.getRef({
+                owner: 'Superalgos',
+                repo: repo,
+                ref: `heads/${branch}`
+            }).catch((err) => {
                 console.log(err)
-            }).then(() => {
-                const token = getCred().githubToken
-
-                const octokit = new Octokit({
-                    auth: token,
-                    userAgent: 'Superalgos'
-                })
-
-                octokit.git.getRef({
-                    owner: 'Superalgos',
+            }).then(value => {
+                const sha = value.data.object.sha
+                octokit.git.updateRef({
+                    owner: originUserName,
                     repo: repo,
-                    ref: `heads/${branch}`
+                    ref: `heads/${branch}`,
+                    sha: sha,
+                    force: true
                 }).catch((err) => {
                     console.log(err)
-                }).then(value => {
-                    const sha = value.data.object.sha
-                    octokit.git.updateRef({
-                        owner: originUserName,
-                        repo: repo,
-                        ref: `heads/${branch}`,
-                        sha: sha,
-                        force: true
-                    }).catch((err) => {
-                        console.log(err)
-                    })
-
+                }).then(() => {
+                    git.pull('origin', branch)
                 })
-
 
             })
         } else {
@@ -150,7 +146,6 @@ const updateFromUpstreamPromise = async () => {
             console.log('[INFO] All repositories are updated.')
         })
     })
-
 }
 
 const run = () => {

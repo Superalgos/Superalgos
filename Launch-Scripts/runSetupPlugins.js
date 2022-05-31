@@ -5,46 +5,6 @@ const path = require("path")
 let ENVIRONMENT = require('../Environment')
 const simpleGit = require("simple-git")
 
-const username = process.argv[2]
-
-function checkUsername() {
-  if (username === undefined) {
-    console.log('[WARN] You need to provide your Github username for this script to Clone the Plugins repositories forks from your acccount.')
-    console.log('[WARN] Add your user name to the parameters of this script and try again please. ')
-    return false
-  }
-  return true
-}
-
-const updateFromUpstreamPromise = async (resolve) => {
-  if (!checkUsername()) {
-    return 'no username'
-  }
-
-  for (const propertyName in global.env.PROJECT_PLUGIN_MAP) {
-    let cloneDir = path.join(global.env.PATH_TO_PLUGINS, global.env.PROJECT_PLUGIN_MAP[propertyName].dir)
-    const options = {
-      baseDir: cloneDir,
-      binary: 'git',
-      maxConcurrentProcesses: 6,
-    }
-    const git = simpleGit(options)
-    git.status((err, status) => {
-      if (!err) {
-        git.pull('upstream', status.current).catch((err) => {
-          console.log(err)
-        });
-      } else {
-        console.log(err)
-      }
-    })
-
-
-    console.log(' ')
-    console.log('[INFO] Updated (Pull) plugin repo from upstream Directory: ' + cloneDir)
-  }
-}
-
 const forkPluginRepos = async () => {
   return new Promise(forkPluginReposPromise)
 }
@@ -98,7 +58,11 @@ const cloneTheRepo = async () => {
 }
 
 const cloneTheRepoPromise = async (resolve) => {
-  if (!checkUsername()) {
+  const username = process.argv[2]
+
+  if (username === undefined) {
+    console.log('[WARN] You need to provide your Github username for this script to Clone the Plugins repositories forks from your acccount.')
+    console.log('[WARN] Add your user name to the parameters of this script and try again please. ')
     return 'no username'
   }
 
@@ -147,7 +111,7 @@ const cloneTheRepoPromise = async (resolve) => {
               console.log('[ERROR] Setup of repo ' + global.env.PROJECT_PLUGIN_MAP[propertyName].repo + ' failed. You will need to set the git remote manually.')
               console.log('')
               console.log(err)
-              resolve()
+              resolve()             
             })
         }
       })
@@ -156,17 +120,10 @@ const cloneTheRepoPromise = async (resolve) => {
 
 
 const clonePluginRepos = async () => {
-  /*
+  /* 
   Here we will clone all the Plugins Repos if they do not exist.
   */
   await cloneTheRepo()
-}
-
-const updateFromUpstream = async () => {
-  /*
-  Here we will update all the Plugins Repos from upstream.
-  */
-  return new Promise(updateFromUpstreamPromise)
 }
 
 const run = async () => {
@@ -177,7 +134,6 @@ const run = async () => {
 
   await forkPluginRepos()
   clonePluginRepos()
-  await updateFromUpstream()
 
   // Save github credentials for later after script runs
   const credentials = {

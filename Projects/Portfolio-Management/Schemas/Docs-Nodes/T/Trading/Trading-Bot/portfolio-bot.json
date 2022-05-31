@@ -8,6 +8,11 @@
                 "language": "ES",
                 "text": "Un Portfolio Bot es un programa informático que, basado en conjuntos de datos expuestos como productos por otros bots (sensores de conteo, indicadores e incluso otros portfolio bots ), aplica la lógica portfolio definida en un Portfolio System  para, por un lado, generar una simulación de portfolio completa (generando conjuntos de datos que incluyen operaciones, la acción de estrategias, validación de condiciones, etc.) y, por otro lado, gestiona la ejecución de órdenes en una sesión ya sea en vivo o no.",
                 "updated": 1624375084844
+            },
+            {
+                "language": "TR",
+                "text": "Bir portföy botu, diğer botlar (sayım sensörleri, göstergeler ve hatta diğer portföy botları) tarafından ürün olarak sunulan veri kümelerine dayalı olarak, bir tarafta eksiksiz bir portföy simülasyonu oluşturmak (alım satımları, stratejilerin eylemini, koşulların doğrulanmasını vb. içeren veri kümelerinin çıktısını almak) ve diğer tarafta ileri test veya canlı portföy oturumundayken emirlerin yerine getirilmesini yönetmek için bir Portföy Sisteminde tanımlanan portföy mantığını uygulayan bir bilgisayar programıdır.",
+                "updated": 1654019893446
             }
         ]
     },
@@ -18,19 +23,51 @@
         },
         {
             "style": "Text",
-            "text": "In Superalgos, a portfolio bot is a computer program designed to leverage the Superalgos infrastructure to provide smart portfolio features to users building, testing, and deploying portfolio systems. As such, a portfolio bot does not feature portfolio logic in and of itself. Instead, it executes the logic defined in portfolio systems."
+            "text": "In Superalgos, a portfolio bot is a computer program designed to leverage the Superalgos infrastructure to provide smart portfolio features to users building, testing, and deploying portfolio systems. As such, a portfolio bot does not feature portfolio logic in and of itself. Instead, it executes the logic defined in portfolio systems.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Superalgos'ta bir portföy botu, portföy sistemleri oluşturan, test eden ve dağıtan kullanıcılara akıllı portföy özellikleri sağlamak için Superalgos altyapısından yararlanmak üzere tasarlanmış bir bilgisayar programıdır. Bu nedenle, bir portföy botu kendi başına portföy mantığına sahip değildir. Bunun yerine, portföy sistemlerinde tanımlanan mantığı yürütür.",
+                    "updated": 1654019900101,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Put in other words, when Superalgos users define portfolio systems and the portfolio strategies within, they are not building a portfolio bot. Instead, they are defining a set of instructions that a portfolio bot will then interpret and execute."
+            "text": "Put in other words, when Superalgos users define portfolio systems and the portfolio strategies within, they are not building a portfolio bot. Instead, they are defining a set of instructions that a portfolio bot will then interpret and execute.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Başka bir deyişle, Superalgos kullanıcıları portföy sistemlerini ve içindeki portföy stratejilerini tanımlarken, bir portföy botu oluşturmazlar. Bunun yerine, bir portföy botunun daha sonra yorumlayacağı ve yürüteceği bir dizi talimat tanımlıyorlar.",
+                    "updated": 1654019906282,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Portfolio bots have access to every piece of infrastructure built in Superalgos. One of the noteworthy sections of the infrastructure relevant to portfolio bots are portfolio mines themselves. Portfolio bots may be quite complex pieces of software. To name two of the most prominent characteristics: the bot needs to consider multiple dimensions of information and needs to be highly reliable, as its activity entails monetary transactions."
+            "text": "Portfolio bots have access to every piece of infrastructure built in Superalgos. One of the noteworthy sections of the infrastructure relevant to portfolio bots are portfolio mines themselves. Portfolio bots may be quite complex pieces of software. To name two of the most prominent characteristics: the bot needs to consider multiple dimensions of information and needs to be highly reliable, as its activity entails monetary transactions.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Portföy botlarının Superalgos'ta inşa edilen her altyapı parçasına erişimi vardır. Portföy botlarıyla ilgili altyapının dikkat çekici bölümlerinden biri portföy madenlerinin kendisidir. Portföy botları oldukça karmaşık yazılım parçaları olabilir. En belirgin özelliklerinden ikisini belirtmek gerekirse: botun birden fazla bilgi boyutunu dikkate alması ve faaliyeti parasal işlemler gerektirdiği için son derece güvenilir olması gerekir.",
+                    "updated": 1654019912277,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Portfolio mines make building portfolio bots a more accessible feat, providing a framework to produce compartmentalized definitions for the bots' processes and products, just like data mines do for sensors and indicators."
+            "text": "Portfolio mines make building portfolio bots a more accessible feat, providing a framework to produce compartmentalized definitions for the bots' processes and products, just like data mines do for sensors and indicators.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Portföy madenleri, tıpkı veri madenlerinin sensörler ve göstergeler için yaptığı gibi, botların süreçleri ve ürünleri için bölümlere ayrılmış tanımlar üretmek için bir çerçeve sağlayarak portföy botları oluşturmayı daha erişilebilir bir başarı haline getirir.",
+                    "updated": 1654019918741,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Block",
@@ -39,7 +76,15 @@
         {
             "style": "Title",
             "text": "Portfolio Bot Configuration",
-            "updated": 1609861438022
+            "updated": 1609861438022,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Portföy Botu Yapılandırması",
+                    "updated": 1654019925245,
+                    "style": "Title"
+                }
+            ]
         }
     ]
 }

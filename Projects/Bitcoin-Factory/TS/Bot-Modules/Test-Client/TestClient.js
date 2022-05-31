@@ -342,7 +342,8 @@
                         //TODO: read from the evaluation_results.json file
                     } else {
                         try {
-                            processExecutionResult = JSON.parse(dataReceived)
+                            let cleanedData = filterOutput(dataReceived)
+                            processExecutionResult = JSON.parse(cleanedData)
                             processExecutionResult.predictions = fixJSON(processExecutionResult.predictions)
                             processExecutionResult.predictions = JSON.parse(processExecutionResult.predictions)
 
@@ -354,7 +355,7 @@
                             console.log('Enlapsed Time (HH:MM:SS): ' + (new Date(processExecutionResult.enlapsedTime * 1000).toISOString().substr(14, 5)) + ' ')
                         } catch (err) {
                             console.log('Error parsing the information generated at the Docker Container executing the Python script. err.stack = ' + err.stack)
-                            console.log('The data that can not be parsed is = ' + dataReceived)
+                            console.log('The data that can not be parsed is = ' + cleanedData)
                         }
                     }
                 } catch (err) {
@@ -399,5 +400,26 @@
             text = text.replace(".]", "]")
         }
         return text
+    }
+
+    function filterOutput(text) {
+        /* Discards parts of trainingOutput which break JSON syntax */
+        let cleanText = ""
+        let position = 0
+        let startPosition = text.indexOf("Epoch")
+        if (startPosition > 0) {
+            position = text.indexOf('"', startPosition)
+            cleanText = text.substring(0, position + 1)
+        } else {
+            return text
+        }
+        position = 0
+        position = text.indexOf(',"predictions')
+        if (position > 0) {
+            cleanText = cleanText + text.substring(position)
+        } else {
+            return text
+        }
+        return cleanText
     }
 }

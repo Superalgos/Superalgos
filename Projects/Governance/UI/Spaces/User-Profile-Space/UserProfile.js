@@ -358,7 +358,7 @@ function newGovernanceUserProfileSpace() {
                 } else {    
                     let response = JSON.parse(data)
                     if (response.result === 'Not Ok') {
-                        console.log((new Date()).toISOString(), '[WARN] Error fetching executed test cases from Bitcoin Factory Server - ./Bitcoin-Factory/Testnet.csv not found')
+                        console.log((new Date()).toISOString(), '[WARN] Error fetching executed test cases from Bitcoin Factory Server - ./Bitcoin-Factory/Reports/Testnet*.csv')
                         return
                     }
                     

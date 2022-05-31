@@ -143,7 +143,7 @@ const runSetup = (tfjs=false) => {
   let dir = process.cwd()
   let command = 'echo Results of install at ' + dir + ' & npm ci'
   let nodeInstPromise = new Promise(() => {
-    exec(command,
+    let child = exec(command,
       {
           cwd: dir
       },
@@ -158,6 +158,26 @@ const runSetup = (tfjs=false) => {
         console.log('')
         console.log(stdout)
       })
+
+    try {
+      child.stdout.pipe(process.stdout)
+      child.on('exit', () => {
+        console.log('')
+        console.log('Finished npm ci command')
+        console.log('')
+        // Set upstream and origin
+        setUpstreamAndOrigin().then(async () => {
+          // wait npm ci to finish
+          await nodeInstPromise.catch(errorResp)
+        }).catch(errorResp)
+      })
+    } catch (e) {
+      console.log('')
+      console.log('Event error: ')
+      console.log(e)
+      console.log('')
+      process.exit(1)
+    }
   })
   /*
   Here we will go and clone all the plugins repositories that have not been cloned yet.
@@ -172,12 +192,6 @@ const runSetup = (tfjs=false) => {
   console.log('Setting up your environment …')
   console.log('')
   installExternalScripts()
-
-  // Set upstream and origin
-  setUpstreamAndOrigin().then(async () => {
-    // wait npm ci to finish
-    await nodeInstPromise
-  }).catch(errorResp)
   return 'Setup complete'
 
 }

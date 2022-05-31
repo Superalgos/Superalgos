@@ -142,6 +142,8 @@ There are four steps required to install Superalgos:
 
 4. Install Community Plugins 
 
+5. Update Forked Repositories from The Superalgos Upstream Repositories
+
 Let's get on with it!
 
 ### :one: Fork the Superalgos Repository
@@ -224,6 +226,15 @@ This script is going to fork all Community Plugins repositories into your own Gi
 > :white_check_mark: **NOTE**: If you ever have issues with your Plugins repos, you can delete individual folders inside `Superalgos/Plugins` and run this script to fix the problems for you. Also, if you have any issues with any of your plugin forks at your Github account, you can delete the offending fork and run this script again to fix the problem. 
 
 **Congratulations! Your setup is complete. Now you may finally run the app for the first time. Please, follow the usage instructions below!**
+
+### :five: Update Forked Repositories from The Superalgos Upstream Repositories
+
+Prerequisites:
+"node setup" and "node setupPlugins" commands must be executed beforehand.
+
+```sh
+node updateGithubRepos
+```
 
 # :small_orange_diamond: Usage
 

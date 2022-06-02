@@ -114,7 +114,7 @@ exports.newDataBridge = function newDataBridge(processIndex) {
         /*
         Function that creates the parameters file as CSV using the parameters object keys as column headers for easier accessing later in python.
         */
-       function createParametersFile() {
+        function createParametersFile() {
             let parametersFile = ''
             let keys = Object.keys(testCase.parameters)
             for (let q = 0; q < keys.length; q++) {
@@ -262,7 +262,16 @@ exports.newDataBridge = function newDataBridge(processIndex) {
                             indicatorFileContent = cachedIndicator.fileContent
                         }
 
-                        let indicatorFile = JSON.parse(indicatorFileContent)
+                        let indicatorFile
+
+                        try {
+                            indicatorFile = JSON.parse(indicatorFileContent)
+                        } catch (err) {
+                            console.log((new Date()).toISOString(), 'Error parsing an indicator file. It seems that it does not have a valid JSON format. Check the file mentioned below for incorrect data values like undefined, infinite, NaN, and the like. If necesary fix the indicator or remove it from the configuration of the Test Server.')
+                            console.log((new Date()).toISOString(), 'indicatorFileKey = ' + indicatorFileKey)
+                            console.log((new Date()).toISOString(), err.stack)
+                            throw(err)
+                        }
 
                         if (featuresOrLabelsObject.product === "Candles") {
                             /*

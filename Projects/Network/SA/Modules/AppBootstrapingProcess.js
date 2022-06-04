@@ -206,13 +206,18 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                                     return
                                 }
 
-                                let p2pNetworkNode = SA.projects.network.modules.p2pNetworkNode.newNetworkModulesP2PNetworkNode()
-                                p2pNetworkNode.initialize(
-                                    networkClient,
-                                    userProfile,
-                                    blockchainAccount
-                                )
-                                SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES.push(p2pNetworkNode)
+                                try {
+                                    let p2pNetworkNode = SA.projects.network.modules.p2pNetworkNode.newNetworkModulesP2PNetworkNode()
+                                    p2pNetworkNode.initialize(
+                                        networkClient,
+                                        userProfile,
+                                        blockchainAccount
+                                    )
+                                    SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES.push(p2pNetworkNode)
+                                } catch (err) {
+                                    console.log((new Date()).toISOString(), '[WARN] A configured Network Node was ignored becuase when analized, something was wrong with its configuration. -> err = ' + err)
+                                }
+
                             }
                         }
 

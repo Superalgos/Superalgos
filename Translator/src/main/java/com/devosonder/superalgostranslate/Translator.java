@@ -8,6 +8,13 @@ public class Translator {
     private static final TranslatorRunBean translatorRunBean = new TranslatorRunBean();
 
     public static void main(String[] args) {
+        doShutDownWork();
         translatorRunBean.run(args);
+    }
+
+    private static void doShutDownWork() {
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            translatorRunBean.killAllProgress();
+        }));
     }
 }

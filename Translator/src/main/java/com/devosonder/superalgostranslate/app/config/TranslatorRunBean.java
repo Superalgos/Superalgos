@@ -93,4 +93,12 @@ public class TranslatorRunBean {
         }
         System.out.println("[OK] Translate completed");
     }
+
+    @SneakyThrows
+    public void killAllProgress() {
+        new ProcessBuilder(
+                "powershell.exe",
+                "taskkill /F /IM chromedriver.exe /T"
+        ).start();
+    }
 }

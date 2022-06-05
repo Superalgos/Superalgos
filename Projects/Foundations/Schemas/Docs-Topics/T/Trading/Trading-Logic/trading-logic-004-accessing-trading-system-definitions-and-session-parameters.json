@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Торговая система может получить доступ к своим собственным определениям, а также к параметрам сессии Session Parameters из любой формулы Formula или условия Condition.",
                 "updated": 1640094939978
+            },
+            {
+                "language": "TR",
+                "text": "Trading system, kendi tanımlarına ve Oturum Parametrelerine herhangi bir Formül veya Koşuldan erişebilir.",
+                "updated": 1654004038404
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Определения торговой системы и параметры торговой сессии Trading Session доступны из условий и формул, точно так же, как условия и формулы могут получить доступ к значениям индикаторов или иерархии Trading Engine.",
                     "updated": 1640095083242
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Sistemi (Trading System) tanımlarına ve İşlem Oturumu Parametrelerine (Trading Session Parameters), koşullar ve formüller gibi, göstergelerin değerlerine veya Ticaret Motoru hiyerarşisine erişebileceği gibi, koşullar ve formüller içindende erişilebilir.",
+                    "updated": 1654004130909
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "RU",
                     "text": "Это техническая функция, ориентированная в основном на разработчиков. Практические случаи использования для менее технически ориентированных людей немногочисленны.",
                     "updated": 1640095107277
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu, çoğunlukla geliştiricilere yönelik teknik bir özelliktir. Pratik kullanım durumları daha az teknik yönelimli bireyler için zordur.",
+                    "updated": 1654004176725
                 }
             ]
         },
@@ -46,6 +61,11 @@
                     "language": "RU",
                     "text": "Синтаксис",
                     "updated": 1640095114292
+                },
+                {
+                    "language": "TR",
+                    "text": "Sözdizimi",
+                    "updated": 1654004183445
                 }
             ]
         },
@@ -58,6 +78,11 @@
                     "language": "RU",
                     "text": "Чтобы получить доступ к определению торговой системы, следуйте пути, указанному в структуре торговой системы. Например, чтобы получить доступ к условию в событии занятия позиции, используйте:",
                     "updated": 1640095153050
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir ticaret sistemi tanımına erişmek için ticaret sistemi yapısı tarafından verilen yolu izleyin. Örneğin, pozisyon alma olayındaki bir koşula erişmek için şunu kullanın:",
+                    "updated": 1654004209826
                 }
             ]
         },
@@ -74,6 +99,11 @@
                     "language": "RU",
                     "text": "Для доступа к параметру торговой сессии используйте синтаксис, начинающийся с sessionParameters, за которым следует название параметра и название конкретного параметра в конфигурации. Например, чтобы получить доступ к параметру taker в структуре комиссии, используйте:",
                     "updated": 1640095180389
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir ticaret oturumu parametresine erişmek için, sessionParameters ile başlayan sözdizimini ve ardından parametrenin adını ve yapılandırmadaki belirli parametrenin adını kullanın. Örneğin, ücret yapısındaki taker parametresine erişmek için şunları kullanın:",
+                    "updated": 1654004922587
                 }
             ]
         },
@@ -90,6 +120,11 @@
                     "language": "RU",
                     "text": "Пример",
                     "updated": 1640095187176
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnek",
+                    "updated": 1654004930408
                 }
             ]
         },
@@ -101,6 +136,11 @@
                     "language": "RU",
                     "text": "Такая возможность может быть полезной, например, для включения таких определений или параметров оповещения в Telegram, как в:",
                     "updated": 1640095323144
+                },
+                {
+                    "language": "TR",
+                    "text": "Böyle bir özellik, örneğin, Telegram duyuru mesajlarına aşağıdaki gibi tanımları veya parametreleri dahil etmek için yararlı olabilir:",
+                    "updated": 1654004960615
                 }
             ]
         },
@@ -118,6 +158,11 @@
                     "language": "RU",
                     "text": "Обратите внимание, что...",
                     "updated": 1640095345122
+                },
+                {
+                    "language": "TR",
+                    "text": "Dikkat edin...",
+                    "updated": 1654004986091
                 }
             ]
         },

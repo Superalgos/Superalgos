@@ -4,17 +4,38 @@
     "type": "TS LF Trading Bot Error - Fees Paid Node Missing",
     "definition": {
         "text": "A Fees Paid node was expected but not found at the node where the error originated.",
-        "updated": 1611650080043
+        "updated": 1611650080043,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Ücretleri Ödenen ( Fees Paid ) bir düğüm bekleniyordu, ancak hatanın kaynaklandığı düğümde bulunamadı.",
+                "updated": 1649103909467
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Error",
             "text": "Fees Paid Node Missing",
-            "updated": 1611650830751
+            "updated": 1611650830751,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ücretler Ödenen Düğüm Eksik. ( Fees Paid Node Missing )",
+                    "updated": 1649103974959
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Add the missing node and try again."
+            "text": "Add the missing node and try again.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Eksik düğümü ekleyin ve tekrar deneyin.",
+                    "updated": 1649104006012
+                }
+            ]
         }
     ]
 }

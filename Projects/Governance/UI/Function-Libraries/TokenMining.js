@@ -115,14 +115,41 @@ function newGovernanceFunctionLibraryTokenMining() {
         }
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
-            for (let j = 0; j < UI.projects.governance.globals.saToken.SA_TOKEN_BSC_LIQUIDITY_ASSETS.length; j++) {
-                let asset = UI.projects.governance.globals.saToken.SA_TOKEN_BSC_LIQUIDITY_ASSETS[j]
-                if (userProfile.tokenPowerSwitch === undefined) { continue }
-                let program = UI.projects.governance.utilities.validations.onlyOneProgramBasedOnConfigProperty(userProfile, "Liquidity Program", 'asset', asset)
-                if (program === undefined) { continue }
-                if (program.payload === undefined) { continue }
 
-                calculateProgram(userProfile, program, "liquidityProgram")
+            if (userProfile.tokenPowerSwitch === undefined) { continue }
+            let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, "Computing Program")
+            if (program === undefined) { continue }
+            if (program.payload === undefined) { continue }
+
+            calculateProgram(userProfile, program, "computingProgram")
+        }
+
+        /* Liquidity Program - Iterate per available asset-exchange-combination */
+        const liqAssets = UI.projects.governance.globals.saToken.SA_TOKEN_BSC_LIQUIDITY_ASSETS
+        const liqExchanges = UI.projects.governance.globals.saToken.SA_TOKEN_BSC_EXCHANGES
+        for (let i = 0; i < userProfiles.length; i++) {
+            let userProfile = userProfiles[i]
+            if (userProfile.tokenPowerSwitch === undefined) { continue }
+            for (let liqAsset of liqAssets) {
+                for (let liqExchange of liqExchanges) {
+                    let contractIdentifier = 'UI.projects.governance.globals.saToken.SA_TOKEN_BSC_' + liqExchange + '_LIQUIDITY_POOL_' + liqAsset + '_CONTRACT_ADDRESS'
+                    let marketContract = eval(contractIdentifier)
+                    if (marketContract !== undefined) {
+                        let configPropertyObject = {
+                            "asset": liqAsset,
+                            "exchange": liqExchange
+                        }
+                        let program = UI.projects.governance.utilities.validations.onlyOneProgramBasedOnMultipleConfigProperties(userProfile, "Liquidity Program", configPropertyObject)
+                        /* If nothing found, interpret empty as PANCAKE for backwards compatibility */
+                        if (program === undefined && liqExchange === "PANCAKE") {
+                            configPropertyObject["exchange"] = null
+                            program = UI.projects.governance.utilities.validations.onlyOneProgramBasedOnMultipleConfigProperties(userProfile, "Liquidity Program", configPropertyObject) 
+                        }
+                        if (program === undefined) { continue }
+                        if (program.payload === undefined) { continue }
+                        calculateProgram(userProfile, program, "liquidityProgram")
+                    }
+                } 
             }
         }
 

@@ -1719,7 +1719,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                         // Keep only end of returned message and format for UI
                                         for (let str of split) {
                             // TODO: needs localized for all supported languages 
-                                            if (str.includes('pushes') || str.includes('pousse')) {
+                                            if (str.includes('pushes') || str.includes('pousse') || str.includes('versendet')) {
                                                 // Get name of Branch
                                                 let branch = str.trim().split(' ')[0]
                                                 // Get status of branch
@@ -2380,6 +2380,17 @@ exports.newHttpInterface = function newHttpInterface() {
                                         params.token
                                     )
 
+                                    return
+                                }
+                                
+                                case 'getRewardsFile': {
+
+                                    let serverResponse = PL.servers.BITCOIN_FACTORY_SERVER.getRewardsFile(
+                                        params.firstTimestamp,
+                                        params.lastTimestamp
+                                    )
+
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
                                     return
                                 }
 

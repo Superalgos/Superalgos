@@ -889,7 +889,8 @@
     #governance-tab14:checked ~ .governance-search-result-content #content14,
     #governance-tab15:checked ~ .governance-search-result-content #content15,
     #governance-tab16:checked ~ .governance-search-result-content #content16,
-    #governance-tab17:checked ~ .governance-search-result-content #content17 {
+    #governance-tab17:checked ~ .governance-search-result-content #content17,
+    #governance-tab18:checked ~ .governance-search-result-content #content18 {
     display: block;
     }
     

@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Используйте иерархию торгового движка для отслеживания каждой части информации, обрабатываемой торговым ботом, свеча за свечой.",
                 "updated": 1640338990575
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Ticaret botu tarafından işlenen her bilgi parçasını mum mum takip etmek için ticaret motoru hiyerarşisini kullanın.",
+                "updated": 1650574281254
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Иерархия торгового движка - это портал в машинное отделение торгового бота - мозг. Представьте торговый движок как терминал, подключенный к каждому нейрону мозга, делающий снимок каждой свечи и точно регистрирующий каждый фрагмент данных, обработанных торговым ботом в течение торговой сессии.",
                     "updated": 1640339024222
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret motoru ( Trading Engine ) hiyerarşisi, ticaret botunun makine odasına, yani beyne açılan bir portaldır. Ticaret motorunu, beynin nöronlarının her birine bağlı, her mum için anlık görüntü alan ve ticaret seansı sırasında ticaret botu tarafından işlenen her veri parçasını hassasiyetle kaydeden bir terminal olarak düşünün.",
+                    "updated": 1650574340540
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Superalgos объединяет возможности временной навигации графиков с визуальной средой, представляющей структуры данных пространства проектирования, для создания впечатляющего пользовательского опыта.",
                     "updated": 1640339093999
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos, sürükleyici bir kullanıcı deneyimi yaratmak için çizelgelerin zaman gezinme özelliklerini tasarım alanının veri yapılarını temsil eden görsel ortamla birleştirir.",
+                    "updated": 1650574361820
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "RU",
                     "text": "Каждый из узлов иерархии может отображать свое значение на пространстве проектирования, прямо под иконкой, представляющей узел, для каждой свечи.",
                     "updated": 1640339112725
+                },
+                {
+                    "language": "TR",
+                    "text": "Hiyerarşideki düğümlerin her biri, her mum için düğümü temsil eden simgenin hemen altında, tasarım alanında değerini gösterebilir.",
+                    "updated": 1650574387037
                 }
             ]
         },
@@ -57,6 +77,11 @@
                     "language": "RU",
                     "text": "Как пользователи могут отслеживать информацию, представленную в иерархии Trading Engine, объясняется и демонстрируется в учебнике Trading Bot Layers, доступном на рабочем пространстве плагина Weak-hands Buster V2.0.",
                     "updated": 1640339162752
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Kullanıcıların Trading Engine ( Trading Engine ) hiyerarşisinde yer alan bilgileri nasıl izleyebileceği, Weak-hands Buster V2.0 eklentisi çalışma alanında bulunan Ticaret Bot ( Trading Bot ) Katmanları eğitiminde açıklanmış ve gösterilmiştir.",
+                    "updated": 1650574442518
                 }
             ]
         },
@@ -68,6 +93,11 @@
                     "language": "RU",
                     "text": "В качестве краткой справки, процесс выглядит примерно следующим образом:",
                     "updated": 1640339178381
+                },
+                {
+                    "language": "TR",
+                    "text": "Hızlı bir tazeleme olarak, süreç aşağı yukarı şöyledir:",
+                    "updated": 1650574469605
                 }
             ]
         },
@@ -80,6 +110,11 @@
                     "language": "RU",
                     "text": "Запустите торговую сессию. Начните с бэктеста, чтобы вы могли быстро понять, как иерархия Trading Engine отображает данные за любой период.",
                     "updated": 1640339278549
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir ticaret oturumu çalıştırın. Geriye dönük bir testle başlayın, böylece Ticaret Motoru ( Trading Engine ) hiyerarşisinin herhangi bir döneme yayılan verileri nasıl gösterdiğine dair hızlı bir fikir edinebilirsiniz.",
+                    "updated": 1650574508828
                 }
             ]
         },
@@ -92,6 +127,11 @@
                     "language": "RU",
                     "text": "Перейдите на график, отображающий симуляцию, и найдите одну из позиций.",
                     "updated": 1640339291291
+                },
+                {
+                    "language": "TR",
+                    "text": "Simülasyonu gösteren tabloya gidin ve konumlardan birini bulun.",
+                    "updated": 1650574528082
                 }
             ]
         },
@@ -104,6 +144,11 @@
                     "language": "RU",
                     "text": "Включите слой Current Position в менеджере слоев Trading Engine. Этот слой отслеживает структуру позиций узлов под текущим узлом, то есть информацию о текущих позициях.",
                     "updated": 1640339324088
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Motoru ( Trading Engine ) katman yöneticisinde Mevcut Konum katmanını açın. Bu katman, mevcut düğüm altındaki düğümlerin konum yapısını, yani mevcut konumlarla ilgili bilgileri izler.",
+                    "updated": 1650574553408
                 }
             ]
         },
@@ -116,6 +161,11 @@
                     "language": "RU",
                     "text": "Разделите экран, чтобы освободить место как для пространства проектирования, так и для пространства построения графиков.",
                     "updated": 1640339363579
+                },
+                {
+                    "language": "TR",
+                    "text": "Hem tasarım alanına hem de grafik alanına yer açmak için ekranı bölün.",
+                    "updated": 1650574568342
                 }
             ]
         },
@@ -128,6 +178,11 @@
                     "language": "RU",
                     "text": "Расположите вид на пространстве проектирования так, чтобы вы могли видеть соответствующую структуру узлов.",
                     "updated": 1640339386892
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğümlerin karşılık gelen yapısını görebilmeniz için görünümü tasarım alanına yerleştirin.",
+                    "updated": 1650574580503
                 }
             ]
         },
@@ -140,6 +195,11 @@
                     "language": "RU",
                     "text": "Проведите указателем мыши по графикам, по позиции, и обратите внимание, как меняются значения для каждого узла, отображаемые на пространстве проектирования. Каждый узел отображает соответствующее значение для каждой свечи.",
                     "updated": 1640339453102
+                },
+                {
+                    "language": "TR",
+                    "text": "Farenin imlecini konum boyunca grafikler üzerinde kaydırın ve tasarım alanında görüntülenen her bir düğüm için değerlerin nasıl değiştiğine dikkat edin. Her düğüm, her mum için karşılık gelen değeri görüntüler.",
+                    "updated": 1650574605379
                 }
             ]
         },
@@ -152,6 +212,11 @@
                     "language": "RU",
                     "text": "Большая часть данных, обрабатываемых торговым ботом, также может быть визуализирована на графиках с помощью слоев и панелей в менеджере слоев торговых графиков. Если что-то из вышесказанного непонятно, пожалуйста, обратитесь к учебнику Trading Bot Layers Tutorial, доступному на рабочем пространстве плагина Weak-hands Buster V2.0.",
                     "updated": 1640339615157
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Ticaret motoru tarafından işlenen verilerin çoğu, Ticaret Grafikleri katman yöneticisindeki katmanlar ve paneller aracılığıyla çizelgeler üzerinde de görselleştirilebilir. Yukarıdakilerden herhangi biri net değilse, lütfen Weak-hands Buster V2.0 eklentisi çalışma alanında mevcut olan Trading Bot Layers Tutorial  ( Eğitimine ) bakın.",
+                    "updated": 1650574670568
                 }
             ]
         }

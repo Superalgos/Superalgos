@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Этот узел позволяет определять конкретный ответ на вызов API.",
                 "updated": 1638629545701
+            },
+            {
+                "language": "TR",
+                "text": "Bu düğüm, API çağrısından belirli bir yanıtın tanımını sağlar.",
+                "updated": 1652021754469
             }
         ]
     },
@@ -21,6 +26,11 @@
                     "language": "RU",
                     "text": "Конфигурация API Query Response",
                     "updated": 1638629560935
+                },
+                {
+                    "language": "TR",
+                    "text": "API Sorgu Yanıt Yapılandırması",
+                    "updated": 1652021805707
                 }
             ]
         },
@@ -32,6 +42,11 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1638629568298
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikleri",
+                    "updated": 1652021816275
                 }
             ]
         },
@@ -44,6 +59,11 @@
                     "language": "RU",
                     "text": "codeName: в свойстве codeName бот API Fetcher Bot ожидает найти код ответа http от вызова API, обрабатываемого этим узлом. Вам понадобится хотя бы один из этих узлов с codeName = \"200\" (это стандартный код для успеха).",
                     "updated": 1638629676913
+                },
+                {
+                    "language": "TR",
+                    "text": "codeName: codeName özelliğinde, API Alıcısı Botu, bu düğüm tarafından işlenen API çağrısından http yanıt kodunu bulmayı bekleyecektir. Bu düğümlerden en az birine codeName = \"200\" (başarı için standart kod budur) sahip olmanız gerekir.",
+                    "updated": 1652021826846
                 }
             ]
         },
@@ -56,6 +76,11 @@
                     "language": "RU",
                     "text": "isError: Определите, следует ли считать код состояния ошибкой или нет.",
                     "updated": 1638629698384
+                },
+                {
+                    "language": "TR",
+                    "text": "isError: Durum kodunun bir hata olarak kabul edilip edilmeyeceğini tanımlayın.",
+                    "updated": 1652021838167
                 }
             ]
         },
@@ -68,6 +93,11 @@
                     "language": "RU",
                     "text": "Если вы хотите иметь возможность реагировать на другие коды ошибок, у вас также должно быть больше этих узлов с codeName каждого статуса, который вы хотите охватить. Если бот API Data Fetcher Bot получит код ответа, который не был определен, он прекратит обработку и выдаст ошибку.",
                     "updated": 1638629745693
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Diğer hata kodlarına tepki verebilmek istiyorsanız, kapsamak istediğiniz her durumun kodAdı ile bu düğümlerden daha fazlasına sahip olmalısınız. API Veri Alıcı Botu ( API Data Fetcher Bot ), tanımlanmamış bir yanıt kodu alırsa, işlemeyi durdurur ve hata verir.",
+                    "updated": 1652021888686
                 }
             ]
         },
@@ -79,6 +109,11 @@
                     "language": "RU",
                     "text": "Вот пример конфигурации ответа на запрос API:",
                     "updated": 1638629758397
+                },
+                {
+                    "language": "TR",
+                    "text": "İşte örnek bir API Sorgu Yanıtı yapılandırması:",
+                    "updated": 1652021899089
                 }
             ]
         },

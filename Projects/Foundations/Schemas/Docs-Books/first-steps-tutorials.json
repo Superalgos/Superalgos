@@ -23,6 +23,11 @@
                 "language": "ID",
                 "text": "Book ini menuntun kamu melalui jalan yang akan membantu kamu mempelajari Superalgos dengan cara yang seefisien mungkin. Tutorial interaktif adalah alat terbaik untuk mengatasi learning curve. Melakukan tutorial sesuai urutan yang diusulkan sangat dianjurkan.",
                 "updated": 1640594637960
+            },
+            {
+                "language": "DE",
+                "text": "Dieses Buch führt Sie durch den Weg, der Ihnen helfen wird, Superalgos auf die effizienteste Weise zu erlernen. Interaktive Tutorien sind das beste Mittel, um die Lernkurve zu bewältigen. Es wird dringend empfohlen, die Tutorials in der vorgeschlagenen Reihenfolge zu absolvieren.",
+                "updated": 1650359318804
             }
         ]
     },
@@ -46,6 +51,11 @@
                     "language": "ID",
                     "text": "Cara Penggunaan Book ini",
                     "updated": 1640594677771
+                },
+                {
+                    "language": "DE",
+                    "text": "Verwendung dieses Buches",
+                    "updated": 1650359341848
                 }
             ]
         },
@@ -72,6 +82,11 @@
                     "language": "ID",
                     "text": "Tutorial memberikan pengalaman belajar langsung yang luar biasa. Melakukan semua tutorial yang ada telah terbukti menjadi cara paling efektif untuk mengatasi learning curve.",
                     "updated": 1640594758959
+                },
+                {
+                    "language": "DE",
+                    "text": "Tutorials bieten die ultimative praktische Lernerfahrung. Es hat sich gezeigt, dass es am effektivsten ist, alle vorhandenen Tutorials zu absolvieren, um die Lernkurve zu bewältigen.",
+                    "updated": 1650359363488
                 }
             ]
         },
@@ -99,6 +114,11 @@
                     "language": "ID",
                     "text": "Untuk melakukan tutorial, muat plugin workspace yang sesuai, temukan tutorial di bagian bawah design space, dan pilih Play pada menu.",
                     "updated": 1640594831930
+                },
+                {
+                    "language": "DE",
+                    "text": "Um ein Tutorial zu absolvieren, laden Sie den entsprechenden Plugin-Arbeitsbereich, suchen Sie das Tutorial am unteren Rand des Designbereichs und wählen Sie im Menü die Option Abspielen.",
+                    "updated": 1650359435458
                 }
             ]
         },
@@ -125,6 +145,11 @@
                     "language": "ID",
                     "text": "Ketika kamu membutuhkan penyegaran cepat, kamu selalu dapat kembali dan mengulang seluruh tutorial atau beberapa langkah. Karena tutorial dibuat dari halaman yang dapat dicari, kamu juga dapat memindai konten tanpa benar-benar melakukan tutorial.",
                     "updated": 1640594900422
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie eine kurze Auffrischung benötigen, können Sie jederzeit zurückgehen und die gesamte Anleitung oder einige Schritte erneut durchführen. Da die Tutorials aus durchsuchbaren Seiten bestehen, können Sie den Inhalt auch durchsuchen, ohne das Tutorial tatsächlich durchzuführen.",
+                    "updated": 1650359481329
                 }
             ]
         },
@@ -152,6 +177,11 @@
                     "language": "ID",
                     "text": "Urutan yang disarankan ada dalam daftar di bawah ini, adapun yang benar yaitu melakukan semua tutorial penting, terlepas dari semua urutan yang ada.",
                     "updated": 1640595019762
+                },
+                {
+                    "language": "DE",
+                    "text": "Die empfohlene Reihenfolge ist in der nachstehenden Liste angegeben, aber in Wahrheit kommt es vor allem darauf an, alle Übungen zu absolvieren - unabhängig von der Reihenfolge.",
+                    "updated": 1650359562424
                 }
             ]
         },
@@ -173,6 +203,11 @@
                     "language": "ID",
                     "text": "Daftar Plugin Workspaces dan Tutorials",
                     "updated": 1640595042286
+                },
+                {
+                    "language": "DE",
+                    "text": "Liste der Plugin Workspaces und Tutorials",
+                    "updated": 1650359575312
                 }
             ]
         },
@@ -200,6 +235,11 @@
                     "language": "ID",
                     "text": "Untuk kenyamanan kamu, temukan hubungan Plugin Workspaces dan tutorial dari masing-masing fitur.",
                     "updated": 1640595103045
+                },
+                {
+                    "language": "DE",
+                    "text": "Zu Ihrer Erleichterung finden Sie hier eine Übersicht über die Plugin-Workspaces und die Tutorials, die in jedem von ihnen enthalten sind.",
+                    "updated": 1650359610718
                 }
             ]
         },

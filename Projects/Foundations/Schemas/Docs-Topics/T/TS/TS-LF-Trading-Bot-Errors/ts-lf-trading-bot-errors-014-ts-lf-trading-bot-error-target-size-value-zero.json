@@ -4,18 +4,39 @@
     "type": "TS LF Trading Bot Error - Target Size Value Zero",
     "definition": {
         "text": "The Target Size can not be zero, and that is what the Formula evaluates at the moment.",
-        "updated": 1611939963824
+        "updated": 1611939963824,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Hedef Boyut ( Target Size ) sıfır olamaz ve şu anda Formülün ( Formula ) değerlendirdiği şey budur.",
+                "updated": 1648650255309
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Error",
             "text": "Target Size Value Zero",
-            "updated": 1611597441758
+            "updated": 1611597441758,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hedef Boyut Değeri Sıfır. ( Target Size Value Zero )",
+                    "updated": 1648650380386
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Make sure that the Formula you defined does not evaluate to zero, and try again.",
-            "updated": 1611939957191
+            "updated": 1611939957191,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Tanımladığınız Formülün (Formula )  sıfır olarak değerlendirilmediğinden emin olun ve tekrar deneyin.",
+                    "updated": 1648650524917
+                }
+            ]
         }
     ]
 }

@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Слово «to» является частью синтаксиса команды, и вы его не включили.",
                 "updated": 1638529971867
+            },
+            {
+                "language": "TR",
+                "text": "Bu kelime sözcüğü, komutun sözdiziminin bir parçasıdır ve siz onu eklemediniz.",
+                "updated": 1652021604089
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "DE",
                     "text": "Syntax Error. Das Wort \"to\" im Befehl fehlt.",
                     "updated": 1633897680133
+                },
+                {
+                    "language": "TR",
+                    "text": "Sözdizimi hatası. İki nokta üst üste karakteri \":\" eksik.",
+                    "updated": 1652022085015
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "RU",
                     "text": "Проверьте синтаксис команды и посмотрите, где разместить слово «to».",
                     "updated": 1638529995887
+                },
+                {
+                    "language": "TR",
+                    "text": "Komutun sözdizimini kontrol edin ve \" \" kelimesinin nereye yerleştirileceğini görün.",
+                    "updated": 1652022022796
                 }
             ]
         },

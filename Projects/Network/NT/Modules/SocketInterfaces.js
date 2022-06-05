@@ -22,6 +22,29 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
         thisObject.networkClients = []
         thisObject.networkPeers = []
         thisObject.callersMap = new Map()
+
+        setInterval(cleanIdleConnections, 60000)
+
+        function cleanIdleConnections() {
+            let now = (new Date()).valueOf()
+            for (let i = 0; i < thisObject.networkClients.length; i++) {
+                let caller = thisObject.networkClients[i]
+                let diff = Math.trunc((now - caller.timestamp) / 60000)
+                if (diff > 30) {
+                    caller.socket.close()
+
+                    console.log((new Date()).toISOString(), '[WARN] Socket Interfaces -> cleanIdleConnections -> Client Idle by more than ' + diff + ' minutes -> caller.userProfile.name = ' + caller.userProfile.name)
+                    return
+                }
+                /*
+                if (caller.timestamp < now - 60 * 60 * 1000) {
+                    caller.socket.close()
+                    console.log((new Date()).toISOString(), '[WARN] Socket Interfaces -> cleanIdleConnections -> Idle client disconnected -> caller.userProfile.name = ' + caller.userProfile.name)
+                    return
+                }
+                */
+            }
+        }
     }
 
     function finalize() {
@@ -99,7 +122,10 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                         caller.socket.close()
                         return
                     }
-
+                    /*
+                    Record some activity from this caller
+                    */
+                    caller.timestamp = (new Date()).valueOf()
                     let response
                     let boradcastTo
 
@@ -121,6 +147,29 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                                         let response = {
                                             result: 'Error',
                                             message: 'Social Graph Network Service Not Running.'
+                                        }
+                                        response.messageId = socketMessage.messageId
+                                        caller.socket.send(JSON.stringify(response))
+                                        caller.socket.close()
+                                        return
+                                    }
+                                    break
+                                }
+                                case 'Machine Learning': {
+                                    if (NT.networkApp.machineLearningNetworkService !== undefined) {
+                                        response = await NT.networkApp.machineLearningNetworkService.clientInterface.messageReceived(
+                                            payload,
+                                            caller.userProfile,
+                                            thisObject.networkClients
+                                        )
+                                        boradcastTo = response.boradcastTo
+                                        response.boradcastTo = undefined
+                                        response.messageId = socketMessage.messageId
+                                        caller.socket.send(JSON.stringify(response))
+                                    } else {
+                                        let response = {
+                                            result: 'Error',
+                                            message: 'Bitcoin Factory Network Service Not Running.'
                                         }
                                         response.messageId = socketMessage.messageId
                                         caller.socket.send(JSON.stringify(response))
@@ -412,10 +461,11 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
             if (userProfileByBlockchainAccount === undefined) {
                 let response = {
                     result: 'Error',
-                    message: 'userProfile Not Found.'
+                    message: 'userProfile Not Found. This means that the signing account used to sign the message sent to the Network Node is not the same that the one the Network Node knows. The reason could be that 1) you did not generate the Signing Accounts, 2) You did not save your User Profile Plugin, 3) Your User Profile was not merged at the Governance Repo (it takes a few minutes to merge when the merging bot is running, check the repo) 4) The Network Node did not git pull your User Profile yet. 5) The Task you are running is not referencing the Task App at your own profile. Check carefuly those points to figure out which one is causing this problem for you.'
                 }
                 caller.socket.send(JSON.stringify(response))
                 caller.socket.close()
+                console.log((new Date()).toISOString(), '[WARN] Socket Interfaces -> handshakeStepTwo -> userAppBlockchainAccount not associated with userProfile -> userAppBlockchainAccount = ' + caller.userAppBlockchainAccount)
                 return
             }
             let signedMessage = JSON.parse(signature.message)

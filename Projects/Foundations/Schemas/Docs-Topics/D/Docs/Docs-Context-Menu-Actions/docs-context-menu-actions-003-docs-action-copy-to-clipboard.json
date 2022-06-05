@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Это позволяет легко скопировать текст любого абзаца в буфер обмена вашего компьютера. Это особенно полезно для страниц стиля привязки документов Docs Anchor Style или стиля блока документов Docs Block Style, чтобы получить строку, необходимую для выполнения команды перехода к документам Docs Goto Command в первом случае или для использования ее в стиле включения документов Docs Include Style во втором случае.",
                 "updated": 1638532404001
+            },
+            {
+                "language": "TR",
+                "text": "Bu, herhangi bir paragrafın metnini bilgisayarınızın panosuna kolayca kopyalamanızı sağlar. İlk durumda Dokümanlar git Komutunu ( Docs Goto Command ) yürütmek için gereken dizeyi almak veya ikinci durumda bir Doküman Stilinde ( Docs Include Style ) kullanmak için Dokümanların bağlantı Stilinin ( Docs Anchor Style ) veya Dokümanlar Blok Stilinin ( Docs Block Style ) sayfaları için özellikle yararlıdır.",
+                "updated": 1652215812770
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
                     "updated": 1638532436659
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenleyin. Yeni paragraflar yazmak için ENTER'a basın. Düzenleme modundan çıkmak için ESC.",
+                    "updated": 1652215596422
                 }
             ]
         }

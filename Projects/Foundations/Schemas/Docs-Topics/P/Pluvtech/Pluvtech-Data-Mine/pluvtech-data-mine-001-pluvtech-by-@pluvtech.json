@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "В Pluvtech Data Mine имеется несколько индикаторов, перечисленных ниже. Параметры этих индикаторов можно настроить в экземпляре Indicator Bot в соответствующем узле Data Mining Task (значения по умолчанию для большинства из них произвольны). А теперь идите и зарабатывайте деньги!",
                 "updated": 1645609292693
+            },
+            {
+                "language": "DE",
+                "text": "Die Pluvtech Data Mine verfügt über mehrere Indikatoren, die unten aufgeführt sind. Die Parameter dieser Indikatoren können in der Indicator Bot Instance unter dem entsprechenden Data Mining Task Node angepasst werden (die Standardeinstellungen für die meisten sind willkürlich). Und jetzt gehen Sie Geld verdienen!",
+                "updated": 1647445387266
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Индикаторы Pluvtech:",
                     "updated": 1645609301241
+                },
+                {
+                    "language": "DE",
+                    "text": "Pluvtech Indikatoren:",
+                    "updated": 1647445416587
                 }
             ]
         },

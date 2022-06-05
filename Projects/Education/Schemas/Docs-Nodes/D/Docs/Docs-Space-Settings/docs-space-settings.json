@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Этот узел позволяет пользователю определить, как пространство документов будет загружено текущим рабочим пространством.",
                 "updated": 1638526506560
+            },
+            {
+                "language": "TR",
+                "text": "Bu düğüm, kullanıcının dokümanlar alanının geçerli çalışma alanı tarafından nasıl yükleneceğini belirlemesine olanak tanır.",
+                "updated": 1652014103367
             }
         ]
     },
@@ -15,11 +20,25 @@
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1631587516173
+            "updated": 1631587516173,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Özellikleri",
+                    "updated": 1652014111719
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "indexContent defines whether the contents of the docs space will be indexed for searching upon loading the workspace. If false docs space will be disabled allowing faster load times for development."
+            "text": "indexContent defines whether the contents of the docs space will be indexed for searching upon loading the workspace. If false docs space will be disabled allowing faster load times for development.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "indexContent çalışma alanı yüklendikten sonra arama için dokümanlar alanının içeriğinin dizine eklenip eklenmeyeceğini tanımlar. Yanlış dokümanlar alanı devre dışı bırakılırsa, geliştirme için daha hızlı yükleme süreleri sağlanır.",
+                    "updated": 1652014128881
+                }
+            ]
         }
     ]
 }

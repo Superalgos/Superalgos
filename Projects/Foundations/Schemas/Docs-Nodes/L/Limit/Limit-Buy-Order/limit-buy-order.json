@@ -160,6 +160,19 @@
                     "updated": 1639842931643
                 }
             ]
+        },
+        {
+            "style": "List",
+            "text": "orderParams allow the user to add additional parameters to the order like for example if it's a reduce only order."
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"percentageOfAlgorithmSize\": 100,\n    \"spawnMultipleOrders\": false,\n    \"orderParams\": {\n        \"reduce_only\": true\n    }\n}",
+            "updated": 1650648182452
         }
     ]
 }

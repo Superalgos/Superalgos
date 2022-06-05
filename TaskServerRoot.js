@@ -64,6 +64,7 @@ async function runRoot() {
     graphql: require('@octokit/graphql'),
     axios: require('axios'),
     crypto: require('crypto'),
+    simpleGit: require('simple-git'),
     ethers: require('ethers')
   }
   SA.version = require('./package.json').version

@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Биржа Binance, рынок спот полностью протестирован для поиска данных и торговли. Торговля на маржинальном счете находится на стадии рассмотрения и тестирования, приоритет отдается требованиям пользователей.",
                 "updated": 1646900153096
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Binance Exchange, Spot piyasası, veri madenciliği ve ticareti için tamamen test edilmiştir. Marj hesabı ticareti inceleme ve test aşamasındadır ve kullanıcıların gereksinimlerine göre önceliklendirilir.",
+                "updated": 1650570570427
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Сведения",
                     "updated": 1646900462952
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikleri",
+                    "updated": 1650570588838
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "RU",
                     "text": "1-минутные свечи OHLCV: Да. Возможность получения исторических данных для целей бэктестинга была проверена.",
                     "updated": 1646900220400
+                },
+                {
+                    "language": "TR",
+                    "text": "1 dakikalık OHLCV Yeteneği: Evet. Geriye dönük test amacıyla geçmiş verileri getirme yeteneği doğrulandı.",
+                    "updated": 1650570623859
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "RU",
                     "text": "История рынка: Начиная с сентября 2017 года.",
                     "updated": 1646900196684
+                },
+                {
+                    "language": "TR",
+                    "text": "Piyasa Geçmişi: Eylül 2017'den itibaren.",
+                    "updated": 1650570635194
                 }
             ]
         },
@@ -59,6 +79,11 @@
                     "language": "RU",
                     "text": "Возможность торговли: Да. Возможность запуска стратегий в режиме реальной торговли была проверена.",
                     "updated": 1646900230360
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Yeteneği: Evet. Canlı ticaret modunda strateji çalıştırma yeteneği doğrulandı.",
+                    "updated": 1650570645865
                 }
             ]
         },
@@ -71,6 +96,11 @@
                     "language": "RU",
                     "text": "Комментарии: Полностью протестировано. Рекомендуется начинать с Binance, так как опыт работы с ней является беспроблемным. Песочница/тестнет доступны, но пока не проверены, так как требуют независимых API-ключей биржи.",
                     "updated": 1646900266186
+                },
+                {
+                    "language": "TR",
+                    "text": "Yorumlar: Tamamen test edilmiştir. Deneyim sorunsuz olduğu için Binance ile başlamanız önerilir. Korumalı alan/testnet tesisi mevcut ancak bağımsız değişim API anahtarları gerektirdiğinden henüz incelenmedi.",
+                    "updated": 1650570659434
                 }
             ]
         },
@@ -82,6 +112,11 @@
                     "language": "RU",
                     "text": "Для того, чтобы быть дружелюбным к бирже, была разработана утилита для предварительной загрузки данных символьных тикеров, что позволяет сэкономить время и пропускную способность сети. Пожалуйста, ознакомьтесь с предоставленной документацией.\thttps://github.com/PLuv/Exchange-Raw-Data-Superalgos",
                     "updated": 1646900377585
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Değişim dostu olması için, simge senedi verilerini önceden indirmek için bir yardımcı program sağlanmıştır, böylece zamandan ve net indirme bant genişliği kullanımından tasarruf edilir. Lütfen sağlanan belgelere bakın. https://github.com/PLuv/Exchange-Raw-Data-Superalgos",
+                    "updated": 1650570697416
                 }
             ]
         },

@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Luno тестируется для анализа данных и для торговли в реальном времени - однако, из-за недавних изменений в их API, он стал практически бесполезным для обратного тестирования, и не намного лучше для торговли в реальном времени. Объяснение смотрите ниже.",
                 "updated": 1646902241483
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Luno, veri madenciliği ve canlı ticaret için test edilmiştir - ancak, API'lerindeki son değişiklikler nedeniyle, geriye dönük test için neredeyse işe yaramaz hale geldi ve canlı ticaret için çok daha iyi değil. Açıklama için aşağıya bakın.",
+                "updated": 1650571264948
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Сведения",
                     "updated": 1646902254631
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikleri",
+                    "updated": 1650571279943
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "RU",
                     "text": "1-минутные свечи OHLCV: Да - но с серьезными ограничениями. Возможность получения исторических данных для целей бэктестинга теперь сильно ограничена, поскольку вы больше не можете получать данные о сделках старше 24 часов.",
                     "updated": 1646902290628
+                },
+                {
+                    "language": "TR",
+                    "text": "1 dakikalık OHLCV Yeteneği: Evet - ancak ciddi kısıtlamalarla. Geriye dönük test amacıyla geçmiş verileri getirme yeteneği, artık 24 saatten eski işlemleri getiremeyeceğiniz için ciddi şekilde kısıtlandı.",
+                    "updated": 1650571283783
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "RU",
                     "text": "Возможность торговли [**]: Да - но с ограничениями. Появилась возможность запускать стратегии в режиме реальной торговли. Убедитесь, что версия библиотеки CCXT, используемой Superalgos, составляет 1.42.77 или лучше - более ранние версии этой библиотеки некорректно применяли настройки точности биржи в объемах, указанных для создания ордеров.",
                     "updated": 1646902345017
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Yeteneği [**]: Evet - ancak kısıtlamalarla. Canlı ticaret modunda stratejiler yürütme yeteneği artık mümkün. Superalgos tarafından kullanılan CCXT kitaplığının sürümünün 1.42.77 veya daha iyi olduğundan emin olun - bu kitaplığın önceki sürümleri, sipariş oluşturmak için belirtilen miktarlarda borsanın hassas ayarlarını doğru şekilde uygulamadı.",
+                    "updated": 1650571332292
                 }
             ]
         },
@@ -59,6 +79,11 @@
                     "language": "RU",
                     "text": "Комментарии: Добыча необработанных данных происходит крайне медленно из-за ограничений обмена на их API, которые ограничивают количество данных, которые можно запросить через Rest API. Раньше загрузка одного дня необработанных данных занимала около 5 минут. Однако после недавнего обновления (где-то около 15 мая 2021 года) больше невозможно получить необработанные сделки старше 24 часов. Это означает, что начальный день должен быть полностью определен (т.е. и дата, и время), и он должен быть менее чем на 24 часа позже текущей даты/времени. Помните об этом, когда устанавливаете начальную дату. Причина этого в том, что они не поддерживают получение данных OHCLV - эти данные должны быть собраны путем получения отдельных сделок. Получение данных о сделках ограничено 100 сделками на один запрос, а ограничение скорости составляет 1 секунду. Кроме того, прежде чем приступить к торговле, вам придется работать с данными не менее 24 часов.",
                     "updated": 1646902410686
+                },
+                {
+                    "language": "TR",
+                    "text": "Yorumlar: Ham Veri madenciliği, API'lerinde Rest API aracılığıyla istenebilecek veri sayısını sınırlayan değişim kısıtlamaları nedeniyle son derece yavaştır. Eskiden bir günlük Raw Data'nın indirilmesi yaklaşık 5 dakika sürerdi. Ancak, yakın zamanda yapılan bir yükseltmeden beri (15 Mayıs 2021 civarında bir yerde), 24 saatten daha eski ham alım satımları almak artık mümkün değil. Bu, bir başlangıç gününün tam olarak belirtilmesi gerektiği (yani hem tarih hem de saat) ve geçerli tarih/saatin 24 saatten daha az olması gerektiği anlamına gelir. Bir başlangıç tarihi belirlerken bunu aklınızda bulundurun. Bunun nedeni, OHCLV verilerinin alınmasını desteklememeleridir - bu verilerin bireysel işlemler getirilerek derlenmesi gerekir. İşlemlerin getirilmesi, istek başına 100 işlem ile sınırlıdır ve oran limiti 1 saniyedir. Ayrıca, herhangi bir işlem yapmaya başlamadan önce en az 24 saat veri madenciliği yapmanız gerekecektir.",
+                    "updated": 1650571350854
                 }
             ]
         },
@@ -71,6 +96,11 @@
                     "language": "RU",
                     "text": "РЕКОМЕНДАЦИЯ: Luno больше не подходит для использования с SuperAlgos до тех пор, пока разработчики Luno не реализуют правильный API для получения данных OHLCV.",
                     "updated": 1646902423300
+                },
+                {
+                    "language": "TR",
+                    "text": "ÖNERİ: Luno geliştiricileri, OHLCV verilerini almak için doğru API'yi uygulayana kadar, Luno artık SuperAlgos ile kullanım için uygun değildir.",
+                    "updated": 1650571370331
                 }
             ]
         },
@@ -82,6 +112,11 @@
                     "language": "RU",
                     "text": "Конфигурация",
                     "updated": 1646902431497
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırma",
+                    "updated": 1650571379150
                 }
             ]
         },

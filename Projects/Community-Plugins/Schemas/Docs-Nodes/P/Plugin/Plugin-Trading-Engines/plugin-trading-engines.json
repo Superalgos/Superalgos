@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Узел Plugin Trading Engines содержит определения источников данных, которые должны быть включены в качестве подключаемых в текущее рабочее пространство.",
                 "updated": 1645165584023
+            },
+            {
+                "language": "TR",
+                "text": "Eklenti veri mayınları düğümü, mevcut çalışma alanına eklentiler olarak dahil edilecek veri mayınlarının tanımlarını içerir.",
+                "updated": 1651951868855
             }
         ]
     },
@@ -19,6 +24,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER для написания новых абзацев. ESC для выхода из режима редактирования.",
                     "updated": 1645165603080
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle. Yeni paragraflar yazmak için ENTER'a basın. Düzenleme modundan çıkmak için ESC.",
+                    "updated": 1651951881678
                 }
             ]
         }

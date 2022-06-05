@@ -2,11 +2,17 @@
     "type": "Portfolio Mine",
     "definition": {
         "text": "A portfolio mine is a hierarchy that contains definitions of portfolio bots and their plotters. These definitions make up the actual programs of such bots&mdash;the source code.",
+        "updated": 1628906153762,
         "translations": [
             {
                 "language": "ES",
                 "text": "Un portfolio mine es una jerarquía que contiene definiciones de portfolio bots y sus conspiradores. Estas definiciones constituyen los programas reales de dichos bots: el código fuente.",
                 "updated": 1628906153772
+            },
+            {
+                "language": "TR",
+                "text": "Portföy madeni, portföy botlarının tanımlarını ve planlayıcılarını içeren bir hiyerarşidir. Bu tanımlar, bu tür botların gerçek programlarını&amp;mdash;kaynak kodunu oluşturur.",
+                "updated": 1654020002427
             }
         ]
     },
@@ -17,16 +23,40 @@
         },
         {
             "style": "Text",
-            "text": "Altough Superalgos is starting out with a single portfolio bot, the system is prepared to feature as many portfolio bots as developers are willing to create. As such, a portfolio mine is a catalog of portfolio bots."
+            "text": "Altough Superalgos is starting out with a single portfolio bot, the system is prepared to feature as many portfolio bots as developers are willing to create. As such, a portfolio mine is a catalog of portfolio bots.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Superalgos tek bir portföy botu ile başlıyor olsa da, sistem geliştiricilerin oluşturmak istedikleri kadar çok portföy botu içermeye hazırdır. Bu nedenle, bir portföy madeni, portföy botlarının bir kataloğudur.",
+                    "updated": 1654020008791,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Notice that, in the context of Superalgos, a portfolio bot has nothing to do with the portfolio logic. Think of portfolio logic as the business rules which—in Superalgos—are defined in portfolio systems. Anyone may build a Portfolio System, meaning that creating portfolio systems and the portfolio strategies within does not require coding.",
-            "updated": 1609861342619
+            "updated": 1609861342619,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Superalgos bağlamında, bir portföy botunun portföy mantığıyla hiçbir ilgisi olmadığına dikkat edin. Portföy mantığını, Superalgos'ta portföy sistemlerinde tanımlanan iş kuralları olarak düşünün. Herkes bir Portföy Sistemi oluşturabilir, yani portföy sistemleri ve içindeki portföy stratejilerini oluşturmak kodlama gerektirmez.",
+                    "updated": 1654020014476,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Portfolio mines work similarly to data mines in the sense that they provide the same kind of tools to structure the definitions of bots, including process definitions, product definitions, and plotters."
+            "text": "Portfolio mines work similarly to data mines in the sense that they provide the same kind of tools to structure the definitions of bots, including process definitions, product definitions, and plotters.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Portföy madenleri, süreç tanımları, ürün tanımları ve çiziciler de dahil olmak üzere botların tanımlarını yapılandırmak için aynı tür araçları sağlamaları açısından veri madenlerine benzer şekilde çalışır.",
+                    "updated": 1654020020677,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Block",
@@ -35,7 +65,15 @@
         {
             "style": "Title",
             "text": "Portfolio Mine Configuration",
-            "updated": 1609861240385
+            "updated": 1609861240385,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Portföy Maden Yapılandırması",
+                    "updated": 1654020027239,
+                    "style": "Title"
+                }
+            ]
         }
     ]
 }

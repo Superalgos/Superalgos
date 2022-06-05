@@ -928,11 +928,27 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                 /* We will need to save this at the Status Report */
                                 contextVariables.lastFile = file.date
                                 /*
-                                For One-Min type of datasets, since they are saved as Daily Files, there is no need
-                                to read the already existing content to append to it. In this case is enough to
-                                set the existing content to an empty array.
+                                Note: Possible optimation is to not read daily file but to simply append to it. 
+                                Currently loads last file date, loads current file and then looks through timestamps to determine 
+                                if current record should be appended to file.
                                 */
-                                existingFileContent = "[]"
+                                if (thisReport.file.lastFile !== undefined) {
+                                    let lastRecordDate = thisReport.file.lastFile
+                                    let lastRecordDateString = JSON.stringify(lastRecordDate)
+                                    let lastRecordDateYear = lastRecordDateString.substring(1, 5)
+                                    let lastRecordDateMonth = lastRecordDateString.substring(6, 8)
+                                    let lastRecordDateDay = lastRecordDateString.substring(9, 11)
+                                    lastDate = lastRecordDateYear + "/" + lastRecordDateMonth + "/" + lastRecordDateDay
+                                } else {
+                                    lastDate = ""
+                                }
+
+                                if (lastDate !== dateForPath) {
+                                    existingFileContent = "[]" 
+                                }
+                                else {
+                                    await readDatasetFile("/" + dateForPath)
+                                }
                                 appendToExistingDataset()
                                 await saveDatasetFile("/" + dateForPath)
 
@@ -940,7 +956,9 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                     /* 
                                     We are going to append the current apiResponseReceivedText to the existing file.
                                     */
-                                    let existingFileArray = JSON.parse(existingFileContent)
+                                    
+                                    let existingFileArray = 
+                                    JSON.parse(existingFileContent)
                                     /*
                                     If we received a data object then we will try to add it to the current existing file.
                                     */
@@ -1099,6 +1117,33 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
 
                                             if (recordProperty.config.isDate === true) {
                                                 value = (new Date(value)).valueOf()
+                                            }
+
+                                            /*
+                                                Check that timestamps are saved in 13 digits.
+                                                If not convert the timestamp's value to 13 digits.
+                                            */    
+
+                                                if (recordProperty.config.codeName === 'timestamp') {      
+
+                                                let startStamp = (recordProperty.config.codeName, value)
+                                                let numberOfDigits = 0
+                                                let timestamp = (recordProperty.config.codeName, value)
+
+                                                while (startStamp != 0 && startStamp > 1) {
+                                                    startStamp = startStamp / 10
+                                                    numberOfDigits++
+                                                }
+
+                                                if (numberOfDigits == 10) {
+                                                    timestamp = timestamp * 1000
+                                                    value = timestamp
+                                                }
+            
+                                                if (numberOfDigits == 19) {
+                                                    timestamp = timestamp / 1000000
+                                                    value = timestamp
+                                                }
                                             }
 
                                             /*

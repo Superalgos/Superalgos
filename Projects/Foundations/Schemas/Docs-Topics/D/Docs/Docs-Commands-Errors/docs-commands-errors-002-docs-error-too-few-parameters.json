@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Система ожидает большего количества параметров. Это может произойти, если вы фактически пропустили параметр или когда синтаксическая ошибка нарушает команду.",
                 "updated": 1638529070203
+            },
+            {
+                "language": "TR",
+                "text": "Sistem daha fazla parametre bekliyor. Bu, bir parametreyi etkin bir şekilde kaçırdığınızda veya bir sözdizimi hatası komutu kesintiye uğrattığında gerçekleşebilir.",
+                "updated": 1651993840019
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "language": "DE",
                     "text": "Syntax error: Zu wenige Parameter.",
                     "updated": 1633895826441
+                },
+                {
+                    "language": "TR",
+                    "text": "Sözdizimi hatası: Çok az parametre.",
+                    "updated": 1651993882980
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "RU",
                     "text": "Проверьте синтаксис команды, чтобы получить подробный список требуемых параметров.",
                     "updated": 1638529104626
+                },
+                {
+                    "language": "TR",
+                    "text": "Gerekli parametrelerin ayrıntılı listesi için komut sözdizimini denetleyin.",
+                    "updated": 1651993910827
                 }
             ]
         },

@@ -1,0 +1,63 @@
+{
+    "topic": "Trends Data Mine",
+    "pageNumber": "5",
+    "type": "ZLSMA",
+    "definition": {
+        "text": "The Zero Lag LSMA (least squares moving average) or ZLSMA, is a moving average that uses linear regression to calculate a moving average with far less lag than a standard simple moving average."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "ZLSMA on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "The ZLSMA can be used in a similar way to other moving averages; where price action above the moving average indicates an upward trend, and below the moving action indicates a downward trend. Additionally, when the price action remains near the moving average value the trend is sideways.",
+            "updated": 1651208654194
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Trends-ZLSMA.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| ZLSMA | zlsma | value |"
+        },
+        {
+            "style": "Text",
+            "text": "The indicator's parameters can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under 'ZLSMA' Procedure Loop."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Trends-ZLSMA-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Examples:"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator can be used to enter a trade when the price action rises above the ZLSMA value:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.candle.close > chart.at01hs.zlsma.value"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

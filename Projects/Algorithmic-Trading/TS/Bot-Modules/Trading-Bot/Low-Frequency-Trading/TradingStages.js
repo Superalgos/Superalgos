@@ -173,7 +173,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                                     tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.triggerOn.value = 1
 
                                     await outgoingTradingSignalsModuleObject.broadcastSignal(triggerStage.triggerOn)
-                                    announcementsModuleObject.makeAnnouncements(triggerStage.triggerOn)
+                                    announcementsModuleObject.makeAnnouncements(triggerStage.triggerOn, snapshotsModuleObject.returnChart())
 
                                     if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type === 'Backtesting Session') {
                                         if (sessionParameters.snapshots !== undefined) {
@@ -229,7 +229,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                                 tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.triggerOff.value = 1
 
                                 await outgoingTradingSignalsModuleObject.broadcastSignal(triggerStage.triggerOff)
-                                announcementsModuleObject.makeAnnouncements(triggerStage.triggerOff)
+                                announcementsModuleObject.makeAnnouncements(triggerStage.triggerOff, snapshotsModuleObject.returnChart())
                                 changeStageStatus('Trigger Stage', 'Closed', 'Trigger Off Event')
                                 tradingStrategyModuleObject.closeStrategy('Trigger Off')
                                 break
@@ -277,7 +277,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                                 tradingPositionModuleObject.openPosition(situation.name)
 
                                 await outgoingTradingSignalsModuleObject.broadcastSignal(triggerStage.takePosition)
-                                announcementsModuleObject.makeAnnouncements(triggerStage.takePosition)
+                                announcementsModuleObject.makeAnnouncements(triggerStage.takePosition, snapshotsModuleObject.returnChart())
 
                                 if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type === 'Backtesting Session') {
                                     if (sessionParameters.snapshots !== undefined) {
@@ -523,7 +523,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                         tradingPositionModuleObject.applyStopLossFormula(tradingSystem.formulas, phase.formula.id)
 
                         if (tradingEngine.tradingCurrent.position.stopLoss.value !== previousValue) {
-                            announcementsModuleObject.makeAnnouncements(phase)
+                            announcementsModuleObject.makeAnnouncements(phase, snapshotsModuleObject.returnChart())
                         }
                     }
                 }
@@ -548,7 +548,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                         tradingPositionModuleObject.applyTakeProfitFormula(tradingSystem.formulas, phase.formula.id)
 
                         if (tradingEngine.tradingCurrent.position.takeProfit.value !== previousValue) {
-                            announcementsModuleObject.makeAnnouncements(phase)
+                            announcementsModuleObject.makeAnnouncements(phase, snapshotsModuleObject.returnChart())
                         }
                     }
                 }
@@ -633,7 +633,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
 
                                 tradingPositionModuleObject.updateStopLoss(tradingEngine.tradingCurrent.position.stopLoss.stopLossPhase.value + 1)
 
-                                announcementsModuleObject.makeAnnouncements(nextPhaseEvent)
+                                announcementsModuleObject.makeAnnouncements(nextPhaseEvent, snapshotsModuleObject.returnChart())
 
                                 /* Reset this counter */
                                 tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.nextPhase.value = 1
@@ -688,7 +688,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                                         continue
                                     }
 
-                                    announcementsModuleObject.makeAnnouncements(moveToPhaseEvent)
+                                    announcementsModuleObject.makeAnnouncements(moveToPhaseEvent, snapshotsModuleObject.returnChart())
 
                                     /* Reset this counter */
                                     tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.moveToPhase.value = 1
@@ -754,7 +754,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                                 tradingPositionModuleObject.updateTakeProfit(tradingEngine.tradingCurrent.position.takeProfit.takeProfitPhase.value + 1)
 
                                 await outgoingTradingSignalsModuleObject.broadcastSignal(nextPhaseEvent)
-                                announcementsModuleObject.makeAnnouncements(nextPhaseEvent)
+                                announcementsModuleObject.makeAnnouncements(nextPhaseEvent, snapshotsModuleObject.returnChart())
 
                                 /* Reset this counter */
                                 tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.nextPhase.value = 1
@@ -816,7 +816,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                                     }
 
                                     await outgoingTradingSignalsModuleObject.broadcastSignal(moveToPhaseEvent)
-                                    announcementsModuleObject.makeAnnouncements(moveToPhaseEvent)
+                                    announcementsModuleObject.makeAnnouncements(moveToPhaseEvent, snapshotsModuleObject.returnChart())
 
                                     /* Reset this counter */
                                     tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.moveToPhase.value = 1
@@ -1191,7 +1191,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                     tradingSystem.highlights.push(stage.id)
 
                     await outgoingTradingSignalsModuleObject.broadcastSignal(closeStageEvent)
-                    announcementsModuleObject.makeAnnouncements(closeStageEvent)
+                    announcementsModuleObject.makeAnnouncements(closeStageEvent, snapshotsModuleObject.returnChart())
                     return true
                 }
             }
@@ -1382,7 +1382,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
     function checkAnnounce(stage, status) {
         let tradingSystemStage = getTradingSystemStage(stage)
         if (status === 'Open' || status === 'Closed') {
-            announcementsModuleObject.makeAnnouncements(tradingSystemStage, status)
+            announcementsModuleObject.makeAnnouncements(tradingSystemStage, snapshotsModuleObject.returnChart(), status)
         }
     }
 

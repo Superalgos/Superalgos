@@ -122,35 +122,38 @@ Continue reading this section for detailed step by step instructions of how to d
 
 ### Update your User Profile
 
-You need to add a few nodes to your User Profile, and once you finish, you need to contribute it to the Governance repo and make sure that it is merged by the PR merging bot. 
+Before you can participate within the Superalgos P2P network, You need to add a few nodes to your User Profile. Once these nodes are added and configured propertly you will need to contribute your updated profile to the Governance repo and make sure that it is merged by the PR merging bot. 
 
-Here is the complete list of nodes you need to add to your profile, in case you don't already have them. All paths are starting from the User Profile node.
+Here is the complete list of nodes you need to add to your profile and how to configure them. 
 
+**Note:** All paths start from the User Profile node.
+
+**Task Server App Node**
 1. User Profile -> User Apps
 2. User Profile -> User Apps -> Server Apps
 3. User Profile -> User Apps -> Server Apps -> Task Server App
 
-For this node, you need to assign the following name and the following config:
+Once you have added the Task Server App node, hover over it and rename it using the following name: "Task Server App #1"
 
-Node Name: "Task-Server-App-1"
-
-Node Config:
+Then add the following configuration within the Task Server App node's config:
 ```sh
 {
     "codeName": "Task-Server-App-1"
 }
  ```
 
+**Bitcoin Factory Forecasts**
 4. User Profile -> Forecast Providers
 5. User Profile -> Forecast Providers -> Bitcoin Factory Forecasts
 
-Node Name: "Testnet"
+Hover over the Bitcoin Factory Forcasts node and rename it using the following name: "Testnet"
 
+**Test Client Instance**
 6. User Profile -> Forecast Providers -> Bitcoin Factory Forecasts -> Test Client Instance
 
-For this node, you need to assign a name of your choice and that name needs also to be at the config:
+For this node, you need to assign a unique name of your choice. The name you choose needs to be the same between the title and the codeName propety of the node's config. For example:
 
-Node Name: "Assign-A-Name"
+Node Title: "Assign-A-Name"
 
 Node Config:
 ```sh
@@ -161,7 +164,7 @@ Node Config:
 
 ### Signing Accounts
 
-Finally, you need to re-generate the signing accounts of your User Profile, so that a new node of type Signing Accounts is created under the "Task-Server-App-1" node. The procedure to do this is the following:
+Finally, you need to generate/re-generate the signing accounts of your User Profile, so that a new node of type Signing Accounts is created under the "Task-Server-App-1" node. The procedure to do this is the following:
 
 1. At the Governance Project node create a Profile Constructor node.
 2. Reference the Profile Constructor to your User Profile.
@@ -171,7 +174,7 @@ Now you are done with your profile.
 
 Remember to save your User Profile plugin, contribute it and check that it was merged at the Governance repository.
 
-IMPORTANT: It takes a few minutes for your profile to be auto-merged into the Governance repository and another 5 minutes to be picked up by the running Network Node. After changes to your profile, wait for around 10 minutes before expecting it to be able to connect to the Superalgos Network node.
+**IMPORTANT:** It takes a few minutes for your profile to be auto-merged into the Governance repository and another 5 minutes to be picked up by the running Network Node. After changes to your profile, wait for around 10 minutes before expecting it to be able to connect to the Superalgos Network node.
 
 ### Reference the Task Server App
 

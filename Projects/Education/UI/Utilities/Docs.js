@@ -95,7 +95,7 @@ function newEducationUtilitiesDocs() {
             let translation = paragraph.translations[i]
             if (translation.updated === undefined) { continue }
             if (translation.language === UI.projects.education.spaces.docsSpace.language) {
-                if (paragraph.updated < translation.updated) {
+                if (paragraph.updated <= translation.updated) {
                     return ''
                 } else {
                     return ' <b>Warning!!!</b> This translation is outdated. English version is... <i>' + paragraph.text + '</i> Please update this translation.'
@@ -129,8 +129,8 @@ function newEducationUtilitiesDocs() {
             }
             return
         } else {
-            /* 
-            We will avoid setting up a new language if the text is 
+            /*
+            We will avoid setting up a new language if the text is
             the same as the text at the default language.
             */
             if (paragraph.text === text) {

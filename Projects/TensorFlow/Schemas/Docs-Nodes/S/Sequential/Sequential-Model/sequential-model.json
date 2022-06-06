@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Наиболее распространенным типом модели является последовательная модель, которая представляет собой линейную стопку слоев.",
                 "updated": 1645249918088
+            },
+            {
+                "language": "TR",
+                "text": "En yaygın model türü, doğrusal bir katman yığını olan Sıralı modeldir.",
+                "updated": 1654397577921
             }
         ]
     },
@@ -20,6 +25,12 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
                     "updated": 1645249923361
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
+                    "updated": 1654397584100,
+                    "style": "Text"
                 }
             ]
         }

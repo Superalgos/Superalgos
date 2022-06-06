@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Когда программа TensorFlow.js выполняется, конкретная конфигурация называется средой выполнения. Среда выполнения состоит из одного глобального бэкенда, а также набора флагов, которые управляют тонкими функциями TensorFlow.js.",
                 "updated": 1645247804549
+            },
+            {
+                "language": "TR",
+                "text": "Bir TensorFlow.js programı yürütüldüğünde, belirli yapılandırmaya yürütme ortamı denir. Yürütme Ortamı, tek bir global arka ucun yanı sıra TensorFlow.js'nin ince taneli özelliklerini kontrol eden bir dizi bayraktan oluşur.",
+                "updated": 1654397100984
             }
         ]
     },
@@ -20,6 +25,12 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
                     "updated": 1645247810001
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
+                    "updated": 1654397108633,
+                    "style": "Text"
                 }
             ]
         }

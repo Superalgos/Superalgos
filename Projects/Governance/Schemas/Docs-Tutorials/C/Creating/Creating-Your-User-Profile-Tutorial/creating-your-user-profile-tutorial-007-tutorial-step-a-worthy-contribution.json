@@ -1,6 +1,6 @@
 {
     "tutorial": "Creating Your User Profile Tutorial",
-    "pageNumber": 7,
+    "pageNumber": "7",
     "type": "Tutorial Step - A Worthy Contribution",
     "definition": {
         "text": "No matter who you are, you can bring value to the Superalgos network!",
@@ -19,6 +19,12 @@
                 "language": "DE",
                 "text": "Ganz gleich, wer Sie sind, Sie können dem Superalgos-Netzwerk einen Mehrwert bieten!",
                 "updated": 1640072430688
+            },
+            {
+                "language": "TR",
+                "text": "Kim olursanız olun, Superalgos ağına değer katabilirsiniz!",
+                "updated": 1654395662458,
+                "style": "Definition"
             }
         ]
     },
@@ -37,6 +43,12 @@
                     "language": "DE",
                     "text": "Jeder von uns bringt einzigartige Talente und Erfahrungen in unsere Arbeit mit Superalgos ein. Auch wenn Sie kein Programmierer oder Handelsexperte sind, gibt es Möglichkeiten, sich einzubringen!",
                     "updated": 1640072443184
+                },
+                {
+                    "language": "TR",
+                    "text": "Her birimiz Superalgos ile olan çalışmalarımıza benzersiz yetenekler ve deneyimler katıyoruz. Bir programcı veya uzman tüccar olmasanız bile, dahil olmanız için hala yollar var!",
+                    "updated": 1654395669684,
+                    "style": "Success"
                 }
             ]
         },
@@ -53,6 +65,12 @@
                     "language": "DE",
                     "text": "Einer der ersten Beiträge, die Sie zu dem Projekt leisten können, ist die Beteiligung an der Verwaltung selbst. Das Netzwerk der Nutzer, die Superalgos leiten, ist ein wesentlicher Bestandteil des Erfolgs unserer offenen Zusammenarbeit. Sie tragen zum Wert des Netzwerks bei, indem Sie einfach ein Teil davon sind!",
                     "updated": 1640072453264
+                },
+                {
+                    "language": "TR",
+                    "text": "Projeye yapabileceğiniz ilk katkılardan biri yönetişimin kendisine dahil olmaktır. Superalgos'a rehberlik eden kullanıcı ağı, açık işbirliğimizin başarısının ayrılmaz bir parçasıdır. Sadece bir parçası olarak bile bu ağa değer katabilirsiniz!",
+                    "updated": 1654395675953,
+                    "style": "Text"
                 }
             ]
         }

@@ -374,6 +374,12 @@
                     "language": "ES",
                     "text": "icon   ( ïcono)",
                     "updated": 1640106549094
+                },
+                {
+                    "language": "TR",
+                    "text": "simgesi",
+                    "updated": 1654390514400,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -656,7 +662,8 @@
         {
             "style": "Subtitle",
             "text": "slider",
-            "updated": 1617635668767
+            "updated": 1617635668767,
+            "translations": [ ]
         },
         {
             "style": "Text",
@@ -710,7 +717,15 @@
         {
             "style": "Subtitle",
             "text": "pressButton",
-            "updated": 1617635952027
+            "updated": 1617635952027,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "pressButton",
+                    "updated": 1654390534433,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "Text",
@@ -876,7 +891,15 @@
         {
             "style": "Subtitle",
             "text": "controlDocs",
-            "updated": 1617648219190
+            "updated": 1617648219190,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "controlDocs",
+                    "updated": 1654390540323,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "Text",

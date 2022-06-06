@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Создает плотный (полностью связанный) слой.",
                 "updated": 1645247312646
+            },
+            {
+                "language": "TR",
+                "text": "Yoğun (tam bağlı) bir katman oluşturur.",
+                "updated": 1654396952246
             }
         ]
     },
@@ -20,6 +25,12 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
                     "updated": 1645247318567
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
+                    "updated": 1654396960800,
+                    "style": "Text"
                 }
             ]
         }

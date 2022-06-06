@@ -1,6 +1,6 @@
 {
     "topic": "Docs Commands Errors",
-    "pageNumber": 3,
+    "pageNumber": "3",
     "type": "Docs Error - Project Does Not Exist",
     "definition": {
         "text": "You may have misspelled the name of the project.",
@@ -26,7 +26,15 @@
     "paragraphs": [
         {
             "style": "Anchor",
-            "text": "Anchor Project Does Not Exist"
+            "text": "Anchor Project Does Not Exist",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Çapa Projesi Mevcut Değil",
+                    "updated": 1654393395541,
+                    "style": "Anchor"
+                }
+            ]
         },
         {
             "style": "Error",
@@ -81,25 +89,63 @@
                     "language": "RU",
                     "text": "Относится к",
                     "updated": 1638529175695
+                },
+                {
+                    "language": "TR",
+                    "text": "Şunlar için geçerlidir",
+                    "updated": 1654393401567,
+                    "style": "Title"
                 }
             ]
         },
         {
             "style": "List",
             "text": "Docs Goto Command",
-            "updated": 1609180469767
+            "updated": 1609180469767,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Docs Goto Komutu",
+                    "updated": 1654393408872,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Docs Add Command"
+            "text": "Docs Add Command",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Dokümanlar Komut Ekle",
+                    "updated": 1654393415164,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Docs Delete Command"
+            "text": "Docs Delete Command",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Dokümanlar Silme Komutu",
+                    "updated": 1654393420977,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Docs Repaginate Command"
+            "text": "Docs Repaginate Command",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Docs Repaginate Komutu",
+                    "updated": 1654393427084,
+                    "style": "List"
+                }
+            ]
         }
     ]
 }

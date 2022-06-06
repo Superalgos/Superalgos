@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Execution Finished Event - это событие, которое запускается процессами после завершения цикла выполнения. Событие транслируется всем, кто хочет слушать, чтобы другие боты могли узнать, когда процесс завершил свой цикл выполнения.",
                 "updated": 1638786041901
+            },
+            {
+                "language": "TR",
+                "text": "Yürütme tamamlandı olayı, süreçlerin bir yürütme döngüsünü tamamladıktan sonra tetikledikleri olaydır. Olay, dinlemek isteyen herkese yayınlanır, böylece diğer botlar sürecin yürütme döngüsünü ne zaman bitirdiğini öğrenebilir.",
+                "updated": 1654392461974
             }
         ]
     },
@@ -23,6 +28,12 @@
                     "language": "RU",
                     "text": "Событие завершения выполнения (Execution Finished Event) отвечает за запуск каждого процесса, который зависит от данных, производимых ботом. Если бот Алиса зависит от бота Боба, Алиса слушает событие завершения выполнения Боба, чтобы он мог начать новый цикл выполнения, как только Боб завершит свой цикл. Алиса слушает событие завершения выполнения Боба, устанавливая ссылку на событие запуска выполнения.",
                     "updated": 1638786137527
+                },
+                {
+                    "language": "TR",
+                    "text": "Yürütme tamamlandı olayı, bir botun ürettiği verilere bağlı olan her işlemin yürütülmesini tetiklemekten sorumludur. Alice botu Bob botuna bağlıysa, Alice Bob'un yürütme bitti olayını dinler, böylece Bob döngüsünü bitirir bitirmez yeni bir yürütme döngüsü başlatabilir. Alice, Bob'un yürütme başladı olayından bir referans oluşturarak Bob'un yürütme bitti olayını dinler.",
+                    "updated": 1654392467646,
+                    "style": "Text"
                 }
             ]
         }

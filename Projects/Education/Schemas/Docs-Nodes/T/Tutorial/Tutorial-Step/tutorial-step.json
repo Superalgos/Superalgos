@@ -372,11 +372,27 @@
         },
         {
             "style": "List",
-            "text": "\"On\""
+            "text": "\"On\"",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "\"Açık\"",
+                    "updated": 1654390501400,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "\"Off\""
+            "text": "\"Off\"",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "\"Kapalı\"",
+                    "updated": 1654390507044,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "Note",

@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Первый слой в модели нуждается в inputShape. Обязательно исключите размер партии при указании inputShape. Например, если вы планируете подавать в модель тензоры формы [B, 784], где B может быть любым размером партии, укажите inputShape как [784] при создании модели.",
                 "updated": 1645248215707
+            },
+            {
+                "language": "TR",
+                "text": "Modeldeki ilk katmanın bir inputShape'e ihtiyacı vardır. InputShape'i sağlarken batch boyutunu hariç tuttuğunuzdan emin olun. Örneğin, modeli [B, 784] şeklindeki tensörlerle beslemeyi planlıyorsanız, burada B herhangi bir yığın boyutu olabilir, modeli oluştururken inputShape'i [784] olarak belirtin.",
+                "updated": 1654397204415
             }
         ]
     },
@@ -20,6 +25,12 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
                     "updated": 1645248220738
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
+                    "updated": 1654397211611,
+                    "style": "Text"
                 }
             ]
         }

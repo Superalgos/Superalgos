@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Exchange Orders - это раздел структуры данных, в котором отслеживаются заявки всех типов.",
                 "updated": 1638785155490
+            },
+            {
+                "language": "TR",
+                "text": "Borsa emirleri, veri yapısının her türden emri takip eden bölümüdür.",
+                "updated": 1654392363071
             }
         ]
     },
@@ -33,6 +38,12 @@
                     "language": "RU",
                     "text": "Функция этого раздела торгового механизма - предоставить структуру данных для хранения информации об открытых и закрытых ордерах.",
                     "updated": 1638785210958
+                },
+                {
+                    "language": "TR",
+                    "text": "İşlem motorunun bu bölümünün işlevi, emirlerin açılıp kapanırken bilgilerini tutmak için veri yapısı sağlamaktır.",
+                    "updated": 1654392369456,
+                    "style": "Text"
                 }
             ]
         },
@@ -49,6 +60,12 @@
                     "language": "RU",
                     "text": "Ордера Orders организованы по типу, например рыночные ордера и лимитные ордера, а также по типу транзакции, например ордера на покупку или продажу.",
                     "updated": 1638785253669
+                },
+                {
+                    "language": "TR",
+                    "text": "Emirler, piyasa emirleri ve limit emirleri gibi türe göre ve ayrıca alım veya satım emirleri gibi işlem türüne göre düzenlenir.",
+                    "updated": 1654392376455,
+                    "style": "Text"
                 }
             ]
         },
@@ -65,6 +82,12 @@
                     "language": "RU",
                     "text": "В каждом разделе иерархии должно быть определено столько ордеров каждого типа, сколько торговая система способна разместить одновременно. Например, если алгоритм выполнения может разместить до трех лимитных ордеров на покупку для открытия позиции, то в разделе иерархии лимитные ордера на покупку должны существовать три лимитных ордера. Каждый ордер, определенный в торговой системе, должен ссылаться на структуру данных соответствующего типа ордера в торговом механизме.",
                     "updated": 1638785308564
+                },
+                {
+                    "language": "TR",
+                    "text": "Hiyerarşinin her bölümü, alım satım sisteminin eşzamanlı olarak verebileceği kadar her türden emir tanımına sahip olmalıdır. Örneğin, uygulama algoritması bir pozisyon açmak için en fazla üç limitli alım emri verebiliyorsa, hiyerarşinin limitli alım emirleri bölümü altında üç limitli emir bulunmalıdır. Alım satım sisteminde tanımlanan her emir, alım satım motorundaki eşleşen bir emir türünün veri yapısına referans vermelidir.",
+                    "updated": 1654392381972,
+                    "style": "Text"
                 }
             ]
         }

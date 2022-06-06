@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Параметризованная версия негерметичного выпрямленного линейного блока.",
                 "updated": 1645249508768
+            },
+            {
+                "language": "TR",
+                "text": "Sızdıran doğrultulmuş doğrusal birimin parametrelendirilmiş versiyonu.",
+                "updated": 1654397431593
             }
         ]
     },
@@ -21,6 +26,12 @@
                     "language": "RU",
                     "text": "Она подчиняется",
                     "updated": 1645249520396
+                },
+                {
+                    "language": "TR",
+                    "text": "Takip Ediyor",
+                    "updated": 1654397437519,
+                    "style": "Title"
                 }
             ]
         },
@@ -37,6 +48,12 @@
                     "language": "RU",
                     "text": "Input shape: Произвольный. Используйте конфигурацию inputShape при использовании этого слоя в качестве первого слоя в модели.",
                     "updated": 1645249528511
+                },
+                {
+                    "language": "TR",
+                    "text": "Giriş şekli: Keyfi. Bu katmanı bir modelde ilk katman olarak kullanırken inputShape yapılandırmasını kullanın.",
+                    "updated": 1654397443752,
+                    "style": "List"
                 }
             ]
         },
@@ -48,6 +65,12 @@
                     "language": "RU",
                     "text": "Output shape: Та же форма, что и у входа.",
                     "updated": 1645249535370
+                },
+                {
+                    "language": "TR",
+                    "text": "Çıkış şekli: Giriş ile aynı şekil.",
+                    "updated": 1654397449668,
+                    "style": "List"
                 }
             ]
         }

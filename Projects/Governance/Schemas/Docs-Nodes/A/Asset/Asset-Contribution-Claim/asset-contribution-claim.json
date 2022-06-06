@@ -30,7 +30,15 @@
         {
             "style": "Include",
             "text": "Governance->Concept->Reusable Governance Snippets->Claims Content",
-            "updated": 1630325363447
+            "updated": 1630325363447,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yönetişim->Kavram->Kullanılabilir Yönetişim Parçacıkları->Hak Talepleri İçeriği",
+                    "updated": 1654394431315,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Block",
@@ -44,6 +52,12 @@
                     "language": "RU",
                     "text": "Конфигурация",
                     "updated": 1639133552344
+                },
+                {
+                    "language": "TR",
+                    "text": "Konfigürasyon",
+                    "updated": 1654394437730,
+                    "style": "Title"
                 }
             ]
         }

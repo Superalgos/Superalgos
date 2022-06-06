@@ -158,7 +158,15 @@
         },
         {
             "style": "Anchor",
-            "text": "Products & Properties"
+            "text": "Products & Properties",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ürünler & Özellikler",
+                    "updated": 1654393189690,
+                    "style": "Anchor"
+                }
+            ]
         },
         {
             "style": "Title",

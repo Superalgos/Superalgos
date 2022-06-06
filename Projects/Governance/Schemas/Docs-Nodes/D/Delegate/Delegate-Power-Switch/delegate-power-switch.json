@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Используйте этот переключатель в качестве организационного устройства и создавайте узлы делегирования User Delegate.",
                 "updated": 1639139926960
+            },
+            {
+                "language": "TR",
+                "text": "Bu anahtarı bir organizasyon cihazı olarak kullanın ve Kullanıcı Temsilcisi düğümleri oluşturun.",
+                "updated": 1654394679046
             }
         ]
     },
@@ -25,6 +30,12 @@
                     "language": "RU",
                     "text": "Вы можете использовать этот переключатель для двух разных целей:",
                     "updated": 1639139938164
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu anahtarı iki farklı amaç için kullanabilirsiniz:",
+                    "updated": 1654394685016,
+                    "style": "Text"
                 }
             ]
         },
@@ -36,6 +47,12 @@
                     "language": "RU",
                     "text": "В качестве организационного устройства: вы можете создавать произвольные схемы, порождая больше переключателей и узлов User Delegate.",
                     "updated": 1639139991779
+                },
+                {
+                    "language": "TR",
+                    "text": "Organizasyonel bir araç olarak: Daha fazla anahtar ve Kullanıcı Temsilcisi düğümü oluşturarak rastgele düzenlemeler oluşturabilirsiniz.",
+                    "updated": 1654394691717,
+                    "style": "List"
                 }
             ]
         },
@@ -47,6 +64,12 @@
                     "language": "RU",
                     "text": "В качестве переключателя: вы можете управлять потоком Delegate Power, во многом как с помощью Token Power Switch, но в рамках программы Delegation Program. Если вам нужно напоминание, прочитайте пояснения Token Power Flow.",
                     "updated": 1639140099455
+                },
+                {
+                    "language": "TR",
+                    "text": "Anahtar olarak: Delege Gücünün akışını, tıpkı bir Token Güç Anahtarında olduğu gibi, ancak Delegasyon Programı içinde kontrol edebilirsiniz. Hatırlatmaya ihtiyacınız varsa, Token Gücünün nasıl Aktığını okuyun.",
+                    "updated": 1654394697676,
+                    "style": "List"
                 }
             ]
         },
@@ -62,6 +85,12 @@
                     "language": "RU",
                     "text": "Конфигурация",
                     "updated": 1639140110873
+                },
+                {
+                    "language": "TR",
+                    "text": "Konfigürasyon",
+                    "updated": 1654394703940,
+                    "style": "Title"
                 }
             ]
         }

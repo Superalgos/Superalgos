@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Core API - это API нижнего уровня для построения моделей.",
                 "updated": 1645196243690
+            },
+            {
+                "language": "TR",
+                "text": "Core API, model oluşturmak için kullanılan daha düşük seviyeli bir API'dir.",
+                "updated": 1654396855867
             }
         ]
     },
@@ -20,6 +25,12 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
                     "updated": 1645196249121
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
+                    "updated": 1654396863009,
+                    "style": "Text"
                 }
             ]
         }

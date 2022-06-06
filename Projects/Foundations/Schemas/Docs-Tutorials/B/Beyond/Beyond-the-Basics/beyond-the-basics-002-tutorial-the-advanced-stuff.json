@@ -1,6 +1,6 @@
 {
     "tutorial": "Beyond the Basics",
-    "pageNumber": 2,
+    "pageNumber": "2",
     "type": "Tutorial - The Advanced Stuff!",
     "definition": {
         "text": "You're still around, now with the first two tutorials under your belt! You're family already! Welcome to the Community!",
@@ -117,6 +117,12 @@
                     "language": "DE",
                     "text": "Übrigens, wenn Du zum Projekt beiträgst, erhältst Du Superalgos (SA) Token! Klicke, um mehr zu erfahren!->superalgos.org/token-overview.shtml",
                     "updated": 1634819622423
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu arada, projeye katkıda bulunmak size Superalgos (SA) jetonları kazandırıyor! Daha fazlasını öğrenmek için tıklayın!->superalgos.org/token-overview.shtml",
+                    "updated": 1654393892890,
+                    "style": "Link"
                 }
             ]
         }

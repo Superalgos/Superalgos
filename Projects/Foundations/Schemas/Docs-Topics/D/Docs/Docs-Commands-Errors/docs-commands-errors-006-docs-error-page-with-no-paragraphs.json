@@ -1,6 +1,6 @@
 {
     "topic": "Docs Commands Errors",
-    "pageNumber": 6,
+    "pageNumber": "6",
     "type": "Docs Error - Page With No Paragraphs",
     "definition": {
         "text": "The page exists but it's empty.",
@@ -26,7 +26,8 @@
     "paragraphs": [
         {
             "style": "Anchor",
-            "text": "Anchor Page With No Paragraphs"
+            "text": "Anchor Page With No Paragraphs",
+            "translations": [ ]
         },
         {
             "style": "Error",
@@ -81,12 +82,26 @@
                     "language": "RU",
                     "text": "Относится к",
                     "updated": 1638529734071
+                },
+                {
+                    "language": "TR",
+                    "text": "Şunlar için geçerlidir",
+                    "updated": 1654393508703,
+                    "style": "Title"
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Docs Goto Command"
+            "text": "Docs Goto Command",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Docs Goto Komutu",
+                    "updated": 1654393514273,
+                    "style": "List"
+                }
+            ]
         }
     ]
 }

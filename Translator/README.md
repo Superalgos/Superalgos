@@ -27,10 +27,14 @@ No. In the project, many checks are made to ensure that the json file structure 
 * Windows 10+ (It does not work on Linux operating system yet)
 * Java 11+ (You can download it from https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html)
 * https://java.tutorials24x7.com/blog/how-to-install-java-11-on-windows
-* Chromedriver.exe (You can download it from https://chromedriver.storage.googleapis.com/102.0.5005.61/chromedriver_win32.zip. Copy chromedriver.exe in the zip file to a desired location and add the folder containing chromedriver.exe to the "PATH" Environment Variable. For help, you can visit https://www.computerhope.com/issues/ch000549.htm.)
+* Chromedriver.exe (You can download it from https://chromedriver.storage.googleapis.com/102.0.5005.61/chromedriver_win32.zip.)
+* Copy chromedriver.exe in the zip file to C:\Windows\System32\ OR a desired location and add the folder containing chromedriver.exe to the "PATH" Environment Variable. For help, you can visit https://www.computerhope.com/issues/ch000549.htm.)
+
 
 ### How to use?
-* Go to the bin folder with `cd ./Translator/bin` command.
+* Go to the Translator folder with `cd ./Translator` command.
+* Run `.\mvnw clean package` command.
+* Run `cd .\bin`
 * `java -jar translator.jar` command to see the usage and list of supported languages.
 * Start the translate process with `java -jar translator.jar <root folder> <language code>` command.
 * Example: `java -jar translator.jar C:\Superalgos tr-TR`

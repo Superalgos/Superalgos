@@ -243,7 +243,7 @@ exports.newDataMiningBotModulesFromOneMinToMultiTimeFrameDaily = function (proce
                 }
             }
 
-            function writeDataRanges(callBack) {
+            function writeDataRanges() {
                 let outputDatasets = SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(
                     TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
                 let outputDatasetIndex = -1;

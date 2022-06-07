@@ -486,15 +486,22 @@ exports.newFoundationsFunctionLibrariesFromOneMinToMultiTimeFrameFunctions = fun
             for (let j = 0; j < node.outputDataset.referenceParent.parentNode.record.properties.length; j++) {
                 let property = node.outputDataset.referenceParent.parentNode.record.properties[j]
 
-                if (property.config.isString === true || property.config.isDate === true) {
+                if (property.config.isString === true) {
+                    let recordsValues = JSON.parse(JSON.stringify(dependencyDailyFile))
+                    let stringRecordsValues = JSON.stringify(recordsValues)
+                    outputElement[property.config.codeName] = stringRecordsValues          // Default Value to String
+                } 
+                else if (property.config.isDate === true) {
                     outputElement[property.config.codeName] = ""            // Default Value
-                } else {
-                    outputElement[property.config.codeName] = 0             // Default Value
-                }
-                if (property.config.isBoolean === true) {
+                } 
+                else if (property.config.isBoolean === true) {
                     outputElement[property.config.codeName] = false         // Default Value
                 }
+                else {
+                    outputElement[property.config.codeName] = 0             // Default Value
+                }
             }
+            
             /*
             Setting the begin and end for this element.
             */

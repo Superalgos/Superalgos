@@ -26,7 +26,7 @@ public class TranslatorRunBean {
             changeFileNamesService.change(dir);
             System.exit(0);
         } else if (args.length < 2) {
-            System.out.println("java -jar superalgostranslate-0.0.1-SNAPSHOT.jar <rootFolderName> <targetLanguage>");
+            System.out.println("java -jar translator.jar <rootFolderName> <targetLanguage>");
             System.out.println("Supported Target languages: ");
             StringBuilder languages = new StringBuilder();
             for (TargetLanguage value : TargetLanguage.values()) {

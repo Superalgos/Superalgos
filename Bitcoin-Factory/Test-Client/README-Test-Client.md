@@ -397,10 +397,12 @@ This error occurs when the signing account does not match the Governance plugin 
 Add the correct nodes, references and signing account to the plugin as detailed in [App Setup](#app-setup). Save the plugin and push the changes to the Governance repository and wait 10 minutes for it to merge and be picked up by the Forecast Server.
 
 ### Unexpected Error
-```unexpected error trying to execute a python script inside the docker container"
+```sh
+unexpected error trying to execute a python script inside the docker container"
 ```
 This error relates to an incorrect path when launching the docker container. Ensure the path to the notebooks directory is correct in the docker run command. 
 
 After launching the docker container, the path can be verified by using the following command to run a test model:
-```docker exec -it Bitcoin-Factory-ML python /tf/notebooks/Bitcoin_Factory_LSTM.py
+```sh
+docker exec -it Bitcoin-Factory-ML python /tf/notebooks/Bitcoin_Factory_LSTM.py
 ```

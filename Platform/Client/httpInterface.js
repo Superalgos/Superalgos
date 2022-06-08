@@ -1556,6 +1556,9 @@ exports.newHttpInterface = function newHttpInterface() {
                                                 result: global.CUSTOM_OK_RESPONSE.result,
                                                 message: result.message
                                             }
+                                            if(result.message.reposUpdated === true) {
+                                                SA.restartRequired = true
+                                            }
                                             SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(customResponse), httpResponse)
                                         } else {
 
@@ -1636,6 +1639,27 @@ exports.newHttpInterface = function newHttpInterface() {
                             } catch (err) {
                                 console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Update -> Method call produced an error.')
                                 console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Update -> err.stack = ' + err.stack)
+
+                                let error = {
+                                    result: 'Fail Because',
+                                    message: err.message,
+                                    stack: err.stack
+                                }
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
+                            }
+                            break
+                        }
+
+                        case 'RestartRequired': {
+                            try {
+                                let customResponse = {
+                                    result: global.CUSTOM_OK_RESPONSE.result,
+                                    message: SA.restartRequired
+                                }
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(customResponse), httpResponse)
+                            } catch (err) {
+                                console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> RestartRequired -> Method call produced an error.')
+                                console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> RestartRequired -> err.stack = ' + err.stack)
 
                                 let error = {
                                     result: 'Fail Because',

@@ -1239,7 +1239,6 @@ function newFoundationsNodeActionSwitch() {
                 {
 
                     let config = JSON.parse(action.node.config)
-                    let branch
 
                     httpRequest(undefined, 'http://' + config.host + ':' + config.webPort + '/App/Branch/', onBranchResponse)
 

@@ -527,6 +527,11 @@
                     "language": "EL",
                     "text": "Plugin Workspaces (Χώροι Εργασίας Πρόσθετων)",
                     "updated": 1641830046311
+                },
+                {
+                    "language": "TR",
+                    "text": "Eklenti Çalışma Alanları",
+                    "updated": 1654762697160
                 }
             ]
         },
@@ -555,6 +560,11 @@
                     "language": "EL",
                     "text": "Το Superalgos έρχεται με πολλούς Plugin Workspaces (Χώρους Εργασίας Πρόσθετων). Αυτοί είναι προ διαμορφωμένοι χώροι εργασίας που έχουν δημιουργηθεί για συγκεκριμένους σκοπούς, για παράδειγμα, για τη φιλοξενία σεμιναρίων, στρατηγικών επίδειξης, συγκεκριμένων έργων και ούτω καθεξής.",
                     "updated": 1641830073316
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos çeşitli Eklenti Çalışma Alanları (Plugin Workspaces) ile birlikte gelir. Bunlar belirli amaçlar için önceden yapılandırılmış çalışma alanlarıdır, örneğin öğreticileri, demo stratejilerini, belirli projeleri vb. barındırmak için.",
+                    "updated": 1654762734451
                 }
             ]
         },
@@ -583,6 +593,11 @@
                     "language": "EL",
                     "text": "Στην καρτέλα Χώροι εργασίας, οι χώροι εργασίας των πρόσθετων επισημαίνονται με τις λέξεις \"χώρος εργασίας προσθήκης\" και διαθέτουν μαύρο φόντο, ώστε να μπορείτε να τους διαφοροποιήσετε από τους δικούς σας χώρους εργασίας.",
                     "updated": 1641830085955
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışma alanları (Workspace) sekmesinde, eklenti çalışma alanları \"Eklenti Çalışma Alanı\" (Plugin Workspace) sözcükleriyle işaretlenir ve kaydettiğiniz kendi çalışma alanlarınızdan ayırt edebilmeniz için siyah bir arka plana sahiptir.",
+                    "updated": 1654762797930
                 }
             ]
         },
@@ -611,6 +626,11 @@
                     "language": "EL",
                     "text": "Όταν φορτώνετε, τροποποιείτε και αποθηκεύετε έναν Plugin Workspace (Χώρο Εργασίας Πρόσθετων), το πραγματικό αρχείο του πρόσθετου παραμένει άθικτο, δηλαδή, το πρόσθετο δεν τροποποιείται. Αντίθετα, δημιουργείται ένα νέο αρχείο στο φάκελο My-Workspaces. Αυτό το αρχείο είναι ένα αντίγραφο του χώρου εργασίας του πρόσθετου που περιλαμβάνει τις τροποποιήσεις που εισαγάγατε. Το αντίγραφο αποθηκεύεται με το όνομα του κόμβου Χώρου Εργασίας, το οποίο είναι συνήθως το ίδιο όνομα με το πρόσθετο. Για να αποθηκεύσετε το χώρο εργασίας με διαφορετικό όνομα, πρέπει να αλλάξετε το όνομα του κόμβου του χώρου εργασίας και να το αποθηκεύσετε.",
                     "updated": 1641830110805
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Eklenti Çalışma Alanını (Plugin Workspace) yüklediğinizde, değiştirdiğinizde ve kaydettiğinizde, asıl eklenti dosyası olduğu gibi kalır, yani eklenti değiştirilmez. Bunun yerine, My-Workspaces klasöründe yeni bir dosya oluşturulur. Bu dosya, eklenti çalışma alanının sizin yaptığınız değişiklikleri içeren bir kopyasıdır. Kopya, genellikle eklentiyle aynı ad olan Çalışma Alanı düğümünün adıyla kaydedilir. Çalışma alanını farklı bir adla kaydetmek için Çalışma Alanı düğümünün adını değiştirmeniz ve kaydetmeniz gerekir.",
+                    "updated": 1654762862636
                 }
             ]
         },
@@ -638,6 +658,11 @@
                     "language": "EL",
                     "text": "Creating Workspaces (Δημιουργία Χώρων Εργασίας)",
                     "updated": 1641830128218
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışma Alanlarını Oluşturma",
+                    "updated": 1654762881660
                 }
             ]
         },
@@ -659,6 +684,11 @@
                     "language": "EL",
                     "text": "Για να δημιουργήσετε έναν νέο χώρο εργασίας, μετονομάστε οποιονδήποτε από τους υπάρχοντες χώρους εργασίας αλλάζοντας την ετικέτα του κόμβου χώρου εργασίας και αποθηκεύστε τον όπως εξηγήθηκε παραπάνω. Αφού αλλάξετε την ετικέτα και αφού αποθηκευτεί ο χώρος εργασίας (με οποιοδήποτε από τα συνήθη μέσα), αποθηκεύεται ένα νέο αρχείο στο φάκελο My-Workspaces.",
                     "updated": 1641830146595
+                },
+                {
+                    "language": "TR",
+                    "text": "Yeni bir çalışma alanı oluşturmak için, çalışma alanı düğümünün etiketini değiştirerek mevcut çalışma alanlarından herhangi birini yeniden adlandırın ve yukarıda açıklandığı gibi kaydedin. Etiketi değiştirdikten ve çalışma alanı kaydedildikten sonra (normal yollardan herhangi biriyle), Çalışma Alanlarım (My Workspaces) klasöründe yeni bir dosya olarak saklanır.",
+                    "updated": 1654762946402
                 }
             ]
         },
@@ -681,6 +711,11 @@
                     "language": "EL",
                     "text": "Το Πρόσθετο Κενό Πρότυπο Χώρου Εργασίας είναι το καλύτερο για να ξεκινήσετε εάν θέλετε να δημιουργήσετε τη δική σας σύνθεση.",
                     "updated": 1641830213361
+                },
+                {
+                    "language": "TR",
+                    "text": "Boş Şablon Eklentisi Çalışma Alanı (The Blank Template Plugin Workspace) , kendi kurulumunuzu oluşturmak istiyorsanız başlamak için en iyisidir.",
+                    "updated": 1654763011045
                 }
             ]
         },
@@ -708,6 +743,11 @@
                     "language": "EL",
                     "text": "Deleting Workspaces (Διαγραφή Χώρων Εργασίας)",
                     "updated": 1641830201923
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışma Alanlarını Silmek",
+                    "updated": 1654763025181
                 }
             ]
         },
@@ -735,6 +775,11 @@
                     "language": "EL",
                     "text": "Για να διαγράψετε έναν χώρο εργασίας, διαγράψτε το αντίστοιχο αρχείο χώρου εργασίας μέσα από την εφαρμογή συστήματος αρχείων του λειτουργικού σας συστήματος.",
                     "updated": 1641830192466
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir çalışma alanını silmek için, işletim sisteminizin dosya sistemi uygulaması içinden ilgili çalışma alanı dosyasını silin.",
+                    "updated": 1654763041517
                 }
             ]
         }

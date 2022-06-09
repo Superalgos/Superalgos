@@ -33,6 +33,11 @@
                     "language": "RU",
                     "text": "Каждая задача управляет одним ботом. Экземпляр бота, выполняющий свою собственную задачу, не зависит от других ботов на уровне операционной системы, поэтому на него могут не повлиять ошибки, возникающие в этих других ботах.",
                     "updated": 1638359782668
+                },
+                {
+                    "language": "TR",
+                    "text": "Her görev tek bir botu kontrol eder. Kendi görevi üzerinde çalışan bir bot örneği, işletim sistemi düzeyinde diğer botlardan bağımsızdır, bu nedenle diğer botlarda meydana gelen hatalardan etkilenmeyebilir.",
+                    "updated": 1654765522507
                 }
             ]
         },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "При запуске задачи запускается экземпляр процесса экземпляра бота, прикрепленного к задаче. Кроме того, вокруг соответствующих узлов отображается визуальная индикация того, что и задача, и экземпляр процесса выполняются, в виде кольца выполнения.",
                     "updated": 1638359913347
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir görev başlatıldığında, göreve bağlı bot örneğinin (Bot Instance) işlem örneği (Process Instance) başlatılır. Ayrıca, hem görevin hem de süreç örneğinin çalıştığına dair görsel bir gösterge, ilgili düğümleri çevreleyen bir ilerleme halkası şeklinde görünür.",
+                    "updated": 1654765604156
                 }
             ]
         },

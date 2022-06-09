@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Низкочастотный торговый бот управляет реальными ордерами, создает симуляцию, синхронизированную с событиями, происходящими на бирже, и ведет учет для поддержания всей торговой информации в порядке.",
                 "updated": 1640152203531
+            },
+            {
+                "language": "TR",
+                "text": "Düşük Frekanslı ticaret botu (Low-Frequency Trading Bot) canlı emirleri yönetir, borsada meydana gelen olaylarla senkronize olan bir simülasyon üretir ve tüm ticaret bilgilerini düzenli tutmak için muhasebe yapar.",
+                "updated": 1654760807010
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Управление ордерами лежит в основе компетенции низкочастотного торгового бота.",
                     "updated": 1640152321797
+                },
+                {
+                    "language": "TR",
+                    "text": "Emirlerin yönetimi, Düşük Frekanslı ticaret botunun yetkinliğinin merkezinde yer alır.",
+                    "updated": 1654760830465
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Этот процесс имеет некоторые тонкости, поскольку он включает в себя обработку ордеров на бирже, а также создание симуляции. Система должна быть синхронизирована с тем, что происходит на бирже, чтобы мониторинг торговой сессии на экране, счета и вся торговая информация отражали реальность.",
                     "updated": 1640152348637
+                },
+                {
+                    "language": "TR",
+                    "text": "Süreç, borsadaki emirlerin işlenmesinin yanı sıra bir simülasyon üretmeyi de içerdiğinden bazı karmaşıklıklara sahiptir. İşlem seansının, hesapların ve tüm işlem bilgilerinin ekranda izlenmesinin gerçeği yansıtması için sistemin borsada olanlarla senkronize edilmesi gerekir.",
+                    "updated": 1654760889089
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "RU",
                     "text": "Понимание того, как торговый бот управляет ордерами, поможет вам извлечь максимальную пользу из Superalgos. Эти знания позволят вам выйти за рамки простых настроек торговых систем и расширить границы возможного с помощью более сложных или необычных определений.",
                     "updated": 1640152380182
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret botunun emirleri nasıl yönettiğini anlamak, Superalgos'tan en iyi şekilde yararlanmanıza yardımcı olacaktır. Bu bilgi, basit ticaret sistemi kurulumlarını aşmanıza ve daha ayrıntılı veya olağandışı tanımlarla yapabileceklerinizin sınırlarını genişletmenize olanak tanıyacaktır.",
+                    "updated": 1654760920426
                 }
             ]
         },
@@ -56,6 +76,11 @@
                     "language": "RU",
                     "text": "На следующих страницах представлено хронологическое описание жизни ордера, начиная с момента считывания определений ордеров в торговой системе и заканчивая ведением учета.",
                     "updated": 1640152409916
+                },
+                {
+                    "language": "TR",
+                    "text": "İlerleyen sayfalarda, emirlerin ticaret sistemi tanımlarının okunduğu andan muhasebeleştirme yapılana kadar bir emrin ömrünün kronolojik bir açıklaması yer almaktadır.",
+                    "updated": 1654760945653
                 }
             ]
         },
@@ -67,6 +92,11 @@
                     "language": "RU",
                     "text": "Как только ордер создан, он сохраняется при каждом запуске торгового бота. В этот момент бот обрабатывает два параллельных задания:",
                     "updated": 1640152496860
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir emir oluşturulduktan sonra, ticaret botunun her yürütülmesinde korunur. Bu noktada, bot iki paralel işi yürütür:",
+                    "updated": 1654760979060
                 }
             ]
         },
@@ -78,6 +108,11 @@
                     "language": "RU",
                     "text": "В случае форвардного тестирования и реальных торговых сессий обслуживание ордеров предполагает работу с биржей и реальными ордерами.",
                     "updated": 1640152512567
+                },
+                {
+                    "language": "TR",
+                    "text": "Forward Test  ve  Live Trade seanslarında, emirlerin sürdürülmesi borsa ve canlı emirlerle ilgilenmeyi içerir.",
+                    "updated": 1654761039885
                 }
             ]
         },
@@ -89,6 +124,11 @@
                     "language": "RU",
                     "text": "В случае бэктестинга и бумажных торговых сессий бот имитирует эти взаимодействия, работая с имитированными ордерами.",
                     "updated": 1640152529220
+                },
+                {
+                    "language": "TR",
+                    "text": "Backtest ve Paper Trade seansları söz konusu olduğunda, bot simüle edilmiş emirlerle uğraşırken bu etkileşimleri simüle eder.",
+                    "updated": 1654761077705
                 }
             ]
         },
@@ -101,6 +141,11 @@
                     "language": "RU",
                     "text": "Весь этот раздел предполагает, что вы знакомы с торговыми системами. Обязательно прочитайте о них сначала, если вы не знакомы.",
                     "updated": 1640152551814
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu bölümün tamamı, ticaret sistemlerine aşina olduğunuzu varsaymaktadır. Eğer emin değilseniz ticeret sistemleri (Trading System) hakkında daha fazla belgeyi okuyarak bilgilerinizi genişletmeniz gerekmektedir.",
+                    "updated": 1654761175095
                 }
             ]
         },
@@ -113,6 +158,11 @@
                     "language": "RU",
                     "text": "Остальные страницы этого раздела представляют собой подробный, пошаговый отчет о действиях, которые выполняет низкочастотный торговый бот при работе с ордерами. Вы получите максимальную пользу от этого содержания, если прочитаете всю последовательность страниц в предложенном порядке.",
                     "updated": 1640152576402
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu bölümdeki sayfaların geri kalanı, Düşük Frekanslı ticaret botunun emirlerle uğraşırken gerçekleştirdiği eylemlerin ayrıntılı, adım adım bir açıklamasıdır. Önerilen sırayla tüm sayfa dizisini okursanız bu içerikten en iyi şekilde yararlanabilirsiniz.",
+                    "updated": 1654761206578
                 }
             ]
         }

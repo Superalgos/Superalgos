@@ -240,6 +240,8 @@ function newEventsServerClient(lanNetworkNode) {
             if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.CUSTOM_OK_RESPONSE.result) {
                 if (data.message === true) {
                     lanNetworkNode.payload.uiObject.setValue('Restart Required', 15000)
+                } else {
+                    lanNetworkNode.payload.uiObject.resetValue()
                 }
             }
         }

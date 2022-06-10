@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Task Manager - это устройство, используемое для организации и управления любым количеством задач, которые, в свою очередь, управляют экземплярами ботов. Вы используете Task Manager для запуска или остановки нескольких задач одновременно.",
                 "updated": 1638359581931
+            },
+            {
+                "language": "TR",
+                "text": "Görev yöneticisi, herhangi bir sayıda görevi düzenlemek ve kontrol etmek için kullanılan bir cihazdır ve bot örneklerini kontrol eder. Aynı anda birkaç görevi başlatmak veya durdurmak için bir görev yöneticisi kullanabilirsiniz.",
+                "updated": 1654763160689
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "language": "RU",
                     "text": "Диспетчеры задач используются как в контексте интеллектуального анализа данных, так и в торговых операциях, чтобы облегчить организацию задач Task.",
                     "updated": 1638359627797
+                },
+                {
+                    "language": "TR",
+                    "text": "Görev (Task)  yöneticileri, görevlerin düzenlenmesini kolaylaştırmak için hem veri madenciliği hem de ticaret işlemleri bağlamında kullanılır.",
+                    "updated": 1654763191103
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "language": "RU",
                     "text": "Например, вы можете настроить диспетчер задач для обработки задач, связанных с определенным набором индикаторов, используемых с определенной стратегией. Или, например, организовать несколько сеансов тестирования на истории.",
                     "updated": 1638359653430
+                },
+                {
+                    "language": "TR",
+                    "text": "Örneğin, belirli bir stratejiyle kullanılan belirli bir gösterge setiyle ilgili görevleri yerine getirmek için bir görev yöneticisi kurabilirsiniz. Veya, örneğin, birden fazla geriye dönük test oturumu düzenlemek için.",
+                    "updated": 1654763210204
                 }
             ]
         },

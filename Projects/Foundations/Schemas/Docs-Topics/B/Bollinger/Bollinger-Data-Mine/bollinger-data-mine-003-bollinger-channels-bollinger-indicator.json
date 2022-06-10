@@ -1,6 +1,6 @@
 {
     "topic": "Bollinger Data Mine",
-    "pageNumber": 3,
+    "pageNumber": "3",
     "type": "Bollinger Channels - Bollinger Indicator",
     "definition": {
         "text": "The indicator produces the Bollinger Channels and Bollinger Sub-Channels products.",
@@ -85,7 +85,15 @@
         },
         {
             "style": "Anchor",
-            "text": "Bollinger Sub-Channels"
+            "text": "Bollinger Sub-Channels",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bollinger Alt Kanalları",
+                    "updated": 1654393195509,
+                    "style": "Anchor"
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -126,7 +134,15 @@
         },
         {
             "style": "Anchor",
-            "text": "Products & Properties"
+            "text": "Products & Properties",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ürünler & Özellikler",
+                    "updated": 1654393201207,
+                    "style": "Anchor"
+                }
+            ]
         },
         {
             "style": "Title",
@@ -239,7 +255,15 @@
         {
             "style": "Anchor",
             "text": "Bollinger Sub-Channels 2",
-            "updated": 1610468483005
+            "updated": 1610468483005,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bollinger Alt Kanalları 2",
+                    "updated": 1654393206864,
+                    "style": "Anchor"
+                }
+            ]
         },
         {
             "style": "Subtitle",

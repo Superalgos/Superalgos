@@ -34,6 +34,12 @@
                     "language": "RU",
                     "text": "Необязательность",
                     "updated": 1638646990995
+                },
+                {
+                    "language": "TR",
+                    "text": "Opsiyonellik",
+                    "updated": 1654391506731,
+                    "style": "Title"
                 }
             ]
         },
@@ -159,7 +165,15 @@
         {
             "style": "Include",
             "text": "Foundations->Topic->Why My Stage is not Closing?->The Stage Does Not Close",
-            "updated": 1615054694042
+            "updated": 1615054694042,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Vakıflar->Topik->Sahnem Neden Kapanmıyor ->Sahne Kapanmıyor",
+                    "updated": 1654391512840,
+                    "style": "Include"
+                }
+            ]
         }
     ]
 }

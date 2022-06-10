@@ -250,59 +250,171 @@
         },
         {
             "style": "Subtitle",
-            "text": "Onboarding Programs"
+            "text": "Onboarding Programs",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İşe Alım Programları",
+                    "updated": 1654394882838,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Airdrop Program"
+            "text": "Airdrop Program",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Airdrop Programı",
+                    "updated": 1654394888372,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Github Program"
+            "text": "Github Program",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Github Programı",
+                    "updated": 1654394895635,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Community Building Programs"
+            "text": "Community Building Programs",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Topluluk Oluşturma Programları",
+                    "updated": 1654394901089,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Referral Program"
+            "text": "Referral Program",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yönlendirme Programı",
+                    "updated": 1654394906668,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Support Program"
+            "text": "Support Program",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Destek Programı",
+                    "updated": 1654394912234,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Mentroship Program"
+            "text": "Mentroship Program",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Mentorluk Programı",
+                    "updated": 1654394917799,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Influencer Program"
+            "text": "Influencer Program",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Influencer Programı",
+                    "updated": 1654394923887,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Votes and Claims Programs"
+            "text": "Votes and Claims Programs",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Oylar ve Hasar Programları",
+                    "updated": 1654394930054,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Votes Program"
+            "text": "Votes Program",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Oy Programı",
+                    "updated": 1654394936416,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Claims Program"
+            "text": "Claims Program",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Tazminat Programı",
+                    "updated": 1654394942472,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Financial Programs"
+            "text": "Financial Programs",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Finansal Programlar",
+                    "updated": 1654394948922,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Staking Program"
+            "text": "Staking Program",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Staking Programı",
+                    "updated": 1654394955643,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Delegation Program"
+            "text": "Delegation Program",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Delegasyon Programı",
+                    "updated": 1654394961431,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -317,19 +429,51 @@
         },
         {
             "style": "List",
-            "text": "Pools"
+            "text": "Pools",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Havuzlar",
+                    "updated": 1654394967285,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Assets"
+            "text": "Assets",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Varlıklar",
+                    "updated": 1654394973333,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Features"
+            "text": "Features",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1654394980084,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Positions"
+            "text": "Positions",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Pozisyonlar",
+                    "updated": 1654394987200,
+                    "style": "List"
+                }
+            ]
         }
     ]
 }

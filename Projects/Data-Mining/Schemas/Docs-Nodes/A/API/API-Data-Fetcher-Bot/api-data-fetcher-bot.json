@@ -46,12 +46,28 @@
         },
         {
             "style": "Include",
-            "text": "Foundations->Topic->Data Mining - Fetching Data From APIs->Main Workflow"
+            "text": "Foundations->Topic->Data Mining - Fetching Data From APIs->Main Workflow",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Foundations->Topic->Data Mining - API'lerden Veri Getirme->Ana İş Akışı",
+                    "updated": 1654390398261,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Include",
             "text": "Foundations->Topic->Data Mining - Fetching Data From APIs->Step By Step",
-            "updated": 1622120795620
+            "updated": 1622120795620,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Foundations->Topic->Veri Madenciliği - API'lerden Veri Getirme->Adım Adım",
+                    "updated": 1654390404368,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Title",
@@ -107,7 +123,15 @@
         {
             "style": "List",
             "text": "apiEndpoint this property defines the endpoint with which the current fetcher bot will connect to from the API Map. It needs to match the codeName of the appropriate API Endpoint node.",
-            "updated": 1653143444187
+            "updated": 1653143444187,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "apiEndpoint bu özellik, geçerli fetcher botunun API Haritasından bağlanacağı uç noktayı tanımlar. Uygun API Uç Noktası düğümünün codeName'i ile eşleşmesi gerekir.",
+                    "updated": 1654390410306,
+                    "style": "List"
+                }
+            ]
         }
     ]
 }

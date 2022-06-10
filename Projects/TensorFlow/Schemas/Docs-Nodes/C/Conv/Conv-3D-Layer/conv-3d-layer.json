@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Слой трехмерной свертки (например, пространственная свертка по объемам). Этот слой создает ядро свертки, которое свертывается с входом слоя для получения тензора выходов.",
                 "updated": 1645196193449
+            },
+            {
+                "language": "TR",
+                "text": "3D konvolüsyon katmanı (örneğin hacimler üzerinde uzamsal konvolüsyon). Bu katman, bir çıktı tensörü üretmek için katman girdisi ile konvolüsyonlanan bir konvolüsyon çekirdeği oluşturur.",
+                "updated": 1654396830560
             }
         ]
     },
@@ -20,6 +25,12 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
                     "updated": 1645196198346
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
+                    "updated": 1654396837369,
+                    "style": "Text"
                 }
             ]
         }

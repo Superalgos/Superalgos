@@ -1,6 +1,6 @@
 {
     "tutorial": "Testing a Trading Idea - The Trigger Stage",
-    "pageNumber": 1,
+    "pageNumber": "1",
     "type": "Testing a Trading Idea - The Trigger Stage Tutorial",
     "definition": {
         "text": "This tutorial walks you through the implementation of the trading idea defined in the previous tutorial, covering the definitions of the Trigger Stage.",
@@ -38,16 +38,38 @@
                     "language": "RU",
                     "text": "Об этом учебнике",
                     "updated": 1640933099673
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu Eğitim Hakkında",
+                    "updated": 1654394139942,
+                    "style": "Title"
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Workspace: Trading System Design Tutorials."
+            "text": "Workspace: Trading System Design Tutorials.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Çalışma alanı: Ticaret Sistemi Tasarımı Eğitimleri.",
+                    "updated": 1654394146020,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Maintainer: @julianmolina (Telegram)."
+            "text": "Maintainer: @julianmolina (Telegram).",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bakımcı: @julianmolina (Telegram).",
+                    "updated": 1654394153226,
+                    "style": "List"
+                }
+            ]
         }
     ]
 }

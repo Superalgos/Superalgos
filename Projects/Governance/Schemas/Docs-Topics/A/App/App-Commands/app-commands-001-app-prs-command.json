@@ -28,6 +28,12 @@
                     "language": "RU",
                     "text": "Добавьте дополнительный текст здесь.",
                     "updated": 1645627904679
+                },
+                {
+                    "language": "TR",
+                    "text": "Buraya daha fazla metin ekleyin.",
+                    "updated": 1654394864985,
+                    "style": "Text"
                 }
             ]
         }

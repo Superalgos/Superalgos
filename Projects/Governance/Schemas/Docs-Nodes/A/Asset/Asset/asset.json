@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Asset - это изделие, в основном в цифровом формате, который принадлежит проекту Project. Это может быть файл кода, страница документации или учебника, изображение, видео, учетная запись в социальных сетях или даже сообщение, маркетинговое обеспечение и многое другое. Чтобы стимулировать производство и обслуживание изделий, узел может получать весовые голоса Weight Votes. Он также может получать требования о взносах Contribution Claims от участников Contributors, участвующих в их производстве и обслуживании.",
                 "updated": 1638606457884
+            },
+            {
+                "language": "TR",
+                "text": "Varlık, çoğunlukla dijital formatta olan ve bir Projeye ait olan bir eserdir. Bir kod dosyası, bir dokümantasyon veya eğitim sayfası, bir resim, bir video, bir sosyal medya hesabı veya hatta bir gönderi, pazarlama teminatı ve daha fazlası olabilir. Varlıkların üretimini ve bakımını teşvik etmek için düğüm Ağırlık Oyları alabilir. Ayrıca, üretim ve bakımlarında yer alan Katılımcılardan Katkı Talepleri de alabilir.",
+                "updated": 1654394480398
             }
         ]
     },
@@ -26,6 +31,12 @@
                     "language": "RU",
                     "text": "Вы можете отдавать голоса Weight Votes по отдельным узлам изделия, чтобы стимулировать улучшение, развитие и обслуживание указанного изделия.",
                     "updated": 1638606543678
+                },
+                {
+                    "language": "TR",
+                    "text": "Söz konusu varlığın iyileştirilmesini, geliştirilmesini ve bakımını teşvik etmek için tek tek Varlık düğümlerine Ağırlık Oyları verebilirsiniz.",
+                    "updated": 1654394486201,
+                    "style": "Text"
                 }
             ]
         },
@@ -38,6 +49,12 @@
                     "language": "RU",
                     "text": "Если вы участвуете в разработке или обслуживании указанного изделия, вы можете подать заявление об Asset Contribution Claim и сплотить сообщество для поддержки вашего требования, чтобы вы могли быть вознаграждены за свою работу.",
                     "updated": 1638606669194
+                },
+                {
+                    "language": "TR",
+                    "text": "Söz konusu varlığın geliştirilmesinde veya bakımında yer alıyorsanız, bir Varlık Katkı Talebinde bulunabilir ve çalışmalarınızın karşılığını alabilmeniz için Topluluğu talebinizi desteklemeye çağırabilirsiniz.",
+                    "updated": 1654394492405,
+                    "style": "Text"
                 }
             ]
         },
@@ -53,6 +70,12 @@
                     "language": "RU",
                     "text": "Конфигурация",
                     "updated": 1638606682435
+                },
+                {
+                    "language": "TR",
+                    "text": "Konfigürasyon",
+                    "updated": 1654394498249,
+                    "style": "Title"
                 }
             ]
         },

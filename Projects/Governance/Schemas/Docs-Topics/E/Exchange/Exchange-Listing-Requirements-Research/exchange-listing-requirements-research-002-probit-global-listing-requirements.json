@@ -74,7 +74,15 @@
         {
             "style": "Link",
             "text": "Exchange URL->www.probit.com",
-            "updated": 1628519777927
+            "updated": 1628519777927,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Exchange URL->www.probit.com",
+                    "updated": 1654394999387,
+                    "style": "Link"
+                }
+            ]
         },
         {
             "style": "List",
@@ -91,7 +99,15 @@
         {
             "style": "Link",
             "text": "Listing requirements->www.probit.com/en-us/listing",
-            "updated": 1628510672736
+            "updated": 1628510672736,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Listeleme gereksinimleri->www.probit.com/en-us/listing",
+                    "updated": 1654395006746,
+                    "style": "Link"
+                }
+            ]
         },
         {
             "style": "List",
@@ -108,7 +124,15 @@
         {
             "style": "Link",
             "text": "Listing request form->docs.google.com/forms/d/e/1FAIpQLSf4b5e25olgKVVY623XBe7Pw1LxFZcCVAGaBXLgJ0sw7KwvkA/viewform",
-            "updated": 1628510737641
+            "updated": 1628510737641,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Listeleme talep formu->docs.google.com/forms/d/e/1FAIpQLSf4b5e25olgKVVY623XBe7Pw1LxFZcCVAGaBXLgJ0sw7KwvkA/viewform",
+                    "updated": 1654395012450,
+                    "style": "Link"
+                }
+            ]
         },
         {
             "style": "List",
@@ -782,7 +806,15 @@
         },
         {
             "style": "Link",
-            "text": "Alexa->www.alexa.com/siteinfo/probit.com"
+            "text": "Alexa->www.alexa.com/siteinfo/probit.com",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Alexa->www.alexa.com/siteinfo/probit.com",
+                    "updated": 1654395018918,
+                    "style": "Link"
+                }
+            ]
         },
         {
             "style": "List",
@@ -799,7 +831,15 @@
         {
             "style": "Link",
             "text": "DA by Moz->moz.com/domain-analysis?site=probit.com",
-            "updated": 1628538393505
+            "updated": 1628538393505,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Moz tarafından DA->moz.com/domain-analysis?site=probit.com",
+                    "updated": 1654395024398,
+                    "style": "Link"
+                }
+            ]
         },
         {
             "style": "List",
@@ -920,7 +960,15 @@
         },
         {
             "style": "Link",
-            "text": "Telegram English Community->t.me/ProbitEnglish"
+            "text": "Telegram English Community->t.me/ProbitEnglish",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Telegram İngilizce Topluluğu->t.me/ProbitEnglish",
+                    "updated": 1654395030090,
+                    "style": "Link"
+                }
+            ]
         },
         {
             "style": "List",
@@ -979,7 +1027,15 @@
         {
             "style": "Link",
             "text": "BTC - USDT Chart->www.probit.com/app/exchange/BTC-USDT",
-            "updated": 1628530307201
+            "updated": 1628530307201,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "BTC - USDT Grafiği->www.probit.com/app/exchange/BTC-USDT",
+                    "updated": 1654395036629,
+                    "style": "Link"
+                }
+            ]
         }
     ]
 }

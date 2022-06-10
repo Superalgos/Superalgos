@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Узел Exchange Data Products организует данные добытчиков данных по бирже. То есть каждая биржа, установленная в системе, имеет узел продуктов обмена данными, группирующий все узлы продуктов рыночных данных, соответствующие указанной бирже.",
                 "updated": 1638783925623
+            },
+            {
+                "language": "TR",
+                "text": "Borsa veri ürünleri düğümü, veri madenciliği verilerini borsaya göre düzenler. Yani, sistemde kurulu her borsa, söz konusu borsaya karşılık gelen tüm piyasa veri ürünleri düğümlerini gruplayan bir borsa veri ürünleri düğümüne sahiptir.",
+                "updated": 1654392253911
             }
         ]
     },
@@ -33,6 +38,12 @@
                     "language": "RU",
                     "text": "Узел продуктов обмена данными должен ссылаться на выбранную биржу. Эта ссылка ограничивает остальные определения контекстом указанной биржи.",
                     "updated": 1638784072009
+                },
+                {
+                    "language": "TR",
+                    "text": "Borsa veri ürünleri düğümü tercih edilen borsaya referans vermelidir. Bu referans, tanımların geri kalanını söz konusu borsa bağlamıyla sınırlar.",
+                    "updated": 1654392260051,
+                    "style": "Text"
                 }
             ]
         },
@@ -49,6 +60,12 @@
                     "language": "RU",
                     "text": "При представлении биржи, представленной в библиотеке значков системы, стандартный значок задач обмена данными заменяется логотипом биржи.",
                     "updated": 1638784091785
+                },
+                {
+                    "language": "TR",
+                    "text": "Sistemin simgeler kitaplığında yer alan bir borsayı temsil ederken, standart borsa veri görevleri simgesinin yerini borsanın logosu alır.",
+                    "updated": 1654392265674,
+                    "style": "Text"
                 }
             ]
         }

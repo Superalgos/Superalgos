@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Узел Outgoing Signals определяет место в торговой системе, откуда данные могут быть собраны и скомпонованы в торговый сигнал.",
                 "updated": 1645253241155
+            },
+            {
+                "language": "TR",
+                "text": "Giden Sinyaller düğümü, bir Alım Satım Sistemi içinde verilerin toplanıp bir Alım Satım Sinyali haline getirilebileceği konumu tanımlar.",
+                "updated": 1654397874818
             }
         ]
     },
@@ -26,6 +31,12 @@
                     "language": "RU",
                     "text": "Это означает, что узел Outgoing Signal захватывает и затем указывает системе, куда посылать сигнальную информацию. Это достигается путем добавления дочернего узла Outgoing Signal Reference.",
                     "updated": 1645253250788
+                },
+                {
+                    "language": "TR",
+                    "text": "Bunun anlamı, bir Giden Sinyal düğümünün sinyal bilgilerini yakalaması ve ardından sisteme nereye göndereceğini söylemesidir. Bu, bir alt Giden Sinyal Referansı düğümü eklenerek gerçekleştirilir.",
+                    "updated": 1654397880903,
+                    "style": "Text"
                 }
             ]
         },
@@ -38,6 +49,12 @@
                     "language": "RU",
                     "text": "Типы сигналов",
                     "updated": 1645253258331
+                },
+                {
+                    "language": "TR",
+                    "text": "Sinyal Türleri",
+                    "updated": 1654397886682,
+                    "style": "Title"
                 }
             ]
         },
@@ -50,6 +67,12 @@
                     "language": "RU",
                     "text": "Существует три типа сигналов, которые могут быть отправлены:",
                     "updated": 1645253266416
+                },
+                {
+                    "language": "TR",
+                    "text": "Gönderilebilecek üç tür sinyal vardır:",
+                    "updated": 1654397895547,
+                    "style": "Text"
                 }
             ]
         },
@@ -66,6 +89,12 @@
                     "language": "RU",
                     "text": "Сигналы синхронизации свечей",
                     "updated": 1645253284268
+                },
+                {
+                    "language": "TR",
+                    "text": "Mum Senkronizasyon Sinyalleri",
+                    "updated": 1654397901169,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -78,6 +107,12 @@
                     "language": "RU",
                     "text": "Удержание ботов поставщика и получателя на одной и той же свече является жизненно важным для того, чтобы торговые сигналы были действительно полезными. Поэтому сигналы Candle Sync являются основой использования узла Outgoing Signal. Он передает свечу, на которой находится текущий сигнал. Это позволяет ботам получателя идентифицировать точно такую же свечу и оставаться в синхронизации с ботами поставщика.",
                     "updated": 1645253304937
+                },
+                {
+                    "language": "TR",
+                    "text": "Sağlayıcı ve alıcı botlarını aynı mum üzerinde tutmak, alım satım sinyallerinin gerçekten yararlı olması için hayati önem taşır. Bu nedenle, Mum Senkronizasyonu sinyalleri Giden Sinyal düğümünün temel kullanımıdır. Mevcut sinyalin ait olduğu mumu iletir. Bu, alıcının botlarının tam olarak aynı mumu tanımlamasına ve sağlayıcının botlarıyla senkronize kalmasına olanak tanır.",
+                    "updated": 1654397906974,
+                    "style": "Text"
                 }
             ]
         },
@@ -90,6 +125,12 @@
                     "language": "RU",
                     "text": "Сигналы синхронизации свечей устанавливаются путем присоединения узла Outgoing Signal к узлу Trading System. Затем добавляется дочерний узел Outgoing Signal Reference. Затем устанавливается ссылка с узла Outgoing Signal Reference на узел Trading System Signal, находящийся под Social Trading Bot провайдера.",
                     "updated": 1645253320305
+                },
+                {
+                    "language": "TR",
+                    "text": "Mum senkronizasyon sinyalleri, bir Giden Sinyal düğümünün bir Ticaret Sistemi düğümüne bağlanmasıyla oluşturulur. Ardından bir alt Giden Sinyal Referans düğümü eklenir. Ardından Giden Sinyal Referans düğümünden sağlayıcının Sosyal Ticaret Botu altında tutulan Ticaret Sistemi Sinyal düğümüne bir referans oluşturulur.",
+                    "updated": 1654397912793,
+                    "style": "Text"
                 }
             ]
         },
@@ -102,6 +143,12 @@
                     "language": "RU",
                     "text": "Сигналы событий",
                     "updated": 1645253326187
+                },
+                {
+                    "language": "TR",
+                    "text": "Olay Sinyalleri",
+                    "updated": 1654397918316,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -114,6 +161,12 @@
                     "language": "RU",
                     "text": "Сигналы событий позволяют поставщику сигналов отправлять информацию о событиях торговой системы. Примерами таких событий являются событие включения триггера, событие отключения триггера, событие взятия позиции и т.д.",
                     "updated": 1645253334141
+                },
+                {
+                    "language": "TR",
+                    "text": "Olay sinyalleri, sinyal sağlayıcının ticaret sistemi olaylarıyla ilgili bilgi göndermesine olanak tanır. Bu tür olaylara örnek olarak Tetik Açma Olayı, Tetik Kapatma Olayı, Pozisyon Alma Olayı vb. verilebilir.",
+                    "updated": 1654397927409,
+                    "style": "Text"
                 }
             ]
         },
@@ -126,6 +179,12 @@
                     "language": "RU",
                     "text": "Создание сигналов событий очень простое. Сначала найдите событие, которое вы хотите включить в сигнал. Затем добавьте узел Outgoing Signal к узлу Event. После этого добавьте дочерний узел Outgoing Signal Reference. И наконец, установите ссылку от узла Outgoing Signal Reference на соответствующий узел Trading Strategy Signals.",
                     "updated": 1645253344183
+                },
+                {
+                    "language": "TR",
+                    "text": "Olay sinyalleri oluşturmak çok basittir. Önce sinyalinize dahil etmek istediğiniz olayı bulun. Ardından Olay düğümüne bir Giden Sinyal düğümü ekleyin. Bundan sonra bir alt Giden Sinyal Referans düğümü ekleyin. Son olarak, Giden Sinyal Referansı düğümünden uygun Ticaret Stratejisi Sinyalleri düğümüne bir referans oluşturun.",
+                    "updated": 1654397933648,
+                    "style": "Text"
                 }
             ]
         },
@@ -138,6 +197,12 @@
                     "language": "RU",
                     "text": "Сигналы формул",
                     "updated": 1645253355738
+                },
+                {
+                    "language": "TR",
+                    "text": "Formül Sinyalleri",
+                    "updated": 1654397939134,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -150,6 +215,12 @@
                     "language": "RU",
                     "text": "Сигналы по формулам позволяют поставщику сигналов передавать информацию, исходящую из формул торговой системы. Примерами таких формул являются: Target Rate, Order Rate, Target Size In Base Asset и т.д.",
                     "updated": 1645253375863
+                },
+                {
+                    "language": "TR",
+                    "text": "Formül sinyalleri, sinyal sağlayıcının ticaret sistemi formüllerinden çıkan bilgileri göndermesine olanak tanır. Bu tür formüllere örnek olarak Hedef Oran, Emir Oranı, Temel Varlıktaki Hedef Büyüklük vb. verilebilir.",
+                    "updated": 1654397944963,
+                    "style": "Text"
                 }
             ]
         },
@@ -161,17 +232,39 @@
                     "language": "RU",
                     "text": "Создание сигнала по формуле - это то же самое, что и создание сигнала события.",
                     "updated": 1645253398469
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir formül sinyali oluşturmak, bir olay sinyali oluşturmakla aynıdır.",
+                    "updated": 1654397950421,
+                    "style": "Text"
                 }
             ]
         },
         {
             "style": "Include",
-            "text": "Trading-Signals->Node->Signal Context Formula->Content"
+            "text": "Trading-Signals->Node->Signal Context Formula->Content",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İşlem-Sinyalleri->Düğüm->Sinyal Bağlamı Formülü->İçerik",
+                    "updated": 1654397956085,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "You may place as many Outgoing Signals nodes at any particular spot in a Trading System. This allows the user to send the same signal to any number of places.",
-            "updated": 1647052659035
+            "updated": 1647052659035,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bir Ticaret Sistemindeki herhangi bir noktaya istediğiniz kadar Giden Sinyal düğümü yerleştirebilirsiniz. Bu, kullanıcının aynı sinyali istediği sayıda yere göndermesine olanak tanır.",
+                    "updated": 1654397962031,
+                    "style": "Success"
+                }
+            ]
         }
     ]
 }

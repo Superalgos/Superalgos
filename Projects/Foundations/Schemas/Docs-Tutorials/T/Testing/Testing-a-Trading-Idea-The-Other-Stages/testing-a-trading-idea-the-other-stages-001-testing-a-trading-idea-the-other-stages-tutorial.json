@@ -1,6 +1,6 @@
 {
     "tutorial": "Testing a Trading Idea - The Other Stages",
-    "pageNumber": 1,
+    "pageNumber": "1",
     "type": "Testing a Trading Idea - The Other Stages Tutorial",
     "definition": {
         "text": "This tutorial completes the implementation of the trading idea formulated in the previous tutorials, covering the definitions of the Open Stage, Manage Stage, and Close Stage.",
@@ -27,15 +27,39 @@
         {
             "style": "Title",
             "text": "About This Tutorial",
-            "updated": 1617118953736
+            "updated": 1617118953736,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bu Eğitim Hakkında",
+                    "updated": 1654394116146,
+                    "style": "Title"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Workspace: Trading System Design Tutorials Plugin Workspace."
+            "text": "Workspace: Trading System Design Tutorials Plugin Workspace.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Çalışma alanı: Ticaret Sistemi Tasarımı Eğitimleri Eklenti Çalışma Alanı.",
+                    "updated": 1654394122065,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Maintainer: @julianmolina (Telegram)."
+            "text": "Maintainer: @julianmolina (Telegram).",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bakımcı: @julianmolina (Telegram).",
+                    "updated": 1654394128040,
+                    "style": "List"
+                }
+            ]
         }
     ]
 }

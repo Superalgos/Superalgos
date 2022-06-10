@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Формула, которая позволяет пользователям указать входное значение характеристики данных, используя любую из структур данных, предоставляемых Superalgos для доступа к показателям.",
                 "updated": 1645247949249
+            },
+            {
+                "language": "TR",
+                "text": "Kullanıcıların, göstergelere erişmek için Superalgos tarafından sağlanan Veri Yapılarından herhangi birini kullanarak bir Veri Özelliğinin giriş değerini belirtmelerine olanak tanıyan bir formül.",
+                "updated": 1654397114503
             }
         ]
     },
@@ -20,6 +25,12 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
                     "updated": 1645247957722
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
+                    "updated": 1654397120600,
+                    "style": "Text"
                 }
             ]
         }

@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Слой обрезки для двумерного входного сигнала (например, изображения). Этот слой может обрезать входные данные сверху, снизу, слева и справа от тензора изображения.",
                 "updated": 1645196366053
+            },
+            {
+                "language": "TR",
+                "text": "2B girdi (örn. görüntü) için kırpma katmanı. Bu katman, bir görüntü tensörünün üst, alt, sol ve sağ tarafındaki bir girişi kırpabilir.",
+                "updated": 1654396868978
             }
         ]
     },
@@ -21,6 +26,12 @@
                     "language": "RU",
                     "text": "Input shape: 4D тензор с формой:",
                     "updated": 1645196380235
+                },
+                {
+                    "language": "TR",
+                    "text": "Giriş şekli: Şekil ile 4D tensör:",
+                    "updated": 1654396874506,
+                    "style": "List"
                 }
             ]
         },
@@ -32,6 +43,12 @@
                     "language": "RU",
                     "text": "Если dataFormat - \"channelsLast\": [batch, rows, cols, channels].",
                     "updated": 1645196391480
+                },
+                {
+                    "language": "TR",
+                    "text": "Eğer dataFormat \"channelsLast\" ise: [batch, rows, cols, channels]",
+                    "updated": 1654396884588,
+                    "style": "Text"
                 }
             ]
         },
@@ -43,12 +60,26 @@
                     "language": "RU",
                     "text": "Если data_format - \"channels_first\": [batch, channels, rows, cols].",
                     "updated": 1645196399794
+                },
+                {
+                    "language": "TR",
+                    "text": "Eğer data_format \"channels_first\" ise: [batch, channels, rows, cols].",
+                    "updated": 1654396890349,
+                    "style": "Text"
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Output shape: 4D with shape:"
+            "text": "Output shape: 4D with shape:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Çıkış şekli: Şekil ile 4D:",
+                    "updated": 1654396896326,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "Text",
@@ -58,6 +89,12 @@
                     "language": "RU",
                     "text": "Если dataFormat - \"channelsLast\": [batch, croppedRows, croppedCols, channels].",
                     "updated": 1645196409213
+                },
+                {
+                    "language": "TR",
+                    "text": "Eğer dataFormat \"channelsLast\" ise: [batch, croppedRows, croppedCols, channels]",
+                    "updated": 1654396902602,
+                    "style": "Text"
                 }
             ]
         },
@@ -69,6 +106,12 @@
                     "language": "RU",
                     "text": "Если dataFormat - \"channelsFirst\": [batch, channels, croppedRows, croppedCols].",
                     "updated": 1645196418347
+                },
+                {
+                    "language": "TR",
+                    "text": "Eğer dataFormat \"channelsFirst\" ise: [batch, channels, croppedRows, croppedCols].",
+                    "updated": 1654396909165,
+                    "style": "Text"
                 }
             ]
         }

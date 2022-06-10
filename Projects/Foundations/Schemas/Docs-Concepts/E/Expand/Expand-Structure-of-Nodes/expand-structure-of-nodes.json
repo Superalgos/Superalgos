@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Нажатие кнопки «плюс» расширяет структуру дочерних узлов.",
                 "updated": 1638283377334
+            },
+            {
+                "language": "TR",
+                "text": "Artı düğmesine tıklandığında yavru düğümlerin yapısı genişler.",
+                "updated": 1654391109203
             }
         ]
     },
@@ -30,6 +35,12 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
                     "updated": 1638283388879
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle deyin. Yeni paragraflar yazmak için ENTER tuşuna basın. Düzenleme modundan çıkmak için ESC.",
+                    "updated": 1654391114801,
+                    "style": "Text"
                 }
             ]
         }

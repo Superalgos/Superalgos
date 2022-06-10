@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Фильтр зависимостей (Dependency Filter) - это механизм, который анализирует код всех условий, формул и ботов Study Bot, чтобы получить из кода, какие зависимости данных должны быть загружены в бот после запуска.",
                 "updated": 1647355857011
+            },
+            {
+                "language": "TR",
+                "text": "Bağımlılık Filtresi, çalıştırıldığında hangi veri bağımlılıklarının bota yüklenmesi gerektiğini koddan almak için tüm koşulların, formüllerin ve Çalışma Botlarının kodunu analiz eden bir mekanizmadır.",
+                "updated": 1654390994290
             }
         ]
     },
@@ -26,6 +31,12 @@
                     "language": "RU",
                     "text": "Что такое фильтр зависимостей?",
                     "updated": 1647355871611
+                },
+                {
+                    "language": "TR",
+                    "text": "Bağımlılık Filtresi nedir?",
+                    "updated": 1654391000493,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -37,6 +48,12 @@
                     "language": "RU",
                     "text": "Фильтр зависимостей - это механизм, который анализирует код всех условий, формул и ботов Study Bot, чтобы получить из кода, какие зависимости данных необходимо загрузить в бота после запуска. Процедура сканирует каждую строку кода в поисках объектов биржи, рынка или графика и, найдя их, разбивает на части, чтобы понять, какой продукт понадобится боту. Эти фильтры нужны для того, чтобы бот не загружал все файлы зависимостей на всех временных интервалах, когда в коде многие из этих файлов, очевидно, не используются.",
                     "updated": 1647355921910
+                },
+                {
+                    "language": "TR",
+                    "text": "Bağımlılık Filtresi, çalıştırıldığında hangi veri bağımlılıklarının bota yüklenmesi gerektiğini koddan almak için tüm koşulların, formüllerin ve Çalışma Botlarının kodunu analiz eden bir mekanizmadır. Prosedür, borsa, piyasa veya grafik nesnelerini aramak için her kod satırını tarar ve bunları bulduktan sonra, bot için hangi ürünün gerekli olacağını anlamak için kodu parçalar. Bu filtreler, kodda bu dosyaların çoğu açıkça kullanılmadığında botun tüm bağımlılık dosyalarını her zaman diliminde yüklemesini önlemek için gereklidir.",
+                    "updated": 1654391007785,
+                    "style": "Text"
                 }
             ]
         },
@@ -48,6 +65,12 @@
                     "language": "RU",
                     "text": "Фильтр зависимостей - это список индикаторов и исследований, от которых зависит стратегия, который впоследствии используется для фильтрации всех других индикаторов и исследований, от которых зависит торговый бот.",
                     "updated": 1647355935033
+                },
+                {
+                    "language": "TR",
+                    "text": "Bağımlılık Filtresi, bir Stratejinin bağlı olduğu Göstergelerin ve Çalışmaların bir listesidir ve daha sonra Ticaret Botunun bağlı olduğu diğer tüm göstergeleri ve çalışmaları filtrelemek için kullanılır.",
+                    "updated": 1654391013976,
+                    "style": "Text"
                 }
             ]
         },
@@ -60,6 +83,12 @@
                     "language": "RU",
                     "text": "Функция сканирует ветвь узлов, скорее всего, торговую систему, просматривая свойство кода каждого узла. Она анализирует его содержимое и пытается составить список всех индикаторов и исследований, упомянутых в тексте кода, и на каких таймфреймах они упоминаются.",
                     "updated": 1647355966919
+                },
+                {
+                    "language": "TR",
+                    "text": "Fonksiyon, büyük olasılıkla bir Ticaret Sistemi olan bir düğüm dalını tarayacak ve her düğümün kod özelliğine bakacaktır. İçeriğini analiz edecek ve kod metninde bahsedilen tüm göstergelerin ve çalışmaların bir listesini ve hangi zaman dilimlerinde bahsedildiklerini yapmaya çalışacaktır.",
+                    "updated": 1654391020995,
+                    "style": "Text"
                 }
             ]
         },
@@ -72,6 +101,12 @@
                     "language": "RU",
                     "text": "Важно отметить, что все узлы, которые не имеют типа Procedure Javascript, Javascript Code или Formula, будут проигнорированы.",
                     "updated": 1647355978266
+                },
+                {
+                    "language": "TR",
+                    "text": "Procedure Javascript, Javascript Code veya Formula türünde olmayan tüm düğümlerin göz ardı edileceğini unutmamak önemlidir.",
+                    "updated": 1654391026650,
+                    "style": "Text"
                 }
             ]
         },
@@ -83,6 +118,12 @@
                     "language": "RU",
                     "text": "Примеры",
                     "updated": 1647355988470
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnekler",
+                    "updated": 1654391032270,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -94,12 +135,26 @@
                     "language": "RU",
                     "text": "Это инструкции, которые фильтр зависимостей распознает без проблем:",
                     "updated": 1647355997289
+                },
+                {
+                    "language": "TR",
+                    "text": "Bunlar, Bağımlılık Filtresinin herhangi bir sorun olmadan tanıyacağı talimatlardır:",
+                    "updated": 1654391037866,
+                    "style": "Text"
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "market.BTC.USDT.chart.at01hs.popularSMA.sma200 - market.ETC.USDT.chart.at01hs.popularSMA.sma100  < 10"
+            "text": "market.BTC.USDT.chart.at01hs.popularSMA.sma200 - market.ETC.USDT.chart.at01hs.popularSMA.sma100  < 10",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "market.BTC.USDT.chart.at01hs.popularSMA.sma200 - market.ETC.USDT.chart.at01hs.popularSMA.sma100 < 10",
+                    "updated": 1654391044225,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Text",
@@ -109,6 +164,12 @@
                     "language": "RU",
                     "text": "Если вы удалили пробелы между инструкциями, то фильтр зависимостей может запутаться, и вы получите неопределенное значение для индикатора, который вы пытаетесь использовать.",
                     "updated": 1647356012833
+                },
+                {
+                    "language": "TR",
+                    "text": "Talimatlar arasındaki boşlukları kaldırırsanız Bağımlılık Filtresinin kafası karışabilir ve kullanmaya çalıştığınız gösterge için tanımlanmamış bir değer alırsınız.",
+                    "updated": 1654391050315,
+                    "style": "Text"
                 }
             ]
         },
@@ -120,6 +181,12 @@
                     "language": "RU",
                     "text": "Предварительное использование",
                     "updated": 1647356024399
+                },
+                {
+                    "language": "TR",
+                    "text": "Önceden Kullanım",
+                    "updated": 1654391056540,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -132,6 +199,12 @@
                     "language": "RU",
                     "text": "Если вы кодируете и динамически выбираете базовый актив, котируемый актив или таймфрейм, то для вас есть пара приемов, поскольку фильтры зависимостей не смогут угадать, какие рынки вам нужны на каком таймфрейме, есть несколько приемов, как повлиять на фильтр зависимостей.",
                     "updated": 1647356043986
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel Varlığı, Fiyat Teklifi Varlığını veya Zaman Çerçevesini kodluyor ve dinamik olarak seçiyorsanız, Bağımlılık Filtreleri hangi zaman diliminde hangi pazarlara ihtiyacınız olacağını tahmin edemeyeceğinden, Bağımlılık Filtresini nasıl etkileyeceğinize dair birkaç püf noktası vardır.",
+                    "updated": 1654391062516,
+                    "style": "Success"
                 }
             ]
         },
@@ -144,12 +217,26 @@
                     "language": "RU",
                     "text": "Внутри закомментированной области кода вы можете написать что-то вроде этого:",
                     "updated": 1647356056381
+                },
+                {
+                    "language": "TR",
+                    "text": "Kodun yorumlanmış bir alanının içine şöyle bir şey yazabilirsiniz:",
+                    "updated": 1654391068628,
+                    "style": "Text"
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "market.anyBaseAsset.BTC.chart.atAnyTimeFrame.candle"
+            "text": "market.anyBaseAsset.BTC.chart.atAnyTimeFrame.candle",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "market.anyBaseAsset.BTC.chart.atAnyTimeFrame.candle",
+                    "updated": 1654391074574,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Text",
@@ -159,20 +246,50 @@
                     "language": "RU",
                     "text": "Действующими ключевыми словами являются:",
                     "updated": 1647356065208
+                },
+                {
+                    "language": "TR",
+                    "text": "Geçerli anahtar çalışmalar şunlardır:",
+                    "updated": 1654391080075,
+                    "style": "Text"
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "anyBaseAsset"
+            "text": "anyBaseAsset",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "anyBaseAsset",
+                    "updated": 1654391085670,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "anyQuotedAsset"
+            "text": "anyQuotedAsset",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "anyQuotedAsset",
+                    "updated": 1654391091700,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "atAnyTimeFrame"
+            "text": "atAnyTimeFrame",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "atAnyTimeFrame",
+                    "updated": 1654391097708,
+                    "style": "Text"
+                }
+            ]
         }
     ]
 }

@@ -67,46 +67,126 @@
         {
             "style": "List",
             "text": "Binance Test Status",
-            "updated": 1615203667257
+            "updated": 1615203667257,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Binance Test Durumu",
+                    "updated": 1654391518307,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Binance Futures USDⓈ-M/COIN-M Test Status",
-            "updated": 1615203667257
+            "updated": 1615203667257,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Binance Vadeli İşlemleri USDⓈ-M/COIN-M Test Durumu",
+                    "updated": 1654391523838,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Binance-US Test Status"
+            "text": "Binance-US Test Status",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Binance-ABD Test Durumu",
+                    "updated": 1654391530627,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Bitfinex Test Status"
+            "text": "Bitfinex Test Status",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bitfinex Test Durumu",
+                    "updated": 1654391537736,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Bittrex Test Status"
+            "text": "Bittrex Test Status",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bittrex Test Durumu",
+                    "updated": 1654391543303,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "CoinbasePro Test Status"
+            "text": "CoinbasePro Test Status",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "CoinbasePro Test Durumu",
+                    "updated": 1654391549262,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
             "text": "FTX Test Status",
-            "updated": 1615203669878
+            "updated": 1615203669878,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "FTX Test Durumu",
+                    "updated": 1654391555993,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Kraken Test Status",
-            "updated": 1615453046113
+            "updated": 1615453046113,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Kraken Test Durumu",
+                    "updated": 1654391561963,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Kucoin Test Status"
+            "text": "Kucoin Test Status",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Kucoin Test Durumu",
+                    "updated": 1654391569616,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Luno Test Status"
+            "text": "Luno Test Status",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Luno Test Durumu",
+                    "updated": 1654391576496,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "Title",
@@ -199,6 +279,7 @@
         {
             "style": "List",
             "text": "sandBox some exchanges have a so called testnet/sandBox mode that enables traders to try out all the exchange features in a simulated environment. Set it to true to enable it. Please note that some exchanges (like Bittrex for example) can throw an error with this parameter set to false. Simply delete that line in such cases.",
+            "updated": 1650635009708,
             "translations": [
                 {
                     "language": "RU",
@@ -210,12 +291,12 @@
                     "text": "sandBox bazı borsalarda, tüccarların simüle edilmiş bir ortamda tüm borsa özelliklerini denemelerini sağlayan testnet/sandBox modu vardır. Etkinleştirmek için true olarak ayarlayın. Lütfen bazı borsaların (örneğin Bittrex gibi) bu parametrenin false olarak ayarlanmasıyla hata verebileceğini unutmayın. Bu gibi durumlarda o satırı silmeniz yeterlidir.",
                     "updated": 1652799269237
                 }
-            ],
-            "updated": 1650635009708
+            ]
         },
         {
             "style": "List",
             "text": "maxRate sets the maximum number of OHCLV that is pulled before the data is saved. This is only to be used when the exchange is kicking out the data-mine randomly and to allow to the user to save the data more often allowing for the data mining to move forward.",
+            "updated": 1650806325108,
             "translations": [
                 {
                     "language": "RU",
@@ -227,8 +308,7 @@
                     "text": "maxRate, veriler kaydedilmeden önce çekilen maksimum OHCLV sayısını ayarlar. Bu, yalnızca borsa veri madenciliğini rastgele başlattığında ve kullanıcının verileri daha sık kaydetmesine ve veri madenciliğinin ilerlemesine izin verdiğinde kullanılmalıdır.",
                     "updated": 1652799278482
                 }
-            ],
-            "updated": 1650806325108
+            ]
         },
         {
             "style": "List",

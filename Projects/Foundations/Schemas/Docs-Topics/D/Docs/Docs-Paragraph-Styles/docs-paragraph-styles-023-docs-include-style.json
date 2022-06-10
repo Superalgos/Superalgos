@@ -1,6 +1,6 @@
 {
     "topic": "Docs Paragraph Styles",
-    "pageNumber": 23,
+    "pageNumber": "23",
     "type": "Docs Include Style",
     "definition": {
         "text": "Include paragraphs are used to include into a Docs Page paragraphs that belong to other Docs Pages. In order to do that, you need to reference a Docs Block Style paragraph located in some other Docs Page.",
@@ -59,6 +59,12 @@
                     "language": "RU",
                     "text": "Параметры",
                     "updated": 1638544948051
+                },
+                {
+                    "language": "TR",
+                    "text": "Parametreler",
+                    "updated": 1654393796963,
+                    "style": "Title"
                 }
             ]
         },

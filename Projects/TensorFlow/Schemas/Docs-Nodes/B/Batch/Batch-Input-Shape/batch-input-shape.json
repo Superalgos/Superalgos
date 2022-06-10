@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Если определено, используется для создания входного слоя, который будет вставлен перед этим слоем. Если определены и Input Shape, и batchInputShape, будет использоваться Batch Input Shape. Этот аргумент применим только к входным слоям (первый слой модели).",
                 "updated": 1645195620848
+            },
+            {
+                "language": "TR",
+                "text": "Tanımlanmışsa, bu katmandan önce eklenecek bir girdi katmanı oluşturmak için kullanılır. Hem Girdi Şekli hem de batchInputShape tanımlanmışsa, Toplu Girdi Şekli kullanılır. Bu bağımsız değişken yalnızca girdi katmanları (bir modelin ilk katmanı) için geçerlidir.",
+                "updated": 1654396666556
             }
         ]
     },
@@ -21,6 +26,12 @@
                     "language": "RU",
                     "text": "Возможные значения",
                     "updated": 1645195626532
+                },
+                {
+                    "language": "TR",
+                    "text": "Olası Değerler",
+                    "updated": 1654396673298,
+                    "style": "Subtitle"
                 }
             ]
         },

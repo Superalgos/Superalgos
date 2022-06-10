@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Узел Exchange Trading Tasks организует торговые задачи по биржам. То есть каждая биржа, установленная в системе, имеет узел торговых задач биржи, группирующий все рыночные торговые задачи, соответствующие указанной бирже.",
                 "updated": 1638375279162
+            },
+            {
+                "language": "TR",
+                "text": "Borsa alım satım görevleri düğümü, alım satım görevlerini borsaya göre düzenler. Yani, sistemde kurulu her borsa, söz konusu borsaya karşılık gelen tüm piyasa alım satım görevlerini gruplayan bir borsa alım satım görevleri düğümüne sahiptir.",
+                "updated": 1654392408931
             }
         ]
     },
@@ -33,6 +38,12 @@
                     "language": "RU",
                     "text": "Узел торговых задач биржи должен ссылаться на выбранную биржу. Эта ссылка ограничивает остальные определения контекстом упомянутой биржи.",
                     "updated": 1638375333269
+                },
+                {
+                    "language": "TR",
+                    "text": "Borsa alım satım görevleri düğümü tercih edilen borsaya referans vermelidir. Bu referans, tanımların geri kalanını söz konusu borsa bağlamıyla sınırlar.",
+                    "updated": 1654392414397,
+                    "style": "Text"
                 }
             ]
         },
@@ -49,6 +60,12 @@
                     "language": "RU",
                     "text": "При использовании биржи, представленной в библиотеке значков системы, значок стандартной биржевой торговой задачи заменяется логотипом биржи.",
                     "updated": 1638375379205
+                },
+                {
+                    "language": "TR",
+                    "text": "Sistemin simgeler kitaplığında yer alan bir borsayı temsil ederken, standart borsa işlem görevleri simgesinin yerini borsanın logosu alır.",
+                    "updated": 1654392421097,
+                    "style": "Text"
                 }
             ]
         },

@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Машины обучаются с помощью функции потерь. Это метод оценки того, насколько хорошо конкретный алгоритм моделирует заданные данные. Если прогнозы слишком сильно отклоняются от реальных результатов, функция потерь выдаст очень большое число.",
                 "updated": 1645248498916
+            },
+            {
+                "language": "TR",
+                "text": "Makineler bir kayıp fonksiyonu aracılığıyla öğrenir. Bu, belirli bir algoritmanın verilen verileri ne kadar iyi modellediğini değerlendiren bir yöntemdir. Tahminler gerçek sonuçlardan çok fazla saparsa, kayıp fonksiyonu çok büyük bir sayı verir.",
+                "updated": 1654397314158
             }
         ]
     },
@@ -20,6 +25,12 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
                     "updated": 1645248504298
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
+                    "updated": 1654397320258,
+                    "style": "Text"
                 }
             ]
         }

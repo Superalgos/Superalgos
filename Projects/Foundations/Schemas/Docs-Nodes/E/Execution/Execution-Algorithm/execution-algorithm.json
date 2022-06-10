@@ -47,7 +47,8 @@
                 {
                     "language": "TR",
                     "text": "Herhangi bir stratejinin basit veya çok karmaşık uygulama gereksinimleri olabilir. Karmaşıklıkla başa çıkmak için Superalgos, kullanıcıların gerektiği kadar çok yürütme algoritması kurmasına olanak tanır.",
-                    "updated": 1654754252770
+                    "updated": 1654392426778,
+                    "style": "Text"
                 }
             ]
         },
@@ -67,8 +68,9 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Ardından, her bir algoritmadaki mantık basit kalmışsa, çoklu algoritmalar birleştirilerek çalıştırılabilir ve gerekli karmaşıklıkla başa çıkabilir.",
-                    "updated": 1654754358429
+                    "text": "Daha sonra, her bir algoritmadaki mantık basit kalabilirken, birden fazla algoritmanın birleşik çalışması gerekli karmaşıklıkla başa çıkabilir.",
+                    "updated": 1654392432651,
+                    "style": "Text"
                 }
             ]
         },
@@ -109,8 +111,9 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Bir yürütme algoritması, her bir algoritmada tanımlanan emirlerin her birinin talimatlar olması anlamında bir talimatlar kümesidir. Diğer bir deyişle, bir uygulama algoritması, belirli piyasa durumları göz önüne alındığında oluşturulabilen veya iptal edilebilen önceden tanımlanmış bir dizi emirdir.",
-                    "updated": 1654754561877
+                    "text": "Bir yürütme algoritması, her bir algoritmada tanımlanan emirlerin kendilerinin talimatlar olması anlamında bir talimatlar kümesidir. Diğer bir deyişle, bir uygulama algoritması, belirli piyasa durumları göz önüne alındığında oluşturulabilen veya iptal edilebilen önceden tanımlanmış bir dizi emirdir.",
+                    "updated": 1654392444416,
+                    "style": "Text"
                 }
             ]
         },
@@ -131,7 +134,8 @@
                 {
                     "language": "TR",
                     "text": "Yürütme Algoritması Yapılandırması",
-                    "updated": 1654755849909
+                    "updated": 1654392450016,
+                    "style": "Title"
                 }
             ]
         },

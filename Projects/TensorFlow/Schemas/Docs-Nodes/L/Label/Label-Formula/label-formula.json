@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Заданная пользователем формула, определяющая, какие данные будут подаваться на определенную метку данных.",
                 "updated": 1645248375938
+            },
+            {
+                "language": "TR",
+                "text": "Belirli bir Veri Etiketine hangi verilerin besleneceğini tanımlayan kullanıcı tanımlı bir formül.",
+                "updated": 1654397260884
             }
         ]
     },
@@ -20,6 +25,12 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
                     "updated": 1645248381649
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
+                    "updated": 1654397266781,
+                    "style": "Text"
                 }
             ]
         }

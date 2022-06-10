@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Набор нейронов в искусственной нейронной сети с последовательной моделью, которые обрабатывают набор входных признаков, или выход этих нейронов.",
                 "updated": 1645249890296
+            },
+            {
+                "language": "TR",
+                "text": "Sıralı Modelli bir Yapay Sinir Ağında, bir dizi girdi özelliğini işleyen bir dizi nöron veya bu nöronların çıktısı.",
+                "updated": 1654397589946
             }
         ]
     },
@@ -20,6 +25,12 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
                     "updated": 1645249895086
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
+                    "updated": 1654397595925,
+                    "style": "Text"
                 }
             ]
         }

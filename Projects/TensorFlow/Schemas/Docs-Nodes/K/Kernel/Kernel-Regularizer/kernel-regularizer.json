@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Функция регуляризатора, применяемая к матрице весов ядра.",
                 "updated": 1645248312869
+            },
+            {
+                "language": "TR",
+                "text": "Çekirdek ağırlıkları matrisine uygulanan düzenleyici işlevi.",
+                "updated": 1654397249361
             }
         ]
     },
@@ -21,6 +26,12 @@
                     "language": "RU",
                     "text": "Возможные значения",
                     "updated": 1645248318348
+                },
+                {
+                    "language": "TR",
+                    "text": "Olası Değerler",
+                    "updated": 1654397255278,
+                    "style": "Subtitle"
                 }
             ]
         },

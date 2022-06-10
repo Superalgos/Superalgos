@@ -1,13 +1,13 @@
 {
     "tutorial": "Welcome to Superalgos!",
-    "pageNumber": 10,
+    "pageNumber": "10",
     "type": "Tutorial Step - Accessing Remotely?",
     "definition": {
-        "icon": {
-            "project": "Foundations",
-            "name": "network-node"
-        },
         "text": "If you are accessing the Client from the same machine, you may click Next and skip this step now!",
+        "icon": {
+            "name": "network-node",
+            "project": "Foundations"
+        },
         "translations": [
             {
                 "language": "ID",
@@ -61,6 +61,7 @@
         {
             "style": "Text",
             "text": "If you are accessing the Client from a remote machine, you must adjust the LAN Network Node configuration.",
+            "updated": 1636909673978,
             "translations": [
                 {
                     "language": "ID",
@@ -108,8 +109,7 @@
                     "text": "İstemciye (Client) uzak bir makineden erişiyorsanız, \"LAN Network Node\" düğümünün yapılandırmasını ayarlamanız gerekir.",
                     "updated": 1644848777652
                 }
-            ],
-            "updated": 1636909673978
+            ]
         },
         {
             "style": "List",
@@ -173,6 +173,7 @@
         {
             "style": "List",
             "text": "Change the host parameter for the IP address of the machine running the backend. ",
+            "updated": 1636909829414,
             "translations": [
                 {
                     "language": "ID",
@@ -220,8 +221,7 @@
                     "text": "Измените параметр host на IP-адрес устройства, на котором выполняется серверная часть.",
                     "updated": 1641803399273
                 }
-            ],
-            "updated": 1636909829414
+            ]
         },
         {
             "style": "List",
@@ -237,6 +237,12 @@
                     "language": "ID",
                     "text": "Jika kamu menggunakan reverse proxy, tambahkan parameter ini...",
                     "updated": 1640568742574
+                },
+                {
+                    "language": "TR",
+                    "text": "Eğer bir ters proxy kullanıyorsanız, bu parametreyi ekleyin...",
+                    "updated": 1654394232057,
+                    "style": "List"
                 }
             ]
         },
@@ -247,6 +253,7 @@
         {
             "style": "List",
             "text": "Now close the editor. If the configuration is correct, the error message should disappear in a minute!",
+            "updated": 1636910042545,
             "translations": [
                 {
                     "language": "ID",
@@ -300,8 +307,7 @@
                     "text": "Şimdi düzenleyiciyi kapatın. Yapılandırma doğruysa, hata mesajı bir dakika içinde kaybolacaktır!",
                     "updated": 1644848933672
                 }
-            ],
-            "updated": 1636910042545
+            ]
         }
     ]
 }

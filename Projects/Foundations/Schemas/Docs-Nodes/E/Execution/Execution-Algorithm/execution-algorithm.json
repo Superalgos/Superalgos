@@ -90,9 +90,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Her algoritmaya hedef boyutun bir kısmı atanabilir (yapılandırma bölümüne bakın), böylece her algoritmanın yürütmeye katılımının kapsamı bu parametre ile tanımlanır.",
-                    "updated": 1654392438665,
-                    "style": "Text"
+                    "text": "Her algoritmaya hedef boyutun (Target Rate) bir kısmı atanabilir (yapılandırma bölümüne bakın), böylece her algoritmanın yürütmeye katılımının kapsamı bu parametre ile tanımlanabilir.",
+                    "updated": 1654754405021
                 }
             ]
         },
@@ -156,9 +155,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "percentageOfStageTargetSize, tüm aşamanın hedef boyutunun ne kadarının belirli bir yürütme algoritması tarafından ele alınacağının tanımıdır ve toplam hedef boyutun yüzdesi olarak ifade edilir. Olası değerler, uç değerler de dahil olmak üzere 0 ile 100 arasındaki gerçek sayılardır. Değeri 0 olarak ayarlarsanız, algoritma yürütülmeyecektir.",
-                    "updated": 1654392455631,
-                    "style": "List"
+                    "text": "percentageOfStageTargetSize, tüm aşamanın hedef boyutunun (Target Size) ne kadarının belirli bir yürütme algoritması tarafından ele alınacağının tanımıdır ve toplam hedef boyutun yüzdesi olarak ifade edilir. Olası değerler, uç değerler de dahil olmak üzere 0 ile 100 arasındaki gerçek sayılardır. Değeri 0 olarak ayarlarsanız, algoritma yürütülmeyecektir.",
+                    "updated": 1654755909073
                 }
             ]
         }

@@ -311,6 +311,7 @@ function newListSelector() {
 
         input.style = 'resize: none; border: none; outline: none; box-shadow: none; overflow:hidden; font-family: Saira Condensed; font-size: ' + fontSize / 2 + 'px; background-color: rgb(' + backgroundColor + ');color:rgb(255, 255, 255); width: ' + width + 'px; height: ' + height + 'px'
         input.style.display = 'block'
+        input.setAttribute('autocomplete', 'off')
         input.addEventListener('input', filterList);
         input.focus()
 
@@ -338,6 +339,7 @@ function newListSelector() {
         let input = document.getElementById('input')
         input.style.display = 'none'
         input.value = ''
+        input.removeAttribute('autocomplete')
 
         let inputDiv = document.getElementById('inputDiv')
         inputDiv.style = 'position:absolute; top:' + '-100' + 'px; left:' + '-100' + 'px; z-index:1;'

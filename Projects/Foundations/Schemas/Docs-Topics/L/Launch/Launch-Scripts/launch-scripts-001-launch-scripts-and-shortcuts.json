@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Существует ряд скриптов, помогающих облегчить запуск Superalgos и сделать его более \"родным\". Конечная цель состоит в том, чтобы Superalgos чувствовал себя как любая другая программа, установленная в операционной системе.",
                 "updated": 1640354837284
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos'u başlatmayı kolaylaştırmaya ve daha yerel hissettirmeye yardımcı olacak bir dizi komut dosyası vardır. Nihai hedef, Superalgos'u bir işletim sistemine kurulu diğer herhangi bir program gibi hissettirmektir.",
+                "updated": 1654893663820
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Текущее решение заключается в использовании двух наборов скриптов:",
                     "updated": 1640354851208
+                },
+                {
+                    "language": "TR",
+                    "text": "Mevcut çözüm, iki dizi komut dosyası kullanmaktır:",
+                    "updated": 1654893681472
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "RU",
                     "text": "Первый набор для выполнения запуска узла и фактического запуска Superalgos.",
                     "updated": 1640354899948
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğüm çalıştırmasını yürütmek ve aslında Superalgos'u başlatmak için bir set.",
+                    "updated": 1654893691670
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "RU",
                     "text": "Второй - создать и разместить ярлыки этих сценариев запуска для удобного использования.",
                     "updated": 1640354888195
+                },
+                {
+                    "language": "TR",
+                    "text": "İkincisi, uygun kullanım için bu başlatma komut dosyalarına kısayollar oluşturmak ve yerleştirmek.",
+                    "updated": 1654893703611
                 }
             ]
         },
@@ -59,6 +79,11 @@
                     "language": "RU",
                     "text": "На этой странице приведено описание каждого сценария и его действий.",
                     "updated": 1640354959415
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki sayfa, her komut dosyasının bir açıklamasını ve ne başardığını içerir.",
+                    "updated": 1654893720623
                 }
             ]
         },
@@ -71,6 +96,11 @@
                     "language": "RU",
                     "text": "Все скрипты, связанные с запуском, хранятся в папке Launch-Scripts в главном каталоге Superalgos.",
                     "updated": 1640354977215
+                },
+                {
+                    "language": "TR",
+                    "text": "Başlatmayla ilgili tüm komut dosyaları, ana Superalgos dizinindeki Başlatma Komut Dosyaları klasöründe tutulur.",
+                    "updated": 1654893734043
                 }
             ]
         },
@@ -86,6 +116,11 @@
                     "language": "RU",
                     "text": "Основные скрипты запуска",
                     "updated": 1640354999012
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel Başlatma Komut Dosyaları",
+                    "updated": 1654893793968
                 }
             ]
         },
@@ -98,12 +133,24 @@
                     "language": "RU",
                     "text": "Эти скрипты выполняют команду node run для запуска Superalgos. Их можно запускать из командной строки или через файловый менеджер.",
                     "updated": 1640355110390
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu komut dosyaları, Superalgos'u başlatmak için düğüm çalıştırma komutunu yürütür. Komut satırı çağrılarından veya bir dosya tarayıcısından çalıştırılabilirler.",
+                    "updated": 1654893805111
                 }
             ]
         },
         {
             "style": "Subtitle",
-            "text": "Windows "
+            "text": "Windows ",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Windows",
+                    "updated": 1654893841128
+                }
+            ]
         },
         {
             "style": "Json",
@@ -112,7 +159,14 @@
         {
             "style": "Subtitle",
             "text": "Linux and Mac",
-            "updated": 1621801647118
+            "updated": 1621801647118,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Linux ve Mac",
+                    "updated": 1654893859194
+                }
+            ]
         },
         {
             "style": "Json",
@@ -128,6 +182,11 @@
                     "language": "RU",
                     "text": "Этот сценарий использует основные команды оболочки, чтобы быть совместимым с системами Linux и OSX.",
                     "updated": 1640355200208
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu komut dosyası, hem Linux hem de OSX sistemleriyle uyumlu olmak için temel kabuk komutlarını kullanır.",
+                    "updated": 1654893875594
                 }
             ]
         },
@@ -144,6 +203,11 @@
                     "language": "RU",
                     "text": "Создание ярлыков рабочего стола/лаунчера",
                     "updated": 1640355253661
+                },
+                {
+                    "language": "TR",
+                    "text": "Masaüstü/Başlatıcı Kısayolları Oluşturun",
+                    "updated": 1654893887483
                 }
             ]
         },
@@ -161,6 +225,11 @@
                     "language": "RU",
                     "text": "Существует один унифицированный сценарий для автоматического создания и размещения ярлыков к соответствующему скрипту запуска. Этот скрипт автоматически запускается во время команды \"node setup\". Его также можно запустить отдельно следующим образом.",
                     "updated": 1640355285529
+                },
+                {
+                    "language": "TR",
+                    "text": "Uygun başlatma komut dosyasına otomatik olarak kısayollar oluşturmak ve yerleştirmek için tek bir birleşik komut dosyası vardır. Bu komut dosyası, \"düğüm kurulumu\" komutu sırasında otomatik olarak çalıştırılır. Ayrıca aşağıdaki gibi bireysel olarak da çalıştırılabilir.",
+                    "updated": 1654893967326
                 }
             ]
         },
@@ -173,6 +242,11 @@
                     "language": "RU",
                     "text": "В терминале или командной строке перейдите к файлу Launch-Scripts и введите:",
                     "updated": 1640355299283
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir terminal veya komut isteminde, Başlatma Komut Dosyaları dosyasına gidin ve şunu yazın:",
+                    "updated": 1654893978464
                 }
             ]
         },
@@ -189,6 +263,11 @@
                     "language": "RU",
                     "text": "Это позволит разместить ярлыки в меню Пуск/Запуск, а также на рабочем столе. В Windows ярлык в меню \"Пуск\" также можно искать с помощью строки поиска в меню \"Пуск\".",
                     "updated": 1640355337926
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu, kısayolları Başlat Menünüze/Başlatıcınıza ve Masaüstünüze yerleştirecektir. Windows'ta başlat menüsü kısayolu, başlat menüsü arama çubuğu kullanılarak da aranabilir.",
+                    "updated": 1654893994435
                 }
             ]
         },
@@ -200,6 +279,11 @@
                     "language": "RU",
                     "text": "Расположение ярлыков",
                     "updated": 1640355349637
+                },
+                {
+                    "language": "TR",
+                    "text": "Kısayol Konumları",
+                    "updated": 1654894006163
                 }
             ]
         },
@@ -212,6 +296,11 @@
                     "language": "RU",
                     "text": "В зависимости от вашей операционной системы ярлыки будут располагаться в разных каталогах. Ниже перечислены расположения в зависимости от операционной системы.",
                     "updated": 1640355363859
+                },
+                {
+                    "language": "TR",
+                    "text": "İşletim sisteminize bağlı olarak, kısayollar farklı dizinlere yerleştirilecektir. Aşağıda işletim sistemine göre konumlar listelenmiştir.",
+                    "updated": 1654894018752
                 }
             ]
         },
@@ -221,12 +310,26 @@
         },
         {
             "style": "List",
-            "text": "Users\\[Your Name]\\Desktop"
+            "text": "Users\\[Your Name]\\Desktop",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Kullanıcılar\\[Adınız]\\Masaüstü",
+                    "updated": 1654894033067
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Users\\[Your Name]\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs",
-            "updated": 1621802654652
+            "updated": 1621802654652,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Kullanıcılar\\[Adınız]\\AppData\\Roaming\\Microsoft\\Windows\\Başlat Menüsü\\Programlar",
+                    "updated": 1654894043503
+                }
+            ]
         },
         {
             "style": "Text",
@@ -235,12 +338,26 @@
         {
             "style": "List",
             "text": "~/Desktop",
-            "updated": 1621803704659
+            "updated": 1621803704659,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "~/Masaüstü",
+                    "updated": 1654894058850
+                }
+            ]
         },
         {
             "style": "List",
             "text": "~/.local/share/applications",
-            "updated": 1621803711854
+            "updated": 1621803711854,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "~/.yerel/paylaşım/uygulamalar",
+                    "updated": 1654894120494
+                }
+            ]
         },
         {
             "style": "Text",
@@ -255,6 +372,11 @@
                     "language": "RU",
                     "text": "В настоящее время требуется коллаборатор.",
                     "updated": 1640355499888
+                },
+                {
+                    "language": "TR",
+                    "text": "Şu anda işlenmeyen bir ortak çalışana ihtiyaç var.",
+                    "updated": 1654894175522
                 }
             ]
         },
@@ -267,6 +389,11 @@
                     "language": "RU",
                     "text": "Необходима дополнительная настройка на Ubuntu",
                     "updated": 1640355477648
+                },
+                {
+                    "language": "TR",
+                    "text": "Ubuntu'da ek kurulum gerekli",
+                    "updated": 1654894197256
                 }
             ]
         },
@@ -279,6 +406,11 @@
                     "language": "RU",
                     "text": "Большинство ярлыков будут работать из коробки. Однако для настройки ярлыков на рабочем столе Ubuntu требуется несколько дополнительных действий. В следующем разделе мы их рассмотрим.",
                     "updated": 1640355542401
+                },
+                {
+                    "language": "TR",
+                    "text": "Çoğu kısayol, kutunun dışında çalışır. Bununla birlikte, Ubuntu masaüstü kısayolları, kurulum için birkaç ek adım alır. Aşağıdaki bölüm bu adımlarda size yol gösterecektir.",
+                    "updated": 1654894209943
                 }
             ]
         },
@@ -291,6 +423,11 @@
                     "language": "RU",
                     "text": "Во-первых, значки рабочего стола должны быть включены в приложении Tweaks.",
                     "updated": 1640355554121
+                },
+                {
+                    "language": "TR",
+                    "text": "İlk olarak, Tweaks uygulamasında masaüstü simgelerinin etkinleştirilmesi gerekir.",
+                    "updated": 1654894223437
                 }
             ]
         },
@@ -303,6 +440,11 @@
                     "language": "RU",
                     "text": "Проверьте, установлен ли Tweaks.",
                     "updated": 1640355565179
+                },
+                {
+                    "language": "TR",
+                    "text": "Tweaks'in kurulu olup olmadığını kontrol edin.",
+                    "updated": 1654894238764
                 }
             ]
         },
@@ -315,6 +457,11 @@
                     "language": "RU",
                     "text": "Если нет, перейдите в раздел Ubuntu Software.",
                     "updated": 1640355576669
+                },
+                {
+                    "language": "TR",
+                    "text": "Değilse Ubuntu Yazılımına gidin.",
+                    "updated": 1654894248312
                 }
             ]
         },
@@ -327,6 +474,11 @@
                     "language": "RU",
                     "text": "Установите Tweaks.",
                     "updated": 1640355590844
+                },
+                {
+                    "language": "TR",
+                    "text": "Tweaks'i yükleyin.",
+                    "updated": 1654894256606
                 }
             ]
         },
@@ -339,6 +491,11 @@
                     "language": "RU",
                     "text": "Откройте Tweaks.",
                     "updated": 1640355614437
+                },
+                {
+                    "language": "TR",
+                    "text": "Open  ince Ayar",
+                    "updated": 1654894322267
                 }
             ]
         },
@@ -351,6 +508,11 @@
                     "language": "RU",
                     "text": "В разделе Extensions (Расширения) включите Desktop Icons (Значки рабочего стола).",
                     "updated": 1640355639244
+                },
+                {
+                    "language": "TR",
+                    "text": "Uzantıların altında Masaüstü Simgelerini açın.",
+                    "updated": 1654894337432
                 }
             ]
         },
@@ -367,6 +529,11 @@
                     "language": "RU",
                     "text": "Если ярлык на рабочем столе не появился сразу, возможно, вам нужно перезагрузить компьютер.",
                     "updated": 1640355656555
+                },
+                {
+                    "language": "TR",
+                    "text": "Masaüstü kısayolunu hemen göremiyorsanız, bilgisayarınızı yeniden başlatmanız gerekebilir.",
+                    "updated": 1654894354477
                 }
             ]
         },
@@ -379,6 +546,11 @@
                     "language": "RU",
                     "text": "Наконец, необходимо включить ярлык на рабочем столе.",
                     "updated": 1640355669515
+                },
+                {
+                    "language": "TR",
+                    "text": "Son olarak, masaüstü kısayolunu etkinleştirmeniz gerekecek.",
+                    "updated": 1654894364935
                 }
             ]
         },
@@ -391,6 +563,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши Superalgos.desktop и выберите Allow Launching (Разрешить запуск).",
                     "updated": 1640355712503
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos.desktop'a sağ tıklayın ve Başlatmaya İzin Ver'i seçin.",
+                    "updated": 1654894376202
                 }
             ]
         },
@@ -408,6 +585,11 @@
                     "language": "RU",
                     "text": "Удаление ярлыков",
                     "updated": 1640355725714
+                },
+                {
+                    "language": "TR",
+                    "text": "Kısayolları Kaldır",
+                    "updated": 1654894388001
                 }
             ]
         },
@@ -420,6 +602,11 @@
                     "language": "RU",
                     "text": "Существует один универсальный скрипт для автоматического удаления ярлыков. Для его выполнения откройте командную строку или терминал. Затем перейдите в каталог Superalgos и введите следующую команду:",
                     "updated": 1640355752799
+                },
+                {
+                    "language": "TR",
+                    "text": "Kısayolları otomatik olarak kaldırmak için birleştirilmiş bir komut dosyası vardır. Bunu yapmak için bir komut istemi veya terminal açın. Ardından Superalgos dizininize gidin ve aşağıdaki komutu yazın:",
+                    "updated": 1654894399943
                 }
             ]
         },

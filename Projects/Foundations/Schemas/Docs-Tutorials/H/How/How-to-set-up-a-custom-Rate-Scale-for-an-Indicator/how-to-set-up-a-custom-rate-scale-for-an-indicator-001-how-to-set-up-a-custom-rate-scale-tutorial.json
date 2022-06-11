@@ -10,6 +10,12 @@
                 "language": "ES",
                 "text": "Este Tutorial explica los entresijos de la configuración de un Rate Scalepara un indicador. Una escala de tasas personalizada le permite visualizar múltiples indicadores uno al lado del otro de formas aún más flexibles.",
                 "updated": 1628906695538
+            },
+            {
+                "language": "TR",
+                "text": "Bu Eğitim, bir gösterge için özel bir Oran Ölçeği oluşturmanın tüm ayrıntılarını açıklar.  Özel bir oran ölçeği, birden fazla göstergeyi daha da esnek yollarla yan yana görselleştirmenize olanak tanır.",
+                "updated": 1654394034656,
+                "style": "Definition"
             }
         ]
     },
@@ -17,7 +23,15 @@
         {
             "style": "Text",
             "text": "This Tutorial can be found in Workspace TBD",
-            "updated": 1617375668105
+            "updated": 1617375668105,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bu Öğretici Çalışma Alanı TBD'de bulunabilir",
+                    "updated": 1654394042173,
+                    "style": "Text"
+                }
+            ]
         }
     ]
 }

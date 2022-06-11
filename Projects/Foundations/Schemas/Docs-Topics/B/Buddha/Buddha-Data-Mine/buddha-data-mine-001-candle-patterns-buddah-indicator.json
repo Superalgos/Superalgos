@@ -1,6 +1,6 @@
 {
     "topic": "Buddha Data Mine",
-    "pageNumber": 1,
+    "pageNumber": "1",
     "type": "Candle Patterns - Buddah Indicator",
     "definition": {
         "text": "The indicator features a pattern-recognition algorithm classifying candles in multiple groups such as Classic Candles, Marubozu Candles, Spinning Top Candles, Doji Candles, and grouping pattern into on, two, and three-candle sequences.",
@@ -2484,7 +2484,15 @@
         },
         {
             "style": "List",
-            "text": "Thomas Bulkowski: ThePatternSite.com"
+            "text": "Thomas Bulkowski: ThePatternSite.com",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Thomas Bulkowski: ThePatternSite.com",
+                    "updated": 1654393225655,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
@@ -2499,7 +2507,15 @@
         },
         {
             "style": "List",
-            "text": "CandleSticker by American Bulls"
+            "text": "CandleSticker by American Bulls",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "American Bulls'tan CandleSticker",
+                    "updated": 1654393232446,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "Subtitle",

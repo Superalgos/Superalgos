@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Data Dependency Folder - это организационное устройство, используемое для отображения расположения папок определения продукта данного бота.",
                 "updated": 1638729901343
+            },
+            {
+                "language": "TR",
+                "text": "Veri bağımlılığı klasör düğümü, belirli bir botun ürün tanımı klasörlerinin düzenini eşlemek için kullanılan bir organizasyon aracıdır.",
+                "updated": 1654391609653
             }
         ]
     },
@@ -23,6 +28,12 @@
                     "language": "RU",
                     "text": "Использование папок зависимостей данных продукта необязательно, так как зависимости данных могут также существовать вне папок.",
                     "updated": 1638729937530
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri bağımlılıkları klasörlerin dışında da mevcut olabileceğinden, ürün veri bağımlılığı klasörlerinin kullanımı isteğe bağlıdır.",
+                    "updated": 1654391615583,
+                    "style": "Text"
                 }
             ]
         },
@@ -38,6 +49,12 @@
                     "language": "RU",
                     "text": "Конфигурация Data Dependency Folder",
                     "updated": 1638729951913
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri Bağımlılığı Klasörünü Yapılandırma",
+                    "updated": 1654391621667,
+                    "style": "Title"
                 }
             ]
         },
@@ -49,6 +66,12 @@
                     "language": "RU",
                     "text": "Выберите Configure в меню, чтобы получить доступ к конфигурации.",
                     "updated": 1638729988518
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırmaya erişmek için menüden Yapılandır'ı seçin.",
+                    "updated": 1654391627605,
+                    "style": "Text"
                 }
             ]
         }

@@ -27,7 +27,15 @@
         {
             "style": "Include",
             "text": "Governance->Concept->Token Rewards->Content",
-            "updated": 1624780974906
+            "updated": 1624780974906,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yönetişim->Konsept->Token Ödülleri->İçerik",
+                    "updated": 1654395388116,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Title",
@@ -264,7 +272,15 @@
         {
             "style": "Include",
             "text": "Governance->Concept->Weight->Content",
-            "updated": 1624781155330
+            "updated": 1624781155330,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yönetişim->Kavram->Ağırlık->İçerik",
+                    "updated": 1654395394431,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Json",

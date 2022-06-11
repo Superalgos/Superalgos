@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Узел Slack Bot используется для определения конфигурации Slack Bot. Этот бот позволяет Superalgos отправлять объявления в канал Slack или прямые сообщения. Для получения более подробной информации воспользуйтесь руководством по началу работы в документации Slack API.",
                 "updated": 1645193948180
+            },
+            {
+                "language": "TR",
+                "text": "Slack Bot düğümü, bir Slack Bot için yapılandırmayı tanımlamak için kullanılır. Bu bot, Superalgos'un bir Slack kanalına veya Doğrudan Mesaja duyurular göndermesini sağlar. Daha fazla ayrıntı için Slack API Dokümantasyonu'ndaki Başlarken kılavuzunu kullanın.",
+                "updated": 1654396215624
             }
         ]
     },
@@ -19,6 +24,12 @@
                     "language": "RU",
                     "text": "Чтобы использовать Slack Bot, следуйте документации Slack API для создания нового приложения. Отредактируйте App Manifest и добавьте chat:write в раздел oauth_config > scopes > bot.",
                     "updated": 1645193976490
+                },
+                {
+                    "language": "TR",
+                    "text": "Slack Bot'u kullanmak için Slack API belgelerini takip ederek yeni bir uygulama oluşturun. App Manifest'i düzenleyin ve oauth_config > scopes > bot bölümüne chat:write ekleyin.",
+                    "updated": 1654396221108,
+                    "style": "Text"
                 }
             ]
         },
@@ -30,6 +41,12 @@
                     "language": "RU",
                     "text": "Параметры:",
                     "updated": 1645193982860
+                },
+                {
+                    "language": "TR",
+                    "text": "Parametreler:",
+                    "updated": 1654396227998,
+                    "style": "Text"
                 }
             ]
         },
@@ -41,6 +58,12 @@
                     "language": "RU",
                     "text": "- token - требуется - Получите его из меню Oauth & Permissions на странице конфигурации приложения Slack.",
                     "updated": 1645194006499
+                },
+                {
+                    "language": "TR",
+                    "text": "- token - gerekli - Bunu Slack uygulaması yapılandırma sayfasındaki Oauth & Permissions menüsünden alın.",
+                    "updated": 1654396233584,
+                    "style": "Text"
                 }
             ]
         },
@@ -52,6 +75,12 @@
                     "language": "RU",
                     "text": "- conversationId - требуется - идентификатор канала или беседы, полученный из Slack",
                     "updated": 1645194053492
+                },
+                {
+                    "language": "TR",
+                    "text": "- conversationId - gerekli - Slack'ten alınan #kanal veya Konuşma Kimliği",
+                    "updated": 1654396239534,
+                    "style": "Text"
                 }
             ]
         },
@@ -63,6 +92,12 @@
                     "language": "RU",
                     "text": "- format - опционально - позволяет настроить форматирование сообщения, отправляемого в Discord.",
                     "updated": 1645194065101
+                },
+                {
+                    "language": "TR",
+                    "text": "- biçim - isteğe bağlı - Discord'a gönderilen mesajın özel olarak biçimlendirilmesini sağlar.",
+                    "updated": 1654396245349,
+                    "style": "Text"
                 }
             ]
         },
@@ -74,6 +109,12 @@
                     "language": "RU",
                     "text": "Распознанные переменные формата:",
                     "updated": 1645194082390
+                },
+                {
+                    "language": "TR",
+                    "text": "Tanınan Biçim Değişkenleri:",
+                    "updated": 1654396255235,
+                    "style": "Text"
                 }
             ]
         },
@@ -85,6 +126,12 @@
                     "language": "RU",
                     "text": "- `%{EXCHANGE}` биржа, которая работает, т.е. Binance",
                     "updated": 1645194095164
+                },
+                {
+                    "language": "TR",
+                    "text": "- `%{EXCHANGE}` çalışmakta olan borsa, yani Binance",
+                    "updated": 1654396261084,
+                    "style": "Text"
                 }
             ]
         },
@@ -96,6 +143,12 @@
                     "language": "RU",
                     "text": "- `%{MARKET}` рынок, который работает. т.е. BTC/USDT",
                     "updated": 1645194107759
+                },
+                {
+                    "language": "TR",
+                    "text": "- `%{MARKET}` faaliyette olan piyasa. yani BTC/USDT",
+                    "updated": 1654396267293,
+                    "style": "Text"
                 }
             ]
         },
@@ -107,6 +160,12 @@
                     "language": "RU",
                     "text": "- `%{MESSAGE}` отправляемый текст",
                     "updated": 1645194114345
+                },
+                {
+                    "language": "TR",
+                    "text": "- `%{MESSAGE}` gönderilen metin",
+                    "updated": 1654396277279,
+                    "style": "Text"
                 }
             ]
         },
@@ -118,6 +177,12 @@
                     "language": "RU",
                     "text": "В качестве примера можно привести следующий формат:",
                     "updated": 1645194123464
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnek bir format şöyledir:",
+                    "updated": 1654396283484,
+                    "style": "Text"
                 }
             ]
         },
@@ -133,6 +198,12 @@
                     "language": "RU",
                     "text": "В результате итоговое сообщение в Slack выглядит следующим образом:",
                     "updated": 1645194131503
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu da Slack'te aşağıdaki gibi görünen bir son mesajla sonuçlanır:",
+                    "updated": 1654396289124,
+                    "style": "Text"
                 }
             ]
         },

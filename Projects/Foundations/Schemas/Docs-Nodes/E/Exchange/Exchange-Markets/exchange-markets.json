@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Узел Exchange Markets группирует определения рынков.",
                 "updated": 1638785082134
+            },
+            {
+                "language": "TR",
+                "text": "Borsa piyasaları düğümü piyasa tanımlarını gruplandırır.",
+                "updated": 1654392351196
             }
         ]
     },
@@ -25,6 +30,12 @@
                     "language": "RU",
                     "text": "Нет никаких ограничений на то, сколько рынков может быть определено.",
                     "updated": 1638785099199
+                },
+                {
+                    "language": "TR",
+                    "text": "Kaç tane pazar tanımlanabileceğine dair bir sınırlama yoktur.",
+                    "updated": 1654392357141,
+                    "style": "Text"
                 }
             ]
         }

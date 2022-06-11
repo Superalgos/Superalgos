@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Identifier - это уникальная буквенно-цифровая строка, с помощью которой можно однозначно идентифицировать объект, представленный родительским узлом.",
                 "updated": 1638968744853
+            },
+            {
+                "language": "TR",
+                "text": "Tanımlayıcı, üst düğüm tarafından temsil edilen nesnenin kesin olarak tanımlanabileceği benzersiz bir alfanümerik dizedir.",
+                "updated": 1654419461968
             }
         ]
     },
@@ -23,6 +28,12 @@
                     "language": "RU",
                     "text": "Property - это то, что будет использоваться для доступа к определенной известной записи.",
                     "updated": 1638968794353
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellik, bilinen belirli bir kayda erişmek için kullanılacak olan şeydir.",
+                    "updated": 1654419468404,
+                    "style": "Text"
                 }
             ]
         },
@@ -40,6 +51,12 @@
                     "language": "RU",
                     "text": "Конфигурация Identifier",
                     "updated": 1638968826330
+                },
+                {
+                    "language": "TR",
+                    "text": "Tanımlayıcı Yapılandırması",
+                    "updated": 1654419474689,
+                    "style": "Title"
                 }
             ]
         },
@@ -52,6 +69,12 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1638968836475
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1654419481187,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -64,6 +87,12 @@
                     "language": "RU",
                     "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
                     "updated": 1638968858803
+                },
+                {
+                    "language": "TR",
+                    "text": "initialValue düğümün ilk durumunun rastgele bir değere sıfırlanmasını sağlar.",
+                    "updated": 1654419487484,
+                    "style": "List"
                 }
             ]
         }

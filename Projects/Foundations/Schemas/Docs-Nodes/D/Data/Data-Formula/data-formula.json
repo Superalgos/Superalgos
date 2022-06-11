@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Data Formula - это устройство, используемое для присвоения значения данным панели, обычно в виде имени соответствующего свойства записи.",
                 "updated": 1638730053531
+            },
+            {
+                "language": "TR",
+                "text": "Veri formülü, panel verilerine genellikle ilgili kayıt özelliğinin adı biçiminde bir değer atamak için kullanılan bir araçtır.",
+                "updated": 1654391638903
             }
         ]
     },
@@ -19,6 +24,12 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
                     "updated": 1638730063418
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle deyin. Yeni paragraflar yazmak için ENTER tuşuna basın. Düzenleme modundan çıkmak için ESC.",
+                    "updated": 1654391645019,
+                    "style": "Text"
                 }
             ]
         }

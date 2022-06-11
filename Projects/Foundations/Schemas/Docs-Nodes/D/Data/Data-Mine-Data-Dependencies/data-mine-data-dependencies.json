@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Data Mine Data Dependencies - это ссылки, установленные для всех хранилищ данных, чтобы облегчить установление зависимостей данных с несколькими наборами данных в данном хранилище данных.",
                 "updated": 1638730257267
+            },
+            {
+                "language": "TR",
+                "text": "Veri madeni veri bağımlılıkları, belirli bir veri madenindeki birden fazla veri kümesiyle veri bağımlılıkları kurmayı kolaylaştırmak için tüm veri madenleriyle kurulan referanslardır.",
+                "updated": 1654391650689
             }
         ]
     },
@@ -23,6 +28,12 @@
                     "language": "RU",
                     "text": "Узел может использоваться как организационное устройство, просто для упорядочивания зависимостей данных бота. Однако разумное использование узла включает автоматизацию развертывания множественных зависимостей данных и их ссылок.",
                     "updated": 1638730294227
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğüm, sadece bot veri bağımlılıklarını düzenlemek için organizasyonel bir cihaz olarak kullanılabilir. Ancak düğümün akıllıca kullanımı, birden fazla veri bağımlılığının ve bunların referanslarının dağıtımının otomatikleştirilmesini içerir.",
+                    "updated": 1654391656768,
+                    "style": "Text"
                 }
             ]
         },
@@ -38,6 +49,12 @@
                     "language": "RU",
                     "text": "Конфигурация Data Mine Data Dependencies",
                     "updated": 1638730306177
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri Madeni Veri Bağımlılıklarını Yapılandırma",
+                    "updated": 1654391662219,
+                    "style": "Title"
                 }
             ]
         },
@@ -49,6 +66,12 @@
                     "language": "RU",
                     "text": "Выберите Configure в меню, чтобы получить доступ к конфигурации.",
                     "updated": 1638730337448
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırmaya erişmek için menüden Yapılandır'ı seçin.",
+                    "updated": 1654391668139,
+                    "style": "Text"
                 }
             ]
         }

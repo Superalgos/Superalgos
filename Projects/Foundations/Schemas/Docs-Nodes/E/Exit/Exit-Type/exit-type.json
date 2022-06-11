@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Exit Type относится к причине закрытия объекта.",
                 "updated": 1638786418732
+            },
+            {
+                "language": "TR",
+                "text": "Çıkış türü, nesnenin kapatılma nedenini ifade eder.",
+                "updated": 1654392546450
             }
         ]
     },
@@ -23,6 +28,12 @@
                     "language": "RU",
                     "text": " «No Exit» - это значение по умолчанию, пока перед закрытием объекта не будет присвоено новое значение. Другие возможные значения зависят от контекста.",
                     "updated": 1638786468648
+                },
+                {
+                    "language": "TR",
+                    "text": "No Exit, nesne kapatılmadan önce yeni bir değer atanana kadar varsayılan değerdir. Diğer olası değerler bağlama göre değişir.",
+                    "updated": 1654392553830,
+                    "style": "Text"
                 }
             ]
         },
@@ -34,6 +45,12 @@
                     "language": "RU",
                     "text": "В контексте объекта эпизода:",
                     "updated": 1638786481664
+                },
+                {
+                    "language": "TR",
+                    "text": "Bölüm nesnesi bağlamında:",
+                    "updated": 1654392559364,
+                    "style": "Text"
                 }
             ]
         },
@@ -45,6 +62,12 @@
                     "language": "RU",
                     "text": "Last Candle Reached: объект был закрыт, потому что была достигнута последняя свеча.",
                     "updated": 1638786502165
+                },
+                {
+                    "language": "TR",
+                    "text": "Son Muma Ulaşıldı: son muma ulaşıldığı için nesne kapatıldı.",
+                    "updated": 1654392564974,
+                    "style": "List"
                 }
             ]
         },
@@ -56,6 +79,12 @@
                     "language": "RU",
                     "text": "Position Closed: позиция была закрыта.",
                     "updated": 1638786513416
+                },
+                {
+                    "language": "TR",
+                    "text": "Pozisyon Kapatıldı: pozisyon kapatıldı.",
+                    "updated": 1654392570873,
+                    "style": "List"
                 }
             ]
         },
@@ -67,6 +96,12 @@
                     "language": "RU",
                     "text": "Take Profit: тейк-профит был достигнут.",
                     "updated": 1638786582087
+                },
+                {
+                    "language": "TR",
+                    "text": "Kâr Al: Kâr alma hedefi tutturuldu.",
+                    "updated": 1654392576179,
+                    "style": "List"
                 }
             ]
         },
@@ -78,6 +113,12 @@
                     "language": "RU",
                     "text": "Stop Loss: стоп-лосса был достигнут.",
                     "updated": 1638786575335
+                },
+                {
+                    "language": "TR",
+                    "text": "Zararı Durdur: zararı durdur hedefi vuruldu.",
+                    "updated": 1654392581815,
+                    "style": "List"
                 }
             ]
         },
@@ -89,6 +130,12 @@
                     "language": "RU",
                     "text": "Closing Stage: текущий этап начал закрываться, потому что открывается этап закрытия Close Stage.",
                     "updated": 1638786625532
+                },
+                {
+                    "language": "TR",
+                    "text": "Kapanış Aşaması: Kapanış Aşaması açıldığı için mevcut aşama kapanmaya başladı.",
+                    "updated": 1654392588225,
+                    "style": "List"
                 }
             ]
         },
@@ -106,6 +153,12 @@
                     "language": "RU",
                     "text": "Конфигурация Exit Type",
                     "updated": 1638786640372
+                },
+                {
+                    "language": "TR",
+                    "text": "Çıkış Tipi Yapılandırması",
+                    "updated": 1654392594663,
+                    "style": "Title"
                 }
             ]
         },
@@ -118,6 +171,12 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1638786648431
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1654392600378,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -130,6 +189,12 @@
                     "language": "RU",
                     "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
                     "updated": 1638786659112
+                },
+                {
+                    "language": "TR",
+                    "text": "initialValue düğümün ilk durumunun rastgele bir değere sıfırlanmasını sağlar.",
+                    "updated": 1654392605834,
+                    "style": "List"
                 }
             ]
         }

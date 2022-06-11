@@ -28,6 +28,12 @@
                     "language": "RU",
                     "text": "Синтаксис",
                     "updated": 1645627959491
+                },
+                {
+                    "language": "TR",
+                    "text": "Sözdizimi",
+                    "updated": 1654394870557,
+                    "style": "Title"
                 }
             ]
         },
@@ -44,6 +50,12 @@
                     "language": "RU",
                     "text": "Пример",
                     "updated": 1645627979439
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnekler",
+                    "updated": 1654394876086,
+                    "style": "Title"
                 }
             ]
         },

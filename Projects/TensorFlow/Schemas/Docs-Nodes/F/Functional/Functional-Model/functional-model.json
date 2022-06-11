@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Ключевое различие между функциональной и последовательной моделью заключается в том, что функциональные модели позволяют создавать произвольный граф слоев, если они не имеют циклов.",
                 "updated": 1645248059730
+            },
+            {
+                "language": "TR",
+                "text": "İşlevsel ve Sıralı Model arasındaki temel fark, İşlevsel Modellerin, döngüleri olmadığı sürece rastgele bir katman grafiği oluşturmanıza izin vermesidir.",
+                "updated": 1654397166948
             }
         ]
     },
@@ -20,6 +25,12 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
                     "updated": 1645248065565
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
+                    "updated": 1654397172859,
+                    "style": "Text"
                 }
             ]
         }

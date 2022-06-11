@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Asset Class - это организационное устройство, используемое для группировки узлов ресурсов в произвольном порядке. Узел может получать голоса по весу Weight Votes. Когда это происходит, голоса равномерно распределяются между дочерними узлами.",
                 "updated": 1638620222146
+            },
+            {
+                "language": "TR",
+                "text": "Varlık Sınıfı düğümü, Varlık düğümlerini rastgele düzenlemelerde gruplamak için kullanılan bir organizasyon aracıdır. Düğüm Ağırlık Oyları alabilir. Aldığında, oylar yavru düğümler arasında eşit olarak dağıtılır.",
+                "updated": 1654394408600
             }
         ]
     },
@@ -26,6 +31,12 @@
                     "language": "RU",
                     "text": "Вы можете направить Weight Votes на узел классов ресурсов Asset Class, если вы намереваетесь передать вес всему классу, включая все изделия внутри.",
                     "updated": 1638620255741
+                },
+                {
+                    "language": "TR",
+                    "text": "Ağırlığı, içindeki tüm varlıklar dahil olmak üzere tüm sınıfa yönlendirmek istediğinizde, Ağırlık Oylarını bir Varlık Sınıfı düğümüne yönlendirebilirsiniz.",
+                    "updated": 1654394414418,
+                    "style": "Text"
                 }
             ]
         },
@@ -37,6 +48,12 @@
                     "language": "RU",
                     "text": "Узлы класса ресурсов могут принимать входящие голоса по весу Weight Votes. Когда вы применяете Weight Votes к узлу Asset Class, голоса распределяются равномерно по всем дочерним узлам.",
                     "updated": 1638620301677
+                },
+                {
+                    "language": "TR",
+                    "text": "Varlık Sınıfı düğümleri gelen Ağırlık Oylarını alabilir. Bir Varlık Sınıfı düğümüne Ağırlık Oyları verdiğinizde, oylar tüm yavru düğümlere eşit olarak yayılır.",
+                    "updated": 1654394420062,
+                    "style": "Text"
                 }
             ]
         },
@@ -52,6 +69,12 @@
                     "language": "RU",
                     "text": "Конфигурация",
                     "updated": 1638611848567
+                },
+                {
+                    "language": "TR",
+                    "text": "Konfigürasyon",
+                    "updated": 1654394425558,
+                    "style": "Title"
                 }
             ]
         }

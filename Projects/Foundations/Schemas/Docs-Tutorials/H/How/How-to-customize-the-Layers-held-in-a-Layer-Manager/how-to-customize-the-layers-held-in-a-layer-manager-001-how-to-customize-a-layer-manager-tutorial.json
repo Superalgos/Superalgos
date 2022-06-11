@@ -10,6 +10,12 @@
                 "language": "ES",
                 "text": "Este Tutorial te guiará a través de la personalización de las capas disponibles dentro del  Layer Manager de un Timeline Chart.",
                 "updated": 1628906630636
+            },
+            {
+                "language": "TR",
+                "text": "Bu Eğitimde, bir Zaman Çizelgesi Grafiğinin Katman Yöneticisinde bulunan katmanları özelleştirme konusunda size yol gösterilecektir.",
+                "updated": 1654394022335,
+                "style": "Definition"
             }
         ]
     },
@@ -17,7 +23,15 @@
         {
             "style": "Text",
             "text": "This Tutorial can be found in Workspace TBD",
-            "updated": 1617375110981
+            "updated": 1617375110981,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bu Öğretici Çalışma Alanı TBD'de bulunabilir",
+                    "updated": 1654394028352,
+                    "style": "Text"
+                }
+            ]
         }
     ]
 }

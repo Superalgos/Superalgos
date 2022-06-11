@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Настраивает и подготавливает модель к обучению и оценке. Компиляция оснащает модель оптимизатором, потерями и/или показателями.",
                 "updated": 1645195959735
+            },
+            {
+                "language": "TR",
+                "text": "Modeli eğitim ve değerlendirme için yapılandırır ve hazırlar. Modeli bir optimize edici, kayıp ve/veya metriklerle derleyerek uygun hale getirir.",
+                "updated": 1654396767251
             }
         ]
     },
@@ -20,6 +25,12 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
                     "updated": 1645195965219
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
+                    "updated": 1654396774307,
+                    "style": "Text"
                 }
             ]
         }

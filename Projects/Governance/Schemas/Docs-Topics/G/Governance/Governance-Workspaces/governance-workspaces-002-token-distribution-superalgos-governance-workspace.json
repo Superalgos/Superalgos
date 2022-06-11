@@ -336,11 +336,27 @@
         {
             "style": "List",
             "text": "TS,",
-            "updated": 1630576395166
+            "updated": 1630576395166,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "TS,",
+                    "updated": 1654395474300,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Docker,"
+            "text": "Docker,",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Docker,",
+                    "updated": 1654395480415,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",

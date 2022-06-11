@@ -1,13 +1,13 @@
 {
     "tutorial": "Testing a Trading Idea - The Trigger Stage",
-    "pageNumber": 61,
+    "pageNumber": "61",
     "type": "Tutorial Step - Let's Break It Down!",
     "definition": {
-        "icon": {
-            "project": "Foundations",
-            "name": "condition"
-        },
         "text": "We will go through the statement step and step and put it into proper syntax!",
+        "icon": {
+            "name": "condition",
+            "project": "Foundations"
+        },
         "translations": [
             {
                 "language": "DE",
@@ -93,6 +93,12 @@
                     "language": "RU",
                     "text": "Скользящая средняя минус отклонение, с таймфреймом, определенным для каждого показания:",
                     "updated": 1642660947764
+                },
+                {
+                    "language": "TR",
+                    "text": "Hareketli ortalama eksi sapma, her ifade için tanımlanmış bir zaman çerçevesi ile:",
+                    "updated": 1654394177301,
+                    "style": "List"
                 }
             ]
         },

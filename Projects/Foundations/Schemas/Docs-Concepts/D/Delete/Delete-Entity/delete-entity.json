@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Удаляет узел и все его потомки. Требуется подтверждение в виде дополнительного клика.",
                 "updated": 1638282734383
+            },
+            {
+                "language": "TR",
+                "text": "Düğümü ve tüm yavrularını siler. Ek bir tıklama şeklinde bir onay gereklidir.",
+                "updated": 1654390970930
             }
         ]
     },
@@ -21,6 +26,12 @@
                     "language": "RU",
                     "text": "Эту операцию нельзя отменить.",
                     "updated": 1638282747415
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu işlem geri alınamaz.",
+                    "updated": 1654390977256,
+                    "style": "Warning"
                 }
             ]
         }

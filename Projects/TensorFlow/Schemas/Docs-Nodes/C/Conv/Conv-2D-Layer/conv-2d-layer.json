@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Слой двумерной свертки (например, пространственная свертка изображений). Этот слой создает ядро свертки, которое свертывается с входом слоя для получения тензора выходов.",
                 "updated": 1645196038370
+            },
+            {
+                "language": "TR",
+                "text": "2D konvolüsyon katmanı (örneğin görüntüler üzerinde uzamsal konvolüsyon). Bu katman, bir çıktı tensörü üretmek için katman girdisi ile konvolüsyonlanan bir konvolüsyon çekirdeği oluşturur.",
+                "updated": 1654396794193
             }
         ]
     },
@@ -20,6 +25,12 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
                     "updated": 1645196043331
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
+                    "updated": 1654396800124,
+                    "style": "Text"
                 }
             ]
         }

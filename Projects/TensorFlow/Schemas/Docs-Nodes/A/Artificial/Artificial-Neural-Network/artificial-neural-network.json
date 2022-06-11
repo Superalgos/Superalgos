@@ -26,6 +26,12 @@
                     "language": "RU",
                     "text": "\"Сигнал\" на соединении - это вещественное число, а выход каждого нейрона вычисляется некоторой нелинейной функцией от суммы его входов. Соединения называются ребрами. Нейроны и ребра обычно имеют вес, который изменяется по мере обучения. Вес увеличивает или уменьшает силу сигнала на соединении. Нейроны могут иметь порог, при котором сигнал посылается только в том случае, если суммарный сигнал пересекает этот порог. Как правило, нейроны объединяются в слои. Разные слои могут выполнять различные преобразования на своих входах. Сигналы проходят от первого слоя (входной слой) до последнего слоя (выходной слой), возможно, после многократного прохождения слоев.",
                     "updated": 1645195433762
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir bağlantıdaki \"sinyal\" gerçek bir sayıdır ve her nöronun çıktısı, girdilerinin toplamının doğrusal olmayan bir fonksiyonu ile hesaplanır. Bağlantılar kenar olarak adlandırılır. Nöronlar ve kenarlar tipik olarak öğrenme ilerledikçe ayarlanan bir ağırlığa sahiptir. Ağırlık, bir bağlantıdaki sinyalin gücünü artırır veya azaltır. Nöronların bir eşiği olabilir, öyle ki bir sinyal yalnızca toplam sinyal bu eşiği geçerse gönderilir. Tipik olarak, nöronlar katmanlar halinde toplanır. Farklı katmanlar girdileri üzerinde farklı dönüşümler gerçekleştirebilir. Sinyaller ilk katmandan (giriş katmanı) son katmana (çıkış katmanı), muhtemelen katmanları birden fazla kez geçtikten sonra gider.",
+                    "updated": 1654396646118,
+                    "style": "Text"
                 }
             ]
         }

@@ -27,11 +27,27 @@
         {
             "style": "Title",
             "text": "Maintainer:",
-            "updated": 1622481793076
+            "updated": 1622481793076,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bakımcı:",
+                    "updated": 1654393178017,
+                    "style": "Title"
+                }
+            ]
         },
         {
             "style": "Link",
-            "text": "@luis_fernando_molina (Telegram)->t.me/luis_fernando_molina"
+            "text": "@luis_fernando_molina (Telegram)->t.me/luis_fernando_molina",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "@luis_fernando_molina (Telegram)->t.me/luis_fernando_molina",
+                    "updated": 1654393184093,
+                    "style": "Link"
+                }
+            ]
         }
     ]
 }

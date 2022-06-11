@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Callbacks - это функция, передаваемая в другую функцию в качестве аргумента, которая затем вызывается внутри внешней функции для завершения какого-либо действия или процедуры.",
                 "updated": 1645195918407
+            },
+            {
+                "language": "TR",
+                "text": "Geri çağırma işlevi, başka bir işleve argüman olarak aktarılan ve daha sonra bir tür rutini veya eylemi tamamlamak için dış işlevin içinde çağrılan bir işlevdir.",
+                "updated": 1654396754892
             }
         ]
     },
@@ -20,6 +25,12 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
                     "updated": 1645195924086
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
+                    "updated": 1654396761183,
+                    "style": "Text"
                 }
             ]
         }

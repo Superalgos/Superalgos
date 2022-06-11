@@ -1,14 +1,14 @@
 {
     "tutorial": "Beyond the Basics",
-    "pageNumber": 31,
+    "pageNumber": "31",
     "type": "Tutorial Step - A Book on Tutorials",
     "definition": {
         "text": "Congratulations! You reached the end of another tutorial! I hope you feel that you're starting to grasp how Superalgos works!",
+        "updated": 1617034361694,
         "icon": {
             "name": "scripts-library",
             "project": "Foundations"
         },
-        "updated": 1617034361694,
         "translations": [
             {
                 "language": "IT",
@@ -111,6 +111,7 @@
         {
             "style": "Callout",
             "text": "To participate in the next Airdrop and Governance in general, get started by loading the following:",
+            "updated": 1630945286991,
             "translations": [
                 {
                     "language": "IT",
@@ -139,12 +140,19 @@
                     "text": "Чтобы принять участие в следующем Airdrop и в управлении (Governance) в целом , начните с загрузки следующего:",
                     "updated": 1640164274970
                 }
-            ],
-            "updated": 1630945286991
+            ]
         },
         {
             "style": "Text",
-            "text": "Token Distribution Superalgos Governance Workspace"
+            "text": "Token Distribution Superalgos Governance Workspace",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Token Dağıtımı Superalgos Yönetişim Çalışma Alanı",
+                    "updated": 1654393929016,
+                    "style": "Text"
+                }
+            ]
         }
     ]
 }

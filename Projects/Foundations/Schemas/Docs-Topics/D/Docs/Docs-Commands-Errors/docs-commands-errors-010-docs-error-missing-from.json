@@ -1,6 +1,6 @@
 {
     "topic": "Docs Commands Errors",
-    "pageNumber": 10,
+    "pageNumber": "10",
     "type": "Docs Error - Missing From",
     "definition": {
         "text": "The word \"from\" is part of the syntax of the command and it is missing.",
@@ -27,7 +27,15 @@
         {
             "style": "Anchor",
             "text": "Anchor Missing From",
-            "updated": 1609177607792
+            "updated": 1609177607792,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Çapa Eksik",
+                    "updated": 1654419851047,
+                    "style": "Anchor"
+                }
+            ]
         },
         {
             "style": "Error",
@@ -75,16 +83,38 @@
                     "language": "DE",
                     "text": "Gilt für",
                     "updated": 1633897980837
+                },
+                {
+                    "language": "TR",
+                    "text": "Şunlar için geçerlidir",
+                    "updated": 1654419860605,
+                    "style": "Title"
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Docs Delete Command"
+            "text": "Docs Delete Command",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Dokümanlar Silme Komutu",
+                    "updated": 1654419866794,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Docs Repaginate Command"
+            "text": "Docs Repaginate Command",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Docs Repaginate Komutu",
+                    "updated": 1654419872819,
+                    "style": "List"
+                }
+            ]
         }
     ]
 }

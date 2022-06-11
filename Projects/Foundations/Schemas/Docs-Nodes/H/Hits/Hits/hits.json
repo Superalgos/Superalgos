@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Hits подсчитывает количество позиций, которые закрылись с прибылью в контексте родительского узла.",
                 "updated": 1638968198860
+            },
+            {
+                "language": "TR",
+                "text": "İsabetler, üst düğüm bağlamında pozitif bir kar kaybıyla kapanan pozisyonların sayısını sayar.",
+                "updated": 1654419415489
             }
         ]
     },
@@ -23,6 +28,12 @@
                     "language": "RU",
                     "text": "В контексте котируемого актива или базового актива попадания рассчитываются относительно рассматриваемого актива. То есть, если прибыль базового актива положительный, то попадания Hits засчитываются для базового актива.",
                     "updated": 1638968506347
+                },
+                {
+                    "language": "TR",
+                    "text": "Kote edilen varlık veya temel varlık bağlamında, isabetler söz konusu varlığa göre hesaplanır. Yani, temel varlık kar zararı pozitifse, temel varlık için bir isabet sayılır.",
+                    "updated": 1654419422456,
+                    "style": "Text"
                 }
             ]
         },
@@ -34,6 +45,12 @@
                     "language": "RU",
                     "text": "Однако, если контекст актива не указан — например, в узле статистики Statistics — тогда попадания Hits рассчитываются консолидированным образом, преобразуя соответствующие балансы для выполнения вычислений.",
                     "updated": 1638968445210
+                },
+                {
+                    "language": "TR",
+                    "text": "Ancak, varlığın bağlamı belirtilmediğinde&mdash;örneğin istatistik düğümü altında&mdash;o zaman isabetler konsolide bir şekilde hesaplanır ve hesaplamaları gerçekleştirmek için ilgili bakiyeler dönüştürülür.",
+                    "updated": 1654419429131,
+                    "style": "Text"
                 }
             ]
         },
@@ -45,6 +62,12 @@
                     "language": "RU",
                     "text": "Объединенные расчеты подробно объясняются в узле Profit Loss.",
                     "updated": 1640347905998
+                },
+                {
+                    "language": "TR",
+                    "text": "Konsolide hesaplamalar kar zarar düğümünde ayrıntılı olarak açıklanmıştır.",
+                    "updated": 1654419435490,
+                    "style": "Note"
                 }
             ]
         },
@@ -62,6 +85,12 @@
                     "language": "RU",
                     "text": "Конфигурация Hits",
                     "updated": 1638968520074
+                },
+                {
+                    "language": "TR",
+                    "text": "Hit Konfigürasyonu",
+                    "updated": 1654419441898,
+                    "style": "Title"
                 }
             ]
         },
@@ -74,6 +103,12 @@
                     "language": "RU",
                     "text": "Сыойства",
                     "updated": 1638968533372
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1654419447859,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -86,6 +121,12 @@
                     "language": "RU",
                     "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
                     "updated": 1638968542833
+                },
+                {
+                    "language": "TR",
+                    "text": "initialValue düğümün ilk durumunun rastgele bir değere sıfırlanmasını sağlar.",
+                    "updated": 1654419454893,
+                    "style": "List"
                 }
             ]
         }

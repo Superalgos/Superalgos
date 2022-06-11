@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Обучение с подкреплением (RL) - это область машинного обучения, занимающаяся тем, как интеллектуальные агенты должны предпринимать действия в окружающей среде, чтобы максимизировать понятие совокупного вознаграждения. Обучение с подкреплением является одной из трех основных парадигм машинного обучения, наряду с контролируемым и неконтролируемым обучением.",
                 "updated": 1645249613791
+            },
+            {
+                "language": "TR",
+                "text": "Takviyeli öğrenme (RL), kümülatif ödül kavramını en üst düzeye çıkarmak için akıllı ajanların bir ortamda nasıl eylemde bulunmaları gerektiği ile ilgilenen bir makine öğrenimi alanıdır. Takviyeli öğrenme, denetimli öğrenme ve denetimsiz öğrenmenin yanı sıra üç temel makine öğrenimi paradigmasından biridir.",
+                "updated": 1654397467690
             }
         ]
     },
@@ -21,6 +26,12 @@
                     "language": "RU",
                     "text": "Обучение с подкреплением отличается от контролируемого обучения тем, что не требует представления пар \"вход/выход\" с метками и не требует явного исправления неоптимальных действий. Вместо этого основное внимание уделяется поиску баланса между исследованием (неизведанной территории) и эксплуатацией (текущих знаний).",
                     "updated": 1645249628011
+                },
+                {
+                    "language": "TR",
+                    "text": "Pekiştirmeli öğrenme, etiketli girdi/çıktı çiftlerinin sunulmasına ihtiyaç duymaması ve alt-optimal eylemlerin açıkça düzeltilmesine ihtiyaç duymaması bakımından denetimli öğrenmeden farklıdır. Bunun yerine odak noktası, keşif (keşfedilmemiş bölge) ve sömürü (mevcut bilgi) arasında bir denge bulmaktır.",
+                    "updated": 1654397473767,
+                    "style": "Text"
                 }
             ]
         },
@@ -33,6 +44,12 @@
                     "language": "RU",
                     "text": "Среда обычно задается в виде марковского процесса принятия решений (MDP), потому что многие алгоритмы обучения с подкреплением для этого контекста и��пользуют методы динамического программирования. Основное различие между классическими методами динамического программирования и алгоритмами обучения с подкреплением заключается в том, что последние не предполагают знания точной математической модели MDP и нацелены на большие MDP, где точные методы становятся невыполнимыми.",
                     "updated": 1645249638743
+                },
+                {
+                    "language": "TR",
+                    "text": "Ortam tipik olarak bir Markov karar süreci (MDP) biçiminde ifade edilir, çünkü bu bağlam için birçok takviye öğrenme algoritması dinamik programlama tekniklerini kullanır. Klasik dinamik programlama yöntemleri ile takviyeli öğrenme algoritmaları arasındaki temel fark, ikincisinin MDP'nin kesin bir matematiksel modeli hakkında bilgi sahibi olduğunu varsaymaması ve kesin yöntemlerin uygulanamaz hale geldiği büyük MDP'leri hedeflemesidir.",
+                    "updated": 1654397480819,
+                    "style": "Text"
                 }
             ]
         }

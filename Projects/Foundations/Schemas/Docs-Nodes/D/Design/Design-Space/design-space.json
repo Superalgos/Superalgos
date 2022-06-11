@@ -55,6 +55,12 @@
                     "language": "DE",
                     "text": "Betrachten Sie den Design Space als Ihren Schreibtisch oder als den Kontrollraum des Systems.",
                     "updated": 1642890522712
+                },
+                {
+                    "language": "TR",
+                    "text": "Tasarım alanını masaüstünüz veya sistemin kontrol odası olarak düşünün.",
+                    "updated": 1654391961318,
+                    "style": "Text"
                 }
             ]
         }

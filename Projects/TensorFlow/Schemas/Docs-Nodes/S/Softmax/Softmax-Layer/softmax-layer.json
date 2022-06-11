@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Активационный слой Softmax. Функция, которая обеспечивает вероятности для каждого возможного класса в многоклассовой модели классификации. Вероятности складываются в точности до 1,0. Например, Softmax может определить, что вероятность того, что конкретное изображение является собакой, составляет 0,9, кошкой - 0,08, а лошадью - 0,02.",
                 "updated": 1645249950104
+            },
+            {
+                "language": "TR",
+                "text": "Softmax aktivasyon katmanı. Çok sınıflı bir sınıflandırma modelinde her olası sınıf için olasılıklar sağlayan bir işlev. Olasılıklar tam olarak 1,0'a toplanır. Örneğin, softmax belirli bir görüntünün köpek olma olasılığını 0,9, kedi olma olasılığını 0,08 ve at olma olasılığını 0,02 olarak belirleyebilir.",
+                "updated": 1654397601654
             }
         ]
     },
@@ -21,6 +26,12 @@
                     "language": "RU",
                     "text": "Input shape: Произвольный. Используйте конфигурацию inputShape при использовании этого слоя в качестве первого слоя в модели.",
                     "updated": 1645249957588
+                },
+                {
+                    "language": "TR",
+                    "text": "Giriş şekli: Keyfi. Bu katmanı bir modelde ilk katman olarak kullanırken inputShape yapılandırmasını kullanın.",
+                    "updated": 1654397607284,
+                    "style": "List"
                 }
             ]
         },
@@ -32,6 +43,12 @@
                     "language": "RU",
                     "text": "Output shape: Та же форма, что и у входа.",
                     "updated": 1645249963555
+                },
+                {
+                    "language": "TR",
+                    "text": "Çıkış şekli: Giriş ile aynı şekil.",
+                    "updated": 1654397612829,
+                    "style": "List"
                 }
             ]
         }

@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Количество примеров в партии. Например, размер партии в SGD равен 1, а размер партии в мини-партии обычно составляет от 10 до 1000. Размер партии обычно фиксирован во время обучения и вывода; однако TensorFlow допускает динамическое изменение размера партии.",
                 "updated": 1645195656073
+            },
+            {
+                "language": "TR",
+                "text": "Bir toplu işteki örnek sayısı. Örneğin, SGD'nin parti boyutu 1 iken, mini partinin parti boyutu genellikle 10 ila 1000 arasındadır. Toplu iş boyutu genellikle eğitim ve çıkarım sırasında sabittir; ancak TensorFlow dinamik toplu iş boyutlarına izin verir.",
+                "updated": 1654396679271
             }
         ]
     },
@@ -21,6 +26,12 @@
                     "language": "RU",
                     "text": "Если inputShape указан, а batchInputShape не указан, batchSize используется для построения batchInputShape: [batchSize,...inputShape].",
                     "updated": 1645195669838
+                },
+                {
+                    "language": "TR",
+                    "text": "inputShape belirtilmiş ve batchInputShape belirtilmemişse, batchInputShape'i oluşturmak için batchSize kullanılır: [batchSize,...inputShape]",
+                    "updated": 1654396685172,
+                    "style": "Text"
                 }
             ]
         },
@@ -32,6 +43,12 @@
                     "language": "RU",
                     "text": "Возможные значения",
                     "updated": 1645195674573
+                },
+                {
+                    "language": "TR",
+                    "text": "Olası Değerler",
+                    "updated": 1654396690982,
+                    "style": "Subtitle"
                 }
             ]
         },

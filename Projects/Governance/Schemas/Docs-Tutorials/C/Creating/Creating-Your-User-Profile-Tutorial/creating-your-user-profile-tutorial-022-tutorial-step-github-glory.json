@@ -1,6 +1,6 @@
 {
     "tutorial": "Creating Your User Profile Tutorial",
-    "pageNumber": 22,
+    "pageNumber": "22",
     "type": "Tutorial Step - GitHub Glory",
     "definition": {
         "text": "Now, the Github Program rewards you with more tokens for helping developers find Superalgos on Github.com search!",
@@ -181,6 +181,12 @@
                     "language": "DE",
                     "text": "Gehen Sie zum Superalgos-Repository und klicken Sie auf die Schaltflächen Stern und Beobachten. Stellen Sie sicher, dass Sie auch einen Fork haben!->github.com/Superalgos/Superalgos",
                     "updated": 1640078528743
+                },
+                {
+                    "language": "TR",
+                    "text": "Yıldız ve İzle düğmelerine tıklamak için Superalgos deposuna gidin. Sizin de bir çatalınız olduğundan emin olun!->github.com/Superalgos/Superalgos",
+                    "updated": 1654395682777,
+                    "style": "Link"
                 }
             ]
         },

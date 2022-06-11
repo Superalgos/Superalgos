@@ -1,6 +1,6 @@
 {
     "topic": "Docs Paragraph Styles",
-    "pageNumber": 14,
+    "pageNumber": "14",
     "type": "Docs Table Style",
     "definition": {
         "text": "It is possible to render table in docs pages. To do so you just need to follow some formatting rules.",
@@ -73,6 +73,12 @@
                     "language": "RU",
                     "text": "| Столбец 1 | Столбец 2 | Столбец 3 |",
                     "updated": 1638539977299
+                },
+                {
+                    "language": "TR",
+                    "text": "| Sütun 1 | Sütun 2 | Sütun 3 |",
+                    "updated": 1654393777283,
+                    "style": "Text"
                 }
             ]
         },

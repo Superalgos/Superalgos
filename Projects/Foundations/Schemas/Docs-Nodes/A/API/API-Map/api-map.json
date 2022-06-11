@@ -594,12 +594,28 @@
         {
             "style": "Include",
             "text": "Foundations->Topic->Data Mining - Fetching Data From APIs->Main Workflow",
-            "updated": 1621951793419
+            "updated": 1621951793419,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Foundations->Topic->Data Mining - API'lerden Veri Getirme->Ana İş Akışı",
+                    "updated": 1654391281225,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Include",
             "text": "Foundations->Topic->Data Mining - Fetching Data From APIs->Step By Step",
-            "updated": 1622120722583
+            "updated": 1622120722583,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Foundations->Topic->Veri Madenciliği - API'lerden Veri Getirme->Adım Adım",
+                    "updated": 1654391288300,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Title",

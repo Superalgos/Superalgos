@@ -70,23 +70,63 @@
         },
         {
             "style": "List",
-            "text": "Docs Goto Command"
+            "text": "Docs Goto Command",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Docs Goto Komutu",
+                    "updated": 1654393321431,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Docs Add Command"
+            "text": "Docs Add Command",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Dokümanlar Komut Ekle",
+                    "updated": 1654393327224,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Docs Delete Command"
+            "text": "Docs Delete Command",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Dokümanlar Silme Komutu",
+                    "updated": 1654393332950,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Docs Save Command"
+            "text": "Docs Save Command",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Docs Kaydet Komutu",
+                    "updated": 1654393338792,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Docs Reindex Command"
+            "text": "Docs Reindex Command",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Docs Reindex Komutu",
+                    "updated": 1654393344446,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "Title",

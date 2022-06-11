@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Feature - это способность программного обеспечения выполнять задачи, необходимые для конкретного случая использования. Мы описываем функции, чтобы пользователи могли направить Weight Votes, чтобы выразить, какие из них являются наиболее ценными. Таким образом, пользователи могут решить, какие функции следует стимулировать, как в плане обслуживания, так и в плане развития.",
                 "updated": 1640284938822
+            },
+            {
+                "language": "TR",
+                "text": "Özellik, yazılımın belirli bir kullanım durumunun gerektirdiği görevleri yerine getirme kapasitesidir. Kullanıcıların Weight Votes'ı hangilerinin en değerli olduğunu ifade edecek şekilde yönlendirebilmeleri için özellikleri tanımlıyoruz. Kullanıcılar, hem bakım hem de geliştirme açısından hangi özelliklerin teşvik edileceğine bu şekilde karar verebilir.",
+                "updated": 1654394833174
             }
         ]
     },
@@ -25,6 +30,12 @@
                     "language": "RU",
                     "text": "Вы можете отдавать Weight Votes за отдельные узлы Feature, чтобы стимулировать улучшение, развитие и поддержание указанной функции.",
                     "updated": 1640284973812
+                },
+                {
+                    "language": "TR",
+                    "text": "Söz konusu özelliğin iyileştirilmesini, geliştirilmesini ve bakımını teşvik etmek için tek tek Özellik düğümlerine Ağırlık Oyları verebilirsiniz.",
+                    "updated": 1654394839046,
+                    "style": "Text"
                 }
             ]
         },
@@ -37,6 +48,12 @@
                     "language": "RU",
                     "text": "Если вы участвуете в разработке или поддержке функции, вы можете разместить заявку на вклад в функцию (Feature Contribution Claim) и призвать сообщество поддержать вашу заявку с помощью узлов Feature Claim Vote, чтобы вы могли получить вознаграждение за свою работу.",
                     "updated": 1640285022533
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir özelliğin geliştirilmesinde veya bakımında yer alıyorsanız, bir Özellik Katkısı Talebinde bulunabilir ve çalışmalarınız için ödüllendirilebilmeniz için Özellik Talebi Oy düğümleriyle talebinizi desteklemeleri için Topluluğu bir araya getirebilirsiniz.",
+                    "updated": 1654394845658,
+                    "style": "Callout"
                 }
             ]
         },
@@ -52,6 +69,12 @@
                     "language": "RU",
                     "text": "Конфигурация",
                     "updated": 1640285031783
+                },
+                {
+                    "language": "TR",
+                    "text": "Konfigürasyon",
+                    "updated": 1654394851851,
+                    "style": "Title"
                 }
             ]
         }

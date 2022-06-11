@@ -1,13 +1,13 @@
 {
     "tutorial": "Testing a Trading Idea - The Trigger Stage",
-    "pageNumber": 10,
+    "pageNumber": "10",
     "type": "Tutorial Step - Trigger Stage Events",
     "definition": {
-        "icon": {
-            "project": "Foundations",
-            "name": "trigger-stage"
-        },
         "text": "In a way, strategies are defined as a collection of events. The events that trigger a Trading Strategy are the first to consider!",
+        "icon": {
+            "name": "trigger-stage",
+            "project": "Foundations"
+        },
         "translations": [
             {
                 "language": "DE",
@@ -56,6 +56,12 @@
                     "language": "DE",
                     "text": "Trigger On Ereignis",
                     "updated": 1639261587220
+                },
+                {
+                    "language": "TR",
+                    "text": "Olay Üzerine Tetikleme",
+                    "updated": 1654394158702,
+                    "style": "List"
                 }
             ]
         },
@@ -67,6 +73,12 @@
                     "language": "DE",
                     "text": "Trigger Off Ereignis",
                     "updated": 1639261594252
+                },
+                {
+                    "language": "TR",
+                    "text": "Tetikleyici Kapalı Olayı",
+                    "updated": 1654394165051,
+                    "style": "List"
                 }
             ]
         },
@@ -78,6 +90,12 @@
                     "language": "DE",
                     "text": "Take Position Ereignis",
                     "updated": 1639261601457
+                },
+                {
+                    "language": "TR",
+                    "text": "Pozisyon Al Etkinliği",
+                    "updated": 1654394171391,
+                    "style": "List"
                 }
             ]
         },

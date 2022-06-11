@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "End Rate - это ставка (цена) закрытия свечи, соответствующая дате и времени свойства End.",
                 "updated": 1640350700527
+            },
+            {
+                "language": "TR",
+                "text": "Bitiş oranı, bitiş özelliğinin tarih saatine karşılık gelen mumun kapanış oranıdır.",
+                "updated": 1654392036523
             }
         ]
     },
@@ -23,6 +28,12 @@
                     "language": "RU",
                     "text": "В контексте стратегии это курс закрытия последней закрытой свечи в момент срабатывания стратегии.",
                     "updated": 1638772088477
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir strateji bağlamında, stratejinin tetiklendiği andaki son kapalı mumun kapanış oranıdır.",
+                    "updated": 1654392042340,
+                    "style": "Text"
                 }
             ]
         },
@@ -34,6 +45,12 @@
                     "language": "RU",
                     "text": "В контексте позиции это курс закрытия последней закрытой свечи в момент закрытия стадии close.",
                     "updated": 1638772192638
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir pozisyon bağlamında, kapanış aşamasının kapatıldığı andaki son kapalı mumun kapanış oranıdır.",
+                    "updated": 1654392048015,
+                    "style": "Text"
                 }
             ]
         },
@@ -45,6 +62,12 @@
                     "language": "RU",
                     "text": "В контексте эпизода это курс закрытия последней закрытой свечи в момент окончания эпизода.",
                     "updated": 1638772212462
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir bölüm bağlamında, bölümün sona erdiği andaki son kapalı mumun kapanış oranıdır.",
+                    "updated": 1654392054006,
+                    "style": "Text"
                 }
             ]
         },
@@ -62,6 +85,12 @@
                     "language": "RU",
                     "text": "Конфигурация End Rate",
                     "updated": 1638772236549
+                },
+                {
+                    "language": "TR",
+                    "text": "Son Hız Yapılandırması",
+                    "updated": 1654392059781,
+                    "style": "Title"
                 }
             ]
         },
@@ -74,6 +103,12 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1638772245706
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1654392065268,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -86,6 +121,12 @@
                     "language": "RU",
                     "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
                     "updated": 1638772254968
+                },
+                {
+                    "language": "TR",
+                    "text": "initialValue düğümün ilk durumunun rastgele bir değere sıfırlanmasını sağlar.",
+                    "updated": 1654392070752,
+                    "style": "List"
                 }
             ]
         }

@@ -84,7 +84,15 @@
         {
             "style": "Link",
             "text": "Exchange URL->exchangeURL.com",
-            "updated": 1628512847099
+            "updated": 1628512847099,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Değişim URL'si->exchangeURL.com",
+                    "updated": 1654395042210,
+                    "style": "Link"
+                }
+            ]
         },
         {
             "style": "List",
@@ -105,7 +113,15 @@
         },
         {
             "style": "Link",
-            "text": "Listing requirements->pageURL.com"
+            "text": "Listing requirements->pageURL.com",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Listeleme gereksinimleri->pageURL.com",
+                    "updated": 1654395048462,
+                    "style": "Link"
+                }
+            ]
         },
         {
             "style": "List",
@@ -126,7 +142,15 @@
         },
         {
             "style": "Link",
-            "text": "Listing request form->pageURL.com"
+            "text": "Listing request form->pageURL.com",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Listeleme talep formu->pageURL.com",
+                    "updated": 1654395054595,
+                    "style": "Link"
+                }
+            ]
         },
         {
             "style": "List",
@@ -562,7 +586,15 @@
         {
             "style": "Link",
             "text": "Alexa->www.alexa.com/siteinfo/lbank.info",
-            "updated": 1628537437035
+            "updated": 1628537437035,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Alexa->www.alexa.com/siteinfo/lbank.info",
+                    "updated": 1654395060184,
+                    "style": "Link"
+                }
+            ]
         },
         {
             "style": "List",
@@ -579,7 +611,15 @@
         {
             "style": "Link",
             "text": "DA by Moz->moz.com/domain-analysis?site=lbank.info",
-            "updated": 1628538362561
+            "updated": 1628538362561,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "DA by Moz->moz.com/domain-analysis?site=lbank.info",
+                    "updated": 1654395066811,
+                    "style": "Link"
+                }
+            ]
         },
         {
             "style": "List",
@@ -664,7 +704,15 @@
         {
             "style": "Link",
             "text": "Telegram English Community->t.me/LBank_en",
-            "updated": 1628538533078
+            "updated": 1628538533078,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Telegram İngilizce Topluluğu->t.me/LBank_en",
+                    "updated": 1654395075430,
+                    "style": "Link"
+                }
+            ]
         },
         {
             "style": "List",
@@ -718,7 +766,15 @@
         {
             "style": "Link",
             "text": "BTC - USDT Chart->www.lbank.info/exchange/btc/usdt",
-            "updated": 1628538654684
+            "updated": 1628538654684,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "BTC - USDT Grafiği->www.lbank.info/exchange/btc/usdt",
+                    "updated": 1654395085543,
+                    "style": "Link"
+                }
+            ]
         }
     ]
 }

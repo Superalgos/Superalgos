@@ -1,13 +1,13 @@
 {
     "tutorial": "Welcome to Superalgos!",
-    "pageNumber": 71,
+    "pageNumber": "71",
     "type": "Tutorial Step - Green Silver Bullets",
     "definition": {
+        "text": "Do you see the green bullets with an L in the center? Those are the limit buy orders I mentioned.",
         "icon": {
             "name": "Bullet\\bullet-limit-buy-order",
             "project": "Foundations"
         },
-        "text": "Do you see the green bullets with an L in the center? Those are the limit buy orders I mentioned.",
         "translations": [
             {
                 "language": "IT",
@@ -151,6 +151,12 @@
                     "language": "ID",
                     "text": "Jadi... apa yang terjadi setelahnya?",
                     "updated": 1639749041658
+                },
+                {
+                    "language": "TR",
+                    "text": "Yani. . sonra ne olacak?",
+                    "updated": 1654394249645,
+                    "style": "Text"
                 }
             ]
         }

@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Dataset - это набор файлов, хранящихся в указанном месте, в соответствии с определениями в соответствующем информационном продукте в соответствующем хранилище данных.",
                 "updated": 1638731468335
+            },
+            {
+                "language": "TR",
+                "text": "Veri seti, ilgili veri madeninde referans verilen veri ürünündeki tanımlara göre belirlenen konumda depolanan bir dosya koleksiyonudur.",
+                "updated": 1654391852731
             }
         ]
     },
@@ -23,6 +28,12 @@
                     "language": "RU",
                     "text": "Значительная часть того, что облегчает использование наборов данных другими ботами, заключается в том, что они стандартизированы с точки зрения их структуры. Именно эта структура указана в определениях набора данных.",
                     "updated": 1638731504637
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri kümelerinin diğer botlar tarafından kullanılmasını kolaylaştıran şeylerin önemli bir kısmı, yapıları bakımından standartlaştırılmış olmalarıdır. Veri kümesi tanımlarında belirtilen de bu yapıdır.",
+                    "updated": 1654391858815,
+                    "style": "Text"
                 }
             ]
         },
@@ -39,6 +50,12 @@
                     "language": "RU",
                     "text": "Конфигурация Dataset Definition",
                     "updated": 1638731534017
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri Kümesi Tanımı Yapılandırması",
+                    "updated": 1654391864939,
+                    "style": "Title"
                 }
             ]
         },
@@ -51,6 +68,12 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1638731547032
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1654391870352,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -63,6 +86,12 @@
                     "language": "RU",
                     "text": "codeName - это имя набора данных, используемое в коде. «Single-File» - это специальное значение. Используйте его для наборов данных, которые не зависят от таймфрейма и имеют свойство записи с меткой времени вместо обычных Begin и End. Когда этот тип наборов данных является зависимостью от наборов данных Market или Daily, им нужен codeName 'Single-File'a, чтобы его можно было найти на диске.",
                     "updated": 1638731698107
+                },
+                {
+                    "language": "TR",
+                    "text": "codeName, kod içinde kullanılan veri kümesinin adıdır. 'Single-File' özel bir değerdir. Zaman Çerçevelerine bağlı olmayan ve normal Başlangıç ve Bitiş yerine bir zaman damgası Kayıt Özelliğine sahip veri kümeleri için kullanın. Bu tür veri kümeleri Piyasa veya Günlük veri kümelerinin bir bağımlılığı olduğunda, diskte bulunabilmeleri için 'Tek Dosya' kod adına ihtiyaç duyarlar.",
+                    "updated": 1654391876109,
+                    "style": "List"
                 }
             ]
         },
@@ -75,6 +104,12 @@
                     "language": "RU",
                     "text": "type относится к типу набора данных; возможными значениями являются файлы рынка и ежедневные файлы.",
                     "updated": 1638731752652
+                },
+                {
+                    "language": "TR",
+                    "text": "type veri kümesinin türünü ifade eder; olası değerler piyasa dosyaları ve günlük dosyalardır.",
+                    "updated": 1654391883099,
+                    "style": "List"
                 }
             ]
         },
@@ -86,6 +121,12 @@
                     "language": "RU",
                     "text": "validTimeFrames относятся к таймфреймам, обрабатываемым набором данных.",
                     "updated": 1638731843558
+                },
+                {
+                    "language": "TR",
+                    "text": "validTimeFrames veri kümesi tarafından işlenen zaman dilimlerini ifade eder.",
+                    "updated": 1654391888543,
+                    "style": "List"
                 }
             ]
         },
@@ -97,6 +138,12 @@
                     "language": "RU",
                     "text": "filePath устанавливает путь, по которому хранятся файлы; необходимо ввести собственное имя хранилища данных, бота и продукта.",
                     "updated": 1638731874454
+                },
+                {
+                    "language": "TR",
+                    "text": "filePath dosyaların depolandığı yolu ayarlar; veri madeni, bot ve ürünün doğru adının girilmesi gerekir.",
+                    "updated": 1654391894309,
+                    "style": "List"
                 }
             ]
         },
@@ -108,6 +155,12 @@
                     "language": "RU",
                     "text": "fileName устанавливает имя файлов, составляющих набор данных.",
                     "updated": 1638731888972
+                },
+                {
+                    "language": "TR",
+                    "text": "fileName, veri kümesini oluşturan dosyaların adını ayarlar.",
+                    "updated": 1654391899793,
+                    "style": "List"
                 }
             ]
         },
@@ -119,12 +172,26 @@
                     "language": "RU",
                     "text": "timeFrames устанавливает имя и путь к файлу, указывая, какие таймфреймы должны быть отфильтрованы, когда пользователи устанавливают фильтр таймфреймов.",
                     "updated": 1638731956207
+                },
+                {
+                    "language": "TR",
+                    "text": "timeFrames, kullanıcılar bir zaman çerçeveleri filtresi ayarladığında hangi zaman çerçevelerinin filtreleneceğini gösteren dosyanın adını ve yolunu ayarlar.",
+                    "updated": 1654391907609,
+                    "style": "List"
                 }
             ]
         },
         {
             "style": "Subtitle",
-            "text": "Multi-Time-Frame-Market"
+            "text": "Multi-Time-Frame-Market",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Çok Zamanlı Çerçeve-Pazar",
+                    "updated": 1654391913978,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "Json",
@@ -134,7 +201,15 @@
         {
             "style": "Subtitle",
             "text": "Multi-Time-Frame-Daily",
-            "updated": 1622230146222
+            "updated": 1622230146222,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Çoklu Zaman Çerçevesi-Günlük",
+                    "updated": 1654391919783,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "Json",

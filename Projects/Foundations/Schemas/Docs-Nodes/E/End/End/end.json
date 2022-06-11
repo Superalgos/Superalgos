@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "End - это дата и время, в которые объект, представленный родительским узлом, перестал существовать. В случае, если объект еще не был закрыт, это дата и время на момент оценки.",
                 "updated": 1638771563592
+            },
+            {
+                "language": "TR",
+                "text": "Bitiş, üst düğüm tarafından temsil edilen nesnenin varlığının sona erdiği tarih saatidir. Nesnenin henüz kapatılmamış olması durumunda, değerlendirme anındaki tarih saatidir.",
+                "updated": 1654392076619
             }
         ]
     },
@@ -23,6 +28,12 @@
                     "language": "RU",
                     "text": "В контексте свечи это дата и время закрытия свечи, предоставленная биржей.",
                     "updated": 1638771609137
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir mum bağlamında, borsa tarafından sağlanan mumun kapanışının tarih saatidir.",
+                    "updated": 1654392083576,
+                    "style": "Text"
                 }
             ]
         },
@@ -34,6 +45,12 @@
                     "language": "RU",
                     "text": "В любом другом контексте дата-время определяется датой и временем момента оценки. При оценке момента времени, в котором объект остается открытым, End сохраняет дату и время этого момента, поскольку объект существовал до того момента времени, когда значение обновлялось в последний раз. Как только объект закрыт, конечное значение больше не изменяется.",
                     "updated": 1638771716969
+                },
+                {
+                    "language": "TR",
+                    "text": "Diğer tüm bağlamlarda, tarih zamanı değerlendirme anının tarih zamanı ile verilir. Nesnenin açık kaldığı bir zaman noktasını değerlendirirken, end o anın tarih saatini saklar, çünkü nesne, değerin en son güncellendiği o zaman noktasına kadar vardı. Nesne kapatıldıktan sonra, end değeri bir daha değiştirilmez.",
+                    "updated": 1654392089514,
+                    "style": "Text"
                 }
             ]
         },
@@ -51,6 +68,12 @@
                     "language": "RU",
                     "text": "Конфигурация End",
                     "updated": 1638771749313
+                },
+                {
+                    "language": "TR",
+                    "text": "Son Yapılandırma",
+                    "updated": 1654392095095,
+                    "style": "Title"
                 }
             ]
         },
@@ -63,6 +86,12 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1638771755962
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1654392100682,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -75,6 +104,12 @@
                     "language": "RU",
                     "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
                     "updated": 1638771766287
+                },
+                {
+                    "language": "TR",
+                    "text": "initialValue düğümün ilk durumunun rastgele bir değere sıfırlanmasını sağlar.",
+                    "updated": 1654392106234,
+                    "style": "List"
                 }
             ]
         }

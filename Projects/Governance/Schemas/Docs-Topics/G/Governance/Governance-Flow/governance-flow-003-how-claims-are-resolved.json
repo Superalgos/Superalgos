@@ -44,7 +44,15 @@
         },
         {
             "style": "Include",
-            "text": "Governance->Concept->Claim Power->Content"
+            "text": "Governance->Concept->Claim Power->Content",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yönetişim->Kavram->Güç İsteme->İçerik",
+                    "updated": 1654395400870,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Text",
@@ -252,7 +260,15 @@
         {
             "style": "Include",
             "text": "Governance->Concept->Claim Votes->Content",
-            "updated": 1624781853443
+            "updated": 1624781853443,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yönetişim->Kavram->Talep Oyları->İçerik",
+                    "updated": 1654395408984,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Text",
@@ -268,6 +284,12 @@
                     "language": "RU",
                     "text": "Поток Claim Support Power в Claim Votes следует тем же принципам, что и остальные потоки сил в программе голосования. Это означает, что голоса Claim Votes обладают определенной силой поддержки Claim Support Power, точно так же, как претензии обладают определенной силой Claim Power.",
                     "updated": 1640325975728
+                },
+                {
+                    "language": "TR",
+                    "text": "Talep Destek Gücünün Talep Oylarına akışı, Oylama Programındaki diğer güç akışları ile aynı ilkeleri izler. Bu, tıpkı taleplerin belirli bir Talep Gücüne sahip olması gibi, Talep Oylarının da belirli bir Talep Destek Gücüne sahip olduğu anlamına gelir.",
+                    "updated": 1654395415253,
+                    "style": "Text"
                 }
             ]
         },

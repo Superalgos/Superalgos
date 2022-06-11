@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Строка запроса является частью унифицированного указателя ресурсов (URL). Параметр запроса добавляется к базовому URL-адресу и присваивает значения указанным параметрам, чтобы указать запрос данных для API.",
                 "updated": 1638629326956
+            },
+            {
+                "language": "TR",
+                "text": "Sorgu dizesi, tek tip kaynak bulucunun (URL) bir parçasıdır. Sorgu parametresi temel URL'ye eklenir ve API'ye veri talebini belirtmek için belirtilen parametrelere değerler atar.",
+                "updated": 1654391475166
             }
         ]
     },
@@ -21,6 +26,12 @@
                     "language": "RU",
                     "text": "Другими словами, запрос API - это часть URL-адреса, используемого для запроса информации из API. Эти значения сохраняются после символа ? в URL-адресе запроса. Запросы обычно используются для корректировки типа данных, возвращаемых API. Например, если конечная точка api принимает запрос времени, вы сможете запрашивать данные за определенный период времени.",
                     "updated": 1638629359289
+                },
+                {
+                    "language": "TR",
+                    "text": "Başka bir deyişle, API Sorgusu, bir API'den bilgi istemek için kullanılan URL'nin bir parçasıdır. Bu değerler, istek URL'sindeki ? işaretinden sonra tutulur. Sorgular genellikle api'nin döndüreceği veri türünde ayarlamalar yapmak için kullanılır. Örneğin, bir api uç noktası bir zaman sorgusunu kabul ederse, belirli bir zaman diliminden veri talep edebilirsiniz.",
+                    "updated": 1654391480844,
+                    "style": "Text"
                 }
             ]
         },
@@ -33,6 +44,12 @@
                     "language": "RU",
                     "text": "Параметры запроса Query Parameters , как правило, не нужно определять в каком-либо конкретном порядке, поэтому не стесняйтесь добавлять дочерние элементы для этого узла в любом порядке.",
                     "updated": 1638629394716
+                },
+                {
+                    "language": "TR",
+                    "text": "Genel olarak Sorgu Parametrelerinin belirli bir sırayla tanımlanması gerekmez, bu nedenle bu düğüm için istediğiniz sırayla çocuk eklemekten çekinmeyin.",
+                    "updated": 1654391486875,
+                    "style": "Note"
                 }
             ]
         },
@@ -45,6 +62,12 @@
                     "language": "RU",
                     "text": "Когда API Query Parameter найден в API Map, он определит значения по умолчанию на основе свойства value каждого узла API Query Parameter. Однако, если используется свойство replaceBy, система извлечет значение из системы пользователя. Примерами этого являются текущее время, текущий обмен и т. д.",
                     "updated": 1638629513012
+                },
+                {
+                    "language": "TR",
+                    "text": "API Haritasında bir API Sorgu Parametresi bulunduğunda, her API Sorgu Parametresi düğümünün değer özelliğine dayalı olarak varsayılan değerleri tanımlayacaktır. Ancak, replaceBy özelliği kullanılırsa, sistem değeri kullanıcının sisteminden çekecektir.  Buna örnek olarak geçerli saat, kullanılan geçerli döviz vb. verilebilir.",
+                    "updated": 1654391494283,
+                    "style": "Success"
                 }
             ]
         }

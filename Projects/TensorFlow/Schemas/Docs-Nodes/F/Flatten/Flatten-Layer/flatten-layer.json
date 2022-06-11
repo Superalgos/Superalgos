@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Сглаживает входные данные. Не влияет на размер партии. Слой Flatten сплющивает каждую партию на входе до 1D (делая выход 2D).",
                 "updated": 1645248019338
+            },
+            {
+                "language": "TR",
+                "text": "Girişi düzleştirir. Yığın boyutunu etkilemez. Bir Flatten katmanı, girdilerindeki her bir yığını 1D'ye düzleştirir (çıktıyı 2D yapar).",
+                "updated": 1654397155257
             }
         ]
     },
@@ -20,6 +25,12 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
                     "updated": 1645248024302
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
+                    "updated": 1654397160954,
+                    "style": "Text"
                 }
             ]
         }

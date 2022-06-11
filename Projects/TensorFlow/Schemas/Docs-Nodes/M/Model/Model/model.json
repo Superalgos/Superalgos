@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "В машинном обучении модель - это функция с обучаемыми параметрами, которая отображает входные данные на выходные. Оптимальные параметры получаются путем обучения модели на данных. Хорошо обученная модель обеспечивает точное отображение входных данных на желаемый выход.",
                 "updated": 1645249016691
+            },
+            {
+                "language": "TR",
+                "text": "Makine öğreniminde model, bir girdiyi bir çıktıya eşleyen öğrenilebilir parametrelere sahip bir fonksiyondur. En uygun parametreler, modelin veriler üzerinde eğitilmesiyle elde edilir. İyi eğitilmiş bir model, girdiden istenen çıktıya doğru bir eşleme sağlayacaktır.",
+                "updated": 1654397345762
             }
         ]
     },
@@ -21,6 +26,12 @@
                     "language": "RU",
                     "text": "В TensorFlow.js существует два способа создания модели машинного обучения:",
                     "updated": 1645249024667
+                },
+                {
+                    "language": "TR",
+                    "text": "TensorFlow.js'de bir makine öğrenimi modeli oluşturmanın iki yolu vardır:",
+                    "updated": 1654397351751,
+                    "style": "Text"
                 }
             ]
         },
@@ -32,6 +43,12 @@
                     "language": "RU",
                     "text": "с помощью Layers API, где вы строите модель, используя слои.",
                     "updated": 1645249052521
+                },
+                {
+                    "language": "TR",
+                    "text": "Katmanları kullanarak bir model oluşturduğunuz Katmanlar API'sini kullanarak.",
+                    "updated": 1654397358286,
+                    "style": "List"
                 }
             ]
         },
@@ -43,6 +60,12 @@
                     "language": "RU",
                     "text": "использование Core API с операциями более низкого уровня, такими как tf.matMul(), tf.add() и т.д.",
                     "updated": 1645249041243
+                },
+                {
+                    "language": "TR",
+                    "text": "tf.matMul(), tf.add(), vb. gibi daha düşük seviyeli işlemlerle Core API'yi kullanmak.",
+                    "updated": 1654397364009,
+                    "style": "List"
                 }
             ]
         }

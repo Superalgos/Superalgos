@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Ein Satz von Low-Level-Definitionen in einer JSON-Datei, die festlegt, welche Arten von Nodes von einem bestimmten Projekt für die Verwendung im Design Space zur Verfügung gestellt werden.",
                 "updated": 1642029546510
+            },
+            {
+                "language": "TR",
+                "text": "Tasarım Alanında kullanılmak üzere belirli bir Proje tarafından hangi düğüm türlerinin kullanılabilir hale getirildiğini tanımlayan bir JSON dosyasına yerleştirilmiş bir dizi düşük seviye tanım.",
+                "updated": 1654390577793
             }
         ]
     },
@@ -31,6 +36,12 @@
                     "language": "DE",
                     "text": "Die App Schema-Datei ist ein Array von Objekten, wobei jedes Objekt einen bestimmten node type definiert.",
                     "updated": 1642029579373
+                },
+                {
+                    "language": "TR",
+                    "text": "App Schema dosyası bir dizi nesneden oluşur ve her nesne belirli bir düğüm türünü tanımlar.",
+                    "updated": 1654390583818,
+                    "style": "Text"
                 }
             ]
         },
@@ -47,6 +58,12 @@
                     "language": "DE",
                     "text": "Beispiel",
                     "updated": 1642029587121
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnek",
+                    "updated": 1654390589361,
+                    "style": "Title"
                 }
             ]
         },
@@ -76,6 +93,12 @@
                     "language": "DE",
                     "text": "Eigenschaften (properties)",
                     "updated": 1642029632868
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1654390595447,
+                    "style": "Title"
                 }
             ]
         },
@@ -92,12 +115,26 @@
                     "language": "DE",
                     "text": "Jedes Objekt kann einen vordefinierten Satz von Eigenschaften (properties) haben, die Sie hier sehen können:",
                     "updated": 1642029620509
+                },
+                {
+                    "language": "TR",
+                    "text": "Her nesne, burada görebileceğiniz önceden tanımlanmış bir dizi özelliğe sahip olabilir:",
+                    "updated": 1654390601332,
+                    "style": "Text"
                 }
             ]
         },
         {
             "style": "Subtitle",
-            "text": "type"
+            "text": "type",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "tip",
+                    "updated": 1654390607544,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "Text",
@@ -113,12 +150,26 @@
                     "language": "DE",
                     "text": "Der Typ der Node ist der Schlüssel, mit dem jede Node im Kontext eines bestimmten Projekts identifiziert wird. Die Namenskonvention besagt, dass alle Wörter großgeschrieben werden müssen.",
                     "updated": 1642029661789
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğümün Tipi, her bir düğümün belirli bir Proje bağlamında tanımlanmasını sağlayan anahtardır. Buradaki adlandırma kuralı, tüm kelimelerin büyük harfle yazılması gerektiğidir.",
+                    "updated": 1654390613595,
+                    "style": "Text"
                 }
             ]
         },
         {
             "style": "Subtitle",
-            "text": "level"
+            "text": "level",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "seviye",
+                    "updated": 1654390619647,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "Text",
@@ -134,12 +185,26 @@
                     "language": "DE",
                     "text": "Es handelt sich um eine ganze Zahl (integer) von 0 bis 5, die die Bedeutung dieser Art von Nodes darstellt. 0 ist der wichtigste. Je wichtiger der Node type ist, desto größer wird er im Design Space dargestellt. Der Unterschied zwischen den Stufen ist kaum spürbar.",
                     "updated": 1642029704808
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu düğüm türünün önemini temsil eden 0 ila 5 arasında bir tamsayıdır. 0 en önemli olanıdır. Düğüm türü ne kadar önemli olursa, Tasarım Alanında o kadar büyük işlenir. Seviye arasındaki fark neredeyse hiç fark edilmez.",
+                    "updated": 1654390625726,
+                    "style": "Text"
                 }
             ]
         },
         {
             "style": "Subtitle",
-            "text": "propertyNameAtParent"
+            "text": "propertyNameAtParent",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "propertyNameAtParent",
+                    "updated": 1654390631349,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "Text",
@@ -154,13 +219,27 @@
                     "language": "DE",
                     "text": "Nodes sind in der Regel Unter-Nodes (child nodes) von anderen nodes. Jede node kann auch children (Unter Nodes) haben. Zur Laufzeit werden references (Verweise) auf childre in einer Eigenschaft (property) des Node-Objekts gespeichert, aber diese Eigenschaft ist nicht eindeutig oder vordefiniert.  Stattdessen deklariert jeder node type eine eigene Definition im App-Schema, die den Namen der Eigenschaft (property) angibt, die ihre eigene reference (Verweis) im übergeordneten Node beherbergen (hosten) wird.",
                     "updated": 1642029948245
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğümler genellikle diğer düğümlerin çocuğudur. Her düğümün çocukları da olabilir. Çalışma zamanında çocuk referansları Node nesnesinin bazı özelliklerinde saklanır, ancak bu özellik benzersiz veya önceden tanımlanmış değildir. Bunun yerine, her Node Tipi, App Schema'daki kendi tanımında, üst düğümünde kendi referansını barındıracak özelliğin adını beyan eder.",
+                    "updated": 1654390637121,
+                    "style": "Text"
                 }
             ]
         },
         {
             "style": "Subtitle",
             "text": "childrenNodesProperties",
-            "updated": 1614785903518
+            "updated": 1614785903518,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "childrenNodesProperties",
+                    "updated": 1654390642830,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "Text",
@@ -176,6 +255,12 @@
                     "language": "DE",
                     "text": "Nodes deklarieren auch eine Reihe von property names (Eigenschaftsnamen), die verwendet werden, um zu definieren, welche Art von children die Node haben kann. Zum Beispiel:",
                     "updated": 1642030064127
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğümler ayrıca, düğümün hangi tür çocuklara sahip olabileceğini tanımlamak için kullanılacak bir dizi özellik adı bildirir. Örneğin:",
+                    "updated": 1654390648685,
+                    "style": "Text"
                 }
             ]
         },
@@ -198,6 +283,12 @@
                     "language": "DE",
                     "text": "Jedes array item steht für einen Typ von children node (unter-nodes), den diese Node haben kann.",
                     "updated": 1642030120041
+                },
+                {
+                    "language": "TR",
+                    "text": "Her dizi öğesi, bu düğümün sahip olabileceği bir tür çocuk düğümünü temsil eder.",
+                    "updated": 1654390655084,
+                    "style": "Text"
                 }
             ]
         },
@@ -214,6 +305,12 @@
                     "language": "DE",
                     "text": "Jedes Objekt kann 4 properties (Eigenschaften) haben:",
                     "updated": 1642030147231
+                },
+                {
+                    "language": "TR",
+                    "text": "Her nesne 4 özelliğe sahip olabilir:",
+                    "updated": 1654390660924,
+                    "style": "Text"
                 }
             ]
         },
@@ -231,6 +328,12 @@
                     "language": "DE",
                     "text": "name: ist der Name der property, die zur Laufzeit den Verweis auf die untergeordneten Nodes (child nodes) enthält.",
                     "updated": 1642118386222
+                },
+                {
+                    "language": "TR",
+                    "text": "name: çalışma zamanında alt düğüme referansı tutacak özelliğin adı anlamına gelir.",
+                    "updated": 1654390666474,
+                    "style": "List"
                 }
             ]
         },
@@ -248,6 +351,12 @@
                     "language": "DE",
                     "text": "type: mögliche Werte sind node oder array. Siehe Details unten.",
                     "updated": 1642118209487
+                },
+                {
+                    "language": "TR",
+                    "text": "tür: olası değerler düğüm veya dizidir. Aşağıdaki ayrıntılara bakın.",
+                    "updated": 1654390672149,
+                    "style": "List"
                 }
             ]
         },
@@ -264,6 +373,12 @@
                     "language": "DE",
                     "text": "childType: bedeutet den Typ der untergeordneten Node.",
                     "updated": 1642118232746
+                },
+                {
+                    "language": "TR",
+                    "text": "childType: alt düğümün türü anlamına gelir.",
+                    "updated": 1654390677668,
+                    "style": "List"
                 }
             ]
         },
@@ -280,6 +395,12 @@
                     "language": "DE",
                     "text": "autoAdd: optional, bedeutet, dass eine Instanz dieser untergeordneten Node automatisch erstellt wird, wenn dieser Node type erstellt wird.",
                     "updated": 1642118287649
+                },
+                {
+                    "language": "TR",
+                    "text": "autoAdd: isteğe bağlı, bu Node türü oluşturulduğunda bu çocukların bir örneğinin otomatik olarak oluşturulup oluşturulmayacağı anlamına gelir.",
+                    "updated": 1654390683756,
+                    "style": "List"
                 }
             ]
         },
@@ -297,6 +418,12 @@
                     "language": "DE",
                     "text": "Die Eigenschaft type kann entweder node oder array sein, was bedeutet:",
                     "updated": 1642118311248
+                },
+                {
+                    "language": "TR",
+                    "text": "Tür özelliği, düğüm veya dizi olabilir, yani:",
+                    "updated": 1654390689381,
+                    "style": "Text"
                 }
             ]
         },
@@ -313,6 +440,12 @@
                     "language": "DE",
                     "text": "node: bedeutet, dass es nur eine Instanz dieser Art von untergeordneter nodes geben kann.",
                     "updated": 1642118342537
+                },
+                {
+                    "language": "TR",
+                    "text": "node: bu tür çocukların yalnızca bir örneğine sahip olabileceği anlamına gelir.",
+                    "updated": 1654390695562,
+                    "style": "List"
                 }
             ]
         },
@@ -329,12 +462,26 @@
                     "language": "DE",
                     "text": "array: bedeutet, dass es mehr als eine Instanz dieser Art von untergeordneten nodes haben kann.",
                     "updated": 1642118376107
+                },
+                {
+                    "language": "TR",
+                    "text": "array: bu tür çocukların birden fazla örneğine sahip olabileceği anlamına gelir.",
+                    "updated": 1654390701557,
+                    "style": "List"
                 }
             ]
         },
         {
             "style": "Subtitle",
-            "text": "attachingRules"
+            "text": "attachingRules",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "attachingRules",
+                    "updated": 1654390707384,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "Text",
@@ -349,6 +496,12 @@
                     "language": "DE",
                     "text": "Diese property legt fest, an welche nodes die aktuell definierte node anknüpfen kann, wobei diese node als mögliche parents (Eltern) betrachtet werden. Die Werte werden in einem string (Zeichenkette) mit einer Liste von node types ausgedrückt, wie im folgenden Beispiel:",
                     "updated": 1642118479642
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu özellik, tanımlanmakta olan geçerli düğümün, bu düğümleri olası ebeveynler olarak dikkate alarak hangi düğümlere bağlanabileceğini tanımlar. Değerler, aşağıdaki örnekte olduğu gibi Düğüm Türleri listesini içeren bir dize olarak ifade edilir:",
+                    "updated": 1654390713138,
+                    "style": "Text"
                 }
             ]
         },
@@ -371,12 +524,26 @@
                     "language": "DE",
                     "text": "Die property incompatibleTypes kann auch verwendet werden, um explizit festzulegen, welche nodes keine parents (Eltern) sein können.",
                     "updated": 1642118553362
+                },
+                {
+                    "language": "TR",
+                    "text": "incompatibleTypes özelliği, hangi düğümlerin ebeveyn olamayacağını açıkça tanımlamak için de kullanılabilir.",
+                    "updated": 1654390718706,
+                    "style": "Note"
                 }
             ]
         },
         {
             "style": "Subtitle",
-            "text": "referencingRules"
+            "text": "referencingRules",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "referansKuralları",
+                    "updated": 1654390725220,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "Text",
@@ -392,6 +559,12 @@
                     "language": "DE",
                     "text": "Diese property definiert, auf welche nodes die aktuell definierte node verweisen kann, wobei diese node als mögliche reference parents (Referenzeltern) betrachtet werden. Die Werte werden in einem String (Zeichenkette) mit einer Liste von node typen wie im folgenden Beispiel ausgedrückt:",
                     "updated": 1642118656503
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu özellik, tanımlanmakta olan geçerli düğümün hangi düğümlere referans verebileceğini tanımlar ve bu düğümleri olası referans ebeveynleri olarak dikkate alır. Değerler, aşağıdaki örnekte olduğu gibi Düğüm Türleri listesini içeren bir dize olarak ifade edilir:",
+                    "updated": 1654390731678,
+                    "style": "Text"
                 }
             ]
         },
@@ -414,12 +587,26 @@
                     "language": "DE",
                     "text": " Hinweis: Die property incompatibleTypes kann auch verwendet werden, um explizit zu definieren, welche nodes keine parents (Eltern) sein können.",
                     "updated": 1642118714518
+                },
+                {
+                    "language": "TR",
+                    "text": "incompatibleTypes özelliği, hangi düğümlerin ebeveyn olamayacağını açıkça tanımlamak için de kullanılabilir.",
+                    "updated": 1654390737446,
+                    "style": "Note"
                 }
             ]
         },
         {
             "style": "Subtitle",
-            "text": "menuItems"
+            "text": "menuItems",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "menuItems",
+                    "updated": 1654390743455,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "Text",
@@ -434,6 +621,12 @@
                     "language": "DE",
                     "text": "Mit dieser property können Sie das Menü dieses node typs im Design Space definieren. Dieses Menü besteht aus einem Array von Menu Items Objekten wie im folgenden Beispiel:",
                     "updated": 1642118896744
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu özellik, Tasarım Alanında bu Düğüm Tipinin menüsünü tanımlamanıza olanak tanır. Bu menü, aşağıdaki örnekte olduğu gibi Menü Öğeleri nesnelerinden oluşan bir dizi olacaktır:",
+                    "updated": 1654390749110,
+                    "style": "Text"
                 }
             ]
         },
@@ -456,6 +649,12 @@
                     "language": "DE",
                     "text": "Obwohl es Ihnen freisteht, jeden beliebigen Menüpunkt hinzuzufügen, gibt es einige, die bereits standardisiert sind. Diese Standard-Menüpunkte werden aus Gründen der Konsistenz auch an einer bestimmten Position im Menü platziert.",
                     "updated": 1642118943340
+                },
+                {
+                    "language": "TR",
+                    "text": "İstediğiniz herhangi bir menü öğesini eklemekte özgür olsanız da, halihazırda standart hale gelmiş birkaç tane var. Bu standart Menü Öğeleri de tutarlılık için menü içinde belirli bir konuma yerleştirilmiştir.",
+                    "updated": 1654390755001,
+                    "style": "Text"
                 }
             ]
         },
@@ -472,6 +671,12 @@
                     "language": "DE",
                     "text": "configure: ist immer das erste Item",
                     "updated": 1642118964256
+                },
+                {
+                    "language": "TR",
+                    "text": "yapılandırma: her zaman ilk öğe olarak gidin",
+                    "updated": 1654390761000,
+                    "style": "List"
                 }
             ]
         },
@@ -504,6 +709,12 @@
                     "language": "DE",
                     "text": "delete: es ist immer der letzte",
                     "updated": 1642119054455
+                },
+                {
+                    "language": "TR",
+                    "text": "sil: her zaman sonuncudur",
+                    "updated": 1654390779605,
+                    "style": "List"
                 }
             ]
         },
@@ -513,7 +724,15 @@
         },
         {
             "style": "Subtitle",
-            "text": "initialValues"
+            "text": "initialValues",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "initialValues",
+                    "updated": 1654390785201,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "Text",
@@ -528,6 +747,12 @@
                     "language": "DE",
                     "text": "Diese property wird benötigt, wenn der zu definierende Node Type eine configuration hat. In diesen Fällen wird diese property den Anfangswert für diese Konfiguration festlegen. Beispiel:",
                     "updated": 1642119140131
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu özellik, tanımlanmakta olan Düğüm Tipinin bir konfigürasyona sahip olacağı durumlarda gereklidir. Bu durumlarda, bu özellik söz konusu yapılandırma için başlangıç değerini ayarlayacaktır. Örnek:",
+                    "updated": 1654390791440,
+                    "style": "Text"
                 }
             ]
         },
@@ -538,7 +763,15 @@
         },
         {
             "style": "Subtitle",
-            "text": "editors"
+            "text": "editors",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "editörler",
+                    "updated": 1654390796903,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "Text",
@@ -553,6 +786,12 @@
                     "language": "DE",
                     "text": "Mit dieser property wird dem System mitgeteilt, welcher Editor für diesen Node Type zur Verfügung steht.  Beispiel:",
                     "updated": 1642119178768
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu özellik, sisteme bu düğüm türü için hangi düzenleyicinin kullanılabileceğini söyleyecektir. Örnek:",
+                    "updated": 1654390802882,
+                    "style": "Text"
                 }
             ]
         },
@@ -574,6 +813,12 @@
                     "language": "DE",
                     "text": "Es gibt einige bestehende Editoren:",
                     "updated": 1642119207421
+                },
+                {
+                    "language": "TR",
+                    "text": "Mevcut birkaç editör var:",
+                    "updated": 1654390808584,
+                    "style": "Text"
                 }
             ]
         },
@@ -590,6 +835,12 @@
                     "language": "DE",
                     "text": "config: editor für node configurations.",
                     "updated": 1642119239112
+                },
+                {
+                    "language": "TR",
+                    "text": "config: düğüm konfigürasyonları için editör.",
+                    "updated": 1654390814317,
+                    "style": "List"
                 }
             ]
         },
@@ -606,6 +857,12 @@
                     "language": "DE",
                     "text": "code: editor für javascript code.",
                     "updated": 1642119244333
+                },
+                {
+                    "language": "TR",
+                    "text": "code: javascript kodu için editör.",
+                    "updated": 1654390820178,
+                    "style": "List"
                 }
             ]
         },
@@ -622,6 +879,12 @@
                     "language": "DE",
                     "text": "formula: Formeln, ausgedrückt in Javascript.",
                     "updated": 1642119298908
+                },
+                {
+                    "language": "TR",
+                    "text": "formül: javascript ile ifade edilen formüller.",
+                    "updated": 1654390825983,
+                    "style": "List"
                 }
             ]
         },
@@ -639,6 +902,12 @@
                     "language": "DE",
                     "text": "condition: conditions (Bedingungen) editor.",
                     "updated": 1642119335171
+                },
+                {
+                    "language": "TR",
+                    "text": "koşul: koşullar düzenleyici.",
+                    "updated": 1654390831647,
+                    "style": "List"
                 }
             ]
         },
@@ -655,6 +924,12 @@
                     "language": "DE",
                     "text": "Damit der Benutzer den hier konfigurierten Editor auch tatsächlich öffnen kann, muss es einen Menu Item (Menüpunkt) geben, der die Aktion \"Configure\" hat.",
                     "updated": 1642119387103
+                },
+                {
+                    "language": "TR",
+                    "text": "Kullanıcının burada yapılandırılan düzenleyiciyi gerçekten açabilmesi için, eylemi = \"Yapılandır\" olan bir Menü Öğesi olmalıdır.",
+                    "updated": 1654390837503,
+                    "style": "Note"
                 }
             ]
         },

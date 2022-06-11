@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Первый слой (тот, который получает входные данные) в искусственной нейронной сети (Artificial Neural Network).",
                 "updated": 1645248177620
+            },
+            {
+                "language": "TR",
+                "text": "Bir Yapay Sinir Ağındaki ilk katman (giriş verilerini alan katman).",
+                "updated": 1654397191062
             }
         ]
     },
@@ -20,6 +25,12 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
                     "updated": 1645248184440
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
+                    "updated": 1654397198529,
+                    "style": "Text"
                 }
             ]
         }

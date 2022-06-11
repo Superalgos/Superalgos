@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Экспоненциальная линейная единица (ELU).",
                 "updated": 1645247557899
+            },
+            {
+                "language": "TR",
+                "text": "Üstel Doğrusal Birim (ELU).",
+                "updated": 1654397021818
             }
         ]
     },
@@ -21,6 +26,12 @@
                     "language": "RU",
                     "text": "Она подчиняется",
                     "updated": 1645247587852
+                },
+                {
+                    "language": "TR",
+                    "text": "Takip Ediyor",
+                    "updated": 1654397028129,
+                    "style": "Title"
                 }
             ]
         },
@@ -36,6 +47,12 @@
                     "language": "RU",
                     "text": "Input shape: Произвольный. Используйте конфигурацию inputShape при использовании этого слоя в качестве первого слоя в модели.",
                     "updated": 1645247603320
+                },
+                {
+                    "language": "TR",
+                    "text": "Giriş şekli: Keyfi. Bu katmanı bir modelde ilk katman olarak kullanırken inputShape yapılandırmasını kullanın.",
+                    "updated": 1654397035120,
+                    "style": "List"
                 }
             ]
         },
@@ -47,6 +64,12 @@
                     "language": "RU",
                     "text": "Output shape: Та же форма, что и у входа.",
                     "updated": 1645247614862
+                },
+                {
+                    "language": "TR",
+                    "text": "Çıkış şekli: Giriş ile aynı şekil.",
+                    "updated": 1654397040997,
+                    "style": "List"
                 }
             ]
         }

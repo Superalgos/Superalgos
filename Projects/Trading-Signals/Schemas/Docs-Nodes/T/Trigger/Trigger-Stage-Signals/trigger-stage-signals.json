@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Узел Trigger Stage Signals содержит определения всех отдельных элементов сигналов, выходящих из Trigger Stage поставщика сигналов.",
                 "updated": 1645253573326
+            },
+            {
+                "language": "TR",
+                "text": "Tetikleme Aşaması Sinyalleri düğümü, sinyal sağlayıcının Tetikleme Aşamasından çıkan tüm bireysel sinyal öğelerinin tanımlarını barındırır.",
+                "updated": 1654398078742
             }
         ]
     },

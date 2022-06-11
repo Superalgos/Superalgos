@@ -1,13 +1,13 @@
 {
     "tutorial": "Welcome to Superalgos!",
-    "pageNumber": 39,
+    "pageNumber": "39",
     "type": "Tutorial Step - Size Matters?",
     "definition": {
+        "text": "How about shaping the time machine to the exact aspect ratio of your screen?",
         "icon": {
             "name": "Time\\time-machine",
             "project": "Foundations"
         },
-        "text": "How about shaping the time machine to the exact aspect ratio of your screen?",
         "translations": [
             {
                 "language": "IT",
@@ -49,6 +49,7 @@
         {
             "style": "Text",
             "text": "Matching the aspect ratio of your time machines to the aspect ratio of your screen is crucial for charts to fit your screen tightly while zooming in!",
+            "updated": 1622198491208,
             "translations": [
                 {
                     "language": "IT",
@@ -84,8 +85,7 @@
                     "text": "Соответствие соотношения сторон Ваших машин времени с соотношению сторон Вашего экрана, имеет решающее значение, т.к. необходимо, чтобы диаграммы плотно прилегали к Вашему экрану при увеличении масштаба!",
                     "updated": 1636202715136
                 }
-            ],
-            "updated": 1622198491208
+            ]
         },
         {
             "style": "Callout",
@@ -172,7 +172,15 @@
         {
             "style": "Success",
             "text": "Do the same with the other chart, and leave the two time machines matching the aspect ratio of your screen from now on!",
-            "updated": 1649167002906
+            "updated": 1649167002906,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Aynısını diğer grafik için de yapın ve bundan sonra iki zaman makinesini ekranınızın en boy oranıyla eşleştirin!",
+                    "updated": 1654394237984,
+                    "style": "Success"
+                }
+            ]
         }
     ]
 }

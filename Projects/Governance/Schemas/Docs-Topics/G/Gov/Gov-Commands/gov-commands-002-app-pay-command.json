@@ -4,13 +4,28 @@
     "type": "App Pay Command",
     "definition": {
         "text": "Use this command to pay to contributors using the Treasury Blockchain Account to do so. If you are not in charge of the Treasury Account you can still run this command to generate the output file of the Pay process.",
-        "updated": 1610449365984
+        "updated": 1610449365984,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Hazine Blok Zinciri Hesabını kullanarak katkıda bulunanlara ödeme yapmak için bu komutu kullanın. Hazine Hesabından sorumlu değilseniz, Ödeme işleminin çıktı dosyasını oluşturmak için yine de bu komutu çalıştırabilirsiniz.",
+                "updated": 1654395172515
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Syntax",
-            "updated": 1610449451990
+            "updated": 1610449451990,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Sözdizimi",
+                    "updated": 1654395178200,
+                    "style": "Title"
+                }
+            ]
         },
         {
             "style": "Json",
@@ -19,7 +34,15 @@
         },
         {
             "style": "Title",
-            "text": "Examples"
+            "text": "Examples",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Örnekler",
+                    "updated": 1654395184212,
+                    "style": "Title"
+                }
+            ]
         },
         {
             "style": "Json",

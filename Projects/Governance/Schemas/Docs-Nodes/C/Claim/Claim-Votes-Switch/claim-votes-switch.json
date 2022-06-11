@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Используйте этот переключатель для создания различных типов Claim Votes и для ссылки на типы узлов Claims Folder в разделе Claims Program иерархии профиля пользователя для сопоставления больших структур утверждений.",
                 "updated": 1639134336701
+            },
+            {
+                "language": "TR",
+                "text": "Bu anahtarı farklı türlerde Talep Oyları oluşturmak ve büyük talep yapılarını eşleştirmek için Kullanıcı Profili hiyerarşisinin Talep Programı bölümündeki Talep Klasörü düğüm türlerine başvurmak için kullanın.",
+                "updated": 1654394546552
             }
         ]
     },
@@ -36,6 +41,12 @@
                     "language": "RU",
                     "text": "Вы можете использовать этот переключатель для трех разных целей:",
                     "updated": 1639134350579
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu anahtarı üç farklı amaç için kullanabilirsiniz:",
+                    "updated": 1654394552546,
+                    "style": "Text"
                 }
             ]
         },
@@ -53,6 +64,12 @@
                     "language": "RU",
                     "text": "В качестве организационного устройства: вы можете создавать произвольные схемы голосов, порождая больше переключателей и голосов.",
                     "updated": 1639134379562
+                },
+                {
+                    "language": "TR",
+                    "text": "Organizasyonel bir araç olarak: Daha fazla anahtar ve oy üreterek keyfi oy düzenlemeleri oluşturabilirsiniz.",
+                    "updated": 1654394561868,
+                    "style": "List"
                 }
             ]
         },
@@ -70,6 +87,12 @@
                     "language": "RU",
                     "text": "В качестве переключателя: вы можете управлять потоком Claim Support Power, почти так же, как с помощью Token Power Switch, но в рамках программы Voting Program. Если вам нужно напоминание, прочитайте пояснения Token Power Flows.",
                     "updated": 1639134540761
+                },
+                {
+                    "language": "TR",
+                    "text": "Anahtar olarak: Talep Destek Gücünün akışını, Token Güç Anahtarında olduğu gibi, ancak Oylama Programı dahilinde kontrol edebilirsiniz. Hatırlatmaya ihtiyacınız varsa, Token Gücünün nasıl Aktığını okuyun.",
+                    "updated": 1654394567484,
+                    "style": "List"
                 }
             ]
         },
@@ -87,6 +110,12 @@
                     "language": "RU",
                     "text": "В качестве средства сопоставления структуры данных: используйте узел для ссылки на типы узлов Claims Folder, чтобы сопоставить целые структуры утверждений с другими иерархиями профилей пользователей.",
                     "updated": 1639134594315
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir veri yapısı eşleyicisi olarak: Diğer Kullanıcı Profili hiyerarşilerindeki taleplerin tüm yapılarını eşlemek için Talep Klasörü türlerine başvurmak üzere düğümü kullanın.",
+                    "updated": 1654394573229,
+                    "style": "List"
                 }
             ]
         },
@@ -104,6 +133,12 @@
                     "language": "RU",
                     "text": "Первые два варианта использования не требуют пояснений. Рассмотрим третий подробнее.",
                     "updated": 1639134609926
+                },
+                {
+                    "language": "TR",
+                    "text": "İlk iki kullanım durumu kendi kendini açıklar niteliktedir. Üçüncüsünü daha ayrıntılı olarak inceleyelim.",
+                    "updated": 1654394579802,
+                    "style": "Text"
                 }
             ]
         },
@@ -121,6 +156,12 @@
                     "language": "RU",
                     "text": "Используйте узел Claim Votes Switch, чтобы установить ссылку на тип узла Claims Folder — Position Claims Folder, Feature Claims Folder или Asset Claims Folder — в разделе Claims Program узла User Profile вашего коллеги. Затем используйте опцию Install Missing Votes в меню Claim Votes Switch, чтобы сопоставить всю папку Claims Folder!",
                     "updated": 1639135007910
+                },
+                {
+                    "language": "TR",
+                    "text": "İş arkadaşınızın Kullanıcı Profili düğümünün Talep Programı bölümünde bir Talep Klasörü türü düğümle (Pozisyon Talepleri Klasörü, Özellik Talepleri Klasörü veya Varlık Talepleri Klasörü) referans oluşturmak için bir Talep Oyları Anahtarı düğümü kullanın. Ardından tüm Talep Klasörünü eşlemek için Talep Oyları Anahtarı menüsündeki Eksik Oyları Yükle seçeneğini kullanın!",
+                    "updated": 1654394585497,
+                    "style": "Callout"
                 }
             ]
         },
@@ -137,6 +178,12 @@
                     "language": "RU",
                     "text": "Процесс создает переключатель Claim Votes Switch для каждой папки Claims Folder и  соответствующие Claim Votes для каждого Asset Contribution Claim, Feature Contribution Claim или Position Contribution Claim, определенных в каждой папке.",
                     "updated": 1639135246581
+                },
+                {
+                    "language": "TR",
+                    "text": "Süreç, her bir Talep Klasörü için bir Talep Oyları Anahtarı ve her bir klasörde tanımlanan her bir Varlık Katkı Talebi, Özellik Katkı Talebi veya Pozisyon Katkı Talebi için eşleşen Talep Oyları oluşturur.",
+                    "updated": 1654394592496,
+                    "style": "Note"
                 }
             ]
         },
@@ -154,6 +201,12 @@
                     "language": "RU",
                     "text": "Если что-то изменится в определениях, вы всегда можете вернуться к процессу Install Missing Votes еще раз. Процесс изменит отображение структуры с соответствующими голосами и переключателями.",
                     "updated": 1639135447582
+                },
+                {
+                    "language": "TR",
+                    "text": "Tanımlar tarafında bir şey değişirse, her zaman geri dönüp Eksik Oyları Yükle işlemini tekrar çalıştırabilirsiniz. İşlem, yapıyı uygun oylarla ve anahtarlarla yeniden eşleştirecektir.",
+                    "updated": 1654394598656,
+                    "style": "Success"
                 }
             ]
         },
@@ -169,6 +222,12 @@
                     "language": "RU",
                     "text": "Конфигурация",
                     "updated": 1639135473603
+                },
+                {
+                    "language": "TR",
+                    "text": "Konfigürasyon",
+                    "updated": 1654394604393,
+                    "style": "Title"
                 }
             ]
         }

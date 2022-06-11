@@ -1,13 +1,13 @@
 {
     "tutorial": "Developers Intro",
-    "pageNumber": 2,
+    "pageNumber": "2",
     "type": "Tutorial Topic - System Architecture",
     "definition": {
-        "icon": {
-            "project": "Foundations",
-            "name": ""
-        },
         "text": "Superalgos is essentially a Node.js application + a Web App.",
+        "icon": {
+            "name": "",
+            "project": "Foundations"
+        },
         "translations": [
             {
                 "language": "DE",
@@ -134,7 +134,15 @@
         },
         {
             "style": "Link",
-            "text": "->"
+            "text": "->",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "->",
+                    "updated": 1654393966777,
+                    "style": "Link"
+                }
+            ]
         }
     ]
 }

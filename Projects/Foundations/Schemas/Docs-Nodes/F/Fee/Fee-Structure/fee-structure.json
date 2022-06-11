@@ -12,6 +12,11 @@
                 "language": "DE",
                 "text": "Die fee structure (Gebührenstruktur) ist ein grundlegender Parameter für die Berechnung der fees (Gebühren), sowohl bei Test- als auch bei live trading sessions",
                 "updated": 1639768099432
+            },
+            {
+                "language": "TR",
+                "text": "Ücret yapısı, hem test hem de canlı işlem seanslarında ücretlerin hesaplanmasında temel bir parametredir.",
+                "updated": 1654418959896
             }
         ]
     },
@@ -33,6 +38,12 @@
                     "language": "DE",
                     "text": "Exchange fees (Börsengebühren) sind ein wesentlicher Bestandteil des trading (Handels). Eine Strategie kann sehr gut funktionieren, wenn man die Gebühren außer Acht lässt, aber in einer realen trading situation würde sie zum Bankrott führen.",
                     "updated": 1639768315255
+                },
+                {
+                    "language": "TR",
+                    "text": "Borsa ücretleri ticaretin çok önemli bir parçasıdır. Bir strateji, ücretleri denklemin dışında bıraktığınızda bir cazibe gibi çalışabilir, ancak canlı bir ticaret durumunda sizi iflasa götürecektir.",
+                    "updated": 1654418966252,
+                    "style": "Text"
                 }
             ]
         },
@@ -44,6 +55,12 @@
                     "language": "RU",
                     "text": "Биржи обычно не сообщают сумму комиссий по каждой транзакции, поэтому система рассчитывает комиссию и вычитает ее из балансов. Узнайте больше об обработке комиссий.",
                     "updated": 1638963192716
+                },
+                {
+                    "language": "TR",
+                    "text": "Borsalar genellikle her işlemde alınan ücret miktarını bildirmez, bu nedenle sistem ücretleri hesaplar ve bakiyelerden çıkarır. Ücretlerin işlenmesi hakkında daha fazla bilgi edinin.",
+                    "updated": 1654418971920,
+                    "style": "Text"
                 }
             ]
         },
@@ -60,6 +77,12 @@
                     "language": "DE",
                     "text": "Die Genauigkeit der internen Kontoführung hängt von diesem Parameter ab. Vergewissern Sie sich, dass Sie die richtige Gebührenstruktur (fee structure) von der Börse erhalten, die der Stufe Ihres Kontos entspricht.",
                     "updated": 1639768752508
+                },
+                {
+                    "language": "TR",
+                    "text": "Dahili hesap tutmanın doğruluğu bu parametreye bağlıdır. Hesabınızın kademesine karşılık gelen borsadan doğru ücret yapısını aldığınızdan emin olun.",
+                    "updated": 1654418977620,
+                    "style": "Important"
                 }
             ]
         },
@@ -81,6 +104,12 @@
                     "language": "DE",
                     "text": "Fee Structure Konfiguration",
                     "updated": 1639768765120
+                },
+                {
+                    "language": "TR",
+                    "text": "Ücret Yapısı Yapılandırması",
+                    "updated": 1654418983942,
+                    "style": "Title"
                 }
             ]
         },
@@ -98,6 +127,12 @@
                     "language": "DE",
                     "text": "Eigenschaften:",
                     "updated": 1639768788960
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1654418990008,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -114,6 +149,12 @@
                     "language": "DE",
                     "text": "maker ist die EInstellung für die Gebühr, die die Börse erhebt, wenn ein Auftrag dem Markt Liquidität zuführt, z. B. bei limit orders (Limitaufträgen).",
                     "updated": 1639768906785
+                },
+                {
+                    "language": "TR",
+                    "text": "maker, limitli emirlerde olduğu gibi, bir emir piyasaya likidite kattığında borsanın aldığı ücretin ayarıdır.",
+                    "updated": 1654418995971,
+                    "style": "List"
                 }
             ]
         },
@@ -130,6 +171,12 @@
                     "language": "DE",
                     "text": "taker ist die Einstellung für die Gebühr, die die Börse erhebt, wenn ein Auftrag dem Markt Liquidität entzieht, z. B. bei market (Markt)- oder instant orders (Sofortaufträgen).",
                     "updated": 1639769024374
+                },
+                {
+                    "language": "TR",
+                    "text": "taker, piyasa veya anlık emirlerde olduğu gibi, bir emir piyasadan likidite aldığında borsanın aldığı ücretin ayarıdır.",
+                    "updated": 1654419002465,
+                    "style": "List"
                 }
             ]
         },
@@ -146,6 +193,12 @@
                     "language": "DE",
                     "text": "Wenn der Parameter für die Gebührenstruktur leer gelassen oder sowohl von Ihrer Sitzung als auch von Ihrem Handelssystem abgetrennt wird, werden die Gebühren während der Simulationen nicht berechnet.",
                     "updated": 1639769068096
+                },
+                {
+                    "language": "TR",
+                    "text": "Ücret yapısı parametresi boş bırakılırsa veya hem oturumunuzdan hem de yatırım sisteminizden ayrılırsa, simülasyonlar sırasında ücretler hesaplanmaz.",
+                    "updated": 1654419008825,
+                    "style": "Note"
                 }
             ]
         },
@@ -162,6 +215,12 @@
                     "language": "DE",
                     "text": "Denken Sie daran, dass bis zur Freigabe des neuen execution engine (Ausführungsengine) alle vom Trading Bot erteilten Aufträge(orders) Marktaufträge sind und daher in allen Fällen die taker-Gebühr gilt.",
                     "updated": 1639769450557
+                },
+                {
+                    "language": "TR",
+                    "text": "Şu an için ve yeni yürütme motoru piyasaya sürülene kadar, ticaret botu tarafından verilen tüm emirlerin piyasa emri olduğunu ve bu nedenle alıcı ücretinin her durumda geçerli olduğunu unutmayın.",
+                    "updated": 1654419015658,
+                    "style": "Important"
                 }
             ]
         }

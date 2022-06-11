@@ -1,6 +1,6 @@
 {
     "topic": "Docs Commands Errors",
-    "pageNumber": 11,
+    "pageNumber": "11",
     "type": "Docs Error - Changes Not Saved",
     "definition": {
         "text": "It was not possible to save your changes.",
@@ -27,7 +27,15 @@
         {
             "style": "Anchor",
             "text": "Anchor Changes Not Saved",
-            "updated": 1609180176593
+            "updated": 1609180176593,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Çapa Değişiklikleri Kaydedilmedi",
+                    "updated": 1654419879104,
+                    "style": "Anchor"
+                }
+            ]
         },
         {
             "style": "Error",
@@ -81,12 +89,26 @@
                     "language": "RU",
                     "text": "Относится к",
                     "updated": 1638530164486
+                },
+                {
+                    "language": "TR",
+                    "text": "Şunlar için geçerlidir",
+                    "updated": 1654419885394,
+                    "style": "Title"
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Docs Save Command"
+            "text": "Docs Save Command",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Docs Kaydet Komutu",
+                    "updated": 1654419891844,
+                    "style": "List"
+                }
+            ]
         }
     ]
 }

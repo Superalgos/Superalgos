@@ -274,7 +274,15 @@
         },
         {
             "style": "List",
-            "text": "TS,"
+            "text": "TS,",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "TS,",
+                    "updated": 1654395486355,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",

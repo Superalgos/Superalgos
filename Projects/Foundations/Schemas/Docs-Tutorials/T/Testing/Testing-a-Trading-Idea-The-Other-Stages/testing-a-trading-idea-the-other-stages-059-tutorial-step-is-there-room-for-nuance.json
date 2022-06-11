@@ -1,13 +1,13 @@
 {
     "tutorial": "Testing a Trading Idea - The Other Stages",
-    "pageNumber": 59,
+    "pageNumber": "59",
     "type": "Tutorial Step - Is There Room For Nuance?",
     "definition": {
-        "icon": {
-            "project": "Foundations",
-            "name": "space-style"
-        },
         "text": "Should the testing of a trading idea output black or white results? That's a good question... one that only you may answer!",
+        "icon": {
+            "name": "space-style",
+            "project": "Foundations"
+        },
         "translations": [
             {
                 "language": "DE",

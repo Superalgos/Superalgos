@@ -114,6 +114,12 @@
                     "language": "RU",
                     "text": "XXX заменяется фактическим названием проекта.",
                     "updated": 1639025620533
+                },
+                {
+                    "language": "TR",
+                    "text": "XXX, Projenin gerçek adı ile değiştirilir.",
+                    "updated": 1654395421679,
+                    "style": "Note"
                 }
             ]
         },
@@ -126,6 +132,12 @@
                     "language": "RU",
                     "text": "Поиск своего направления в Governance Workspaces",
                     "updated": 1639025962321
+                },
+                {
+                    "language": "TR",
+                    "text": "Yönetişim Çalışma Alanlarında Yolunuzu Bulma",
+                    "updated": 1654395427467,
+                    "style": "Title"
                 }
             ]
         },
@@ -153,7 +165,15 @@
         },
         {
             "style": "Include",
-            "text": "Governance->Concept->Reusable Governance Snippets->Deep in Governance"
+            "text": "Governance->Concept->Reusable Governance Snippets->Deep in Governance",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yönetişim->Kavram->Kullanılabilir Yönetişim Parçacıkları->Derin Yönetişim",
+                    "updated": 1654395433686,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Text",
@@ -179,11 +199,27 @@
         {
             "style": "Include",
             "text": "Governance->Concept->Superalgos Pools->Definition",
-            "updated": 1630568552530
+            "updated": 1630568552530,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yönetişim->Kavram->Superalgos Havuzları->Tanım",
+                    "updated": 1654395439602,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Include",
-            "text": "Governance->Concept->Superalgos Pools->Content"
+            "text": "Governance->Concept->Superalgos Pools->Content",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yönetişim->Kavram->Superalgos Havuzları->İçerik",
+                    "updated": 1654395445716,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Title",
@@ -194,17 +230,39 @@
                     "language": "RU",
                     "text": "Объем расчетов",
                     "updated": 1639027923456
+                },
+                {
+                    "language": "TR",
+                    "text": "Hesaplamaların Kapsamı",
+                    "updated": 1654395453640,
+                    "style": "Title"
                 }
             ]
         },
         {
             "style": "Include",
             "text": "Governance->Concept->Reusable Governance Snippets->Computational Limitations",
-            "updated": 1630569313627
+            "updated": 1630569313627,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yönetişim->Kavram->Yeniden Kullanılabilir Yönetişim Parçacıkları->Bilişimsel Sınırlamalar",
+                    "updated": 1654395459431,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Include",
-            "text": "Governance->Concept->Reusable Governance Snippets->Computational Limitations 2"
+            "text": "Governance->Concept->Reusable Governance Snippets->Computational Limitations 2",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yönetişim->Kavram->Yeniden Kullanılabilir Yönetişim Parçacıkları->Bilişimsel Sınırlamalar 2",
+                    "updated": 1654395465650,
+                    "style": "Include"
+                }
+            ]
         }
     ]
 }

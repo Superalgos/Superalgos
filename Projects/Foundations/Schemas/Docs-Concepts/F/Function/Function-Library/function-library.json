@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Это набор функций, относящихся к одной теме. Тема обычно выражается в имени библиотеки функций.",
                 "updated": 1638283542759
+            },
+            {
+                "language": "TR",
+                "text": "Tek bir konuyla ilgili işlevler topluluğudur. Konu genellikle Fonksiyon Kütüphanesinin adında ifade edilir.",
+                "updated": 1654391133339
             }
         ]
     },
@@ -21,6 +26,12 @@
                     "language": "RU",
                     "text": "Каждый интегрированный проект может иметь библиотеки функций на трех возможных уровнях: Client, TS и UI. В случае Superalgos в UI он включает, например, следующие библиотеки функций:",
                     "updated": 1638283707248
+                },
+                {
+                    "language": "TR",
+                    "text": "Her entegre proje, mümkün olan 3 farklı seviyede İşlev Kütüphanelerine sahip olabilir: İstemci, TS ve UI. Superalgos söz konusu olduğunda, UI'de örneğin bu İşlev Kitaplıkları bulunur:",
+                    "updated": 1654391139086,
+                    "style": "Text"
                 }
             ]
         },
@@ -32,6 +43,12 @@
                     "language": "RU",
                     "text": "функции Charting Space",
                     "updated": 1638283736307
+                },
+                {
+                    "language": "TR",
+                    "text": "Uzay Fonksiyonları Grafiği",
+                    "updated": 1654391145418,
+                    "style": "List"
                 }
             ]
         },
@@ -43,6 +60,12 @@
                     "language": "RU",
                     "text": "функии Crypto Ecosystem",
                     "updated": 1638283749367
+                },
+                {
+                    "language": "TR",
+                    "text": "Kripto Ekosistem Fonksiyonları",
+                    "updated": 1654391150973,
+                    "style": "List"
                 }
             ]
         },
@@ -55,6 +78,12 @@
                     "language": "RU",
                     "text": "функции Plugins",
                     "updated": 1638283768451
+                },
+                {
+                    "language": "TR",
+                    "text": "Eklentiler Fonksiyonlar",
+                    "updated": 1654391158125,
+                    "style": "List"
                 }
             ]
         },
@@ -66,6 +95,12 @@
                     "language": "RU",
                     "text": "Библиотеки функций по определению не имеют состояния.",
                     "updated": 1638283788453
+                },
+                {
+                    "language": "TR",
+                    "text": "Fonksiyon Kütüphaneleri tanım gereği durumsuzdur.",
+                    "updated": 1654391163667,
+                    "style": "Note"
                 }
             ]
         }

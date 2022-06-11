@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Режим отладки будет записывать в консоль каждую выполненную операцию, а также информацию о производительности во время выполнения, такую как объем памяти и общее время выполнения ядра. Обратите внимание, что это сильно замедлит работу вашего приложения, не используйте это в производстве.",
                 "updated": 1645247289425
+            },
+            {
+                "language": "TR",
+                "text": "Hata Ayıklama Modu, yürütülen her işlemin yanı sıra bellek ayak izi ve toplam çekirdek yürütme süresi gibi çalışma zamanı performans bilgilerini konsola kaydeder. Bunun uygulamanızı büyük ölçüde yavaşlatacağını unutmayın, bunu üretimde kullanmayın.",
+                "updated": 1654396939524
             }
         ]
     },
@@ -20,6 +25,12 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
                     "updated": 1645247294567
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
+                    "updated": 1654396946400,
+                    "style": "Text"
                 }
             ]
         }

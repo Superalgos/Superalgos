@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Узел Data Mine Tasks - это организационное устройство, которое группирует задачи, соответствующие указанной Data Mine.",
                 "updated": 1638359470772
+            },
+            {
+                "language": "TR",
+                "text": "Veri madeni görevleri düğümü, başvurulan veri madenine karşılık gelen görevleri gruplayan bir organizasyon aracıdır.",
+                "updated": 1654391685080
             }
         ]
     },
@@ -28,6 +33,12 @@
                     "language": "RU",
                     "text": "Узел задач добычи данных должен ссылаться на определение добычи данных. Узел может порождать задачи для каждого бота Data Mine.",
                     "updated": 1638359458140
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri madeni görevleri düğümü bir veri madeni tanımına referans vermelidir. Düğüm, veri madenindeki her bot için görevler oluşturabilir.",
+                    "updated": 1654391694853,
+                    "style": "Text"
                 }
             ]
         },

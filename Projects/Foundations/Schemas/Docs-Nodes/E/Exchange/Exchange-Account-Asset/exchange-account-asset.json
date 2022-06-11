@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Exchange Account Asset представляет собой единственный актив, который пользователь имеет на бирже.",
                 "updated": 1638782429615
+            },
+            {
+                "language": "TR",
+                "text": "Borsa hesabı varlığı, kullanıcının borsada sahip olduğu tek bir varlığı temsil eder.",
+                "updated": 1654392167478
             }
         ]
     },
@@ -33,6 +38,12 @@
                     "language": "RU",
                     "text": "Актив учетной записи биржи - это ссылка на актив, определенный в узле Exchange Assets.",
                     "updated": 1638782539412
+                },
+                {
+                    "language": "TR",
+                    "text": "Borsa hesabı varlığı, borsa varlıkları düğümü altında tanımlanan bir varlığa referanstır.",
+                    "updated": 1654392173264,
+                    "style": "Text"
                 }
             ]
         }

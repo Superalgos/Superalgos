@@ -17,12 +17,28 @@
         },
         {
             "style": "Text",
-            "text": "In the context of a community-driven project, a plugin is a device that serves to distribute community-generated intelligence. The project distributes several plugins contributed by the community."
+            "text": "In the context of a community-driven project, a plugin is a device that serves to distribute community-generated intelligence. The project distributes several plugins contributed by the community.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Topluluk odaklı bir proje bağlamında eklenti, topluluk tarafından üretilen istihbaratın dağıtılmasına hizmet eden bir cihazdır. Proje, topluluk tarafından katkıda bulunulan çeşitli eklentileri dağıtmaktadır.",
+                    "updated": 1654390386135,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Important",
             "text": "Hierarchies included in the workspace as plugins are not saved at the workspace level. As such, changes made in those hierarchies do not persist. If you wish to modify a plugin and keep working with the modified version in the future, you must either clone or backup the plugin and work on the resulting copy instead.",
-            "updated": 1609866745275
+            "updated": 1609866745275,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Çalışma alanına eklenti olarak dahil edilen hiyerarşiler çalışma alanı düzeyinde kaydedilmez. Bu nedenle, bu hiyerarşilerde yapılan değişiklikler kalıcı olmaz. Bir eklentiyi değiştirmek ve gelecekte değiştirilmiş sürümle çalışmaya devam etmek istiyorsanız, eklentiyi klonlamanız veya yedeklemeniz ve bunun yerine ortaya çıkan kopya üzerinde çalışmanız gerekir.",
+                    "updated": 1654390392469,
+                    "style": "Important"
+                }
+            ]
         }
     ]
 }

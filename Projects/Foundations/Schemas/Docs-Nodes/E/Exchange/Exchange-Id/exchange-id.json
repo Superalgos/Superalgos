@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Exchange ID - это уникальный идентификатор, который биржа присваивает ордеру, чтобы его можно было однозначно идентифицировать.",
                 "updated": 1638784205775
+            },
+            {
+                "language": "TR",
+                "text": "Borsa Kimliği, kesin olarak tanımlanabilmesi için borsanın emre atadığı benzersiz bir tanımlayıcıdır.",
+                "updated": 1654392285284
             }
         ]
     },
@@ -33,6 +38,12 @@
                     "language": "RU",
                     "text": "По умолчанию это курс на момент закрытия последней свечи в момент размещения ордера. Все рыночные ордера имеют значение по умолчанию.",
                     "updated": 1638784469891
+                },
+                {
+                    "language": "TR",
+                    "text": "Varsayılan olarak, siparişin verildiği andaki son mumun kapanışındaki orandır. Tüm piyasa emirleri varsayılan oran değerine sahiptir.",
+                    "updated": 1654392291846,
+                    "style": "Text"
                 }
             ]
         },
@@ -49,6 +60,12 @@
                     "language": "RU",
                     "text": "В случае лимитных ордеров это курс, указанный формулой в узле Order Rate. Если такого определения не существует, то лимитные ордера также используют значение по умолчанию.",
                     "updated": 1638784574425
+                },
+                {
+                    "language": "TR",
+                    "text": "Limit emirleri söz konusu olduğunda, emir oranı düğümü altındaki formülde belirtilen orandır. Böyle bir tanım yoksa, limitli emirler de varsayılan değeri kullanır.",
+                    "updated": 1654392297460,
+                    "style": "Text"
                 }
             ]
         },
@@ -59,11 +76,27 @@
         {
             "style": "Title",
             "text": "Exchange Id Configuration",
-            "updated": 1609927118754
+            "updated": 1609927118754,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Exchange Kimliği Yapılandırması",
+                    "updated": 1654392303326,
+                    "style": "Title"
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Properties"
+            "text": "Properties",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1654392308983,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "List",
@@ -73,6 +106,12 @@
                     "language": "ES",
                     "text": "initialValue permite resetear el estado incial del nodo a un valor arbitrario.",
                     "updated": 1637231635132
+                },
+                {
+                    "language": "TR",
+                    "text": "initialValue düğümün ilk durumunun rastgele bir değere sıfırlanmasını sağlar.",
+                    "updated": 1654392315348,
+                    "style": "List"
                 }
             ]
         }

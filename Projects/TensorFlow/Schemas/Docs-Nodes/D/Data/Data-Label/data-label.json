@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Отдельная индивидуальная выходная метка (Output Label).",
                 "updated": 1645247247990
+            },
+            {
+                "language": "TR",
+                "text": "Tek bir bireysel Çıktı Etiketi.",
+                "updated": 1654396926422
             }
         ]
     },
@@ -20,6 +25,12 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
                     "updated": 1645247255450
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
+                    "updated": 1654396933643,
+                    "style": "Text"
                 }
             ]
         }

@@ -20,7 +20,15 @@
         {
             "style": "Link",
             "text": "Meet the Core Team->superalgos.org/about-team.shtml",
-            "updated": 1630928203131
+            "updated": 1630928203131,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Çekirdek Ekip ile Tanışın->superalgos.org/about-team.shtml",
+                    "updated": 1654390905109,
+                    "style": "Link"
+                }
+            ]
         }
     ]
 }

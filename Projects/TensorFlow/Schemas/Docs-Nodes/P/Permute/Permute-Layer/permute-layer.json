@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Упорядочивает размерность входных данных в соответствии с заданным шаблоном. Полезно, например, для соединения рекуррентная нейронная сетей RNN и свёрточные нейронные сети CNN вместе.",
                 "updated": 1645249480359
+            },
+            {
+                "language": "TR",
+                "text": "Girdinin boyutlarını belirli bir desene göre değiştirir. Örneğin RNN'leri ve konvnetleri birbirine bağlamak için kullanışlıdır.",
+                "updated": 1654397419366
             }
         ]
     },
@@ -20,6 +25,12 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
                     "updated": 1645249486076
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
+                    "updated": 1654397425417,
+                    "style": "Text"
                 }
             ]
         }

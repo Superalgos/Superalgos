@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "API Path Parameters встроены как часть пути URL. Они позволяют указать уникальный путь к вашей конечной точке.",
                 "updated": 1638628818802
+            },
+            {
+                "language": "TR",
+                "text": "API Yol Parametreleri bir URL yolunun parçası olarak gömülür. Uç noktanıza giden benzersiz yolu belirtmenizi sağlarlar.",
+                "updated": 1654391366972
             }
         ]
     },
@@ -21,6 +26,12 @@
                     "language": "RU",
                     "text": "Как определить API Path Parameters",
                     "updated": 1638628858672
+                },
+                {
+                    "language": "TR",
+                    "text": "API Yol Parametreleri nasıl belirlenir",
+                    "updated": 1654391373130,
+                    "style": "Title"
                 }
             ]
         },
@@ -33,6 +44,12 @@
                     "language": "RU",
                     "text": "API, который вы пытаетесь сопоставить, должен иметь задокументированные параметры пути API. Если нет, проверьте любые примеры, которые они могут предоставить для запроса данных, и посмотрите, есть ли внутренние папки под основной папкой API Enpoint. Каждая из этих папок представляет собой параметр пути к API, который необходимо определить.",
                     "updated": 1638628888293
+                },
+                {
+                    "language": "TR",
+                    "text": "Eşlemeye çalıştığınız API'nin API Yolu Parametreleri belgelenmiş olmalıdır. Değilse, verilerin nasıl talep edileceğine dair sağlayabilecekleri örnekleri kontrol edin ve API Enpoint'in ana klasörünün altında iç klasörler olup olmadığına bakın. Bu klasörlerin her biri tanımlanması gereken bir API Yolu Parametresidir.",
+                    "updated": 1654391378856,
+                    "style": "Text"
                 }
             ]
         },
@@ -45,6 +62,12 @@
                     "language": "RU",
                     "text": "Как и во всем остальном в Superalgos, дочерние узлы рассматриваются по часовой стрелке. Это важно, потому что это повлияет на порядок, в котором Superalgos создает URL-запрос, который вы отправите в API.",
                     "updated": 1638628966941
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos'taki diğer her şeyde olduğu gibi, düğüm çocukları saat yönünde kabul edilir. Bu önemlidir çünkü Superalgos'un API'ye göndereceğiniz URL isteğini oluşturma sırasını etkileyecektir.",
+                    "updated": 1654391385778,
+                    "style": "Success"
                 }
             ]
         },
@@ -55,7 +78,15 @@
         {
             "style": "Include",
             "text": "Foundations->Topic->Data Mining - Fetching Data From APIs->Main Workflow",
-            "updated": 1621951167309
+            "updated": 1621951167309,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Foundations->Topic->Data Mining - API'lerden Veri Getirme->Ana İş Akışı",
+                    "updated": 1654391391261,
+                    "style": "Include"
+                }
+            ]
         }
     ]
 }

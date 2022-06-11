@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Иерархия Data Storage содержит ссылки на все данные, созданные ботами.",
                 "updated": 1645166180045
+            },
+            {
+                "language": "TR",
+                "text": "Veri depolama hiyerarşisi, botların ürettiği tüm verilere referansları tutar.",
+                "updated": 1654391754063
             }
         ]
     },
@@ -25,6 +30,12 @@
                     "language": "RU",
                     "text": "Представьте эту иерархию как сундук с сокровищами. Внутри этого сундука хранятся все ценные наборы данных, созданные в этом рабочем пространстве, в одном удобном месте, чтобы их можно было использовать в системе другими ботами, торговыми системами и т.д.",
                     "updated": 1645166200792
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu hiyerarşiyi bir hazine sandığı gibi düşünün. Bu sandığın içinde, bu çalışma alanı içinde üretilen tüm değerli veri kümeleri uygun bir yerde tutulur, böylece sistem genelinde diğer botlar, ticaret sistemleri vb. tarafından kullanılabilir.",
+                    "updated": 1654391759986,
+                    "style": "Text"
                 }
             ]
         },
@@ -36,24 +47,62 @@
                     "language": "RU",
                     "text": "Основными типами данных, хранящихся в рамках этой иерархии, являются:",
                     "updated": 1645166208505
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu hiyerarşi altında tutulan ana veri türleri şunlardır:",
+                    "updated": 1654391765562,
+                    "style": "Text"
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Learning Mines Data"
+            "text": "Learning Mines Data",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Öğrenme Madenleri Verileri",
+                    "updated": 1654391771018,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Trading Mines Data"
+            "text": "Trading Mines Data",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Maden Ticareti Verileri",
+                    "updated": 1654391776528,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Data Mines Data"
+            "text": "Data Mines Data",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Veri Madenleri Verileri",
+                    "updated": 1654391782030,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Portfolio Mines Data"
+            "text": "Portfolio Mines Data",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Portföy Maden Verileri",
+                    "updated": 1654391787541,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "Text",
@@ -64,25 +113,63 @@
                     "language": "RU",
                     "text": "Просматривая иерархию, вы увидите, что данные организованы в соответствии с типом источника, проекта, биржи и рынка. Это помогает сохранить огромный массив данных, используемых в Superalgos, доступным и понятным. Узлы в этой иерархии, содержащие определенные наборы данных, следующие:",
                     "updated": 1645166254193
+                },
+                {
+                    "language": "TR",
+                    "text": "Hiyerarşiye baktığınızda verilerin Maden Türü, Proje, Borsa ve Pazara göre düzenlendiğini göreceksiniz. Bu, Superalgos içinde kullanılan çok çeşitli verilerin erişilebilir ve anlaşılabilir olmasına yardımcı olur.  Bu hiyerarşi altında belirli veri kümelerini tutan düğümler şunlardır:",
+                    "updated": 1654391793247,
+                    "style": "Text"
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Bot Products "
+            "text": "Bot Products ",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bot Ürünleri",
+                    "updated": 1654391798839,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Trading Session Reference"
+            "text": "Trading Session Reference",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İşlem Seansı Referansı",
+                    "updated": 1654391804194,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Learning Session Reference"
+            "text": "Learning Session Reference",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Öğrenme Oturumu Referansı",
+                    "updated": 1654391809884,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Portfolio Session Reference",
-            "updated": 1640023666443
+            "updated": 1640023666443,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Portföy Oturumu Referansı",
+                    "updated": 1654391817684,
+                    "style": "List"
+                }
+            ]
         }
     ]
 }

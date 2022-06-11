@@ -49,7 +49,15 @@
         {
             "style": "Include",
             "text": "Governance->Concept->Token Power->Content",
-            "updated": 1624780741084
+            "updated": 1624780741084,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yönetişim->Kavram->Token Power->İçerik",
+                    "updated": 1654395376183,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Text",
@@ -75,7 +83,15 @@
         },
         {
             "style": "Include",
-            "text": "Governance->Concept->Reputation->Content"
+            "text": "Governance->Concept->Reputation->Content",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yönetişim->Kavram->Reputation->İçerik",
+                    "updated": 1654395381902,
+                    "style": "Include"
+                }
+            ]
         }
     ]
 }

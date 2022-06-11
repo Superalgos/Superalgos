@@ -4,11 +4,11 @@
     "type": "Tutorial Step - Buy the Token!",
     "definition": {
         "text": "If you wish to support the people building Superalgos, buying some tokens in PancakeSwap is the way to go! This is why...",
+        "updated": 1640335838861,
         "icon": {
             "name": "Crypto-Exchanges\\pancakeswap",
             "project": "Foundations"
         },
-        "updated": 1640335838861,
         "translations": [
             {
                 "language": "ID",
@@ -24,6 +24,12 @@
                 "language": "RU",
                 "text": "Если вы хотите поддержать людей, создающих Superalgos, то покупка токенов в PancakeSwap - это то, что вам нужно! Вот почему...",
                 "updated": 1642773631008
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos'u inşa edenleri desteklemek istiyorsanız, PancakeSwap'ten jeton satın alabilirsiniz! İşte bu yüzden...",
+                "updated": 1654394299762,
+                "style": "Definition"
             }
         ]
     },
@@ -47,18 +53,40 @@
                     "language": "RU",
                     "text": "Superalgos - это криптопроект, принадлежащий сообществу. Собственный токен используется для стимулирования вкладов, что означает, что проект распределяет токены исключительно среди вкладчиков. Каждый доллар, который вы потратите на покупку токена Superalgos SA, пойдет непосредственно тем, кто создал это потрясающее программное обеспечение!",
                     "updated": 1642773662355
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos, topluluğa ait bir kripto projesidir. Yerel token, katkıları teşvik etmek için kullanılır, yani proje tokenı yalnızca katkıda bulunanlar arasında dağıtır. Superalgos SA Token'ı satın almak için harcadığınız her dolar, doğrudan size bu harika yazılımı sunan kişilere gider!",
+                    "updated": 1654394306999,
+                    "style": "Success"
                 }
             ]
         },
         {
             "style": "Link",
             "text": "Learn more about the Superalgos SA Token->superalgos.org/token-overview.shtml",
-            "updated": 1649169863194
+            "updated": 1649169863194,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Superalgos SA Token hakkında daha fazla bilgi edinin->superalgos.org/token-overview.shtml",
+                    "updated": 1654394312854,
+                    "style": "Link"
+                }
+            ]
         },
         {
             "style": "Link",
             "text": "</br>How to buy the token using Trust Wallet->medium.com/superalgos/how-to-buy-the-superalgos-sa-token-using-trust-wallet-ca37aec0c0f5",
-            "updated": 1649169929074
+            "updated": 1649169929074,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "</br>Güven Cüzdanı kullanarak token nasıl satın alınır->medium.com/superalgos/how-to-buy-the-superalgos-sa-token-using-trust-wallet-ca37aec0c0f5",
+                    "updated": 1654394318574,
+                    "style": "Link"
+                }
+            ]
         }
     ]
 }

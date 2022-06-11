@@ -1,14 +1,14 @@
 {
     "tutorial": "Beyond the Basics",
-    "pageNumber": 14,
+    "pageNumber": "14",
     "type": "Tutorial Step - Update the App!",
     "definition": {
         "text": "It's good practice to be up-to-date before contributing or when troubleshooting or reporting errors of any kind!",
+        "updated": 1636914372518,
         "icon": {
             "name": "indicator-process-instance",
             "project": "Foundations"
         },
-        "updated": 1636914372518,
         "translations": [
             {
                 "language": "IT",
@@ -66,6 +66,12 @@
                     "language": "RU",
                     "text": "Команда App Update Command извлекает последнюю версию программного обеспечения из репозитория upstream в текущей ветке Current Branch!",
                     "updated": 1640158999138
+                },
+                {
+                    "language": "TR",
+                    "text": "Uygulama Güncelleme Komutu (yalnızca Katkıda Bulunanların Kurulumu) yazılımın en son sürümünü Geçerli Daldaki yukarı akış deposundan alır!",
+                    "updated": 1654393910447,
+                    "style": "Text"
                 }
             ]
         },
@@ -76,6 +82,7 @@
         {
             "style": "Callout",
             "text": "If you are on the Contributors Installation, copy and run the command in the search/command box at the far top of the Docs.",
+            "updated": 1649176921704,
             "translations": [
                 {
                     "language": "IT",
@@ -104,8 +111,7 @@
                     "text": "Bu sayfanın en üst kısmındaki arama/komut kutusuna yukarıdaki komutu kopyalayıp çalıştırın.",
                     "updated": 1640554566255
                 }
-            ],
-            "updated": 1649176921704
+            ]
         },
         {
             "style": "Success",

@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "CCXT - популярная библиотека с открытым исходным кодом, цель которой - стандартизировать API криптобирж, чтобы облегчить разработчикам торговых ботов доступ к криптобиржам.",
                 "updated": 1638280629384
+            },
+            {
+                "language": "TR",
+                "text": "CCXT, ticaret botları geliştiricilerinin kripto borsalarına erişimini kolaylaştırmak için kripto borsaları API'lerini standartlaştırmayı amaçlayan popüler bir açık kaynak kütüphanesidir.",
+                "updated": 1654390855222
             }
         ]
     },
@@ -31,6 +36,12 @@
                     "language": "RU",
                     "text": "Superalgos использует эту библиотеку для получения одноминутных свечей с бирж в качестве необработанной информации, которая позже строит остальные индикаторы. Он также использует его для размещения заказов от LF Trading Bot.",
                     "updated": 1638280662878
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos bu kütüphaneyi borsalardan bir dakikalık mumları ham bilgi olarak almak için kullanır ve daha sonra göstergelerin geri kalanını cadı ile oluşturur. Ayrıca LF Ticaret Botundan sipariş vermek için de kullanır.",
+                    "updated": 1654390861477,
+                    "style": "Text"
                 }
             ]
         }

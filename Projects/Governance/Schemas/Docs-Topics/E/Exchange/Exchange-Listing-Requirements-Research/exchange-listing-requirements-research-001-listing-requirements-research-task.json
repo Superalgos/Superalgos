@@ -113,7 +113,15 @@
         {
             "style": "Link",
             "text": "CMC Top 100 Exchanges->coinmarketcap.com/rankings/exchanges/",
-            "updated": 1618500271334
+            "updated": 1618500271334,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "CMC Top 100 Borsaları->coinmarketcap.com/rankings/exchanges/",
+                    "updated": 1654394993256,
+                    "style": "Link"
+                }
+            ]
         },
         {
             "style": "List",

@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Число, которое вам важно. Может быть или не быть непосредственно оптимизировано в системе машинного обучения. Метрика, которую ваша система пытается оптимизировать, называется целью.",
                 "updated": 1645248978655
+            },
+            {
+                "language": "TR",
+                "text": "Önemsediğiniz bir sayı. Bir makine öğrenimi sisteminde doğrudan optimize edilebilir veya edilmeyebilir. Sisteminizin optimize etmeye çalıştığı bir metriğe hedef denir.",
+                "updated": 1654397331971
             }
         ]
     },
@@ -20,6 +25,12 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
                     "updated": 1645248983760
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
+                    "updated": 1654397339564,
+                    "style": "Text"
                 }
             ]
         }

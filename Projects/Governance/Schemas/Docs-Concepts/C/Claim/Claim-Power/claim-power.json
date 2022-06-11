@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Сила претензий (Claim Power) - это сила токенов (Token Power), которая используется в программе по заявкам (Claims Program) и определяет количество токенов, на которые вы претендуете с помощью любого из существующих типов заявок: Position Contribution Claim, Feature Contribution Claim и Asset Contribution Claim.",
                 "updated": 1645081110211
+            },
+            {
+                "language": "TR",
+                "text": "Talep Gücü, Talep Programına giren Jeton Gücüdür ve mevcut talep türlerinden herhangi biriyle talep ettiğiniz jeton sayısını belirler: Pozisyon Katkı Talebi, Özellik Katkı Talebi ve Varlık Katkı Talebi.",
+                "updated": 1654394346669
             }
         ]
     },
@@ -26,6 +31,12 @@
                     "language": "RU",
                     "text": "Claim Power - это Token Power, которая используется в программе Claims Program, и определяет количество токенов, которые вы требуете с помощью любого из существующих типов претензий: Position Contribution Claim, Feature Contribution Claim и Asset Contribution Claim.",
                     "updated": 1645081188898
+                },
+                {
+                    "language": "TR",
+                    "text": "Talep Gücü, Talep Programına giren Jeton Gücüdür ve mevcut talep türlerinden herhangi biriyle talep ettiğiniz jeton sayısını belirler: Pozisyon Katkı Talebi, Özellik Katkı Talebi ve Varlık Katkı Talebi.",
+                    "updated": 1654394352638,
+                    "style": "Callout"
                 }
             ]
         }

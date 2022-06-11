@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Инициализатор для матрицы весов ядра.",
                 "updated": 1645248285640
+            },
+            {
+                "language": "TR",
+                "text": "Çekirdek ağırlıkları matrisi için başlatıcı.",
+                "updated": 1654397236072
             }
         ]
     },
@@ -21,6 +26,12 @@
                     "language": "RU",
                     "text": "Возможные значения",
                     "updated": 1645248293605
+                },
+                {
+                    "language": "TR",
+                    "text": "Olası Değerler",
+                    "updated": 1654397243040,
+                    "style": "Subtitle"
                 }
             ]
         },

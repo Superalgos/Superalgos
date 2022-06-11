@@ -1,6 +1,6 @@
 {
     "topic": "Docs Commands Errors",
-    "pageNumber": 5,
+    "pageNumber": "5",
     "type": "Docs Error - Page Not Found",
     "definition": {
         "text": "The page does not exist in the category specified.",
@@ -26,7 +26,15 @@
     "paragraphs": [
         {
             "style": "Anchor",
-            "text": "Anchor Page Not Found"
+            "text": "Anchor Page Not Found",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Çapa Sayfa Bulunamadı",
+                    "updated": 1654393477547,
+                    "style": "Anchor"
+                }
+            ]
         },
         {
             "style": "Error",
@@ -81,12 +89,26 @@
                     "language": "RU",
                     "text": "Относится к",
                     "updated": 1638529594704
+                },
+                {
+                    "language": "TR",
+                    "text": "Şunlar için geçerlidir",
+                    "updated": 1654393483447,
+                    "style": "Title"
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Docs Goto Command"
+            "text": "Docs Goto Command",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Docs Goto Komutu",
+                    "updated": 1654393489691,
+                    "style": "List"
+                }
+            ]
         }
     ]
 }

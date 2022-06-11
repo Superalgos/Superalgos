@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Index - это позиция родительского объекта в соответствующей коллекции данных, определяемая контекстом.",
                 "updated": 1638970010889
+            },
+            {
+                "language": "TR",
+                "text": "Dizin, bağlam tarafından belirlendiği şekilde, ilgili veri koleksiyonundaki üst nesnenin konumudur.",
+                "updated": 1654419641766
             }
         ]
     },
@@ -23,6 +28,12 @@
                     "language": "RU",
                     "text": "В контексте свечи, index - это позиция текущей свечи в массиве свечей в более широком контексте, например, в эпизоде.",
                     "updated": 1638970113958
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir mum bağlamında, indeks mevcut mumun daha geniş bağlamdaki mum dizisindeki konumudur, örneğin bir bölüm.",
+                    "updated": 1654419647959,
+                    "style": "Text"
                 }
             ]
         },
@@ -34,6 +45,12 @@
                     "language": "RU",
                     "text": "В торговых системах может быть несколько стратегий. В контексте стратегии, index - это позиция стратегии в торговой системе.",
                     "updated": 1638970122601
+                },
+                {
+                    "language": "TR",
+                    "text": "Alım satım sistemleri birden fazla strateji içerebilir. Bir strateji bağlamında endeks, stratejinin alım satım sistemi içindeki konumudur.",
+                    "updated": 1654419654757,
+                    "style": "Text"
                 }
             ]
         },
@@ -51,6 +68,12 @@
                     "language": "RU",
                     "text": "Конфигурация Index",
                     "updated": 1638970138329
+                },
+                {
+                    "language": "TR",
+                    "text": "Dizin Yapılandırması",
+                    "updated": 1654419661025,
+                    "style": "Title"
                 }
             ]
         },
@@ -63,6 +86,12 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1638970146500
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1654419667434,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -75,6 +104,12 @@
                     "language": "RU",
                     "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
                     "updated": 1638970155097
+                },
+                {
+                    "language": "TR",
+                    "text": "initialValue düğümün ilk durumunun rastgele bir değere sıfırlanmasını sağlar.",
+                    "updated": 1654419673641,
+                    "style": "List"
                 }
             ]
         }

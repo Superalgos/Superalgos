@@ -1,6 +1,6 @@
 {
     "tutorial": "Install a New Market",
-    "pageNumber": 1,
+    "pageNumber": "1",
     "type": "Install a New Market Tutorial",
     "definition": {
         "text": "This tutorial covers the process of installing a new market. The process automates the creation of data and trading tasks, as well as charts for the said Market.",
@@ -39,16 +39,38 @@
                     "language": "RU",
                     "text": "Об этом учебнике",
                     "updated": 1643090100799
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu Eğitim Hakkında",
+                    "updated": 1654394048178,
+                    "style": "Title"
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Workspace: Tested Exchanges Plugin Workspace."
+            "text": "Workspace: Tested Exchanges Plugin Workspace.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Çalışma alanı: Test Edilen Borsalar Eklenti Çalışma Alanı.",
+                    "updated": 1654394054787,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Maintainer: @julianmolina (Telegram)."
+            "text": "Maintainer: @julianmolina (Telegram).",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bakımcı: @julianmolina (Telegram).",
+                    "updated": 1654394060337,
+                    "style": "List"
+                }
+            ]
         }
     ]
 }

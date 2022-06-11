@@ -1,13 +1,13 @@
 {
     "tutorial": "Developers Intro",
-    "pageNumber": 1,
+    "pageNumber": "1",
     "type": "Tutorial - Intro for Developers",
     "definition": {
-        "icon": {
-            "project": "Foundations",
-            "name": ""
-        },
         "text": "This tutorial walks you through the technical aspects of Superalgos so that you may take advantage of the infrastructure in place as efficiently as possible.",
+        "icon": {
+            "name": "",
+            "project": "Foundations"
+        },
         "translations": [
             {
                 "language": "DE",
@@ -108,7 +108,15 @@
         },
         {
             "style": "Link",
-            "text": "->"
+            "text": "->",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "->",
+                    "updated": 1654393959748,
+                    "style": "Link"
+                }
+            ]
         },
         {
             "style": "Note",

@@ -39,6 +39,12 @@
                     "language": "ES",
                     "text": "Los Data Products existen en el contexto de los datos de las Trading Mines y de los nodos de datos de las Trading Mines. En el primer caso, un Data Product es la colección de conjuntos de datos generados por una instancia de un Trading Bot, tal como se define en una Trading Mine, que ejecuta una sesión de trading. En el segundo caso, es la colección de conjuntos de datos generados por una instancia de un Sensor Bot o de un Indicator Bot, tal y como se define en una Trading Mine, y que ejecuta una Data Mining Tasks.",
                     "updated": 1641096729941
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri ürünleri, ticaret madenleri verileri ve veri madenleri veri düğümleri bağlamında mevcuttur. İlk durumda, bir veri ürünü, bir ticaret madeninde tanımlanan ve bir ticaret oturumu yürüten bir ticaret botu örneği tarafından oluşturulan veri kümeleri koleksiyonudur. İkinci durumda, bir veri madeninde tanımlanan ve bir veri madenciliği görevi yürüten bir sensör botu veya bir gösterge botu örneği tarafından üretilen veri kümeleri koleksiyonudur.",
+                    "updated": 1654391735900,
+                    "style": "Text"
                 }
             ]
         },
@@ -55,6 +61,12 @@
                     "language": "ES",
                     "text": "Un nodo de Data Product debe hacer referencia a una definición de producto en el bot correspondiente.",
                     "updated": 1641096776859
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir veri ürünü düğümü, ilgili botta bir ürün tanımına referans vermelidir.",
+                    "updated": 1654391741815,
+                    "style": "Text"
                 }
             ]
         },
@@ -71,6 +83,12 @@
                     "language": "ES",
                     "text": "Los Data Products sólo pueden almacenarse en el mismo nodo de la red en el que se ejecuta la tarea -sea minería de datos o trading-.",
                     "updated": 1641096833081
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri ürünleri yalnızca görevin&mdash;veri madenciliği veya ticaret&mdash;üzerinde çalıştığı aynı ağ düğümünde depolanabilir.",
+                    "updated": 1654391748584,
+                    "style": "Important"
                 }
             ]
         }

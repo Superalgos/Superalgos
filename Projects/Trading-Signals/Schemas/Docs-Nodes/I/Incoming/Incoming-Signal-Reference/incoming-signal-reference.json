@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Этот узел хранит ссылку на определение сигнала, хранящееся в профиле пользователя поставщика сигнала.",
                 "updated": 1645252953318
+            },
+            {
+                "language": "TR",
+                "text": "Bu düğüm, sinyal sağlayıcının Kullanıcı Profili altında tutulan bir sinyal tanımına referansı saklar.",
+                "updated": 1654397664378
             }
         ]
     },
@@ -21,6 +26,12 @@
                     "language": "RU",
                     "text": "Каждое из мест, к которым могут быть прикреплены сигналы, имеет соответствующие узлы Signals в узле Trading System Signals социального торгового бота (Social Trading Bot) провайдера.",
                     "updated": 1645253008740
+                },
+                {
+                    "language": "TR",
+                    "text": "Sinyallerin eklenebileceği konumların her biri, sağlayıcının Sosyal Ticaret Botunun Ticaret Sistemi Sinyalleri düğümü altında eşleşen Sinyal düğümlerine sahiptir.",
+                    "updated": 1654397670566,
+                    "style": "Text"
                 }
             ]
         }

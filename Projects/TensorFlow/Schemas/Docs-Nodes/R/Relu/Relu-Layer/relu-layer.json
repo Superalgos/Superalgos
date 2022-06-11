@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Функция активации выпрямленной линейной единицы.",
                 "updated": 1645249664574
+            },
+            {
+                "language": "TR",
+                "text": "Düzeltilmiş Doğrusal Birim aktivasyon fonksiyonu.",
+                "updated": 1654397487001
             }
         ]
     },
@@ -21,6 +26,12 @@
                     "language": "RU",
                     "text": "Input shape: Произвольный. Используйте поле конфигурации inputShape (массив целых чисел, не включает ось образца) при использовании этого слоя в качестве первого слоя в модели.",
                     "updated": 1645249672350
+                },
+                {
+                    "language": "TR",
+                    "text": "Giriş şekli: Keyfi. Bu katmanı bir modelde ilk katman olarak kullanırken inputShape (Tamsayılar dizisi, örnek eksenini içermez) yapılandırma alanını kullanın.",
+                    "updated": 1654397493022,
+                    "style": "List"
                 }
             ]
         },
@@ -32,6 +43,12 @@
                     "language": "RU",
                     "text": "Output shape: Та же форма, что и у входа.",
                     "updated": 1645249678613
+                },
+                {
+                    "language": "TR",
+                    "text": "Çıkış şekli: Giriş ile aynı şekil.",
+                    "updated": 1654397499897,
+                    "style": "List"
                 }
             ]
         }

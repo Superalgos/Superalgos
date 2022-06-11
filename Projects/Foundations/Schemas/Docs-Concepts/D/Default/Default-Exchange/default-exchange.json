@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Default Exchange - это та биржа, на которую ссылаются узлы Exchange Data Tasks, Exchange Trading Tasks и Exchange Learning Tasks, от которых происходит определенная задача Task. Торговый бот Trading Bot Instance, работающий под этой задачей Task, будет рассматривать указанную криптобиржу (Crypto Exchange), как биржу по умолчанию (Default Exchange), для указанной задачи Task.",
                 "updated": 1638282190948
+            },
+            {
+                "language": "TR",
+                "text": "Varsayılan Borsa, belirli bir Görevin indiği Borsa Veri Görevleri, Borsa Alım Satım Görevleri ve Borsa Öğrenme Görevleri düğümleri tarafından başvurulan borsadır. Bu Görev altında çalışan Ticaret Botu Örneği, başvurulan Kripto Borsasını söz konusu Görev için Varsayılan Borsa olarak kabul edecektir.",
+                "updated": 1654390947643
             }
         ]
     },
@@ -20,6 +25,12 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования. Затем вы можете использовать docs.save для сохранения изменений и app.contribute для отправки их в основной репозиторий.",
                     "updated": 1638282222866
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle deyin. Yeni paragraflar yazmak için ENTER tuşuna basın. Düzenleme modundan çıkmak için ESC. Daha sonra değişikliklerinizi kaydetmek için docs.save ve ana depoya göndermek için app.contribute kullanabilirsiniz.",
+                    "updated": 1654390953303,
+                    "style": "Text"
                 }
             ]
         }

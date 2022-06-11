@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Глубинная сепарабельная двумерная свертка. Разделяемая свертка состоит из выполнения сначала пространственной свертки по глубине (которая действует на каждый входной канал отдельно), а затем точечной свертки, которая смешивает результирующие выходные каналы. Аргумент depthMultiplier управляет тем, сколько выходных каналов генерируется на каждый входной канал на этапе свертки по глубине.",
                 "updated": 1645249830157
+            },
+            {
+                "language": "TR",
+                "text": "Derinlemesine ayrılabilir 2D konvolüsyon. Ayrılabilir konvolüsyon, önce derinlemesine bir uzamsal konvolüsyon (her bir giriş kanalına ayrı ayrı etki eden) ve ardından ortaya çıkan çıkış kanallarını karıştıran noktasal bir konvolüsyon gerçekleştirmekten oluşur. depthMultiplier bağımsız değişkeni, derinlik adımında giriş kanalı başına kaç çıkış kanalı oluşturulacağını kontrol eder.",
+                "updated": 1654397550507
             }
         ]
     },
@@ -21,6 +26,12 @@
                     "language": "RU",
                     "text": "Интуитивно разделимые свертки можно понимать как способ факторизации ядра свертки на два меньших ядра, или как экстремальную версию блока Inception.",
                     "updated": 1645249843216
+                },
+                {
+                    "language": "TR",
+                    "text": "Sezgisel olarak, ayrılabilir konvolüsyonlar, bir konvolüsyon çekirdeğini iki küçük çekirdeğe çarpanlara ayırmanın bir yolu veya bir Inception bloğunun uç bir versiyonu olarak anlaşılabilir.",
+                    "updated": 1654397556747,
+                    "style": "Text"
                 }
             ]
         },
@@ -32,6 +43,12 @@
                     "language": "RU",
                     "text": "Input shape: 4D тензор с формой: [batch, channels, rows, cols], если data_format='channelsFirst' или 4D тензор с формой: [batch, rows, cols, channels], если data_format='channelsLast'.",
                     "updated": 1645249856510
+                },
+                {
+                    "language": "TR",
+                    "text": "Giriş şekli: Şekil ile 4D tensör: data_format='channelsFirst' ise [batch, channels, rows, cols] veya shape ile 4D tensör: data_format='channelsLast' ise [batch, rows, cols, channels].",
+                    "updated": 1654397563891,
+                    "style": "List"
                 }
             ]
         },
@@ -43,6 +60,12 @@
                     "language": "RU",
                     "text": "Output shape: 4D тензор с формой: [batch, filters, newRows, newCols], если data_format='channelsFirst'или 4D тензор с формой: [batch, newRows, newCols, filters], если data_format='channelsLast'. значения строк и столбцов могли измениться из-за вставки.",
                     "updated": 1645249866170
+                },
+                {
+                    "language": "TR",
+                    "text": "Çıkış şekli: Şekil ile 4D tensör: [batch, filters, newRows, newCols] if data_format='channelsFirst' veya 4D tensor with shape: data_format='channelsLast' ise [batch, newRows, newCols, filters]. rows ve cols değerleri dolgu nedeniyle değişmiş olabilir.",
+                    "updated": 1654397569662,
+                    "style": "List"
                 }
             ]
         }

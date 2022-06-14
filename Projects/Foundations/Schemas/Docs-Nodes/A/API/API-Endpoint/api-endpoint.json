@@ -90,7 +90,15 @@
         {
             "style": "Include",
             "text": "Foundations->Topic->Data Mining - Fetching Data From APIs->Main Workflow",
-            "updated": 1621951345309
+            "updated": 1621951345309,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Foundations->Topic->Data Mining - API'lerden Veri Getirme->Ana İş Akışı",
+                    "updated": 1654391256564,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Title",

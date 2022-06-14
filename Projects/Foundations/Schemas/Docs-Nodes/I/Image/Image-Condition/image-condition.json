@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Image Condition - это правило, которое позволяет установить, когда изображение должно быть отображено, а когда нет.",
                 "updated": 1638969651620
+            },
+            {
+                "language": "TR",
+                "text": "Görüntü koşulu, bir görüntünün ne zaman işlenip ne zaman işlenmeyeceğini belirlemeye olanak tanıyan bir kuraldır.",
+                "updated": 1654419494494
             }
         ]
     },
@@ -23,6 +28,12 @@
                     "language": "RU",
                     "text": "Узел не является обязательным. Когда узел отсутствует в определении изображения или когда условие проверяется как true (истинное), изображение отображается на экране. Когда условие проверяется как false (ложное), изображение не отображается. Таким образом, узел позволяет динамически включать и выключать отображение соответствующего изображения.",
                     "updated": 1638969616390
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğüm isteğe bağlıdır. Düğüm görüntünün tanımında bulunmadığında veya koşul doğru olarak doğrulandığında, görüntü ekranda oluşturulur. Koşul yanlış olarak doğrulandığında görüntü oluşturulmaz. Bu nedenle düğüm, ilgili görüntünün oluşturulmasının dinamik olarak açılıp kapatılmasına olanak tanır.",
+                    "updated": 1654419500526,
+                    "style": "Text"
                 }
             ]
         }

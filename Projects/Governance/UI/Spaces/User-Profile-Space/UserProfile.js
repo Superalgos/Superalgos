@@ -134,11 +134,9 @@ function newGovernanceUserProfileSpace() {
                 nodes[i].payload.floatingObject.container.frame.position.y = yLevel + yOffset
             }
         }
-
         /*
         Here we will setup the Reputation for each profile. 
         */
-
         waitingForResponses++
         getTreasuryAccountTransactions()
 
@@ -176,9 +174,47 @@ function newGovernanceUserProfileSpace() {
                 waitingForResponses--
             });
         }
+        /* 
+        Obtain executed Bitcoin Factory test cases 
+        */
+        getExecutedTestCases()
+        function getExecutedTestCases() {
+            const [firstTimestamp, lastTimestamp] = getRewardedTimeRange()
+            let request = {
+                url: 'GOV',
+                params: {
+                    method: "getRewardsFile",
+                    firstTimestamp: firstTimestamp,
+                    lastTimestamp: lastTimestamp
+                }
+            }
 
-        /* Find the Github Username and Token in order to activate the Github Program */
+            httpRequest(JSON.stringify(request.params), request.url, onResponse)
 
+            function onResponse(err, data) {
+                if (err.result === GLOBAL.DEFAULT_FAIL_RESPONSE) {
+                    console.log((new Date()).toISOString(), '[WARN] Error fetching executed test cases from Bitcoin Factory Server')
+                    return
+                } else {
+                    let response = JSON.parse(data)
+                    if (response.result === 'Not Ok') {
+                        console.log((new Date()).toISOString(), '[WARN] Error fetching executed test cases from Bitcoin Factory Server - ./Bitcoin-Factory/Reports/Testnet*.csv')
+                        return
+                    }
+
+                    let executedTests = response.executedTests
+
+                    for (let user in executedTests) {
+                        if (executedTests.hasOwnProperty(user)) {
+                            thisObject.executedTestCases.set(user, executedTests[user])
+                        }
+                    }
+                }
+            }
+        }
+        /* 
+        Find the Github Username and Token in order to activate the Github Program 
+        */
         let apisNode = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadByNodeType('APIs')
         if (apisNode === undefined) {
             console.log((new Date()).toISOString(), '[WARN] Github Program Disabled because the Github Credentials are not present at this workspace. APIs node not found.')
@@ -335,43 +371,6 @@ function newGovernanceUserProfileSpace() {
                 }
             }
         }
-
-        /* Obtain executed Bitcoin Factory test cases */
-        getExecutedTestCases()
-        function getExecutedTestCases() {
-            const [firstTimestamp, lastTimestamp] = getRewardedTimeRange()
-            let request = {
-                url: 'GOV',
-                params: {
-                    method: "getRewardsFile",
-                    firstTimestamp: firstTimestamp,
-                    lastTimestamp: lastTimestamp
-                }
-            }
-
-            httpRequest(JSON.stringify(request.params), request.url, onResponse) 
-
-            function onResponse(err, data) {
-                if (err.result === GLOBAL.DEFAULT_FAIL_RESPONSE) {
-                    console.log((new Date()).toISOString(), '[WARN] Error fetching executed test cases from Bitcoin Factory Server')
-                    return
-                } else {    
-                    let response = JSON.parse(data)
-                    if (response.result === 'Not Ok') {
-                        console.log((new Date()).toISOString(), '[WARN] Error fetching executed test cases from Bitcoin Factory Server - ./Bitcoin-Factory/Reports/Testnet*.csv')
-                        return
-                    }
-                    
-                    let executedTests = response.executedTests
-
-                    for (let user in executedTests) {
-                        if (executedTests.hasOwnProperty(user)) {
-                            thisObject.executedTestCases.set(user, executedTests[user])
-                        }
-                    }                        
-                }
-            }            
-        }
     }
 
     function getRewardedTimeRange() {
@@ -515,7 +514,7 @@ function newGovernanceUserProfileSpace() {
                                 initValues[assetExchange] = 0
                             }
                         }
-                    } 
+                    }
                     userProfile.payload.liquidityTokens = initValues
 
                     for (let liqAsset of liqAssets) {
@@ -526,7 +525,7 @@ function newGovernanceUserProfileSpace() {
                                 getLiquidityTokenBalance(userProfile, blockchainAccount, liqAsset, liqExchange, marketContract)
                             }
                         }
-                    } 
+                    }
 
                     /* 
                     Now we get the SA Tokens Balance.
@@ -561,7 +560,7 @@ function newGovernanceUserProfileSpace() {
                     if (commandResponse.result !== "Ok") {
                         console.log((new Date()).toISOString(), '[WARN] Web3 Error fetching blockchain tokens of user profile ' + userProfile.name)
                         return
-                    }                    
+                    }
                     userProfile.payload.uiObject.setInfoMessage('Blockchain Balance Successfully Loaded.',
                         UI.projects.governance.globals.designer.SET_INFO_COUNTER_FACTOR
                     )
@@ -585,8 +584,8 @@ function newGovernanceUserProfileSpace() {
                 }
             }
 
-            httpRequest(JSON.stringify(request.params), request.url, onResponse)           
-        
+            httpRequest(JSON.stringify(request.params), request.url, onResponse)
+
             function onResponse(err, data) {
                 if (err.result === GLOBAL.DEFAULT_FAIL_RESPONSE) {
                     console.log((new Date()).toISOString(), '[WARN] Error fetching ' + exchange + ' liquidity tokens for asset ' + asset + ' of user profile ' + userProfile.name)
@@ -597,13 +596,13 @@ function newGovernanceUserProfileSpace() {
                         console.log((new Date()).toISOString(), '[WARN] Web3 Error fetching ' + exchange + ' liquidity tokens for asset ' + asset + ' of user profile ' + userProfile.name)
                         return
                     }
-                    console.log((new Date()).toISOString(), '[INFO]', exchange ,'Liquidity of', userProfile.name, 'for asset', asset, 'is ', Number(commandResponse.balance))
+                    console.log((new Date()).toISOString(), '[INFO]', exchange, 'Liquidity of', userProfile.name, 'for asset', asset, 'is ', Number(commandResponse.balance))
                     userProfile.payload.liquidityTokens[assetExchange] = Number(commandResponse.balance)
                     userProfile.payload.uiObject.setInfoMessage('Balance Successfully Loaded for asset ' + asset,
                         UI.projects.governance.globals.designer.SET_INFO_COUNTER_FACTOR
                     )
                 }
-            }                         
+            }
         }
 
     }

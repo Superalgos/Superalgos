@@ -1,6 +1,6 @@
 {
     "tutorial": "Setting Up a New Chart",
-    "pageNumber": 5,
+    "pageNumber": "5",
     "type": "Tutorial Step - Basic Building Blocks",
     "definition": {
         "text": "I went ahead and installed some basic building blocks within this Workspace so we can jump into creating custom charts quickly.",
@@ -127,6 +127,12 @@
                     "language": "RU",
                     "text": "Все, что мы будем делать сегодня, будет построено на основе этой базовой установки. Я расскажу вам о том, что я установил, чтобы дать вам представление о том, на чем мы будем строить сегодня.",
                     "updated": 1637915029388
+                },
+                {
+                    "language": "TR",
+                    "text": "Bugün yapacağımız her şey bu temel kurulum üzerine inşa edilecek. Bugün neyin üzerine inşa edeceğimiz konusunda size bir fikir vermek için ne kurduğum konusunda size yol göstereceğim.",
+                    "updated": 1654394109893,
+                    "style": "Text"
                 }
             ]
         }

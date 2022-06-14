@@ -257,6 +257,11 @@
                     "language": "RU",
                     "text": "Полный список доступных таймфреймов:",
                     "updated": 1640091113520
+                },
+                {
+                    "language": "TR",
+                    "text": "Mevcut zaman dilimlerinin tam listesi:",
+                    "updated": 1654688199238
                 }
             ]
         },
@@ -294,6 +299,11 @@
                     "language": "RU",
                     "text": "Свойство previous - это общее для всех продуктов свойство, которое позволяет получить значение свечи, закрывшейся перед последней.",
                     "updated": 1640091296219
+                },
+                {
+                    "language": "TR",
+                    "text": "Önceki özelliği, tüm ürünlerde ortak olan ve son mumdan önce kapanan mumun değerini almanızı sağlayan bir özelliktir.",
+                    "updated": 1654688277628
                 }
             ]
         },
@@ -309,8 +319,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "The property is used with the following syntax:",
-                    "updated": 1654001744280
+                    "text": "Bu özellik aşağıdaki sözdizimiyle kullanılır:",
+                    "updated": 1654688291417
                 }
             ]
         },
@@ -386,6 +396,11 @@
                     "language": "RU",
                     "text": "Приведенное выше выражение возвращает максимальное значение двух свечей перед последней закрытой свечой на 1-часовом графике.",
                     "updated": 1640091638490
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarıdaki sözdizimi, 1 saatlik grafikte son kapalı mumdan önceki iki mumun maksimum değerini döndürür.",
+                    "updated": 1654688320245
                 }
             ]
         },
@@ -430,6 +445,11 @@
                     "language": "RU",
                     "text": "Синтаксис:",
                     "updated": 1640091844472
+                },
+                {
+                    "language": "TR",
+                    "text": "Sözdizimi şöyledir:",
+                    "updated": 1654688349267
                 }
             ]
         },

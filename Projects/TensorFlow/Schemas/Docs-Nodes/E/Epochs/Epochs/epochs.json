@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Эпоха в машинном обучении - это полный цикл обработки алгоритмом обучения всего набора данных. Это понятие уже давно используется в области машинного обучения. Одна эпоха - это шаг по времени, который увеличивается каждый раз, когда алгоритм проходит через все образцы обучающего набора.",
                 "updated": 1645247775685
+            },
+            {
+                "language": "TR",
+                "text": "Makine Öğreniminde bir epok, tüm eğitim setinin öğrenme algoritması tarafından işlenmesinin tamamıdır. ... Makine Öğrenimi alanında uzun süredir kullanılmaktadır. Bir epok, eğitim setindeki tüm örneklerden her geçtiğinde artırılan zaman adımıdır.",
+                "updated": 1654397087655
             }
         ]
     },
@@ -20,6 +25,12 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
                     "updated": 1645247781129
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
+                    "updated": 1654397094618,
+                    "style": "Text"
                 }
             ]
         }

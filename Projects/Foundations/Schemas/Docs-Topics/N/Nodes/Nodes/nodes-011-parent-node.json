@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Родительский узел определенного узла A - это узел, который был использован для создания A. Узлы автоматически привязываются к своему родительскому узлу. Не все узлы имеют родительский узел.",
                 "updated": 1640356692142
+            },
+            {
+                "language": "TR",
+                "text": "Belirli bir Düğüm ( Node ) A'nın Ana Düğümü, A'yı oluşturmak için kullanılan Düğümdür. Düğümler ( Node ) otomatik olarak Ana Düğümlerine eklenir. Tüm düğümlerin bir Ana Düğümü yoktur.",
+                "updated": 1654892354253
             }
         ]
     },
@@ -22,6 +27,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
                     "updated": 1640356700616
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle . Yeni paragraflar yazmak için ENTER'a basın. Düzenleme modundan çıkmak için ESC.",
+                    "updated": 1654892385013
                 }
             ]
         }

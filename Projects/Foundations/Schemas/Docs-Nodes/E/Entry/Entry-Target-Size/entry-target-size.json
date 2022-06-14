@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Entry Target Size - это размер цели, установленный на начальном определении целей на открытой стадии стратегии.",
                 "updated": 1638774567936
+            },
+            {
+                "language": "TR",
+                "text": "Giriş hedef boyutu, stratejinin açık aşamasında ilk hedef tanımında belirlenen hedef boyutudur.",
+                "updated": 1654392111889
             }
         ]
     },
@@ -23,6 +28,12 @@
                     "language": "RU",
                     "text": "Обратитесь к пояснениям по целевому размеру записи для некоторого соответствующего контекста.",
                     "updated": 1638774653281
+                },
+                {
+                    "language": "TR",
+                    "text": "Bazı ilgili bağlamlar için giriş hedefi boyutuna ilişkin açıklamalara bakın.",
+                    "updated": 1654392118240,
+                    "style": "Text"
                 }
             ]
         },
@@ -34,6 +45,12 @@
                     "language": "RU",
                     "text": "Обновите эту концепцию, прочитав об исходных целевых определениях в торговой системе.",
                     "updated": 1638774672626
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret sistemindeki ilk hedef tanımlarını okuyarak bu kavramları yenileyin.",
+                    "updated": 1654392124083,
+                    "style": "Text"
                 }
             ]
         },
@@ -63,6 +80,12 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1638774747753
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1654392143209,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -75,6 +98,12 @@
                     "language": "RU",
                     "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
                     "updated": 1638774757394
+                },
+                {
+                    "language": "TR",
+                    "text": "initialValue düğümün ilk durumunun rastgele bir değere sıfırlanmasını sağlar.",
+                    "updated": 1654392148731,
+                    "style": "List"
                 }
             ]
         }

@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Оптимизаторы - это расширенный класс, который содержит дополнительную информацию для обучения конкретной модели. Класс Optimizer инициализируется с заданными параметрами, но важно помнить, что тензор не нужен. Оптимизаторы используются для повышения скорости и производительности обучения конкретной модели.",
                 "updated": 1645249168776
+            },
+            {
+                "language": "TR",
+                "text": "Optimize ediciler, belirli bir modeli eğitmek için ek bilgiler içeren genişletilmiş sınıftır. Optimizer sınıfı verilen parametrelerle başlatılır ancak Tensör gerekmediğini unutmamak önemlidir. Optimize ediciler, belirli bir modeli eğitmek için hız ve performansı artırmak amacıyla kullanılır.",
+                "updated": 1654397381840
             }
         ]
     },
@@ -20,6 +25,12 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
                     "updated": 1645249173679
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
+                    "updated": 1654397387878,
+                    "style": "Text"
                 }
             ]
         }

@@ -1,14 +1,14 @@
 {
     "tutorial": "Basic Education",
-    "pageNumber": 31,
+    "pageNumber": "31",
     "type": "Tutorial Step - Hammering Backups Home",
     "definition": {
         "text": "Let's go over the same examples that you just read about so that you learn this by heart!",
+        "updated": 1615824452275,
         "icon": {
             "name": "backup-entity",
             "project": "Foundations"
         },
-        "updated": 1615824452275,
         "translations": [
             {
                 "language": "IT",
@@ -115,6 +115,12 @@
                     "language": "ID",
                     "text": "Terverifikasi bahwa, dalam kedua kasus, outgoing references yang berasal dari Trading System Reference dan node Trading Engine Reference dijaga.",
                     "updated": 1644951263028
+                },
+                {
+                    "language": "TR",
+                    "text": "Her iki durumda da, Ticaret Sistemi Referansı ve Ticaret Motoru Referansı düğümlerinden kaynaklanan giden referansların korunduğunu doğrulayın.",
+                    "updated": 1654393852903,
+                    "style": "Text"
                 }
             ]
         },

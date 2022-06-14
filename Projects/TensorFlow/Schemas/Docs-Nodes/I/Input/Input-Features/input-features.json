@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Input Features - это входные переменные, используемые при составлении прогнозов.",
                 "updated": 1645248139326
+            },
+            {
+                "language": "TR",
+                "text": "Özellikler, tahminlerin yapılmasında kullanılan girdi değişkenleridir.",
+                "updated": 1654397179140
             }
         ]
     },
@@ -20,6 +25,12 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
                     "updated": 1645248144454
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
+                    "updated": 1654397185239,
+                    "style": "Text"
                 }
             ]
         }

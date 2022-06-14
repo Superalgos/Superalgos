@@ -17,11 +17,27 @@
         {
             "style": "Include",
             "text": "Governance->Node->Features->Definition",
-            "updated": 1624720223930
+            "updated": 1624720223930,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Governance->Node->Features->Definition",
+                    "updated": 1654395300609,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Include",
-            "text": "Governance->Node->Features->Content"
+            "text": "Governance->Node->Features->Content",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Governance->Node->Features->Content",
+                    "updated": 1654395307618,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Title",
@@ -36,11 +52,27 @@
         },
         {
             "style": "Include",
-            "text": "Governance->Node->Feature Class->Definition"
+            "text": "Governance->Node->Feature Class->Definition",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Governance->Node->Feature Class->Definition",
+                    "updated": 1654395314337,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Include",
-            "text": "Governance->Node->Feature Class->Content"
+            "text": "Governance->Node->Feature Class->Content",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Governance->Node->Feature Class->Content",
+                    "updated": 1654395321657,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Title",
@@ -55,11 +87,27 @@
         },
         {
             "style": "Include",
-            "text": "Governance->Node->Feature->Definition"
+            "text": "Governance->Node->Feature->Definition",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Governance->Node->Feature->Definition",
+                    "updated": 1654395327322,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Include",
-            "text": "Governance->Node->Feature->Content"
+            "text": "Governance->Node->Feature->Content",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Governance->Node->Feature->Content",
+                    "updated": 1654395332968,
+                    "style": "Include"
+                }
+            ]
         }
     ]
 }

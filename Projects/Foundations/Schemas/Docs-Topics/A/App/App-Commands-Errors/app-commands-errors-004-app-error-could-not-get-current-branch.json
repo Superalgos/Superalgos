@@ -4,36 +4,91 @@
     "type": "App Error - Could Not Get Current Branch",
     "definition": {
         "text": "There was a problem trying to get the Current Branch. Check the console for errors.",
-        "updated": 1611129344277
+        "updated": 1611129344277,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Mevcut Şubeyi almaya çalışırken bir sorun oluştu. Hatalar için konsolu kontrol edin.",
+                "updated": 1654393074178
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Success",
             "text": "Check for the following section for details on what may have happened. After you fix the issue, you may try again.",
-            "updated": 1611152967185
+            "updated": 1611152967185,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ne olmuş olabileceğine dair ayrıntılar için aşağıdaki bölümü kontrol edin. Sorunu çözdükten sonra tekrar deneyebilirsiniz.",
+                    "updated": 1654393080578,
+                    "style": "Success"
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Error Info",
-            "updated": 1611154641024
+            "updated": 1611154641024,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hata Bilgisi",
+                    "updated": 1654393088076,
+                    "style": "Title"
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In the following section, you will find the information recorded when the error occurred."
+            "text": "In the following section, you will find the information recorded when the error occurred.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki bölümde, hata oluştuğunda kaydedilen bilgileri bulacaksınız.",
+                    "updated": 1654393094573,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "You will only see the information if you opened this page as a result of the error actually occurring.",
-            "updated": 1611151375974
+            "updated": 1611151375974,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bu bilgileri yalnızca hatanın gerçekten meydana gelmesinin bir sonucu olarak bu sayfayı açtıysanız göreceksiniz.",
+                    "updated": 1654393102296,
+                    "style": "Note"
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Error Message"
+            "text": "Error Message",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hata Mesajı",
+                    "updated": 1654393108293,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The following is the Error Message of the Exception that occured at the Client:",
-            "updated": 1611151299633
+            "updated": 1611151299633,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İstemcide meydana gelen İstisnanın Hata Mesajı aşağıdadır:",
+                    "updated": 1654393115827,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Placeholder",
@@ -41,12 +96,28 @@
         },
         {
             "style": "Subtitle",
-            "text": "Error Stack"
+            "text": "Error Stack",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hata Yığını",
+                    "updated": 1654393124225,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The following is the Error Stack of the Exception that occured at the Client:",
-            "updated": 1611151427220
+            "updated": 1611151427220,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İstemcide meydana gelen İstisnanın Hata Yığını aşağıdadır:",
+                    "updated": 1654393130178,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Placeholder",
@@ -54,12 +125,28 @@
         },
         {
             "style": "Subtitle",
-            "text": "Error Code"
+            "text": "Error Code",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hata Kodu",
+                    "updated": 1654393136080,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The following is the Error Code of the Exception that occured at the Client:",
-            "updated": 1611151443562
+            "updated": 1611151443562,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İstemcide meydana gelen İstisnanın Hata Kodu aşağıdadır:",
+                    "updated": 1654393142417,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Placeholder",
@@ -67,11 +154,27 @@
         },
         {
             "style": "Subtitle",
-            "text": "Error Details"
+            "text": "Error Details",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hata Detayları",
+                    "updated": 1654393148599,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The following are all the Error details of the Exception that occured at the Client:"
+            "text": "The following are all the Error details of the Exception that occured at the Client:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Aşağıda, İstemcide meydana gelen İstisnanın tüm Hata ayrıntıları yer almaktadır:",
+                    "updated": 1654393154486,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Placeholder",

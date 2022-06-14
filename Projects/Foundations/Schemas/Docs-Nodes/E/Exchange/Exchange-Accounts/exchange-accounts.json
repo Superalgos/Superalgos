@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Узел Exchange Accounts группирует различные учетные записи, которые пользователь может иметь на соответствующей бирже.",
                 "updated": 1638783009961
+            },
+            {
+                "language": "TR",
+                "text": "Borsa hesapları düğümü, kullanıcının ilgili borsada sahip olabileceği farklı hesapları gruplar.",
+                "updated": 1654392215304
             }
         ]
     },
@@ -29,6 +34,12 @@
                     "language": "RU",
                     "text": "В этом разделе иерархии Crypto Ecosystem рассматриваются концепции, связанные с пользователем.",
                     "updated": 1638783080691
+                },
+                {
+                    "language": "TR",
+                    "text": "Kripto Ekosistemi hiyerarşisinin bu bölümü kullanıcı ile ilgili kavramlarla ilgilenir.",
+                    "updated": 1654392222378,
+                    "style": "Text"
                 }
             ]
         }

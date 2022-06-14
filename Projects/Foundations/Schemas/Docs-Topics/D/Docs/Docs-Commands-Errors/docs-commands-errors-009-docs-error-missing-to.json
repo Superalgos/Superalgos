@@ -1,6 +1,6 @@
 {
     "topic": "Docs Commands Errors",
-    "pageNumber": 9,
+    "pageNumber": "9",
     "type": "Docs Error - Missing To",
     "definition": {
         "text": "The word \"to\" is part of the syntax of the command and you did not include it.",
@@ -27,7 +27,15 @@
         {
             "style": "Anchor",
             "text": "Anchor Missing To",
-            "updated": 1609176777661
+            "updated": 1609176777661,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Kayıp Çapa",
+                    "updated": 1654419832307,
+                    "style": "Anchor"
+                }
+            ]
         },
         {
             "style": "Error",
@@ -81,12 +89,26 @@
                     "language": "RU",
                     "text": "Относится к",
                     "updated": 1638530005854
+                },
+                {
+                    "language": "TR",
+                    "text": "Şunlar için geçerlidir",
+                    "updated": 1654419838150,
+                    "style": "Title"
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Docs Add Command"
+            "text": "Docs Add Command",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Dokümanlar Komut Ekle",
+                    "updated": 1654419844673,
+                    "style": "List"
+                }
+            ]
         }
     ]
 }

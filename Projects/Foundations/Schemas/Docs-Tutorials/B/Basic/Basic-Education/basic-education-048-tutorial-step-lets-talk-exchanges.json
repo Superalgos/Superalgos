@@ -1,14 +1,14 @@
 {
     "tutorial": "Basic Education",
-    "pageNumber": 48,
+    "pageNumber": "48",
     "type": "Tutorial Step - Let's Talk Exchanges",
     "definition": {
         "text": "We all have our preferred exchanges... let's talk a bit about how Superalgos deals with them and which ones you may use...",
+        "updated": 1615999626738,
         "icon": {
             "name": "crypto-exchange",
             "project": "Foundations"
         },
-        "updated": 1615999626738,
         "translations": [
             {
                 "language": "IT",
@@ -98,6 +98,12 @@
                     "language": "ID",
                     "text": "Daftar Exchanges yang Menjanjikan Kepatuhan dengan CCXT->github.com/ccxt/ccxt/wiki/Exchange-Markets?r=Superalgos",
                     "updated": 1645562801470
+                },
+                {
+                    "language": "TR",
+                    "text": "CCXT ile Uyumluluk Taahhüt Eden Borsaların Listesi->github.com/ccxt/ccxt/wiki/Exchange-Markets?r=Superalgos",
+                    "updated": 1654393868679,
+                    "style": "Link"
                 }
             ]
         },

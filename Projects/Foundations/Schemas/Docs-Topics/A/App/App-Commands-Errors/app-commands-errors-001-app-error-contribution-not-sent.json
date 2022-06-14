@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Возникла проблема при попытке отправить ваш вклад в ваш форк репозитория Superalgos или с вашего форка в главный репозиторий Superalgos / Superalgos.",
                 "updated": 1638163298057
+            },
+            {
+                "language": "TR",
+                "text": "Katkınızı Superalgos deposunun çatalına veya çatalınızdan Superalgos/Superalgos ana deposuna göndermeye çalışırken bir sorun oluştu.",
+                "updated": 1654392723354
             }
         ]
     },
@@ -33,6 +38,12 @@
                     "language": "RU",
                     "text": "Обратитесь к следующему разделу для получения подробной информации о том, что могло произойти. После устранения проблемы, из-за которой команда App Contribute Command не запускалась, вы можете попробовать еще раз.",
                     "updated": 1638163372898
+                },
+                {
+                    "language": "TR",
+                    "text": "Ne olmuş olabileceğine ilişkin ayrıntılar için aşağıdaki bölümü kontrol edin. App Contribute Komutunun çalışmasını engelleyen sorunu çözdükten sonra tekrar deneyebilirsiniz.",
+                    "updated": 1654392731176,
+                    "style": "Text"
                 }
             ]
         },
@@ -45,6 +56,12 @@
                     "language": "RU",
                     "text": "Информация об ошибке",
                     "updated": 1638163397925
+                },
+                {
+                    "language": "TR",
+                    "text": "Hata Bilgisi",
+                    "updated": 1654392737054,
+                    "style": "Title"
                 }
             ]
         },
@@ -61,6 +78,12 @@
                     "language": "RU",
                     "text": "В следующем разделе вы найдете информацию, записанную при возникновении ошибки.",
                     "updated": 1638163423671
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki bölümde, hata oluştuğunda kaydedilen bilgileri bulacaksınız.",
+                    "updated": 1654392742668,
+                    "style": "Text"
                 }
             ]
         },
@@ -78,6 +101,12 @@
                     "language": "RU",
                     "text": "Вы увидите информацию только в том случае, если вы открыли эту страницу в результате действительно возникшей ошибки.",
                     "updated": 1638163451251
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu bilgileri yalnızca hatanın gerçekten meydana gelmesinin bir sonucu olarak bu sayfayı açtıysanız göreceksiniz.",
+                    "updated": 1654392748600,
+                    "style": "Note"
                 }
             ]
         },
@@ -94,6 +123,12 @@
                     "language": "RU",
                     "text": "Сообщение об ошибке",
                     "updated": 1638163470882
+                },
+                {
+                    "language": "TR",
+                    "text": "Hata Mesajı",
+                    "updated": 1654392754907,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -110,6 +145,12 @@
                     "language": "RU",
                     "text": "Ниже приводится сообщение об ошибке исключения, которое произошло на Client:",
                     "updated": 1638163508896
+                },
+                {
+                    "language": "TR",
+                    "text": "İstemcide meydana gelen İstisnanın Hata Mesajı aşağıdadır:",
+                    "updated": 1654392760336,
+                    "style": "Text"
                 }
             ]
         },
@@ -125,6 +166,12 @@
                     "language": "RU",
                     "text": "Стек ошибок",
                     "updated": 1638163536906
+                },
+                {
+                    "language": "TR",
+                    "text": "Hata Yığını",
+                    "updated": 1654392765971,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -141,6 +188,12 @@
                     "language": "RU",
                     "text": "Ниже приводится стек ошибок исключения, возникшего на Client:",
                     "updated": 1638163563203
+                },
+                {
+                    "language": "TR",
+                    "text": "İstemcide meydana gelen İstisnanın Hata Yığını aşağıdadır:",
+                    "updated": 1654392771665,
+                    "style": "Text"
                 }
             ]
         },
@@ -156,6 +209,12 @@
                     "language": "RU",
                     "text": "Код ошибки",
                     "updated": 1638163579463
+                },
+                {
+                    "language": "TR",
+                    "text": "Hata Kodu",
+                    "updated": 1654392777478,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -172,6 +231,12 @@
                     "language": "RU",
                     "text": "Ниже приведен код ошибки исключения, возникшего на Client:",
                     "updated": 1638163601482
+                },
+                {
+                    "language": "TR",
+                    "text": "İstemcide meydana gelen İstisnanın Hata Kodu aşağıdadır:",
+                    "updated": 1654392783415,
+                    "style": "Text"
                 }
             ]
         },
@@ -188,6 +253,12 @@
                     "language": "RU",
                     "text": "Детали ошибки",
                     "updated": 1638163624397
+                },
+                {
+                    "language": "TR",
+                    "text": "Hata Detayları",
+                    "updated": 1654392790569,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -205,6 +276,12 @@
                     "language": "RU",
                     "text": "Ниже приведены все подробности об ошибке исключения, которое произошло на Client:",
                     "updated": 1638163644557
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıda, İstemcide meydana gelen İstisnanın tüm Hata ayrıntıları yer almaktadır:",
+                    "updated": 1654392796294,
+                    "style": "Text"
                 }
             ]
         },

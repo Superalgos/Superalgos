@@ -33,6 +33,12 @@
                     "language": "RU",
                     "text": "Конфигурация Exchange Account Key",
                     "updated": 1638782714093
+                },
+                {
+                    "language": "TR",
+                    "text": "Exchange Hesap Anahtarını Yapılandırma",
+                    "updated": 1654392179084,
+                    "style": "Title"
                 }
             ]
         },
@@ -49,6 +55,12 @@
                     "language": "RU",
                     "text": "codeName - это имя или метка вашего ключа, предоставленные биржей.",
                     "updated": 1638782752247
+                },
+                {
+                    "language": "TR",
+                    "text": "codeName, borsa tarafından sağlanan anahtarınızın adı veya etiketidir.",
+                    "updated": 1654392184954,
+                    "style": "List"
                 }
             ]
         },
@@ -65,6 +77,12 @@
                     "language": "RU",
                     "text": "secret - секретный ключ, предоставленный биржей.",
                     "updated": 1638782797608
+                },
+                {
+                    "language": "TR",
+                    "text": "secret, değişim tarafından sağlanan gizli anahtardır.",
+                    "updated": 1654392191078,
+                    "style": "List"
                 }
             ]
         },
@@ -81,6 +99,12 @@
                     "language": "RU",
                     "text": "uid - это идентификатор пользователя, предоставленный биржей. Это требуется не для всех бирж.",
                     "updated": 1638782812478
+                },
+                {
+                    "language": "TR",
+                    "text": "uid, borsa tarafından sağlanan uid'dir. Bu, tüm borsalar için gerekli değildir.",
+                    "updated": 1654392198082,
+                    "style": "List"
                 }
             ]
         },
@@ -97,6 +121,12 @@
                     "language": "RU",
                     "text": "password - это пароль или кодовая фраза, предоставленная при создании ключа и секрета. Это требуется не для всех бирж.",
                     "updated": 1638782835194
+                },
+                {
+                    "language": "TR",
+                    "text": "parola, anahtar ve sır oluşturulurken verilen parola veya paroladır. Bu, tüm alışverişler için gerekli değildir.",
+                    "updated": 1654392203331,
+                    "style": "List"
                 }
             ]
         },
@@ -113,6 +143,12 @@
                     "language": "RU",
                     "text": "Чтобы обеспечить безопасность ваших ключей биржи, никогда не делитесь структурами данных, которые вы можете загрузить из системы, так как загрузки содержат всю информацию в структуре данных, включая личную информацию, такую ​​как ключи биржи. Вместо этого используйте опцию share в меню. Параметр общего доступа удаляет конфиденциальную информацию и выводит файл, которым можно безопасно поделиться.",
                     "updated": 1638782934220
+                },
+                {
+                    "language": "TR",
+                    "text": "Değişim anahtarlarınızı güvende tutmak için sistemden indirebileceğiniz veri yapılarını asla paylaşmayın, çünkü indirmeler değişim anahtarları gibi kişisel bilgiler de dahil olmak üzere veri yapısındaki tüm bilgileri içerir. Bunun yerine menüdeki paylaş seçeneğini kullanın. Paylaş seçeneği hassas bilgileri siler ve paylaşım için güvenli bir dosya çıkarır.",
+                    "updated": 1654392208845,
+                    "style": "Warning"
                 }
             ]
         }

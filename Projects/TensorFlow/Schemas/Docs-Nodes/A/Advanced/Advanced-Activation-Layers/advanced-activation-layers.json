@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Используйте этот тип слоя, когда вы хотите применить расширенную функцию активации.",
                 "updated": 1645195295445
+            },
+            {
+                "language": "TR",
+                "text": "Gelişmiş bir aktivasyon fonksiyonu uygulamak istediğinizde bu katman türünü kullanın.",
+                "updated": 1654396634117
             }
         ]
     },
@@ -20,6 +25,12 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
                     "updated": 1645195302125
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
+                    "updated": 1654396640084,
+                    "style": "Text"
                 }
             ]
         }

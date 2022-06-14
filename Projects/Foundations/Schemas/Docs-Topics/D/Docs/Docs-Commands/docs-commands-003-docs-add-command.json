@@ -95,7 +95,15 @@
         {
             "style": "Include",
             "text": "Education->Concept->Current projects->current projects",
-            "updated": 1642464091134
+            "updated": 1642464091134,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Eğitim->Konsept->Mevcut projeler->Mevcut projeler",
+                    "updated": 1654393350484,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "List",

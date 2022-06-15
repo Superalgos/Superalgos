@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Target Size In Quoted Asset используется для определения размера позиции, выраженного в котируемом активе.",
                 "updated": 1639823036847
+            },
+            {
+                "language": "TR",
+                "text": "Kote varlıkta hedef büyüklük, pozisyonun büyüklüğünü tanımlamak için kullanılır ve kote varlık cinsinden ifade edilir.",
+                "updated": 1655194848220
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Если вы предпочитаете определять размер позиции, выраженной в котируемом активе, то используйте этот узел и удалите целевой размер в узле базового актива.",
                     "updated": 1639823076998
+                },
+                {
+                    "language": "TR",
+                    "text": "Kote edilen varlık cinsinden pozisyonun boyutunu tanımlamayı tercih ederseniz, bu düğümü kullanın ve temel varlık düğümündeki hedef büyüklüğü (Target Size In Base Asset) silin.",
+                    "updated": 1655194953648
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Обязательно прочитайте определение целевого размера в узле базовых активов, чтобы определить для этого правильный контекст.",
                     "updated": 1639823159942
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu tanımla ilgili optimum şartları elde etmek için temel varlık düğümündeki hedef boyut tanımını okuduğunuzdan emin olun.",
+                    "updated": 1655195022298
                 }
             ]
         }

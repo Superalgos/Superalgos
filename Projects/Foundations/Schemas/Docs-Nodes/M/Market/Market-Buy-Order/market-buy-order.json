@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Market Buy Order - это распоряжение, отправленное на биржу для покупки базового актива с целью немедленного исполнения по текущим рыночным ценам.",
                 "updated": 1639838986180
+            },
+            {
+                "language": "TR",
+                "text": "Piyasa alım emri, baz varlığı satın almak için borsaya gönderilen ve cari piyasa fiyatlarından derhal gerçekleştirilecek bir talimattır.",
+                "updated": 1655195127119
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Трейдеры обычно используют рыночные ордера, когда приоритетом является уверенность в исполнении, а не скорость исполнения. В зависимости от размера ордера и ликвидности конкретного рынка/биржи, рыночные ордера могут испытывать большее или меньшее проскальзывание.",
                     "updated": 1639839013560
+                },
+                {
+                    "language": "TR",
+                    "text": "Yatırımcılar genellikle piyasa emirlerini, işlemin gerçekleşme oranından ziyade gerçekleşme kesinliğinin öncelikli olduğu durumlarda kullanırlar. Emrin büyüklüğüne ve belirli bir piyasanın/borsanın likiditesine bağlı olarak, piyasa emirlerinde az ya da çok kayma yaşanabilir.",
+                    "updated": 1655195184868
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "RU",
                     "text": "Ставка рыночных ордеров",
                     "updated": 1639839033551
+                },
+                {
+                    "language": "TR",
+                    "text": "Market Alım Emirleri",
+                    "updated": 1655195214094
                 }
             ]
         },
@@ -46,6 +61,11 @@
                     "language": "RU",
                     "text": "Пользователи не могут контролировать курс, по которому исполняется рыночный ордер. Биржа заполняет ордер доступными предложением / спросом на момент исполнения.",
                     "updated": 1639839134775
+                },
+                {
+                    "language": "TR",
+                    "text": "Kullanıcıların bir piyasa emrinin doldurulma oranı üzerinde hiçbir kontrolü yoktur. Borsa, yürütme sırasında emri mevcut tekliflerle/isteklerle doldurur.",
+                    "updated": 1655195830184
                 }
             ]
         },
@@ -58,13 +78,25 @@
                     "language": "RU",
                     "text": "Информация под этим сообщением действительна для всех типов заказов.",
                     "updated": 1639839274292
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu başlığın altındaki bilgiler tüm sipariş türleri için geçerlidir.",
+                    "updated": 1655195848774
                 }
             ]
         },
         {
             "style": "Title",
             "text": "Order Size",
-            "updated": 1609604828662
+            "updated": 1609604828662,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Sipariş Büyüklüğü",
+                    "updated": 1655195866123
+                }
+            ]
         },
         {
             "style": "Text",
@@ -74,6 +106,11 @@
                     "language": "RU",
                     "text": "Как описано в определении алгоритма выполнения Execution Algorithm, каждому алгоритму выделяется процент от размера цели Target Size, определенного в узле начальных целей Initial Targets.",
                     "updated": 1639839505229
+                },
+                {
+                    "language": "TR",
+                    "text": "Yürütme algoritmasının (Execution Algorithm) tanımında açıklandığı gibi, her algoritmaya ilk hedefler (Initial Targets) düğümü altında tanımlanan hedef boyutunun bir yüzdesi tahsis edilir.",
+                    "updated": 1655195928552
                 }
             ]
         },
@@ -85,6 +122,11 @@
                     "language": "RU",
                     "text": "Упрощенная логика для непрограммистов:",
                     "updated": 1639839532915
+                },
+                {
+                    "language": "TR",
+                    "text": "Kodlayıcı olmayanlar için basitleştirilmiş mantık şöyledir:",
+                    "updated": 1655196158058
                 }
             ]
         },
@@ -100,6 +142,11 @@
                     "language": "RU",
                     "text": "Фактичксий код:",
                     "updated": 1639840177589
+                },
+                {
+                    "language": "TR",
+                    "text": "Gerçek kod:",
+                    "updated": 1655196185786
                 }
             ]
         },
@@ -116,6 +163,11 @@
                     "language": "RU",
                     "text": "Аналогично, размер заявки определяется как процент от размера, который разрешено выполнить конкретному алгоритму (см. конфигурацию).",
                     "updated": 1639839678825
+                },
+                {
+                    "language": "TR",
+                    "text": "Benzer şekilde, bir siparişin boyutu, belirli bir algoritmanın yürütmesine izin verilen boyutun bir yüzdesi olarak tanımlanır (yapılandırmaya bakın).",
+                    "updated": 1655196222936
                 }
             ]
         },
@@ -127,6 +179,11 @@
                     "language": "RU",
                     "text": "Упрощенная логика для непрограммистов:",
                     "updated": 1639839698575
+                },
+                {
+                    "language": "TR",
+                    "text": "Kodlayıcı olmayanlar için basitleştirilmiş mantık şöyledir:",
+                    "updated": 1655196306446
                 }
             ]
         },
@@ -142,6 +199,11 @@
                     "language": "RU",
                     "text": "Фактичксий код:",
                     "updated": 1639840171972
+                },
+                {
+                    "language": "TR",
+                    "text": "Gerçek kod:",
+                    "updated": 1655196320609
                 }
             ]
         },
@@ -158,6 +220,11 @@
                     "language": "RU",
                     "text": "Поскольку каждый алгоритм выполнения может определять несколько заказов, типичным сценарием является то, что все заявки, определенные в рамках алгоритма, составляют 100% от размера, выделенного алгоритму.",
                     "updated": 1639839774441
+                },
+                {
+                    "language": "TR",
+                    "text": "Her bir yürütme algoritması birden fazla emir tanımlayabildiğinden, tipik senaryo, bir algoritma içinde tanımlanan tüm emirlerin algoritmaya tahsis edilen boyutun %100'ü olabileceğidir.",
+                    "updated": 1655196387352
                 }
             ]
         },
@@ -169,6 +236,11 @@
                     "language": "RU",
                     "text": "Однако, как управлять этой настройкой, зависит от пользователя, так как можно найти различные способы для достижения различных моделей поведения.",
                     "updated": 1639839828502
+                },
+                {
+                    "language": "TR",
+                    "text": "Ancak, farklı davranışlar elde etmek için farklı yöntemler bulunabileceğinden, bu ayarın nasıl yönetileceği kullanıcıya bağlıdır.",
+                    "updated": 1655196420178
                 }
             ]
         },
@@ -180,6 +252,11 @@
                     "language": "RU",
                     "text": "Если сумма определенных ордеров превышает 100% от размера, выделенного алгоритму, торговый движок не устанавливает ограничение.",
                     "updated": 1639839881215
+                },
+                {
+                    "language": "TR",
+                    "text": "Tanımlanan emirler, algoritmaya tahsis edilen boyutun %100'ünden fazlasına ulaşırsa, alım satım motoru bir üst sınır uygulamaz.",
+                    "updated": 1655197053908
                 }
             ]
         },
@@ -191,6 +268,11 @@
                     "language": "RU",
                     "text": "Точно так же, как пользователь может определить размер заявок в рамках алгоритма выше или ниже отметки 100%, то же самое верно и при определении нескольких алгоритмов. Другими словами, пользователь может выбрать алгоритмы, чьи суммарные размеры составляют больше или меньше 100%.",
                     "updated": 1639839947364
+                },
+                {
+                    "language": "TR",
+                    "text": "Kullanıcının %100 işaretinin altında veya üstünde bir algoritma içinde siparişlerin boyutunu tanımlamaya karar vermesine benzer şekilde, aynı şey birden fazla algoritma tanımlarken de geçerlidir. Başka bir deyişle, kullanıcı, birleşik büyüklükleri %100'den fazla veya daha az olan algoritmalar kurmayı seçebilir.",
+                    "updated": 1655197103513
                 }
             ]
         },
@@ -202,6 +284,11 @@
                     "language": "RU",
                     "text": "В случаях, когда совокупный размер составляет менее 100%, целевой размер будет заполнен в лучшем случае частично. С другой стороны, в случаях, когда комбинированные размеры составляют более 100%, заявки и/или алгоритмы будут конкурировать друг с другом.",
                     "updated": 1639840004015
+                },
+                {
+                    "language": "TR",
+                    "text": "Birleştirilmiş büyüklüklerin %100'den az olduğu durumlarda, hedef büyüklük en iyi ihtimalle kısmen doldurulacaktır. Öte yandan, birleşik büyüklüklerin %100'den fazla olduğu durumlarda, emirler ve/veya algoritmalar birbirleriyle rekabet edecektir.",
+                    "updated": 1655197153258
                 }
             ]
         },
@@ -213,6 +300,11 @@
                     "language": "RU",
                     "text": "Единственная проверка, которую делает торговый движок, заключается в том, что он принудительно устанавливает размер цели, определенный в узле начальных целей. Целевой размер рассматривается как установленный лимит, так что ни одна позиция не может быть больше целевого размера.",
                     "updated": 1639840110533
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret motorunun yaptığı tek doğrulama, ilk hedefler (Initial Targets) düğümü altında tanımlanan hedef boyutunu uygulamaktır. Hedef boyut sabit bir üst sınır olarak kabul edilir, böylece hiçbir pozisyon hedeften daha büyük boyutlandırılamaz.",
+                    "updated": 1655197219823
                 }
             ]
         },
@@ -224,6 +316,11 @@
                     "language": "RU",
                     "text": "Если установленный размер ордера приведет к превышению целевого размера, то размер ордера снижается до соответствия установленному лимиту.",
                     "updated": 1639840091466
+                },
+                {
+                    "language": "TR",
+                    "text": "Tanımlanan emir büyüklüğü hedef büyüklüğün aşılmasına neden olacaksa, emir büyüklüğü sabit üst sınıra uyacak şekilde düşürülür.",
+                    "updated": 1655197240469
                 }
             ]
         },
@@ -235,6 +332,11 @@
                     "language": "RU",
                     "text": "Упрощенная логика для непрограммистов:",
                     "updated": 1639840131899
+                },
+                {
+                    "language": "TR",
+                    "text": "Kodlayıcı olmayanlar için basitleştirilmiş mantık şöyledir:",
+                    "updated": 1655197257285
                 }
             ]
         },
@@ -251,6 +353,11 @@
                     "language": "RU",
                     "text": "Фактичксий код:",
                     "updated": 1639840160789
+                },
+                {
+                    "language": "TR",
+                    "text": "Gerçek kod:",
+                    "updated": 1655197265172
                 }
             ]
         },
@@ -261,7 +368,14 @@
         },
         {
             "style": "Note",
-            "text": "See the order's configuration to learn how to set up the order size."
+            "text": "See the order's configuration to learn how to set up the order size.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Sipariş boyutunu nasıl ayarlayacağınızı öğrenmek için siparişin yapılandırmasına bakın.",
+                    "updated": 1655197278349
+                }
+            ]
         },
         {
             "style": "Title",
@@ -272,6 +386,11 @@
                     "language": "RU",
                     "text": "Размещение и исполнение заявок",
                     "updated": 1639840203628
+                },
+                {
+                    "language": "TR",
+                    "text": "Siparişlerin Verilmesi ve Doldurulması",
+                    "updated": 1655197328348
                 }
             ]
         },
@@ -283,6 +402,11 @@
                     "language": "RU",
                     "text": "Торговый движок отслеживает размещенные и исполненные суммы на основе обратной связи, полученной от биржи, и предоставляет эту информацию в узлах Size Placed и Size Filled. Узлы присутствуют в различных контекстах, таких как конкретный этап (открытие и закрытие) или конкретный тип ордера, и номинированы как в базовом активе, так и в котируемом активе. Более подробно о том, как отслеживать размер размещенного и исполненного ордера, вы можете узнать на страницах торгового движка.",
                     "updated": 1639840385055
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret motoru, borsadan elde edilen geri bildirimlere dayanarak konulan miktarları ve doldurulan miktarları takip eder ve bilgileri konulan ve doldurulan boyut düğümlerinde kullanılabilir hale getirir. Düğümler, belirli aşama (açılış ve kapanış) veya belirli emir türü gibi çoklu durumlarda sunulur ve hem temel varlık hem de kote edilen varlık cinsinden ifade edilir. Ticaret motoru (Trading Engine) sayfalarında verilen ve doldurulan büyüklüklerin nasıl takip edileceği hakkında daha fazla bilgi edinebilirsiniz.",
+                    "updated": 1655197446905
                 }
             ]
         },
@@ -295,6 +419,11 @@
                     "language": "RU",
                     "text": "Закрытие заявок",
                     "updated": 1639840411240
+                },
+                {
+                    "language": "TR",
+                    "text": "Siparişlerin Kapanışı",
+                    "updated": 1655197457542
                 }
             ]
         },
@@ -306,6 +435,11 @@
                     "language": "RU",
                     "text": "Заявки могут быть закрыты при следующих двух событиях:",
                     "updated": 1639840476157
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki iki olayın meydana gelmesi durumunda emirler (Orders) kapatılabilir:",
+                    "updated": 1655197476236
                 }
             ]
         },
@@ -317,6 +451,11 @@
                     "language": "RU",
                     "text": "Биржа сообщает, что ордер был исполнен. В этом случае торговый движок закрывает ордер.",
                     "updated": 1639840497724
+                },
+                {
+                    "language": "TR",
+                    "text": "Borsa, emrin yerine getirildiğini bildirir. Böyle bir durumda, işlem motoru emri kapatır.",
+                    "updated": 1655197715056
                 }
             ]
         },
@@ -328,6 +467,11 @@
                     "language": "RU",
                     "text": "Запускается событие отмены заказа. Это событие пользователь может настроить с помощью типичного набора ситуаций и условий.",
                     "updated": 1639840522016
+                },
+                {
+                    "language": "TR",
+                    "text": "Sipariş iptal olayı tetiklenir. Bu, kullanıcının tipik durum ve koşul ayarlarıyla yapılandırabileceği bir olaydır.",
+                    "updated": 1655197862117
                 }
             ]
         },
@@ -339,6 +483,11 @@
                     "language": "RU",
                     "text": "Все доступные типы ордеров могут быть настроены таким образом, что несколько ордеров могут быть порождены один за другим через одно и то же определение ордера Order Definitions.",
                     "updated": 1639840789281
+                },
+                {
+                    "language": "TR",
+                    "text": "Mevcut tüm emir türleri, aynı emir tanımı aracılığıyla birbiri ardına birden fazla emir oluşturulabilecek şekilde yapılandırılabilir.",
+                    "updated": 1655197900831
                 }
             ]
         },
@@ -350,6 +499,11 @@
                     "language": "RU",
                     "text": "Это позволяет, например, установить ордер на 1% от размера, выделенного алгоритму, и заставить торговый движок порождать по одному ордеру за цикл исполнения, пока не будет достигнута отметка 100%.  Такая функция может позволить множество других хитростей и является еще одним инструментом, который в сочетании с остальными позволяет получить большой контроль над исполнением ордеров.",
                     "updated": 1639840954454
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu, örneğin, algoritmaya tahsis edilen boyutun %1'i için bir emir belirlemeye ve ticaret motorunun %100 sınırına ulaşılana kadar yürütme döngüsü başına bir emir oluşturmasına olanak tanır. Böyle bir özellik daha birçok hileye izin verebilir ve diğerleriyle birlikte emirlerin yürütülmesi üzerinde büyük ölçüde kontrol sağlayan başka bir araçtır.",
+                    "updated": 1655202636238
                 }
             ]
         },
@@ -361,6 +515,11 @@
                     "language": "RU",
                     "text": "Новый экземпляр ордера может быть порожден только в следующем случае:",
                     "updated": 1639840994661
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir emrin yeni bir örneği yalnızca aşağıdaki bağlam altında oluşturulabilir:",
+                    "updated": 1655202716228
                 }
             ]
         },
@@ -372,6 +531,11 @@
                     "language": "RU",
                     "text": "Предыдущий экземпляр ордера закрывается. То есть, два экземпляра одного и того же ордера не могут существовать одновременно.",
                     "updated": 1639841023270
+                },
+                {
+                    "language": "TR",
+                    "text": "Siparişin önceki durumu kapatılır. Yani, aynı emrin iki kopyası aynı anda mevcut olamaz.",
+                    "updated": 1655202750508
                 }
             ]
         },
@@ -383,6 +547,11 @@
                     "language": "RU",
                     "text": "Размер, заполненный на уровне алгоритма выполнения, находится в пределах лимита, установленного в конфигурации алгоритма.",
                     "updated": 1639841095250
+                },
+                {
+                    "language": "TR",
+                    "text": "Yürütme algoritması düzeyinde doldurulan boyut, algoritmanın yapılandırmasında belirlenen sınır dahilindedir.",
+                    "updated": 1655202774253
                 }
             ]
         },
@@ -394,6 +563,11 @@
                     "language": "RU",
                     "text": "Размер, заполненный на уровне стадии, должен быть в пределах целевого размера, определенного в узле начальных целей Initial Targets.",
                     "updated": 1639841166103
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşama (Stage) seviyesinde doldurulan büyüklük, ilk hedefler düğümü altında tanımlanan hedef büyüklük içinde olmalıdır.",
+                    "updated": 1655202834914
                 }
             ]
         },
@@ -405,6 +579,11 @@
                     "language": "RU",
                     "text": "Смотрите конфигурацию ордера, чтобы узнать, как настроить параметр, влияющий на это поведение.",
                     "updated": 1639841197970
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu davranışı etkileyen parametrenin nasıl yapılandırılacağını öğrenmek için siparişin (Orders)  yapılandırmasına bakın.",
+                    "updated": 1655202864644
                 }
             ]
         },
@@ -421,6 +600,11 @@
                     "language": "RU",
                     "text": "Конфигурация Market Buy Order",
                     "updated": 1639841226657
+                },
+                {
+                    "language": "TR",
+                    "text": "Piyasa Satın Alma Emri Yapılandırması",
+                    "updated": 1655202877692
                 }
             ]
         },
@@ -443,6 +627,11 @@
                     "language": "RU",
                     "text": "percentageOfAlgorithmSize - это определение того, какая часть размера, обрабатываемого алгоритмом, должна быть выделена для данного конкретного заказа. Возможные значения - вещественные числа от 0 до 100, включая крайние значения. Если вы установите значение 0, ордер не будет выполнен.",
                     "updated": 1639841691576
+                },
+                {
+                    "language": "TR",
+                    "text": "percentageOfAlgorithmSize, algoritma tarafından işlenen boyutun ne kadarının bu özel emre tahsis edileceğinin tanımıdır. Olası değerler, uç değerler de dahil olmak üzere 0 ile 100 arasındaki gerçek sayılardır. Değeri 0 olarak ayarlarsanız, emir yürütülmeyecektir.",
+                    "updated": 1655202915780
                 }
             ]
         },
@@ -454,6 +643,11 @@
                     "language": "RU",
                     "text": "spawnMultipleOrders - это параметр, который указывает, разрешены ли дополнительные порожденные ордера (true) или нет (false).",
                     "updated": 1639841678188
+                },
+                {
+                    "language": "TR",
+                    "text": "spawnMultipleOrders, ilave emirlerin oluşturulmasına izin verilip verilmediğini (true) veya (false) gösteren parametredir.",
+                    "updated": 1655202958226
                 }
             ]
         }

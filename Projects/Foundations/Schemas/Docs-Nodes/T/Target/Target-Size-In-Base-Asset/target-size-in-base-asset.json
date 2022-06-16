@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Target Size In Base Asset используется для определения размера позиции, выраженного в базовом активе.",
                 "updated": 1639822252669
+            },
+            {
+                "language": "TR",
+                "text": "Temel varlıktaki hedef boyut, pozisyonun boyutunu, temel varlıkta ifade ederek tanımlamak için kullanılır.",
+                "updated": 1655193116287
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Система поддерживает определение размера позиции в любом из активов, участвующих в рынке: базовом или котируемом активе, в соответствии с листингом на бирже.",
                     "updated": 1639822363197
+                },
+                {
+                    "language": "TR",
+                    "text": "Sistem, piyasada yer alan her iki varlıkta da pozisyonun boyutunu tanımlamayı destekler: borsada listenen işlem çiftlerine göre baz varlık veya kote varlık.",
+                    "updated": 1655193191501
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Целевой размер может быть определен только в одном из двух активов, чтобы избежать несоответствий.",
                     "updated": 1639822384282
+                },
+                {
+                    "language": "TR",
+                    "text": "Tutarsızlıkları önlemek için hedef büyüklük sadece iki varlıktan birinde tanımlanabilir.",
+                    "updated": 1655193214285
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "RU",
                     "text": "Целевой размер - это максимальный размер, до которого может дойти размер позиции. То есть, определение целевого размера используется в качестве ограничения на общий размер ордеров, которые могут быть размещены на стадии открытия.",
                     "updated": 1639822440634
+                },
+                {
+                    "language": "TR",
+                    "text": "Hedef büyüklük, pozisyonun ulaşabileceği maksimum büyüklüktür. Yani, hedef büyüklüğün tanımı, açık aşama (Open Stage) sırasında verilebilecek emirlerin toplam büyüklüğü için bir üst sınır olarak kullanılır.",
+                    "updated": 1655193251028
                 }
             ]
         },
@@ -56,6 +76,11 @@
                     "language": "RU",
                     "text": "Если вы предпочитаете определять размер позиции, выраженный в базовом активе, то используйте этот узел и удалите целевой размер в узле котируемого актива.",
                     "updated": 1639822497702
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel varlık (Base Asset) cinsinden pozisyonun boyutunu tanımlamayı tercih ederseniz, bu düğümü kullanın ve kote edilen varlık (Quoted Asset) düğümündeki hedef boyutu silin.",
+                    "updated": 1655193325529
                 }
             ]
         },
@@ -67,6 +92,11 @@
                     "language": "RU",
                     "text": "Одновременно может существовать только одно определение размера цели.",
                     "updated": 1639822516759
+                },
+                {
+                    "language": "TR",
+                    "text": "Aynı anda yalnızca bir hedef büyüklük tanımı mevcut olabilir.",
+                    "updated": 1655193354880
                 }
             ]
         },
@@ -78,6 +108,11 @@
                     "language": "RU",
                     "text": "Даже если определение целевого размера выражено в одном из двух активов на рынке, система отслеживает счета по обоим активам. То есть, такие показатели эффективности, как упущенная выгода, ROI, коэффициент попадания или годовая норма прибыли, рассчитываются как на основе базового актива, так и на основе котируемого актива. Более того, показатели также рассчитываются обобщенно, с одновременным учетом обоих активов.",
                     "updated": 1639822623996
+                },
+                {
+                    "language": "TR",
+                    "text": "Hedef büyüklüğün tanımı piyasadaki iki varlıktan birinde belirtilse de, sistem her iki varlığın da hesaplarını takip eder. Yani, kar kaybı (Profit Loss), ROI, isabet oranı (Hit Ratio) veya yıllık getiri oranı gibi performans ölçütleri hem temel varlığa hem de kote edilen varlığa göre hesaplanır. Aslında, metrikler de aynı anda her iki varlık dikkate alınarak konsolide bir şekilde hesaplanır.",
+                    "updated": 1655193516791
                 }
             ]
         },
@@ -89,6 +124,11 @@
                     "language": "RU",
                     "text": "Вся эта информация становится доступной для различных контекстов, например, для каждой позиции или всего эпизода, через структуру данных торгового движка.",
                     "updated": 1639822687416
+                },
+                {
+                    "language": "TR",
+                    "text": "Tüm bu bilgiler, ticaret motorunun veri yapısı aracılığıyla, örneğin her bir pozisyon veya tüm bölüm için birden fazla durum için kullanılabilir hale getirilir.",
+                    "updated": 1655193557916
                 }
             ]
         },
@@ -100,6 +140,11 @@
                     "language": "RU",
                     "text": "При отслеживании результатов своей торговой операции убедитесь, что вы обращаетесь к тому набору счетов, который имеет смысл для вашей торговой системы. Все это станет более понятным, когда вы прочитаете о торговом движке и менеджерах слоев, доступных на графиках.",
                     "updated": 1639822730578
+                },
+                {
+                    "language": "TR",
+                    "text": "Alım satım işleminizin sonuçlarını takip ederken, alım satım sisteminiz için anlamlı olan hesap setine başvurduğunuzdan emin olun. Ticaret motoru (Trading Engine) ve grafiklerde bulunan katman yöneticileri (Layer Managers) hakkında bilgi edindiğinizde tüm bunlar daha net hale gelecektir.",
+                    "updated": 1655193627857
                 }
             ]
         },
@@ -111,6 +156,11 @@
                     "language": "RU",
                     "text": "Примеры",
                     "updated": 1639822737785
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnekler",
+                    "updated": 1655194201763
                 }
             ]
         },
@@ -122,6 +172,11 @@
                     "language": "RU",
                     "text": "Если вы торгуете всем балансом, назначенным торговой системе, для каждой позиции, то ваш целевой размер будет выглядеть следующим образом:",
                     "updated": 1639822796444
+                },
+                {
+                    "language": "TR",
+                    "text": "Her pozisyonda ticaret sistemine atanan tüm bakiyeyle işlem yapıyorsanız, hedef büyüklüğünüz şu şekilde görünecektir:",
+                    "updated": 1655194266359
                 }
             ]
         },
@@ -137,6 +192,11 @@
                     "language": "RU",
                     "text": "... или ...",
                     "updated": 1639822806697
+                },
+                {
+                    "language": "TR",
+                    "text": "... ya da ...",
+                    "updated": 1655194275034
                 }
             ]
         },
@@ -152,6 +212,11 @@
                     "language": "RU",
                     "text": "Если вы не торгуете всем балансом для каждой позиции, то вы можете определить размер цели в процентах от баланса или любым другим способом, который вы сочтете нужным. В таких случаях для определения целевого размера на этапе закрытия может пригодиться следующая формула:",
                     "updated": 1639822854974
+                },
+                {
+                    "language": "TR",
+                    "text": "Her bir pozisyondaki bakiyenin tamamıyla işlem yapmıyorsanız, hedef büyüklüğü bakiyelerin bir yüzdesi olarak veya uygun görebileceğiniz başka bir şekilde tanımlayabilirsiniz. Bu gibi durumlarda, kapanış aşaması hedef büyüklüğü için aşağıdaki formül kullanılabilir:",
+                    "updated": 1655194323886
                 }
             ]
         },
@@ -167,6 +232,11 @@
                     "language": "RU",
                     "text": "Конечно, вам может понадобиться скорректировать вышесказанное, чтобы использовать stageBaseAsset или stageQuotedAsset, в соответствии с потребностью. Короче говоря, формула возвращает размер актива, полученного в результате сделок, совершенных на стадии открытия, за вычетом комиссий (и проскальзывания, которое уже вычитается из исполненного размера).",
                     "updated": 1639822946813
+                },
+                {
+                    "language": "TR",
+                    "text": "Elbette, stageBaseAsset veya stageQuotedAsset kullanmak için yukarıdakileri gerektiği gibi ayarlamanız gerekebilir. Kısacası formül, açık aşama (Open Stage) sırasında tetiklenen işlemlerle elde edilen varlık miktarını, eksi ücretler (ve önceden doldurulan boyuttan çıkarılmış olan slippage) olarak döndürür.",
+                    "updated": 1655194464668
                 }
             ]
         }

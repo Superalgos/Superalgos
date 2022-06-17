@@ -12,6 +12,10 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
     }
 
     const REPORT_NAME = networkCodeName + '-' + (new Date()).toISOString().substring(0, 16).replace("T", "-").replace(":", "-").replace(":", "-") + '-00'
+    const MUST_BE_ON_PARAMS = [
+        'CANDLES_CANDLES-VOLUMES_CANDLES_CANDLE_MAX', 'CANDLES_CANDLES-VOLUMES_CANDLES_CANDLE_MIN',
+        'CANDLES_CANDLES-VOLUMES_CANDLES_CANDLE_CLOSE', 'CANDLES_CANDLES-VOLUMES_CANDLES_CANDLE_OPEN'
+    ]
 
     let parametersRanges = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.parametersRanges
     let timeSeriesFileFeatures = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.timeSeriesFile.features
@@ -43,6 +47,42 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
             saveTestCasesFile()
         }
 
+        /*
+        Creates a list of those whose value is "ON" except MUST_BE_ON_PARAMS.
+         */
+        function getParametersIsON() {
+            let parametersIsON = []
+
+            for (const key of Object.keys(parametersRanges)) {
+                if (!MUST_BE_ON_PARAMS.includes(key) && parametersRanges[key][0] === "ON") {
+                    parametersIsON.push(key)
+                }
+            }
+            return parametersIsON
+        }
+
+        /*
+        Creates all combinations with parameters whose value is "ON".
+         */
+        function getAllCombinations() {
+            const parametersIsON = getParametersIsON()
+            const AMOUNT_OF_VARIABLES = parametersIsON.length
+
+            let combinations = []
+            for (let i = 0; i < (1 << AMOUNT_OF_VARIABLES); i++) {
+                let combination = []
+                //Increasing or decreasing depending on which direction
+                for (let j = AMOUNT_OF_VARIABLES - 1; j >= 0; j--) {
+                    let key = parametersIsON[j]
+                    let parameter = { key: key, value: Boolean(i & (1 << j))?"ON":"OFF" }
+                    combination.push(parameter)
+                }
+                combinations.push(combination);
+
+            }
+            return combinations
+        }
+
         function generateTestCases() {
             let preParameters = {}
 
@@ -69,32 +109,47 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
             /*
             Generate Cases based on Param Ranges
             */
-            addParamRangesRecursively(0)
 
-            function addParamRangesRecursively(index) {
+            // List of all case combinations
+            let allCombinations = getAllCombinations()
+
+            // Parameters are being set.
+            setPreparameters(0)
+
+            // The values of the parameters are set according to their combinations.
+            for (let i = 0; i < allCombinations.length; i++) {
+                const combination = allCombinations[i];
+                for (const combinationElement of combination) {
+                    preParameters[combinationElement.key] = combinationElement.value
+                }
+                addToCaseList()
+            }
+
+            function setPreparameters(index) {
                 let propertyName = Object.keys(parametersRanges)[index]
                 if (propertyName !== undefined) {
                     for (let i = 0; i < parametersRanges[propertyName].length; i++) {
                         preParameters[propertyName] = parametersRanges[propertyName][i]
-                        addParamRangesRecursively(index + 1)
+                        setPreparameters(index + 1)
                     }
-                } else {
-                    let parameters = getTestParameters(preParameters)
-                    let parametersHash = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.hash(JSON.stringify(parameters))
-                    let testCase = {
-                        id: thisObject.testCasesArray.length + 1,
-                        mainAsset: preParameters.LIST_OF_ASSETS[0],
-                        mainTimeFrame: preParameters.LIST_OF_TIMEFRAMES[0],
-                        parameters: parameters,
-                        parametersHash: parametersHash,
-                        status: 'Never Tested'
-                    }
+                }
+            }
+            function addToCaseList() {
+                let parameters = getTestParameters(preParameters)
+                let parametersHash = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.hash(JSON.stringify(parameters))
+                let testCase = {
+                    id: thisObject.testCasesArray.length + 1,
+                    mainAsset: preParameters.LIST_OF_ASSETS[0],
+                    mainTimeFrame: preParameters.LIST_OF_TIMEFRAMES[0],
+                    parameters: parameters,
+                    parametersHash: parametersHash,
+                    status: 'Never Tested'
+                }
 
-                    let existingTestCase = thisObject.testCasesMap.get(parametersHash)
-                    if (existingTestCase === undefined) {
-                        thisObject.testCasesArray.push(testCase)
-                        thisObject.testCasesMap.set(parametersHash, testCase)
-                    }
+                let existingTestCase = thisObject.testCasesMap.get(parametersHash)
+                if (existingTestCase === undefined) {
+                    thisObject.testCasesArray.push(testCase)
+                    thisObject.testCasesMap.set(parametersHash, testCase)
                 }
             }
 
@@ -164,20 +219,20 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
                 // definition of how the raw dataset is going to be divided between a Traing Dataset and a Test Dataset.
                 parameters.PERCENTAGE_OF_DATASET_FOR_TRAINING = preParameters.PERCENTAGE_OF_DATASET_FOR_TRAINING
 
-                // TODO: this calculation is incomplete. If you had multiple time frames it might not work at some point. 
+                // TODO: this calculation is incomplete. If you had multiple time frames it might not work at some point.
                 parameters.NUMBER_OF_FEATURES = 0
                 for (let i = 0; i < parameters.LIST_OF_TIMEFRAMES.length; i++) {
                     parameters.NUMBER_OF_FEATURES = parameters.NUMBER_OF_FEATURES + (i + 1) * parameters.NUMBER_OF_INDICATORS_PROPERTIES * parameters.NUMBER_OF_ASSETS
                 }
-                // NUMBER_OF_FEATURES = 1*5 + 2*5 + 3*5 + 4*5 + 6*5 + 12*5 
-                // NUMBER_OF_FEATURES = 1*5 + 2*5 + 3*5 + 4*5 + 6*5 + 8*5 + 12*5 + 24*5  
+                // NUMBER_OF_FEATURES = 1*5 + 2*5 + 3*5 + 4*5 + 6*5 + 12*5
+                // NUMBER_OF_FEATURES = 1*5 + 2*5 + 3*5 + 4*5 + 6*5 + 8*5 + 12*5 + 24*5
 
                 // hyper-parameters
                 parameters.NUMBER_OF_EPOCHS = preParameters.NUMBER_OF_EPOCHS
                 parameters.NUMBER_OF_LSTM_NEURONS = preParameters.NUMBER_OF_LSTM_NEURONS
 
                 /*
-                Add Labels  
+                Add Labels
                 */
                 for (let q = 0; q < timeSeriesFileLabels.length; q++) {
                     let label = timeSeriesFileLabels[q].parameter
@@ -187,7 +242,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
                     parameters[label] = preParameters[label]
                 }
                 /*
-                Add Features  
+                Add Features
                 */
                 for (let q = 0; q < timeSeriesFileFeatures.length; q++) {
                     let feature = timeSeriesFileFeatures[q].parameter
@@ -208,7 +263,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
 
     async function getNextTestCase(currentClientInstance) {
         /*
-       The first thing we will try to do is to see if this Test Client Instance was not already assigned a Test case for which it never 
+       The first thing we will try to do is to see if this Test Client Instance was not already assigned a Test case for which it never
        reported back. This is a common situation when some kind of error occured and the whole cycle was not closed.
        */
         for (let i = 0; i < thisObject.testCasesArray.length; i++) {
@@ -233,7 +288,7 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
             }
         }
         /*
-        The second thing we will try to do is to see if there are assigned test cases that have not been tested in more than 24 hours. 
+        The second thing we will try to do is to see if there are assigned test cases that have not been tested in more than 24 hours.
         If we find one of those, we will re assign them.
         */
         for (let i = 0; i < thisObject.testCasesArray.length; i++) {

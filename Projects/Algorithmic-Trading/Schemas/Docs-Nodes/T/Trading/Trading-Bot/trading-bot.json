@@ -110,7 +110,7 @@
             ]
         },
         {
-            "style": "Text",
+            "style": "Note",
             "text": "Trading mines make building trading bots a more accessible feat, providing a framework to produce compartmentalized definitions for the bots' processes and products, just like data mines do for sensors and indicators.",
             "translations": [
                 {
@@ -125,7 +125,7 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Trading Mines erleichtern die Entwicklung von Trading Bots, indem sie einen Rahmen für die Erstellung unterteilter Definitionen für die Prozesse und Produkte der Bots bieten, ähnlich wie Data Mines es für Sensoren und Indikatoren tun.",
+                    "text": "Trading Mines erleichtern die Entwicklung von Trading Bots, indem sie einen Rahmen für die Erstellung unterteilter Definitionen für die Prozesse und Produkte der Bots bieten, ��hnlich wie Data Mines es für Sensoren und Indikatoren tun.",
                     "updated": 1641763250336
                 },
                 {
@@ -136,13 +136,9 @@
             ]
         },
         {
-            "style": "Block",
-            "text": "Configuring"
-        },
-        {
-            "style": "Title",
-            "text": "Trading Bot Configuration",
-            "updated": 1609861438022,
+            "style": "Warning",
+            "text": "When editing process dependencies (status and data), you should stop/start any running tasks (trading/backtesting) in order for changes to become effective",
+            "updated": 1655560207172,
             "translations": [
                 {
                     "language": "RU",

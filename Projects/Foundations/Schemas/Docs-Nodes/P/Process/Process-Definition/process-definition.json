@@ -60,13 +60,9 @@
             ]
         },
         {
-            "style": "Block",
-            "text": "Configuring"
-        },
-        {
-            "style": "Title",
-            "text": "Process Definition Configuration",
-            "updated": 1609786986097,
+            "style": "Warning",
+            "text": "When editing process definitions, pay attention to running tasks using these. For modifications to be effective, you have to stop/start the concerned tasks",
+            "updated": 1655560153623,
             "translations": [
                 {
                     "language": "RU",

@@ -1,17 +1,15 @@
 const fs = require("fs")
-const { exec } = require("child_process")
 const path = require("path")
 let ENVIRONMENT = require('../Environment')
 const simpleGit = require("simple-git")
 const {Octokit} = require("@octokit/rest");
+const {resolve} = require("path");
 
 let originUserName
 
 const checkDirectory = (directory) => {
-    if (!fs.existsSync(directory)) {
-        return false
-    }
-    return true
+    return fs.existsSync(directory)
+
 }
 
 async function checkRepository(remote, git) {
@@ -47,6 +45,30 @@ function getCred() {
     }
 }
 
+function setSafeDirectory(git, cloneDir) {
+    git.getConfig('safe.directory', 'global', (err, config) => {
+        if (err) {
+            console.log(err)
+            throw err
+        } else {
+            if (config !== undefined) {
+                for (const scope of config.scopes) {
+                    if (scope[1] !== undefined) {
+                        if (!scope[1].includes(cloneDir.replaceAll('\\', '/'))) {
+                            git.addConfig('safe.directory', cloneDir.replaceAll('\\', '/'), true, 'global')
+                            console.log('[INFO] Add global config for safe.directory ' + cloneDir.replaceAll('\\', '/'))
+                        }
+                    } else {
+                        git.addConfig('safe.directory', cloneDir.replaceAll('\\', '/'), true, 'global')
+                        console.log('[INFO] Add global config for safe.directory ' + cloneDir.replaceAll('\\', '/'))
+                    }
+                }
+
+            }
+        }
+    })
+}
+
 function updateRepo(cloneDir, repo) {
     const options = {
         baseDir: cloneDir,
@@ -54,6 +76,8 @@ function updateRepo(cloneDir, repo) {
         maxConcurrentProcesses: 6,
     };
     const git = simpleGit(options)
+    setSafeDirectory(git, cloneDir);
+
     git.getRemotes(true).then(remote => {
         checkRepository(remote, git).then(r => {
             if (!r) {
@@ -108,49 +132,30 @@ function updateRepo(cloneDir, repo) {
 
 const updateFromUpstreamPromise = async () => {
     let dir = process.cwd()
-    let command = 'npm ci'
     new Promise(() => {
-        let child = exec(command,
-            {
-                cwd: dir
-            },
-            (error, stdout) => {
-                if (error) {
-                    console.log('')
-                    console.log('There was an error installing some dependencies error: ')
-                    console.log('')
-                    console.log(error)
-                    process.exit(1)
-                }
-                console.log('')
-                console.log(stdout)
-            })
-        child.stdout.pipe(process.stdout)
-        child.on('exit', () => {
 
-            // update plugin repos
-            for (const propertyName in global.env.PROJECT_PLUGIN_MAP) {
-                let cloneDir = path.join(global.env.PATH_TO_PLUGINS, global.env.PROJECT_PLUGIN_MAP[propertyName].dir)
-                let repo = global.env.PROJECT_PLUGIN_MAP[propertyName].repo
-                if (!checkDirectory(cloneDir)) {
-                    console.log(`[INFO] Please run node setupPlugins <username> <github_token> to setup the plugins.`)
-                    return 'No Plugins'
-                }
-                updateRepo(cloneDir, repo);
+        // update plugin repos
+        for (const propertyName in global.env.PROJECT_PLUGIN_MAP) {
+            let cloneDir = path.join(global.env.PATH_TO_PLUGINS, global.env.PROJECT_PLUGIN_MAP[propertyName].dir)
+            let repo = global.env.PROJECT_PLUGIN_MAP[propertyName].repo
+            if (!checkDirectory(cloneDir)) {
+                console.log(`[INFO] Please run node setupPlugins <username> <github_token> to setup the plugins.`)
+                return 'No Plugins'
             }
+            updateRepo(cloneDir, repo);
+        }
 
-            //update main repo
-            updateRepo(process.cwd(), 'Superalgos');
+        //update main repo
+        updateRepo(dir, 'Superalgos');
 
-            console.log('')
-            console.log('[INFO] All repositories are updated.')
-        })
+        console.log('')
+        console.log('[INFO] All repositories are updated.')
+        resolve()
     })
 }
 
 const run = () => {
-    let ENVIRONMENT_MODULE = ENVIRONMENT.newEnvironment()
-    global.env = ENVIRONMENT_MODULE
+    global.env = ENVIRONMENT.newEnvironment()
 
     updateFromUpstreamPromise()
 }

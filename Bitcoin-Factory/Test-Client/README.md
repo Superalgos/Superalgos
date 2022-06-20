@@ -122,7 +122,7 @@ Continue reading this section for detailed step by step instructions of how to d
 
 ### Update your User Profile
 
-Before you can participate within the Superalgos P2P network, You need to add a few nodes to your User Profile. Once these nodes are added and configured propertly you will need to contribute your updated profile to the Governance repo and make sure that it is merged by the PR merging bot. 
+Before you can participate within the Superalgos P2P network, You need to add a few nodes to your User Profile. Once these nodes are added and configured properly you will need to contribute your updated profile to the Governance repo and make sure that it is merged by the PR merging bot. 
 
 Here is the complete list of nodes you need to add to your profile and how to configure them. 
 
@@ -170,7 +170,7 @@ Finally, you need to generate/re-generate the signing accounts of your User Prof
 2. Reference the Profile Constructor to your User Profile.
 3. At the Profile Constructor menu, click on Install Signing Accounts. This will generate a new node under "Task-Server-App-1" and save a file to your My-Secrets folder with the Signing Accounts of your User Profile.
 
-Congradulations! Now you are done with your profile.
+Congratulations! Now you are done with your profile.
 
 Remember to save your User Profile plugin, contribute it and check that it was merged at the Governance repository.
 
@@ -328,6 +328,16 @@ When you are running more than one instance, chances are that you will get the b
 For specific information on how to run the Docker Container in different OS, please read the following sections:
 
 **Very important**, if you choose to run docker under a sudo user on Linux distros, make sure you run Superalgos also under sudo, otherwise it might not work.
+
+To run docker without sudo on Ubuntu, add the current user to the docker group with:
+```sh
+sudo gpasswd -a $USER docker
+```
+Then either log out and back in, or run the following command to refresh permissions:
+```
+sh
+newgrp docker
+```
 
 ### on Windows
 

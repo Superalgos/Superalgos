@@ -109,7 +109,7 @@ Having said that, please don't expect that forecasts will be precise in the begi
  6.  Whitelisting network groups, allowing subgroups to focus resources on chosen areas.
 
 ## Dashboard setup and progress:
-	A dashboard is in early stages of development but will be useful for members to quickly view statistics and data supplied from servers and test clients. Discussions, views and opinions on this matter should be brought up in the telegram group.
+A dashboard is in early stages of development but will be useful for members to quickly view statistics and data supplied from servers and test clients. Discussions, views and opinions on this matter should be brought up in the telegram group.
 
 ### Example Dashboard features:
  - Lowest % error & What user found it.
@@ -125,8 +125,13 @@ Having said that, please don't expect that forecasts will be precise in the begi
 Only trusted members will be selected to run servers, these members are known as server operators and must have token rewards, contributions to the project and must have good knowledge of the entire system. Test servers are to be deployed as and when the system requires it, not when someone requests to run one.
 Server operators who are testing mines and indicators are required to record the results and create reports with their findings. Taking into account market conditions, predictions and other useful information then contribute the findings.
 
-## Who will authorise new server operators.
+### Who will authorise new server operators.
 Lead developers and senior members of the group should vote if a new server is required, then after authorisation a team member will be asked if they would like to participate. If you feel like you are experiencing bottlenecks or other server related issues then bring them to the attention of the group.
+
+### How and where will we mark servers as Trusted?
+ - At the moment all servers are trusted, but when the system scales there may become a need to approve servers. Trusted servers will allow users to identify easily if they prefer to connect to a SA approved server. An icon or something similar could be used to show that servers are approved within the dashboard or workspace?
+
+ - Server operators are required to compile reports, automatic analysis & report compiling could be added to via a script or node. Including report merging ready for governance?
 
 ### Governance & Fair ML case generation
  - Test cases at the time of writing are to be standardised to 750 epochs, this will ensure the test cases completed and governance rewards are fair. The future of test case rewards will be based on the user finding the lowest %ErrorRMSE.
@@ -143,14 +148,12 @@ Lead developers and senior members of the group should vote if a new server is r
  - How will server operators run servers? example: single server node dedicated to one data mine/indicator set activated?
  - Test clients to decide who to connect to or auto connect to the best performing (trusted) servers.
 
-### How and where will we mark servers as Trusted?
- - At the moment all servers are trusted, but when the system scales there may become a need to approve servers. Trusted servers will allow users to identify easily if they prefer to connect to a SA approved server. An icon or something similar could be used to show that servers are approved within the dashboard or workspace?
 
- - Server operators are required to compile reports, automatic analysis & report compiling could be added to via a script or node. Including report merging ready for governance?
 
 ## Network Nodes:
+Some notes here are open for discussion
  - How many do we need?
- - Where hosted??
+ - Who and Where hosted?
  - Setting up new network groups (Testnet, Mainnet, Usernet, Anynet)
  - Whitelisting network groups, allowing subgroups to focus resources on chosen areas.
 

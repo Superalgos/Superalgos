@@ -98,7 +98,7 @@ Having said that, please don't expect that forecasts will be precise in the begi
 
 - Go to the Bitcoin Factory folder open the Test-Client directory and follow the instructions in the Test Client's README file to get up and running!
 
-## Development Roadmap
+## Development To Do List
 
 ### Bug's that need fixing:
  1. Bug fix Negative error values, the issue needs addressing where the percentageErrorRMSE occasionally produces a negative value.
@@ -108,8 +108,8 @@ Having said that, please don't expect that forecasts will be precise in the begi
  5. Computing power owners to be able to specify which server they would like to connect to.
  6.  Whitelisting network groups, allowing subgroups to focus resources on chosen areas.
 
-## Dashboard setup and progress:
-A dashboard is in early stages of development but will be useful for members to quickly view statistics and data supplied from servers and test clients. Discussions, views and opinions on this matter should be brought up in the telegram group.
+## Dashboard setup and progress
+The dashboard is in early stages of development but will be useful for members to quickly view statistics and data supplied from servers and test clients. Discussions, views and opinions on this matter should be brought up in the telegram group.
 
 ### Example Dashboard features:
  - Lowest % error & What user found it.
@@ -121,7 +121,7 @@ A dashboard is in early stages of development but will be useful for members to 
  - Average time to complete cases?
  - Test cases completed out of total number of cases...
 
-## Server Operator Guidelines:
+## Server Operator Guidelines
 Only trusted members will be selected to run servers, these members are known as server operators and must have token rewards, contributions to the project and must have good knowledge of the entire system. Test servers are to be deployed as and when the system requires it, not when someone requests to run one.
 Server operators who are testing mines and indicators are required to record the results and create reports with their findings. Taking into account market conditions, predictions and other useful information then contribute the findings.
 
@@ -142,7 +142,7 @@ Lead developers and senior members of the group should vote if a new server is r
 - If you suspect member(s) are cheating the system please notify lead developers, server operators or senior team members either directly or via the telegram group.
 - Any issues that arise that may allow users to claim rewards unfairly must be brought to the attention of the group immediately.
 
-## P2P storage for centralised real-time data sharing:
+## P2P storage for centralised real-time data sharing
  - Mine & Indicator tracking within separate servers.
  - Live data feed inside the dashboard with green/red icons per data mine/ indicators active/inactive.
  - How will server operators run servers? example: single server node dedicated to one data mine/indicator set activated?

@@ -122,7 +122,7 @@ Continue reading this section for detailed step by step instructions of how to d
 
 ### Update your User Profile
 
-Before you can participate within the Superalgos P2P network, You need to add a few nodes to your User Profile. Once these nodes are added and configured propertly you will need to contribute your updated profile to the Governance repo and make sure that it is merged by the PR merging bot. 
+Before you can participate within the Superalgos P2P network, You need to add a few nodes to your User Profile. Once these nodes are added and configured properly you will need to contribute your updated profile to the Governance repo and make sure that it is merged by the PR merging bot. 
 
 Here is the complete list of nodes you need to add to your profile and how to configure them. 
 
@@ -170,7 +170,7 @@ Finally, you need to generate/re-generate the signing accounts of your User Prof
 2. Reference the Profile Constructor to your User Profile.
 3. At the Profile Constructor menu, click on Install Signing Accounts. This will generate a new node under "Task-Server-App-1" and save a file to your My-Secrets folder with the Signing Accounts of your User Profile.
 
-Congradulations! Now you are done with your profile.
+Congratulations! Now you are done with your profile.
 
 Remember to save your User Profile plugin, contribute it and check that it was merged at the Governance repository.
 
@@ -329,6 +329,16 @@ For specific information on how to run the Docker Container in different OS, ple
 
 **Very important**, if you choose to run docker under a sudo user on Linux distros, make sure you run Superalgos also under sudo, otherwise it might not work.
 
+To run docker without sudo on Ubuntu, add the current user to the docker group with:
+```sh
+sudo gpasswd -a $USER docker
+```
+Then either log out and back in, or run the following command to refresh permissions:
+```
+sh
+newgrp docker
+```
+
 ### on Windows
 
 Run the container with this command. Change the path if you did not install this App at the commands location.
@@ -407,3 +417,14 @@ to fix it.
 ```
 This error occurs when the signing account does not match the Governance plugin repository's account. To ensure they are the same, import your user profile on the workspace using the "Add specified User Profile" command under Plugins -> Plugin Project -> Plugin User Profiles. 
 Add the correct nodes, references and signing account to the plugin as detailed in [App Setup](#app-setup). Save the plugin and push the changes to the Governance repository and wait 10 minutes for it to merge and be picked up by the Forecast Server.
+
+### Unexpected Error
+```sh
+unexpected error trying to execute a python script inside the docker container"
+```
+This error relates to an incorrect path when launching the docker container. Ensure the path to the notebooks directory is correct in the docker run command. 
+
+After launching the docker container, the path can be verified by using the following command to run a test model:
+```sh
+docker exec -it Bitcoin-Factory-ML python /tf/notebooks/Bitcoin_Factory_LSTM.py
+```

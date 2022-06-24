@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Size - это размер, установленный для ордера с помощью комбинации формул и конфигураций, определенных в торговой системе, и представляет собой значение, передаваемое на биржу в качестве размера ордера.",
                 "updated": 1640349803851
+            },
+            {
+                "language": "TR",
+                "text": "Boyut, ticaret sisteminde tanımlanan formüllerin ve konfigürasyonların bir kombinasyonu aracılığıyla sipariş için ayarlanan boyuttur ve emrin boyutu olarak borsaya iletilen değerdir.",
+                "updated": 1656065403472
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Система обеспечивает гибкую и надежную инфраструктуру для контроля исполнения. Размер одного ордера является результатом комбинации нескольких параметров.",
                     "updated": 1640349826532
+                },
+                {
+                    "language": "TR",
+                    "text": "Sistem, yürütmeyi kontrol etmek için esnek ve sağlam bir altyapı sağlar. Tek bir siparişin boyutu, birden fazla ayarın kombinasyonundan kaynaklanır.",
+                    "updated": 1656065438673
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Целевой размер в базовом активе или целевой размер в котируемом активе: формулы в этих узлах определяют абсолютный максимальный размер, допустимый для позиции. Последствия использования того или иного варианта объясняются в узле начальных целей Initial Targets на этапе открытия.",
                     "updated": 1640349886955
+                },
+                {
+                    "language": "TR",
+                    "text": "The target size in base asset or target size in quoted asset: Bu düğümlerin altındaki formüller pozisyon için izin verilen mutlak maksimum büyüklüğü tanımlar. Birini veya diğerini kullanmanın sonuçları, açık aşamadaki ilk hedefler düğümü altında açıklanmıştır.",
+                    "updated": 1656065481849
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "RU",
                     "text": "Конфигурация алгоритма выполнения: Параметр percentageOfStageTargetSize определяет, какую долю целевого размера алгоритм будет пытаться исполнить.",
                     "updated": 1640349919243
+                },
+                {
+                    "language": "TR",
+                    "text": "The configuration of the execution algorithm: percentageOfStageTargetSize parametresi, algoritmanın hedef boyutun ne kadarlık kısmını yürütmeye çalışacağını belirler.",
+                    "updated": 1656065552913
                 }
             ]
         },
@@ -56,6 +76,11 @@
                     "language": "RU",
                     "text": "Конфигурация заказа: Параметр percentageOfAlgorithmSize определяет, какой долей размера, обрабатываемого алгоритмом, должен быть ограничен ордер.",
                     "updated": 1640349993191
+                },
+                {
+                    "language": "TR",
+                    "text": "The configuration of the order: The parameter percentageOfAlgorithmSize parametresi, siparişin algoritma tarafından işlenen boyutun hangi oranıyla sınırlandırılacağını belirler.",
+                    "updated": 1656065891797
                 }
             ]
         },
@@ -73,6 +98,11 @@
                     "language": "RU",
                     "text": "Конфигурация Size",
                     "updated": 1640350007445
+                },
+                {
+                    "language": "TR",
+                    "text": "Boyut Yapılandırması",
+                    "updated": 1656065907373
                 }
             ]
         },
@@ -84,6 +114,11 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1640350015026
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1656065917586
                 }
             ]
         },
@@ -95,6 +130,11 @@
                     "language": "RU",
                     "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
                     "updated": 1640350023867
+                },
+                {
+                    "language": "TR",
+                    "text": "initialValue düğümün ilk durumunun rastgele bir değere sıfırlanmasını sağlar.",
+                    "updated": 1656065942760
                 }
             ]
         }

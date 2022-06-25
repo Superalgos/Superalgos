@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Узел Simulated Exchange Events позволяет переопределить параметры, установленные на уровне торговой сессии, на основе каждого ордера, чтобы определить, как будет имитироваться каждый ордер.",
                 "updated": 1639845807833
+            },
+            {
+                "language": "TR",
+                "text": "Simüle edilmiş borsa olay düğümü (The simulated exchange event node), her bir emrin nasıl simüle edileceğini belirlemek için emir bazında işlem seansı düzeyinde ayarlanan parametrelerin geçersiz kılınmasına olanak tanır.",
+                "updated": 1656066764261
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "В дочерних узлах при имитации биржевых событий можно установить специфические параметры ордера для размера заполнения, фактического курса и уплаченных комиссионных, так что каждый ордер может быть смоделирован специфическим образом.",
                     "updated": 1639845858833
+                },
+                {
+                    "language": "TR",
+                    "text": "Simüle edilen borsa olayları altındaki yavru düğümler, doldurulan boyut, fiili oran ve ödenen ücretler için siparişe özgü parametrelerin ayarlanmasına izin verir, böylece her sipariş belirli bir şekilde simüle edilebilir.",
+                    "updated": 1656066802186
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Если ни один из дочерних узлов не определен или не существует, то по умолчанию учитываются параметры, настроенные на уровне торговой сессии.",
                     "updated": 1639846008934
+                },
+                {
+                    "language": "TR",
+                    "text": "Yavru düğümlerden biri mevcut değilse veya tanımlanmamışsa, işlem oturumu düzeyinde yapılandırılan parametreler varsayılan olarak hesaba katılır.",
+                    "updated": 1656066823468
                 }
             ]
         }

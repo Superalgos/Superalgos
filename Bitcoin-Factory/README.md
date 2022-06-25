@@ -1,25 +1,25 @@
 # Bitcoin Factory Crowd-Testing of Machine Learning Models.
 
 ## Introduction
-What if I told you the price of the next market candle?  What would you do or pay to get that information? Knowing the min, max and close of the next candle is a big deal! It may seem like there must be a crystal ball or gimick involved, but here at the Bitcoin Factory, we are putting together the power of advanced data mining and machine learning to do just that! 
+What if I told you the price of the next market candle?  What would you do or pay to get that information? Knowing the min, max and close of the next candle is a big deal! It may seem like there must be a crystal ball or gimmick involved, but here at the Bitcoin Factory, we are putting together the power of advanced data mining and machine learning to do just that! 
 
-The thing about Machine Learning, however, is that it takes a lot of processing power. Way more than the average person can afford. That is why the Bitcoin Factory has set out to crowd source the processing power needed to push the prediction power of the colletive forward! What this means is that with limited data mining or machine learning experience, you can help make telling the future more and more of a reality! All you need is some basic technical abilities to run Superalgos (our open-source crypto trading automation platform) and contribute some CPU/GPU cycles to the collective effort!
+The thing about Machine Learning, however, is that it takes a lot of processing power. Way more than the average person can afford. That is why the Bitcoin Factory has set out to crowd source the processing power needed to push the prediction power of the collective forward! What this means is that with limited data mining or machine learning experience, you can help make telling the future more and more of a reality! All you need is some basic technical abilities to run Superalgos (our open-source crypto trading automation platform) and contribute some CPU/GPU cycles to the collective effort!
 
 The way this works behind the scenes is by collectively testing all possible combinations of machine learning model parameters that not only define the architecture of the model, but also the shape of the data and many other things. For each of these parameters, there is a valid range of values that could work, but only in combination with other parameters which also have their own valid ranges. Nobody knows what combination is going to produce the best results for a particular Asset / Timeframe. A Machine Learning models accuracy is determined by the error measured when producing forecasts using a test dataset after training the model. These forecasts are compared with the actual values and from there an objective Error measure is taken. 
 
-In order to obtain that error measure, first an ML model with certain parameters and certain data need to be created and trained, which usually takes time (from a few minutes to potentially hours).  In order for this to be successful, all possible combinations of the parameters need to be tested for each and every market and time frame you wish to work with. There is no way to know which data sets are the most relevant to make useful predictions. This means that training the machine learning model needs to test not just thousands, but millons of cases in order to reach a good amount of stability.
+In order to obtain that error measure, first an ML model with certain parameters and certain data need to be created and trained, which usually takes time (from a few minutes to potentially hours).  In order for this to be successful, all possible combinations of the parameters need to be tested for each and every market and time frame you wish to work with. There is no way to know which data sets are the most relevant to make useful predictions. This means that training the machine learning model needs to test not just thousands, but millions of cases in order to reach a good amount of stability.
 
 Testing combinations of parameters and data (with potentially hundreds of indicators to choose from, thousands of crypto assets, and dozens of time-frames) by hand, one by one, would be a nightmare. The Bitcoin Factory system solves this problem by automating the discovery of the best performing ML models, for a certain range of parameters values and certain set of indicators, for each combination of Asset / Timeframe. Over time, we will learn which set of parameters and data produces the best model for a certain Asset / Timeframe. Now add that markets evolve and change all the time, meaning that even if you found the perfect set of parameters for today’s predictions, the model will eventually become obsolete! This is a job for a growing and unstoppable collective!
 
-Once a set of parameters and data is discovered to have good prediction value, it will be used to calculate a Superalgos prediction indicator.  As testing continues and a better performing prediction is found, it will replace the old prediction. Then all the forecasts for that asset / timeframe are recalculated using this new performant ML model.  This process continues eventually replacing the prediction again with an even better ML model in the future. This continual cycle will overtime lower the ML model's % error.  Using this cyclic meathod, the accuracy of predictions will improve the longer the Bitcoin Factory runs and the larger the collective grows. 
+Once a set of parameters and data is discovered to have good prediction value, it will be used to calculate a Superalgos prediction indicator.  As testing continues and a better performing prediction is found, it will replace the old prediction. Then all the forecasts for that asset / timeframe are recalculated using this new performant ML model.  This process continues eventually replacing the prediction again with an even better ML model in the future. This continual cycle will overtime lower the ML model's % error.  Using this cyclic method, the accuracy of predictions will improve the longer the Bitcoin Factory runs and the larger the collective grows. 
 
-This continual and never-ending task of brute-force testing so many possible combinations is the perfect candidate for a crowdsourced effort, because no individual can run all the required tests on their own unless they are willing to make substantial investments to set up and operate a significant data processing facility. Not only that, but running such an operation as an individual opens up the door for directed attacks and disruptions. However, working as a colletive will make it impossible to shutdown or beat a distributed, ever-growing crowdsourced effort, and that is why you will want to join!
+This continual and never-ending task of brute-force testing so many possible combinations is the perfect candidate for a crowdsourced effort, because no individual can run all the required tests on their own unless they are willing to make substantial investments to set up and operate a significant data processing facility. Not only that, but running such an operation as an individual opens up the door for directed attacks and disruptions. However, working as a collective will make it impossible to shutdown or beat a distributed, ever-growing crowdsourced effort, and that is why you will want to join!
 
-If that wasn't enough to get you excited about joining the Bitcoin Factory's efforts, there is one more huge set of insentives. When you run the ML Test Client and contribute processing power, the test client will keep track of the test cases your hardware solves.  It then sends the results to the ML Test Server which logs the work performed by your User Profile. This contributed processing power will be rewarded each month with Superalgos' native token! Once you have accumulated enough tokens for your contributions, you will be granted access to the best available predictions offered by the Bitcoin Factory.  These will include predictions of the next candle for top crypto assets paired against USDT for time frames of 1, 2, 3, 4, 6, 8, 12, and 24 hours. You will also be granted access to buy and sell signals derived from other collective ML models we are training. All of these prediction and signals will be accessible from a unique indicator that can be used to trade manually or incorporate into automated strategies you may build using Superalgos. 
+If that wasn't enough to get you excited about joining the Bitcoin Factory's efforts, there is one more huge set of incentives. When you run the ML Test Client and contribute processing power, the test client will keep track of the test cases your hardware solves.  It then sends the results to the ML Test Server which logs the work performed by your User Profile. This contributed processing power will be rewarded each month with Superalgos' native token! Once you have accumulated enough tokens for your contributions, you will be granted access to the best available predictions offered by the Bitcoin Factory.  These will include predictions of the next candle for top crypto assets paired against USDT for time frames of 1, 2, 3, 4, 6, 8, 12, and 24 hours. You will also be granted access to buy and sell signals derived from other collective ML models we are training. All of these prediction and signals will be accessible from a unique indicator that can be used to trade manually or incorporate into automated strategies you may build using Superalgos. 
 
 
 ## Overview of Architecture 
-### How does the Bitcoin Factory Arcitecture Work?
+### How does the Bitcoin Factory Architecture Work?
 
 The Bitcoin Factory is a set of Software built on top of the Superalgos Ecosystem. The Bitcoin Factory itself consists of three main components or applications: 
 
@@ -30,11 +30,11 @@ The Bitcoin Factory is a set of Software built on top of the Superalgos Ecosyste
 
 #### The Superalgos Network Node
 
-Superalgos supports a decentralized Peer 2 Peer network that offers many ways to share and grow trading intelligence. Superalgos Network Nodes live on the open internet and function as access points for the Peer 2 Peer network.  Contributors to the Bitcoin Factory are currently running Network Nodes to allow the other pieces of the Bitcoin Factory to communicate with one another as a collective.   
+Superalgos supports a decentralised Peer 2 Peer network that offers many ways to share and grow trading intelligence. Superalgos Network Nodes live on the open internet and function as access points for the Peer 2 Peer network.  Contributors to the Bitcoin Factory are currently running Network Nodes to allow the other pieces of the Bitcoin Factory to communicate with one another as a collective.   
 
 #### The Test Server Application
 
-The test server app acts as a coordinator for all testing and forecast cases.  It does not actually run any of these tests or calculate forecasts. Instead, you can think of it as the traffic officer directing traffic from the middle of a busy street. It records, organizes, and assigns test cases to all active Test Client apps. Every time a test case is solved, it is sent back to the test server app and recorded.  Whenever the test server receives a parameter combination with a lower Error % for a certain Asset / Timeframe, the test case is transformed into a Forecast Case.  This new forcast case then replaces the previous best performing forecast case for that same Asset / Timeframe. This is then sent to Forcast Clients apps to be processed.
+The test server app acts as a coordinator for all testing and forecast cases.  It does not actually run any of these tests or calculate forecasts. Instead, you can think of it as the traffic officer directing traffic from the middle of a busy street. It records, organizes, and assigns test cases to all active Test Client apps. Every time a test case is solved, it is sent back to the test server app and recorded.  Whenever the test server receives a parameter combination with a lower Error % for a certain Asset / Timeframe, the test case is transformed into a Forecast Case.  This new forcast case then replaces the previous best performing forecast case for that same Asset / Timeframe. This is then sent to Forecast Clients apps to be processed.
 
 **Note:** The test server app is run by the Bitcoin Factory. 
 
@@ -97,3 +97,69 @@ Having said that, please don't expect that forecasts will be precise in the begi
 - By the time you’re familiar with Superalgos and have created your User Profile, you’ll be ready to start participating in the testing efforts!
 
 - Go to the Bitcoin Factory folder open the Test-Client directory and follow the instructions in the Test Client's README file to get up and running!
+
+## Development To Do List
+
+### Bug's that need fixing:
+ 1. Bug fix Negative error values, the issue needs addressing where the percentageErrorRMSE occasionally produces a negative value.
+ 2. Fix the issue returning the test results to the same server that provided the test case.
+ 3. The current forecaster is not aware of multiple servers and is causing problems. An upgrade for this is needed, before other improvements.
+ 4. Multiple Network Nodes, the current system only allows connection to one network node. Allow the system to scale and avoid bottlenecks, the system must be able to connect to multiple network nodes.
+ 5. Computing power owners to be able to specify which server they would like to connect to.
+ 6.  Whitelisting network groups, allowing subgroups to focus resources on chosen areas.
+
+## Dashboard setup and progress
+The dashboard is in early stages of development but will be useful for members to quickly view statistics and data supplied from servers and test clients. Discussions, views and opinions on this matter should be brought up in the telegram group.
+
+### Example Dashboard features:
+ - Lowest % error & What user found it.
+ - Timeframe
+ - Asset
+ - Data mine / Indicators activated / Live server readings (green/Red icons)
+ - Trusted server list/ Trusted server icon?
+ - Percent test cases processed per user account
+ - Average time to complete cases?
+ - Test cases completed out of total number of cases...
+
+## Server Operator Guidelines
+Only trusted members will be selected to run servers, these members are known as server operators and must have token rewards, contributions to the project and must have good knowledge of the entire system. Test servers are to be deployed as and when the system requires it, not when someone requests to run one.
+Server operators who are testing mines and indicators are required to record the results and create reports with their findings. Taking into account market conditions, predictions and other useful information then contribute the findings.
+
+### Who will authorise new server operators.
+Lead developers and senior members of the group should vote if a new server is required, then after authorisation a team member will be asked if they would like to participate. If you feel like you are experiencing bottlenecks or other server related issues then bring them to the attention of the group.
+
+### How and where will we mark servers as Trusted?
+ - At the moment all servers are trusted, but when the system scales there may become a need to approve servers. Trusted servers will allow users to identify easily if they prefer to connect to a SA approved server. An icon or something similar could be used to show that servers are approved within the dashboard or workspace?
+
+ - Server operators are required to compile reports, automatic analysis & report compiling could be added to via a script or node. Including report merging ready for governance?
+
+### Governance & Fair ML case generation
+ - Test cases at the time of writing are to be standardised to 750 epochs, this will ensure the test cases completed and governance rewards are fair. The future of test case rewards will be based on the user finding the lowest %ErrorRMSE.
+ - Epochs set to 750 and indicators activated are to be per data mine or up to 10 indicators activated.
+
+
+## Complaints and reporting abuse, scams or cheats.
+- If you suspect member(s) are cheating the system please notify lead developers, server operators or senior team members either directly or via the telegram group.
+- Any issues that arise that may allow users to claim rewards unfairly must be brought to the attention of the group immediately.
+
+## P2P storage for centralised real-time data sharing
+ - Mine & Indicator tracking within separate servers.
+ - Live data feed inside the dashboard with green/red icons per data mine/ indicators active/inactive.
+ - How will server operators run servers? example: single server node dedicated to one data mine/indicator set activated?
+ - Test clients to decide who to connect to or auto connect to the best performing (trusted) servers.
+
+
+
+## Network Nodes:
+Some notes here are open for discussion
+ - How many do we need?
+ - Who and Where hosted?
+ - Setting up new network groups (Testnet, Mainnet, Usernet, Anynet)
+ - Whitelisting network groups, allowing subgroups to focus resources on chosen areas.
+
+## Reinforcement Learning:
+
+
+## System level coordination for test servers:
+
+## Updates

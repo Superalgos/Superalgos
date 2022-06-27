@@ -383,8 +383,6 @@ function newGovernanceUserProfileSpace() {
         fomTimestamp = fom.getTime()
         eomTimestamp = eom.getTime()
 
-        /* Special handling for first distribution: Set from timestamp to 0. Delete this line for distros later than May 22, executed in June 22 */
-        fomTimestamp = 0
         return [fomTimestamp, eomTimestamp]
     }
 

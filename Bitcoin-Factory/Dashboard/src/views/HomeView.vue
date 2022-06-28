@@ -53,7 +53,7 @@ export default {
     let time = 5000;
     let load=ref(true);
      
-    setInterval(() => {
+    setInterval() => {
      load.value=false;
       axios
         .get(url.value)

@@ -53,7 +53,7 @@ export default {
     let time = 5000;
     let load=ref(true);
      
-    setInterval() => {
+    setInterval( () => {
      load.value=false;
       axios
         .get(url.value)
@@ -62,8 +62,9 @@ export default {
             running: response.data.networkClients.length,
             clint: response.data.networkClients,
             test: i,
-          };
+            };
           i++;
+          };
         })
         .catch((error) => {
           console.log(error);

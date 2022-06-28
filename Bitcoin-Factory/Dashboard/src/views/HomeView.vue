@@ -61,10 +61,9 @@ export default {
           data.value = {
             running: response.data.networkClients.length,
             clint: response.data.networkClients,
-            test: i,
-            };
-          i++;
+            test: i
           };
+          i++;
         })
         .catch((error) => {
           console.log(error);

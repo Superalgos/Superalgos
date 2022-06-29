@@ -1,15 +1,16 @@
-# google-machine-learn
+## Project Setup
 
-## Project setup
+After cloning the repository, run the following command in the "Superalgos-Network-Node-Dashboard" folder.
 ```
 npm install
+```
 
-## Project setup
+## Running the Dashboard 
+
+To access the Dashboard, run the following command in the "Superalgos-Network-Node-Dashboard" folder.
 ```
 npm start
+```
 
 
---- Veriler otomatik olarak 5sn de bir yenilenir 
---- Url kısmında yazılan texbox alanına girilen url den veri çeker 
-
-
+--- When you open the Url in the browser, you display it on the dashboard. Data is automatically refreshed every 5 seconds.

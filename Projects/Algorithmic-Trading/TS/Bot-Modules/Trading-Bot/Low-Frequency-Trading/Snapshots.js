@@ -314,11 +314,12 @@ exports.newAlgorithmicTradingBotModulesSnapshots = function(processIndex) {
         let quoteOpen = Number (tradingEngine.tradingCurrent.strategyOpenStage.stageQuotedAsset.sizeFilled.value - tradingEngine.tradingCurrent.strategyOpenStage.stageQuotedAsset.feesPaid.value)
         let quoteClose = Number (tradingEngine.tradingCurrent.strategyCloseStage.stageQuotedAsset.sizeFilled.value - tradingEngine.tradingCurrent.strategyCloseStage.stageQuotedAsset.feesPaid.value)
         
-        let baseProfit = ((baseClose / baseOpen * 100) - 100).toFixed(2)
-        let quoteProfit = ((quoteClose / quoteOpen * 100) - 100).toFixed(2)
+        let baseProfit = parseFloat ( ((baseClose / baseOpen * 100) - 100).toFixed(2) )
+        let quoteProfit = parseFloat ( ((quoteClose / quoteOpen * 100) - 100).toFixed(2) )
         
 
-        let closeHeaders = ['Trade Number',
+        let closeHeaders = [
+        'Trade Number',
         'Open Datetime',
         'Close Datetime',
         'Strategy Name',
@@ -339,7 +340,8 @@ exports.newAlgorithmicTradingBotModulesSnapshots = function(processIndex) {
         '% PNL Quoted Asset',
         'PNL Quoted Asset',
         'Exit Type',
-        '# Periods']
+        '# Periods'
+        ]
         
         closeValues = [
             tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeCounters.positions.value, // Trade Number

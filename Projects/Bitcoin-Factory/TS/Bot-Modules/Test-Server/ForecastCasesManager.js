@@ -63,7 +63,7 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
         for (let i = 0; i < thisObject.forecastCasesArray.length; i++) {
             let forecastCase = thisObject.forecastCasesArray[i]
             if (forecastCase.mainAsset === testCase.mainAsset && forecastCase.mainTimeFrame === testCase.mainTimeFrame) {
-                if (Number(testCase.percentageErrorRMSE) < Number(forecastCase.percentageErrorRMSE)) {
+                if (Number(testCase.percentageErrorRMSE) < Number(forecastCase.percentageErrorRMSE) && Number(testCase.percentageErrorRMSE) >= 0) {
                     thisObject.forecastCasesArray.splice(i, 1)
                     thisObject.forecastCasesMap.delete(testCase.id)
                     addForcastCase(testCase)

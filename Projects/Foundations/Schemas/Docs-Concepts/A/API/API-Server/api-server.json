@@ -11,8 +11,8 @@
             },
             {
                 "language": "TR",
-                "text": "Kaynaklarına programatik erişim sağlayan bir sunucudur (genellikle internette çalışır). Bu, algoritmaların bu kaynaklara erişmesini sağlar. Bu kaynaklar veri olduğunda, API Sunucusuna önceden tanımlanmış sorguları yürüterek herkesin bu verileri getirmesine izin verir.",
-                "updated": 1654390552318
+                "text": "Kaynaklarına programlı erişim sağlayan (genellikle İnternette çalışan) bir sunucudur. Bu, algoritmaların bu kaynaklara erişmesini sağlar. Bu kaynaklar veri olduğunda, herkesin API Sunucusundan, önceden tanımlanmış sorgular yürüterek bu verileri almasına izin verir.",
+                "updated": 1656947305910
             }
         ]
     },

@@ -221,7 +221,7 @@ function newGovernanceFunctionLibraryTokenPower() {
             }
             if (totalPercentage > 100) {
                 node.payload.uiObject.setErrorMessage(
-                    'Token Power Switching Error. Total Percentage of children nodes is grater that 100.',
+                    'Token Power Switching Error. Total Percentage of children nodes is greater than 100.',
                     UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
                 )
                 return

@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Параметр Simulated Partial Fill позволяет имитировать частичное заполнение ордеров.",
                 "updated": 1639846059936
+            },
+            {
+                "language": "TR",
+                "text": "Simüle edilmiş kısmi doldurma parametresi, emirlerin kısmi doldurulmasının simüle edilmesini sağlar.",
+                "updated": 1656066874771
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "При каждом запуске симуляция проверяет, пересекает ли текущая свеча курс, установленный для ордера. Если да, то значение этого параметра используется в качестве коэффициента для определения и отслеживания того, какой процент ордера будет исполнен.",
                     "updated": 1639846113004
+                },
+                {
+                    "language": "TR",
+                    "text": "Her yürütmede simülasyon, mevcut mumun emir için belirlenen oranla kesişip kesişmediğini doğrular. Eğer kesişirse, bu parametredeki değeri, emrin yüzde kaçının doldurulduğunu belirlemek ve takip etmek için bir faktör olarak kullanır.",
+                    "updated": 1656066910281
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Тот же процесс повторяется для каждой последующей свечи, пока ордер не будет исполнен.",
                     "updated": 1639846126588
+                },
+                {
+                    "language": "TR",
+                    "text": "Aynı işlem, sipariş dolana kadar sonraki her mum için tekrarlanır.",
+                    "updated": 1656066931271
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "RU",
                     "text": "Если параметр отсутствует или не определен, симуляция предполагает, что ордер будет выполнен, как только будет достигнута указанная ставка.",
                     "updated": 1639846169845
+                },
+                {
+                    "language": "TR",
+                    "text": "Parametre mevcut olmadığında veya tanımlanmadığında simülasyon, orana ulaşılır ulaşılmaz emrin doldurulduğunu varsayar.",
+                    "updated": 1656066947131
                 }
             ]
         },
@@ -61,6 +81,11 @@
                     "language": "RU",
                     "text": "Конфигурация Simulated Partial Fill",
                     "updated": 1639846184730
+                },
+                {
+                    "language": "TR",
+                    "text": "Simüle Edilmiş Kısmi Doldurma Konfigürasyonu",
+                    "updated": 1656066972865
                 }
             ]
         },
@@ -84,6 +109,11 @@
                     "language": "RU",
                     "text": "fillProbability указывает вероятность того, что ордер будет исполнен при каждом изменении цены. Значения могут варьироваться от 0 до 1. Значение 0 означает, что вероятность того, что ордер будет исполнен, равна 0%. При таком значении ордер никогда не будет заполнен в симуляции. Значение 1 означает, что вероятность того, что ордер будет исполнен, составляет 100%. При такой настройке ордер будет исполнен при первой метке цены. Значение 0,5 указывает на 50%-ную вероятность, поэтому для полного заполнения ордера при такой настройке требуется две метки цены.",
                     "updated": 1639846256339
+                },
+                {
+                    "language": "TR",
+                    "text": "fillProbability, fiyatın her bir etiketinde bir siparişin doldurulma olasılığını gösterir. Değerler 0 ile 1 arasında değişebilir. 0 değeri, siparişin tamamlanma olasılığının %0 olduğunu gösterir. Böyle bir ayar ile, sipariş simülasyonda asla doldurulmayacaktır. 1 değeri, siparişin tamamlanma olasılığının %100 olduğunu gösterir. Böyle bir ayar ile sipariş, fiyatın ilk etiketi üzerine doldurulur. 0,5 değeri %50 olasılığı gösterir, dolayısıyla emrin böyle bir ayarla tamamen dolması için fiyatın iki etiketi gerekir.",
+                    "updated": 1656067035846
                 }
             ]
         }

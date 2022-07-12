@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Узел Simulated Fees Paid позволяет установить конкретную комиссию для симуляции каждого ордера, переопределяя параметр комиссии структуры торговой сессии.",
                 "updated": 1639846497793
+            },
+            {
+                "language": "TR",
+                "text": "Ödenen simüle ücretler düğümü, işlem seansının borsa komisyonu yapısı parametresini geçersiz kılarak her bir emrin simülasyonu için belirli bir ücret ayarlanmasına olanak tanır.",
+                "updated": 1656067707847
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Параметр структуры комиссии торговой сессии позволяет установить общую структуру комиссии (maker и taker) для всех ордеров в торговой системе. Узел имитации уплаченных комиссионных сборов позволяет управлять на основе каждого ордера, так что каждый ордер может быть имитирован с определенной комиссией.",
                     "updated": 1639846589801
+                },
+                {
+                    "language": "TR",
+                    "text": "İşlem seansının ücret yapısı parametresi, işlem sistemindeki tüm emirler için genel bir ücret yapısının (yapıcı ve alıcı) ayarlanmasına olanak tanır. Ödenen simüle edilmiş ücretler düğümü, emir bazında kontrole izin verir, böylece her emir belirli bir ücretle simüle edilebilir.",
+                    "updated": 1656067751494
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Если узел отсутствует или параметр не определен, используется параметр структуры комиссии, установленный для торговой сессии.",
                     "updated": 1639846603337
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğüm mevcut değilse veya parametre tanımlanmamışsa, işlem seansı için ayarlanan ücret yapısı parametresi kullanılır.",
+                    "updated": 1656067765081
                 }
             ]
         },
@@ -50,6 +65,11 @@
                     "language": "RU",
                     "text": "Конфигурация Simulated Fees Paid",
                     "updated": 1639846617678
+                },
+                {
+                    "language": "TR",
+                    "text": "Simulated Fees Paid Yapılandırması",
+                    "updated": 1656067777003
                 }
             ]
         },
@@ -62,6 +82,11 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1639846624805
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1656067787431
                 }
             ]
         },
@@ -73,6 +98,11 @@
                     "language": "RU",
                     "text": "percentage - это процент, который будет применяться для расчета комиссии для конкретного ордера.",
                     "updated": 1639846702338
+                },
+                {
+                    "language": "TR",
+                    "text": "Yüzde (percentage), belirli bir sipariş için ücretleri hesaplamak üzere uygulanacak yüzdedir.",
+                    "updated": 1656067825449
                 }
             ]
         }

@@ -48,8 +48,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Bunların birçoğu, verilerin uygulanabilir olduğu bağlamı sınırlayan düğümlere referanslar gerektirir. Örneğin, piyasa veri ürünleri düğümü, kurulu piyasalardan birine, özellikle de veri madenciliği işleminin yürütüldüğü piyasaya referans vermelidir. Bu referanslar, diğer varlıkların verilerin ait olduğu bağlamı anlamasına yardımcı olur.",
-                    "updated": 1654391713060,
+                    "text": "Bunların birçoğu, verilerin uygulanabilir olduğu bağlamı sınırlayan düğümlere referanslar gerektirir. Örneğin, market veri ürünleri düğümü, kurulu marketlerden birine, özellikle de veri madenciliği işleminin yürütüldüğü markete referans vermelidir. Bu referanslar, diğer varlıkların verilerin ait olduğu bağlamı anlamasına yardımcı olur.",
+                    "updated": 1656932454504,
                     "style": "Text"
                 }
             ]

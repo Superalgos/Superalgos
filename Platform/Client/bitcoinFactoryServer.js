@@ -225,6 +225,9 @@ exports.newBitcoinFactoryServer = function newBitcoinFactoryServer() {
         let rewardsFile = ""
         let reportsDirectory = []
         const testsPerUser = {}
+        let recordsCounter = 0
+        /* Debug Mode provides more verbose output about each processed Rewards File on the Console */
+        const debugMode = false
         try {
             reportsDirectory = SA.nodeModules.fs.readdirSync('./Bitcoin-Factory/Reports')
         }
@@ -238,7 +241,8 @@ exports.newBitcoinFactoryServer = function newBitcoinFactoryServer() {
         for (let f = 0; f < reportsDirectory.length; f++) {
             /* Check if file name matches pattern Testnet*.csv for processing Test Client rewards */
             rewardsFile = ""
-            if (/^Testnet[\w|-]*\.csv$/.test(reportsDirectory[f]) === false) { 
+            recordsCounter = 0
+            if (/^Testnet[\w\s-]*\.csv$/gi.test(reportsDirectory[f]) === false) { 
                 continue
             } else {
                 try {
@@ -300,9 +304,20 @@ exports.newBitcoinFactoryServer = function newBitcoinFactoryServer() {
                         } else {
                             testsPerUser[profile] = 1
                         }
+                        recordsCounter++
+                    }
+                }
+                if (debugMode === true) {
+                    if (recordsCounter === 0) {
+                        console.log((new Date()).toISOString(), "[INFO] Governance Rewards File", reportsDirectory[f], "does not contain any records for this period")
+                    } else {
+                        console.log((new Date()).toISOString(), "[INFO] Governance Rewards File", reportsDirectory[f], "contains", recordsCounter, "valid records")
                     }
                 }
             }
+        }
+        if (debugMode === true) {
+            console.log((new Date()).toISOString(), "[INFO] Total executed Bitcoin Factory Test Cases per User:", testsPerUser)
         }
         return {
             result: 'Ok',

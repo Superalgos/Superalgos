@@ -188,7 +188,7 @@ function newGovernanceUserProfileSpace() {
                     lastTimestamp: lastTimestamp
                 }
             }
-
+            //UI.projects.foundations.spaces.cockpitSpace.setStatus('Parsing Bitcoin Factory Governance Rewards Data', 1500, UI.projects.foundations.spaces.cockpitSpace.statusTypes.ALL_GOOD)
             httpRequest(JSON.stringify(request.params), request.url, onResponse)
 
             function onResponse(err, data) {

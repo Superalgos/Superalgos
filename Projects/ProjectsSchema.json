@@ -1647,6 +1647,11 @@
                     "name": "Conversions",
                     "propertyName": "conversions",
                     "functionName": "newGovernanceUtilitiesConversions"
+                },
+                {
+                    "name": "Chains",
+                    "propertyName": "chains",
+                    "functionName": "newGovernanceUtilitiesChains"
                 }
             ],
             "spaces": [

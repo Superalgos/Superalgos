@@ -5,7 +5,7 @@ The ML Test Client runs from within the Superalgos Platform and connects to a re
 It is important to understand that this Test Client APP does not prepare the dataset to be tested. This is done by the Test Server App. That means that this app does not need Superalgos or any other data provider for the purpose of extracting data from it. It only depends on the Test Server which handles the management of the Test Cases and the generation of the datasets to be used at each one of the tests.
 
 ### Example of Parameters [Fraction of the actual list]
-
+```text
 ┌─────────────────────────────────────────────────────────────────────────┬─────────┬────────┐
 │                                 (index)                                 │    0    │ Values │
 ├─────────────────────────────────────────────────────────────────────────┼─────────┼────────┤
@@ -56,7 +56,7 @@ It is important to understand that this Test Client APP does not prepare the dat
 * 1503705600000   4367   4212.41   4280.68   4337.44   228.10806799999992
 * 1503792000000   4400   4285.54   4332.51   4310.01   350.6925850000002
 * 1503878400000   4399.82   4124.54   4310.01   4386.69   603.8416160000002
-
+```
 ### How does this Test Client App work?
 
 This app is used to autonomously test different set's of parameters to see which Machine Learning models can produce better forecasts.
@@ -136,7 +136,7 @@ Here is the complete list of nodes you need to add to your profile and how to co
 Once you have added the Task Server App node, hover over it and rename it using the following name: "Task Server App #1"
 
 Then add the following configuration within the Task Server App node's config:
-```sh
+```json
 {
     "codeName": "Task-Server-App-1"
 }
@@ -156,7 +156,7 @@ For this node, you need to assign a unique name of your choice. The name you cho
 Node Title: "Assign-A-Name"
 
 Node Config:
-```sh
+```json
 {
     "codeName": "Assign-A-Name"
 }
@@ -188,7 +188,7 @@ By setting up this reference you define the identity under which the test client
 
 After that, open the config of the Test-Client Sensor Bot Instance. It looks like this:
 
-```sh
+```json
 {
     "networkCodeName": "Testnet",
     "targetSuperalgosHost": "localhost",
@@ -214,7 +214,7 @@ Build the Docker Image. Open a console at the Bitcoin-Factory folder inside Supe
 
 ### On x86 Processors
 
-```sh
+```shell
 cd DockerBuild
 docker build -t bitcoin-factory-machine-learning .
 cd ..
@@ -222,7 +222,7 @@ cd ..
 
 ### On xArm Processors
 
-```sh
+```shell
 cd ArmDockerBuild
 docker build -t bitcoin-factory-machine-learning .
 cd ..
@@ -245,7 +245,7 @@ Now you are ready to get things rolling! You will need to open two terminals. On
 ### Docker Container Terminal Output 
 Once the docker container is running correctly you will see at the first terminal an output similar to this:
 
-```sh
+```text
 [I 12:58:36.546 NotebookApp] Writing notebook server cookie secret to /home/ubuntu/.local/share/jupyter/runtime/notebook_cookie_secret
 [I 12:58:37.532 NotebookApp] Serving notebooks from local directory: /tf/notebooks
 [I 12:58:37.532 NotebookApp] Jupyter Notebook 6.4.10 is running at:
@@ -259,7 +259,6 @@ Once the docker container is running correctly you will see at the first termina
     Or copy and paste one of these URLs:
         http://aa1b305587bd:8888/?token=49c135d693e0b4d07d8c0164410ee6fc4593ac5e0578a34a
      or http://127.0.0.1:8888/?token=49c135d693e0b4d07d8c0164410ee6fc4593ac5e0578a34a
-
 ```
 
 **Note:** At that terminal there is no further action required. 
@@ -267,7 +266,7 @@ Once the docker container is running correctly you will see at the first termina
 ### Superalgos Platform Terminal Output
 At the Superalgos terminal, once  you run the Test Client Task, you will see, after 10 seconds an output similar to this one:
 
-```sh
+```text
 -------------------------------------------------------- Test Case # 1 / 3192 --------------------------------------------------------
 
 Starting at this GMT Datetime:  2022-03-24T10:00:55.115Z
@@ -294,7 +293,7 @@ Parameters Received for this Test:
 
 After between 15 and 30 minutes, depending on the Test Case that was assigned to you, you will see an output like this:
 
-```sh
+```text
 Docker Python Script exited with code 0
 Prediction RMSE Error: 368.83
 Predictions [candle.max, candle.min, candle.close]: 43278.008,42785.055,43028.305
@@ -330,11 +329,11 @@ For specific information on how to run the Docker Container in different OS, ple
 **Very important**, if you choose to run docker under a sudo user on Linux distros, make sure you run Superalgos also under sudo, otherwise it might not work.
 
 To run docker without sudo on Ubuntu, add the current user to the docker group with:
-```sh
+```shell
 sudo gpasswd -a $USER docker
 ```
 Then either log out and back in, or run the following command to refresh permissions:
-```
+```shell
 sh
 newgrp docker
 ```
@@ -343,7 +342,7 @@ newgrp docker
 
 Run the container with this command. Change the path if you did not install this App at the commands location.
 
-```sh
+```shell
 docker run --gpus all -it --rm --shm-size=4.37gb --name Bitcoin-Factory-ML -v C:/Superalgos/Bitcoin-Factory/Test-Client/notebooks:/tf/notebooks -p 8888:8888 bitcoin-factory-machine-learning
 ```
 
@@ -351,7 +350,7 @@ docker run --gpus all -it --rm --shm-size=4.37gb --name Bitcoin-Factory-ML -v C:
 
 Run the Docker container with this command. Change the path if you did not install this App at the commands location.
 
-```sh
+```shell
 docker run --gpus all -it --rm --shm-size=4.37gb --name Bitcoin-Factory-ML -v /Users/Your-User-Name/Superalgos/Bitcoin-Factory/Test-Client/notebooks:/tf/notebooks -p 8888:8888 bitcoin-factory-machine-learning
 ```
 
@@ -374,7 +373,7 @@ Apply & Restart makes the directory available to containers using Docker’s bin
 
 The command to run the container on Mac should be like this (mind Your-User-Name).
 
-```sh
+```shell
 docker run --gpus all -it --rm --name Bitcoin-Factory-ML --shm-size=4.37gb -v /Users/Your-User-Name/Superalgos/Bitcoin-Factory/Test-Client/notebooks:/tf/notebooks -p 8888:8888 bitcoin-factory-machine-learning
 ```
 You will need to remove ```--gpus all``` for M1 based macs unless the docker image is specifically built to use the metal API.
@@ -384,10 +383,10 @@ You will need to remove ```--gpus all``` for M1 based macs unless the docker ima
 
 Confirmed working on Raspberry Pi OS (64 bit)
  - Node.js install
-   ```
+   ```shell
    curl -fsSL https://deb.nodesource.com/setup_17.x | sudo -E bash -
    ```
-   ```
+   ```shell
    sudo apt-get install -y nodejs
    ```
  - Docker install following either [Repository](https://docs.docker.com/engine/install/debian/#install-using-the-repository) or [Convenience Script](https://docs.docker.com/engine/install/debian/#install-using-the-convenience-script) install steps on [docs.docker.com](https://docs.docker.com/engine/install/debian/#installation-methods)
@@ -399,32 +398,32 @@ Confirmed working on Raspberry Pi OS (64 bit)
 ### Response from daemon conflict
 If you get the error:
 
-```sh
+```text
 docker: Error response from daemon: Conflict. The container name "/Bitcoin-Factory-ML" is already in use by container ...
 ```
 
 Use the command
 
-```sh
+```shell
 docker container prune
 ```
 
 to fix it.
 
 ### Network Client Identity
-```sh
+```text
 "Fatal Error. Can not run this task. The Network Client Identity does not match any node at User Profiles Plugins."
 ```
 This error occurs when the signing account does not match the Governance plugin repository's account. To ensure they are the same, import your user profile on the workspace using the "Add specified User Profile" command under Plugins -> Plugin Project -> Plugin User Profiles. 
 Add the correct nodes, references and signing account to the plugin as detailed in [App Setup](#app-setup). Save the plugin and push the changes to the Governance repository and wait 10 minutes for it to merge and be picked up by the Forecast Server.
 
 ### Unexpected Error
-```sh
+```text
 unexpected error trying to execute a python script inside the docker container"
 ```
 This error relates to an incorrect path when launching the docker container. Ensure the path to the notebooks directory is correct in the docker run command. 
 
 After launching the docker container, the path can be verified by using the following command to run a test model:
-```sh
+```shell
 docker exec -it Bitcoin-Factory-ML python /tf/notebooks/Bitcoin_Factory_LSTM.py
 ```

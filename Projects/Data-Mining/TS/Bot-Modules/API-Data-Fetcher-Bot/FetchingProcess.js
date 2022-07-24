@@ -699,8 +699,7 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                         }
                                     }
                                 }
-
-                                console.log(url)
+                                
                                 fetch(url, options)
                                     .then((response) => {
 

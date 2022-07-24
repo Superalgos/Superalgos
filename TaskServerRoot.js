@@ -65,7 +65,8 @@ async function runRoot() {
     axios: require('axios'),
     crypto: require('crypto'),
     simpleGit: require('simple-git'),
-    ethers: require('ethers')
+    ethers: require('ethers'),
+    vaderSentiment: require('vader-sentiment')
   }
   SA.version = require('./package.json').version
   /* 

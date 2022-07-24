@@ -120,7 +120,6 @@ function newGovernanceFunctionLibraryLiquidityProgram() {
                 "asset": asset,
                 "exchange": null
             }
-            assetExchange = asset + "-" + exchange
 
             for (let i = 0; i < pools.length; i++) {
                 let poolsNode = pools[i]

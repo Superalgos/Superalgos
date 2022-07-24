@@ -20,7 +20,7 @@ function newGovernanceReportsLiquidity() {
         Parameters
         */
         let table = 'Liquidity'
-        let programName = 'Liquidity Program'
+        //let programName = 'Liquidity Program'
         let programPropertyName = 'liquidityProgram'
         /*
         Setup Filters
@@ -91,8 +91,6 @@ function newGovernanceReportsLiquidity() {
         /*
         Transform the result array into table records.
         */
-        const liqAssets = UI.projects.governance.globals.saToken.SA_TOKEN_BSC_LIQUIDITY_ASSETS
-        const liqExchanges = UI.projects.governance.globals.saToken.SA_TOKEN_BSC_EXCHANGES
 
         for (let j = 0; j < userProfiles.length; j++) {
             let userProfile = userProfiles[j]
@@ -101,7 +99,7 @@ function newGovernanceReportsLiquidity() {
             for (let liqProgram of liquidityProgramList) {
                 let liqAsset = liqProgram['pairedAsset']
                 let liqExchange = liqProgram['exchange']
-                let chain = liqProgram['chain']
+                //let chain = liqProgram['chain']
 
                 let configPropertyObject = {
                     "asset": liqAsset,

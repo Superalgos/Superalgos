@@ -143,7 +143,7 @@ function newGovernanceFunctionLibraryLiquidityProgram() {
                 if (program.payload === undefined) { continue }
                 if (program.payload.liquidityProgram.isActive === false) { continue }
                 if (loadCompleted === false) {continue}
-                calculateProgram(program, assetExchange)
+                calculateProgram(program)
             }
 
         }
@@ -284,7 +284,7 @@ function newGovernanceFunctionLibraryLiquidityProgram() {
             }          
         }
 
-        function calculateProgram(programNode, assetExchange) {
+        function calculateProgram(programNode) {
 
             if (programNode.payload === undefined) { return }
             if (programNode.tokensAwarded === undefined || programNode.tokensAwarded.payload === undefined) {

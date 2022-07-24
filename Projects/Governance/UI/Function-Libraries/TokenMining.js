@@ -135,7 +135,7 @@ function newGovernanceFunctionLibraryTokenMining() {
             for (let liqProgram of liquidityProgramList) {
                 let liqAsset = liqProgram['pairedAsset']
                 let liqExchange = liqProgram['exchange']
-                let chain = liqProgram['chain']
+                //let chain = liqProgram['chain']
 
                 let configPropertyObject = {
                     "asset": liqAsset,

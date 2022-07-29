@@ -47,8 +47,8 @@ function systemCheck () {
     if (os.platform() === "win32") {
 
       // Verify C:\Windows\System32 is on the windows PATH
-      const path = execSync( "echo %PATH%",{ encoding: 'utf8',timeout: 30000 })
-      let check = path.includes('System32')
+      const path = execSync( "echo %PATH%",{ encoding: 'utf8',timeout: 30000 }).toLowerCase()
+      let check = path.includes('system32')
       if ( check === false ) {
         console.log('')
         console.log("ERROR: it appears C:\\Windows\\System32 is missing from your PATH.  Please add to your path and try again.")

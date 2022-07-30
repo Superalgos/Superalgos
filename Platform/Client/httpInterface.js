@@ -165,6 +165,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                 case 'getUserWalletBalance': {
 
                                     let serverResponse = await PL.servers.WEB3_SERVER.getUserWalletBalance(
+                                        params.chain,
                                         params.walletAddress,
                                         params.contractAddress
                                     )
@@ -2649,8 +2650,10 @@ exports.newHttpInterface = function newHttpInterface() {
 
 
                                     await PL.servers.WEB3_SERVER.payContributors(
-                                        params.contractAddress,
-                                        params.contractAbi,
+                                        params.contractAddressDict,
+                                        params.treasuryAccountDict,
+                                        params.contractABIDict,
+                                        params.decimalFactorDict,
                                         params.paymentsArray,
                                         params.mnemonic
                                     )

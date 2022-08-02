@@ -2,7 +2,7 @@
 # coding: utf-8
 
 # ##### Bitcoin Factory Machine Learning
-# 
+#
 
 # # Multivariate Time Series Forecasting with LSTMs in Keras
 
@@ -19,17 +19,17 @@
 # ## Libraries Used
 
 # In[1]:
-
-
-
+import json
+from json import JSONEncoder
 from math import sqrt
+
+import numpy
 from numpy import concatenate
 from matplotlib import pyplot
 from pandas import read_csv
 from pandas import DataFrame
 from pandas import concat
 from sklearn.preprocessing import MinMaxScaler
-from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import mean_squared_error
 from keras.models import Sequential
 from keras.layers import Dense
@@ -41,6 +41,11 @@ from keras.models import load_model
 
 # In[2]:
 
+class NumpyArrayEncoder(JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, numpy.ndarray):
+            return obj.tolist()
+        return JSONEncoder.default(self, obj)
 
 # convert series to supervised learning
 def series_to_supervised(data, n_in=1, n_out=1, dropnan=True):
@@ -64,8 +69,8 @@ def series_to_supervised(data, n_in=1, n_out=1, dropnan=True):
 	# drop rows with NaN values
 	if dropnan:
 		agg.dropna(inplace=True)
-	return agg 
- 
+	return agg
+
 
 
 # ## Load the Instructions Dataset
@@ -74,9 +79,9 @@ def series_to_supervised(data, n_in=1, n_out=1, dropnan=True):
 
 
 instructions_dataset = read_csv(
-    '/tf/notebooks/instructions.csv', 
-    header=0, 
-    sep=' ', 
+    '/tf/notebooks/instructions.csv',
+    header=0,
+    sep=' ',
     skipinitialspace=True
 )
 
@@ -94,15 +99,15 @@ MODEL_FILE_NAME = instructions_dataset.values[1][1]
 
 
 # ## Load the Parameters Dataset
-# 
+#
 
 # In[5]:
 
 
 parameters_dataset = read_csv(
-    '/tf/notebooks/parameters.csv', 
-    header=0, 
-    sep=' ', 
+    '/tf/notebooks/parameters.csv',
+    header=0,
+    sep=' ',
     skipinitialspace=True
 )
 
@@ -137,7 +142,7 @@ if set(['PARAMETER']).issubset(parameters_dataset.columns):
     NUMBER_OF_LSTM_NEURONS = int(parameters_dataset.values[9][1])
 
 else:
-    
+
     NUMBER_OF_INDICATORS_PROPERTIES = int(parameters_dataset['NUMBER_OF_INDICATORS_PROPERTIES'][0])
     # number of timesteps in the secuence that we are going to use to feed the model.
     NUMBER_OF_LAG_TIMESTEPS = int(parameters_dataset['NUMBER_OF_LAG_TIMESTEPS'][0])
@@ -164,10 +169,10 @@ else:
 
 
 timeseries_dataset = read_csv(
-    '/tf/notebooks/time-series.csv', 
-    header=0, 
+    '/tf/notebooks/time-series.csv',
+    header=0,
     index_col=0,    #The first colum is a timestamp that will be used to index all the data.
-    sep=' ', 
+    sep=' ',
     skipinitialspace=True
 )
 
@@ -227,7 +232,7 @@ pyplot.show()
 
 # ## Normalization
 
-# Normalizing or removing the scale, is a standar prodcedure of any machine learning workflow. 
+# Normalizing or removing the scale, is a standar prodcedure of any machine learning workflow.
 
 # In[13]:
 
@@ -290,7 +295,7 @@ test.shape
 
 # ## Split into Input and Outputs
 
-# Here we will split both the Train and the Test datasets into features and labels. 
+# Here we will split both the Train and the Test datasets into features and labels.
 # Features will be all the information where time < 0. For the labels, we will pick only the first 2 fields of each set of indicator properties, which we expect them to contain the Candle Max and Candle Min for each Asset.
 
 # In[20]:
@@ -355,11 +360,10 @@ if ACTION_TO_TAKE == "BUILD_AND_SAVE_MODEL":
 # In[25]:
 
 
-print('{')
-print('"trainingOutput": "')
 
 
-# This is the actual process of training the neural network. 
+
+# This is the actual process of training the neural network.
 
 # In[26]:
 
@@ -367,20 +371,14 @@ print('"trainingOutput": "')
 if ACTION_TO_TAKE == "BUILD_AND_SAVE_MODEL":
     # fit network
     history = model.fit(
-        train_X, 
-        train_y, 
-        epochs=NUMBER_OF_EPOCHS, 
-        batch_size=72, 
-        validation_data=(test_X, test_y), 
-        verbose=2, 
+        train_X,
+        train_y,
+        epochs=NUMBER_OF_EPOCHS,
+        batch_size=72,
+        validation_data=(test_X, test_y),
+        verbose=0,
         shuffle=False
-    )         
-
-
-# In[27]:
-
-
-print('"')
+    )
 
 
 # ## Save the Model
@@ -408,7 +406,7 @@ if ACTION_TO_TAKE == "BUILD_AND_SAVE_MODEL":
 
 # ## Batch Prediction of all Test Records
 
-# Here we take all Test Records and get a prediction for each one of them. 
+# Here we take all Test Records and get a prediction for each one of them.
 
 # In[30]:
 
@@ -425,7 +423,7 @@ yhat
 
 
 # ## Reversing Normalization
-# 
+#
 # For inverting the scale (denormalize) of a test record, we need first to unframe the test_X values so as the get the original record. Since the label was the first colum of the record, we concatenate the prediction to the last columns of the framed record.
 
 # In[32]:
@@ -472,7 +470,7 @@ errors = errors.astype('int') / 100
 errors
 
 
-# ### Plot of the % of Error of each Predicted Value 
+# ### Plot of the % of Error of each Predicted Value
 
 # In[36]:
 
@@ -489,19 +487,17 @@ pyplot.show()
 # In[37]:
 
 
-diff = (inv_yhat - inv_y) 
+diff = (inv_yhat - inv_y)
 diff = diff.astype('float32')
 diff
 
 
 # ## Returning Predictions & Errors
 
-# Here we are returning the predictions to the caller program. Only the last row of predictions are needed because they belong to the latest closed candle. 
+# Here we are returning the predictions to the caller program. Only the last row of predictions are needed because they belong to the latest closed candle.
 
 # In[38]:
-
-
-print(',"predictions": "', inv_yhat[-1], '"' )
+print('{"predictions": ', json.dumps(inv_yhat[-1], cls=NumpyArrayEncoder))
 
 
 # In[39]:
@@ -511,6 +507,6 @@ print(',"errorRMSE": %.3f' % rmse)
 print('}')
 
 
-# ##### 
+# #####
 
-# ###### 
+# ######

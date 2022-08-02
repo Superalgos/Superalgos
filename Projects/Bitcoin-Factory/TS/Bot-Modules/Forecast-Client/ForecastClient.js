@@ -372,9 +372,10 @@
         function onFinished(dataReceived) {
             try {
 
-                processExecutionResult = JSON.parse(dataReceived)
-                processExecutionResult.predictions = fixJSON(processExecutionResult.predictions)
-                processExecutionResult.predictions = JSON.parse(processExecutionResult.predictions)
+                let index = dataReceived.indexOf('{')
+                dataReceived = dataReceived.substring(index)
+                console.log(dataReceived)
+                processExecutionResult = JSON.parse(fixJSON(dataReceived))
 
                 console.log('Prediction RMSE Error: ' + processExecutionResult.errorRMSE)
                 console.log('Predictions [candle.max, candle.min, candle.close]: ' + processExecutionResult.predictions)
@@ -523,6 +524,7 @@
         */
         for (let i = 0; i < 10; i++) {
             text = text.replace(" [", "[")
+            text = text.replace("[ ", "[")
             text = text.replace(" ]", "]")
             text = text.replace("  ]", "]")
             text = text.replace("   ]", "]")
@@ -530,12 +532,6 @@
             text = text.replace("     ]", "]")
             text = text.replace("      ]", "]")
             text = text.replace("] ", "]")
-        }
-        for (let i = 0; i < 100; i++) {
-            text = text.replace("  ", ",")
-        }
-        for (let i = 0; i < 100; i++) {
-            text = text.replace(" ", ",")
         }
         for (let i = 0; i < 10; i++) {
             text = text.replace(",,", ",")

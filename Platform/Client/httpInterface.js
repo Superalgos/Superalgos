@@ -172,6 +172,17 @@ exports.newHttpInterface = function newHttpInterface() {
                                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
                                     return
                                 }
+                                case 'getLPTokenBalance': {
+
+                                    let serverResponse = await PL.servers.WEB3_SERVER.getLPTokenBalance(
+                                        params.chain,
+                                        params.contractAddressSA,
+                                        params.contractAddressLP
+                                    )
+
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
+                                    return
+                                }
                                 case 'getWalletBalances': {
 
                                     let serverResponse = await PL.servers.WEB3_SERVER.getWalletBalances(

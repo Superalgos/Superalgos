@@ -1,0 +1,64 @@
+{
+    "topic": "Trends Data Mine",
+    "pageNumber": "6",
+    "type": "TRAMA",
+    "definition": {
+        "text": "The Trend Regularity Adaptive Moving Average (TRAMA) adapts to the average number of highest highs and lowest lows over a specified period."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "TRAMA on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "Originally by Luxalgo on tradingview, the TRAMA can be used in a similar way to most moving averages, or can be used as a trailing support/resistance line."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Trends-TRAMA.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| TRAMA | TRAMA | value |"
+        },
+        {
+            "style": "Text",
+            "text": "The indicator's parameters can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"TRAMA\" Procedure Loop.",
+            "updated": 1659507055161
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Trends-TRAMA-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:",
+            "updated": 1659507065196
+        },
+        {
+            "style": "Text",
+            "text": "This indicator can be used to enter a trade when the price action rises above the TRAMA value:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.candle.close > chart.at01hs.TRAMA.value"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

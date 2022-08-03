@@ -15,7 +15,7 @@ function newGovernanceUserProfileSpace() {
         initialize: initialize
     }
 
-    const BSC_SCAN_RATE_LIMIT_DELAY = 6000 * 6
+    //const BSC_SCAN_RATE_LIMIT_DELAY = 6000 * 6
     let reputationByAddress = new Map()
     const SATokenList = UI.projects.governance.globals.saToken.SA_TOKEN_LIST
     let waitingForResponses = SATokenList.length

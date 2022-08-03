@@ -304,15 +304,15 @@ function newGovernanceReportsCommmandInterface() {
             }
 
             function getUserPayoutChainDetails(userProfile) {
-                /* This function will return technical details for the user-chosen governance reward payout chain in the future. As of now, it always returns the default fallback. */
                 let payoutChainDetails = undefined
                 if (userProfile === undefined) {
                     return payoutChainDetails
                 }
 
-                if (payoutChainDetails === undefined) {
-                    payoutChainDetails = UI.projects.governance.utilities.chains.getDefaultPayoutChainDetails()
-                }
+                /* This function will return details for the user-chosen governance reward payout chain in the future. As of now, it always returns the default fallback. */
+//                if (payoutChainDetails === undefined) {
+                payoutChainDetails = UI.projects.governance.utilities.chains.getDefaultPayoutChainDetails()
+//                }
                 return payoutChainDetails
             }
         }

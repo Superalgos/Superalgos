@@ -56,7 +56,7 @@
         },
         {
             "style": "Text",
-            "text": "Images must the stored in the following path: \\BackendServers\\WebServer\\Images\\Icons\\style-01",
+            "text": "Images must the stored in the following path: Projects/Foundations/Icons/",
             "translations": [
                 {
                     "language": "RU",
@@ -69,7 +69,8 @@
                     "updated": 1654419607535,
                     "style": "Text"
                 }
-            ]
+            ],
+            "updated": 1658985357132
         },
         {
             "style": "Note",

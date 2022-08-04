@@ -1,0 +1,65 @@
+{
+    "topic": "Trends Data Mine",
+    "pageNumber": "7",
+    "type": "Hull Suite",
+    "definition": {
+        "text": "The Hull suite uses two Hull Moving Averages to display the trend direction.",
+        "updated": 1659509253128
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Hull Suite on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "The Hull Suite, originally by InSilico on TradingView, basically plots the Hull Moving Average against its own value from 2 periods ago. This has the effect of highlighting the current trend direction when viewed on the chart.",
+            "updated": 1659509276498
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Trends-Hull-Suite.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Hull-Suite | hullSuite | value, hull2 |"
+        },
+        {
+            "style": "Text",
+            "text": "The indicator's parameters can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Initialization under \"Hull Suite\" Procedure Loop."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Trends-Hull-Suite-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator can be used to enter a trade when the price action rises above the Hull Suite value:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at02hs.candle.close > chart.at02hs.hullSuite.value && chart.at02hs.hullSuite.value > chart.at02hs.hullSuite.hull2",
+            "updated": 1659507768889
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

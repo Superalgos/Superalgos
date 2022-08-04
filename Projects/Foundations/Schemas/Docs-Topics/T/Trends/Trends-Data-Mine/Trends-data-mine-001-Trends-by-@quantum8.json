@@ -28,6 +28,23 @@
             "text": "3) ZLSMA"
         },
         {
+            "style": "List",
+            "text": "4) TRAMA",
+            "updated": 1659511207556
+        },
+        {
+            "style": "List",
+            "text": "5) Hull Suite"
+        },
+        {
+            "style": "List",
+            "text": "6) Pinbar Rejection"
+        },
+        {
+            "style": "List",
+            "text": "7) SMMA"
+        },
+        {
             "style": "Title",
             "text": "Maintainer:"
         },

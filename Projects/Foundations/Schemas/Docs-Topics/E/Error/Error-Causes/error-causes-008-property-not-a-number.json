@@ -15,6 +15,11 @@
                 "language": "DE",
                 "text": "Diese Art von Fehler bedeutet, dass eine Eigenschaft in der Konfiguration eines Nodes als Zahl erwartet wird, aber der Wert dort keine Zahl ist. Um diese Art von Fehlern zu vermeiden, überprüfen Sie die Konfiguration des Nodes und stellen Sie sicher, dass die genannte Eigenschaft tatsächlich eine Zahl ist.",
                 "updated": 1645478521051
+            },
+            {
+                "language": "TR",
+                "text": "Bu tür bir hata, bir düğümün yapılandırmasındaki bir özelliğin bir sayı olmasının beklendiği, ancak oradaki değerin olmadığı anlamına gelir. Bu tür hatalardan kaçınmak için düğümün yapılandırmasını kontrol edin ve belirtilen özelliğin gerçekten bir sayı olduğundan emin olun.",
+                "updated": 1652297251563
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования. Затем вы можете использовать docs.save для сохранения изменений и app.contribute для отправки в основной репозиторий.",
                     "updated": 1638553379219
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle. Yeni paragraflar yazmak için ENTER'a basın. Düzenleme modundan çıkmak için ESC. Ardından docs.save değişikliklerinizi kaydetmek ve app.contribute ana depoya göndermek için kullanabilirsiniz.",
+                    "updated": 1652297178347
                 }
             ]
         }

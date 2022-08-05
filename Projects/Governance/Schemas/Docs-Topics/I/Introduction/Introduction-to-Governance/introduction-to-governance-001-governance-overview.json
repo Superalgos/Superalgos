@@ -410,7 +410,15 @@
         {
             "style": "Include",
             "text": "Governance->Concept->Reusable Governance Snippets->Computational Limitations",
-            "updated": 1630091330176
+            "updated": 1630091330176,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yönetişim->Kavram->Yeniden Kullanılabilir Yönetişim Parçacıkları->Bilişimsel Sınırlamalar",
+                    "updated": 1654395492284,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Block",

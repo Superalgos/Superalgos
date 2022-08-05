@@ -1,6 +1,6 @@
 {
     "topic": "Docs Commands Errors",
-    "pageNumber": 2,
+    "pageNumber": "2",
     "type": "Docs Error - Too Few Parameters",
     "definition": {
         "text": "The system expects more parameters. This may happen when you effectively missed a parameter or when a syntax error breaks the command.",
@@ -15,13 +15,26 @@
                 "language": "RU",
                 "text": "Система ожидает большего количества параметров. Это может произойти, если вы фактически пропустили параметр или когда синтаксическая ошибка нарушает команду.",
                 "updated": 1638529070203
+            },
+            {
+                "language": "TR",
+                "text": "Sistem daha fazla parametre bekliyor. Bu, bir parametreyi etkin bir şekilde kaçırdığınızda veya bir sözdizimi hatası komutu kesintiye uğrattığında gerçekleşebilir.",
+                "updated": 1651993840019
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Anchor",
-            "text": "Anchor Too Few Paramenters"
+            "text": "Anchor Too Few Paramenters",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Çapa Çok Az Paramenter",
+                    "updated": 1654393357351,
+                    "style": "Anchor"
+                }
+            ]
         },
         {
             "style": "Error",
@@ -32,6 +45,11 @@
                     "language": "DE",
                     "text": "Syntax error: Zu wenige Parameter.",
                     "updated": 1633895826441
+                },
+                {
+                    "language": "TR",
+                    "text": "Sözdizimi hatası: Çok az parametre.",
+                    "updated": 1651993882980
                 }
             ]
         },
@@ -49,6 +67,11 @@
                     "language": "RU",
                     "text": "Проверьте синтаксис команды, чтобы получить подробный список требуемых параметров.",
                     "updated": 1638529104626
+                },
+                {
+                    "language": "TR",
+                    "text": "Gerekli parametrelerin ayrıntılı listesi için komut sözdizimini denetleyin.",
+                    "updated": 1651993910827
                 }
             ]
         },
@@ -66,26 +89,64 @@
                     "language": "RU",
                     "text": "Относится к",
                     "updated": 1638529117120
+                },
+                {
+                    "language": "TR",
+                    "text": "Şunlar için geçerlidir",
+                    "updated": 1654393364632,
+                    "style": "Title"
                 }
             ]
         },
         {
             "style": "List",
             "text": "Docs Goto Command",
-            "updated": 1609177214092
+            "updated": 1609177214092,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Docs Goto Komutu",
+                    "updated": 1654393370784,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Docs Add Command",
-            "updated": 1609180038275
+            "updated": 1609180038275,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Dokümanlar Komut Ekle",
+                    "updated": 1654393376594,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Docs Delete Command"
+            "text": "Docs Delete Command",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Dokümanlar Silme Komutu",
+                    "updated": 1654393383085,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Docs Repaginate Command"
+            "text": "Docs Repaginate Command",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Docs Repaginate Komutu",
+                    "updated": 1654393389582,
+                    "style": "List"
+                }
+            ]
         }
     ]
 }

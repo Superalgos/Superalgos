@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Негерметичная версия ректифицированной линейной установки.",
                 "updated": 1645248449607
+            },
+            {
+                "language": "TR",
+                "text": "Doğrultulmuş lineer ünitenin sızdıran versiyonu.",
+                "updated": 1654397286783
             }
         ]
     },
@@ -21,6 +26,12 @@
                     "language": "RU",
                     "text": "Он обеспечивает небольшой уклон, когда устройство не активно:",
                     "updated": 1645248457231
+                },
+                {
+                    "language": "TR",
+                    "text": "Ünite aktif değilken küçük bir eğime izin verir:",
+                    "updated": 1654397293584,
+                    "style": "Text"
                 }
             ]
         },
@@ -36,6 +47,12 @@
                     "language": "RU",
                     "text": "Input shape: Произвольный. Используйте конфигурацию inputShape при использовании этого слоя в качестве первого слоя в модели.",
                     "updated": 1645248467469
+                },
+                {
+                    "language": "TR",
+                    "text": "Giriş şekli: Keyfi. Bu katmanı bir modelde ilk katman olarak kullanırken inputShape yapılandırmasını kullanın.",
+                    "updated": 1654397299673,
+                    "style": "List"
                 }
             ]
         },
@@ -47,6 +64,12 @@
                     "language": "RU",
                     "text": "Output shape: Та же форма, что и у входа.",
                     "updated": 1645248474730
+                },
+                {
+                    "language": "TR",
+                    "text": "Çıkış şekli: Giriş ile aynı şekil.",
+                    "updated": 1654397308313,
+                    "style": "List"
                 }
             ]
         }

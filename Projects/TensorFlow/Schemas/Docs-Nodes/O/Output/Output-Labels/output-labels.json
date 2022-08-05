@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Выходные метки - это то, что мы прогнозируем - переменная y в простой линейной регрессии. Меткой может быть будущая цена на пшеницу, вид животного, изображенного на фотографии, смысл аудиоклипа или практически все, что угодно.",
                 "updated": 1645249203437
+            },
+            {
+                "language": "TR",
+                "text": "Çıktı etiketleri tahmin ettiğimiz şeylerdir - basit doğrusal regresyondaki y değişkeni. Etiket, buğdayın gelecekteki fiyatı, bir resimde gösterilen hayvan türü, bir ses klibinin anlamı veya hemen hemen her şey olabilir.",
+                "updated": 1654397393582
             }
         ]
     },
@@ -20,6 +25,12 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
                     "updated": 1645249208384
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
+                    "updated": 1654397399251,
+                    "style": "Text"
                 }
             ]
         }

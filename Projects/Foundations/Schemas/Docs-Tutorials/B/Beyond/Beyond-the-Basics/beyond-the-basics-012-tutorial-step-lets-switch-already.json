@@ -1,14 +1,14 @@
 {
     "tutorial": "Beyond the Basics",
-    "pageNumber": 12,
+    "pageNumber": "12",
     "type": "Tutorial Step - Let's Switch Already!",
     "definition": {
         "text": "Now that everything's clear, let's do the switch and get ready for what comes next!",
+        "updated": 1617019411568,
         "icon": {
             "name": "Docs\\docs-success-style",
             "project": "Foundations"
         },
-        "updated": 1617019411568,
         "translations": [
             {
                 "language": "IT",
@@ -66,6 +66,12 @@
                     "language": "RU",
                     "text": "Вот что вам нужно сделать:",
                     "updated": 1640158582221
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapmanız gereken şey bu:",
+                    "updated": 1654393904677,
+                    "style": "Text"
                 }
             ]
         },

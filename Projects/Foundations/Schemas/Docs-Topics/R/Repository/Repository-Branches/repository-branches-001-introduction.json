@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Репозиторий Superalgos имеет 4 основные ветки, каждая из которых имеет свое назначение: Master, Develop, Plugins-Docs и Next-Version.",
                 "updated": 1640352962983
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Superalgos Deposu, her birinin kendi amacı olan 4 ana dalı vardır: Master, Develop, Plugins-Docs ve Next-Version.",
+                "updated": 1650621802726
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Ветка Plugins-Docs является устаревшей. Все материалы теперь направляются в ветку develop. Если у вас есть вопросы по этому поводу, не стесняйтесь задавать их в группах Telegram.",
                     "updated": 1640352991741
+                },
+                {
+                    "language": "TR",
+                    "text": "Uyarı: Eklentiler-Belgeler Şubesi  (Plugins-Docs Branch ) GEÇMİŞTİR. Tüm katkılar artık geliştirme şubesine gidiyor. Bununla ilgili sorularınız varsa, Telegram gruplarında sormaktan çekinmeyin.",
+                    "updated": 1650621857621
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования. Затем вы можете использовать docs.save для сохранения изменений и app.contribute для отправки в основной репозиторий.",
                     "updated": 1640353003741
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle. Yeni paragraflar yazmak için ENTER'a basın. Düzenleme modundan çıkmak için ESC. Ardından, değişikliklerinizi kaydetmek için docs.save'i ve ana depoya göndermek için app.contribute'i kullanabilirsiniz.",
+                    "updated": 1650621877386
                 }
             ]
         },

@@ -10,6 +10,7 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
 
     let fileStorage = TS.projects.foundations.taskModules.fileStorage.newFileStorage(processIndex)
     let statusDependencies
+    let lastQueryRun                                                                                     // This holds the epoch value of the last run value passed to the query string.
 
     return thisObject;
 
@@ -81,7 +82,7 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                             processIndex,
                             MODULE_NAME,
                             'API Data Fetcher Bot',
-                            undefined,
+                            { errorDetails: "startProcess -> API Map Reference Node Missing. " },
                             'API Map Reference Node Missing',
                             TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex]
                         )
@@ -93,7 +94,7 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                             processIndex,
                             MODULE_NAME,
                             'API Data Fetcher Bot',
-                            undefined,
+                            { errorDetails: "startProcess -> API Map Reference Parent Missing. " },
                             'Reference Parent Missing',
                             TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].apiMapReference
                         )
@@ -109,7 +110,7 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                             processIndex,
                             MODULE_NAME,
                             'API Data Fetcher Bot',
-                            { missingProperty: "hostName" },
+                            { errorDetails: "startProcess -> API Map Config hostName property missing. ", missingProperty: "hostName" },
                             'Config Property Missing',
                             apiMap
                         )
@@ -134,7 +135,7 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                             processIndex,
                             MODULE_NAME,
                             'API Data Fetcher Bot',
-                            undefined,
+                            { errorDetails: "startProcess -> API Version Node Missing. " },
                             'API Version Node Missing',
                             apiMap
                         )
@@ -144,7 +145,7 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                             processIndex,
                             MODULE_NAME,
                             'API Data Fetcher Bot',
-                            undefined,
+                            { errorDetails: "startProcess -> Process Output Node Missing. " },
                             'Process Output Node Missing',
                             processNode
                         )
@@ -174,6 +175,8 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                         let dataReceivedArray = []                                          // This hold the cumulative data received from all calls to the API (multiple pages of data).
                         let dataReceivedObject                                              // This hold a single data object when there is no pagination. The Data object is a node within the whole response received from the API.
                         let pageNumberParameter                                             // This holds the node that represents a Page Number parameter.
+                        let pageToken                                                       // This holds the current Page Token value.
+                        let pageTokenPath                                                   // This holds the path within apiData to the Page Token.
                         let pageQueryString = ""                                            // This holds the node part of query sting that deals with page numbers 
                         let recordPropertiesNodePathMap = new Map()                         // This holds the calculated nodePath for each record property, in order to help find the property value on the data received.
 
@@ -211,7 +214,7 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                                 processIndex,
                                                 MODULE_NAME,
                                                 'API Data Fetcher Bot',
-                                                undefined,
+                                                { errorDetails: "getApiEndpointAndSchema -> API Response Field Not Descendant From Endpoint. " },
                                                 'API Response Field Not Descendant From Endpoint',
                                                 apiResponseField
                                             )
@@ -233,7 +236,7 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                                 processIndex,
                                                 MODULE_NAME,
                                                 'API Data Fetcher Bot',
-                                                undefined,
+                                                { errorDetails: "getApiEndpointAndSchema -> More Than Two API Endpoints Detected. " },
                                                 'More Than Two Endpoints Detected',
                                                 apiResponseField
                                             )
@@ -276,6 +279,7 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                     if (recordProperty.apiResponseFieldReference.referenceParent !== undefined) {
                                         let apiResponseField = recordProperty.apiResponseFieldReference.referenceParent
                                         let nodePath = getPath(apiResponseField)
+                                        nodePath = nodePath.replace('..','.')
                                         recordPropertiesNodePathMap.set(recordProperty.config.codeName, nodePath)
 
                                         function getPath(node, path) {
@@ -343,12 +347,9 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                 This will be treated differently since we will need to iterate to get each possible page.
                                 The page number will no be added here to the query string.
                                 */
-                                if (apiQueryParameter.config.isPageNumber === true) {
+                                if (apiQueryParameter.config.isPageNumber === true || apiQueryParameter.config.isPageToken) {
                                     pageNumberParameter = apiQueryParameter
                                 } else {
-                                    /*
-                                    Whatever is in Value is the default value.
-                                    */
                                     if (apiQueryParameter.config.codeName !== undefined && apiQueryParameter.config.value !== undefined) {
                                         parametersMap.set(apiQueryParameter.config.codeName, apiQueryParameter.config.value)
                                     }
@@ -465,6 +466,16 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                         parameterValue = Math.trunc((new Date()).valueOf() / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS) * SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS
                                         break
                                     }
+                                    case '@LastQueryRunISO1601': {
+                                        if (lastQueryRun !== undefined) {
+                                            parameterValue = new Date(new Date(thisReport.file.lastQueryRun).valueOf() + SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS).toISOString()
+                                            lastQueryRun = parameterValue
+                                        } else {
+                                            parameterValue = new Date(((new Date()).valueOf()) - SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS).toISOString()
+                                            lastQueryRun = parameterValue
+                                        }
+                                        break
+                                    }
                                     case '@EndCurrentMinute': {
                                         parameterValue = Math.trunc((new Date()).valueOf() / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS) * SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS + SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS - 1
                                         break
@@ -506,66 +517,133 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                 of pages available to fetch, and we will also assume that once we get an empty array
                                 that will mean that we have requested already the last page with data.
                                 */
-                                let initialPage = 1
-                                let finalPage = 1 // Number.MAX_SAFE_INTEGER
-                                if (thisReport.file.lastPage !== undefined) {
-                                    initialPage = thisReport.file.lastPage[endpointNode.config.codeName]
-                                }
 
-                                for (let page = initialPage; page <= finalPage; page++) {
-                                    if (queryString === "") {
-                                        pageQueryString = "?" + pageNumberParameter.config.codeName + "=" + page
-                                    } else {
-                                        pageQueryString = "&" + pageNumberParameter.config.codeName + "=" + page
+                                if (pageNumberParameter.config.isPageNumber === true) {
+                                    let initialPage = 1
+                                    let finalPage = 1 // Number.MAX_SAFE_INTEGER
+                                    if (thisReport.file.lastPage !== undefined) {
+                                        initialPage = thisReport.file.lastPage[endpointNode.config.codeName]
                                     }
-                                    lastPage[endpointNode.config.codeName] = page
 
-                                    await sleep(apiMap.config.millisecondsBetweenCalls)
-                                    let fetchResult = await fetchAPIData()
+                                    for (let page = initialPage; page <= finalPage; page++) {
+                                        if (queryString === "") {
+                                            pageQueryString = "?" + pageNumberParameter.config.codeName + "=" + page
+                                        } else {
+                                            pageQueryString = "&" + pageNumberParameter.config.codeName + "=" + page
+                                        }
 
-                                    switch (fetchResult) {
-                                        case 'NO_CONNECTION': {
-                                            /*
-                                            When there is not Internet Connection or the server can not be reached
-                                            we will return requesting a retry later.
-                                            */
-                                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[WARN] start -> fetchAllPages -> Server not found or no Internet Connection. Requesting a Retry. ")
-                                            callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
-                                            return 'RETRYING'
-                                        }
-                                        case 'UNEXPECTED_API_RESPONSE': {
-                                            /*
-                                            Any unexpected response will abort this loop and allow the process to continue,
-                                            possibly saving accumulated data.
-                                            */
-                                            page = finalPage
-                                            break
-                                        }
-                                        case 'ERROR_CODE_RECEIVED': {
-                                            /*
-                                            An error code at the response will abort this loop and allow the process to continue,
-                                            possibly saving accumulated data.
-                                            */
-                                            page = finalPage
-                                            break
-                                        }
-                                        case 'NO_MORE_PAGES': {
-                                            /*
-                                            We will just abort this loop and continue.
-                                            */
-                                            page = finalPage
-                                            break
-                                        }
-                                        case 'PAGE_FETCHED': {
-                                            /*
-                                            Just stay at the current loop and try to fetch more pages.
-                                            This is how we accumulate the data from multiple pages into a single array.
-                                            */
-                                            dataReceivedArray = dataReceivedArray.concat(apiData)
-                                            break
+                                        lastPage[endpointNode.config.codeName] = page
+
+                                        await sleep(apiMap.config.millisecondsBetweenCalls)
+                                        let fetchResult = await fetchAPIData()
+
+                                        switch (fetchResult) {
+                                            case 'NO_CONNECTION': {
+                                                /*
+                                                When there is not Internet Connection or the server can not be reached
+                                                we will return requesting a retry later.
+                                                */
+                                                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                    "[WARN] start -> fetchAllPages -> Server not found or no Internet Connection. Requesting a Retry. ")
+                                                callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
+                                                return 'RETRYING'
+                                            }
+                                            case 'UNEXPECTED_API_RESPONSE': {
+                                                /*
+                                                Any unexpected response will abort this loop and allow the process to continue,
+                                                possibly saving accumulated data.
+                                                */
+                                                page = finalPage
+                                                break
+                                            }
+                                            case 'ERROR_CODE_RECEIVED': {
+                                                /*
+                                                An error code at the response will abort this loop and allow the process to continue,
+                                                possibly saving accumulated data.
+                                                */
+                                                page = finalPage
+                                                break
+                                            }
+                                            case 'NO_MORE_PAGES': {
+                                                /*
+                                                We will just abort this loop and continue.
+                                                */
+                                                page = finalPage
+                                                break
+                                            }
+                                            case 'PAGE_FETCHED': {
+                                                /*
+                                                Just stay at the current loop and try to fetch more pages.
+                                                This is how we accumulate the data from multiple pages into a single array.
+                                                */
+                                                dataReceivedArray = dataReceivedArray.concat(apiData)
+                                                break
+                                            }
                                         }
                                     }
+                                } else if (pageNumberParameter.config.isPageToken === true) {
+
+                                    pageToken = undefined
+
+                                    do {
+
+                                        if (pageToken !== undefined) {
+                                            if (queryString === "") {
+                                                pageQueryString = "?" + pageNumberParameter.config.codeName + "=" + pageToken
+                                            } else {
+                                                pageQueryString = "&" + pageNumberParameter.config.codeName + "=" + pageToken
+                                            }
+                                        }
+
+                                        await sleep(apiMap.config.millisecondsBetweenCalls)
+                                        let fetchResult = await fetchAPIData()
+
+                                        switch (fetchResult) {
+                                            case 'NO_CONNECTION': {
+                                                /*
+                                                When there is not Internet Connection or the server can not be reached
+                                                we will return requesting a retry later.
+                                                */
+                                                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                    "[WARN] start -> fetchAllPages -> Server not found or no Internet Connection. Requesting a Retry. ")
+                                                callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
+                                                return 'RETRYING'
+                                            }
+                                            case 'UNEXPECTED_API_RESPONSE': {
+                                                /*
+                                                Any unexpected response will abort this loop and allow the process to continue,
+                                                possibly saving accumulated data.
+                                                */
+                                                pageToken = false
+                                                break
+                                            }
+                                            case 'ERROR_CODE_RECEIVED': {
+                                                /*
+                                                An error code at the response will abort this loop and allow the process to continue,
+                                                possibly saving accumulated data.
+                                                */
+                                                pageToken = false
+                                                break
+                                            }
+                                            case 'NO_MORE_PAGES': {
+                                                /*
+                                                A page token is slightly to a page, for a page you continue until you find a blank page.
+                                                For a page token you continue until you don't get a token, but still need to concat the last data.
+                                                */
+                                                dataReceivedArray = dataReceivedArray.concat(apiData)
+                                                pageToken = false
+                                                break
+                                            }
+                                            case 'PAGE_FETCHED': {
+                                                /*
+                                                Just stay at the current loop and try to fetch more pages.
+                                                This is how we accumulate the data from multiple pages into a single array.
+                                                */
+                                                dataReceivedArray = dataReceivedArray.concat(apiData)
+                                                break
+                                            }
+                                        }
+                                    } while(pageToken !== false)
                                 }
                             }
 
@@ -599,7 +677,30 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                     "[INFO] start -> startProcess -> fetchAPIData -> url = " + url)
 
-                                fetch(url)
+                                /*
+                                Look to see if there is a key reference and if so include the keys in the fetch headers
+                                 */
+
+                                let apiAuthKey = TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference.referenceParent
+                                let options = {}
+
+                                if (apiAuthKey !== undefined) {
+                                    let authKeyConfig = apiAuthKey.config
+
+                                    if (authKeyConfig !== undefined) {
+                                        if (authKeyConfig.bearer_token !== undefined) {
+                                            let token =  authKeyConfig.bearer_token
+                                            let method = "GET";
+                                            options['method'] = method
+                                            options['headers'] = {
+                                                "Content-type": "application/json",
+                                                Authorization: "Bearer " + token,
+                                            }
+                                        }
+                                    }
+                                }
+                                
+                                fetch(url, options)
                                     .then((response) => {
 
                                         let apiResponseSchemaNode
@@ -709,65 +810,53 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                                 */
                                                 apiResponseReceivedObject = JSON.parse(apiResponseReceivedText)
                                                 apiData = eval(apiResponseSchemaNode.config.nodePath)
+
+                                                /*
+                                                If we are using a Page Token, we need to search the apiData for the Page Token and set it for the next pull
+                                                */
+
+                                                pageTokenPath = undefined
+
+                                                if(pageNumberParameter !== undefined) {
+                                                    if (pageNumberParameter.config.isPageToken === true) {
+                                                        getPageTokenPath(apiResponseSchemaNode.apiResponseFields)
+
+                                                        function getPageTokenPath(node) {
+                                                            if (node.config.isPageToken !== undefined) {
+                                                                getPath(node)
+
+                                                                function getPath(nodeToSearch) {
+                                                                    if (nodeToSearch.config.codeName !== "") {
+                                                                        if (pageTokenPath !== undefined) {
+                                                                            pageTokenPath = nodeToSearch.config.codeName + "." + pageTokenPath
+                                                                        } else {
+                                                                            pageTokenPath = nodeToSearch.config.codeName
+                                                                        }
+                                                                    }
+
+                                                                    if (nodeToSearch.parentNode !== undefined) {
+                                                                        getPath(nodeToSearch.parentNode)
+                                                                    } else {
+                                                                        pageToken = pageTokenPath
+                                                                    }
+                                                                }
+                                                                return
+                                                            }
+                                                            if (node.apiResponseFields.length > 0) {
+                                                                for(let i = 0; i < node.apiResponseFields.length; i++) {
+                                                                    getPageTokenPath(node.apiResponseFields[i])
+                                                                }
+                                                            }
+                                                        }
+                                                        pageToken = eval('apiData.' + pageTokenPath)
+                                                    }
+                                                }
+
                                                 /*
                                                 We will expect the apiData to be an Array.  Depending if it has data or not we will return
                                                 NO_MORE_PAGES or PAGE_FETCHED so that pagination procedure knows when to stop.
                                                 */
-                                                if (apiData.length === 0) {
-                                                    resolve('NO_MORE_PAGES')
-                                                } else {
-                                                    resolve('PAGE_FETCHED')
-                                                }
-                                                /*
-                                                If we received an error code, we abort the processing at this point.
-                                                */
-                                                if (errorCodeReceived === true) {
-                                                    resolve('ERROR_CODE_RECEIVED')
-                                                    return
-                                                }
-                                                /*
-                                                Here we will validate that the overall format is what we are expecting.
-                                                */
-                                                switch (apiResponseSchemaNode.apiResponseFields.config.fieldType) {
-                                                    case 'object': {
-                                                        /*
-                                                        If we did not received an object, that probably means something is not 
-                                                        good, and we got an HTML with the reason inside.
-                                                        */
-                                                        if (apiResponseReceivedText.substring(0, 1) !== "{") {
-                                                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                                "[WARN] start -> startProcess -> fetchAllPages -> fetchAPIData -> onResponse -> onEnd -> Unexpected Response. Not an JSON Object. ->  apiResponseReceivedText = " + apiResponseReceivedText)
-                                                            resolve('UNEXPECTED_API_RESPONSE')
-                                                            return
-                                                        }
-                                                        break
-                                                    }
-                                                    case 'array': {
-                                                        /*
-                                                        If we did not received an array, that probably means something is not 
-                                                        good, and we got an HTML with the reason inside.
-                                                        */
-                                                        if (apiResponseReceivedText.substring(0, 1) !== "[") {
-                                                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                                "[WARN] start -> startProcess -> fetchAllPages -> fetchAPIData -> onResponse -> onEnd -> Unexpected Response. Not an Array with Data. ->  apiResponseReceivedText = " + apiResponseReceivedText)
-                                                            resolve('UNEXPECTED_API_RESPONSE')
-                                                            return
-                                                        }
-                                                        break
-                                                    }
-                                                }
-                                                /*
-                                                The actual data we need could be anywhere within the data structure received.
-                                                The exact place is configured at the apiResponseSchemaNode property nodePath.
-                                                We will eval the nodePath property (this assumes that the apiResponseReceivedObject is defined)
-                                                */
-                                                apiResponseReceivedObject = JSON.parse(apiResponseReceivedText)
-                                                apiData = eval(apiResponseSchemaNode.config.nodePath)
-                                                /*
-                                                We will expect the apiData to be an Array.  Depending if it has data or not we will return
-                                                NO_MORE_PAGES or PAGE_FETCHED so that pagination procedure knows when to stop.
-                                                */
-                                                if (apiData.length === 0) {
+                                                if (apiData.length === 0 || pageToken === undefined) {
                                                     resolve('NO_MORE_PAGES')
                                                 } else {
                                                     resolve('PAGE_FETCHED')
@@ -810,7 +899,7 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                         processIndex,
                                         MODULE_NAME,
                                         'API Data Fetcher Bot',
-                                        { datasetType: dataset.config.codeName },
+                                        { errorDetails: 'saveDataReceived -> Unsupported Dataset Type', datasetType: dataset.config.codeName },
                                         'Unsupported Dataset Type',
                                         dataset
                                     )
@@ -928,11 +1017,27 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                 /* We will need to save this at the Status Report */
                                 contextVariables.lastFile = file.date
                                 /*
-                                For One-Min type of datasets, since they are saved as Daily Files, there is no need
-                                to read the already existing content to append to it. In this case is enough to
-                                set the existing content to an empty array.
+                                Note: Possible optimation is to not read daily file but to simply append to it. 
+                                Currently loads last file date, loads current file and then looks through timestamps to determine 
+                                if current record should be appended to file.
                                 */
-                                existingFileContent = "[]"
+                                if (thisReport.file.lastFile !== undefined) {
+                                    let lastRecordDate = thisReport.file.lastFile
+                                    let lastRecordDateString = JSON.stringify(lastRecordDate)
+                                    let lastRecordDateYear = lastRecordDateString.substring(1, 5)
+                                    let lastRecordDateMonth = lastRecordDateString.substring(6, 8)
+                                    let lastRecordDateDay = lastRecordDateString.substring(9, 11)
+                                    lastDate = lastRecordDateYear + "/" + lastRecordDateMonth + "/" + lastRecordDateDay
+                                } else {
+                                    lastDate = ""
+                                }
+
+                                if (lastDate !== dateForPath) {
+                                    existingFileContent = "[]" 
+                                }
+                                else {
+                                    await readDatasetFile("/" + dateForPath)
+                                }
                                 appendToExistingDataset()
                                 await saveDatasetFile("/" + dateForPath)
 
@@ -940,7 +1045,9 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                     /* 
                                     We are going to append the current apiResponseReceivedText to the existing file.
                                     */
-                                    let existingFileArray = JSON.parse(existingFileContent)
+                                    
+                                    let existingFileArray = 
+                                    JSON.parse(existingFileContent)
                                     /*
                                     If we received a data object then we will try to add it to the current existing file.
                                     */
@@ -973,6 +1080,61 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                             existingFileArray.push(record.values)
                                         }
                                     }
+
+                                    let primaryKeys = []
+                                    let existingKeys = new Map()
+                                    /*
+                                    Setup the primaryKeys array.
+                                    */
+                                    for (let j = 0; j < productDefinition.record.properties.length; j++) {
+                                        let recordProperty = productDefinition.record.properties[j]
+                                        if (recordProperty.config.primaryKey === true) {
+                                            primaryKeys.push(recordProperty.config.codeName)
+                                        }
+                                    }
+                                    /*
+                                    Setup the existingKeys map.
+                                    */
+                                    for (let i = 0; i < existingFileArray.length; i++) {
+                                        let record = {
+                                            values: existingFileArray[i],
+                                            map: new Map()
+                                        }
+                                        /*
+                                        Building the record map...
+                                        */
+                                        for (let j = 0; j < productDefinition.record.properties.length; j++) {
+                                            let recordProperty = productDefinition.record.properties[j]
+                                            record.map.set(recordProperty.config.codeName, record.values[j])
+                                        }
+                                        /*
+                                        Building the current key...
+                                        */
+                                        let key = ""
+                                        for (let j = 0; j < primaryKeys.length; j++) {
+                                            let keyValue = record.map.get(primaryKeys[j])
+                                            key = key + '->' + keyValue
+                                        }
+                                        existingKeys.set(key, record)
+                                    }
+                                    /*
+                                    If we received an array of data then we will try to append it to the current file.
+                                    */
+                                    if (dataReceivedArray !== undefined) {
+                                        for (let i = 0; i < dataReceivedArray.length; i++) {
+                                            let record = getRecord(dataReceivedArray[i])
+
+                                            let key = ""
+                                            for (let j = 0; j < primaryKeys.length; j++) {
+                                                let keyValue = record.map.get(primaryKeys[j])
+                                                key = key + '->' + keyValue
+                                            }
+                                            if (existingKeys.get(key) === undefined) {
+                                                existingFileArray.push(record.values)
+                                                existingKeys.set(key, record.values)
+                                            }
+                                        }
+                                    }
                                     existingFileContent = JSON.stringify(existingFileArray)
                                 }
 
@@ -981,7 +1143,15 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                     The timestamp is data that comes in the API response. Here we will extract the timestamp
                                     and return it. 
                                     */
-                                    let record = getRecord(dataReceivedObject)
+                                    let record
+
+                                    if (dataReceivedObject !== undefined) {
+                                        record = getRecord(dataReceivedObject)
+                                    }
+                                    if (dataReceivedArray !== undefined) {
+                                        record = getRecord(dataReceivedArray[0])
+                                    }
+
                                     let timestamp = record.map.get('timestamp')
                                     let startStamp = timestamp
                                     let numberOfDigits = 0
@@ -1009,7 +1179,7 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                             processIndex,
                                             MODULE_NAME,
                                             'API Data Fetcher Bot',
-                                            undefined,
+                                            { errorDetails: 'saveDataReceived -> saveOneMinFile -> getTimestamp -> Timestamp Record Property Missing'},
                                             'Timestamp Record Property Missing',
                                             productDefinition.record
                                         )
@@ -1102,9 +1272,36 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                             }
 
                                             /*
+                                                Check that timestamps are saved in 13 digits.
+                                                If not convert the timestamp's value to 13 digits.
+                                            */    
+
+                                                if (recordProperty.config.codeName === 'timestamp') {      
+
+                                                let startStamp = (recordProperty.config.codeName, value)
+                                                let numberOfDigits = 0
+                                                let timestamp = (recordProperty.config.codeName, value)
+
+                                                while (startStamp != 0 && startStamp > 1) {
+                                                    startStamp = startStamp / 10
+                                                    numberOfDigits++
+                                                }
+
+                                                if (numberOfDigits == 10) {
+                                                    timestamp = timestamp * 1000
+                                                    value = timestamp
+                                                }
+            
+                                                if (numberOfDigits == 19) {
+                                                    timestamp = timestamp / 1000000
+                                                    value = timestamp
+                                                }
+                                            }
+
+                                            /*
                                             Check that we do not accept values that will break the JSON format of the file.
                                             */
-                                            if (recordProperty.config.isString !== true && recordProperty.config.isBoolean !== true) {
+                                            if (recordProperty.config.isString !== true && recordProperty.config.isBoolean !== true && recordProperty.config.isArray !== true) {
                                                 /*
                                                 At this point Dates have been converted to numbers, so if the Record Property is not a string
                                                 then it must be a number.
@@ -1142,6 +1339,7 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                 try {
                     thisReport.file = {
                         lastRun: (new Date()).toISOString(),
+                        lastQueryRun: lastQueryRun,
                         lastPage: lastPage,
                         beginingOfMarket: contextVariables.beginingOfMarket
                     }

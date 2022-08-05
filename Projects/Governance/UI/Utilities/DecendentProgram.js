@@ -291,7 +291,7 @@ function newGovernanceUtilitiesDecendentProgram() {
                             }
                             if (totalPercentage > 100) {
                                 node.payload.uiObject.setErrorMessage(
-                                    'Program Power Switching Error. Total Percentage of children nodes is grater that 100.',
+                                    'Program Power Switching Error. Total Percentage of children nodes is greater than 100.',
                                     UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
                                     )
                                 return

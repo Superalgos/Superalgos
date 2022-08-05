@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Используйте это действие, чтобы удалить абзац. Это действие не может быть отменено. Вы по-прежнему можете обновить страницу, не выполняя команду сохранения документов Docs Save Command, чтобы откатить все изменения до последнего выполнения команды сохранения.",
                 "updated": 1638532144893
+            },
+            {
+                "language": "TR",
+                "text": "Paragrafı silmek için bu eylemi kullanın. Bu eylem geri alınamaz. Kaydet komutunun son yürütülmesine kadar tüm değişikliklerinizi geri almak için Dokümanları Kaydet ( Docs Save Command ) Komutunu çalıştırmadan sayfayı yenilemeye devam edebilirsiniz.",
+                "updated": 1652213946378
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
                     "updated": 1638532157426
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenleyin. Yeni paragraflar yazmak için ENTER'a basın. Düzenleme modundan çıkmak için ESC.",
+                    "updated": 1652213940099
                 }
             ]
         }

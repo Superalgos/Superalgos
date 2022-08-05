@@ -1,6 +1,6 @@
 {
     "topic": "Docs Commands Errors",
-    "pageNumber": 9,
+    "pageNumber": "9",
     "type": "Docs Error - Missing To",
     "definition": {
         "text": "The word \"to\" is part of the syntax of the command and you did not include it.",
@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Слово «to» является частью синтаксиса команды, и вы его не включили.",
                 "updated": 1638529971867
+            },
+            {
+                "language": "TR",
+                "text": "Bu kelime sözcüğü, komutun sözdiziminin bir parçasıdır ve siz onu eklemediniz.",
+                "updated": 1652021604089
             }
         ]
     },
@@ -22,7 +27,15 @@
         {
             "style": "Anchor",
             "text": "Anchor Missing To",
-            "updated": 1609176777661
+            "updated": 1609176777661,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Kayıp Çapa",
+                    "updated": 1654419832307,
+                    "style": "Anchor"
+                }
+            ]
         },
         {
             "style": "Error",
@@ -33,6 +46,11 @@
                     "language": "DE",
                     "text": "Syntax Error. Das Wort \"to\" im Befehl fehlt.",
                     "updated": 1633897680133
+                },
+                {
+                    "language": "TR",
+                    "text": "Sözdizimi hatası. İki nokta üst üste karakteri \":\" eksik.",
+                    "updated": 1652022085015
                 }
             ]
         },
@@ -50,6 +68,11 @@
                     "language": "RU",
                     "text": "Проверьте синтаксис команды и посмотрите, где разместить слово «to».",
                     "updated": 1638529995887
+                },
+                {
+                    "language": "TR",
+                    "text": "Komutun sözdizimini kontrol edin ve \" \" kelimesinin nereye yerleştirileceğini görün.",
+                    "updated": 1652022022796
                 }
             ]
         },
@@ -66,12 +89,26 @@
                     "language": "RU",
                     "text": "Относится к",
                     "updated": 1638530005854
+                },
+                {
+                    "language": "TR",
+                    "text": "Şunlar için geçerlidir",
+                    "updated": 1654419838150,
+                    "style": "Title"
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Docs Add Command"
+            "text": "Docs Add Command",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Dokümanlar Komut Ekle",
+                    "updated": 1654419844673,
+                    "style": "List"
+                }
+            ]
         }
     ]
 }

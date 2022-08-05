@@ -1,13 +1,13 @@
 {
     "tutorial": "Testing a Trading Idea - The Other Stages",
-    "pageNumber": 59,
+    "pageNumber": "59",
     "type": "Tutorial Step - Is There Room For Nuance?",
     "definition": {
-        "icon": {
-            "project": "Foundations",
-            "name": "space-style"
-        },
         "text": "Should the testing of a trading idea output black or white results? That's a good question... one that only you may answer!",
+        "icon": {
+            "name": "space-style",
+            "project": "Foundations"
+        },
         "translations": [
             {
                 "language": "DE",
@@ -62,6 +62,11 @@
                     "language": "RU",
                     "text": "Являются ли ваши критерии тестирования скорее руководством к действию или первой оценкой? В нашем случае я могу открыто признаться, что предложенные критерии тестирования довольно произвольны и не выдерживают критики, если их подвергнуть сомнению. Я выбрал простой критерий, чтобы донести свою точку зрения и облегчить объяснения, но я не стал бы защищать его в суде своих коллег! Если вы рассматриваете критерии тестирования только как первую оценку, то, вероятно, должно остаться место для более тонкого анализа.",
                     "updated": 1642945671180
+                },
+                {
+                    "language": "TR",
+                    "text": "Test kriterleriniz daha çok bir kılavuz mu yoksa ilk değerlendirme mi? Bizim durumumuzda, önerilen test kriterlerinin oldukça keyfi olduğunu ve sorgulandığında geçerli olmadığını açıkça itiraf edebilirim. Bir noktaya değinmek ve açıklamaları kolaylaştırmak için basit bir kriter seçtim. Eğer test kriterlerini sadece bir ilk değerlendirme olarak görüyorsanız, o zaman muhtemelen daha incelikli bir analize ihtiyacınız vardır.",
+                    "updated": 1654761369630
                 }
             ]
         }

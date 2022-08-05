@@ -59,6 +59,11 @@
                     "language": "DE",
                     "text": "In gewisser Weise sind Data Mines Kataloge von Bots, die jeder erstellen kann. Diese Hierarchie stellt alle Werkzeuge zur Verfügung, die zur Erstellung von Sensoren, Indikatoren und Plottern erforderlich sind, wobei nur ein Minimum an Kodierung erforderlich ist.",
                     "updated": 1641764479375
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir bakıma veri madenleri, herkesin oluşturabileceği bot kataloglarıdır. Bu hiyerarşi, minimum kodlama ile sensörler, göstergeler ve çiziciler oluşturmak için gereken tüm araçları sağlar.",
+                    "updated": 1652013070468
                 }
             ]
         },
@@ -85,6 +90,11 @@
                     "language": "DE",
                     "text": "Da die Hierarchie Definitionen bereitstellt, greift sie nicht in die Ausführung von Bots ein. Stattdessen werden die Definitionen in Data Mines von der Netzwerkhierarchie durch Bot-Instanzen instanziiert. Bot-Instanzen und Prozess-Instanzen sind diejenigen, die den Code gemäß den Definitionen in der entsprechenden Datenmine ausführen.",
                     "updated": 1641764518148
+                },
+                {
+                    "language": "TR",
+                    "text": "Hiyerarşi tanımlar sağladığı için botların yürütülmesine müdahale etmez. Bunun yerine, veri madenlerindeki tanımlar, bot örnekleri tarafından ağ hiyerarşisinden başlatılır. Bot örnekleri ve süreç örnekleri, kodu ilgili veri madenindeki tanımlara göre çalıştıranlardır.",
+                    "updated": 1652013091235
                 }
             ]
         },
@@ -106,6 +116,11 @@
                     "language": "DE",
                     "text": "Data Mine Konfiguration",
                     "updated": 1641764558876
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri Madeni Yapılandırması",
+                    "updated": 1652013109779
                 }
             ]
         },
@@ -123,6 +138,11 @@
                     "language": "DE",
                     "text": "Eigenschaften",
                     "updated": 1641764570621
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikleri",
+                    "updated": 1652013116919
                 }
             ]
         },
@@ -139,6 +159,11 @@
                     "language": "DE",
                     "text": "codeName ist der Name der Data Mine, wie er im Code des Systems verwendet wird.",
                     "updated": 1641764595369
+                },
+                {
+                    "language": "TR",
+                    "text": "codeName sistem kodu içinde kullanılan veri madeni adıdır.",
+                    "updated": 1652013132667
                 }
             ]
         }

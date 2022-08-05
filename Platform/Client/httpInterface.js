@@ -172,6 +172,17 @@ exports.newHttpInterface = function newHttpInterface() {
                                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
                                     return
                                 }
+                                case 'getLPTokenBalance': {
+
+                                    let serverResponse = await PL.servers.WEB3_SERVER.getLPTokenBalance(
+                                        params.chain,
+                                        params.contractAddressSA,
+                                        params.contractAddressLP
+                                    )
+
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
+                                    return
+                                }
                                 case 'getWalletBalances': {
 
                                     let serverResponse = await PL.servers.WEB3_SERVER.getWalletBalances(
@@ -1556,6 +1567,9 @@ exports.newHttpInterface = function newHttpInterface() {
                                                 result: global.CUSTOM_OK_RESPONSE.result,
                                                 message: result.message
                                             }
+                                            if(result.message.reposUpdated === true) {
+                                                SA.restartRequired = true
+                                            }
                                             SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(customResponse), httpResponse)
                                         } else {
 
@@ -1647,6 +1661,27 @@ exports.newHttpInterface = function newHttpInterface() {
                             break
                         }
 
+                        case 'RestartRequired': {
+                            try {
+                                let customResponse = {
+                                    result: global.CUSTOM_OK_RESPONSE.result,
+                                    message: SA.restartRequired
+                                }
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(customResponse), httpResponse)
+                            } catch (err) {
+                                console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> RestartRequired -> Method call produced an error.')
+                                console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> RestartRequired -> err.stack = ' + err.stack)
+
+                                let error = {
+                                    result: 'Fail Because',
+                                    message: err.message,
+                                    stack: err.stack
+                                }
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
+                            }
+                            break
+                        }
+
                         case 'Status': {
                             // We check the current status of changes made in the local repo
                             try {
@@ -1719,7 +1754,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                         // Keep only end of returned message and format for UI
                                         for (let str of split) {
                             // TODO: needs localized for all supported languages 
-                                            if (str.includes('pushes') || str.includes('pousse')) {
+                                            if (str.includes('pushes') || str.includes('pousse') || str.includes('versendet')) {
                                                 // Get name of Branch
                                                 let branch = str.trim().split(' ')[0]
                                                 // Get status of branch
@@ -2380,6 +2415,17 @@ exports.newHttpInterface = function newHttpInterface() {
                                         params.token
                                     )
 
+                                    return
+                                }
+                                
+                                case 'getRewardsFile': {
+
+                                    let serverResponse = PL.servers.BITCOIN_FACTORY_SERVER.getRewardsFile(
+                                        params.firstTimestamp,
+                                        params.lastTimestamp
+                                    )
+
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
                                     return
                                 }
 

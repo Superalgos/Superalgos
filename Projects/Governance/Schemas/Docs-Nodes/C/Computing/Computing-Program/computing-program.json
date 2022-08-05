@@ -1,0 +1,93 @@
+{
+    "type": "Computing Program",
+    "definition": {
+        "text": "The Computing Program rewards the contribution of computing power to the testing of Machine Learning models.",
+        "updated": 1653672165311,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Bilgi İşlem Programı, Makine Öğrenimi modellerinin test edilmesinde bilgi işlem gücünün katkısını ödüllendirmektedir.",
+                "updated": 1654394610231
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "At the Bitcoin Factory, we combine the powers of Advanced Data Mining and Machine Learning to obtain market predictions.",
+            "updated": 1653672477964,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bitcoin Factory'de, piyasa tahminleri elde etmek için Gelişmiş Veri Madenciliği ve Makine Öğreniminin güçlerini birleştiriyoruz.",
+                    "updated": 1654394615997,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The thing about Machine Learning, however, is that it takes a lot of processing power. Way more than the average person can afford. That is why the Bitcoin Factory has set out to crowd-source the processing power needed to push the prediction power of the collective forward!",
+            "updated": 1653672497015,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bununla birlikte, Makine Öğrenimi ile ilgili olan şey, çok fazla işlem gücü gerektirmesidir. Ortalama bir insanın karşılayabileceğinden çok daha fazla. İşte bu nedenle Bitcoin Fabrikası, kolektifin tahmin gücünü ileriye taşımak için gereken işlem gücünü kitle kaynaklı hale getirmek üzere yola çıktı!",
+                    "updated": 1654394624889,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The Computing Program rewards users who have contributed to these efforts by executing test cycles for Machine Learning models.",
+            "updated": 1653672879274,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bilgi İşlem Programı, Makine Öğrenimi modelleri için test döngüleri yürüterek bu çabalara katkıda bulunan kullanıcıları ödüllendiriyor.",
+                    "updated": 1654394630978,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Users spawning a Computing Program node will be rewarded with Superalgos Tokens from the Computing Program Rewards pool. The reward will be based on the share of test cases the user has executed in relation to all executed test cases of the reward period.",
+            "updated": 1653672922184,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bir Bilgi İşlem Programı düğümü oluşturan kullanıcılar, Bilgi İşlem Programı Ödülleri havuzundan Superalgos Jetonları ile ödüllendirilecektir. Ödül, kullanıcının ödül döneminde yürüttüğü tüm test vakalarına göre yürüttüğü test vakalarının payına dayanacaktır.",
+                    "updated": 1654394637235,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Rewards are allocated automatically, based on user name. The node does not require further configuration options.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ödüller, kullanıcı adına göre otomatik olarak tahsis edilir. Düğüm başka yapılandırma seçenekleri gerektirmez.",
+                    "updated": 1654394643399,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "Do you want to learn more about how to get started with the Bitcoin Factory? Check the Readme in the /Bitcoin-Factory subfolder of your Superalgos installation!",
+            "updated": 1653673046621,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bitcoin Factory'ye nasıl başlayacağınız hakkında daha fazla bilgi edinmek ister misiniz? Superalgos kurulumunuzun /Bitcoin-Factory alt klasöründeki Benioku'yu kontrol edin!",
+                    "updated": 1654394648962,
+                    "style": "Note"
+                }
+            ]
+        }
+    ]
+}

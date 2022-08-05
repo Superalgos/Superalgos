@@ -123,9 +123,9 @@
             "autoAdd": false
         },
         {
-            "name": "marketBuyOrderSignals",
+            "name": "marketSellOrderSignals",
             "type": "array",
-            "childType": "Market Buy Order Signals",
+            "childType": "Market Sell Order Signals",
             "autoAdd": false
         },
         {

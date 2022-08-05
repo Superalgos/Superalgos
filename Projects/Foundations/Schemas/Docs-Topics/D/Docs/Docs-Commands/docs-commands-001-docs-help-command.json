@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Документы предоставляют интерфейс командной строки, который вы можете использовать для внесения вклада в документы. Команда Docs Help Command предоставляет список всех доступных команд.",
                 "updated": 1638527226449
+            },
+            {
+                "language": "TR",
+                "text": "Dokümanlar, Dokümanlara katkıda bulunmak için kullanabileceğiniz bir komut satırı arayüzü sağlar. Dokümanlar Yardım Komutu, mevcut tüm komutların bir listesini sağlar.",
+                "updated": 1652126995515
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "language": "RU",
                     "text": "Синтаксис",
                     "updated": 1638527250442
+                },
+                {
+                    "language": "TR",
+                    "text": "Sözdizimi",
+                    "updated": 1652127771585
                 }
             ]
         },
@@ -50,28 +60,73 @@
                     "language": "RU",
                     "text": "Доступные команды",
                     "updated": 1638527512693
+                },
+                {
+                    "language": "TR",
+                    "text": "Kullanılabilir Komutlar",
+                    "updated": 1652127784590
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Docs Goto Command"
+            "text": "Docs Goto Command",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Docs Goto Komutu",
+                    "updated": 1654393321431,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Docs Add Command"
+            "text": "Docs Add Command",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Dokümanlar Komut Ekle",
+                    "updated": 1654393327224,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Docs Delete Command"
+            "text": "Docs Delete Command",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Dokümanlar Silme Komutu",
+                    "updated": 1654393332950,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Docs Save Command"
+            "text": "Docs Save Command",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Docs Kaydet Komutu",
+                    "updated": 1654393338792,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Docs Reindex Command"
+            "text": "Docs Reindex Command",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Docs Reindex Komutu",
+                    "updated": 1654393344446,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "Title",
@@ -87,6 +142,11 @@
                     "language": "RU",
                     "text": "Справка по командам",
                     "updated": 1638527294593
+                },
+                {
+                    "language": "TR",
+                    "text": "Komutlarla İlgili Yardım",
+                    "updated": 1652127154913
                 }
             ]
         },
@@ -104,6 +164,11 @@
                     "language": "RU",
                     "text": "Другой способ использования этой команды - указать название команды, для которой вы хотели бы видеть справочную информацию.",
                     "updated": 1638527331039
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu komutu kullanmanın başka bir yolu, yardım bilgilerini görmek istediğiniz komutun adını sağlamaktır.",
+                    "updated": 1652127198950
                 }
             ]
         },
@@ -121,6 +186,11 @@
                     "language": "RU",
                     "text": "Примеры",
                     "updated": 1638527517513
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnekler",
+                    "updated": 1652127828804
                 }
             ]
         },
@@ -153,6 +223,11 @@
                     "language": "RU",
                     "text": "Записи в командной строке, не идентифицированные как команда, обрабатываются как поисковый запрос.",
                     "updated": 1638527383576
+                },
+                {
+                    "language": "TR",
+                    "text": "Komut isteminde komut olarak tanımlanmayan girişler, arama sorgusu olarak değerlendirilir.",
+                    "updated": 1652127242766
                 }
             ]
         }

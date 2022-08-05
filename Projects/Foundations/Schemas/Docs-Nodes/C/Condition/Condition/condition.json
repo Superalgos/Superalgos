@@ -43,6 +43,11 @@
                     "language": "DE",
                     "text": "Daher werden Bedingungen verwendet, um mathematisch zu beschreiben, was auf dem Markt geschehen muss, damit eine bestimmte Aktion durchgeführt werden kann.",
                     "updated": 1641636595695
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu nedenle, belirli bir eylemin gerçekleştirilmesi için piyasada ne olması gerektiğini matematiksel olarak tanımlayacağınız yer burasıdır.",
+                    "updated": 1656054466989
                 }
             ]
         },
@@ -70,6 +75,11 @@
                     "language": "RU",
                     "text": "Ситуация 1",
                     "updated": 1638647869436
+                },
+                {
+                    "language": "TR",
+                    "text": "1. Durum",
+                    "updated": 1656054479641
                 }
             ]
         },
@@ -87,6 +97,11 @@
                     "language": "RU",
                     "text": "Состояние A: chart.at01hs.candle.close > chart.at01hs.bollingerBand.MovingAverage",
                     "updated": 1647435232859
+                },
+                {
+                    "language": "TR",
+                    "text": "Koşul A: chart.at01hs.candle.close > chart.at01hs.bollingerBand.MovingAverage",
+                    "updated": 1656054485886
                 }
             ]
         },
@@ -103,6 +118,11 @@
                     "language": "DE",
                     "text": "Dies bedeutet, dass die letzte Kerze auf dem 1-Stunden-Chart oberhalb des gleitenden Durchschnitts der Bollinger-Bänder geschlossen hat.",
                     "updated": 1641636786807
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu, 1 saatlik grafikteki en son mumun Bollinger Bantları hareketli ortalamasının üzerinde kapandığı anlamına gelir.",
+                    "updated": 1656054509919
                 }
             ]
         },
@@ -120,6 +140,11 @@
                     "language": "RU",
                     "text": "Состояние B: chart.at01hs.candle.previous.max > chart.at01hs.bollingerBand.previous.MovingAverage",
                     "updated": 1647435240249
+                },
+                {
+                    "language": "TR",
+                    "text": "Koşul B: chart.at01hs.candle.previous.max > chart.at01hs.bollingerBand.previous.MovingAverage",
+                    "updated": 1656054518434
                 }
             ]
         },
@@ -136,6 +161,11 @@
                     "language": "DE",
                     "text": "Das bedeutet, dass der Höchstwert der vorletzten Kerze über dem gleitenden Durchschnitt der Bollinger-Bänder lag.",
                     "updated": 1641636773781
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu, son mumdan önceki mumun maksimum değerinin Bollinger Bantları hareketli ortalamasından daha yüksek olduğu anlamına gelir.",
+                    "updated": 1656054534590
                 }
             ]
         },
@@ -153,6 +183,11 @@
                     "language": "DE",
                     "text": "Im obigen Beispiel sind die Bedingungen A und B Vergleichsaussagen, die entweder als true oder false bewertet werden können. Wenn beide wahr werden, wird auch Situation 1 wahr.",
                     "updated": 1641636898853
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarıdaki örnekte, A ve B koşulları doğru (true) ya da yanlış (false) olarak değerlendirilebilen karşılaştırma ifadeleridir. Her ikisinin de doğru olarak değerlendirilmesi durumunda Durum 1 de doğru olacaktır.",
+                    "updated": 1656054569574
                 }
             ]
         },
@@ -169,6 +204,11 @@
                     "language": "DE",
                     "text": "Um zu lernen, wie man Bedingungen schreibt, beginnen Sie mit der Syntax Overview.",
                     "updated": 1641636947172
+                },
+                {
+                    "language": "TR",
+                    "text": "Koşulların nasıl yazılacağını öğrenmek için Sözdizimine Genel Bakış (Syntax Overview) konusuna bakabilirsiniz.",
+                    "updated": 1656054602953
                 }
             ]
         }

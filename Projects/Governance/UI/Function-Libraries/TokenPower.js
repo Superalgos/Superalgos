@@ -4,7 +4,7 @@ function newGovernanceFunctionLibraryTokenPower() {
         calculateDelegatedPower: calculateDelegatedPower
     }
 
-    const OPAQUE_NODES_TYPES = ['Tokens Mined', 'Signing Accounts', 'Onboarding Programs', 'Liquidity Programs']
+    const OPAQUE_NODES_TYPES = ['Tokens Mined', 'Signing Accounts', 'Onboarding Programs', 'Liquidity Programs', 'Bitcoin Factory Programs']
     return thisObject
 
     function calculateTokenPower(
@@ -221,7 +221,7 @@ function newGovernanceFunctionLibraryTokenPower() {
             }
             if (totalPercentage > 100) {
                 node.payload.uiObject.setErrorMessage(
-                    'Token Power Switching Error. Total Percentage of children nodes is grater that 100.',
+                    'Token Power Switching Error. Total Percentage of children nodes is greater than 100.',
                     UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
                 )
                 return

@@ -14,6 +14,11 @@
                 "language": "RU",
                 "text": "Этот стиль используется самой системой, чтобы показать вам, когда вы ввели неверные параметры для некоторых стилей. Вы также можете использовать этот стиль, чтобы показывать читателям ошибки в контексте того, что вы им объясняете.",
                 "updated": 1638533407882
+            },
+            {
+                "language": "TR",
+                "text": "Bu stil, bazı stiller için yanlış parametreler girdiğinizi size göstermek için sistemin kendisi tarafından kullanılır. Bu stili, okuyuculara açıkladığınız şey bağlamındaki hataları göstermek için de kullanabilirsiniz.",
+                "updated": 1652384734945
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "language": "RU",
                     "text": "Все, что вы вводите во время редактирования, будет отображаться внутри окна ошибки.",
                     "updated": 1638533428394
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme sırasında yazdığınız her şey hata kutusunun içinde görüntülenecektir.",
+                    "updated": 1652384758261
                 }
             ]
         },
@@ -47,6 +57,11 @@
                     "language": "RU",
                     "text": "Пример:",
                     "updated": 1638533743927
+                },
+                {
+                    "language": "TR",
+                    "text": "Misal:",
+                    "updated": 1652384767198
                 }
             ]
         },
@@ -63,6 +78,11 @@
                     "language": "RU",
                     "text": "Это пример абзаца в стиле ошибки.",
                     "updated": 1638533460113
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu, hata stilinde bir paragraf örneğidir.",
+                    "updated": 1652384795534
                 }
             ]
         }

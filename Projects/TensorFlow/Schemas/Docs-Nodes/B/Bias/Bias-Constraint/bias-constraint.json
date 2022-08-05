@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Ограничение для вектора смещения.",
                 "updated": 1645195719158
+            },
+            {
+                "language": "TR",
+                "text": "Sapma vektörü için kısıtlama.",
+                "updated": 1654396696568
             }
         ]
     },
@@ -21,6 +26,12 @@
                     "language": "RU",
                     "text": "Возможные значения",
                     "updated": 1645195724767
+                },
+                {
+                    "language": "TR",
+                    "text": "Olası Değerler",
+                    "updated": 1654396702374,
+                    "style": "Subtitle"
                 }
             ]
         },

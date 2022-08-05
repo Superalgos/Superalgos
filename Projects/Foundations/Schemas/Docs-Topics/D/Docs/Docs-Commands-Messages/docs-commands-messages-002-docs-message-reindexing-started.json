@@ -27,6 +27,11 @@
                 "language": "RU",
                 "text": "Команда docs.reindex начала перестройку Docs Search Engine Index.",
                 "updated": 1638456250363
+            },
+            {
+                "language": "TR",
+                "text": "docs.reindex komutu, Dokümanlar Arama Motoru Dizini'nin ( Docs Search Engine Index ) yeniden oluşturulmasını başlattı.",
+                "updated": 1652203608030
             }
         ]
     },
@@ -57,6 +62,11 @@
                     "language": "RU",
                     "text": "Переиндексирование - ресурсоемкий процесс. Пока процесс запущен, вы не сможете использовать интерфейс, поскольку все ресурсы ЦП предназначены для максимально быстрого воссоздания индексов.",
                     "updated": 1638456457857
+                },
+                {
+                    "language": "TR",
+                    "text": "Yeniden indeksleme, kaynak yoğun bir süreçtir. İşlem çalışırken, tüm CPU kaynakları dizini mümkün olduğunca hızlı bir şekilde yeniden oluşturmaya tahsis edildiğinden, arayüzü kullanamayacaksınız.",
+                    "updated": 1652203664851
                 }
             ]
         },
@@ -85,6 +95,11 @@
                     "language": "RU",
                     "text": "Вес вашего рабочего пространства влияет на время, необходимое для переиндексации содержимого, поскольку каждый узел в рабочем пространстве должен быть просканирован. Весь код и конфигурации проиндексированы.",
                     "updated": 1638456366976
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışma alanındaki her düğümün taranması gerektiğinden, çalışma alanınızın ağırlığı, içeriği yeniden indekslemek için gereken süreyi etkiler. Tüm kod ve konfigürasyonlar indekslenir.",
+                    "updated": 1652203694833
                 }
             ]
         },
@@ -113,6 +128,11 @@
                     "language": "RU",
                     "text": "Подождите несколько секунд, пока процесс не закончится. Когда все закончится, вы получите новое сообщение.",
                     "updated": 1638456385366
+                },
+                {
+                    "language": "TR",
+                    "text": "İşlem bitene kadar birkaç saniye bekleyin. Bittiğinde yeni bir mesaj alacaksınız.",
+                    "updated": 1652203718218
                 }
             ]
         }

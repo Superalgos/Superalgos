@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Внутри узлов может находиться код. Если это так, они обычно позволяют пользователям получить доступ и изменить его через один из пунктов меню узла. Код, хранящийся в узле, позже используется в задачах или ботах во время их работы.",
                 "updated": 1640356282836
+            },
+            {
+                "language": "TR",
+                "text": "Düğümlerin içinde kod olabilir. Bunu yaptıklarında, genellikle kullanıcıların Düğüm Menü ( Node Menu ) öğelerinden biri aracılığıyla erişmesine ve değiştirmesine izin verirler. Bir düğümde depolanan kod daha sonra işlenirken Görevlerde veya Botlarda kullanılır.",
+                "updated": 1652805268080
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Некоторые типы узлов могут иметь код, определяющий их поведение. Доступ к коду обычно осуществляется через пункт меню Edit. При первом создании код узла инициализируется начальным значением, присутствующим в документе определения узла. Некоторые типы узлов представляют формулы, и они содержат код, определяющий эти формулы в коде узла.",
                     "updated": 1640356407180
+                },
+                {
+                    "language": "TR",
+                    "text": "Bazı düğüm türleri, davranışlarını tanımlayan kodlara sahip olabilir. Koda genellikle kullanıcılar tarafından Düzenle menü öğesi aracılığıyla erişilebilir. İlk oluşturulduğunda, bir Düğümün kodu, Düğümün ( Node ) Tanım Belgesinde bulunan başlangıç değeriyle başlatılır. Bazı düğüm türleri Formülleri temsil eder ve bu formülleri tanımlayan kodu Düğüm ( Node ) Kodunda tutarlar.",
+                    "updated": 1652805516508
                 }
             ]
         }

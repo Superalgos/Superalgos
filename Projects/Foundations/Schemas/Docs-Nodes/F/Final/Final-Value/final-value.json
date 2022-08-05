@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Щелкните правой кнопкой мыши и выберите \"Редактировать\", чтобы войти в режим редактирования и изменить этот текст.",
                 "updated": 1645166505456
+            },
+            {
+                "language": "TR",
+                "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle deyin.",
+                "updated": 1654419104861
             }
         ]
     },
@@ -23,6 +28,12 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст.",
                     "updated": 1645166539224
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle deyin.",
+                    "updated": 1654419110821,
+                    "style": "Text"
                 }
             ]
         },
@@ -40,6 +51,12 @@
                     "language": "RU",
                     "text": "Конфигурация Final Value",
                     "updated": 1645166556590
+                },
+                {
+                    "language": "TR",
+                    "text": "Nihai Değer Yapılandırması",
+                    "updated": 1654419117025,
+                    "style": "Title"
                 }
             ]
         },
@@ -52,6 +69,12 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1645166563134
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1654419122919,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -64,6 +87,12 @@
                     "language": "RU",
                     "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
                     "updated": 1645166577745
+                },
+                {
+                    "language": "TR",
+                    "text": "initialValue düğümün ilk durumunun rastgele bir değere sıfırlanmasını sağlar.",
+                    "updated": 1654419128741,
+                    "style": "List"
                 }
             ]
         }

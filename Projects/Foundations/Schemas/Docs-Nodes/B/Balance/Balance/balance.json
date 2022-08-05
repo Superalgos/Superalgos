@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Balance - это текущий баланс, то есть сумма актива, которая существует в любой момент времени.",
                 "updated": 1638644220589
+            },
+            {
+                "language": "TR",
+                "text": "Balance, mevcut bakiyedir, yani herhangi bir zamanda var olan varlığın tutarıdır.",
+                "updated": 1652795503097
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Баланс актива изменяется каждый раз, когда выполняется ордер, связанный с активом. Когда торговый бот консультируется с биржей, чтобы узнать статус каждого размещенного ордера, биржа отвечает с указанием заполненного размера и фактического курса для ордера. Это информация, используемая для расчета остатков.",
                     "updated": 1638644263527
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir varlığın bakiyesi, varlığı içeren bir sipariş her doldurulduğunda değişir. Alım satım botu, verilen her siparişin durumunu öğrenmek için borsaya danıştığında, borsa, sipariş için doldurulan boyut ve gerçek kur ile yanıt verir. Bakiyeleri hesaplamak için kullanılan bilgi budur.",
+                    "updated": 1652795523841
                 }
             ]
         },
@@ -40,6 +50,11 @@
                     "language": "RU",
                     "text": "Конфигурация Balance",
                     "updated": 1638644279043
+                },
+                {
+                    "language": "TR",
+                    "text": "Balance Yapılandırması",
+                    "updated": 1652795549997
                 }
             ]
         },
@@ -52,6 +67,11 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1638644287965
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikleri",
+                    "updated": 1652795557375
                 }
             ]
         },
@@ -64,6 +84,11 @@
                     "language": "RU",
                     "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
                     "updated": 1638644299489
+                },
+                {
+                    "language": "TR",
+                    "text": "initialValue, düğümün başlangıç ​​durumunun keyfi bir değere sıfırlanmasına izin verir.",
+                    "updated": 1652795568924
                 }
             ]
         }

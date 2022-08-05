@@ -1,6 +1,6 @@
 {
     "topic": "Docs Paragraph Styles",
-    "pageNumber": 23,
+    "pageNumber": "23",
     "type": "Docs Include Style",
     "definition": {
         "text": "Include paragraphs are used to include into a Docs Page paragraphs that belong to other Docs Pages. In order to do that, you need to reference a Docs Block Style paragraph located in some other Docs Page.",
@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Вставка абзацев используются для включения в страницу документов Docs Page абзацев, принадлежащих другим страницам документов. Для этого вам нужно сослаться на абзац в стиле Docs Block Style, расположенный на какой-либо другой странице документов.",
                 "updated": 1638544986229
+            },
+            {
+                "language": "TR",
+                "text": "Paragrafları dahil et, Dokümanlar Sayfasına ( Docs Page ) diğer Dokümanlar Sayfalarına ait paragrafları dahil etmek için kullanılır. Bunu yapmak için, başka bir Dokümanlar Sayfasında bulunan Dokümanlar Blok Stili ( Docs Block Style ) paragrafına başvurmanız gerekir.",
+                "updated": 1652387410659
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "language": "RU",
                     "text": "Синтаксис",
                     "updated": 1638544932360
+                },
+                {
+                    "language": "TR",
+                    "text": "Sözdizimi",
+                    "updated": 1652387420997
                 }
             ]
         },
@@ -49,6 +59,12 @@
                     "language": "RU",
                     "text": "Параметры",
                     "updated": 1638544948051
+                },
+                {
+                    "language": "TR",
+                    "text": "Parametreler",
+                    "updated": 1654393796963,
+                    "style": "Title"
                 }
             ]
         },
@@ -66,6 +82,11 @@
                     "language": "RU",
                     "text": "Project: это проект, которому принадлежит страница документов Docs Page.",
                     "updated": 1638545079357
+                },
+                {
+                    "language": "TR",
+                    "text": "Project: Dokümanlar Sayfasının ( Docs Page ) ait olduğu projedir.",
+                    "updated": 1652387471761
                 }
             ]
         },
@@ -82,6 +103,11 @@
                     "language": "RU",
                     "text": "Docs Page Category: это Node, Concept или Topic.",
                     "updated": 1638545071258
+                },
+                {
+                    "language": "TR",
+                    "text": "Docs Page Category: Düğüm ( Node ) Öğretici veya Konu.",
+                    "updated": 1652387561335
                 }
             ]
         },
@@ -99,6 +125,11 @@
                     "language": "RU",
                     "text": "Docs Page Name: для узлов это тип узла, для концепций - название концепции, для тем - название темы страницы.",
                     "updated": 1638545141446
+                },
+                {
+                    "language": "TR",
+                    "text": "Docs Page Name: Düğümler için düğüm türü, konular ve öğreticiler için konunun sayfa adıdır.",
+                    "updated": 1652387719815
                 }
             ]
         },
@@ -116,6 +147,11 @@
                     "language": "RU",
                     "text": "Docs Page Block: это название для блока абзацев, который вы хотите включить. У вас должен быть абзац со стилем Docs Block Style на целевой странице с названием, которое вы здесь указываете.",
                     "updated": 1638545368553
+                },
+                {
+                    "language": "TR",
+                    "text": "Docs Page Block: Bu, eklemek istediğiniz paragraf bloğunun Blok adıdır. Hedef sayfada, burada belirttiğiniz adla birlikte Dokümanlar Blok Stiline ( Docs Block Style ) sahip bir paragrafınızın olması gerekir.",
+                    "updated": 1652387803623
                 }
             ]
         },
@@ -133,6 +169,11 @@
                     "language": "RU",
                     "text": "Пример:",
                     "updated": 1638545498007
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnekler:",
+                    "updated": 1652387813656
                 }
             ]
         },

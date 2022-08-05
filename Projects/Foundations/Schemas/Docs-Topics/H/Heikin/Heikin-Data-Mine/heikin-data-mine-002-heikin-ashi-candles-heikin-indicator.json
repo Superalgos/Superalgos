@@ -140,7 +140,7 @@
         },
         {
             "style": "Text",
-            "text": "Heikin Ashi candles look smoother as they are essentially taking an average of the price movement, and they tend to stay the same color during a continuing trend.",
+            "text": "Heikin Ashi candles look smoother as they are essentially taking an average of the price movement. This has the effect of smoothing out price action and highlighting a trend with the same colored candles.",
             "translations": [
                 {
                     "language": "RU",
@@ -162,13 +162,62 @@
         {
             "style": "Text",
             "text": "Above: The Standard Candle.",
-            "translations": [
-                {
+			"translations": [
+			    {
                     "language": "DE",
                     "text": "Oben: Die Standard Candle.",
                     "updated": 1644722910720
+			    }
+			],
+            "updated": 1650946314846
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+		{
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Heikin-Ashi Candles | heikincandle | open, close, max, min, HeikinDirection |"
+        },
+        {
+            "style": "Text",
+            "text": "The HeikinDirection property can have the following values:"
+        },
+        {
+            "style": "List",
+            "text": "1: Positive direction (green candle)"
+        },
+        {
+            "style": "List",
+            "text": "-1: Negative direction (red candle)"
+        },
+        {
+            "style": "List",
+            "text": "0: No direction; close value is the same as the open value."
+        },
+        {
+            "style": "Text",
+            "text": "Examples:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Примеры:",
+                    "updated": 1645608735064
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnekler:",
+                    "updated": 1647003083565
                 }
             ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.heikincandle.open \nchart.at04hs.heikincandle.close \nchart.at01hs.heikincandle.HeikinDirection == '1'"
         }
     ]
 }

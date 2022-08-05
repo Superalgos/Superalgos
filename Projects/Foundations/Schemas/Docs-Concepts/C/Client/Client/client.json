@@ -32,6 +32,12 @@
                     "language": "RU",
                     "text": "Client - это то, что запускают пользователи.",
                     "updated": 1637927442517
+                },
+                {
+                    "language": "TR",
+                    "text": "İstemci, kullanıcıların çalıştırdığı şeydir.",
+                    "updated": 1654390868293,
+                    "style": "Success"
                 }
             ]
         }

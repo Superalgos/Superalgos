@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Событие Take Position Event определяет ситуацию, которую необходимо выполнить, чтобы занять позицию.",
                 "updated": 1639560363115
+            },
+            {
+                "language": "TR",
+                "text": "Take position event , pozisyon almak için karşılanması gereken durumu tanımlar.",
+                "updated": 1653997244984
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Событие срабатывания просто выбирает стратегию, которую следует учитывать для торговли в текущей рыночной ситуации. Фактическое решение о входе в позициюоткрыть позицию может потребовать выполнения более конкретных условий. По этой причине событие Take Position Event является отдельной сущностью от события включения триггера.",
                     "updated": 1639560766450
+                },
+                {
+                    "language": "TR",
+                    "text": "Tetikleme olayı, yalnızca mevcut piyasa durumu altında alım satım için dikkate alınacak bir strateji seçer. Bir pozisyona girme kararı, daha spesifik koşulların yerine getirilmesini gerektirebilir. Bu nedenle, pozisyon alma olayı tetikleme olayından ayrı bir varlıktır.",
+                    "updated": 1653997317650
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Следовательно, событие Take Position Event определяется собственным набором ситуаций и условий.",
                     "updated": 1639560757047
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu nedenle, pozisyon alma olayı, kendi durum ve koşul seti ile tanımlanır.",
+                    "updated": 1653997399642
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "RU",
                     "text": "Как только срабатывает событие Take Position Event, решение об открытии позиции принято, и в этом отношении больше нечего рассматривать. Таким образом, оценка времени выполнения торговой системы переходит от стадии запуска Trigger Stage к стадии открытия Open Stage.",
                     "updated": 1639560888792
+                },
+                {
+                    "language": "TR",
+                    "text": "Pozisyon alma olayı tetiklendiğinde, pozisyon alma kararı verilmiştir ve bu konuda dikkate alınması gereken başka bir şey yoktur. Bu nedenle, ticaret sisteminin çalışma zamanı değerlendirmesi, tetik aşamasından (Trigger Stage) açık aşamaya (Open Stage) geçer.",
+                    "updated": 1653997463717
                 }
             ]
         }

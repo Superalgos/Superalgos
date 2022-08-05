@@ -4,17 +4,38 @@
     "type": "TS LF Trading Bot Error - Stage Base Asset Node Missing",
     "definition": {
         "text": "A Stage Base Asset node was expected but not found at the node where the error originated.",
-        "updated": 1611945394200
+        "updated": 1611945394200,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Bir Aşama Temel Varlık ( Stage Base Asset ) düğümü bekleniyordu ancak hatanın kaynaklandığı düğümde bulunamadı.",
+                "updated": 1649626864230
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Error",
             "text": "Stage Base Asset Node Missing",
-            "updated": 1611678203390
+            "updated": 1611678203390,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Aşama Temel Varlık Düğümü Eksik. ( Stage Base Asset Node Missing )",
+                    "updated": 1649626924535
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Add the missing node and try again."
+            "text": "Add the missing node and try again.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Eksik düğümü ekleyin ve tekrar deneyin.",
+                    "updated": 1649626948498
+                }
+            ]
         }
     ]
 }

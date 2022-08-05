@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "У API могут быть разные версии. Этот узел используется для указания версии, которую определяют его дочерние элементы. В свойстве codeName мы ожидаем строку версии, которая понадобится в URL-адресе при вызове сервера API.",
                 "updated": 1638632287124
+            },
+            {
+                "language": "TR",
+                "text": "Bir API'nin farklı sürümleri olabilir. Bu düğüm, alt öğelerinin tanımladığı sürümü belirtmek için kullanılır. codeName özelliğinde, API Sunucusunu ( API Server ) çağırırken URL'de ihtiyaç duyulacak sürüm dizesini bekliyoruz.",
+                "updated": 1652023061614
             }
         ]
     },
@@ -21,26 +26,60 @@
                     "language": "RU",
                     "text": "Мы ожидаем, что у каждого API будет хотя бы одна версия. У других их может быть три или больше.",
                     "updated": 1638632301907
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Her API'nin en az bir sürümü olmasını bekleriz. Diğerlerinde üç veya daha fazla olabilir.",
+                    "updated": 1652023070270
                 }
             ]
         },
         {
             "style": "Include",
             "text": "Foundations->Topic->Data Mining - Fetching Data From APIs->Main Workflow",
-            "updated": 1621951484955
+            "updated": 1621951484955,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Foundations->Topic->Data Mining - API'lerden Veri Getirme->Ana İş Akışı",
+                    "updated": 1654391500410,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "API Version Configuration",
-            "updated": 1622895641428
+            "updated": 1622895641428,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "API Version Yapılandırması",
+                    "updated": 1652023087997
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Properties"
+            "text": "Properties",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Özellikleri",
+                    "updated": 1652023094988
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "codeName: Define the version of the API this branch of the map will handle."
+            "text": "codeName: Define the version of the API this branch of the map will handle.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "codeName: Haritanın bu dalının işleyeceği API sürümünü tanımlayın.",
+                    "updated": 1652023103627
+                }
+            ]
         }
     ]
 }

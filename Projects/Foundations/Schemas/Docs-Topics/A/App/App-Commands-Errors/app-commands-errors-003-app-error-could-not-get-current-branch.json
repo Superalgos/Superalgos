@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Возникла проблема при попытке получить текущую ветку (Current Branch). Проверьте консоль на наличие ошибок.",
                 "updated": 1640236071517
+            },
+            {
+                "language": "TR",
+                "text": "Mevcut Şubeyi almaya çalışırken bir sorun oluştu. Hatalar için konsolu kontrol edin.",
+                "updated": 1654392904835
             }
         ]
     },
@@ -23,6 +28,12 @@
                     "language": "RU",
                     "text": "Проверьте в следующем разделе подробную информацию о том, что могло произойти. После устранения проблемы вы можете повторить попытку.",
                     "updated": 1640236083790
+                },
+                {
+                    "language": "TR",
+                    "text": "Ne olmuş olabileceğine dair ayrıntılar için aşağıdaki bölümü kontrol edin. Sorunu çözdükten sonra tekrar deneyebilirsiniz.",
+                    "updated": 1654392910178,
+                    "style": "Success"
                 }
             ]
         },
@@ -35,6 +46,12 @@
                     "language": "RU",
                     "text": "Информация об ошибке",
                     "updated": 1640236093334
+                },
+                {
+                    "language": "TR",
+                    "text": "Hata Bilgisi",
+                    "updated": 1654392915752,
+                    "style": "Title"
                 }
             ]
         },
@@ -58,12 +75,26 @@
                     "language": "RU",
                     "text": "Вы увидите информацию только в том случае, если вы открыли эту страницу в результате фактического возникновения ошибки.",
                     "updated": 1640236121441
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu bilgileri yalnızca hatanın gerçekten meydana gelmesinin bir sonucu olarak bu sayfayı açtıysanız göreceksiniz.",
+                    "updated": 1654392934232,
+                    "style": "Note"
                 }
             ]
         },
         {
             "style": "Subtitle",
-            "text": "Error Message"
+            "text": "Error Message",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hata Mesajı",
+                    "updated": 1654392940462,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "Text",
@@ -74,6 +105,12 @@
                     "language": "RU",
                     "text": "Ниже приведено сообщение об ошибке исключения, произошедшего на клиенте:",
                     "updated": 1640236134099
+                },
+                {
+                    "language": "TR",
+                    "text": "İstemcide meydana gelen İstisnanın Hata Mesajı aşağıdadır:",
+                    "updated": 1654392947232,
+                    "style": "Text"
                 }
             ]
         },
@@ -83,7 +120,15 @@
         },
         {
             "style": "Subtitle",
-            "text": "Error Stack"
+            "text": "Error Stack",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hata Yığını",
+                    "updated": 1654392952884,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "Text",
@@ -94,6 +139,12 @@
                     "language": "RU",
                     "text": "Ниже приведен стек ошибок исключения, возникшего на клиенте:",
                     "updated": 1640236160531
+                },
+                {
+                    "language": "TR",
+                    "text": "İstemcide meydana gelen İstisnanın Hata Yığını aşağıdadır:",
+                    "updated": 1654392958856,
+                    "style": "Text"
                 }
             ]
         },
@@ -103,7 +154,15 @@
         },
         {
             "style": "Subtitle",
-            "text": "Error Code"
+            "text": "Error Code",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hata Kodu",
+                    "updated": 1654392965034,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "Text",
@@ -114,6 +173,12 @@
                     "language": "RU",
                     "text": "Ниже приведен код ошибки исключения, возникшего у клиента:",
                     "updated": 1640236170146
+                },
+                {
+                    "language": "TR",
+                    "text": "İstemcide meydana gelen İstisnanın Hata Kodu aşağıdadır:",
+                    "updated": 1654392970662,
+                    "style": "Text"
                 }
             ]
         },
@@ -123,7 +188,15 @@
         },
         {
             "style": "Subtitle",
-            "text": "Error Details"
+            "text": "Error Details",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hata Detayları",
+                    "updated": 1654392976425,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "Text",
@@ -133,6 +206,12 @@
                     "language": "RU",
                     "text": "Ниже приведены все детали ошибки исключения, возникшего у клиента:",
                     "updated": 1640236189694
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıda, İstemcide meydana gelen İstisnanın tüm Hata ayrıntıları yer almaktadır:",
+                    "updated": 1654392982502,
+                    "style": "Text"
                 }
             ]
         },

@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Пространственная одномерная версия Dropout.",
                 "updated": 1645249981656
+            },
+            {
+                "language": "TR",
+                "text": "Dropout'un uzamsal 1D versiyonu.",
+                "updated": 1654397618078
             }
         ]
     },
@@ -21,6 +26,12 @@
                     "language": "RU",
                     "text": "Этот тип слоя выполняет ту же функцию, что и слой Dropout, но обнуляет не отдельные элементы, а целые одномерные карты признаков. Например, если входной пример состоит из 3 временных этапов и карта особенностей для каждого временного этапа имеет размер 4, слой spatialDropout1d может полностью обнулить карты особенностей 1-го и 2-го временных этапов, сохранив все элементы особенностей 3-го временного этапа.",
                     "updated": 1645250003117
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu Katman türü Bırakma katmanı ile aynı işlevi görür, ancak tek tek öğeler yerine 1B özellik haritalarının tamamını bırakır. Örneğin, bir girdi örneği 3 zaman adımından oluşuyorsa ve her bir zaman adımının özellik haritasının boyutu 4 ise, spatialDropout1d katmanı 1. ve 2. zaman adımlarının özellik haritalarını tamamen sıfırlarken 3. zaman adımının tüm özellik öğelerini koruyabilir.",
+                    "updated": 1654397623614,
+                    "style": "Text"
                 }
             ]
         },
@@ -32,6 +43,12 @@
                     "language": "RU",
                     "text": "Если соседние кадры (временные интервалы) сильно коррелированы (как это обычно бывает в ранних слоях свертки), обычное выпадение не приведет к регуляризации активации и в противном случае приведет лишь к снижению эффективной скорости обучения. В этом случае spatialDropout1d будет способствовать независимости карт признаков и должен быть использован вместо него.",
                     "updated": 1645250029714
+                },
+                {
+                    "language": "TR",
+                    "text": "Bitişik kareler (zaman adımları) güçlü bir şekilde ilişkiliyse (normalde erken konvolüsyon katmanlarında olduğu gibi), düzenli bırakma aktivasyonu düzenli hale getirmeyecek ve aksi takdirde sadece etkili bir öğrenme oranı düşüşüne neden olacaktır. Bu durumda, spatialDropout1d özellik haritaları arasında bağımsızlığı desteklemeye yardımcı olacaktır ve bunun yerine kullanılmalıdır.",
+                    "updated": 1654397629767,
+                    "style": "Text"
                 }
             ]
         }

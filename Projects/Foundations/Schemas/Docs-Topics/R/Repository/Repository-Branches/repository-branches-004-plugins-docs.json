@@ -20,6 +20,11 @@
                 "language": "RU",
                 "text": "Ветка Plugins-Docs была упразднена. Все материалы теперь направляются в ветку Develop.",
                 "updated": 1647785161188
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Plugins-Docs Branch kullanımdan kaldırıldı. Tüm katkılar artık Geliştirme şubesine gidiyor.",
+                "updated": 1650622486922
             }
         ]
     },
@@ -38,6 +43,11 @@
                     "language": "RU",
                     "text": "Сотрудники, работающие в этой ветке, согласовывают свои действия здесь:",
                     "updated": 1640353284759
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu şubede çalışan katkıda bulunanlar, burada koordine ederler:",
+                    "updated": 1650622535215
                 }
             ]
         },

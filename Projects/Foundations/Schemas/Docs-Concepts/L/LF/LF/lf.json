@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "LF - это аббревиатура от Low Frequency и, скорее всего, относится к низкочастотному торговому боту, реализованному на Trading Mine.",
                 "updated": 1638285373185
+            },
+            {
+                "language": "TR",
+                "text": "LF, Düşük Frekansın kısaltmasıdır ve büyük olasılıkla Masters Trading Mine'da uygulanan Düşük Frekanslı Ticaret Botuna atıfta bulunmaktadır.",
+                "updated": 1654391196221
             }
         ]
     },
@@ -20,6 +25,12 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования. Затем вы можете использовать docs.save для сохранения изменений и app.contribute для отправки их в основной репозиторий.",
                     "updated": 1638285398628
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle deyin. Yeni paragraflar yazmak için ENTER tuşuna basın. Düzenleme modundan çıkmak için ESC. Daha sonra değişikliklerinizi kaydetmek için docs.save ve ana depoya göndermek için app.contribute kullanabilirsiniz.",
+                    "updated": 1654391202463,
+                    "style": "Text"
                 }
             ]
         }

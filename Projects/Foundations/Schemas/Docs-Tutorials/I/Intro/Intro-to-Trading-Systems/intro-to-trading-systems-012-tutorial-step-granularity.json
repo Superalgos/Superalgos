@@ -1,13 +1,13 @@
 {
     "tutorial": "Intro to Trading Systems",
-    "pageNumber": 12,
+    "pageNumber": "12",
     "type": "Tutorial Step - Granularity!",
     "definition": {
+        "text": "I mentioned the concept of granularity during the Welcome tutorial... remember?",
         "icon": {
             "name": "Trading\\trading-system",
             "project": "Foundations"
         },
-        "text": "I mentioned the concept of granularity during the Welcome tutorial... remember?",
         "translations": [
             {
                 "language": "DE",
@@ -30,6 +30,7 @@
         {
             "style": "Text",
             "text": "Granularity is a device that helps in handling complexity. Instead of letting strategies grow into a complex web of rules and definitions, it is always preferable to split complex logic in pieces and deal with smaller units.",
+            "updated": 1640641303063,
             "translations": [
                 {
                     "language": "DE",
@@ -46,8 +47,7 @@
                     "text": "Гранулярность - это инструмент, который помогает справиться со сложностью. Вместо того чтобы позволять стратегиям разрастаться в сложную паутину правил и определений, всегда предпочтительнее разделить сложную логику на части и работать с более мелкими единицами.",
                     "updated": 1640885899204
                 }
-            ],
-            "updated": 1640641303063
+            ]
         },
         {
             "style": "Callout",
@@ -83,6 +83,12 @@
                     "language": "RU",
                     "text": "Всегда, когда это возможно, упрощайте!",
                     "updated": 1640885944269
+                },
+                {
+                    "language": "TR",
+                    "text": "Mümkün olduğunca basit tutun!",
+                    "updated": 1654394084700,
+                    "style": "Text"
                 }
             ]
         }

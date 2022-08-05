@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Bu kitap, Dokümanlar'daki her tür incelemenin bir kataloğudur.",
                 "updated": 1639387046324
+            },
+            {
+                "language": "DE",
+                "text": "Dieses Buch ist ein Katalog aller Arten von Bewertungen bei den Docs.",
+                "updated": 1650360101588
             }
         ]
     },

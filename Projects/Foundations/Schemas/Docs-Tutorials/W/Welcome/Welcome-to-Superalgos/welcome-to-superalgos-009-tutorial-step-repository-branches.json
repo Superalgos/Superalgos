@@ -1,14 +1,14 @@
 {
     "tutorial": "Welcome to Superalgos!",
-    "pageNumber": 9,
+    "pageNumber": "9",
     "type": "Tutorial Step - Repository Branches",
     "definition": {
         "text": "The Superalgos repository features two main branches: master and develop.",
+        "updated": 1636912658939,
         "icon": {
             "name": "github",
             "project": "Foundations"
         },
-        "updated": 1636912658939,
         "translations": [
             {
                 "language": "IT",
@@ -50,6 +50,7 @@
         {
             "style": "List",
             "text": "Master Branch: features the stable version of the software. Never submit contributions to this branch!",
+            "updated": 1649176347588,
             "translations": [
                 {
                     "language": "IT",
@@ -85,8 +86,7 @@
                     "text": "Master Branch: Yazılımın kararlı sürümünü içerir. Bu şubeye asla katkı göndermeyin!",
                     "updated": 1639942204622
                 }
-            ],
-            "updated": 1649176347588
+            ]
         },
         {
             "style": "List",
@@ -132,7 +132,15 @@
         {
             "style": "Warning",
             "text": "Ignore the instructions to switch branches of the next few steps if you are not using the Contributors installation. Just click Next to continue.",
-            "updated": 1649176508369
+            "updated": 1649176508369,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Contributors kurulumunu kullanmıyorsanız, sonraki birkaç adımdaki dal değiştirme talimatlarını dikkate almayın. Devam etmek için İleri'ye tıklayın.",
+                    "updated": 1654394226195,
+                    "style": "Warning"
+                }
+            ]
         }
     ]
 }

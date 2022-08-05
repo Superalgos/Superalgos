@@ -1,6 +1,6 @@
 {
     "tutorial": "Basic Education",
-    "pageNumber": 1,
+    "pageNumber": "1",
     "type": "Basic Education Tutorial",
     "definition": {
         "text": "This tutorial complements the information delivered in the Welcome to Superalgos Tutorial, focusing on the Nodes Menu, Backups, Clones and Shares, Plugins, Workspaces, References, and more.",
@@ -49,6 +49,12 @@
                     "language": "RU",
                     "text": "Об этом учебнике",
                     "updated": 1640858477958
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu Eğitim Hakkında",
+                    "updated": 1654393814930,
+                    "style": "Title"
                 }
             ]
         },

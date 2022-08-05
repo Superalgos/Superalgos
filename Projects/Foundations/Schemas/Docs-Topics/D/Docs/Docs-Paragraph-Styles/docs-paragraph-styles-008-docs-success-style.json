@@ -14,6 +14,11 @@
                 "language": "RU",
                 "text": "Этот стиль будет отображать текст внутри окна успеха.",
                 "updated": 1638533499019
+            },
+            {
+                "language": "TR",
+                "text": "Bu stil metni bir başarı kutusu içinde işleyecektir.",
+                "updated": 1652384837300
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "language": "RU",
                     "text": "Любой текст, отформатированный в этом стиле, будет показан в окне успеха.",
                     "updated": 1638533517029
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu stille biçimlendirilmiş herhangi bir metin, başarı kutusunun içinde gösterilecektir.",
+                    "updated": 1652384851644
                 }
             ]
         },
@@ -47,6 +57,11 @@
                     "language": "RU",
                     "text": "Пример:",
                     "updated": 1638533733959
+                },
+                {
+                    "language": "TR",
+                    "text": "Misal:",
+                    "updated": 1652384859458
                 }
             ]
         },
@@ -63,6 +78,11 @@
                     "language": "RU",
                     "text": "Это пример абзаца в стиле успеха.",
                     "updated": 1638533550524
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu, başarı stilinde bir paragraf örneğidir.",
+                    "updated": 1652384877226
                 }
             ]
         }

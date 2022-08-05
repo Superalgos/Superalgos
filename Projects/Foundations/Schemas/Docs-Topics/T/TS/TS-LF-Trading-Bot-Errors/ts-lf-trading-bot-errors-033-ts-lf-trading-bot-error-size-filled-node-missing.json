@@ -4,17 +4,38 @@
     "type": "TS LF Trading Bot Error - Size Filled Node Missing",
     "definition": {
         "text": "A Size Filled node was expected but not found at the node where the error originated.",
-        "updated": 1611650056396
+        "updated": 1611650056396,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Boyut Doldurulmuş ( Size Filled ) bir düğüm bekleniyordu ancak hatanın kaynaklandığı düğümde bulunamadı.",
+                "updated": 1649103602702
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Error",
             "text": "Size Filled Node Missing",
-            "updated": 1611650810373
+            "updated": 1611650810373,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Boyut Dolu,Düğüm Eksik. ( Size Filled Node Missing )",
+                    "updated": 1649103661309
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Add the missing node and try again."
+            "text": "Add the missing node and try again.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Eksik düğümü ekleyin ve tekrar deneyin.",
+                    "updated": 1649103685854
+                }
+            ]
         }
     ]
 }

@@ -1,6 +1,6 @@
 {
     "topic": "Trading Signal Overview",
-    "pageNumber": 5,
+    "pageNumber": "5",
     "type": "Social Trading Bots",
     "definition": {
         "text": "Social Trading Bots are a new kind of bot used within the Trading Signals process. They are the main interface between the signal provider and recipent.",
@@ -21,7 +21,15 @@
     "paragraphs": [
         {
             "style": "Include",
-            "text": "Social-Trading->Node->Social Trading Bot->Content"
+            "text": "Social-Trading->Node->Social Trading Bot->Content",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Social-Trading->Node->Social Trading Bot->Content",
+                    "updated": 1654395900145,
+                    "style": "Include"
+                }
+            ]
         }
     ]
 }

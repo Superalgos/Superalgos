@@ -32,45 +32,117 @@
         {
             "style": "Include",
             "text": "Governance->Node->Pools->Definition",
-            "updated": 1624719914461
+            "updated": 1624719914461,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Governance->Node->Pools->Definition",
+                    "updated": 1654395191215,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Include",
-            "text": "Governance->Node->Pools->Content"
+            "text": "Governance->Node->Pools->Content",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Governance->Node->Pools->Content",
+                    "updated": 1654395197115,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Include",
             "text": "Governance->Node->Pools->Configuration",
-            "updated": 1624710324091
+            "updated": 1624710324091,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Governance->Node->Pools->Configuration",
+                    "updated": 1654395202845,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Pool Class Nodes",
-            "updated": 1630427241695
+            "updated": 1630427241695,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Havuz Sınıfı Düğümleri",
+                    "updated": 1654395209044,
+                    "style": "Title"
+                }
+            ]
         },
         {
             "style": "Include",
-            "text": "Governance->Node->Pool Class->Definition"
+            "text": "Governance->Node->Pool Class->Definition",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Governance->Node->Pool Class->Definition",
+                    "updated": 1654395214884,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Include",
             "text": "Governance->Node->Pool Class->Content",
-            "updated": 1624710496543
+            "updated": 1624710496543,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Governance->Node->Pool Class->Content",
+                    "updated": 1654395221078,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Pool Nodes",
-            "updated": 1624710516456
+            "updated": 1624710516456,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Havuz Düğümleri",
+                    "updated": 1654395228156,
+                    "style": "Title"
+                }
+            ]
         },
         {
             "style": "Include",
             "text": "Governance->Node->Pool->Definition",
-            "updated": 1624710569674
+            "updated": 1624710569674,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Governance->Node->Pool->Definition",
+                    "updated": 1654395234141,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Include",
             "text": "Governance->Node->Pool->Content",
-            "updated": 1624710576964
+            "updated": 1624710576964,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Governance->Node->Pool->Content",
+                    "updated": 1654395239988,
+                    "style": "Include"
+                }
+            ]
         }
     ]
 }

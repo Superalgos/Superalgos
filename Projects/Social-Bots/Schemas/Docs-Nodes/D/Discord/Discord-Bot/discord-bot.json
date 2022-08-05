@@ -2,49 +2,136 @@
     "type": "Discord Bot",
     "definition": {
         "text": "The Discord Bot node is used for defining the configuration for a Discord Bot. This bot allows Superalgos to send announcements to a Discord Channel.",
-        "updated": 1619546769461
+        "updated": 1619546769461,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Discord Bot düğümü, bir Discord Bot için yapılandırmayı tanımlamak için kullanılır. Bu bot, Superalgos'un bir Discord Kanalına duyurular göndermesini sağlar.",
+                "updated": 1654396138578
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "In order to use the Discord Bot, you will need to create a new Application. Follow the official Discord developmer portal documentation to create your bot and obtain an Auth Token.",
-            "updated": 1619546875758
+            "updated": 1619546875758,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Discord Bot'u kullanmak için yeni bir Uygulama oluşturmanız gerekecektir. Botunuzu oluşturmak ve bir Auth Token almak için resmi Discord geliştirici portalı belgelerini izleyin.",
+                    "updated": 1654396145999,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Parameters:"
+            "text": "Parameters:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Parametreler:",
+                    "updated": 1654396153583,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "- token - required - obtained from the Discord Developer Portal."
-        },
-        {
-             "style": "Text",
-             "text": "- channelId - required - right click on a channel then Copy ID to obtain the channel ID."
-         },
-        {
-            "style": "Text",
-            "text": "- format - optional - allows custom formatting of the message being sent into Discord."
-        },
-        {
-            "style": "Text",
-            "text": "Recognized Format Variables:"
+            "text": "- token - required - obtained from the Discord Developer Portal.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "- token - gerekli - Discord Geliştirici Portalından elde edilir.",
+                    "updated": 1654396159747,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "- `%{EXCHANGE}` the exchange which is operating, i.e. Binance"
+            "text": "- channelId - required - right click on a channel then Copy ID to obtain the channel ID.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "- channelId - gerekli - kanal kimliğini elde etmek için bir kanala sağ tıklayın ve ardından Kimliği Kopyala'ya tıklayın.",
+                    "updated": 1654396165715,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "- `%{MARKET}` the market which is operating. i.e. BTC/USDT"
+            "text": "- format - optional - allows custom formatting of the message being sent into Discord.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "- biçim - isteğe bağlı - Discord'a gönderilen mesajın özel olarak biçimlendirilmesini sağlar.",
+                    "updated": 1654396171662,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "- `%{MESSAGE}` the text being sent"
+            "text": "Recognized Format Variables:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Tanınan Biçim Değişkenleri:",
+                    "updated": 1654396177963,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "An example format is:"
+            "text": "- `%{EXCHANGE}` the exchange which is operating, i.e. Binance",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "- `%{EXCHANGE}` çalışmakta olan borsa, yani Binance",
+                    "updated": 1654396183538,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "- `%{MARKET}` the market which is operating. i.e. BTC/USDT",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "- `%{MARKET}` faaliyette olan piyasa. yani BTC/USDT",
+                    "updated": 1654396190284,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "- `%{MESSAGE}` the text being sent",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "- `%{MESSAGE}` gönderilen metin",
+                    "updated": 1654396196767,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "An example format is:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Örnek bir format şöyledir:",
+                    "updated": 1654396202703,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -52,7 +139,15 @@
         },
         {
             "style": "Text",
-            "text": "Which results in a final message in Discord that looks like:"
+            "text": "Which results in a final message in Discord that looks like:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bu da Discord'da aşağıdaki gibi bir son mesajla sonuçlanır:",
+                    "updated": 1654396208572,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Javascript",

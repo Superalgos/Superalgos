@@ -155,7 +155,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
             'Learning Bot Instance->' +
             'Sensor Process Instance->Time Frames Filter->API Data Fetcher Process Instance->Indicator Process Instance->Study Process Instance->Trading Process Instance->Portfolio Process Instance->Learning Process Instance->' +
             'Execution Started Event->' +
-            'Key Reference->Exchange Account Key->' +
+            'Key Reference->Exchange Account Key->API Authorization Key->' +
             'Task Manager->' +
             'Data Mine Tasks->Trading Mine Tasks->Portfolio Mine Tasks->Learning Mine Tasks->' +
             'Market Data Tasks->Market Trading Tasks->Market Portfolio Tasks->Market Learning Tasks->' +
@@ -249,7 +249,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
         let managedTasksLightingPath = '->Task->Managed Tasks->Portfolio Bot Instance->' +
             'Task Reference->Task->Sensor Bot Instance->API Data Fetcher Bot->Indicator Bot Instance->Study Bot Instance->Trading Bot Instance->Learning Bot Instance->' +
             'Sensor Process Instance->Time Frames Filter->API Data Fetcher Process Instance->Indicator Process Instance->Study Process Instance->Trading Process Instance->Learning Process Instance->' +
-            'Execution Started Event->Key Reference->Exchange Account Key->' +
+            'Execution Started Event->Key Reference->Exchange Account Key->API Authorization Key->' +
             'Task Manager->' +
             'Data Mine Tasks->Trading Mine Tasks->Learning Mine Tasks->Portfolio Mine Tasks->' +
             'Market Trading Tasks->Market Data Tasks->Market Learning Tasks->Market Portfolio Tasks->' +

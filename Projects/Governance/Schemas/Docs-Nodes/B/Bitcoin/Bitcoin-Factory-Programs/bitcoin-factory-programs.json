@@ -1,0 +1,95 @@
+{
+    "type": "Bitcoin Factory Programs",
+    "definition": {
+        "text": "Bitcoin Factory Programs consolidate all Governance Rewards related to the Bitcoin Factory: The Factory is an exciting approach to predict future market development by combining Advanced Data Mining and Machine Learning.",
+        "updated": 1653673950292,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Bitcoin Fabrikası Programları, Bitcoin Fabrikası ile ilgili tüm Yönetişim Ödüllerini birleştirir: Fabrika, Gelişmiş Veri Madenciliği ve Makine Öğrenimini birleştirerek gelecekteki piyasa gelişimini tahmin etmek için heyecan verici bir yaklaşımdır.",
+                "updated": 1654394504264
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "At the Bitcoin Factory, we work hard to predict the future, using a sophisticated combination of Advanced Data Mining and Machine Learning.",
+            "updated": 1653673510017,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bitcoin Factory'de, Gelişmiş Veri Madenciliği ve Makine Öğreniminin sofistike bir kombinasyonunu kullanarak geleceği tahmin etmek için çok çalışıyoruz.",
+                    "updated": 1654394509821,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Doing so requires a lot of computing power - much more than a single person could afford. This is where the strength of the Superalgos Community comes into play: By crowd-sourcing computing power, we are able to continuously test, optimize and extend our prediction models.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bunu yapmak çok fazla bilgi işlem gücü gerektirir - tek bir kişinin karşılayabileceğinden çok daha fazlası. İşte bu noktada Superalgos Topluluğu'nun gücü devreye giriyor: Kitle kaynaklı bilgi işlem gücü sayesinde tahmin modellerimizi sürekli olarak test edebiliyor, optimize edebiliyor ve genişletebiliyoruz.",
+                    "updated": 1654394516131,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Bitcoin Factory Programs will reward users who have contributed to these efforts with an allocation of Superalgos Tokens.",
+            "updated": 1653674072019,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bitcoin Factory Programları, bu çabalara katkıda bulunan kullanıcıları Superalgos Token tahsisi ile ödüllendirecektir.",
+                    "updated": 1654394522265,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The Bitcoin Factory Programs node consolidates all Rewards Programs related to the Bitcoin Factory. At the moment, the community rewards contributions of computing power for the testing of Machine Learning models via the Computing Program. Further programs are expected to become available on an ongoing basis.",
+            "updated": 1653673885880,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bitcoin Fabrikası Programları düğümü, Bitcoin Fabrikası ile ilgili tüm Ödül Programlarını birleştirir. Şu anda topluluk, Bilgi İşlem Programı aracılığıyla Makine Öğrenimi modellerinin test edilmesi için bilgi işlem gücü katkılarını ödüllendirmektedir. Başka programların da sürekli olarak kullanıma sunulması beklenmektedir.",
+                    "updated": 1654394528571,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Important",
+            "text": "If you have contributed to testing efforts, please spawn a Computing Program node to claim your rewards.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Test çalışmalarına katkıda bulunduysanız, ödüllerinizi almak için lütfen bir Bilgi İşlem Programı düğümü oluşturun.",
+                    "updated": 1654394534147,
+                    "style": "Important"
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "Do you want to learn more about how to get started with the Bitcoin Factory? Check the Readme in the /Bitcoin-Factory subfolder of your Superalgos installation!",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bitcoin Factory'ye nasıl başlayacağınız hakkında daha fazla bilgi edinmek ister misiniz? Superalgos kurulumunuzun /Bitcoin-Factory alt klasöründeki Benioku'yu kontrol edin!",
+                    "updated": 1654394540462,
+                    "style": "Note"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

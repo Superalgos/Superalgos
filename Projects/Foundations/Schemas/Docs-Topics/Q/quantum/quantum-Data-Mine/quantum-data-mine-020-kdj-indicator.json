@@ -12,7 +12,8 @@
         },
         {
             "style": "Text",
-            "text": "The KDJ is similar to the alligator and Stochasti indicators as it helps to determine the trend direction and strength. It is a trend following indicator, and as such it can produce a lot of false signals during flat markets."
+            "text": "The KDJ is similar to the alligator and Stochastic indicators as it helps to determine the trend direction and strength. It is a trend following indicator, and as such it can produce a lot of false signals during flat markets.",
+            "updated": 1658980316661
         },
         {
             "style": "Text",
@@ -68,9 +69,9 @@
             "style": "Javascript",
             "text": "chart.at15min.KDJ.j > chart.at02hs.KDJ.d && chart.at15min.KDJ.previous.j < chart.at15min.KDJ.previous.d && chart.at15min.KDJ.j < 20"
         },
-		{
+        {
             "style": "Text",
-            "text": "For optimal results KDJ should with other indicators, such as Average Directional Index (ADX) or Average True Range (ATR). The former is always ahead of the curve and can hint into an upcoming trend reversal. The latter is capable of determining the volatility of the market, which is especially useful since KDJ doesn’t work in a ranging market."
+            "text": "For optimal results KDJ should with other indicators, such as Average Directional Index (ADX) or Average True Range (ATR). The former is always ahead of the curve and can hint into an upcoming trend reversal. The latter is capable of determining the volatility of the market, which is especially useful since KDJ doesnï¿½t work in a ranging market."
         }
     ]
 }

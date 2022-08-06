@@ -1107,11 +1107,11 @@ exports.newHttpInterface = function newHttpInterface() {
                         case 'Contribute': {
                             try {
                                 // We create a pull request of all active changes
-                                let commitMessage = unescape(requestPath[3])
-                                const username = unescape(requestPath[4])
-                                const token = unescape(requestPath[5])
-                                const currentBranch = unescape(requestPath[6])
-                                const contributionsBranch = unescape(requestPath[7])
+                                let commitMessage = decodeURIComponent(requestPath[3])
+                                const username = decodeURIComponent(requestPath[4])
+                                const token = decodeURIComponent(requestPath[5])
+                                const currentBranch = decodeURIComponent(requestPath[6])
+                                const contributionsBranch = decodeURIComponent(requestPath[7])
                                 let error
 
                                 // rebuild array of commit messages if committing from contribturions space
@@ -1225,6 +1225,9 @@ exports.newHttpInterface = function newHttpInterface() {
                                                 messageToSend = commitMessage
 
                                             }
+                                            if (messageToSend === undefined || messageToSend === '') {
+                                                messageToSend = 'No commit message defined'
+                                            } 
                                             await git.commit(messageToSend)
 
                                             await git.push('origin', currentBranch)

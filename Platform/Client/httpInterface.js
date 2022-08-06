@@ -1213,10 +1213,6 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                     async function pushFiles(git) {
                                         try {
-                                            await git.pull('origin', currentBranch)
-                                            await git.add('./*')
-
-                                            // If contributing from contributrions space gather the correct commit message
                                             let messageToSend
                                             if (commitMessage instanceof Array) {
                                                 messageToSend = getCommitMessage(repoName, commitMessage)
@@ -1228,6 +1224,11 @@ exports.newHttpInterface = function newHttpInterface() {
                                             if (messageToSend === undefined || messageToSend === '') {
                                                 messageToSend = 'No commit message defined'
                                             } 
+                                            await git.pull('origin', currentBranch)
+                                            await git.add('./*')
+
+                                            // If contributing from contributrions space gather the correct commit message
+
                                             await git.commit(messageToSend)
 
                                             await git.push('origin', currentBranch)

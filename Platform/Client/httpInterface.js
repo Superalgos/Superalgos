@@ -1213,6 +1213,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                     async function pushFiles(git) {
                                         try {
+                                            // If contributing from contributrions space gather the correct commit message
                                             let messageToSend
                                             if (commitMessage instanceof Array) {
                                                 messageToSend = getCommitMessage(repoName, commitMessage)
@@ -1226,8 +1227,6 @@ exports.newHttpInterface = function newHttpInterface() {
                                             } 
                                             await git.pull('origin', currentBranch)
                                             await git.add('./*')
-
-                                            // If contributing from contributrions space gather the correct commit message
 
                                             await git.commit(messageToSend)
 
@@ -1359,12 +1358,12 @@ exports.newHttpInterface = function newHttpInterface() {
                         case 'ContributeSingleRepo': {
                             try {
                                 // We create a pull request for the active changes of a particular repo
-                                let commitMessage = unescape(requestPath[3])
-                                const username = unescape(requestPath[4])
-                                const token = unescape(requestPath[5])
-                                const currentBranch = unescape(requestPath[6])
-                                const contributionsBranch = unescape(requestPath[7])
-                                const repoName = unescape(requestPath[8])
+                                let commitMessage = decodeURIComponent(requestPath[3])
+                                const username = decodeURIComponent(requestPath[4])
+                                const token = decodeURIComponent(requestPath[5])
+                                const currentBranch = decodeURIComponent(requestPath[6])
+                                const contributionsBranch = decodeURIComponent(requestPath[7])
+                                const repoName = decodeURIComponent(requestPath[8])
                                 let error
 
                                 /* Unsaving # */

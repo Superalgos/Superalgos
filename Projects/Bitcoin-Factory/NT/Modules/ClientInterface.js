@@ -11,6 +11,8 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
         finalize: finalize
     }
 
+
+    let queryMemories = new Map()
     let requestsToServer = []
     let responseFunctions = new Map()
     let statsByNetworkClients = new Map()
@@ -76,23 +78,131 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
                 }
                 return response
             }
-            //console.log(queryMessage)
-            switch (queryReceived.sender) {
-                case 'Test-Client': {
-                    queryReceived.userProfile = userProfile.name
-                    return await testClientMessage(queryReceived, userProfile.name)
-                }
-                case 'Forecast-Client': {
-                    queryReceived.userProfile = userProfile.name
-                    return await forecastClientMessage(queryReceived, userProfile.name)
-                }
-                case 'Test-Server': {
-                    queryReceived.userProfile = userProfile.name
-                    return await testServerMessage(queryReceived, userProfile.name)
+
+            /* If the queryReceived is the correct format we hold a copy in memory for 10 min before saving to file. */
+            if (queryReceived.sender === 'Test-Server' && queryReceived.response !== undefined) {
+            let currentTimestamp = (new Date()).valueOf()
+            let thisQueryReceived = queryReceived
+
+            // Then we create a key for the map that holds the query messages in memory.
+            let queryMemoryKeys = currentTimestamp
+            queryMemory = queryMemories.get(queryMemoryKeys)
+            if (queryMemory === undefined) {
+                queryMemory = thisQueryReceived
+                queryMemories.set(queryMemoryKeys, queryMemory)
+            } else {
+                    queryMemories.set(queryMemoryKeys, thisQueryReceived)
+            }
+            /* Finally we check our memory and remove any file that is older then 10 min. */
+            isMemoryOld()
+
+            
+            function isMemoryOld() {
+                let timestamp = (new Date()).valueOf()
+                let oldestTimestamp = timestamp - 600000
+                for (let [key, value] of queryMemories.entries()) {
+                    /*
+                        If value.response.files is defined it is the server sending a message.
+                        If it is undefined it is the client responding with the message.
+                    */
+                    if (key < oldestTimestamp && value.response.files !== undefined) {
+
+                        // Here we prepare our path to the file we are about to save.  
+                        let basePath = global.env.PATH_TO_DATA_STORAGE
+                        let project = 'Project'
+                        let bf = 'Bitcoin-Factory'
+                        let node = 'NetworkNode-ServerData'
+                        let serverFile = value.userProfile
+                        let fileName = value.instance
+                        let extension = '.JSON'
+                        let pathToFile = basePath + '/' + project + '/' + bf + '/' + node + '/' + serverFile + '/' + fileName + extension
+
+                        // Here we make sure our path exists and if not create it.
+                        checkFiles(pathToFile)
+
+                        /* 
+                            Here we prepare the file we are about to save. 
+                            First we shorten our timeSeries data down to startStamp and endStamp.
+                        */ 
+                        let thisRecord = value
+                        let thisTimeSeries = thisRecord.response.files.timeSeries.split('\r\n')
+                        let l = thisTimeSeries.length - 2
+                        let firstTimeSeries = thisTimeSeries[1]
+                        let lastTimeSeries = thisTimeSeries[l]
+
+                        // We create a Json object to hold our begin and end records.
+                        let thisTimeSeriesRecord = {
+                            Begin: firstTimeSeries,
+                            End: lastTimeSeries
+                        }
+
+                        // We remove the old timeSeries data and replace it with the new data.
+                        thisRecord.response.files.timeSeries = []
+                        thisRecord.response.files.timeSeries.push(thisTimeSeriesRecord)
+
+                        // Then we remove our parameters record because it already exists in the file.
+                        thisRecord.response.files.parameters = []
+
+                        let thisFileSave = JSON.stringify(thisRecord, null, 2)
+                        SA.nodeModules.fs.writeFileSync(pathToFile, thisFileSave + ',' + '\n', {'flag':'a'})
+
+                        // Finally we remove the test case from memory.
+                        queryMemories.delete(key)
+                    }
+
+                    // Here we handle the situation for the response form the client.
+                    if (key < oldestTimestamp && value.response.files === undefined) {
+                        let thisRecord = value
+
+                         // Here we prepare our path to the file we are about to save.  
+                         let basePath = global.env.PATH_TO_DATA_STORAGE
+                         let project = 'Project'
+                         let bf = 'Bitcoin-Factory'
+                         let node = 'NetworkNode-ServerData'
+                         let serverFile = value.userProfile
+                         let fileName = value.instance
+                         let extension = '.JSON'
+                         let pathToFile = basePath + '/' + project + '/' + bf + '/' + node + '/' + serverFile + '/' + fileName + extension
+ 
+                         // Here we make sure our path exists and if not create it.
+                         checkFiles(pathToFile)
+
+                         // Here we change our response into a more readable format.
+                         let thisRecordResponse = thisRecord.response.split(',')
+                         thisRecord.response = thisRecordResponse
+
+                         // Here we stringify and save out record.
+                        let thisFileSave = JSON.stringify(thisRecord, null, 2)
+                        SA.nodeModules.fs.writeFileSync(pathToFile, thisFileSave + ',' + '\n', {'flag':'a'})
+
+                        // Finally we remove the test case from memory.
+                        queryMemories.delete(key)
+                    }
                 }
             }
-        }
+            }                
 
+
+        switch (queryReceived.sender) {
+            case 'Test-Client': {
+                queryReceived.userProfile = userProfile.name
+                return await testClientMessage(queryReceived, userProfile.name)
+            }
+            case 'Forecast-Client': {
+                queryReceived.userProfile = userProfile.name
+                return await forecastClientMessage(queryReceived, userProfile.name)
+            }
+            case 'Test-Server': {
+                queryReceived.userProfile = userProfile.name
+                return await testServerMessage(queryReceived, userProfile.name)
+            }
+            case 'Dashboard-Client': {
+                queryReceived.userProfile = userProfile.name
+                return await dashboardClientMessage(queryReceived, userProfile.name)
+            }
+        }
+     }
+     
         async function testClientMessage(queryReceived, userProfile) {
             /*
             Process the Request
@@ -278,6 +388,88 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
                 }
             }
         }
+
+        /* Here we handle all messages from the dashboard */
+        async function dashboardClientMessage(queryReceived, userProfile) {
+            let requestToDashboard = {
+                queryReceived: queryReceived,
+                timestamp: (new Date()).valueOf()
+            }
+
+            return new Promise(promiseWork)
+
+            async function promiseWork(resolve, reject) {
+                    /*
+                        We will respond with all the historic test case data on file.
+                    */
+                    dashboardResponseController()
+
+                    // Here is the controller for the dashboard response.
+                function dashboardResponseController() {
+                    let path = getBasePath()
+                    checkFiles(path)
+                    let historicReportFolder = getHistoricReportFolder(path)
+                    
+                    if (historicReportFolder.length === 1 && historicReportFolder[0] === 'undefined') {
+                        return
+                    }
+
+                    let numberOfReports = historicReportFolder.length
+                    buildResponse(historicReportFolder, numberOfReports, path)
+                }
+
+
+                function getBasePath() {
+                    let basePath = global.env.PATH_TO_DATA_STORAGE
+                    let project = 'Project'
+                    let bf = 'Bitcoin-Factory'
+                    let node = 'NetworkNode-ServerData'
+                    let path = basePath + '/' + project + '/' + bf + '/' + node
+                    return path
+                }
+
+
+                function getHistoricReportFolder(path) {
+                    let thisFolder = SA.nodeModules.fs.readdirSync(path)     
+                        return thisFolder
+                }
+
+
+                function buildResponse(historicReportFolder, numberOfReports, path) {
+                    let responseMessageArray = [] 
+                    let folderHeadArray = []
+                    
+                    let numberOfServers = numberOfReports
+                    for (let count = 0; count < numberOfReports; count++) {
+                        let folder = historicReportFolder[count]
+                        let folderHead = folder
+                        let folderPath = path + '/' + folder
+                        let thisFolder = getHistoricReportFolder(folderPath)
+                        let numOfFiles = thisFolder.length
+                        let serverFile = []
+                        let folderArray = []
+                        for (let fileCount = 0; fileCount < numOfFiles; fileCount++) {
+                            let filePath = path + '/' + folder + '/' + thisFolder[fileCount]
+                            folderArray.push(thisFolder[fileCount])
+                            let file = SA.nodeModules.fs.readFileSync(filePath, {encoding:'utf8', flag:'r'})
+                            serverFile.push(file)
+                        } 
+                        responseMessageArray.push(serverFile)
+                        folderHeadArray.push(folderHead + ',' + folderArray)
+
+                    }
+                    let response = {
+                        result: 'Ok',
+                        message: 'Network Node Responded.',
+                        numberOfServers: numberOfServers,
+                        folderHead: folderHeadArray,
+                        dashboardData: responseMessageArray
+                    }
+                    resolve(response)
+                }
+
+            }
+        }
     }
 
     function getStats() {
@@ -288,5 +480,44 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
             networkClients: Array.from(statsByNetworkClients)
         }
         return response
+    }
+
+    /*
+        Function for verifying that all needed files are created.
+        If a needed file is not available, we will create a new one.
+    */
+    function checkFiles(reportPath) {
+        let localP = global.env.PATH_TO_DATA_STORAGE
+        let localD = localP.length
+        let reportPL = reportPath.length
+        let workingPath = reportPath.slice(localD, reportPL)
+        let thisPath = workingPath.split('/')
+
+        let reportFolderMainPath = localP
+        let reports = thisPath[1]
+        let reportPathFolder = thisPath[2]
+        let networkNodeServerDataFolder = thisPath[3]
+        let reportServerFolder = thisPath[4]
+    
+    
+        if (SA.nodeModules.fs.existsSync(reportFolderMainPath + '/' + reports) !== true) {
+            filePath = reportFolderMainPath + '/' + reports
+            SA.projects.foundations.utilities.filesAndDirectories.createNewDir(filePath)
+        }
+
+        if (SA.nodeModules.fs.existsSync(reportFolderMainPath + '/' + reports + '/' + reportPathFolder) !== true) {
+            filePath = reportFolderMainPath + '/' + reports + '/' + reportPathFolder
+            SA.projects.foundations.utilities.filesAndDirectories.createNewDir(filePath)
+        }
+
+        if (SA.nodeModules.fs.existsSync(reportFolderMainPath + '/' + reports + '/' + reportPathFolder + '/' + networkNodeServerDataFolder) !== true) {
+            filePath = reportFolderMainPath + '/' + reports + '/' + reportPathFolder + '/' + networkNodeServerDataFolder
+            SA.projects.foundations.utilities.filesAndDirectories.createNewDir(filePath)
+        }
+
+        if (SA.nodeModules.fs.existsSync(reportFolderMainPath + '/' + reports + '/' + reportPathFolder + '/' + reportServerFolder) !== true) {
+            filePath = reportFolderMainPath + '/' + reports + '/' + reportPathFolder + '/' + networkNodeServerDataFolder + '/' + reportServerFolder
+            SA.projects.foundations.utilities.filesAndDirectories.createNewDir(filePath)
+        }
     }
 }

@@ -681,7 +681,11 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                 Look to see if there is a key reference and if so include the keys in the fetch headers
                                  */
 
-                                let apiAuthKey = TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference.referenceParent
+                                // If no key is needed we can skip this stuff.
+                                if (TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference !== undefined) {
+                                    let apiAuthKey = TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference.referenceParent
+                                
+                                //let apiAuthKey = TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference.referenceParent
                                 let options = {}
 
                                 if (apiAuthKey !== undefined) {
@@ -699,6 +703,10 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                         }
                                     }
                                 }
+                            }
+
+                            // If no key is needed we make options a empty object and continue.
+                            if (TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference === undefined) { options = {} }
                                 
                                 fetch(url, options)
                                     .then((response) => {

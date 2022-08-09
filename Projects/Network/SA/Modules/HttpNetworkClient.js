@@ -32,7 +32,14 @@ exports.newNetworkModulesHttpNetworkClient = function newNetworkModulesHttpNetwo
         thisObject.p2pNetworkNode = p2pNetworkNode
 
         thisObject.host = thisObject.p2pNetworkNode.node.config.host
-        thisObject.port = thisObject.p2pNetworkNode.node.config.webPort
+
+        if (thisObject.p2pNetworkNode.node.networkInterfaces === undefined ||
+            thisObject.p2pNetworkNode.node.networkInterfaces.httpNetworkInterface === undefined) {
+                thisObject.port = 0
+                console.log('[WARN] Network Node belonging to User Profile ' + thisObject.p2pNetworkNode.userProfile.name + ' it is NOT reachable via http because the Network Node does not have the children Network Interfaces or Http Netework Interdace configured with the httpPort.')
+        } else {
+            thisObject.port = thisObject.p2pNetworkNode.node.networkInterfaces.httpNetworkInterface.config.httpPort
+        }
     }
 
     async function sendMessage(message) {

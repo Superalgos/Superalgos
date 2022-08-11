@@ -7,7 +7,7 @@
             "name": "Key\\key-ctrl",
             "project": "Foundations"
         },
-        "text": "Yes! You may use your keyboard too! You are going to love this for long-distance travel on the design space!",
+        "text": "Yes! You may use your keyboard too! You are going to love this for long-distance travel on the Design Space!",
         "translations": [
             {
                 "language": "IT",
@@ -50,7 +50,8 @@
                 "text": "Düğümleri biryerden bir yere taşımak için klavyenizi de kullanabilirsiniz! Tasarım alanında uzun mesafeli seyahatler için buna bayılacaksınız!. Mouse tuşuna basılı bir şekilde CTRl + ← → ↑ ↓ tuş kombinasyonun kullanarak düğümleri daha hızlı şekilde ve uzun mesafelere taşıyabilirsiniz.",
                 "updated": 1644850514289
             }
-        ]
+        ],
+        "updated": 1660143683418
     },
     "paragraphs": [
         {

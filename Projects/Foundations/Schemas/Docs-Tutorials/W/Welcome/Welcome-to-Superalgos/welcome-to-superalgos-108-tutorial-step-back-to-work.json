@@ -3,8 +3,8 @@
     "pageNumber": 108,
     "type": "Tutorial Step - Back to Work!",
     "definition": {
-        "text": "Superalgos features an in-app, editable, and multi-language documentation site, and a built-in command line! Learn to use those and you'll be the king of the hill!",
-        "updated": 1610648506240,
+        "text": "Superalgos features an in-app, interactive, searchable, editable, and multi-language docs site &mdash; and a built-in command line!",
+        "updated": 1660156022125,
         "icon": {
             "name": "status-dependency",
             "project": "Foundations"
@@ -46,9 +46,9 @@
     },
     "paragraphs": [
         {
-            "style": "Text",
-            "text": "You've already used a couple of documentation pages on the Docs panel on the right, but that's just the tip of the iceberg!",
-            "updated": 1616694225866,
+            "style": "Success",
+            "text": "Learn to use the Docs and the Command Line and you'll be the king of the hill!",
+            "updated": 1660156085131,
             "translations": [
                 {
                     "language": "IT",
@@ -83,6 +83,10 @@
                     "updated": 1642773732711
                 }
             ]
+        },
+        {
+            "style": "Text",
+            "text": "You've already used a couple of documentation pages on the Docs panel on the right, but that's just the tip of the iceberg!"
         },
         {
             "style": "Callout",
@@ -124,9 +128,9 @@
             ]
         },
         {
-            "style": "Success",
-            "text": "Not to brag, but the speed of the search engine rivals the likes of Google ;-)",
-            "updated": 1610651624723,
+            "style": "Note",
+            "text": "Not to brag, but the search engine is fast!",
+            "updated": 1660156175640,
             "translations": [
                 {
                     "language": "IT",

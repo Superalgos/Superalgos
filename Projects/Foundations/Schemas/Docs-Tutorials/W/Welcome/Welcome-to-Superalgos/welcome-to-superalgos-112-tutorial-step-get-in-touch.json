@@ -7,8 +7,8 @@
             "name": "telegram-bot",
             "project": "Social-Bots"
         },
-        "text": "Drop by to say hi, get help, and meet the Community! You may join the new Discord Server or the original Telegram groups below, where it all started!",
-        "updated": 1638914541602,
+        "text": "Join the new Discord Server or the original Telegram groups! Click on a group to get the link on the Docs panel.",
+        "updated": 1660219884677,
         "translations": [
             {
                 "language": "IT",
@@ -47,8 +47,8 @@
     "paragraphs": [
         {
             "style": "List",
-            "text": "Announcements Channel — Get official news first!",
-            "updated": 1630944704472,
+            "text": "Discord Server — The server is new, thus less active!",
+            "updated": 1660161121024,
             "translations": [
                 {
                     "language": "ES",
@@ -77,6 +77,10 @@
                     "updated": 1642774354099
                 }
             ]
+        },
+        {
+            "style": "List",
+            "text": "Announcements Channel — Get official news first!"
         },
         {
             "style": "List",
@@ -187,6 +191,15 @@
         },
         {
             "style": "List",
+            "text": "Machine Learning Group — Join the Bitcoin Factory!",
+            "updated": 1660161094486
+        },
+        {
+            "style": "List",
+            "text": "Trading Group — Help test trading signals!"
+        },
+        {
+            "style": "List",
             "text": "UX-UI Group — Can you design?",
             "updated": 1630944831647,
             "translations": [
@@ -236,39 +249,6 @@
                     "language": "RU",
                     "text": "Docs Group — Помогает нам улучшить документацию (Docs)!",
                     "updated": 1642774462655
-                }
-            ]
-        },
-        {
-            "style": "Callout",
-            "text": "Click to find the invite link in the Docs panel!",
-            "updated": 1630944807940,
-            "translations": [
-                {
-                    "language": "IT",
-                    "text": "Unisciti agli Announcements Channel per essere sempre al corrente di nuove release, hot fix e aggiornamenti importanti!",
-                    "updated": 1618073910521,
-                    "style": "Callout"
-                },
-                {
-                    "language": "DE",
-                    "text": "Klicken Sie auf den Einladungslink im Docs-Panel!",
-                    "updated": 1634247545426
-                },
-                {
-                    "language": "TR",
-                    "text": "Dokümanlar panelinde davet bağlantısını bulmak için tıklayın!",
-                    "updated": 1638914459181
-                },
-                {
-                    "language": "ID",
-                    "text": "Klik untuk menemukan tautan undangan di panel Docs !",
-                    "updated": 1640600471322
-                },
-                {
-                    "language": "RU",
-                    "text": "Нажмите, чтобы найти ссылку на приглашение в панели Docs!",
-                    "updated": 1642774511995
                 }
             ]
         }

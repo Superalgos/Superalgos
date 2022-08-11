@@ -4,11 +4,11 @@
     "type": "Tutorial Step - What Else Is Cooking?",
     "definition": {
         "icon": {
-            "name": "Crypto-Assets\\ethereum",
+            "name": "Crypto-Assets\\bitcoin",
             "project": "Foundations"
         },
-        "text": "Superalgos is a multi-project platform, and —after TensorFlow— the Ethereum integration is next in line...",
-        "updated": 1616695001060,
+        "text": "The Bitcoin Factory crowdsources computing power from the community to train ML algorithms that predict Bitcoin prices!",
+        "updated": 1660157066315,
         "translations": [
             {
                 "language": "IT",
@@ -46,47 +46,8 @@
     },
     "paragraphs": [
         {
-            "style": "Text",
-            "text": "What does integrating Ethereum mean, you ask? It means that—in future versions—you will be able to:",
-            "updated": 1610719381268,
-            "translations": [
-                {
-                    "language": "IT",
-                    "text": "Che cosa significa integrare Ethereum? Significa che, nelle future versioni, potrai:",
-                    "updated": 1618073374905,
-                    "style": "Text"
-                },
-                {
-                    "language": "ES",
-                    "text": "¿Qué significa integrar Ethereum? Significa que, en versiones futuras, podrás:",
-                    "updated": 1624487553387,
-                    "style": "Text"
-                },
-                {
-                    "language": "DE",
-                    "text": "Was bedeutet die Integration von Ethereum, fragen Sie? Es bedeutet, dass Sie - in zukünftigen Versionen - in der Lage sein werden:",
-                    "updated": 1634246807622
-                },
-                {
-                    "language": "TR",
-                    "text": "Ethereum'u entegre etmek ne anlama geliyor? Bu, gelecekteki sürümlerde şunları yapabileceğiniz anlamına gelir:",
-                    "updated": 1636636318950
-                },
-                {
-                    "language": "ID",
-                    "text": "Apa arti mengintegrasikan Ethereum, Kamu bertanya? Ini berarti bahwa — dalam versi yang akan datang — kamu akan dapat :",
-                    "updated": 1640598245063
-                },
-                {
-                    "language": "RU",
-                    "text": "Что означает интеграция с Ethereum, спросите вы? Это значит, что в будущих версиях вы сможете:",
-                    "updated": 1642772850380
-                }
-            ]
-        },
-        {
             "style": "List",
-            "text": "Connect to an Ethereum node right from within Superalgos using the visual interface.",
+            "text": "Mine the Superalgos SA Token by running the Bitcoin Factory ML-Test-Client to contribute computation!",
             "translations": [
                 {
                     "language": "IT",
@@ -120,12 +81,13 @@
                     "text": "Подключение к узлу Ethereum прямо из Superalgos с помощью визуального интерфейса.",
                     "updated": 1642772876348
                 }
-            ]
+            ],
+            "updated": 1660158085106
         },
         {
             "style": "List",
-            "text": "Mine blockchain data to access coin and contract information for all Ethereum-based projects, including De-Fi or what have you, visualizing data on the charts, building indicators, and leveraging the rest of the Superalgos infrastructure.",
-            "updated": 1611584299475,
+            "text": "Use the ML predictions and signals as intelligence you may plug into your strategies to find your edge!",
+            "updated": 1660159101605,
             "translations": [
                 {
                     "language": "IT",
@@ -162,8 +124,8 @@
             ]
         },
         {
-            "style": "List",
-            "text": "Use the data to trade by consuming related indicators from within trading systems!",
+            "style": "Text",
+            "text": "To participate, join the Bitcoin Factory team in the",
             "translations": [
                 {
                     "language": "IT",
@@ -197,7 +159,17 @@
                     "text": "Используйте данные для торговли, потребляя связанные индикаторы из торговых систем!",
                     "updated": 1642772955234
                 }
-            ]
+            ],
+            "updated": 1660158007047
+        },
+        {
+            "style": "Link",
+            "text": "Superalgos Machine Learning Group->te.me/superalgosmachinelearning"
+        },
+        {
+            "style": "Success",
+            "text": "Once the beta phase is over, you will need to hold a certain balance of Superalgos SA Tokens to access Bitcoin Factory predictions, as it's a premium community service.",
+            "updated": 1660157821896
         }
     ]
 }

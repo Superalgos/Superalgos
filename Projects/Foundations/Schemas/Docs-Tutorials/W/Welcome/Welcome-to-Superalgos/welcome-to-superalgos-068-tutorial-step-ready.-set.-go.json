@@ -46,7 +46,7 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Running a trading task is quite similar to running a data mining task. The difference lies in that&mdash;after running the task&mdash;you also need to run the trading session.",
+            "text": "Running a trading task is quite similar to running a data mining task. The difference lies in that—after running the task—you also need to run the Trading Session.",
             "translations": [
                 {
                     "language": "IT",
@@ -75,7 +75,8 @@
                     "text": "Menjalankan trading task sangat mirip dengan menjalankan tugas data mining. Perbedaannya terletak pada — setelah menjalankan tugas — kamu juga perlu menjalankan trading session.",
                     "updated": 1639748126340
                 }
-            ]
+            ],
+            "updated": 1660148890490
         },
         {
             "style": "Callout",

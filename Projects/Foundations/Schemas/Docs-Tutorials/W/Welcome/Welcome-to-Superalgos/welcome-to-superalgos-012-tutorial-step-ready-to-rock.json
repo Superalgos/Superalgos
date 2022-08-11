@@ -198,7 +198,7 @@
         },
         {
             "style": "List",
-            "text": "Run a Live Trading Session with minimal funds, to test the critical aspects of the system.",
+            "text": "Run a Live Trading Session with minimal funds, to test other critical aspects of the system.",
             "translations": [
                 {
                     "language": "IT",
@@ -241,7 +241,7 @@
                     "updated": 1635579557420
                 }
             ],
-            "updated": 1616414612909
+            "updated": 1660142821699
         },
         {
             "style": "Callout",

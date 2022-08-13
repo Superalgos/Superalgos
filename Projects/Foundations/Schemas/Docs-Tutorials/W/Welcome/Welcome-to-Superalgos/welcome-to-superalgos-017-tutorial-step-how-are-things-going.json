@@ -29,8 +29,8 @@
             },
             {
                 "language": "DE",
-                "text": "Ich habe Sie soeben in die Tiefen der Data-Mining-Operation gezogen. Sehen Sie sich den Fortschritt der Sensor Bot Instance zu Ihrer Rechten an!",
-                "updated": 1634162835620,
+                "text": "Ich habe Sie soeben in die Tiefen der Data-Mining-Operation gezogen. Sehen Sie sich den Fortschritt der Sensor Bot-Instance zu Ihrer Rechten an!",
+                "updated": 1660418632785,
                 "style": "Definition"
             },
             {
@@ -173,8 +173,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Es sollte nicht länger als 5 bis 10 Minuten dauern, die Daten aus der Börse zu extrahieren, oder etwas länger, abhängig von Ihrer Hardware. Sie können nicht warten? Kein Problem! Klicken Sie auf Weiter für einen kurzen Hinweis! ",
-                    "updated": 1642150035455,
+                    "text": "Es sollte nicht länger als 5 bis 10 Minuten dauern, die Daten von der Börse herunterzuladen. Abhängig von Ihrer Hardware könnte es auch etwas länger dauern. Sie können nicht warten? Kein Problem! Klicken Sie auf Weiter für einen kurzen Hinweis!",
+                    "updated": 1660418691007,
                     "style": "Success"
                 },
                 {

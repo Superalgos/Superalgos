@@ -24,8 +24,8 @@
             },
             {
                 "language": "DE",
-                "text": "Ich gebe Ihnen ein paar Minuten Zeit, um mit Ihrer Live-Sitzung herumzuspielen, und wenn Sie bereit sind, gehen wir zu anderen Dingen über!",
-                "updated": 1634245629094
+                "text": "Ich gebe Ihnen ein paar Minuten Zeit, um mit Ihrer Live-Sitzung herumzuspielen. Wenn Sie bereit sind, werden wir ein wenig aufräumen und das Tutorial beenden!",
+                "updated": 1660479733059
             },
             {
                 "language": "TR",
@@ -103,8 +103,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Das ist wichtig: Wenn Sie bereit sind, weiterzumachen, können Sie die Live Trading Session und die Data Tasks beenden. Sie können die Sitzung weiterlaufen lassen, wenn Sie möchten, aber ich würde mein hart verdientes Geld nicht auf unbestimmte Zeit der Demostrategie anvertrauen!",
-                    "updated": 1634245651095
+                    "text": "Wenn Sie bereit sind fortzufahren, können Sie Live Trading-Session und die Data Tasks stoppen.",
+                    "updated": 1660479779581
                 },
                 {
                     "language": "TR",
@@ -125,7 +125,14 @@
         },
         {
             "style": "Warning",
-            "text": "You may leave the session running if you wish, but I wouldn't trust my hard-earned cash to the demo strategy indefinitely!"
+            "text": "You may leave the session running if you wish, but I wouldn't trust my hard-earned cash to the demo strategy indefinitely!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie möchten, können Sie die Session laufen lassen. Ich würde mein hart verdientes Geld aber nicht der Demo-Strategie anvertrauen!",
+                    "updated": 1660479827747
+                }
+            ]
         }
     ]
 }

@@ -103,8 +103,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Superalgos unterstützt die Verteilung und Koordinierung von Aufgaben über Netzwerke von Knoten, auf denen der Client läuft! Dies ermöglicht intelligente und skalierbare Operationen. Jeder Rechner, auf dem die GUI läuft, kann das Unternehmen steuern!",
-                    "updated": 1634220039839
+                    "text": "Superalgos unterstützt die Verteilung und Koordination von Aufgaben über Netzwerke von Knoten, auf denen der Client läuft! Das ermöglicht einen skalierbaren Betrieb: Jeder Rechner, auf dem die Benutzeroberfläche läuft, kann das gesamte Unternehmen steuern!",
+                    "updated": 1660475511570
                 },
                 {
                     "language": "TR",

@@ -1,0 +1,78 @@
+{
+    "topic": "Undulated Data Mine",
+    "pageNumber": "3",
+    "type": "PPO",
+    "definition": {
+        "text": "This is similar to the MACD, except it measures the percentage difference between two EMAs instead of the absolute distance."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "PPO on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "From Investopedia: The Percentage Price Oscillator (PPO) is a technical momentum indicator that shows the relationship between two moving averages in percentage terms. The moving averages are a 26-period and 12-period exponential moving average (EMA)."
+        },
+        {
+            "style": "Text",
+            "text": "Key Takeaways:"
+        },
+		{
+            "style": "List",
+            "text": "The PPO typically contains two lines: the PPO line, and the signal line. The signal line is an EMA of the PPO, so it moves slower than the PPO."
+        },
+        {
+            "style": "List",
+            "text": "When the PPO is above the zero line, it indicates an upware trend and vice versa."
+        },
+        {
+            "style": "Link",
+            "text": "Percentage Price Oscillator (PPO) (Investopedia)->www.investopedia.com/terms/p/ppo.asp"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/undulated-ppo-on-the-charts.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| PPO | ppo | value, signal, hist |"
+        },
+        {
+            "style": "Text",
+            "text": "The lengths of the indicator's moving averages can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"PPO\" Procedure Loop."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/undulated-ppo-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator can be used to enter a trade when the value rises above the signal:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at02hs.ppo.value > chart.at02hs.ppo.signal"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

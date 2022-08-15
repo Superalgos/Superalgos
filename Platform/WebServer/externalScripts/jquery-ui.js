@@ -3722,4 +3722,1274 @@ var effectsEffectScale = $.effects.define( "scale", function( options, done ) {
 //>>label: Puff Effect
 //>>group: Effects
 //>>description: Creates a puff effect by scaling the element up and hiding it at the same time.
-//>>docs
+//>>docs: http://api.jqueryui.com/puff-effect/
+//>>demos: http://jqueryui.com/effect/
+
+
+var effectsEffectPuff = $.effects.define( "puff", "hide", function( options, done ) {
+	var newOptions = $.extend( true, {}, options, {
+		fade: true,
+		percent: parseInt( options.percent, 10 ) || 150
+	} );
+
+	$.effects.effect.scale.call( this, newOptions, done );
+} );
+
+
+/*!
+ * jQuery UI Effects Pulsate 1.13.0
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ */
+
+//>>label: Pulsate Effect
+//>>group: Effects
+//>>description: Pulsates an element n times by changing the opacity to zero and back.
+//>>docs: http://api.jqueryui.com/pulsate-effect/
+//>>demos: http://jqueryui.com/effect/
+
+
+var effectsEffectPulsate = $.effects.define( "pulsate", "show", function( options, done ) {
+	var element = $( this ),
+		mode = options.mode,
+		show = mode === "show",
+		hide = mode === "hide",
+		showhide = show || hide,
+
+		// Showing or hiding leaves off the "last" animation
+		anims = ( ( options.times || 5 ) * 2 ) + ( showhide ? 1 : 0 ),
+		duration = options.duration / anims,
+		animateTo = 0,
+		i = 1,
+		queuelen = element.queue().length;
+
+	if ( show || !element.is( ":visible" ) ) {
+		element.css( "opacity", 0 ).show();
+		animateTo = 1;
+	}
+
+	// Anims - 1 opacity "toggles"
+	for ( ; i < anims; i++ ) {
+		element.animate( { opacity: animateTo }, duration, options.easing );
+		animateTo = 1 - animateTo;
+	}
+
+	element.animate( { opacity: animateTo }, duration, options.easing );
+
+	element.queue( done );
+
+	$.effects.unshift( element, queuelen, anims + 1 );
+} );
+
+
+/*!
+ * jQuery UI Effects Shake 1.13.0
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ */
+
+//>>label: Shake Effect
+//>>group: Effects
+//>>description: Shakes an element horizontally or vertically n times.
+//>>docs: http://api.jqueryui.com/shake-effect/
+//>>demos: http://jqueryui.com/effect/
+
+
+var effectsEffectShake = $.effects.define( "shake", function( options, done ) {
+
+	var i = 1,
+		element = $( this ),
+		direction = options.direction || "left",
+		distance = options.distance || 20,
+		times = options.times || 3,
+		anims = times * 2 + 1,
+		speed = Math.round( options.duration / anims ),
+		ref = ( direction === "up" || direction === "down" ) ? "top" : "left",
+		positiveMotion = ( direction === "up" || direction === "left" ),
+		animation = {},
+		animation1 = {},
+		animation2 = {},
+
+		queuelen = element.queue().length;
+
+	$.effects.createPlaceholder( element );
+
+	// Animation
+	animation[ ref ] = ( positiveMotion ? "-=" : "+=" ) + distance;
+	animation1[ ref ] = ( positiveMotion ? "+=" : "-=" ) + distance * 2;
+	animation2[ ref ] = ( positiveMotion ? "-=" : "+=" ) + distance * 2;
+
+	// Animate
+	element.animate( animation, speed, options.easing );
+
+	// Shakes
+	for ( ; i < times; i++ ) {
+		element
+			.animate( animation1, speed, options.easing )
+			.animate( animation2, speed, options.easing );
+	}
+
+	element
+		.animate( animation1, speed, options.easing )
+		.animate( animation, speed / 2, options.easing )
+		.queue( done );
+
+	$.effects.unshift( element, queuelen, anims + 1 );
+} );
+
+
+/*!
+ * jQuery UI Effects Slide 1.13.0
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ */
+
+//>>label: Slide Effect
+//>>group: Effects
+//>>description: Slides an element in and out of the viewport.
+//>>docs: http://api.jqueryui.com/slide-effect/
+//>>demos: http://jqueryui.com/effect/
+
+
+var effectsEffectSlide = $.effects.define( "slide", "show", function( options, done ) {
+	var startClip, startRef,
+		element = $( this ),
+		map = {
+			up: [ "bottom", "top" ],
+			down: [ "top", "bottom" ],
+			left: [ "right", "left" ],
+			right: [ "left", "right" ]
+		},
+		mode = options.mode,
+		direction = options.direction || "left",
+		ref = ( direction === "up" || direction === "down" ) ? "top" : "left",
+		positiveMotion = ( direction === "up" || direction === "left" ),
+		distance = options.distance ||
+			element[ ref === "top" ? "outerHeight" : "outerWidth" ]( true ),
+		animation = {};
+
+	$.effects.createPlaceholder( element );
+
+	startClip = element.cssClip();
+	startRef = element.position()[ ref ];
+
+	// Define hide animation
+	animation[ ref ] = ( positiveMotion ? -1 : 1 ) * distance + startRef;
+	animation.clip = element.cssClip();
+	animation.clip[ map[ direction ][ 1 ] ] = animation.clip[ map[ direction ][ 0 ] ];
+
+	// Reverse the animation if we're showing
+	if ( mode === "show" ) {
+		element.cssClip( animation.clip );
+		element.css( ref, animation[ ref ] );
+		animation.clip = startClip;
+		animation[ ref ] = startRef;
+	}
+
+	// Actually animate
+	element.animate( animation, {
+		queue: false,
+		duration: options.duration,
+		easing: options.easing,
+		complete: done
+	} );
+} );
+
+
+/*!
+ * jQuery UI Effects Transfer 1.13.0
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ */
+
+//>>label: Transfer Effect
+//>>group: Effects
+//>>description: Displays a transfer effect from one element to another.
+//>>docs: http://api.jqueryui.com/transfer-effect/
+//>>demos: http://jqueryui.com/effect/
+
+
+var effect;
+if ( $.uiBackCompat !== false ) {
+	effect = $.effects.define( "transfer", function( options, done ) {
+		$( this ).transfer( options, done );
+	} );
+}
+var effectsEffectTransfer = effect;
+
+
+/*!
+ * jQuery UI Focusable 1.13.0
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ */
+
+//>>label: :focusable Selector
+//>>group: Core
+//>>description: Selects elements which can be focused.
+//>>docs: http://api.jqueryui.com/focusable-selector/
+
+
+// Selectors
+$.ui.focusable = function( element, hasTabindex ) {
+	var map, mapName, img, focusableIfVisible, fieldset,
+		nodeName = element.nodeName.toLowerCase();
+
+	if ( "area" === nodeName ) {
+		map = element.parentNode;
+		mapName = map.name;
+		if ( !element.href || !mapName || map.nodeName.toLowerCase() !== "map" ) {
+			return false;
+		}
+		img = $( "img[usemap='#" + mapName + "']" );
+		return img.length > 0 && img.is( ":visible" );
+	}
+
+	if ( /^(input|select|textarea|button|object)$/.test( nodeName ) ) {
+		focusableIfVisible = !element.disabled;
+
+		if ( focusableIfVisible ) {
+
+			// Form controls within a disabled fieldset are disabled.
+			// However, controls within the fieldset's legend do not get disabled.
+			// Since controls generally aren't placed inside legends, we skip
+			// this portion of the check.
+			fieldset = $( element ).closest( "fieldset" )[ 0 ];
+			if ( fieldset ) {
+				focusableIfVisible = !fieldset.disabled;
+			}
+		}
+	} else if ( "a" === nodeName ) {
+		focusableIfVisible = element.href || hasTabindex;
+	} else {
+		focusableIfVisible = hasTabindex;
+	}
+
+	return focusableIfVisible && $( element ).is( ":visible" ) && visible( $( element ) );
+};
+
+// Support: IE 8 only
+// IE 8 doesn't resolve inherit to visible/hidden for computed values
+function visible( element ) {
+	var visibility = element.css( "visibility" );
+	while ( visibility === "inherit" ) {
+		element = element.parent();
+		visibility = element.css( "visibility" );
+	}
+	return visibility === "visible";
+}
+
+$.extend( $.expr.pseudos, {
+	focusable: function( element ) {
+		return $.ui.focusable( element, $.attr( element, "tabindex" ) != null );
+	}
+} );
+
+var focusable = $.ui.focusable;
+
+
+
+// Support: IE8 Only
+// IE8 does not support the form attribute and when it is supplied. It overwrites the form prop
+// with a string, so we need to find the proper form.
+var form = $.fn._form = function() {
+	return typeof this[ 0 ].form === "string" ? this.closest( "form" ) : $( this[ 0 ].form );
+};
+
+
+/*!
+ * jQuery UI Form Reset Mixin 1.13.0
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ */
+
+//>>label: Form Reset Mixin
+//>>group: Core
+//>>description: Refresh input widgets when their form is reset
+//>>docs: http://api.jqueryui.com/form-reset-mixin/
+
+
+var formResetMixin = $.ui.formResetMixin = {
+	_formResetHandler: function() {
+		var form = $( this );
+
+		// Wait for the form reset to actually happen before refreshing
+		setTimeout( function() {
+			var instances = form.data( "ui-form-reset-instances" );
+			$.each( instances, function() {
+				this.refresh();
+			} );
+		} );
+	},
+
+	_bindFormResetHandler: function() {
+		this.form = this.element._form();
+		if ( !this.form.length ) {
+			return;
+		}
+
+		var instances = this.form.data( "ui-form-reset-instances" ) || [];
+		if ( !instances.length ) {
+
+			// We don't use _on() here because we use a single event handler per form
+			this.form.on( "reset.ui-form-reset", this._formResetHandler );
+		}
+		instances.push( this );
+		this.form.data( "ui-form-reset-instances", instances );
+	},
+
+	_unbindFormResetHandler: function() {
+		if ( !this.form.length ) {
+			return;
+		}
+
+		var instances = this.form.data( "ui-form-reset-instances" );
+		instances.splice( $.inArray( this, instances ), 1 );
+		if ( instances.length ) {
+			this.form.data( "ui-form-reset-instances", instances );
+		} else {
+			this.form
+				.removeData( "ui-form-reset-instances" )
+				.off( "reset.ui-form-reset" );
+		}
+	}
+};
+
+
+/*!
+ * jQuery UI Support for jQuery core 1.8.x and newer 1.13.0
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ *
+ */
+
+//>>label: jQuery 1.8+ Support
+//>>group: Core
+//>>description: Support version 1.8.x and newer of jQuery core
+
+
+// Support: jQuery 1.9.x or older
+// $.expr[ ":" ] is deprecated.
+if ( !$.expr.pseudos ) {
+	$.expr.pseudos = $.expr[ ":" ];
+}
+
+// Support: jQuery 1.11.x or older
+// $.unique has been renamed to $.uniqueSort
+if ( !$.uniqueSort ) {
+	$.uniqueSort = $.unique;
+}
+
+// Support: jQuery 2.2.x or older.
+// This method has been defined in jQuery 3.0.0.
+// Code from https://github.com/jquery/jquery/blob/e539bac79e666bba95bba86d690b4e609dca2286/src/selector/escapeSelector.js
+if ( !$.escapeSelector ) {
+
+	// CSS string/identifier serialization
+	// https://drafts.csswg.org/cssom/#common-serializing-idioms
+	var rcssescape = /([\0-\x1f\x7f]|^-?\d)|^-$|[^\x80-\uFFFF\w-]/g;
+
+	var fcssescape = function( ch, asCodePoint ) {
+		if ( asCodePoint ) {
+
+			// U+0000 NULL becomes U+FFFD REPLACEMENT CHARACTER
+			if ( ch === "\0" ) {
+				return "\uFFFD";
+			}
+
+			// Control characters and (dependent upon position) numbers get escaped as code points
+			return ch.slice( 0, -1 ) + "\\" + ch.charCodeAt( ch.length - 1 ).toString( 16 ) + " ";
+		}
+
+		// Other potentially-special ASCII characters get backslash-escaped
+		return "\\" + ch;
+	};
+
+	$.escapeSelector = function( sel ) {
+		return ( sel + "" ).replace( rcssescape, fcssescape );
+	};
+}
+
+// Support: jQuery 3.4.x or older
+// These methods have been defined in jQuery 3.5.0.
+if ( !$.fn.even || !$.fn.odd ) {
+	$.fn.extend( {
+		even: function() {
+			return this.filter( function( i ) {
+				return i % 2 === 0;
+			} );
+		},
+		odd: function() {
+			return this.filter( function( i ) {
+				return i % 2 === 1;
+			} );
+		}
+	} );
+}
+
+;
+/*!
+ * jQuery UI Keycode 1.13.0
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ */
+
+//>>label: Keycode
+//>>group: Core
+//>>description: Provide keycodes as keynames
+//>>docs: http://api.jqueryui.com/jQuery.ui.keyCode/
+
+
+var keycode = $.ui.keyCode = {
+	BACKSPACE: 8,
+	COMMA: 188,
+	DELETE: 46,
+	DOWN: 40,
+	END: 35,
+	ENTER: 13,
+	ESCAPE: 27,
+	HOME: 36,
+	LEFT: 37,
+	PAGE_DOWN: 34,
+	PAGE_UP: 33,
+	PERIOD: 190,
+	RIGHT: 39,
+	SPACE: 32,
+	TAB: 9,
+	UP: 38
+};
+
+
+/*!
+ * jQuery UI Labels 1.13.0
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ */
+
+//>>label: labels
+//>>group: Core
+//>>description: Find all the labels associated with a given input
+//>>docs: http://api.jqueryui.com/labels/
+
+
+var labels = $.fn.labels = function() {
+	var ancestor, selector, id, labels, ancestors;
+
+	if ( !this.length ) {
+		return this.pushStack( [] );
+	}
+
+	// Check control.labels first
+	if ( this[ 0 ].labels && this[ 0 ].labels.length ) {
+		return this.pushStack( this[ 0 ].labels );
+	}
+
+	// Support: IE <= 11, FF <= 37, Android <= 2.3 only
+	// Above browsers do not support control.labels. Everything below is to support them
+	// as well as document fragments. control.labels does not work on document fragments
+	labels = this.eq( 0 ).parents( "label" );
+
+	// Look for the label based on the id
+	id = this.attr( "id" );
+	if ( id ) {
+
+		// We don't search against the document in case the element
+		// is disconnected from the DOM
+		ancestor = this.eq( 0 ).parents().last();
+
+		// Get a full set of top level ancestors
+		ancestors = ancestor.add( ancestor.length ? ancestor.siblings() : this.siblings() );
+
+		// Create a selector for the label based on the id
+		selector = "label[for='" + $.escapeSelector( id ) + "']";
+
+		labels = labels.add( ancestors.find( selector ).addBack( selector ) );
+
+	}
+
+	// Return whatever we have found for labels
+	return this.pushStack( labels );
+};
+
+
+/*!
+ * jQuery UI Scroll Parent 1.13.0
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ */
+
+//>>label: scrollParent
+//>>group: Core
+//>>description: Get the closest ancestor element that is scrollable.
+//>>docs: http://api.jqueryui.com/scrollParent/
+
+
+var scrollParent = $.fn.scrollParent = function( includeHidden ) {
+	var position = this.css( "position" ),
+		excludeStaticParent = position === "absolute",
+		overflowRegex = includeHidden ? /(auto|scroll|hidden)/ : /(auto|scroll)/,
+		scrollParent = this.parents().filter( function() {
+			var parent = $( this );
+			if ( excludeStaticParent && parent.css( "position" ) === "static" ) {
+				return false;
+			}
+			return overflowRegex.test( parent.css( "overflow" ) + parent.css( "overflow-y" ) +
+				parent.css( "overflow-x" ) );
+		} ).eq( 0 );
+
+	return position === "fixed" || !scrollParent.length ?
+		$( this[ 0 ].ownerDocument || document ) :
+		scrollParent;
+};
+
+
+/*!
+ * jQuery UI Tabbable 1.13.0
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ */
+
+//>>label: :tabbable Selector
+//>>group: Core
+//>>description: Selects elements which can be tabbed to.
+//>>docs: http://api.jqueryui.com/tabbable-selector/
+
+
+var tabbable = $.extend( $.expr.pseudos, {
+	tabbable: function( element ) {
+		var tabIndex = $.attr( element, "tabindex" ),
+			hasTabindex = tabIndex != null;
+		return ( !hasTabindex || tabIndex >= 0 ) && $.ui.focusable( element, hasTabindex );
+	}
+} );
+
+
+/*!
+ * jQuery UI Unique ID 1.13.0
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ */
+
+//>>label: uniqueId
+//>>group: Core
+//>>description: Functions to generate and remove uniqueId's
+//>>docs: http://api.jqueryui.com/uniqueId/
+
+
+var uniqueId = $.fn.extend( {
+	uniqueId: ( function() {
+		var uuid = 0;
+
+		return function() {
+			return this.each( function() {
+				if ( !this.id ) {
+					this.id = "ui-id-" + ( ++uuid );
+				}
+			} );
+		};
+	} )(),
+
+	removeUniqueId: function() {
+		return this.each( function() {
+			if ( /^ui-id-\d+$/.test( this.id ) ) {
+				$( this ).removeAttr( "id" );
+			}
+		} );
+	}
+} );
+
+
+/*!
+ * jQuery UI Accordion 1.13.0
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ */
+
+//>>label: Accordion
+//>>group: Widgets
+/* eslint-disable max-len */
+//>>description: Displays collapsible content panels for presenting information in a limited amount of space.
+/* eslint-enable max-len */
+//>>docs: http://api.jqueryui.com/accordion/
+//>>demos: http://jqueryui.com/accordion/
+//>>css.structure: ../../themes/base/core.css
+//>>css.structure: ../../themes/base/accordion.css
+//>>css.theme: ../../themes/base/theme.css
+
+
+var widgetsAccordion = $.widget( "ui.accordion", {
+	version: "1.13.0",
+	options: {
+		active: 0,
+		animate: {},
+		classes: {
+			"ui-accordion-header": "ui-corner-top",
+			"ui-accordion-header-collapsed": "ui-corner-all",
+			"ui-accordion-content": "ui-corner-bottom"
+		},
+		collapsible: false,
+		event: "click",
+		header: function( elem ) {
+			return elem.find( "> li > :first-child" ).add( elem.find( "> :not(li)" ).even() );
+		},
+		heightStyle: "auto",
+		icons: {
+			activeHeader: "ui-icon-triangle-1-s",
+			header: "ui-icon-triangle-1-e"
+		},
+
+		// Callbacks
+		activate: null,
+		beforeActivate: null
+	},
+
+	hideProps: {
+		borderTopWidth: "hide",
+		borderBottomWidth: "hide",
+		paddingTop: "hide",
+		paddingBottom: "hide",
+		height: "hide"
+	},
+
+	showProps: {
+		borderTopWidth: "show",
+		borderBottomWidth: "show",
+		paddingTop: "show",
+		paddingBottom: "show",
+		height: "show"
+	},
+
+	_create: function() {
+		var options = this.options;
+
+		this.prevShow = this.prevHide = $();
+		this._addClass( "ui-accordion", "ui-widget ui-helper-reset" );
+		this.element.attr( "role", "tablist" );
+
+		// Don't allow collapsible: false and active: false / null
+		if ( !options.collapsible && ( options.active === false || options.active == null ) ) {
+			options.active = 0;
+		}
+
+		this._processPanels();
+
+		// handle negative values
+		if ( options.active < 0 ) {
+			options.active += this.headers.length;
+		}
+		this._refresh();
+	},
+
+	_getCreateEventData: function() {
+		return {
+			header: this.active,
+			panel: !this.active.length ? $() : this.active.next()
+		};
+	},
+
+	_createIcons: function() {
+		var icon, children,
+			icons = this.options.icons;
+
+		if ( icons ) {
+			icon = $( "<span>" );
+			this._addClass( icon, "ui-accordion-header-icon", "ui-icon " + icons.header );
+			icon.prependTo( this.headers );
+			children = this.active.children( ".ui-accordion-header-icon" );
+			this._removeClass( children, icons.header )
+				._addClass( children, null, icons.activeHeader )
+				._addClass( this.headers, "ui-accordion-icons" );
+		}
+	},
+
+	_destroyIcons: function() {
+		this._removeClass( this.headers, "ui-accordion-icons" );
+		this.headers.children( ".ui-accordion-header-icon" ).remove();
+	},
+
+	_destroy: function() {
+		var contents;
+
+		// Clean up main element
+		this.element.removeAttr( "role" );
+
+		// Clean up headers
+		this.headers
+			.removeAttr( "role aria-expanded aria-selected aria-controls tabIndex" )
+			.removeUniqueId();
+
+		this._destroyIcons();
+
+		// Clean up content panels
+		contents = this.headers.next()
+			.css( "display", "" )
+			.removeAttr( "role aria-hidden aria-labelledby" )
+			.removeUniqueId();
+
+		if ( this.options.heightStyle !== "content" ) {
+			contents.css( "height", "" );
+		}
+	},
+
+	_setOption: function( key, value ) {
+		if ( key === "active" ) {
+
+			// _activate() will handle invalid values and update this.options
+			this._activate( value );
+			return;
+		}
+
+		if ( key === "event" ) {
+			if ( this.options.event ) {
+				this._off( this.headers, this.options.event );
+			}
+			this._setupEvents( value );
+		}
+
+		this._super( key, value );
+
+		// Setting collapsible: false while collapsed; open first panel
+		if ( key === "collapsible" && !value && this.options.active === false ) {
+			this._activate( 0 );
+		}
+
+		if ( key === "icons" ) {
+			this._destroyIcons();
+			if ( value ) {
+				this._createIcons();
+			}
+		}
+	},
+
+	_setOptionDisabled: function( value ) {
+		this._super( value );
+
+		this.element.attr( "aria-disabled", value );
+
+		// Support: IE8 Only
+		// #5332 / #6059 - opacity doesn't cascade to positioned elements in IE
+		// so we need to add the disabled class to the headers and panels
+		this._toggleClass( null, "ui-state-disabled", !!value );
+		this._toggleClass( this.headers.add( this.headers.next() ), null, "ui-state-disabled",
+			!!value );
+	},
+
+	_keydown: function( event ) {
+		if ( event.altKey || event.ctrlKey ) {
+			return;
+		}
+
+		var keyCode = $.ui.keyCode,
+			length = this.headers.length,
+			currentIndex = this.headers.index( event.target ),
+			toFocus = false;
+
+		switch ( event.keyCode ) {
+		case keyCode.RIGHT:
+		case keyCode.DOWN:
+			toFocus = this.headers[ ( currentIndex + 1 ) % length ];
+			break;
+		case keyCode.LEFT:
+		case keyCode.UP:
+			toFocus = this.headers[ ( currentIndex - 1 + length ) % length ];
+			break;
+		case keyCode.SPACE:
+		case keyCode.ENTER:
+			this._eventHandler( event );
+			break;
+		case keyCode.HOME:
+			toFocus = this.headers[ 0 ];
+			break;
+		case keyCode.END:
+			toFocus = this.headers[ length - 1 ];
+			break;
+		}
+
+		if ( toFocus ) {
+			$( event.target ).attr( "tabIndex", -1 );
+			$( toFocus ).attr( "tabIndex", 0 );
+			$( toFocus ).trigger( "focus" );
+			event.preventDefault();
+		}
+	},
+
+	_panelKeyDown: function( event ) {
+		if ( event.keyCode === $.ui.keyCode.UP && event.ctrlKey ) {
+			$( event.currentTarget ).prev().trigger( "focus" );
+		}
+	},
+
+	refresh: function() {
+		var options = this.options;
+		this._processPanels();
+
+		// Was collapsed or no panel
+		if ( ( options.active === false && options.collapsible === true ) ||
+				!this.headers.length ) {
+			options.active = false;
+			this.active = $();
+
+		// active false only when collapsible is true
+		} else if ( options.active === false ) {
+			this._activate( 0 );
+
+		// was active, but active panel is gone
+		} else if ( this.active.length && !$.contains( this.element[ 0 ], this.active[ 0 ] ) ) {
+
+			// all remaining panel are disabled
+			if ( this.headers.length === this.headers.find( ".ui-state-disabled" ).length ) {
+				options.active = false;
+				this.active = $();
+
+			// activate previous panel
+			} else {
+				this._activate( Math.max( 0, options.active - 1 ) );
+			}
+
+		// was active, active panel still exists
+		} else {
+
+			// make sure active index is correct
+			options.active = this.headers.index( this.active );
+		}
+
+		this._destroyIcons();
+
+		this._refresh();
+	},
+
+	_processPanels: function() {
+		var prevHeaders = this.headers,
+			prevPanels = this.panels;
+
+		if ( typeof this.options.header === "function" ) {
+			this.headers = this.options.header( this.element );
+		} else {
+			this.headers = this.element.find( this.options.header );
+		}
+		this._addClass( this.headers, "ui-accordion-header ui-accordion-header-collapsed",
+			"ui-state-default" );
+
+		this.panels = this.headers.next().filter( ":not(.ui-accordion-content-active)" ).hide();
+		this._addClass( this.panels, "ui-accordion-content", "ui-helper-reset ui-widget-content" );
+
+		// Avoid memory leaks (#10056)
+		if ( prevPanels ) {
+			this._off( prevHeaders.not( this.headers ) );
+			this._off( prevPanels.not( this.panels ) );
+		}
+	},
+
+	_refresh: function() {
+		var maxHeight,
+			options = this.options,
+			heightStyle = options.heightStyle,
+			parent = this.element.parent();
+
+		this.active = this._findActive( options.active );
+		this._addClass( this.active, "ui-accordion-header-active", "ui-state-active" )
+			._removeClass( this.active, "ui-accordion-header-collapsed" );
+		this._addClass( this.active.next(), "ui-accordion-content-active" );
+		this.active.next().show();
+
+		this.headers
+			.attr( "role", "tab" )
+			.each( function() {
+				var header = $( this ),
+					headerId = header.uniqueId().attr( "id" ),
+					panel = header.next(),
+					panelId = panel.uniqueId().attr( "id" );
+				header.attr( "aria-controls", panelId );
+				panel.attr( "aria-labelledby", headerId );
+			} )
+			.next()
+				.attr( "role", "tabpanel" );
+
+		this.headers
+			.not( this.active )
+				.attr( {
+					"aria-selected": "false",
+					"aria-expanded": "false",
+					tabIndex: -1
+				} )
+				.next()
+					.attr( {
+						"aria-hidden": "true"
+					} )
+					.hide();
+
+		// Make sure at least one header is in the tab order
+		if ( !this.active.length ) {
+			this.headers.eq( 0 ).attr( "tabIndex", 0 );
+		} else {
+			this.active.attr( {
+				"aria-selected": "true",
+				"aria-expanded": "true",
+				tabIndex: 0
+			} )
+				.next()
+					.attr( {
+						"aria-hidden": "false"
+					} );
+		}
+
+		this._createIcons();
+
+		this._setupEvents( options.event );
+
+		if ( heightStyle === "fill" ) {
+			maxHeight = parent.height();
+			this.element.siblings( ":visible" ).each( function() {
+				var elem = $( this ),
+					position = elem.css( "position" );
+
+				if ( position === "absolute" || position === "fixed" ) {
+					return;
+				}
+				maxHeight -= elem.outerHeight( true );
+			} );
+
+			this.headers.each( function() {
+				maxHeight -= $( this ).outerHeight( true );
+			} );
+
+			this.headers.next()
+				.each( function() {
+					$( this ).height( Math.max( 0, maxHeight -
+						$( this ).innerHeight() + $( this ).height() ) );
+				} )
+				.css( "overflow", "auto" );
+		} else if ( heightStyle === "auto" ) {
+			maxHeight = 0;
+			this.headers.next()
+				.each( function() {
+					var isVisible = $( this ).is( ":visible" );
+					if ( !isVisible ) {
+						$( this ).show();
+					}
+					maxHeight = Math.max( maxHeight, $( this ).css( "height", "" ).height() );
+					if ( !isVisible ) {
+						$( this ).hide();
+					}
+				} )
+				.height( maxHeight );
+		}
+	},
+
+	_activate: function( index ) {
+		var active = this._findActive( index )[ 0 ];
+
+		// Trying to activate the already active panel
+		if ( active === this.active[ 0 ] ) {
+			return;
+		}
+
+		// Trying to collapse, simulate a click on the currently active header
+		active = active || this.active[ 0 ];
+
+		this._eventHandler( {
+			target: active,
+			currentTarget: active,
+			preventDefault: $.noop
+		} );
+	},
+
+	_findActive: function( selector ) {
+		return typeof selector === "number" ? this.headers.eq( selector ) : $();
+	},
+
+	_setupEvents: function( event ) {
+		var events = {
+			keydown: "_keydown"
+		};
+		if ( event ) {
+			$.each( event.split( " " ), function( index, eventName ) {
+				events[ eventName ] = "_eventHandler";
+			} );
+		}
+
+		this._off( this.headers.add( this.headers.next() ) );
+		this._on( this.headers, events );
+		this._on( this.headers.next(), { keydown: "_panelKeyDown" } );
+		this._hoverable( this.headers );
+		this._focusable( this.headers );
+	},
+
+	_eventHandler: function( event ) {
+		var activeChildren, clickedChildren,
+			options = this.options,
+			active = this.active,
+			clicked = $( event.currentTarget ),
+			clickedIsActive = clicked[ 0 ] === active[ 0 ],
+			collapsing = clickedIsActive && options.collapsible,
+			toShow = collapsing ? $() : clicked.next(),
+			toHide = active.next(),
+			eventData = {
+				oldHeader: active,
+				oldPanel: toHide,
+				newHeader: collapsing ? $() : clicked,
+				newPanel: toShow
+			};
+
+		event.preventDefault();
+
+		if (
+
+				// click on active header, but not collapsible
+				( clickedIsActive && !options.collapsible ) ||
+
+				// allow canceling activation
+				( this._trigger( "beforeActivate", event, eventData ) === false ) ) {
+			return;
+		}
+
+		options.active = collapsing ? false : this.headers.index( clicked );
+
+		// When the call to ._toggle() comes after the class changes
+		// it causes a very odd bug in IE 8 (see #6720)
+		this.active = clickedIsActive ? $() : clicked;
+		this._toggle( eventData );
+
+		// Switch classes
+		// corner classes on the previously active header stay after the animation
+		this._removeClass( active, "ui-accordion-header-active", "ui-state-active" );
+		if ( options.icons ) {
+			activeChildren = active.children( ".ui-accordion-header-icon" );
+			this._removeClass( activeChildren, null, options.icons.activeHeader )
+				._addClass( activeChildren, null, options.icons.header );
+		}
+
+		if ( !clickedIsActive ) {
+			this._removeClass( clicked, "ui-accordion-header-collapsed" )
+				._addClass( clicked, "ui-accordion-header-active", "ui-state-active" );
+			if ( options.icons ) {
+				clickedChildren = clicked.children( ".ui-accordion-header-icon" );
+				this._removeClass( clickedChildren, null, options.icons.header )
+					._addClass( clickedChildren, null, options.icons.activeHeader );
+			}
+
+			this._addClass( clicked.next(), "ui-accordion-content-active" );
+		}
+	},
+
+	_toggle: function( data ) {
+		var toShow = data.newPanel,
+			toHide = this.prevShow.length ? this.prevShow : data.oldPanel;
+
+		// Handle activating a panel during the animation for another activation
+		this.prevShow.add( this.prevHide ).stop( true, true );
+		this.prevShow = toShow;
+		this.prevHide = toHide;
+
+		if ( this.options.animate ) {
+			this._animate( toShow, toHide, data );
+		} else {
+			toHide.hide();
+			toShow.show();
+			this._toggleComplete( data );
+		}
+
+		toHide.attr( {
+			"aria-hidden": "true"
+		} );
+		toHide.prev().attr( {
+			"aria-selected": "false",
+			"aria-expanded": "false"
+		} );
+
+		// if we're switching panels, remove the old header from the tab order
+		// if we're opening from collapsed state, remove the previous header from the tab order
+		// if we're collapsing, then keep the collapsing header in the tab order
+		if ( toShow.length && toHide.length ) {
+			toHide.prev().attr( {
+				"tabIndex": -1,
+				"aria-expanded": "false"
+			} );
+		} else if ( toShow.length ) {
+			this.headers.filter( function() {
+				return parseInt( $( this ).attr( "tabIndex" ), 10 ) === 0;
+			} )
+				.attr( "tabIndex", -1 );
+		}
+
+		toShow
+			.attr( "aria-hidden", "false" )
+			.prev()
+				.attr( {
+					"aria-selected": "true",
+					"aria-expanded": "true",
+					tabIndex: 0
+				} );
+	},
+
+	_animate: function( toShow, toHide, data ) {
+		var total, easing, duration,
+			that = this,
+			adjust = 0,
+			boxSizing = toShow.css( "box-sizing" ),
+			down = toShow.length &&
+				( !toHide.length || ( toShow.index() < toHide.index() ) ),
+			animate = this.options.animate || {},
+			options = down && animate.down || animate,
+			complete = function() {
+				that._toggleComplete( data );
+			};
+
+		if ( typeof options === "number" ) {
+			duration = options;
+		}
+		if ( typeof options === "string" ) {
+			easing = options;
+		}
+
+		// fall back from options to animation in case of partial down settings
+		easing = easing || options.easing || animate.easing;
+		duration = duration || options.duration || animate.duration;
+
+		if ( !toHide.length ) {
+			return toShow.animate( this.showProps, duration, easing, complete );
+		}
+		if ( !toShow.length ) {
+			return toHide.animate( this.hideProps, duration, easing, complete );
+		}
+
+		total = toShow.show().outerHeight();
+		toHide.animate( this.hideProps, {
+			duration: duration,
+			easing: easing,
+			step: function( now, fx ) {
+				fx.now = Math.round( now );
+			}
+		} );
+		toShow
+			.hide()
+			.animate( this.showProps, {
+				duration: duration,
+				easing: easing,
+				complete: complete,
+				step: function( now, fx ) {
+					fx.now = Math.round( now );
+					if ( fx.prop !== "height" ) {
+						if ( boxSizing === "content-box" ) {
+							adjust += fx.now;
+						}
+					} else if ( that.options.heightStyle !== "content" ) {
+						fx.now = Math.round( total - toHide.outerHeight() - adjust );
+						adjust = 0;
+					}
+				}
+			} );
+	},
+
+	_toggleComplete: function( data ) {
+		var toHide = data.oldPanel,
+			prev = toHide.prev();
+
+		this._removeClass( toHide, "ui-accordion-content-active" );
+		this._removeClass( prev, "ui-accordion-header-active" )
+			._addClass( prev, "ui-accordion-header-collapsed" );
+
+		// Work around for rendering bug in IE (#5421)
+		if ( toHide.length ) {
+			toHide.parent()[ 0 ].className = toHide.parent()[ 0 ].className;
+		}
+		this._trigger( "activate", null, data );
+	}
+} );
+
+
+
+var safeActiveElement = $.ui.safeActiveElement = function( document ) {
+	var activeElement;
+
+	// Support: IE 9 only
+	// IE9 throws an "Unspecified error" accessing document.activeElement from an <iframe>
+	try {
+		activeElement = document.activeElement;
+	} catch ( error ) {
+		activeElement = document.body;
+	}
+
+	// Support: IE 9 - 11 only
+	// IE may return null instead of an element
+	// Interestingly, this only seems to occur when NOT in an iframe
+	if ( !activeElement ) {
+		activeElement = document.body;
+	}
+
+	// Support: IE 11 only
+	// IE11 returns a seemingly empty object in some cases when accessing
+	// document.activeElement from an <iframe>
+	if ( !activeElement.nodeName ) {
+		activeElement = document.body;
+	}
+
+	return activeElement;
+};
+
+
+/*!
+ * jQuery UI Menu 1.13.0
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ */
+
+//>>label: Menu
+//>>group: Widgets
+//>>description: Creates nestable menus.
+//>>docs: http://api.jqueryui.com/menu/
+//>>demos: http://jqueryui.com/menu/
+//>>css.structure: ../../themes/base/core.css
+//>>css.structure: ../../themes/base/menu.css
+//>>css.theme: ../../themes/base/theme.css
+
+
+var widgetsMenu = $.widget( "ui.menu", {
+	version: "1.13.0",
+	defaultElement: "<ul>",
+	delay: 300,
+	options: {
+		icons: {
+			

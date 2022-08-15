@@ -152,7 +152,7 @@ Scroll the page to the top. Find and click the **Fork** button to create your fo
 
 On the page that opens when you click the fork button, Github gives you the option to fork only the master branch by default. By removing this tick, you can fork all branches and start contributing.
 
-![superalgos_fork](https://user-images.githubusercontent.com/83468174/184009448-8c2230c3-bb28-4558-8307-5b54ed23d3c8.gif)
+![fork](https://user-images.githubusercontent.com/83468174/184506791-83a00c44-ddc4-4fa3-9bec-d738532555d7.gif)
 
 To fork Superalgos you need a Github account. If you don't have one, go ahead and create it.
 

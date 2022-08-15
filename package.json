@@ -20,7 +20,7 @@
     "installDesktopReact": "cd ./DesktopReact && npm ci",
     "startLocalDesktopReact": "start npm run startNetwork && cd ./DesktopReact && start npm run startDesktopReactBackend && start npm run startDesktopReactFrontend",
     "startDesktopReact": "cd ./DesktopReact && start npm run startDesktopReactBackend && start npm run startDesktopReactFrontend",
-    "unitTest": "jest --silent",
+    "unitTest": "NODE_OPTIONS='--max_old_space_size=3072' jest --silent",
     "unitTest:coverage": "jest --silent --coverage",
     "unitTest:debug": "DEBUG=nock.* jest",
     "lintAll": "eslint . --ext .js",

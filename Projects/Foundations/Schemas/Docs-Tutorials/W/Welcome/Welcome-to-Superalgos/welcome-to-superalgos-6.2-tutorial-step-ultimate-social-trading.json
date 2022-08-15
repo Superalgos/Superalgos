@@ -12,8 +12,8 @@
         "translations": [
             {
                 "language": "DE",
-                "text": "Die Superalgos-Plattform ist für Algo-Trader konzipiert. Aber das Projekt erweitert seinen Umfang, um alle Krypto-Nutzer zu bedienen!",
-                "updated": 1634246924903
+                "text": "Sie können die Superalgos Plattform verwenden, um selbst raffinierte Logiken zu entwickeln. Sie können Superalgos jedoch auch verwenden, um die Trades anderer Händler zu kopieren!",
+                "updated": 1660476003678
             },
             {
                 "language": "TR",
@@ -40,8 +40,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Angeregt durch das Protokoll, werden Algo-Händler miteinander konkurrieren, um Handelssignale zu produzieren und zu verbreiten.",
-                    "updated": 1634246936645
+                    "text": "Algo-Händler erhalten Belohnungen über das Superalgos-Token, wenn sie Handelssignale erzeugen und verbreiten.",
+                    "updated": 1660476059905
                 },
                 {
                     "language": "TR",
@@ -67,8 +67,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Krypto-Nutzer werden den Influencern folgen und ihre Signale kostenlos über eine Handy-, Desktop- oder Server-App erhalten! Diese Apps ermöglichen einfaches automatisches Handeln mit kostenloser Intelligenz, die von Experten erstellt wird!",
-                    "updated": 1634246955205
+                    "text": "Sie können diese Signale empfangen und die Trades der Profis automatisch kopieren - unter Verwendung derselben Plattform!",
+                    "updated": 1660476127135
                 },
                 {
                     "language": "TR",
@@ -94,8 +94,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Sowohl Algo-Trader als auch Influencer werden über das Protokoll bezahlt, während Krypto-Nutzer alle Produkte und Dienstleistungen kostenlos erhalten. Ziemlich disruptiv, oder?",
-                    "updated": 1634246960533
+                    "text": "Um am offenen Beta-Test teilzunehmen, treten Sie bitte dieser Gruppe bei:",
+                    "updated": 1660476171994
                 },
                 {
                     "language": "TR",
@@ -122,7 +122,14 @@
         {
             "style": "Success",
             "text": "After the beta phase, you will need to hold a certain balance of Superalgos SA Tokens to access this premium community service.",
-            "updated": 1660151898954
+            "updated": 1660151898954,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Nach der Beta-Phase wird es erforderlich sein, eine gewisse Menge Superalgos SA Tokens zu halten, um diesen Premium Community-Service zu nutzen.",
+                    "updated": 1660479416061
+                }
+            ]
         }
     ]
 }

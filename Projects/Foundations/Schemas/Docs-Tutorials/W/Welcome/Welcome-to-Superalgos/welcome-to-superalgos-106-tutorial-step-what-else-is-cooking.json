@@ -24,8 +24,8 @@
             },
             {
                 "language": "DE",
-                "text": "Superalgos ist eine Multi-Projekt-Plattform, und nach TensorFlow ist die Ethereum-Integration die nächste in der Reihe...",
-                "updated": 1634246816998
+                "text": "Die Bitcoin Factory sammelt Rechenkapazität über Crowdsourcing um Machine Learning-Algorithmen zu trainieren, die Bitcoin-Kurse voraussagen!",
+                "updated": 1660477054768
             },
             {
                 "language": "TR",
@@ -63,8 +63,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Sich mit einem Ethereum-Knoten direkt von Superalgos aus über die visuelle Schnittstelle verbinden.",
-                    "updated": 1634246794294
+                    "text": "Erhalten Sie das Superalgos SA Token, indem Sie den Bitcoin Factory ML Test-Client ausführen und Rechenkapazität beisteuern!",
+                    "updated": 1660477117518
                 },
                 {
                     "language": "TR",
@@ -103,8 +103,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Blockchain-Daten zu schürfen, um auf Coin- und Vertragsinformationen für alle Ethereum-basierten Projekte zuzugreifen, einschließlich De-Fi oder was auch immer, Daten in den Charts zu visualisieren, Indikatoren zu erstellen und den Rest der Superalgos-Infrastruktur zu nutzen.",
-                    "updated": 1634246834706
+                    "text": "Verwenden Sie die Machine Learning-Voraussagen und Signale als Datenpunkte in Ihren Handelsstrategien, um daraus Ihren individuellen Vorteil zu entwickeln!",
+                    "updated": 1660479228625
                 },
                 {
                     "language": "TR",
@@ -141,8 +141,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Nutzen Sie die Daten für den Handel, indem Sie die entsprechenden Indikatoren aus den Handelssystemen verwenden!",
-                    "updated": 1634246841374
+                    "text": "Um dabei zu sein, wenden Sie sich an das Bitcoin Factory-Team in dieser Gruppe:",
+                    "updated": 1660479142124
                 },
                 {
                     "language": "TR",
@@ -169,7 +169,14 @@
         {
             "style": "Success",
             "text": "Once the beta phase is over, you will need to hold a certain balance of Superalgos SA Tokens to access Bitcoin Factory predictions, as it's a premium community service.",
-            "updated": 1660157821896
+            "updated": 1660157821896,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Nach Beendigung der Beta-Phase wird es erforderlich sein, eine gewisse Menge Superalgos SA Tokens zu besitzen, um Bitcoin Factory-Voraussagen zu erhalten. Dabei handelt es sich um einen Premium Community-Service.",
+                    "updated": 1660479331875
+                }
+            ]
         }
     ]
 }

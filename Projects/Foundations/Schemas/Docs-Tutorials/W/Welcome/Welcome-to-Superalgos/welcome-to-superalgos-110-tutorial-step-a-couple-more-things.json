@@ -24,8 +24,8 @@
             },
             {
                 "language": "DE",
-                "text": "Es gibt noch ein paar Dinge, die ich dir erzählen möchte, bevor ich dich gehen lasse! Habt Geduld mit mir!",
-                "updated": 1634246641749
+                "text": "In weiteren Tutorials werden Sie die Dokumentation noch besser kennenlernen. Nun zeige ich Ihnen noch ein paar andere Dinge, bevor wir eine Live Trading-Session starten!",
+                "updated": 1660476720149
             },
             {
                 "language": "TR",
@@ -64,8 +64,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Ich gebe Ihnen eine kurze Einführung darüber, woran wir für kommende Versionen von Superalgos arbeiten! Ich habe die Machine Learning Algorithmen erwähnt, aber es gibt noch mehr! Eine Menge mehr!",
-                    "updated": 1634246651390
+                    "text": "Ich werde Ihnen eine kurze Einführung in einige Premium-Services geben, an denen die Community derzeit arbeitet.",
+                    "updated": 1660476764781
                 },
                 {
                     "language": "TR",
@@ -103,8 +103,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Ich möchte Sie auch wissen lassen, dass - wenn Sie schätzen, was wir tun - Sie helfen können! Zehntausende von Stunden harter Arbeit sind in den Aufbau von Superalgos geflossen und haben es zu seinem heutigen Stand gebracht. Ich hoffe, Sie können sich ein paar Minuten Zeit nehmen, um etwas zurückzugeben, und ich werde Ihnen gerne sagen, wo Sie anfangen können!",
-                    "updated": 1634246659750
+                    "text": "Ich möchte Sie auch wissen lassen, dass Sie - falls Sie mögen, was wir tun - das Projekt aktiv unterstützen können!",
+                    "updated": 1660476827622
                 },
                 {
                     "language": "TR",
@@ -126,7 +126,14 @@
         {
             "style": "Success",
             "text": "Tens of thousands of hours of hard work have gone into building Superalgos and bringing it to its current state. I hope you can take a couple of minutes of your time to give back, and I'll be happy to tell you where to start! Let's get on with it!",
-            "updated": 1660158993877
+            "updated": 1660158993877,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Zehntausende Stunden harter Arbeit wurden in die Entwicklung von Superalgos investiert, um es auf seinen heutigen Stand zu bringen. Vielleicht wollen Sie einige Minuten Ihrer Zeit zurückgeben - und ich zeige Ihnen gerne, wo Sie anfangen können! Lassen Sie uns loslegen!",
+                    "updated": 1660476932037
+                }
+            ]
         }
     ]
 }

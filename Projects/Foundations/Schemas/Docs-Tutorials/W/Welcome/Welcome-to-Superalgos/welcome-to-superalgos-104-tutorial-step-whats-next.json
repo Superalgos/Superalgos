@@ -23,8 +23,8 @@
             },
             {
                 "language": "DE",
-                "text": "Es gibt eine Menge Dinge, die wir noch nicht behandelt haben, ich weiß! Schau dich einfach um! Es gibt so viele Dinge zu sehen! Es ist verblüffend.",
-                "updated": 1634245768717
+                "text": "Es gibt eine Menge Dinge, die wir noch nicht behandelt haben - beispielsweise wie man eine Live-Handelssession startet. Keine Sorge, wir kommen bald dazu!",
+                "updated": 1660476258637
             },
             {
                 "language": "TR",
@@ -64,8 +64,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Ich bin mir sicher, dass Sie immer noch eine Menge Fragen im Kopf haben... Wie kann ich meine eigenen Strategien entwickeln? Wie kann ich die Leistung messen? Wie baue ich einen Indikator? Wie setze ich eine Trading-Farm ein? Wie kann ich mich mit TradingView integrieren? Wie richte ich Telegram-Ankündigungen ein? Wie kann ich Daten von anderen APIs abrufen?",
-                    "updated": 1634245775761
+                    "text": "Ich bin mir sicher, dass Sie immer noch eine Menge Fragen im Kopf haben... Wie kann ich meine eigenen Strategien entwickeln? Wie baue ich einen Indikator? Wie erzeuge ich eine Trading-Farm? Wie kann ich eine Integration mit TradingView herstellen? Wie richte ich Telegram- oder Twitter-Benachrichtigungen ein? Wie kann ich Daten von anderen APIs abrufen?",
+                    "updated": 1660476351227
                 },
                 {
                     "language": "TR",
@@ -79,7 +79,7 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Я уверен, что у вас в голове все еще плавают тонны вопросов... Как мне строить свои собственные стратегии? Как измерить эффективность? Как построить индикатор? Как развернуть торговую ферму? Как интегрироваться с TradingView? Как настроить уведомления в Telegram? Как получить данные из других API?",
+                    "text": "Я увере��, что у вас в голове все еще плавают тонны вопросов... Как мне строить свои собственные стратегии? Как измерить эффективность? Как построить индикатор? Как развернуть торговую ферму? Как интегрироваться с TradingView? Как настроить уведомления в Telegram? Как получить данные из других API?",
                     "updated": 1642772226524
                 }
             ]

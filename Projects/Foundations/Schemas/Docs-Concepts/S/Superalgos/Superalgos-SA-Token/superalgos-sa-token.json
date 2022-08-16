@@ -1,8 +1,8 @@
 {
     "type": "Superalgos SA Token",
     "definition": {
-        "text": "It is BEP20 token in the Binance Smart Chain that will be used as the medium of exchange by Superalgos users while paying for products or services they buy and sell to each other.",
-        "updated": 1618832011639,
+        "text": "It is the native token of the Superalgos Project, distributed among contributors as rewards for value added to the project. You may use the token to participate in governance and to access premium Community services.",
+        "updated": 1660584831716,
         "translations": [
             {
                 "language": "RU",
@@ -19,8 +19,8 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "Properties",
-            "updated": 1614853617940,
+            "text": "Multiple Versions",
+            "updated": 1660584602569,
             "translations": [
                 {
                     "language": "RU",
@@ -33,6 +33,15 @@
                     "updated": 1642711547203
                 }
             ]
+        },
+        {
+            "style": "Text",
+            "text": "The project is deploying versions of the token on each of the major blockchains to gain exposure to different communities and ecosystems. At some point, you will be able to chose on what chain to get your rewards.",
+            "updated": 1660584675817
+        },
+        {
+            "style": "Title",
+            "text": "Properties"
         },
         {
             "style": "Text",
@@ -85,19 +94,20 @@
         },
         {
             "style": "List",
-            "text": "Issued on Binance Smart Chain: 500,000,000",
+            "text": "Binance Smart Chain (BSC) version: 500,000,000",
             "translations": [
                 {
                     "language": "TR",
                     "text": "Binance Smart Chain'de Dağıtılacak Miktar: 500,000,000",
                     "updated": 1642711686936
                 }
-            ]
+            ],
+            "updated": 1660584714957
         },
         {
             "style": "List",
-            "text": "Contract Address: 0xfb981ed9a92377ca4d75d924b9ca06df163924fd",
-            "updated": 1618832141201,
+            "text": "BSC Contract Address: 0xfb981ed9a92377ca4d75d924b9ca06df163924fd",
+            "updated": 1660584724236,
             "translations": [
                 {
                     "language": "TR",
@@ -125,8 +135,8 @@
         },
         {
             "style": "Text",
-            "text": "The token was deployed in March 2021 and all tokens were deposited in the project's Treasury Account. The tokens are distributed to contributors from this account, on a per-release basis.",
-            "updated": 1618832423365,
+            "text": "Once deployed, tokens are deposited in the project's Treasury Account. The tokens are distributed to contributors from this account, on a per-release basis.",
+            "updated": 1660584777903,
             "translations": [
                 {
                     "language": "RU",
@@ -142,8 +152,8 @@
         },
         {
             "style": "List",
-            "text": "Treasury Account: 0x8d4d2557ce99f83f658adf61eef3e61e04c2ac2c",
-            "updated": 1618832329524,
+            "text": "BSC Treasury Account: 0x8d4d2557ce99f83f658adf61eef3e61e04c2ac2c",
+            "updated": 1660584788358,
             "translations": [
                 {
                     "language": "TR",

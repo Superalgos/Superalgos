@@ -156,7 +156,8 @@
         },
         {
             "style": "Json",
-            "text": "/Projects/Governance/Plugins/User-Profiles/"
+            "text": "/Plugins/Governance/User-Profiles/",
+            "updated": 1660643165103
         },
         {
             "style": "List",

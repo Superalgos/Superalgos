@@ -465,15 +465,22 @@ function newFoundationsChartingSpace() {
 
         let chartingSpaceNode = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Charting Space')
         if (chartingSpaceNode !== undefined) {
-            configStyle = JSON.parse(chartingSpaceNode.spaceStyle.config)
+            if (chartingSpaceNode.spaceStyle !== undefined) {
+                configStyle = JSON.parse(chartingSpaceNode.spaceStyle.config)
+            }
+        } else {
+            configStyle = undefined
         }
 
-        if (configStyle.backgroundColor === undefined) {
-            browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + opacity + ')'
-        } else {
-            let backgroundColor = eval(configStyle.backgroundColor)
-            browserCanvasContext.fillStyle = 'rgba(' + backgroundColor + ', ' + opacity + ')'
-        }
+        
+        
+            if (configStyle === undefined || configStyle.backgroundColor === undefined) {
+                browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + opacity + ')'
+            } else {
+                let backgroundColor = eval(configStyle.backgroundColor)
+                browserCanvasContext.fillStyle = 'rgba(' + backgroundColor + ', ' + opacity + ')'
+            }
+    
         
         browserCanvasContext.closePath()
         browserCanvasContext.fill()

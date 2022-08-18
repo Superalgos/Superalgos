@@ -1,7 +1,8 @@
 function newGovernanceUtilitiesChains() {
     let thisObject = {
         getSATokenAddress: getSATokenAddress,
-        getSATokenDetails: getSATokenDetails
+        getSATokenDetails: getSATokenDetails,
+        getDefaultPayoutChainDetails: getDefaultPayoutChainDetails
     }
 
     return thisObject
@@ -28,6 +29,18 @@ function newGovernanceUtilitiesChains() {
             }
         }
         return SATokenDetails
+    }
+
+    function getDefaultPayoutChainDetails() {
+        let defaultPayoutChainDetails = undefined
+        const SATokenList = UI.projects.governance.globals.saToken.SA_TOKEN_LIST
+        for (let tokenConfig of SATokenList) {
+            if (tokenConfig['payoutEnabled'] === true && tokenConfig['payoutDefault'] === true) {
+                defaultPayoutChainDetails = tokenConfig
+                break
+            }
+        }
+        return defaultPayoutChainDetails
     }
 
 }

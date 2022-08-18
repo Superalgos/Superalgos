@@ -125,8 +125,6 @@ function newGovernanceFunctionLibraryTokenMining() {
         }
 
         /* Liquidity Program - Iterate per available asset-exchange-combination */
-        //const liqAssets = UI.projects.governance.globals.saToken.SA_TOKEN_BSC_LIQUIDITY_ASSETS
-        //const liqExchanges = UI.projects.governance.globals.saToken.SA_TOKEN_BSC_EXCHANGES
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
 

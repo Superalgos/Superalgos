@@ -3,12 +3,12 @@
     "pageNumber": 13,
     "type": "Tutorial Step - Oh so Shiny",
     "definition": {
-        "text": "We are almost there. Now click <i>Build Profile</i> and watch the magic happen. That’s right, you just created your profile!",
+        "text": "We are almost there! To finish the process, you need to click the right button on the Profile Constructor node!",
         "icon": {
             "name": "User\\user-profile",
             "project": "Governance"
         },
-        "updated": 1630658421560,
+        "updated": 1660641883460,
         "translations": [
             {
                 "language": "ES",
@@ -35,9 +35,9 @@
     },
     "paragraphs": [
         {
-            "style": "Text",
-            "text": "While we didn’t have to break a sweat making your profile, some pretty amazing things happened behind the scenes. ",
-            "updated": 1629553522636,
+            "style": "Callout",
+            "text": "If you are creating a new wallet, click the Build Profile and New Wallet button.</br></br>If you are linking an existing wallet, click the Build Profile with Mnemonic button.",
+            "updated": 1660641803806,
             "translations": [
                 {
                     "language": "ES",
@@ -61,6 +61,11 @@
                     "updated": 1640073250598
                 }
             ]
+        },
+        {
+            "style": "Text",
+            "text": "Done! Now, this is what happened behind the scenes...",
+            "updated": 1660641960414
         },
         {
             "style": "Note",

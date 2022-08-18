@@ -1,0 +1,83 @@
+{
+    "topic": "Undulated Data Mine",
+    "pageNumber": "5",
+    "type": "Qstick",
+    "definition": {
+        "text": "The Qstick indicator is a technical analysis indicator developed by Tushar Chande to numerically identify trends on a price chart."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Qstick on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "From Investopedia: The Qstick is calculated by taking an -n- period moving average of the difference between the open and closing prices. A Qstick value greater than zero means that the majority of the last -n- periods have been up, indicating that buying pressure has been increasing.",
+            "updated": 1660522022715
+        },
+        {
+            "style": "Text",
+            "text": "Key Takeaways:"
+        },
+        {
+            "style": "List",
+            "text": "A rising indicator signals the price is closing higher than it opened, on average."
+        },
+        {
+            "style": "List",
+            "text": "A falling QStick signals the price is closing lower than it opened, on average."
+        },
+        {
+            "style": "List",
+            "text": "The QStick can generate trade signals based on signal-line or zero-line crossovers."
+        },
+        {
+            "style": "Link",
+            "text": "Qstick Indicator (Investopedia)->www.investopedia.com/terms/q/qstick.asp"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/undulated-qstick-on-the-charts.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Qstick | qstick | value, hist |"
+        },
+        {
+            "style": "Text",
+            "text": "The lengths of the indicator's moving averages can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"Q Stick\" Procedure Loop."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/undulated-qstick-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator can be used to enter a trade when the value rises above the zero line:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.qstick.value > 0"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

@@ -64,8 +64,8 @@
         },
         {
             "style": "Success",
-            "text": "No harm in checking the file saved correctly, right? A file with your Github username and .json extension should exist in the below path!",
-            "updated": 1630754759392,
+            "text": "No harm in checking the file saved correctly, right? A file with your Github username and json extension should exist in the below path!",
+            "updated": 1660647001942,
             "translations": [
                 {
                     "language": "ES",
@@ -92,8 +92,8 @@
         },
         {
             "style": "Json",
-            "text": "/Projects/Governance/Plugins/User-Profiles",
-            "updated": 1630754402770
+            "text": "/Plugins/Governance/User-Profiles",
+            "updated": 1660644550153
         }
     ]
 }

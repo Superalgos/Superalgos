@@ -119,20 +119,64 @@
             ]
         },
         {
-            "style": "Text",
-            "text": "Available colors:",
+            "style": "Title",
+            "text": "Configuration Options:",
+            "updated": 1660708497800
+        },
+        {
+            "style": "Subtitle",
+            "text": "The Space Style node can have two different default configurations depending on what it is connected to!",
+            "updated": 1660709290827
+        },
+        {
+            "style": "List",
+            "text": "Design Space",
+            "updated": 1660708683389
+        },
+        {
+            "style": "List",
+            "text": "Charting Space"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Design Space Default Configuration:",
+            "updated": 1660708710251
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"backgroundColor\": \"UI_COLOR.BLACK\",\n    \"node\": {\n                   \"fontSize\": 16,\n                   \"imageSize\": 60,\n                   \"type\": {\n                           \"fontColor\": \"UI_COLOR.WHITE\"\n                      },\n                    \"name\": {\n                           \"fontColor\": \"UI_COLOR.WHITE\"\n                      },\n                    \"menuItem\": {\n                           \"backgroundColor\": \"UI_COLOR.BLACK\",\n                           \"fontColor\": \"UI_COLOR.WHITE\",\n                           \"fontSize\": 14,\n                           \"imageSize\": 14\n                       }\n            }\n}",
+            "updated": 1660851056950
+        },
+        {
+            "style": "Subtitle",
+            "text": "Charting Space Default Configuration:",
             "translations": [
                 {
                     "language": "RU",
                     "text": "Доступные цвета:",
                     "updated": 1638350973317
                 }
-            ]
+            ],
+            "updated": 1660709244806
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"backgroundColor\": \"UI_COLOR.WHITE\",\n    \"panelBackgroundColor\": \"UI_COLOR.WHITE\",\n    \"panelNameColor\": \"UI_COLOR.GREY\",\n    \"timeMachineNameColor\": \"UI_COLOR.DARK\",\n    \"panelExchangeMarketName\": \"UI_COLOR.GREY\",\n    \"onMouseFrameColor\": \"UI_COLOR.TITANIUM_YELLOW\",\n    \"machineFrameColor\": \"UI_COLOR.DARK_TURQUOISE\"\n}",
+            "updated": 1660709411616
         },
         {
             "style": "Table",
-            "text": "| Variable Value | RGB Value | Color Sample |\n| DARK | 48, 48, 54 | RGB(48, 48, 54) |\n| LIGHT | 234, 226, 222 | RGB(234, 226, 222) |\n| GREY | 150, 150, 150 | RGB(150, 150, 150) |\n| LIGHT_GREY | 247, 247, 247 | RGB(247, 247, 247) |\n| WHITE | 255, 255, 255 | RGB(255, 255, 255) |\n| BLACK | 0, 0, 0 | RGB(0, 0, 0) |\n| GOLDEN_ORANGE | 240, 162, 2 | RGB(240, 162, 2) |\n| RUSTED_RED | 204, 88, 53 | RGB(204, 88, 53) |\n| GREEN | 188, 214, 67 | RGB(188, 214, 67) |\n| RED | 223, 70, 60 | RGB(223, 70, 60) |\n| PATINATED_TURQUOISE | 27, 153, 139 | RGB(27, 153, 139) |\n| TITANIUM_YELLOW | 244, 228, 9 | RGB(244, 228, 9) |\n| MANGANESE_PURPLE | 91,80, 122 | RGB(91,80, 122) |\n| TURQUOISE | 74, 207, 217 | RGB(74, 207, 217) |\n| DARK_TURQUOISE | 2, 149, 170 | RGB(2, 149, 170) |",
-            "updated": 1609863757224
+            "text": "|Configuration Name |Explanation |\n|\"backgroundColor\":| This controls the background color of the charting space. |\n|\"panelBackgroundColor\"| This controls the background of the time machines in the charting space. |\n|\"panelNameColor\":| This controls the color of the exchange name shown on the top outside left of each time machine. |\n|\"timeMachineNameColor\":| This controls the time machines title color and the color of the tab on the top left of the machine. |\n|\"panelExchangeMarketName\":| This controls the color of the pair for each panel (BTC/USDT) |\n|\"machineFrameColor\":| This controls the color of the time machine frames. |\n|\"onMouseFrameColor\":| This controls the time machine frame color when a mouse is hovered over it. |",
+            "updated": 1660710132180
+        },
+        {
+            "style": "Text",
+            "text": "Available Colors:"
+        },
+        {
+            "style": "Table",
+            "text": "| Variable Value | RGB Value | Color Sample |\n| DARK | 48, 48, 54 |RGB(48, 48, 54)|\n| LIGHT | 234, 226, 222 |RGB(234, 226, 222)|\n| GREY | 150, 150, 150 |RGB(150, 150, 150)|\n| LIGHT_GREY | 247, 247, 247 |RGB(247, 247, 247)|\n| WHITE | 255, 255, 255 |RGB(255, 255, 255)|\n| BLACK | 0, 0, 0 |RGB(0, 0, 0)|\n| GOLDEN_ORANGE | 240, 162, 2 |RGB(240, 162, 2)|\n| RUSTED_RED | 204, 88, 53 |RGB(204, 88, 53)|\n| GREEN | 188, 214, 67 |RGB(188, 214, 67)|\n| RED | 223, 70, 60 |RGB(223, 70, 60)|\n| PATINATED_TURQUOISE | 27, 153, 139 |RGB(27, 153, 139)|\n| TITANIUM_YELLOW | 244, 228, 9 |RGB(244, 228, 9)|\n| MANGANESE_PURPLE | 91,80, 122 |RGB(91,80, 122)|\n| TURQUOISE | 74, 207, 217 |RGB(74, 207, 217)|\n| DARK_TURQUOISE | 2, 149, 170 |RGB(2, 149, 170)|",
+            "updated": 1660709698396
         }
     ]
 }

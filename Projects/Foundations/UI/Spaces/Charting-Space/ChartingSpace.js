@@ -464,7 +464,9 @@ function newFoundationsChartingSpace() {
         browserCanvasContext.rect(fromPoint.x, fromPoint.y, toPoint.x - fromPoint.x, toPoint.y - fromPoint.y)
 
         let chartingSpaceNode = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Charting Space')
-        configStyle = JSON.parse(chartingSpaceNode.spaceStyle.config)
+        if (chartingSpaceNode !== undefined) {
+            configStyle = JSON.parse(chartingSpaceNode.spaceStyle.config)
+        }
 
         if (configStyle.backgroundColor === undefined) {
             browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + opacity + ')'

@@ -632,7 +632,9 @@ function newTimeMachine() {
     /**Here we can control the background color of the time machine. */
     function drawChartsBackground() {
         let chartingSpaceNode = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Charting Space')
-        configStyle = JSON.parse(chartingSpaceNode.spaceStyle.config)
+        if (chartingSpaceNode !== undefined) {
+            configStyle = JSON.parse(chartingSpaceNode.spaceStyle.config)
+        }
 
         if (configStyle.panelBackgroundColor === undefined) {
             UI.projects.foundations.utilities.drawPrint.drawContainerBackground(thisObject.container, UI_COLOR.WHITE, 0.5, thisObject.fitFunction)
@@ -797,7 +799,9 @@ function newTimeMachine() {
 
                 /**This controls the color of the exchange name shown on the top outside left of each time machine. */
                 let chartingSpaceNode = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Charting Space')
-                configStyle = JSON.parse(chartingSpaceNode.spaceStyle.config)
+                if (chartingSpaceNode !== undefined) {
+                    configStyle = JSON.parse(chartingSpaceNode.spaceStyle.config)
+                }
 
                 if (configStyle.panelNameColor === undefined) {
                     UI.projects.foundations.utilities.drawPrint.printLabel(exchangeMarket.exchangeName, -5 + xOffSet, undefined, undefined, -30, opacity, fontSize, UI_COLOR.GREY, 'Left')

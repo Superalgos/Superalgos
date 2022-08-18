@@ -705,7 +705,9 @@ function newEdgeEditor() {
         function drawEdge(edgeType) {
             /**Here we control the colors of each time machines frame. */
             let chartingSpaceNode = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Charting Space')
-            configStyle = JSON.parse(chartingSpaceNode.spaceStyle.config)
+            if (chartingSpaceNode !== undefined) {
+                configStyle = JSON.parse(chartingSpaceNode.spaceStyle.config)
+            }
             if (whereIsMouseOver === edgeType && thisObject.isMouseOver === true) {
                 browserCanvasContext.lineWidth = lineWidth
                 

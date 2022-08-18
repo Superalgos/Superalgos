@@ -834,7 +834,7 @@ function newTimeMachine() {
                 }
 
                 /**This controls the color of the pair for each panel (BTC/USDT) */
-                if (configStyle.panelExchangeMarketName === undefined) {
+                if (configStyle === undefined || configStyle.panelExchangeMarketName === undefined) {
                     UI.projects.foundations.utilities.drawPrint.printLabel(exchangeMarket.marketName, -5 + xOffSet, undefined, undefined, -10, opacity, fontSize, UI_COLOR.GREY, 'Left')
                 } else {
                     let thisColor = eval(configStyle.panelExchangeMarketName)

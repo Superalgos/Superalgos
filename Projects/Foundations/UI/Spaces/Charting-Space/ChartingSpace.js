@@ -464,14 +464,23 @@ function newFoundationsChartingSpace() {
         browserCanvasContext.rect(fromPoint.x, fromPoint.y, toPoint.x - fromPoint.x, toPoint.y - fromPoint.y)
 
         let chartingSpaceNode = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Charting Space')
-        configStyle = JSON.parse(chartingSpaceNode.spaceStyle.config)
-
-        if (configStyle.backgroundColor === undefined) {
-            browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + opacity + ')'
+        if (chartingSpaceNode !== undefined) {
+            if (chartingSpaceNode.spaceStyle !== undefined) {
+                configStyle = JSON.parse(chartingSpaceNode.spaceStyle.config)
+            }
         } else {
-            let backgroundColor = eval(configStyle.backgroundColor)
-            browserCanvasContext.fillStyle = 'rgba(' + backgroundColor + ', ' + opacity + ')'
+            configStyle = undefined
         }
+
+        
+        
+            if (configStyle === undefined || configStyle.backgroundColor === undefined) {
+                browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + opacity + ')'
+            } else {
+                let backgroundColor = eval(configStyle.backgroundColor)
+                browserCanvasContext.fillStyle = 'rgba(' + backgroundColor + ', ' + opacity + ')'
+            }
+    
         
         browserCanvasContext.closePath()
         browserCanvasContext.fill()

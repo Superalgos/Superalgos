@@ -61,6 +61,7 @@ function newTimeMachine() {
     let timeFrameScaleEventSuscriptionId
     let timeFrameScaleMouseOverEventSuscriptionId
     let onScaleChangedEventSubscriptionId
+    let configStyle
 
     setupContainer()
     return thisObject
@@ -632,9 +633,15 @@ function newTimeMachine() {
     /**Here we can control the background color of the time machine. */
     function drawChartsBackground() {
         let chartingSpaceNode = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Charting Space')
-        configStyle = JSON.parse(chartingSpaceNode.spaceStyle.config)
+        if (chartingSpaceNode !== undefined) {
+            if (chartingSpaceNode.spaceStyle !== undefined) {
+                configStyle = JSON.parse(chartingSpaceNode.spaceStyle.config)
+            }
+        } else {
+            configStyle = undefined
+        }
 
-        if (configStyle.panelBackgroundColor === undefined) {
+        if (configStyle === undefined || configStyle.panelBackgroundColor === undefined) {
             UI.projects.foundations.utilities.drawPrint.drawContainerBackground(thisObject.container, UI_COLOR.WHITE, 0.5, thisObject.fitFunction)
         } else {
             let thisColor = eval(configStyle.panelBackgroundColor)
@@ -725,7 +732,7 @@ function newTimeMachine() {
         let color = undefined
 
         /**This controls the time machines title color. */
-        if(configStyle.timeMachineNameColor === undefined) {
+        if(configStyle === undefined || configStyle.timeMachineNameColor === undefined) {
             UI.projects.foundations.utilities.drawPrint.printLabel(label, position.x + 20, undefined, undefined, position.y - 10, opacity, fontSize, color, 'Left')
         } else {
             color = eval(configStyle.timeMachineNameColor)
@@ -797,9 +804,15 @@ function newTimeMachine() {
 
                 /**This controls the color of the exchange name shown on the top outside left of each time machine. */
                 let chartingSpaceNode = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Charting Space')
-                configStyle = JSON.parse(chartingSpaceNode.spaceStyle.config)
+                if (chartingSpaceNode !== undefined) {
+                    if (chartingSpaceNode.spaceStyle !== undefined) {
+                        configStyle = JSON.parse(chartingSpaceNode.spaceStyle.config)
+                    }
+                } else {
+                    configStyle = undefined
+                }
 
-                if (configStyle.panelNameColor === undefined) {
+                if (configStyle === undefined || configStyle.panelNameColor === undefined) {
                     UI.projects.foundations.utilities.drawPrint.printLabel(exchangeMarket.exchangeName, -5 + xOffSet, undefined, undefined, -30, opacity, fontSize, UI_COLOR.GREY, 'Left')
                 } else {
                     thisColor = eval(configStyle.panelNameColor)
@@ -821,7 +834,7 @@ function newTimeMachine() {
                 }
 
                 /**This controls the color of the pair for each panel (BTC/USDT) */
-                if (configStyle.panelExchangeMarketName === undefined) {
+                if (configStyle === undefined || configStyle.panelExchangeMarketName === undefined) {
                     UI.projects.foundations.utilities.drawPrint.printLabel(exchangeMarket.marketName, -5 + xOffSet, undefined, undefined, -10, opacity, fontSize, UI_COLOR.GREY, 'Left')
                 } else {
                     let thisColor = eval(configStyle.panelExchangeMarketName)
@@ -891,7 +904,7 @@ function newTimeMachine() {
             browserCanvasContext.stroke()
 
             /**This controls the background color of the time machines in the charting space. */
-            if (configStyle.panelBackgroundColor === undefined) {
+            if (configStyle === undefined || configStyle.panelBackgroundColor === undefined) {
                 browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + opacity + ''
             } else {
                 let thisColor = eval(configStyle.panelBackgroundColor)

@@ -35,6 +35,7 @@ function newEdgeEditor() {
     let onMouseOverEventSubscriptionId
     let onMouseNotOverEventSubscriptionId
     let onDragStartedEventSubscriptionId
+    let configStyle
 
     let mouse = {
         position: {
@@ -705,11 +706,17 @@ function newEdgeEditor() {
         function drawEdge(edgeType) {
             /**Here we control the colors of each time machines frame. */
             let chartingSpaceNode = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Charting Space')
-            configStyle = JSON.parse(chartingSpaceNode.spaceStyle.config)
+            if (chartingSpaceNode !== undefined) {
+                if (chartingSpaceNode.spaceStyle !== undefined) {
+                    configStyle = JSON.parse(chartingSpaceNode.spaceStyle.config)
+                }
+            } else {
+                configStyle = undefined
+            }
             if (whereIsMouseOver === edgeType && thisObject.isMouseOver === true) {
                 browserCanvasContext.lineWidth = lineWidth
                 
-                if (configStyle.onMouseFrameColor === undefined) {
+                if (configStyle === undefined || configStyle.onMouseFrameColor === undefined) {
                     browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + OPACITY + ')'
                     browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', ' + OPACITY + ')'
                 } else {
@@ -719,7 +726,7 @@ function newEdgeEditor() {
                 }
             } else {
                 browserCanvasContext.lineWidth = lineWidth
-                if (configStyle.machineFrameColor === undefined) {
+                if (configStyle === undefined || configStyle.machineFrameColor === undefined) {
                     browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + OPACITY + ')'
                     browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK_TURQUOISE + ', ' + OPACITY + ')'
                 } else {

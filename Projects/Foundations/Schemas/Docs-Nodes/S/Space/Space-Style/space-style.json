@@ -1,14 +1,15 @@
 {
     "type": "Space Style",
     "definition": {
-        "text": "The space style node features controls over the look and feel of the space, in particular, of background colors and font sizes.",
+        "text": "The Space Style node can have two different default configurations depending on if it is connected to the Design Space node or the Charting Space node.",
         "translations": [
             {
                 "language": "RU",
                 "text": "Узел Space Style позволяет управлять внешним видом пространства, в частности, цветами фона и размерами шрифта.",
                 "updated": 1638350639992
             }
-        ]
+        ],
+        "updated": 1660946824904
     },
     "paragraphs": [
         {
@@ -17,116 +18,8 @@
         },
         {
             "style": "Title",
-            "text": "Space Style Configuration",
-            "updated": 1609861783834,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Конфигурация Space Style",
-                    "updated": 1638350660667
-                }
-            ]
-        },
-        {
-            "style": "Subtitle",
-            "text": "Properties",
-            "updated": 1609862712741,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Свойства",
-                    "updated": 1638350672219
-                }
-            ]
-        },
-        {
-            "style": "List",
-            "text": "backgroundColor refers to the background of the design space (see table below).",
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "backgroundColor относится к фону пространства проектирования (см. таблицу ниже).",
-                    "updated": 1638350683643
-                }
-            ]
-        },
-        {
-            "style": "List",
-            "text": "node refers to all nodes in the design space.",
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "node относится ко всем узлам в пространстве проектирования.",
-                    "updated": 1638350733106
-                }
-            ]
-        },
-        {
-            "style": "List",
-            "text": "type refers to the type of node, as indicated by the string of text below each node.",
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "type относится к типу узла, на что указывает строка текста под каждым узлом.",
-                    "updated": 1638350883557
-                }
-            ]
-        },
-        {
-            "style": "List",
-            "text": "name refers to the name or label of the node, as indicated above the node.",
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "name относится к имени или метке узла, как указано над узлом.",
-                    "updated": 1638350911178
-                }
-            ]
-        },
-        {
-            "style": "List",
-            "text": "menuItem refers to items on the right-hand side of the menu.",
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "menuItem относится к элементам в правой части меню.",
-                    "updated": 1638350927625
-                }
-            ]
-        },
-        {
-            "style": "List",
-            "text": "fontSize refers to the size of the font of the string of text.",
-            "updated": 1609862776218,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "fontSize относится к размеру шрифта строки текста.",
-                    "updated": 1638350939285
-                }
-            ]
-        },
-        {
-            "style": "List",
-            "text": "imageSize refers to the size of the icon illustrating the menu item.",
-            "updated": 1609862786614,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "imageSize относится к размеру значка, иллюстрирующего пункт меню.",
-                    "updated": 1638350959942
-                }
-            ]
-        },
-        {
-            "style": "Title",
             "text": "Configuration Options:",
             "updated": 1660708497800
-        },
-        {
-            "style": "Subtitle",
-            "text": "The Space Style node can have two different default configurations depending on what it is connected to!",
-            "updated": 1660709290827
         },
         {
             "style": "List",
@@ -149,7 +42,7 @@
         },
         {
             "style": "Subtitle",
-            "text": "Charting Space Default Configuration:",
+            "text": "Design Space Default Configuration Notes:",
             "translations": [
                 {
                     "language": "RU",
@@ -157,20 +50,60 @@
                     "updated": 1638350973317
                 }
             ],
-            "updated": 1660709244806
+            "updated": 1660946508223
+        },
+        {
+            "style": "List",
+            "text": "backgroundColor refers to the background of the design space (see table below).",
+            "updated": 1660946587812
+        },
+        {
+            "style": "List",
+            "text": "node refers to all nodes in the design space.",
+            "updated": 1660946662800
+        },
+        {
+            "style": "List",
+            "text": "type refers to the type of node, as indicated by the string of text below each node."
+        },
+        {
+            "style": "List",
+            "text": "name refers to the name or label of the node, as indicated above the node."
+        },
+        {
+            "style": "List",
+            "text": "menuItem refers to items on the right-hand side of the menu."
+        },
+        {
+            "style": "List",
+            "text": "fontSize refers to the size of the font of the string of text."
+        },
+        {
+            "style": "List",
+            "text": "imageSize refers to the size of the icon illustrating the menu item."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Charting Space Default Configuration:",
+            "updated": 1660946474758
         },
         {
             "style": "Json",
-            "text": "{\n    \"backgroundColor\": \"UI_COLOR.WHITE\",\n    \"panelBackgroundColor\": \"UI_COLOR.WHITE\",\n    \"panelNameColor\": \"UI_COLOR.GREY\",\n    \"timeMachineNameColor\": \"UI_COLOR.DARK\",\n    \"panelExchangeMarketName\": \"UI_COLOR.GREY\",\n    \"onMouseFrameColor\": \"UI_COLOR.TITANIUM_YELLOW\",\n    \"machineFrameColor\": \"UI_COLOR.DARK_TURQUOISE\"\n}",
-            "updated": 1660709411616
+            "text": "{\n    \"backgroundColor\": \"UI_COLOR.WHITE\",\n    \"panelBackgroundColor\": \"UI_COLOR.WHITE\",\n    \"panelBackgroundOpacity\": \"0.5\",\n    \"panelNameColor\": \"UI_COLOR.GREY\",\n    \"panelExchangeMarketName\": \"UI_COLOR.GREY\",\n    \"timeMachineNameColor\": \"UI_COLOR.DARK\",\n    \"onMouseFrameColor\": \"UI_COLOR.TITANIUM_YELLOW\",\n    \"machineFrameColor\": \"UI_COLOR.DARK_TURQUOISE\",\n    \"timeScalePanelColor\": \"UI_COLOR.BLACK\",\n    \"rateScalePanelColor\": \"UI_COLOR.BLACK\",\n    \"timeFrameScaleColor\": \"UI_COLOR.BLACK\",\n    \"indicatorDropDownPanelColor\": \"UI_COLOR.BLACK\",\n    \"indicatorDropDownPanelOpacity\": \"0\",\n    \"indicatorLayersPanelColor\": \"UI_COLOR.BLACK\",\n    \"indicatorLayersPanelOpacity\": \"1\",\n    \"indicatorLayersPanelBorderColor\": \"UI_COLOR.RUSTED_RED\",\n    \"indicatorFrameBackgroundColor\": \"UI_COLOR.WHITE\",\n    \"indicatorFrameBackgroundOpacity\": \"0.75\",\n}",
+            "updated": 1660947314880
+        },
+        {
+            "style": "Subtitle",
+            "text": "Charting Space Default Configuration Notes:",
+            "updated": 1660947343209
         },
         {
             "style": "Table",
-            "text": "|Configuration Name |Explanation |\n|\"backgroundColor\":| This controls the background color of the charting space. |\n|\"panelBackgroundColor\"| This controls the background of the time machines in the charting space. |\n|\"panelNameColor\":| This controls the color of the exchange name shown on the top outside left of each time machine. |\n|\"timeMachineNameColor\":| This controls the time machines title color and the color of the tab on the top left of the machine. |\n|\"panelExchangeMarketName\":| This controls the color of the pair for each panel (BTC/USDT) |\n|\"machineFrameColor\":| This controls the color of the time machine frames. |\n|\"onMouseFrameColor\":| This controls the time machine frame color when a mouse is hovered over it. |",
-            "updated": 1660710132180
+            "text": "|Configuration Name |Explanation |\n|\"backgroundColor\":| This controls the background color of the charting space. |\n|\"panelBackgroundColor\"| This controls the background of the time machines in the charting space. |\n|\"panelNameColor\":| This controls the color of the exchange name shown on the top outside left of each time machine. |\n|\"timeMachineNameColor\":| This controls the time machines title color and the color of the tab on the top left of the machine. |\n|\"panelExchangeMarketName\":| This controls the color of the pair for each panel (BTC/USDT) |\n|\"machineFrameColor\":| This controls the color of the time machine frames. |\n|\"onMouseFrameColor\":| This controls the time machine frame color when a mouse is hovered over it. |\n|\"timeScalePanelColor\": | This controls the background color of the time scale at the top of the charts.|\n|\"rateScalePanelColor\": | This controls the color of the value/ rate scale panel on the right in the charts.|\n|\"timeFrameScaleColor\": | This controls the color of the timeFrame scale at the bottom of a chart.|\n|\"indicatorDropDownPanelColor\":| This controls the color of the drop down indicator panels inside the chart.|\n|\"indicatorLayersPanelColor\":| This controls the color of the panels before scrolling to open them.|\n|\"indicatorLayersPanelBorderColor\":| This controls the panel border color inside the indicator layer panels.|\n|\"indicatorFrameBackgroundColor\":| This controls the background color of the indicator frame inside the charts.|\n|\"indicatorFrameBackgroundOpacity\":| This controls the opacity for the indicator frame background.|\n",
+            "updated": 1660947752141
         },
         {
-            "style": "Text",
+            "style": "Subtitle",
             "text": "Available Colors:"
         },
         {

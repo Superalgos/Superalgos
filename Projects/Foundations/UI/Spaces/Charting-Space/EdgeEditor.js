@@ -732,7 +732,14 @@ function newEdgeEditor() {
                 } else {
                     let thisColor = eval(configStyle.machineFrameColor)
                     browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + OPACITY + ')'
-                    browserCanvasContext.fillStyle = 'rgba(' + thisColor + ', ' + OPACITY + ')'
+
+                    // This controls the opacity of the time machine frame.
+                    if (configStyle.machineFrameOpacity !== undefined) {
+                        let thisOpacity = eval(configStyle.machineFrameOpacity)
+                        browserCanvasContext.fillStyle = 'rgba(' + thisColor + ', ' + thisOpacity + ')'
+                    } else {
+                        browserCanvasContext.fillStyle = 'rgba(' + thisColor + ', ' + OPACITY + ')'
+                    }
                 }
             }
             browserCanvasContext.fill()

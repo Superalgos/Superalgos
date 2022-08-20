@@ -536,7 +536,7 @@ function newLayersPanel() {
             params.opacity = thisOpacity
             UI.projects.foundations.utilities.drawPrint.roundedCornersBackground(params)
         } else {
-            const thisOpacity = eval(configStyle.indicatorDropDownPanelOpacity)
+            const thisOpacity = eval(configStyle.indicatorLayersPanelOpacity)
             params.opacity = thisOpacity
             UI.projects.foundations.utilities.drawPrint.roundedCornersBackground(params)
         }

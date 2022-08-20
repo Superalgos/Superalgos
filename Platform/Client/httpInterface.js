@@ -1229,7 +1229,11 @@ exports.newHttpInterface = function newHttpInterface() {
                                             await git.pull('origin', currentBranch)
                                             await git.add('./*')
 
-                                            await git.commit(messageToSend)
+                                            /* Deactivate Unit Tests for the Contributions Space by setting UNITTESTS environment variable within the commit call. */
+                                            const UNITTESTS = 'false'
+                                            await git
+                                            .env({...process.env, UNITTESTS})
+                                            .commit(messageToSend)
 
                                             await git.push('origin', currentBranch)
                                         } catch (err) {
@@ -1451,7 +1455,11 @@ exports.newHttpInterface = function newHttpInterface() {
                                         try {
                                             await git.pull('origin', currentBranch)
                                             await git.add('./*')
-                                            await git.commit(commitMessage)
+                                            /* Deactivate Unit Tests for the Contribution Space by setting UNITTESTS environment variable within the commit call. */
+                                            const UNITTESTS = 'false'
+                                            await git
+                                            .env({...process.env, UNITTESTS})
+                                            .commit(commitMessage)
                                             await git.push('origin', currentBranch)
                                         } catch (err) {
                                             console.log((new Date()).toISOString(), '[ERROR] httpInterface -> App -> Contribute -> doGit -> Method call produced an error.')

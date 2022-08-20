@@ -139,8 +139,8 @@
         },
         {
             "style": "Json",
-            "text": "{\n    \"codeName\": \"kucoin\"\n    \"maxRate\": 1000\n}",
-            "updated": 1650634564742
+            "text": "{\n    \"codeName\": \"kucoin\",\n    \"maxRate\": 1000\n}",
+            "updated": 1661006540289
         },
         {
             "style": "Text",

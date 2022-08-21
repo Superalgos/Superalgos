@@ -20,10 +20,12 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
 
     }
 
+    let intervalId = setInterval(maintainMemoryStorage, 60 * 1000)
+
     return thisObject
 
     function finalize() {
-
+        clearInterval(intervalId)
     }
 
     async function initialize() {
@@ -66,7 +68,7 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
             userProfile
         ) {
             /*
-     
+    
             */
             let queryReceived
             try {
@@ -296,18 +298,18 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
         } else {
                 queryMemories.set(queryMemoryKeys, thisQueryReceived)
         }
-        /* Finally we check our memory and remove any file that is older then 10 min. */
-        isMemoryOld(currentTimestamp)
 
-        /**Here we remove any data from memory that is older then 10 minutes. */
-        function isMemoryOld(timestamp) {
-            let oldestOkTimestamp = timestamp - 600000
-            for (let [key, value] of queryMemories.entries()) {
-                if (key < oldestOkTimestamp) { queryMemories.delete(key) }
-            }
-        }
     }
 
+
+    /**Here we remove any data from memory that is older then 10 minutes. */
+    function maintainMemoryStorage() {
+        let timestamp = (new Date()).valueOf()
+        let oldestOkTimestamp = timestamp - 600000
+        for (let [key, value] of queryMemories.entries()) {
+            if (key < oldestOkTimestamp) { queryMemories.delete(key) }
+        }
+    }
     
 
     function getStats() {

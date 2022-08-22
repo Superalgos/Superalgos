@@ -9,17 +9,17 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
         getStats: getStats,
         initialize: initialize,
         finalize: finalize,
-        rememberMessagesForDashboard: rememberMessagesForDashboard
     }
 
     let requestsToServer = []
-    let queryMemories = new Map()
+    let messagesForDashboard = new Map()
     let responseFunctions = new Map()
     let statsByNetworkClients = new Map()
     let stats = {
 
     }
 
+    /**Here we control our memory cleanup, it will run every 60 seconds. */
     let intervalId = setInterval(maintainMemoryStorage, 60 * 1000)
 
     return thisObject
@@ -80,7 +80,11 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
                 }
                 return response
             }
-            rememberMessagesForDashboard(queryReceived)
+
+            /** Here we add the information we are handling to memory
+             * All memories are stored for 10 mintues before being removed from memory.*/
+            maintainMessagesForDashboard(queryReceived)
+
             switch (queryReceived.sender) {
                 case 'Test-Client': {
                     queryReceived.userProfile = userProfile.name
@@ -284,30 +288,19 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
         }
     }
     
-    /**Here we hold all info in memory for 10 minutes. */
-    function rememberMessagesForDashboard(queryReceived) {
-        let currentTimestamp = (new Date()).valueOf()
-        let thisQueryReceived = queryReceived
-
-        // Then we create a key for the map that holds the query messages in memory.
-        let queryMemoryKeys = currentTimestamp
-        queryMemory = queryMemories.get(queryMemoryKeys)
-        if (queryMemory === undefined) {
-            queryMemory = thisQueryReceived
-            queryMemories.set(queryMemoryKeys, queryMemory)
-        } else {
-                queryMemories.set(queryMemoryKeys, thisQueryReceived)
-        }
-
+    /**Here we add the message we are handling to memory for the dashboard to later access. */
+    function maintainMessagesForDashboard(queryReceived) {
+        let dashboardMemoryKeys = (new Date()).valueOf()
+        messagesForDashboard.set(dashboardMemoryKeys, queryReceived)
     }
 
 
-    /**Here we remove any data from memory that is older then 10 minutes. */
+    /**Here we remove any memories that are older then 10 minutes. */
     function maintainMemoryStorage() {
         let timestamp = (new Date()).valueOf()
         let oldestOkTimestamp = timestamp - 600000
-        for (let [key, value] of queryMemories.entries()) {
-            if (key < oldestOkTimestamp) { queryMemories.delete(key) }
+        for (let [key, value] of messagesForDashboard.entries()) {
+            if (key < oldestOkTimestamp) { messagesForDashboard.delete(key) }
         }
     }
     

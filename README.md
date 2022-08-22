@@ -319,7 +319,7 @@ We just opened a brand new [Discord server for Support and the Community](https:
 
 We also meet on several Telegram groups, where it all started!
 
-> :warning: **BEWARE OF IMPERSONATORS — SCAMMERS ARE LURKING!** Superalgos Admins, the Core Team, and Community Mods will never contact you directly unless you contact them first. We will never ask you for API keys, coins, or cash. We will never ask you to trust us in any way. Our [Community Safety Policy](https://superalgos.org/community-safety-policy.shtml) explains why. In short, we want to make it clear that if someone contacts you directly claiming to work with or for the project, it is a scam. Please report scammers in the Community group so that they may be banned and to increase awareness of the problem, but also block them and report them to Telegram if the option is available.
+> :warning: **BEWARE OF IMPERSONATORS — SCAMMERS ARE LURKING!** Superalgos Admins, the Founding Team, and Community Mods will never contact you directly unless you contact them first. We will never ask you for API keys, coins, or cash. We will never ask you to trust us in any way. Our [Community Safety Policy](https://superalgos.org/community-safety-policy.shtml) explains why. In short, we want to make it clear that if someone contacts you directly claiming to work with or for the project, it is a scam. Please report scammers in the Community group so that they may be banned and to increase awareness of the problem, but also block them and report them to Telegram if the option is available.
 
 - Via Telegram: online support through our [Superalgos Support Group](https://t.me/superalgossupport).
 

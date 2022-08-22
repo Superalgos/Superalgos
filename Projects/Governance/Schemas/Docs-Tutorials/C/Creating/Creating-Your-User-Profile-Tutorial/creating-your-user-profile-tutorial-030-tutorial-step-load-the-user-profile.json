@@ -74,23 +74,23 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Si la pregunta \"quién es tu referente\" no tiene una buena respuesta, ¡no dudes en declarar a uno de tus amigos en la comunidad! Por cierto, observa que los perfiles de los miembros de Community Mods y Core Team ya están cargados.",
+                    "text": "Si la pregunta \"quién es tu referente\" no tiene una buena respuesta, ¡no dudes en declarar a uno de tus amigos en la comunidad! Por cierto, observa que los perfiles de los miembros de Community Mods y Founding Team ya están cargados.",
                     "updated": 1630896089076,
                     "style": "Success"
                 },
                 {
                     "language": "RU",
-                    "text": "Кстати, обратите внимание, что профили участников сообщества Community Mods и Core Team уже загружены!",
+                    "text": "Кстати, обратите внимание, что профили участников сообщества Community Mods и Founding Team уже загружены!",
                     "updated": 1639050725765
                 },
                 {
                     "language": "DE",
-                    "text": "Beachte übrigens, dass die Profile von Community Mods und Core Team Mitgliedern bereits geladen sind!",
+                    "text": "Beachte übrigens, dass die Profile von Community Mods und Founding Team Mitgliedern bereits geladen sind!",
                     "updated": 1640079976555
                 },
                 {
                     "language": "TR",
-                    "text": "Bu arada, Topluluk Modlarının (Community Mods) ve Çekirdek Ekip (Core Team) üyelerinin profillerinin zaten yüklenmiş olduğuna dikkat edin!",
+                    "text": "Bu arada, Topluluk Modlarının (Community Mods) ve Çekirdek Ekip (Founding Team) üyelerinin profillerinin zaten yüklenmiş olduğuna dikkat edin!",
                     "updated": 1645092477222
                 }
             ]

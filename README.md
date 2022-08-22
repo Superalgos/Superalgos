@@ -150,7 +150,7 @@ Let's get on with it!
 
 Scroll the page to the top. Find and click the **Fork** button to create your fork/copy of this repository. 
 
-On the page that opens when you click the fork button, Github gives you the option to fork only the master branch by default. By removing this tick, you can fork all branches and start contributing.
+> :white_check_mark: **NOTE**: On the page that opens when you click the fork button, Github gives you the option to fork only the master branch by default. You must remove the selection so that you fork all branches instead. Play the following video for clarity.
 
 ![fork](https://user-images.githubusercontent.com/83468174/184506791-83a00c44-ddc4-4fa3-9bec-d738532555d7.gif)
 

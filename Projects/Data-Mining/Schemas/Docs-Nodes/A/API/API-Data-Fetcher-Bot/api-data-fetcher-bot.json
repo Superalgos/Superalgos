@@ -29,8 +29,8 @@
             "translations": [
                 {
                     "language": "RU",
-                    "text": "API Data Fetcher Bot похож на Sensor Bot, за исключением того, что Sensor Bot требует, чтобы пользователи кодировали алгоритм для извлечения данных, в то время как API Data Fetcher Bot может делать это без кодирования с использованием API Map.",
-                    "updated": 1639657268001
+                    "text": "API Data Fetcher Bot похож на Sensor Bot, за исключением того, что Sensor Bot требует от разработчика кодирования алгоритма для извлечения данных, а API Data Fetcher Bot может получить информацию без кодирования, используя API Map.",
+                    "updated": 1661149085042
                 },
                 {
                     "language": "DE",

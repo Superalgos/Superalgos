@@ -3,7 +3,7 @@
     "pageNumber": 113,
     "type": "Tutorial Step - Beware of Impersonators!",
     "definition": {
-        "text": "Superalgos Admins, the Core Team, and Community Mods will never contact you directly unless you contact them first!",
+        "text": "Superalgos Admins, the Founding Team, and Community Mods will never contact you directly unless you contact them first!",
         "icon": {
             "name": "Bullet\\bullet-warning",
             "project": "Foundations"
@@ -18,13 +18,13 @@
             },
             {
                 "language": "ES",
-                "text": "Los administradores de Superalgos, el Core Team y los Community Mods nunca se comunicarán contigo directamente a menos que los contactes primero.",
+                "text": "Los administradores de Superalgos, el Founding Team y los Community Mods nunca se comunicarán contigo directamente a menos que los contactes primero.",
                 "updated": 1624488617429,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Die Superalgos-Admins, das Core Team und die Community Mods werden Sie niemals direkt kontaktieren, es sei denn, Sie kontaktieren sie zuerst!",
+                "text": "Die Superalgos-Admins, das Founding Team und die Community Mods werden Sie niemals direkt kontaktieren, es sei denn, Sie kontaktieren sie zuerst!",
                 "updated": 1634247837275
             },
             {
@@ -34,12 +34,12 @@
             },
             {
                 "language": "ID",
-                "text": "Superalgos Admins, the Core Team, and Community Mods tidak akan pernah menghubungi kamu secara langsung kecuali kamu menghubungi mereka terlebih dahulu!",
+                "text": "Superalgos Admins, the Founding Team, and Community Mods tidak akan pernah menghubungi kamu secara langsung kecuali kamu menghubungi mereka terlebih dahulu!",
                 "updated": 1640600512829
             },
             {
                 "language": "RU",
-                "text": "Администраторы Superalgos, основная команда (Core Team) и модераторы сообщества (Community Mods) никогда не будут связываться с вами напрямую, если вы сами не обратитесь к ним!",
+                "text": "Администраторы Superalgos, основная команда (Founding Team) и модераторы сообщества (Community Mods) никогда не будут связываться с вами напрямую, если вы сами не обратитесь к ним!",
                 "updated": 1642774566147
             }
         ]

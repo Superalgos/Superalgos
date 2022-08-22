@@ -3,12 +3,12 @@
     "pageNumber": 31,
     "type": "Tutorial Step - Reference the User Profile",
     "definition": {
-        "text": "Now that you have the target User Profile on the workspace, all that is left is to establish the reference from your User Referrer node to the User Profile.",
+        "text": "Now that you located the target User Profile on the workspace, all that is left is to establish the reference from your User Referrer node to the User Profile.",
         "icon": {
             "name": "delink-node",
             "project": "Foundations"
         },
-        "updated": 1630679894593,
+        "updated": 1660643410612,
         "translations": [
             {
                 "language": "ES",

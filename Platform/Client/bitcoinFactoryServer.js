@@ -255,6 +255,7 @@ exports.newBitcoinFactoryServer = function newBitcoinFactoryServer() {
 
                 /* Parse CSV file, convert to JSON objects */
                 const csvToJsonResult = []
+                let parsingError = 0
                 let cleanResult = rewardsFile.toString().replace(/\r/g, "")
                 let array = cleanResult.split("\n")
                 const headers = array[0].split(",")
@@ -273,20 +274,28 @@ exports.newBitcoinFactoryServer = function newBitcoinFactoryServer() {
                         if (character !== '"') string += character
                     }
                     let jsonProperties = string.split("|")
-                    for (let j in headers) {
-                        if (jsonProperties[j].includes(",")) {
-                        jsonObject[headers[j]] = jsonProperties[j]
-                            .split(",").map(item => item.trim())
+                    try {
+                        for (let j in headers) {
+                            if (jsonProperties[j].includes(",")) {
+                            jsonObject[headers[j]] = jsonProperties[j]
+                                .split(",").map(item => item.trim())
+                            }
+                            else jsonObject[headers[j]] = jsonProperties[j]
                         }
-                        else jsonObject[headers[j]] = jsonProperties[j]
+                    } catch(err) {
+                        if (parsingError === 0) { parsingError = i + 1 }
                     }
                     /* Push the genearted JSON object to result array */
                     csvToJsonResult.push(jsonObject)
                 }
-
-                /* Check if file contains mandatory columns */
+                /* Check if file contained any malformed lines */
+                if (parsingError > 0) {
+                    console.log((new Date()).toISOString(), "[WARN] Bitcoin Factory Rewards File", reportsDirectory[f], "contains malformed records - e.g. line", parsingError, ", discarding")
+                    continue
+                }             
+                /* Check if file contains mandatory columns */             
                 if (!headers.includes("assignedTimestamp") || !headers.includes("testedByProfile") || !headers.includes("status")) {
-                    console.log((new Date()).toISOString(), "[WARN] Governance Rewards File", reportsDirectory[f], "with unexpected syntax, discarding")
+                    console.log((new Date()).toISOString(), "[WARN] Bitcoin Factory Rewards File", reportsDirectory[f], "with unexpected syntax, discarding")
                     continue
                 }
 

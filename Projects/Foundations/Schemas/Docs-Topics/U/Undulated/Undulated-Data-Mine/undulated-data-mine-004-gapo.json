@@ -1,0 +1,70 @@
+{
+    "topic": "Undulated Data Mine",
+    "pageNumber": "3",
+    "type": "GAPO",
+    "definition": {
+        "text": "The Gopalakrishnan Range Index (GAPO) is inntended to measure volatility in a stock or commodity."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "GAPO on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "The indicator calculates it's value over a set time period (default 14 periods) using only price action. Gopalakrishnan Range Index calculates the natural logarithm of the highest high minus the lowest low and it divides the result by the natural logarithm of the number of periods."
+        },
+        {
+            "style": "Text",
+            "text": "Key Takeaways:"
+        },
+		{
+            "style": "List",
+            "text": "The GAPO measures volatility in the market; a low value represents a ranging market whereas an increasing value indicates a trending market."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/undulated-gapo-on-the-charts.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| GAPO | gapo | value |"
+        },
+        {
+            "style": "Text",
+            "text": "The length of the indicator's moving average can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"GAPO\" Procedure Loop."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/undulated-gapo-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator can be used to enter a trade when the value rises above the signal:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at02hs.ppo.value > chart.at02hs.ppo.signal"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

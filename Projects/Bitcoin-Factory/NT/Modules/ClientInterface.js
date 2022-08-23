@@ -83,7 +83,7 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
 
             /** Here we add the information we are handling to memory
              * All memories are stored for 10 mintues before being removed from memory.*/
-            maintainMessagesForDashboard(queryReceived)
+            rememberMessagesForDashboard(queryReceived)
 
             switch (queryReceived.sender) {
                 case 'Test-Client': {
@@ -289,7 +289,7 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
     }
     
     /**Here we add the message we are handling to memory for the dashboard to later access. */
-    function maintainMessagesForDashboard(queryReceived) {
+    function rememberMessagesForDashboard(queryReceived) {
         let dashboardMemoryKeys = (new Date()).valueOf()
         messagesForDashboard.set(dashboardMemoryKeys, queryReceived)
     }

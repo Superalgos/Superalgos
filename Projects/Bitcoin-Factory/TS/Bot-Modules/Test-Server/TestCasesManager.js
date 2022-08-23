@@ -371,6 +371,10 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
             testCase.testedByInstance = currentClientInstance
             testCase.testedByProfile = userProfile
             testCase.timestamp = (new Date()).valueOf()
+            testCase.testServer = {
+                userProfile: '',
+                instance: TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName
+            }
 
             let logQueue = []
             for (let i = Math.max(0, testResult.id - 5); i < Math.min(thisObject.testCasesArray.length, testResult.id + 5); i++) {

@@ -3,8 +3,8 @@
     "pageNumber": "107.1",
     "type": "Tutorial Step - Buy the Token!",
     "definition": {
-        "text": "If you wish to support the people building Superalgos, buying some tokens in PancakeSwap is the way to go! This is why...",
-        "updated": 1640335838861,
+        "text": "If you wish to support the people building Superalgos, buying some tokens in PancakeSwap or 1Inch is the way to go! This is why...",
+        "updated": 1660160240560,
         "icon": {
             "name": "Crypto-Exchanges\\pancakeswap",
             "project": "Foundations"
@@ -35,9 +35,9 @@
     },
     "paragraphs": [
         {
-            "style": "Success",
-            "text": "Superalgos is a community-owned crypto project. The native token is used to incentivize contributions, meaning that the project distributes the token exclusively among contributors. Every dollar you spend buying the Superalgos SA Token goes directly to the people bringing you this awesome piece of software!",
-            "updated": 1640334923676,
+            "style": "Text",
+            "text": "Superalgos is a community-owned crypto project. The native token is used to incentivize contributions, meaning that the project distributes the token exclusively among open-source contributors.",
+            "updated": 1660159630125,
             "translations": [
                 {
                     "language": "ID",
@@ -63,6 +63,10 @@
             ]
         },
         {
+            "style": "Success",
+            "text": "Every dollar you spend buying the Superalgos SA Token goes directly to the people bringing you this awesome piece of software!"
+        },
+        {
             "style": "Link",
             "text": "Learn more about the Superalgos SA Token->superalgos.org/token-overview.shtml",
             "updated": 1649169863194,
@@ -76,17 +80,17 @@
             ]
         },
         {
+            "style": "Text",
+            "text": "</br>"
+        },
+        {
             "style": "Link",
-            "text": "</br>How to buy the token using Trust Wallet->medium.com/superalgos/how-to-buy-the-superalgos-sa-token-using-trust-wallet-ca37aec0c0f5",
-            "updated": 1649169929074,
-            "translations": [
-                {
-                    "language": "TR",
-                    "text": "</br>Güven Cüzdanı kullanarak token nasıl satın alınır->medium.com/superalgos/how-to-buy-the-superalgos-sa-token-using-trust-wallet-ca37aec0c0f5",
-                    "updated": 1654394318574,
-                    "style": "Link"
-                }
-            ]
+            "text": "Buy the token on 1Inch->app.1inch.io/#/56/classic/swap/BTCB/SA"
+        },
+        {
+            "style": "Text",
+            "text": "</br>",
+            "updated": 1660160149201
         }
     ]
 }

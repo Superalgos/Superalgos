@@ -3,8 +3,8 @@
     "pageNumber": 17,
     "type": "Tutorial Step - Backup the Key!",
     "definition": {
-        "text": "You need the back up the private key so that you may later import your Governance Address in a crypto wallet.",
-        "updated": 1630932770708,
+        "text": "You need to back up the private key so that you may later import your Governance Address in a crypto wallet.",
+        "updated": 1660587167258,
         "icon": {
             "name": "Key\\key-reference",
             "project": "Foundations"
@@ -92,7 +92,7 @@
         },
         {
             "style": "Note",
-            "text": "If you linked a previously owned address you will not need to save the private key but should back up the contents of the constructor for safety.",
+            "text": "If you linked a previously owned address you do not need to save the private key but may back up the contents of the constructor for safety.",
             "translations": [
                 {
                     "language": "ES",
@@ -115,7 +115,8 @@
                     "text": "Wenn Sie eine Adresse verknüpfen, die Sie bereits besitzen, müssen Sie den privaten Schlüssel nicht speichern, sollten aber zur Sicherheit den Inhalt des Konstruktors sichern.",
                     "updated": 1640077234596
                 }
-            ]
+            ],
+            "updated": 1660587217346
         },
         {
             "style": "Text",

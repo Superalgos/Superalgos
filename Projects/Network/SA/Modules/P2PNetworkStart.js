@@ -9,7 +9,7 @@ exports.newNetworkModulesP2PNetworkStart = function newNetworkModulesP2PNetworkS
     messages via the http interface of nodes to some of them.
     */
     let thisObject = {
-        p2pNetworkClientIdentity: undefined, 
+        p2pNetworkClientIdentity: undefined,
         sendMessage: sendMessage,
 
         /* Framework Functions */
@@ -78,7 +78,20 @@ exports.newNetworkModulesP2PNetworkStart = function newNetworkModulesP2PNetworkS
                         httpClient: undefined
                     }
 
-                    peer.p2pNetworkNode = p2pNetwork.p2pNodesToConnect[i]
+                    peer.p2pNetworkNode = p2pNetwork.p2pNodesToConnect[i] // peer.p2pNetworkNode.node.networkServices.tradingSignals
+                    switch (networkService) {
+                        case 'Trading Signals': {
+                            if (peer.p2pNetworkNode.node.networkServices === undefined || peer.p2pNetworkNode.node.networkServices.tradingSignals === undefined) {
+                                // We will ignore all the Network Nodes that don't have this service defined.
+                                continue
+                            }
+                            break  
+                        }
+                        case 'Network Statistics': {
+                            continue // This is not yet implemented.
+                        }
+                    }
+                    console.log('[INFO] Checking if the Network Node belonging to User Profile ' + peer.p2pNetworkNode.userProfile.name + ' is reachable via http to be ready to send a message to the ' + networkService + ' network service.')
                     if (isPeerConnected(peer) === true) { continue }
 
                     await isPeerOnline(peer)
@@ -86,10 +99,11 @@ exports.newNetworkModulesP2PNetworkStart = function newNetworkModulesP2PNetworkS
                         .catch(isOffline)
 
                     function isOnline() {
+                        console.log('[INFO] This node is reponding to PING messages via http. Network Node belonging to User Profile ' + peer.p2pNetworkNode.userProfile.name + ' it is reachable via http.')
                         peers.push(peer)
                     }
                     function isOffline() {
-
+                        console.log('[WARN] Network Node belonging to User Profile ' + peer.p2pNetworkNode.userProfile.name + ' it is NOT reachable via http.')
                     }
                 }
 
@@ -104,7 +118,7 @@ exports.newNetworkModulesP2PNetworkStart = function newNetworkModulesP2PNetworkS
 
                 async function isPeerOnline(peer) {
                     /*
-                    This function us to check if a network node is online and will 
+                    This function is to check if a network node is online and will 
                     receive an http request when needed.
                     */
                     let promise = new Promise(sendTestMessage)
@@ -173,6 +187,7 @@ exports.newNetworkModulesP2PNetworkStart = function newNetworkModulesP2PNetworkS
         messagesToBeDelivered.push(messageHeader)
 
         if (peer === undefined) {
+            console.log('[ERROR] Message can not be delivered to the P2P Network because the peer selected is undefined. Maybe there are no peers for the Network Service that wants to be acceded?')
             return
         }
         /*

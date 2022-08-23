@@ -36,36 +36,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Maybe you learned about Superalgos from an article, a video, a comment on Reddit, a tweet, the official website, or someone who told you about us!",
-            "updated": 1630669214566,
-            "translations": [
-                {
-                    "language": "ES",
-                    "text": "¡Tal vez aprendiste sobre Superalgos a través de un artículo, un video, un comentario en Reddit, un tweet, el sitio web oficial o alguien que te contó sobre nosotros!",
-                    "updated": 1630895800095,
-                    "style": "Text"
-                },
-                {
-                    "language": "TR",
-                    "text": "Belki Superalgos'u bir makaleden, bir videodan, Reddit'teki bir yorumdan, bir tweet'ten, resmi web sitesinden veya size bizden bahseden birinden öğrendiniz!",
-                    "updated": 1637445669747
-                },
-                {
-                    "language": "RU",
-                    "text": "Может быть, вы узнали о Superalgos из статьи, видео, комментария на Reddit, твита, официального сайта или кого-то, кто рассказал вам о нас!",
-                    "updated": 1639050181351
-                },
-                {
-                    "language": "DE",
-                    "text": "Vielleicht haben Sie von Superalgos durch einen Artikel, ein Video, einen Kommentar auf Reddit, einen Tweet, die offizielle Website oder jemanden, der Ihnen von uns erzählt hat, erfahren!",
-                    "updated": 1640079609498
-                }
-            ]
-        },
-        {
-            "style": "Success",
-            "text": "Declaring your referrers is the best way to thank the people that may have written that article or tweet, produced that video, maintained the website, or told you about Superalgos!",
-            "updated": 1630669976768,
+            "text": "Maybe you learned about Superalgos from an article, a video, a comment on Reddit, a tweet, the official website, or someone who told you about us! ",
+            "updated": 1660592117237,
             "translations": [
                 {
                     "language": "ES",
@@ -89,6 +61,10 @@
                     "updated": 1640079619440
                 }
             ]
+        },
+        {
+            "style": "Success",
+            "text": "Declaring your referrers is the best way to thank the people that did the work!"
         },
         {
             "style": "Note",

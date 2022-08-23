@@ -212,9 +212,9 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
                     for (let i = 0; i < requestsToServer.length; i++) {
                         let requestToServer = requestsToServer[i]
                         if (
-                            requestToServer.testServer !== undefined &&
-                            requestToServer.testServer.userProfile === userProfile &&
-                            requestToServer.testServer.instance === queryReceived.instance
+                            requestToServer.queryReceived.testServer !== undefined &&
+                            requestToServer.queryReceived.testServer.userProfile === userProfile &&
+                            requestToServer.queryReceived.testServer.instance === queryReceived.instance
                         ) {
                             requestsToServer.splice(i, 1)
                             checkExpiration(requestToServer)

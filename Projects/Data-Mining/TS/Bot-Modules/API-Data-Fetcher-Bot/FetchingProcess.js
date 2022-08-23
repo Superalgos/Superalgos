@@ -468,7 +468,7 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                     }
                                     case '@LastQueryRunISO1601': {
                                         if (lastQueryRun !== undefined) {
-                                            parameterValue = new Date(new Date(thisReport.file.lastQueryRun).valueOf() + SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS).toISOString()
+                                            parameterValue = new Date(new Date(thisReport.file.lastQueryRun).valueOf()).toISOString()
                                             lastQueryRun = parameterValue
                                         } else {
                                             parameterValue = new Date(((new Date()).valueOf()) - SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS).toISOString()
@@ -486,6 +486,8 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                         }
 
                         async function fetchAllPages() {
+
+                            lastQueryRun = new Date((new Date()).valueOf()).toISOString()
 
                             if (pageNumberParameter === undefined) {
                                 /* 
@@ -681,7 +683,12 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                 Look to see if there is a key reference and if so include the keys in the fetch headers
                                  */
 
-                                let apiAuthKey = TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference.referenceParent
+                                let apiAuthKey
+
+                                if (TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference !== undefined) {
+                                    apiAuthKey = TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference.referenceParent
+                                }
+
                                 let options = {}
 
                                 if (apiAuthKey !== undefined) {

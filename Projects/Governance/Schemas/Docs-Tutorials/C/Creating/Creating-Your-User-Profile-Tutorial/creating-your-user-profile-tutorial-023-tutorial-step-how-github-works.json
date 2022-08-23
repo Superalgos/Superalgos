@@ -35,34 +35,6 @@
     },
     "paragraphs": [
         {
-            "style": "Note",
-            "text": "That is why we ask you to help in this manner! By completing those three tasks, you are effectively helping more developers find Superalgos.",
-            "updated": 1631548798983,
-            "translations": [
-                {
-                    "language": "ES",
-                    "text": "¡Por eso les pedimos que ayuden de esta manera! Al completar esas tres tareas, está ayudando de manera efectiva a más desarrolladores a encontrar Superalgos.",
-                    "updated": 1632016358401,
-                    "style": "Note"
-                },
-                {
-                    "language": "TR",
-                    "text": "Bu yüzden sizden bu şekilde yardım etmenizi rica ediyoruz! Bu üç görevi tamamlayarak, daha fazla geliştiricinin Superalgos'u bulmasına etkili bir şekilde yardımcı olursunuz.",
-                    "updated": 1637441142172
-                },
-                {
-                    "language": "RU",
-                    "text": "Поэтому мы просим вас помочь в этом! Выполняя эти три задачи, вы эффективно помогаете большему количеству разработчиков найти Superalgos.",
-                    "updated": 1639048715523
-                },
-                {
-                    "language": "DE",
-                    "text": " Deshalb bitten wir Sie, auf diese Weise zu helfen! Indem Sie diese drei Aufgaben erfüllen, helfen Sie effektiv mehr Entwicklern, Superalgos zu finden.",
-                    "updated": 1640078669433
-                }
-            ]
-        },
-        {
             "style": "Text",
             "text": "Now, this is how it works on the side of Superalgos:",
             "updated": 1630659982457,
@@ -172,6 +144,11 @@
                     "updated": 1640078707694
                 }
             ]
+        },
+        {
+            "style": "Note",
+            "text": "Thanks for helping more developers find Superalgos! The system get's stronger this way!",
+            "updated": 1660591375848
         }
     ]
 }

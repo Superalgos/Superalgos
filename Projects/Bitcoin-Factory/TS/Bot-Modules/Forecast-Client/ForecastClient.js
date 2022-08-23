@@ -101,10 +101,10 @@
     
                                     //unfinished
                                     let forecastCasesArrayfromTestserver = JSON.parse(response.data.serverData.response)
-                                    for (let j = 0; j < thisObject.forecastCasesArray; j++) {
+                                    for (let j = 0; j < thisObject.forecastCasesArray.length; j++) {
                                         console.log((new Date()).toISOString(), '[INFO] ' + thisObject.forecastCasesArray[j])
                                         let foundForecastId = false
-                                        for (let i = 0; i < forecastCasesArrayfromTestserver; i++) {
+                                        for (let i = 0; i < forecastCasesArrayfromTestserver.length; i++) {
                                             console.log((new Date()).toISOString(), '[INFO] ' + forecastCasesArrayfromTestserver[i])
                                             if (forecastCasesArrayfromTestserver[i].id == thisObject.forecastCasesArray[j].id) {
                                                 foundForecastId = true

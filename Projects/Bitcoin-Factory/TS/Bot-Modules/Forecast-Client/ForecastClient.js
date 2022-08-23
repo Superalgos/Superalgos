@@ -1,7 +1,7 @@
 ﻿exports.newBitcoinFactoryBotModulesForecastClient = function (processIndex) {
 
     const MODULE_NAME = "Forecast-Client"
-    const FORECAST_CLIENT_VERSION = 1
+    const FORECAST_CLIENT_VERSION = 2
 
     let thisObject = {
         forecastCasesArray: undefined,
@@ -14,6 +14,7 @@
     thisObject.utilities = TS.projects.bitcoinFactory.utilities.miscellaneous
     let BOT_CONFIG = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config
     let reforecasting = false
+    let forecasting = false
 
     let intervalId = setInterval(updateForcasts, 60 * 1000)
 
@@ -53,79 +54,112 @@
         }
     }
 
-
     function finalize() {
         clearInterval(intervalId)
     }
 
     async function start(callBackFunction) {
-        try {
-            await getNextForecastCase()
-                .then(onSuccess)
-                .catch(onError)
-            async function onSuccess(nextForecastCase) {
-                if (nextForecastCase !== undefined) {
-                    SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Forecast-Client/notebooks/parameters.csv", nextForecastCase.files.parameters)
-                    SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Forecast-Client/notebooks/time-series.csv", nextForecastCase.files.timeSeries)
-
-                    nextForecastCase.modelName = "MODEL-" + nextForecastCase.id
-
-                    await buildModel(nextForecastCase)
-                        .then(onSuccess)
-                        .catch(onError)
-
-                    async function onSuccess(forecastResult) {
-
-                        nextForecastCase.expiration = thisObject.utilities.getExpiration(nextForecastCase)
-                        nextForecastCase.timestamp = (new Date()).valueOf()
-                        nextForecastCase.timeSeriesHash = thisObject.utilities.hash(nextForecastCase.files.timeSeries)
-                        nextForecastCase.files = undefined
-                        nextForecastCase.caseIndex = thisObject.forecastCasesArray.length
-
-                        thisObject.forecastCasesArray.push(nextForecastCase)
-                        saveForecastCasesFile()
-                        logQueue(nextForecastCase)
-
-                        if (forecastResult !== undefined) {
-                            forecastResult.id = nextForecastCase.id
-                            forecastResult.caseIndex = nextForecastCase.caseIndex
-                            await setForecastCaseResults(forecastResult, 'clientInstanceBuilder', nextForecastCase.testServer)
-                                .then(onSuccess)
-                                .catch(onError)
-                            async function onSuccess(response) {
-                                let bestPredictions = JSON.parse(response.data.serverData.response)
-                                console.log(' ')
-                                console.log('Best Crowd-Sourced Predictions:')
-                                console.table(bestPredictions)
-
-                                callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
+        //only start once
+        if (!forecasting) {
+            try {
+                await getNextForecastCase()
+                    .then(onSuccess)
+                    .catch(onError)
+                async function onSuccess(nextForecastCase) {
+                    if (nextForecastCase !== undefined) {
+                        forecasting = true
+                        SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Forecast-Client/notebooks/parameters.csv", nextForecastCase.files.parameters)
+                        SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Forecast-Client/notebooks/time-series.csv", nextForecastCase.files.timeSeries)
+    
+                        nextForecastCase.modelName = "MODEL-" + nextForecastCase.id
+    
+                        await buildModel(nextForecastCase)
+                            .then(onSuccess)
+                            .catch(onError)
+    
+                        async function onSuccess(forecastResult) {
+    
+                            nextForecastCase.expiration = thisObject.utilities.getExpiration(nextForecastCase)
+                            nextForecastCase.timestamp = (new Date()).valueOf()
+                            nextForecastCase.timeSeriesHash = thisObject.utilities.hash(nextForecastCase.files.timeSeries)
+                            nextForecastCase.files = undefined
+                            nextForecastCase.caseIndex = thisObject.forecastCasesArray.length
+    
+                            thisObject.forecastCasesArray.push(nextForecastCase)
+                            saveForecastCasesFile()
+                            logQueue(nextForecastCase)
+    
+                            let forecastResultAccepted = false
+                            let maxSendTries = 10
+                            let curSendTries = 1
+                            while ((forecastResultAccepted === false) && (forecastResult !== undefined) && (curSendTries<=maxSendTries)) {
+                                await setForecastCaseResults(forecastResult, 'clientInstanceBuilder', forecastResult.testServer)
+                                    .then(onSuccess)
+                                    .catch(onError)
+                                async function onSuccess(response) {
+                                    forecastResultAccepted = true
+    
+                                    //unfinished
+                                    let forecastCasesArrayfromTestserver = JSON.parse(response.data.serverData.response)
+                                    for (let j = 0; j < thisObject.forecastCasesArray; j++) {
+                                        console.log((new Date()).toISOString(), '[INFO] ' + thisObject.forecastCasesArray[j])
+                                        let foundForecastId = false
+                                        for (let i = 0; i < forecastCasesArrayfromTestserver; i++) {
+                                            console.log((new Date()).toISOString(), '[INFO] ' + forecastCasesArrayfromTestserver[i])
+                                            if (forecastCasesArrayfromTestserver[i].id == thisObject.forecastCasesArray[j].id) {
+                                                foundForecastId = true
+                                            }
+                                        }
+                                        if (!foundForecastId) {
+                                            console.log((new Date()).toISOString(), '[INFO] Remove id' + thisObject.forecastCasesArray[j])
+                                        }
+                                    }
+    
+    
+    
+    
+                                    let bestPredictions = JSON.parse(response.data.serverData.response)
+                                    console.log(' ')
+                                    console.log('[DEBUG] start')
+                                    console.log((new Date()).toISOString(), '[INFO] Best Crowd-Sourced Predictions:')
+                                    console.table(bestPredictions)
+                                    let statusText = 'Published Forecast Case ' + forecastResult.id + ' to ' + forecastResult.testServer.instance
+    
+                                    TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, '', '', statusText)
+    
+                                    callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
+                                }
+                                async function onError(err) {
+                                    console.log((new Date()).toISOString(), '[ERROR] Failed to send a Report to the Test Server ' + forecastResult.testServer.instance + ' with the Forecast Case Results '+ forecastResult.id + ' and get a Reward for that.')
+                                    console.log((new Date()).toISOString(), '[ERROR] Err: ', err, ' TrialNo: ', curSendTries)
+                                    console.log((new Date()).toISOString(), '[ERROR] Retrying to send the Forecast Report in 60 seconds...')
+                                }  
+                                curSendTries++
                             }
-                            async function onError(err) {
-                                console.log((new Date()).toISOString(), 'Failed to send a Report to the Test Server with the Forecast Case Results and get a Reward for that. Err:', err, 'Aborting the processing of this case and retrying the main loop in 30 seconds...')
-                                callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
-                            }
+                            forecasting = false
                         }
-                    }
-
-                    async function onError(err) {
-                        console.log((new Date()).toISOString(), 'Failed to Build the Model for this Forecast Case. Err:', err, 'Aborting the processing of this case and retrying the main loop in 30 seconds...')
+    
+                        async function onError(err) {
+                            forecasting = false                            
+                            console.log((new Date()).toISOString(), 'Failed to Build the Model for this Forecast Case. Err:', err, 'Aborting the processing of this case and retrying the main loop in 30 seconds...')
+                            callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
+                        }
+                    } else {
+                        console.log((new Date()).toISOString(), 'Nothing to Forecast', 'Retrying in 30 seconds...')
                         callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                     }
-                } else {
-                    console.log((new Date()).toISOString(), 'Nothing to Test', 'Retrying in 30 seconds...')
+                }
+                async function onError(err) {
+                    console.log((new Date()).toISOString(), 'Failed to get a Forecast Case. Err:', err, 'Retrying in 30 seconds...')
                     callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                 }
             }
-            async function onError(err) {
-                console.log((new Date()).toISOString(), 'Failed to get a Forecast Case. Err:', err, 'Retrying in 30 seconds...')
-                callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
+            catch (err) {
+                TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
+                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                    "[ERROR] start -> err = " + err.stack)
+                callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
             }
-        }
-        catch (err) {
-            TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
-            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                "[ERROR] start -> err = " + err.stack)
-            callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
         }
     }
 
@@ -234,6 +268,9 @@
         return new Promise(promiseWork)
 
         async function promiseWork(resolve, reject) {
+
+            forecastResult.trainingOutput = undefined // delete this to save bandwidth
+
             let message = {
                 type: 'Set Forecast Case Results',
                 payload: JSON.stringify(forecastResult)
@@ -296,8 +333,21 @@
     }
 
     async function buildModel(nextForecastCase) {
+        return useModel(nextForecastCase,true)
+    }
+
+    async function useModel(nextForecastCase,buildnewModel=false) {
+        /*
+        Set default script name.
+        */
+        if (nextForecastCase.pythonScriptName === undefined) { nextForecastCase.pythonScriptName = "Bitcoin_Factory_LSTM_Forecasting.py" }
+
         console.log('')
-        console.log('------------------------------------------- Building Forecast Case # ' + nextForecastCase.id + ' ---- ' + (nextForecastCase.caseIndex + 1) + ' / ' + nextForecastCase.totalCases + ' --------------------------------------------------------')
+        if (buildnewModel) {
+            console.log('------------------------------------------------------- Forecasting Case # ' + nextForecastCase.id + ' ------------------------------------------------------------')
+        } else {
+            console.log('------------------------------------------------------- Reforecasting Case # ' + nextForecastCase.id + ' ------------------------------------------------------------')
+        }
         console.log('')
         console.log('Test Server: ' + nextForecastCase.testServer.userProfile + ' / ' + nextForecastCase.testServer.instance)
         console.log('')
@@ -307,96 +357,114 @@
         console.log((new Date()).toISOString(), 'Starting to process this Case')
         console.log('')
 
-        writePhytonInstructionsFile("BUILD_AND_SAVE_MODEL", nextForecastCase)
-
-        return new Promise(executeThePythonScript)
-    }
-
-    async function useModel(nextForecastCase) {
-        console.log('')
-        console.log('------------------------------------------------------- Reforcasting Case # ' + nextForecastCase.id + ' ------------------------------------------------------------')
-        console.log('')
-        console.log('Test Server: ' + nextForecastCase.testServer.userProfile + ' / ' + nextForecastCase.testServer.instance)
-        console.log('')
-        console.log('Parameters Received for this Forecast:')
-        console.table(getRelevantParameters(nextForecastCase.parameters))
-        console.log('')
-        console.log((new Date()).toISOString(), 'Starting to process this Case')
-        console.log('')
-
-        writePhytonInstructionsFile("LOAD_MODEL_AND_PREDICT", nextForecastCase)
-
-        return new Promise(executeThePythonScript)
-    }
-
-    async function executeThePythonScript(resolve, reject) {
-        let processExecutionResult
-        let startingTimestamp = (new Date()).valueOf()
-
-        const { spawn } = require('child_process');
-        const ls = spawn('docker', ['exec', 'Bitcoin-Factory-ML-Forecasting', 'python', '/tf/notebooks/Bitcoin_Factory_LSTM_Forecasting.py']);
-        let dataReceived = ''
-        ls.stdout.on('data', (data) => {
-            data = data.toString()
-            /*
-            Removing Carriedge Return from string.
-            */
-            for (let i = 0; i < 1000; i++) {
-                data = data.replace(/\n/, "")
-            }
-            dataReceived = dataReceived + data.toString()
-        });
-
-        ls.stderr.on('data', (data) => {
-            onError(data)
-        });
-
-        ls.on('close', (code) => {
-            console.log(`Docker Python Script exited with code ${code}`);
-            if (code === 0) {
-                onFinished(dataReceived)
-            } else {
-                console.log((new Date()).toISOString(), '[ERROR] Unexpected error trying to execute a Python script inside the Docker container. ')
-                console.log((new Date()).toISOString(), '[ERROR] Check at a console if you can run this command: ')
-                console.log((new Date()).toISOString(), '[ERROR] docker exec -it Bitcoin-Factory-ML-Forecasting python /tf/notebooks/Bitcoin_Factory_LSTM_Forecasting.py')
-                console.log((new Date()).toISOString(), '[ERROR] Once you can sucessfully run it at the console you might want to try to run this App again. ')
-                reject('Unexpected Error.')
-            }
-        });
-
-        function onError(err) {
-            err = err.toString()
-            // ACTIVATE THIS ONLY FOR DEBUGGING console.log((new Date()).toISOString(), '[ERROR] Unexpected error trying to execute a Python script: ' + err)
+        if (buildnewModel) {
+            writePhytonInstructionsFile("BUILD_AND_SAVE_MODEL", nextForecastCase)
+        } else {
+            writePhytonInstructionsFile("LOAD_MODEL_AND_PREDICT", nextForecastCase)
         }
 
-        function onFinished(dataReceived) {
-            try {
+        return new Promise(executeThePythonScript)
 
-                let index = dataReceived.indexOf('{')
-                dataReceived = dataReceived.substring(index)
-                console.log(dataReceived)
-                processExecutionResult = JSON.parse(fixJSON(dataReceived))
+        async function executeThePythonScript(resolve, reject) {
+            /*
+            Set default script name.
+            */
+            if (nextForecastCase.pythonScriptName === undefined) { nextForecastCase.pythonScriptName = "Bitcoin_Factory_LSTM_Forecasting.py" }
+    
+            let processExecutionResult
+            let startingTimestamp = (new Date()).valueOf()
+    
+            const { spawn } = require('child_process');
+            const ls = spawn('docker', ['exec', 'Bitcoin-Factory-ML-Forecasting', 'python', '-u', '/tf/notebooks/' + nextForecastCase.pythonScriptName ]);
+            let dataReceived = ''
+            ls.stdout.on('data', (data) => {
+                data = data.toString()
+                /*
+                Removing Carriedge Return from string.
+                */
+                try {
+                    let percentage = ''
+                    let heartbeatText = ''
+                    let statusText = 'Forecast Case ' + nextForecastCase.id + ' from ' + nextForecastCase.testServer.instance
+                    if (data.substring(0, 5) === 'Epoch') {
+                        let regEx = new RegExp('Epoch (\\d+)/(\\d+)', 'gim')
+                        let match = regEx.exec(data)
+                        heartbeatText = match[0]
 
-                console.log('Prediction RMSE Error: ' + processExecutionResult.errorRMSE)
-                console.log('Predictions [candle.max, candle.min, candle.close]: ' + processExecutionResult.predictions)
-
-                let endingTimestamp = (new Date()).valueOf()
-                processExecutionResult.enlapsedTime = (endingTimestamp - startingTimestamp) / 1000
-                console.log('Enlapsed Time (HH:MM:SS): ' + (new Date(processExecutionResult.enlapsedTime * 1000).toISOString().substr(14, 5)) + ' ')
-
-            } catch (err) {
-
-                if (processExecutionResult !== undefined && processExecutionResult.predictions !== undefined) {
-                    console.log('processExecutionResult.predictions:' + processExecutionResult.predictions)
+                        percentage = Math.round(match[1] / match[2] * 100)                    
+                        TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, heartbeatText, percentage, statusText)
+                    }
+                } catch (err) { 
+                    console.log('Error pricessing heartbeat: ' + err)
                 }
 
-                console.log(err.stack)
-                console.error(err)
-            }
+                for (let i = 0; i < 1000; i++) {
+                    data = data.replace(/\n/, "")
+                }
+                dataReceived = dataReceived + data.toString()
 
-            resolve(processExecutionResult)
-        }
+                if (BOT_CONFIG.logTrainingOutput === true) {
+                    console.log(data)
+                }                
+            });
+    
+            ls.stderr.on('data', (data) => {
+                onError(data)
+            });
+    
+            ls.on('close', (code) => {
+                if (code === 0) {
+                    console.log((new Date()).toISOString(), '[INFO] Forecaster: Docker Python Script exited with code ' + code);
+                    onFinished(dataReceived)
+                } else {
+                    console.log((new Date()).toISOString(), '[ERROR] Forecaster: Docker Python Script exited with code ' + code);
+                    console.log((new Date()).toISOString(), '[ERROR] Unexpected error trying to execute a Python script inside the Docker container. ')
+                    console.log((new Date()).toISOString(), '[ERROR] Check at a console if you can run this command: ')
+                    console.log((new Date()).toISOString(), '[ERROR] docker exec -it Bitcoin-Factory-ML-Forecasting python /tf/notebooks/Bitcoin_Factory_LSTM_Forecasting.py')
+                    console.log((new Date()).toISOString(), '[ERROR] Once you can sucessfully run it at the console you might want to try to run this App again. ')
+                    reject('Unexpected Error.')
+                }
+            });
+    
+            function onError(err) {
+                err = err.toString()
+                // ACTIVATE THIS ONLY FOR DEBUGGING console.log((new Date()).toISOString(), '[ERROR] Unexpected error trying to execute a Python script: ' + err)
+            }
+    
+            function onFinished(dataReceived) {
+                try {
+    
+                    let index = dataReceived.indexOf('{')
+                    dataReceived = dataReceived.substring(index)
+                    //just for debug: console.log(dataReceived)
+                    processExecutionResult = JSON.parse(fixJSON(dataReceived))
+    
+                    console.log('Prediction RMSE Error: ' + processExecutionResult.errorRMSE)
+                    console.log('Predictions [candle.max, candle.min, candle.close]: ' + processExecutionResult.predictions)
+    
+                    let endingTimestamp = (new Date()).valueOf()
+                    processExecutionResult.enlapsedTime = (endingTimestamp - startingTimestamp) / 1000
+                    console.log('Enlapsed Time (HH:MM:SS): ' + (new Date(processExecutionResult.enlapsedTime * 1000).toISOString().substr(14, 5)) + ' ')
+    
+                    processExecutionResult.testServer = nextForecastCase.testServer
+                    processExecutionResult.id = nextForecastCase.id
+                    processExecutionResult.caseIndex = nextForecastCase.caseIndex
+
+                } catch (err) {
+    
+                    if (processExecutionResult !== undefined && processExecutionResult.predictions !== undefined) {
+                        console.log('processExecutionResult.predictions:' + processExecutionResult.predictions)
+                    }
+    
+                    console.log(err.stack)
+                    console.error(err)
+                }
+    
+                resolve(processExecutionResult)
+            }
+        }        
     }
+
 
     async function updateForcasts() {
         if (reforecasting === true) {
@@ -404,15 +472,16 @@
             return
         }
         reforecasting = true
+        console.log((new Date()).toISOString(), '[DEBUG] Length forecastCasesArray: ' + thisObject.forecastCasesArray.length)
         for (let i = 0; i < thisObject.forecastCasesArray.length; i++) {
             let forecastCase = thisObject.forecastCasesArray[i]
             let timestamp = (new Date()).valueOf()
 
             if (timestamp < forecastCase.expiration) {
-                console.log((new Date()).toISOString(), 'Forcast case ' + forecastCase.id + ' not expired yet. No need to Reforecast.', 'Reviewing this in 60 seconds...')
+                console.log((new Date()).toISOString(), 'Forecast case ' + forecastCase.id + ' from ' + forecastCase.testServer.instance + ' not expired yet. No need to Reforecast.', 'Reviewing this in 60 seconds...')
                 continue
             } else {
-                console.log((new Date()).toISOString(), 'Forcast case ' + forecastCase.id + ' expired.', 'Reforecasting now.')
+                console.log((new Date()).toISOString(), 'Forecast case ' + forecastCase.id + ' from ' + forecastCase.testServer.instance + ' expired.', 'Reforecasting now.')
                 await reforecast(forecastCase, i)
                     .then(onSuccess)
                     .catch(onError)
@@ -421,12 +490,12 @@
                 }
                 async function onError(err) {
                     if (err === 'THIS FORECAST CASE IS NOT AVAILABLE ANYMORE') {
-                        console.log((new Date()).toISOString(), 'Removing Case Id ' + forecastCase.id + ' from our records.')
+                        console.log((new Date()).toISOString(), 'Removing Case Id ' + forecastCase.id + ' from ' + forecastCase.testServer.instance + ' from our records.')
                         thisObject.forecastCasesArray.splice(i, 1)
                         i--
                         saveForecastCasesFile()
                     } else {
-                        console.log((new Date()).toISOString(), 'Some problem at the Test Server prevented the forcasting of Case Id ' + forecastCase.id + ' . Server responded with: ' + err)
+                        console.log((new Date()).toISOString(), 'Some problem at the Test Server ' + forecastCase.testServer.instance + 'prevented to reforecaste of Case Id ' + forecastCase.id + ' . Server responded with: ' + err)
                     }
                 }
             }
@@ -474,16 +543,25 @@
                         thisForecastCase.files = undefined
 
                         if (forecastResult !== undefined) {
-                            forecastResult.id = thisForecastCase.id
-                            forecastResult.caseIndex = thisForecastCase.caseIndex
-                            await setForecastCaseResults(forecastResult, 'clientInstanceForecaster', thisForecastCase.testServer)
+                            if (forecastResult.id != thisForecastCase.id) {
+                                console.log('[DEBUG] Mixup of Forecast result ids. forecastResult.id: ' + forecastResult.id + ' / thisForecastCase.id: ' + thisForecastCase.id)                                
+                            }
+                            if (forecastResult.caseIndex != thisForecastCase.caseIndex) {
+                                console.log('[DEBUG] Mixup of Forecast result case ids. forecastResult.caseIndex: ' + forecastResult.caseIndex + ' / thisForecastCase.caseIndex: ' + thisForecastCase.caseIndex)                                
+                            }
+                            await setForecastCaseResults(forecastResult, 'clientInstanceForecaster', forecastResult.testServer)
                                 .then(onSuccess)
                                 .catch(onError)
                             async function onSuccess(response) {
                                 let bestPredictions = JSON.parse(response.data.serverData.response)
                                 console.log(' ')
+                                console.log('[DEBUG] reforecast')
                                 console.log('Best Crowd-Sourced Predictions:')
                                 console.table(bestPredictions)
+                                
+                                let statusText = 'Published Forecast Case ' + forecastResult.id + ' to ' + forecastResult.testServer.instance
+                                TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, '', '', statusText)
+
                                 /*
                                 Recalculate the expiration, timestamp, hash and save.
                                 */

@@ -81,6 +81,7 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
             let forecastCase = {
                 id: testCase.id,
                 caseIndex: thisObject.forecastCasesArray.length,
+                testServer: JSON.parse(JSON.stringify(testCase.testServer)),
                 mainAsset: testCase.mainAsset,
                 mainTimeFrame: testCase.mainTimeFrame,
                 percentageErrorRMSE: testCase.percentageErrorRMSE,
@@ -177,6 +178,10 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
 
         try {
             let forecastCase = thisObject.forecastCasesMap.get(forecastResult.id)
+            if ((forecastCase == undefined) && (forecastResult.id != undefined) && (forecastResult.id > 0) ) {
+                console.log((new Date()).toISOString(), '[INFO] ' + forecastedBy + ' produced a new Forecast for the Case Id ' + forecastResult.id)
+                console.log((new Date()).toISOString(), '[INFO] This Case id is unkown or outdated. Testserver did receive a better result in the meantime of Forecastclient processing.')
+            } 
             forecastCase.status = 'Forecasted'
             forecastCase.predictions = forecastResult.predictions
             forecastCase.errorRMSE = forecastResult.errorRMSE
@@ -198,6 +203,7 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
             console.log((new Date()).toISOString(), forecastedBy + ' produced a new Forecast for the Case Id ' + forecastResult.id)
             console.log((new Date()).toISOString(), 'Updated partial table of Forecast Cases:')
             console.table(logQueue)
+            saveForecastReportFile()
             saveForecastCasesFile()
 
         } catch (err) {
@@ -208,6 +214,20 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
         function calculatePercentageErrorRMSE(forecastResult) {
             let percentageErrorRMSE = forecastResult.errorRMSE / forecastResult.predictions[0] * 100
             return percentageErrorRMSE.toFixed(2)
+        }
+
+        function saveForecastReportFile() {
+            let forecastReportFile = undefined
+
+            for (let i = 0; i < thisObject.forecastCasesArray.length; i++) {
+                let forecastCase = thisObject.forecastCasesArray[i]
+                if (forecastCase.status === 'Forecasted') {
+                //ToDo
+                }
+            }
+            if (forecastReportFile != undefined ) {
+                SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/" + TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName + "/OutputData/ForecastReports/" + REPORT_NAME + ".CSV", forecastReportFile)
+            }
         }
     }
 

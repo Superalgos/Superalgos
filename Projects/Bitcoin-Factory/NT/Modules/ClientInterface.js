@@ -172,7 +172,7 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
                 queryReceived: queryReceived,
                 timestamp: (new Date()).valueOf()
             }
-            let forecastClientVersion = queryReceived.testClientVersion
+            let forecastClientVersion = queryReceived.forecastClientVersion
             if (forecastClientVersion === undefined) { forecastClientVersion = 1 }
             requestsToServer.push(requestToServer)
             console.log((new Date()).toISOString(), '[INFO] Request From Forecast Client v.' + forecastClientVersion +

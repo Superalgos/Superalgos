@@ -5,8 +5,8 @@
         "translations": [
             {
                 "language": "RU",
-                "text": "Узел Space Style позволяет управлять внешним видом пространства, в частности, цветами фона и размерами шрифта.",
-                "updated": 1638350639992
+                "text": "Узел Space Style может иметь две различные конфигурации по умолчанию в зависимости от того, подключен ли он к узлу Design Space или узлу Charting Space.",
+                "updated": 1661275675827
             }
         ],
         "updated": 1660946824904
@@ -46,8 +46,8 @@
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Доступные цвета:",
-                    "updated": 1638350973317
+                    "text": "Примечания к Design Space Default Configuration:",
+                    "updated": 1661275720764
                 }
             ],
             "updated": 1660946508223

@@ -47,6 +47,7 @@ function newLayer() {
     let LOADING_STROKE_STYLE = 'rgba(234, 143, 23, @Opacity)'
     let LOADED_STROKE_STYLE = 'rgba(45, 232, 28, @Opacity)'
     let UNLOADED_STROKE_STYLE = 'rgba(226, 226, 226, @Opacity)'
+    let configStyle
 
     let marketFileProgressBar = {
         value: 0,
@@ -660,10 +661,26 @@ function newLayer() {
             label1 = label1.substring(0, 30)
         }
 
-        let backgroundColor = UI_COLOR.BLACK
+        // This controls the color of the drop down indicator panels inside the chart.
+        let chartingSpaceNode = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Charting Space')
+        if (chartingSpaceNode !== undefined) {
+            if (chartingSpaceNode.spaceStyle !== undefined) {
+                configStyle = JSON.parse(chartingSpaceNode.spaceStyle.config)
+            }
+        } else {
+            configStyle = undefined
+        }
+
+        let backgroundColor
+
+        if (configStyle === undefined || configStyle.indicatorDropDownPanelColor === undefined) {
+            backgroundColor = UI_COLOR.BLACK
+        } else {
+            backgroundColor = eval(configStyle.indicatorDropDownPanelColor)
+        }
 
         const RED_LINE_HIGHT = 4
-        const OPACITY = 0.75
+        
 
         let params = {
             cornerRadius: 0,
@@ -672,10 +689,20 @@ function newLayer() {
             borderColor: UI_COLOR.RUSTED_RED,
             castShadow: false,
             backgroundColor: backgroundColor,
-            opacity: OPACITY
+            opacity: 0
         }
 
-        UI.projects.foundations.utilities.drawPrint.roundedCornersBackground(params)
+        // Here we set the opacity for the indicator drop down panel if it is defined.
+        if (configStyle === undefined || configStyle.indicatorDropDownPanelOpacity === undefined) {
+            const thisOpacity = 0.75
+            params.opacity = thisOpacity
+            UI.projects.foundations.utilities.drawPrint.roundedCornersBackground(params)
+        } else {
+            const thisOpacity = eval(configStyle.indicatorDropDownPanelOpacity)
+            params.opacity = thisOpacity
+            UI.projects.foundations.utilities.drawPrint.roundedCornersBackground(params)
+        }
+
 
         let parentLabel1FontSize = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(thisObject.payload.parentNode.payload, 'label1FontSize')
         let parentlabelTwoFontSize = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(thisObject.payload.parentNode.payload, 'labelTwoFontSize')

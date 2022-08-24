@@ -9,7 +9,7 @@
         "config": true
     },
     "initialValues": {
-        "config": "{\"backgroundColor\":\"UI_COLOR.BLACK\",\"node\":{\"fontSize\":16,\"imageSize\":60,\"type\":{\"fontColor\":\"UI_COLOR.WHITE\"},\"name\":{\"fontColor\":\"UI_COLOR.WHITE\"},\"menuItem\":{\"backgroundColor\":\"UI_COLOR.BLACK\",\"fontColor\":\"UI_COLOR.WHITE\",\"fontSize\":14,\"imageSize\":14}}}"
+        "config": "{\"Please See Doc's for desired configuration.\": \"\"}"
     },
     "menuItems": [
         {

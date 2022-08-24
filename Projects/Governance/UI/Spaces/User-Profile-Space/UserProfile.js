@@ -15,9 +15,10 @@ function newGovernanceUserProfileSpace() {
         initialize: initialize
     }
 
-    let waitingForResponses = 0
-    const BSC_SCAN_RATE_LIMIT_DELAY = 6000 * 6
+    //const BSC_SCAN_RATE_LIMIT_DELAY = 6000 * 6
     let reputationByAddress = new Map()
+    const SATokenList = UI.projects.governance.globals.saToken.SA_TOKEN_LIST
+    let waitingForResponses = SATokenList.length
 
     return thisObject
 
@@ -137,42 +138,60 @@ function newGovernanceUserProfileSpace() {
         /*
         Here we will setup the Reputation for each profile. 
         */
-        waitingForResponses++
         getTreasuryAccountTransactions()
 
         function getTreasuryAccountTransactions() {
-            const url = "https://api.bscscan.com/api?module=account&action=tokentx&address=" + UI.projects.governance.globals.saToken.SA_TOKEN_BSC_TREASURY_ACCOUNT_ADDRESS + "&startblock=0"
-
-            fetch(url).then(function (response) {
-                return response.json();
-            }).then(function (data) {
-
-                let tokenTransfers = data.result
-                for (let i = 0; i < tokenTransfers.length; i++) {
-                    let transfer = tokenTransfers[i]
-
-                    if (transfer.contractAddress !== UI.projects.governance.globals.saToken.SA_TOKEN_BSC_CONTRACT_ADDRESS) { continue }
-                    if (transfer.from !== UI.projects.governance.globals.saToken.SA_TOKEN_BSC_TREASURY_ACCOUNT_ADDRESS) { continue }
-
-                    let currentReputation = Number(transfer.value) / UI.projects.governance.globals.saToken.SA_TOKEN_BSC_DECIMAL_FACTOR
-
-                    let previousReputation = reputationByAddress.get(transfer.to.toLowerCase())
-                    if (previousReputation === undefined) { previousReputation = 0 }
-                    let newReputation = previousReputation + currentReputation
-                    reputationByAddress.set(transfer.to.toLowerCase(), newReputation)
+            for (const token of SATokenList) {
+                let url = ''
+                switch(token["chain"]) {
+                    case 'BSC':
+                        url = "https://api.bscscan.com/api?module=account&action=tokentx&address=" + token["treasuryAccountAddress"] + "&startblock=0"
+                        break
+                    case 'ETH':
+                        url = "https://api.etherscan.io/api?module=account&action=tokentx&address=" + token["treasuryAccountAddress"] + "&startblock=0"
+                        break
+                    /*                  
+                    case 'GOERLI':
+                        url = "https://api-goerli.etherscan.io/api?module=account&action=tokentx&address=" + token["treasuryAccountAddress"] + "&startblock=0"
+                        break      
+                    */
+                    default:
+                        console.log((new Date()).toISOString(), '[WARN] Reputation history cannot be obtained for chain ' + token["chain"] + ' - no data source configured')
+                        waitingForResponses--
+                        continue
                 }
-                //console.log((new Date()).toISOString(), '[INFO] tokenTransfers = ' + JSON.stringify(tokenTransfers))
-                if (tokenTransfers.length > 9000) {
-                    console.log((new Date()).toISOString(), '[WARN] The total amount of BSC SA Token transfers is above 9000. After 10k this method will need pagination or otherwise users will not get their reputation calculated correctly.')
-                } else {
-                    console.log((new Date()).toISOString(), '[INFO] ' + tokenTransfers.length + ' reputation transactions found at the blockchain. ')
-                }
-                waitingForResponses--
-            }).catch(function (err) {
-                const message = err.message + ' - ' + 'Can not access BSC SCAN servers.'
-                console.log(message)
-                waitingForResponses--
-            });
+
+                fetch(url).then(function (response) {
+                    return response.json();
+                }).then(function (data) {
+
+                    let tokenTransfers = data.result
+                    for (let i = 0; i < tokenTransfers.length; i++) {
+                        let transfer = tokenTransfers[i]
+
+                        if (transfer.contractAddress !== token["contractAddress"]) { continue }
+                        if (transfer.from !== token["treasuryAccountAddress"]) { continue }
+
+                        let currentReputation = Number(transfer.value) / token["decimalFactor"]
+
+                        let previousReputation = reputationByAddress.get(transfer.to.toLowerCase())
+                        if (previousReputation === undefined) { previousReputation = 0 }
+                        let newReputation = previousReputation + currentReputation
+                        reputationByAddress.set(transfer.to.toLowerCase(), newReputation)
+                    }
+                    //console.log((new Date()).toISOString(), '[INFO] tokenTransfers = ' + JSON.stringify(tokenTransfers))
+                    if (tokenTransfers.length > 9000) {
+                        console.log((new Date()).toISOString(), '[WARN] The total amount of ' + token["chain"] + 'Token transfers is above 9000. After 10k this method will need pagination or otherwise users will not get their reputation calculated correctly.')
+                    } else {
+                        console.log((new Date()).toISOString(), '[INFO] ' + tokenTransfers.length + ' reputation transactions found on the ' + token["chain"] + ' blockchain. ')
+                    }
+                    waitingForResponses--
+                }).catch(function (err) {
+                    const message = err.message + ' - ' + 'Can not access ' + token["chain"] + 'SCAN servers.'
+                    console.log(message)
+                    waitingForResponses--
+                });
+            }
         }
         /* 
         Obtain executed Bitcoin Factory test cases 
@@ -500,29 +519,16 @@ function newGovernanceUserProfileSpace() {
                     userProfile.payload.blockchainTokens === undefined
                 ) {
                     /* Obtain balance for each asset/liquidity pool configured in SaToken.js */
-                    const liqAssets = UI.projects.governance.globals.saToken.SA_TOKEN_BSC_LIQUIDITY_ASSETS
-                    const liqExchanges = UI.projects.governance.globals.saToken.SA_TOKEN_BSC_EXCHANGES
                     let initValues = {}
-                    for (let liqAsset of liqAssets) {
-                        for (let liqExchange of liqExchanges) {
-                            let contractIdentifier = 'UI.projects.governance.globals.saToken.SA_TOKEN_BSC_' + liqExchange + '_LIQUIDITY_POOL_' + liqAsset + '_CONTRACT_ADDRESS'
-                            let marketContract = eval(contractIdentifier)
-                            if (marketContract !== undefined) {
-                                let assetExchange = liqAsset + "-" + liqExchange
-                                initValues[assetExchange] = 0
-                            }
-                        }
+                    let liquidityProgramList = UI.projects.governance.globals.saToken.SA_TOKEN_LIQUIDITY_POOL_LIST
+                    for (let liqProgram of liquidityProgramList) {
+                        let assetExchange = liqProgram['pairedAsset'] + "-" + liqProgram['exchange']
+                        initValues[assetExchange] = 0
                     }
-                    userProfile.payload.liquidityTokens = initValues
-
-                    for (let liqAsset of liqAssets) {
-                        for (let liqExchange of liqExchanges) {
-                            let contractIdentifier = 'UI.projects.governance.globals.saToken.SA_TOKEN_BSC_' + liqExchange + '_LIQUIDITY_POOL_' + liqAsset + '_CONTRACT_ADDRESS'
-                            let marketContract = eval(contractIdentifier)
-                            if (marketContract !== undefined) {
-                                getLiquidityTokenBalance(userProfile, blockchainAccount, liqAsset, liqExchange, marketContract)
-                            }
-                        }
+                    userProfile.payload.liquidityTokens = initValues                    
+                    
+                    for (let liqProgram of liquidityProgramList) {
+                        getLiquidityTokenBalance(userProfile, blockchainAccount, liqProgram['chain'], liqProgram['pairedAsset'], liqProgram['exchange'], liqProgram['contractAddress'])
                     }
 
                     /* 
@@ -535,48 +541,66 @@ function newGovernanceUserProfileSpace() {
 
         function getBlockchainTokens(userProfile, blockchainAccount) {
             console.log((new Date()).toISOString(), '[INFO] Loading Blockchain Balance for User Profile: ', userProfile.name, 'blockchainAccount: ', blockchainAccount)
+            let blockchainTokenTotal = 0
+            let receivedResults = 0
+            let queryError = false
 
-            let request = {
-                url: 'WEB3',
-                params: {
-                    method: "getUserWalletBalance",
-                    walletAddress: blockchainAccount,
-                    contractAddress: UI.projects.governance.globals.saToken.SA_TOKEN_BSC_CONTRACT_ADDRESS
-                }
-            }
-
-            httpRequest(JSON.stringify(request.params), request.url, onResponse)
-
-            function onResponse(err, data) {
-                userProfile.payload.bloackchainBalancesLoading = false
-                userProfile.payload.isLoading = false
-                if (err.result === GLOBAL.DEFAULT_FAIL_RESPONSE) {
-                    console.log((new Date()).toISOString(), '[WARN] Error fetching blockchain tokens of user profile ' + userProfile.name)
-                    userProfile.payload.blockchainTokens = undefined
-                } else {
-                    let commandResponse = JSON.parse(data)
-                    if (commandResponse.result !== "Ok") {
-                        console.log((new Date()).toISOString(), '[WARN] Web3 Error fetching blockchain tokens of user profile ' + userProfile.name)
-                        return
+            for (const token of SATokenList) {
+                let request = {
+                    url: 'WEB3',
+                    params: {
+                        method: "getUserWalletBalance",
+                        chain: token["chain"],
+                        walletAddress: blockchainAccount,
+                        contractAddress: token["contractAddress"]
                     }
-                    userProfile.payload.uiObject.setInfoMessage('Blockchain Balance Successfully Loaded.',
-                        UI.projects.governance.globals.designer.SET_INFO_COUNTER_FACTOR
-                    )
-                    userProfile.payload.blockchainTokens = Number(commandResponse.balance)
-                    console.log((new Date()).toISOString(), '[INFO] SA Balance of ' + userProfile.name + ' is ', userProfile.payload.blockchainTokens)
-                    userProfile.payload.reputation = Math.min(reputationByAddress.get(blockchainAccount.toLowerCase()) | 0, userProfile.payload.blockchainTokens)
-                    console.log((new Date()).toISOString(), '[INFO] Reputation of ' + userProfile.name + ' is ', userProfile.payload.reputation)
+                }
+    
+                httpRequest(JSON.stringify(request.params), request.url, onResponse)
+    
+                function onResponse(err, data) {
+                    receivedResults++
+
+                    if (err.result === GLOBAL.DEFAULT_FAIL_RESPONSE) {
+                        console.log((new Date()).toISOString(), '[WARN] Error fetching blockchain tokens of user profile ' + userProfile.name + ' on chain ' + token["chain"])
+                        queryError = true
+
+                    } else {
+                        let commandResponse = JSON.parse(data)
+                        if (commandResponse.result !== "Ok") {
+                            console.log((new Date()).toISOString(), '[WARN] Web3 Error fetching blockchain tokens of user profile ' + userProfile.name + ' on chain ' + token["chain"])
+                            queryError = true
+                            return
+                        }
+                        blockchainTokenTotal = blockchainTokenTotal + Number(commandResponse.balance)
+                    }
+                    if (receivedResults === SATokenList.length) {
+                        userProfile.payload.bloackchainBalancesLoading = false
+                        userProfile.payload.isLoading = false
+                        if (queryError === false) {
+                            userProfile.payload.blockchainTokens = blockchainTokenTotal
+                            userProfile.payload.uiObject.setInfoMessage('Blockchain Balance Successfully Loaded.', UI.projects.governance.globals.designer.SET_INFO_COUNTER_FACTOR)
+                            console.log((new Date()).toISOString(), '[INFO] Total SA Balance of ' + userProfile.name + ' on all chains is ', userProfile.payload.blockchainTokens)
+                            userProfile.payload.reputation = Math.min(reputationByAddress.get(blockchainAccount.toLowerCase()) | 0, userProfile.payload.blockchainTokens)
+                            console.log((new Date()).toISOString(), '[INFO] Reputation of ' + userProfile.name + ' is ', userProfile.payload.reputation)
+                        } else {
+                            userProfile.payload.blockchainTokens = undefined
+                            console.log((new Date()).toISOString(), '[WARN] SA Balance of ' + userProfile.name + ' has not been loaded successfully')
+                        }
+                    }
                 }
             }
+
+
         }
 
-
-        function getLiquidityTokenBalance(userProfile, blockchainAccount, asset, exchange, marketContract) {
+        function getLiquidityTokenBalance(userProfile, blockchainAccount, chain, asset, exchange, marketContract) {
             let assetExchange = asset + "-" + exchange
             let request = {
                 url: 'WEB3',
                 params: {
                     method: "getUserWalletBalance",
+                    chain: chain,
                     walletAddress: blockchainAccount,
                     contractAddress: marketContract
                 }

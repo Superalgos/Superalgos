@@ -3,8 +3,8 @@
     "pageNumber": 30,
     "type": "Tutorial Step - Load the User Profile",
     "definition": {
-        "text": "Do you know who your referrer is? Does your referrer have a User Profile? How do you find and load the right profile?",
-        "updated": 1630928366458,
+        "text": "Use the search box to find the profile you are looking for! Go to the Workspace tab and find the User Profile node matching the name you searched for!",
+        "updated": 1660646345682,
         "icon": {
             "name": "User\\user-profile",
             "project": "Governance"
@@ -36,36 +36,13 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Follow the guide on the right to find the answers!",
-            "updated": 1630678762493,
-            "translations": [
-                {
-                    "language": "ES",
-                    "text": "¡Siga la guía para encontrar las respuestas!",
-                    "updated": 1630896102098,
-                    "style": "Callout"
-                },
-                {
-                    "language": "RU",
-                    "text": "Следуйте инструкциям справа, чтобы найти ответы!",
-                    "updated": 1639050647971
-                },
-                {
-                    "language": "DE",
-                    "text": "Folgen Sie dem Leitfaden auf der rechten Seite, um die Antworten zu finden!",
-                    "updated": 1640079960019
-                },
-                {
-                    "language": "TR",
-                    "text": "Cevapları bulmak için sağdaki kılavuzu takip edin!",
-                    "updated": 1645092405252
-                }
-            ]
+            "text": "Make sure you find an actual User Profile node, and not any other kind of node, and click on it!",
+            "updated": 1660646418044
         },
         {
             "style": "Note",
-            "text": "I brought you to the Dummy profile mentioned in the guide to make it easier for you!",
-            "updated": 1630678841266,
+            "text": "If you can't find the profile you're looking for, you may need to add it manually to the workspace. If that is the case, please refer to the Load a User Profile page in the Docs!",
+            "updated": 1660643096627,
             "translations": [
                 {
                     "language": "ES",
@@ -91,29 +68,29 @@
             ]
         },
         {
-            "style": "Success",
-            "text": "By the way, notice that the profiles of Community Mods and Core Team members are loaded already!",
-            "updated": 1630925877917,
+            "style": "Text",
+            "text": "New profiles are added to the governance Plugin Workspace before each distribution event.",
+            "updated": 1660643324416,
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Si la pregunta \"quién es tu referente\" no tiene una buena respuesta, ¡no dudes en declarar a uno de tus amigos en la comunidad! Por cierto, observa que los perfiles de los miembros de Community Mods y Core Team ya están cargados.",
+                    "text": "Si la pregunta \"quién es tu referente\" no tiene una buena respuesta, ¡no dudes en declarar a uno de tus amigos en la comunidad! Por cierto, observa que los perfiles de los miembros de Community Mods y Founding Team ya están cargados.",
                     "updated": 1630896089076,
                     "style": "Success"
                 },
                 {
                     "language": "RU",
-                    "text": "Кстати, обратите внимание, что профили участников сообщества Community Mods и Core Team уже загружены!",
+                    "text": "Кстати, обратите внимание, что профили участников сообщества Community Mods и Founding Team уже загружены!",
                     "updated": 1639050725765
                 },
                 {
                     "language": "DE",
-                    "text": "Beachte übrigens, dass die Profile von Community Mods und Core Team Mitgliedern bereits geladen sind!",
+                    "text": "Beachte übrigens, dass die Profile von Community Mods und Founding Team Mitgliedern bereits geladen sind!",
                     "updated": 1640079976555
                 },
                 {
                     "language": "TR",
-                    "text": "Bu arada, Topluluk Modlarının (Community Mods) ve Çekirdek Ekip (Core Team) üyelerinin profillerinin zaten yüklenmiş olduğuna dikkat edin!",
+                    "text": "Bu arada, Topluluk Modlarının (Community Mods) ve Çekirdek Ekip (Founding Team) üyelerinin profillerinin zaten yüklenmiş olduğuna dikkat edin!",
                     "updated": 1645092477222
                 }
             ]

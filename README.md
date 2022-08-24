@@ -619,6 +619,15 @@ sudo systemctl daemon-reload
 sudo systemctl enable superalgos
 sudo systemctl start superalgos
 ```
+To check the service status
+```sh
+sudo systemctl status superalgos
+```
+To stop the service:
+```sh
+sudo systemctl stop superalgos
+sudo systemctl disable superalgos
+```
 
 To see the output of Superalgos, use:
 

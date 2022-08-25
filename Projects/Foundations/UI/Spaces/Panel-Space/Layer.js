@@ -195,7 +195,7 @@ function newLayer() {
                 'Polygon Vertex->Point->' +
                 'Image->Image Condition->Image Position->Image Formula->Point->' +
                 'Text->Text Condition->Text Position->Point->Text Formula->Text Style->' +
-                'Plotter Panel->Plotter Panel Javascript Code->Panel Data->Data Formula->Text Style->' +
+                'Plotter Panel->Plotter Panel Javascript Code->Panel Data->Panel Data Javascript Code->Data Formula->Text Style->' +
                 'Nodes Highlights->Nodes Values->Nodes Errors->Nodes Warnings->Nodes Infos->Nodes Status->Nodes Progress->Nodes Running->Nodes Announcements->Record Values->'
             thisObject.definition = UI.projects.visualScripting.nodeActionFunctions.protocolNode.getProtocolNode(thisObject.payload.node, false, true, true, false, false, lightingPath)
 
@@ -696,13 +696,21 @@ function newLayer() {
         if (configStyle === undefined || configStyle.indicatorDropDownPanelOpacity === undefined) {
             const thisOpacity = 0.75
             params.opacity = thisOpacity
-            UI.projects.foundations.utilities.drawPrint.roundedCornersBackground(params)
         } else {
             const thisOpacity = eval(configStyle.indicatorDropDownPanelOpacity)
             params.opacity = thisOpacity
-            UI.projects.foundations.utilities.drawPrint.roundedCornersBackground(params)
         }
 
+        // Here we set the top and bottom border color for the indicator drop down panel.
+        if (configStyle === undefined || configStyle.indicatorDropDownPanelBorderColor === undefined) {
+            let thisBorderColor = UI_COLOR.RUSTED_RED
+            params.borderColor = thisBorderColor
+            UI.projects.foundations.utilities.drawPrint.roundedCornersBackground(params)
+        } else {
+            let thisBorderColor = eval(configStyle.indicatorDropDownPanelBorderColor)
+            params.borderColor = thisBorderColor
+            UI.projects.foundations.utilities.drawPrint.roundedCornersBackground(params)
+        }
 
         let parentLabel1FontSize = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(thisObject.payload.parentNode.payload, 'label1FontSize')
         let parentlabelTwoFontSize = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(thisObject.payload.parentNode.payload, 'labelTwoFontSize')

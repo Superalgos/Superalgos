@@ -1,0 +1,59 @@
+{
+    "topic": "Community Dark Themes",
+    "pageNumber": "1",
+    "type": "Dark Themes",
+    "definition": {
+        "text": "Dark Themes should be contributed following the steps on this page.",
+        "updated": 1661377671018
+    },
+    "paragraphs": [
+        {
+            "style": "Subtitle",
+            "text": "To contribute a Dark Theme to this list you can use the following command and format.",
+            "updated": 1661378033068
+        },
+        {
+            "style": "Json",
+            "text": "docs.add Topic to Foundations: Community Dark Themes->theThemeName->nextPageNumber"
+        },
+        {
+            "style": "Note",
+            "text": "Theme Name: First start off with the Theme Name"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Dark Theme Example"
+        },
+        {
+            "style": "Png",
+            "text": " PNGs/Foundations/Docs/Charts/example-dark-theme.png",
+            "updated": 1661378384552
+        },
+        {
+            "style": "Note",
+            "text": "Example Picture: Second please provide an example picture of the theme."
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"backgroundColor\": \"UI_COLOR.BLACK\",\n    \"panelBackgroundColor\": \"UI_COLOR.ULTRAMARINE_BLUE\",\n    \"panelBackgroundOpacity\": \"0.1\",\n    \"panelNameColor\": \"UI_COLOR.TRUE_ORANGE\",\n    \"indicatorPanelBackgroundColor\": \"UI_COLOR.GREEN\",\n    \"timeMachineNameColor\": \"UI_COLOR.DARK\",\n    \"machineFrameColor\": \"UI_COLOR.RED\",\n    \"machineFrameOpacity\": \"0.1\",\n    \"timeScalePanelColor\": \"UI_COLOR.BLACK\",\n    \"rateScalePanelColor\": \"UI_COLOR.BLACK\",\n    \"timeFrameScaleColor\": \"UI_COLOR.BLACK\",\n    \"indicatorDropDownPanelColor\": \"UI_COLOR.GREEN\",\n    \"indicatorDropDownPanelOpacity\": \"0\",\n    \"indicatorLayersPanelColor\": \"UI_COLOR.DARK\",\n    \"indicatorLayersPanelOpacity\": \"0.1\",\n    \"indicatorLayersPanelBorderColor\": \"UI_COLOR.GREEN\",\n    \"indicatorFrameBackgroundColor\": \"UI_COLOR.RED\",\n    \"indicatorFrameBackgroundOpacity\": \"0.1\",\n    \"indicatorFrameTextColor\": \"UI_COLOR.GREEN\",\n    \"panelExchangeMarketName\": \"UI_COLOR.GREY\"\n}",
+            "updated": 1661378435839
+        },
+        {
+            "style": "Note",
+            "text": "Theme Configuration: Third please provide the theme configuration."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Created By: theblockchainarborist",
+            "updated": 1661378674684
+        },
+        {
+            "style": "Note",
+            "text": "Theme Creator: Forth please add the username of the theme creator."
+        },
+        {
+            "style": "Text",
+            "text": "Finally feel free to add any additional notes or information about the theme at the bottom!"
+        }
+    ]
+}

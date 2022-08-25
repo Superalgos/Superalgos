@@ -1,8 +1,8 @@
 {
     "type": "Current projects",
     "definition": {
-        "text": "The table below contains all current projects to which you can add new docs-articles. Feel free to add projects if they are missing.",
-        "updated": 1638112235073,
+        "text": "The table in this page lists current projects.",
+        "updated": 1661450832819,
         "translations": [
             {
                 "language": "RU",
@@ -24,8 +24,8 @@
         },
         {
             "style": "Table",
-            "text": "\n||Project|Project Explanation||\n|Algorithmic-Trading|Project Explanation|\n|Community-Plugins|Project Explanation|\n|Data-Mining|Project Explanation|\n|Education|This Project is about building up and maintaining the Docs (-Articles)|\n|Ethereum|Project Explanation|\n|Foundations|Project Explanation|\n|Governance|Manages and organizes the Superalgos Project (All of us, the community)|\n|Machine-Learning|Project Explanation|\n|Network|Project Explanation|\n|Social-Bots|Project Explanation|\n|Social-Trading|Project Explanation|\n|TensorFlow|Project Explanation|\n|Visual-Scripting|Project Explanation|\n|",
-            "updated": 1642462788711,
+            "text": "|Project|Project Explanation|\n|Algorithmic-Trading|Project Explanation|\n|Community-Plugins|Project Explanation|\n|Data-Mining|Project Explanation|\n|Education|This Project is about building up and maintaining the Docs (-Articles)|\n|Ethereum|Project Explanation|\n|Foundations|Project Explanation|\n|Governance|Manages and organizes the Superalgos Project (All of us, the community)|\n|Machine-Learning|Project Explanation|\n|Network|Project Explanation|\n|Social-Bots|Project Explanation|\n|Social-Trading|Project Explanation|\n|TensorFlow|Project Explanation|\n|Visual-Scripting|Project Explanation|",
+            "updated": 1661450864570,
             "translations": [
                 {
                     "language": "DE",

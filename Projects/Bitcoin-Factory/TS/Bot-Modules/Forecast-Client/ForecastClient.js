@@ -67,6 +67,16 @@
         console.log('Try 2 to kill')
         const { spawn } = require('child_process');
         const dockerProc = spawn('docker', ['stop', 'Bitcoin-Factory-ML-Forecasting']);
+
+        dockerProc.stdout.on('data', (data) => {
+            data = data.toString()
+        });
+
+        dockerProc.stderr.on('data', (data) => {
+        });
+
+        dockerProc.on('close', (code) => {
+        });
     }
 
     async function start(callBackFunction) {
@@ -634,9 +644,9 @@
         reforecasting = false
     }
 
-    function removeForecastCase(id, testServer) {
+    function removeForecastCase(id, testServerInstance) {
         for (let i = 0; i < thisObject.forecastCasesArray.length; i++) {
-            if (id == thisObject.forecastCasesArray[i].id) {
+            if ((id == thisObject.forecastCasesArray[i].id) && (testServerInstance == thisObject.forecastCasesArray[i].testServer.instance)) {
                 thisObject.forecastCasesArray.splice(i, 1)
                 return true
             }

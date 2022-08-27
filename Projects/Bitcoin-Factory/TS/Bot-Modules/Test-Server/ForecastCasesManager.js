@@ -218,7 +218,7 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
         }
 
         function saveForecastReportFile() {
-            let forecastReportFile = undefined
+            let forecastReportFile = ""
 
             for (let i = 0; i < thisObject.forecastCasesArray.length; i++) {
                 let forecastCase = thisObject.forecastCasesArray[i]

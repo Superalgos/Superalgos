@@ -1,6 +1,4 @@
-﻿const { resolve } = require("path")
-
-exports.newBitcoinFactoryBotModulesForecastClient = function (processIndex) {
+﻿exports.newBitcoinFactoryBotModulesForecastClient = function (processIndex) {
 
     const MODULE_NAME = "Forecast-Client"
     const FORECAST_CLIENT_VERSION = 2

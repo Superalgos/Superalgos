@@ -1,0 +1,42 @@
+{
+    "topic": "Light Charting Space Themes",
+    "pageNumber": "1",
+    "type": "Light Charting Space Theme Example",
+    "definition": {
+        "text": "Follow the example on this page to craft the Docs page of the theme you intend to contribute!",
+        "updated": 1661450977145
+    },
+    "paragraphs": [
+        {
+            "style": "Success",
+            "text": "If you don't know how, please read about How to Contribute Themes!",
+            "updated": 1661455043874
+        },
+        {
+            "style": "Title",
+            "text": "Author"
+        },
+        {
+            "style": "Text",
+            "text": "theblockchainarborist"
+        },
+        {
+            "style": "Title",
+            "text": "Images"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/Charts/target-rate-in-position.png",
+            "updated": 1661451660013
+        },
+        {
+            "style": "Title",
+            "text": "Space Style Node Configuration"
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"backgroundColor\": \"UI_COLOR.WHITE\",\n    \"panelBackgroundColor\": \"UI_COLOR.WHITE\",\n    \"panelBackgroundOpacity\": \"0.5\",\n    \"panelNameColor\": \"UI_COLOR.GREY\",\n    \"panelExchangeMarketName\": \"UI_COLOR.GREY\",\n    \"timeMachineNameColor\": \"UI_COLOR.DARK\",\n    \"onMouseFrameColor\": \"UI_COLOR.TITANIUM_YELLOW\",\n    \"machineFrameColor\": \"UI_COLOR.DARK_TURQUOISE\",\n    \"machineFrameOpacity\": \"1\",\n    \"timeScalePanelColor\": \"UI_COLOR.BLACK\",\n    \"rateScalePanelColor\": \"UI_COLOR.BLACK\",\n    \"timeFrameScaleColor\": \"UI_COLOR.BLACK\",\n    \"indicatorDropDownPanelColor\": \"UI_COLOR.BLACK\",\n    \"indicatorDropDownPanelOpacity\": \"0\",\n    \"indicatorDropDownPanelBorderColor\": \"UI_COLOR.RUSTED_RED\",\n    \"indicatorLayersPanelColor\": \"UI_COLOR.BLACK\",\n    \"indicatorLayersPanelOpacity\": \"1\",\n    \"indicatorLayersPanelBorderColor\": \"UI_COLOR.RUSTED_RED\",\n    \"indicatorPanelTopBarColor\": \"UI_COLOR.DARK\",\n    \"indicatorPanelTopBarOpacity\": \"1\",\n    \"indicatorPanelTopBarTitleColor\": \"UI_COLOR.WHITE\",\n    \"indicatorFrameBackgroundColor\": \"UI_COLOR.WHITE\",\n    \"indicatorFrameBackgroundOpacity\": \"0.75\"\n}",
+            "updated": 1661451679967
+        }
+    ]
+}

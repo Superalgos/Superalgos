@@ -60,8 +60,8 @@
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Изображения должны храниться по следующему пути: \\BackendServers\\WebServer\\Images\\Icons\\style-01",
-                    "updated": 1638969275843
+                    "text": "Изображения должны храниться по следующему пути: Projects/Foundations/Icons/",
+                    "updated": 1661275549669
                 },
                 {
                     "language": "TR",

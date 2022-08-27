@@ -645,7 +645,12 @@ function newTimeMachine() {
             UI.projects.foundations.utilities.drawPrint.drawContainerBackground(thisObject.container, UI_COLOR.WHITE, 0.5, thisObject.fitFunction)
         } else {
             let thisColor = eval(configStyle.panelBackgroundColor)
-            UI.projects.foundations.utilities.drawPrint.drawContainerBackground(thisObject.container, thisColor, 0.5, thisObject.fitFunction)
+            if (configStyle.panelBackgroundOpacity !== undefined) {
+                let thisOpacity = eval(configStyle.panelBackgroundOpacity) 
+                UI.projects.foundations.utilities.drawPrint.drawContainerBackground(thisObject.container, thisColor, thisOpacity, thisObject.fitFunction)
+            } else {
+                UI.projects.foundations.utilities.drawPrint.drawContainerBackground(thisObject.container, thisColor, 0.5, thisObject.fitFunction)
+            }
         }
     }
 

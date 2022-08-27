@@ -69,7 +69,6 @@
         const dockerProc = spawn('docker', ['stop', 'Bitcoin-Factory-ML-Forecasting']);
 
         dockerProc.stdout.on('data', (data) => {
-            data = data.toString()
         });
 
         dockerProc.stderr.on('data', (data) => {

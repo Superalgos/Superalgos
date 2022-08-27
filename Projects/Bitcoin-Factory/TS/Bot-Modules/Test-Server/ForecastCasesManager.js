@@ -295,7 +295,7 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
                     forecastReportFile = forecastReportFile + forecastReportFileRow                    
                 }
             }
-            if (forecastReportFile != undefined ) {
+            if (forecastReportFile != "" ) {
                 SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/" + TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName + "/OutputData/ForecastReports/" + REPORT_NAME + ".CSV", forecastReportFile)
             }
         }

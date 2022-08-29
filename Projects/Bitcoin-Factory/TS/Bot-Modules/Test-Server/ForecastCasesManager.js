@@ -14,6 +14,7 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
         initialize: initialize,
         finalize: finalize
     }
+    const REPORT_NAME = networkCodeName + '-' + 'Forecaster' + '-' + (new Date()).toISOString().substring(0, 16).replace("T", "-").replace(":", "-").replace(":", "-") + '-00'
 
     return thisObject
 

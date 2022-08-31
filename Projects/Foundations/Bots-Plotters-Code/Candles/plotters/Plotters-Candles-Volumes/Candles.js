@@ -683,6 +683,19 @@
 
                     browserCanvasContext.beginPath();
 
+                    let candleUpColor
+                    let candleDownColor
+                    let candleSideColor
+
+                    let chartingSpaceNode = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Charting Space')
+                        if (chartingSpaceNode !== undefined) {
+                            if (chartingSpaceNode.spaceStyle !== undefined) {
+                                configStyle = JSON.parse(chartingSpaceNode.spaceStyle.config)
+                            }
+                        } else {
+                            configStyle = undefined
+                        }
+
                     for (let i = 0; i < onScreenCandles.length; i++) {
 
                         candle = onScreenCandles[i];
@@ -702,9 +715,35 @@
 
                     if (lowResolution === false) {
 
-                        if (direction === 'up') { browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.GREEN + ', 1)'; }
-                        if (direction === 'down') { browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 1)'; }
-                        if (direction === 'side') { browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', 1)'; }
+                        if (direction === 'up') {
+                            // We check if a specific candle color is defined.
+                            if (configStyle === undefined || configStyle.candleUpColor === undefined) {
+                                browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.GREEN + ', 1)'
+                            } else {
+                                candleUpColor = eval(configStyle.candleUpColor)
+                                browserCanvasContext.fillStyle = 'rgba(' + candleUpColor + ', 1)'
+                            } 
+                        }
+
+                        if (direction === 'down') {
+                            // We check if a specific candle color is defined.
+                            if (configStyle === undefined || configStyle.candleDownColor === undefined) {
+                                browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 1)'
+                            } else {
+                                candleDownColor = eval(configStyle.candleDownColor)
+                                browserCanvasContext.fillStyle = 'rgba(' + candleDownColor + ', 1)'
+                            }
+                        }
+
+                        if (direction === 'side') {
+                            // We check if a specific candle color is defined.
+                            if (configStyle === undefined || configStyle.candleSideColor === undefined) {
+                                browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', 1)'
+                            } else {
+                                candleSideColor = eval(configStyle.candleSideColor)
+                                browserCanvasContext.fillStyle = 'rgba(' + candleSideColor + ', 1)'
+                            }
+                        }
 
                         browserCanvasContext.fill();
                     }

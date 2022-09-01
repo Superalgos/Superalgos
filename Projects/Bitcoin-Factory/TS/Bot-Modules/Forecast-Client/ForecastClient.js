@@ -80,7 +80,7 @@
 
     async function start(callBackFunction) {
         //only start once
-        if ((!forecasting) && (!reforecasting)) {
+        if (!forecasting) {
             forecasting = true
             try {
                 await getNextForecastCase()
@@ -88,8 +88,8 @@
                     .catch(onErrorgetNextForecastCase)
                 async function onSuccessgetNextForecastCase(nextForecastCase) {
                     if (nextForecastCase !== undefined) {
-                        SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Forecast-Client/notebooks/parameters.csv", nextForecastCase.files.parameters)
-                        SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Forecast-Client/notebooks/time-series.csv", nextForecastCase.files.timeSeries)
+                        SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Forecast-Client/notebooks/parameters_forecast.csv", nextForecastCase.files.parameters)
+                        SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Forecast-Client/notebooks/time-series_forecast.csv", nextForecastCase.files.timeSeries)
     
                         nextForecastCase.modelName = "MODEL-" + nextForecastCase.id
     
@@ -116,26 +116,9 @@
                         }
     
                         async function onError(err) {
-                            if (err === 'DUPLICATE FORECAST CASE') {
-                                //(re)send result, maybe server didnt store it for whatever reasons
-                                await publishResult(nextForecastCase,callBackFunction)
-                                    .then(onSuccessRePublish)
-                                    .catch(onErrorRePublish)
-                                async function onSuccessRePublish(result) {
-                                    forecasting = false
-                                    console.log((new Date()).toISOString(), '3')
-                                    callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
-                                }
-                                async function onErrorRePublish(err) {
-                                    forecasting = false
-                                    console.log((new Date()).toISOString(), '4')
-                                    callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
-                                }                                    
-                            }  else {
                                 forecasting = false
                                 console.log((new Date()).toISOString(), 'Failed to Build the Model for this Forecast Case. Err:', err, 'Aborting the processing of this case and retrying the main loop in 30 seconds...')
                                 callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
-                            }
                         }
                     } else {
                         forecasting = false
@@ -144,65 +127,88 @@
                     }
                 }
                 async function onErrorgetNextForecastCase(err) {                    
-                    console.log((new Date()).toISOString(), '[INFO] getNextForecastCase: Failed to get a new Forecast Case. Err:', err)                   
-                    await getAllForecastCase()
-                        .then(onSuccessgetAllForecastCase)
-                        .catch(onErrorgetAllForecastCase)
-                    async function onSuccessgetAllForecastCase(response) {
-                        if ((response != undefined) && (response !== 'No response')) {
-                            if ((response.data != undefined) && (response.data.serverData != undefined) && (response.data.serverData.response != undefined)) {
-                                try {
-                                    let bestPredictions = JSON.parse(response.data.serverData.response)
-                                    for (let i=0; i<bestPredictions.length;i++) {
-                                        if (bestPredictions[i].testServer == undefined) {
-                                            bestPredictions[i].testServer = {
-                                                userProfile: response.data.serverData.userProfile,
-                                                instance: response.data.serverData.instance
-                                            }        
-                                        }
-                                    }
-                                    //console.table(bestPredictions)    
-                                    let changeArrayLength = checkSetForecastCaseResultsResponse(bestPredictions)
-                                    console.log((new Date()).toISOString(), '[INFO] Size of local forecast array did change by ', changeArrayLength)
-                                    if (changeArrayLength>0) {
-                                        await getThisForecastCase(thisObject.forecastCasesArray[thisObject.forecastCasesArray.length-1])
-                                            .then(onSuccess)
-                                            .catch(onError)   
-                                        async function onSuccess(thisForecastCase) {
-                                            await onSuccessgetNextForecastCase(thisForecastCase)
-                                            forecasting = false
-                                            callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)        
-                                        }
-                                        async function onError(err) {
-                                            forecasting = false
-                                            callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
-                                        }
-                                    } else {
-                                        forecasting = false
-                                        callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)        
-                                    }
+                    console.log((new Date()).toISOString(), '[INFO] getNextForecastCase: Failed to get a new Forecast Case. Err:', err)    
+                    if (err === 'DUPLICATE FORECAST CASE') {
+                        console.log((new Date()).toISOString(), '[INFO] Resending result from local DB.')    
+                        //(re)send result, maybe server didnt store it for whatever reasons
 
-                                } catch (err) {
+/*
+                        nextForecastCase undefined
+
+                        await publishResult(nextForecastCase,callBackFunction)
+                            .then(onSuccessRePublish)
+                            .catch(onErrorRePublish)
+                        async function onSuccessRePublish(result) {
+                            forecasting = false
+                            console.log((new Date()).toISOString(), '3')
+                            callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
+                        }
+                        async function onErrorRePublish(err) {
+                            forecasting = false
+                            console.log((new Date()).toISOString(), '4')
+                            callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
+                        }   
+                        */                                 
+                    }  else {
+                        await getAllForecastCase()
+                            .then(onSuccessgetAllForecastCase)
+                            .catch(onErrorgetAllForecastCase)
+                        async function onSuccessgetAllForecastCase(response) {
+                            if ((response != undefined) && (response !== 'No response')) {
+                                if ((response.data != undefined) && (response.data.serverData != undefined) && (response.data.serverData.response != undefined)) {
+                                    try {
+                                        let bestPredictions = JSON.parse(response.data.serverData.response)
+                                        for (let i = 0; i < bestPredictions.length; i++) {
+                                            if (bestPredictions[i].testServer == undefined) {
+                                                bestPredictions[i].testServer = {
+                                                    userProfile: response.data.serverData.userProfile,
+                                                    instance: response.data.serverData.instance
+                                                }
+                                            }
+                                        }
+                                        //console.table(bestPredictions)    
+                                        let changeArrayLength = checkSetForecastCaseResultsResponse(bestPredictions)
+                                        console.log((new Date()).toISOString(), '[INFO] Size of local forecast array did change by ', changeArrayLength)
+                                        if (changeArrayLength > 0) {
+                                            await getThisForecastCase(thisObject.forecastCasesArray[thisObject.forecastCasesArray.length - 1])
+                                                .then(onSuccess)
+                                                .catch(onError)
+                                            async function onSuccess(thisForecastCase) {
+                                                await onSuccessgetNextForecastCase(thisForecastCase)
+                                                forecasting = false
+                                                callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
+                                            }
+                                            async function onError(err) {
+                                                forecasting = false
+                                                callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
+                                            }
+                                        } else {
+                                            forecasting = false
+                                            callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
+                                        }
+
+                                    } catch (err) {
+                                        forecasting = false
+                                        console.log("response.data.serverData.response:" + response.data.serverData.response)
+                                        console.log("err: " + err)
+                                        callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
+                                    }
+                                } else {
                                     forecasting = false
-                                    console.log("response.data.serverData.response:" + response.data.serverData.response)
-                                    console.log("err: " + err)
+                                    console.log((new Date()).toISOString(), '[WARN] getAllForecastCase: Failed to get any Forecast Case. No Data' + (((response.data != undefined) && (response.data.serverData != undefined) && (response.data.serverData.instance != undefined)) ? ' from ' + response.data.serverData.instance + '.' : '.'))
                                     callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
-                               }
+                                }
                             } else {
                                 forecasting = false
-                                console.log((new Date()).toISOString(), '[WARN] getAllForecastCase: Failed to get any Forecast Case. No Data' + (((response.data != undefined) && (response.data.serverData != undefined) && (response.data.serverData.instance != undefined)) ? ' from ' + response.data.serverData.instance + '.': '.'))
+                                console.log((new Date()).toISOString(), '[WARN] getAllForecastCase: Failed to get any Forecast Case. No response.')
                                 callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                             }
-                        } else {
-                            forecasting = false
-                            console.log((new Date()).toISOString(), '[WARN] getAllForecastCase: Failed to get any Forecast Case. No response.')
-                            callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                         }
-                    }
-                    async function onErrorgetAllForecastCase(err) {
-                        forecasting = false
-                        console.log((new Date()).toISOString(), '[WARN] Failed to get a any Forecast Case. Err:', err, 'Retrying in 30 seconds...')
-                        callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
+                        async function onErrorgetAllForecastCase(err) {
+                            forecasting = false
+                            console.log((new Date()).toISOString(), '[WARN] Failed to get a any Forecast Case. Err:', err, 'Retrying in 30 seconds...')
+                            callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
+                        }                        
                     }
                 }
             }
@@ -214,14 +220,7 @@
                 callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
             }
         } else {
-            if (reforecasting === true) {
-                console.log((new Date()).toISOString(), 'Already Working on Reforcasting', 'Retrying in 60 seconds...')
-                
-            }
-            if (forecasting === true) {
-                // timeseries and instructions file are shared between fore an reforecasting, prevent overwritting them
-                console.log((new Date()).toISOString(), 'Already Working on Forcasting', 'Retrying in 60 seconds...')
-            }        
+            console.log((new Date()).toISOString(), 'Already Working on Forcasting', 'Retrying in 60 seconds...')
             callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)        
         }
     }
@@ -518,7 +517,7 @@
         }
     }
 
-    function writePhytonInstructionsFile(instruction, nextForecastCase) {
+    function writePhytonInstructionsFile(instruction, nextForecastCase, buildnewModel) {
         /*
         Here we will instruct the dockerd Phyton Script to Build and save the model or to just reforcast based on existing model.
         */
@@ -530,6 +529,14 @@
             /* Values */
             "ACTION_TO_TAKE" + "   " + instruction + "\r\n" +
             "MODEL_FILE_NAME" + "   " + nextForecastCase.testServer.instance + "_" + nextForecastCase.modelName + "\r\n"
+        //choose which csv-files to use    
+        if (buildnewModel) {
+            instructionsFile += "PARAMETERS_FILE" + "   " + "parameters_forecast.csv" + "\r\n" +
+                                "TIMESERIES_FILE" + "   " + "time-series_forecast.csv" + "\r\n"
+        } else {
+            instructionsFile += "PARAMETERS_FILE" + "   " + "parameters_reforecast.csv" + "\r\n" +
+                                "TIMESERIES_FILE" + "   " + "time-series_reforecast.csv" + "\r\n"
+        }     
         SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Forecast-Client/notebooks/instructions.csv", instructionsFile)
     }
 
@@ -572,9 +579,9 @@
         console.log('')
 
         if (buildnewModel) {
-            writePhytonInstructionsFile("BUILD_AND_SAVE_MODEL", nextForecastCase)
+            writePhytonInstructionsFile("BUILD_AND_SAVE_MODEL", nextForecastCase, buildnewModel)
         } else {
-            writePhytonInstructionsFile("LOAD_MODEL_AND_PREDICT", nextForecastCase)
+            writePhytonInstructionsFile("LOAD_MODEL_AND_PREDICT", nextForecastCase, buildnewModel)
         }
 
         return new Promise(executeThePythonScript)
@@ -629,9 +636,11 @@
     
             dockerProc.on('close', (code) => {
                 if (code === 0) {
+                    dockerPID = undefined
                     console.log((new Date()).toISOString(), '[INFO] Forecaster: Docker Python Script exited with code ' + code);
                     onFinished(dataReceived)
                 } else {
+                    dockerPID = undefined
                     console.log((new Date()).toISOString(), '[ERROR] Forecaster: Docker Python Script exited with code ' + code);
                     console.log((new Date()).toISOString(), '[ERROR] Unexpected error trying to execute a Python script inside the Docker container. ')
                     console.log((new Date()).toISOString(), '[ERROR] Check at a console if you can run this command: ')
@@ -682,13 +691,11 @@
 
 
     async function updateForcasts() {
+        
+        logQueue()
+
         if (reforecasting === true) {
             console.log((new Date()).toISOString(), 'Already Working on Reforcasting', 'Retrying in 60 seconds...')
-            return
-        }
-        if (forecasting === true) {
-            // timeseries and instructions file are shared between fore an reforecasting, prevent overwritting them
-            console.log((new Date()).toISOString(), 'Already Working on Forcasting', 'Retrying in 60 seconds...')
             return
         }
         reforecasting = true
@@ -706,6 +713,7 @@
                     .then(onSuccess)
                     .catch(onError)
                 async function onSuccess() {
+                    console.log((new Date()).toISOString(), 'Successfull Reforcasted Case Id ' + forecastCase.id + ' from ' + forecastCase.testServer.instance)
                     logQueue(forecastCase)
                 }
                 async function onError(err) {
@@ -737,15 +745,23 @@
         return false
     }
 
-    function logQueue(forecastCase) {
+    function logQueue(forecastCase=undefined) {
+        if (forecastCase == undefined) {
+            forecastCase = {
+                caseIndex: 0
+            }
+            console.log()
+            console.log((new Date()).toISOString(), 'Current Forecast table')    
+        } else {
+            console.log()
+            console.log((new Date()).toISOString(), 'A new Forecast for the Case Id ' + forecastCase.id + ' was produced / attemped.')    
+        }
         let logQueue = []
         for (let i = Math.max(0, forecastCase.caseIndex - 5); i < Math.min(thisObject.forecastCasesArray.length, forecastCase.caseIndex + 5); i++) {
             let forecastCase = thisObject.forecastCasesArray[i]
             forecastCase.when = thisObject.utilities.getHHMMSS(forecastCase.timestamp) + ' HH:MM:SS ago'
             logQueue.push(forecastCase)
         }
-        console.log()
-        console.log((new Date()).toISOString(), 'A new Forecast for the Case Id ' + forecastCase.id + ' was produced / attemped.')
         console.table(logQueue)
     }
 
@@ -753,13 +769,19 @@
         return new Promise(promiseWork)
 
         async function promiseWork(resolve, reject) {
+            setTimeout(onTimeout, 5 * 60 * 1000)
+            
+            function onTimeout() {
+                reject(new Error('Timeout Reforcasting'))                
+            }
+            
             await getThisForecastCase(forecastCase)
                 .then(onSuccess)
                 .catch(onError)
             async function onSuccess(thisForecastCase) {
                 if (thisForecastCase !== undefined) {
-                    SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Forecast-Client/notebooks/parameters.csv", thisForecastCase.files.parameters)
-                    SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Forecast-Client/notebooks/time-series.csv", thisForecastCase.files.timeSeries)
+                    SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Forecast-Client/notebooks/parameters_reforecast.csv", thisForecastCase.files.parameters)
+                    SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Forecast-Client/notebooks/time-series_reforecast.csv", thisForecastCase.files.timeSeries)
 
                     thisForecastCase.modelName = "MODEL-" + thisForecastCase.id
 

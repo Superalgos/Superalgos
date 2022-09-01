@@ -168,6 +168,9 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
                     id: forecastCase.id,
                     caseIndex: forecastCase.caseIndex,
                     parameters: forecastCase.parameters,
+                    testServer: {
+                        instance: TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName
+                    },
                     files: TS.projects.foundations.globals.taskConstants.TEST_SERVER.dataBridge.getFiles(testCase)
                 }
                 return thisForecastCase
@@ -220,6 +223,11 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
 
         function saveForecastReportFile() {
             let forecastReportFile = ""
+            //read existing report file, if it's not empty append new data
+            let fileContent = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.loadFile(global.env.PATH_TO_BITCOIN_FACTORY + "/OutputData/ForecastReports/" + REPORT_NAME + ".CSV")
+            if (fileContent !== undefined) {
+                forecastReportFile = fileContent
+            }            
 
             for (let i = 0; i < thisObject.forecastCasesArray.length; i++) {
                 let forecastCase = thisObject.forecastCasesArray[i]

@@ -518,6 +518,8 @@ nvm run node <command string/var>
 
 > :white_check_mark: **NOTE FOR USERS INSTALLING ON LINUX:** If after running `node setup` you are prompted to address issues by running 'npm audit fix' ignore this step.
 
+> :white_check_mark: **NOTE FOR USERS INSTALLING ON COMPUTERS WITH 1GB OF RAM** Superalgos has just about outgrown computers with only 1GB of RAM. For Instance a Raspberry Pi 3 does run the Getting Started Tutorials, but over time (Into 2023) this may significantly slow and could even stop. If still wish to use a computer with only 1GB of RAM (you have been warned), you will need to use version 16.x of Node.js as version 18.x needs well over 1 GB of RAM during setup. 
+
 ## General Troubleshooting
 
 If you are having difficulty running the node setup command here are a few common issues that may be getting in the way.

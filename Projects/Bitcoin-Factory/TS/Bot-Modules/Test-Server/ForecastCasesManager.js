@@ -14,6 +14,7 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
         initialize: initialize,
         finalize: finalize
     }
+    const REPORT_NAME = networkCodeName + '-' + 'Forecaster' + '-' + (new Date()).toISOString().substring(0, 16).replace("T", "-").replace(":", "-").replace(":", "-") + '-00'
 
     return thisObject
 
@@ -167,6 +168,9 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
                     id: forecastCase.id,
                     caseIndex: forecastCase.caseIndex,
                     parameters: forecastCase.parameters,
+                    testServer: {
+                        instance: TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName
+                    },
                     files: TS.projects.foundations.globals.taskConstants.TEST_SERVER.dataBridge.getFiles(testCase)
                 }
                 return thisForecastCase
@@ -218,15 +222,89 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
         }
 
         function saveForecastReportFile() {
-            let forecastReportFile = undefined
+            let forecastReportFile = ""
+            //read existing report file, if it's not empty append new data
+            let fileContent = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.loadFile(global.env.PATH_TO_BITCOIN_FACTORY + "/OutputData/ForecastReports/" + REPORT_NAME + ".CSV")
+            if (fileContent !== undefined) {
+                forecastReportFile = fileContent
+            }            
 
             for (let i = 0; i < thisObject.forecastCasesArray.length; i++) {
                 let forecastCase = thisObject.forecastCasesArray[i]
                 if (forecastCase.status === 'Forecasted') {
-                //ToDo
+                    let forecastReportFileRow = ""
+                    /* Header */
+                    if (forecastReportFile === "") {
+                        addHeaderFromObject(forecastCase)
+                        function addHeaderFromObject(jsObject) {
+                            for (const property in jsObject) {
+                                if (
+                                    property === "testedBy" ||
+                                    property === "timestamp" ||
+                                    property === "when"
+                                ) {
+                                    continue
+                                }
+                                let label = property.replace('NUMBER_OF_', '').replace('LIST_OF_', '')
+                                if (forecastReportFileRow !== "") {
+                                    forecastReportFileRow = forecastReportFileRow + ","
+                                }
+                                if (Array.isArray(jsObject[property]) === true) {
+                                    forecastReportFileRow = forecastReportFileRow + label
+                                    for (let j = 0; j < jsObject[property].length; j++) {
+                                        forecastReportFileRow = forecastReportFileRow + ","
+                                        forecastReportFileRow = forecastReportFileRow + label + ' ' + (j + 1)
+                                    }
+                                } else {
+                                    if (typeof jsObject[property] === 'object') {
+                                        forecastReportFileRow = forecastReportFileRow + label
+                                        addHeaderFromObject(jsObject[property])
+                                    } else {
+                                        forecastReportFileRow = forecastReportFileRow + label
+                                    }
+                                }
+                            }
+                        }                        
+                        forecastReportFileRow = forecastReportFileRow + "\r\n"
+                        forecastReportFile = forecastReportFile + forecastReportFileRow
+                        forecastReportFileRow = ""
+                    }
+                    /* Data */
+                    addDataFromObject(forecastCase)
+                    function addDataFromObject(jsObject) {
+                        for (const property in jsObject) {
+                            if (
+                                property === "testedBy" ||
+                                property === "timestamp" ||
+                                property === "when"
+                            ) {
+                                continue
+                            }
+                            if (forecastReportFileRow !== "") {
+                                forecastReportFileRow = forecastReportFileRow + ","
+                            }
+                            if (Array.isArray(jsObject[property]) === true) {
+                                forecastReportFileRow = forecastReportFileRow + jsObject[property].length
+                                for (let j = 0; j < jsObject[property].length; j++) {
+                                    forecastReportFileRow = forecastReportFileRow + ","
+                                    let arrayItem = jsObject[property][j]
+                                    forecastReportFileRow = forecastReportFileRow + arrayItem
+                                }
+                            } else {
+                                if (typeof jsObject[property] === 'object') {
+                                    forecastReportFileRow = forecastReportFileRow + Object.keys(jsObject[property]).length
+                                    addDataFromObject(jsObject[property])
+                                } else {
+                                    forecastReportFileRow = forecastReportFileRow + jsObject[property]
+                                }
+                            }
+                        }
+                    }                    
+                    forecastReportFileRow = forecastReportFileRow + "\r\n"
+                    forecastReportFile = forecastReportFile + forecastReportFileRow                    
                 }
             }
-            if (forecastReportFile != undefined ) {
+            if (forecastReportFile != "" ) {
                 SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/" + TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName + "/OutputData/ForecastReports/" + REPORT_NAME + ".CSV", forecastReportFile)
             }
         }

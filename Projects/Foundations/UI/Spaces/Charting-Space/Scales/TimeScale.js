@@ -52,6 +52,8 @@ function newTimeScale() {
         if (chartingSpaceNode !== undefined) {
             if (chartingSpaceNode.spaceStyle !== undefined) {
                 configStyle = JSON.parse(chartingSpaceNode.spaceStyle.config)
+            } else {
+                configStyle = undefined
             }
         } else {
             configStyle = undefined
@@ -387,10 +389,15 @@ function newTimeScale() {
             let backgroundColor = UI_COLOR.BLACK
             let labels = scaleLabels(thisObject.date)
             drawScaleDisplay(labels[0], labels[1], labels[2], 0, 0, 0, icon1, icon2, thisObject.container, backgroundColor)
-        } else{
+        } else {
             let backgroundColor = eval(configStyle.timeScalePanelColor)
             let labels = scaleLabels(thisObject.date)
-            drawScaleDisplay(labels[0], labels[1], labels[2], 0, 0, 0, icon1, icon2, thisObject.container, backgroundColor)
+            if (configStyle.timeScalePanelLabelColor !== undefined) {
+                let textColor = eval(configStyle.timeScalePanelLabelColor)
+                drawScaleDisplay(labels[0], labels[1], labels[2], 0, 0, 0, icon1, icon2, thisObject.container, backgroundColor, textColor)
+            } else {
+                drawScaleDisplay(labels[0], labels[1], labels[2], 0, 0, 0, icon1, icon2, thisObject.container, backgroundColor)
+            }
         }
     }
 

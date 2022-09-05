@@ -58,6 +58,8 @@ function newRateScale() {
         if (chartingSpaceNode !== undefined) {
             if (chartingSpaceNode.spaceStyle !== undefined) {
                 configStyle = JSON.parse(chartingSpaceNode.spaceStyle.config)
+            } else {
+                configStyle = undefined
             }
         } else {
             configStyle = undefined
@@ -586,7 +588,13 @@ function newRateScale() {
         } else{
             let backgroundColor = eval(configStyle.rateScalePanelColor)
             let labels = scaleLabels(thisObject.rate, true)
-            drawScaleDisplay(labels[0], labels[1], labels[2], 0, 0, 0, icon1, icon2, thisObject.container, backgroundColor)
+            // This controls the color of the rate scale label 
+            if (configStyle.rateScalePanelLabelColor !== undefined) {
+                let textColor = eval(configStyle.rateScalePanelLabelColor)
+                drawScaleDisplay(labels[0], labels[1], labels[2], 0, 0, 0, icon1, icon2, thisObject.container, backgroundColor, textColor)
+            } else {
+                drawScaleDisplay(labels[0], labels[1], labels[2], 0, 0, 0, icon1, icon2, thisObject.container, backgroundColor)
+            }
         }
     }
 

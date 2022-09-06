@@ -46,6 +46,7 @@ exports.newNetworkModulesWebRTCNetworkClient = function newNetworkModulesWebRTCN
 
         console.log('')
         console.log('Websockets Client Connected to Network Node via Web Sockets .................. Connected to ' + thisObject.p2pNetworkNode.userProfile.config.codeName + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
+        console.log('')
         thisObject.socketNetworkClients.isConnected = true
 
     }

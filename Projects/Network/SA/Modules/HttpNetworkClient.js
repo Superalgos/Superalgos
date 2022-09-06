@@ -93,6 +93,7 @@ exports.newNetworkModulesHttpNetworkClient = function newNetworkModulesHttpNetwo
                     if (res.data.indexOf("Pong" + "/"  + thisObject.p2pNetworkNode.userProfile.config.codeName + "/" + thisObject.p2pNetworkNode.node.config.codeName ) >= 0) {
                         console.log('')
                         console.log('Http Client Detected Network Node is Online .................................. Connected to ' + thisObject.p2pNetworkNode.userProfile.config.codeName + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
+                        console.log('')
                         promiseStatus = 'Resolved'
                         resolve()
                     } else {

@@ -36,7 +36,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
         /*      
          console.log('Websockets Client will try to Connect to Network Node via Web Sockets ........ Trying to Connect to ' + thisObject.p2pNetworkNode.userProfile.config.codeName + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
         */
-       
+
         let socket = new SA.nodeModules.ws('ws://' + thisObject.host + ':' + thisObject.port)
 
         thisObject.socketNetworkClients = SA.projects.network.modules.socketNetworkClients.newNetworkModulesSocketNetworkClients()
@@ -51,6 +51,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
 
         await setUpWebSocketClient(socket)
 
+        console.log('')
         console.log('Websockets Client Connected to Network Node via Web Sockets .................. Connected to ' + thisObject.p2pNetworkNode.userProfile.config.codeName + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
         thisObject.socketNetworkClients.isConnected = true
 

@@ -88,7 +88,12 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
 
                 function onError(err) {
                     if (err.message.indexOf('ECONNREFUSED') >= 0) {
+                        /*
+                        DEBUG NOTE: If you are having trouble undestanding why you can not connect to a certain network node, then you can activate the following Console Logs, otherwise you keep them commented out.
+                        */ 
+                        /*                        
                         console.log((new Date()).toISOString(), '[WARN] Web Sockets Network Client -> onError -> Nobody home at ' + thisObject.host + ':' + thisObject.port)
+                        */
                         reject()
                         return
                     }

@@ -32,6 +32,9 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
     }
 
     async function run() {
+        console.log(' ')
+        console.log((new Date()).toISOString(), '[INFO] Updating all in-memory User Profiles by pulling from Github any changes. Expect this to happen automatically every 5 minutes.')
+        console.log(' ')
         SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES = []
         if (thisObject.pullUserProfiles === true) {
             await pullProfiles()

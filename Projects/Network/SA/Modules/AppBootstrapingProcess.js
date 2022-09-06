@@ -216,6 +216,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                                     SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES.push(p2pNetworkNode)
                                 } catch (err) {
                                     console.log((new Date()).toISOString(), '[WARN] A configured Network Node was ignored becuase when analized, something was wrong with its configuration. -> err = ' + err)
+                                    console.log('')
                                 }
 
                             }

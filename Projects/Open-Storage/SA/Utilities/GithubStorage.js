@@ -112,7 +112,14 @@ exports.newOpenStorageUtilitiesGithubStorage = function () {
                     resolve(res.data)
                 })
                 .catch(error => {
+                    
                     console.error('[ERROR] Github Storage -> Load File -> Error = ' + error)
+                    console.log('[ERROR] Github Storage -> Load File -> completePath = ' + completePath)
+                    console.log('[ERROR] Github Storage -> Load File -> repo = ' + repo)
+                    console.log('[ERROR] Github Storage -> Load File -> owner = ' + owner)
+                    console.log('[ERROR] Github Storage -> Load File -> branch = ' + branch)
+                    console.log('[ERROR] Github Storage -> Load File -> URL = ' + URL)
+
                     reject()
                 })
         })

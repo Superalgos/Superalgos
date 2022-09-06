@@ -90,7 +90,7 @@ exports.newNetworkModulesHttpNetworkClient = function newNetworkModulesHttpNetwo
             axios
                 .post('http://' + thisObject.host + ':' + thisObject.port + '/Ping/' + networkServide)
                 .then(res => {
-                    if (res.data.indexOf("Pong") >= 0) {
+                    if (res.data.indexOf("Pong" + "/"  + thisObject.p2pNetworkNode.userProfile.config.codeName + "/" + thisObject.p2pNetworkNode.node.config.codeName ) >= 0) {
                         console.log('Http Client Detected Network Node is Online .................................. Connected to ' + thisObject.p2pNetworkNode.userProfile.config.codeName + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
                         promiseStatus = 'Resolved'
                         resolve()

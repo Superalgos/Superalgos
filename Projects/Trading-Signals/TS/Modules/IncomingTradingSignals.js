@@ -40,6 +40,11 @@ exports.newTradingSignalsModulesIncomingTradingSignals = function (processIndex)
                 min: tradingEngine.tradingCurrent.tradingEpisode.candle.min.value,
                 max: tradingEngine.tradingCurrent.tradingEpisode.candle.max.value
             }
+
+            if (TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS === undefined) {
+                console.log((new Date()).toISOString(), '[ERROR] In order to be able to receive signals, your Trading Bot Instance needs to have a Social Trading Bot Reference. Please fix this and run this Task again.')
+                return []
+            }            
             let signals = TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS.incomingCandleSignals.getSignals(candle, signalDefinition.id)
             if (signals !== undefined) {
                 allSignals = allSignals.concat(signals)

@@ -180,7 +180,7 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
                         switch (networkService) {
                             case 'Trading Signals': {
                                 if (NT.networkApp.tradingSignalsNetworkService !== undefined) {
-                                    SA.projects.foundations.utilities.httpResponses.respondWithContent("Pong", httpResponse)
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent("Pong" + "/"  + NT.networkApp.p2pNetworkNode.userProfile.config.codeName + "/" + NT.networkApp.p2pNetworkNode.node.config.codeName  , httpResponse)
                                 } else {
                                     let response = {
                                         result: 'Error',

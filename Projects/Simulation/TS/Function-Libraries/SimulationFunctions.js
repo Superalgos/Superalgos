@@ -206,6 +206,7 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
         /*
         Incoming Signals
         */
+        let allGood = true
         if (
             system.incomingSignals !== undefined &&
             system.incomingSignals.incomingSignalReferences !== undefined &&
@@ -218,6 +219,8 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
             Check for the signal that would allow us to syncronize the simulation
             loop with the simulation loop of the bot sending us signals.
             */
+            let retries = 0
+
             while (true) {
                 let signals = await incomingTradingSignalsModuleObject.getAllSignals(
                     system
@@ -228,12 +231,21 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
                     This means that the signal we are waiting for has not yet arrived, so
                     we are going to wait for one second and check it again.
                     */
-                    await SA.projects.foundations.utilities.asyncFunctions.sleep(500)
+                    retries++
+                    if (retries < 10) {
+                        await SA.projects.foundations.utilities.asyncFunctions.sleep(1000)
+                    }
+                    else {
+                        allGood = false
+                        break
+                    }
                 } else {
+                    allGood = true
                     break
                 }
             }
         }
+        return allGood
     }
 
     async function syncronizeLoopOutgoingSignals(

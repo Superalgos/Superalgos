@@ -121,7 +121,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
             that still can change. So effectively will be processing all closed candles.
             */
             for (let i = initialCandle; i < candles.length - 1; i++) {
- 
+
                 /* Next Candle */
                 let candle = TS.projects.simulation.functionLibraries.simulationFunctions.setCurrentCandle(
                     tradingEngine.tradingCurrent.tradingEpisode.candle,
@@ -129,11 +129,17 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                     i,
                     processIndex
                 )
-                /* Signals */
-                await TS.projects.simulation.functionLibraries.simulationFunctions.syncronizeLoopIncomingSignals(
+                /* Signals : If we are expecting signals, we need to get in sync with the broadcaster */
+                if (await TS.projects.simulation.functionLibraries.simulationFunctions.syncronizeLoopIncomingSignals(
                     incomingTradingSignalsModuleObject,
-                    tradingSystem
-                )
+                    tradingSystem,
+                    i
+                ) === false) {
+                    /*
+                    This candle is too early and there are no signals for it, we'll move to the next one and see...
+                    */
+                    continue
+                }
                 /* Portfolio Manager */
                 await TS.projects.simulation.functionLibraries.simulationFunctions.syncronizeLoopCandleEntryPortfolioManager(
                     portfolioManagerClientModuleObject,

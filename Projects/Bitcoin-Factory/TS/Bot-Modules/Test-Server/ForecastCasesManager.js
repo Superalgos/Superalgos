@@ -150,6 +150,10 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
                 caseIndex: forecastCase.caseIndex,
                 totalCases: thisObject.forecastCasesArray.length,
                 parameters: forecastCase.parameters,
+                testServer: {
+                    userProfile: ((forecastCase.testServer != undefined) && (forecastCase.testServer.userProfile != undefined) ? forecastCase.testServer.userProfile : ''),
+                    instance: ((forecastCase.testServer != undefined) && (forecastCase.testServer.instance != undefined) ? forecastCase.testServer.instance : TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName)
+                },
                 files: TS.projects.foundations.globals.taskConstants.TEST_SERVER.dataBridge.getFiles(testCase)
             }
             return nextForecastCase
@@ -169,7 +173,8 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
                     caseIndex: forecastCase.caseIndex,
                     parameters: forecastCase.parameters,
                     testServer: {
-                        instance: TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName
+                        userProfile: ((forecastCase.testServer != undefined) && (forecastCase.testServer.userProfile != undefined) ? forecastCase.testServer.userProfile : ''),
+                        instance: ((forecastCase.testServer != undefined) && (forecastCase.testServer.instance != undefined) ? forecastCase.testServer.instance : TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName)
                     },
                     files: TS.projects.foundations.globals.taskConstants.TEST_SERVER.dataBridge.getFiles(testCase)
                 }
@@ -195,6 +200,7 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
                 forecastCase.enlapsedMinutes = (forecastResult.enlapsedTime / 60).toFixed(2)
                 forecastCase.enlapsedHours = (forecastResult.enlapsedTime / 3600).toFixed(2)
                 forecastCase.forecastedBy = forecastedBy
+                forecastCase.testServer = forecastResult.testServer
                 forecastCase.timestamp = (new Date()).valueOf()
     
                 let logQueue = []

@@ -23,6 +23,8 @@ exports.newNetworkApp = function newNetworkApp() {
         await setupNetworkServices()
         setupNetworkInterfaces()
 
+        console.log('Network Node User Profile Code Name .......................................... ' + thisObject.p2pNetworkNode.userProfile.config.codeName)
+        console.log('Network Node Code Name ....................................................... ' + thisObject.p2pNetworkNode.node.config.codeName)
         console.log('Network Node Version ......................................................... ' + NETWORK_NODE_VERSION)
         console.log('Network Type ................................................................. ' + thisObject.p2pNetworkNode.node.p2pNetworkReference.referenceParent.type)
         console.log('Network Code Name ............................................................ ' + thisObject.p2pNetworkNode.node.p2pNetworkReference.referenceParent.config.codeName)

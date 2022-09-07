@@ -32,6 +32,9 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
     }
 
     async function run() {
+        console.log(' ')
+        console.log((new Date()).toISOString(), '[INFO] Updating all in-memory User Profiles by pulling from Github any changes. Expect this to happen automatically every 5 minutes.')
+
         SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES = []
         if (thisObject.pullUserProfiles === true) {
             await pullProfiles()
@@ -48,6 +51,18 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
         }
         git = simpleGit(options)
         await git.pull('upstream', 'develop')
+            .then(onProfilesPulled)
+            .catch(onProfilesNotPulled)
+
+        function onProfilesPulled() {
+            console.log((new Date()).toISOString(), '[INFO] In-Memory User Profiles Updated.')
+            console.log(' ')
+        }
+
+        function onProfilesNotPulled(err) {
+            console.log((new Date()).toISOString(), '[INFO] In-Memory User Profiles Not Updated. Retrying in 5 Minutes. -> err.message = ' + err.message)
+            console.log(' ')
+        }
     }
 
     async function reloadAll() {
@@ -216,6 +231,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                                     SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES.push(p2pNetworkNode)
                                 } catch (err) {
                                     console.log((new Date()).toISOString(), '[WARN] A configured Network Node was ignored becuase when analized, something was wrong with its configuration. -> err = ' + err)
+                                    console.log('')
                                 }
 
                             }

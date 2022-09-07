@@ -201,7 +201,8 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
 
     async function syncronizeLoopIncomingSignals(
         incomingTradingSignalsModuleObject,
-        system
+        system,
+        candleIndex
     ) {
         /*
         Incoming Signals
@@ -232,7 +233,8 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
                     we are going to wait for one second and check it again.
                     */
                     retries++
-                    if (retries < 10) {
+                    if (retries < 60) {
+                        console.log((new Date()).toISOString(), '[INFO] Waiting 1 second for the signals of the current candle to arrive. Candle Index = ' + candleIndex +  ' # of retries = ' + retries)
                         await SA.projects.foundations.utilities.asyncFunctions.sleep(1000)
                     }
                     else {

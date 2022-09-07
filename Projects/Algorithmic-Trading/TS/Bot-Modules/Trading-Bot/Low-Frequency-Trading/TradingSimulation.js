@@ -132,7 +132,8 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                 /* Signals : If we are expecting signals, we need to get in sync with the broadcaster */
                 if (await TS.projects.simulation.functionLibraries.simulationFunctions.syncronizeLoopIncomingSignals(
                     incomingTradingSignalsModuleObject,
-                    tradingSystem
+                    tradingSystem,
+                    i
                 ) === false) {
                     /*
                     This candle is too early and there are no signals for it, we'll move to the next one and see...

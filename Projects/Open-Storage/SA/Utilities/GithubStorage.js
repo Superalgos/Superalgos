@@ -78,7 +78,10 @@ exports.newOpenStorageUtilitiesGithubStorage = function () {
             }
 
             function githubSaysOK() {
-                resolve()
+                /*
+                We will give github a few seconds to make the file accessible via http. Without these few seconds, the bots following the signal might get a 404 error.
+                */
+                setTimeout(resolve, 3000)
             }
 
             function githubError(err) {

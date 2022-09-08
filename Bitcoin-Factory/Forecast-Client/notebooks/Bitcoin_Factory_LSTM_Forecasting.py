@@ -69,9 +69,11 @@ ACTION_TO_TAKE = instructions_dataset.values[0][1]
 # name of the model file to load or save.
 MODEL_FILE_NAME = instructions_dataset.values[1][1]
 
+FILENAME_parameters_dataset = instructions_dataset.values[2][1]
+FILENAME_timeseries_dataset = instructions_dataset.values[3][1]
 
 parameters_dataset = read_csv(
-    '/tf/notebooks/parameters.csv',
+    '/tf/notebooks/'+FILENAME_parameters_dataset,
     header=0,
     sep=' ',
     skipinitialspace=True
@@ -127,7 +129,7 @@ else:
 # ## Load the Time-Series Dataset
 
 timeseries_dataset = read_csv(
-    '/tf/notebooks/time-series.csv',
+    '/tf/notebooks/' + FILENAME_timeseries_dataset,
     header=0,
     index_col=0,    #The first colum is a timestamp that will be used to index all the data.
     sep=' ',

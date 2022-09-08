@@ -47,6 +47,10 @@ exports.newDataBridge = function newDataBridge(processIndex) {
         if (!SA.nodeModules.fs.existsSync(dir)) {
             SA.nodeModules.fs.mkdirSync(dir, { recursive: true });
         }
+        dir = global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/" + TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName + "/OutputData/ForecastReports"
+        if (!SA.nodeModules.fs.existsSync(dir)) {
+            SA.nodeModules.fs.mkdirSync(dir, { recursive: true });
+        }        
         /*
         Load Data Mines Files
         */

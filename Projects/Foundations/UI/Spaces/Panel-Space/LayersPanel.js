@@ -500,6 +500,8 @@ function newLayersPanel() {
         if (chartingSpaceNode !== undefined) {
             if (chartingSpaceNode.spaceStyle !== undefined) {
                 configStyle = JSON.parse(chartingSpaceNode.spaceStyle.config)
+            } else {
+                configStyle = undefined
             }
         } else {
             configStyle = undefined
@@ -543,8 +545,21 @@ function newLayersPanel() {
 
         UI.projects.foundations.utilities.drawPrint.roundedCornersBackground(params)
 
-        UI.projects.foundations.utilities.drawPrint.drawLabel(label1, 1 / 2, 0, 0, 15, 9, thisObject.container)
-        UI.projects.foundations.utilities.drawPrint.drawLabel(label2, 1 / 2, 0, 0, 30, 9, thisObject.container)
+        // Controls the color of the text in the indicator drop down panel top First line.
+        if (configStyle === undefined || configStyle.indicatorLayersPanelLabel1 === undefined) {
+            UI.projects.foundations.utilities.drawPrint.drawLabel(label1, 1 / 2, 0, 0, 15, 9, thisObject.container)
+        } else {
+            let thisColor = eval(configStyle.indicatorLayersPanelLabel1)
+            UI.projects.foundations.utilities.drawPrint.drawLabel(label1, 1 / 2, 0, 0, 15, 9, thisObject.container, thisColor)
+        }
+        
+        // Controls the color of the text in the indicator drop down panel top second line.
+        if (configStyle === undefined || configStyle.indicatorLayersPanelLabel2 === undefined) {
+            UI.projects.foundations.utilities.drawPrint.drawLabel(label2, 1 / 2, 0, 0, 30, 9, thisObject.container)
+        } else {
+            let thisColor = eval(configStyle.indicatorLayersPanelLabel2)
+            UI.projects.foundations.utilities.drawPrint.drawLabel(label2, 1 / 2, 0, 0, 30, 9, thisObject.container, thisColor)
+        }
 
         UI.projects.foundations.utilities.drawPrint.drawIcon(icon1, 1 / 8, 0, 0, 20, 28, thisObject.container)
         UI.projects.foundations.utilities.drawPrint.drawIcon(icon2, 7 / 8, 0, 0, 20, 28, thisObject.container)

@@ -666,6 +666,8 @@ function newLayer() {
         if (chartingSpaceNode !== undefined) {
             if (chartingSpaceNode.spaceStyle !== undefined) {
                 configStyle = JSON.parse(chartingSpaceNode.spaceStyle.config)
+            } else {
+                configStyle = undefined
             }
         } else {
             configStyle = undefined
@@ -746,9 +748,30 @@ function newLayer() {
             label3FontSize = 9
         }
 
-        UI.projects.foundations.utilities.drawPrint.drawLabel(label1, 1 / 2, 5.2 / 10, -5, 0, label1FontSize, thisObject.container)
-        UI.projects.foundations.utilities.drawPrint.drawLabel(label2, 1 / 2, 8.2 / 10, -5, 0, labelTwoFontSize, thisObject.container)
-        UI.projects.foundations.utilities.drawPrint.drawLabel(label3, 1 / 2, 9.5 / 10, -5, 0, label3FontSize, thisObject.container)
+        // This controls the text color of the largest font size in the drop down indicator layers panels.
+        if (configStyle === undefined || configStyle.indicatorDropDownPanelLabel1Color === undefined) {
+            UI.projects.foundations.utilities.drawPrint.drawLabel(label1, 1 / 2, 5.2 / 10, -5, 0, label1FontSize, thisObject.container)
+        } else {
+            let thisColor = eval(configStyle.indicatorDropDownPanelLabel1Color)
+            UI.projects.foundations.utilities.drawPrint.drawLabel(label1, 1 / 2, 5.2 / 10, -5, 0, label1FontSize, thisObject.container, thisColor)
+        }
+
+        // This controls the text color of the MidSized font size in the drop down indicator layers panels.
+        if (configStyle === undefined || configStyle.indicatorDropDownPanelLabel2Color === undefined) {
+            UI.projects.foundations.utilities.drawPrint.drawLabel(label2, 1 / 2, 8.2 / 10, -5, 0, labelTwoFontSize, thisObject.container)
+        } else {
+            let thisColor = eval(configStyle.indicatorDropDownPanelLabel2Color)
+            UI.projects.foundations.utilities.drawPrint.drawLabel(label2, 1 / 2, 8.2 / 10, -5, 0, labelTwoFontSize, thisObject.container, thisColor)
+        }
+
+        // This controls the text color of the ON/OFF font size in the drop down indicator layers panels.
+        if (configStyle === undefined || configStyle.indicatorDropDownPanelLabel3Color === undefined) {
+            UI.projects.foundations.utilities.drawPrint.drawLabel(label3, 1 / 2, 9.5 / 10, -5, 0, label3FontSize, thisObject.container)
+        } else {
+            let thisColor = eval(configStyle.indicatorDropDownPanelLabel3Color)
+            UI.projects.foundations.utilities.drawPrint.drawLabel(label3, 1 / 2, 9.5 / 10, -5, 0, label3FontSize, thisObject.container, thisColor)
+        }
+
 
         drawProgressBar(marketFileProgressBar, 2, -45 + 18)
         drawProgressBar(dailyFileProgressBar, 2, -46 + 18)

@@ -117,13 +117,15 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
                 ' -> Websockets Clients = ' + connectedUserProfilesLabel +
                 ' -> Clients Requests Queue Size = ' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(requestsToServer.length, 3) +
                 ' -> userProfile = ' + userProfile +
-                ' -> instance = ' + queryReceived.instance)
+                ' -> instance = ' + queryReceived.instance +
+                ' -> target = ' + ((requestToServer.queryReceived.testServer !== undefined) && (requestToServer.queryReceived.testServer.instance !== undefined) ? requestToServer.queryReceived.testServer.instance : '')
+                )
 
             /*
             Update the Statistics
             */
             let networkClientKey = queryReceived.sender + '/' + userProfile + '/' + queryReceived.instance
-            statsByNetworkClient = statsByNetworkClients.get(networkClientKey)
+            let statsByNetworkClient = statsByNetworkClients.get(networkClientKey)
             if (statsByNetworkClient === undefined) {
                 statsByNetworkClient = {
                     userProfile: userProfile,
@@ -147,14 +149,20 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
 
             async function promiseWork(resolve, reject) {
                 responseFunctions.set(queryReceived.messageId, onResponseFromServer)
-                function onResponseFromServer(queryReceived) {
+                function onResponseFromServer(awnserReceived) {
+                    console.log((new Date()).toISOString(), '[INFO] Awnser to Test Client v.' + testClientVersion +
+                        '                 -> timestamp = ' + (new Date(requestToServer.timestamp)).toISOString() +
+                        ' -> userProfile = ' + userProfile +
+                        ' -> sender = ' + awnserReceived.sender +
+                        ' -> instance = ' + awnserReceived.instance 
+                    )
                     /*
                     Process the Response
                     */
                     let response = {
                         result: 'Ok',
                         message: 'Server Responded.',
-                        serverData: queryReceived
+                        serverData: awnserReceived
                     }
                     /*
                     Update the Statistics
@@ -180,16 +188,26 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
                 ' -> Websockets Clients = ' + connectedUserProfilesLabel +
                 ' -> Clients Requests Queue Size = ' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(requestsToServer.length, 3) +
                 ' -> userProfile = ' + userProfile +
-                ' -> instance = ' + queryReceived.instance)
+                ' -> instance = ' + queryReceived.instance +
+                ' -> target = ' + ((requestToServer.queryReceived.testServer !== undefined) && (requestToServer.queryReceived.testServer.instance !== undefined) ? requestToServer.queryReceived.testServer.instance : '')
+                )
             return new Promise(promiseWork)
 
             async function promiseWork(resolve, reject) {
                 responseFunctions.set(queryReceived.messageId, onResponseFromServer)
-                function onResponseFromServer(queryReceived) {
+                function onResponseFromServer(awnserReceived) {
+
+                    console.log((new Date()).toISOString(), '[INFO] Awnser to Forecast Client v.' + forecastClientVersion +
+                        '                 -> timestamp = ' + (new Date(requestToServer.timestamp)).toISOString() +
+                        ' -> userProfile = ' + userProfile +
+                        ' -> sender = ' + awnserReceived.sender +
+                        ' -> instance = ' + awnserReceived.instance 
+                    )
+
                     let response = {
                         result: 'Ok',
                         message: 'Server Responded.',
-                        serverData: queryReceived
+                        serverData: awnserReceived
                     }
                     resolve(response)
                 }
@@ -235,7 +253,7 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
                     for (let i = 0; i < requestsToServer.length; i++) {
                         let requestToServer = requestsToServer[i]
                         if (
-                            requestToServer.testServer === undefined
+                            requestToServer.queryReceived.testServer === undefined
                         ) {
                             requestsToServer.splice(i, 1)
                             checkExpiration(requestToServer)

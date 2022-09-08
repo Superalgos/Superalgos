@@ -233,8 +233,8 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
                     we are going to wait for one second and check it again.
                     */
                     retries++
-                    if (retries < 60) {
-                        console.log((new Date()).toISOString(), '[INFO] Waiting 1 second for the signals of the current candle to arrive. Candle Index = ' + candleIndex +  ' # of retries = ' + retries)
+                    if (retries <= 90) {
+                        console.log((new Date()).toISOString(), '[INFO] Waiting 1 second for the signals of the current candle to arrive. Candle Index = ' + candleIndex +  ' # of retries = ' + retries + ' / 90')
                         await SA.projects.foundations.utilities.asyncFunctions.sleep(1000)
                     }
                     else {
@@ -290,6 +290,9 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
             let amount = diff / sessionParameters.timeFrame.config.value
 
             initialCandle = Math.trunc(amount)
+            if (candles.length - 1 - initialCandle === 0) {
+                initialCandle--
+            }
             if (initialCandle < 0) { initialCandle = 0 }
             if (initialCandle > candles.length - 1) {
                 /*

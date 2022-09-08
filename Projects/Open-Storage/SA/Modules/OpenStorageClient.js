@@ -1,10 +1,10 @@
 exports.newOpenStorageModulesOpenStorageClient = function newOpenStorageModulesOpenStorageClient() {
     /*
-    This module receives a file to save, and it know which are
+    This module receives a file to save, and it knows which are
     the available storages for the social trading bot currently running.
 
     So it will pick one of the available and try to save the file there.
-    If it does not suceed, it will try at the other available storage until
+    If it does not succeed, it will try at the other available storage until
     it suceeds. 
 
     Once the file could be saved, it will return the id of the Storage Conatainer

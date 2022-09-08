@@ -81,6 +81,8 @@ exports.newOpenStorageUtilitiesGithubStorage = function () {
                 /*
                 We will give github a few seconds to make the file accessible via http. Without these few seconds, the bots following the signal might get a 404 error.
                 */
+                console.log((new Date()).toISOString(), '[INFO] Signal File just created on Github. completePath = ' + completePath)
+
                 setTimeout(resolve, 3000)
             }
 
@@ -115,7 +117,7 @@ exports.newOpenStorageUtilitiesGithubStorage = function () {
                     resolve(res.data)
                 })
                 .catch(error => {
-                    
+
                     console.log((new Date()).toISOString(), '[ERROR] Github Storage -> Load File -> Error = ' + error)
                     console.log((new Date()).toISOString(), '[ERROR] Github Storage -> Load File -> completePath = ' + completePath)
                     console.log((new Date()).toISOString(), '[ERROR] Github Storage -> Load File -> repo = ' + repo)

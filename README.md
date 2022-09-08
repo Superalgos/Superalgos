@@ -104,7 +104,7 @@ All procedures (other than pre-requisites) are the same for Windows, Linux, or M
 
 You will need the latest versions of Node JS and Git installed. You will also need a web browser to access the interface. Google Chrome is recommended because it is the most tested browser being used by the development team and power users.
 
-Follow the installation wizards to install the latest NodeJS and Git. If desired also install Chrome.
+Follow the installation wizards to install the latest NodeJS and Git. Make sure to follow all the default and recommended settings while installing Git. If desired also install Chrome.
 
 - [Node.js download page](https://nodejs.org/en/download/)
 
@@ -383,7 +383,13 @@ At the Plugins hierarchy, new guys appear, each one with their own type of plugi
 
 # :small_orange_diamond: Pre-Requisites Notes
 
-## Windows (Optional)
+## Windows Pre-Requisites
+
+When following the windows installer for Git, it is very important to make sure that you follow all the recommended and default settings. One of the most important one of these can be found in the screenshot below:
+
+![IMG_0764](https://user-images.githubusercontent.com/55707292/189213902-7f7b3642-545f-47a7-89fc-3c45971c885d.jpg)
+
+### Optional Windows Pre-Requisites
 
 For windows users interested in testing the (partial and incomplete) TensorFlow integration, you need to install Python.
 

@@ -25,7 +25,8 @@ exports.newNetworkModulesP2PNetworkReachableNodes = function newNetworkModulesP2
         callerRole,
         networkCodeName,
         networkType,
-        p2pNetworkClientIdentity
+        p2pNetworkClientIdentity,
+        p2pNetworkClientNode
     ) {
         thisObject.networkCodeName = networkCodeName
         thisObject.networkType = networkType
@@ -41,8 +42,28 @@ exports.newNetworkModulesP2PNetworkReachableNodes = function newNetworkModulesP2
                     if (p2pNetworkNode.node.p2pNetworkReference.referenceParent.config === undefined) { continue }
                     if (p2pNetworkNode.node.p2pNetworkReference.referenceParent.config.codeName !== thisObject.networkCodeName) { continue }
                     if (p2pNetworkNode.node.p2pNetworkReference.referenceParent.type !== thisObject.networkType) { continue }
+                    /*
+                    Here we check that the network services defined at the Network Client definitions at the UI are present at the candidate Network Node. If not we skip this node. 
+                    */
+                    if (p2pNetworkNode.node.networkServices.socialGraph === undefined && p2pNetworkClientNode.networkServices.socialGraph !== undefined) { continue }
+                    if (p2pNetworkNode.node.networkServices.machineLearning === undefined && p2pNetworkClientNode.networkServices.machineLearning !== undefined) { continue }
+                    if (p2pNetworkNode.node.networkServices.tradingSignals === undefined && p2pNetworkClientNode.networkServices.tradingSignals !== undefined) { continue }
+                    if (p2pNetworkNode.node.networkServices.onlineWorkspaces === undefined && p2pNetworkClientNode.networkServices.onlineWorkspaces !== undefined) { continue }
+                    /*
+                    Here we check that the network interfaces defined at the Network Client definitions at the UI are present at the candidate Network Node. If not we skip this node. 
+                    */
+                    if (p2pNetworkNode.node.networkInterfaces === undefined) { continue }
+                    if (p2pNetworkNode.node.networkInterfaces.websocketsNetworkInterface === undefined && p2pNetworkClientNode.networkInterfaces.websocketsNetworkInterface !== undefined) { continue }
+                    if (p2pNetworkNode.node.networkInterfaces.webrtcNetworkInterface === undefined && p2pNetworkClientNode.networkInterfaces.webrtcNetworkInterface !== undefined) { continue }
+                    if (p2pNetworkNode.node.networkInterfaces.httpNetworkInterface === undefined && p2pNetworkClientNode.networkInterfaces.httpNetworkInterface !== undefined) { continue }
 
                     checkForPermissions(p2pNetworkNode)
+                }
+
+                console.log((new Date()).toISOString(), '[INFO] These are the P2P Network Nodes we can connect to: all nodes that do not have the network services and network interfaces defined required by the Network Client were filtered out. ')
+                console.log('')
+                for (let i = 0; i < thisObject.p2pNodesToConnect.length; i++) {
+                    console.log(i + ' - ' + thisObject.p2pNodesToConnect[i].userProfile.config.codeName + ' - ' + thisObject.p2pNodesToConnect[i].node.config.codeName)
                 }
                 break
             }

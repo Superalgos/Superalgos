@@ -29,7 +29,8 @@ exports.newNetworkModulesP2PNetworkClient = function newNetworkModulesP2PNetwork
         targetNetworkCodeName,
         maxOutgoingPeers,
         maxOutgoingStartPeers,
-        eventReceivedCallbackFunction
+        eventReceivedCallbackFunction,
+        p2pNetworkClientNode
     ) {
 
         thisObject.eventReceivedCallbackFunction = eventReceivedCallbackFunction
@@ -43,7 +44,7 @@ exports.newNetworkModulesP2PNetworkClient = function newNetworkModulesP2PNetwork
             */
             thisObject.p2pNetworkClientIdentity = SA.projects.network.modules.p2pNetworkClientIdentity.newNetworkModulesP2PNetworkClientIdentity()
             /*
-            We will read all user profiles plugins and get from there our network identity.
+            We will read all User Profiles plugins and get from there our network identity.
             */
             thisObject.appBootstrapingProcess = SA.projects.network.modules.appBootstrapingProcess.newNetworkModulesAppBootstrapingProcess()
             await thisObject.appBootstrapingProcess.initialize(
@@ -52,14 +53,16 @@ exports.newNetworkModulesP2PNetworkClient = function newNetworkModulesP2PNetwork
                 false
             )
             /*
-            We set up the P2P Network reacheable nodes.
+            We set up the P2P Network reacheable nodes. This means that we will filter out all the network nodes that do not have the
+            network services this Task requires or the Network Interfaces this Task can speak to.
             */
             thisObject.p2pNetworkReachableNodes = SA.projects.network.modules.p2pNetworkReachableNodes.newNetworkModulesP2PNetworkReachableNodes()
             await thisObject.p2pNetworkReachableNodes.initialize(
                 'Network Client',
                 targetNetworkCodeName,
                 targetNetworkType,
-                thisObject.p2pNetworkClientIdentity
+                thisObject.p2pNetworkClientIdentity,
+                p2pNetworkClientNode
             )
             /*
             Set up the connections to network nodes.

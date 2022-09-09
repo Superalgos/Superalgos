@@ -216,7 +216,8 @@ exports.newTaskServer = function newTaskServer() {
                         TS.projects.foundations.globals.taskConstants.TASK_NODE.p2pNetworkClient.p2pNetworkReference.referenceParent.config.codeName,
                         global.env.TASK_SERVER_APP_MAX_OUTGOING_PEERS,
                         global.env.TASK_SERVER_APP_MAX_OUTGOING_START_PEERS,
-                        eventReceivedCallbackFunction
+                        eventReceivedCallbackFunction,
+                        TS.projects.foundations.globals.taskConstants.TASK_NODE.p2pNetworkClient
                     )
                 }
 

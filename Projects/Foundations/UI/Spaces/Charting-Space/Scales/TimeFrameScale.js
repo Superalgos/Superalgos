@@ -404,17 +404,24 @@ function newTimeFrameScale() {
         if (chartingSpaceNode !== undefined) {
             if (chartingSpaceNode.spaceStyle !== undefined) {
                 configStyle = JSON.parse(chartingSpaceNode.spaceStyle.config)
+            } else {
+                configStyle = undefined
             }
         } else {
             configStyle = undefined
         }
 
-        if (configStyle === undefined || configStyle.timeFrameScaleColor === undefined) {
+        if (configStyle === undefined || configStyle.timeFrameScalePanelColor === undefined) {
             let backgroundColor = UI_COLOR.BLACK
             drawScaleDisplay(label1, label2, label3, 0, 0, 0, icon1, icon2, thisObject.container, backgroundColor)
-        } else{
-            let backgroundColor = eval(configStyle.timeFrameScaleColor)
-            drawScaleDisplay(label1, label2, label3, 0, 0, 0, icon1, icon2, thisObject.container, backgroundColor)
+        } else {
+            let backgroundColor = eval(configStyle.timeFrameScalePanelColor)
+            if (configStyle.timeFramePanelLabelColor !== undefined) {
+                let textColor = eval(configStyle.timeFramePanelLabelColor)
+                drawScaleDisplay(label1, label2, label3, 0, 0, 0, icon1, icon2, thisObject.container, backgroundColor, textColor)
+            } else {
+                drawScaleDisplay(label1, label2, label3, 0, 0, 0, icon1, icon2, thisObject.container, backgroundColor)
+            }
         }
     }
 }

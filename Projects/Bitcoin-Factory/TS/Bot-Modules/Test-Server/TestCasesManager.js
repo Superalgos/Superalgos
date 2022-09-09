@@ -68,17 +68,25 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
             const parametersIsON = getParametersIsON()
             const AMOUNT_OF_VARIABLES = parametersIsON.length
 
-            let combinations = []
-            for (let i = 0; i < (1 << AMOUNT_OF_VARIABLES); i++) {
-                let combination = []
-                //Increasing or decreasing depending on which direction
-                for (let j = AMOUNT_OF_VARIABLES - 1; j >= 0; j--) {
-                    let key = parametersIsON[j]
-                    let parameter = { key: key, value: Boolean(i & (1 << j))?"ON":"OFF" }
-                    combination.push(parameter)
-                }
-                combinations.push(combination);
+            console.log("Testing this features")
+            console.table(parametersIsON)
 
+            let combinations = []
+            for (let k = 0; k < parametersRanges.LIST_OF_ASSETS.length; k++) {
+                for (let l = 0; l < parametersRanges.LIST_OF_TIMEFRAMES.length; l++) {
+                    for (let i = 0; i < (1 << AMOUNT_OF_VARIABLES); i++) {
+                        let combination = []
+                        //Increasing or decreasing depending on which direction
+                        for (let j = AMOUNT_OF_VARIABLES - 1; j >= 0; j--) {
+                            let key = parametersIsON[j]
+                            let parameter = { key: key, value: Boolean(i & (1 << j))?"ON":"OFF" }
+                            combination.push(parameter)
+                        }
+                        combination.push({ key: 'LIST_OF_ASSETS', value: parametersRanges.LIST_OF_ASSETS[k] })
+                        combination.push({ key: 'LIST_OF_TIMEFRAMES', value: parametersRanges.LIST_OF_TIMEFRAMES[l] })
+                        combinations.push(combination);
+                    }        
+                }
             }
             return combinations
         }
@@ -112,9 +120,19 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
 
             // List of all case combinations
             let allCombinations = getAllCombinations()
+            console.table(allCombinations)
 
             // Parameters are being set.
             setPreparameters(0)
+            function setPreparameters(index) {
+                let propertyName = Object.keys(parametersRanges)[index]
+                if (propertyName !== undefined) {
+                    for (let i = 0; i < parametersRanges[propertyName].length; i++) {
+                        preParameters[propertyName] = parametersRanges[propertyName][i]
+                        setPreparameters(index + 1)
+                    }
+                }
+            }
 
             // The values of the parameters are set according to their combinations.
             for (let i = 0; i < allCombinations.length; i++) {
@@ -125,15 +143,6 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
                 addToCaseList()
             }
 
-            function setPreparameters(index) {
-                let propertyName = Object.keys(parametersRanges)[index]
-                if (propertyName !== undefined) {
-                    for (let i = 0; i < parametersRanges[propertyName].length; i++) {
-                        preParameters[propertyName] = parametersRanges[propertyName][i]
-                        setPreparameters(index + 1)
-                    }
-                }
-            }
             function addToCaseList() {
                 let parameters = getTestParameters(preParameters)
                 let parametersHash = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.hash(JSON.stringify(parameters))
@@ -371,6 +380,10 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
             testCase.testedByInstance = currentClientInstance
             testCase.testedByProfile = userProfile
             testCase.timestamp = (new Date()).valueOf()
+            testCase.testServer = {
+                userProfile: ((testResult.testServer != undefined) && (testResult.testServer.userProfile != undefined) ? testResult.testServer.userProfile : ''),
+                instance: TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName
+            }
 
             let logQueue = []
             for (let i = Math.max(0, testResult.id - 5); i < Math.min(thisObject.testCasesArray.length, testResult.id + 5); i++) {

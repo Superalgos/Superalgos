@@ -13,7 +13,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
         initialize: initialize,
         finalize: finalize
     }
-
+    let intervalId
     let web3
     return thisObject
 
@@ -23,31 +23,25 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
         thisObject.networkPeers = []
         thisObject.callersMap = new Map()
 
-        setInterval(cleanIdleConnections, 60000)
+        intervalId = setInterval(cleanIdleConnections, 60 * 1000) // runs every minute
 
         function cleanIdleConnections() {
             let now = (new Date()).valueOf()
             for (let i = 0; i < thisObject.networkClients.length; i++) {
                 let caller = thisObject.networkClients[i]
-                let diff = Math.trunc((now - caller.timestamp) / 60000)
-                if (diff > 30) {
+                let diff = Math.trunc((now - caller.timestamp) / 60 / 1000)
+                if (diff > 2) {
                     caller.socket.close()
 
                     console.log((new Date()).toISOString(), '[WARN] Socket Interfaces -> cleanIdleConnections -> Client Idle by more than ' + diff + ' minutes -> caller.userProfile.name = ' + caller.userProfile.name)
                     return
                 }
-                /*
-                if (caller.timestamp < now - 60 * 60 * 1000) {
-                    caller.socket.close()
-                    console.log((new Date()).toISOString(), '[WARN] Socket Interfaces -> cleanIdleConnections -> Idle client disconnected -> caller.userProfile.name = ' + caller.userProfile.name)
-                    return
-                }
-                */
             }
         }
     }
 
     function finalize() {
+        clearInterval(intervalId)
         thisObject.networkClients = undefined
         thisObject.networkPeers = undefined
         callersMap = undefined
@@ -62,7 +56,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
             } catch (err) {
                 let response = {
                     result: 'Error',
-                    message: 'socketMessage Not Coorrect JSON Format.'
+                    message: 'socketMessage Not Correct JSON Format.'
                 }
                 caller.socket.send(JSON.stringify(response))
                 caller.socket.close()
@@ -91,9 +85,9 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                     if (caller.userProfile === undefined) {
                         let response = {
                             result: 'Error',
-                            message: 'Handshake Not Done Yet.'
+                            message: 'Handshake Not Done Yet.',
+                            messageId: socketMessage.messageId
                         }
-                        response.messageId = socketMessage.messageId
                         caller.socket.send(JSON.stringify(response))
                         caller.socket.close()
                         return
@@ -105,9 +99,9 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                     } catch (err) {
                         let response = {
                             result: 'Error',
-                            message: 'Payload Not Correct JSON Format.'
+                            message: 'Payload Not Correct JSON Format.',
+                            messageId: socketMessage.messageId
                         }
-                        response.messageId = socketMessage.messageId
                         caller.socket.send(JSON.stringify(response))
                         caller.socket.close()
                     }
@@ -115,9 +109,9 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                     if (payload.networkService === undefined) {
                         let response = {
                             result: 'Error',
-                            message: 'Network Service Undifined.'
+                            message: 'Network Service Undefined.',
+                            messageId: socketMessage.messageId
                         }
-                        response.messageId = socketMessage.messageId
                         caller.socket.send(JSON.stringify(response))
                         caller.socket.close()
                         return

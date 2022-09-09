@@ -65,6 +65,7 @@ exports.newNetworkModulesP2PNetworkReachableNodes = function newNetworkModulesP2
                 for (let i = 0; i < thisObject.p2pNodesToConnect.length; i++) {
                     console.log(i + ' - ' + thisObject.p2pNodesToConnect[i].userProfile.config.codeName + ' - ' + thisObject.p2pNodesToConnect[i].node.config.codeName)
                 }
+                console.log('')
                 break
             }
             case 'Network Peer': {

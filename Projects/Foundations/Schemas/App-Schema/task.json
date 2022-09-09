@@ -136,6 +136,16 @@
             "relatedUiObjectProject": "User-Apps"
         },
         {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "p2pNetworkClient",
+            "label": "Add P2P Network Client",
+            "relatedUiObject": "P2P Network Client",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Network"
+        },
+        {
             "action": "Delete UI Object",
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
@@ -194,15 +204,21 @@
             "childType": "Key Reference"
         },
         {
-          "name": "managedTasks",
-          "type": "node",
-          "childType": "Managed Tasks"
+            "name": "managedTasks",
+            "type": "node",
+            "childType": "Managed Tasks"
         },
         {
             "name": "taskServerAppReference",
             "type": "node",
             "childType": "Task Server App Reference",
             "project": "User-Apps"
+        },
+        {
+            "name": "p2pNetworkClient",
+            "type": "node",
+            "childType": "P2P Network Client",
+            "project": "Network"
         }
     ],
     "propertyNameAtParent": "tasks",

@@ -1,5 +1,5 @@
 {
-    "type": "Network Services",
+    "type": "P2P Network Client",
     "menuItems": [
         {
             "action": "Configure",
@@ -14,42 +14,32 @@
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "socialGraph",
+            "propertyToCheckFor": "p2pNetworkReference",
             "actionFunction": "payload.executeAction",
-            "label": "Add Social Graph",
-            "relatedUiObject": "Social Graph",
+            "label": "Add P2P Network Reference",
+            "relatedUiObject": "P2P Network Reference",
             "relatedUiObjectProject": "Network"
-        },  
+        },
         {
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "machineLearning",
+            "propertyToCheckFor": "networkServices",
             "actionFunction": "payload.executeAction",
-            "label": "Add Machine Learning",
-            "relatedUiObject": "Machine Learning",
+            "label": "Add Network Services",
+            "relatedUiObject": "Network Services",
             "relatedUiObjectProject": "Network"
-        },          
+        },
         {
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "tradingSignals",
+            "propertyToCheckFor": "networkInterfaces",
             "actionFunction": "payload.executeAction",
-            "label": "Add Trading Signals",
-            "relatedUiObject": "Trading Signals",
+            "label": "Add Network Interfaces",
+            "relatedUiObject": "Network Interfaces",
             "relatedUiObjectProject": "Network"
-        },  
-        {
-            "action": "Add UI Object",
-            "actionProject": "Visual-Scripting",
-            "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "onlineWorkspaces",
-            "actionFunction": "payload.executeAction",
-            "label": "Add Online Workspaces",
-            "relatedUiObject": "Online Workspaces",
-            "relatedUiObjectProject": "Network"
-        },       
+        },
         {
             "action": "Delete UI Object",
             "actionProject": "Visual-Scripting",
@@ -65,38 +55,35 @@
         "config": true
     },
     "initialValues": {
-        "config": "{}"
+        "config": "{\n}"
     },
     "addLeftIcons": true,
     "level": 1,
     "attachingRules": {
-        "compatibleTypes": "->P2P Network Node->P2P Network Client->"
+        "compatibleTypes": "->Task->"
     },
     "childrenNodesProperties": [
         {
-            "name": "socialGraph",
+            "name": "p2pNetworkReference",
             "type": "node",
-            "childType": "Social Graph",
-            "autoAdd": false
+            "childType": "P2P Network Reference",
+            "project": "Network",
+            "autoAdd": true
         },
         {
-            "name": "machineLearning",
+            "name": "networkServices",
             "type": "node",
-            "childType": "Machine Learning",
-            "autoAdd": false
+            "childType": "Network Services",
+            "project": "Network",
+            "autoAdd": true
         },
         {
-            "name": "tradingSignals",
+            "name": "networkInterfaces",
             "type": "node",
-            "childType": "Trading Signals",
-            "autoAdd": false
-        },        
-        {
-            "name": "onlineWorkspaces",
-            "type": "node",
-            "childType": "Online Workspaces",
-            "autoAdd": false
+            "childType": "Network Interfaces",
+            "project": "Network",
+            "autoAdd": true
         }
     ],
-    "propertyNameAtParent": "networkServices"
+    "propertyNameAtParent": "p2pNetworkClient"
 }

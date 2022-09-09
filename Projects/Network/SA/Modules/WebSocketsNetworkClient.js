@@ -78,7 +78,9 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
 
                 function onConnectionClosed() {
                     if (thisObject.socketNetworkClients.isConnected === true) {
+                        console.log('')
                         console.log('Websockets Client Disconnected from Network Node via Web Sockets ............. Disconnected from ' + thisObject.p2pNetworkNode.userProfile.config.codeName + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
+                        console.log('')
                     }
                     if (thisObject.onConnectionClosedCallBack !== undefined) {
                         thisObject.onConnectionClosedCallBack(thisObject.id)

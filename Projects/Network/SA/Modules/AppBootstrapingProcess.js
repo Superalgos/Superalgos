@@ -35,7 +35,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
 
     async function run() {
         console.log(' ')
-        console.log((new Date()).toISOString(), '[INFO] Updating all in-memory User Profiles by pulling from Github any changes. If you see warnings below, it is because some User Profiles have bad definitions. If your profile is not listed at those warning, there is no further action required from you. The owner of each profile should take care of fixing its problems or it will be ignored.')
+        console.log((new Date()).toISOString(), '[INFO] Updating all in-memory User Profiles by pulling from Github any changes. If you see warnings below, it is because some User Profiles have bad definitions. If your profile is not listed at those warnings, there is no further action required from you. The owner of each profile should take care of fixing its problems or it will be ignored.')
         console.log(' ')
 
         SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES = []

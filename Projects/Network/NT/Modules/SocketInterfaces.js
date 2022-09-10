@@ -471,7 +471,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                     if (userProfileByBlockchainAccount.balance < clientMinimunBalance) {
                         let response = {
                             result: 'Error',
-                            message: 'Network Client User Profile ' + userProfileByBlockchainAccount.config.codeName + ' has a Balance of ' + SA.projects.governance.utilities.balances.toSABalanceString(userProfileByBlockchainAccount.balance) + ' while the Minimun Balance Required to connect to this Network Node is ' + SA.projects.governance.utilities.balances.toSABalanceString(clientMinimunBalance)
+                            message: 'Network Client User Profile ' + userProfileByBlockchainAccount.config.codeName + ' has a Balance of ' + SA.projects.governance.utilities.balances.toSABalanceString(userProfileByBlockchainAccount.balance) + ' while the Minimun Balance Required to connect to this Network Node "' + NT.networkApp.p2pNetworkNode.userProfile.config.codeName + '/' + NT.networkApp.p2pNetworkNode.node.config.codeName + '" is ' + SA.projects.governance.utilities.balances.toSABalanceString(clientMinimunBalance)
                         }
                         caller.socket.send(JSON.stringify(response))
                         caller.socket.close()
@@ -484,7 +484,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                     if (userProfileByBlockchainAccount.balance < clientMinimunBalance) {
                         let response = {
                             result: 'Error',
-                            message: 'Network Peer User Profile ' + userProfileByBlockchainAccount.config.codeName + ' has a Balance of ' + SA.projects.governance.utilities.balances.toSABalanceString(userProfileByBlockchainAccount.balance) + ' while the Minimun Balance Required to connect to this Network Node is ' + SA.projects.governance.utilities.balances.toSABalanceString(clientMinimunBalance)
+                            message: 'Network Peer User Profile ' + userProfileByBlockchainAccount.config.codeName + ' has a Balance of ' + SA.projects.governance.utilities.balances.toSABalanceString(userProfileByBlockchainAccount.balance) + ' while the Minimun Balance Required to connect to this Network Node "' + NT.networkApp.p2pNetworkNode.userProfile.config.codeName + '/' + NT.networkApp.p2pNetworkNode.node.config.codeName + '" is ' + SA.projects.governance.utilities.balances.toSABalanceString(clientMinimunBalance)
                         }
                         caller.socket.send(JSON.stringify(response))
                         caller.socket.close()

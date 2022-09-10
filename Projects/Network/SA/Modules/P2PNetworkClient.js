@@ -65,7 +65,9 @@ exports.newNetworkModulesP2PNetworkClient = function newNetworkModulesP2PNetwork
                 targetNetworkCodeName,
                 targetNetworkType,
                 thisObject.p2pNetworkClientIdentity,
-                p2pNetworkClientNode
+                p2pNetworkClientNode,
+                thisObject.p2pNetworkClientIdentity.userProfile.config.codeName,
+                thisObject.p2pNetworkClientIdentity.userProfile.balance
             )
             /*
             Set up the connections to network nodes. These are websockets connections and in order to do this, 

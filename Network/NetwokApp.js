@@ -24,6 +24,7 @@ exports.newNetworkApp = function newNetworkApp() {
         setupNetworkInterfaces()
 
         console.log('Network Node User Profile Code Name .......................................... ' + thisObject.p2pNetworkNode.userProfile.config.codeName)
+        console.log('Network Node User Profile Balance ............................................ ' + SA.projects.governance.utilities.balances.toSABalanceString(thisObject.p2pNetworkNode.userProfile.balance))
         console.log('Network Node Code Name ....................................................... ' + thisObject.p2pNetworkNode.node.config.codeName)
         console.log('Network Node Version ......................................................... ' + NETWORK_NODE_VERSION)
         console.log('Network Type ................................................................. ' + thisObject.p2pNetworkNode.node.p2pNetworkReference.referenceParent.type)

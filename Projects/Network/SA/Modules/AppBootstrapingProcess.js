@@ -43,6 +43,9 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
             await pullProfiles()
         }
         await reloadAll()
+        console.log(' ')
+        console.log((new Date()).toISOString(), '[INFO] User Profiles on Memory Updated from disk.')
+        console.log(' ')
     }
 
     async function pullProfiles() {

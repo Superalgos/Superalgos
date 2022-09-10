@@ -28,12 +28,15 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
         await run()
         if (thisObject.pullUserProfiles === true) {
             setInterval(run, 60000 * 5)
+            console.log((new Date()).toISOString(), '[INFO] Updates of all in-memory User Profiles are being schedulled to run every 5 minutes.')
+            console.log('')
         }
     }
 
     async function run() {
         console.log(' ')
-        console.log((new Date()).toISOString(), '[INFO] Updating all in-memory User Profiles by pulling from Github any changes. Expect this to happen automatically every 5 minutes.')
+        console.log((new Date()).toISOString(), '[INFO] Updating all in-memory User Profiles by pulling from Github any changes. If you see warnings below, it is because some User Profiles have bad definitions. If your profile is not listed at those warning, there is no further action required from you. The owner of each profile should take care of fixing its problems or it will be ignored.')
+        console.log(' ')
 
         SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES = []
         if (thisObject.pullUserProfiles === true) {
@@ -81,6 +84,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
         await extractInfoFromUserProfiles()
 
         console.log((new Date()).toISOString(), '[INFO] User Profiles Balances have been updated by reading their blockchain balances.')
+        console.log('')
 
         if (thisObject.p2pNetworkClientIdentity.node === undefined) {
             throw ('The Network Client Identity does not match any node at User Profiles Plugins.')

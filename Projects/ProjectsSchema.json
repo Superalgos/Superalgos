@@ -1690,6 +1690,12 @@
                     "propertyName": "signingAccounts",
                     "functionName": "newGovernanceUtilitiesSigningAccounts",
                     "fileName": "SigningAccounts.js"
+                },
+                {
+                    "name": "Balances",
+                    "propertyName": "balances",
+                    "functionName": "newGovernanceUtilitiesBalances",
+                    "fileName": "Balances.js"
                 }
             ]
         },
@@ -2394,7 +2400,7 @@
             ]
         },
         "TS": {
-            "botModules":[
+            "botModules": [
                 {
                     "name": "Forecast-Client",
                     "propertyName": "forecastClient",
@@ -2452,7 +2458,7 @@
                     "folderName": "Test-Server"
                 }
             ],
-            "utilities":[
+            "utilities": [
                 {
                     "name": "Miscellaneous",
                     "propertyName": "miscellaneous",
@@ -2463,7 +2469,7 @@
             ]
         },
         "NT": {
-            "modules":[
+            "modules": [
                 {
                     "name": "Machine Learning Network Service",
                     "propertyName": "machineLearningNetworkService",

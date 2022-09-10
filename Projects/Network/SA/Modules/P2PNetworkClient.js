@@ -52,6 +52,9 @@ exports.newNetworkModulesP2PNetworkClient = function newNetworkModulesP2PNetwork
                 thisObject.p2pNetworkClientIdentity,
                 false
             )
+            console.log('Network Client User Profile Code Name ........................................ ' + thisObject.p2pNetworkClientIdentity.userProfile.config.codeName)
+            console.log('Network Client User Profile Balance .......................................... ' + SA.projects.governance.utilities.balances.toSABalanceString(thisObject.p2pNetworkClientIdentity.userProfile.balance))
+            console.log('')
             /*
             We set up the P2P Network reacheable nodes. This means that we will filter out all the network nodes that do not have the
             network services this Task requires or the Network Interfaces this Task can speak to.
@@ -62,7 +65,9 @@ exports.newNetworkModulesP2PNetworkClient = function newNetworkModulesP2PNetwork
                 targetNetworkCodeName,
                 targetNetworkType,
                 thisObject.p2pNetworkClientIdentity,
-                p2pNetworkClientNode
+                p2pNetworkClientNode,
+                thisObject.p2pNetworkClientIdentity.userProfile.config.codeName,
+                thisObject.p2pNetworkClientIdentity.userProfile.balance
             )
             /*
             Set up the connections to network nodes. These are websockets connections and in order to do this, 

@@ -462,6 +462,40 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                 console.log((new Date()).toISOString(), '[WARN] Socket Interfaces -> handshakeStepTwo -> userAppBlockchainAccount not associated with userProfile -> userAppBlockchainAccount = ' + caller.userAppBlockchainAccount)
                 return
             }
+            /*
+            We will verify that the caller's User Profile has the minimun SA Balance required to connect to this Netork Node
+            */
+            switch (caller.role) {
+                case 'Network Client': {
+                    let clientMinimunBalance = NT.networkApp.p2pNetworkNode.node.config.clientMinimunBalance | 0
+                    if (userProfileByBlockchainAccount.balance < clientMinimunBalance) {
+                        let response = {
+                            result: 'Error',
+                            message: 'Network Client User Profile ' + userProfileByBlockchainAccount.config.codeName + ' has a Balance of ' + SA.projects.governance.utilities.balances.toSABalanceString(userProfileByBlockchainAccount.balance) + ' while the Minimun Balance Required to connect to this Network Node "' + NT.networkApp.p2pNetworkNode.userProfile.config.codeName + '/' + NT.networkApp.p2pNetworkNode.node.config.codeName + '" is ' + SA.projects.governance.utilities.balances.toSABalanceString(clientMinimunBalance)
+                        }
+                        caller.socket.send(JSON.stringify(response))
+                        caller.socket.close()
+                        return
+                    }
+                    break
+                }
+                case 'Network Peer': {
+                    let clientMinimunBalance = NT.networkApp.p2pNetworkNode.node.config.peerMinimunBalance | 0
+                    if (userProfileByBlockchainAccount.balance < clientMinimunBalance) {
+                        let response = {
+                            result: 'Error',
+                            message: 'Network Peer User Profile ' + userProfileByBlockchainAccount.config.codeName + ' has a Balance of ' + SA.projects.governance.utilities.balances.toSABalanceString(userProfileByBlockchainAccount.balance) + ' while the Minimun Balance Required to connect to this Network Node "' + NT.networkApp.p2pNetworkNode.userProfile.config.codeName + '/' + NT.networkApp.p2pNetworkNode.node.config.codeName + '" is ' + SA.projects.governance.utilities.balances.toSABalanceString(clientMinimunBalance)
+                        }
+                        caller.socket.send(JSON.stringify(response))
+                        caller.socket.close()
+                        return
+                    }
+                    break
+                }
+            }
+            /*
+            Parse the signed Message
+            */
             let signedMessage = JSON.parse(signature.message)
             /*
             We will verify that the signature belongs to the signature.message.

@@ -18,7 +18,7 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->P2P Network Node->"
+        "compatibleTypes": "->P2P Network Node->P2P Network Client->"
     },
     "referencingRules": {
         "compatibleTypes": "->Permissioned P2P Network->P2P Network->"

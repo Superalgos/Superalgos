@@ -60,7 +60,7 @@
     "addLeftIcons": true,
     "level": 1,
     "attachingRules": {
-        "compatibleTypes": "->P2P Network Node->"
+        "compatibleTypes": "->P2P Network Node->P2P Network Client->"
     },
     "childrenNodesProperties": [
         {

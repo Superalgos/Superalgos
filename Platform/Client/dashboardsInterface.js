@@ -35,7 +35,7 @@ exports.newDashboardsInterface = function newDashboardsInterface() {
             // eventsServerClient.raiseEvent('Task Client - ' + message.event.taskId, 'Task Status', event)
 
         function newMessage (message) {
-            console.log('this is the message in the inspector', message)
+            console.log('this is the message in the dashboards client event listeners', message)
 
         }
 
@@ -82,17 +82,17 @@ exports.newDashboardsInterface = function newDashboardsInterface() {
         socketClient = new WEB_SOCKET.WebSocket(url)
 
         socketClient.onopen = (open) => {
-            socketClient.send('Info|*|Platform Inspector Client has been Opened')
+            socketClient.send('Platform|*|Info|*|Platform Dashboards Client has been Opened')
             sendGlobals()
         }
 
         socketClient.onerror = (error) => {
-            console.log('[ERROR] Inpector error: ', error)
-            socketClient.send('Error|*|Inpector error: ', error)
+            console.log('[ERROR] Dashboards Client error: ', error)
+            socketClient.send('Platform|*|Error|*|Dashboards Client error: ', error)
         }
         
         socketClient.on('message', function (message) {
-            console.log('This is a message coming from the inspector', message )
+            console.log('This is a message coming from the Dashboards App', message )
         });
     }
 
@@ -103,7 +103,7 @@ exports.newDashboardsInterface = function newDashboardsInterface() {
         packedPL = packGlobalObj('PL', PL)
         //let parsed = JSON.parse(data)
         //console.log('this is the parsed object', parsed)
-        let messageToSend = "Globals|*|" + packedSA + '|*|' + packedPL
+        let messageToSend = 'Platform|*|Globals|*|' + packedSA + '|*|' + packedPL
         socketClient.send(messageToSend)
 
         // todo: handle global TS object 
@@ -135,6 +135,7 @@ exports.newDashboardsInterface = function newDashboardsInterface() {
                         
                         for (let element in object ) {
                             if (element == 'nodeModules') {
+                                //can grab just names of nodemodules
                                 objectCopy[element] = 'This gives access to all nodeModules.'
                             } else {
                                 objectCopy[element] = recursivelyCopy(object[element])
@@ -145,7 +146,7 @@ exports.newDashboardsInterface = function newDashboardsInterface() {
                     objectCopy = object.constructor.name
 
                 } else {
-                    // All other variables are directly assigned to the objectCopy
+                    // All other variables are directly assigned to objectCopy
                     objectCopy = object
 
                 } 
@@ -153,5 +154,4 @@ exports.newDashboardsInterface = function newDashboardsInterface() {
             }
         }
     }
-
 }

@@ -74,7 +74,7 @@ exports.newPlatformApp = function newPlatformApp() {
             /* Network Interfaces */
             let WEB_SOCKETS_INTERFACE = require('./Client/webSocketsInterface.js')
             let HTTP_INTERFACE = require('./Client/httpInterface.js')
-            let INSPECTOR_WEB_SOCKET_INTERFACE = require('./Client/inspectorInterface.js')
+            let DASHBOARDS_WEB_SOCKET_INTERFACE = require('./Client/dashboardsInterface.js')
             /*
             Setting up servers running inside this Client.
             */
@@ -149,8 +149,9 @@ exports.newPlatformApp = function newPlatformApp() {
             console.log('Http Interface .............................................. Listening at port ' + global.env.PLATFORM_HTTP_INTERFACE_PORT)
             console.log('Initial Workspace............................................ ' + initialWorkspace.project + ' ' + initialWorkspace.name)
 
-            INSPECTOR_WEB_SOCKET_INTERFACE = INSPECTOR_WEB_SOCKET_INTERFACE.newInspectorInterface()
-            INSPECTOR_WEB_SOCKET_INTERFACE.initialize()
+            DASHBOARDS_WEB_SOCKET_INTERFACE = DASHBOARDS_WEB_SOCKET_INTERFACE.newDashboardsInterface()
+            DASHBOARDS_WEB_SOCKET_INTERFACE.initialize()
+            console.log('Dashboards Web Sockets Interface ....................................... Listening at port ' + global.env.DASHBOARDS_WEB_SOCKETS_INTERFACE_PORT)
 
 
             console.log('')

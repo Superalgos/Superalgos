@@ -1,4 +1,4 @@
-exports.newInspectorInterface = function newWInspectorInterface() {
+exports.newDashboardsInterface = function newDashboardsInterface() {
     //This file holds the interface that collects metrics and then sends them over websocket to the inspector    const LOG_INFO = false
 
     // todo: refactor eventserver client to it's own file
@@ -14,7 +14,7 @@ exports.newInspectorInterface = function newWInspectorInterface() {
 
     const WEB_SOCKET = SA.nodeModules.ws
     let socketClient
-    let port = '18042'// global.env.PLATFORM_WEB_SOCKETS_INTERFACE_PORT
+    let port = global.env.DASHBOARDS_WEB_SOCKETS_INTERFACE_PORT
     let url = 'ws://localhost:'+ port
 
     return thisObject
@@ -82,7 +82,6 @@ exports.newInspectorInterface = function newWInspectorInterface() {
         socketClient = new WEB_SOCKET.WebSocket(url)
 
         socketClient.onopen = (open) => {
-            console.log('Opening Inspector Websocket...')
             socketClient.send('Info|*|Platform Inspector Client has been Opened')
             sendGlobals()
         }

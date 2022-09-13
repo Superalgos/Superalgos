@@ -132,11 +132,16 @@ exports.newDashboardsInterface = function newDashboardsInterface() {
 
                         })
                     } else if (object instanceof Object) {
-                        
                         for (let element in object ) {
-                            if (element == 'nodeModules') {
-                                //can grab just names of nodemodules
-                                objectCopy[element] = 'This gives access to all nodeModules.'
+                            if (element === 'nodeModules') {
+                                //Only copies name of each dependency
+                                let dependencies = []
+                                for (let module in object[element] ) {
+                                    if (module !== undefined) {
+                                        dependencies.push(module)
+                                    }
+                                }
+                                objectCopy[element] = dependencies
                             } else {
                                 objectCopy[element] = recursivelyCopy(object[element])
                             }

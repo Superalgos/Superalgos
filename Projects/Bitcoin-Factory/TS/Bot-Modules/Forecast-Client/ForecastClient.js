@@ -249,7 +249,7 @@
                                             }        
                                         } 
                                         if ((bestPredictions[i].testServer.userProfile == undefined) || (bestPredictions[i].testServer.userProfile === '')) {
-                                            bestPredictions[i].testServer.userProfile == response.data.serverData.userProfile
+                                            bestPredictions[i].testServer.userProfile = response.data.serverData.userProfile
                                         }
                                     }
                                     console.log((new Date()).toISOString(), '[INFO] Size of local forecast array did change by ', checkSetForecastCaseResultsResponse(bestPredictions))

@@ -93,17 +93,18 @@ exports.newDashboardsInterface = function newDashboardsInterface() {
         
         socketClient.on('message', function (message) {
             console.log('This is a message coming from the Dashboards App', message )
+            sendGlobals()
         });
     }
 
     function sendGlobals() {
         // This function packs and then sends the Global objects to the inspector
-        let data
         packedSA = packGlobalObj('SA', SA)
         packedPL = packGlobalObj('PL', PL)
+
         //let parsed = JSON.parse(data)
         //console.log('this is the parsed object', parsed)
-        let messageToSend = 'Platform|*|Globals|*|' + packedSA + '|*|' + packedPL
+        let messageToSend = 'Platform|*|Data|*|Globals|*|' + packedSA + '|*|' + packedPL
         socketClient.send(messageToSend)
 
         // todo: handle global TS object 

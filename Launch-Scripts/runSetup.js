@@ -150,7 +150,7 @@ const runSetup = (tfjs=false) => {
       (error, stdout) => {
         if (error) {
           console.log('')
-          console.log('There was an error installing some dependencies error: ')
+          console.log('There was an error installing some dependencies: ')
           console.log('')
           console.log(error)
           process.exit(1)
@@ -174,8 +174,8 @@ const runSetup = (tfjs=false) => {
     } catch (e) {
       console.log('')
       console.log('Event error: ')
-      console.log(e)
       console.log('')
+      console.log(e)
       process.exit(1)
     }
   })

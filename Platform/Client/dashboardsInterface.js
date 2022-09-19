@@ -36,7 +36,6 @@ exports.newDashboardsInterface = function newDashboardsInterface() {
 
         function newMessage (message) {
             console.log('this is the message in the dashboards client event listeners', message)
-
         }
 
   
@@ -82,18 +81,19 @@ exports.newDashboardsInterface = function newDashboardsInterface() {
         socketClient = new WEB_SOCKET.WebSocket(url)
 
         socketClient.onopen = (open) => {
-            socketClient.send('Platform|*|Info|*|Platform Dashboards Client has been Opened')
-            sendGlobals()
+            let message = (new Date()).toISOString() + '|*|Platform|*|Info|*|Platform Dashboards Client has been Opened'
+            socketClient.send(message)
+            setInterval(sendGlobals, 10000)
         }
 
         socketClient.onerror = (error) => {
             console.log('[ERROR] Dashboards Client error: ', error)
-            socketClient.send('Platform|*|Error|*|Dashboards Client error: ', error)
+            let message = (new Date()).toISOString() + '|*|Platform|*|Error|*|Dashboards Client error: ' + error
+            socketClient.send(message)
         }
         
         socketClient.on('message', function (message) {
             console.log('This is a message coming from the Dashboards App', message )
-            sendGlobals()
         });
     }
 
@@ -104,7 +104,7 @@ exports.newDashboardsInterface = function newDashboardsInterface() {
 
         //let parsed = JSON.parse(data)
         //console.log('this is the parsed object', parsed)
-        let messageToSend = 'Platform|*|Data|*|Globals|*|' + packedSA + '|*|' + packedPL
+        let messageToSend = (new Date()).toISOString() + '|*|Platform|*|Data|*|Globals|*|' + packedSA + '|*|' + packedPL
         socketClient.send(messageToSend)
 
         // todo: handle global TS object 

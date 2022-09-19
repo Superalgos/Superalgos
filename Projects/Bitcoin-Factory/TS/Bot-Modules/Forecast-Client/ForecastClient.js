@@ -175,8 +175,6 @@
                                                 .catch(onError)
                                             async function onSuccess(thisForecastCase) {
                                                 await onSuccessgetNextForecastCase(thisForecastCase)
-                                                forecasting = false
-                                                callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
                                             }
                                             async function onError(err) {
                                                 forecasting = false
@@ -249,6 +247,9 @@
                                                 userProfile: response.data.serverData.userProfile,
                                                 instance: response.data.serverData.instance
                                             }        
+                                        } 
+                                        if ((bestPredictions[i].testServer.userProfile == undefined) || (bestPredictions[i].testServer.userProfile === '')) {
+                                            bestPredictions[i].testServer.userProfile = response.data.serverData.userProfile
                                         }
                                     }
                                     console.log((new Date()).toISOString(), '[INFO] Size of local forecast array did change by ', checkSetForecastCaseResultsResponse(bestPredictions))
@@ -391,7 +392,7 @@
                     for (let i = 0; i < thisObject.forecastCasesArray.length; i++) {
                         if (thisObject.forecastCasesArray[i].id == nextForecastCase.id) {
                             console.log((new Date()).toISOString(), '[ERROR] Test Server ' + nextForecastCase.testServer.instance + ' did send me forecast case ' + nextForecastCase.id + ', which is allready in local database')
-                            reject('DUPLICATE FORECAST CASE')
+                         //   reject('DUPLICATE FORECAST CASE')
                         }
                     }
                     resolve(nextForecastCase)
@@ -409,6 +410,9 @@
         return new Promise(promiseWork)
 
         async function promiseWork(resolve, reject) {
+
+            //debug
+            console.log("DEBUG requested testserver: " + JSON.stringify(forecastCase.testServer))
 
             let message = {
                 type: 'Get This Forecast Case',
@@ -561,8 +565,10 @@
         /*
         Set default script name.
         */
-        if (nextForecastCase.pythonScriptName === undefined) { nextForecastCase.pythonScriptName = "Bitcoin_Factory_LSTM_Forecasting.py" }
-
+        if (nextForecastCase.pythonScriptName === undefined) { 
+            console.log("pythonScriptName undefined ... set default name")
+            nextForecastCase.pythonScriptName = "Bitcoin_Factory_LSTM_Forecasting.py" 
+        }
         console.log('')
         if (buildnewModel) {
             console.log('------------------------------------------------------- Forecasting Case # ' + nextForecastCase.id + ' ------------------------------------------------------------')
@@ -587,10 +593,6 @@
         return new Promise(executeThePythonScript)
 
         async function executeThePythonScript(resolve, reject) {
-            /*
-            Set default script name.
-            */
-            if (nextForecastCase.pythonScriptName === undefined) { nextForecastCase.pythonScriptName = "Bitcoin_Factory_LSTM_Forecasting.py" }
     
             let processExecutionResult
             let startingTimestamp = (new Date()).valueOf()
@@ -601,27 +603,44 @@
             dockerPID = dockerProc.pid
             dockerProc.stdout.on('data', (data) => {
                 data = data.toString()
-                /*
-                Removing Carriedge Return from string.
-                */
-                try {
-                    let percentage = ''
-                    let heartbeatText = ''
-                    let statusText = 'Forecast Case ' + nextForecastCase.id + ' from ' + nextForecastCase.testServer.instance
-                    if (data.substring(0, 5) === 'Epoch') {
-                        let regEx = new RegExp('Epoch (\\d+)/(\\d+)', 'gim')
-                        let match = regEx.exec(data)
-                        heartbeatText = match[0]
+                if (data.includes('RL_SCENARIO_START') || data.includes('episodeRewardMean')) {
+                    try {
+                        let fileContent = SA.nodeModules.fs.readFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Forecast-Client/notebooks/training_results.json")
 
-                        percentage = Math.round(match[1] / match[2] * 100)                    
-                        TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, heartbeatText, percentage, statusText)
+                        if (fileContent !== undefined) {
+                            let percentage = 0
+                            let statusText = 'Forecast Case: ' + nextForecastCase.id + ' from ' + nextForecastCase.testServer.instance
+
+                            data = JSON.parse(fileContent)
+
+                            percentage = Math.round(data.timestepsExecuted / data.timestepsTotal * 100)
+                            let heartbeatText = 'Episode reward mean / max / min: ' + data.episodeRewardMean + ' | ' + data.episodeRewardMax + ' | ' + data.episodeRewardMin
+
+                            TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, heartbeatText, percentage, statusText)
+                        }
+                    } catch (err) {  }
+                } else {
+                    /*
+                    Removing Carriedge Return from string.
+                    */
+                    try {
+                        let percentage = ''
+                        let heartbeatText = ''
+                        let statusText = 'Forecast Case ' + nextForecastCase.id + ' from ' + nextForecastCase.testServer.instance
+                        if (data.substring(0, 5) === 'Epoch') {
+                            let regEx = new RegExp('Epoch (\\d+)/(\\d+)', 'gim')
+                            let match = regEx.exec(data)
+                            heartbeatText = match[0]
+
+                            percentage = Math.round(match[1] / match[2] * 100)                    
+                            TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, heartbeatText, percentage, statusText)
+                        }
+                    } catch (err) { 
+                        console.log('Error pricessing heartbeat: ' + err)
                     }
-                } catch (err) { 
-                    console.log('Error pricessing heartbeat: ' + err)
-                }
-
-                for (let i = 0; i < 1000; i++) {
-                    data = data.replace(/\n/, "")
+                    for (let i = 0; i < 1000; i++) {
+                        data = data.replace(/\n/, "")
+                    }
                 }
                 dataReceived = dataReceived + data.toString()
 
@@ -644,7 +663,7 @@
                     console.log((new Date()).toISOString(), '[ERROR] Forecaster: Docker Python Script exited with code ' + code);
                     console.log((new Date()).toISOString(), '[ERROR] Unexpected error trying to execute a Python script inside the Docker container. ')
                     console.log((new Date()).toISOString(), '[ERROR] Check at a console if you can run this command: ')
-                    console.log((new Date()).toISOString(), '[ERROR] docker exec -it Bitcoin-Factory-ML-Forecasting python /tf/notebooks/Bitcoin_Factory_LSTM_Forecasting.py')
+                    console.log((new Date()).toISOString(), '[ERROR] docker exec -it Bitcoin-Factory-ML-Forecasting python -u /tf/notebooks/' + nextForecastCase.pythonScriptName)
                     console.log((new Date()).toISOString(), '[ERROR] Once you can sucessfully run it at the console you might want to try to run this App again. ')
                     reject('Unexpected Error.')
                 }
@@ -656,34 +675,59 @@
             }
     
             function onFinished(dataReceived) {
-                try {
-    
-                    let index = dataReceived.indexOf('{')
-                    dataReceived = dataReceived.substring(index)
-                    //just for debug: console.log(dataReceived)
-                    processExecutionResult = JSON.parse(fixJSON(dataReceived))
-    
-                    console.log('Prediction RMSE Error: ' + processExecutionResult.errorRMSE)
-                    console.log('Predictions [candle.max, candle.min, candle.close]: ' + processExecutionResult.predictions)
-    
-                    let endingTimestamp = (new Date()).valueOf()
-                    processExecutionResult.enlapsedTime = (endingTimestamp - startingTimestamp) / 1000
-                    console.log('Enlapsed Time (HH:MM:SS): ' + (new Date(processExecutionResult.enlapsedTime * 1000).toISOString().substr(14, 5)) + ' ')
-    
-                    processExecutionResult.testServer = nextForecastCase.testServer
-                    processExecutionResult.id = nextForecastCase.id
-                    processExecutionResult.caseIndex = nextForecastCase.caseIndex
+                if (dataReceived.includes('RL_SCENARIO_END')) { //RL
+                    let fileContent = SA.nodeModules.fs.readFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Forecast-Client/notebooks/evaluation_results.json")
+                    if (fileContent !== undefined) {
+                        try {
+                            processExecutionResult = JSON.parse(fileContent)
+                            console.log(processExecutionResult)                            
+                            let endingTimestamp = (new Date()).valueOf()
+                            processExecutionResult.enlapsedTime = (endingTimestamp - startingTimestamp) / 1000          
+                            processExecutionResult.pythonScriptName = nextForecastCase.pythonScriptName     
+                            processExecutionResult.testServer = nextForecastCase.testServer
+                            processExecutionResult.id = nextForecastCase.id
+                            processExecutionResult.caseIndex = nextForecastCase.caseIndex                                                                           
+                            console.log((new Date()).toISOString(), '[INFO] {Forecastclient} Enlapsed Time: ' + timeUnits(processExecutionResult.enlapsedTime * 1000) + ' ')
+                            console.log((new Date()).toISOString(), '[INFO] {Forecastclient} Mean Networth at End of Train: ' + processExecutionResult["0"].meanNetWorthAtEnd)
+                            console.log((new Date()).toISOString(), '[INFO] {Forecastclient} Mean Networth at End of Test: ' + processExecutionResult["1"].meanNetWorthAtEnd)
+                            console.log((new Date()).toISOString(), '[INFO] {Forecastclient} Mean Networth at End of Validation: ' + processExecutionResult["2"].meanNetWorthAtEnd)
+                            console.log((new Date()).toISOString(), '[INFO] {Forecastclient} Next Action: ' + processExecutionResult["2"].current_action.type + ' / ' + processExecutionResult["2"].current_action.amount)
 
-                } catch (err) {
+                        } catch (err) {
+                            console.log('Error parsing the information generated at the Docker Container executing the Python script. err.stack = ' + err.stack)
+                            console.log('The data that can not be parsed is = ' + fileContent)
+                        }
+                    } else {
+                        console.log('Can not read result file: ' + global.env.PATH_TO_BITCOIN_FACTORY + "/Forecast-Client/notebooks/evaluation_results.json")
+                    }                            
+                } else { //LSTM
+                    try {
+
+                        let index = dataReceived.indexOf('{')
+                        dataReceived = dataReceived.substring(index)
+                        //just for debug: console.log(dataReceived)
+                        processExecutionResult = JSON.parse(fixJSON(dataReceived))
+        
+                        console.log('Prediction RMSE Error: ' + processExecutionResult.errorRMSE)
+                        console.log('Predictions [candle.max, candle.min, candle.close]: ' + processExecutionResult.predictions)
+        
+                        let endingTimestamp = (new Date()).valueOf()
+                        processExecutionResult.enlapsedTime = (endingTimestamp - startingTimestamp) / 1000
+                        console.log('Enlapsed Time (HH:MM:SS): ' + (new Date(processExecutionResult.enlapsedTime * 1000).toISOString().substr(14, 5)) + ' ')
+        
+                        processExecutionResult.testServer = nextForecastCase.testServer
+                        processExecutionResult.id = nextForecastCase.id
+                        processExecutionResult.caseIndex = nextForecastCase.caseIndex    
+
+                    } catch (err) {
     
-                    if (processExecutionResult !== undefined && processExecutionResult.predictions !== undefined) {
-                        console.log('processExecutionResult.predictions:' + processExecutionResult.predictions)
-                    }
-    
-                    console.log(err.stack)
-                    console.error(err)
+                        if (processExecutionResult !== undefined && processExecutionResult.predictions !== undefined) {
+                            console.log('processExecutionResult.predictions:' + processExecutionResult.predictions)
+                        }
+                        console.log(err.stack)
+                        console.error(err)
+                    }    
                 }
-    
                 resolve(processExecutionResult)
             }
         }        
@@ -751,10 +795,10 @@
                 caseIndex: 0
             }
             console.log()
-            console.log((new Date()).toISOString(), 'Current Forecast table')    
+            console.log((new Date()).toISOString(), '[INFO] {Forecastclient} Current Forecast table')    
         } else {
             console.log()
-            console.log((new Date()).toISOString(), 'A new Forecast for the Case Id ' + forecastCase.id + ' was produced / attemped.')    
+            console.log((new Date()).toISOString(), '[INFO] {Forecastclient} A new Forecast for the Case Id ' + forecastCase.id + ' was produced / attemped.')    
         }
         let logQueue = []
         for (let i = Math.max(0, forecastCase.caseIndex - 5); i < Math.min(thisObject.forecastCasesArray.length, forecastCase.caseIndex + 5); i++) {
@@ -988,4 +1032,35 @@
         }
         return counter
     }
+
+    /**
+     * Converts milliseconds into greater time units as possible
+     * @param {int} ms - Amount of time measured in milliseconds
+     * @return {?Object} Reallocated time units. NULL on failure.
+     */
+     function timeUnits( ms ) {
+        if ( !Number.isInteger(ms) ) {
+            return null
+        }
+        /**
+         * Takes as many whole units from the time pool (ms) as possible
+         * @param {int} msUnit - Size of a single unit in milliseconds
+         * @return {int} Number of units taken from the time pool
+         */
+        const allocate = msUnit => {
+            const units = Math.trunc(ms / msUnit)
+            ms -= units * msUnit
+            return units
+        }
+        // Property order is important here.
+        // These arguments are the respective units in ms.
+        return ""+
+            // weeks: allocate(604800000), // Uncomment for weeks
+            // days: allocate(86400000),
+            allocate(3600000) + "h:" +
+            allocate(60000)+"m:" +
+            allocate(1000)+"s:" 
+            //ms: ms // remainder
+        
+    }    
 }

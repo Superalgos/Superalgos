@@ -91,7 +91,12 @@ exports.newNetworkModulesP2PNetworkStart = function newNetworkModulesP2PNetworkS
                             continue // This is not yet implemented.
                         }
                     }
+                    /*
+                    DEBUG NOTE: If you are having trouble undestanding why you can not connect to a certain network node, then you can activate the following Console Logs, otherwise you keep them commented out.
+                    */   
+                    /*                 
                     console.log('[INFO] Checking if the Network Node belonging to User Profile ' + peer.p2pNetworkNode.userProfile.name + ' is reachable via http to be ready to send a message to the ' + networkService + ' network service.')
+                    */
                     if (isPeerConnected(peer) === true) { continue }
 
                     await isPeerOnline(peer)
@@ -99,11 +104,15 @@ exports.newNetworkModulesP2PNetworkStart = function newNetworkModulesP2PNetworkS
                         .catch(isOffline)
 
                     function isOnline() {
+                        /*
                         console.log('[INFO] This node is reponding to PING messages via http. Network Node belonging to User Profile ' + peer.p2pNetworkNode.userProfile.name + ' it is reachable via http.')
+                        */
                         peers.push(peer)
                     }
                     function isOffline() {
+                        /*
                         console.log('[WARN] Network Node belonging to User Profile ' + peer.p2pNetworkNode.userProfile.name + ' it is NOT reachable via http.')
+                        */
                     }
                 }
 

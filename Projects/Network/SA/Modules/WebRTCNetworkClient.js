@@ -44,7 +44,9 @@ exports.newNetworkModulesWebRTCNetworkClient = function newNetworkModulesWebRTCN
 
         await setUpWebSocketClient(socket)
 
-        console.log('Websockets Client Connected to Network Node via Web Sockets .................. Connected to ' + thisObject.p2pNetworkNode.userProfile.config.codeName + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
+        console.log('')
+        console.log('WebRTC Client Connected to Network Node via Web Sockets .................. Connected to ' + thisObject.p2pNetworkNode.userProfile.config.codeName + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
+        console.log('')
         thisObject.socketNetworkClients.isConnected = true
 
     }
@@ -79,7 +81,12 @@ exports.newNetworkModulesWebRTCNetworkClient = function newNetworkModulesWebRTCN
 
                 function onError(err) {
                     if (err.message.indexOf('ECONNREFUSED') >= 0) {
+                        /*
+                        DEBUG NOTE: If you are having trouble undestanding why you can not connect to a certain network node, then you can activate the following Console Logs, otherwise you keep them commented out.
+                        */ 
+                        /*                       
                         console.log((new Date()).toISOString(), '[WARN] Web Sockets Network Client -> onError -> Nobody home at ' + thisObject.host + ':' + thisObject.port)
+                        */
                         reject()
                         return
                     }

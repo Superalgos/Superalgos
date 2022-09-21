@@ -64,32 +64,68 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
         for (let i = 0; i < thisObject.forecastCasesArray.length; i++) {
             let forecastCase = thisObject.forecastCasesArray[i]
             if (forecastCase.mainAsset === testCase.mainAsset && forecastCase.mainTimeFrame === testCase.mainTimeFrame) {
-                if (Number(testCase.percentageErrorRMSE) < Number(forecastCase.percentageErrorRMSE) && Number(testCase.percentageErrorRMSE) >= 0) {
-                    thisObject.forecastCasesArray.splice(i, 1)
-                    thisObject.forecastCasesMap.delete(testCase.id)
-                    addForcastCase(testCase)
-                    return
+                //LSTM
+                if (forecastCase.percentageErrorRMSE !== undefined) {
+                    if (Number(testCase.percentageErrorRMSE) < Number(forecastCase.percentageErrorRMSE) && Number(testCase.percentageErrorRMSE) >= 0) {
+                        thisObject.forecastCasesArray.splice(i, 1)
+                        thisObject.forecastCasesMap.delete(testCase.id)
+                        addForcastCase(testCase)
+                    //    return
+                    } else {
+                    //    continue
+                    }   
+                //RL     
+                } else if (forecastCase.ratio !== undefined) {
+                    if (Number(testCase.ratio.validate) > Number(forecastCase.ratio.validate) ) {
+                        thisObject.forecastCasesArray.splice(i, 1)
+                        thisObject.forecastCasesMap.delete(testCase.id)
+                        addForcastCase(testCase)
+                     //   return
+                    } else {
+                     //   continue
+                    }
                 } else {
-                    return
+                   // continue
                 }
+            } else {
+                addForcastCase(testCase)
+              //  return                
             }
         }
-        addForcastCase(testCase)
+        if (thisObject.forecastCasesArray.length == 0) addForcastCase(testCase)
         saveForecastCasesFile()
 
+        console.log("Testserver: Current Forecast table:")
+        console.table(thisObject.forecastCasesArray)
+
         function addForcastCase(testCase) {
-            if (testCase.forcastedCandle === undefined) { testCase.forcastedCandle = {} }
+            let testServer
+            let parameters  
+            let predictions     
+            let forcastedCandle     
+            try {
+                testServer = JSON.parse(JSON.stringify(testCase.testServer))
+            } catch (err) {}                    
+            try {
+                parameters = JSON.parse(JSON.stringify(testCase.parameters))
+            } catch (err) {}                    
+            try {
+                predictions = JSON.parse(JSON.stringify(testCase.predictions))
+            } catch (err) {}                    
+            try {
+                forcastedCandle = JSON.parse(JSON.stringify(testCase.forcastedCandle))
+            } catch (err) {}                    
             let forecastCase = {
                 id: testCase.id,
                 caseIndex: thisObject.forecastCasesArray.length,
-                testServer: JSON.parse(JSON.stringify(testCase.testServer)),
+                testServer: testServer,
                 mainAsset: testCase.mainAsset,
                 mainTimeFrame: testCase.mainTimeFrame,
                 percentageErrorRMSE: testCase.percentageErrorRMSE,
-                parameters: JSON.parse(JSON.stringify(testCase.parameters)),
+                parameters: parameters,
                 parametersHash: testCase.parametersHash,
-                predictions: JSON.parse(JSON.stringify(testCase.predictions)),
-                forcastedCandle: JSON.parse(JSON.stringify(testCase.forcastedCandle)),
+                predictions: predictions,
+                forcastedCandle: forcastedCandle,
                 timeSeriesFileName: testCase.timeSeriesFileName,
                 timestamp: testCase.timestamp,
                 when: testCase.when,
@@ -150,6 +186,11 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
                 caseIndex: forecastCase.caseIndex,
                 totalCases: thisObject.forecastCasesArray.length,
                 parameters: forecastCase.parameters,
+                pythonScriptName: forecastCase.pythonScriptName,
+                testServer: {
+                    userProfile: ((forecastCase.testServer != undefined) && (forecastCase.testServer.userProfile != undefined) ? forecastCase.testServer.userProfile : ''),
+                    instance: ((forecastCase.testServer != undefined) && (forecastCase.testServer.instance != undefined) ? forecastCase.testServer.instance : TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName)
+                },
                 files: TS.projects.foundations.globals.taskConstants.TEST_SERVER.dataBridge.getFiles(testCase)
             }
             return nextForecastCase
@@ -168,8 +209,10 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
                     id: forecastCase.id,
                     caseIndex: forecastCase.caseIndex,
                     parameters: forecastCase.parameters,
+                    pythonScriptName: forecastCase.pythonScriptName,
                     testServer: {
-                        instance: TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName
+                        userProfile: ((forecastCase.testServer != undefined) && (forecastCase.testServer.userProfile != undefined) ? forecastCase.testServer.userProfile : ''),
+                        instance: ((forecastCase.testServer != undefined) && (forecastCase.testServer.instance != undefined) ? forecastCase.testServer.instance : TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName)
                     },
                     files: TS.projects.foundations.globals.taskConstants.TEST_SERVER.dataBridge.getFiles(testCase)
                 }
@@ -188,15 +231,32 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
             } 
             if (forecastCase != undefined) {
                 forecastCase.status = 'Forecasted'
-                forecastCase.predictions = forecastResult.predictions
-                forecastCase.errorRMSE = forecastResult.errorRMSE
-                forecastCase.percentageErrorRMSE = calculatePercentageErrorRMSE(forecastResult)
                 forecastCase.enlapsedSeconds = forecastResult.enlapsedTime.toFixed(0)
                 forecastCase.enlapsedMinutes = (forecastResult.enlapsedTime / 60).toFixed(2)
                 forecastCase.enlapsedHours = (forecastResult.enlapsedTime / 3600).toFixed(2)
                 forecastCase.forecastedBy = forecastedBy
+                forecastCase.testServer = forecastResult.testServer
+                forecastCase.pythonScriptName = forecastResult.pythonScriptName     
                 forecastCase.timestamp = (new Date()).valueOf()
-    
+                //LSTM
+                if (forecastResult.errorRMSE != undefined) {       
+                    forecastCase.predictions = forecastResult.predictions
+                    forecastCase.errorRMSE = forecastResult.errorRMSE
+                    forecastCase.percentageErrorRMSE = calculatePercentageErrorRMSE(forecastResult)
+                //RL      
+                } else if (forecastResult["0"] != undefined) {      
+                    forecastCase.predictions = forecastResult["2"].current_action
+                    forecastCase.ratio = {
+                        train: forecastResult["0"].meanNetWorthAtEnd / forecastResult["0"].NetWorthAtBegin,
+                        test: forecastResult["1"].meanNetWorthAtEnd / forecastResult["1"].NetWorthAtBegin,
+                        validate: forecastResult["2"].meanNetWorthAtEnd / forecastResult["2"].NetWorthAtBegin
+                    }
+                    forecastCase.std = {
+                        train: forecastResult["0"].stdNetWorthAtEnd ,
+                        test: forecastResult["1"].stdNetWorthAtEnd ,
+                        validate: forecastResult["2"].stdNetWorthAtEnd 
+                    }    
+                }
                 let logQueue = []
                 for (let i = Math.max(0, forecastResult.caseIndex - 5); i < Math.min(thisObject.forecastCasesArray.length, forecastResult.caseIndex + 5); i++) {
                     let forecastCase = thisObject.forecastCasesArray[i]

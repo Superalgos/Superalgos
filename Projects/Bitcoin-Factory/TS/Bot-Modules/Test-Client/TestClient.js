@@ -139,6 +139,11 @@
                 queryMessage: JSON.stringify(queryMessage)
             }
 
+            if (TS.projects.foundations.globals.taskConstants.P2P_NETWORK === undefined) {
+                reject('Not connected to network node yet... hold on...')
+                return
+            }
+
             if (TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClient.machineLearningNetworkServiceClient === undefined) {
                 reject('Not connected to the Test Server yet... hold on...')
                 return

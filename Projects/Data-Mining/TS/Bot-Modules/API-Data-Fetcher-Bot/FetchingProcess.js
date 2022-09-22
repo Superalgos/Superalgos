@@ -1546,9 +1546,10 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                                 let runCount = c 
                                                 if (runCount === 0) {
                                                     thisFile = []
-                                                } else {
-                                                    thisFile = thisFile
-                                                }
+                                                } 
+                                                // else {
+                                                    // thisFile = thisFile
+                                                // }
                                                 
                                                 let content = Array.from(completeRecord)
                                                 let contentNum = (content.length - 1) - c
@@ -1612,7 +1613,6 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                     }
 
                                     if (numberOfDigits == 13) {
-                                        timestamp = timestamp
                                         return timestamp
                                     }
                                 }

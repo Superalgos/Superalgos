@@ -1,0 +1,71 @@
+{
+    "topic": "Volume Tools Data Mine",
+    "pageNumber": "3",
+    "type": "Heatmap Candles",
+    "definition": {
+        "text": "This indicator calculates the same data as the Heatmap Volume, but presents the information as candles as opposed to in oscillator form."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Heatmap Candles on the Charts"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/volume-Heatmap-Candles.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| HeatmapCandles | HeatmapCandle | open, close, max, min, col, volume |"
+        },
+        {
+            "style": "Text",
+            "text": "The moving average length, and standard deviation thresholds of the indicator's calculations can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"Heatmap Candles\" Procedure Loop."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/volume-Heatmap-Candles-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "Accessing data in the indicator are as follows:",
+            "updated": 1663912632694
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.HeatmapCandle.max\nchart.at01hs.HeatmapCandle.volume"
+        },
+        {
+            "style": "Text",
+            "text": "Possible values for the \"col\" value are:"
+        },
+        {
+            "style": "Text",
+            "text": "UpExtreme, UpHigh, UpMedium, UpNormal, UpLow"
+        },
+        {
+            "style": "Text",
+            "text": "DnExtreme, DnHigh, DnMedium, DnNormal, DnLow"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

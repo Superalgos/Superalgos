@@ -9,7 +9,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
     3. Identify all P2P Network Nodes.
     4. Identify the node representing the Identity of the current running App.
     5. Setting up Storage Containers.
-    6. TODO: Calculate Profiles Rankings.    
+    6. Calculate Profiles Rankings.    
 
     */
     let thisObject = {

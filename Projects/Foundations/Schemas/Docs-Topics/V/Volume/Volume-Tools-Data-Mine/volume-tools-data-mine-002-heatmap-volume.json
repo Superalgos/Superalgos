@@ -1,0 +1,62 @@
+{
+    "topic": "Volume Tools Data Mine",
+    "pageNumber": "2",
+    "type": "Heatmap Volume",
+    "definition": {
+        "text": "This indicator calculates the standard deviation of a simple moving average (SMA) and presents the resulting volume deviation fro the historical data."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Heatmap Volume on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "The data presented in this indicator is shown against a backdrop of threshold values, in which abnormal amounts of volume can be immediately seen."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/volume-Heatmap-Volume.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| HeatmapVolume | HeatmapVolume | volume, threshold1-threshold4 |"
+        },
+        {
+            "style": "Text",
+            "text": "The moving average length, and standard deviation thresholds of the indicator's calculations can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"Heatmap Volume\" Procedure Loop."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/volume-Heatmap-Volume-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "A simple entry condition could be performed with the following example, when the current volume is greater than the first threshold:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.HeatmapVolume.volume > chart.at01hs.HeatmapVolume.threshold1"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

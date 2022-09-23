@@ -606,7 +606,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
             */
             for (let i = 0; i < callersArray.length; i++) {
                 let callerInArray = callersArray[i]
-                if (caller.userProfile.ranking > callerInArray.userProfile.ranking) {
+                if (caller.userProfile.ranking < callerInArray.userProfile.ranking) {
                     callersArray.splice(i, 0, caller)
                     return
                 }
@@ -684,6 +684,8 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
             for (let i = 0; i < thisObject.networkClients.length; i++) {
                 let networkClient = thisObject.networkClients[i]
                 networkClient.socket.send(JSON.stringify(socketMessage))
+
+                console.log((new Date()).toISOString(), '[INFO] Signal sent to User Profile: ' + networkClient.userProfile.name)             
             }
             return true
         } catch (err) {

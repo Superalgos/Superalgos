@@ -95,6 +95,8 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
             throw ('The Network Client Identity does not match any node at User Profiles Plugins.')
         }
 
+        calculateProfileRankings()
+
         setupPermissionedNetwork()
 
         async function loadUserP2PNetworksPlugins() {
@@ -190,8 +192,6 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                 */
                 userProfile.balance = await getProfileBalance('BSC', userProfile.blockchainAccount)
 
-                let ranking = 0 // TODO: read the blockchain balance and transactions from the Treasury Account to calculate the profile ranking.
-
                 loadSigningAccounts()
                 loadStorageContainers()
 
@@ -219,7 +219,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                     const contractInst = new web3.eth.Contract(ABI, contractAddress)
                     let balance = await contractInst.methods.balanceOf(walletAddress).call().then(result => web3.utils.fromWei(result, 'ether'))
 
-                    return balance
+                    return Number(balance)
                 }
 
                 function loadSigningAccounts() {
@@ -325,6 +325,48 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                     }
                 }
             }
+        }
+
+        function calculateProfileRankings() {
+            let rankingArray = []
+            /*
+            Transfer all profiles to the ranking array.
+            */
+            let userProfiles = Array.from(SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID)
+            for (let i = 0; i < userProfiles.length; i++) {
+                let userProfile = userProfiles[i][1]
+
+                let added = false
+                for (let j = 0; j < rankingArray.length; j++) {
+                    let rankingProfile = rankingArray[j]
+                    if (userProfile.balance > rankingProfile.balance) {
+                        rankingArray.splice(j, 0, userProfile)
+                        added = true
+                        break
+                    }
+                }
+                if (added === false) {
+                    rankingArray.push(userProfile)
+                }
+            }
+            /*
+            We calculate the User Profile Ranking based on the posotion at the rankingArray
+            */
+            let rankingTable = []
+            for (let j = 0; j < rankingArray.length; j++) {
+                let rankingProfile = rankingArray[j]
+                rankingProfile.ranking = j + 1
+                let rankingTableRow = {
+                    userProfile: rankingProfile.name,
+                    balance: SA.projects.governance.utilities.balances.toSABalanceString(rankingProfile.balance), 
+                    ranking: rankingProfile.ranking
+                }
+                rankingTable.push(rankingTableRow)
+            }
+            console.log((new Date()).toISOString(), '[INFO] User Profiles Ranking Table.')
+            console.log('')
+            console.table(rankingTable)
+            console.log('')
         }
 
         function setupPermissionedNetwork() {

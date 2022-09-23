@@ -19,6 +19,8 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
         initialize: initialize,
         run: run
     }
+
+    const MINUTES_TO_UPDATE_USER_PROFILES_AND_BALANCES = 10
     return thisObject
 
     async function initialize(userAppCodeName, p2pNetworkClientIdentity, pullUserProfiles) {
@@ -27,8 +29,8 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
         thisObject.p2pNetworkClientIdentity = p2pNetworkClientIdentity
         await run()
         if (thisObject.pullUserProfiles === true) {
-            setInterval(run, 60000 * 5)
-            console.log((new Date()).toISOString(), '[INFO] Updates of all in-memory User Profiles are being schedulled to run every 5 minutes.')
+            setInterval(run, 60000 * MINUTES_TO_UPDATE_USER_PROFILES_AND_BALANCES)
+            console.log((new Date()).toISOString(), '[INFO] Updates of all in-memory User Profiles are being schedulled to run every ' + MINUTES_TO_UPDATE_USER_PROFILES_AND_BALANCES + ' minutes.')
             console.log('')
         }
     }
@@ -66,7 +68,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
         }
 
         function onProfilesNotPulled(err) {
-            console.log((new Date()).toISOString(), '[INFO] User Profiles on disk Not Updated from Github Governance Repository. Retrying in 5 Minutes. -> err.message = ' + err.message)
+            console.log((new Date()).toISOString(), '[INFO] User Profiles on disk Not Updated from Github Governance Repository. Retrying in ' + MINUTES_TO_UPDATE_USER_PROFILES_AND_BALANCES + ' Minutes. -> err.message = ' + err.message)
             console.log(' ')
         }
     }

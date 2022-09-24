@@ -98,6 +98,7 @@
                     /* We will prepare first the infrastructure needed for the bot to run. There are 3 modules we need to sucessfullly initialize first. */
 
                     let processExecutionEvents
+                    let processTradingSignals
                     let userBot;
                     let processFramework;
                     let statusDependencies;
@@ -218,8 +219,8 @@
 
                     function initializeProcessTradingSignals() {
                         try {
-                            processExecutionEvents = TS.projects.foundations.processModules.processExecutionEvents.newFoundationsProcessModulesProcessTradingSignals(processIndex)
-                            processExecutionEvents.initialize(onInizialized);
+                            processTradingSignals = TS.projects.foundations.processModules.processTradingSignals.newFoundationsProcessModulesProcessTradingSignals(processIndex)
+                            processTradingSignals.initialize(onInizialized);
 
                             function onInizialized(err) {
                                 try {
@@ -271,7 +272,7 @@
 
                     function startProcessTradingSignals() {
                         try {
-                            processExecutionEvents.start(onStarted);
+                            processTradingSignals.start(onStarted);
 
                             function onStarted(err) {
                                 try {
@@ -589,12 +590,12 @@
 
                     function finishProcessTradingSignals() {
                         try {
-                            processExecutionEvents.finish(onFinished);
+                            processTradingSignals.finish(onFinished);
 
                             function onFinished(err) {
                                 try {
-                                    processExecutionEvents.finalize()
-                                    processExecutionEvents = undefined
+                                    processTradingSignals.finalize()
+                                    processTradingSignals = undefined
 
                                     switch (err.result) {
                                         case TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE.result: {

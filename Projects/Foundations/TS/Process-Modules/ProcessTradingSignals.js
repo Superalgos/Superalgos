@@ -20,12 +20,14 @@ exports.newFoundationsProcessModulesProcessTradingSignals = function (processInd
         try {
             if (
                 TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].config !== undefined &&
-                TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].config.waitForSignalsToRunNextLoop === true
+                TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].config.waitForSignalsToRunNextLoop === true && 
+                TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS !== undefined
             ) {
                 /*
                 We set this value so that the process can handle correctly the wait times at the process loop control.
                 */
                 TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).WAIT_FOR_TRADING_SIGNAL_TO_ARRIVE = true
+                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[INFO] initialize -> We will need to wait for a Trading Signal to arrive at every loop excecution.")
             }
 
             callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
@@ -55,7 +57,13 @@ exports.newFoundationsProcessModulesProcessTradingSignals = function (processInd
             We do need to wait, so that is what we do.
             */
             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[INFO] start -> We need to wait for a Trading Signal to arrive in order to continue.")
-            callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
+            TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS.incomingCandleSignals.callMeWhenSignalReceived(onSignalReceived)
+            TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, undefined, undefined, "Waiting for a Trading Signal to Continue.")
+
+            function onSignalReceived() {
+                TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, undefined, undefined, "Continuing Execution after Trading Signal Arrived.")
+                callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
+            }
 
         } catch (err) {
             TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err

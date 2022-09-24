@@ -19,8 +19,8 @@ exports.newFoundationsProcessModulesProcessTradingSignals = function (processInd
     function initialize(callBackFunction) {
         try {
             if (
-                TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].config !== undefined &&
-                TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].config.waitForSignalsToRunNextLoop === true && 
+                TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config !== undefined &&
+                TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.waitForSignalsToRunNextLoop === true && 
                 TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS !== undefined
             ) {
                 /*

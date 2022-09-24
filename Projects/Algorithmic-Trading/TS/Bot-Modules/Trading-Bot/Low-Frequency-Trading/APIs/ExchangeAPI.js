@@ -23,18 +23,36 @@
     let maxRate
     
     
-    
+    /*
+    CCXT and its unifiedAPI require a different way to find the pair because now not only spot is supported
+    but swaps and futures too.
+    Form CCXT
+    BTC/USD         -> Could be spot
+    BTC/USDT:USDT   -> Swap Linear
+    BTC/USDT:BTC    -> Swap Inverse
+
+    This is an issue in SA at the moment, since when saving data there is no distinction in folders
+
+    -> Old code left below for a quick reverse in case of issues
+
     let baseAsset = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName
     let quotedAsset = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
     const symbol = baseAsset + '/' + quotedAsset
+    */
+   
+    // Following line is left for history purposes 
+    // const symbol = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + '/' + TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
+       
+    // Here the pair is passed to ccxt using the full codeName of the Market under Exchnage Markets
+    const symbol = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.config.codeName
 
     const ccxt = SA.nodeModules.ccxt
 
     return thisObject;
 
     function initialize() {
-        // GIA' DICHIARATO SOPRA tradingSystem = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingSystem
-        // GIA' DICHIARATO SOPRA exchangeConfig = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config    
+        // MOVED AT TOP tradingSystem = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingSystem
+        // MOVED AT TOP exchangeConfig = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config    
         
         // Take the codeName and check if sandBox mode is to enable
         exchangeId = exchangeConfig.codeName        
@@ -56,7 +74,7 @@
             hostname = exchangeConfig.hostname          // Custom hostname
         }
         
-
+        // Exchange API parameters
         let key
         let secret
         let uid
@@ -71,6 +89,7 @@
             }
         }
 
+        // OKEX exchange compatibility
         switch (exchangeId) {
             case 'okex':
             case 'okex3':
@@ -184,8 +203,8 @@
         // let symbol = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + '/' + TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName    // CCXT: a string literal symbol of the market you wish to trade on, like BTC/USD, ZEC/ETH, DOGE/DASH, etc
         let amount // = tradingEngineOrder.orderBaseAsset.size.value           // CCXT: how much of currency you want to trade, in Base Asset.
         
-        // ***** The above amount can be better configured?
-        // What about a check if market is linear or inverse?
+        // The above amount can be better configured?
+        // Check if market is linear or inverse?
         // I propose to use the definition inside the exchange config -> options -> defaultType: inverse
 
 
@@ -201,22 +220,24 @@
             } 
         } else {amount = tradingEngineOrder.orderBaseAsset.size.value}
 
-        
-        
-          
-        
+        // Uncomment for debug
         // console.log ('exchangeConfig.options.defaultType is: ' + exchangeConfig.options.defaultType)
+        
         
         // Some exchanges need additional params once connected
         // positionParams is at the Market Config
-        // orderParams is at the Order Config
+        // orderParams is at the Order Config in a Strategy -> Control how order is sent -> i.e. send a Reduce Only order
         let positionParams = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.config.positionParams
         let orderParams = tradingSystemOrder.config.orderParams
+        
+        // Uncomment for debug
         // console.log (positionParams)
         // console.log (orderParams)
 
         // Above params are merged and passed to ccxt
         let params = {...positionParams, ...orderParams};
+        
+        // Uncomment for debug
         // console.log ('Merged Params from Market + Order Close Stage')
         // console.log (params)
 

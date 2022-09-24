@@ -34,7 +34,7 @@
         "config": true
     },
     "initialValues": {
-        "config": "{ \n\"startDate\": \"2021-01-01\"\n}"
+        "config": "{ \n\"startDate\": \"2021-01-01\", \n\"waitForSignalsToRunNextLoop\": false \n}"
     },
     "level": 3,
     "attachingRules": {

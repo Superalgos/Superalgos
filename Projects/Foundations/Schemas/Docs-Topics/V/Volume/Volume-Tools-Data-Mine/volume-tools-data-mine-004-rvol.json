@@ -1,0 +1,62 @@
+{
+    "topic": "Volume Tools Data Mine",
+    "pageNumber": "4",
+    "type": "RVOL",
+    "definition": {
+        "text": "The Relative Volume (RVOL) indicator calculates the projected volume using linear regression, and presents any deviation from the expected output as a potential entry point for a trade."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "RVOL on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "The calculated \"Anomaly\" value, if above the moving average value can be used as a potential entry point to a trade as it signifies extra volume is happening around the current level of price action."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/volume-RVOL.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| RVOL | rvol | volume, ma, anomaly |"
+        },
+        {
+            "style": "Text",
+            "text": "The moving average length, and standard deviation thresholds of the indicator's calculations can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"RVOL\" Procedure Loop."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/volume-RVOL-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "A potential entry point could be as follows:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.rvol.anomaly > chart.at01hs.rvol.ma"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

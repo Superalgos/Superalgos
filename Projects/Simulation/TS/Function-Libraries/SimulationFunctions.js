@@ -232,9 +232,10 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
                     This means that the signal we are waiting for has not yet arrived, so
                     we are going to wait for one second and check it again.
                     */
+                    const MAX_RETRIES = 90
                     retries++
-                    if (retries <= 90) {
-                        console.log((new Date()).toISOString(), '[INFO] Waiting 1 second for the signals of the current candle to arrive. Candle Index = ' + candleIndex +  ' # of retries = ' + retries + ' / 90')
+                    if (retries <= MAX_RETRIES) {
+                        console.log((new Date()).toISOString(), '[INFO] Waiting 1 second for the signals of the current candle to arrive. Candle Index = ' + candleIndex + ' # of retries = ' + retries + ' / ' + MAX_RETRIES)
                         await SA.projects.foundations.utilities.asyncFunctions.sleep(1000)
                     }
                     else {

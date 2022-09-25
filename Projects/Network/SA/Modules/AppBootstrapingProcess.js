@@ -58,6 +58,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
             maxConcurrentProcesses: 6,
         }
         git = simpleGit(options)
+        await git.stash()
         await git.pull('upstream', 'develop')
             .then(onProfilesPulled)
             .catch(onProfilesNotPulled)
@@ -363,7 +364,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                 }
                 rankingTable.push(rankingTableRow)
             }
-            console.log((new Date()).toISOString(), '[INFO] User Profiles Ranking Table.')
+            console.log((new Date()).toISOString(), '[INFO] User Profiles Ranking Table Calculated based on latest User Profile Balances. See the Ranking Table Below: ')
             console.log('')
             console.table(rankingTable)
             console.log('')

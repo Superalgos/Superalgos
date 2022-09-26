@@ -14,7 +14,8 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
     const REPORT_NAME = networkCodeName + '-' + (new Date()).toISOString().substring(0, 16).replace("T", "-").replace(":", "-").replace(":", "-") + '-00'
     const MUST_BE_ON_PARAMS = [
         'CANDLES_CANDLES-VOLUMES_CANDLES_CANDLE_MAX', 'CANDLES_CANDLES-VOLUMES_CANDLES_CANDLE_MIN',
-        'CANDLES_CANDLES-VOLUMES_CANDLES_CANDLE_CLOSE', 'CANDLES_CANDLES-VOLUMES_CANDLES_CANDLE_OPEN'
+        'CANDLES_CANDLES-VOLUMES_CANDLES_CANDLE_CLOSE', 'CANDLES_CANDLES-VOLUMES_CANDLES_CANDLE_OPEN',
+        'CANDLES_CANDLES-VOLUMES_VOLUMES_VOLUME_BUY'
     ]
 
     let parametersRanges = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.parametersRanges
@@ -41,6 +42,12 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
                 for (let i = 0; i < thisObject.testCasesArray.length; i++) {
                     let testCase = thisObject.testCasesArray[i]
                     thisObject.testCasesMap.set(testCase.parametersHash, testCase)
+                    if (TS.projects.foundations.globals.taskConstants.TEST_SERVER.forecastCasesManager.forecastCasesArray == undefined) {
+                        TS.projects.foundations.globals.taskConstants.TEST_SERVER.forecastCasesManager.initialize()
+                    }
+                    if (testCase.status === "Tested") {
+                        TS.projects.foundations.globals.taskConstants.TEST_SERVER.forecastCasesManager.addToforecastCases(testCase)
+                    }
                 }
             }
             generateTestCases()
@@ -68,17 +75,25 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
             const parametersIsON = getParametersIsON()
             const AMOUNT_OF_VARIABLES = parametersIsON.length
 
-            let combinations = []
-            for (let i = 0; i < (1 << AMOUNT_OF_VARIABLES); i++) {
-                let combination = []
-                //Increasing or decreasing depending on which direction
-                for (let j = AMOUNT_OF_VARIABLES - 1; j >= 0; j--) {
-                    let key = parametersIsON[j]
-                    let parameter = { key: key, value: Boolean(i & (1 << j))?"ON":"OFF" }
-                    combination.push(parameter)
-                }
-                combinations.push(combination);
+            console.log("Testing this features")
+            console.table(parametersIsON)
 
+            let combinations = []
+            for (let k = 0; k < parametersRanges.LIST_OF_ASSETS.length; k++) {
+                for (let l = 0; l < parametersRanges.LIST_OF_TIMEFRAMES.length; l++) {
+                    for (let i = 0; i < (1 << AMOUNT_OF_VARIABLES); i++) {
+                        let combination = []
+                        //Increasing or decreasing depending on which direction
+                        for (let j = AMOUNT_OF_VARIABLES - 1; j >= 0; j--) {
+                            let key = parametersIsON[j]
+                            let parameter = { key: key, value: Boolean(i & (1 << j))?"ON":"OFF" }
+                            combination.push(parameter)
+                        }
+                        combination.push({ key: 'LIST_OF_ASSETS', value: parametersRanges.LIST_OF_ASSETS[k] })
+                        combination.push({ key: 'LIST_OF_TIMEFRAMES', value: parametersRanges.LIST_OF_TIMEFRAMES[l] })
+                        combinations.push(combination);
+                    }        
+                }
             }
             return combinations
         }
@@ -112,9 +127,19 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
 
             // List of all case combinations
             let allCombinations = getAllCombinations()
+            console.table(allCombinations)
 
             // Parameters are being set.
             setPreparameters(0)
+            function setPreparameters(index) {
+                let propertyName = Object.keys(parametersRanges)[index]
+                if (propertyName !== undefined) {
+                    for (let i = 0; i < parametersRanges[propertyName].length; i++) {
+                        preParameters[propertyName] = parametersRanges[propertyName][i]
+                        setPreparameters(index + 1)
+                    }
+                }
+            }
 
             // The values of the parameters are set according to their combinations.
             for (let i = 0; i < allCombinations.length; i++) {
@@ -125,15 +150,6 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
                 addToCaseList()
             }
 
-            function setPreparameters(index) {
-                let propertyName = Object.keys(parametersRanges)[index]
-                if (propertyName !== undefined) {
-                    for (let i = 0; i < parametersRanges[propertyName].length; i++) {
-                        preParameters[propertyName] = parametersRanges[propertyName][i]
-                        setPreparameters(index + 1)
-                    }
-                }
-            }
             function addToCaseList() {
                 let parameters = getTestParameters(preParameters)
                 let parametersHash = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.hash(JSON.stringify(parameters))
@@ -362,18 +378,35 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
                 return
             }
             testCase.status = 'Tested'
-            testCase.predictions = testResult.predictions
-            testCase.errorRMSE = testResult.errorRMSE
-            testCase.percentageErrorRMSE = calculatePercentageErrorRMSE(testResult)
             testCase.enlapsedSeconds = testResult.enlapsedTime.toFixed(0)
             testCase.enlapsedMinutes = (testResult.enlapsedTime / 60).toFixed(2)
             testCase.enlapsedHours = (testResult.enlapsedTime / 3600).toFixed(2)
             testCase.testedByInstance = currentClientInstance
+            testCase.pythonScriptName = testResult.pythonScriptName
             testCase.testedByProfile = userProfile
             testCase.timestamp = (new Date()).valueOf()
             testCase.testServer = {
-                userProfile: '',
+                userProfile: ((testResult.testServer != undefined) && (testResult.testServer.userProfile != undefined) ? testResult.testServer.userProfile : ''),
                 instance: TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName
+            }
+            //LSTM
+            if (testResult.errorRMSE != undefined) {
+                testCase.predictions = testResult.predictions
+                testCase.errorRMSE = testResult.errorRMSE
+                testCase.percentageErrorRMSE = calculatePercentageErrorRMSE(testResult)  
+            //RL      
+            } else if (testResult["0"] != undefined) {
+                testCase.predictions = testResult["2"].current_action
+                testCase.ratio = {
+                    train: testResult["0"].meanNetWorthAtEnd / testResult["0"].NetWorthAtBegin,
+                    test: testResult["1"].meanNetWorthAtEnd / testResult["1"].NetWorthAtBegin,
+                    validate: testResult["2"].meanNetWorthAtEnd / testResult["2"].NetWorthAtBegin
+                }
+                testCase.std = {
+                    train: testResult["0"].stdNetWorthAtEnd ,
+                    test: testResult["1"].stdNetWorthAtEnd ,
+                    validate: testResult["2"].stdNetWorthAtEnd 
+                }
             }
 
             let logQueue = []

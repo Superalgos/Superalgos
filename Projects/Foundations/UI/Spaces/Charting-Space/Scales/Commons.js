@@ -1,5 +1,5 @@
 
-function drawScaleDisplay(label1, label2, label3, xExtraOffSet1, xExtraOffSet2, xExtraOffSet3, icon1, icon2, container, backgroundColor) {
+function drawScaleDisplay(label1, label2, label3, xExtraOffSet1, xExtraOffSet2, xExtraOffSet3, icon1, icon2, container, backgroundColor, textColor) {
     const RED_LINE_HIGHT = 4
     const OPACITY = 1
 
@@ -21,9 +21,16 @@ function drawScaleDisplay(label1, label2, label3, xExtraOffSet1, xExtraOffSet2, 
     label2 = label2.substring(0, 20)
     label3 = label3.substring(0, 20)
 
-    UI.projects.foundations.utilities.drawPrint.drawLabel(label1, 1 / 2, 92 / 100, 0, 0, 9, container)
-    UI.projects.foundations.utilities.drawPrint.drawLabel(label2, 1 / 2, 42 / 100, 0, 0, 17, container)
-    UI.projects.foundations.utilities.drawPrint.drawLabel(label3, 1 / 2, 67 / 100, 0, 0, 9, container)
+    if (textColor !== undefined) {
+        UI.projects.foundations.utilities.drawPrint.drawLabel(label1, 1 / 2, 92 / 100, 0, 0, 9, container, textColor)
+        UI.projects.foundations.utilities.drawPrint.drawLabel(label2, 1 / 2, 42 / 100, 0, 0, 17, container, textColor)
+        UI.projects.foundations.utilities.drawPrint.drawLabel(label3, 1 / 2, 67 / 100, 0, 0, 9, container, textColor)
+    } else {
+        UI.projects.foundations.utilities.drawPrint.drawLabel(label1, 1 / 2, 92 / 100, 0, 0, 9, container)
+        UI.projects.foundations.utilities.drawPrint.drawLabel(label2, 1 / 2, 42 / 100, 0, 0, 17, container)
+        UI.projects.foundations.utilities.drawPrint.drawLabel(label3, 1 / 2, 67 / 100, 0, 0, 9, container)
+    }
+
 
     UI.projects.foundations.utilities.drawPrint.drawIcon(icon1, 1 / 8, 1 / 2, 0, 0, 28, container)
     UI.projects.foundations.utilities.drawPrint.drawIcon(icon2, 7 / 8, 1 / 2, 0, 0, 28, container)

@@ -22,8 +22,8 @@
             },
             {
                 "language": "RU",
-                "text": "Если вы хотите поддержать людей, создающих Superalgos, то покупка токенов в PancakeSwap - это то, что вам нужно! Вот почему...",
-                "updated": 1642773631008
+                "text": "Если вы хотите поддержать людей, создающих Superalgos, то покупка токенов в PancakeSwap или 1Inch - это то, что вам нужно! Вот почему...",
+                "updated": 1662035458578
             },
             {
                 "language": "TR",
@@ -51,8 +51,8 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Superalgos - это криптопроект, принадлежащий сообществу. Собственный токен используется для стимулирования вкладов, что означает, что проект распределяет токены исключительно среди вкладчиков. Каждый доллар, который вы потратите на покупку токена Superalgos SA, пойдет непосредственно тем, кто создал это потрясающее программное обеспечение!",
-                    "updated": 1642773662355
+                    "text": "Superalgos - это криптопроект, принадлежащий сообществу. Собственный токен используется для стимулирования вкладов, то есть проект распределяет токен исключительно среди вкладчиков в проект с открытым исходным кодом.",
+                    "updated": 1662035519627
                 },
                 {
                     "language": "TR",
@@ -64,7 +64,14 @@
         },
         {
             "style": "Success",
-            "text": "Every dollar you spend buying the Superalgos SA Token goes directly to the people bringing you this awesome piece of software!"
+            "text": "Every dollar you spend buying the Superalgos SA Token goes directly to the people bringing you this awesome piece of software!",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Каждый доллар, потраченный вами на покупку Superalgos SA Token, идет непосредственно тем, кто создал это потрясающее программное обеспечение!",
+                    "updated": 1662035534953
+                }
+            ]
         },
         {
             "style": "Link",

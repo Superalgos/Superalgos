@@ -98,6 +98,10 @@
         {
             "style": "Chapter",
             "text": "XVIII->Foundations->Topic->Undulated Data Mine->"
+        },
+		{
+            "style": "Chapter",
+            "text": "XIX->Foundations->Topic->Volume Tools Data Mine->"
         }
     ]
 }

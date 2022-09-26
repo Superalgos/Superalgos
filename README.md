@@ -104,7 +104,7 @@ All procedures (other than pre-requisites) are the same for Windows, Linux, or M
 
 You will need the latest versions of Node JS and Git installed. You will also need a web browser to access the interface. Google Chrome is recommended because it is the most tested browser being used by the development team and power users.
 
-Follow the installation wizards to install the latest NodeJS and Git. If desired also install Chrome.
+Follow the installation wizards to install the latest NodeJS and Git. Make sure to follow all the default and recommended settings while installing Git. If desired also install Chrome.
 
 - [Node.js download page](https://nodejs.org/en/download/)
 
@@ -383,7 +383,13 @@ At the Plugins hierarchy, new guys appear, each one with their own type of plugi
 
 # :small_orange_diamond: Pre-Requisites Notes
 
-## Windows (Optional)
+## Windows Pre-Requisites
+
+When following the windows installer for Git, it is very important to make sure that you follow all the recommended and default settings. One of the most important one of these can be found in the screenshot below:
+
+![IMG_0764](https://user-images.githubusercontent.com/55707292/189213902-7f7b3642-545f-47a7-89fc-3c45971c885d.jpg)
+
+### Optional Windows Pre-Requisites
 
 For windows users interested in testing the (partial and incomplete) TensorFlow integration, you need to install Python.
 
@@ -518,6 +524,8 @@ nvm run node <command string/var>
 
 > :white_check_mark: **NOTE FOR USERS INSTALLING ON LINUX:** If after running `node setup` you are prompted to address issues by running 'npm audit fix' ignore this step.
 
+> :white_check_mark: **NOTE FOR USERS INSTALLING ON COMPUTERS WITH 1GB OF RAM** Superalgos has just about outgrown computers with only 1GB of RAM. For Instance a Raspberry Pi 3 does run the Getting Started Tutorials, but over time (Into 2023) this may significantly slow and could even stop. If still wish to use a computer with only 1GB of RAM (you have been warned), you will need to use version 16.x of Node.js as version 18.x needs well over 1 GB of RAM during setup. 
+
 ## General Troubleshooting
 
 If you are having difficulty running the node setup command here are a few common issues that may be getting in the way.
@@ -618,6 +626,15 @@ sudo mv superalgos.service /etc/systemd/system
 sudo systemctl daemon-reload
 sudo systemctl enable superalgos
 sudo systemctl start superalgos
+```
+To check the service status
+```sh
+sudo systemctl status superalgos
+```
+To stop the service:
+```sh
+sudo systemctl stop superalgos
+sudo systemctl disable superalgos
 ```
 
 To see the output of Superalgos, use:

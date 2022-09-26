@@ -14,6 +14,7 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
         initialize: initialize,
         finalize: finalize
     }
+    const REPORT_NAME = networkCodeName + '-' + 'Forecaster' + '-' + (new Date()).toISOString().substring(0, 16).replace("T", "-").replace(":", "-").replace(":", "-") + '-00'
 
     return thisObject
 
@@ -63,32 +64,68 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
         for (let i = 0; i < thisObject.forecastCasesArray.length; i++) {
             let forecastCase = thisObject.forecastCasesArray[i]
             if (forecastCase.mainAsset === testCase.mainAsset && forecastCase.mainTimeFrame === testCase.mainTimeFrame) {
-                if (Number(testCase.percentageErrorRMSE) < Number(forecastCase.percentageErrorRMSE) && Number(testCase.percentageErrorRMSE) >= 0) {
-                    thisObject.forecastCasesArray.splice(i, 1)
-                    thisObject.forecastCasesMap.delete(testCase.id)
-                    addForcastCase(testCase)
-                    return
+                //LSTM
+                if (forecastCase.percentageErrorRMSE !== undefined) {
+                    if (Number(testCase.percentageErrorRMSE) < Number(forecastCase.percentageErrorRMSE) && Number(testCase.percentageErrorRMSE) >= 0) {
+                        thisObject.forecastCasesArray.splice(i, 1)
+                        thisObject.forecastCasesMap.delete(testCase.id)
+                        addForcastCase(testCase)
+                    //    return
+                    } else {
+                    //    continue
+                    }   
+                //RL     
+                } else if (forecastCase.ratio !== undefined) {
+                    if (Number(testCase.ratio.validate) > Number(forecastCase.ratio.validate) ) {
+                        thisObject.forecastCasesArray.splice(i, 1)
+                        thisObject.forecastCasesMap.delete(testCase.id)
+                        addForcastCase(testCase)
+                     //   return
+                    } else {
+                     //   continue
+                    }
                 } else {
-                    return
+                   // continue
                 }
+            } else {
+                addForcastCase(testCase)
+              //  return                
             }
         }
-        addForcastCase(testCase)
+        if (thisObject.forecastCasesArray.length == 0) addForcastCase(testCase)
         saveForecastCasesFile()
 
+        console.log("Testserver: Current Forecast table:")
+        console.table(thisObject.forecastCasesArray)
+
         function addForcastCase(testCase) {
-            if (testCase.forcastedCandle === undefined) { testCase.forcastedCandle = {} }
+            let testServer
+            let parameters  
+            let predictions     
+            let forcastedCandle     
+            try {
+                testServer = JSON.parse(JSON.stringify(testCase.testServer))
+            } catch (err) {}                    
+            try {
+                parameters = JSON.parse(JSON.stringify(testCase.parameters))
+            } catch (err) {}                    
+            try {
+                predictions = JSON.parse(JSON.stringify(testCase.predictions))
+            } catch (err) {}                    
+            try {
+                forcastedCandle = JSON.parse(JSON.stringify(testCase.forcastedCandle))
+            } catch (err) {}                    
             let forecastCase = {
                 id: testCase.id,
                 caseIndex: thisObject.forecastCasesArray.length,
-                testServer: JSON.parse(JSON.stringify(testCase.testServer)),
+                testServer: testServer,
                 mainAsset: testCase.mainAsset,
                 mainTimeFrame: testCase.mainTimeFrame,
                 percentageErrorRMSE: testCase.percentageErrorRMSE,
-                parameters: JSON.parse(JSON.stringify(testCase.parameters)),
+                parameters: parameters,
                 parametersHash: testCase.parametersHash,
-                predictions: JSON.parse(JSON.stringify(testCase.predictions)),
-                forcastedCandle: JSON.parse(JSON.stringify(testCase.forcastedCandle)),
+                predictions: predictions,
+                forcastedCandle: forcastedCandle,
                 timeSeriesFileName: testCase.timeSeriesFileName,
                 timestamp: testCase.timestamp,
                 when: testCase.when,
@@ -149,6 +186,11 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
                 caseIndex: forecastCase.caseIndex,
                 totalCases: thisObject.forecastCasesArray.length,
                 parameters: forecastCase.parameters,
+                pythonScriptName: forecastCase.pythonScriptName,
+                testServer: {
+                    userProfile: ((forecastCase.testServer != undefined) && (forecastCase.testServer.userProfile != undefined) ? forecastCase.testServer.userProfile : ''),
+                    instance: ((forecastCase.testServer != undefined) && (forecastCase.testServer.instance != undefined) ? forecastCase.testServer.instance : TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName)
+                },
                 files: TS.projects.foundations.globals.taskConstants.TEST_SERVER.dataBridge.getFiles(testCase)
             }
             return nextForecastCase
@@ -167,6 +209,11 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
                     id: forecastCase.id,
                     caseIndex: forecastCase.caseIndex,
                     parameters: forecastCase.parameters,
+                    pythonScriptName: forecastCase.pythonScriptName,
+                    testServer: {
+                        userProfile: ((forecastCase.testServer != undefined) && (forecastCase.testServer.userProfile != undefined) ? forecastCase.testServer.userProfile : ''),
+                        instance: ((forecastCase.testServer != undefined) && (forecastCase.testServer.instance != undefined) ? forecastCase.testServer.instance : TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName)
+                    },
                     files: TS.projects.foundations.globals.taskConstants.TEST_SERVER.dataBridge.getFiles(testCase)
                 }
                 return thisForecastCase
@@ -184,15 +231,32 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
             } 
             if (forecastCase != undefined) {
                 forecastCase.status = 'Forecasted'
-                forecastCase.predictions = forecastResult.predictions
-                forecastCase.errorRMSE = forecastResult.errorRMSE
-                forecastCase.percentageErrorRMSE = calculatePercentageErrorRMSE(forecastResult)
                 forecastCase.enlapsedSeconds = forecastResult.enlapsedTime.toFixed(0)
                 forecastCase.enlapsedMinutes = (forecastResult.enlapsedTime / 60).toFixed(2)
                 forecastCase.enlapsedHours = (forecastResult.enlapsedTime / 3600).toFixed(2)
                 forecastCase.forecastedBy = forecastedBy
+                forecastCase.testServer = forecastResult.testServer
+                forecastCase.pythonScriptName = forecastResult.pythonScriptName     
                 forecastCase.timestamp = (new Date()).valueOf()
-    
+                //LSTM
+                if (forecastResult.errorRMSE != undefined) {       
+                    forecastCase.predictions = forecastResult.predictions
+                    forecastCase.errorRMSE = forecastResult.errorRMSE
+                    forecastCase.percentageErrorRMSE = calculatePercentageErrorRMSE(forecastResult)
+                //RL      
+                } else if (forecastResult["0"] != undefined) {      
+                    forecastCase.predictions = forecastResult["2"].current_action
+                    forecastCase.ratio = {
+                        train: forecastResult["0"].meanNetWorthAtEnd / forecastResult["0"].NetWorthAtBegin,
+                        test: forecastResult["1"].meanNetWorthAtEnd / forecastResult["1"].NetWorthAtBegin,
+                        validate: forecastResult["2"].meanNetWorthAtEnd / forecastResult["2"].NetWorthAtBegin
+                    }
+                    forecastCase.std = {
+                        train: forecastResult["0"].stdNetWorthAtEnd ,
+                        test: forecastResult["1"].stdNetWorthAtEnd ,
+                        validate: forecastResult["2"].stdNetWorthAtEnd 
+                    }    
+                }
                 let logQueue = []
                 for (let i = Math.max(0, forecastResult.caseIndex - 5); i < Math.min(thisObject.forecastCasesArray.length, forecastResult.caseIndex + 5); i++) {
                     let forecastCase = thisObject.forecastCasesArray[i]
@@ -218,15 +282,89 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
         }
 
         function saveForecastReportFile() {
-            let forecastReportFile = undefined
+            let forecastReportFile = ""
+            //read existing report file, if it's not empty append new data
+            let fileContent = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.loadFile(global.env.PATH_TO_BITCOIN_FACTORY + "/OutputData/ForecastReports/" + REPORT_NAME + ".CSV")
+            if (fileContent !== undefined) {
+                forecastReportFile = fileContent
+            }            
 
             for (let i = 0; i < thisObject.forecastCasesArray.length; i++) {
                 let forecastCase = thisObject.forecastCasesArray[i]
                 if (forecastCase.status === 'Forecasted') {
-                //ToDo
+                    let forecastReportFileRow = ""
+                    /* Header */
+                    if (forecastReportFile === "") {
+                        addHeaderFromObject(forecastCase)
+                        function addHeaderFromObject(jsObject) {
+                            for (const property in jsObject) {
+                                if (
+                                    property === "testedBy" ||
+                                    property === "timestamp" ||
+                                    property === "when"
+                                ) {
+                                    continue
+                                }
+                                let label = property.replace('NUMBER_OF_', '').replace('LIST_OF_', '')
+                                if (forecastReportFileRow !== "") {
+                                    forecastReportFileRow = forecastReportFileRow + ","
+                                }
+                                if (Array.isArray(jsObject[property]) === true) {
+                                    forecastReportFileRow = forecastReportFileRow + label
+                                    for (let j = 0; j < jsObject[property].length; j++) {
+                                        forecastReportFileRow = forecastReportFileRow + ","
+                                        forecastReportFileRow = forecastReportFileRow + label + ' ' + (j + 1)
+                                    }
+                                } else {
+                                    if (typeof jsObject[property] === 'object') {
+                                        forecastReportFileRow = forecastReportFileRow + label
+                                        addHeaderFromObject(jsObject[property])
+                                    } else {
+                                        forecastReportFileRow = forecastReportFileRow + label
+                                    }
+                                }
+                            }
+                        }                        
+                        forecastReportFileRow = forecastReportFileRow + "\r\n"
+                        forecastReportFile = forecastReportFile + forecastReportFileRow
+                        forecastReportFileRow = ""
+                    }
+                    /* Data */
+                    addDataFromObject(forecastCase)
+                    function addDataFromObject(jsObject) {
+                        for (const property in jsObject) {
+                            if (
+                                property === "testedBy" ||
+                                property === "timestamp" ||
+                                property === "when"
+                            ) {
+                                continue
+                            }
+                            if (forecastReportFileRow !== "") {
+                                forecastReportFileRow = forecastReportFileRow + ","
+                            }
+                            if (Array.isArray(jsObject[property]) === true) {
+                                forecastReportFileRow = forecastReportFileRow + jsObject[property].length
+                                for (let j = 0; j < jsObject[property].length; j++) {
+                                    forecastReportFileRow = forecastReportFileRow + ","
+                                    let arrayItem = jsObject[property][j]
+                                    forecastReportFileRow = forecastReportFileRow + arrayItem
+                                }
+                            } else {
+                                if (typeof jsObject[property] === 'object') {
+                                    forecastReportFileRow = forecastReportFileRow + Object.keys(jsObject[property]).length
+                                    addDataFromObject(jsObject[property])
+                                } else {
+                                    forecastReportFileRow = forecastReportFileRow + jsObject[property]
+                                }
+                            }
+                        }
+                    }                    
+                    forecastReportFileRow = forecastReportFileRow + "\r\n"
+                    forecastReportFile = forecastReportFile + forecastReportFileRow                    
                 }
             }
-            if (forecastReportFile != undefined ) {
+            if (forecastReportFile != "" ) {
                 SA.nodeModules.fs.writeFileSync(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/" + TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName + "/OutputData/ForecastReports/" + REPORT_NAME + ".CSV", forecastReportFile)
             }
         }

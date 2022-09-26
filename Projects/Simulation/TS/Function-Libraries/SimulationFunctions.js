@@ -232,7 +232,7 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
                     This means that the signal we are waiting for has not yet arrived, so
                     we are going to wait for one second and check it again.
                     */
-                    const MAX_RETRIES = 5
+                    const MAX_RETRIES = 90
                     retries++
                     if (retries <= MAX_RETRIES) {
                         console.log((new Date()).toISOString(), '[INFO] Waiting 1 second for the signals of the current candle to arrive. Candle Index = ' + candleIndex + ' # of retries = ' + retries + ' / ' + MAX_RETRIES)

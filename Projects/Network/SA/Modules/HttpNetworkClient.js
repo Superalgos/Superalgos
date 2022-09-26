@@ -65,7 +65,7 @@ exports.newNetworkModulesHttpNetworkClient = function newNetworkModulesHttpNetwo
                 .catch(error => {
                     console.error('[ERROR] Error trying to send message to the P2P Network node via its http interface -> Error = ' + error)
                     promiseStatus = 'Rejected'
-                    reject()
+                    reject(error)
                 })
             function checkPromise() {
                 if (promiseStatus === 'Pending') {

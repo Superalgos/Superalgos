@@ -18,7 +18,7 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Trading Bot Instance->"
+        "compatibleTypes": "->Trading Bot Instance->Sensor Bot Instance->"
     },
     "referencingRules": {
         "compatibleTypes": "->Social Trading Bot->"

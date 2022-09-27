@@ -36,13 +36,13 @@
         },
         {
             "style": "Text",
-            "text": "The Community currently rewards these liquidity pools on BNB Chain (BSC):",
-            "updated": 1664114016460,
+            "text": "The Community currently rewards these liquidity pools on BNB Smart Chain (BSC):",
+            "updated": 1664309599264,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Die Community belohnt derzeit folgende Liquidity Pools auf der Binance Smart Chain (BSC):",
-                    "updated": 1644742331561
+                    "text": "Die Community belohnt derzeit folgende Liquidity Pools auf der BNB Smart Chain (BSC): ",
+                    "updated": 1664309655284
                 },
                 {
                     "language": "RU",

@@ -14,8 +14,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "In the current deployment, the Superalgos SA Token is available on BNB Chain (BSC) and Ethereum (ETH).",
-            "updated": 1664114106079,
+            "text": "In the current deployment, the Superalgos SA Token is available on BNB Smart Chain (BSC) and Ethereum (ETH).",
+            "updated": 1664309551825,
             "translations": [
                 {
                     "language": "RU",
@@ -26,7 +26,8 @@
         },
         {
             "style": "Text",
-            "text": "On BNB Chain (BSC) the Treasury Account is:"
+            "text": "On BNB Smart Chain (BSC) the Treasury Account is:",
+            "updated": 1664309569297
         },
         {
             "style": "Json",

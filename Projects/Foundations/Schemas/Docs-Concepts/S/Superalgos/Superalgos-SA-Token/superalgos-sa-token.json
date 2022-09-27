@@ -36,8 +36,8 @@
         },
         {
             "style": "Text",
-            "text": "The project is deploying versions of the token on each of the major blockchains to gain exposure to different communities and ecosystems. Currently, the token is available on BNB Chain (BSC) and Ethereum (ETH). At some point, you will be able to chose on what chain to get your rewards.",
-            "updated": 1664113790318,
+            "text": "The project is deploying versions of the token on each of the major blockchains to gain exposure to different communities and ecosystems. Currently, the token is available on BNB Smart Chain (BSC) and Ethereum (ETH). At some point, you will be able to chose on what chain to get your rewards.",
+            "updated": 1664309478481,
             "translations": [
                 {
                     "language": "RU",
@@ -108,7 +108,7 @@
         },
         {
             "style": "List",
-            "text": "BNB Chain / Binance Smart Chain (BSC) version: 500,000,000",
+            "text": "BNB Smart Chain (BSC) version: 500,000,000",
             "translations": [
                 {
                     "language": "TR",
@@ -116,7 +116,7 @@
                     "updated": 1642711686936
                 }
             ],
-            "updated": 1664113880806
+            "updated": 1664309488511
         },
         {
             "style": "List",

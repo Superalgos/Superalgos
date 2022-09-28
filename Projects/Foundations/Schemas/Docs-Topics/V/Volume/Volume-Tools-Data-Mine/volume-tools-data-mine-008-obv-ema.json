@@ -1,0 +1,58 @@
+{
+    "topic": "Volume Tools Data Mine",
+    "pageNumber": "7",
+    "type": "OBV EMA",
+    "definition": {
+        "text": "This indicator calculates an On Balance Volume (OBV) value and applies an exponential moving average (EMA) for comparison."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "OBV EMA on the Charts"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/volume-obv-ema.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| OnBalanceVolumeEMA | OBVEMA | value, ema |"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters for the indicator's calculations can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"OBV EMA\" Procedure Loop."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/volume-obv-ema-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator can be used as a confirmation to a primary indicator. An example of a confirmation could be when the OBV value exceeds it's EMA:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at15min.OBVEMA.value > chart.at15min.OBVEMA.ema"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

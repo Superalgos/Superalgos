@@ -182,7 +182,8 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
         async function extractInfoFromUserProfiles() {
 
             let userProfiles = Array.from(SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID)
-
+            console.log((new Date()).toISOString(), '[INFO] Updating wallet ballances for each User Profile')
+            console.log('')
             for (let i = 0; i < userProfiles.length; i++) {
                 let userProfile = userProfiles[i][1]
                 let signatureObject = userProfile.config.signature
@@ -216,9 +217,12 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                             break
                     }
 
+                    const WEB3_WAITING_TIME = 500
+                    await SA.projects.foundations.utilities.asyncFunctions.sleep(WEB3_WAITING_TIME)
                     const web3 = new SA.nodeModules.web3(URI)
                     const contractInst = new web3.eth.Contract(ABI, contractAddress)
                     let balance = await contractInst.methods.balanceOf(walletAddress).call().then(result => web3.utils.fromWei(result, 'ether'))
+                    console.log((new Date()).toISOString(), '[INFO] Wallet Balance of Chain: ' + chain + ', Address: ' + walletAddress + ', User Profile: ' + userProfile.name + ' is ' + SA.projects.governance.utilities.balances.toSABalanceString(balance))
 
                     return Number(balance)
                 }
@@ -359,7 +363,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                 rankingProfile.ranking = j + 1
                 let rankingTableRow = {
                     userProfile: rankingProfile.name,
-                    balance: SA.projects.governance.utilities.balances.toSABalanceString(rankingProfile.balance), 
+                    balance: SA.projects.governance.utilities.balances.toSABalanceString(rankingProfile.balance),
                     ranking: rankingProfile.ranking
                 }
                 rankingTable.push(rankingTableRow)

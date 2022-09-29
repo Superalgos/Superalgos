@@ -561,7 +561,7 @@ exports.newWeb3Server = function newWeb3Server() {
                             } else if (currentGasPrice > gasPriceLimit) {
                                 console.log("Current Gas Price", currentGasPrice, "Gwei exceeding limit of", gasPriceLimit, "Gwei. Holding transaction, retrying in 60 seconds...")
                                 await SA.projects.foundations.utilities.asyncFunctions.sleep(60000)
-                            } else if (currentGasPrice > 0 && currentGasPrice <= gasPriceLimit) {
+                            } else if (currentGasPrice > 0) {
                                 console.log("Current Gas Price", currentGasPrice, "Gwei, executing transaction.")
                                 /* Conversion to Wei */
                                 gasPrice = currentGasPrice * 1000000000

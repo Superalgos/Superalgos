@@ -453,6 +453,11 @@ exports.newWeb3Server = function newWeb3Server() {
                         return
                     }
 
+                    if (parseFloat(tokenAmount) <= 10000) {
+                        console.log('No need to send a transaction in this case, because we will distribute to this user from Binance Chain.')
+                        return
+                    }
+
                     let URI = ''
                     switch(chain) {
                         case 'BSC':

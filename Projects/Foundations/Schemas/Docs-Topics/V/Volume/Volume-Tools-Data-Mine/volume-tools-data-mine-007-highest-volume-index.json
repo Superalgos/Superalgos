@@ -1,0 +1,59 @@
+{
+    "topic": "Volume Tools Data Mine",
+    "pageNumber": "7",
+    "type": "Highest Volume Index",
+    "definition": {
+        "text": "This indicator compares the current volume with the highest volume from a lookback array."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Highest Volume Index on the Charts"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/volume-hvi.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| HighestVolumeIndex | HVI | value |"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters for the indicator's calculations can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"Highest Volume Index\" Procedure Loop."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/volume-hvi-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator can be used as a confirmation to a primary indicator. An example of a confirmation could be when the index volume value is higher than the 50 threshold:",
+            "updated": 1664147439035
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at30min.HVI.value > 50"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

@@ -225,7 +225,7 @@ exports.newNetworkModulesP2PNetworkStart = function newNetworkModulesP2PNetworkS
                 */
                 notDeliveredMessages.push(messageHeader)
 
-                if (error.code === 'ECONNREFUSED') {
+                if (error !== undefined && error.code === 'ECONNREFUSED') {
                     /*
                     This is not an HTTP error that can be retried at the same host. It is a disconnection from the host and we will need to reconnect to the same host or others.
                     */

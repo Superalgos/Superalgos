@@ -335,6 +335,22 @@ exports.newWeb3Server = function newWeb3Server() {
         }
     }
 
+    async function getGasPrice() {
+        const axios = SA.nodeModules.axios
+        const url = 'https://api.etherscan.io/api?module=gastracker&action=gasoracle'
+
+        try {
+            let response = await axios.get(url)
+            if (response.data.result.ProposeGasPrice !== undefined) {
+                return parseInt(response.data.result.ProposeGasPrice)
+            } else {
+                return undefined
+            }
+        } catch(err) {
+            console.log("Gas Price Query Error: ", err)
+        }
+    }
+
     async function recoverAddress(signature) {
         try {
             let signatureObject = JSON.parse(signature)
@@ -424,7 +440,6 @@ exports.newWeb3Server = function newWeb3Server() {
             console.log('----------------------------------------------------------------------------------------------')
 
             for (let i = 0; i < paymentsArray.length; i++) {
-                await SA.projects.foundations.utilities.asyncFunctions.sleep(15000)
                 let payment = paymentsArray[i]
                 let payingTreasuryAccount = treasuryAccountDict[payment['chain']]
                 await sendTokens(
@@ -449,12 +464,12 @@ exports.newWeb3Server = function newWeb3Server() {
                     console.log('')
 
                     if (tokenAmount === 0) {
-                        console.log('No need to send a transaction in this case.')
+                        console.log('Token amount 0. No need to send a transaction.')
                         return
                     }
 
                     if (parseFloat(tokenAmount) <= 10000) {
-                        console.log('No need to send a transaction in this case, because we will distribute to this user from Binance Chain.')
+                        console.log('Filtered out. No need to send a transaction.')
                         return
                     }
 
@@ -534,12 +549,38 @@ exports.newWeb3Server = function newWeb3Server() {
                             return
                     }                    
 
+                    /* Default Gas Price for all chains but ETH */
+                    let gasPrice = 5000000000
+
+                    /* If executing on ETH, verify if current gas price is within reasonable range and calculate price for transaction */
+                    if (chain === 'ETH') {
+                        /* Maximum gas price in Gwei we are ready to pay */
+                        const gasPriceLimit = 15
+                        let gasFeeOk = false
+                        while (gasFeeOk === false) {
+                            let currentGasPrice = await getGasPrice();
+                            if (currentGasPrice === undefined) {
+                                console.log("Could not obtain current gas price, retrying in 60 seconds...")
+                                await SA.projects.foundations.utilities.asyncFunctions.sleep(60000)
+                            } else if (currentGasPrice > gasPriceLimit) {
+                                console.log("Current Gas Price", currentGasPrice, "Gwei exceeding limit of", gasPriceLimit, "Gwei. Holding transaction, retrying in 60 seconds...")
+                                await SA.projects.foundations.utilities.asyncFunctions.sleep(60000)
+                            } else if (currentGasPrice > 0) {
+                                console.log("Current Gas Price", currentGasPrice, "Gwei, executing transaction.")
+                                /* Conversion to Wei */
+                                gasPrice = currentGasPrice * 1000000000
+                                gasFeeOk = true
+                            }
+                        }
+                    }
+                    
+                    
                     const nonce = await web3.eth.getTransactionCount(fromAddress);
                     console.log('Nonce:', nonce)
 
                     const rawTransaction = {
                         "from": fromAddress,
-                        "gasPrice": web3.utils.toHex(5000000000),
+                        "gasPrice": web3.utils.toHex(gasPrice),
                         "gasLimit": web3.utils.toHex(210000),
                         "to": contractAddressDict[chain], "value": "0x0",
                         "data": contract.methods.transfer(toAddress, amountBigNumber).encodeABI(),
@@ -561,6 +602,8 @@ exports.newWeb3Server = function newWeb3Server() {
                 } catch (err) {
                     console.log((new Date()).toISOString(), '[ERROR] web3Server -> sendTokens -> err.stack = ' + err.stack)
                 }
+                // We do not want to exceed any limits, so we take a breather in the end of each run.
+                await SA.projects.foundations.utilities.asyncFunctions.sleep(15000)
             }
 
             return {

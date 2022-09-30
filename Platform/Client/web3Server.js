@@ -440,7 +440,6 @@ exports.newWeb3Server = function newWeb3Server() {
             console.log('----------------------------------------------------------------------------------------------')
 
             for (let i = 0; i < paymentsArray.length; i++) {
-                await SA.projects.foundations.utilities.asyncFunctions.sleep(15000)
                 let payment = paymentsArray[i]
                 let payingTreasuryAccount = treasuryAccountDict[payment['chain']]
                 await sendTokens(
@@ -465,12 +464,12 @@ exports.newWeb3Server = function newWeb3Server() {
                     console.log('')
 
                     if (tokenAmount === 0) {
-                        console.log('No need to send a transaction in this case.')
+                        console.log('Token amount 0. No need to send a transaction.')
                         return
                     }
 
                     if (parseFloat(tokenAmount) <= 10000) {
-                        console.log('No need to send a transaction in this case, because we will distribute to this user from Binance Chain.')
+                        console.log('Filtered out. No need to send a transaction.')
                         return
                     }
 
@@ -603,6 +602,8 @@ exports.newWeb3Server = function newWeb3Server() {
                 } catch (err) {
                     console.log((new Date()).toISOString(), '[ERROR] web3Server -> sendTokens -> err.stack = ' + err.stack)
                 }
+                // We do not want to exceed any limits, so we take a breather in the end of each run.
+                await SA.projects.foundations.utilities.asyncFunctions.sleep(15000)
             }
 
             return {

@@ -18,9 +18,18 @@ exports.newTradingSignalsModulesIncomingTradingSignals = function (processIndex)
     }
 
     async function getAllSignals(node, candle) {
-        if (node === undefined) { return }
-        if (node.incomingSignals === undefined) { return }
-        if (node.incomingSignals.incomingSignalReferences === undefined) { return }
+        if (node === undefined) {
+            console.log((new Date()).toISOString(), '[ERROR] In order to be able to receive signals, your need to reference a Trading System. Please fix this and run this Task again.')
+            return []
+        }
+        if (node.incomingSignals === undefined) {
+            console.log((new Date()).toISOString(), '[ERROR] In order to be able to receive signals, your need to reference a Trading System with a child node Incoming Signals. Please fix this and run this Task again.')
+            return []
+        }
+        if (node.incomingSignals.incomingSignalReferences === undefined) {
+            console.log((new Date()).toISOString(), '[ERROR] In order to be able to receive signals, your need to reference a Trading System with a child node Incoming Signals with a child node Incoming Signals References that actually references a node at the User Profile the signals come from. Please fix this and run this Task again.')
+            return []
+        }
 
         let allSignals = []
 
@@ -29,7 +38,10 @@ exports.newTradingSignalsModulesIncomingTradingSignals = function (processIndex)
             Run some validations
             */
             let signalReference = node.incomingSignals.incomingSignalReferences[i]
-            if (signalReference.referenceParent === undefined) { return }
+            if (signalReference.referenceParent === undefined) { 
+                console.log((new Date()).toISOString(), '[ERROR] There is a node of type ' + signalReference.type + ' that either is not referencing any node or the referenced node is not present at the workspace. Signals can not be received at the moment because of this. Please fix this and run this Task again.')
+                return []  
+             }
             let signalDefinition = signalReference.referenceParent
 
             let candle = {
@@ -44,7 +56,7 @@ exports.newTradingSignalsModulesIncomingTradingSignals = function (processIndex)
             if (TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS === undefined) {
                 console.log((new Date()).toISOString(), '[ERROR] In order to be able to receive signals, your Trading Bot Instance needs to have a Social Trading Bot Reference. Please fix this and run this Task again.')
                 return []
-            }            
+            }
             let signals = TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS.incomingCandleSignals.getSignals(candle, signalDefinition.id)
             if (signals !== undefined) {
                 allSignals = allSignals.concat(signals)

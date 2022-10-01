@@ -39,7 +39,7 @@ exports.newTradingSignalsModulesIncomingTradingSignals = function (processIndex)
             */
             let signalReference = node.incomingSignals.incomingSignalReferences[i]
             if (signalReference.referenceParent === undefined) { 
-                console.log((new Date()).toISOString(), '[ERROR] There is a node of type ' + signalReference.type + ' that either is not referencing any node or the referenced node is not present at the workspace. Signals can not be received at the moment because of this. Please fix this and run this Task again.')
+                console.log((new Date()).toISOString(), '[ERROR] There is a node of type ' + signalReference.type + ' and name ' + signalReference.name + ' that either is not referencing any node or the referenced node is not present at the workspace. Signals can not be received at the moment because of this. Please fix this and run this Task again.')
                 return []  
              }
             let signalDefinition = signalReference.referenceParent

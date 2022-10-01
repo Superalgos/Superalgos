@@ -3,8 +3,8 @@
     "pageNumber": 41,
     "type": "Tutorial Step - To Infinity and Beyond",
     "definition": {
-        "text": "Let's get rolling! We will be using the app.contribute command to submit your profile.",
-        "updated": 1630604507310,
+        "text": "Under the Governance-Plugins row, you should see your User Profile plugin file listed.",
+        "updated": 1660647880034,
         "icon": {
             "name": "User\\user-profile",
             "project": "Governance"
@@ -36,8 +36,8 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Copy the command making sure you replace the placeholder with your Github username, paste it in the search box, and click Enter.",
-            "updated": 1630604654229,
+            "text": "Enter a commit message, like \"First profile submission\", and click the Contribute button!",
+            "updated": 1660647967222,
             "translations": [
                 {
                     "language": "ES",
@@ -63,26 +63,9 @@
             ]
         },
         {
-            "style": "Json",
-            "text": "app.contribute User Profile [add your name]",
-            "updated": 1630751329550,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "app.contribute User Profile [добавьте ваше имя профиля]",
-                    "updated": 1639053676246
-                },
-                {
-                    "language": "DE",
-                    "text": "app.contribute User Profile [fügen Sie hier Ihren Github-Benutzer-Namen ein]",
-                    "updated": 1640082452038
-                }
-            ]
-        },
-        {
-            "style": "Text",
-            "text": "If everything is set up correctly, you should see a message stating that your pull request has been submitted. This means that your profile has been sent to the main Superalgos repository and will be automatically merged within a few hours!",
-            "updated": 1630925481560,
+            "style": "Note",
+            "text": "If everything is set up correctly, within a few seconds the plugin file should disappear from the list and you should get a message confirming the contribution was sent. This means that your profile has been sent to the Governance-Plugins repository and will be automatically merged within a few hours!",
+            "updated": 1660648163819,
             "translations": [
                 {
                     "language": "ES",

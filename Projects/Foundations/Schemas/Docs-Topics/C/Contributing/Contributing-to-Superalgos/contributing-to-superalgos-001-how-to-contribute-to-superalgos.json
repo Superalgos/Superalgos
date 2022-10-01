@@ -62,6 +62,16 @@
                     "updated": 1645289649757
                 }
             ]
+        },
+        {
+            "style": "Text",
+            "text": "For a general overview of what contributing to the Superalgos Project works, please check the following page on the website:",
+            "updated": 1660465537443
+        },
+        {
+            "style": "Link",
+            "text": "Contribute to Superalgos->superalgos.org/community-contribute.shtml",
+            "updated": 1660465584835
         }
     ]
 }

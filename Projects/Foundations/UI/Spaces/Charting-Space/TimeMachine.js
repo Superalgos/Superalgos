@@ -61,6 +61,7 @@ function newTimeMachine() {
     let timeFrameScaleEventSuscriptionId
     let timeFrameScaleMouseOverEventSuscriptionId
     let onScaleChangedEventSubscriptionId
+    let configStyle
 
     setupContainer()
     return thisObject
@@ -629,8 +630,30 @@ function newTimeMachine() {
         }
     }
 
+    /**Here we can control the background color of the time machine. */
     function drawChartsBackground() {
-        UI.projects.foundations.utilities.drawPrint.drawContainerBackground(thisObject.container, UI_COLOR.WHITE, 0.5, thisObject.fitFunction)
+        let chartingSpaceNode = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Charting Space')
+        if (chartingSpaceNode !== undefined) {
+            if (chartingSpaceNode.spaceStyle !== undefined) {
+                configStyle = JSON.parse(chartingSpaceNode.spaceStyle.config)
+            } else {
+                configStyle = undefined
+            }
+        } else {
+            configStyle = undefined
+        }
+
+        if (configStyle === undefined || configStyle.panelBackgroundColor === undefined) {
+            UI.projects.foundations.utilities.drawPrint.drawContainerBackground(thisObject.container, UI_COLOR.WHITE, 0.5, thisObject.fitFunction)
+        } else {
+            let thisColor = eval(configStyle.panelBackgroundColor)
+            if (configStyle.panelBackgroundOpacity !== undefined) {
+                let thisOpacity = eval(configStyle.panelBackgroundOpacity) 
+                UI.projects.foundations.utilities.drawPrint.drawContainerBackground(thisObject.container, thisColor, thisOpacity, thisObject.fitFunction)
+            } else {
+                UI.projects.foundations.utilities.drawPrint.drawContainerBackground(thisObject.container, thisColor, 0.5, thisObject.fitFunction)
+            }
+        }
     }
 
     function draw() {
@@ -712,7 +735,16 @@ function newTimeMachine() {
         if (description !== undefined) {
             label = description
         }
-        UI.projects.foundations.utilities.drawPrint.printLabel(label, position.x + 20, undefined, undefined, position.y - 10, opacity, fontSize, undefined, 'Left')
+
+        let color = undefined
+
+        /**This controls the time machines title color. */
+        if(configStyle === undefined || configStyle.timeMachineNameColor === undefined) {
+            UI.projects.foundations.utilities.drawPrint.printLabel(label, position.x + 20, undefined, undefined, position.y - 10, opacity, fontSize, color, 'Left')
+        } else {
+            color = eval(configStyle.timeMachineNameColor)
+            UI.projects.foundations.utilities.drawPrint.printLabel(label, position.x + 20, undefined, undefined, position.y - 10, opacity, fontSize, color, 'Left')
+        }
 
         if (icon !== undefined) {
             if (icon.canDrawIcon === true) {
@@ -777,7 +809,22 @@ function newTimeMachine() {
                     }
                 }
 
-                UI.projects.foundations.utilities.drawPrint.printLabel(exchangeMarket.exchangeName, -5 + xOffSet, undefined, undefined, -30, opacity, fontSize, UI_COLOR.GREY, 'Left')
+                /**This controls the color of the exchange name shown on the top outside left of each time machine. */
+                let chartingSpaceNode = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Charting Space')
+                if (chartingSpaceNode !== undefined) {
+                    if (chartingSpaceNode.spaceStyle !== undefined) {
+                        configStyle = JSON.parse(chartingSpaceNode.spaceStyle.config)
+                    }
+                } else {
+                    configStyle = undefined
+                }
+
+                if (configStyle === undefined || configStyle.panelNameColor === undefined) {
+                    UI.projects.foundations.utilities.drawPrint.printLabel(exchangeMarket.exchangeName, -5 + xOffSet, undefined, undefined, -30, opacity, fontSize, UI_COLOR.GREY, 'Left')
+                } else {
+                    thisColor = eval(configStyle.panelNameColor)
+                    UI.projects.foundations.utilities.drawPrint.printLabel(exchangeMarket.exchangeName, -5 + xOffSet, undefined, undefined, -30, opacity, fontSize, thisColor, 'Left')
+                }
 
                 position.x = position.x + INTER_EXCHANGE_SPACE
 
@@ -793,7 +840,13 @@ function newTimeMachine() {
                     }
                 }
 
-                UI.projects.foundations.utilities.drawPrint.printLabel(exchangeMarket.marketName, -5 + xOffSet, undefined, undefined, -10, opacity, fontSize, UI_COLOR.GREY, 'Left')
+                /**This controls the color of the pair for each panel (BTC/USDT) */
+                if (configStyle === undefined || configStyle.panelExchangeMarketName === undefined) {
+                    UI.projects.foundations.utilities.drawPrint.printLabel(exchangeMarket.marketName, -5 + xOffSet, undefined, undefined, -10, opacity, fontSize, UI_COLOR.GREY, 'Left')
+                } else {
+                    let thisColor = eval(configStyle.panelExchangeMarketName)
+                    UI.projects.foundations.utilities.drawPrint.printLabel(exchangeMarket.marketName, -5 + xOffSet, undefined, undefined, -10, opacity, fontSize, thisColor, 'Left')
+                }
 
                 icon = exchangeMarket.quotedAssetIcon
                 if (icon !== undefined) {
@@ -856,7 +909,14 @@ function newTimeMachine() {
             browserCanvasContext.lineWidth = 1
             browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + opacity + ''
             browserCanvasContext.stroke()
-            browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + opacity + ''
+
+            /**This controls the background color of the time machines in the charting space. */
+            if (configStyle === undefined || configStyle.panelBackgroundColor === undefined) {
+                browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + opacity + ''
+            } else {
+                let thisColor = eval(configStyle.panelBackgroundColor)
+                browserCanvasContext.fillStyle = 'rgba(' + thisColor + ', ' + opacity + ''
+            }
             browserCanvasContext.fill()
         }
     }

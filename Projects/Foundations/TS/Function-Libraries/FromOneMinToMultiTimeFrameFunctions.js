@@ -443,7 +443,7 @@ exports.newFoundationsFunctionLibrariesFromOneMinToMultiTimeFrameFunctions = fun
                 if (property.config.isString === true) {
                     fileContent = fileContent + propertySeparator + '"' + element[property.config.codeName] + '"'
                 } else {
-                    fileContent = fileContent + propertySeparator + element[property.config.codeName]
+                    fileContent = fileContent + propertySeparator + JSON.stringify(element[property.config.codeName])
                 }
                 propertySeparator = ","
             }
@@ -496,6 +496,9 @@ exports.newFoundationsFunctionLibrariesFromOneMinToMultiTimeFrameFunctions = fun
                 } 
                 else if (property.config.isBoolean === true) {
                     outputElement[property.config.codeName] = false         // Default Value
+                }
+                else if (property.config.isArray === true) {
+                    outputElement[property.config.codeName] = []            // Default Value
                 }
                 else {
                     outputElement[property.config.codeName] = 0             // Default Value
@@ -568,6 +571,7 @@ exports.newFoundationsFunctionLibrariesFromOneMinToMultiTimeFrameFunctions = fun
                     aggregationMethodMax()
                     aggregationMethodSum()
                     aggregationMethodAvg()
+                    aggregationMethodConcat()
 
                     saveElement = true
 
@@ -610,9 +614,13 @@ exports.newFoundationsFunctionLibrariesFromOneMinToMultiTimeFrameFunctions = fun
                         */
                         for (let j = 0; j < node.outputDataset.referenceParent.parentNode.record.properties.length; j++) {
                             let property = node.outputDataset.referenceParent.parentNode.record.properties[j]
-                            if (property.config.aggregationMethod === 'Min' || saveElement === false) {
-                                if (outputElement[property.config.codeName] === 0) { // Set initial value if default value is present
-                                    outputElement[property.config.codeName] = record.map.get(property.config.codeName)
+                            if (property.config.aggregationMethod === 'Min') {
+                                if (saveElement === false) {
+                                    if (outputElement[property.config.codeName] === 0) { // Set initial value if default value is present
+                                        outputElement[property.config.codeName] = record.map.get(property.config.codeName)
+                                    } else if (record.map.get(property.config.codeName) < outputElement[property.config.codeName]) {
+                                        outputElement[property.config.codeName] = record.map.get(property.config.codeName)
+                                    }
                                 } else if (record.map.get(property.config.codeName) < outputElement[property.config.codeName]) {
                                     outputElement[property.config.codeName] = record.map.get(property.config.codeName)
                                 }
@@ -664,6 +672,18 @@ exports.newFoundationsFunctionLibrariesFromOneMinToMultiTimeFrameFunctions = fun
                                 outputElementAverage[property.config.codeName].count = outputElementAverage[property.config.codeName].count + 1
 
                                 outputElement[property.config.codeName] = outputElementAverage[property.config.codeName].sum / outputElementAverage[property.config.codeName].count
+                            }
+                        }
+                    }
+
+                    function aggregationMethodConcat() {
+                        /*
+                        This is the Concat type of aggregation.
+                        */
+                        for (let j = 0; j < node.outputDataset.referenceParent.parentNode.record.properties.length; j++) {
+                            let property = node.outputDataset.referenceParent.parentNode.record.properties[j]
+                            if (property.config.aggregationMethod === 'Concat') {
+                                outputElement[property.config.codeName] = outputElement[property.config.codeName].concat(record.map.get(property.config.codeName))
                             }
                         }
                     }

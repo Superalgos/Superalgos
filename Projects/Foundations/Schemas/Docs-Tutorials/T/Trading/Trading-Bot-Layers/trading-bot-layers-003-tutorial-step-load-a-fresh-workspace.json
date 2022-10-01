@@ -30,8 +30,8 @@
     "paragraphs": [
         {
             "style": "Note",
-            "text": "Workspaces marked as Plugin Workspaces ship with the software. The rest are yours. When you open a plugin workspace a copy of it is made for you. Plugins allways remain unchanged.",
-            "updated": 1622540310563,
+            "text": "Workspaces marked as Plugin Workspaces ship with the software. The rest are yours. When you open a plugin workspace a copy of it is made for you. Plugins always remain unchanged.",
+            "updated": 1659283217279,
             "translations": [
                 {
                     "language": "DE",
@@ -41,8 +41,8 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Рабочие пространства, отмеченные как Plugin Workspaces, поставляются вместе с программным обеспечением. Остальные являются вашими. Когда вы открываете рабочее пространство плагина, его копия создается для вас. Плагины всегда остаются неизменными.",
-                    "updated": 1640544101842
+                    "text": "Рабочие пространства, помеченные как Plugin Workspaces, поставляются вместе с программным обеспечением. Остальные являются вашими. Когда вы открываете рабочее пространство плагина, его копия создается для вас. Плагины всегда остаются неизменными.",
+                    "updated": 1662032055782
                 },
                 {
                     "language": "TR",
@@ -53,8 +53,8 @@
         },
         {
             "style": "Important",
-            "text": "This tutorial requires starting with a fresh Plugin rading Bot Layers Tutorial workspace. So, unless you loaded the plugin workspace right before starting, please select it from the workspace panel on the left and come back to me after the workspace loads — just click Resume on my menu!",
-            "updated": 1647873346582,
+            "text": "This tutorial requires starting with a fresh Plugin Trading Bot Layers Tutorial workspace. So, unless you loaded the plugin workspace right before starting, please select it from the workspace panel on the left and come back to me after the workspace loads — just click Resume on my menu!",
+            "updated": 1659283233157,
             "translations": [
                 {
                     "language": "DE",
@@ -64,8 +64,8 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Этот учебник необходимо начинать со свежего рабочего пространства Plugin Weak-hands Buster v2. Поэтому, если вы не загрузили рабочее пространство плагина прямо перед началом, пожалуйста, выберите его на панели рабочего пространства слева и вернитесь ко мне после загрузки рабочего пространства - просто нажмите Resume в моем меню!",
-                    "updated": 1640544149845
+                    "text": "Этот урок необходимо начинать с чистого рабочего пространства Plugin Trading Bot Layers Tutorial. Поэтому, если вы не загрузили рабочее пространство плагина прямо перед началом, пожалуйста, выберите его на панели рабочего пространства слева и вернитесь ко мне после загрузки рабочего пространства - просто нажмите Resume в моем меню!",
+                    "updated": 1662032110899
                 },
                 {
                     "language": "TR",

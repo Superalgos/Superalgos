@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Узел Managed Stop Loss включает в себя определение фаз, составляющих управление целью стоп-лосса по мере развития позиции.",
                 "updated": 1639846863924
+            },
+            {
+                "language": "TR",
+                "text": "Yönetilen stop loss düğümü, pozisyon geliştikçe stop loss hedefinin yönetimini oluşturan aşamaların tanımını içerir.",
+                "updated": 1656077578279
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Цель стоп-лосса - важнейший элемент торговой стратегии, поскольку именно он отвечает за сохранение капитала. Разумное управление стоп-лоссом может также играть роль защиты нереализованной прибыли.",
                     "updated": 1639847043266
+                },
+                {
+                    "language": "TR",
+                    "text": "Zararı durdurma hedefi, sermayeyi korumaktan sorumlu araç olduğu için bir ticaret stratejisinin çok önemli bir unsurudur. Akıllıca kullanıldığında, zararı durdurma yönetimi ayrıca henüz gerçekleşmemiş kârların korunmasında da rol oynayabilir.",
+                    "updated": 1656077641087
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Система управления стоп-лоссом, предоставляемая Superalgos, очень гибкая. Она может начинаться просто как постоянная величина при определенном курсе, но может переключиться на трейлинг-стоп, как только цена отойдет от целевого курса на определенный процент, или при возникновении определенной рыночной ситуации.",
                     "updated": 1639847075670
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos tarafından sağlanan stop loss yönetim sistemi son derece esnektir. Belirli bir oranda sabit bir değer olarak basit bir şekilde başlayabilir, ancak fiyat hedef orandan belirli bir yüzde uzaklaşır uzaklaşmaz veya belirli bir piyasa durumu ortaya çıktığında takip eden bir durdurmaya geçebilir.",
+                    "updated": 1656081562141
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "RU",
                     "text": "На самом деле, формула может меняться столько раз, сколько потребуется, поскольку вы можете установить неограниченное количество фаз и переключаться туда и обратно по мере необходимости, используя предопределенные события для переключения.",
                     "updated": 1639847105501
+                },
+                {
+                    "language": "TR",
+                    "text": "Aslında, formül gerektiği kadar değişebilir, sınırsız fazlar ayarlayabilir ve geçiş yapmak için önceden tanımlanmış olayları kullanarak gerektiği kadar ileri ve geri geçiş yapabilirsiniz.",
+                    "updated": 1656081600199
                 }
             ]
         },
@@ -56,6 +76,11 @@
                     "language": "RU",
                     "text": "Приведенный выше пример постоянного стоп-лосса, за которым следует трейлинг-стоп, является лишь примером стандартной настройки. Формулы, которые вы используете для определения ставки цели на каждой фазе, могут быть любыми по вашему выбору, таким образом, вы можете добиться любого поведения, которое вы себе представляете и можете описать математически.",
                     "updated": 1639847190766
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarıdaki bir sabit durma kaybı ve ardından bir takip eden durdurma örneği, yalnızca tipik bir kurulum örneğidir. Her aşamada hedefin oranını belirlemek için kullanacağınız formüller, seçtiğiniz herhangi bir şey olabilir, böylece hayal ettiğiniz ve matematiksel olarak tanımlayabileceğiniz her türlü davranışı gerçekleştirebilirsiniz.",
+                    "updated": 1656081631826
                 }
             ]
         }

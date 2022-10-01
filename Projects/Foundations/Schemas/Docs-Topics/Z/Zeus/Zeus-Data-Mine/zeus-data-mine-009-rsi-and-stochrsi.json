@@ -1,0 +1,58 @@
+{
+    "topic": "Zeus Data Mine",
+    "pageNumber": 9,
+    "type": "RSI and StochRSI",
+    "definition": {
+        "text": "Price momentum oscillators to forecast market trends",
+        "updated": 1659619398838
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "The RSI and StochRSI Indicators",
+            "updated": 1656585478330
+        },
+        {
+            "style": "Text",
+            "text": "According to Investopedia the Stochastic RSI (StochRSI) is an indicator used in technical analysis that ranges between zero and one (or zero and 100 on some charting platforms) and is created by applying the Stochastic oscillator formula to a set of relative strength index (RSI) values rather than to standard price data. Using RSI values within the Stochastic formula gives traders an idea of whether the current RSI value is overbought or oversold."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/RSI+stochRSI.png",
+            "updated": 1656584882032
+        },
+        {
+            "style": "Text",
+            "text": "The StochRSI oscillator was developed to take advantage of both momentum indicators in order to create a more sensitive indicator that is attuned to a specific security's historical performance rather than a generalized analysis of price change."
+        },
+        {
+            "style": "Title",
+            "text": "RSI and StochRSI Products & Properties"
+        },
+        {
+            "style": "Table",
+            "text": "|Product Variable|Properties|\n|rsi|rsi, stochRSI|",
+            "updated": 1656585348054
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "chart.at15min.rsi.stochRSI > chart.at15min.rsi.rsi"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

@@ -1,0 +1,77 @@
+{
+    "topic": "quantum Data Mine",
+    "pageNumber": 20,
+    "type": "KDJ Indicator",
+    "definition": {
+        "text": "The KDJ Indicator is used to identify the trend direction and determine optimal entry points."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "KDJ Indicator on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "The KDJ is similar to the alligator and Stochastic indicators as it helps to determine the trend direction and strength. It is a trend following indicator, and as such it can produce a lot of false signals during flat markets.",
+            "updated": 1658980316661
+        },
+        {
+            "style": "Text",
+            "text": "Key concepts:"
+        },
+        {
+            "style": "List",
+            "text": "Consists of 3 components, the K, D and J lines. K and D are the same as the stochastic oscillator. The J Line represents the divergence between the D and the K."
+        },
+        {
+            "style": "List",
+            "text": "Convergence of all three values hints at emerging trading opportunities."
+        },
+        {
+            "style": "List",
+            "text": "A convergence in the oversold area (below 20) signals potential buy signals.",
+            "updated": 1655425894312
+        },
+        {
+            "style": "List",
+            "text": "A convergence in the overbought area (above 80) signals potential sell signals.",
+            "updated": 1655425898522
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-kdj-on-the-chart.png"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the KDJ indicator can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"KDJ Indicator\" Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-kdj-params.png"
+        },
+        {
+            "style": "Title",
+            "text": "KDJ indicator Products & Properties"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Setting | Product Variable | Properties |\n| KDJ Indicator | KDJ | k, d, j |"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "A simple strategy can be built by entering a trade when the KDJ J crosses upwards over the D value when below 20:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at15min.KDJ.j > chart.at02hs.KDJ.d && chart.at15min.KDJ.previous.j < chart.at15min.KDJ.previous.d && chart.at15min.KDJ.j < 20"
+        },
+        {
+            "style": "Text",
+            "text": "For optimal results KDJ should with other indicators, such as Average Directional Index (ADX) or Average True Range (ATR). The former is always ahead of the curve and can hint into an upcoming trend reversal. The latter is capable of determining the volatility of the market, which is especially useful since KDJ doesn�t work in a ranging market."
+        }
+    ]
+}

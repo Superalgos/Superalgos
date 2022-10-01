@@ -14,7 +14,30 @@
     let statusDependencies
 
     let MAX_OHLCVs_PER_EXECUTION = 10000000
-    const symbol = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + '/' + TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
+
+/*  CCXT and its unifiedAPI require a different way to find the pair because now not only spot is supported
+    but swaps and futures too.
+    Form CCXT
+    BTC/USD         -> Could be spot
+    BTC/USDT:USDT   -> Swap Linear
+    BTC/USDT:BTC    -> Swap Inverse
+
+    This is an issue in SA at the moment, since when saving data there is no distinction in folders
+
+    -> Old code left below for a quick reverse in case of issues
+
+    let baseAsset = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName
+    let quotedAsset = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
+    const symbol = baseAsset + '/' + quotedAsset
+ */
+   
+    // Following line is left for history purposes 
+    // const symbol = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + '/' + TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
+       
+    // Here the pair is passed to ccxt using the full codeName of the Market under Exchnage Markets
+    const symbol = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.config.codeName
+
+
     const ccxt = SA.nodeModules.ccxt
     /*
     This next is required when using an exchange that uses fetchTrades in place of fetchOHLCVs

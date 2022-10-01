@@ -1,0 +1,63 @@
+{
+    "topic": "Volume Tools Data Mine",
+    "pageNumber": "5",
+    "type": "Volume Oscillator",
+    "definition": {
+        "text": "This indicator calculates two volume based exponential moving averages of different lengths and displays the difference between them as an oscillator.",
+        "updated": 1664070157370
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Volume Oscillator on the Charts"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/volume-volume-oscillator.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| VolumeOscillator| VolOsc| value |",
+            "updated": 1664070023714
+        },
+        {
+            "style": "Text",
+            "text": "The lengths of the moving averages for the indicator's calculations can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"Volume Oscillator\" Procedure Loop.",
+            "updated": 1664070044868
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/volume-volume-oscillator-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "Accessing data in the indicator are as follows:",
+            "updated": 1663912632694
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.VolOsc.value\n",
+            "updated": 1664070062450
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

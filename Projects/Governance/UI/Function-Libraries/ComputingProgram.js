@@ -12,7 +12,7 @@ function newGovernanceFunctionLibraryComputingProgram() {
         let programPoolTokenReward
         /*
         In order to be able to calculate the share of the Program Pool for each User Profile,
-        we need to accumulate all the Liquidity Power that each User Profile at their Program
+        we need to accumulate all the Program Power that each User Profile at their Program
         node has, because with that Power is that each Program node gets a share of the pool.
          */
         let accumulatedProgramPower = 0
@@ -94,7 +94,7 @@ function newGovernanceFunctionLibraryComputingProgram() {
 
         function validateProgram(node, userProfile) {
             /*
-            This program is not going to run unless the Profile has Liquidity Tokens, and for 
+            This program is not going to run unless the Profile has data on executed test cases, and for 
             that users needs to execute the setup procedure of signing their Github
             username with their private key.
             */
@@ -116,8 +116,7 @@ function newGovernanceFunctionLibraryComputingProgram() {
         function distributeProgram(programNode, userProfile) {
             if (programNode === undefined || programNode.payload === undefined) { return }
             /*
-            Here we will convert Liquidity Tokens into Liquidity Power. 
-            As per system rules Liquidity Power = userProfile.payload.liquidityTokens
+            Here we will convert the executed test case count into program power. 
             */
             let programPower = 0
             if (UI.projects.governance.spaces.userProfileSpace.executedTestCases.has(userProfile.name) === true) {

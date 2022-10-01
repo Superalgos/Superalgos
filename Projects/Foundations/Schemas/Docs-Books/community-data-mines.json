@@ -90,6 +90,18 @@
         {
             "style": "Chapter",
             "text": "XVI->Foundations->Topic->Pivots Data Mine->"
+        },
+        {
+            "style": "Chapter",
+            "text": "XVII->Foundations->Topic->API Data Mines->"
+        },
+        {
+            "style": "Chapter",
+            "text": "XVIII->Foundations->Topic->Undulated Data Mine->"
+        },
+		{
+            "style": "Chapter",
+            "text": "XIX->Foundations->Topic->Volume Tools Data Mine->"
         }
     ]
 }

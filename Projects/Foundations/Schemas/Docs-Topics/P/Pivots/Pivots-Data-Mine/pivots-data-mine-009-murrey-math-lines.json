@@ -1,0 +1,133 @@
+{
+    "topic": "Pivots Data Mine",
+    "pageNumber": "9",
+    "type": "Murrey Math Lines",
+    "definition": {
+        "text": "The Murrey Math Lines indicator attempts to find the horizontal support and resistance levels of the price action. It works in a similar fashion to Fibonacci retracements and pivot point indicators."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Murrey Math Lines on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "Orignally developed by T.Henning Murrey for the MetaTrader platform. Based on the approach by William Gann, Murrey wanted a tool that assists day traders in predicting solid support and resistance levels on the chart.\nMurrey Math Lines Indicator consists of nine equidistant levels, plotted in parallel to show the possible price-reversal zones."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/pivots-murrey-on-the-charts.png"
+        },
+        {
+            "style": "Text",
+            "text": "The 9 basic levels of resistance/support are concentrated around the thick blue lines as follows:",
+            "updated": 1662702057457
+        },
+        {
+            "style": "List",
+            "text": "Ultimate Resistance/Support (Blue): These values are marked as 8/8 and 0/8 respectively",
+            "updated": 1662701911151
+        },
+        {
+            "style": "List",
+            "text": "Weak Resistance/Support (Grey): These values are marked as 7/8 and 1/8 respectively",
+            "updated": 1662701929799
+        },
+        {
+            "style": "List",
+            "text": "Pivot sell/buy (Red): These values are marked as 6/8 and 2/8 respectively",
+            "updated": 1662701941107
+        },
+        {
+            "style": "List",
+            "text": "Range Top/Bottom (Green): These values are marked as 5/8 and 3/8 respectively",
+            "updated": 1662701950901
+        },
+        {
+            "style": "List",
+            "text": "Center of Action (Centre Blue): This is marked as 4/8",
+            "updated": 1662701967660
+        },
+        {
+            "style": "Text",
+            "text": "There are a further 6 lines located outside the thick blue lines. These are called the overbought/oversold lines, and are described as follows:",
+            "updated": 1662702057457
+        },
+        {
+            "style": "List",
+            "text": "Imminent Bearish/Bullish reversal (Green): These values are marked as +3/8 and -3/8 respectively"
+        },
+        {
+            "style": "List",
+            "text": "Extreme overshoot condition(Red): These values are marked as +2/8 and -2/8 respectively"
+        },
+        {
+            "style": "List",
+            "text": "Overbought/oversold condition (Grey): These values are marked as +1/8 and -1/8 respectively"
+        },
+        {
+            "style": "Text",
+            "text": "The indicator's lookback size, multiplier and wick inclusion/exclusion can be adjusted to suit your preferred settings locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under ’Murrey Lines’ Procedure Loop.",
+            "updated": 1662702024164
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/pivots-murrey-params.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| MurreyLines | mLine | plus18-plus38, minus18-minus38, zeroEight-eightEight |",
+            "updated": 1662702686865
+        },
+        {
+            "style": "Text",
+            "text": "Examples:"
+        },
+        {
+            "style": "Text",
+            "text": "A basic strategy could use price action to enter a trade if a candle rises above the centre point:",
+            "updated": 1662702631552
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.candle.close > chart.at01hs.mLine.zeroEight",
+            "updated": 1662702676619
+        },
+        {
+            "style": "Text",
+            "text": "The indicator could then be used as a take profit value when the price action approaches the first level in the overbought +1/8 (grey) line:",
+            "updated": 1662702749612
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.mLine.plus18",
+            "updated": 1662702761651
+        },
+        {
+            "style": "Text",
+            "text": "A tight stop loss could be set at the pivot sell position at 2/8 (red line):",
+            "updated": 1662703009650
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.mLine.twoEight",
+            "updated": 1662703016739
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

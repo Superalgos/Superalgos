@@ -225,6 +225,9 @@ exports.newBitcoinFactoryServer = function newBitcoinFactoryServer() {
         let rewardsFile = ""
         let reportsDirectory = []
         const testsPerUser = {}
+        let recordsCounter = 0
+        /* Debug Mode provides more verbose output about each processed Rewards File on the Console */
+        const debugMode = false
         try {
             reportsDirectory = SA.nodeModules.fs.readdirSync('./Bitcoin-Factory/Reports')
         }
@@ -238,7 +241,8 @@ exports.newBitcoinFactoryServer = function newBitcoinFactoryServer() {
         for (let f = 0; f < reportsDirectory.length; f++) {
             /* Check if file name matches pattern Testnet*.csv for processing Test Client rewards */
             rewardsFile = ""
-            if (/^Testnet[\w|-]*\.csv$/.test(reportsDirectory[f]) === false) { 
+            recordsCounter = 0
+            if (/^Testnet[\w\s-]*\.csv$/gi.test(reportsDirectory[f]) === false) { 
                 continue
             } else {
                 try {
@@ -251,6 +255,7 @@ exports.newBitcoinFactoryServer = function newBitcoinFactoryServer() {
 
                 /* Parse CSV file, convert to JSON objects */
                 const csvToJsonResult = []
+                let parsingError = 0
                 let cleanResult = rewardsFile.toString().replace(/\r/g, "")
                 let array = cleanResult.split("\n")
                 const headers = array[0].split(",")
@@ -269,20 +274,28 @@ exports.newBitcoinFactoryServer = function newBitcoinFactoryServer() {
                         if (character !== '"') string += character
                     }
                     let jsonProperties = string.split("|")
-                    for (let j in headers) {
-                        if (jsonProperties[j].includes(",")) {
-                        jsonObject[headers[j]] = jsonProperties[j]
-                            .split(",").map(item => item.trim())
+                    try {
+                        for (let j in headers) {
+                            if (jsonProperties[j].includes(",")) {
+                            jsonObject[headers[j]] = jsonProperties[j]
+                                .split(",").map(item => item.trim())
+                            }
+                            else jsonObject[headers[j]] = jsonProperties[j]
                         }
-                        else jsonObject[headers[j]] = jsonProperties[j]
+                    } catch(err) {
+                        if (parsingError === 0) { parsingError = i + 1 }
                     }
                     /* Push the genearted JSON object to result array */
                     csvToJsonResult.push(jsonObject)
                 }
-
-                /* Check if file contains mandatory columns */
+                /* Check if file contained any malformed lines */
+                if (parsingError > 0) {
+                    console.log((new Date()).toISOString(), "[WARN] Bitcoin Factory Rewards File", reportsDirectory[f], "contains malformed records - e.g. line", parsingError, ", discarding")
+                    continue
+                }             
+                /* Check if file contains mandatory columns */             
                 if (!headers.includes("assignedTimestamp") || !headers.includes("testedByProfile") || !headers.includes("status")) {
-                    console.log((new Date()).toISOString(), "[WARN] Governance Rewards File", reportsDirectory[f], "with unexpected syntax, discarding")
+                    console.log((new Date()).toISOString(), "[WARN] Bitcoin Factory Rewards File", reportsDirectory[f], "with unexpected syntax, discarding")
                     continue
                 }
 
@@ -300,9 +313,20 @@ exports.newBitcoinFactoryServer = function newBitcoinFactoryServer() {
                         } else {
                             testsPerUser[profile] = 1
                         }
+                        recordsCounter++
+                    }
+                }
+                if (debugMode === true) {
+                    if (recordsCounter === 0) {
+                        console.log((new Date()).toISOString(), "[INFO] Governance Rewards File", reportsDirectory[f], "does not contain any records for this period")
+                    } else {
+                        console.log((new Date()).toISOString(), "[INFO] Governance Rewards File", reportsDirectory[f], "contains", recordsCounter, "valid records")
                     }
                 }
             }
+        }
+        if (debugMode === true) {
+            console.log((new Date()).toISOString(), "[INFO] Total executed Bitcoin Factory Test Cases per User:", testsPerUser)
         }
         return {
             result: 'Ok',

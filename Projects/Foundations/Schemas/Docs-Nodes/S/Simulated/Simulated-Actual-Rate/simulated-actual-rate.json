@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Узел Simulated Actual Rate позволяет установить конкретное значение ставки для имитации каждого ордера, переопределяя параметр проскальзывания торговой сессии.",
                 "updated": 1639846326204
+            },
+            {
+                "language": "TR",
+                "text": "Simüle edilmiş gerçek oran düğümü (The simulated actual rate node), ticaret seansının kayma parametresini geçersiz kılarak her bir siparişin simülasyonu için belirli bir oran değeri ayarlamaya izin verir.",
+                "updated": 1656067140258
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Параметр проскальзывания торговой сессии позволяет установить общее проскальзывание для всех ордеров в торговой системе. Узел имитации реальной ставки позволяет управлять на основе каждого ордера, поэтому для каждого ордера может быть смоделирована определенная ставка.",
                     "updated": 1639846367023
+                },
+                {
+                    "language": "TR",
+                    "text": "İşlem seansının kayma (slippage) parametresi, işlem sistemindeki tüm emirler için genel bir kayma ayarlanmasına olanak tanır. Simüle edilmiş gerçek oran düğümü, emir bazında kontrole izin verir, böylece her emir belirli bir oranla simüle edilebilir.",
+                    "updated": 1656067183510
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Если узел отсутствует или параметр не определен, используется параметр проскальзывания, установленный для данной торговой сессии.",
                     "updated": 1639846393863
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğüm mevcut değilse veya parametre tanımlanmamışsa, işlem seansı için ayarlanan kayma parametresi kullanılır.",
+                    "updated": 1656067200514
                 }
             ]
         }

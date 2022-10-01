@@ -324,7 +324,7 @@ function newListSelector() {
         let input = document.getElementById('input')
 
         filteredList = filteredList.filter(val => {
-            return val.toUpperCase().indexOf(input.value.toUpperCase()) > -1
+            return val.name.toUpperCase().indexOf(input.value.toUpperCase()) > -1
         })
 
         if (filteredList.length < MAX_LABELS) {

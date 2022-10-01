@@ -21,7 +21,7 @@
         "compatibleTypes": "->Task->"
     },
     "referencingRules": {
-        "compatibleTypes": "->Exchange Account Key->"
+        "compatibleTypes": "->Exchange Account Key->API Authorization Key->"
     },
     "propertyNameAtParent": "keyReference"
 }

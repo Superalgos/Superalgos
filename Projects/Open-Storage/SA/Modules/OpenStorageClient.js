@@ -1,10 +1,10 @@
 exports.newOpenStorageModulesOpenStorageClient = function newOpenStorageModulesOpenStorageClient() {
     /*
-    This module receives a file to save, and it know which are
+    This module receives a file to save, and it knows which are
     the available storages for the social trading bot currently running.
 
     So it will pick one of the available and try to save the file there.
-    If it does not suceed, it will try at the other available storage until
+    If it does not succeed, it will try at the other available storage until
     it suceeds. 
 
     Once the file could be saved, it will return the id of the Storage Conatainer
@@ -61,43 +61,57 @@ exports.newOpenStorageModulesOpenStorageClient = function newOpenStorageModulesO
     }
 
     async function loadFile(fileKey) {
-        /*
-        Control if this file was not already laoded. 
-        Because the same file can be stored at multiple storage
-        containers for resilience, we are going to load the first
-        one and the rest we are going to ingore the load request.
-        */
-        if (filesLoadedByIdMap.get(fileKey.fileId) === true) {
-            return 
-        }
-        /*
-        We are going to load this file from the Storage Containers defined.
-        We are going to try to read it first from the first Storage container
-        and if it is not possible we will try with the next ones.
-        */
-        let fileName = fileKey.fileName
-        let filePath = SA.projects.foundations.utilities.filesAndDirectories.pathFromDatetime(fileKey.timestamp)
-        let password = fileKey.password
-        let storageContainer = SA.projects.network.globals.memory.maps.STORAGE_CONTAINERS_BY_ID.get(fileKey.storageContainerId)
-        let fileContent
+        return new Promise(promiseWork)
 
-        switch (storageContainer.parentNode.type) {
-            case 'Github Storage': {
-                let encryptedFileContent = await SA.projects.openStorage.utilities.githubStorage.loadFile(fileName, filePath, storageContainer)
-                fileContent = SA.projects.foundations.utilities.encryption.decrypt(encryptedFileContent, password)
-                /*
-                We are going to remember that we already loaded this file from one of it's storage containers.
-                */
-                filesLoadedByIdMap.set(fileKey.fileId, true)
-                break
+        async function promiseWork(resolve, reject) {
+            /*
+            Control if this file was not already laoded. 
+            Because the same file can be stored at multiple storage
+            containers for resilience, we are going to load the first
+            one and the rest we are going to ingore the load request.
+            */
+            if (filesLoadedByIdMap.get(fileKey.fileId) === true) {
+                resolve()
             }
-            case 'Superalgos Storage': {
-                // TODO Build the Superalgos Storage Provider
-                break
+            /*
+            We are going to load this file from the Storage Containers defined.
+            We are going to try to read it first from the first Storage container
+            and if it is not possible we will try with the next ones.
+            */
+            let fileName = fileKey.fileName
+            let filePath = SA.projects.foundations.utilities.filesAndDirectories.pathFromDatetime(fileKey.timestamp)
+            let password = fileKey.password
+            let storageContainer = SA.projects.network.globals.memory.maps.STORAGE_CONTAINERS_BY_ID.get(fileKey.storageContainerId)
+            let fileContent
+
+            switch (storageContainer.parentNode.type) {
+                case 'Github Storage': {
+                    await SA.projects.openStorage.utilities.githubStorage.loadFile(fileName, filePath, storageContainer)
+                        .then(onFileLoaded)
+                        .catch(onFileNotLoaded)
+
+                    function onFileLoaded(encryptedFileContent) {
+                        fileContent = SA.projects.foundations.utilities.encryption.decrypt(encryptedFileContent, password)
+                        /*
+                        We are going to remember that we already loaded this file from one of it's storage containers.
+                        */
+                        filesLoadedByIdMap.set(fileKey.fileId, true)
+                        resolve(fileContent)
+                    }
+
+                    function onFileNotLoaded(error) {
+                        console.log((new Date()).toISOString(), '[ERROR] Open Storage Client -> onFileNotLoaded -> Error = ' + error)
+                        resolve()
+                    }
+
+                    break
+                }
+                case 'Superalgos Storage': {
+                    // TODO Build the Superalgos Storage Provider
+                    break
+                }
             }
         }
-
-        return fileContent
     }
 
     async function saveMultipleFiles() {

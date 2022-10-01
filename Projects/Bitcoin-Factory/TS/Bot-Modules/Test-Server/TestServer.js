@@ -7,7 +7,8 @@
         dataBridge: undefined,
         testCasesManager: undefined,
         testClientsManager: undefined,
-        forecastsManager: undefined,
+        forecastCasesManager: undefined,
+        forecastClientsManager: undefined,
         initialize: initialize,
         finalize: finalize,
         start: start
@@ -33,7 +34,9 @@
             thisObject.dataBridge.initialize()
             await thisObject.testCasesManager.initialize()
             await thisObject.testClientsManager.initialize()
-            thisObject.forecastCasesManager.initialize()
+            if (thisObject.forecastCasesManager.forecastCasesArray == undefined) {
+                thisObject.forecastCasesManager.initialize()
+            }
             await thisObject.forecastClientsManager.initialize()
             console.log((new Date()).toISOString(), 'Running Test Server v.' + TEST_SERVER_VERSION)
             callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)

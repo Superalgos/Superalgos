@@ -3,8 +3,8 @@
     "pageNumber": 111,
     "type": "Tutorial Step - Help Us With a Star!",
     "definition": {
-        "text": "I hope you enjoyed this tutorial! Would you like to show your gratitude by giving a star to the Superalgos repo?",
-        "updated": 1622379203330,
+        "text": "I hope you are enjoying this tutorial! Would you like to show your gratitude by giving a star to the Superalgos repo?",
+        "updated": 1660160345189,
         "icon": {
             "name": "github",
             "project": "Foundations"
@@ -40,8 +40,8 @@
             },
             {
                 "language": "RU",
-                "text": "Надеюсь, вам понравилось это руководство! Хотите выразить свою благодарность, дав звезду репозиторию Superalgos?",
-                "updated": 1642774243489
+                "text": "Надеюсь, вам понравится этот учебник! Хотите выразить свою благодарность, дав звезду репозиторию Superalgos?",
+                "updated": 1662035777297
             }
         ]
     },

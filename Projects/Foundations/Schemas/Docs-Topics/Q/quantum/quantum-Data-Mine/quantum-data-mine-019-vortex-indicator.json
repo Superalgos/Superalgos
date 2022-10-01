@@ -1,0 +1,71 @@
+{
+    "topic": "quantum Data Mine",
+    "pageNumber": 19,
+    "type": "Vortex Indicator",
+    "definition": {
+        "text": "The Vortex Indicator is used to identify trend reversals and confirm current trends."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Vortex Indicator on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "According to Investopedia: The Vortex Indicator was first developed by Etienne Botes and Douglas Siepman who introduced the concept in a 2009 edition of \"Technical Analysis of Stocks & Commodities\". The vortex indicator is based on two trendlines: VI+ and VI-.",
+            "updated": 1658980125657
+        },
+        {
+            "style": "Text",
+            "text": "Key concepts:"
+        },
+        {
+            "style": "List",
+            "text": "An uptrend or buy signal occurs when VI+ is below VI- and then crosses above VI- to take the top position among the trendlines."
+        },
+        {
+            "style": "List",
+            "text": "A downtrend or sell signal occurs when VI- is below VI+ and crosses above VI+ to take the top position among the trendlines."
+        },
+        {
+            "style": "List",
+            "text": "Overall, the trendline in the top position generally dictates whether the security is in an uptrend or downtrend."
+        },
+        {
+            "style": "Link",
+            "text": "Vortex Indicator (investopedia)->www.investopedia.com/terms/v/vortex-indicator-vi.asp"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-vortex-on-the-charts.png"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the Vortex indicator can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"Vortex Indicator\" Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-vortex-params.png"
+        },
+        {
+            "style": "Title",
+            "text": "Vortex indicator Products & Properties"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Setting | Product Variable | Properties |\n| Vortex Indicator | VI | vip, vim |"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "A simple strategy can be built by entering a trade when the vortex positive value crosses above the minus value:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at02hs.VI.vip > chart.at02hs.VI.vim && chart.at02hs.VI.previous.vip < chart.at02hs.VI.previous.vim"
+        }
+    ]
+}

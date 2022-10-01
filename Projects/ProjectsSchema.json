@@ -943,6 +943,12 @@
                     "fileName": "ProcessExecutionEvents.js"
                 },
                 {
+                    "name": "Process Trading Signals",
+                    "propertyName": "processTradingSignals",
+                    "functionName": "newFoundationsProcessModulesProcessTradingSignals",
+                    "fileName": "ProcessTradingSignals.js"
+                },                
+                {
                     "name": "Process Output",
                     "propertyName": "processOutput",
                     "functionName": "newFoundationsProcessModulesProcessOutput",
@@ -1647,6 +1653,11 @@
                     "name": "Conversions",
                     "propertyName": "conversions",
                     "functionName": "newGovernanceUtilitiesConversions"
+                },
+                {
+                    "name": "Chains",
+                    "propertyName": "chains",
+                    "functionName": "newGovernanceUtilitiesChains"
                 }
             ],
             "spaces": [
@@ -1685,6 +1696,12 @@
                     "propertyName": "signingAccounts",
                     "functionName": "newGovernanceUtilitiesSigningAccounts",
                     "fileName": "SigningAccounts.js"
+                },
+                {
+                    "name": "Balances",
+                    "propertyName": "balances",
+                    "functionName": "newGovernanceUtilitiesBalances",
+                    "fileName": "Balances.js"
                 }
             ]
         },
@@ -2389,7 +2406,7 @@
             ]
         },
         "TS": {
-            "botModules":[
+            "botModules": [
                 {
                     "name": "Forecast-Client",
                     "propertyName": "forecastClient",
@@ -2447,7 +2464,7 @@
                     "folderName": "Test-Server"
                 }
             ],
-            "utilities":[
+            "utilities": [
                 {
                     "name": "Miscellaneous",
                     "propertyName": "miscellaneous",
@@ -2458,7 +2475,7 @@
             ]
         },
         "NT": {
-            "modules":[
+            "modules": [
                 {
                     "name": "Machine Learning Network Service",
                     "propertyName": "machineLearningNetworkService",

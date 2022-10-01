@@ -5,7 +5,7 @@ set -eo pipefail
 __dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 __root="$(cd "$(dirname "${__dir}")" && pwd)"
 
-FOLDERS=(Algorithmic-Trading Data-Mining Foundations Machine-Learning Network Portfolio-Management TensorFlow Trading-Signals)
+FOLDERS=(Algorithmic-Trading Data-Mining Foundations Governance Machine-Learning Network Portfolio-Management TensorFlow Trading-Signals)
 for i in "${FOLDERS[@]}"; do
     cd "${__root}/Plugins"
     curl -Ls "https://github.com/Superalgos/${i}-Plugins/archive/refs/heads/develop.zip" -o "${i}.zip"

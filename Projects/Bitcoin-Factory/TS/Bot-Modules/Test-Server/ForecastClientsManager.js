@@ -59,6 +59,17 @@ exports.newForecastClientsManager = function newForecastClientsManager(processIn
 
     async function onMessageReceived(message, userProfile, instance) {
         const currentClientInstance = userProfile + ' / ' + instance
+        // check for mixed up messages
+        // only if message.type == Get Next Forecast Case || == Get All Forecast Cases => no test server is okay
+        if ((message.testServer != undefined) && (message.testServer.instance != undefined) && ((message.type != 'Get Next Forecast Case') && (message.type != 'Get All Forecast Cases'))) {
+            if (message.testServer.instance != TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName) {
+                console.log((new Date()).toISOString(), '[ERROR] We did receive a message from ' + currentClientInstance + ', which asked for testserver '+message.testServer.instance+', but I am '+TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName+'. Write a bug report.')
+                return 'WRONG TESTSERVER! I AM:'+TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName
+            }
+        } else if ((message.type!='Get Next Forecast Case') && (message.type != 'Get All Forecast Cases')) {
+            console.log((new Date()).toISOString(), '[ERROR] We did receive a message from ' + currentClientInstance + ', which has no target testserver. Write a bug report.')
+            return 'NO TESTSERVER! I AM:'+TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName
+        }
         switch (message.type) {
             case 'Get Next Forecast Case': {
                 console.log((new Date()).toISOString(), currentClientInstance, 'requested a new Forecast Case')
@@ -67,6 +78,7 @@ exports.newForecastClientsManager = function newForecastClientsManager(processIn
                     console.log((new Date()).toISOString(), 'Forecast Case Id ' + nextForecastCase.id + ' delivered to', currentClientInstance)
                     nextForecastCase.files.parameters = nextForecastCase.files.parameters.toString()
                     nextForecastCase.files.timeSeries = nextForecastCase.files.timeSeries.toString()
+                    if (nextForecastCase.pythonScriptName == undefined) nextForecastCase.pythonScriptName = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.pythonScriptName
                     return nextForecastCase
                 } else {
                     console.log((new Date()).toISOString(), 'No more Forecast Cases to Build. Could not deliver one to ' + currentClientInstance)
@@ -88,6 +100,11 @@ exports.newForecastClientsManager = function newForecastClientsManager(processIn
             }
             case 'Set Forecast Case Results': {
                 TS.projects.foundations.globals.taskConstants.TEST_SERVER.forecastCasesManager.setForecastCaseResults(JSON.parse(message.payload), currentClientInstance)
+                let response = JSON.stringify(TS.projects.foundations.globals.taskConstants.TEST_SERVER.forecastCasesManager.getForecasts())
+                return response
+            }
+            case 'Get All Forecast Cases': {
+                console.log((new Date()).toISOString(), currentClientInstance, 'requested all Forecast Cases')
                 let response = JSON.stringify(TS.projects.foundations.globals.taskConstants.TEST_SERVER.forecastCasesManager.getForecasts())
                 return response
             }

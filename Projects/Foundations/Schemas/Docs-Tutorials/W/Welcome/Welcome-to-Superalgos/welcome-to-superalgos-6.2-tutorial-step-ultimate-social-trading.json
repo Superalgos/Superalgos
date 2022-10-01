@@ -3,8 +3,8 @@
     "pageNumber": "106.2",
     "type": "Tutorial Step - Ultimate Social Trading",
     "definition": {
-        "text": "The Superalgos Platform is designed to serve algo traders. But the project is expanding its scope to cater to all crypto users!",
-        "updated": 1636302029793,
+        "text": "You may use the Superalgos Platform to produce sophisticated intelligence, but you can also use it to copy other people's trades!",
+        "updated": 1660159176962,
         "icon": {
             "name": "User\\user-influencer",
             "project": "Governance"
@@ -12,8 +12,8 @@
         "translations": [
             {
                 "language": "DE",
-                "text": "Die Superalgos-Plattform ist für Algo-Trader konzipiert. Aber das Projekt erweitert seinen Umfang, um alle Krypto-Nutzer zu bedienen!",
-                "updated": 1634246924903
+                "text": "Sie können die Superalgos Plattform verwenden, um selbst raffinierte Logiken zu entwickeln. Sie können Superalgos jedoch auch verwenden, um die Trades anderer Händler zu kopieren!",
+                "updated": 1660476003678
             },
             {
                 "language": "TR",
@@ -27,21 +27,21 @@
             },
             {
                 "language": "RU",
-                "text": "Платформа Superalgos предназначена для алготрейдеров. Но проект расширяет сферу своей деятельности, чтобы удовлетворить всех пользователей криптовалют!",
-                "updated": 1642773110913
+                "text": "Вы можете использовать платформу Superalgos для производства сложного интеллекта, но вы также можете использовать ее для копирования чужих сделок!",
+                "updated": 1662035282566
             }
         ]
     },
     "paragraphs": [
         {
             "style": "List",
-            "text": "Incentivized by the protocol, algo traders will compete to produce and disseminate trading signals.",
-            "updated": 1636302022130,
+            "text": "Algo traders get Superalgos SA Token rewards for producing and broadcasting trading signals.",
+            "updated": 1660152077831,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Angeregt durch das Protokoll, werden Algo-Händler miteinander konkurrieren, um Handelssignale zu produzieren und zu verbreiten.",
-                    "updated": 1634246936645
+                    "text": "Algo-Händler erhalten Belohnungen über das Superalgos-Token, wenn sie Handelssignale erzeugen und verbreiten.",
+                    "updated": 1660476059905
                 },
                 {
                     "language": "TR",
@@ -55,46 +55,20 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Благодаря протоколу алготрейдеры будут соревноваться в производстве и распространении торговых сигналов.",
-                    "updated": 1642773165400
+                    "text": "Альго-трейдеры получают вознаграждение Superalgos SA Token за производство и трансляцию торговых сигналов.",
+                    "updated": 1662035303285
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Influencers will curate signal providers and broadcast select signals to their following.",
+            "text": "You may get the signals and copy-trade the pros automatically using the same platform!",
+            "updated": 1660158422455,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Influencer werden Signalanbieter kuratieren und ausgewählte Signale an ihre Anhängerschaft senden.",
-                    "updated": 1634246948725
-                },
-                {
-                    "language": "TR",
-                    "text": "Influencer’lar sinyal sağlayıcıları seçecek ve seçilen sinyalleri takipçilerine yayınlayacak.",
-                    "updated": 1636661965784
-                },
-                {
-                    "language": "ID",
-                    "text": "Influencer akan mengenalkan providers dan broadcast sinyal tertentu ke followers mereka.",
-                    "updated": 1640598777370
-                },
-                {
-                    "language": "RU",
-                    "text": "Влиятельные люди будут курировать поставщиков сигналов и транслировать избранные сигналы своим подписчикам.",
-                    "updated": 1642773176745
-                }
-            ]
-        },
-        {
-            "style": "List",
-            "text": "Crypto users will follow influencers and get their signals on a mobile, desktop, or server app, free of charge! These apps will enable easy auto-trading, with free intelligence produced by experts!",
-            "updated": 1630856106399,
-            "translations": [
-                {
-                    "language": "DE",
-                    "text": "Krypto-Nutzer werden den Influencern folgen und ihre Signale kostenlos über eine Handy-, Desktop- oder Server-App erhalten! Diese Apps ermöglichen einfaches automatisches Handeln mit kostenloser Intelligenz, die von Experten erstellt wird!",
-                    "updated": 1634246955205
+                    "text": "Sie können diese Signale empfangen und die Trades der Profis automatisch kopieren - unter Verwendung derselben Plattform!",
+                    "updated": 1660476127135
                 },
                 {
                     "language": "TR",
@@ -108,20 +82,20 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Пользователи криптовалют будут следить за экспертами и получать их сигналы в мобильном, настольном или серверном приложении бесплатно! Эти приложения позволят легко осуществлять автоматическую торговлю, используя бесплатные аналитические данные, полученные от экспертов!",
-                    "updated": 1642773363404
+                    "text": "Вы можете получать сигналы и автоматически копировать торговлю профи, используя ту же платформу!",
+                    "updated": 1662035333551
                 }
             ]
         },
         {
-            "style": "Callout",
-            "text": "Both algo traders and influencers get paid by the protocol, while crypto users get all products and services free of charge. Quite disruptive, right?",
-            "updated": 1636302065775,
+            "style": "Text",
+            "text": "To participate in the open beta testing efforts join the",
+            "updated": 1660158264259,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Sowohl Algo-Trader als auch Influencer werden über das Protokoll bezahlt, während Krypto-Nutzer alle Produkte und Dienstleistungen kostenlos erhalten. Ziemlich disruptiv, oder?",
-                    "updated": 1634246960533
+                    "text": "Um am offenen Beta-Test teilzunehmen, treten Sie bitte dieser Gruppe bei:",
+                    "updated": 1660476171994
                 },
                 {
                     "language": "TR",
@@ -135,8 +109,30 @@
                 },
                 {
                     "language": "RU",
-                    "text": "И алготрейдеры, и влиятельные лица получают оплату по протоколу, а пользователи криптовалют получают все продукты и услуги бесплатно. Довольно революционно, не так ли?",
-                    "updated": 1642773545277
+                    "text": "Для участия в открытом бета-тестировании присоединяйтесь к группе",
+                    "updated": 1662035373576
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "Superalgos Trading Group->t.me/superalgostrading",
+            "updated": 1660151966425
+        },
+        {
+            "style": "Success",
+            "text": "After the beta phase, you will need to hold a certain balance of Superalgos SA Tokens to access this premium community service.",
+            "updated": 1660151898954,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Nach der Beta-Phase wird es erforderlich sein, eine gewisse Menge Superalgos SA Tokens zu halten, um diesen Premium Community-Service zu nutzen.",
+                    "updated": 1660479416061
+                },
+                {
+                    "language": "RU",
+                    "text": "После завершения бета-фазы вам нужно будет иметь определенный баланс Superalgos SA Tokens, чтобы получить доступ к премиум-услугам сообщества.",
+                    "updated": 1662035393211
                 }
             ]
         }

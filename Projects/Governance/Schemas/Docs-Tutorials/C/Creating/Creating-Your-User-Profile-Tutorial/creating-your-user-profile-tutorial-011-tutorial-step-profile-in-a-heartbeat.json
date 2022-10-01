@@ -3,8 +3,8 @@
     "pageNumber": 11,
     "type": "Tutorial Step - Profile in a Heartbeat",
     "definition": {
-        "text": "The Profile Constructor is the device you will use to set up your profile.",
-        "updated": 1629552461547,
+        "text": "The Profile Constructor is the device you will use to set up your profile and create or link an Ethereum Virtual Machine (EVM) compatible wallet.",
+        "updated": 1660586734645,
         "icon": {
             "name": "profile-constructor",
             "project": "Governance"
@@ -36,8 +36,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "It will create a unique Binance Smart Chain wallet that is connected with your profile: your Governance Address.",
-            "updated": 1630657968476,
+            "text": "The wallet supports BSC and Ethereum tokens, and is connected with your profile. We call this wallet your Governance Address.",
+            "updated": 1660586943399,
             "translations": [
                 {
                     "language": "ES",
@@ -64,8 +64,8 @@
         },
         {
             "style": "Note",
-            "text": "However, if you already own a BSC wallet you will have the option to link that address instead of creating a new one.",
-            "updated": 1629552662270,
+            "text": "However, if you already own an EVM wallet you will have the option to link that address instead of creating a new one.",
+            "updated": 1660586668572,
             "translations": [
                 {
                     "language": "ES",

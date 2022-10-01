@@ -46,6 +46,19 @@ function newTimeScale() {
     let wheelDeltaDirection
     let wheelDeltaCounter = 0
 
+    // We declare and define out configStyle so it can be used in multiple locations here.
+    let configStyle
+    let chartingSpaceNode = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Charting Space')
+        if (chartingSpaceNode !== undefined) {
+            if (chartingSpaceNode.spaceStyle !== undefined) {
+                configStyle = JSON.parse(chartingSpaceNode.spaceStyle.config)
+            } else {
+                configStyle = undefined
+            }
+        } else {
+            configStyle = undefined
+        }
+
     return thisObject
 
     function finalize() {
@@ -333,8 +346,20 @@ function newTimeScale() {
             let fitPoint2 = thisObject.fitFunction(timePoint2)
 
             if (fitPoint1.x === timePoint1.x && fitPoint2.x === timePoint2.x) {
-                UI.projects.foundations.utilities.drawPrint.drawLabel(labels[1], 1 / 2, 0, 18, 17, FONT_SIZE, thisObject.container, UI_COLOR.GREY, timePoint1.x, undefined)
-                UI.projects.foundations.utilities.drawPrint.drawLabel(labels[2], 1 / 2, 0, 18, 30, 12, thisObject.container, UI_COLOR.GREY, timePoint1.x, undefined)
+                // This controls the date (day and month) at the top of the chart.
+                if (configStyle === undefined || configStyle.timeScaleDateColor === undefined) {
+                    UI.projects.foundations.utilities.drawPrint.drawLabel(labels[1], 1 / 2, 0, 18, 17, FONT_SIZE, thisObject.container, UI_COLOR.GREY, timePoint1.x, undefined)
+                } else{
+                    let thisColor = eval(configStyle.timeScaleDateColor)
+                    UI.projects.foundations.utilities.drawPrint.drawLabel(labels[1], 1 / 2, 0, 18, 17, FONT_SIZE, thisObject.container, thisColor, timePoint1.x, undefined)
+                }
+                // This controls the time under the date at the top of the chart.
+                if (configStyle === undefined || configStyle.timeScaleDateTimeColor === undefined) {
+                    UI.projects.foundations.utilities.drawPrint.drawLabel(labels[2], 1 / 2, 0, 18, 30, 12, thisObject.container, UI_COLOR.GREY, timePoint1.x, undefined)
+                } else{
+                    let thisColor = eval(configStyle.timeScaleDateTimeColor)
+                    UI.projects.foundations.utilities.drawPrint.drawLabel(labels[2], 1 / 2, 0, 18, 30, 12, thisObject.container, thisColor, timePoint1.x, undefined)
+                }
             }
         }
     }
@@ -360,10 +385,20 @@ function newTimeScale() {
         let icon1 = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.payload.parentNode.project, thisObject.payload.node.payload.parentNode.type)
         let icon2 = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.payload.node.type)
 
-        let backgroundColor = UI_COLOR.BLACK
-        let labels = scaleLabels(thisObject.date)
-
-        drawScaleDisplay(labels[0], labels[1], labels[2], 0, 0, 0, icon1, icon2, thisObject.container, backgroundColor)
+        if (configStyle === undefined || configStyle.timeScalePanelColor === undefined) {
+            let backgroundColor = UI_COLOR.BLACK
+            let labels = scaleLabels(thisObject.date)
+            drawScaleDisplay(labels[0], labels[1], labels[2], 0, 0, 0, icon1, icon2, thisObject.container, backgroundColor)
+        } else {
+            let backgroundColor = eval(configStyle.timeScalePanelColor)
+            let labels = scaleLabels(thisObject.date)
+            if (configStyle.timeScalePanelLabelColor !== undefined) {
+                let textColor = eval(configStyle.timeScalePanelLabelColor)
+                drawScaleDisplay(labels[0], labels[1], labels[2], 0, 0, 0, icon1, icon2, thisObject.container, backgroundColor, textColor)
+            } else {
+                drawScaleDisplay(labels[0], labels[1], labels[2], 0, 0, 0, icon1, icon2, thisObject.container, backgroundColor)
+            }
+        }
     }
 
     function scaleLabels(date, excludeYear) {

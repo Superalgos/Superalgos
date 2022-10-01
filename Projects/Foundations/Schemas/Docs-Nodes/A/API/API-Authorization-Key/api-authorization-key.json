@@ -1,0 +1,19 @@
+{
+    "type": "API Authorization Key",
+    "definition": {
+        "text": "The API Authorization Key node is referenced by a Task with a API Data Fetcher Bot Instance. It contains the keys that will be used by the bot to authenticate with the API endpoint.",
+        "updated": 1658641304473
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The API Authorization Key node is a child underneath the APIs parent node.",
+            "updated": 1658641400230
+        },
+        {
+            "style": "Text",
+            "text": "The default configuration contains a number of parameters commonly used by APIs. These are things such as API key and secrets used to obtain OAuth tokens, or bearer tokens.",
+            "updated": 1658641411202
+        }
+    ]
+}

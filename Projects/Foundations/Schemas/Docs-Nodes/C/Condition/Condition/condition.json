@@ -46,8 +46,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Bu nedenle, belirli bir eylemin gerçekleştirilmesi için piyasada ne olması gerektiğini matematiksel olarak tanımlamak için koşullar kullanılır.",
-                    "updated": 1652798414341
+                    "text": "Bu nedenle, belirli bir eylemin gerçekleştirilmesi için piyasada ne olması gerektiğini matematiksel olarak tanımlayacağınız yer burasıdır.",
+                    "updated": 1656054466989
                 }
             ]
         },
@@ -64,11 +64,6 @@
                     "language": "DE",
                     "text": "Zum Beispiel:",
                     "updated": 1641636604669
-                },
-                {
-                    "language": "TR",
-                    "text": "Örneğin:",
-                    "updated": 1652798423776
                 }
             ]
         },
@@ -83,8 +78,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Durum 1",
-                    "updated": 1652798443398
+                    "text": "1. Durum",
+                    "updated": 1656054479641
                 }
             ]
         },
@@ -105,8 +100,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Koşul A:: chart.at01hs.candle.close > chart.at01hs.bollingerBand.MovingAverage",
-                    "updated": 1652798457231
+                    "text": "Koşul A: chart.at01hs.candle.close > chart.at01hs.bollingerBand.MovingAverage",
+                    "updated": 1656054485886
                 }
             ]
         },
@@ -126,8 +121,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Not: Bu, 1 saatlik grafikteki son mumun Bollinger Bantları hareketli ortalamasının üzerinde kapandığı anlamına gelir.",
-                    "updated": 1652798469259
+                    "text": "Bu, 1 saatlik grafikteki en son mumun Bollinger Bantları hareketli ortalamasının üzerinde kapandığı anlamına gelir.",
+                    "updated": 1656054509919
                 }
             ]
         },
@@ -149,7 +144,7 @@
                 {
                     "language": "TR",
                     "text": "Koşul B: chart.at01hs.candle.previous.max > chart.at01hs.bollingerBand.previous.MovingAverage",
-                    "updated": 1652798484941
+                    "updated": 1656054518434
                 }
             ]
         },
@@ -169,8 +164,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Not: Bu, mumun son mumdan önceki maksimum değerinin Bollinger Bantları hareketli ortalamasından daha yüksek olduğu anlamına gelir.",
-                    "updated": 1652798493919
+                    "text": "Bu, son mumdan önceki mumun maksimum değerinin Bollinger Bantları hareketli ortalamasından daha yüksek olduğu anlamına gelir.",
+                    "updated": 1656054534590
                 }
             ]
         },
@@ -191,8 +186,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Yukarıdaki örnekte, A ve B koşulları, doğru veya yanlış olarak değerlendirilebilecek karşılaştırma ifadeleridir. Her ikisinin de doğru olarak değerlendirilmesi durumunda Durum 1 ( Situation ) de doğru olacaktır.",
-                    "updated": 1652798552644
+                    "text": "Yukarıdaki örnekte, A ve B koşulları doğru (true) ya da yanlış (false) olarak değerlendirilebilen karşılaştırma ifadeleridir. Her ikisinin de doğru olarak değerlendirilmesi durumunda Durum 1 de doğru olacaktır.",
+                    "updated": 1656054569574
                 }
             ]
         },
@@ -212,8 +207,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Not: Koşulların nasıl yazılacağını öğrenmek için Sözdizimine Genel Bakış ( Syntax Overview ) ile başlayın.",
-                    "updated": 1652798583546
+                    "text": "Koşulların nasıl yazılacağını öğrenmek için Sözdizimine Genel Bakış (Syntax Overview) konusuna bakabilirsiniz.",
+                    "updated": 1656054602953
                 }
             ]
         }

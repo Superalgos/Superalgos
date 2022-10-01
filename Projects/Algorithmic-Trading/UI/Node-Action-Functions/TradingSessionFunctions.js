@@ -128,7 +128,7 @@ function newAlgorithmicTradingFunctionLibraryTradingSessionFunctions() {
             'Outgoing Signals->Incoming Signals->Outgoing Signal Reference->Incoming Signal Reference->Signal Context Formula->' +
             'Trading System Signal->' +
             'Trigger On Signal->Trigger Off Signal->Take Position Signal->' +
-            'Target Rate Signal->Target Size In Base Asset Signal->Target Size In Quoted Asset Signal->' +
+            'Close Stage Signal->Target Rate Signal->Target Size In Base Asset Signal->Target Size In Quoted Asset Signal->' +
             'Create Order Signal->Cancel Order Signal->Order Rate Signal->' +
             'Limit Sell Order Signals->Limit Buy Order Signals->Market Sell Order Signals->Market Buy Order Signals->' +
             'Next Phase Signal->Move To Phase Signal->Phase Signal->Managed Take Profit Signals->Managed Stop Loss Signals->' +

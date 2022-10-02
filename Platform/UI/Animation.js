@@ -181,11 +181,7 @@ function newAnimation() {
         if (designSpace !== undefined) {
             if (designSpace.spaceSettings !== undefined) {
                 mainSpaceSettings = JSON.parse(designSpace.spaceSettings.config)
-            } else {
-                fpsInMilliseconds = 23
             }
-        } else {
-            fpsInMilliseconds = 23
         }
 
         if (mainSpaceSettings !== undefined) {

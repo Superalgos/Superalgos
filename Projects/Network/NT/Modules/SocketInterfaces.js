@@ -13,7 +13,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
         initialize: initialize,
         finalize: finalize
     }
-
+    let intervalId
     let web3
     return thisObject
 
@@ -23,31 +23,25 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
         thisObject.networkPeers = []
         thisObject.callersMap = new Map()
 
-        setInterval(cleanIdleConnections, 60000)
+        intervalId = setInterval(cleanIdleConnections, 60 * 1000) // runs every minute
 
         function cleanIdleConnections() {
             let now = (new Date()).valueOf()
             for (let i = 0; i < thisObject.networkClients.length; i++) {
                 let caller = thisObject.networkClients[i]
-                let diff = Math.trunc((now - caller.timestamp) / 60000)
-                if (diff > 30) {
+                let diff = Math.trunc((now - caller.timestamp) / 60 / 1000)
+                if (diff > 2) {
                     caller.socket.close()
 
                     console.log((new Date()).toISOString(), '[WARN] Socket Interfaces -> cleanIdleConnections -> Client Idle by more than ' + diff + ' minutes -> caller.userProfile.name = ' + caller.userProfile.name)
                     return
                 }
-                /*
-                if (caller.timestamp < now - 60 * 60 * 1000) {
-                    caller.socket.close()
-                    console.log((new Date()).toISOString(), '[WARN] Socket Interfaces -> cleanIdleConnections -> Idle client disconnected -> caller.userProfile.name = ' + caller.userProfile.name)
-                    return
-                }
-                */
             }
         }
     }
 
     function finalize() {
+        clearInterval(intervalId)
         thisObject.networkClients = undefined
         thisObject.networkPeers = undefined
         callersMap = undefined
@@ -62,7 +56,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
             } catch (err) {
                 let response = {
                     result: 'Error',
-                    message: 'socketMessage Not Coorrect JSON Format.'
+                    message: 'socketMessage Not Correct JSON Format.'
                 }
                 caller.socket.send(JSON.stringify(response))
                 caller.socket.close()
@@ -91,9 +85,9 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                     if (caller.userProfile === undefined) {
                         let response = {
                             result: 'Error',
-                            message: 'Handshake Not Done Yet.'
+                            message: 'Handshake Not Done Yet.',
+                            messageId: socketMessage.messageId
                         }
-                        response.messageId = socketMessage.messageId
                         caller.socket.send(JSON.stringify(response))
                         caller.socket.close()
                         return
@@ -105,9 +99,9 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                     } catch (err) {
                         let response = {
                             result: 'Error',
-                            message: 'Payload Not Correct JSON Format.'
+                            message: 'Payload Not Correct JSON Format.',
+                            messageId: socketMessage.messageId
                         }
-                        response.messageId = socketMessage.messageId
                         caller.socket.send(JSON.stringify(response))
                         caller.socket.close()
                     }
@@ -115,9 +109,9 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                     if (payload.networkService === undefined) {
                         let response = {
                             result: 'Error',
-                            message: 'Network Service Undifined.'
+                            message: 'Network Service Undefined.',
+                            messageId: socketMessage.messageId
                         }
-                        response.messageId = socketMessage.messageId
                         caller.socket.send(JSON.stringify(response))
                         caller.socket.close()
                         return
@@ -468,6 +462,40 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                 console.log((new Date()).toISOString(), '[WARN] Socket Interfaces -> handshakeStepTwo -> userAppBlockchainAccount not associated with userProfile -> userAppBlockchainAccount = ' + caller.userAppBlockchainAccount)
                 return
             }
+            /*
+            We will verify that the caller's User Profile has the minimun SA Balance required to connect to this Netork Node
+            */
+            switch (caller.role) {
+                case 'Network Client': {
+                    let clientMinimunBalance = NT.networkApp.p2pNetworkNode.node.config.clientMinimunBalance | 0
+                    if (userProfileByBlockchainAccount.balance < clientMinimunBalance) {
+                        let response = {
+                            result: 'Error',
+                            message: 'Network Client User Profile ' + userProfileByBlockchainAccount.config.codeName + ' has a Balance of ' + SA.projects.governance.utilities.balances.toSABalanceString(userProfileByBlockchainAccount.balance) + ' while the Minimun Balance Required to connect to this Network Node "' + NT.networkApp.p2pNetworkNode.userProfile.config.codeName + '/' + NT.networkApp.p2pNetworkNode.node.config.codeName + '" is ' + SA.projects.governance.utilities.balances.toSABalanceString(clientMinimunBalance)
+                        }
+                        caller.socket.send(JSON.stringify(response))
+                        caller.socket.close()
+                        return
+                    }
+                    break
+                }
+                case 'Network Peer': {
+                    let clientMinimunBalance = NT.networkApp.p2pNetworkNode.node.config.peerMinimunBalance | 0
+                    if (userProfileByBlockchainAccount.balance < clientMinimunBalance) {
+                        let response = {
+                            result: 'Error',
+                            message: 'Network Peer User Profile ' + userProfileByBlockchainAccount.config.codeName + ' has a Balance of ' + SA.projects.governance.utilities.balances.toSABalanceString(userProfileByBlockchainAccount.balance) + ' while the Minimun Balance Required to connect to this Network Node "' + NT.networkApp.p2pNetworkNode.userProfile.config.codeName + '/' + NT.networkApp.p2pNetworkNode.node.config.codeName + '" is ' + SA.projects.governance.utilities.balances.toSABalanceString(clientMinimunBalance)
+                        }
+                        caller.socket.send(JSON.stringify(response))
+                        caller.socket.close()
+                        return
+                    }
+                    break
+                }
+            }
+            /*
+            Parse the signed Message
+            */
             let signedMessage = JSON.parse(signature.message)
             /*
             We will verify that the signature belongs to the signature.message.
@@ -578,7 +606,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
             */
             for (let i = 0; i < callersArray.length; i++) {
                 let callerInArray = callersArray[i]
-                if (caller.userProfile.ranking > callerInArray.userProfile.ranking) {
+                if (caller.userProfile.ranking < callerInArray.userProfile.ranking) {
                     callersArray.splice(i, 0, caller)
                     return
                 }
@@ -656,6 +684,8 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
             for (let i = 0; i < thisObject.networkClients.length; i++) {
                 let networkClient = thisObject.networkClients[i]
                 networkClient.socket.send(JSON.stringify(socketMessage))
+
+                console.log((new Date()).toISOString(), '[INFO] Signal sent to User Profile: ' + networkClient.userProfile.name)             
             }
             return true
         } catch (err) {

@@ -60,7 +60,10 @@ async function runRoot() {
     discordjs: require('discord.js'),
     discordRest: require('@discordjs/rest'),
     discordTypes: require('discord-api-types/v9'),
-    axios: require('axios')
+    axios: require('axios'),
+    hyperquest: require('hyperquest'),
+    ndjson: require('ndjson')
+  
   }
   /* 
   Setting up the App Schema Memory Map. 

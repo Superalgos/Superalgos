@@ -8,20 +8,24 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
         messageReceived: messageReceived,
         getStats: getStats,
         initialize: initialize,
-        finalize: finalize
+        finalize: finalize,
     }
 
     let requestsToServer = []
+    let messagesForDashboard = new Map()
     let responseFunctions = new Map()
     let statsByNetworkClients = new Map()
     let stats = {
 
     }
 
+    /**Here we control our memory cleanup, it will run every 60 seconds. */
+    let intervalId = setInterval(maintainMemoryStorage, 60 * 1000)
+
     return thisObject
 
     function finalize() {
-
+        clearInterval(intervalId)
     }
 
     async function initialize() {
@@ -64,7 +68,7 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
             userProfile
         ) {
             /*
-     
+    
             */
             let queryReceived
             try {
@@ -76,7 +80,11 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
                 }
                 return response
             }
-            //console.log(queryMessage)
+
+            /** Here we add the information we are handling to memory
+             * All memories are stored for 10 mintues before being removed from memory.*/
+            rememberMessagesForDashboard(queryReceived)
+
             switch (queryReceived.sender) {
                 case 'Test-Client': {
                     queryReceived.userProfile = userProfile.name
@@ -109,13 +117,15 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
                 ' -> Websockets Clients = ' + connectedUserProfilesLabel +
                 ' -> Clients Requests Queue Size = ' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(requestsToServer.length, 3) +
                 ' -> userProfile = ' + userProfile +
-                ' -> instance = ' + queryReceived.instance)
+                ' -> instance = ' + queryReceived.instance +
+                ' -> target = ' + ((requestToServer.queryReceived.testServer !== undefined) && (requestToServer.queryReceived.testServer.instance !== undefined) ? requestToServer.queryReceived.testServer.instance : '')
+                )
 
             /*
             Update the Statistics
             */
             let networkClientKey = queryReceived.sender + '/' + userProfile + '/' + queryReceived.instance
-            statsByNetworkClient = statsByNetworkClients.get(networkClientKey)
+            let statsByNetworkClient = statsByNetworkClients.get(networkClientKey)
             if (statsByNetworkClient === undefined) {
                 statsByNetworkClient = {
                     userProfile: userProfile,
@@ -139,14 +149,20 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
 
             async function promiseWork(resolve, reject) {
                 responseFunctions.set(queryReceived.messageId, onResponseFromServer)
-                function onResponseFromServer(queryReceived) {
+                function onResponseFromServer(awnserReceived) {
+                    console.log((new Date()).toISOString(), '[INFO] Awnser to Test Client v.' + testClientVersion +
+                        '                 -> timestamp = ' + (new Date(requestToServer.timestamp)).toISOString() +
+                        ' -> userProfile = ' + userProfile +
+                        ' -> sender = ' + awnserReceived.sender +
+                        ' -> instance = ' + awnserReceived.instance 
+                    )
                     /*
                     Process the Response
                     */
                     let response = {
                         result: 'Ok',
                         message: 'Server Responded.',
-                        serverData: queryReceived
+                        serverData: awnserReceived
                     }
                     /*
                     Update the Statistics
@@ -164,7 +180,7 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
                 queryReceived: queryReceived,
                 timestamp: (new Date()).valueOf()
             }
-            let forecastClientVersion = queryReceived.testClientVersion
+            let forecastClientVersion = queryReceived.forecastClientVersion
             if (forecastClientVersion === undefined) { forecastClientVersion = 1 }
             requestsToServer.push(requestToServer)
             console.log((new Date()).toISOString(), '[INFO] Request From Forecast Client v.' + forecastClientVersion +
@@ -172,16 +188,26 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
                 ' -> Websockets Clients = ' + connectedUserProfilesLabel +
                 ' -> Clients Requests Queue Size = ' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(requestsToServer.length, 3) +
                 ' -> userProfile = ' + userProfile +
-                ' -> instance = ' + queryReceived.instance)
+                ' -> instance = ' + queryReceived.instance +
+                ' -> target = ' + ((requestToServer.queryReceived.testServer !== undefined) && (requestToServer.queryReceived.testServer.instance !== undefined) ? requestToServer.queryReceived.testServer.instance : '')
+                )
             return new Promise(promiseWork)
 
             async function promiseWork(resolve, reject) {
                 responseFunctions.set(queryReceived.messageId, onResponseFromServer)
-                function onResponseFromServer(queryReceived) {
+                function onResponseFromServer(awnserReceived) {
+
+                    console.log((new Date()).toISOString(), '[INFO] Awnser to Forecast Client v.' + forecastClientVersion +
+                        '                 -> timestamp = ' + (new Date(requestToServer.timestamp)).toISOString() +
+                        ' -> userProfile = ' + userProfile +
+                        ' -> sender = ' + awnserReceived.sender +
+                        ' -> instance = ' + awnserReceived.instance 
+                    )
+
                     let response = {
                         result: 'Ok',
                         message: 'Server Responded.',
-                        serverData: queryReceived
+                        serverData: awnserReceived
                     }
                     resolve(response)
                 }
@@ -212,9 +238,9 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
                     for (let i = 0; i < requestsToServer.length; i++) {
                         let requestToServer = requestsToServer[i]
                         if (
-                            requestToServer.testServer !== undefined &&
-                            requestToServer.testServer.userProfile === userProfile &&
-                            requestToServer.testServer.instance === queryReceived.instance
+                            requestToServer.queryReceived.testServer !== undefined &&
+                            requestToServer.queryReceived.testServer.userProfile === userProfile &&
+                            requestToServer.queryReceived.testServer.instance === queryReceived.instance
                         ) {
                             requestsToServer.splice(i, 1)
                             checkExpiration(requestToServer)
@@ -227,7 +253,7 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
                     for (let i = 0; i < requestsToServer.length; i++) {
                         let requestToServer = requestsToServer[i]
                         if (
-                            requestToServer.testServer === undefined
+                            requestToServer.queryReceived.testServer === undefined
                         ) {
                             requestsToServer.splice(i, 1)
                             checkExpiration(requestToServer)
@@ -279,6 +305,23 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
             }
         }
     }
+    
+    /**Here we add the message we are handling to memory for the dashboard to later access. */
+    function rememberMessagesForDashboard(queryReceived) {
+        let dashboardMemoryKeys = (new Date()).valueOf()
+        messagesForDashboard.set(dashboardMemoryKeys, queryReceived)
+    }
+
+
+    /**Here we remove any memories that are older then 10 minutes. */
+    function maintainMemoryStorage() {
+        let timestamp = (new Date()).valueOf()
+        let oldestOkTimestamp = timestamp - 600000
+        for (let [key, value] of messagesForDashboard.entries()) {
+            if (key < oldestOkTimestamp) { messagesForDashboard.delete(key) }
+        }
+    }
+    
 
     function getStats() {
         let response = {

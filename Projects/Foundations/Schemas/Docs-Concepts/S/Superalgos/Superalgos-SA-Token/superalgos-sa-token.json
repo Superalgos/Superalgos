@@ -6,8 +6,8 @@
         "translations": [
             {
                 "language": "RU",
-                "text": "Это токен BEP20 в сети Binance Smart Chain, который будет использоваться в качестве средства обмена пользователями Superalgos при оплате товаров или услуг, которые они покупают и продают друг другу.",
-                "updated": 1638298808232
+                "text": "Это собственный токен проекта Superalgos, распределяемый среди участников в качестве вознаграждения за добавленную в проект пользу. Вы можете использовать токен для участия в управлении и для доступа к премиум-услугам Сообщества.",
+                "updated": 1661149288535
             },
             {
                 "language": "TR",
@@ -24,8 +24,8 @@
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Характеристики",
-                    "updated": 1638298836264
+                    "text": "Несколько версий",
+                    "updated": 1661149324833
                 },
                 {
                     "language": "TR",
@@ -36,12 +36,26 @@
         },
         {
             "style": "Text",
-            "text": "The project is deploying versions of the token on each of the major blockchains to gain exposure to different communities and ecosystems. At some point, you will be able to chose on what chain to get your rewards.",
-            "updated": 1660584675817
+            "text": "The project is deploying versions of the token on each of the major blockchains to gain exposure to different communities and ecosystems. Currently, the token is available on BNB Smart Chain (BSC) and Ethereum (ETH). At some point, you will be able to chose on what chain to get your rewards.",
+            "updated": 1664309478481,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Проект развертывает версии токена на каждой из основных блокчейн, чтобы получить доступ к различным сообществам и экосистемам. В определенный момент вы сможете выбрать, на какой цепочке получать свои вознаграждения.",
+                    "updated": 1661149347936
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Properties"
+            "text": "Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Характеристика",
+                    "updated": 1661149418829
+                }
+            ]
         },
         {
             "style": "Text",
@@ -94,7 +108,7 @@
         },
         {
             "style": "List",
-            "text": "Binance Smart Chain (BSC) version: 500,000,000",
+            "text": "BNB Smart Chain (BSC) version: 500,000,000",
             "translations": [
                 {
                     "language": "TR",
@@ -102,7 +116,7 @@
                     "updated": 1642711686936
                 }
             ],
-            "updated": 1660584714957
+            "updated": 1664309488511
         },
         {
             "style": "List",
@@ -115,6 +129,14 @@
                     "updated": 1642711670828
                 }
             ]
+        },
+        {
+            "style": "List",
+            "text": "Ethereum (ETH) version: 250,000,000"
+        },
+        {
+            "style": "List",
+            "text": "ETH Contract Address: 0xc17272c3e15074c55b810bceba02ba0c4481cd79"
         },
         {
             "style": "Title",
@@ -140,8 +162,8 @@
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Токен был развернут в марте 2021 года, и все токены были депонированы на казначейском счете проекта. Токены распределяются среди участников из этой учетной записи для каждого выпуска.",
-                    "updated": 1638298947085
+                    "text": "После развертывания токены зачисляются на казначейский счет проекта. С этого счета токены распределяются среди вкладчиков на основе каждого выпуска.",
+                    "updated": 1661149448748
                 },
                 {
                     "language": "TR",
@@ -161,6 +183,10 @@
                     "updated": 1642711843176
                 }
             ]
+        },
+        {
+            "style": "List",
+            "text": "ETH Treasury Account: 0xa54c30122d477589311ee28b85c0e8dc8f12680a"
         },
         {
             "style": "Success",

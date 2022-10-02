@@ -216,6 +216,8 @@ function newFoundationsUtilitiesDrawPrint() {
         if (chartingSpaceNode !== undefined) {
             if (chartingSpaceNode.spaceStyle !== undefined) {
                 configStyle = JSON.parse(chartingSpaceNode.spaceStyle.config)
+            } else {
+                configStyle = undefined
             }
         } else {
             configStyle = undefined

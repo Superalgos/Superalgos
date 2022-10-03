@@ -4,17 +4,17 @@
 
 ![Learning framework](https://upload.wikimedia.org/wikipedia/commons/1/1b/Reinforcement_learning_diagram.svg "RL Framework")
 
-In our usage case, the environment is a stock trading one and the possible actions are buy,sell or hold. The reward will be our gain or loss. Based on this reward the agent will learn how to trade better. The process of learning is done with a so called [Proximal Policy Optimization (PPO)](https://en.wikipedia.org/wiki/Proximal_Policy_Optimization).
+In our usage case, the environment is a stock trading one and the possible actions are buy, sell or hold. The reward will be our gain or loss. Based on this reward the agent will learn how to trade better. The process of learning is done with a so called [Proximal Policy Optimization (PPO)](https://en.wikipedia.org/wiki/Proximal_Policy_Optimization).
 
 At the end the agent will provide us an action for the current candle. The possible actions at the moment are:
 * 0 -> buy long
-* 1 -> sell 
+* 1 -> sell long
 * 2 -> hold
 
-For buy and sell signals an additionaly percentage is provided.
+For buy and sell signals an additionaly percentage is provided. This percentage indicates the share of the available cash/asset to use within the current action.
 
 ## 📒 2. Configuration
-The basic config has to be done as pointed out in [Bitcoin Factory ReadMe](./README.md). Hereafter the differences for RL are shown.
+The basic config has to be done as pointed out in [Bitcoin Factory ReadMe](./README.md). Hereafter the differences for Reinforcement Learning are shown.
 ### 2.1 Testserver config
 To run a Testserver for RL und need to change the configuration of the testserver node in SA. First you need to define the python script, which should be used for the docker sessions on the clients.
 Second you need to define the range of parameters to be tested: For example the learning rate and so on.
@@ -105,19 +105,27 @@ Second you need to define the range of parameters to be tested: For example the 
 }
 ```
 ### 2.2 Testclient config
-No special config is needed.
-But run only one client per machine (The python script takes care of parallel execution on its own).
+No special config is needed. Look at [Bitcoin Factory Test Client ReadMe](./Test-Client/README.md)
+But run **only one client per machine** (The python script takes care of parallel execution on its own).
+#### 2.2.1 Tensorboard
+During run the test-client stores results under Bitcoin-Factory/Test-Client/notebooks/ray_results/. You can easly monitor them with tensorboard. To get tensorboard working a slightly changed docker container is needed
+* change CMD to
+```
+bash -c source /etc/bash.bashrc && tensorboard --logdir=/tf/ --host=0.0.0.0 &> log_tensorboard & jupyter notebook --notebook-dir=/tf --ip 0.0.0.0 --no-browser --allow-root
+```
+* expose port 6006
 
+![Example Tensorboard](docs/tensorboard.png "Tensorboard")
 ## 💡 3. Results
 > __Note__
 > The processing of one test case on the client takes roughly 2h-6h on a recent System.
 
-The provided Timeseries values are devided in 3 parts (Train, Test, Validate). The first one (train) is used to train the network. The second one (test) is used by the PPO-agent to evaluate the current net during the learning process. The third part is never seen by the agent, it is used to validate if the trained model is able to trade profitable on unseen data.
+The provided timeseries values are devided in 3 parts (Train, Test, Validate). The first one (train) is used to train the network. The second one (test) is used by the PPO-agent to evaluate the current network during the learning process. The third part is never seen by the agent, it is used to validate if the trained network is able to trade profitable on unseen data.
 
-The python script produces 3 charts to visualize the results. The follwing 3 examples are preliminary - made by a not good trained agent. 
-![Example Train Results](docs/BTC_train.png) "BTC train")
-![Example Test Results](docs/BTC_test.png) "BTC test")
-![Example Validate Results](docs/BTC_validate.png) "BTC validate")
+At the end the python script produces 3 charts to visualize the results. The follwing 3 examples are preliminary - made by a network which isn't well trained. 
+![Example Train Results](docs/BTC_train.png "BTC train")
+![Example Test Results](docs/BTC_test.png "BTC test")
+![Example Validate Results](docs/BTC_validate.png "BTC validate")
 
 ## 🤝 4. Support
 

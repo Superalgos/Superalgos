@@ -8,29 +8,76 @@ import pandas as pd
 import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
-import time
-import ray
-import os
-import sys
+import os, sys, time, platform, subprocess
 import math
 import json
 from typing import Dict, List, Optional, Union
+import ray
+from sklearn.model_selection import train_test_split
+from sklearn import preprocessing
+from sklearn.preprocessing import MinMaxScaler
+from tabulate import tabulate
+import tensorflow as tf
+
+def import_install_packages(package):
+    # This is an evil little function
+    # that installs packages via pip.
+    # This means the script can install
+    # it's own dependencies.
+    try:
+        __import__(package)
+    except:
+        import subprocess
+        subprocess.call([sys.executable, "-m", "pip", "install", package])
+
+import_install_packages('string')
+import string #the reimport is needed by ray, to recognize the dependencies (the own import_install_packages isnt enough for ray)
+import_install_packages('packaging')
+from packaging.version import parse as parse_version
+
+print("""Python version: %s
+Platform: %s
+""" % (
+sys.version.split('\n'),
+platform.platform()
+))
+sys.stdout.write('\n')
+print("TF: ", tf.__version__)
+sys.stdout.write('\n')
+print("NP: ", np.__version__)
+sys.stdout.write('\n')
+print("PD: ", pd.__version__)
+sys.stdout.write('\n')
+print("keras: ", tf.keras.__version__)
+sys.stdout.write('\n')
+print("RAY: ", ray.__version__)
+sys.stdout.write('\n')
+
+if parse_version(ray.__version__) < parse_version("1.12.1"):
+    import subprocess
+    subprocess.call([sys.executable, "-m", "pip", "install", "ray[all]>1.12.0"])    
+    import_install_packages('importlib')
+    importlib.reload(ray)
+    print("New RAY: ", ray.__version__)
+    sys.stdout.write('\n')    
+
 from ray import tune
 from ray.rllib.agents import ppo
 from ray.tune import CLIReporter
 from ray.tune import ProgressReporter
 from ray.tune.registry import register_env
+from ray.rllib.env import BaseEnv
 from ray.rllib.env.vector_env import VectorEnv #unused
-from sklearn.model_selection import train_test_split
-from sklearn import preprocessing
-from sklearn.preprocessing import MinMaxScaler
-from tabulate import tabulate
+from ray.rllib.agents.callbacks import DefaultCallbacks
+from ray.rllib.evaluation import MultiAgentEpisode, RolloutWorker
+from ray.rllib.policy import Policy
+from ray.rllib.policy.sample_batch import SampleBatch
 
 location: str = "/tf/notebooks/"
 instructions_file: str = "instructions.csv"
 run_forcast: bool = False
 res_dir: str = location + "/ray_results/"
-
+RESUME = False # Resume training from the last checkpoint if any exists  [True, 'LOCAL', 'REMOTE', 'PROMPT', 'ERRORED_ONLY', 'AUTO']
 
 if os.path.isfile(location+instructions_file): #Forecaster
     run_forecast = True
@@ -53,7 +100,8 @@ if os.path.isfile(location+instructions_file): #Forecaster
     FILENAME_timeseries_dataset = instructions_dataset.values[3][1]
 
     res_dir = location + "/models/" + MODEL_FILE_NAME + "/"
-
+    RESUME = "AUTO"
+    
     parameters = pd.read_csv(
         '/tf/notebooks/'+FILENAME_parameters_dataset,
         header=0,
@@ -129,11 +177,14 @@ else:
     GAMMA = float(parameters.values[2][20])
 
 
+MIN_TRADE_SIZE = INITIAL_QUOTE_ASSET / 10 # should be moved into SA TestServer config
+
 print(f'TIMESTEPS_TO_TRAIN: {TIMESTEPS_TO_TRAIN}\n')
 print(f'OBSERVATION_WINDOW_SIZE: {OBSERVATION_WINDOW_SIZE}\n')
 print(f'INITIAL_QUOTE_ASSET: {INITIAL_QUOTE_ASSET}\n')
 print(f'INITIAL_BASE_ASSET: {INITIAL_BASE_ASSET}\n')
 print(f'TRADING_FEE: {TRADING_FEE}\n')
+print(f'MIN_TRADE_SIZE: {MIN_TRADE_SIZE}\n')
 
 def prepare_data(df):
     # renaming column labels as we wish, regardless what test server sends, hopefully he will maintain position
@@ -236,7 +287,9 @@ class SimpleTradingEnv(gym.Env):
     visualization = None
 
     def __init__(self, config=None):
-        
+
+        self.mode = config.get("mode")
+
         self.df_scaled = config.get("df_scaled").reset_index(drop=True)
         self.df_normal = config.get("df_normal").reset_index(drop=True)
         self.window_size = OBSERVATION_WINDOW_SIZE
@@ -266,6 +319,9 @@ class SimpleTradingEnv(gym.Env):
         self._current_candle = None
         self._net_worth = None
         self._previous_net_worth = None
+        self._buy_trades = None
+        self._sell_trades = None        
+        self._extra_reward = None
 
         # Array that will contain observation history needed for appending it to the observation space
         # It will contain observations consisting of the net_worth, base_asset and quote_asset as list of floats
@@ -288,11 +344,14 @@ class SimpleTradingEnv(gym.Env):
         self._net_worth = INITIAL_QUOTE_ASSET # at the begining our net worth is the initial quote asset
         self._previous_net_worth = INITIAL_QUOTE_ASSET # at the begining our previous net worth is the initial quote asset
         self._total_reward_accumulated = 0.
+        self._extra_reward = 0.
         self._first_rendering = True
         self.portfolio_history = []
         self.trade_history = []
         self.positions = []
         self._obs_env_history = []
+        self._buy_trades = 0
+        self._sell_trades = 0        
         
         self._initial_obs_data()
 
@@ -307,12 +366,12 @@ class SimpleTradingEnv(gym.Env):
         action_type = action[0]
         amount = action[1] / 100
         
-        if action_type == 0: # Buy
+        if action_type == 0: # Buy Long
             # Buy % assets
             # Determine the maximum amount of quote asset that can be bought
             available_amount_to_buy_with = self._quote_asset / current_price
             # Buy only the amount that agent chose
-            assets_bought = available_amount_to_buy_with * amount
+            assets_bought = available_amount_to_buy_with * amount if self._quote_asset * amount > MIN_TRADE_SIZE else 0
             # Update the quote asset balance
             self._quote_asset -= assets_bought * current_price
             # Update the base asset
@@ -322,13 +381,21 @@ class SimpleTradingEnv(gym.Env):
 
             # Add to trade history the amount bought if greater than 0
             if assets_bought > 0:
+                self._buy_trades += 1
                 self.trade_history.append({'step': self._current_candle, 'type': 'BuyLong', 'amount': assets_bought, 'price': current_price, 'total' : assets_bought * current_price, 'percent_amount': action[1]})
-        
+                pos = self._get_position('BTC')
+                if pos != None:
+                    pos['amount'] += assets_bought
+                    pos['entry_price'] = (pos['total'] + assets_bought * current_price)/pos['amount']
+                    pos['total'] = pos['amount'] * current_price
+                else:
+                    pos_id = ''.join([random.choice(string.ascii_letters + string.digits) for n in range(32)])
+                    self.positions.append({'id': pos_id, 'asset': 'BTC', 'type': 'Long', 'amount': assets_bought, 'entry_price': current_price, 'total' : assets_bought * current_price})
 
-        elif action_type == 1: # Sell
+        elif action_type == 1: # Sell Long
             # Sell % assets
             # Determine the amount of base asset that can be sold
-            amount_to_sell = self._base_asset * amount
+            amount_to_sell = self._base_asset * amount if self._base_asset * amount * current_price > MIN_TRADE_SIZE else 0
             received_quote_asset = amount_to_sell * current_price
             # Update the quote asset
             self._quote_asset += received_quote_asset
@@ -340,11 +407,20 @@ class SimpleTradingEnv(gym.Env):
 
             # Add to trade history the amount sold if greater than 0
             if amount_to_sell > 0:
-                self.trade_history.append({'step': self._current_candle, 'type': 'SellLong', 'amount': amount_to_sell, 'price': current_price, 'total' : received_quote_asset, 'percent_amount': action[1]})
+                self._sell_trades += 1                
+                pos = self._get_position('BTC')
+                pos['amount'] -= amount_to_sell
+                pos['total'] = pos['amount'] * current_price                
+
+                profit = amount_to_sell * ( current_price - pos['entry_price'] - self._trading_fee * ( current_price + pos['entry_price'] ) )
+                self._extra_reward += profit 
+
+                self.trade_history.append({'step': self._current_candle, 'type': 'SellLong', 'amount': amount_to_sell, 'price': current_price, 'total' : received_quote_asset, 'percent_amount': action[1], 'profit': profit})
 
         else:
             # Hold
-            self.trade_history.append({'step': self._current_candle, 'type': 'Hold', 'amount': '0', 'price': current_price, 'total' : 0, 'percent_amount': action[1]})
+            #self.trade_history.append({'step': self._current_candle, 'type': 'Hold', 'amount': '0', 'price': current_price, 'total' : 0, 'percent_amount': action[1]})
+            pass
 
 
         self.portfolio_history.append({'step': self._current_candle, 'base_asset': self._base_asset, 'quote_asset': self._quote_asset, 'current_price': current_price, 'net_worth' : self._net_worth})
@@ -357,11 +433,12 @@ class SimpleTradingEnv(gym.Env):
         """
         Returns the next observation, reward, done and info.
         """
-        
+        self._extra_reward = 0
         self._take_action(action)
 
         # Calculate reward comparing the current net worth with the previous net worth
-        reward = self._net_worth - self._previous_net_worth
+        #reward = self._net_worth - self._previous_net_worth
+        reward = self._extra_reward
 
         self._total_reward_accumulated += reward
 
@@ -378,7 +455,9 @@ class SimpleTradingEnv(gym.Env):
             last_action_type = self.trade_history[-1]['type'] if len(self.trade_history) > 0 else None,
             last_action_amount = self.trade_history[-1]['amount'] if len(self.trade_history) > 0 else None,
             current_step = self._current_candle,
-            current_action = action
+            current_action = action,
+            buy_trades=self._buy_trades,
+            sell_trades=self._sell_trades,            
         )
 
         self._current_candle += 1
@@ -390,8 +469,16 @@ class SimpleTradingEnv(gym.Env):
             self.df_normal.loc[:, 'open'].values) - 30)# We assume that the last observation is not the last row of the dataframe, in order to avoid the case where there are no calculated indicators.
 
         if self._done:
-            print('I have finished the episode (',self._current_candle,'Candles )')
-        
+            buy_and_hold_result = INITIAL_QUOTE_ASSET *  self.df_normal.loc[self._current_candle,"close"] / self.df_normal.loc[OBSERVATION_WINDOW_SIZE,"close"]
+
+            if(len(self.trade_history) == 0):
+                print(self.mode,': I have finished the episode (',self._current_candle,' Candles) without trades. NetWorth: ', self._net_worth, " Buy&Hold Res: ", buy_and_hold_result)
+            elif (next((sub for sub in self.trade_history if sub['type'] == 'SellLong'), None) == None):
+                print(self.mode,': I have finished the episode (',self._current_candle,' Candles) without a complete round of buy AND sell for long. NetWorth: ', self._net_worth, " Buy&Hold Res: ", buy_and_hold_result)            
+          #  elif (next((sub for sub in self.trade_history if sub['type'] == 'SellShort'), None) == None):
+           #     print(self.mode,': I have finished the episode (',self._current_candle,' Candles) without a complete round of buy AND sell for short. NetWorth: ', self._net_worth, " Buy&Hold Res: ", buy_and_hold_result)
+            else:
+                print(self.mode,': I have finished the episode (',self._current_candle,' Candles) with ',len(self.trade_history),' trades. NetWorth: ', self._net_worth, " Buy&Hold Res: ", buy_and_hold_result)        
         return obs, reward, self._done, info
 
 
@@ -457,6 +544,12 @@ class SimpleTradingEnv(gym.Env):
         for i in range(self.window_size - len(self._obs_env_history)):
             self._obs_env_history.append([self._net_worth, self._base_asset, self._quote_asset])
 
+    def _get_position(self,asset,posType="Long"):
+        if len(self.positions) > 0:
+            pos = next((item for item in self.positions if ((item['asset'] == asset) and (item['type'] == posType))), None)
+            return pos
+        else:
+            return None
 # Initialize Ray
 if ray.is_initialized():
     ray.shutdown() # let's shutdown first any running instances of ray (don't confuse it with the cluster)
@@ -506,18 +599,21 @@ training_config = {
             "trading_fee": TRADING_FEE,
             "df_normal": X_train,
             "df_scaled": X_train_scaled,
+            "mode": "TRAIN",
 }
 
 test_config = {
             "trading_fee": TRADING_FEE,
             "df_normal": X_test,
             "df_scaled": X_test_scaled,
+            "mode": "TEST",
 }
 
 eval_config = {
             "trading_fee": TRADING_FEE,
             "df_normal": X_valid,
             "df_scaled": X_valid_scaled,
+            "mode": "VALIDATE",    
 }
 
 if ENV_NAME == 'SimpleTrading':
@@ -533,6 +629,65 @@ tune.register_env(training_env_key, lambda _: training_env)
 tune.register_env(test_env_key, lambda _: test_env)
 tune.register_env(eval_env_key, lambda _: eval_env)
 
+### custom ray callback    
+class MyCallbacks(DefaultCallbacks):
+    def on_episode_start(self, worker: RolloutWorker, base_env: BaseEnv,
+                         policies: Dict[str, Policy],
+                         episode: MultiAgentEpisode, **kwargs):
+#        print("episode {} started".format(episode.episode_id))
+        episode.user_data["net_worth"] = []
+        episode.hist_data["net_worth"] = []
+        episode.user_data["buys"] = []
+        episode.user_data["sells"] = []
+        episode.hist_data["buys"] = []
+        episode.hist_data["sells"] = []
+
+    def on_episode_step(self, worker: RolloutWorker, base_env: BaseEnv,
+                        episode: MultiAgentEpisode, **kwargs):
+        info = episode.last_info_for()
+        if info is not None: # why None??
+            net_worth = info['net_worth']
+            buys = info['buy_trades']
+            sells = info['sell_trades']
+            episode.user_data["net_worth"].append(net_worth)
+            episode.user_data["buys"].append(buys)
+            episode.user_data["sells"].append(sells)         
+
+    def on_episode_end(self, worker: RolloutWorker, base_env: BaseEnv,
+                       policies: Dict[str, Policy], episode: MultiAgentEpisode,
+                       **kwargs):
+        net_worth = np.mean(episode.user_data["net_worth"])
+#        print("episode {} ended with length {} and net worth {}".format(
+#            episode.episode_id, episode.length, net_worth))
+        episode.custom_metrics["net_worth"] = net_worth
+        episode.hist_data["net_worth"] = episode.user_data["net_worth"]
+        episode.custom_metrics["buys"] =  np.mean(episode.user_data["buys"])
+        episode.hist_data["buys"] = episode.user_data["buys"]   
+        episode.custom_metrics["sells"] =  np.mean(episode.user_data["sells"])
+        episode.hist_data["sells"] = episode.user_data["sells"]           
+
+    def on_sample_end(self, worker: RolloutWorker, samples: SampleBatch,
+                      **kwargs):
+        pass                      
+#        print("returned sample batch of size {}".format(samples.count))
+
+    def on_train_result(self, trainer, result: dict, **kwargs):
+#        print("trainer.train() result: {} -> {} episodes".format(
+#            trainer, result["episodes_this_iter"]))
+        # you can mutate the result dict to add new fields to return
+        pass
+            #result["callback_ok"] = True
+
+    def on_postprocess_trajectory(
+            self, worker: RolloutWorker, episode: MultiAgentEpisode,
+            agent_id: str, policy_id: str, policies: Dict[str, Policy],
+            postprocessed_batch: SampleBatch,
+            original_batches: Dict[str, SampleBatch], **kwargs):
+            pass
+#        print("postprocessed {} steps".format(postprocessed_batch.count))
+        #if "num_batches" not in episode.custom_metrics:
+         #   episode.custom_metrics["num_batches"] = 0
+        #episode.custom_metrics["num_batches"] += 1  
 
 # Create the ppo trainer configuration
 ppo_trainer_config = {
@@ -573,7 +728,8 @@ ppo_trainer_config = {
         "logger_config": {
             "logdir": res_dir,
             "type": "ray.tune.logger.UnifiedLogger",
-        }
+        },
+        "callbacks": MyCallbacks, #callback for custom metrics
     }
 
 
@@ -606,7 +762,6 @@ class CustomReporter(ProgressReporter):
             trial_status_dict['episodeRewardMin'] = int(trial.last_result['episode_reward_min']) if trial.last_result.get("episode_reward_min") else 0
             trial_status_dict['timestepsExecuted'] = int(trial.last_result['timesteps_total']) if trial.last_result.get("timesteps_total") else 0
             trial_status_dict['timestepsTotal'] = int(TIMESTEPS_TO_TRAIN)
-
         
         sys.stdout.write(json.dumps(trial_status_dict))
         sys.stdout.write('\n')
@@ -645,14 +800,17 @@ analysis = tune.run(
     local_dir=res_dir,  # Local directory to store checkpoints and results, we are using tmp folder until we move the notebook to a docker instance and we can use the same directory across all instances, no matter the underlying OS
     progress_reporter=CustomReporter(max_report_frequency=10,location=location),
     fail_fast=True,
-    resume="AUTO" # Resume training from the last checkpoint if any exists  [True, 'LOCAL', 'REMOTE', 'PROMPT', 'ERRORED_ONLY', 'AUTO']
+    resume=RESUME
 )
 
 # Evaluate trained model restoring it from checkpoint
 best_trial = analysis.get_best_trial(metric="episode_reward_mean", mode="max", scope="all") 
 best_checkpoint = analysis.get_best_checkpoint(best_trial, metric="episode_reward_mean")
 
-print("best_checkpoint path: " + best_checkpoint.local_path)
+try:
+    print("best_checkpoint path: " + best_checkpoint.local_path)
+except:
+    pass
 
 agent = ppo.PPOTrainer(config=ppo_trainer_config)
 agent.restore(best_checkpoint)

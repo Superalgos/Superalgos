@@ -61,42 +61,37 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
     }
 
     function addToforecastCases(testCase) {
-        for (let i = 0; i < thisObject.forecastCasesArray.length; i++) {
-            let forecastCase = thisObject.forecastCasesArray[i]
-            if (forecastCase.mainAsset === testCase.mainAsset && forecastCase.mainTimeFrame === testCase.mainTimeFrame) {
-                //LSTM
-                if (forecastCase.percentageErrorRMSE !== undefined) {
-                    if (Number(testCase.percentageErrorRMSE) < Number(forecastCase.percentageErrorRMSE) && Number(testCase.percentageErrorRMSE) >= 0) {
-                        thisObject.forecastCasesArray.splice(i, 1)
-                        thisObject.forecastCasesMap.delete(testCase.id)
-                        addForcastCase(testCase)
-                    //    return
-                    } else {
-                    //    continue
-                    }   
-                //RL     
-                } else if (forecastCase.ratio !== undefined) {
-                    if (Number(testCase.ratio.validate) > Number(forecastCase.ratio.validate) ) {
-                        thisObject.forecastCasesArray.splice(i, 1)
-                        thisObject.forecastCasesMap.delete(testCase.id)
-                        addForcastCase(testCase)
-                     //   return
-                    } else {
-                     //   continue
+        try {
+            for (let i = 0; i < thisObject.forecastCasesArray.length; i++) {
+                let forecastCase = thisObject.forecastCasesArray[i]
+                // check if testCase has same mainAsset and TimeFrame as current forecastCase, ifso compare if testCase is better
+                if (forecastCase.mainAsset === testCase.mainAsset && forecastCase.mainTimeFrame === testCase.mainTimeFrame) {
+                    //LSTM
+                    if (forecastCase.percentageErrorRMSE !== undefined) {
+                        if (Number(testCase.percentageErrorRMSE) < Number(forecastCase.percentageErrorRMSE) && Number(testCase.percentageErrorRMSE) >= 0) {
+                            thisObject.forecastCasesArray.splice(i, 1)
+                            thisObject.forecastCasesMap.delete(testCase.id)
+                            addForcastCase(testCase)
+                            return
+                        }
+                    //RL     
+                    } else if (forecastCase.ratio_validate !== undefined) {
+                        if (Number(testCase.ratio_validate) > Number(forecastCase.ratio_validate) ) {
+                            thisObject.forecastCasesArray.splice(i, 1)
+                            thisObject.forecastCasesMap.delete(testCase.id)
+                            addForcastCase(testCase)
+                            return
+                        }
                     }
-                } else {
-                   // continue
                 }
-            } else {
-                addForcastCase(testCase)
-              //  return                
             }
-        }
-        if (thisObject.forecastCasesArray.length == 0) addForcastCase(testCase)
-        saveForecastCasesFile()
+            if (thisObject.forecastCasesArray.length == 0) addForcastCase(testCase)    
+        } finally {
+            saveForecastCasesFile()
 
-        console.log("Testserver: Current Forecast table:")
-        console.table(thisObject.forecastCasesArray)
+            console.log((new Date()).toISOString(), '[INFO] Testserver: Current Forecast table:')
+            console.table(thisObject.forecastCasesArray)    
+        }
 
         function addForcastCase(testCase) {
             let testServer
@@ -265,15 +260,15 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
                     }
                     logQueue.push(forecastCase)
                 }
-                console.log((new Date()).toISOString(), forecastedBy + ' produced a new Forecast for the Case Id ' + forecastResult.id)
-                console.log((new Date()).toISOString(), 'Updated partial table of Forecast Cases:')
+                console.log((new Date()).toISOString(), '[INFO] {Test-Server} ' + forecastedBy + ' produced a new Forecast for the Case Id ' + forecastResult.id)
+                console.log((new Date()).toISOString(), '[INFO] {Test-Server} Updated partial table of Forecast Cases:')
                 console.table(logQueue)
                 saveForecastReportFile()
                 saveForecastCasesFile()    
             }
         } catch (err) {
-            console.log((new Date()).toISOString(), '[ERROR] Error processing forecast results. Err = ' + err.stack)
-            console.log((new Date()).toISOString(), '[ERROR] forecastResult = ' + JSON.stringify(forecastResult))
+            console.log((new Date()).toISOString(), '[ERROR] {Test-Server} Error processing forecast results. Err = ' + err.stack)
+            console.log((new Date()).toISOString(), '[ERROR] {Test-Server} forecastResult = ' + JSON.stringify(forecastResult))
         }
 
         function calculatePercentageErrorRMSE(forecastResult) {

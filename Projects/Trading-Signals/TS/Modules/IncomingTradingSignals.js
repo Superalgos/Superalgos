@@ -17,7 +17,7 @@ exports.newTradingSignalsModulesIncomingTradingSignals = function (processIndex)
         tradingEngine = undefined
     }
 
-    async function getAllSignals(node, candle) {
+    async function getAllSignals(node) {
         if (node === undefined) {
             return  
         }

@@ -135,7 +135,7 @@ exports.newNetworkModulesP2PNetworkClient = function newNetworkModulesP2PNetwork
 
             Remember that p2pNetworkClientNode is undefined when this is run from a Network Node, not a Task Server. 
             */
-            if (p2pNetworkClientNode === undefined || (p2pNetworkClientNode.networkServices.tradingSignals !== undefined && thisObject.p2pNetworkStart !== undefined)) {
+            if (p2pNetworkClientNode === undefined || p2pNetworkClientNode.networkServices.tradingSignals !== undefined) {
                 thisObject.tradingSignalsNetworkServiceClient = SA.projects.tradingSignals.modules.tradingSignalsNetworkServiceClient.newTradingSignalsModulesTradingSignalsNetworkServiceClient()
                 await thisObject.tradingSignalsNetworkServiceClient.initialize(
                     userAppSigningAccountCodeName,

@@ -14,6 +14,7 @@
         v-for="(data, name) in value" 
         :value="data" 
         :name="name"
+        :key="name"
         :depth="depth + 1"
       >
       </expandable-tree>

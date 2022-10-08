@@ -46,10 +46,17 @@
 			document.addEventListener('touchmove',(e) =>{this.handleMove(e)});
 			document.addEventListener('touchend',(e) =>{this.handleEnd(e)});
 			document.addEventListener('touchcancel',(e) =>{this.handleEnd(e)});
-			window.addEventListener('resize', (e) =>{this.setVisibality(e)}, true);
-			this.overlay.addEventListener('transitionend',(e) =>{this.handleZindex(e)},false);			
+			window.addEventListener('resize', (e) =>{this.setVisibality()}, true);
+			this.overlay.addEventListener('transitionend',(e) =>{this.handleZindex()},false);			
 			this.overlay.addEventListener('click',(e) =>{this.close()},false);
 			this.setVisibality();
+		},
+		beforeUnmount(){
+			document.removeEventListener('touchstart',(e) =>{this.handleStart(e)});
+			document.removeEventListener('touchmove',(e) =>{this.handleMove(e)});
+			document.removeEventListener('touchend',(e) =>{this.handleEnd(e)});
+			document.removeEventListener('touchcancel',(e) =>{this.handleEnd(e)});
+			window.removeEventListener('resize', (e) =>{this.setVisibality(e)}, true); 
 		},
 		methods:{
 			setVisibality(){

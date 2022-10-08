@@ -2,13 +2,13 @@
     <Tabs :tabList="tabList">
         <template v-slot:tabPanel-1>   
             <div v-for="(objs) in getGlobals">
-                <ExpandableTree v-for="(value, name) in objs" :value="value" :name="name" :depth="0"></ExpandableTree>
+                <ExpandableTree v-for="(value, name) in objs" :value="value" :name="name" :key="name" :depth="0"></ExpandableTree>
             </div> 
             <div class="empty" v-if="globalsObj.length === 0"> Run the Platform App to Send Data to this Dashboard!</div>
         </template>
         <template v-slot:tabPanel-2>
             <div v-for="(objs) in getRaw">
-                <ExpandableTree v-for="(value, name) in objs" :value="value" :name="name" :depth="0"></ExpandableTree>
+                <ExpandableTree v-for="(value, name) in objs" :value="value" :name="name" :key="name" :depth="0"></ExpandableTree>
             </div> 
             <div class="empty" v-if="rawObj.length === 0"> Run the Platform App to Send Data to this Dashboard!</div>
         </template>

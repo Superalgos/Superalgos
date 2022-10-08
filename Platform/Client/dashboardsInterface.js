@@ -201,9 +201,7 @@ exports.newDashboardsInterface = function newDashboardsInterface() {
                                 //Only copies name of each dependency
                                 let dependencies = []
                                 for (let module in object[element] ) {
-                                    if (module !== undefined) {
-                                        dependencies.push(module)
-                                    }
+                                    dependencies.push(module)
                                 }
                                 objectCopy[element] = dependencies
                             } else {

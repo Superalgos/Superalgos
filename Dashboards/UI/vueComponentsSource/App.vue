@@ -66,7 +66,7 @@
                 // update the UI. Anytime a variable is updated from here the UI will follow
                 //console.log("recieved data", event);
                 let messageArray = event.data.toString().split("|*|");
-                let timestamp = messageArray[0]; // First argument is timestamp 
+                /* let timestamp = messageArray[0]; First argument is timestamp */
                 let dataKey = messageArray[1]; // second is the data key assocated with the incoming data
                 let dataContent = JSON.parse(messageArray[2]); // Third is an array of objects holding data
                 this.incomingDataObj[dataKey] = dataContent;

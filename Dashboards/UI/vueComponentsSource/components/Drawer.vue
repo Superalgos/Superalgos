@@ -52,11 +52,11 @@
 			this.setVisibality();
 		},
 		beforeUnmount(){
-			document.removeEventListener('touchstart',(e) =>{this.handleStart(e)});
-			document.removeEventListener('touchmove',(e) =>{this.handleMove(e)});
-			document.removeEventListener('touchend',(e) =>{this.handleEnd(e)});
-			document.removeEventListener('touchcancel',(e) =>{this.handleEnd(e)});
-			window.removeEventListener('resize', (e) =>{this.setVisibality(e)}, true); 
+			document.removeEventListener('touchstart', getEventListeners(document.touchstart[0].listener));
+			document.removeEventListener('touchmove', getEventListeners(document.touchmove[0].listener));
+			document.removeEventListener('touchend', getEventListeners(document.touchend[0].listener));
+			document.removeEventListener('touchcancel',getEventListeners(document.touchcancel[0].listener));
+			window.removeEventListener('resize', getEventListeners(window.resize[0].listener), true); 
 		},
 		methods:{
 			setVisibality(){

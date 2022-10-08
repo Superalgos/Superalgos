@@ -4,12 +4,14 @@ exports.newTradingSignalsModulesIncomingCandleSignals = function (processIndex) 
         mantain: mantain,
         signalReceived: signalReceived,
         getSignals: getSignals,
+        callMeWhenSignalReceived: callMeWhenSignalReceived,
         initialize: initialize,
         finalize: finalize
     }
 
     let signalsByCandleAndSignalDefinitionId
     let keysByCandle
+    let newSignalsReceivedCallBackFunction
 
     return thisObject
 
@@ -41,6 +43,11 @@ exports.newTradingSignalsModulesIncomingCandleSignals = function (processIndex) 
                 let tradingSignalMessage = candleSignals[j]
                 tradingSignalMessageReceived(tradingSignalMessage)
             }
+        }
+
+        if (newSignalsReceivedCallBackFunction !== undefined) {
+            newSignalsReceivedCallBackFunction()
+            newSignalsReceivedCallBackFunction = undefined
         }
 
         function tradingSignalMessageReceived(tradingSignalMessage) {
@@ -94,5 +101,12 @@ exports.newTradingSignalsModulesIncomingCandleSignals = function (processIndex) 
 
         let signals = signalsByCandleAndSignalDefinitionId.get(key)
         return signals
+    }
+
+    function callMeWhenSignalReceived(callBackFunction) {
+        /*
+        This function is used for syncronization of task processes that need to run only if there are new signals available.
+        */
+        newSignalsReceivedCallBackFunction = callBackFunction
     }
 }

@@ -943,6 +943,12 @@
                     "fileName": "ProcessExecutionEvents.js"
                 },
                 {
+                    "name": "Process Trading Signals",
+                    "propertyName": "processTradingSignals",
+                    "functionName": "newFoundationsProcessModulesProcessTradingSignals",
+                    "fileName": "ProcessTradingSignals.js"
+                },                
+                {
                     "name": "Process Output",
                     "propertyName": "processOutput",
                     "functionName": "newFoundationsProcessModulesProcessOutput",

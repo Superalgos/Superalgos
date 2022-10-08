@@ -1,0 +1,70 @@
+{
+    "topic": "Volume Tools Data Mine",
+    "pageNumber": "6",
+    "type": "Trend Volume Accumulation",
+    "definition": {
+        "text": "This indicator depicts the accumulations of rising and declining volumes of a trend."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Volume Oscillator on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator was originally written by luxalgo on Tradingview. It is inspired by the Weiss wave indicator and determines the trend direction using a rolling linear regression. Positive acculumations are in blue, where negative ones are in red."
+        },
+        {
+            "style": "Text",
+            "text": "There are two threshold leves included; the upper level is the cumulative mean of the waves based on rising volume and the lower level is the cumulative mean of declining volume."
+        },
+        {
+            "style": "Text",
+            "text": "When a wave reaches a threshold level, the trend has a high probability to reverse it's direction."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/volume-tva.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| TrendVolumeAccumulation | TVA | rising, declining, direction, upper, lower |"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters for the indicator's calculations can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"Trend Volume Accumulation\" Procedure Loop."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/volume-tva-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "A simple strategy could be built when a negative (red) wave exceeds the lower threshold in an attempt to catch a reversing trend:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at30min.TVA.direction == -1 && chart.at30min.TVA.declining < chart.at30min.TVA.lower"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

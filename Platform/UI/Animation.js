@@ -29,6 +29,7 @@ function newAnimation() {
     let totalCounter = 0
     let pointerIcon
     let videoRecorder
+    let fpsInMilliseconds
     return thisObject
 
     function finalize() {
@@ -152,15 +153,15 @@ function newAnimation() {
             /* We request the next frame to be drawn, and establish a loop */
 
             /* Use this code for full animation speed. */
-            animationLoopHandle = window.requestAnimationFrame(animationLoop)
+            //animationLoopHandle = window.requestAnimationFrame(animationLoop)
 
-            /* Use this code for max 10 frames per second animation speed, if the app is consuming too much of your CPU.  */
-            /*
-            setTimeout(nextLoop, 100)
+            /* Use this code for user defined frames per second animation speed.  */
+            getFramesPerSecond()
+            setTimeout(nextLoop, fpsInMilliseconds)
             function nextLoop () {
-              animationLoopHandle = window.requestAnimationFrame(animationLoop)
+                animationLoopHandle = window.requestAnimationFrame(animationLoop)
             }
-            */
+            
         } catch (err) {
             if (ERROR_LOG === true) { logger.write('[ERROR] animationLoop -> err = ' + err.stack) }
         }
@@ -171,4 +172,27 @@ function newAnimation() {
         browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
         browserCanvasContext.clearRect(0, 0, browserCanvas.width, browserCanvas.height)
     }
+
+    /* This function fetch's the user defined fps from (Design Space/ Space Settings/ config) */
+    function getFramesPerSecond() {
+        let designSpace = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Design Space')
+        let mainSpaceSettings
+
+        if (designSpace !== undefined) {
+            if (designSpace.spaceSettings !== undefined) {
+                mainSpaceSettings = JSON.parse(designSpace.spaceSettings.config)
+            }
+        }
+
+        if (mainSpaceSettings !== undefined) {
+            if (mainSpaceSettings.node.fps === undefined) {
+                fpsInMilliseconds = 23
+            } else {
+                fpsInMilliseconds = mainSpaceSettings.node.fps
+            }
+        } else {
+            fpsInMilliseconds = 23
+        }
+    }
+
 }

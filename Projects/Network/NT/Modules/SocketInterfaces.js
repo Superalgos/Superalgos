@@ -7,6 +7,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
         networkClients: undefined,
         networkPeers: undefined,
         callersMap: undefined,
+        userProfilesMap: undefined,
         onMenssage: onMenssage,
         onConnectionClosed: onConnectionClosed,
         broadcastSignalsToClients: broadcastSignalsToClients,
@@ -15,6 +16,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
     }
     let intervalId
     let web3
+
     return thisObject
 
     function initialize() {
@@ -22,6 +24,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
         thisObject.networkClients = []
         thisObject.networkPeers = []
         thisObject.callersMap = new Map()
+        thisObject.userProfilesMap = new Map()
 
         intervalId = setInterval(cleanIdleConnections, 60 * 1000) // runs every minute
 
@@ -44,7 +47,8 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
         clearInterval(intervalId)
         thisObject.networkClients = undefined
         thisObject.networkPeers = undefined
-        callersMap = undefined
+        thisObject.callersMap = undefined
+        thisObject.userProfilesMap = undefined
         web3 = undefined
     }
 
@@ -462,6 +466,40 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                 console.log((new Date()).toISOString(), '[WARN] Socket Interfaces -> handshakeStepTwo -> userAppBlockchainAccount not associated with userProfile -> userAppBlockchainAccount = ' + caller.userAppBlockchainAccount)
                 return
             }
+            /*
+            We will verify that the caller's User Profile has the minimun SA Balance required to connect to this Netork Node
+            */
+            switch (caller.role) {
+                case 'Network Client': {
+                    let clientMinimunBalance = NT.networkApp.p2pNetworkNode.node.config.clientMinimunBalance | 0
+                    if (userProfileByBlockchainAccount.balance < clientMinimunBalance) {
+                        let response = {
+                            result: 'Error',
+                            message: 'Network Client User Profile ' + userProfileByBlockchainAccount.config.codeName + ' has a Balance of ' + SA.projects.governance.utilities.balances.toSABalanceString(userProfileByBlockchainAccount.balance) + ' while the Minimun Balance Required to connect to this Network Node "' + NT.networkApp.p2pNetworkNode.userProfile.config.codeName + '/' + NT.networkApp.p2pNetworkNode.node.config.codeName + '" is ' + SA.projects.governance.utilities.balances.toSABalanceString(clientMinimunBalance)
+                        }
+                        caller.socket.send(JSON.stringify(response))
+                        caller.socket.close()
+                        return
+                    }
+                    break
+                }
+                case 'Network Peer': {
+                    let clientMinimunBalance = NT.networkApp.p2pNetworkNode.node.config.peerMinimunBalance | 0
+                    if (userProfileByBlockchainAccount.balance < clientMinimunBalance) {
+                        let response = {
+                            result: 'Error',
+                            message: 'Network Peer User Profile ' + userProfileByBlockchainAccount.config.codeName + ' has a Balance of ' + SA.projects.governance.utilities.balances.toSABalanceString(userProfileByBlockchainAccount.balance) + ' while the Minimun Balance Required to connect to this Network Node "' + NT.networkApp.p2pNetworkNode.userProfile.config.codeName + '/' + NT.networkApp.p2pNetworkNode.node.config.codeName + '" is ' + SA.projects.governance.utilities.balances.toSABalanceString(clientMinimunBalance)
+                        }
+                        caller.socket.send(JSON.stringify(response))
+                        caller.socket.close()
+                        return
+                    }
+                    break
+                }
+            }
+            /*
+            Parse the signed Message
+            */
             let signedMessage = JSON.parse(signature.message)
             /*
             We will verify that the signature belongs to the signature.message.
@@ -558,6 +596,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
         switch (caller.role) {
             case 'Network Client': {
                 addToArray(thisObject.networkClients, caller)
+                addToUserProfilesMap(caller.userProfile)
                 break
             }
             case 'Network Peer': {
@@ -572,12 +611,21 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
             */
             for (let i = 0; i < callersArray.length; i++) {
                 let callerInArray = callersArray[i]
-                if (caller.userProfile.ranking > callerInArray.userProfile.ranking) {
+                if (caller.userProfile.ranking < callerInArray.userProfile.ranking) {
                     callersArray.splice(i, 0, caller)
                     return
                 }
             }
             callersArray.push(caller)
+        }
+
+        function addToUserProfilesMap(userProfile) {
+            /*
+            We will increase the counter of how many connections belog to this user profile.
+            */
+            let count = thisObject.userProfilesMap.get(userProfile.id) | 0
+            count++
+            thisObject.userProfilesMap.set(userProfile.id, count)
         }
     }
 
@@ -589,6 +637,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
         switch (caller.role) {
             case 'Network Client': {
                 removeFromArray(thisObject.networkClients, caller)
+                removeFromUserProfilesMap(caller.userProfile)
                 break
             }
             case 'Network Peer': {
@@ -604,6 +653,19 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                     callersArray.splice(i, 1)
                     return
                 }
+            }
+        }
+
+        function removeFromUserProfilesMap(userProfile) {
+            /*
+            We will decrease the counter of how many connections belog to this user profile.
+            */
+            let count = thisObject.userProfilesMap.get(userProfile.id) | 0
+            count--
+            if (count > 0) {
+                thisObject.userProfilesMap.set(userProfile.id, count)
+            } else {
+                thisObject.userProfilesMap.delete(userProfile.id)
             }
         }
     }
@@ -642,14 +704,40 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
         }
     }
 
-    function broadcastSignalsToClients(socketMessage) {
+    async function broadcastSignalsToClients(socketMessage) {
         /*
         TODO: Replace this function with a mechanism to broadcast signals only to Followers.
         */
         try {
+            const MAX_DELAY_FOR_ZERO_RANKING = 60000 // miliseconds
+            const COUNT_USER_PROFILES_CONNECTED_AS_CLIENTS = thisObject.userProfilesMap.size 
+            const DELAY_BETWEEN_USER_PROFILES = MAX_DELAY_FOR_ZERO_RANKING / (COUNT_USER_PROFILES_CONNECTED_AS_CLIENTS - 1)
+            let lastUserProfileId
+
             for (let i = 0; i < thisObject.networkClients.length; i++) {
                 let networkClient = thisObject.networkClients[i]
+                /*
+                It is possible that many connections belong to the same user profile. When that happens, they are all together 
+                in succession because the networkClients array is ordered by the amount of tokens, which in general 
+                are different from one user to the other.
+
+                Everytime we detect that a new user user profile in the sequence of network clients we need to notify, 
+                we will apply the calculated delay.
+                */
+                if (
+                    lastUserProfileId !== undefined &&
+                    lastUserProfileId !== networkClient.userProfile.id &&
+                    DELAY_BETWEEN_USER_PROFILES <= MAX_DELAY_FOR_ZERO_RANKING
+                ) {
+                    await SA.projects.foundations.utilities.asyncFunctions.sleep(DELAY_BETWEEN_USER_PROFILES)
+                }
+                lastUserProfileId = networkClient.userProfile.id
+                /*
+                Here we are ready to send the signal...
+                */
                 networkClient.socket.send(JSON.stringify(socketMessage))
+
+                console.log((new Date()).toISOString(), '[INFO] Signal sent to User Profile: ' + networkClient.userProfile.name)
             }
             return true
         } catch (err) {

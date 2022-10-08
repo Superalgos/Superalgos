@@ -52,8 +52,6 @@ exports.newEnvironment = function () {
         P2P_NETWORK_NODE_MAX_OUTGOING_PEERS: 0,
         DESKTOP_TARGET_NETWORK_TYPE: 'P2P Network',
         DESKTOP_TARGET_NETWORK_CODENAME: 'Testnet',
-        TASK_SERVER_TARGET_NETWORK_TYPE: 'P2P Network',
-        TASK_SERVER_TARGET_NETWORK_CODENAME: 'Testnet',
         DESKTOP_DEFAULT_SOCIAL_PERSONA: 'Social-Persona-1',
         DESKTOP_DEFAULT_SOCIAL_TRADING_BOT: 'Social-Trading-Bot-1',
         NPM_NEEDED_VERSION: '5',

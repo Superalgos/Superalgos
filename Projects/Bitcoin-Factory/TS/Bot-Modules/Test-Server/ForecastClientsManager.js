@@ -78,6 +78,7 @@ exports.newForecastClientsManager = function newForecastClientsManager(processIn
                     console.log((new Date()).toISOString(), 'Forecast Case Id ' + nextForecastCase.id + ' delivered to', currentClientInstance)
                     nextForecastCase.files.parameters = nextForecastCase.files.parameters.toString()
                     nextForecastCase.files.timeSeries = nextForecastCase.files.timeSeries.toString()
+                    if (nextForecastCase.pythonScriptName == undefined) nextForecastCase.pythonScriptName = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.pythonScriptName
                     return nextForecastCase
                 } else {
                     console.log((new Date()).toISOString(), 'No more Forecast Cases to Build. Could not deliver one to ' + currentClientInstance)

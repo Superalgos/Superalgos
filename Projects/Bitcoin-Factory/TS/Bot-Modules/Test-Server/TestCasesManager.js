@@ -14,7 +14,8 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
     const REPORT_NAME = networkCodeName + '-' + (new Date()).toISOString().substring(0, 16).replace("T", "-").replace(":", "-").replace(":", "-") + '-00'
     const MUST_BE_ON_PARAMS = [
         'CANDLES_CANDLES-VOLUMES_CANDLES_CANDLE_MAX', 'CANDLES_CANDLES-VOLUMES_CANDLES_CANDLE_MIN',
-        'CANDLES_CANDLES-VOLUMES_CANDLES_CANDLE_CLOSE', 'CANDLES_CANDLES-VOLUMES_CANDLES_CANDLE_OPEN'
+        'CANDLES_CANDLES-VOLUMES_CANDLES_CANDLE_CLOSE', 'CANDLES_CANDLES-VOLUMES_CANDLES_CANDLE_OPEN',
+        'CANDLES_CANDLES-VOLUMES_VOLUMES_VOLUME_BUY'
     ]
 
     let parametersRanges = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.parametersRanges
@@ -41,6 +42,12 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
                 for (let i = 0; i < thisObject.testCasesArray.length; i++) {
                     let testCase = thisObject.testCasesArray[i]
                     thisObject.testCasesMap.set(testCase.parametersHash, testCase)
+                    if (TS.projects.foundations.globals.taskConstants.TEST_SERVER.forecastCasesManager.forecastCasesArray == undefined) {
+                        TS.projects.foundations.globals.taskConstants.TEST_SERVER.forecastCasesManager.initialize()
+                    }
+                    if (testCase.status === "Tested") {
+                        TS.projects.foundations.globals.taskConstants.TEST_SERVER.forecastCasesManager.addToforecastCases(testCase)
+                    }
                 }
             }
             generateTestCases()
@@ -371,18 +378,32 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
                 return
             }
             testCase.status = 'Tested'
-            testCase.predictions = testResult.predictions
-            testCase.errorRMSE = testResult.errorRMSE
-            testCase.percentageErrorRMSE = calculatePercentageErrorRMSE(testResult)
             testCase.enlapsedSeconds = testResult.enlapsedTime.toFixed(0)
             testCase.enlapsedMinutes = (testResult.enlapsedTime / 60).toFixed(2)
             testCase.enlapsedHours = (testResult.enlapsedTime / 3600).toFixed(2)
             testCase.testedByInstance = currentClientInstance
+            testCase.pythonScriptName = testResult.pythonScriptName
             testCase.testedByProfile = userProfile
             testCase.timestamp = (new Date()).valueOf()
             testCase.testServer = {
                 userProfile: ((testResult.testServer != undefined) && (testResult.testServer.userProfile != undefined) ? testResult.testServer.userProfile : ''),
                 instance: TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName
+            }
+            //LSTM
+            if (testResult.errorRMSE != undefined) {
+                testCase.predictions = testResult.predictions
+                testCase.errorRMSE = testResult.errorRMSE
+                testCase.percentageErrorRMSE = calculatePercentageErrorRMSE(testResult)  
+            //RL      
+            } else if (testResult["0"] != undefined) {
+                testCase.predictions = testResult["2"].current_action
+                testCase.ratio_train = testResult["0"].meanNetWorthAtEnd / testResult["0"].NetWorthAtBegin
+                testCase.ratio_test = testResult["1"].meanNetWorthAtEnd / testResult["1"].NetWorthAtBegin
+                testCase.ratio_validate = testResult["2"].meanNetWorthAtEnd / testResult["2"].NetWorthAtBegin
+                
+                testCase.std_train = testResult["0"].stdNetWorthAtEnd
+                testCase.std_test = testResult["1"].stdNetWorthAtEnd
+                testCase.std_validate = testResult["2"].stdNetWorthAtEnd
             }
 
             let logQueue = []

@@ -241,7 +241,9 @@ function newEventsServerClient(lanNetworkNode) {
                 if (data.message === true) {
                     lanNetworkNode.payload.uiObject.setValue('Restart Required', 15000)
                 } else {
-                    lanNetworkNode.payload.uiObject.resetValue()
+                    if (lanNetworkNode.payload.uiObject !== undefined) {
+                        lanNetworkNode.payload.uiObject.resetValue()
+                    }
                 }
             }
         }

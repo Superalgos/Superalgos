@@ -65,7 +65,7 @@
         "config": true
     },
     "initialValues": {
-        "config": "{ \n\"codeName\": \"\", \n\"host\": \"localhost\" \n}"
+        "config": "{ \n\"codeName\": \"\", \n\"host\": \"localhost\", \n\"clientMinimunBalance\": 0, \n\"clientMinimunBalance\": 0 \n}"
     },
     "addLeftIcons": true,
     "level": 1,

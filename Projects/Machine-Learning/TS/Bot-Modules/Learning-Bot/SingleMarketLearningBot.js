@@ -514,7 +514,10 @@
                                     break
                                 case 'Normal': {
                                     let waitTime
-                                    if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).WAIT_FOR_EXECUTION_FINISHED_EVENT === true) {
+                                    if (
+                                        TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).WAIT_FOR_EXECUTION_FINISHED_EVENT === true ||
+                                        TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).WAIT_FOR_TRADING_SIGNAL_TO_ARRIVE === true
+                                        ) {
                                         waitTime = 0
                                     } else {
                                         switch (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type) {

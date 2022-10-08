@@ -1326,7 +1326,7 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                                     // First we must control our path info to iterate through all data in the API response.
                                                     switch (timestampPath.length) {
                                                         case (1): {
-                                                            console.log('timestamp Path length = 1')
+                                                            console.log(console.log((new Date()).toISOString(), 'This data does not have anything to loop through. Please use a different save option.') )
                                                             break
                                                         }
                                                         // If two we will count up and loop through all possible responses.
@@ -1544,13 +1544,6 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                             // If the existingFile is not defined then this is the first time running.
                                             for (let c = 0; c < completeRecord.size; c++) {
                                                 let runCount = c 
-                                                if (runCount === 0) {
-                                                    thisFile = []
-                                                } 
-                                                // else {
-                                                    // thisFile = thisFile
-                                                // }
-                                                
                                                 let content = Array.from(completeRecord)
                                                 let contentNum = (content.length - 1) - c
                                                 let thisContent = content[contentNum]
@@ -1558,8 +1551,16 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                                 // This is the timestamp we use to build the path.
                                                 let fileT = thisContent[0]
                                                 let time = checkTimestamp(fileT)
+
+                                                if (runCount === 0) {
+                                                    thisFile = []
+                                                    // Here we handle the beginning of the market for our status report.
+                                                    if (contextVariables.beginingOfMarket === undefined) {
+                                                        contextVariables.beginingOfMarket = new Date(time)
+                                                    }
+                                                } 
+
                                                 dateForPath = checkSameFileDate(time)
-                                            
                                             
                                                 let fileC = thisContent[1]
                                                 fileC.unshift(time)
@@ -1575,7 +1576,6 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                     
                                             let basePath = global.env.PATH_TO_DATA_STORAGE
                                             if (SA.nodeModules.fs.existsSync(basePath + '/' + filePath + '/' + fileName) !== true) {
-                                                contextVariables.beginingOfMarket = lastTimestampDate
                                                 thisReport.file.lastRun = new Date()
                                         }
 

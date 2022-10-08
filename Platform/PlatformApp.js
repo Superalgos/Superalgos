@@ -147,11 +147,14 @@ exports.newPlatformApp = function newPlatformApp() {
             HTTP_INTERFACE = HTTP_INTERFACE.newHttpInterface()
             HTTP_INTERFACE.initialize(initialWorkspace)
             console.log('Http Interface .............................................. Listening at port ' + global.env.PLATFORM_HTTP_INTERFACE_PORT)
-            console.log('Initial Workspace............................................ ' + initialWorkspace.project + ' ' + initialWorkspace.name)
 
             DASHBOARDS_WEB_SOCKET_INTERFACE = DASHBOARDS_WEB_SOCKET_INTERFACE.newDashboardsInterface()
             DASHBOARDS_WEB_SOCKET_INTERFACE.initialize()
-            console.log('Dashboards Web Sockets Interface ....................................... Listening at port ' + global.env.DASHBOARDS_WEB_SOCKETS_INTERFACE_PORT)
+            DASHBOARDS_WEB_SOCKET_INTERFACE.run()
+            console.log('Dashboard App Interface ..................................... Initializing on port ' + global.env.DASHBOARDS_WEB_SOCKETS_INTERFACE_PORT)
+
+            console.log('Initial Workspace............................................ ' + initialWorkspace.project + ' ' + initialWorkspace.name)
+
 
 
             console.log('')

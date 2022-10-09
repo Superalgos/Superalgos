@@ -1488,7 +1488,6 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                         // First we get the next timestamp in the array and verify it.
                                         let length = timestampArray.length - 1
                                         let lastTimestamp = timestampArray[length]
-                                        let lastStamp = checkTimestamp(lastTimestamp)
 
 
                                         /*

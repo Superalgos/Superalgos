@@ -1489,7 +1489,6 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                         let length = timestampArray.length - 1
                                         let lastTimestamp = timestampArray[length]
                                         let lastStamp = checkTimestamp(lastTimestamp)
-                                        let lastTimestampDate = new Date(lastStamp)
 
 
                                         /*

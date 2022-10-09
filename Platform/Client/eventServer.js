@@ -1,14 +1,15 @@
 ﻿exports.newEventServer = function newEventServer() {
 
+    let eventHandlers = new Map()
+    let counter = 0
+
     let thisObject = {
         initialize: initialize,
         finalize: finalize,
         run: run,
-        onMessage: onMessage
+        onMessage: onMessage,
+        eventHandlers: eventHandlers
     }
-
-    let eventHandlers = new Map()
-    let counter = 0
 
     return thisObject
 

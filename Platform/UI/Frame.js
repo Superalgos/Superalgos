@@ -295,6 +295,8 @@ function newFrame() {
         if (chartingSpaceNode !== undefined) {
             if (chartingSpaceNode.spaceStyle !== undefined) {
                 configStyle = JSON.parse(chartingSpaceNode.spaceStyle.config)
+            } else {
+                configStyle = undefined
             }
         } else {
             configStyle = undefined
@@ -339,8 +341,19 @@ function newFrame() {
         }
 
         /* We paint the title bar now */
-
-        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', 1)'
+        // This controls the color of the indicator panel top bar.
+        if (configStyle === undefined || configStyle.indicatorPanelTopBarColor === undefined) {
+            browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', 1)'
+        } else {
+            let panelTopBarColor = eval(configStyle.indicatorPanelTopBarColor)
+            // This controls the opacity of the indicator panel top bar.
+            if (configStyle.indicatorPanelTopBarOpacity !== undefined) {
+                let thisOpacity = eval(configStyle.indicatorPanelTopBarOpacity) 
+                browserCanvasContext.fillStyle = 'rgba(' + panelTopBarColor + ', ' + thisOpacity + ')'
+                } else {
+                    browserCanvasContext.fillStyle = 'rgba(' + panelTopBarColor + ', 1)'
+            }
+        }
         browserCanvasContext.beginPath()
 
         browserCanvasContext.moveTo(titleBarPoint1.x, titleBarPoint1.y)
@@ -381,8 +394,13 @@ function newFrame() {
             labelPoint = fitFunction(labelPoint)
         }
 
-        // This controls the color of the title at the top of the indicator frame.
-        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
+        // This controls the color of the title at the indicator frame panel top bar.
+        if (configStyle === undefined || configStyle.indicatorPanelTopBarTitleColor === undefined) {
+            browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
+        } else {
+            let titleColor = eval(configStyle.indicatorPanelTopBarTitleColor)
+            browserCanvasContext.fillStyle = 'rgba(' + titleColor + ', 1)'
+        }
         browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
     }
 

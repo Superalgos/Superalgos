@@ -6,7 +6,7 @@ const fatalErrorHelp = () => {
   console.log('* If your device does not have MORE than 8GB of RAM then please use the minMemo option.')
   console.log('* If your OS does not have a user interface, please use the noBrowser option.')
   console.log('')
-  console.log('If you continue having trouble to start the Superalgos Platform Client try:')
+  console.log('If you continue having trouble starting the Superalgos Platform Client try:')
   console.log('')
   console.log('node platform minMemo noBrowser')
   return 'fatal error help message displayed'
@@ -37,7 +37,7 @@ const runPlatform = () => {
     console.log('')
     console.log('OPTIONS:')
     console.log('')
-    console.log('                       help:        Optional. Use it to see this helping information.')
+    console.log('                       help:        Optional. Use it to see this helpful information.')
     console.log('                       noBrowser:   Optional. Use it to launch Superalgos Platform Client only. The Superalgos Platform UI will not be loaded.')
     console.log('                       minMemo:     Optional. Use it when your hardware has less than 8 Gb or memory.')
     console.log('                       demoMode:    Optional. Use it to launch Superalgos in Demo Mode. Users will be able to use the UI but not run Tasks.')
@@ -45,7 +45,7 @@ const runPlatform = () => {
     console.log('')
     console.log('WORKSPACE:             The name of the workspace to load on startup.')
     console.log('')
-    console.log('If you are having an error while trying to run the Superalgos Platform Client, consider this:')
+    console.log('If you are getting errors while trying to run the Superalgos Platform Client, consider this:')
 
     return 'help message has been displayed'
   }
@@ -79,7 +79,7 @@ const runPlatform = () => {
 
   if (process.argv.includes("minMemo")) {
     optionsAccepted++
-    console.log('minMemo ..................................................... Running with Minimun Required Memory.')
+    console.log('minMemo ..................................................... Running with Minimum Required Memory.')
   } 
   if (process.argv.includes("noBrowser")) {
     optionsAccepted++
@@ -104,7 +104,7 @@ const runPlatform = () => {
         return 'client running'
     } catch (err) {
         console.log('')
-        console.log('Fail to create Superalgos Platform Client Process.')
+        console.log('Failed to create Superalgos Platform Client Process.')
         console.log('')
 
         fatalErrorHelp()
@@ -112,7 +112,7 @@ const runPlatform = () => {
     }
   } else {
     console.log('')
-    console.log('ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.')
+    console.log('ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can find detailed instructions for this in the ReadMe.')
     console.log('')
   }
 

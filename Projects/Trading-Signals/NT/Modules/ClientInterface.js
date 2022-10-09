@@ -51,7 +51,7 @@ exports.newTradingSignalsModulesClientInterface = function newTradingSignalsModu
             /*
             Broadcast the Signal to all clients connected to this Network Node.
             */
-            if (NT.networkApp.webSocketsInterface.socketInterfaces.broadcastSignalsToClients(socketMessage) !== true) {
+            if (await NT.networkApp.webSocketsInterface.socketInterfaces.broadcastSignalsToClients(socketMessage) !== true) {
                 response = {
                     result: 'Error',
                     message: 'Signal Could Not be Broadcasted to Network Clients.'

@@ -1,6 +1,6 @@
 {
     "topic": "Quick Guides",
-    "pageNumber": 1,
+    "pageNumber": "1",
     "type": "Keyboard Shortcut Quick Guide",
     "definition": {
         "text": "Superalgos offers a number of keyboard shortcuts to make working with the platform more efficient and user friendly. Keyboard Shortcuts improve your Workflow and contain functions like recording GIF`s.\n\n",
@@ -550,7 +550,15 @@
         {
             "style": "Include",
             "text": "Foundations->Topic->Keyboard Shortcuts to Nodes->Custom Node Shortcuts",
-            "updated": 1637691223240
+            "updated": 1637691223240,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Foundations->Topic->Düğümler için Klavye Kısayolları->Özel Düğüm Kısayolları",
+                    "updated": 1654390546465,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "List",

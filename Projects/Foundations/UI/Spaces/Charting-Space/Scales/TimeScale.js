@@ -46,6 +46,8 @@ function newTimeScale() {
     let wheelDeltaDirection
     let wheelDeltaCounter = 0
 
+    let configStyle
+
     return thisObject
 
     function finalize() {
@@ -360,10 +362,25 @@ function newTimeScale() {
         let icon1 = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.payload.parentNode.project, thisObject.payload.node.payload.parentNode.type)
         let icon2 = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.payload.node.type)
 
-        let backgroundColor = UI_COLOR.BLACK
-        let labels = scaleLabels(thisObject.date)
+        // This controls the color of the Date panel at the top of the charts.
+        let chartingSpaceNode = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Charting Space')
+        if (chartingSpaceNode !== undefined) {
+            if (chartingSpaceNode.spaceStyle !== undefined) {
+                configStyle = JSON.parse(chartingSpaceNode.spaceStyle.config)
+            }
+        } else {
+            configStyle = undefined
+        }
 
-        drawScaleDisplay(labels[0], labels[1], labels[2], 0, 0, 0, icon1, icon2, thisObject.container, backgroundColor)
+        if (configStyle === undefined || configStyle.timeScalePanelColor === undefined) {
+            let backgroundColor = UI_COLOR.BLACK
+            let labels = scaleLabels(thisObject.date)
+            drawScaleDisplay(labels[0], labels[1], labels[2], 0, 0, 0, icon1, icon2, thisObject.container, backgroundColor)
+        } else{
+            let backgroundColor = eval(configStyle.timeScalePanelColor)
+            let labels = scaleLabels(thisObject.date)
+            drawScaleDisplay(labels[0], labels[1], labels[2], 0, 0, 0, icon1, icon2, thisObject.container, backgroundColor)
+        }
     }
 
     function scaleLabels(date, excludeYear) {

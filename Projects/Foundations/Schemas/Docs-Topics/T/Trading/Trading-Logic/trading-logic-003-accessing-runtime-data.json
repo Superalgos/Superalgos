@@ -7,7 +7,6 @@
         "updated": 1610216690404,
         "translations": [
             {
-
                 "language": "RU",
                 "text": "Торговый бот делает каждый обработанный фрагмент информации доступным для торговых систем в структуре данных иерархии Trading Engine.",
                 "updated": 1640094205402
@@ -16,6 +15,11 @@
                 "language": "DE",
                 "text": "Der Trading Bot stellt den Trading Systemen alle verarbeiteten Informationen in der Datenstruktur der Trading Engine Hierarchie zur Verfügung.",
                 "updated": 1640037489787
+            },
+            {
+                "language": "TR",
+                "text": "Ticaret Botu (Trading Bot), işlenen her bilgi parçasını İşlem Motoru hiyerarşisinin veri yapısındaki Ticaret Sistemleri (Trading System) için kullanılabilir hale getirir.",
+                "updated": 1654003127944
             }
         ]
     },
@@ -34,6 +38,11 @@
                     "language": "DE",
                     "text": "Um innerhalb von conditions (Bedingungen) und Formeln auf den Wert einer beliebigen Node in der Trading Engine zuzugreifen, folgt die Syntax den Verästelungen der Datenstruktur, genau wie in der visuellen Darstellung der Hierarchie im Design Space zu sehen.",
                     "updated": 1640037704127
+                },
+                {
+                    "language": "TR",
+                    "text": "İşlem Motorundaki düğümlerden herhangi birinin değerine koşullar ve formüller içinden erişmek için, sözdizimi, Tasarım Alanındaki (Design Space) hiyerarşinin görsel temsilinde görüldüğü gibi, veri yapısının sonuçlarını izler.",
+                    "updated": 1654003238083
                 }
             ]
         },
@@ -51,6 +60,11 @@
                     "language": "DE",
                     "text": "Nehmen wir zum Beispiel an, Sie möchten auf den Wert der Node Beginn unter Strategy Open Stage zugreifen. Der Pfad zu dieser Node, wie er in der Struktur der Hierarchie unten dargestellt ist, lautet:",
                     "updated": 1640037769230
+                },
+                {
+                    "language": "TR",
+                    "text": "Örneğin, Strateji Açık Aşaması (Strategy Open Stage) altındaki Begin düğümünün değerine erişmek istediğinizi varsayalım. Aşağıdaki hiyerarşi yapısı ile gösterildiği gibi, bu düğüme giden yol şudur:",
+                    "updated": 1654003336035
                 }
             ]
         },
@@ -72,6 +86,11 @@
                     "language": "DE",
                     "text": "Wenn Sie eine Stufe tiefer gehen und auf den Wert der Zielgröße unter der Stufe Quoted Asset zugreifen möchten, lautet der Pfad:",
                     "updated": 1640038167175
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir adım daha aşağıya inmek ve Aşama Kote Edilmiş (Stage Quoted Asset) Varlığın altındaki Hedef Boyut değerine erişmek istiyorsanız, yol şudur:",
+                    "updated": 1654003433272
                 }
             ]
         },
@@ -93,6 +112,11 @@
                     "language": "DE",
                     "text": "Achten Sie wie üblich auf die JavaScriptcamel case Schreibweise, bei der das erste Wort kleingeschrieben und der Rest großgeschrieben wird.",
                     "updated": 1640038214600
+                },
+                {
+                    "language": "TR",
+                    "text": "Her zamanki gibi, ilk kelimenin küçük harf ve sonraki kelimenin büyük harfle başladığı JavaScript camel case notasyonunu izlediğinizden emin olun.",
+                    "updated": 1654003690774
                 }
             ]
         },
@@ -120,6 +144,11 @@
                     "language": "DE",
                     "text": "Der Einfachheit halber können Sie den Pfad jeder Node, der einen gültigen Wert enthält, direkt aus dem Menü der Node kopieren. Verwenden Sie einfach die Schaltfläche Knotenpfad kopieren(Copy Node Path).",
                     "updated": 1640038289355
+                },
+                {
+                    "language": "TR",
+                    "text": "Kullanım kolaylığı için, geçerli bir değere sahip herhangi bir düğümün yolunu doğrudan düğüm menüsünden kopyalayabilirsiniz. Düğüm Yolunu Kopyala düğmesini kullanmanız yeterlidir.",
+                    "updated": 1654003746332
                 }
             ]
         },
@@ -136,6 +165,11 @@
                     "language": "DE",
                     "text": "Formel Beispiel",
                     "updated": 1640038301670
+                },
+                {
+                    "language": "TR",
+                    "text": "Formül Örneği",
+                    "updated": 1654003761185
                 }
             ]
         },
@@ -152,6 +186,11 @@
                     "language": "DE",
                     "text": "Angenommen, Sie möchten einen Take-Profit festlegen, der 3 % über dem anfänglichen Kursziel liegt, das Sie in der Eröffnungsphase(open stage) Ihrer Strategie festgelegt haben.",
                     "updated": 1640038375062
+                },
+                {
+                    "language": "TR",
+                    "text": "Diyelim ki stratejinizin açık aşamasında belirlediğiniz ilk hedef oranın (initial target rate) %3 üzerinde bir kar al oranı belirlemek istiyorsunuz.",
+                    "updated": 1654003826629
                 }
             ]
         },
@@ -169,6 +208,11 @@
                     "language": "DE",
                     "text": "Dieser Wert wird in der Node Entry Target Rate (Eingabezielsatz) unter der aktuellen Position gespeichert.",
                     "updated": 1640038404034
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu değer, Mevcut Konum (Current Position) altındaki Giriş Hedef Hızı (Entry Target Rate) düğümünde saklanır.",
+                    "updated": 1654003919252
                 }
             ]
         },
@@ -185,6 +229,11 @@
                     "language": "DE",
                     "text": "Die Formel für die Take Profit-Phase lautet also:",
                     "updated": 1640038422732
+                },
+                {
+                    "language": "TR",
+                    "text": "Yani, kar al aşamasının formülü şudur:",
+                    "updated": 1654003953330
                 }
             ]
         },
@@ -207,6 +256,11 @@
                     "language": "DE",
                     "text": "All dies wird Ihnen klar, wenn Sie die des Trading Engine Hierarchie studieren!",
                     "updated": 1640038461303
+                },
+                {
+                    "language": "TR",
+                    "text": "Tüm bunlar, Trading Engine hiyerarşisini incelediğinizde netleşecek!",
+                    "updated": 1654003969746
                 }
             ]
         }

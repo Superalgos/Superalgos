@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Дивергенция схождения скользящих средних (MACD) - это индикатор импульса при следовании за трендом, который показывает связь между двумя скользящими средними цены ценной бумаги.",
                 "updated": 1645610232010
+            },
+            {
+                "language": "DE",
+                "text": "Der MACD (Moving Average Convergence Divergence) ist ein trendfolgender Momentum Indikator, der die Beziehung zwischen zwei gleitenden Durchschnitten des Kurses eines Wertpapiers anzeigt.",
+                "updated": 1647853041359
             }
         ]
     },
@@ -43,6 +48,11 @@
                     "language": "RU",
                     "text": "Параметры индикатора Pluvtech MACD можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Initialization под продуктом 'Pluvtech MACD' Product Definition.",
                     "updated": 1645610255948
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Parameter des Pluvtech MACD Indikators können geändert werden, indem Sie den Javascript Code unter Data Building Procedure -> Procedure Initialization unter'Pluvtech MACD'Product Definition suchen und öffnen.",
+                    "updated": 1647853195414
                 }
             ]
         },
@@ -59,6 +69,11 @@
                     "language": "RU",
                     "text": "Продукты и свойства",
                     "updated": 1645610262338
+                },
+                {
+                    "language": "DE",
+                    "text": "Produkte und Eigenschaften",
+                    "updated": 1647853232510
                 }
             ]
         },
@@ -70,13 +85,25 @@
                     "language": "RU",
                     "text": "Доступны следующие свойства:",
                     "updated": 1645610269720
+                },
+                {
+                    "language": "DE",
+                    "text": "Die folgenden Eigenschaften sind für den Zugriff verfügbar:",
+                    "updated": 1647853242204
                 }
             ]
         },
         {
             "style": "Table",
             "text": "| Product Name | Product Variable | Properties |\n| Pluvtech MACD | PLUVTECH_MACD | macd, signalLine, histogram, reverseMacd, macdEmaCross, macdZeroLine |",
-            "updated": 1636853769
+            "updated": 1636853769,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| Pluvtech MACD | PLUVTECH_MACD | macd, signalLine, histogram, reverseMacd, macdEmaCross, macdZeroLine |\n",
+                    "updated": 1647853296669
+                }
+            ]
         },
         {
             "style": "List",
@@ -86,6 +113,11 @@
                     "language": "RU",
                     "text": "reverseMacd: Закрытие цены выше этого значения вызовет повышение MACD и наоборот.",
                     "updated": 1645610281688
+                },
+                {
+                    "language": "DE",
+                    "text": "<b>reversMacd:</b> Ein Kurs, der über diesem Wert schließt, führt zu einem Anstieg des MACD und umgekehrt.",
+                    "updated": 1647853511999
                 }
             ]
         },
@@ -97,6 +129,11 @@
                     "language": "RU",
                     "text": "macdEmaCross: Закрытие цены выше этого значения приведет к тому, что MACD пересечется над сигнальной линией EMA и наоборот.",
                     "updated": 1645610291461
+                },
+                {
+                    "language": "DE",
+                    "text": "macdEmaCross:</b> Eine Kursbewegung, die über diesem Wert schließt, führt dazu, dass der MACD die EMA Signallinie überschreitet und umgekehrt.",
+                    "updated": 1647853533037
                 }
             ]
         },
@@ -108,6 +145,11 @@
                     "language": "RU",
                     "text": "macdZeroLine: Прогнозируемое значение цены закрытия, при котором MACD = 0",
                     "updated": 1645610300455
+                },
+                {
+                    "language": "DE",
+                    "text": "<b>macdZeroLine:</b> Der voraussichtliche Schlusskurswert, bei dem der MACD = 0 wäre.",
+                    "updated": 1647853551265
                 }
             ]
         },
@@ -120,6 +162,11 @@
                     "language": "RU",
                     "text": "Пример:",
                     "updated": 1645610305673
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1647853628766
                 }
             ]
         },
@@ -131,6 +178,11 @@
                     "language": "RU",
                     "text": "Можно построить простую стратегию, используя пересечение MACD ниже нулевой линии:",
                     "updated": 1645610316015
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine einfache Strategie könnte sich auf den MACD stützen, wenn dieser die Nulllinie unterschreitet:",
+                    "updated": 1647853642749
                 }
             ]
         },
@@ -142,7 +194,14 @@
         {
             "style": "Title",
             "text": "Maintainer:",
-            "updated": 1622481793076
+            "updated": 1622481793076,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Betreuer:",
+                    "updated": 1647853668064
+                }
+            ]
         },
         {
             "style": "Link",

@@ -1,0 +1,105 @@
+{
+    "topic": "Pivots Data Mine",
+    "pageNumber": "8",
+    "type": "Key Levels",
+    "definition": {
+        "text": "The Key Levels indicator calculates the daily, weekly, monthly, quarterly and yearly opens, their associated high and low values, and also keeps track of the previous levels of these periods.",
+        "updated": 1649747448576
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Key Levels on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "The Key levels contains three plotters that can be used to show the various levels separately, or in any combination thereof. The key level and previous levels are based on the period's market open. The previous High/Low of the various market time periods are also presented with this indicator.",
+            "updated": 1649747528110
+        },
+        {
+            "style": "Text",
+            "text": "Key Levels are shown below, with red as daily, grey as weekly, green as monthly, orange as quarterly, and brown as yearly:"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/pivots-key-levels-on-the-charts.png"
+        },
+        {
+            "style": "Text",
+            "text": "Previous Key Levels are shown below:"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/pivots-previous-key-levels-on-the-charts.png"
+        },
+        {
+            "style": "Text",
+            "text": "Previous High and Low Levels are shown below:"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/pivots-previous-high-low-levels-on-the-charts.png"
+        },
+        {
+            "style": "Text",
+            "text": "All three indicators switched on look as below:"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/pivots-key-levels-all-on-the-charts.png"
+        },
+        {
+            "style": "Text",
+            "text": "While the indicator defaults to an open time of Midnight at UTC+0, the timezone offset, and opening hour and minute can be adjusted to suit your preferred market's daily open time by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under ’Key Levels’, ’Previous Key Levels’ or ’Previous HL Key Levels’ Procedure Loop."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/pivots-key-levels-params.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Key-Levels | KeyLevel | daily, weekly, monthly, quarterly, yearly |\n| Previous-Key-Levels | PrevKeyLevel | daily, weekly, monthly, quarterly, yearly |\n| Previous-HL-Key-Levels | PrevHLKeyLevel | daily, weekly, monthly, quarterly, yearly |",
+            "updated": 1649747686322
+        },
+        {
+            "style": "Text",
+            "text": "Examples:"
+        },
+        {
+            "style": "Text",
+            "text": "A basic strategy could use price action to enter a trade if a candle rises above the weekly open:",
+            "updated": 1649747574407
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.candle.close > chart.at01hs.KeyLevel.weekly",
+            "updated": 1649747591287
+        },
+        {
+            "style": "Text",
+            "text": "The indicator could then be used as a take profit value when the price action approaches the previous monthly resistance level:",
+            "updated": 1649747628340
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.PrevKeyLevel.monthly",
+            "updated": 1649747644417
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

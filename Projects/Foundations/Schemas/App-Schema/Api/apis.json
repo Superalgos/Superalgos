@@ -22,6 +22,16 @@
             "relatedUiObjectProject": "Foundations"
         },
         {
+            "action": "Add UI Object",
+            "label": "Add API Authorization Key",
+            "relatedUiObject": "API Authorization Key",
+            "iconPathOn": "exchange-account-key",
+            "iconPathOff": "exchange-account-key",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
             "action": "Delete UI Object",
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
@@ -45,6 +55,11 @@
             "name": "web3API",
             "type": "node",
             "childType": "Web3 API"
+        },
+        {
+            "name": "apiAuthorizationKey",
+            "type": "node",
+            "childType": "API Authorization Key"
         }
     ],
     "isPersonalData": true

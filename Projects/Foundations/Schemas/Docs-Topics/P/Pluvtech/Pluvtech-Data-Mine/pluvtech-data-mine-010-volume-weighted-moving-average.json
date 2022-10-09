@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Скользящая средняя, взвешенная по объему (Volume-Weighted Moving Average, VWMA) подчеркивает объем, взвешивая цены на основе объема торговой активности за определенный период времени. В периоды низкого объема рынка SMA и VWMA близки по значению. Индикатор можно использовать для выявления и торговли трендами.",
                 "updated": 1645610897473
+            },
+            {
+                "language": "DE",
+                "text": "Der volumengewichtete gleitende Durchschnitt (VWMA) hebt das Volumen hervor, indem er die Preise auf der Grundlage der Handelsaktivität in einem bestimmten Zeitraum gewichtet. In Zeiten geringen Marktvolumens liegen der SMA und der VWMA im Wert nahe beieinander. Der Indikator kann verwendet werden, um Trends zu erkennen und zu handeln.",
+                "updated": 1647934752292
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "language": "RU",
                     "text": "Период расчета индикатора Volume Weighted Moving Average можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Initialization под продуктом 'VWMA' Product Definition.",
                     "updated": 1645610920050
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Länge der Berechnung des Volume Weighted Moving Average Indikators kann geändert werden, indem Sie den Javascript Code unter Data Building Procedure -> Procedure Initialization unter  ’VWMA’ Product Definition suchen und öffnen.",
+                    "updated": 1647934853144
                 }
             ]
         },
@@ -55,6 +65,11 @@
                     "language": "RU",
                     "text": "Продукты и свойства",
                     "updated": 1645610926477
+                },
+                {
+                    "language": "DE",
+                    "text": "Produkte und Eigenschaften",
+                    "updated": 1647934888477
                 }
             ]
         },
@@ -66,13 +81,25 @@
                     "language": "RU",
                     "text": "Доступны следующие свойства:",
                     "updated": 1645610931992
+                },
+                {
+                    "language": "DE",
+                    "text": "Die folgenden Eigenschaften sind für den Zugriff verfügbar:",
+                    "updated": 1647934897259
                 }
             ]
         },
         {
             "style": "Table",
             "text": "| Product Name | Product Variable | Properties |\n| Volume Weighted Moving Average | VWMA | vwma |",
-            "updated": 1636853769
+            "updated": 1636853769,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| Volume Weighted Moving Average | VWMA | vwma |\n",
+                    "updated": 1647934931514
+                }
+            ]
         },
         {
             "style": "Text",
@@ -83,6 +110,11 @@
                     "language": "RU",
                     "text": "Пример:",
                     "updated": 1645610938217
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1647934962038
                 }
             ]
         },
@@ -94,6 +126,11 @@
                     "language": "RU",
                     "text": "Индикатор VWMA можно использовать для генерации сигнала на покупку, когда свеча закрывается выше VWMA:",
                     "updated": 1645610945639
+                },
+                {
+                    "language": "DE",
+                    "text": "Der VWMA Indikator könnte verwendet werden, um ein Kaufsignal zu erzeugen, wenn eine Kerze oberhalb des VWMA schließt:",
+                    "updated": 1647934981008
                 }
             ]
         },
@@ -105,7 +142,14 @@
         {
             "style": "Title",
             "text": "Maintainer:",
-            "updated": 1622481793076
+            "updated": 1622481793076,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Betreuer:",
+                    "updated": 1647935001057
+                }
+            ]
         },
         {
             "style": "Link",

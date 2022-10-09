@@ -1,0 +1,15 @@
+{
+    "review": "Superalgos Project Review",
+    "pageNumber": 45,
+    "type": "Superalgos Review - Mdoubles First Superalgos Review",
+    "definition": {
+        "text": "My first impression of Superalgos:\nI like the fact that Superalgos runs on my premises and all actions take place in my Superalgos folder. I found it easy to install and set up following the instructions. I also took a look at the code and it seems well structured and easy to understand.\n \nI'm not sure I like the visual scripting environment. So far I've spent a lot of time just learning the GUI without understanding much what's happening in the background. I find the visual representation of the nodes too detailed. Nodes are sometimes very distant and the relationship between nodes is not always clear to me. The hierarchies also seem to be too deep, I have the feeling that things could be organized more flatly. I was having trouble creating references through the GUI.\n\nThe Next button at the end of tutorials is not doing anything (I am on Chrome Version 102.0.5005.61, Windows 10 Pro 19044.1706).",
+        "updated": 1653859933669
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository."
+        }
+    ]
+}

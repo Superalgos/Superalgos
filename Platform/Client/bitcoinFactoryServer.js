@@ -6,6 +6,7 @@ exports.newBitcoinFactoryServer = function newBitcoinFactoryServer() {
         getUserProfileFilesList: getUserProfileFilesList,
         getUserProfileFile: getUserProfileFile,
         getIndicatorFile: getIndicatorFile,
+        getRewardsFile: getRewardsFile,
         initialize: initialize,
         finalize: finalize,
         run: run
@@ -52,7 +53,7 @@ exports.newBitcoinFactoryServer = function newBitcoinFactoryServer() {
                 /*
                 Read Current File from Superalgos Storage
                 */
-                forcastedCandlesFileContent = SA.nodeModules.fs.readFileSync(global.env.PATH_TO_DATA_STORAGE + '/Project/Data-Mining/Data-Mine/Bitcoin-Factory/Forecasts/binance/' + bestPrediction.mainAsset + '-USDT/Output/Forcasted-Candles/Multi-Time-Frame-Market/' + bestPrediction.mainTimeFrame + '/Data.json')
+                forcastedCandlesFileContent = SA.nodeModules.fs.readFileSync(global.env.PATH_TO_DATA_STORAGE + '/Project/Data-Mining/Data-Mine/Bitcoin-Factory/Test-Client/binance/' + bestPrediction.mainAsset + '-USDT/Output/Forcasted-Candles/Multi-Time-Frame-Market/' + bestPrediction.mainTimeFrame + '/Data.json')
 
                 let forcastedCandlesFile = JSON.parse(forcastedCandlesFileContent)
 
@@ -134,7 +135,7 @@ exports.newBitcoinFactoryServer = function newBitcoinFactoryServer() {
                 newForcastedCandlesFileContent = newForcastedCandlesFileContent + "]"
             }
             newForcastedCandlesFileContent = newForcastedCandlesFileContent + "]"
-            let filePath = global.env.PATH_TO_DATA_STORAGE + '/Project/Data-Mining/Data-Mine/Bitcoin-Factory/Forecasts/binance/' + bestPrediction.mainAsset + '-USDT/Output/Forcasted-Candles/Multi-Time-Frame-Market/' + bestPrediction.mainTimeFrame + '/'
+            let filePath = global.env.PATH_TO_DATA_STORAGE + '/Project/Data-Mining/Data-Mine/Bitcoin-Factory/Test-Client/binance/' + bestPrediction.mainAsset + '-USDT/Output/Forcasted-Candles/Multi-Time-Frame-Market/' + bestPrediction.mainTimeFrame + '/'
             SA.projects.foundations.utilities.filesAndDirectories.mkDirByPathSync(filePath)
             SA.nodeModules.fs.writeFileSync(filePath + 'Data.json', newForcastedCandlesFileContent)
         }
@@ -219,4 +220,118 @@ exports.newBitcoinFactoryServer = function newBitcoinFactoryServer() {
             fileContent: fileContent.toString()
         }
     }
+
+    function getRewardsFile(firstTimestamp, lastTimestamp) {
+        let rewardsFile = ""
+        let reportsDirectory = []
+        const testsPerUser = {}
+        let recordsCounter = 0
+        /* Debug Mode provides more verbose output about each processed Rewards File on the Console */
+        const debugMode = false
+        try {
+            reportsDirectory = SA.nodeModules.fs.readdirSync('./Bitcoin-Factory/Reports')
+        }
+        catch(err) {
+            console.log((new Date()).toISOString(), "[ERROR] Cannot access directory for Bitcoin Factory Reports: ./Bitcoin-Factory/Reports/")
+            return {
+                result: 'Not Ok'
+            }
+        }
+        /* Iterate all files in reportsDirectory */
+        for (let f = 0; f < reportsDirectory.length; f++) {
+            /* Check if file name matches pattern Testnet*.csv for processing Test Client rewards */
+            rewardsFile = ""
+            recordsCounter = 0
+            if (/^Testnet[\w\s-]*\.csv$/gi.test(reportsDirectory[f]) === false) { 
+                continue
+            } else {
+                try {
+                    rewardsFile = SA.nodeModules.fs.readFileSync('./Bitcoin-Factory/Reports/' + reportsDirectory[f])
+                }
+                catch(err) {
+                    console.log((new Date()).toISOString(), "[ERROR] Unable to open Governance Rewards File ./Bitcoin-Factory/Reports/" + reportsDirectory[f])
+                    continue
+                }
+
+                /* Parse CSV file, convert to JSON objects */
+                const csvToJsonResult = []
+                let parsingError = 0
+                let cleanResult = rewardsFile.toString().replace(/\r/g, "")
+                let array = cleanResult.split("\n")
+                const headers = array[0].split(",")
+                for (let i = 1; i < array.length - 1; i++) {
+                    const jsonObject = {}
+                    const currentArrayString = array[i]
+                    let string = ''
+                    /* Escape quotation marks, convert , to | */
+                    let quoteFlag = 0
+                    for (let character of currentArrayString) {
+                        if (character === '"' && quoteFlag === 0) {
+                            quoteFlag = 1
+                        }
+                        else if (character === '"' && quoteFlag == 1) quoteFlag = 0
+                        if (character === ',' && quoteFlag === 0) character = '|'
+                        if (character !== '"') string += character
+                    }
+                    let jsonProperties = string.split("|")
+                    try {
+                        for (let j in headers) {
+                            if (jsonProperties[j].includes(",")) {
+                            jsonObject[headers[j]] = jsonProperties[j]
+                                .split(",").map(item => item.trim())
+                            }
+                            else jsonObject[headers[j]] = jsonProperties[j]
+                        }
+                    } catch(err) {
+                        if (parsingError === 0) { parsingError = i + 1 }
+                    }
+                    /* Push the genearted JSON object to result array */
+                    csvToJsonResult.push(jsonObject)
+                }
+                /* Check if file contained any malformed lines */
+                if (parsingError > 0) {
+                    console.log((new Date()).toISOString(), "[WARN] Bitcoin Factory Rewards File", reportsDirectory[f], "contains malformed records - e.g. line", parsingError, ", discarding")
+                    continue
+                }             
+                /* Check if file contains mandatory columns */             
+                if (!headers.includes("assignedTimestamp") || !headers.includes("testedByProfile") || !headers.includes("status")) {
+                    console.log((new Date()).toISOString(), "[WARN] Bitcoin Factory Rewards File", reportsDirectory[f], "with unexpected syntax, discarding")
+                    continue
+                }
+
+                /* Filter results for timestamp range */
+                let uploadTimestamp = 0
+
+                for (let x = 0; x < csvToJsonResult.length; x++) {
+                    if (isNaN(csvToJsonResult[x].assignedTimestamp) === false) {
+                        uploadTimestamp = parseInt(csvToJsonResult[x].assignedTimestamp)
+                    }
+                    let profile = csvToJsonResult[x].testedByProfile
+                    if (csvToJsonResult[x].status === "Tested" && uploadTimestamp >= parseInt(firstTimestamp) && uploadTimestamp <= parseInt(lastTimestamp)) {
+                        if (testsPerUser[profile] !== undefined) {
+                            testsPerUser[profile] = testsPerUser[profile] + 1
+                        } else {
+                            testsPerUser[profile] = 1
+                        }
+                        recordsCounter++
+                    }
+                }
+                if (debugMode === true) {
+                    if (recordsCounter === 0) {
+                        console.log((new Date()).toISOString(), "[INFO] Governance Rewards File", reportsDirectory[f], "does not contain any records for this period")
+                    } else {
+                        console.log((new Date()).toISOString(), "[INFO] Governance Rewards File", reportsDirectory[f], "contains", recordsCounter, "valid records")
+                    }
+                }
+            }
+        }
+        if (debugMode === true) {
+            console.log((new Date()).toISOString(), "[INFO] Total executed Bitcoin Factory Test Cases per User:", testsPerUser)
+        }
+        return {
+            result: 'Ok',
+            executedTests: testsPerUser
+        }
+    }
+
 }

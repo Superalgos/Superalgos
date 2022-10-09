@@ -4,17 +4,38 @@
     "type": "TS LF Trading Bot Error - Target Rate Node Value Not A Number",
     "definition": {
         "text": "The value of the Target Rate node must be a number.",
-        "updated": 1611939346987
+        "updated": 1611939346987,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Hedef Oran  ( Target Rate ) düğümünün değeri bir sayı olmalıdır.",
+                "updated": 1648649175180
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Error",
             "text": "Target Rate Node Value Not A Number",
-            "updated": 1611597315894
+            "updated": 1611597315894,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hedef Oran  Düğüm Değeri Sayı Değil. ( Target Rate Node Value Not A Number )",
+                    "updated": 1648649270765
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The value found for this node was:"
+            "text": "The value found for this node was:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bu düğüm için bulunan değer:",
+                    "updated": 1648649336234
+                }
+            ]
         },
         {
             "style": "Placeholder",

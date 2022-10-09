@@ -14,6 +14,12 @@
                 "language": "ID",
                 "text": "Tulis ringkasan untuk halaman tutorial ini.",
                 "updated": 1640598508789
+            },
+            {
+                "language": "TR",
+                "text": "Bu eğitim sayfası için bir özet yazın.",
+                "updated": 1654394287609,
+                "style": "Definition"
             }
         ]
     },
@@ -26,6 +32,12 @@
                     "language": "ID",
                     "text": "Klik kanan dan Edit untuk masuk ke mode edit dan ubah teks ini. MASUK untuk menulis paragraf baru. ESC untuk keluar dari mode edit. Kemudian kamu dapat menggunakan docs.save untuk menyimpan perubahan dan app.contribute kamu untuk mengirimkannya ke repositori utama.",
                     "updated": 1640598566926
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle deyin. Yeni paragraflar yazmak için ENTER tuşuna basın. Düzenleme modundan çıkmak için ESC. Daha sonra değişikliklerinizi kaydetmek için docs.save ve ana depoya göndermek için app.contribute kullanabilirsiniz.",
+                    "updated": 1654394293713,
+                    "style": "Text"
                 }
             ]
         }

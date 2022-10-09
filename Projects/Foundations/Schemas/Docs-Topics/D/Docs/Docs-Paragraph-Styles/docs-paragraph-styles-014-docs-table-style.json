@@ -1,6 +1,6 @@
 {
     "topic": "Docs Paragraph Styles",
-    "pageNumber": 14,
+    "pageNumber": "14",
     "type": "Docs Table Style",
     "definition": {
         "text": "It is possible to render table in docs pages. To do so you just need to follow some formatting rules.",
@@ -14,6 +14,11 @@
                 "language": "RU",
                 "text": "Можно отобразить таблицу на страницах документов. Для этого вам просто нужно следовать некоторым правилам форматирования.",
                 "updated": 1638539885307
+            },
+            {
+                "language": "TR",
+                "text": "Doküman sayfalarında tablo oluşturmak mümkündür. Bunu yapmak için bazı biçimlendirme kurallarına uymanız yeterlidir.",
+                "updated": 1652385495833
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "language": "RU",
                     "text": "В режиме редактирования вам нужно использовать символ |, чтобы нарисовать таблицу. Каждая ячейка разделена символом |. Разрывы строк в режиме редактирования будут считаться новыми строками. Первая строка будет отображаться как заголовок таблицы.",
                     "updated": 1638539934180
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme modunda | Bir tablo çizmek için karakter. Her hücre bir | ile ayrılır. Düzenleme modundaki satır sonları yeni satırlar olarak kabul edilecektir. İlk satır tablo başlığı olarak işlenecektir.",
+                    "updated": 1652385536152
                 }
             ]
         },
@@ -47,6 +57,11 @@
                     "language": "RU",
                     "text": "Пример:",
                     "updated": 1638539949660
+                },
+                {
+                    "language": "TR",
+                    "text": "Misal:",
+                    "updated": 1652385544282
                 }
             ]
         },
@@ -58,6 +73,12 @@
                     "language": "RU",
                     "text": "| Столбец 1 | Столбец 2 | Столбец 3 |",
                     "updated": 1638539977299
+                },
+                {
+                    "language": "TR",
+                    "text": "| Sütun 1 | Sütun 2 | Sütun 3 |",
+                    "updated": 1654393777283,
+                    "style": "Text"
                 }
             ]
         },
@@ -74,6 +95,11 @@
                     "language": "RU",
                     "text": "Отображается следующим образом:",
                     "updated": 1638540005214
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu şekilde işlenir:",
+                    "updated": 1652385556426
                 }
             ]
         },
@@ -101,6 +127,11 @@
                     "language": "RU",
                     "text": "Другой пример таблицы:",
                     "updated": 1638540024167
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir tablonun başka bir örneği şöyle olacaktır:",
+                    "updated": 1652385569300
                 }
             ]
         },
@@ -133,6 +164,11 @@
                     "language": "RU",
                     "text": "Стиль таблицы поддерживает блоки визуализации для демонстрации цветов RGB. Для этого вам просто нужно ввести что-то вроде этого: RGB(23, 134, 222)",
                     "updated": 1638540185887
+                },
+                {
+                    "language": "TR",
+                    "text": "Tablo stili, RGB renklerini sergilemek için oluşturma kutularını destekler. Bunu yapmak için şunun gibi bir şey yazmanız yeterlidir: RGB(23, 134, 222)",
+                    "updated": 1652385596149
                 }
             ]
         },
@@ -144,6 +180,11 @@
                     "language": "DE",
                     "text": "RGB-Beispiel:",
                     "updated": 1633956006514
+                },
+                {
+                    "language": "TR",
+                    "text": "RGB Örneği:",
+                    "updated": 1652385607309
                 }
             ]
         },

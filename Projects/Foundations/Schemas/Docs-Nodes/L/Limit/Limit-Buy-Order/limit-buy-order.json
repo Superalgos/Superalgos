@@ -40,6 +40,11 @@
                     "language": "RU",
                     "text": "Трейдеры обычно используют лимитные ордера, когда приоритетом является ставка исполнения, а не уверенность в исполнении. Лимитные ордера гораздо более эффективны, чем рыночные, с точки зрения ставки, особенно для больших размеров, которые - при исполнении в виде рыночных ордеров - могут иметь значительное проскальзывание, заполняясь настолько быстро, насколько это возможно в книге ордеров в данный момент.",
                     "updated": 1639842406477
+                },
+                {
+                    "language": "TR",
+                    "text": "Yatırımcılar genellikle, öncelikleri gerçekleşme oranından ziyade gerçekleşme kesinliği olduğunda limit emirleri kullanır. Limit emirleri, oran açısından piyasa emirlerinden çok daha verimlidir, özellikle daha büyük boyutlar için - piyasa emirleri olarak uygulandığında - belirli anın emir defteri ile mümkün olduğunca hızlı doldurulan kayda değer kaymalara maruz kalabilir.",
+                    "updated": 1656056320927
                 }
             ]
         },
@@ -51,6 +56,11 @@
                     "language": "RU",
                     "text": "Кроме того, многие биржи рассматривают лимитные ордера как маркет-мейкеров, то есть ордера, которые приносят ликвидность на рынок, и поэтому могут взимать относительно более низкие комиссии.",
                     "updated": 1639842451676
+                },
+                {
+                    "language": "TR",
+                    "text": "Ayrıca, birçok borsa, limit emirleri piyasa yapıcıları, yani piyasaya likidite getiren emirler olarak görür ve bu nedenle nispeten daha iyi komisyon oranları sunar.",
+                    "updated": 1656056395550
                 }
             ]
         },
@@ -63,6 +73,11 @@
                     "language": "RU",
                     "text": "Ставка лимитного ордера",
                     "updated": 1639842468503
+                },
+                {
+                    "language": "TR",
+                    "text": "Limit Emir Oran��",
+                    "updated": 1656056415120
                 }
             ]
         },
@@ -74,6 +89,11 @@
                     "language": "RU",
                     "text": "Пользователи Superalgos должны определить курс, по которому они хотят, чтобы ордер был исполнен. Биржа отвечает за то, чтобы не исполнять ордер, если она не может подобрать к нему предложение/спрос по курсу, установленному пользователем, или по лучшему курсу.",
                     "updated": 1639842588551
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos kullanıcıları, siparişin doldurulmasını istedikleri oranı tanımlamalıdır. Borsa, kullanıcı tarafından belirlenen oranda veya daha iyi bir oranda tekliflerle/taleplerle eşleştiremediği sürece emri doldurmamakta serbestir.",
+                    "updated": 1656056474742
                 }
             ]
         },
@@ -85,6 +105,11 @@
                     "language": "RU",
                     "text": "Следует ожидать небольших расхождений между фактическим курсом и курсом ордера, поскольку не все биржи одинаково обрабатывают десятичные дроби и другие преобразования, включающие, например, комиссионные сборы.",
                     "updated": 1639842634235
+                },
+                {
+                    "language": "TR",
+                    "text": "Tüm borsalar ondalık sayıları ve örneğin ücretleri içeren diğer dönüşümleri aynı şekilde ele almadığından, gerçek oran ile sipariş oranı arasında küçük farklılıklar oluşabilir.",
+                    "updated": 1656056518501
                 }
             ]
         },
@@ -96,6 +121,11 @@
                     "language": "RU",
                     "text": "Лимитные ордера должны определять ставку с помощью соответствующего дочернего узла, в противном случае используется целевая ставка, определенная в качестве начальной цели. Если ставка вообще не определена, система останавливается с ошибкой при исполнении. Конфигурация ордера касается размера.",
                     "updated": 1639842819434
+                },
+                {
+                    "language": "TR",
+                    "text": "Limit emirleri uygun alt düğümü kullanarak bir oran tanımlamalıdır, aksi takdirde başlangıç hedefi olarak tanımlanan hedef oran kullanılır. Herhangi bir oran tanımlanmamışsa, sistem yürütme sırasında bir hata ile durur. Emrin yapılandırması boyut ile ilgilidir.",
+                    "updated": 1656056541384
                 }
             ]
         },
@@ -124,6 +154,11 @@
                     "language": "RU",
                     "text": "Конфигурация Limit Buy Order",
                     "updated": 1639842887749
+                },
+                {
+                    "language": "TR",
+                    "text": "Limit Emri Yapılandırılması",
+                    "updated": 1656056793300
                 }
             ]
         },
@@ -136,6 +171,11 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1639842897413
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1656056809932
                 }
             ]
         },
@@ -147,6 +187,11 @@
                     "language": "RU",
                     "text": "percentageOfAlgorithmSize - это определение того, какая часть размера, обрабатываемого алгоритмом, должна быть выделена для данного конкретного ордера. Возможные значения - вещественные числа от 0 до 100, включая крайние значения. Если вы установите значение 0, ордер не будет выполнен.",
                     "updated": 1639842921867
+                },
+                {
+                    "language": "TR",
+                    "text": "percentageOfAlgorithmSize, algoritma tarafından işlenen boyutun ne kadarının bu özel sıraya tahsis edileceğinin tanımıdır. Olası değerler, uç değerler de dahil olmak üzere 0 ile 100 arasındaki gerçek sayılardır. Değeri 0 olarak ayarlarsanız, emir yürütülmeyecektir.",
+                    "updated": 1656056832417
                 }
             ]
         },
@@ -158,8 +203,40 @@
                     "language": "RU",
                     "text": "spawnMultipleOrders - это параметр, который указывает, разрешены ли дополнительные порожденные ордера (true) или нет (false).",
                     "updated": 1639842931643
+                },
+                {
+                    "language": "TR",
+                    "text": "spawnMultipleOrders, ilave emirlerin oluşturulmasına izin verilip verilmediğini ( true ya da false) gösteren parametredir. ",
+                    "updated": 1656056974376
                 }
             ]
+        },
+        {
+            "style": "List",
+            "text": "orderParams allow the user to add additional parameters to the order like for example if it's a reduce only order.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "orderParams, kullanıcının siparişe ek parametreler eklemesine olanak tanır, örneğin yalnızca azaltma siparişi gibi.",
+                    "updated": 1656057025525
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Example:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Örneğin:",
+                    "updated": 1656057032416
+                }
+            ]
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"percentageOfAlgorithmSize\": 100,\n    \"spawnMultipleOrders\": false,\n    \"orderParams\": {\n        \"reduce_only\": true\n    }\n}",
+            "updated": 1650648182452
         }
     ]
 }

@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Бот для низкочастотной торговли - это реализация торгового бота на Trading Mine, специализирующегося на выполнении стратегий для временных интервалов от 1 минуты и выше.",
                 "updated": 1638285494165
+            },
+            {
+                "language": "TR",
+                "text": "Düşük Frekanslı Ticaret Botu, 1 dakika ve üzeri zaman dilimleri için stratejiler yürütme konusunda uzmanlaşmış bir Ticaret Botunun Masters Trading Mine'da bir uygulamasıdır.",
+                "updated": 1654391184417
             }
         ]
     },
@@ -20,6 +25,12 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования. Затем вы можете использовать docs.save для сохранения изменений и app.contribute для отправки их в основной репозиторий.",
                     "updated": 1638285533806
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle deyin. Yeni paragraflar yazmak için ENTER tuşuna basın. Düzenleme modundan çıkmak için ESC. Daha sonra değişikliklerinizi kaydetmek için docs.save ve ana depoya göndermek için app.contribute kullanabilirsiniz.",
+                    "updated": 1654391190453,
+                    "style": "Text"
                 }
             ]
         }

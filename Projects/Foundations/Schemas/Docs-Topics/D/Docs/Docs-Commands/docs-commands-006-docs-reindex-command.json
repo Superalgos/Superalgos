@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Используйте эту команду, чтобы повторно проиндексировать все страницы документов Docs вместе со всеми узлами в текущем рабочем пространстве. Изменения, внесенные вами в контент, становятся доступными через поиск после выполнения команды.",
                 "updated": 1638465019032
+            },
+            {
+                "language": "TR",
+                "text": "Geçerli çalışma alanındaki tüm düğümlerle birlikte Dokümanların tüm sayfalarını yeniden indekslemek için bu komutu kullanın. İçerikte yaptığınız değişiklikler, komutu çalıştırdıktan sonra arama yoluyla kullanılabilir hale gelir.",
+                "updated": 1652130179943
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "language": "RU",
                     "text": "Синтаксис",
                     "updated": 1638465033912
+                },
+                {
+                    "language": "TR",
+                    "text": "Sözdizimi",
+                    "updated": 1652130205394
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "RU",
                     "text": "Переиндексация всех страниц и узла рабочего пространства может занять минуту или две. Если ваше рабочее пространство очень большое, ожидайте, что оно займет еще больше времени.",
                     "updated": 1638465085470
+                },
+                {
+                    "language": "TR",
+                    "text": "Tüm sayfaların ve çalışma alanı düğümünün yeniden dizine eklenmesi bir veya iki dakika sürebilir. Çalışma alanınız çok büyükse, bundan daha uzun sürebilir bekleyin.",
+                    "updated": 1652130320499
                 }
             ]
         }

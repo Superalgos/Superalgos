@@ -12,6 +12,7 @@ exports.newAlgorithmicTradingBotModulesSnapshots = function(processIndex) {
         positionExit: positionExit,
         addCodeToSnapshot: addCodeToSnapshot,
         initialize: initialize,
+        returnChart: () => { return chart },
         finalize: finalize
     }
 
@@ -307,36 +308,68 @@ exports.newAlgorithmicTradingBotModulesSnapshots = function(processIndex) {
 
     function getResults(openDatetime, closeDatetime) {
 
-        let baseOpen = tradingEngine.tradingCurrent.strategyCloseStage.stageBaseAsset.sizeFilled.value - tradingEngine.tradingCurrent.strategyCloseStage.stageBaseAsset.feesPaid.value
-        let baseClose = tradingEngine.tradingCurrent.strategyOpenStage.stageBaseAsset.sizeFilled.value - tradingEngine.tradingCurrent.strategyOpenStage.stageBaseAsset.feesPaid.value
-        let quoteOpen = tradingEngine.tradingCurrent.strategyOpenStage.stageQuotedAsset.sizeFilled.value - tradingEngine.tradingCurrent.strategyOpenStage.stageQuotedAsset.feesPaid.value
-        let quoteClose = tradingEngine.tradingCurrent.strategyCloseStage.stageQuotedAsset.sizeFilled.value - tradingEngine.tradingCurrent.strategyCloseStage.stageQuotedAsset.feesPaid.value
-        let qouteProfit = ((quoteClose / quoteOpen * 100) - 100)
-        let baseProfit = ((baseClose / baseOpen * 100) - 100)
+        let baseOpen = tradingEngine.tradingCurrent.strategyOpenStage.stageBaseAsset.sizeFilled.value - tradingEngine.tradingCurrent.strategyOpenStage.stageBaseAsset.feesPaid.value
+        let baseClose = tradingEngine.tradingCurrent.strategyCloseStage.stageBaseAsset.sizeFilled.value - tradingEngine.tradingCurrent.strategyCloseStage.stageBaseAsset.feesPaid.value
+        
+        let quoteOpen = Number (tradingEngine.tradingCurrent.strategyOpenStage.stageQuotedAsset.sizeFilled.value - tradingEngine.tradingCurrent.strategyOpenStage.stageQuotedAsset.feesPaid.value)
+        let quoteClose = Number (tradingEngine.tradingCurrent.strategyCloseStage.stageQuotedAsset.sizeFilled.value - tradingEngine.tradingCurrent.strategyCloseStage.stageQuotedAsset.feesPaid.value)
+        
+        let baseProfit = parseFloat ( ((baseClose / baseOpen * 100) - 100).toFixed(2) )
+        let quoteProfit = parseFloat ( ((quoteClose / quoteOpen * 100) - 100).toFixed(2) )
+        
 
-        let closeHeaders = ['Trade Number', 'Open Datetime', 'Close Datetime', 'Strategy Name', 'Trigger On Situation', 'Take Position Situation', 'Open Position in Base Asset', 'Close Position in Base Asset', 'Open Position in Quoted Asset', 'Close Position in Quoted Asset', 'Result In Base Asset', 'Result In Quoted Asset', 'ROI in Base Asset', '% P/L Base Asset', 'P/L Type Base Asset', 'ROI in Quoted Asset', '% P/L Quoted Asset', 'P/L Type Quoted Asset', 'Exit Type', '# Periods']
+        let closeHeaders = [
+        'Trade Number',
+        'Open Datetime',
+        'Close Datetime',
+        'Strategy Name',
+        'Trigger On Situation',
+        'Take Position Situation',
+        'Entry Target Rate',
+        'Exit Target rate',
+        'Open Position in Base Asset',
+        'Close Position in Base Asset',
+        'Open Position in Quoted Asset',
+        'Close Position in Quoted Asset',
+        'Result In Base Asset',
+        'Result In Quoted Asset',
+        'ROI in Base Asset',
+        '% PNL Base Asset',
+        'PNL Base Asset',
+        'ROI in Quoted Asset',
+        '% PNL Quoted Asset',
+        'PNL Quoted Asset',
+        'Exit Type',
+        '# Periods'
+        ]
+        
         closeValues = [
-            tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeCounters.positions.value, // Position Number
-            (new Date(openDatetime)).toISOString(), // Open Datetime
-            (new Date(closeDatetime)).toISOString(), // Open Datetime
-            tradingEngine.tradingCurrent.strategy.strategyName.value, // Strategy Name
-            tradingEngine.tradingCurrent.strategy.situationName.value, // Trigger On Situation
-            tradingEngine.tradingCurrent.position.situationName.value, // Take Position Situation
-            baseOpen, // open position in base asset
-            baseClose, // close position in base asset
-            quoteOpen, //open quote in base asset
-            quoteClose, // close quote in base asset
-            tradingEngine.tradingCurrent.position.positionBaseAsset.hitFail.value, // Result in Base Asset
-            tradingEngine.tradingCurrent.position.positionQuotedAsset.hitFail.value, // Result in Base Asset
-            tradingEngine.tradingCurrent.position.positionBaseAsset.ROI.value, // ROI in Base Asset <- not sure this works as intended
-            baseProfit + '%', // % profit / loss in base Asset
+            tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeCounters.positions.value, // Trade Number
+            (new Date(openDatetime)).toISOString(),                                             // Open Datetime
+            (new Date(closeDatetime)).toISOString(),                                            // Close Datetime
+            tradingEngine.tradingCurrent.strategy.strategyName.value,                           // Strategy Name
+            tradingEngine.tradingCurrent.strategy.situationName.value,                          // Trigger On Situation
+            tradingEngine.tradingCurrent.position.situationName.value,                          // Take Position Situation
+            tradingEngine.tradingCurrent.position.entryTargetRate.value,                        // Entry Target Rate Price
+            tradingEngine.tradingCurrent.position.exitTargetRate.value,                         // Exit Target Rate Price
+            baseOpen,                                                                           // Open position in base asset minus fee
+            baseClose,                                                                          // Close position in base asset minus fee
+            quoteOpen,                                                                          // Open quote in base asset minus fee
+            quoteClose,                                                                         // Close quote in base asset minus fee
+            tradingEngine.tradingCurrent.position.positionBaseAsset.hitFail.value,              // Hit/Fail in Base Asset
+            tradingEngine.tradingCurrent.position.positionQuotedAsset.hitFail.value,            // Hit/Fail in Quoted Asset
+            tradingEngine.tradingCurrent.position.positionBaseAsset.ROI.value,                  // ROI in Base Asset <- not sure this works as intended
+            
+            baseProfit + '%',                                                                   // %PNL in base Asset
             baseProfit === 0 ? 'Even' : (baseProfit > 0 ? "Profit" : "Loss"),
 
-            tradingEngine.tradingCurrent.position.positionQuotedAsset.ROI.value, // ROI in Quoted Asset <- not sure this works as intended
-            qouteProfit + '%', // % profit loss in quoted Asset
-            qouteProfit === 0 ? 'Even' : (qouteProfit > 0 ? "Profit" : "Loss"),
-            tradingEngine.tradingCurrent.position.exitType.value, // Exit Type
-            tradingEngine.tradingCurrent.position.positionCounters.periods.value // periods counter
+            tradingEngine.tradingCurrent.position.positionQuotedAsset.ROI.value,                // ROI in Quoted Asset <- not sure this works as intended
+            
+            quoteProfit + '%',                                                                  // %PNL in quoted Asset
+            quoteProfit === 0 ? 'Even' : (quoteProfit > 0 ? "Profit" : "Loss"),
+            
+            tradingEngine.tradingCurrent.position.exitType.value,                               // Exit Type
+            tradingEngine.tradingCurrent.position.positionCounters.periods.value                // Periods counter
         ]
 
         if (createCloseHeaders === true) {

@@ -1,6 +1,6 @@
 {
     "topic": "Docs Commands Errors",
-    "pageNumber": 8,
+    "pageNumber": "8",
     "type": "Docs Error - Missing Colon",
     "definition": {
         "text": "Make sure you are using the \":\" in the appropriate position.",
@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Убедитесь, что вы используете \":\" в нужном месте.",
                 "updated": 1638529839586
+            },
+            {
+                "language": "TR",
+                "text": "\":\" işaretini uygun konumda kullandığınızdan emin olun.",
+                "updated": 1652019703756
             }
         ]
     },
@@ -22,7 +27,15 @@
         {
             "style": "Anchor",
             "text": "Anchor Missing Colon",
-            "updated": 1609176525475
+            "updated": 1609176525475,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Çapa Eksik Kolon",
+                    "updated": 1654419796859,
+                    "style": "Anchor"
+                }
+            ]
         },
         {
             "style": "Error",
@@ -33,6 +46,11 @@
                     "language": "DE",
                     "text": "Syntax Error. Das Doppelpunkt-Zeichen \":\" fehlt.",
                     "updated": 1633897408928
+                },
+                {
+                    "language": "TR",
+                    "text": "Sözdizimi hatası. İki nokta üst üste karakteri \":\" eksik.",
+                    "updated": 1652019762679
                 }
             ]
         },
@@ -50,6 +68,11 @@
                     "language": "RU",
                     "text": "Проверьте синтаксис выполняемой команды и посмотрите, где разместить символ двоеточия «:». Символ может быть не обнаружен, если за ним не стоит пробел.",
                     "updated": 1638529863188
+                },
+                {
+                    "language": "TR",
+                    "text": "Yürüttüğünüz komutun sözdizimini kontrol edin ve iki nokta üst üste \":\" karakterinin nereye yerleştirileceğini görün. Karakterin arkasında bir boşluk yoksa karakter algılanmayabilir.",
+                    "updated": 1652019825339
                 }
             ]
         },
@@ -66,21 +89,51 @@
                     "language": "RU",
                     "text": "Относится к",
                     "updated": 1638529874404
+                },
+                {
+                    "language": "TR",
+                    "text": "Şunlar için geçerlidir",
+                    "updated": 1654419803542,
+                    "style": "Title"
                 }
             ]
         },
         {
             "style": "List",
             "text": "Docs Add Command",
-            "updated": 1609177427004
+            "updated": 1609177427004,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Dokümanlar Komut Ekle",
+                    "updated": 1654419811241,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Docs Delete Command"
+            "text": "Docs Delete Command",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Dokümanlar Silme Komutu",
+                    "updated": 1654419819194,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Docs Repaginate Command"
+            "text": "Docs Repaginate Command",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Docs Repaginate Komutu",
+                    "updated": 1654419825403,
+                    "style": "List"
+                }
+            ]
         }
     ]
 }

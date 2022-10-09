@@ -52,6 +52,8 @@ function newRateScale() {
     let limitingContainer
     let rateCalculationsContainer
 
+    let configStyle
+
     mouseWhenDragStarted = {
         position: {
             x: 0,
@@ -556,10 +558,25 @@ function newRateScale() {
         let icon1 = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.payload.parentNode.project, thisObject.payload.node.payload.parentNode.type)
         let icon2 = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.payload.node.type)
 
-        let backgroundColor = UI_COLOR.BLACK
-        let labels = scaleLabels(thisObject.rate, true)
+        // This controls the color of the value/ rate scale panel on the right in the charts.
+        let chartingSpaceNode = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Charting Space')
+        if (chartingSpaceNode !== undefined) {
+            if (chartingSpaceNode.spaceStyle !== undefined) {
+                configStyle = JSON.parse(chartingSpaceNode.spaceStyle.config)
+            }
+        } else {
+            configStyle = undefined
+        }
 
-        drawScaleDisplay(labels[0], labels[1], labels[2], 0, 0, 0, icon1, icon2, thisObject.container, backgroundColor)
+        if (configStyle === undefined || configStyle.rateScalePanelColor === undefined) {
+            let backgroundColor = UI_COLOR.BLACK
+            let labels = scaleLabels(thisObject.rate, true)
+            drawScaleDisplay(labels[0], labels[1], labels[2], 0, 0, 0, icon1, icon2, thisObject.container, backgroundColor)
+        } else{
+            let backgroundColor = eval(configStyle.rateScalePanelColor)
+            let labels = scaleLabels(thisObject.rate, true)
+            drawScaleDisplay(labels[0], labels[1], labels[2], 0, 0, 0, icon1, icon2, thisObject.container, backgroundColor)
+        }
     }
 
     function scaleLabels(rate, fixDecimals) {

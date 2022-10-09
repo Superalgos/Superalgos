@@ -36,8 +36,8 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Set up you Github API credentials to get ready to contribute your profile!",
-            "updated": 1630754823206,
+            "text": "Click the Contributions tab and, if you haven't yet, set up you Github API credentials to get ready to contribute your profile!",
+            "updated": 1660647438015,
             "translations": [
                 {
                     "language": "ES",
@@ -64,8 +64,8 @@
         },
         {
             "style": "Warning",
-            "text": "If you don't know what I'm talking about, you may need a refresher on how to submit a contribution to Superalgos. Read these few steps taken from the Beyond the Basics Tutorial to remind you what the GitHub authentication process is like. ",
-            "updated": 1630691155123,
+            "text": "If you don't know what I'm talking about, you may need a refresher on how to submit a contribution to Superalgos. If that is the case, you may want to revisit the Beyond the Basics Tutorial to remind you about the GitHub authentication process.",
+            "updated": 1660647510757,
             "translations": [
                 {
                     "language": "ES",

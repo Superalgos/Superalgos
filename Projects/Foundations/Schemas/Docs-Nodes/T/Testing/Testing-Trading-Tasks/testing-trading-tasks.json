@@ -19,6 +19,11 @@
                     "language": "ES",
                     "text": "Una prueba minuciosa y exhaustiva de las estrategias es la base del éxito de las operaciones. Superalgos procura que usted tenga el control del proceso de pruebas, proporcionándole herramientas flexibles que se ajusten a sus necesidades.",
                     "updated": 1641092569030
+                },
+                {
+                    "language": "TR",
+                    "text": "Stratejilerin kapsamlı bir şekilde test edilmesi, başarılı ticaretin temelini oluşturur. Superalgos, kriterlerinize uygun esnek araçlar sağlayarak test sürecinin kontrolünü size bırakmaya çalışır.",
+                    "updated": 1654765691054
                 }
             ]
         },
@@ -35,6 +40,11 @@
                     "language": "ES",
                     "text": "Dependiendo de cómo utilice el sistema, de cuántos Markets y Exchanges trabaje, del número de Trading Systems que utilice o de la forma que decida probar sus estrategias, puede encontrarse con un gran número de sesiones de prueba. Como se explica en la página de clasificación de Tasks, el entorno de pruebas le ayuda a organizar un gran número de tareas clasificándolas por Exchange, Market y Trading Mine.",
                     "updated": 1641092737463
+                },
+                {
+                    "language": "TR",
+                    "text": "Sistemi nasıl kullandığınıza, kaç işlem çifti ve borsa ile çalıştığınıza, kullandığınız ticaret sistemi sayısına veya stratejilerinizi test etme şeklinize bağlı olarak, kendinizi çok sayıda test seansı ile başbaşa bulabilirsiniz. Görevlerin (Tasks) sıralanması sayfasında açıklandığı gibi, test ortamı çok sayıda görevi borsa, piyasa ve ticaret madenine (Trading Mine) göre sıralayarak düzenlemenize yardımcı olur.",
+                    "updated": 1654765822280
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "ES",
                     "text": "Superalgos realiza dos tipos de pruebas simuladas: Backtesting y Paper Trading. El Backtesting consiste en realizar pruebas sobre datos históricos, mientras que el Paper Trading consiste en realizar pruebas sobre un flujo de datos en vivo, pero sin colocar órdenes en el Exchange.",
                     "updated": 1641092815215
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos iki tür simüle test gerçekleştirir: Backtest ve Paper Trade. Backtest, geçmiş veriler üzerinde test yapmayı içerirken, Paper Trade canlı bir veri akışı üzerinde, ancak borsada emir vermeden test yapmakla ilgilidir.",
+                    "updated": 1654769804801
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "ES",
                     "text": "Las sesiones de trading se controlan mediante una serie de parámetros que determinan cómo se ejecuta la sesión. Los parámetros integrados proporcionan un gran control y flexibilidad en cuanto a cómo manejar los conjuntos de datos y cómo producir las simulaciones resultantes.",
                     "updated": 1641092918828
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret seansları, seansın nasıl yürütüleceğini belirleyen bir dizi parametre tarafından kontrol edilir. Yerleşik parametreler, veri setlerinin nasıl işleneceği ve ortaya çıkan simülasyonların nasıl üretileceği konusunda büyük kontrol ve esneklik sağlar.",
+                    "updated": 1654769835595
                 }
             ]
         },
@@ -84,6 +104,11 @@
                     "language": "ES",
                     "text": "Por favor, siga leyendo y estudie el funcionamiento de la cadena de nodos bajo el nodo del entorno de pruebas. La inversión de tiempo merece la pena, ya que aprenderá a sacar el máximo partido a las funciones de prueba de estrategias que incorpora Superalgos.",
                     "updated": 1641092947312
+                },
+                {
+                    "language": "TR",
+                    "text": "Lütfen okumaya devam edin ve test ortamı düğümü altındaki düğümler zincirinin işleyişini inceleyin. Superalgos'ta yerleşik strateji testi özelliklerinden en iyi şekilde nasıl yararlanacağınızı öğreneceğiniz için zaman harcamaya değer.",
+                    "updated": 1654769918051
                 }
             ]
         },

@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Узел Exchange Assets группирует определения активов, которые могут использоваться для определения рынков в узле Exchange Markets.",
                 "updated": 1638783148188
+            },
+            {
+                "language": "TR",
+                "text": "Borsa varlıkları düğümü, Borsa Piyasaları düğümü altındaki piyasaları tanımlamak için kullanılabilecek varlık tanımlarını gruplandırır.",
+                "updated": 1654392228627
             }
         ]
     },
@@ -25,6 +30,12 @@
                     "language": "RU",
                     "text": "Конфигурация Exchange Assets",
                     "updated": 1638783162737
+                },
+                {
+                    "language": "TR",
+                    "text": "Exchange Varlıkları Yapılandırması",
+                    "updated": 1654392235178,
+                    "style": "Title"
                 }
             ]
         },
@@ -37,6 +48,12 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1638783171656
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1654392241400,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -48,6 +65,12 @@
                     "language": "RU",
                     "text": "addMissingAssets действует как фильтр, чтобы определить, какие активы из (потенциально длинного) списка активов, перечисленных на бирже, будут добавлены при использовании параметра Add Missing Assets* в меню. Поскольку многие биржи не предлагают список активов, система извлекает активы с реальных рынков (торговых пар), котирующихся на бирже. Вы можете добавить недостающие активы, отфильтрованные по quotedAsset или baseAsset. Например, приведенная выше конфигурация добавит все активы, перечисленные на рынках, на которых BTC является котируемым активом.",
                     "updated": 1638783327797
+                },
+                {
+                    "language": "TR",
+                    "text": "addMissingAssets, menüdeki Eksik Varlıkları Ekle* seçeneği kullanıldığında borsada listelenen (potansiyel olarak uzun) varlıklar listesinden hangi varlıkların ekleneceğini belirlemek için bir filtre görevi görür. Birçok borsa bir varlık listesi sunmadığından, sistem borsada listelenen gerçek piyasalardan (çiftlerden) varlıkları getirir. Eksik varlıkları quotedAsset veya baseAsset'e göre filtreleyerek ekleyebilirsiniz. Örneğin, yukarıdaki yapılandırma BTC'nin kote edilen varlık olduğu piyasalarda listelenen tüm varlıkları ekleyecektir.",
+                    "updated": 1654392247634,
+                    "style": "List"
                 }
             ]
         }

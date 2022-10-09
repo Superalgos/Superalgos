@@ -35,8 +35,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "We're sneaking into the lead developer's User Profile, particularly in his Delegation Program! Your mission: delegate yourself some Token Power so that you can play with the flows within your own profile!",
-            "updated": 1630931293437,
+            "text": "We're sneaking into Julian's User Profile, particularly in his Delegation Program! Your mission: delegate yourself some Token Power so that you can play with the flows within your own profile!",
+            "updated": 1660648678459,
             "translations": [
                 {
                     "language": "ES",
@@ -62,7 +62,7 @@
         },
         {
             "style": "Callout",
-            "text": "Use the User Delegate node on the right to reference your own User Profile!",
+            "text": "Use the Delegate Power Switch to add a User Delegate node and reference your profile!",
             "translations": [
                 {
                     "language": "ES",
@@ -84,12 +84,13 @@
                     "text": "Kendi Kullanıcı Profilinize başvurmak için sağdaki User Delegate düğümünü kullanın!",
                     "updated": 1645173721560
                 }
-            ]
+            ],
+            "updated": 1660648850165
         },
         {
             "style": "List",
-            "text": "You can freely play with other User Profiles.",
-            "updated": 1630931454654,
+            "text": "You can freely play with other User Profiles as they don't save with your workspace.",
+            "updated": 1660648883074,
             "translations": [
                 {
                     "language": "ES",
@@ -110,33 +111,6 @@
                     "language": "TR",
                     "text": "Diğer Kullanıcı Profilleri ile özgürce oynayabilirsiniz.",
                     "updated": 1645168379111
-                }
-            ]
-        },
-        {
-            "style": "List",
-            "text": "Those profiles don't save with the workspace.",
-            "updated": 1630931469032,
-            "translations": [
-                {
-                    "language": "ES",
-                    "text": "Esos profiles no se graban en el workspace.",
-                    "updated": 1633298215317
-                },
-                {
-                    "language": "RU",
-                    "text": "Эти профили не сохраняются в рабочем пространстве.",
-                    "updated": 1639054467286
-                },
-                {
-                    "language": "DE",
-                    "text": "Diese Profile werden nicht mit dem Workspace gespeichert.",
-                    "updated": 1640082827690
-                },
-                {
-                    "language": "TR",
-                    "text": "Bu profiller çalışma alanıyla birlikte kaydedilmez.",
-                    "updated": 1645168426220
                 }
             ]
         },

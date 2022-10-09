@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Die Docs-Seiten von Superalgos und anderen integrierten Projekten sind ursprünglich in Englisch verfasst. Das System ermöglicht es den Nutzern, die Seiten auch in anderen Sprachen zu suchen und zu durchsuchen, sofern die Nutzer zuvor die entsprechenden Übersetzungen beigetragen haben.",
                 "updated": 1637874117986
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos'un ve entegre edilen diğer projelerin Docs sayfaları orijinal olarak İngilizce yazılmıştır. Sistem, kullanıcılar daha önce ilgili çevirilere katkıda bulundukları sürece, kullanıcıların diğer dillerde de arama yapmasına ve sayfalara göz atmasına olanak tanır.",
+                "updated": 1654393692750
             }
         ]
     },
@@ -23,6 +28,12 @@
                     "language": "DE",
                     "text": "Englisch gilt als Standardsprache. Wenn Sie zu einer anderen Sprache wechseln, versucht das System, den Inhalt in der neuen Sprache anzuzeigen. Wenn die Übersetzung jedoch noch nicht verfügbar ist, wird stattdessen die englische Version angezeigt.",
                     "updated": 1637874156323
+                },
+                {
+                    "language": "TR",
+                    "text": "İngilizce varsayılan dil olarak kabul edilir. Farklı bir dile geçtiğinizde, sistem içeriği yeni dilde göstermeye çalışır. Ancak, çeviri henüz mevcut değilse, bunun yerine İngilizce sürümü gösterir.",
+                    "updated": 1654393698965,
+                    "style": "Text"
                 }
             ]
         },
@@ -34,6 +45,12 @@
                     "language": "DE",
                     "text": "Node types, variable names, der Titel von Seiten in den Docs und einige weitere Elemente von Superalgos werden nicht übersetzt, da sie eindeutige Bezeichner der genannten Elemente sind. Sie erhalten diese immer auf Englisch.",
                     "updated": 1637874166523
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğüm türleri, değişken adları, Dokümanlar'daki sayfaların başlığı ve Superalgos'un birkaç öğesi daha, söz konusu öğelerin benzersiz tanımlayıcıları oldukları için çevrilmeyebilir. Bunları her zaman İngilizce olarak alacaksınız.",
+                    "updated": 1654393705564,
+                    "style": "Text"
                 }
             ]
         },
@@ -45,6 +62,12 @@
                     "language": "DE",
                     "text": "Wenn Sie Übersetzungen beisteuern möchten, lesen Sie die Seite: How to Contribute Translations.",
                     "updated": 1637874205878
+                },
+                {
+                    "language": "TR",
+                    "text": "Çevirilere katkıda bulunmak istiyorsanız, Çevirilere Nasıl Katkıda Bulunulur sayfasını okuyun.",
+                    "updated": 1654393711666,
+                    "style": "Success"
                 }
             ]
         },
@@ -56,6 +79,12 @@
                     "language": "DE",
                     "text": "Um die Sprache zu wechseln, klicken Sie auf die Flaggen in der Fußzeile der Docs.",
                     "updated": 1637874233687
+                },
+                {
+                    "language": "TR",
+                    "text": "Dil değiştirmek için Dokümanların altbilgisindeki bayraklara tıklayın.",
+                    "updated": 1654393717918,
+                    "style": "Success"
                 }
             ]
         },
@@ -68,6 +97,12 @@
                     "language": "DE",
                     "text": "Note: Sie können nur Seiten zu den Dokumenten hinzufügen oder löschen, wenn die Sprache auf Englisch eingestellt ist. Für die Übersetzung müssen Sie die Sprache auswählen, in die Sie übersetzen möchten.",
                     "updated": 1637874245715
+                },
+                {
+                    "language": "TR",
+                    "text": "Dokümanlara yalnızca dil İngilizce olarak ayarlandığında sayfa ekleyebilir veya silebilirsiniz.",
+                    "updated": 1654393724787,
+                    "style": "Note"
                 }
             ]
         }

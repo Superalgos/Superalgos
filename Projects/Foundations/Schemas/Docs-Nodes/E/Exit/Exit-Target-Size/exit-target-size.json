@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Exit Target Size - это целевой размер, установленный при первоначальном определении целей на завершающей стадии стратегии.",
                 "updated": 1638786317870
+            },
+            {
+                "language": "TR",
+                "text": "Çıkış hedef büyüklüğü, stratejinin kapanış aşamasında, ilk hedefler tanımında belirlenen hedef büyüklüğüdür.",
+                "updated": 1654392510084
             }
         ]
     },
@@ -23,6 +28,12 @@
                     "language": "RU",
                     "text": "Целевые размеры входа и выхода могут быть определены либо в базовом активе, либо в котируемом активе. Тем не менее, система отслеживает целевые размеры обоих активов. Если цель определена в базовом активе, то цель для котируемого актива рассчитывается с использованием текущего курса, и наоборот.",
                     "updated": 1638786346408
+                },
+                {
+                    "language": "TR",
+                    "text": "Hem giriş hem de çıkış hedef büyüklükleri temel varlık veya kote edilen varlık cinsinden tanımlanabilir. Bununla birlikte, sistem her iki varlıktaki hedef büyüklüklerini de takip eder. Hedef temel varlık cinsinden tanımlanmışsa, kote varlık için hedef cari kur kullanılarak hesaplanır ve bunun tersi de geçerlidir.",
+                    "updated": 1654392515872,
+                    "style": "Text"
                 }
             ]
         },
@@ -34,6 +45,12 @@
                     "language": "RU",
                     "text": "Обновите эту концепцию, прочитав об исходных целевых определениях в торговой системе.",
                     "updated": 1638786354443
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret sistemindeki ilk hedef tanımlarını okuyarak bu kavramları yenileyin.",
+                    "updated": 1654392522485,
+                    "style": "Text"
                 }
             ]
         },
@@ -51,6 +68,12 @@
                     "language": "RU",
                     "text": "Конфигурация Entry Target Rate",
                     "updated": 1638786366536
+                },
+                {
+                    "language": "TR",
+                    "text": "Giriş Hedef Oranı Yapılandırması",
+                    "updated": 1654392529110,
+                    "style": "Title"
                 }
             ]
         },
@@ -63,6 +86,12 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1638786374416
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1654392534684,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -75,6 +104,12 @@
                     "language": "RU",
                     "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
                     "updated": 1638786382555
+                },
+                {
+                    "language": "TR",
+                    "text": "initialValue düğümün ilk durumunun rastgele bir değere sıfırlanmasını sağlar.",
+                    "updated": 1654392540689,
+                    "style": "List"
                 }
             ]
         }

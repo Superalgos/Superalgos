@@ -1,0 +1,52 @@
+{
+    "topic": "Zeus Data Mine",
+    "pageNumber": 8,
+    "type": "Aroon",
+    "definition": {
+        "text": "Technical momentum oscillator that allows traders to see whether an asset is trending",
+        "updated": 1659619462164
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "The Aroon Indicator",
+            "updated": 1656583627080
+        },
+        {
+            "style": "Text",
+            "text": "The Aroon indicator is a technical indicator that is used to identify trend changes in the price of an asset, as well as the strength of that trend. In essence, the indicator measures the time between highs and the time between lows over a time period. The idea is that strong uptrends will regularly see new highs, and strong downtrends will regularly see new lows. The indicator signals when this is happening, and when it isn't."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/aroon-indicator.png",
+            "updated": 1656584141084
+        },
+        {
+            "style": "Text",
+            "text": "The Aroon indicator was developed by Tushar Chande in 1995. The indicator consists of the \"Aroon up\" line, which measures the strength of the uptrend, and the \"Aroon down\" line, which measures the strength of the downtrend.",
+            "updated": 1656584172273
+        },
+        {
+            "style": "Title",
+            "text": "Aroon Indicator Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "There are two properties available"
+        },
+        {
+            "style": "Table",
+            "text": "|Product Name |Properties |\n|aroon | aroonUp, aroonDown |",
+            "updated": 1656584513030
+        },
+        {
+            "style": "Text",
+            "text": "Examples:",
+            "updated": 1656584551727
+        },
+        {
+            "style": "Text",
+            "text": "chart.at15min.aroon.aroonUp > chart.at15min.aroon.aroonUp"
+        }
+    ]
+}

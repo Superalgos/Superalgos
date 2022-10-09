@@ -33,13 +33,20 @@
                     "language": "RU",
                     "text": "Узел сеанса форвардного тестирования должен ссылаться на торговую систему, чтобы получить доступ к торговой логике, которая будет применяться во время сеанса. Другие соображения, касающиеся сеанса, исходят из набора прикрепленных к нему параметров.",
                     "updated": 1638602469560
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir ileri test oturumu düğümü, oturum sırasında uygulanacak ticaret mantığına erişim sağlamak için bir ticaret sistemine referans vermelidir. Oturumu çerçeveleyen diğer hususlar, ona bağlı parametreler kümesinden gelir.",
+                    "updated": 1654419134783,
+                    "style": "Text"
                 }
             ]
         },
         {
             "style": "Include",
             "text": "Foundations->Concept->Reusable Snippets->Important for Live Sessions",
-            "updated": 1610106317263
+            "updated": 1610106317263,
+            "translations": [ ]
         },
         {
             "style": "Block",
@@ -53,6 +60,12 @@
                     "language": "RU",
                     "text": "Запуск Forward Testing Session",
                     "updated": 1638602481237
+                },
+                {
+                    "language": "TR",
+                    "text": "İleri Test Oturumu Çalıştırma",
+                    "updated": 1654419154073,
+                    "style": "Title"
                 }
             ]
         },
@@ -64,6 +77,12 @@
                     "language": "RU",
                     "text": "Перед тем, как вы начнете сеанс форвард-тестирования, необходимо запустить соответствующую задачу, поскольку именно эта задача запускает экземпляр торгового бота. После запуска экземпляра торгового бота выберите в меню пункт «Run», чтобы начать сеанс.",
                     "updated": 1638602513216
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir ileri test oturumunu başlatmadan önce, ticaret botu örneğini çalıştıran görev olduğu için ilgili görevin çalışıyor olması gerekir. Ticaret botu örneği çalıştığında, oturumu başlatmak için menüden Çalıştır'ı seçin.",
+                    "updated": 1654419160848,
+                    "style": "Text"
                 }
             ]
         },
@@ -75,6 +94,12 @@
                     "language": "RU",
                     "text": "Чтобы остановить сеанс тестирования на истории, выберите в меню «Stop».",
                     "updated": 1638602541043
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir backtesting oturumunu durdurmak için menüden Durdur öğesini seçin.",
+                    "updated": 1654419168902,
+                    "style": "Text"
                 }
             ]
         },
@@ -92,6 +117,12 @@
                     "language": "RU",
                     "text": "Конфигурация Forward Testing Session",
                     "updated": 1638602558346
+                },
+                {
+                    "language": "TR",
+                    "text": "İleri Test Oturumu Yapılandırması",
+                    "updated": 1654419175218,
+                    "style": "Title"
                 }
             ]
         },
@@ -104,6 +135,12 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1638602568623
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1654419181683,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -116,6 +153,12 @@
                     "language": "RU",
                     "text": "folderName позволяет вам задать значимое имя для папки, в которой хранятся продукты данных и журналы, созданные в ходе сеанса. Если оставить поле пустым, система присваивает папкам имена с идентификатором сеанса. Это может быть удобно, если вы собираетесь просмотреть необработанные данные, созданные в ходе сеанса, поскольку в противном случае папку будет сложно идентифицировать.",
                     "updated": 1638602580711
+                },
+                {
+                    "language": "TR",
+                    "text": "folderName, oturum tarafından oluşturulan veri ürünlerinin -ve günlüklerin- depolandığı klasöre önemli bir ad vermenizi sağlar. Boş bırakılırsa, sistem klasörleri oturum kimliği ile adlandırır. Bu, oturum tarafından üretilen ham verilere başvurmak istediğinizde kullanışlı olabilir, aksi takdirde klasörü tanımlamak zor olacaktır.",
+                    "updated": 1654419188378,
+                    "style": "List"
                 }
             ]
         },
@@ -128,6 +171,12 @@
                     "language": "RU",
                     "text": "balancePercentage - это число, определяющее процент от начального баланса (как указано в конфигурации Session Base Asset и / или Session Quoted Asset), который будет использоваться для торговли. Например, для balancePercentage установлено значение 1, что означает, что 1% вашего баланса будет доступен. Так же, как начальный баланс initialBalance уменьшен, минимальный баланс minimumBalance и максимальный баланс maximumBalance также уменьшаются соответственно (см. Session Base Asset).",
                     "updated": 1638602865690
+                },
+                {
+                    "language": "TR",
+                    "text": "balancePercentage, alım satım için kullanılacak initialBalance'ın (Oturum Temel Varlığı ve/veya Oturum Kotalı Varlık yapılandırmasında belirtildiği gibi) yüzdesini tanımlayan bir sayıdır. Örneğin, balancePercentage değerinin 1 olarak ayarlanması, bakiyenizin %1'inin kullanıma sunulacağı anlamına gelir. Tıpkı initialBalance'ın ölçeklendirilmesi gibi, minimumBalance ve maksimumBalance da buna göre ölçeklendirilir (bkz. temel varlık).",
+                    "updated": 1654419194079,
+                    "style": "List"
                 }
             ]
         },
@@ -140,6 +189,12 @@
                     "language": "RU",
                     "text": "Для ясности обозначим это цифрами. Допустим, вашим котируемым активом Session Quoted Asset, является USDT, а ваш начальный баланс - 10 000 долларов США.",
                     "updated": 1638603007854
+                },
+                {
+                    "language": "TR",
+                    "text": "Açıklık getirmek için bunu rakamlarla ifade edelim. Diyelim ki Oturum Kotasyonlu Varlığınız USDT ve initialBalance'ınız USDT 10.000 olsun.",
+                    "updated": 1654419200359,
+                    "style": "Text"
                 }
             ]
         },
@@ -152,6 +207,12 @@
                     "language": "RU",
                     "text": "Если вы настроили сеанс форвард-тестирования с параметром balancePercentage, равным 1, то:",
                     "updated": 1638603026561
+                },
+                {
+                    "language": "TR",
+                    "text": "İleri test oturumunuzu balancePercentage 1 olarak ayarlanmış şekilde ayarlarsanız:",
+                    "updated": 1654419206642,
+                    "style": "Text"
                 }
             ]
         },
@@ -168,6 +229,12 @@
                     "language": "RU",
                     "text": "Это баланс, который будет доступен для вашего сеанса форвард-тестирования.",
                     "updated": 1638603043494
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu, ileri test oturumunuz için mevcut olacak bakiyedir.",
+                    "updated": 1654419212731,
+                    "style": "Text"
                 }
             ]
         },
@@ -179,6 +246,12 @@
                     "language": "RU",
                     "text": "Вам необходимо принять это во внимание при определении формулы размера вашей позиции positionSize. Если формула является постоянной, у вас может легко закончиться баланс, так как для использования стратегии будет доступна только часть баланса. Вместо этого может быть хорошей идеей настроить размер вашей позиции в зависимости от вашего доступного баланса.",
                     "updated": 1638603151728
+                },
+                {
+                    "language": "TR",
+                    "text": "positionSize formülünüzü tanımlarken bunu dikkate almanız gerekir. Formül sabitse, stratejinin kullanması için bakiyenin yalnızca bir kısmı mevcut olacağından, bakiyeniz kolayca tükenebilir. Bunun yerine positionSize'ınızı mevcut bakiyenizin bir fonksiyonu olarak ayarlamak iyi bir fikir olabilir.",
+                    "updated": 1654419220295,
+                    "style": "Important"
                 }
             ]
         }

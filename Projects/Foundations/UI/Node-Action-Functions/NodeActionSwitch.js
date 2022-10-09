@@ -1235,6 +1235,37 @@ function newFoundationsNodeActionSwitch() {
                     } */
                 }
                 break
+            case 'Check for Updates':
+                {
+
+                    let config = JSON.parse(action.node.config)
+
+                    httpRequest(undefined, 'http://' + config.host + ':' + config.webPort + '/App/Branch/', onBranchResponse)
+
+                    function onBranchResponse(err, data) {
+                        data = JSON.parse(data)
+                        if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.CUSTOM_OK_RESPONSE.result) {
+                            action.node.payload.uiObject.setInfoMessage("Checking for Update, Branch: " + data.message.current, 5)
+                            httpRequest(undefined, 'http://' + config.host + ':' + config.webPort + '/App/Update/' + data.message.current, onUpdateResponse)
+                        } else {
+                            action.node.payload.uiObject.setErrorMessage("Failed to Update", 5)
+                        }
+                    }
+
+                    function onUpdateResponse(err, data) {
+                        data = JSON.parse(data)
+                        if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.CUSTOM_OK_RESPONSE.result) {
+                            if (data.message.reposUpdated === true) {
+                                action.node.payload.uiObject.setInfoMessage("Update Done - New Version Found", 5)
+                            } else {
+                                action.node.payload.uiObject.setInfoMessage("Update Done - Already Up-To-Date", 5)
+                            }
+                        } else {
+                            action.node.payload.uiObject.setErrorMessage("Failed to Update", 5)
+                        }
+                    }
+                }
+                break
 
             default: {
                 console.log("[WARN] Action sent to Foundations Action Switch does not belong here. Verify at the App Schema file of the node that triggered this action that the actionProject is pointing to the right project. -> Action = " + action.name + " -> Action Node Name = " + action.node.name)

@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Придает входному сигналу определенную форму.",
                 "updated": 1645249732857
+            },
+            {
+                "language": "TR",
+                "text": "Bir girişi belirli bir şekle yeniden şekillendirir.",
+                "updated": 1654397518656
             }
         ]
     },
@@ -21,12 +26,26 @@
                     "language": "RU",
                     "text": "Input shape: Произвольный, хотя все размеры входной формы должны быть фиксированными. Используйте конфигурацию inputShape при использовании этого слоя в качестве первого слоя в модели.",
                     "updated": 1645249743355
+                },
+                {
+                    "language": "TR",
+                    "text": "Giriş şekli: Keyfi, ancak giriş şeklindeki tüm boyutlar sabit olmalıdır. Bu katmanı bir modelde ilk katman olarak kullanırken inputShape yapılandırmasını kullanın.",
+                    "updated": 1654397526184,
+                    "style": "List"
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Output shape: [batchSize, targetShape[0], targetShape[1], ..., targetShape[targetShape.length - 1]]."
+            "text": "Output shape: [batchSize, targetShape[0], targetShape[1], ..., targetShape[targetShape.length - 1]].",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Çıkış şekli: [batchSize, targetShape[0], targetShape[1], ..., targetShape[targetShape.length - 1]].",
+                    "updated": 1654397531753,
+                    "style": "List"
+                }
+            ]
         }
     ]
 }

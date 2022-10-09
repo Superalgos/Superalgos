@@ -342,7 +342,7 @@
         },
         {
             "style": "List",
-            "text": "First: This means that the fisrt value found within the time range being processed, will define the value of the Record Property.",
+            "text": "First: This means that the first value found within the time range being processed, will define the value of the Record Property.",
             "translations": [
                 {
                     "language": "DE",
@@ -351,15 +351,16 @@
                 },
                 {
                     "language": "RU",
-                    "text": "First: Это означает, что первое значение, найденное в обрабатываемом диапазоне времени, будет определять значение Record Property.",
-                    "updated": 1639592268016
+                    "text": "First: Это означает, что первое значение, найденное в обрабатываемом временном диапазоне, будет определять значение свойства Record.",
+                    "updated": 1661149004841
                 },
                 {
                     "language": "TR",
                     "text": "Birincisi: Bu, işlenmekte olan zaman aralığında bulunan ilk değerin Kayıt Özelliğinin ( Record Property ) değerini tanımlayacağı anlamına gelir.",
                     "updated": 1645965639537
                 }
-            ]
+            ],
+            "updated": 1652772107530
         },
         {
             "style": "List",
@@ -870,8 +871,8 @@
         },
         {
             "style": "List",
-            "text": "Step #17: The timestamp record property is the only required property. It helps keep the records you save organized. Addtionally, the timestamp may live in the header of the API responce. Read the docs of the API Response Field Reference node to set up the nodePath property if necessary.",
-            "updated": 1622475120505,
+            "text": "Step #17: The timestamp record property is the only required property. It helps keep the records you save organized. Additionally, the timestamp may live in the header of the API response. Read the docs of the API Response Field Reference node to set up the nodePath property if necessary.",
+            "updated": 1652841936784,
             "translations": [
                 {
                     "language": "DE",
@@ -880,8 +881,8 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Шаг № 17: Свойство записи timestamp - единственное обязательное свойство. Это помогает организовывать сохраняемые вами записи. Кроме того, временная метка может находиться в заголовке ответа API. Прочтите документацию узла справки по полю ответа API, чтобы при необходимости настроить свойство nodePath.",
-                    "updated": 1639653850071
+                    "text": "Шаг № 17: Свойство записи timestamp является единственным обязательным свойством. Оно помогает упорядочить сохраняемые записи. Кроме того, метка времени может находиться в заголовке ответа API. Прочитайте документацию узла API Response Field Reference, чтобы настроить свойство nodePath, если это необходимо.",
+                    "updated": 1661149061116
                 },
                 {
                     "language": "TR",

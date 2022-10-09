@@ -6,7 +6,7 @@
         "text": "You did it! You are now officially taking part in the governance of Superalgos! So, what's next?",
         "updated": 1630751721473,
         "icon": {
-            "name": "Announcement\\announcement",
+            "name": "announcement",
             "project": "Foundations"
         },
         "translations": [
@@ -92,8 +92,8 @@
         },
         {
             "style": "Note",
-            "text": "Feel free to use any other wallet that supports BEP20 tokens in the Binance Smart Chain.",
-            "updated": 1630752335924,
+            "text": "Feel free to use any other wallet that supports BEP20 tokens.",
+            "updated": 1660648349188,
             "translations": [
                 {
                     "language": "ES",

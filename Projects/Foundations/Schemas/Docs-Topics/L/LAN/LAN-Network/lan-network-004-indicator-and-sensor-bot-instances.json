@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Задачи по сбору данных могут запускать экземпляры ботов-индикаторов или ботов-сенсоров, а некоторые биржи могут требовать API-ключ для загрузки определенных видов или объемов данных. Мы рассмотрим каждый из этих случаев.",
                 "updated": 1640500071998
+            },
+            {
+                "language": "DE",
+                "text": "Data Tasks können Instanzen von Indicator Bots oder Sensor Bots laufen lassen, und einige Exchange können einen API-Schlüssel für das Herunterladen bestimmter Arten oder Mengen von Daten erfordern. Wir werden uns jeden dieser Fälle ansehen.",
+                "updated": 1651911400306
             }
         ]
     },

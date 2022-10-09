@@ -12,6 +12,11 @@
                 "language": "DE",
                 "text": "Fails zählt die Anzahl der Positionen(positions), die mit einem negativen Gewinnverlust(negative profit loss) geschlossen wurden, im Kontext der parent node (übergeordneten Knotens).",
                 "updated": 1639495235069
+            },
+            {
+                "language": "TR",
+                "text": "Fails, ana düğüm bağlamında negatif kar kaybıyla kapanan pozisyonların sayısını sayar.",
+                "updated": 1654418926391
             }
         ]
     },
@@ -33,6 +38,12 @@
                     "language": "DE",
                     "text": "Die Funktionsweise der fail counts ist analog zur Funktionsweise der hits counts, wobei das Vorzeichen umgekehrt wird. Das heißt, wenn der Gewinnverlust(profit loss) negativ ist, wird er als Fehlschlag (fail) gezählt. Einzelheiten hierzu finden Sie in der Definition von hits.",
                     "updated": 1639495318222
+                },
+                {
+                    "language": "TR",
+                    "text": "Başarısızlık sayımlarının işleyişi isabet sayımlarının işleyişine benzer, ancak işaretler tersine çevrilmiştir. Yani, kar kaybı negatif olduğunda, başarısız olarak sayılır. Ayrıntılar için lütfen isabet tanımına bakın.",
+                    "updated": 1654418933977,
+                    "style": "Note"
                 }
             ]
         },
@@ -55,6 +66,12 @@
                     "language": "DE",
                     "text": "Fails Konfiguration",
                     "updated": 1639495328269
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırma Başarısız",
+                    "updated": 1654418939924,
+                    "style": "Title"
                 }
             ]
         },
@@ -67,6 +84,12 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1638962910143
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1654418945925,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -79,6 +102,12 @@
                     "language": "RU",
                     "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
                     "updated": 1638962918642
+                },
+                {
+                    "language": "TR",
+                    "text": "initialValue düğümün ilk durumunun rastgele bir değere sıfırlanmasını sağlar.",
+                    "updated": 1654418952626,
+                    "style": "List"
                 }
             ]
         }

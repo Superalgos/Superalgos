@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Default Market - это рынок, на который ссылаются узлы Market Data Tasks, Market Trading Tasks, Market Learning Tasks, из которых происходит определенная задача Task. Trading Bot, работающий внутри этой задачи Task, будет считать этот рынок своим рынком по умолчанию.",
                 "updated": 1638282676171
+            },
+            {
+                "language": "TR",
+                "text": "Varsayılan Piyasa, belirli bir Görevin içinden çıktığı Piyasa Veri Görevleri, Piyasa Alım Satım Görevleri, Piyasa Öğrenme Görevleri düğümleri tarafından referans verilen piyasadır. Bu Görevin içinde çalışan Ticaret Botu, bu referans piyasayı Varsayılan Piyasa olarak kabul edecektir.",
+                "updated": 1654390959063
             }
         ]
     },
@@ -20,6 +25,12 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования. Затем вы можете использовать docs.save для сохранения изменений и app.contribute для отправки их в основной репозиторий.",
                     "updated": 1638282694875
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle deyin. Yeni paragraflar yazmak için ENTER tuşuna basın. Düzenleme modundan çıkmak için ESC. Daha sonra değişikliklerinizi kaydetmek için docs.save ve ana depoya göndermek için app.contribute kullanabilirsiniz.",
+                    "updated": 1654390965389,
+                    "style": "Text"
                 }
             ]
         }

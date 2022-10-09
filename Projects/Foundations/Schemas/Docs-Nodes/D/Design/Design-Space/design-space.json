@@ -17,8 +17,8 @@
             },
             {
                 "language": "TR",
-                "text": "Tasarım Alanı, tüm sistem ve kullanıcı tanımlarını barındıran görsel ortamdır. Pratik anlamda, ekranı yatay olarak bölen, alttaki Tasarım Alanı ile üstteki Grafik Alanı'nı ( Chartibng Space ) ayıran kaydırıcının altındaki siyah boşluktur. Bir hiyerarşi olarak, alanın görünümü, hissi ve davranışının belirli yönleri üzerinde kullanıcı kontrolü sağlayan düğümler içerir.",
-                "updated": 1639142615774
+                "text": "Tasarım Alanı, tüm sistem ve kullanıcı tanımlarını barındıran görsel ortamdır. Pratik anlamda, ekranı yatay olarak bölen, alttaki Tasarım Alanı ile üstteki Grafik Alanı'nı ( Charting Space ) ayıran kaydırıcının altındaki siyah boşluktur. Bir hiyerarşi olarak, alanın görünümü, hissi ve davranışının belirli yönleri üzerinde kullanıcı kontrolü sağlayan düğümler içerir.",
+                "updated": 1654762595648
             },
             {
                 "language": "EL",
@@ -55,6 +55,12 @@
                     "language": "DE",
                     "text": "Betrachten Sie den Design Space als Ihren Schreibtisch oder als den Kontrollraum des Systems.",
                     "updated": 1642890522712
+                },
+                {
+                    "language": "TR",
+                    "text": "Tasarım alanını masaüstünüz veya sistemin kontrol odası olarak düşünün.",
+                    "updated": 1654391961318,
+                    "style": "Text"
                 }
             ]
         }

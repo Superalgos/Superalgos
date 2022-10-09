@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Docs Search Engine создает индекс в памяти, который содержит все фразы всех страниц документов, а также имя, тип, конфигурацию и код всех узлов текущей рабочего пространства.",
                 "updated": 1638456981726
+            },
+            {
+                "language": "TR",
+                "text": "Dokümanlar Arama Motoru ( Docs Search Engine ) tüm Dokümanlar Sayfalarının tüm ifadelerini ve geçerli Çalışma Alanının ( Workspace ) tüm düğümlerinin adını, türünü, yapılandırmasını ve kodunu içeren bir bellek içi dizin oluşturur.",
+                "updated": 1652646892310
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "RU",
                     "text": "Этот индекс создается при запуске пользовательского интерфейса и перестраивается, когда пользователь запускает команду docs.reindex или загружает новую рабочее пространство Workspace.",
                     "updated": 1638456966013
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu dizin, kullanıcı arabirimi başlatıldığında oluşturulur ve kullanıcı docs.reindex komutunu çalıştırdığında veya yeni bir Çalışma Alanı ( Workspace ) yüklediğinde yeniden oluşturulur.",
+                    "updated": 1652647023889
                 }
             ]
         }

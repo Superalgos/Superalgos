@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "End Balance - это баланс на дату и время конечного свойства родительского узла или концепции.",
                 "updated": 1638771830708
+            },
+            {
+                "language": "TR",
+                "text": "Bitiş bakiyesi, üst düğümün veya kavramın bitiş özelliğinin tarih saatindeki bakiyesidir.",
+                "updated": 1654392000955
             }
         ]
     },
@@ -23,6 +28,12 @@
                     "language": "RU",
                     "text": "В контексте эпизода это баланс на дату и время окончания эпизода.",
                     "updated": 1638771859326
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir bölüm bağlamında, bölümün sona erdiği tarih saatindeki bakiyedir.",
+                    "updated": 1654392007002,
+                    "style": "Text"
                 }
             ]
         },
@@ -34,6 +45,12 @@
                     "language": "RU",
                     "text": "В контексте позиции это баланс на дату и время закрытия позиции.",
                     "updated": 1638771907029
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir pozisyon bağlamında, pozisyonun kapatıldığı tarih saatindeki bakiyedir.",
+                    "updated": 1654392012750,
+                    "style": "Text"
                 }
             ]
         },
@@ -51,6 +68,12 @@
                     "language": "RU",
                     "text": "Конфигурация End Balance",
                     "updated": 1638771926882
+                },
+                {
+                    "language": "TR",
+                    "text": "Uç Terazi Yapılandırması",
+                    "updated": 1654392018331,
+                    "style": "Title"
                 }
             ]
         },
@@ -63,6 +86,12 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1638771936858
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1654392024182,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -75,6 +104,12 @@
                     "language": "RU",
                     "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
                     "updated": 1638771948123
+                },
+                {
+                    "language": "TR",
+                    "text": "initialValue düğümün ilk durumunun rastgele bir değere sıfırlanmasını sağlar.",
+                    "updated": 1654392030707,
+                    "style": "List"
                 }
             ]
         }

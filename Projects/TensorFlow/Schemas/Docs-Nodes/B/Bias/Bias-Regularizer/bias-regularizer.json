@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Функция регуляризатора, применяемая к вектору смещения.",
                 "updated": 1645195790392
+            },
+            {
+                "language": "TR",
+                "text": "Önyargı vektörüne uygulanan düzenleyici işlev.",
+                "updated": 1654396718920
             }
         ]
     },
@@ -21,6 +26,12 @@
                     "language": "RU",
                     "text": "Возможные значения",
                     "updated": 1645195796375
+                },
+                {
+                    "language": "TR",
+                    "text": "Olası Değerler",
+                    "updated": 1654396724556,
+                    "style": "Text"
                 }
             ]
         },

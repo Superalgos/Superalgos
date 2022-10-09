@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Target Rate (целевая ставка)  - это базовая ставка, которая может влиять на моделирование и которая, в сочетании с размещением управляемых стоп-лоссов и управляемых тейк-профитов, используется для определения того, были ли достигнуты цели.",
                 "updated": 1639822060269
+            },
+            {
+                "language": "TR",
+                "text": "Hedef oranı, simülasyonları etkileyebilecek bir referans orandır ve yönetilen zararı durdur (Stop Loss) ve yönetilen kârı al (Take Profit) hedeflerinin yerleştirilmesiyle birlikte, hedeflere ulaşılıp ulaşılmadığını belirlemek için kullanılır.",
+                "updated": 1654694442916
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "language": "RU",
                     "text": "Внутреннее использование",
                     "updated": 1639819367535
+                },
+                {
+                    "language": "TR",
+                    "text": "Kullanım",
+                    "updated": 1654694311696
                 }
             ]
         },
@@ -40,6 +50,11 @@
                     "language": "RU",
                     "text": "Системе необходимо определить, когда цели управляемого стоп-лосса и управляемого тейк-профита были достигнуты. Для этого система наблюдает за тем, как пользователь размещает цели по отношению к целевой ставке.",
                     "updated": 1639819428111
+                },
+                {
+                    "language": "TR",
+                    "text": "Sistemin, yönetilen zararı durdur (Stop Loss) ve yönetilen kârı al (Take Profit) hedeflerine ne zaman ulaşıldığını belirlemesi gerekir. Bunu yapmak için sistem, kullanıcının hedefleri, hedef orana göre nasıl yerleştirdiğini gözlemler.",
+                    "updated": 1654694420209
                 }
             ]
         },
@@ -52,6 +67,11 @@
                     "language": "RU",
                     "text": "Например",
                     "updated": 1639819439813
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnek",
+                    "updated": 1654694450635
                 }
             ]
         },
@@ -63,6 +83,11 @@
                     "language": "RU",
                     "text": "Если цель управляемого стоп-лосса фазы 1 расположена ниже целевой ставки, а цель управляемого тейк-профита фазы 1 - выше нее, система предполагает, что:",
                     "updated": 1639819464320
+                },
+                {
+                    "language": "TR",
+                    "text": "Eğer 1. aşama yönetilen zararı durdur hedefi, hedef oranın altına ve 1. aşama yönetilen kârı al hedefi de üstüne yerleştirilirse, sistem bunu varsayar:",
+                    "updated": 1654694502900
                 }
             ]
         },
@@ -74,6 +99,11 @@
                     "language": "RU",
                     "text": "цель стоп-лосс достигнута, когда текущая ставка равна или меньше управляемого значения стоп-лосс;",
                     "updated": 1639819506441
+                },
+                {
+                    "language": "TR",
+                    "text": "mevcut oran yönetilen stop loss değerine eşit veya daha küçük olduğunda stop loss hedefine ulaşılır;",
+                    "updated": 1654694539143
                 }
             ]
         },
@@ -85,6 +115,11 @@
                     "language": "RU",
                     "text": "цель стоп-лосс достигается, когда текущая ставка равна или превышает значение управляемого тейк-профита;",
                     "updated": 1639819525790
+                },
+                {
+                    "language": "TR",
+                    "text": "mevcut oran yönetilen kar alma değerine eşit veya daha büyük olduğunda zararı durdur hedefine ulaşılır;",
+                    "updated": 1654694557277
                 }
             ]
         },
@@ -96,6 +131,11 @@
                     "language": "RU",
                     "text": "Так система использует целевую ставку внутри системы.",
                     "updated": 1639819539106
+                },
+                {
+                    "language": "TR",
+                    "text": "Sistem hedef oranı (Target Rate) dahili olarak bu şekilde kullanır.",
+                    "updated": 1654694580924
                 }
             ]
         },
@@ -108,6 +148,11 @@
                     "language": "RU",
                     "text": "Получение значений из формул",
                     "updated": 1639819564896
+                },
+                {
+                    "language": "TR",
+                    "text": "Formüllerden Değer Getirmek",
+                    "updated": 1654694600644
                 }
             ]
         },
@@ -119,6 +164,11 @@
                     "language": "RU",
                     "text": "Кроме того, определение целевой ставки на уровне этапа может быть полезным для того, чтобы вы могли получить значение из формул при установке ставки лимитных ордеров, используя путь соответствующего узла в торговом движке.",
                     "updated": 1639819622326
+                },
+                {
+                    "language": "TR",
+                    "text": "Ek olarak, aşama düzeyinde bir hedef oran tanımlamak, işlem motorundaki ilgili düğümün yolunu kullanarak limit emirlerinin oranını ayarlarken değeri formüllerden alabilmeniz için yararlı olabilir.",
+                    "updated": 1654694640390
                 }
             ]
         },
@@ -130,6 +180,11 @@
                     "language": "RU",
                     "text": "Например, tradingEngine.tradingCurrent.position.entryTargetRate.value или tradingEngine.tradingCurrent.position.exitTargetRate.value.",
                     "updated": 1639819640358
+                },
+                {
+                    "language": "TR",
+                    "text": "Örneğin, tradingEngine.tradingCurrent.position.entryTargetRate.value ya da tradingEngine.tradingCurrent.position.exitTargetRate.value.",
+                    "updated": 1654694654617
                 }
             ]
         },
@@ -142,6 +197,11 @@
                     "language": "RU",
                     "text": "Влияние симуляций на построение графиков",
                     "updated": 1639819708750
+                },
+                {
+                    "language": "TR",
+                    "text": "Simülasyonların Nasıl Gösterileceğini Etkileme",
+                    "updated": 1654694682581
                 }
             ]
         },
@@ -154,6 +214,11 @@
                     "language": "RU",
                     "text": "Целевые ставки, определенные на стадиях открытия и закрытия, влияют на то, как слои Position Base Asset и Position Quoted Asset в менеджере слоев Simulation Objects рисуют треугольник, представляющий развитие сделки.",
                     "updated": 1639820992365
+                },
+                {
+                    "language": "TR",
+                    "text": "Açılış ve kapanış aşamalarında tanımlanan hedef oranlar, Simulation Objects katman yöneticisindeki Pozisyon Temel Varlık (Position Base Asset) ve Pozisyon Koteli Varlık (Position Quoted Asset) katmanlarının ticaretin gelişimini temsil eden üçgeni nasıl çizdiğini etkiler.",
+                    "updated": 1654694754259
                 }
             ]
         },
@@ -174,6 +239,11 @@
                     "language": "RU",
                     "text": "Горизонтальный отрезок отмечает целевую ставку, определенную на стадии открытия. Если вы используете рыночные ордера для открытия позиции, то использование tradingEngine.tradingCurrent.tradingEpisode.candle.close.value может дать хорошее представление о ставке рыночных ордеров. Если вы используете лимитные ордера, то вы можете решить, по какому курсу вы хотите занять позицию, и горизонтальный сегмент треугольника будет соответствовать выбранному курсу.",
                     "updated": 1639821072912
+                },
+                {
+                    "language": "TR",
+                    "text": "Yatay segment, açık aşamada tanımlanan hedef oranı işaretler. Pozisyonu almak için piyasa emirlerini kullanıyorsanız, o zaman tradingEngine.tradingCurrent.tradingEpisode.candle.close.value kullanmak piyasa emirlerinin oranı için iyi bir temsil sunabilir. Limit emirleri kullanıyorsanız, pozisyonu hangi oranda almak istediğinize karar verebilirsiniz. Üçgenin yatay bölümü seçilen oran ile eşleşecektir.",
+                    "updated": 1654694812952
                 }
             ]
         },
@@ -185,6 +255,11 @@
                     "language": "RU",
                     "text": "Третья вершина треугольника указывает на координату [datetime, rate]. Дата задается свечой, на которой закрывается стадия управления, то есть свечой, на которой достигаются цели стоп-лосс или тейк-профит. Часть координаты rate задается целевой ставкой, определенной на стадии закрытия Close Stage.",
                     "updated": 1639821171001
+                },
+                {
+                    "language": "TR",
+                    "text": "Üçgenin üçüncü köşesi bir [datetime, rate] koordinatına işaret eder. Tarih zamanı, yönetme aşamasının kapandığı mum, yani zararı durdur veya kar al hedeflerinin gerçekleştiği mum tarafından verilir. Koordinatın oran kısmı, kapanış aşamasında tanımlanan hedef oran tarafından verilir.",
+                    "updated": 1654694893333
                 }
             ]
         },
@@ -196,6 +271,11 @@
                     "language": "RU",
                     "text": "Вы можете применить аналогичные рассуждения, как и в случае с целевой ставкой открытой стадии для лимитных ордеров, но есть некоторые нюансы, которые необходимо учитывать, если вы используете рыночные ордера.",
                     "updated": 1639821202743
+                },
+                {
+                    "language": "TR",
+                    "text": "Limit emirleri için açık aşama hedef oranına benzer bir mantık uygulamayı seçebilirsiniz, ancak piyasa emirleri kullanıyorsanız dikkate almanız gereken bazı nüanslar vardır.",
+                    "updated": 1654694922556
                 }
             ]
         },
@@ -208,6 +288,11 @@
                     "language": "RU",
                     "text": "Проблема возникает, когда вы запускаете сеанс тестирования на более высоком таймфрейме, чем тот, который вы используете для реальной торговли.",
                     "updated": 1639821267253
+                },
+                {
+                    "language": "TR",
+                    "text": "Sorun, canlı ticaret için kullandığınız zaman çerçevesinden daha yüksek bir zaman diliminde bir test oturumu çalıştırdığınızda ortaya çıkar.",
+                    "updated": 1654694937978
                 }
             ]
         },
@@ -219,6 +304,11 @@
                     "language": "RU",
                     "text": "Почему это проблема?",
                     "updated": 1639821293362
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu neden bir sorun olsun ki?",
+                    "updated": 1654694954979
                 }
             ]
         },
@@ -230,6 +320,11 @@
                     "language": "RU",
                     "text": "Допустим, ваша торговая система принимает решения на основе закрытия 1-часовой свечи. И, допустим, вы используете цели стоп-лосс и тейк-профит. В таких случаях - при реальной торговле - вы, возможно, захотите запустить свою стратегию на 1-минутном таймфрейме, чтобы как можно быстрее обнаружить тейк-профит и стоп-цели и действовать соответствующим образом.",
                     "updated": 1639821324294
+                },
+                {
+                    "language": "TR",
+                    "text": "Diyelim ki ticaret sisteminiz 1 saatlik mumun kapanışına göre kararlar veriyor. Diyelim ki zararı durdur ve kârı al hedeflerini kullanıyorsunuz. Bu gibi durumlarda – canlı alım satım yaparken – kar al ve dur hedeflerinin etiketlenmesini mümkün olan en kısa sürede tespit etmek ve buna göre hareket etmek için stratejinizi 1 dakikalık zaman çerçevesinde çalıştırmak isteyebilirsiniz.",
+                    "updated": 1654694979771
                 }
             ]
         },
@@ -241,6 +336,11 @@
                     "language": "RU",
                     "text": "Однако при бэктестинге гораздо быстрее запускать сессии на 1-часовом временном интервале. Это особенно важно, когда вы хотите протестировать большие временные диапазоны.",
                     "updated": 1639821364316
+                },
+                {
+                    "language": "TR",
+                    "text": "Ancak geriye dönük test yapılırken oturumları 1 saatlik zaman diliminde çalıştırmak çok daha hızlıdır. Bu, özellikle önemli zaman aralıklarını test etmek istediğinizde önemlidir.",
+                    "updated": 1654694997680
                 }
             ]
         },
@@ -252,6 +352,11 @@
                     "language": "RU",
                     "text": "При бэктестировании стратегии на 1-часовом таймфрейме торговый бот оценивает, были ли достигнуты цели стоп-лосс и тейк-профит при закрытии 1-часовой свечи, и может действовать на основании этой оценки только на следующей свече. Это означает, что если вы используете рыночные ордера для выхода из позиции, то рыночный ордер будет размещен (в симуляции!) на свече после достижения одной из целей.",
                     "updated": 1639821408214
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir stratejiyi 1 saatlik zaman diliminde geriye dönük test ederken, ticaret botu, 1 saatlik mumun kapanışında zararı durdurma ve kar alma hedeflerine ulaşılıp ulaşılmadığını değerlendirir ve yalnızca bir sonraki mumdaki değerlendirmeye göre hareket edebilir. Bu, pozisyondan çıkmak için piyasa emirleri kullanıyorsanız, piyasa emrinin (simülasyonda!) hedeflerden biri vurulduktan sonra mum üzerine yerleştirileceği anlamına gelir.",
+                    "updated": 1654695051473
                 }
             ]
         },
@@ -263,6 +368,11 @@
                     "language": "RU",
                     "text": "Разница в курсе между моментом достижения цели и моментом закрытия часовой свечи может быть значительной. В результате, если целевой показатель этапа закрытия определен как tradingEngine.tradingCurrent.tradingEpisode.candle.close.value, результирующая симуляция может показать значительное проскальзывание и расходиться с тем, как выглядела бы сделка при работе на 1-минутном таймфрейме, как при реальной торговле.",
                     "updated": 1639821451109
+                },
+                {
+                    "language": "TR",
+                    "text": "Hedefe ulaşıldığı an ile 1 saatlik mumun kapandığı zaman arasındaki oran farkı önemli olabilir. Sonuç olarak, yakın aşama hedef oranı tradingEngine.tradingCurrent.tradingEpisode.candle.close.value olarak tanımlanmışsa, ortaya çıkan simülasyon önemli bir kayma gösterebilir ve canlı işlem yaparken yaptığınız gibi 1 dakikalık zaman diliminde çalışıyorsa işlemin nasıl görüneceğinden farklı olabilir.",
+                    "updated": 1654695130222
                 }
             ]
         },
@@ -274,6 +384,11 @@
                     "language": "RU",
                     "text": "Чтобы решить эту проблему, вы можете использовать более сложную формулу для целевой ставки на стадии закрытия:",
                     "updated": 1639821505134
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarıdaki sorunu çözmek için, kapanış aşamasında hedef oran için daha ayrıntılı bir formül kullanabilirsiniz:",
+                    "updated": 1654695168502
                 }
             ]
         },
@@ -290,6 +405,11 @@
                     "language": "RU",
                     "text": "Эта формула различает три возможных результата:",
                     "updated": 1639821570588
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu formül üç olası sonuç arasında ayrım yapar:",
+                    "updated": 1654695227279
                 }
             ]
         },
@@ -302,6 +422,11 @@
                     "language": "RU",
                     "text": "Если цель не достигнута, значением целевой ставки является закрытие текущей свечи.",
                     "updated": 1639821590033
+                },
+                {
+                    "language": "TR",
+                    "text": "Herhangi bir hedefe ulaşılmadığında, hedef oranın değeri mevcut mumun kapanışıdır.",
+                    "updated": 1654695247684
                 }
             ]
         },
@@ -313,6 +438,11 @@
                     "language": "RU",
                     "text": "Когда тейк-профит достигнут, значением целевой ставки станет последнее значение тейк-профита.",
                     "updated": 1639821713089
+                },
+                {
+                    "language": "TR",
+                    "text": "Kâr al'a ulaşıldığında, hedef oranın değeri, kâr al'ın son değeridir.",
+                    "updated": 1654695274212
                 }
             ]
         },
@@ -324,6 +454,11 @@
                     "language": "RU",
                     "text": "Когда стоп-лосс достигнут, значением целевой ставки станет последнее значение стоп-лосса.",
                     "updated": 1639821701323
+                },
+                {
+                    "language": "TR",
+                    "text": "Stoploss'a ulaşıldığında, hedef oranın değeri stop loss'un son değeridir.",
+                    "updated": 1654695289678
                 }
             ]
         },
@@ -336,6 +471,11 @@
                     "language": "RU",
                     "text": "Вы можете использовать аналогичную формулу на узле симуляции реального курса смоделированных биржевых событий, связанных с рыночным ордером, который вы используете для выхода из позиции. Такое использование узла симулированного реального курса повлияет на счета, которые ведутся для данного эпизода, и приведет к более реалистичным результатам для вашей сессии бэктестирования.",
                     "updated": 1639821917998
+                },
+                {
+                    "language": "TR",
+                    "text": "Pozisyondan çıkmak için kullandığınız piyasa emriyle ilişkili simüle edilmiş borsa olaylarının simüle edilmiş gerçek oran düğümünde benzer bir formül kullanabilirsiniz. Simüle edilmiş gerçek oran düğümünün bu şekilde kullanılması, bölüm için tutulan hesapları etkileyecek ve geriye dönük test oturumunuz için daha gerçekçi sonuçlarla sonuçlanacaktır.",
+                    "updated": 1654695756628
                 }
             ]
         },
@@ -347,6 +487,11 @@
                     "language": "RU",
                     "text": "Как видите, гибкость - ключевая конструктивная особенность Superalgos.",
                     "updated": 1639822015714
+                },
+                {
+                    "language": "TR",
+                    "text": "Gördüğünüz gibi, esneklik Superalgos'ta önemli bir tasarım özelliğidir.",
+                    "updated": 1654696889431
                 }
             ]
         }

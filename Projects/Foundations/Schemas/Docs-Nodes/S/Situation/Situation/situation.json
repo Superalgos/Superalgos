@@ -43,6 +43,11 @@
                     "language": "DE",
                     "text": "Mit anderen Worten: Sie definieren Situationen, in denen ein bestimmtes Ereignis eintreten soll (d.h.: Auslösung der Strategie, Eröffnen einer Position usw.), und jede Situation wird als eine Reihe von Bedingungen beschrieben, die erfüllt sein müssen, damit das Ereignis ausgelöst wird.",
                     "updated": 1641636085043
+                },
+                {
+                    "language": "TR",
+                    "text": "Başka bir deyişle, belirli bir olayın gerçekleşmesini istediğiniz durumları tanımlarsınız (örneğin: stratejiyi tetiklemek, bir pozisyon almak, vb.) ve her durum, olayın tetiklenmesi için yerine getirilmesi gereken bir dizi koşul olarak tanımlanır.",
+                    "updated": 1653997768781
                 }
             ]
         },
@@ -59,6 +64,11 @@
                     "language": "DE",
                     "text": "Eine Situation wird wahr (true), wenn alle darunter liegenden Bedingungen true sind (logische UND-Verknüpfung).",
                     "updated": 1641636443091
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir durum, altındaki tüm koşullar doğru olduğunda doğrulanır.",
+                    "updated": 1653997824128
                 }
             ]
         },
@@ -75,6 +85,11 @@
                     "language": "DE",
                     "text": "Ein Ereignis kann mit mehr als einer Situation verknüpft sein. In einem solchen Fall wird das Ereignis ausgelöst, wenn eine der Situationen wahr wird. Das heißt, dass Ereignisse unter verschiedenen Umständen ausgelöst werden können, es steht Ihnen also frei, verschiedene Situationen zu definieren, in denen das gleiche Ereignis ausgelöst wird. In einem solchen Fall wird das Ereignis ausgelöst, wenn eine der Situationen als true bewertet wird (logische ODER-Verknüpfung).",
                     "updated": 1641636419007
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir olaya bağlı birden fazla durum olabilir. Böyle bir durumda, durumlardan herhangi biri doğrulandığında, olay tetiklenir. Yani, olaylar farklı koşullarda tetiklenebilir, yani aynı olayın tetikleneceği farklı durumları tanımlamakta özgürsünüz. Böyle bir durumda, durumlardan herhangi biri true (doğru) olarak değerlendirildiğinde, olay tetiklenir.",
+                    "updated": 1653997894237
                 }
             ]
         }

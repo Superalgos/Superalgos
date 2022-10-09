@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Скользящая средняя Халла (HMA), разработанная Аланом Халлом, является чрезвычайно быстрой и плавной скользящей средней. Фактически, HMA почти полностью устраняет запаздывание и одновременно улучшает сглаживание.",
                 "updated": 1645610342462
+            },
+            {
+                "language": "DE",
+                "text": "Der von Alan Hull entwickelte Hull Moving Average (HMA) ist ein extrem schneller und glatter gleitender Durchschnitt. Tatsächlich eliminiert der HMA die Verzögerung fast vollständig und schafft es gleichzeitig, die Glättung zu verbessern.",
+                "updated": 1647854104458
             }
         ]
     },
@@ -34,6 +39,11 @@
                     "language": "RU",
                     "text": "Скользящая средняя Халла (HMA) - это индикатор направленного тренда. Он фиксирует текущее состояние рынка и использует последние ценовые действия для определения бычьих или медвежьих условий относительно исторических данных.",
                     "updated": 1645610386266
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Hull Moving Average (HMA) ist ein direktionaler Trendindikator. Er erfasst den aktuellen Zustand des Marktes und verwendet die jüngsten Kursbewegungen, um festzustellen, ob die Bedingungen im Vergleich zu den historischen Daten nach oben oder unten gerichtet sind.",
+                    "updated": 1647854231233
                 }
             ]
         },
@@ -45,6 +55,11 @@
                     "language": "RU",
                     "text": "Hull отличается от более традиционных трендовых индикаторов, таких как экспоненциальная скользящая средняя (EMA) и простая скользящая средняя (SMA). Он разработан для уменьшения запаздывания, часто связанного с этими индикаторами, путем предоставления более быстрого сигнала на более гладкой визуальной плоскости.",
                     "updated": 1645610404599
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Hull unterscheidet sich von traditionelleren Trendindikatoren wie dem Exponential Moving Average (EMA) und dem Simple Moving Average (SMA). Er wurde entwickelt, um die Verzögerung zu verringern, die oft mit diesen MAs verbunden ist, indem er ein schnelleres Signal auf einer glatteren visuellen Ebene liefert.",
+                    "updated": 1647854236825
                 }
             ]
         },
@@ -65,6 +80,11 @@
                     "language": "RU",
                     "text": "Период расчета индикатора Hull Moving Average можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Initialization в разделе'HMA'Product Definition.",
                     "updated": 1645610858201
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Länge der Berechnung des Hull Moving Average indicator kann geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Initialization unter ’HMA’ Product Definition gesucht und geöffnet wird.",
+                    "updated": 1647854645621
                 }
             ]
         },
@@ -81,6 +101,11 @@
                     "language": "RU",
                     "text": "Продукты и свойства",
                     "updated": 1645610424015
+                },
+                {
+                    "language": "DE",
+                    "text": "Produkte und Eigenschaften",
+                    "updated": 1647854704779
                 }
             ]
         },
@@ -92,13 +117,25 @@
                     "language": "RU",
                     "text": "Доступны следующие свойства:",
                     "updated": 1645610429158
+                },
+                {
+                    "language": "DE",
+                    "text": "Die folgenden Eigenschaften sind für den Zugriff verfügbar:",
+                    "updated": 1647854713634
                 }
             ]
         },
         {
             "style": "Table",
             "text": "| Product Name | Product Variable | Properties |\n| Hull Moving Average | HMA | hma |",
-            "updated": 1636853769
+            "updated": 1636853769,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| Hull Moving Average | HMA | hma |\n",
+                    "updated": 1647854761577
+                }
+            ]
         },
         {
             "style": "Text",
@@ -109,6 +146,11 @@
                     "language": "RU",
                     "text": "Пример:",
                     "updated": 1645610434811
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1647854794218
                 }
             ]
         },
@@ -120,6 +162,11 @@
                     "language": "RU",
                     "text": "Индикатор HMA можно использовать для генерации сигнала на покупку, когда свеча закрывается выше HMA:",
                     "updated": 1645610443987
+                },
+                {
+                    "language": "DE",
+                    "text": "Der HMA-Indikator könnte verwendet werden, um ein Kaufsignal zu generieren, wenn eine Kerze oberhalb des HMA schließt:",
+                    "updated": 1647854804199
                 }
             ]
         },
@@ -131,7 +178,14 @@
         {
             "style": "Title",
             "text": "Maintainer:",
-            "updated": 1622481793076
+            "updated": 1622481793076,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Betreuer:",
+                    "updated": 1647854838972
+                }
+            ]
         },
         {
             "style": "Link",

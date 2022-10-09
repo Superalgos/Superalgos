@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Инициализатор для вектора смещения.",
                 "updated": 1645195743319
+            },
+            {
+                "language": "TR",
+                "text": "Önyargı vektörü için başlatıcı.",
+                "updated": 1654396707948
             }
         ]
     },
@@ -21,6 +26,12 @@
                     "language": "RU",
                     "text": "Возможные значения",
                     "updated": 1645195749343
+                },
+                {
+                    "language": "TR",
+                    "text": "Olası Değerler",
+                    "updated": 1654396713482,
+                    "style": "Subtitle"
                 }
             ]
         },

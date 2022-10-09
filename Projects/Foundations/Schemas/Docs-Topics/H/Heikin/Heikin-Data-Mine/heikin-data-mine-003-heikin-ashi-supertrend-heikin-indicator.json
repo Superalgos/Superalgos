@@ -54,8 +54,8 @@
         },
         {
             "style": "Png",
-            "text": "PNGs/Foundations/Docs/indicators/heikin-supertrend-on-the-chart.png",
-            "updated": 1644726129696
+            "text": "PNGs/Foundations/Docs/indicators/heikin-superTrend-on-the-chart.png",
+            "updated": 1636853769
         },
         {
             "style": "Text",
@@ -161,7 +161,6 @@
         {
             "style": "Table",
             "text": "| Product Name | Product Variable | Properties |\n| Super Trend Heikin | HeikinsuperTrend | trend, uptrend, downtrend, atrNPeriod, trueRange |",
-            "updated": 1636853769,
             "translations": [
                 {
                     "language": "DE",

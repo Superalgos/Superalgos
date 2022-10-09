@@ -142,11 +142,17 @@ There are four steps required to install Superalgos:
 
 4. Install Community Plugins 
 
+5. Update Forked Repositories from The Superalgos Upstream Repositories
+
 Let's get on with it!
 
 ### :one: Fork the Superalgos Repository
 
 Scroll the page to the top. Find and click the **Fork** button to create your fork/copy of this repository. 
+
+> :white_check_mark: **NOTE**: On the page that opens when you click the fork button, Github gives you the option to fork only the master branch by default. You must remove the selection so that you fork all branches instead. Play the following video for clarity.
+
+![fork](https://user-images.githubusercontent.com/83468174/184506791-83a00c44-ddc4-4fa3-9bec-d738532555d7.gif)
 
 To fork Superalgos you need a Github account. If you don't have one, go ahead and create it.
 
@@ -224,6 +230,15 @@ This script is going to fork all Community Plugins repositories into your own Gi
 > :white_check_mark: **NOTE**: If you ever have issues with your Plugins repos, you can delete individual folders inside `Superalgos/Plugins` and run this script to fix the problems for you. Also, if you have any issues with any of your plugin forks at your Github account, you can delete the offending fork and run this script again to fix the problem. 
 
 **Congratulations! Your setup is complete. Now you may finally run the app for the first time. Please, follow the usage instructions below!**
+
+### :five: Update Forked Repositories from The Superalgos Upstream Repositories
+
+Prerequisites:
+"node setup" and "node setupPlugins" commands must be executed beforehand.
+
+```sh
+node updateGithubRepos
+```
 
 # :small_orange_diamond: Usage
 
@@ -304,7 +319,7 @@ We just opened a brand new [Discord server for Support and the Community](https:
 
 We also meet on several Telegram groups, where it all started!
 
-> :warning: **BEWARE OF IMPERSONATORS — SCAMMERS ARE LURKING!** Superalgos Admins, the Core Team, and Community Mods will never contact you directly unless you contact them first. We will never ask you for API keys, coins, or cash. We will never ask you to trust us in any way. Our [Community Safety Policy](https://superalgos.org/community-safety-policy.shtml) explains why. In short, we want to make it clear that if someone contacts you directly claiming to work with or for the project, it is a scam. Please report scammers in the Community group so that they may be banned and to increase awareness of the problem, but also block them and report them to Telegram if the option is available.
+> :warning: **BEWARE OF IMPERSONATORS — SCAMMERS ARE LURKING!** Superalgos Admins, the Founding Team, and Community Mods will never contact you directly unless you contact them first. We will never ask you for API keys, coins, or cash. We will never ask you to trust us in any way. Our [Community Safety Policy](https://superalgos.org/community-safety-policy.shtml) explains why. In short, we want to make it clear that if someone contacts you directly claiming to work with or for the project, it is a scam. Please report scammers in the Community group so that they may be banned and to increase awareness of the problem, but also block them and report them to Telegram if the option is available.
 
 - Via Telegram: online support through our [Superalgos Support Group](https://t.me/superalgossupport).
 
@@ -516,6 +531,8 @@ If you are having difficulty running the node setup command here are a few commo
    - For Linux and Mac Systems make sure to add the sudo command to node setup.  This will look like `sudo node setup`.
 
 3. For Windows it is important that you have C:\Windows\System32 added to your global PATH.  For instructions on how to do this google "add to the path on Windows 10."
+
+4. If you are getting a lot of 'unexpected' errors during node setup, try resetting npm using the command `npm ci` before running `node setup` again.
 
 ## Enabling Desktop Shortcut in Ubuntu
 

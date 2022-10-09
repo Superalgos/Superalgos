@@ -4,17 +4,38 @@
     "type": "TS LF Trading Bot Error - Exchange Id Node Missing",
     "definition": {
         "text": "An Exchange Id node was expected but not found at the node where the error originated.",
-        "updated": 1611942245246
+        "updated": 1611942245246,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Bir değişim kimliği ( Exchange Id ) düğümü bekleniyordu ancak hatanın kaynaklandığı düğümde bulunamadı.",
+                "updated": 1648673194546
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Error",
             "text": "Exchange Id Node Missing",
-            "updated": 1611650307237
+            "updated": 1611650307237,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Değişim kimliği Düğümü Eksik. ( Exchange Id Node Missing )",
+                    "updated": 1648673223015
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Add the missing node and try again."
+            "text": "Add the missing node and try again.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Eksik düğümü ekleyin ve tekrar deneyin.",
+                    "updated": 1648673250257
+                }
+            ]
         }
     ]
 }

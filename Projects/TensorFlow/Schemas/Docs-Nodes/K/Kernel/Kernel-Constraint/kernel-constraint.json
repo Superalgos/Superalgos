@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Ограничение для весов ядра.",
                 "updated": 1645248259630
+            },
+            {
+                "language": "TR",
+                "text": "Çekirdek ağırlıkları için kısıtlama.",
+                "updated": 1654397218766
             }
         ]
     },
@@ -21,6 +26,12 @@
                     "language": "RU",
                     "text": "Возможные значения",
                     "updated": 1645248265141
+                },
+                {
+                    "language": "TR",
+                    "text": "Olası Değerler",
+                    "updated": 1654397226581,
+                    "style": "Subtitle"
                 }
             ]
         },

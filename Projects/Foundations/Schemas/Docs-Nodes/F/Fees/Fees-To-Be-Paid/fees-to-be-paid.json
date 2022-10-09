@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Fees To Be Paid - это сумма комиссий, которые будут уплачены в случае полного исполнения ордера.",
                 "updated": 1638963968599
+            },
+            {
+                "language": "TR",
+                "text": "Ödenecek Ücretler, emrin tamamen karşılanması durumunda ödenecek ücret tutarıdır.",
+                "updated": 1654419073024
             }
         ]
     },
@@ -25,6 +30,12 @@
                     "language": "RU",
                     "text": "Это значение, обрабатываемое в какой-то момент внутренне, но не имеет большого значения для пользователя.",
                     "updated": 1638964171684
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir noktada dahili olarak işlenen, ancak kullanıcı için küçük bir önemi olan bir değerdir.",
+                    "updated": 1654419079706,
+                    "style": "Text"
                 }
             ]
         },
@@ -42,6 +53,12 @@
                     "language": "RU",
                     "text": "Конфигурация Fees To Be Paid",
                     "updated": 1638964187411
+                },
+                {
+                    "language": "TR",
+                    "text": "Ödenecek Ücretler Yapılandırma",
+                    "updated": 1654419086547,
+                    "style": "Title"
                 }
             ]
         },
@@ -54,6 +71,12 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1638964196144
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1654419092907,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -66,6 +89,12 @@
                     "language": "RU",
                     "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
                     "updated": 1638964204731
+                },
+                {
+                    "language": "TR",
+                    "text": "initialValue düğümün ilk durumunun rastgele bir değere sıfırlanmasını sağlar.",
+                    "updated": 1654419098694,
+                    "style": "List"
                 }
             ]
         }

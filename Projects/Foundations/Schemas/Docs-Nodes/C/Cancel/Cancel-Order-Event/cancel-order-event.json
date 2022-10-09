@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Событие Cancel Order Event позволяет отменить лимитные ордера.",
                 "updated": 1639845713831
+            },
+            {
+                "language": "TR",
+                "text": "İptal emri olayı, limit emirlerini iptal etmeyi mümkün kılar.",
+                "updated": 1652797304986
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Событие отмены ордера определяет рыночные ситуации, в которых лимитный ордер должен быть отменен. Когда событие запускается, ордер закрывается, даже если он мог быть частично исполнен. В таком случае заполненный размер остается неизменным, и все счета рассчитываются соответственно с частичным заполнением.",
                     "updated": 1638646134499
+                },
+                {
+                    "language": "TR",
+                    "text": "İptal emri olayı, bir limit emrinin iptal edileceği piyasa durumlarını tanımlar. Etkinlik tetiklendiğinde, sipariş kısmen doldurulmuş olsa bile sipariş kapatılır. Böyle bir durumda, doldurulan boyut olduğu gibi kalır ve tüm hesaplar kısmi dolum ile buna göre hesaplanır.",
+                    "updated": 1652797320244
                 }
             ]
         }

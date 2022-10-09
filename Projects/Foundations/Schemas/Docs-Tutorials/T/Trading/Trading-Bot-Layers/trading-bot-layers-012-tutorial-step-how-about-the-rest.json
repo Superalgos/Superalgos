@@ -1,13 +1,13 @@
 {
     "tutorial": "Trading Bot Layers",
-    "pageNumber": 12,
+    "pageNumber": "12",
     "type": "Tutorial Step - How About the Rest?",
     "definition": {
+        "text": "Now, why don't the nodes further to the left show their values too? Say, Exit Type, Status, End Rate, Begin Rate, and so on?",
         "icon": {
             "name": "Trading/trading-episode",
             "project": "Foundations"
         },
-        "text": "Now, why don't the nodes further to the left show their values too? Say, Exit Type, Status, End Rate, Begin Rate, and so on?",
         "translations": [
             {
                 "language": "DE",
@@ -42,6 +42,12 @@
                     "language": "RU",
                     "text": "Давайте поменяем это!",
                     "updated": 1640546203339
+                },
+                {
+                    "language": "TR",
+                    "text": "Bunu değiştirelim!",
+                    "updated": 1654394201684,
+                    "style": "Text"
                 }
             ]
         },

@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Используйте блочные абзацы для определения блоков содержимого с любым количеством абзацев. Блок начинается с абзаца, которому присвоен стиль Docs Block Style, и заканчивается последним абзацем перед следующим абзацем со стилем Docs Block Style или местом окончания страницы.",
                 "updated": 1647784906947
+            },
+            {
+                "language": "TR",
+                "text": "İstediğiniz sayıda paragraf içeren içerik bloklarını tanımlamak için paragrafları engelle'yi kullanın. Blok, Dokümanlar Blok Stiline atanan paragrafla başlar ve Dokümanlar Blok Stiliyle sonraki paragraftan önceki son paragrafta veya sayfanın bittiği yerde sona erer.",
+                "updated": 1652387163248
             }
         ]
     },
@@ -44,6 +49,11 @@
                     "language": "RU",
                     "text": "Чтобы начать новый блок, напишите название блока в новом абзаце и примените стиль Docs Block Style.",
                     "updated": 1647784924749
+                },
+                {
+                    "language": "TR",
+                    "text": "Yeni bir blok başlatmak için bloğun adını yeni bir paragrafa yazın ve Dokümanlar Blok Stilini uygulayın.",
+                    "updated": 1652389069687
                 }
             ]
         },
@@ -56,6 +66,11 @@
                     "language": "RU",
                     "text": "После применения стиля Docs Block Style абзац, кажется, исчезает. Однако это не так. Происходит следующее: абзацу присваивается стиль CSS, который делает невидимым написанное вами название и отображает слабый треугольник, направленный вниз, который подсвечивается при наведении курсора мыши. Треугольник теперь обозначает начало блока.",
                     "updated": 1647784946524
+                },
+                {
+                    "language": "TR",
+                    "text": "Dokümanlar Blok Stilini uyguladıktan sonra paragraf kayboluyor gibi görünüyor. Ama değil. Olan şey, paragrafa yazdığınız adı görünmez kılan bir CSS stili atanması ve fare imlecinin üzerine getirildiğinde vurgulanan aşağı doğru işaret eden soluk bir üçgen göstermesidir. Üçgen şimdi bloğun başlangıcını işaret ediyor.",
+                    "updated": 1652389111306
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "RU",
                     "text": "Чтобы завершить блок, создайте после него новый блок. Если этого не сделать, то блок закончится там, где закончится страница.",
                     "updated": 1647784957835
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir bloğu sonlandırmak için, ondan sonra yeni bir blok oluşturun. Bunu yapmazsanız, blok sayfanın bittiği yerde sona erer.",
+                    "updated": 1652387192681
                 }
             ]
         },
@@ -83,6 +103,11 @@
                     "language": "RU",
                     "text": "Пример",
                     "updated": 1647784964354
+                },
+                {
+                    "language": "TR",
+                    "text": "Misal",
+                    "updated": 1652387205996
                 }
             ]
         },
@@ -95,6 +120,11 @@
                     "language": "RU",
                     "text": "Этот пример настроен как блок. Обратите внимание на тусклый треугольник в правой части страницы прямо над заголовком \"Пример\". Дважды щелкните слева от треугольника, чтобы выделить скрытый текст. Так вы найдете название блока.",
                     "updated": 1647785034196
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu örnek, bir blok olarak ayarlanır. Sayfanın sağ tarafındaki Örnek başlığın hemen üstündeki loş üçgene dikkat edin. Gizli metni seçmek için üçgenin soluna çift tıklayın. Bloğun adını bu şekilde buluyorsunuz.",
+                    "updated": 1652387261478
                 }
             ]
         },
@@ -117,6 +147,11 @@
                     "language": "RU",
                     "text": "Name: Это относится к любому имени, которое вы хотели бы дать вновь созданному блоку. Имя должно быть уникальным на странице.",
                     "updated": 1638544436027
+                },
+                {
+                    "language": "TR",
+                    "text": "Block Name: Bu, yeni oluşturulan bloğa vermek istediğiniz herhangi bir adı ifade eder. Ad, sayfa içinde benzersiz olmalıdır.",
+                    "updated": 1652387303762
                 }
             ]
         }

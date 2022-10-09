@@ -3,7 +3,8 @@
     let thisObject = {
         initialize: initialize,
         finalize: finalize,
-        run: run
+        run: run,
+        newEventsServerClient: newEventsServerClient
     }
 
     /*

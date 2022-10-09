@@ -74,6 +74,7 @@ exports.newPlatformApp = function newPlatformApp() {
             /* Network Interfaces */
             let WEB_SOCKETS_INTERFACE = require('./Client/webSocketsInterface.js')
             let HTTP_INTERFACE = require('./Client/httpInterface.js')
+            let DASHBOARDS_WEB_SOCKET_INTERFACE = require('./Client/dashboardsInterface.js')
             /*
             Setting up servers running inside this Client.
             */
@@ -111,9 +112,9 @@ exports.newPlatformApp = function newPlatformApp() {
             PL.servers.EVENT_SERVER.run()
             console.log('Events Server ............................................... Started')
 
-            TASK_MANAGER_SERVER = TASK_MANAGER_SERVER.newTaskManagerServer()
-            TASK_MANAGER_SERVER.initialize()
-            TASK_MANAGER_SERVER.run()
+            PL.servers.TASK_MANAGER_SERVER = TASK_MANAGER_SERVER.newTaskManagerServer()
+            PL.servers.TASK_MANAGER_SERVER.initialize()
+            PL.servers.TASK_MANAGER_SERVER.run()
             console.log('Task Manager Server ......................................... Started')
 
             PL.servers.CCXT_SERVER = CCXT_SERVER.newCCXTServer()
@@ -146,7 +147,15 @@ exports.newPlatformApp = function newPlatformApp() {
             HTTP_INTERFACE = HTTP_INTERFACE.newHttpInterface()
             HTTP_INTERFACE.initialize(initialWorkspace)
             console.log('Http Interface .............................................. Listening at port ' + global.env.PLATFORM_HTTP_INTERFACE_PORT)
+
+            DASHBOARDS_WEB_SOCKET_INTERFACE = DASHBOARDS_WEB_SOCKET_INTERFACE.newDashboardsInterface()
+            DASHBOARDS_WEB_SOCKET_INTERFACE.initialize()
+            DASHBOARDS_WEB_SOCKET_INTERFACE.run()
+            console.log('Dashboard App Interface ..................................... Initializing on port ' + global.env.DASHBOARDS_WEB_SOCKETS_INTERFACE_PORT)
+
             console.log('Initial Workspace............................................ ' + initialWorkspace.project + ' ' + initialWorkspace.name)
+
+
 
             console.log('')
             console.log("You are running Superalgos Platform " + SA.version)

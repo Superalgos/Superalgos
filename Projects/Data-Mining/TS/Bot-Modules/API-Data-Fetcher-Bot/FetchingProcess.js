@@ -1485,11 +1485,6 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                             
                                     }
                                     
-                                        // First we get the next timestamp in the array and verify it.
-                                        let length = timestampArray.length - 1
-                                        let lastTimestamp = timestampArray[length]
-
-
                                         /*
                                         Note: Possible optimation is to not read daily file but to simply append to it. 
                                         Currently loads last file date, loads current file and then looks through timestamps to determine 

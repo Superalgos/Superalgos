@@ -40,8 +40,8 @@
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Все ссылки, происходящие из одного и того же Record Definition, должны относиться к полям API Data Field, находящимся в одной конечной точке API Endpoint.",
-                    "updated": 1638630640726
+                    "text": "Все ссылки, исходящие из одного и того же Record Definition, должны относиться к API Data Fields, живущим в одной и той же конечной точке API.",
+                    "updated": 1661275289820
                 },
                 {
                     "language": "TR",

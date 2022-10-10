@@ -77,8 +77,8 @@
         },
         {
             "style": "Callout",
-            "text": "From these projects they have to choose one",
-            "updated": 1638115759331,
+            "text": "Existing projects listed on the table below, for your convenience.",
+            "updated": 1661450740479,
             "translations": [
                 {
                     "language": "RU",
@@ -298,8 +298,8 @@
         },
         {
             "style": "Json",
-            "text": "docs.add Tutorial to Superalgos: How to Build Indicatiors->Intro->1",
-            "updated": 1614076317413
+            "text": "docs.add Tutorial to Superalgos: How to Build Indicators->Intro->1",
+            "updated": 1663909404098
         },
         {
             "style": "Json",

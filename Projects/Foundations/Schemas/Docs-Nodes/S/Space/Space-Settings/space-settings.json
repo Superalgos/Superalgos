@@ -203,6 +203,16 @@
             ]
         },
         {
+            "style": "List",
+            "text": "fps is the frames per second. Value defaults to 23. To slow down the frame rate raise the number, to speed it up lower the number. ",
+            "updated": 1664719902742
+        },
+        {
+            "style": "Warning",
+            "text": "The fps value is evaluated in real time and must never equal null or 0. If it does the UI will crash and a page refresh will be required.",
+            "updated": 1664719978737
+        },
+        {
             "style": "Subtitle",
             "text": "Shortcut Properties",
             "translations": [

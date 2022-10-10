@@ -37,7 +37,8 @@
                 socket.on('message', onMenssage)
 
                 function onMenssage(message) {
-
+                    // Here is where all messages will be received through the websocket
+       
                     try {
                         if (global.env.DEMO_MODE === true) {
                             /*

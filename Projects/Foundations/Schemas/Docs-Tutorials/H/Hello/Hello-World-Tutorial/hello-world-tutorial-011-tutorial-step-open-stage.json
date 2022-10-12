@@ -3,7 +3,7 @@
     "pageNumber": 11,
     "type": "Tutorial Step - Open Stage",
     "definition": {
-        "text": "The Open Stage is where bot take position!",
+        "text": "The Open Stage is where the bot takes position!",
         "icon": {
             "name": "open-stage",
             "project": "Foundations"

@@ -36,8 +36,8 @@
         },
         {
             "style": "Text",
-            "text": "The project is deploying versions of the token on each of the major blockchains to gain exposure to different communities and ecosystems. At some point, you will be able to chose on what chain to get your rewards.",
-            "updated": 1660584675817,
+            "text": "The project is deploying versions of the token on each of the major blockchains to gain exposure to different communities and ecosystems. Currently, the token is available on BNB Smart Chain (BSC) and Ethereum (ETH). At some point, you will be able to chose on what chain to get your rewards.",
+            "updated": 1664309478481,
             "translations": [
                 {
                     "language": "RU",
@@ -108,7 +108,7 @@
         },
         {
             "style": "List",
-            "text": "Binance Smart Chain (BSC) version: 500,000,000",
+            "text": "BNB Smart Chain (BSC) version: 500,000,000",
             "translations": [
                 {
                     "language": "TR",
@@ -116,7 +116,7 @@
                     "updated": 1642711686936
                 }
             ],
-            "updated": 1660584714957
+            "updated": 1664309488511
         },
         {
             "style": "List",
@@ -129,6 +129,14 @@
                     "updated": 1642711670828
                 }
             ]
+        },
+        {
+            "style": "List",
+            "text": "Ethereum (ETH) version: 250,000,000"
+        },
+        {
+            "style": "List",
+            "text": "ETH Contract Address: 0xc17272c3e15074c55b810bceba02ba0c4481cd79"
         },
         {
             "style": "Title",
@@ -175,6 +183,10 @@
                     "updated": 1642711843176
                 }
             ]
+        },
+        {
+            "style": "List",
+            "text": "ETH Treasury Account: 0xa54c30122d477589311ee28b85c0e8dc8f12680a"
         },
         {
             "style": "Success",

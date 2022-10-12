@@ -397,16 +397,13 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
             //RL      
             } else if (testResult["0"] != undefined) {
                 testCase.predictions = testResult["2"].current_action
-                testCase.ratio = {
-                    train: testResult["0"].meanNetWorthAtEnd / testResult["0"].NetWorthAtBegin,
-                    test: testResult["1"].meanNetWorthAtEnd / testResult["1"].NetWorthAtBegin,
-                    validate: testResult["2"].meanNetWorthAtEnd / testResult["2"].NetWorthAtBegin
-                }
-                testCase.std = {
-                    train: testResult["0"].stdNetWorthAtEnd ,
-                    test: testResult["1"].stdNetWorthAtEnd ,
-                    validate: testResult["2"].stdNetWorthAtEnd 
-                }
+                testCase.ratio_train = testResult["0"].meanNetWorthAtEnd / testResult["0"].NetWorthAtBegin
+                testCase.ratio_test = testResult["1"].meanNetWorthAtEnd / testResult["1"].NetWorthAtBegin
+                testCase.ratio_validate = testResult["2"].meanNetWorthAtEnd / testResult["2"].NetWorthAtBegin
+                
+                testCase.std_train = testResult["0"].stdNetWorthAtEnd
+                testCase.std_test = testResult["1"].stdNetWorthAtEnd
+                testCase.std_validate = testResult["2"].stdNetWorthAtEnd
             }
 
             let logQueue = []

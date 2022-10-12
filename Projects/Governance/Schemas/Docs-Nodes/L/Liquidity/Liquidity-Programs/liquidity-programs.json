@@ -36,13 +36,13 @@
         },
         {
             "style": "Text",
-            "text": "The Community currently rewards these liquidity pools on Binance Smart Chain (BSC):",
-            "updated": 1644170940175,
+            "text": "The Community currently rewards these liquidity pools on BNB Smart Chain (BSC):",
+            "updated": 1664309599264,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Die Community belohnt derzeit folgende Liquidity Pools auf der Binance Smart Chain (BSC):",
-                    "updated": 1644742331561
+                    "text": "Die Community belohnt derzeit folgende Liquidity Pools auf der BNB Smart Chain (BSC): ",
+                    "updated": 1664309655284
                 },
                 {
                     "language": "RU",
@@ -128,13 +128,13 @@
         },
         {
             "style": "Success",
-            "text": "If the Superalgos Token is not automatically found at the exchange of your choice, you can add it by using its token address: 0xfb981ed9a92377ca4d75d924b9ca06df163924fd",
-            "updated": 1644164392909,
+            "text": "If the Superalgos Token is not automatically found at the exchange of your choice, you can add it by using its token addresses: 0xfb981ed9a92377ca4d75d924b9ca06df163924fd (BSC) or 0xc17272c3e15074c55b810bceba02ba0c4481cd79 (ETH)",
+            "updated": 1664113978301,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Wenn das Superalgos Token auf der gewählten Börse nicht automatisch gefunden wird, kann es über seine Token-Adresse hinzugefügt werden: 0xfb981ed9a92377ca4d75d924b9ca06df163924fd",
-                    "updated": 1644742513688
+                    "text": "Wenn das Superalgos Token auf der gewählten Börse nicht automatisch gefunden wird, kann es über seine Token-Adresse hinzugefügt werden: 0xfb981ed9a92377ca4d75d924b9ca06df163924fd (BSC) oder 0xc17272c3e15074c55b810bceba02ba0c4481cd79 (ETH).",
+                    "updated": 1664114950793
                 },
                 {
                     "language": "RU",

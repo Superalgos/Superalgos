@@ -61,6 +61,8 @@ exports.newSocialBotsBotModulesAnnouncements = function (processIndex) {
                         announcement.config.onInterval
                     )
                     intervalRunning = true
+                    onEnter = false
+                    onExit = false
                 }
             }
             if (announcement.config.onEnter !== undefined) {

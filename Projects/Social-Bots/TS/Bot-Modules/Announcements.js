@@ -44,7 +44,7 @@ exports.newSocialBotsBotModulesAnnouncements = function (processIndex) {
             let announcement = node.announcements[i]
             let canAnnounce = true
 
-            // Check configuration to see if Announcement should be run at Enter or Exit of Node
+            // Check configuration to see if Announcement should be run at Enter, Exit of Node, or Interval
             // set defaults, protect against empty configurations or missing values
             let onEnter = true
             let onExit = false

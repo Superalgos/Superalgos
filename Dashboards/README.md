@@ -200,23 +200,50 @@ const routes = [
 ]
 ```
 
-Finally at the top add an import statment to finish declaring your en
-Steps needed
-Add in index
-Add vue component
+Once you have completed these steps you have offically added your first dashboard! Open up the Dashboards app and see the fruit of your labor.  
 
-Overview of processing data in dashboard
-How to set listener
+**Note**: The current version of the Dashboards App is equipped with hot module reloading thanks to the webpack-dev-server used to host the UI. This means that as you change code within your dashboard and hit save, it will automatically be updated in any open dashboards window.
 
-How to Add a New Component
-Steps needed
+## Overview of Processing Data in Dashboard
+
+How data is delivered to a Dashboard
+How to grab a data key from main data object
+How to set listener in vue component 
+
+## How to Add a New UI Component
+
+Where to define component
+Links to vue sfc basics 
 How to import it in a dashboard
-Mention hot reloading
 
-List of Current Components and Usage
-Drawer
-Tabs
-Expandable Tree
+## Current Components and Usage
+
+<details>
+  <summary><h3>Drawer</h3></summary>
+    
+**Description**: Drawer Menu.
+how to use drawer
+notes on needed devleopment 
+
+</details>
+
+<details>
+  <summary><h3>Tabs</h3></summary>
+    
+**Description**: Tab Buttons.
+how to use tabs
+notes on needed development
+
+</details>
+
+<details>
+  <summary><h3>Expandable Tree</h3></summary>
+    
+**Description**: Recursive Tree Data Visualization.
+How to use expandable tree
+
+</details>
+
 
 # Roadmap to Alpha 2
 The push for alpha 2 will be making data available to the Dashboards app. This work will primarily take place within the Platform app’s Dashboards client. Filtering and managing reported data will come in subsequent versions. What follows is a board roadmap toward the Alpha 2 version:

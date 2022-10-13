@@ -98,7 +98,109 @@ The Alpha 1 version possesses a very rudimentary Platform app client. This secti
 
 # Frontend Overview
 
-How to Add a New Dashboard
+## How to Add a New Dashboard
+At this point in development, adding a new dashboard requires some techincal coding. The evetual goal is to offer a low to no code meathod for building new dashboards. What follows are the current needed steps to add a new dashboard:
+
+1. **Create a New Vue Component**
+
+The first step to adding a new dashboard is to create a vue component that will contain all the logic for your new dashboard. To do this open `Superalgos\Dashboards\UI\vueComponentsSource\views\`.  You will see all the current dashboard components within this folder. Make a new file within this folder that looks like this: 
+```sh
+MyNewDashboardView.vue
+```
+
+2. **Copy Basic Dashboard Template**
+
+Next copy this basic template into your new vue component. This code will serve as the blank canvas for your new dashboard!
+```js
+<template>
+  <div class="dashboard-window">
+    <img class="image" :src="dashboardIcon">
+    <h2><strong>This is my new Dashboard!</strong></h2>
+    <br/>
+    <span>The purpose of this app is to help make visualizing and accessing data from Superalgos a breeze.</span>
+  </div>
+</template>
+
+<script>
+  import dashboardIcon from "../assets/dashboard.png"
+  export default {
+    // Receive incoming data from parent app 
+    props: ["incomingData"],
+    components: {
+    },
+    data () {
+      return {
+        dataKey: '',
+        dataObject: [],
+        dashboardIcon: dashboardIcon,
+      }
+    },
+    computed: {
+    },
+    methods: {
+    },  
+  };
+</script>
+
+<style scoped>
+  .dashboard-window {
+    font-size: bold;
+  }
+  
+  .image {
+    margin-top: 10px;
+    height: 100px;
+  }
+</style>
+
+```
+
+3. **Add New Dashboard to Index**
+
+The final step is to add your new dashboard to the index.  Open the index file found at `Superalgos\Dashboards\UI\vueComponentsSource\router\index.js`. First add an import statment to pull your new dashboard into the index file like this"
+```js
+import MyNewDashboardView from '../views/MyNewDashboardView.vue'
+```
+
+Next you will see an array that looks like this:
+```js
+const routes = [
+  {
+    path: '/',
+    name: 'Home',
+    component: HomeView
+  },
+  {
+    path: '/Developers',
+    name: 'Developers',
+    component: DevelopersView
+  }
+  
+]
+```
+
+Add an new object to this array that declares your new dashboard like this:
+```js
+const routes = [
+  {
+    path: '/',
+    name: 'Home',
+    component: HomeView
+  },
+  {
+    path: '/Developers',
+    name: 'Developers',
+    component: DevelopersView
+  },
+    {
+    path: '/myNewDashboard',
+    name: 'myNewDashboard',
+    component: MyNewDashboardView
+  }
+]
+```
+
+Finally at the top add an import statment to finish declaring your en
 Steps needed
 Add in index
 Add vue component

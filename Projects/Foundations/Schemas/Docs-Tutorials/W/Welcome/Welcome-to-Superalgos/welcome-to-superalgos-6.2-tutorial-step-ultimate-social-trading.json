@@ -121,8 +121,8 @@
         },
         {
             "style": "Success",
-            "text": "After the beta phase, you will need to hold a certain balance of Superalgos SA Tokens to access this premium community service.",
-            "updated": 1660151898954,
+            "text": "The first few signals are live now! You will need to hold a certain balance of Superalgos SA Tokens to access this premium community service.",
+            "updated": 1665735018236,
             "translations": [
                 {
                     "language": "DE",
@@ -135,6 +135,11 @@
                     "updated": 1662035393211
                 }
             ]
+        },
+        {
+            "style": "Link",
+            "text": "Learn how to follow signals with Superalgos!->medium.com/superalgos/the-power-of-free-and-open-source-decentralized-social-trading-d67cb1aab1b",
+            "updated": 1665735471005
         }
     ]
 }

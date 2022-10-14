@@ -261,8 +261,11 @@ export default {
     
 **Description**: Drawer Menu.
 </br>
-how to use drawer
-notes on needed devleopment 
+```js
+<Drawer class="drawer-theme" :direction="'right'" :exist="true" ref="RightDrawer">Settings Coming Soon!</Drawer>
+```
+
+**Note: code style still needs refactored to match the rest of the code base
 
 </details>
 

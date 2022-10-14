@@ -206,22 +206,61 @@ Once you have completed these steps you have offically added your first dashboar
 
 ## Overview of Processing Data in Dashboard
 
-How data is delivered to a Dashboard
-How to grab a data key from main data object
-How to set listener in vue component 
+In order to work, every dashboard needs to receive a prop object called `incomingData`. This object is provided by the Dashboards app by default and can be access within the scripts tag of the dashboard using `this.incomingData`. This object will hold key value pairs of all the data being sent to the Dashboards App. This makes it possible to display any combination of data on the same dashboard. The keys for each data object are generated using the origin name and data set name provided by the incoming websocket message. Using the example websocket message found above, with an origin name of `Platform` and a data set name of `Globals` the data object will be sent to the UI with the key `Platform-Globals`.
+
+To access a given type of data, you can use the computed property option of the dashboard's script to write a function that pulls out the data needed using the data key. This can look somthing like the following function:
+```js
+        computed: {
+            getGlobals () {
+                this.globalsObj = []
+                // If we find the right key, proceed to call for expected data objects
+                if (this.dataKey in this.incomingData) {
+                // Grab data Objects from the array assocated with the data Key
+                // For example: Plaform-Globals key holds an array of globals objects
+                    for(let dataObject of this.incomingData[this.dataKey]) {
+                        this.globalsObj.push(dataObject)
+                    }
+                }
+                // Return all received data objects
+                return this.globalsObj
+            },
+        }
+``` 
+
+This function can then be fed to children components of the dashboard to display the data pulled out by key. This can look like:
+```js
+<div v-for="(objs) in getGlobals">{{objs}}</div>
+```
 
 ## How to Add a New UI Component
 
-Where to define component
-Links to vue sfc basics 
-How to import it in a dashboard
+New components can be added within the `Superalgos\Dashboards\UI\vueComponentsSource\components` folder. This is where building blocks for dashboards will live as the library of components grows. To start a new component simply create a new vue file named after your new component. For example: `myNewComponent.vue`.
+
+You can then learn the basics of building Single File Components using online tutorials or [this offical documentation](https://vuejs.org/guide/scaling-up/sfc.html). The beauty of single file components is that you can then create your new piece of UI that will be totally standalone able to be added into any number of dashboards!
 
 ## Current Components and Usage
+
+All components need to be imported into their parent dashboard in order to be used. This is achieved through two steps.
+1. The first is to import the component's file like this: 
+```js
+import ExpandableTree from "../components/expandableTree.vue"
+```
+
+2. Add the component to the dashboards components list like this:
+```js
+export default {
+        props: ["incomingData"],
+        components: { Tabs, ExpandableTree },
+        ...
+```
+
+### Current Component Library
 
 <details>
   <summary><h3>Drawer</h3></summary>
     
 **Description**: Drawer Menu.
+</br>
 how to use drawer
 notes on needed devleopment 
 
@@ -231,8 +270,30 @@ notes on needed devleopment
   <summary><h3>Tabs</h3></summary>
     
 **Description**: Tab Buttons.
-how to use tabs
-notes on needed development
+</br>
+Tab buttons allow the use of tabs within a dashboard to offer different views in the same dashboard.
+In order to use first add within the data option a tabList array like this:
+```js
+data() {
+            return {
+                tabList: ["Globals", "Raw Data"],
+            ...
+```
+
+Then add the tabs component within the dashboards template like this:
+```js
+<Tabs :tabList="tabList">
+        <template v-slot:tabPanel-1>   
+            <!-- Content that goes in tab 1 goes here -->
+        </template>
+        <template v-slot:tabPanel-2>
+            <!-- Content that goes in tab 2 goes here -->
+        </template>
+    </Tabs>
+```
+
+
+**Note**: The current tabs component accepts an variant property to shift between horizontal and vertical tabs but this has not been fully implemented.
 
 </details>
 
@@ -240,7 +301,11 @@ notes on needed development
   <summary><h3>Expandable Tree</h3></summary>
     
 **Description**: Recursive Tree Data Visualization.
-How to use expandable tree
+</br>
+```js
+<ExpandableTree v-for="(value, name) in objs" :value="value" :name="name" :key="name" :depth="0"></ExpandableTree>
+```
+The expandable tree is a recurive component that will add copies of itself until all data provided to it is displayed. As such it expects an object that can be iterated over using v-for to provide a name/key and value pair. These will then be fed down the chain and iterated over until all the object or array's properties have been displayed. The depth property sets the amount of starting indentation the first layer of expandable tree components will start at (each subsequent layer is intended from the previous). 
 
 </details>
 

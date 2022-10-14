@@ -1,0 +1,66 @@
+{
+    "topic": "Volume Tools Data Mine",
+    "pageNumber": "9",
+    "type": "Faith Index",
+    "definition": {
+        "text": "This indicator compares the buying volume vs the selling volume to show what the prevailing trend is.",
+        "updated": 1664151323129
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Faith Index on the Charts",
+            "updated": 1664151288027
+        },
+        {
+            "style": "Text",
+            "text": "In addition to the degree of faith in the market, a \"hull moving average agreement\" is calculated and displayed as the backgroud colour. This provides futher confluence to the trend direction."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/volume-faith.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| FaithIndex | faith | value, hullAg |"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters for the indicator's calculations can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"Faith Index\" Procedure Loop."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/volume-faith-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator can be used as a confirmation to a primary indicator. An example of a confirmation could be when the faith index value is positive:",
+            "updated": 1664151102972
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at30min.faith.value > 0",
+            "updated": 1664151114525
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

@@ -52,7 +52,18 @@ function newRateScale() {
     let limitingContainer
     let rateCalculationsContainer
 
+    // We declare and define out configStyle so it can be used in multiple locations here.
     let configStyle
+    let chartingSpaceNode = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Charting Space')
+        if (chartingSpaceNode !== undefined) {
+            if (chartingSpaceNode.spaceStyle !== undefined) {
+                configStyle = JSON.parse(chartingSpaceNode.spaceStyle.config)
+            } else {
+                configStyle = undefined
+            }
+        } else {
+            configStyle = undefined
+        }
 
     mouseWhenDragStarted = {
         position: {
@@ -544,8 +555,20 @@ function newRateScale() {
             let fitPoint2 = thisObject.fitFunction(ratePoint2)
 
             if (fitPoint1.y === ratePoint1.y && fitPoint2.y === ratePoint2.y) {
-                UI.projects.foundations.utilities.drawPrint.drawLabel(labels[1], 1 / 2, 0, 0, 0, FONT_SIZE, thisObject.container, UI_COLOR.GREY, undefined, ratePoint1.y)
-                UI.projects.foundations.utilities.drawPrint.drawLabel(labels[2], 1 / 2, 0, decimalsDisplace, -5, 9, thisObject.container, UI_COLOR.GREY, undefined, ratePoint1.y)
+                // This controls the color of the rate scale numbers on the right side of the charts.
+                if (configStyle === undefined || configStyle.rateScaleLabelColor === undefined) {
+                    UI.projects.foundations.utilities.drawPrint.drawLabel(labels[1], 1 / 2, 0, 0, 0, FONT_SIZE, thisObject.container, UI_COLOR.GREY, undefined, ratePoint1.y)
+                } else{
+                    let thisColor = eval(configStyle.rateScaleLabelColor)
+                    UI.projects.foundations.utilities.drawPrint.drawLabel(labels[1], 1 / 2, 0, 0, 0, FONT_SIZE, thisObject.container, thisColor, undefined, ratePoint1.y)
+                }
+                // This controls the color of what comes after the decimal place in the rate scale numbers on the right side of the chart.
+                if (configStyle === undefined || configStyle.rateScaleLabelDecimalColor === undefined) {
+                    UI.projects.foundations.utilities.drawPrint.drawLabel(labels[2], 1 / 2, 0, decimalsDisplace, -5, 9, thisObject.container, UI_COLOR.GREY, undefined, ratePoint1.y)
+                } else{
+                    let thisColor = eval(configStyle.rateScaleLabelDecimalColor)
+                    UI.projects.foundations.utilities.drawPrint.drawLabel(labels[2], 1 / 2, 0, decimalsDisplace, -5, 9, thisObject.container, thisColor, undefined, ratePoint1.y)
+                }
             }
         }
     }
@@ -558,16 +581,6 @@ function newRateScale() {
         let icon1 = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.payload.parentNode.project, thisObject.payload.node.payload.parentNode.type)
         let icon2 = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.payload.node.type)
 
-        // This controls the color of the value/ rate scale panel on the right in the charts.
-        let chartingSpaceNode = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Charting Space')
-        if (chartingSpaceNode !== undefined) {
-            if (chartingSpaceNode.spaceStyle !== undefined) {
-                configStyle = JSON.parse(chartingSpaceNode.spaceStyle.config)
-            }
-        } else {
-            configStyle = undefined
-        }
-
         if (configStyle === undefined || configStyle.rateScalePanelColor === undefined) {
             let backgroundColor = UI_COLOR.BLACK
             let labels = scaleLabels(thisObject.rate, true)
@@ -575,7 +588,13 @@ function newRateScale() {
         } else{
             let backgroundColor = eval(configStyle.rateScalePanelColor)
             let labels = scaleLabels(thisObject.rate, true)
-            drawScaleDisplay(labels[0], labels[1], labels[2], 0, 0, 0, icon1, icon2, thisObject.container, backgroundColor)
+            // This controls the color of the rate scale label 
+            if (configStyle.rateScalePanelLabelColor !== undefined) {
+                let textColor = eval(configStyle.rateScalePanelLabelColor)
+                drawScaleDisplay(labels[0], labels[1], labels[2], 0, 0, 0, icon1, icon2, thisObject.container, backgroundColor, textColor)
+            } else {
+                drawScaleDisplay(labels[0], labels[1], labels[2], 0, 0, 0, icon1, icon2, thisObject.container, backgroundColor)
+            }
         }
     }
 

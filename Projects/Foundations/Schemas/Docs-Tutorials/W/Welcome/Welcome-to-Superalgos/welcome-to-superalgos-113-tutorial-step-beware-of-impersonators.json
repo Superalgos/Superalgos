@@ -3,12 +3,12 @@
     "pageNumber": 113,
     "type": "Tutorial Step - Beware of Impersonators!",
     "definition": {
-        "text": "Superalgos Admins, the Founding Team, and Community Mods will never contact you directly unless you contact them first!",
+        "text": "The Founding Team and Community Mods will never contact you directly unless you contact them first!",
         "icon": {
             "name": "Bullet\\bullet-warning",
             "project": "Foundations"
         },
-        "updated": 1617608574624,
+        "updated": 1665735602540,
         "translations": [
             {
                 "language": "IT",

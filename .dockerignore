@@ -21,4 +21,3 @@ CODE_OF_CONDUCT.md
 **/docker-compose.yml
 **/node_modules
 **/.env*
-**/externalScripts

@@ -1,0 +1,135 @@
+{
+    "topic": "Contributing to Superalgos",
+    "pageNumber": "7",
+    "type": "How to Contribute Themes",
+    "definition": {
+        "text": "If you created a cool theme for Superalgos, submit it as a contribution so that others may use it too!",
+        "updated": 1661452228997
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "The Basics",
+            "updated": 1661452336037
+        },
+        {
+            "style": "Text",
+            "text": "To submit a theme, you must create a Docs Page in the corresponding Topic of the Community Themes Book. ",
+            "updated": 1661454117001
+        },
+        {
+            "style": "Note",
+            "text": "This page explains how to create the page so that it shows up in the book!",
+            "updated": 1661454150686
+        },
+        {
+            "style": "Title",
+            "text": "Charting Space Themes"
+        },
+        {
+            "style": "Text",
+            "text": "There are three different categories of themes you may submit: Dark, Light, and Color Vision Deficiency themes. Each category is featured on a separate topic and chapter in the book.",
+            "updated": 1661452502653
+        },
+        {
+            "style": "Text",
+            "text": "The Docs Page you will create must feature three sections:"
+        },
+        {
+            "style": "List",
+            "text": "Author: Write your User Profile name, that is, you Github.com user name.",
+            "updated": 1661454297212
+        },
+        {
+            "style": "List",
+            "text": "Images: Add as many screen captures of your theme as you like. If you're not familiar with embedding images, check the Docs Png Style page.",
+            "updated": 1661454377379
+        },
+        {
+            "style": "List",
+            "text": "Charting Space Style Configuration: Paste the configuration of the Space Style node so that others may copy it.",
+            "updated": 1661454308523
+        },
+        {
+            "style": "Subtitle",
+            "text": "Examples",
+            "updated": 1661452785222
+        },
+        {
+            "style": "List",
+            "text": "Dark Charting Space Theme Example",
+            "updated": 1661452832449
+        },
+        {
+            "style": "List",
+            "text": "Light Charting Space Theme Example",
+            "updated": 1661452844113
+        },
+        {
+            "style": "List",
+            "text": "Color Vision Deficiency Charting Space Theme Example",
+            "updated": 1661452854255
+        },
+        {
+            "style": "Success",
+            "text": "Check the examples above to understand how you must structure the page of your theme!"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Add Docs Page Syntax",
+            "updated": 1661453351169
+        },
+        {
+            "style": "Text",
+            "text": "For your convenience, find below the three different versions of the Docs Add Command that you will need to create a page on each of the available categories.",
+            "updated": 1661454707772
+        },
+        {
+            "style": "Important",
+            "text": "Remember to edit the command to include the name of your theme and the correct page number in the sequence of themes. You must look up the page number in the corresponding topic after updating in the develop branch!",
+            "updated": 1661454746836
+        },
+        {
+            "style": "List",
+            "text": "Dark Themes:"
+        },
+        {
+            "style": "Json",
+            "text": "docs.add Topic to Foundations: Dark Charting Space Themes->yourThemeName->nextPageNumber",
+            "updated": 1661453801000
+        },
+        {
+            "style": "List",
+            "text": "Light Themes:"
+        },
+        {
+            "style": "Json",
+            "text": "docs.add Topic to Foundations: Light Charting Space Themes->yourThemeName->nextPageNumber",
+            "updated": 1661453725213
+        },
+        {
+            "style": "List",
+            "text": "Color Vision Deficiency Themes:",
+            "updated": 1661453827559
+        },
+        {
+            "style": "Json",
+            "text": "docs.add Topic to Foundations: Color Vision Deficiency Charting Space Themes->yourThemeName->nextPageNumber",
+            "updated": 1661453728845
+        },
+        {
+            "style": "Note",
+            "text": "Notice that your theme must have a unique name, as the name is the identifier of the corresponding Docs Page. Be creative!",
+            "updated": 1661454047607
+        },
+        {
+            "style": "Success",
+            "text": "If you are not familiar with editing the Docs and creating new pages, you may want dive deep and read about How to Contribute to the Docs."
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Concept->Reusable Snippets->Contributions Reminder",
+            "updated": 1661452262965
+        }
+    ]
+}

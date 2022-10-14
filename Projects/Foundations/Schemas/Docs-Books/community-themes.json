@@ -1,0 +1,24 @@
+{
+    "type": "Community Themes",
+    "definition": {
+        "text": "This books features themes for the Charting Space and the Design Space contributed by Community members.",
+        "updated": 1661449758580
+    },
+    "paragraphs": [
+        {
+            "style": "Chapter",
+            "text": "I->Foundations->Topic->Dark Charting Space Themes",
+            "updated": 1661453203920
+        },
+        {
+            "style": "Chapter",
+            "text": "I->Foundations->Topic->Light Charting Space Themes",
+            "updated": 1661453218419
+        },
+        {
+            "style": "Chapter",
+            "text": "I->Foundations->Topic->Color Vision Deficiency Charting Space Themes",
+            "updated": 1661453221687
+        }
+    ]
+}

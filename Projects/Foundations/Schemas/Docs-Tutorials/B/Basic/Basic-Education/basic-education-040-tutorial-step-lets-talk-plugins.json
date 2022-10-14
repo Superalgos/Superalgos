@@ -47,7 +47,7 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Plugins are data structures meant to be reused. That is why they ship as plugins, so that you may place them on any workspace.",
+            "text": "Plugins are data structures that are meant to be reused. That is why they ship as plugins, so that you may place them on any workspace.",
             "updated": 1615917170964,
             "translations": [
                 {
@@ -151,8 +151,8 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Как видно из структуры иерархии, существует несколько типов плагинов! Они поставляются в виде JSON файлов, отсортированных по типу в папке Plugins. Проверьте это!",
-                    "updated": 1640873318649
+                    "text": "Как видно из структуры иерархии, существует несколько типов плагинов! Они поставляются в виде JSON файлов, отсортированных по проекту и типу в папке plugins. Проверьте это!",
+                    "updated": 1661377667089
                 },
                 {
                     "language": "ID",

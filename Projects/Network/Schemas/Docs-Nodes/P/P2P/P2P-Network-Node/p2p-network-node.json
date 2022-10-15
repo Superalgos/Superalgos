@@ -34,11 +34,6 @@
             "style": "Text",
             "text": "clientMinimunBalance : This is the minimum wallet SA balance required to connect to your network node",
             "updated": 1665800802229
-        },
-        {
-            "style": "Text",
-            "text": "networkNodeUserProfile : (Optional) This is the user name of a particular network node you wish to connect to.",
-            "updated": 1665801005810
         }
     ]
 }

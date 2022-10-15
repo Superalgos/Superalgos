@@ -32,6 +32,7 @@ exports.newNetworkModulesP2PNetworkReachableNodes = function newNetworkModulesP2
     ) {
         thisObject.networkCodeName = networkCodeName
         thisObject.networkType = networkType
+        let thisP2pNetworkClient = TS.projects.foundations.globals.taskConstants.TASK_NODE.p2pNetworkClient
 
         switch (callerRole) {
             case 'Network Client': {
@@ -40,16 +41,19 @@ exports.newNetworkModulesP2PNetworkReachableNodes = function newNetworkModulesP2
                 let connectOnlyRequestedUserProfile = false
                 let connectOnlyProfile
 
-                // First we grab any config options from our own user profiles.
-                for (let i = 0; i < SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES.length; i++) {
-                    let p2pNetworkNode = SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES[i]
-                    if (p2pNetworkNode.userProfile.name === userProfileCodeName) {
-                        if (p2pNetworkNode.node.config.networkNodeUserProfile !== undefined) {
-                            connectOnlyProfile = p2pNetworkNode.node.config.networkNodeUserProfile
+                /*
+                // We will check the p2pNetworkClient node located at this task for a specified network node to connect this task to.
+                // If a specific network node is requested then it will be the only available network node to that task.
+                */
+                if (thisP2pNetworkClient !== undefined) {
+                    if (thisP2pNetworkClient.config !== undefined) {
+                        if (thisP2pNetworkClient.config.networkNodeUserProfile !== undefined) {
+                            connectOnlyProfile = thisP2pNetworkClient.config.networkNodeUserProfile
                             connectOnlyRequestedUserProfile = true
-                            break
-                        } else { continue }
+                        }
                     }
+                } else {
+                    console.log('[ERROR] The P2P Network Client node is required at each task. Please add the node and try again.')
                 }
 
 

@@ -14,7 +14,7 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode.",
+            "text": "codeName : The usual code name is \"P2P-Network-Node-1\"",
             "translations": [
                 {
                     "language": "TR",
@@ -22,7 +22,18 @@
                     "updated": 1654395784506,
                     "style": "Text"
                 }
-            ]
+            ],
+            "updated": 1665800632070
+        },
+        {
+            "style": "Text",
+            "text": "host : The usual host name is \"localhost\"",
+            "updated": 1665800660470
+        },
+        {
+            "style": "Text",
+            "text": "clientMinimunBalance : This is the minimum wallet SA balance required to connect to your network node",
+            "updated": 1665800802229
         }
     ]
 }

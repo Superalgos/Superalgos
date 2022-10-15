@@ -47,8 +47,8 @@ exports.newNetworkModulesP2PNetworkReachableNodes = function newNetworkModulesP2
                 */
                 if (thisP2pNetworkClient !== undefined) {
                     if (thisP2pNetworkClient.config !== undefined) {
-                        if (thisP2pNetworkClient.config.networkNodeUserProfile !== undefined) {
-                            connectOnlyProfile = thisP2pNetworkClient.config.networkNodeUserProfile
+                        if (thisP2pNetworkClient.config.onlyConnectToNetworkNodeFromUserProfile !== undefined) {
+                            connectOnlyProfile = thisP2pNetworkClient.config.onlyConnectToNetworkNodeFromUserProfile
                             connectOnlyRequestedUserProfile = true
                         }
                     }

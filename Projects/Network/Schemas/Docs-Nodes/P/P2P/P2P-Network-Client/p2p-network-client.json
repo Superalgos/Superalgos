@@ -10,8 +10,8 @@
         },
         {
             "style": "Text",
-            "text": "networkNodeUserProfile : (Optional) This is the user name of a particular network node you wish to connect to.",
-            "updated": 1665859348793
+            "text": "onlyConnectToNetworkNodeFromUserProfile : (Optional) This is the user name of a particular network node you wish to connect to.",
+            "updated": 1665863942115
         }
     ]
 }

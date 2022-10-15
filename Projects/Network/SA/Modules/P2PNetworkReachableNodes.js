@@ -36,9 +36,30 @@ exports.newNetworkModulesP2PNetworkReachableNodes = function newNetworkModulesP2
         switch (callerRole) {
             case 'Network Client': {
                 thisObject.p2pNodesToConnect = []
+                
+                let connectOnlyRequestedUserProfile = false
+                let connectOnlyProfile
+
+                // First we grab any config options from our own user profiles.
+                for (let i = 0; i < SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES.length; i++) {
+                    let p2pNetworkNode = SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES[i]
+                    if (p2pNetworkNode.userProfile.name === userProfileCodeName) {
+                        if (p2pNetworkNode.node.config.networkNodeUserProfile !== undefined) {
+                            connectOnlyProfile = p2pNetworkNode.node.config.networkNodeUserProfile
+                            connectOnlyRequestedUserProfile = true
+                            break
+                        } else { continue }
+                    }
+                }
+
 
                 for (let i = 0; i < SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES.length; i++) {
                     let p2pNetworkNode = SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES[i]
+
+                    // If we have a defined network node profile to connect to we will only check that profile.
+                    if (connectOnlyRequestedUserProfile) {
+                        if (p2pNetworkNode.userProfile.name !== connectOnlyProfile) { continue }
+                    }
 
                     if (p2pNetworkNode.node.p2pNetworkReference.referenceParent === undefined) { continue }
                     if (p2pNetworkNode.node.p2pNetworkReference.referenceParent.config === undefined) { continue }

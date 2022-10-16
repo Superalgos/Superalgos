@@ -68,8 +68,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Sağda görebileceğiniz gibi, bir ticaret oturumunun bir Ticaret Sistemine ( Tading System ) referansı vardır. Yani Ticaret Botu ( Trading Bot ), karar vermek için referans verilen ticaret sisteminin kurallarını uygulayacaktır. Trading Engine'e (Trading Engine) konusunu sonraya bırakacağım!",
-                    "updated": 1636118809271
+                    "text": "Sağda görebileceğiniz gibi, bir ticaret oturumunun bir Ticaret Sistemine ( Trading System ) referansı vardır. Yani Ticaret Botu ( Trading Bot ), karar vermek için referans verilen ticaret sisteminin kurallarını uygulayacaktır. Trading Engine'e (Trading Engine) konusunu sonraya bırakacağım!",
+                    "updated": 1665957451866
                 },
                 {
                     "language": "RU",

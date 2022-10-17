@@ -44,10 +44,27 @@ exports.newSocialBotsBotModulesAnnouncements = function (processIndex) {
             let announcement = node.announcements[i]
             let canAnnounce = true
 
-            // Check configuration to see if Announcement should be run at Enter or Exit of Node
+            // Check configuration to see if Announcement should be run at Enter, Exit of Node, or Interval
             // set defaults, protect against empty configurations or missing values
             let onEnter = true
             let onExit = false
+            let intervalComplete = false
+            let intervalRunning = false
+            if (announcement.config.onInterval !== undefined) {
+                // Only start set interval on first run 
+                if (intervalRunning === false) {
+                    setInterval(
+                        // Set to true after interval
+                        function () {
+                            intervalComplete = true
+                        },
+                        announcement.config.onInterval
+                    )
+                    intervalRunning = true
+                    onEnter = false
+                    onExit = false
+                }
+            }
             if (announcement.config.onEnter !== undefined) {
                 onEnter = announcement.config.onEnter
             }
@@ -59,6 +76,9 @@ exports.newSocialBotsBotModulesAnnouncements = function (processIndex) {
             }
             if ((status === 'Open' && onEnter) || (status === 'Closed' && onExit)) {
                 canAnnounce = true
+            } else if (intervalComplete === true) {
+                canAnnounce = true
+                intervalComplete = false // start interval over
             } else {
                 canAnnounce = false
             }

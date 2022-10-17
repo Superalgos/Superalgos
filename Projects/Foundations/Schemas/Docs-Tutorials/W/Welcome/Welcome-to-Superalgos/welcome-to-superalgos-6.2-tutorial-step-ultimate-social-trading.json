@@ -121,8 +121,8 @@
         },
         {
             "style": "Success",
-            "text": "After the beta phase, you will need to hold a certain balance of Superalgos SA Tokens to access this premium community service.",
-            "updated": 1660151898954,
+            "text": "The first few signals are live now! You will need to hold a certain balance of Superalgos SA Tokens to access this premium community service.",
+            "updated": 1665735018236,
             "translations": [
                 {
                     "language": "DE",
@@ -131,10 +131,15 @@
                 },
                 {
                     "language": "RU",
-                    "text": "После завершения бета-фазы вам нужно будет иметь определенный баланс Superalgos SA Tokens, чтобы получить доступ к премиум-услугам сообщества.",
-                    "updated": 1662035393211
+                    "text": "Первые несколько сигналов уже в прямом эфире! Чтобы получить доступ к премиальным услугам сообщества, вам необходимо иметь определенный баланс Superalgos SA Tokens.",
+                    "updated": 1665737028725
                 }
             ]
+        },
+        {
+            "style": "Link",
+            "text": "Learn how to follow signals with Superalgos!->medium.com/superalgos/the-power-of-free-and-open-source-decentralized-social-trading-d67cb1aab1b",
+            "updated": 1665735471005
         }
     ]
 }

@@ -32,7 +32,6 @@ exports.newNetworkModulesP2PNetworkReachableNodes = function newNetworkModulesP2
     ) {
         thisObject.networkCodeName = networkCodeName
         thisObject.networkType = networkType
-        let thisP2pNetworkClient = TS.projects.foundations.globals.taskConstants.TASK_NODE.p2pNetworkClient
 
         switch (callerRole) {
             case 'Network Client': {
@@ -45,10 +44,10 @@ exports.newNetworkModulesP2PNetworkReachableNodes = function newNetworkModulesP2
                 // We will check the p2pNetworkClient node located at this task for a specified network node to connect this task to.
                 // If a specific network node is requested then it will be the only available network node to that task.
                 */
-                if (thisP2pNetworkClient !== undefined) {
-                    if (thisP2pNetworkClient.config !== undefined) {
-                        if (thisP2pNetworkClient.config.onlyConnectToNetworkNodeFromUserProfile !== undefined) {
-                            connectOnlyProfile = thisP2pNetworkClient.config.onlyConnectToNetworkNodeFromUserProfile
+                if (p2pNetworkClientNode !== undefined) {
+                    if (p2pNetworkClientNode.config !== undefined) {
+                        if (p2pNetworkClientNode.config.onlyConnectToNetworkNodeFromUserProfile !== undefined) {
+                            connectOnlyProfile = p2pNetworkClientNode.config.onlyConnectToNetworkNodeFromUserProfile
                             connectOnlyRequestedUserProfile = true
                         }
                     }

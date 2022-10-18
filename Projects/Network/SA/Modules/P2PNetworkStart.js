@@ -221,10 +221,12 @@ exports.newNetworkModulesP2PNetworkStart = function newNetworkModulesP2PNetworkS
             }
             function messageNotSent(error) {
                 /*
-                Store in memory all the signals that could not be delivered.
+                Store in memory all the signals that could not be delivered, but only once per signal.
                 */
-                notDeliveredMessages.push(messageHeader)
-
+                if (notDeliveredMessages.includes(messageHeader) === false) {
+                    notDeliveredMessages.push(messageHeader)
+                }
+            
                 if (error !== undefined && error.code === 'ECONNREFUSED') {
                     /*
                     This is not an HTTP error that can be retried at the same host. It is a disconnection from the host and we will need to reconnect to the same host or others.

@@ -1,0 +1,48 @@
+{
+    "topic": "Color Vision Deficiency Charting Space Themes",
+    "pageNumber": "2",
+    "type": "Color Vision Deficiency Dark",
+    "definition": {
+        "text": "A high contrast, low transparency dark theme for the charting space by quantum8.",
+        "updated": 1665971449432
+    },
+    "paragraphs": [
+	    {
+            "style": "Text",
+            "text": "Please note that this theme does not override indicator colors! If an indicator is hard to distinguish, please contact the author of the indicator with your concerns, or make a copy of the plotter and adjust accordingly."
+        },
+        {
+            "style": "Title",
+            "text": "Author"
+        },
+        {
+            "style": "Text",
+            "text": "The author of this theme is @quantum8"
+        },
+        {
+            "style": "Text",
+            "text": "Github https://github.com/quantum8"
+        },
+        {
+            "style": "Text",
+            "text": "Telegram t.me/quantum808"
+        },
+        {
+            "style": "Title",
+            "text": "Images"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs\\Foundations\\Docs\\Charts\\color-deficiency-theme-dark.png"
+        },
+        {
+            "style": "Title",
+            "text": "Space Style Node Config"
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"backgroundColor\": \"UI_COLOR.BLACK\",\n    \"candleUpColor\": \"UI_COLOR.LIGHT\",\n    \"candleDownColor\": \"UI_COLOR.DARK\",\n    \"candleSideColor\": \"UI_COLOR.GREY\",\n    \"panelBackgroundColor\": \"UI_COLOR.BLACK\",\n    \"panelBackgroundOpacity\": \"1.0\",\n    \"panelNameColor\": \"UI_COLOR.WHITE\",\n    \"panelExchangeMarketName\": \"UI_COLOR.LIGHT\",\n    \"timeMachineNameColor\": \"UI_COLOR.LIGHT\",\n    \"onMouseFrameColor\": \"UI_COLOR.GREY\",\n    \"machineFrameColor\": \"UI_COLOR.RED\",\n    \"machineFrameOpacity\": \"1\",\n    \"timeScalePanelColor\": \"UI_COLOR.BLACK\",\n    \"timeScalePanelLabelColor\": \"UI_COLOR.LIGHT\",\n    \"timeScaleDateColor\": \"UI_COLOR.LIGHT\",\n    \"timeScaleDateTimeColor\": \"UI_COLOR.LIGHT\",\n    \"rateScalePanelColor\": \"UI_COLOR.BLACK\",\n    \"rateScaleLabelColor\": \"UI_COLOR.LIGHT\",\n    \"rateScaleLabelDecimalColor\": \"UI_COLOR.SILVER\",\n    \"timeFramePanelLabelColor\": \"UI_COLOR.WHITE\",\n    \"timeFrameScalePanelColor\": \"UI_COLOR.BLACK\",\n    \"indicatorDropDownPanelColor\": \"UI_COLOR.BLACK\",\n    \"indicatorDropDownPanelOpacity\": \"0.7\",\n    \"indicatorDropDownPanelBorderColor\": \"UI_COLOR.RED\",\n    \"indicatorDropDownPanelLabel1Color\": \"UI_COLOR.LIGHT\",\n    \"indicatorDropDownPanelLabel2Color\": \"UI_COLOR.LIGHT\",\n    \"indicatorDropDownPanelLabel3Color\": \"UI_COLOR.LIGHT\",\n    \"indicatorLayersPanelColor\": \"UI_COLOR.BLACK\",\n    \"indicatorLayersPanelOpacity\": \"0.9\",\n    \"indicatorLayersPanelBorderColor\": \"UI_COLOR.ORANGE\",\n    \"indicatorLayersPanelLabel1\": \"UI_COLOR.LIGHT\",\n    \"indicatorLayersPanelLabel2\": \"UI_COLOR.LIGHT\",\n    \"indicatorFrameBackgroundColor\": \"UI_COLOR.WHITE\",\n    \"indicatorFrameBackgroundOpacity\": \"0.9\",\n    \"indicatorFrameTextColor\": \"UI_COLOR.BLACK\",\n    \"indicatorPanelTopBarColor\": \"UI_COLOR.DARK\",\n    \"indicatorPanelTopBarOpacity\": \"1.0\",\n    \"indicatorPanelTopBarTitleColor\": \"UI_COLOR.LIGHT_GREY\",\n    \"minCursorSize\": \"20\",\n    \"maxCursorSize\": \"30\"\n}",
+            "updated": 1665971469270
+        }
+    ]
+}

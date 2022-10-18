@@ -315,7 +315,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                             store that node as our P2P Network Client Identity. 
                             */
                             if (SA.secrets.signingAccountSecrets.map.get(thisObject.userAppCodeName) === undefined) {
-                                throw ('Bad Configuration. Could not find any signing account node based on the configured thisObject.userAppCodeName = ' + thisObject.userAppCodeName)
+                                throw ('Bad configuration! Could not find a signing account node or the corresponding signature file in the /My-Secrets folder based on the configured thisObject.userAppCodeName = ' + thisObject.userAppCodeName)
                             }
                             if (
                                 networkClient.id === SA.secrets.signingAccountSecrets.map.get(thisObject.userAppCodeName).nodeId

@@ -28,8 +28,8 @@
             },
             {
                 "language": "TR",
-                "text": "Henüz ele almadığımız tonlarca şey var, biliyorum! Sadece etrafa bak! Görülecek çok şey var! ",
-                "updated": 1636638137396
+                "text": "Henüz ele almadığımız tonlarca şey var, Canlı Alım Satım Seansının nasıl yürütüleceği gibi! Oraya da geleceğiz, endişelenmeyin!",
+                "updated": 1666066283314
             },
             {
                 "language": "ID",
@@ -69,8 +69,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Eminim hala kafanızda uçuşan tonlarca soru vardır... Kendi stratejilerimi nasıl oluştururum? Performansı nasıl ölçerim? Nasıl bir gösterge oluştururum? Bir ticaret çiftliğini nasıl organize edebilirim? TradingView ile nasıl entegre olabilirim? Telegram duyurularını nasıl ayarlarım? Diğer API'lerden nasıl veri alırım?",
-                    "updated": 1636638173407
+                    "text": "Eminim hala kafanızda uçuşan tonlarca soru vardır... Kendi stratejilerimi nasıl oluşturabilirim? Nasıl bir gösterge oluşturabilirim? Bir ticaret çiftliğini nasıl dağıtabilirim? TradingView ile nasıl entegre olabilirim? Telegram veya Twitter duyurularını nasıl ayarlayabilirim? Diğer API'lardan nasıl veri alabilirim?",
+                    "updated": 1666066358527
                 },
                 {
                     "language": "ID",
@@ -93,6 +93,11 @@
                     "language": "RU",
                     "text": "Имеются учебные пособия и более 1500 страниц документации, которые охватывают все ваши вопросы!",
                     "updated": 1662034377425
+                },
+                {
+                    "language": "TR",
+                    "text": "Tüm sorularınızı kapsayan öğreticiler ve 1500 sayfadan fazla belge var! Docs'a göz atmanızda fayda var..",
+                    "updated": 1666066431352
                 }
             ]
         },
@@ -105,6 +110,11 @@
                     "language": "RU",
                     "text": "Итак, давайте рассмотрим интегрированную систему документации, прежде чем переходить к другим вещам!",
                     "updated": 1662034401247
+                },
+                {
+                    "language": "TR",
+                    "text": "Diğer konulara geçmeden önce yerleşik dokümantasyon (Docs) sistemine bir göz atalım!",
+                    "updated": 1666066466202
                 }
             ]
         }

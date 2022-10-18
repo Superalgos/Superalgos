@@ -1,0 +1,32 @@
+{
+    "review": "Superalgos Project Review",
+    "pageNumber": 47,
+    "type": "Superalgos Review - Unique Vice Review of Superalgos",
+    "definition": {
+        "text": "Write a summary for this review page."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Here we go for the SuperAlgos Review!",
+            "updated": 1666091298540
+        },
+        {
+            "style": "Text",
+            "text": "After a fresh install, everything works!"
+        },
+        {
+            "style": "Png",
+            "text": "After a fresh reinstall of my OS, everything works finally!"
+        },
+        {
+            "style": "Text",
+            "text": "ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository.",
+            "updated": 1666091484727
+        },
+        {
+            "style": "Text",
+            "text": "ViceReMix"
+        }
+    ]
+}

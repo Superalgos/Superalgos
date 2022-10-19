@@ -69,8 +69,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Diyelim ki bir strateji ile başlamaya hazırsınız. Mevcut olanla başlamak ve işlerin nasıl yürüdüğünü anlamak için değişiklikler yapmak istiyorsunuz. Değişiklik yaparak katkıda bulunmak niyetinde değilsiniz. Sadece onu denemek ve beğeninize göre ayarlamak istiyorsunuz! Aşağıdakileri yapın:",
-                    "updated": 1639817833420
+                    "text": "Diyelim ki bir strateji oluşturmak istiyorsunuz. Mevcut bir strateji ile başlamak ve işlerin nasıl yürüdüğünü anlamak için değişiklikler yapmak istiyorsunuz. Değişikliklere katkıda bulunmak niyetinde değilsiniz. Sadece onunla oynamak ve beğeninize göre ayarlamak istiyorsunuz! O zaman aşağıdakileri yapın:",
+                    "updated": 1666104096123
                 },
                 {
                     "language": "RU",
@@ -108,8 +108,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Plugin Trading System düğümünde Plugin file düğümünü silin ve orijinal eklenti dosyasını (\\Plugins\\Trading-Systems klasöründe) (sanki bir yedekmiş gibi) geri yükleyin: dosyayı sürükleyin ve Tasarım Alanına bırakın! Strateji artık çalışma alanına yüklendi, onu değiştirebilir ve kaydedebilirsiniz!",
-                    "updated": 1639818432673
+                    "text": "İşlem Sisteminin Eklenti Dosyası düğümünü silin ve orijinal eklenti dosyasını (\\Plugins\\Algorithmic-Trading\\Trading-Systems) bir yedekmiş gibi geri yükleyin: dosyayı sürükleyin ve Tasarım Alanına bırakın! Strateji artık çalışma alanında yaşıyor ve onu değiştirebilir ve kaydedebilirsiniz!",
+                    "updated": 1666104165309
                 },
                 {
                     "language": "RU",

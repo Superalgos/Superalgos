@@ -108,8 +108,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Tasarım alanı boyunca hareket ettireceğiniz düğümü sabitleyin, böylece hareket ettirdiğiniz düğümü tasarım alanında herhangi bir noktada bıraktığınızda sabit kalacaktır.",
-                    "updated": 1639558424076
+                    "text": "Taşıyacağınız düğümü tasarım alanı boyunca sabitleyin, böylece bıraktığınız yerde kalacaktır!",
+                    "updated": 1666103508666
                 },
                 {
                     "language": "RU",
@@ -147,8 +147,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Farenin sağ tuşu ile üzerine tıkladıktan sonra düğümü ekran boyunca sürüklemek için Windows'ta Ctrl  + ok tuşları, Mac'te ise Cmd + ok tuşlarını kullanın.",
-                    "updated": 1639558498078
+                    "text": "Farenin sağ tuşu ile üzerine tıkladıktan sonra düğümü ekran boyunca sürüklemek için Windows'ta Ctrl + ok tuşları, Mac'te ise Cmd + ok tuşlarını kullanın. Taşımak istediğiniz düğümün üzerindeki \"Taşınacak düğümü kaydet\" düğmesine tıklayın.",
+                    "updated": 1666103626627
                 },
                 {
                     "language": "RU",

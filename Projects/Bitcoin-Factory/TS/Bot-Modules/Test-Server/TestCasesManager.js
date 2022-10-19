@@ -79,20 +79,24 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
             console.table(parametersIsON)
 
             let combinations = []
+            let length_LEARNING_RATE = (parametersRanges.LEARNING_RATE != undefined ? parametersRanges.LEARNING_RATE.length : 1) 
             for (let k = 0; k < parametersRanges.LIST_OF_ASSETS.length; k++) {
                 for (let l = 0; l < parametersRanges.LIST_OF_TIMEFRAMES.length; l++) {
-                    for (let i = 0; i < (1 << AMOUNT_OF_VARIABLES); i++) {
-                        let combination = []
-                        //Increasing or decreasing depending on which direction
-                        for (let j = AMOUNT_OF_VARIABLES - 1; j >= 0; j--) {
-                            let key = parametersIsON[j]
-                            let parameter = { key: key, value: Boolean(i & (1 << j))?"ON":"OFF" }
-                            combination.push(parameter)
-                        }
-                        combination.push({ key: 'LIST_OF_ASSETS', value: parametersRanges.LIST_OF_ASSETS[k] })
-                        combination.push({ key: 'LIST_OF_TIMEFRAMES', value: parametersRanges.LIST_OF_TIMEFRAMES[l] })
-                        combinations.push(combination);
-                    }        
+                    for (let m = 0; m < length_LEARNING_RATE; m++) {                        
+                        for (let i = 0; i < (1 << AMOUNT_OF_VARIABLES); i++) {
+                            let combination = []
+                            //Increasing or decreasing depending on which direction
+                            for (let j = AMOUNT_OF_VARIABLES - 1; j >= 0; j--) {
+                                let key = parametersIsON[j]
+                                let parameter = { key: key, value: Boolean(i & (1 << j))?"ON":"OFF" }
+                                combination.push(parameter)
+                            }
+                            combination.push({ key: 'LIST_OF_ASSETS', value: parametersRanges.LIST_OF_ASSETS[k] })
+                            combination.push({ key: 'LIST_OF_TIMEFRAMES', value: parametersRanges.LIST_OF_TIMEFRAMES[l] })
+                            if (parametersRanges.LEARNING_RATE != undefined) combination.push({ key: 'LEARNING_RATE', value: parametersRanges.LEARNING_RATE[m] })
+                            combinations.push(combination);
+                        }        
+                    }
                 }
             }
             return combinations

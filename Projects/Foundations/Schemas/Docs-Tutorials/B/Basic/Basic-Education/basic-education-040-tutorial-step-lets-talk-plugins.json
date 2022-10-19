@@ -146,8 +146,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Hiyerarşinin yapısından da anlayabileceğiniz gibi, çeşitli eklenti türleri vardır! Eklentiler klasöründe türe göre sıralanmış JSON dosyaları olarak bulunurlar. Eklentiler düğümünü keşfetmekten çekinme!",
-                    "updated": 1639767248787
+                    "text": "Hiyerarşinin yapısından da anlayabileceğiniz gibi, çeşitli eklenti türleri vardır! Eklentiler klasöründe Proje ve türe göre sıralanmış JSON dosyaları olarak gönderilirler. Bir göz atın!",
+                    "updated": 1666103751444
                 },
                 {
                     "language": "RU",

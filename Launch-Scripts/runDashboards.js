@@ -1,5 +1,6 @@
 const os = require('os')
 const child_process = require('child_process')
+const {newEnvironment} = require("../Environment")
 
 const fatalErrorHelp = () => {
   console.log('')
@@ -114,7 +115,37 @@ const runDashboards = () => {
 
 }
 
+function getDashboardPort(){
+  const envParamters = newEnvironment();
+  return envParamters.DASHBOARDS_WEB_SOCKETS_INTERFACE_PORT;
+}
+
+function checkDashboardStatus() {
+  return new Promise(resolve=>{
+      let net = require('net')
+      net.connect(getDashboardPort(),()=>{
+        resolve(true)
+      })
+      .addListener("error",err=>{
+          resolve(false)
+      })
+  })
+}
+function runFirstDashboards(testAction){
+  checkDashboardStatus().then(dashboardIsActive=>{
+    if(dashboardIsActive)
+        setTimeout(()=>testAction(),1000)
+    else{ 
+        runDashboards()
+        setTimeout(()=>runFirstDashboards(testAction),1000)
+    }
+})
+}
+
 module.exports = {
   runDashboards,
-  fatalErrorHelp
+  fatalErrorHelp,
+  checkDashboardStatus,
+  getDashboardPort,
+  runFirstDashboards
 }

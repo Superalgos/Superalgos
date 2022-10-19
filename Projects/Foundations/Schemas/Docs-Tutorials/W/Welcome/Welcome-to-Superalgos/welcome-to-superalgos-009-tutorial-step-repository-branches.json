@@ -83,8 +83,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Master Branch: Yazılımın kararlı sürümünü içerir. Bu şubeye asla katkı göndermeyin!",
-                    "updated": 1639942204622
+                    "text": "Master Dalı: Yazılımın kararlı sürümünü içerir. Bu dala asla katkı göndermeyin!",
+                    "updated": 1665961671895
                 }
             ]
         },
@@ -124,8 +124,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Develop Branch: Şu anda geliştirilmekte olan sürümü içerir. Kod tabanını, çevirileri, Dokümanlardaki iyileştirmeleri, öğreticileri ve veri madenleri, ticaret sistemleri vb. gibi eklentileri etkileyen katkılarınızı bu dala gönderin!",
-                    "updated": 1639942297409
+                    "text": "Develop Dalı: Şu anda geliştirilmekte olan sürümü içerir. Kod tabanını, çevirileri, dokümanlardaki iyileştirmeleri, öğreticileri ve veri madenleri, ticaret sistemleri vb. gibi eklentileri etkileyen katkılarınızı bu dala gönderin!",
+                    "updated": 1665961827703
                 }
             ]
         },

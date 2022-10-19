@@ -62,8 +62,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Bir ticaret görevi yürütmek ( Trading Tasks ), bir veri madenciliği (Data Mining Tasks ) görevi yürütmeye oldukça benzer. Aradaki fark, görevi çalıştırdıktan sonra, ticaret oturumunu da çalıştırmanız gerektiğidir.",
-                    "updated": 1636122738568
+                    "text": "Bir ticaret görevi yürütmek ( Trading Tasks ), bir veri madenciliği (Data Mining Tasks ) görevi yürütmeye oldukça benzer. Aradaki fark, görevi (Trading Tasks) çalıştırdıktan sonra, ticaret oturumunu da çalıştırmanız gerektiğidir.",
+                    "updated": 1666065298944
                 },
                 {
                     "language": "RU",
@@ -140,8 +140,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Geriye Dönük Test Oturumu ( Backtesting Session ), işlemin tamamlandığını gösterdiğinde, Görevi ( Task) durdurun ve İleri'ye tıklayın.",
-                    "updated": 1636122871481
+                    "text": "Geriye Dönük Test Oturumu ( Backtesting Session ), işlemin tamamlandığını gösterdiğinde, Görevi ( Task) durdurun ve öğreticide İleri'ye tıklayın.",
+                    "updated": 1665962886238
                 },
                 {
                     "language": "RU",

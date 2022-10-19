@@ -29,8 +29,8 @@
             },
             {
                 "language": "TR",
-                "text": "Canlı oturumunuzla oynamanız için size birkaç dakika vereceğim ve hazır olduğunuzda başka şeylere geçeceğiz!",
-                "updated": 1636633146523
+                "text": "Canlı oturumunuzla oynamanız için size birkaç dakika vereceğim ve hazır olduğunuzda, işleri toparlayıp öğreticiyi bitireceğiz!",
+                "updated": 1666066527130
             },
             {
                 "language": "ID",
@@ -108,8 +108,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Devam etmeye hazır olduğunuzda, Canlı İşlem Oturumunu ( Live Trading Session ) ve Veri Görevlerini ( Data Tasks ) durdurmaktan çekinmeyin. İsterseniz oturumu çalışır durumda bırakabilirsiniz, ancak zor kazanılmış paramı süresiz olarak demo stratejisine emanet etmem!",
-                    "updated": 1636633220202
+                    "text": "Devam etmeye hazır olduğunuzda, Canlı İşlem Oturumunu (Live Trading Session) ve Veri Görevlerini (Data Tasks) durdurmaktan çekinmeyin.",
+                    "updated": 1666066626880
                 },
                 {
                     "language": "ID",
@@ -136,6 +136,11 @@
                     "language": "RU",
                     "text": "Вы можете оставить сессию запущенной, если хотите, но я бы не стал доверять свои с трудом заработанные деньги демо-стратегии на неопределенный срок!",
                     "updated": 1662034532410
+                },
+                {
+                    "language": "TR",
+                    "text": "İsterseniz oturumu çalışır durumda bırakabilirsiniz, ancak ben zor kazandığım paramı süresiz olarak demo stratejisine emanet etmezdim!",
+                    "updated": 1666066651976
                 }
             ]
         }

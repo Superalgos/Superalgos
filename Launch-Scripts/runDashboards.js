@@ -131,13 +131,13 @@ function checkDashboardStatus() {
       })
   })
 }
-function runFirstDashboards(testAction){
+function runFirstDashboards(callback){
   checkDashboardStatus().then(dashboardIsActive=>{
     if(dashboardIsActive)
-        setTimeout(()=>testAction(),1000)
+        setTimeout(()=>callback(),1000)
     else{ 
         runDashboards()
-        setTimeout(()=>runFirstDashboards(testAction),1000)
+        setTimeout(()=>runFirstDashboards(callback),1000)
     }
 })
 }

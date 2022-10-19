@@ -30,14 +30,14 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
         await run()
         if (thisObject.pullUserProfiles === true) {
             setInterval(run, 60000 * MINUTES_TO_UPDATE_USER_PROFILES_AND_BALANCES)
-            console.log((new Date()).toISOString(), '[INFO] Updates of all in-memory User Profiles are being schedulled to run every ' + MINUTES_TO_UPDATE_USER_PROFILES_AND_BALANCES + ' minutes.')
+            console.log((new Date()).toISOString(), '[INFO] Updates of all in-memory User Profiles schedulled to run every ' + MINUTES_TO_UPDATE_USER_PROFILES_AND_BALANCES + ' minutes.')
             console.log('')
         }
     }
 
     async function run() {
         console.log(' ')
-        console.log((new Date()).toISOString(), '[INFO] Updating all in-memory User Profiles by pulling from Github any changes. If you see warnings below, it is because some User Profiles have bad definitions. If your profile is not listed at those warnings, there is no further action required from you. The owner of each profile should take care of fixing its problems or it will be ignored.')
+        console.log((new Date()).toISOString(), '[INFO] Updating all in-memory User Profiles by pulling changes from Github. You may see warnings below, indicating that some User Profiles have bad definitions. If your profile does not come with a warning, there is no further action required from you. Profiles with warning are ignored, so, if your profile does have a warning, you need to fix it!')
         console.log(' ')
 
         SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES = []
@@ -46,7 +46,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
         }
         await reloadAll()
         console.log(' ')
-        console.log((new Date()).toISOString(), '[INFO] User Profiles on Memory Updated from disk.')
+        console.log((new Date()).toISOString(), '[INFO] User Profiles on memory updated from disk.')
         console.log(' ')
     }
 
@@ -64,12 +64,12 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
             .catch(onProfilesNotPulled)
 
         function onProfilesPulled() {
-            console.log((new Date()).toISOString(), '[INFO] User Profiles on disk Updated from Github Governance Repository.')
+            console.log((new Date()).toISOString(), '[INFO] User Profiles on disk updated from Github Governance Repository.')
             console.log(' ')
         }
 
         function onProfilesNotPulled(err) {
-            console.log((new Date()).toISOString(), '[INFO] User Profiles on disk Not Updated from Github Governance Repository. Retrying in ' + MINUTES_TO_UPDATE_USER_PROFILES_AND_BALANCES + ' Minutes. -> err.message = ' + err.message)
+            console.log((new Date()).toISOString(), '[INFO] User Profiles on disk NOT updated from Github Governance Repository. Retrying in ' + MINUTES_TO_UPDATE_USER_PROFILES_AND_BALANCES + ' Minutes. -> err.message = ' + err.message)
             console.log(' ')
         }
     }
@@ -89,7 +89,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
 
         await extractInfoFromUserProfiles()
 
-        console.log((new Date()).toISOString(), '[INFO] User Profiles Balances have been updated by reading their blockchain balances.')
+        console.log((new Date()).toISOString(), '[INFO] User Profile Balances have been updated by reading blockchain balances.')
         console.log('')
 
         if (thisObject.p2pNetworkClientIdentity.node === undefined) {
@@ -125,7 +125,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                 )
 
                 if (p2pNetwork === undefined) {
-                    console.log((new Date()).toISOString(), '[WARN] P2P Network Plugin could not be loadded into memory: ' + p2pNetworkPlugin.name)
+                    console.log((new Date()).toISOString(), '[WARN] P2P Network Plugin could not be loaded into memory: ' + p2pNetworkPlugin.name)
                     continue
                 }
 
@@ -160,7 +160,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                 )
 
                 if (userProfile === undefined) {
-                    console.log((new Date()).toISOString(), '[WARN] User Profile Plugin could not be loadded into memory: ' + userProfilePlugin.name)
+                    console.log((new Date()).toISOString(), '[WARN] User Profile Plugin could not be loaded into memory: ' + userProfilePlugin.name)
                     continue
                 }
 
@@ -232,13 +232,13 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                         balance = await contractInst.methods.balanceOf(walletAddress).call().then(result => web3.utils.fromWei(result, 'ether'))
                         /* console.log((new Date()).toISOString(), '[INFO] Wallet Balance of Chain: ' + chain + ', Address: ' + walletAddress + ', User Profile: ' + userProfile.name + ' is ' + SA.projects.governance.utilities.balances.toSABalanceString(balance)) */
                     } catch(err) {
-                        console.log((new Date()).toISOString(), '[INFO] Failed to obtain ' + chain + ' Wallet balance for User Profile: ' + userProfile.name + ', retrying in 5 seconds')
+                        console.log((new Date()).toISOString(), '[INFO] Failed to obtain ' + chain + ' wallet balance for User Profile: ' + userProfile.name + ', retrying in 5 seconds')
                         await SA.projects.foundations.utilities.asyncFunctions.sleep(5000)
                         try {
                             balance = await contractInst.methods.balanceOf(walletAddress).call().then(result => web3.utils.fromWei(result, 'ether'))
                             console.log((new Date()).toISOString(), '[INFO] Retry successful - Wallet Balance of Chain: ' + chain + ', Address: ' + walletAddress + ', User Profile: ' + userProfile.name + ' is ' + SA.projects.governance.utilities.balances.toSABalanceString(balance))
                         } catch(err) {
-                            console.log((new Date()).toISOString(), '[WARN] Failed to obtain ' + chain + ' Wallet balance for User Profile: ' + userProfile.name + ' also when retrying. Proceeding with 0 balance for this user.')
+                            console.log((new Date()).toISOString(), '[WARN] Failed to obtain ' + chain + ' wallet balance for User Profile: ' + userProfile.name + ' after retrying. Proceeding with 0 balance for this user.')
                             balance = 0
                         }
                     }
@@ -296,7 +296,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                                     )
                                     SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES.push(p2pNetworkNode)
                                 } catch (err) {
-                                    console.log((new Date()).toISOString(), '[WARN] A configured Network Node was ignored becuase when analyzed, something was wrong with its configuration. -> err = ' + err)
+                                    console.log((new Date()).toISOString(), '[WARN] A configured Network Node was ignored because something is wrong with its configuration. -> err = ' + err)
                                     console.log('')
                                 }
 
@@ -387,7 +387,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                 }
                 rankingTable.push(rankingTableRow)
             }
-            console.log((new Date()).toISOString(), '[INFO] User Profiles Ranking Table Calculated based on latest User Profile Balances. See the Ranking Table Below: ')
+            console.log((new Date()).toISOString(), '[INFO] User Profiles ranking table calculated based on latest User Profile Balances: ')
             console.log('')
             console.table(rankingTable)
             console.log('')

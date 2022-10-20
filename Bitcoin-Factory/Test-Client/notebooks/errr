@@ -1,0 +1,858 @@
+2022-10-14 13:44:55,066	INFO services.py:1470 -- View the Ray dashboard at [1m[32mhttp://127.0.0.1:8265[39m[22m
+2022-10-14 13:44:55,070	WARNING services.py:2002 -- WARNING: The object store is using /tmp instead of /dev/shm because /dev/shm has only 67108864 bytes available. This will harm performance! You may be able to free up space by deleting files in /dev/shm. If you are inside a Docker container, you can increase /dev/shm size by passing '--shm-size=8.06gb' to 'docker run' (or add it to the run_options list in a Ray cluster config). Make sure to set this to more than 30% of available RAM.
+2022-10-14 13:44:57,149	ERROR syncer.py:147 -- Log sync requires rsync to be installed.
+[2m[36m(PPOTrainer pid=272789)[0m 2022-10-14 13:45:00,755	INFO trainer.py:2332 -- Your framework setting is 'tf', meaning you are using static-graph mode. Set framework='tf2' to enable eager execution with tf2.x. You may also then want to set eager_tracing=True in order to reach similar execution speed as with static-graph mode.
+[2m[36m(PPOTrainer pid=272789)[0m 2022-10-14 13:45:00,785	WARNING ppo.py:386 -- `train_batch_size` (2048) cannot be achieved with your other settings (num_workers=9 num_envs_per_worker=1 rollout_fragment_length=200)! Auto-adjusting `rollout_fragment_length` to 227.
+[2m[36m(PPOTrainer pid=272789)[0m 2022-10-14 13:45:00,785	INFO ppo.py:414 -- In multi-agent mode, policies will be optimized sequentially by the multi-GPU optimizer. Consider setting simple_optimizer=True if this doesn't work for you.
+[2m[36m(PPOTrainer pid=272789)[0m 2022-10-14 13:45:00,785	INFO trainer.py:903 -- Current log_level is WARN. For more information, set 'log_level': 'INFO' / 'DEBUG' or use the -v and -vv flags.
+[2m[36m(RolloutWorker pid=272825)[0m 2022-10-14 13:45:05,718	WARNING env.py:135 -- Your env doesn't have a .spec.max_episode_steps attribute. This is fine if you have set 'horizon' in your config dictionary, or `soft_horizon`. However, if you haven't, 'horizon' will default to infinity, and your environment will not be reset.
+[2m[36m(RolloutWorker pid=272833)[0m 2022-10-14 13:45:05,799	WARNING env.py:135 -- Your env doesn't have a .spec.max_episode_steps attribute. This is fine if you have set 'horizon' in your config dictionary, or `soft_horizon`. However, if you haven't, 'horizon' will default to infinity, and your environment will not be reset.
+[2m[36m(RolloutWorker pid=272834)[0m 2022-10-14 13:45:06,028	WARNING env.py:135 -- Your env doesn't have a .spec.max_episode_steps attribute. This is fine if you have set 'horizon' in your config dictionary, or `soft_horizon`. However, if you haven't, 'horizon' will default to infinity, and your environment will not be reset.
+[2m[36m(RolloutWorker pid=272828)[0m 2022-10-14 13:45:06,300	WARNING env.py:135 -- Your env doesn't have a .spec.max_episode_steps attribute. This is fine if you have set 'horizon' in your config dictionary, or `soft_horizon`. However, if you haven't, 'horizon' will default to infinity, and your environment will not be reset.
+[2m[36m(RolloutWorker pid=272837)[0m 2022-10-14 13:45:06,340	WARNING env.py:135 -- Your env doesn't have a .spec.max_episode_steps attribute. This is fine if you have set 'horizon' in your config dictionary, or `soft_horizon`. However, if you haven't, 'horizon' will default to infinity, and your environment will not be reset.
+[2m[36m(RolloutWorker pid=272831)[0m 2022-10-14 13:45:06,348	WARNING env.py:135 -- Your env doesn't have a .spec.max_episode_steps attribute. This is fine if you have set 'horizon' in your config dictionary, or `soft_horizon`. However, if you haven't, 'horizon' will default to infinity, and your environment will not be reset.
+[2m[36m(RolloutWorker pid=272826)[0m 2022-10-14 13:45:06,718	WARNING env.py:135 -- Your env doesn't have a .spec.max_episode_steps attribute. This is fine if you have set 'horizon' in your config dictionary, or `soft_horizon`. However, if you haven't, 'horizon' will default to infinity, and your environment will not be reset.
+[2m[36m(RolloutWorker pid=272839)[0m 2022-10-14 13:45:06,930	WARNING env.py:135 -- Your env doesn't have a .spec.max_episode_steps attribute. This is fine if you have set 'horizon' in your config dictionary, or `soft_horizon`. However, if you haven't, 'horizon' will default to infinity, and your environment will not be reset.
+[2m[36m(RolloutWorker pid=272840)[0m 2022-10-14 13:45:06,956	WARNING env.py:135 -- Your env doesn't have a .spec.max_episode_steps attribute. This is fine if you have set 'horizon' in your config dictionary, or `soft_horizon`. However, if you haven't, 'horizon' will default to infinity, and your environment will not be reset.
+[2m[36m(PPOTrainer pid=272789)[0m 2022-10-14 13:45:07,766	WARNING deprecation.py:46 -- DeprecationWarning: `simple_optimizer` has been deprecated. This will raise an error in the future!
+[2m[36m(PPOTrainer pid=272789)[0m 2022-10-14 13:45:07,766	WARNING ppo.py:386 -- `train_batch_size` (2048) cannot be achieved with your other settings (num_workers=9 num_envs_per_worker=1 rollout_fragment_length=227)! Auto-adjusting `rollout_fragment_length` to 227.
+[2m[36m(PPOTrainer pid=272789)[0m 2022-10-14 13:45:07,783	WARNING env.py:135 -- Your env doesn't have a .spec.max_episode_steps attribute. This is fine if you have set 'horizon' in your config dictionary, or `soft_horizon`. However, if you haven't, 'horizon' will default to infinity, and your environment will not be reset.
+[2m[36m(PPOTrainer pid=272789)[0m 2022-10-14 13:45:08,562	WARNING util.py:65 -- Install gputil for GPU system monitoring.
+[2m[36m(PPOTrainer pid=272789)[0m 2022-10-14 13:45:09,907	WARNING deprecation.py:46 -- DeprecationWarning: `slice` has been deprecated. Use `SampleBatch[start:stop]` instead. This will raise an error in the future!
+2022-10-14 13:46:31,155	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 0.500 s, which may be a performance bottleneck.
+2022-10-14 13:46:31,160	WARNING util.py:214 -- The `process_trial_result` operation took 0.505 s, which may be a performance bottleneck.
+2022-10-14 13:46:31,161	WARNING util.py:214 -- Processing trial results took 0.506 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 13:46:31,161	WARNING util.py:214 -- The `process_trial_result` operation took 0.585 s, which may be a performance bottleneck.
+2022-10-14 13:46:47,250	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 0.587 s, which may be a performance bottleneck.
+2022-10-14 13:46:47,256	WARNING util.py:214 -- The `process_trial_result` operation took 0.594 s, which may be a performance bottleneck.
+2022-10-14 13:46:47,257	WARNING util.py:214 -- Processing trial results took 0.594 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 13:46:47,257	WARNING util.py:214 -- The `process_trial_result` operation took 0.682 s, which may be a performance bottleneck.
+2022-10-14 13:47:06,010	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 0.657 s, which may be a performance bottleneck.
+2022-10-14 13:47:06,012	WARNING util.py:214 -- The `process_trial_result` operation took 0.659 s, which may be a performance bottleneck.
+2022-10-14 13:47:06,013	WARNING util.py:214 -- Processing trial results took 0.661 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 13:47:06,013	WARNING util.py:214 -- The `process_trial_result` operation took 0.767 s, which may be a performance bottleneck.
+2022-10-14 13:47:26,840	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 0.736 s, which may be a performance bottleneck.
+2022-10-14 13:47:26,846	WARNING util.py:214 -- The `process_trial_result` operation took 0.743 s, which may be a performance bottleneck.
+2022-10-14 13:47:26,846	WARNING util.py:214 -- Processing trial results took 0.743 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 13:47:26,846	WARNING util.py:214 -- The `process_trial_result` operation took 0.863 s, which may be a performance bottleneck.
+2022-10-14 13:47:51,653	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 0.823 s, which may be a performance bottleneck.
+2022-10-14 13:47:51,664	WARNING util.py:214 -- The `process_trial_result` operation took 0.835 s, which may be a performance bottleneck.
+2022-10-14 13:47:51,664	WARNING util.py:214 -- Processing trial results took 0.835 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 13:47:51,665	WARNING util.py:214 -- The `process_trial_result` operation took 0.963 s, which may be a performance bottleneck.
+2022-10-14 13:48:17,622	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 0.908 s, which may be a performance bottleneck.
+2022-10-14 13:48:17,629	WARNING util.py:214 -- The `process_trial_result` operation took 0.916 s, which may be a performance bottleneck.
+2022-10-14 13:48:17,630	WARNING util.py:214 -- Processing trial results took 0.916 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 13:48:17,630	WARNING util.py:214 -- The `process_trial_result` operation took 1.059 s, which may be a performance bottleneck.
+2022-10-14 13:48:41,824	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 0.995 s, which may be a performance bottleneck.
+2022-10-14 13:48:41,832	WARNING util.py:214 -- The `process_trial_result` operation took 1.004 s, which may be a performance bottleneck.
+2022-10-14 13:48:41,832	WARNING util.py:214 -- Processing trial results took 1.005 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 13:48:41,833	WARNING util.py:214 -- The `process_trial_result` operation took 1.162 s, which may be a performance bottleneck.
+2022-10-14 13:49:15,159	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 1.110 s, which may be a performance bottleneck.
+2022-10-14 13:49:15,161	WARNING util.py:214 -- The `process_trial_result` operation took 1.114 s, which may be a performance bottleneck.
+2022-10-14 13:49:15,161	WARNING util.py:214 -- Processing trial results took 1.114 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 13:49:15,161	WARNING util.py:214 -- The `process_trial_result` operation took 1.289 s, which may be a performance bottleneck.
+2022-10-14 13:49:49,282	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 1.196 s, which may be a performance bottleneck.
+2022-10-14 13:49:49,291	WARNING util.py:214 -- The `process_trial_result` operation took 1.206 s, which may be a performance bottleneck.
+2022-10-14 13:49:49,291	WARNING util.py:214 -- Processing trial results took 1.206 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 13:49:49,291	WARNING util.py:214 -- The `process_trial_result` operation took 1.395 s, which may be a performance bottleneck.
+2022-10-14 13:50:27,235	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 1.343 s, which may be a performance bottleneck.
+2022-10-14 13:50:27,245	WARNING util.py:214 -- The `process_trial_result` operation took 1.353 s, which may be a performance bottleneck.
+2022-10-14 13:50:27,245	WARNING util.py:214 -- Processing trial results took 1.353 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 13:50:27,245	WARNING util.py:214 -- The `process_trial_result` operation took 1.566 s, which may be a performance bottleneck.
+2022-10-14 13:50:56,799	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 1.428 s, which may be a performance bottleneck.
+2022-10-14 13:50:56,810	WARNING util.py:214 -- The `process_trial_result` operation took 1.439 s, which may be a performance bottleneck.
+2022-10-14 13:50:56,810	WARNING util.py:214 -- Processing trial results took 1.439 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 13:50:56,810	WARNING util.py:214 -- The `process_trial_result` operation took 1.664 s, which may be a performance bottleneck.
+2022-10-14 13:51:40,087	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 1.548 s, which may be a performance bottleneck.
+2022-10-14 13:51:40,099	WARNING util.py:214 -- The `process_trial_result` operation took 1.560 s, which may be a performance bottleneck.
+2022-10-14 13:51:40,099	WARNING util.py:214 -- Processing trial results took 1.560 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 13:51:40,099	WARNING util.py:214 -- The `process_trial_result` operation took 1.813 s, which may be a performance bottleneck.
+2022-10-14 13:52:30,488	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 1.681 s, which may be a performance bottleneck.
+2022-10-14 13:52:30,490	WARNING util.py:214 -- The `process_trial_result` operation took 1.684 s, which may be a performance bottleneck.
+2022-10-14 13:52:30,490	WARNING util.py:214 -- Processing trial results took 1.684 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 13:52:30,490	WARNING util.py:214 -- The `process_trial_result` operation took 1.962 s, which may be a performance bottleneck.
+2022-10-14 13:53:20,757	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 1.778 s, which may be a performance bottleneck.
+2022-10-14 13:53:20,769	WARNING util.py:214 -- The `process_trial_result` operation took 1.791 s, which may be a performance bottleneck.
+2022-10-14 13:53:20,769	WARNING util.py:214 -- Processing trial results took 1.791 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 13:53:20,769	WARNING util.py:214 -- The `process_trial_result` operation took 2.083 s, which may be a performance bottleneck.
+2022-10-14 13:54:15,403	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 1.906 s, which may be a performance bottleneck.
+2022-10-14 13:54:15,416	WARNING util.py:214 -- The `process_trial_result` operation took 1.919 s, which may be a performance bottleneck.
+2022-10-14 13:54:15,416	WARNING util.py:214 -- Processing trial results took 1.919 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 13:54:15,416	WARNING util.py:214 -- The `process_trial_result` operation took 2.227 s, which may be a performance bottleneck.
+2022-10-14 13:55:21,020	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.110 s, which may be a performance bottleneck.
+2022-10-14 13:55:21,033	WARNING util.py:214 -- The `process_trial_result` operation took 2.124 s, which may be a performance bottleneck.
+2022-10-14 13:55:21,033	WARNING util.py:214 -- Processing trial results took 2.124 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 13:55:21,033	WARNING util.py:214 -- The `process_trial_result` operation took 2.473 s, which may be a performance bottleneck.
+2022-10-14 13:56:20,278	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.205 s, which may be a performance bottleneck.
+2022-10-14 13:56:20,298	WARNING util.py:214 -- The `process_trial_result` operation took 2.226 s, which may be a performance bottleneck.
+2022-10-14 13:56:20,299	WARNING util.py:214 -- Processing trial results took 2.226 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 13:56:20,299	WARNING util.py:214 -- The `process_trial_result` operation took 2.579 s, which may be a performance bottleneck.
+2022-10-14 13:57:35,733	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.381 s, which may be a performance bottleneck.
+2022-10-14 13:57:35,735	WARNING util.py:214 -- The `process_trial_result` operation took 2.384 s, which may be a performance bottleneck.
+2022-10-14 13:57:35,735	WARNING util.py:214 -- Processing trial results took 2.384 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 13:57:35,736	WARNING util.py:214 -- The `process_trial_result` operation took 2.794 s, which may be a performance bottleneck.
+2022-10-14 13:59:00,609	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.554 s, which may be a performance bottleneck.
+2022-10-14 13:59:00,628	WARNING util.py:214 -- The `process_trial_result` operation took 2.573 s, which may be a performance bottleneck.
+2022-10-14 13:59:00,628	WARNING util.py:214 -- Processing trial results took 2.574 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 13:59:00,628	WARNING util.py:214 -- The `process_trial_result` operation took 2.991 s, which may be a performance bottleneck.
+2022-10-14 14:00:00,111	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.609 s, which may be a performance bottleneck.
+2022-10-14 14:00:00,128	WARNING util.py:214 -- The `process_trial_result` operation took 2.627 s, which may be a performance bottleneck.
+2022-10-14 14:00:00,128	WARNING util.py:214 -- Processing trial results took 2.627 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 14:00:00,128	WARNING util.py:214 -- The `process_trial_result` operation took 3.068 s, which may be a performance bottleneck.
+2022-10-14 14:01:33,792	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.804 s, which may be a performance bottleneck.
+2022-10-14 14:01:33,815	WARNING util.py:214 -- The `process_trial_result` operation took 2.828 s, which may be a performance bottleneck.
+2022-10-14 14:01:33,815	WARNING util.py:214 -- Processing trial results took 2.828 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 14:01:33,815	WARNING util.py:214 -- The `process_trial_result` operation took 3.311 s, which may be a performance bottleneck.
+2022-10-14 14:04:11,630	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.087 s, which may be a performance bottleneck.
+2022-10-14 14:04:11,648	WARNING util.py:214 -- The `process_trial_result` operation took 3.107 s, which may be a performance bottleneck.
+2022-10-14 14:04:11,649	WARNING util.py:214 -- Processing trial results took 3.107 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 14:04:11,650	WARNING util.py:214 -- The `process_trial_result` operation took 3.647 s, which may be a performance bottleneck.
+2022-10-14 14:05:51,787	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.164 s, which may be a performance bottleneck.
+2022-10-14 14:05:51,789	WARNING util.py:214 -- The `process_trial_result` operation took 3.168 s, which may be a performance bottleneck.
+2022-10-14 14:05:51,790	WARNING util.py:214 -- Processing trial results took 3.168 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 14:05:51,790	WARNING util.py:214 -- The `process_trial_result` operation took 3.685 s, which may be a performance bottleneck.
+2022-10-14 14:08:18,165	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.433 s, which may be a performance bottleneck.
+2022-10-14 14:08:18,186	WARNING util.py:214 -- The `process_trial_result` operation took 3.454 s, which may be a performance bottleneck.
+2022-10-14 14:08:18,186	WARNING util.py:214 -- Processing trial results took 3.454 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 14:08:18,186	WARNING util.py:214 -- The `process_trial_result` operation took 4.046 s, which may be a performance bottleneck.
+2022-10-14 14:10:13,513	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.558 s, which may be a performance bottleneck.
+2022-10-14 14:10:13,544	WARNING util.py:214 -- The `process_trial_result` operation took 3.590 s, which may be a performance bottleneck.
+2022-10-14 14:10:13,544	WARNING util.py:214 -- Processing trial results took 3.590 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 14:10:13,546	WARNING util.py:214 -- The `process_trial_result` operation took 4.196 s, which may be a performance bottleneck.
+2022-10-14 14:12:09,347	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.696 s, which may be a performance bottleneck.
+2022-10-14 14:12:09,370	WARNING util.py:214 -- The `process_trial_result` operation took 3.721 s, which may be a performance bottleneck.
+2022-10-14 14:12:09,371	WARNING util.py:214 -- Processing trial results took 3.721 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 14:12:09,371	WARNING util.py:214 -- The `process_trial_result` operation took 4.342 s, which may be a performance bottleneck.
+2022-10-14 14:13:50,793	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.698 s, which may be a performance bottleneck.
+2022-10-14 14:13:50,823	WARNING util.py:214 -- The `process_trial_result` operation took 3.729 s, which may be a performance bottleneck.
+2022-10-14 14:13:50,823	WARNING util.py:214 -- Processing trial results took 3.729 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 14:13:50,823	WARNING util.py:214 -- The `process_trial_result` operation took 4.354 s, which may be a performance bottleneck.
+2022-10-14 14:16:22,966	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.977 s, which may be a performance bottleneck.
+2022-10-14 14:16:22,968	WARNING util.py:214 -- The `process_trial_result` operation took 3.980 s, which may be a performance bottleneck.
+2022-10-14 14:16:22,969	WARNING util.py:214 -- Processing trial results took 3.980 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 14:16:22,969	WARNING util.py:214 -- The `process_trial_result` operation took 4.658 s, which may be a performance bottleneck.
+2022-10-14 14:18:29,185	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 4.097 s, which may be a performance bottleneck.
+2022-10-14 14:18:29,210	WARNING util.py:214 -- The `process_trial_result` operation took 4.123 s, which may be a performance bottleneck.
+2022-10-14 14:18:29,211	WARNING util.py:214 -- Processing trial results took 4.123 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 14:18:29,211	WARNING util.py:214 -- The `process_trial_result` operation took 4.865 s, which may be a performance bottleneck.
+2022-10-14 14:19:48,243	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 4.020 s, which may be a performance bottleneck.
+2022-10-14 14:19:48,269	WARNING util.py:214 -- The `process_trial_result` operation took 4.047 s, which may be a performance bottleneck.
+2022-10-14 14:19:48,269	WARNING util.py:214 -- Processing trial results took 4.047 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 14:19:48,269	WARNING util.py:214 -- The `process_trial_result` operation took 4.814 s, which may be a performance bottleneck.
+2022-10-14 14:21:19,276	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 4.039 s, which may be a performance bottleneck.
+2022-10-14 14:21:19,301	WARNING util.py:214 -- The `process_trial_result` operation took 4.065 s, which may be a performance bottleneck.
+2022-10-14 14:21:19,302	WARNING util.py:214 -- Processing trial results took 4.066 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 14:21:19,302	WARNING util.py:214 -- The `process_trial_result` operation took 4.809 s, which may be a performance bottleneck.
+2022-10-14 14:23:28,276	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 4.174 s, which may be a performance bottleneck.
+2022-10-14 14:23:28,307	WARNING util.py:214 -- The `process_trial_result` operation took 4.205 s, which may be a performance bottleneck.
+2022-10-14 14:23:28,307	WARNING util.py:214 -- Processing trial results took 4.206 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 14:23:28,307	WARNING util.py:214 -- The `process_trial_result` operation took 4.961 s, which may be a performance bottleneck.
+2022-10-14 14:25:23,196	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 4.109 s, which may be a performance bottleneck.
+2022-10-14 14:25:23,199	WARNING util.py:214 -- The `process_trial_result` operation took 4.113 s, which may be a performance bottleneck.
+2022-10-14 14:25:23,199	WARNING util.py:214 -- Processing trial results took 4.113 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 14:25:23,199	WARNING util.py:214 -- The `process_trial_result` operation took 4.865 s, which may be a performance bottleneck.
+2022-10-14 14:27:27,155	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 4.186 s, which may be a performance bottleneck.
+2022-10-14 14:27:27,182	WARNING util.py:214 -- The `process_trial_result` operation took 4.213 s, which may be a performance bottleneck.
+2022-10-14 14:27:27,182	WARNING util.py:214 -- Processing trial results took 4.213 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 14:27:27,182	WARNING util.py:214 -- The `process_trial_result` operation took 4.963 s, which may be a performance bottleneck.
+2022-10-14 14:28:35,305	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.855 s, which may be a performance bottleneck.
+2022-10-14 14:28:35,341	WARNING util.py:214 -- The `process_trial_result` operation took 3.892 s, which may be a performance bottleneck.
+2022-10-14 14:28:35,341	WARNING util.py:214 -- Processing trial results took 3.892 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 14:28:35,342	WARNING util.py:214 -- The `process_trial_result` operation took 4.576 s, which may be a performance bottleneck.
+2022-10-14 14:29:13,358	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.643 s, which may be a performance bottleneck.
+2022-10-14 14:29:13,383	WARNING util.py:214 -- The `process_trial_result` operation took 3.668 s, which may be a performance bottleneck.
+2022-10-14 14:29:13,383	WARNING util.py:214 -- Processing trial results took 3.668 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 14:29:13,384	WARNING util.py:214 -- The `process_trial_result` operation took 4.315 s, which may be a performance bottleneck.
+2022-10-14 14:31:12,835	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.666 s, which may be a performance bottleneck.
+2022-10-14 14:31:12,867	WARNING util.py:214 -- The `process_trial_result` operation took 3.698 s, which may be a performance bottleneck.
+2022-10-14 14:31:12,867	WARNING util.py:214 -- Processing trial results took 3.698 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 14:31:12,867	WARNING util.py:214 -- The `process_trial_result` operation took 4.340 s, which may be a performance bottleneck.
+2022-10-14 14:32:40,090	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.555 s, which may be a performance bottleneck.
+2022-10-14 14:32:40,093	WARNING util.py:214 -- The `process_trial_result` operation took 3.559 s, which may be a performance bottleneck.
+2022-10-14 14:32:40,093	WARNING util.py:214 -- Processing trial results took 3.559 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 14:32:40,093	WARNING util.py:214 -- The `process_trial_result` operation took 4.179 s, which may be a performance bottleneck.
+2022-10-14 14:34:56,047	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.866 s, which may be a performance bottleneck.
+2022-10-14 14:34:56,078	WARNING util.py:214 -- The `process_trial_result` operation took 3.898 s, which may be a performance bottleneck.
+2022-10-14 14:34:56,078	WARNING util.py:214 -- Processing trial results took 3.898 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 14:34:56,078	WARNING util.py:214 -- The `process_trial_result` operation took 4.502 s, which may be a performance bottleneck.
+2022-10-14 14:36:44,094	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.332 s, which may be a performance bottleneck.
+2022-10-14 14:36:44,125	WARNING util.py:214 -- The `process_trial_result` operation took 3.363 s, which may be a performance bottleneck.
+2022-10-14 14:36:44,125	WARNING util.py:214 -- Processing trial results took 3.364 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 14:36:44,125	WARNING util.py:214 -- The `process_trial_result` operation took 3.930 s, which may be a performance bottleneck.
+2022-10-14 14:38:18,809	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.357 s, which may be a performance bottleneck.
+2022-10-14 14:38:18,836	WARNING util.py:214 -- The `process_trial_result` operation took 3.384 s, which may be a performance bottleneck.
+2022-10-14 14:38:18,836	WARNING util.py:214 -- Processing trial results took 3.384 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 14:38:18,836	WARNING util.py:214 -- The `process_trial_result` operation took 3.977 s, which may be a performance bottleneck.
+2022-10-14 14:40:04,420	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.372 s, which may be a performance bottleneck.
+2022-10-14 14:40:04,448	WARNING util.py:214 -- The `process_trial_result` operation took 3.401 s, which may be a performance bottleneck.
+2022-10-14 14:40:04,449	WARNING util.py:214 -- Processing trial results took 3.401 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 14:40:04,449	WARNING util.py:214 -- The `process_trial_result` operation took 3.973 s, which may be a performance bottleneck.
+2022-10-14 14:41:03,470	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.169 s, which may be a performance bottleneck.
+2022-10-14 14:41:03,472	WARNING util.py:214 -- The `process_trial_result` operation took 3.172 s, which may be a performance bottleneck.
+2022-10-14 14:41:03,472	WARNING util.py:214 -- Processing trial results took 3.172 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 14:41:03,472	WARNING util.py:214 -- The `process_trial_result` operation took 3.708 s, which may be a performance bottleneck.
+2022-10-14 14:42:59,562	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.117 s, which may be a performance bottleneck.
+2022-10-14 14:42:59,583	WARNING util.py:214 -- The `process_trial_result` operation took 3.139 s, which may be a performance bottleneck.
+2022-10-14 14:42:59,583	WARNING util.py:214 -- Processing trial results took 3.139 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 14:42:59,584	WARNING util.py:214 -- The `process_trial_result` operation took 3.666 s, which may be a performance bottleneck.
+2022-10-14 14:44:55,922	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.390 s, which may be a performance bottleneck.
+2022-10-14 14:44:55,942	WARNING util.py:214 -- The `process_trial_result` operation took 3.412 s, which may be a performance bottleneck.
+2022-10-14 14:44:55,943	WARNING util.py:214 -- Processing trial results took 3.412 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 14:44:55,943	WARNING util.py:214 -- The `process_trial_result` operation took 3.944 s, which may be a performance bottleneck.
+2022-10-14 14:46:14,217	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.190 s, which may be a performance bottleneck.
+2022-10-14 14:46:14,238	WARNING util.py:214 -- The `process_trial_result` operation took 3.211 s, which may be a performance bottleneck.
+2022-10-14 14:46:14,238	WARNING util.py:214 -- Processing trial results took 3.211 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 14:46:14,238	WARNING util.py:214 -- The `process_trial_result` operation took 3.731 s, which may be a performance bottleneck.
+2022-10-14 14:48:44,023	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.358 s, which may be a performance bottleneck.
+2022-10-14 14:48:44,045	WARNING util.py:214 -- The `process_trial_result` operation took 3.381 s, which may be a performance bottleneck.
+2022-10-14 14:48:44,045	WARNING util.py:214 -- Processing trial results took 3.381 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 14:48:44,045	WARNING util.py:214 -- The `process_trial_result` operation took 3.933 s, which may be a performance bottleneck.
+2022-10-14 14:50:10,070	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.291 s, which may be a performance bottleneck.
+2022-10-14 14:50:10,073	WARNING util.py:214 -- The `process_trial_result` operation took 3.295 s, which may be a performance bottleneck.
+2022-10-14 14:50:10,073	WARNING util.py:214 -- Processing trial results took 3.295 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 14:50:10,073	WARNING util.py:214 -- The `process_trial_result` operation took 3.873 s, which may be a performance bottleneck.
+2022-10-14 14:52:08,894	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.419 s, which may be a performance bottleneck.
+2022-10-14 14:52:08,905	WARNING util.py:214 -- The `process_trial_result` operation took 3.430 s, which may be a performance bottleneck.
+2022-10-14 14:52:08,905	WARNING util.py:214 -- Processing trial results took 3.430 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 14:52:08,905	WARNING util.py:214 -- The `process_trial_result` operation took 4.010 s, which may be a performance bottleneck.
+2022-10-14 14:53:00,124	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.218 s, which may be a performance bottleneck.
+2022-10-14 14:53:00,146	WARNING util.py:214 -- The `process_trial_result` operation took 3.241 s, which may be a performance bottleneck.
+2022-10-14 14:53:00,146	WARNING util.py:214 -- Processing trial results took 3.241 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 14:53:00,146	WARNING util.py:214 -- The `process_trial_result` operation took 3.774 s, which may be a performance bottleneck.
+2022-10-14 14:54:59,340	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.289 s, which may be a performance bottleneck.
+2022-10-14 14:54:59,361	WARNING util.py:214 -- The `process_trial_result` operation took 3.311 s, which may be a performance bottleneck.
+2022-10-14 14:54:59,361	WARNING util.py:214 -- Processing trial results took 3.311 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 14:54:59,361	WARNING util.py:214 -- The `process_trial_result` operation took 4.116 s, which may be a performance bottleneck.
+2022-10-14 14:56:56,461	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.349 s, which may be a performance bottleneck.
+2022-10-14 14:56:56,483	WARNING util.py:214 -- The `process_trial_result` operation took 3.371 s, which may be a performance bottleneck.
+2022-10-14 14:56:56,483	WARNING util.py:214 -- Processing trial results took 3.372 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 14:56:56,484	WARNING util.py:214 -- The `process_trial_result` operation took 3.929 s, which may be a performance bottleneck.
+2022-10-14 14:58:56,835	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.377 s, which may be a performance bottleneck.
+2022-10-14 14:58:56,838	WARNING util.py:214 -- The `process_trial_result` operation took 3.381 s, which may be a performance bottleneck.
+2022-10-14 14:58:56,838	WARNING util.py:214 -- Processing trial results took 3.381 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 14:58:56,838	WARNING util.py:214 -- The `process_trial_result` operation took 3.966 s, which may be a performance bottleneck.
+2022-10-14 15:00:52,804	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.484 s, which may be a performance bottleneck.
+2022-10-14 15:00:52,826	WARNING util.py:214 -- The `process_trial_result` operation took 3.506 s, which may be a performance bottleneck.
+2022-10-14 15:00:52,826	WARNING util.py:214 -- Processing trial results took 3.506 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 15:00:52,826	WARNING util.py:214 -- The `process_trial_result` operation took 4.103 s, which may be a performance bottleneck.
+2022-10-14 15:03:28,317	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.726 s, which may be a performance bottleneck.
+2022-10-14 15:03:28,340	WARNING util.py:214 -- The `process_trial_result` operation took 3.749 s, which may be a performance bottleneck.
+2022-10-14 15:03:28,340	WARNING util.py:214 -- Processing trial results took 3.749 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 15:03:28,340	WARNING util.py:214 -- The `process_trial_result` operation took 4.393 s, which may be a performance bottleneck.
+2022-10-14 15:04:33,562	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.592 s, which may be a performance bottleneck.
+2022-10-14 15:04:33,593	WARNING util.py:214 -- The `process_trial_result` operation took 3.624 s, which may be a performance bottleneck.
+2022-10-14 15:04:33,593	WARNING util.py:214 -- Processing trial results took 3.625 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 15:04:33,594	WARNING util.py:214 -- The `process_trial_result` operation took 4.254 s, which may be a performance bottleneck.
+2022-10-14 15:06:26,117	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.607 s, which may be a performance bottleneck.
+2022-10-14 15:06:26,141	WARNING util.py:214 -- The `process_trial_result` operation took 3.632 s, which may be a performance bottleneck.
+2022-10-14 15:06:26,143	WARNING util.py:214 -- Processing trial results took 3.634 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 15:06:26,156	WARNING util.py:214 -- The `process_trial_result` operation took 4.266 s, which may be a performance bottleneck.
+2022-10-14 15:07:40,601	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.562 s, which may be a performance bottleneck.
+2022-10-14 15:07:40,604	WARNING util.py:214 -- The `process_trial_result` operation took 3.566 s, which may be a performance bottleneck.
+2022-10-14 15:07:40,604	WARNING util.py:214 -- Processing trial results took 3.566 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 15:07:40,604	WARNING util.py:214 -- The `process_trial_result` operation took 4.166 s, which may be a performance bottleneck.
+2022-10-14 15:09:16,657	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.643 s, which may be a performance bottleneck.
+2022-10-14 15:09:16,679	WARNING util.py:214 -- The `process_trial_result` operation took 3.667 s, which may be a performance bottleneck.
+2022-10-14 15:09:16,681	WARNING util.py:214 -- Processing trial results took 3.668 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 15:09:16,681	WARNING util.py:214 -- The `process_trial_result` operation took 4.284 s, which may be a performance bottleneck.
+2022-10-14 15:11:27,071	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.695 s, which may be a performance bottleneck.
+2022-10-14 15:11:27,096	WARNING util.py:214 -- The `process_trial_result` operation took 3.720 s, which may be a performance bottleneck.
+2022-10-14 15:11:27,096	WARNING util.py:214 -- Processing trial results took 3.720 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 15:11:27,096	WARNING util.py:214 -- The `process_trial_result` operation took 4.347 s, which may be a performance bottleneck.
+2022-10-14 15:13:27,788	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.820 s, which may be a performance bottleneck.
+2022-10-14 15:13:27,821	WARNING util.py:214 -- The `process_trial_result` operation took 3.854 s, which may be a performance bottleneck.
+2022-10-14 15:13:27,821	WARNING util.py:214 -- Processing trial results took 3.854 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 15:13:27,821	WARNING util.py:214 -- The `process_trial_result` operation took 4.514 s, which may be a performance bottleneck.
+2022-10-14 15:15:46,102	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.900 s, which may be a performance bottleneck.
+2022-10-14 15:15:46,128	WARNING util.py:214 -- The `process_trial_result` operation took 3.926 s, which may be a performance bottleneck.
+2022-10-14 15:15:46,129	WARNING util.py:214 -- Processing trial results took 3.927 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 15:15:46,129	WARNING util.py:214 -- The `process_trial_result` operation took 4.632 s, which may be a performance bottleneck.
+2022-10-14 15:17:23,641	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.858 s, which may be a performance bottleneck.
+2022-10-14 15:17:23,643	WARNING util.py:214 -- The `process_trial_result` operation took 3.861 s, which may be a performance bottleneck.
+2022-10-14 15:17:23,644	WARNING util.py:214 -- Processing trial results took 3.862 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 15:17:23,644	WARNING util.py:214 -- The `process_trial_result` operation took 4.533 s, which may be a performance bottleneck.
+2022-10-14 15:18:38,854	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.820 s, which may be a performance bottleneck.
+2022-10-14 15:18:38,880	WARNING util.py:214 -- The `process_trial_result` operation took 3.846 s, which may be a performance bottleneck.
+2022-10-14 15:18:38,880	WARNING util.py:214 -- Processing trial results took 3.846 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 15:18:38,880	WARNING util.py:214 -- The `process_trial_result` operation took 4.498 s, which may be a performance bottleneck.
+2022-10-14 15:19:46,627	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.721 s, which may be a performance bottleneck.
+2022-10-14 15:19:46,668	WARNING util.py:214 -- The `process_trial_result` operation took 3.763 s, which may be a performance bottleneck.
+2022-10-14 15:19:46,669	WARNING util.py:214 -- Processing trial results took 3.763 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 15:19:46,669	WARNING util.py:214 -- The `process_trial_result` operation took 4.412 s, which may be a performance bottleneck.
+2022-10-14 15:21:20,328	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.486 s, which may be a performance bottleneck.
+2022-10-14 15:21:20,352	WARNING util.py:214 -- The `process_trial_result` operation took 3.510 s, which may be a performance bottleneck.
+2022-10-14 15:21:20,352	WARNING util.py:214 -- Processing trial results took 3.511 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 15:21:20,352	WARNING util.py:214 -- The `process_trial_result` operation took 4.103 s, which may be a performance bottleneck.
+2022-10-14 15:24:05,174	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.660 s, which may be a performance bottleneck.
+2022-10-14 15:24:05,198	WARNING util.py:214 -- The `process_trial_result` operation took 3.685 s, which may be a performance bottleneck.
+2022-10-14 15:24:05,200	WARNING util.py:214 -- Processing trial results took 3.687 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 15:24:05,200	WARNING util.py:214 -- The `process_trial_result` operation took 4.304 s, which may be a performance bottleneck.
+2022-10-14 15:25:27,639	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.480 s, which may be a performance bottleneck.
+2022-10-14 15:25:27,642	WARNING util.py:214 -- The `process_trial_result` operation took 3.484 s, which may be a performance bottleneck.
+2022-10-14 15:25:27,642	WARNING util.py:214 -- Processing trial results took 3.484 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 15:25:27,642	WARNING util.py:214 -- The `process_trial_result` operation took 4.087 s, which may be a performance bottleneck.
+2022-10-14 15:27:16,937	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.575 s, which may be a performance bottleneck.
+2022-10-14 15:27:16,960	WARNING util.py:214 -- The `process_trial_result` operation took 3.599 s, which may be a performance bottleneck.
+2022-10-14 15:27:16,960	WARNING util.py:214 -- Processing trial results took 3.599 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 15:27:16,961	WARNING util.py:214 -- The `process_trial_result` operation took 4.216 s, which may be a performance bottleneck.
+2022-10-14 15:28:58,686	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.689 s, which may be a performance bottleneck.
+2022-10-14 15:28:58,709	WARNING util.py:214 -- The `process_trial_result` operation took 3.713 s, which may be a performance bottleneck.
+2022-10-14 15:28:58,709	WARNING util.py:214 -- Processing trial results took 3.713 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 15:28:58,709	WARNING util.py:214 -- The `process_trial_result` operation took 4.351 s, which may be a performance bottleneck.
+2022-10-14 15:30:16,035	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.462 s, which may be a performance bottleneck.
+2022-10-14 15:30:16,059	WARNING util.py:214 -- The `process_trial_result` operation took 3.487 s, which may be a performance bottleneck.
+2022-10-14 15:30:16,059	WARNING util.py:214 -- Processing trial results took 3.487 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 15:30:16,059	WARNING util.py:214 -- The `process_trial_result` operation took 4.074 s, which may be a performance bottleneck.
+2022-10-14 15:32:28,771	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.520 s, which may be a performance bottleneck.
+2022-10-14 15:32:28,795	WARNING util.py:214 -- The `process_trial_result` operation took 3.545 s, which may be a performance bottleneck.
+2022-10-14 15:32:28,812	WARNING util.py:214 -- Processing trial results took 3.547 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 15:32:28,813	WARNING util.py:214 -- The `process_trial_result` operation took 4.151 s, which may be a performance bottleneck.
+2022-10-14 15:34:44,329	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.549 s, which may be a performance bottleneck.
+2022-10-14 15:34:44,332	WARNING util.py:214 -- The `process_trial_result` operation took 3.553 s, which may be a performance bottleneck.
+2022-10-14 15:34:44,332	WARNING util.py:214 -- Processing trial results took 3.553 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 15:34:44,332	WARNING util.py:214 -- The `process_trial_result` operation took 4.155 s, which may be a performance bottleneck.
+2022-10-14 15:36:43,045	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.664 s, which may be a performance bottleneck.
+2022-10-14 15:36:43,070	WARNING util.py:214 -- The `process_trial_result` operation took 3.689 s, which may be a performance bottleneck.
+2022-10-14 15:36:43,070	WARNING util.py:214 -- Processing trial results took 3.689 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 15:36:43,070	WARNING util.py:214 -- The `process_trial_result` operation took 4.321 s, which may be a performance bottleneck.
+2022-10-14 15:38:27,217	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.685 s, which may be a performance bottleneck.
+2022-10-14 15:38:27,241	WARNING util.py:214 -- The `process_trial_result` operation took 3.709 s, which may be a performance bottleneck.
+2022-10-14 15:38:27,242	WARNING util.py:214 -- Processing trial results took 3.710 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 15:38:27,242	WARNING util.py:214 -- The `process_trial_result` operation took 4.349 s, which may be a performance bottleneck.
+2022-10-14 15:40:38,732	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.817 s, which may be a performance bottleneck.
+2022-10-14 15:40:38,772	WARNING util.py:214 -- The `process_trial_result` operation took 3.858 s, which may be a performance bottleneck.
+2022-10-14 15:40:38,772	WARNING util.py:214 -- Processing trial results took 3.858 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 15:40:38,773	WARNING util.py:214 -- The `process_trial_result` operation took 4.530 s, which may be a performance bottleneck.
+2022-10-14 15:43:07,212	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 4.032 s, which may be a performance bottleneck.
+2022-10-14 15:43:07,237	WARNING util.py:214 -- The `process_trial_result` operation took 4.057 s, which may be a performance bottleneck.
+2022-10-14 15:43:07,238	WARNING util.py:214 -- Processing trial results took 4.058 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 15:43:07,238	WARNING util.py:214 -- The `process_trial_result` operation took 4.796 s, which may be a performance bottleneck.
+2022-10-14 15:45:33,960	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 4.142 s, which may be a performance bottleneck.
+2022-10-14 15:45:33,964	WARNING util.py:214 -- The `process_trial_result` operation took 4.146 s, which may be a performance bottleneck.
+2022-10-14 15:45:33,964	WARNING util.py:214 -- Processing trial results took 4.146 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 15:45:33,964	WARNING util.py:214 -- The `process_trial_result` operation took 4.873 s, which may be a performance bottleneck.
+2022-10-14 15:47:52,489	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 4.399 s, which may be a performance bottleneck.
+2022-10-14 15:47:52,516	WARNING util.py:214 -- The `process_trial_result` operation took 4.426 s, which may be a performance bottleneck.
+2022-10-14 15:47:52,516	WARNING util.py:214 -- Processing trial results took 4.426 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 15:47:52,516	WARNING util.py:214 -- The `process_trial_result` operation took 5.234 s, which may be a performance bottleneck.
+2022-10-14 15:50:29,356	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 4.518 s, which may be a performance bottleneck.
+2022-10-14 15:50:29,384	WARNING util.py:214 -- The `process_trial_result` operation took 4.547 s, which may be a performance bottleneck.
+2022-10-14 15:50:29,385	WARNING util.py:214 -- Processing trial results took 4.547 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 15:50:29,385	WARNING util.py:214 -- The `process_trial_result` operation took 5.362 s, which may be a performance bottleneck.
+2022-10-14 15:53:00,205	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 4.769 s, which may be a performance bottleneck.
+2022-10-14 15:53:00,234	WARNING util.py:214 -- The `process_trial_result` operation took 4.799 s, which may be a performance bottleneck.
+2022-10-14 15:53:00,235	WARNING util.py:214 -- Processing trial results took 4.799 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 15:53:00,235	WARNING util.py:214 -- The `process_trial_result` operation took 5.649 s, which may be a performance bottleneck.
+2022-10-14 15:55:16,589	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 4.797 s, which may be a performance bottleneck.
+2022-10-14 15:55:16,621	WARNING util.py:214 -- The `process_trial_result` operation took 4.829 s, which may be a performance bottleneck.
+2022-10-14 15:55:16,621	WARNING util.py:214 -- Processing trial results took 4.830 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 15:55:16,621	WARNING util.py:214 -- The `process_trial_result` operation took 5.684 s, which may be a performance bottleneck.
+2022-10-14 15:58:25,163	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 5.106 s, which may be a performance bottleneck.
+2022-10-14 15:58:25,166	WARNING util.py:214 -- The `process_trial_result` operation took 5.109 s, which may be a performance bottleneck.
+2022-10-14 15:58:25,166	WARNING util.py:214 -- Processing trial results took 5.109 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 15:58:25,166	WARNING util.py:214 -- The `process_trial_result` operation took 6.045 s, which may be a performance bottleneck.
+2022-10-14 16:00:47,508	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 5.080 s, which may be a performance bottleneck.
+2022-10-14 16:00:47,541	WARNING util.py:214 -- The `process_trial_result` operation took 5.114 s, which may be a performance bottleneck.
+2022-10-14 16:00:47,541	WARNING util.py:214 -- Processing trial results took 5.114 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 16:00:47,541	WARNING util.py:214 -- The `process_trial_result` operation took 6.071 s, which may be a performance bottleneck.
+2022-10-14 16:03:58,351	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 5.290 s, which may be a performance bottleneck.
+2022-10-14 16:03:58,384	WARNING util.py:214 -- The `process_trial_result` operation took 5.324 s, which may be a performance bottleneck.
+2022-10-14 16:03:58,384	WARNING util.py:214 -- Processing trial results took 5.324 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 16:03:58,384	WARNING util.py:214 -- The `process_trial_result` operation took 6.310 s, which may be a performance bottleneck.
+2022-10-14 16:06:30,749	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 5.410 s, which may be a performance bottleneck.
+2022-10-14 16:06:30,783	WARNING util.py:214 -- The `process_trial_result` operation took 5.445 s, which may be a performance bottleneck.
+2022-10-14 16:06:30,783	WARNING util.py:214 -- Processing trial results took 5.445 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 16:06:30,783	WARNING util.py:214 -- The `process_trial_result` operation took 6.462 s, which may be a performance bottleneck.
+2022-10-14 16:09:45,931	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 5.635 s, which may be a performance bottleneck.
+2022-10-14 16:09:45,968	WARNING util.py:214 -- The `process_trial_result` operation took 5.672 s, which may be a performance bottleneck.
+2022-10-14 16:09:45,968	WARNING util.py:214 -- Processing trial results took 5.672 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 16:09:45,968	WARNING util.py:214 -- The `process_trial_result` operation took 6.711 s, which may be a performance bottleneck.
+2022-10-14 16:12:38,936	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 5.705 s, which may be a performance bottleneck.
+2022-10-14 16:12:38,939	WARNING util.py:214 -- The `process_trial_result` operation took 5.707 s, which may be a performance bottleneck.
+2022-10-14 16:12:38,939	WARNING util.py:214 -- Processing trial results took 5.707 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 16:12:38,940	WARNING util.py:214 -- The `process_trial_result` operation took 6.763 s, which may be a performance bottleneck.
+2022-10-14 16:16:13,260	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 5.966 s, which may be a performance bottleneck.
+2022-10-14 16:16:13,297	WARNING util.py:214 -- The `process_trial_result` operation took 6.004 s, which may be a performance bottleneck.
+2022-10-14 16:16:13,298	WARNING util.py:214 -- Processing trial results took 6.004 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 16:16:13,298	WARNING util.py:214 -- The `process_trial_result` operation took 7.128 s, which may be a performance bottleneck.
+2022-10-14 16:18:49,334	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 5.957 s, which may be a performance bottleneck.
+2022-10-14 16:18:49,372	WARNING util.py:214 -- The `process_trial_result` operation took 5.996 s, which may be a performance bottleneck.
+2022-10-14 16:18:49,373	WARNING util.py:214 -- Processing trial results took 5.996 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 16:18:49,373	WARNING util.py:214 -- The `process_trial_result` operation took 7.113 s, which may be a performance bottleneck.
+2022-10-14 16:21:02,054	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 5.885 s, which may be a performance bottleneck.
+2022-10-14 16:21:02,093	WARNING util.py:214 -- The `process_trial_result` operation took 5.925 s, which may be a performance bottleneck.
+2022-10-14 16:21:02,093	WARNING util.py:214 -- Processing trial results took 5.925 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 16:21:02,093	WARNING util.py:214 -- The `process_trial_result` operation took 7.022 s, which may be a performance bottleneck.
+2022-10-14 16:23:16,702	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 5.788 s, which may be a performance bottleneck.
+2022-10-14 16:23:16,741	WARNING util.py:214 -- The `process_trial_result` operation took 5.828 s, which may be a performance bottleneck.
+2022-10-14 16:23:16,741	WARNING util.py:214 -- Processing trial results took 5.828 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 16:23:16,741	WARNING util.py:214 -- The `process_trial_result` operation took 6.925 s, which may be a performance bottleneck.
+2022-10-14 16:25:28,387	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 5.713 s, which may be a performance bottleneck.
+2022-10-14 16:25:28,390	WARNING util.py:214 -- The `process_trial_result` operation took 5.717 s, which may be a performance bottleneck.
+2022-10-14 16:25:28,390	WARNING util.py:214 -- Processing trial results took 5.717 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 16:25:28,390	WARNING util.py:214 -- The `process_trial_result` operation took 6.757 s, which may be a performance bottleneck.
+2022-10-14 16:27:51,057	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 5.603 s, which may be a performance bottleneck.
+2022-10-14 16:27:51,095	WARNING util.py:214 -- The `process_trial_result` operation took 5.641 s, which may be a performance bottleneck.
+2022-10-14 16:27:51,095	WARNING util.py:214 -- Processing trial results took 5.641 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 16:27:51,095	WARNING util.py:214 -- The `process_trial_result` operation took 6.685 s, which may be a performance bottleneck.
+2022-10-14 16:30:19,037	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 5.500 s, which may be a performance bottleneck.
+2022-10-14 16:30:19,075	WARNING util.py:214 -- The `process_trial_result` operation took 5.538 s, which may be a performance bottleneck.
+2022-10-14 16:30:19,075	WARNING util.py:214 -- Processing trial results took 5.539 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 16:30:19,075	WARNING util.py:214 -- The `process_trial_result` operation took 6.576 s, which may be a performance bottleneck.
+2022-10-14 16:32:54,469	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 5.560 s, which may be a performance bottleneck.
+2022-10-14 16:32:54,504	WARNING util.py:214 -- The `process_trial_result` operation took 5.595 s, which may be a performance bottleneck.
+2022-10-14 16:32:54,505	WARNING util.py:214 -- Processing trial results took 5.597 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 16:32:54,505	WARNING util.py:214 -- The `process_trial_result` operation took 6.635 s, which may be a performance bottleneck.
+2022-10-14 16:36:10,488	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 5.586 s, which may be a performance bottleneck.
+2022-10-14 16:36:10,524	WARNING util.py:214 -- The `process_trial_result` operation took 5.623 s, which may be a performance bottleneck.
+2022-10-14 16:36:10,524	WARNING util.py:214 -- Processing trial results took 5.623 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 16:36:10,524	WARNING util.py:214 -- The `process_trial_result` operation took 6.659 s, which may be a performance bottleneck.
+2022-10-14 16:38:40,309	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 5.474 s, which may be a performance bottleneck.
+2022-10-14 16:38:40,311	WARNING util.py:214 -- The `process_trial_result` operation took 5.477 s, which may be a performance bottleneck.
+2022-10-14 16:38:40,311	WARNING util.py:214 -- Processing trial results took 5.477 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 16:38:40,311	WARNING util.py:214 -- The `process_trial_result` operation took 6.503 s, which may be a performance bottleneck.
+2022-10-14 16:41:56,684	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 5.586 s, which may be a performance bottleneck.
+2022-10-14 16:41:56,730	WARNING util.py:214 -- The `process_trial_result` operation took 5.632 s, which may be a performance bottleneck.
+2022-10-14 16:41:56,730	WARNING util.py:214 -- Processing trial results took 5.633 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 16:41:56,730	WARNING util.py:214 -- The `process_trial_result` operation took 6.698 s, which may be a performance bottleneck.
+2022-10-14 16:43:53,083	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 5.092 s, which may be a performance bottleneck.
+2022-10-14 16:43:53,127	WARNING util.py:214 -- The `process_trial_result` operation took 5.137 s, which may be a performance bottleneck.
+2022-10-14 16:43:53,127	WARNING util.py:214 -- Processing trial results took 5.138 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 16:43:53,127	WARNING util.py:214 -- The `process_trial_result` operation took 6.096 s, which may be a performance bottleneck.
+2022-10-14 16:46:39,588	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 5.191 s, which may be a performance bottleneck.
+2022-10-14 16:46:39,628	WARNING util.py:214 -- The `process_trial_result` operation took 5.231 s, which may be a performance bottleneck.
+2022-10-14 16:46:39,628	WARNING util.py:214 -- Processing trial results took 5.232 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 16:46:39,628	WARNING util.py:214 -- The `process_trial_result` operation took 6.222 s, which may be a performance bottleneck.
+2022-10-14 16:48:41,461	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 5.062 s, which may be a performance bottleneck.
+2022-10-14 16:48:41,503	WARNING util.py:214 -- The `process_trial_result` operation took 5.105 s, which may be a performance bottleneck.
+2022-10-14 16:48:41,503	WARNING util.py:214 -- Processing trial results took 5.105 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 16:48:41,503	WARNING util.py:214 -- The `process_trial_result` operation took 6.042 s, which may be a performance bottleneck.
+2022-10-14 16:50:53,648	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 5.088 s, which may be a performance bottleneck.
+2022-10-14 16:50:53,650	WARNING util.py:214 -- The `process_trial_result` operation took 5.091 s, which may be a performance bottleneck.
+2022-10-14 16:50:53,651	WARNING util.py:214 -- Processing trial results took 5.092 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 16:50:53,652	WARNING util.py:214 -- The `process_trial_result` operation took 6.047 s, which may be a performance bottleneck.
+2022-10-14 16:54:09,526	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 5.466 s, which may be a performance bottleneck.
+2022-10-14 16:54:09,559	WARNING util.py:214 -- The `process_trial_result` operation took 5.500 s, which may be a performance bottleneck.
+2022-10-14 16:54:09,559	WARNING util.py:214 -- Processing trial results took 5.500 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 16:54:09,559	WARNING util.py:214 -- The `process_trial_result` operation took 6.538 s, which may be a performance bottleneck.
+2022-10-14 16:57:11,014	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 5.535 s, which may be a performance bottleneck.
+2022-10-14 16:57:11,049	WARNING util.py:214 -- The `process_trial_result` operation took 5.571 s, which may be a performance bottleneck.
+2022-10-14 16:57:11,050	WARNING util.py:214 -- Processing trial results took 5.571 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 16:57:11,050	WARNING util.py:214 -- The `process_trial_result` operation took 6.631 s, which may be a performance bottleneck.
+2022-10-14 17:00:34,430	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 5.782 s, which may be a performance bottleneck.
+2022-10-14 17:00:34,467	WARNING util.py:214 -- The `process_trial_result` operation took 5.819 s, which may be a performance bottleneck.
+2022-10-14 17:00:34,467	WARNING util.py:214 -- Processing trial results took 5.820 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 17:00:34,467	WARNING util.py:214 -- The `process_trial_result` operation took 6.920 s, which may be a performance bottleneck.
+2022-10-14 17:03:50,051	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 5.870 s, which may be a performance bottleneck.
+2022-10-14 17:03:50,089	WARNING util.py:214 -- The `process_trial_result` operation took 5.909 s, which may be a performance bottleneck.
+2022-10-14 17:03:50,089	WARNING util.py:214 -- Processing trial results took 5.909 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 17:03:50,089	WARNING util.py:214 -- The `process_trial_result` operation took 7.003 s, which may be a performance bottleneck.
+2022-10-14 17:06:08,950	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 5.731 s, which may be a performance bottleneck.
+2022-10-14 17:06:08,952	WARNING util.py:214 -- The `process_trial_result` operation took 5.734 s, which may be a performance bottleneck.
+2022-10-14 17:06:08,952	WARNING util.py:214 -- Processing trial results took 5.735 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 17:06:08,953	WARNING util.py:214 -- The `process_trial_result` operation took 6.800 s, which may be a performance bottleneck.
+2022-10-14 17:08:58,331	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 5.819 s, which may be a performance bottleneck.
+2022-10-14 17:08:58,367	WARNING util.py:214 -- The `process_trial_result` operation took 5.856 s, which may be a performance bottleneck.
+2022-10-14 17:08:58,368	WARNING util.py:214 -- Processing trial results took 5.856 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 17:08:58,368	WARNING util.py:214 -- The `process_trial_result` operation took 6.954 s, which may be a performance bottleneck.
+2022-10-14 17:11:20,845	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 5.626 s, which may be a performance bottleneck.
+2022-10-14 17:11:20,883	WARNING util.py:214 -- The `process_trial_result` operation took 5.664 s, which may be a performance bottleneck.
+2022-10-14 17:11:20,883	WARNING util.py:214 -- Processing trial results took 5.664 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 17:11:20,883	WARNING util.py:214 -- The `process_trial_result` operation took 6.710 s, which may be a performance bottleneck.
+2022-10-14 17:13:12,160	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 5.506 s, which may be a performance bottleneck.
+2022-10-14 17:13:12,197	WARNING util.py:214 -- The `process_trial_result` operation took 5.543 s, which may be a performance bottleneck.
+2022-10-14 17:13:12,197	WARNING util.py:214 -- Processing trial results took 5.544 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 17:13:12,197	WARNING util.py:214 -- The `process_trial_result` operation took 6.597 s, which may be a performance bottleneck.
+2022-10-14 17:15:09,284	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 5.321 s, which may be a performance bottleneck.
+2022-10-14 17:15:09,320	WARNING util.py:214 -- The `process_trial_result` operation took 5.358 s, which may be a performance bottleneck.
+2022-10-14 17:15:09,321	WARNING util.py:214 -- Processing trial results took 5.358 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 17:15:09,321	WARNING util.py:214 -- The `process_trial_result` operation took 6.357 s, which may be a performance bottleneck.
+2022-10-14 17:17:29,525	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 5.390 s, which may be a performance bottleneck.
+2022-10-14 17:17:29,529	WARNING util.py:214 -- The `process_trial_result` operation took 5.394 s, which may be a performance bottleneck.
+2022-10-14 17:17:29,529	WARNING util.py:214 -- Processing trial results took 5.394 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 17:17:29,529	WARNING util.py:214 -- The `process_trial_result` operation took 6.393 s, which may be a performance bottleneck.
+2022-10-14 17:19:21,823	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 5.316 s, which may be a performance bottleneck.
+2022-10-14 17:19:21,843	WARNING util.py:214 -- The `process_trial_result` operation took 5.337 s, which may be a performance bottleneck.
+2022-10-14 17:19:21,843	WARNING util.py:214 -- Processing trial results took 5.337 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 17:19:21,843	WARNING util.py:214 -- The `process_trial_result` operation took 6.329 s, which may be a performance bottleneck.
+2022-10-14 17:21:45,741	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 5.098 s, which may be a performance bottleneck.
+2022-10-14 17:21:45,775	WARNING util.py:214 -- The `process_trial_result` operation took 5.132 s, which may be a performance bottleneck.
+2022-10-14 17:21:45,775	WARNING util.py:214 -- Processing trial results took 5.132 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 17:21:45,775	WARNING util.py:214 -- The `process_trial_result` operation took 6.087 s, which may be a performance bottleneck.
+2022-10-14 17:25:15,800	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 5.183 s, which may be a performance bottleneck.
+2022-10-14 17:25:15,816	WARNING util.py:214 -- The `process_trial_result` operation took 5.199 s, which may be a performance bottleneck.
+2022-10-14 17:25:15,816	WARNING util.py:214 -- Processing trial results took 5.200 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 17:25:15,816	WARNING util.py:214 -- The `process_trial_result` operation took 6.121 s, which may be a performance bottleneck.
+2022-10-14 17:28:00,647	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 5.037 s, which may be a performance bottleneck.
+2022-10-14 17:28:00,681	WARNING util.py:214 -- The `process_trial_result` operation took 5.072 s, which may be a performance bottleneck.
+2022-10-14 17:28:00,681	WARNING util.py:214 -- Processing trial results took 5.072 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 17:28:00,682	WARNING util.py:214 -- The `process_trial_result` operation took 5.968 s, which may be a performance bottleneck.
+2022-10-14 17:31:00,099	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 5.161 s, which may be a performance bottleneck.
+2022-10-14 17:31:00,101	WARNING util.py:214 -- The `process_trial_result` operation took 5.164 s, which may be a performance bottleneck.
+2022-10-14 17:31:00,101	WARNING util.py:214 -- Processing trial results took 5.164 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 17:31:00,101	WARNING util.py:214 -- The `process_trial_result` operation took 6.065 s, which may be a performance bottleneck.
+2022-10-14 17:33:25,827	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 5.205 s, which may be a performance bottleneck.
+2022-10-14 17:33:25,860	WARNING util.py:214 -- The `process_trial_result` operation took 5.239 s, which may be a performance bottleneck.
+2022-10-14 17:33:25,861	WARNING util.py:214 -- Processing trial results took 5.240 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 17:33:25,861	WARNING util.py:214 -- The `process_trial_result` operation took 6.172 s, which may be a performance bottleneck.
+2022-10-14 17:35:37,447	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 5.153 s, which may be a performance bottleneck.
+2022-10-14 17:35:37,481	WARNING util.py:214 -- The `process_trial_result` operation took 5.188 s, which may be a performance bottleneck.
+2022-10-14 17:35:37,481	WARNING util.py:214 -- Processing trial results took 5.188 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 17:35:37,482	WARNING util.py:214 -- The `process_trial_result` operation took 6.133 s, which may be a performance bottleneck.
+2022-10-14 17:37:09,977	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 4.852 s, which may be a performance bottleneck.
+2022-10-14 17:37:10,010	WARNING util.py:214 -- The `process_trial_result` operation took 4.885 s, which may be a performance bottleneck.
+2022-10-14 17:37:10,010	WARNING util.py:214 -- Processing trial results took 4.885 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 17:37:10,010	WARNING util.py:214 -- The `process_trial_result` operation took 5.745 s, which may be a performance bottleneck.
+2022-10-14 17:37:50,148	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 4.773 s, which may be a performance bottleneck.
+2022-10-14 17:37:50,190	WARNING util.py:214 -- The `process_trial_result` operation took 4.816 s, which may be a performance bottleneck.
+2022-10-14 17:37:50,190	WARNING util.py:214 -- Processing trial results took 4.816 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 17:37:50,190	WARNING util.py:214 -- The `process_trial_result` operation took 5.666 s, which may be a performance bottleneck.
+2022-10-14 17:40:00,314	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 4.748 s, which may be a performance bottleneck.
+2022-10-14 17:40:00,317	WARNING util.py:214 -- The `process_trial_result` operation took 4.752 s, which may be a performance bottleneck.
+2022-10-14 17:40:00,317	WARNING util.py:214 -- Processing trial results took 4.752 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 17:40:00,318	WARNING util.py:214 -- The `process_trial_result` operation took 5.600 s, which may be a performance bottleneck.
+2022-10-14 17:42:10,789	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 4.678 s, which may be a performance bottleneck.
+2022-10-14 17:42:10,820	WARNING util.py:214 -- The `process_trial_result` operation took 4.710 s, which may be a performance bottleneck.
+2022-10-14 17:42:10,821	WARNING util.py:214 -- Processing trial results took 4.710 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 17:42:10,821	WARNING util.py:214 -- The `process_trial_result` operation took 5.540 s, which may be a performance bottleneck.
+2022-10-14 17:44:05,505	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 4.705 s, which may be a performance bottleneck.
+2022-10-14 17:44:05,536	WARNING util.py:214 -- The `process_trial_result` operation took 4.736 s, which may be a performance bottleneck.
+2022-10-14 17:44:05,536	WARNING util.py:214 -- Processing trial results took 4.736 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 17:44:05,536	WARNING util.py:214 -- The `process_trial_result` operation took 5.564 s, which may be a performance bottleneck.
+2022-10-14 17:44:42,408	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 4.435 s, which may be a performance bottleneck.
+2022-10-14 17:44:42,440	WARNING util.py:214 -- The `process_trial_result` operation took 4.468 s, which may be a performance bottleneck.
+2022-10-14 17:44:42,440	WARNING util.py:214 -- Processing trial results took 4.468 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 17:44:42,440	WARNING util.py:214 -- The `process_trial_result` operation took 5.246 s, which may be a performance bottleneck.
+2022-10-14 17:46:06,385	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 4.005 s, which may be a performance bottleneck.
+2022-10-14 17:46:06,416	WARNING util.py:214 -- The `process_trial_result` operation took 4.036 s, which may be a performance bottleneck.
+2022-10-14 17:46:06,416	WARNING util.py:214 -- Processing trial results took 4.036 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 17:46:06,416	WARNING util.py:214 -- The `process_trial_result` operation took 4.721 s, which may be a performance bottleneck.
+2022-10-14 17:46:42,497	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.588 s, which may be a performance bottleneck.
+2022-10-14 17:46:42,500	WARNING util.py:214 -- The `process_trial_result` operation took 3.591 s, which may be a performance bottleneck.
+2022-10-14 17:46:42,500	WARNING util.py:214 -- Processing trial results took 3.592 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 17:46:42,500	WARNING util.py:214 -- The `process_trial_result` operation took 4.191 s, which may be a performance bottleneck.
+2022-10-14 17:47:17,080	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.118 s, which may be a performance bottleneck.
+2022-10-14 17:47:17,092	WARNING util.py:214 -- The `process_trial_result` operation took 3.130 s, which may be a performance bottleneck.
+2022-10-14 17:47:17,092	WARNING util.py:214 -- Processing trial results took 3.130 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 17:47:17,092	WARNING util.py:214 -- The `process_trial_result` operation took 3.652 s, which may be a performance bottleneck.
+2022-10-14 17:47:50,982	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.766 s, which may be a performance bottleneck.
+2022-10-14 17:47:51,003	WARNING util.py:214 -- The `process_trial_result` operation took 2.787 s, which may be a performance bottleneck.
+2022-10-14 17:47:51,003	WARNING util.py:214 -- Processing trial results took 2.787 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 17:47:51,003	WARNING util.py:214 -- The `process_trial_result` operation took 3.233 s, which may be a performance bottleneck.
+2022-10-14 17:49:36,906	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.772 s, which may be a performance bottleneck.
+2022-10-14 17:49:36,925	WARNING util.py:214 -- The `process_trial_result` operation took 2.791 s, which may be a performance bottleneck.
+2022-10-14 17:49:36,925	WARNING util.py:214 -- Processing trial results took 2.791 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 17:49:36,925	WARNING util.py:214 -- The `process_trial_result` operation took 3.254 s, which may be a performance bottleneck.
+2022-10-14 17:51:11,796	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.640 s, which may be a performance bottleneck.
+2022-10-14 17:51:11,815	WARNING util.py:214 -- The `process_trial_result` operation took 2.660 s, which may be a performance bottleneck.
+2022-10-14 17:51:11,816	WARNING util.py:214 -- Processing trial results took 2.660 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 17:51:11,816	WARNING util.py:214 -- The `process_trial_result` operation took 3.095 s, which may be a performance bottleneck.
+2022-10-14 17:51:46,450	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.613 s, which may be a performance bottleneck.
+2022-10-14 17:51:46,453	WARNING util.py:214 -- The `process_trial_result` operation took 2.617 s, which may be a performance bottleneck.
+2022-10-14 17:51:46,453	WARNING util.py:214 -- Processing trial results took 2.617 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 17:51:46,453	WARNING util.py:214 -- The `process_trial_result` operation took 3.034 s, which may be a performance bottleneck.
+2022-10-14 17:53:51,222	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.600 s, which may be a performance bottleneck.
+2022-10-14 17:53:51,240	WARNING util.py:214 -- The `process_trial_result` operation took 2.618 s, which may be a performance bottleneck.
+2022-10-14 17:53:51,240	WARNING util.py:214 -- Processing trial results took 2.618 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 17:53:51,240	WARNING util.py:214 -- The `process_trial_result` operation took 3.045 s, which may be a performance bottleneck.
+2022-10-14 17:54:23,634	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.401 s, which may be a performance bottleneck.
+2022-10-14 17:54:23,646	WARNING util.py:214 -- The `process_trial_result` operation took 2.414 s, which may be a performance bottleneck.
+2022-10-14 17:54:23,646	WARNING util.py:214 -- Processing trial results took 2.414 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 17:54:23,646	WARNING util.py:214 -- The `process_trial_result` operation took 2.813 s, which may be a performance bottleneck.
+2022-10-14 17:54:57,061	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.594 s, which may be a performance bottleneck.
+2022-10-14 17:54:57,077	WARNING util.py:214 -- The `process_trial_result` operation took 2.611 s, which may be a performance bottleneck.
+2022-10-14 17:54:57,077	WARNING util.py:214 -- Processing trial results took 2.611 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 17:54:57,077	WARNING util.py:214 -- The `process_trial_result` operation took 2.983 s, which may be a performance bottleneck.
+2022-10-14 17:56:24,875	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.286 s, which may be a performance bottleneck.
+2022-10-14 17:56:24,891	WARNING util.py:214 -- The `process_trial_result` operation took 2.303 s, which may be a performance bottleneck.
+2022-10-14 17:56:24,891	WARNING util.py:214 -- Processing trial results took 2.303 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 17:56:24,891	WARNING util.py:214 -- The `process_trial_result` operation took 2.673 s, which may be a performance bottleneck.
+2022-10-14 17:56:56,824	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.262 s, which may be a performance bottleneck.
+2022-10-14 17:56:56,827	WARNING util.py:214 -- The `process_trial_result` operation took 2.265 s, which may be a performance bottleneck.
+2022-10-14 17:56:56,827	WARNING util.py:214 -- Processing trial results took 2.266 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 17:56:56,827	WARNING util.py:214 -- The `process_trial_result` operation took 2.639 s, which may be a performance bottleneck.
+2022-10-14 17:57:28,343	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.243 s, which may be a performance bottleneck.
+2022-10-14 17:57:28,358	WARNING util.py:214 -- The `process_trial_result` operation took 2.259 s, which may be a performance bottleneck.
+2022-10-14 17:57:28,359	WARNING util.py:214 -- Processing trial results took 2.259 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 17:57:28,359	WARNING util.py:214 -- The `process_trial_result` operation took 2.631 s, which may be a performance bottleneck.
+2022-10-14 17:59:14,377	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.421 s, which may be a performance bottleneck.
+2022-10-14 17:59:14,392	WARNING util.py:214 -- The `process_trial_result` operation took 2.437 s, which may be a performance bottleneck.
+2022-10-14 17:59:14,393	WARNING util.py:214 -- Processing trial results took 2.437 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 17:59:14,393	WARNING util.py:214 -- The `process_trial_result` operation took 2.830 s, which may be a performance bottleneck.
+2022-10-14 18:00:41,110	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.513 s, which may be a performance bottleneck.
+2022-10-14 18:00:41,127	WARNING util.py:214 -- The `process_trial_result` operation took 2.530 s, which may be a performance bottleneck.
+2022-10-14 18:00:41,127	WARNING util.py:214 -- Processing trial results took 2.530 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 18:00:41,127	WARNING util.py:214 -- The `process_trial_result` operation took 2.937 s, which may be a performance bottleneck.
+2022-10-14 18:02:51,997	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.549 s, which may be a performance bottleneck.
+2022-10-14 18:02:52,014	WARNING util.py:214 -- The `process_trial_result` operation took 2.567 s, which may be a performance bottleneck.
+2022-10-14 18:02:52,015	WARNING util.py:214 -- Processing trial results took 2.568 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 18:02:52,015	WARNING util.py:214 -- The `process_trial_result` operation took 2.988 s, which may be a performance bottleneck.
+2022-10-14 18:04:19,866	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.527 s, which may be a performance bottleneck.
+2022-10-14 18:04:19,869	WARNING util.py:214 -- The `process_trial_result` operation took 2.530 s, which may be a performance bottleneck.
+2022-10-14 18:04:19,869	WARNING util.py:214 -- Processing trial results took 2.530 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 18:04:19,869	WARNING util.py:214 -- The `process_trial_result` operation took 2.947 s, which may be a performance bottleneck.
+2022-10-14 18:04:53,035	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.494 s, which may be a performance bottleneck.
+2022-10-14 18:04:53,052	WARNING util.py:214 -- The `process_trial_result` operation took 2.511 s, which may be a performance bottleneck.
+2022-10-14 18:04:53,053	WARNING util.py:214 -- Processing trial results took 2.511 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 18:04:53,053	WARNING util.py:214 -- The `process_trial_result` operation took 2.931 s, which may be a performance bottleneck.
+2022-10-14 18:05:25,552	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.254 s, which may be a performance bottleneck.
+2022-10-14 18:05:25,569	WARNING util.py:214 -- The `process_trial_result` operation took 2.272 s, which may be a performance bottleneck.
+2022-10-14 18:05:25,569	WARNING util.py:214 -- Processing trial results took 2.272 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 18:05:25,569	WARNING util.py:214 -- The `process_trial_result` operation took 2.657 s, which may be a performance bottleneck.
+2022-10-14 18:06:52,352	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.346 s, which may be a performance bottleneck.
+2022-10-14 18:06:52,367	WARNING util.py:214 -- The `process_trial_result` operation took 2.362 s, which may be a performance bottleneck.
+2022-10-14 18:06:52,367	WARNING util.py:214 -- Processing trial results took 2.362 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 18:06:52,367	WARNING util.py:214 -- The `process_trial_result` operation took 2.747 s, which may be a performance bottleneck.
+2022-10-14 18:09:31,407	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.555 s, which may be a performance bottleneck.
+2022-10-14 18:09:31,424	WARNING util.py:214 -- The `process_trial_result` operation took 2.572 s, which may be a performance bottleneck.
+2022-10-14 18:09:31,424	WARNING util.py:214 -- Processing trial results took 2.573 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 18:09:31,424	WARNING util.py:214 -- The `process_trial_result` operation took 2.988 s, which may be a performance bottleneck.
+2022-10-14 18:10:05,878	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.422 s, which may be a performance bottleneck.
+2022-10-14 18:10:05,881	WARNING util.py:214 -- The `process_trial_result` operation took 2.426 s, which may be a performance bottleneck.
+2022-10-14 18:10:05,881	WARNING util.py:214 -- Processing trial results took 2.426 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 18:10:05,881	WARNING util.py:214 -- The `process_trial_result` operation took 2.825 s, which may be a performance bottleneck.
+2022-10-14 18:11:31,714	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.528 s, which may be a performance bottleneck.
+2022-10-14 18:11:31,730	WARNING util.py:214 -- The `process_trial_result` operation took 2.546 s, which may be a performance bottleneck.
+2022-10-14 18:11:31,730	WARNING util.py:214 -- Processing trial results took 2.546 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 18:11:31,731	WARNING util.py:214 -- The `process_trial_result` operation took 2.959 s, which may be a performance bottleneck.
+2022-10-14 18:12:15,156	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.540 s, which may be a performance bottleneck.
+2022-10-14 18:12:15,173	WARNING util.py:214 -- The `process_trial_result` operation took 2.558 s, which may be a performance bottleneck.
+2022-10-14 18:12:15,173	WARNING util.py:214 -- Processing trial results took 2.558 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 18:12:15,173	WARNING util.py:214 -- The `process_trial_result` operation took 2.983 s, which may be a performance bottleneck.
+2022-10-14 18:12:44,657	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.435 s, which may be a performance bottleneck.
+2022-10-14 18:12:44,674	WARNING util.py:214 -- The `process_trial_result` operation took 2.453 s, which may be a performance bottleneck.
+2022-10-14 18:12:44,674	WARNING util.py:214 -- Processing trial results took 2.453 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 18:12:44,674	WARNING util.py:214 -- The `process_trial_result` operation took 2.861 s, which may be a performance bottleneck.
+2022-10-14 18:15:18,156	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.491 s, which may be a performance bottleneck.
+2022-10-14 18:15:18,180	WARNING util.py:214 -- The `process_trial_result` operation took 2.516 s, which may be a performance bottleneck.
+2022-10-14 18:15:18,180	WARNING util.py:214 -- Processing trial results took 2.516 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 18:15:18,180	WARNING util.py:214 -- The `process_trial_result` operation took 2.926 s, which may be a performance bottleneck.
+2022-10-14 18:16:46,037	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.478 s, which may be a performance bottleneck.
+2022-10-14 18:16:46,039	WARNING util.py:214 -- The `process_trial_result` operation took 2.482 s, which may be a performance bottleneck.
+2022-10-14 18:16:46,040	WARNING util.py:214 -- Processing trial results took 2.482 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 18:16:46,040	WARNING util.py:214 -- The `process_trial_result` operation took 2.881 s, which may be a performance bottleneck.
+2022-10-14 18:18:31,580	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.512 s, which may be a performance bottleneck.
+2022-10-14 18:18:31,596	WARNING util.py:214 -- The `process_trial_result` operation took 2.529 s, which may be a performance bottleneck.
+2022-10-14 18:18:31,597	WARNING util.py:214 -- Processing trial results took 2.529 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 18:18:31,597	WARNING util.py:214 -- The `process_trial_result` operation took 2.939 s, which may be a performance bottleneck.
+2022-10-14 18:19:56,814	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.590 s, which may be a performance bottleneck.
+2022-10-14 18:19:56,831	WARNING util.py:214 -- The `process_trial_result` operation took 2.607 s, which may be a performance bottleneck.
+2022-10-14 18:19:56,831	WARNING util.py:214 -- Processing trial results took 2.607 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 18:19:56,831	WARNING util.py:214 -- The `process_trial_result` operation took 3.031 s, which may be a performance bottleneck.
+2022-10-14 18:21:43,773	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.739 s, which may be a performance bottleneck.
+2022-10-14 18:21:43,791	WARNING util.py:214 -- The `process_trial_result` operation took 2.758 s, which may be a performance bottleneck.
+2022-10-14 18:21:43,791	WARNING util.py:214 -- Processing trial results took 2.758 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 18:21:43,791	WARNING util.py:214 -- The `process_trial_result` operation took 3.208 s, which may be a performance bottleneck.
+2022-10-14 18:23:39,441	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.817 s, which may be a performance bottleneck.
+2022-10-14 18:23:39,460	WARNING util.py:214 -- The `process_trial_result` operation took 2.837 s, which may be a performance bottleneck.
+2022-10-14 18:23:39,461	WARNING util.py:214 -- Processing trial results took 2.837 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 18:23:39,461	WARNING util.py:214 -- The `process_trial_result` operation took 3.299 s, which may be a performance bottleneck.
+2022-10-14 18:25:07,971	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.706 s, which may be a performance bottleneck.
+2022-10-14 18:25:07,974	WARNING util.py:214 -- The `process_trial_result` operation took 2.709 s, which may be a performance bottleneck.
+2022-10-14 18:25:07,974	WARNING util.py:214 -- Processing trial results took 2.709 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 18:25:07,974	WARNING util.py:214 -- The `process_trial_result` operation took 3.157 s, which may be a performance bottleneck.
+2022-10-14 18:26:55,227	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.874 s, which may be a performance bottleneck.
+2022-10-14 18:26:55,245	WARNING util.py:214 -- The `process_trial_result` operation took 2.893 s, which may be a performance bottleneck.
+2022-10-14 18:26:55,245	WARNING util.py:214 -- Processing trial results took 2.893 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 18:26:55,245	WARNING util.py:214 -- The `process_trial_result` operation took 3.365 s, which may be a performance bottleneck.
+2022-10-14 18:28:22,450	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.864 s, which may be a performance bottleneck.
+2022-10-14 18:28:22,469	WARNING util.py:214 -- The `process_trial_result` operation took 2.884 s, which may be a performance bottleneck.
+2022-10-14 18:28:22,469	WARNING util.py:214 -- Processing trial results took 2.884 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 18:28:22,469	WARNING util.py:214 -- The `process_trial_result` operation took 3.360 s, which may be a performance bottleneck.
+2022-10-14 18:29:48,160	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.902 s, which may be a performance bottleneck.
+2022-10-14 18:29:48,179	WARNING util.py:214 -- The `process_trial_result` operation took 2.922 s, which may be a performance bottleneck.
+2022-10-14 18:29:48,179	WARNING util.py:214 -- Processing trial results took 2.922 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 18:29:48,179	WARNING util.py:214 -- The `process_trial_result` operation took 3.404 s, which may be a performance bottleneck.
+2022-10-14 18:32:58,477	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.306 s, which may be a performance bottleneck.
+2022-10-14 18:32:58,496	WARNING util.py:214 -- The `process_trial_result` operation took 3.326 s, which may be a performance bottleneck.
+2022-10-14 18:32:58,496	WARNING util.py:214 -- Processing trial results took 3.326 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 18:32:58,496	WARNING util.py:214 -- The `process_trial_result` operation took 3.885 s, which may be a performance bottleneck.
+2022-10-14 18:34:28,086	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.177 s, which may be a performance bottleneck.
+2022-10-14 18:34:28,089	WARNING util.py:214 -- The `process_trial_result` operation took 3.181 s, which may be a performance bottleneck.
+2022-10-14 18:34:28,089	WARNING util.py:214 -- Processing trial results took 3.181 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 18:34:28,089	WARNING util.py:214 -- The `process_trial_result` operation took 3.719 s, which may be a performance bottleneck.
+2022-10-14 18:35:57,003	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.168 s, which may be a performance bottleneck.
+2022-10-14 18:35:57,024	WARNING util.py:214 -- The `process_trial_result` operation took 3.189 s, which may be a performance bottleneck.
+2022-10-14 18:35:57,024	WARNING util.py:214 -- Processing trial results took 3.189 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 18:35:57,024	WARNING util.py:214 -- The `process_trial_result` operation took 3.715 s, which may be a performance bottleneck.
+2022-10-14 18:37:24,116	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.107 s, which may be a performance bottleneck.
+2022-10-14 18:37:24,137	WARNING util.py:214 -- The `process_trial_result` operation took 3.128 s, which may be a performance bottleneck.
+2022-10-14 18:37:24,137	WARNING util.py:214 -- Processing trial results took 3.128 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 18:37:24,137	WARNING util.py:214 -- The `process_trial_result` operation took 3.656 s, which may be a performance bottleneck.
+2022-10-14 18:38:52,969	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.110 s, which may be a performance bottleneck.
+2022-10-14 18:38:52,990	WARNING util.py:214 -- The `process_trial_result` operation took 3.131 s, which may be a performance bottleneck.
+2022-10-14 18:38:52,990	WARNING util.py:214 -- Processing trial results took 3.131 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 18:38:52,990	WARNING util.py:214 -- The `process_trial_result` operation took 3.651 s, which may be a performance bottleneck.
+2022-10-14 18:39:46,034	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.969 s, which may be a performance bottleneck.
+2022-10-14 18:39:46,055	WARNING util.py:214 -- The `process_trial_result` operation took 2.991 s, which may be a performance bottleneck.
+2022-10-14 18:39:46,055	WARNING util.py:214 -- Processing trial results took 2.991 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 18:39:46,056	WARNING util.py:214 -- The `process_trial_result` operation took 3.482 s, which may be a performance bottleneck.
+2022-10-14 18:40:43,225	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.888 s, which may be a performance bottleneck.
+2022-10-14 18:40:43,227	WARNING util.py:214 -- The `process_trial_result` operation took 2.891 s, which may be a performance bottleneck.
+2022-10-14 18:40:43,228	WARNING util.py:214 -- Processing trial results took 2.891 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 18:40:43,228	WARNING util.py:214 -- The `process_trial_result` operation took 3.365 s, which may be a performance bottleneck.
+2022-10-14 18:42:30,524	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.023 s, which may be a performance bottleneck.
+2022-10-14 18:42:30,542	WARNING util.py:214 -- The `process_trial_result` operation took 3.042 s, which may be a performance bottleneck.
+2022-10-14 18:42:30,542	WARNING util.py:214 -- Processing trial results took 3.042 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 18:42:30,543	WARNING util.py:214 -- The `process_trial_result` operation took 3.541 s, which may be a performance bottleneck.
+2022-10-14 18:44:19,007	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.961 s, which may be a performance bottleneck.
+2022-10-14 18:44:19,027	WARNING util.py:214 -- The `process_trial_result` operation took 2.981 s, which may be a performance bottleneck.
+2022-10-14 18:44:19,027	WARNING util.py:214 -- Processing trial results took 2.982 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 18:44:19,027	WARNING util.py:214 -- The `process_trial_result` operation took 3.467 s, which may be a performance bottleneck.
+2022-10-14 18:45:54,120	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.978 s, which may be a performance bottleneck.
+2022-10-14 18:45:54,139	WARNING util.py:214 -- The `process_trial_result` operation took 2.998 s, which may be a performance bottleneck.
+2022-10-14 18:45:54,139	WARNING util.py:214 -- Processing trial results took 2.999 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 18:45:54,139	WARNING util.py:214 -- The `process_trial_result` operation took 3.500 s, which may be a performance bottleneck.
+2022-10-14 18:46:29,653	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.936 s, which may be a performance bottleneck.
+2022-10-14 18:46:29,674	WARNING util.py:214 -- The `process_trial_result` operation took 2.957 s, which may be a performance bottleneck.
+2022-10-14 18:46:29,674	WARNING util.py:214 -- Processing trial results took 2.957 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 18:46:29,674	WARNING util.py:214 -- The `process_trial_result` operation took 3.439 s, which may be a performance bottleneck.
+2022-10-14 18:47:58,481	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.676 s, which may be a performance bottleneck.
+2022-10-14 18:47:58,484	WARNING util.py:214 -- The `process_trial_result` operation took 2.679 s, which may be a performance bottleneck.
+2022-10-14 18:47:58,484	WARNING util.py:214 -- Processing trial results took 2.679 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 18:47:58,484	WARNING util.py:214 -- The `process_trial_result` operation took 3.127 s, which may be a performance bottleneck.
+2022-10-14 18:48:30,978	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.602 s, which may be a performance bottleneck.
+2022-10-14 18:48:30,996	WARNING util.py:214 -- The `process_trial_result` operation took 2.621 s, which may be a performance bottleneck.
+2022-10-14 18:48:30,996	WARNING util.py:214 -- Processing trial results took 2.621 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 18:48:30,996	WARNING util.py:214 -- The `process_trial_result` operation took 3.046 s, which may be a performance bottleneck.
+2022-10-14 18:49:03,756	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.496 s, which may be a performance bottleneck.
+2022-10-14 18:49:03,773	WARNING util.py:214 -- The `process_trial_result` operation took 2.514 s, which may be a performance bottleneck.
+2022-10-14 18:49:03,774	WARNING util.py:214 -- Processing trial results took 2.514 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 18:49:03,774	WARNING util.py:214 -- The `process_trial_result` operation took 2.915 s, which may be a performance bottleneck.
+2022-10-14 18:50:29,884	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.493 s, which may be a performance bottleneck.
+2022-10-14 18:50:29,901	WARNING util.py:214 -- The `process_trial_result` operation took 2.511 s, which may be a performance bottleneck.
+2022-10-14 18:50:29,901	WARNING util.py:214 -- Processing trial results took 2.511 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 18:50:29,901	WARNING util.py:214 -- The `process_trial_result` operation took 2.923 s, which may be a performance bottleneck.
+2022-10-14 18:53:07,185	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.634 s, which may be a performance bottleneck.
+2022-10-14 18:53:07,203	WARNING util.py:214 -- The `process_trial_result` operation took 2.653 s, which may be a performance bottleneck.
+2022-10-14 18:53:07,203	WARNING util.py:214 -- Processing trial results took 2.653 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 18:53:07,203	WARNING util.py:214 -- The `process_trial_result` operation took 3.086 s, which may be a performance bottleneck.
+2022-10-14 18:54:35,182	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.638 s, which may be a performance bottleneck.
+2022-10-14 18:54:35,185	WARNING util.py:214 -- The `process_trial_result` operation took 2.642 s, which may be a performance bottleneck.
+2022-10-14 18:54:35,185	WARNING util.py:214 -- Processing trial results took 2.642 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 18:54:35,185	WARNING util.py:214 -- The `process_trial_result` operation took 3.072 s, which may be a performance bottleneck.
+2022-10-14 18:56:08,034	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.726 s, which may be a performance bottleneck.
+2022-10-14 18:56:08,052	WARNING util.py:214 -- The `process_trial_result` operation took 2.745 s, which may be a performance bottleneck.
+2022-10-14 18:56:08,052	WARNING util.py:214 -- Processing trial results took 2.745 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 18:56:08,052	WARNING util.py:214 -- The `process_trial_result` operation took 3.187 s, which may be a performance bottleneck.
+2022-10-14 18:58:25,042	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.867 s, which may be a performance bottleneck.
+2022-10-14 18:58:25,060	WARNING util.py:214 -- The `process_trial_result` operation took 2.885 s, which may be a performance bottleneck.
+2022-10-14 18:58:25,060	WARNING util.py:214 -- Processing trial results took 2.885 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 18:58:25,060	WARNING util.py:214 -- The `process_trial_result` operation took 3.366 s, which may be a performance bottleneck.
+2022-10-14 19:00:00,128	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.831 s, which may be a performance bottleneck.
+2022-10-14 19:00:00,148	WARNING util.py:214 -- The `process_trial_result` operation took 2.851 s, which may be a performance bottleneck.
+2022-10-14 19:00:00,148	WARNING util.py:214 -- Processing trial results took 2.851 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 19:00:00,148	WARNING util.py:214 -- The `process_trial_result` operation took 3.310 s, which may be a performance bottleneck.
+2022-10-14 19:02:14,417	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.883 s, which may be a performance bottleneck.
+2022-10-14 19:02:14,436	WARNING util.py:214 -- The `process_trial_result` operation took 2.903 s, which may be a performance bottleneck.
+2022-10-14 19:02:14,436	WARNING util.py:214 -- Processing trial results took 2.903 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 19:02:14,436	WARNING util.py:214 -- The `process_trial_result` operation took 3.375 s, which may be a performance bottleneck.
+2022-10-14 19:03:42,216	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.847 s, which may be a performance bottleneck.
+2022-10-14 19:03:42,219	WARNING util.py:214 -- The `process_trial_result` operation took 2.851 s, which may be a performance bottleneck.
+2022-10-14 19:03:42,219	WARNING util.py:214 -- Processing trial results took 2.851 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 19:03:42,219	WARNING util.py:214 -- The `process_trial_result` operation took 3.330 s, which may be a performance bottleneck.
+2022-10-14 19:05:09,742	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.854 s, which may be a performance bottleneck.
+2022-10-14 19:05:09,763	WARNING util.py:214 -- The `process_trial_result` operation took 2.875 s, which may be a performance bottleneck.
+2022-10-14 19:05:09,763	WARNING util.py:214 -- Processing trial results took 2.875 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 19:05:09,763	WARNING util.py:214 -- The `process_trial_result` operation took 3.348 s, which may be a performance bottleneck.
+2022-10-14 19:07:04,629	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.994 s, which may be a performance bottleneck.
+2022-10-14 19:07:04,648	WARNING util.py:214 -- The `process_trial_result` operation took 3.014 s, which may be a performance bottleneck.
+2022-10-14 19:07:04,648	WARNING util.py:214 -- Processing trial results took 3.014 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 19:07:04,648	WARNING util.py:214 -- The `process_trial_result` operation took 3.505 s, which may be a performance bottleneck.
+2022-10-14 19:08:32,834	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.046 s, which may be a performance bottleneck.
+2022-10-14 19:08:32,854	WARNING util.py:214 -- The `process_trial_result` operation took 3.067 s, which may be a performance bottleneck.
+2022-10-14 19:08:32,854	WARNING util.py:214 -- Processing trial results took 3.067 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 19:08:32,854	WARNING util.py:214 -- The `process_trial_result` operation took 3.586 s, which may be a performance bottleneck.
+2022-10-14 19:10:21,735	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.146 s, which may be a performance bottleneck.
+2022-10-14 19:10:21,756	WARNING util.py:214 -- The `process_trial_result` operation took 3.168 s, which may be a performance bottleneck.
+2022-10-14 19:10:21,756	WARNING util.py:214 -- Processing trial results took 3.168 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 19:10:21,756	WARNING util.py:214 -- The `process_trial_result` operation took 3.694 s, which may be a performance bottleneck.
+2022-10-14 19:11:49,720	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.096 s, which may be a performance bottleneck.
+2022-10-14 19:11:49,723	WARNING util.py:214 -- The `process_trial_result` operation took 3.099 s, which may be a performance bottleneck.
+2022-10-14 19:11:49,723	WARNING util.py:214 -- Processing trial results took 3.099 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 19:11:49,723	WARNING util.py:214 -- The `process_trial_result` operation took 3.604 s, which may be a performance bottleneck.
+2022-10-14 19:13:16,114	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.986 s, which may be a performance bottleneck.
+2022-10-14 19:13:16,135	WARNING util.py:214 -- The `process_trial_result` operation took 3.007 s, which may be a performance bottleneck.
+2022-10-14 19:13:16,135	WARNING util.py:214 -- Processing trial results took 3.007 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 19:13:16,135	WARNING util.py:214 -- The `process_trial_result` operation took 3.537 s, which may be a performance bottleneck.
+2022-10-14 19:15:09,177	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.154 s, which may be a performance bottleneck.
+2022-10-14 19:15:09,197	WARNING util.py:214 -- The `process_trial_result` operation took 3.175 s, which may be a performance bottleneck.
+2022-10-14 19:15:09,197	WARNING util.py:214 -- Processing trial results took 3.175 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 19:15:09,197	WARNING util.py:214 -- The `process_trial_result` operation took 3.701 s, which may be a performance bottleneck.
+2022-10-14 19:16:36,896	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.918 s, which may be a performance bottleneck.
+2022-10-14 19:16:36,916	WARNING util.py:214 -- The `process_trial_result` operation took 2.939 s, which may be a performance bottleneck.
+2022-10-14 19:16:36,917	WARNING util.py:214 -- Processing trial results took 2.939 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 19:16:36,917	WARNING util.py:214 -- The `process_trial_result` operation took 3.423 s, which may be a performance bottleneck.
+2022-10-14 19:18:05,389	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.925 s, which may be a performance bottleneck.
+2022-10-14 19:18:05,409	WARNING util.py:214 -- The `process_trial_result` operation took 2.946 s, which may be a performance bottleneck.
+2022-10-14 19:18:05,409	WARNING util.py:214 -- Processing trial results took 2.946 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 19:18:05,409	WARNING util.py:214 -- The `process_trial_result` operation took 3.434 s, which may be a performance bottleneck.
+2022-10-14 19:19:34,789	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.901 s, which may be a performance bottleneck.
+2022-10-14 19:19:34,792	WARNING util.py:214 -- The `process_trial_result` operation took 2.904 s, which may be a performance bottleneck.
+2022-10-14 19:19:34,792	WARNING util.py:214 -- Processing trial results took 2.904 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 19:19:34,792	WARNING util.py:214 -- The `process_trial_result` operation took 3.386 s, which may be a performance bottleneck.
+2022-10-14 19:20:08,509	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.837 s, which may be a performance bottleneck.
+2022-10-14 19:20:08,529	WARNING util.py:214 -- The `process_trial_result` operation took 2.857 s, which may be a performance bottleneck.
+2022-10-14 19:20:08,529	WARNING util.py:214 -- Processing trial results took 2.857 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 19:20:08,529	WARNING util.py:214 -- The `process_trial_result` operation took 3.325 s, which may be a performance bottleneck.
+2022-10-14 19:21:38,916	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.909 s, which may be a performance bottleneck.
+2022-10-14 19:21:38,935	WARNING util.py:214 -- The `process_trial_result` operation took 2.929 s, which may be a performance bottleneck.
+2022-10-14 19:21:38,935	WARNING util.py:214 -- Processing trial results took 2.929 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 19:21:38,935	WARNING util.py:214 -- The `process_trial_result` operation took 3.408 s, which may be a performance bottleneck.
+2022-10-14 19:23:47,990	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 2.962 s, which may be a performance bottleneck.
+2022-10-14 19:23:48,010	WARNING util.py:214 -- The `process_trial_result` operation took 2.982 s, which may be a performance bottleneck.
+2022-10-14 19:23:48,010	WARNING util.py:214 -- Processing trial results took 2.983 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 19:23:48,010	WARNING util.py:214 -- The `process_trial_result` operation took 3.469 s, which may be a performance bottleneck.
+2022-10-14 19:26:46,859	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.230 s, which may be a performance bottleneck.
+2022-10-14 19:26:46,879	WARNING util.py:214 -- The `process_trial_result` operation took 3.251 s, which may be a performance bottleneck.
+2022-10-14 19:26:46,879	WARNING util.py:214 -- Processing trial results took 3.251 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 19:26:46,879	WARNING util.py:214 -- The `process_trial_result` operation took 3.807 s, which may be a performance bottleneck.
+2022-10-14 19:28:38,484	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.191 s, which may be a performance bottleneck.
+2022-10-14 19:28:38,486	WARNING util.py:214 -- The `process_trial_result` operation took 3.195 s, which may be a performance bottleneck.
+2022-10-14 19:28:38,486	WARNING util.py:214 -- Processing trial results took 3.195 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 19:28:38,487	WARNING util.py:214 -- The `process_trial_result` operation took 3.726 s, which may be a performance bottleneck.
+2022-10-14 19:30:46,720	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.317 s, which may be a performance bottleneck.
+2022-10-14 19:30:46,741	WARNING util.py:214 -- The `process_trial_result` operation took 3.339 s, which may be a performance bottleneck.
+2022-10-14 19:30:46,742	WARNING util.py:214 -- Processing trial results took 3.340 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 19:30:46,742	WARNING util.py:214 -- The `process_trial_result` operation took 3.898 s, which may be a performance bottleneck.
+2022-10-14 19:33:08,347	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.564 s, which may be a performance bottleneck.
+2022-10-14 19:33:08,369	WARNING util.py:214 -- The `process_trial_result` operation took 3.587 s, which may be a performance bottleneck.
+2022-10-14 19:33:08,369	WARNING util.py:214 -- Processing trial results took 3.587 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 19:33:08,370	WARNING util.py:214 -- The `process_trial_result` operation took 4.186 s, which may be a performance bottleneck.
+2022-10-14 19:34:58,000	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.939 s, which may be a performance bottleneck.
+2022-10-14 19:34:58,024	WARNING util.py:214 -- The `process_trial_result` operation took 3.963 s, which may be a performance bottleneck.
+2022-10-14 19:34:58,024	WARNING util.py:214 -- Processing trial results took 3.964 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 19:34:58,024	WARNING util.py:214 -- The `process_trial_result` operation took 4.575 s, which may be a performance bottleneck.
+2022-10-14 19:38:25,648	WARNING util.py:214 -- The `callbacks.on_trial_result` operation took 3.890 s, which may be a performance bottleneck.
+2022-10-14 19:38:25,672	WARNING util.py:214 -- The `process_trial_result` operation took 3.914 s, which may be a performance bottleneck.
+2022-10-14 19:38:25,673	WARNING util.py:214 -- Processing trial results took 3.915 s, which may be a performance bottleneck. Please consider reporting results less frequently to Ray Tune.
+2022-10-14 19:38:25,673	WARNING util.py:214 -- The `process_trial_result` operation took 4.577 s, which may be a performance bottleneck.
+2022-10-14 19:38:46,881	INFO tune.py:747 -- Total run time: 21230.17 seconds (21210.54 seconds for the tuning loop).
+2022-10-14 19:39:29,001	INFO trainer.py:2332 -- Your framework setting is 'tf', meaning you are using static-graph mode. Set framework='tf2' to enable eager execution with tf2.x. You may also then want to set eager_tracing=True in order to reach similar execution speed as with static-graph mode.
+2022-10-14 19:39:29,008	WARNING ppo.py:386 -- `train_batch_size` (2048) cannot be achieved with your other settings (num_workers=9 num_envs_per_worker=1 rollout_fragment_length=200)! Auto-adjusting `rollout_fragment_length` to 227.
+2022-10-14 19:39:29,008	INFO ppo.py:414 -- In multi-agent mode, policies will be optimized sequentially by the multi-GPU optimizer. Consider setting simple_optimizer=True if this doesn't work for you.
+2022-10-14 19:39:29,008	INFO trainer.py:903 -- Current log_level is WARN. For more information, set 'log_level': 'INFO' / 'DEBUG' or use the -v and -vv flags.
+[2m[36m(RolloutWorker pid=300776)[0m 2022-10-14 19:39:33,282	WARNING env.py:135 -- Your env doesn't have a .spec.max_episode_steps attribute. This is fine if you have set 'horizon' in your config dictionary, or `soft_horizon`. However, if you haven't, 'horizon' will default to infinity, and your environment will not be reset.
+[2m[36m(RolloutWorker pid=300774)[0m 2022-10-14 19:39:33,408	WARNING env.py:135 -- Your env doesn't have a .spec.max_episode_steps attribute. This is fine if you have set 'horizon' in your config dictionary, or `soft_horizon`. However, if you haven't, 'horizon' will default to infinity, and your environment will not be reset.
+[2m[36m(RolloutWorker pid=300770)[0m 2022-10-14 19:39:33,445	WARNING env.py:135 -- Your env doesn't have a .spec.max_episode_steps attribute. This is fine if you have set 'horizon' in your config dictionary, or `soft_horizon`. However, if you haven't, 'horizon' will default to infinity, and your environment will not be reset.
+[2m[36m(RolloutWorker pid=300761)[0m 2022-10-14 19:39:33,483	WARNING env.py:135 -- Your env doesn't have a .spec.max_episode_steps attribute. This is fine if you have set 'horizon' in your config dictionary, or `soft_horizon`. However, if you haven't, 'horizon' will default to infinity, and your environment will not be reset.
+[2m[36m(RolloutWorker pid=300762)[0m 2022-10-14 19:39:33,829	WARNING env.py:135 -- Your env doesn't have a .spec.max_episode_steps attribute. This is fine if you have set 'horizon' in your config dictionary, or `soft_horizon`. However, if you haven't, 'horizon' will default to infinity, and your environment will not be reset.
+[2m[36m(RolloutWorker pid=300772)[0m 2022-10-14 19:39:34,045	WARNING env.py:135 -- Your env doesn't have a .spec.max_episode_steps attribute. This is fine if you have set 'horizon' in your config dictionary, or `soft_horizon`. However, if you haven't, 'horizon' will default to infinity, and your environment will not be reset.
+[2m[36m(RolloutWorker pid=300768)[0m 2022-10-14 19:39:34,032	WARNING env.py:135 -- Your env doesn't have a .spec.max_episode_steps attribute. This is fine if you have set 'horizon' in your config dictionary, or `soft_horizon`. However, if you haven't, 'horizon' will default to infinity, and your environment will not be reset.
+[2m[36m(RolloutWorker pid=300766)[0m 2022-10-14 19:39:34,051	WARNING env.py:135 -- Your env doesn't have a .spec.max_episode_steps attribute. This is fine if you have set 'horizon' in your config dictionary, or `soft_horizon`. However, if you haven't, 'horizon' will default to infinity, and your environment will not be reset.
+[2m[36m(RolloutWorker pid=300764)[0m 2022-10-14 19:39:34,097	WARNING env.py:135 -- Your env doesn't have a .spec.max_episode_steps attribute. This is fine if you have set 'horizon' in your config dictionary, or `soft_horizon`. However, if you haven't, 'horizon' will default to infinity, and your environment will not be reset.
+2022-10-14 19:39:35,698	WARNING deprecation.py:46 -- DeprecationWarning: `simple_optimizer` has been deprecated. This will raise an error in the future!
+2022-10-14 19:39:35,698	WARNING ppo.py:386 -- `train_batch_size` (2048) cannot be achieved with your other settings (num_workers=9 num_envs_per_worker=1 rollout_fragment_length=227)! Auto-adjusting `rollout_fragment_length` to 227.
+2022-10-14 19:39:35,713	WARNING env.py:135 -- Your env doesn't have a .spec.max_episode_steps attribute. This is fine if you have set 'horizon' in your config dictionary, or `soft_horizon`. However, if you haven't, 'horizon' will default to infinity, and your environment will not be reset.
+2022-10-14 19:39:36,488	WARNING util.py:65 -- Install gputil for GPU system monitoring.
+2022-10-14 19:39:36,694	INFO trainable.py:588 -- Restored on 172.17.0.6 from checkpoint: /tf/notebooks/ray_results/Trading_Signal_Predictor_RL_V01/PPO_SimpleTradingEnv-training-V01_63c41_00000_0_2022-10-14_13-44-57/checkpoint_000210/checkpoint-210
+2022-10-14 19:39:36,694	INFO trainable.py:597 -- Current state after restoring: {'_iteration': 210, '_timesteps_total': None, '_time_total': 19536.135045051575, '_episodes_total': 1890}
+findfont: Font family ['Arial'] not found. Falling back to DejaVu Sans.
+Exception ignored in: <function RolloutWorker.__del__ at 0x7fa2a3a9d160>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/ray/util/tracing/tracing_helper.py", line 461, in _resume_span
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function RolloutWorker.__del__ at 0x7fa50284d0d0>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/ray/util/tracing/tracing_helper.py", line 461, in _resume_span
+TypeError: 'NoneType' object is not callable

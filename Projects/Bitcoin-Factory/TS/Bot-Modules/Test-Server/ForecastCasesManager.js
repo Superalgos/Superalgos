@@ -64,10 +64,12 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
         try {
             for (let i = 0; i < thisObject.forecastCasesArray.length; i++) {
                 let forecastCase = thisObject.forecastCasesArray[i]
+                console.log((new Date()).toISOString(), '[DEBUG] {ForecastCaseManager} i: ' + i + ' forecastCase.id ' + forecastCase.id)
+
                 // check if testCase has same mainAsset and TimeFrame as current forecastCase, ifso compare if testCase is better
                 if (forecastCase.mainAsset === testCase.mainAsset && forecastCase.mainTimeFrame === testCase.mainTimeFrame) {
                     //LSTM
-                    if (forecastCase.percentageErrorRMSE !== undefined) {
+                    if (testCase.percentageErrorRMSE !== undefined) {
                         if (Number(testCase.percentageErrorRMSE) < Number(forecastCase.percentageErrorRMSE) && Number(testCase.percentageErrorRMSE) >= 0) {
                             thisObject.forecastCasesArray.splice(i, 1)
                             thisObject.forecastCasesMap.delete(testCase.id)
@@ -75,7 +77,7 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
                             return
                         }
                     //RL     
-                    } else if (forecastCase.ratio_validate !== undefined) {
+                    } else if (testCase.ratio_validate !== undefined) {
                         if (Number(testCase.ratio_validate) > Number(forecastCase.ratio_validate) ) {
                             thisObject.forecastCasesArray.splice(i, 1)
                             thisObject.forecastCasesMap.delete(testCase.id)
@@ -241,16 +243,12 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
                 //RL      
                 } else if (forecastResult["0"] != undefined) {      
                     forecastCase.predictions = forecastResult["2"].current_action
-                    forecastCase.ratio = {
-                        train: forecastResult["0"].meanNetWorthAtEnd / forecastResult["0"].NetWorthAtBegin,
-                        test: forecastResult["1"].meanNetWorthAtEnd / forecastResult["1"].NetWorthAtBegin,
-                        validate: forecastResult["2"].meanNetWorthAtEnd / forecastResult["2"].NetWorthAtBegin
-                    }
-                    forecastCase.std = {
-                        train: forecastResult["0"].stdNetWorthAtEnd ,
-                        test: forecastResult["1"].stdNetWorthAtEnd ,
-                        validate: forecastResult["2"].stdNetWorthAtEnd 
-                    }    
+                    forecastCase.ratio_train = forecastResult["0"].meanNetWorthAtEnd / forecastResult["0"].NetWorthAtBegin
+                    forecastCase.ratio_test = forecastResult["1"].meanNetWorthAtEnd / forecastResult["1"].NetWorthAtBegin
+                    forecastCase.ratio_validate = forecastResult["2"].meanNetWorthAtEnd / forecastResult["2"].NetWorthAtBegin
+                    forecastCase.std_train = forecastResult["0"].stdNetWorthAtEnd 
+                    forecastCase.std_test = forecastResult["1"].stdNetWorthAtEnd 
+                    forecastCase.std_validate = forecastResult["2"].stdNetWorthAtEnd     
                 }
                 let logQueue = []
                 for (let i = Math.max(0, forecastResult.caseIndex - 5); i < Math.min(thisObject.forecastCasesArray.length, forecastResult.caseIndex + 5); i++) {

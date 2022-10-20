@@ -29,8 +29,8 @@
             },
             {
                 "language": "FR",
-                "text": "Avant de vous montrer le reste du menu, jetons un coup d'œil à une autre hiérarchie : le réseau.",
-                "updated": 1623951418764,
+                "text": "Avant de vous montrer le reste du menu, jetons un coup d'œil à une autre hiérarchie: LAN Network.",
+                "updated": 1666252917050,
                 "style": "Definition"
             },
             {
@@ -84,8 +84,8 @@
                 },
                 {
                     "language": "FR",
-                    "text": "Le Network hiérarchie réseau est la salle de contrôle du système. C'est là que vous contrôlez vos Data Tasks, les Testing Trading Tasks, et les Production Trading Tasks.",
-                    "updated": 1623952138963,
+                    "text": "Le LAN Network est la salle de contrôle du système. C'est là que vous contrôlez vos Data Tasks, les Testing Trading Tasks, et les Production Trading Tasks.",
+                    "updated": 1666253229824,
                     "style": "Text"
                 },
                 {
@@ -192,8 +192,8 @@
                 },
                 {
                     "language": "FR",
-                    "text": "Voyez les nœuds que j'ai mentionnés plus tôt ? Cool ! Nous sommes ici pour commencer votre toute première opération de minage d'informations.",
-                    "updated": 1623952241074,
+                    "text": "Voyez-vous les nœuds que j'ai mentionnés plus tôt? Cool! Nous sommes ici pour commencer votre toute première opération de minage de données.",
+                    "updated": 1666253341933,
                     "style": "Text"
                 },
                 {

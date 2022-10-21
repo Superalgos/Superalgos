@@ -1,3 +1,5 @@
+const {newEnvironment} = require("../../Environment")
+
 exports.newWebSocketsServer = function newWebSocketsServer() {
     
     let thisObject = {
@@ -6,7 +8,7 @@ exports.newWebSocketsServer = function newWebSocketsServer() {
     }
 
     const WEB_SOCKET = SA.nodeModules.ws
-    const port = '18043' //global.env.DASHBOARDS_WEB_SOCKETS_INTERFACE_PORT
+    const port =  newEnvironment().DASHBOARDS_WEB_SOCKETS_INTERFACE_PORT // '18043'
     let socketServer
     let UISocket
 

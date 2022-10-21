@@ -710,12 +710,16 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
         */
         try {
             const MAX_DELAY_FOR_ZERO_RANKING = 60000 // miliseconds
-            const COUNT_USER_PROFILES_CONNECTED_AS_CLIENTS = thisObject.userProfilesMap.size 
+            const COUNT_USER_PROFILES_CONNECTED_AS_CLIENTS = thisObject.userProfilesMap.size
             const DELAY_BETWEEN_USER_PROFILES = MAX_DELAY_FOR_ZERO_RANKING / (COUNT_USER_PROFILES_CONNECTED_AS_CLIENTS - 1)
             let lastUserProfileId
+            let accumulatedDelay = 0
+            let positionInQueue = 0
+            let queueSize = thisObject.networkClients.length
 
             for (let i = 0; i < thisObject.networkClients.length; i++) {
                 let networkClient = thisObject.networkClients[i]
+                positionInQueue = i + 1
                 /*
                 It is possible that many connections belong to the same user profile. When that happens, they are all together 
                 in succession because the networkClients array is ordered by the amount of tokens, which in general 
@@ -729,9 +733,15 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                     lastUserProfileId !== networkClient.userProfile.id &&
                     DELAY_BETWEEN_USER_PROFILES <= MAX_DELAY_FOR_ZERO_RANKING
                 ) {
+                    accumulatedDelay = accumulatedDelay + DELAY_BETWEEN_USER_PROFILES
                     await SA.projects.foundations.utilities.asyncFunctions.sleep(DELAY_BETWEEN_USER_PROFILES)
                 }
                 lastUserProfileId = networkClient.userProfile.id
+                socketMessage.rankingStats = {
+                    accumulatedDelay:accumulatedDelay,
+                    positionInQueue: positionInQueue,
+                    queueSize: queueSize
+                }
                 /*
                 Here we are ready to send the signal...
                 */

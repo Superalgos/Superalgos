@@ -686,6 +686,9 @@
                     let candleUpColor
                     let candleDownColor
                     let candleSideColor
+                    let candleUpBorderColor
+                    let candleDownBorderColor
+                    let candleSideBorderColor
 
                     let chartingSpaceNode = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Charting Space')
                         if (chartingSpaceNode !== undefined) {
@@ -749,16 +752,39 @@
 
                         browserCanvasContext.fill();
                     }
-
-                    if (direction === 'up') { browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', 1)'; }
-                    if (direction === 'down') { browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RED + ', 1)'; }
-                    if (direction === 'side') { browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK + ', 1)'; }
+                    // We handle the border color for UP candles.
+                    if (direction === 'up') {
+                            if (configStyle === undefined || configStyle.candleUpBorderColor === undefined) {
+                                browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', 1)'
+                            } else {
+                                candleUpBorderColor = eval(configStyle.candleUpBorderColor)
+                                browserCanvasContext.strokeStyle = 'rgba(' + candleUpBorderColor + ', 1)'
+                            }
+                    }
+                    // We handle the border color for Down candles.
+                    if (direction === 'down') { 
+                        if (configStyle === undefined || configStyle.candleDownBorderColor === undefined) {
+                            browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GREEN + ', 1)'
+                        } else {
+                            candleDownBorderColor = eval(configStyle.candleDownBorderColor)
+                            browserCanvasContext.strokeStyle = 'rgba(' + candleDownBorderColor + ', 1)'
+                        }
+                    }
+                    // We handle the border color for sideways candles.
+                    if (direction === 'side') { 
+                        if (configStyle === undefined || configStyle.candleSideBorderColor === undefined) {
+                            browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK + ', 1)'
+                        } else {
+                            candleSideBorderColor = eval(configStyle.candleSideBorderColor)
+                            browserCanvasContext.strokeStyle = 'rgba(' + candleSideBorderColor + ', 1)'
+                        }
+                    }
 
                     browserCanvasContext.lineWidth = 1;
                     browserCanvasContext.setLineDash([]) // Resets Line Dash
                     browserCanvasContext.stroke();
-
-                }
+                    }
+                
 
                 /* Draw mouse candle and Raise Event. */
                 if (mouseCandle) {
@@ -798,6 +824,7 @@
             if (ERROR_LOG === true) { logger.write("[ERROR] plotChart -> err = " + err.stack); }
         }
     }
+
 
 
     function onViewportZoomChanged(event) {

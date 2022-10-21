@@ -27,8 +27,8 @@
             },
             {
                 "language": "RU",
-                "text": "Платформа Superalgos предназначена для алготрейдеров. Но проект расширяет сферу своей деятельности, чтобы удовлетворить всех пользователей криптовалют!",
-                "updated": 1642773110913
+                "text": "Вы можете использовать платформу Superalgos для производства сложного интеллекта, но вы также можете использовать ее для копирования чужих сделок!",
+                "updated": 1662035282566
             }
         ]
     },
@@ -55,8 +55,8 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Благодаря протоколу алготрейдеры будут соревноваться в производстве и распространении торговых сигналов.",
-                    "updated": 1642773165400
+                    "text": "Альго-трейдеры получают вознаграждение Superalgos SA Token за производство и трансляцию торговых сигналов.",
+                    "updated": 1662035303285
                 }
             ]
         },
@@ -82,8 +82,8 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Пользователи криптовалют будут следить за экспертами и получать их сигналы в мобильном, настольном или серверном приложении бесплатно! Эти приложения позволят легко осуществлять автоматическую торговлю, используя бесплатные аналитические данные, полученные от экспертов!",
-                    "updated": 1642773363404
+                    "text": "Вы можете получать сигналы и автоматически копировать торговлю профи, используя ту же платформу!",
+                    "updated": 1662035333551
                 }
             ]
         },
@@ -109,8 +109,8 @@
                 },
                 {
                     "language": "RU",
-                    "text": "И алготрейдеры, и влиятельные лица получают оплату по протоколу, а пользователи криптовалют получают все продукты и услуги бесплатно. Довольно революционно, не так ли?",
-                    "updated": 1642773545277
+                    "text": "Для участия в открытом бета-тестировании присоединяйтесь к группе",
+                    "updated": 1662035373576
                 }
             ]
         },
@@ -121,15 +121,25 @@
         },
         {
             "style": "Success",
-            "text": "After the beta phase, you will need to hold a certain balance of Superalgos SA Tokens to access this premium community service.",
-            "updated": 1660151898954,
+            "text": "The first few signals are live now! You will need to hold a certain balance of Superalgos SA Tokens to access this premium community service.",
+            "updated": 1665735018236,
             "translations": [
                 {
                     "language": "DE",
                     "text": "Nach der Beta-Phase wird es erforderlich sein, eine gewisse Menge Superalgos SA Tokens zu halten, um diesen Premium Community-Service zu nutzen.",
                     "updated": 1660479416061
+                },
+                {
+                    "language": "RU",
+                    "text": "После завершения бета-фазы вам нужно будет иметь определенный баланс Superalgos SA Tokens, чтобы получить доступ к премиум-услугам сообщества.",
+                    "updated": 1662035393211
                 }
             ]
+        },
+        {
+            "style": "Link",
+            "text": "Learn how to follow signals with Superalgos!->medium.com/superalgos/the-power-of-free-and-open-source-decentralized-social-trading-d67cb1aab1b",
+            "updated": 1665735471005
         }
     ]
 }

@@ -108,7 +108,7 @@ const cloneTheRepoPromise = async (resolve) => {
               resolve()
             })
             .catch((err) => {
-              console.log('[ERROR] Setup of repo ' + global.env.PROJECT_PLUGIN_MAP[propertyName].repo + ' failed. You will need to set the git remote manually.')
+              console.log('[ERROR] Setup of repo ' + global.env.PROJECT_PLUGIN_MAP[propertyName].repo + ' failed. You will need to set the git remote manually. ')
               console.log('')
               console.log(err)
               resolve()             

@@ -1,3 +1,11 @@
+The use cases for Superalgos Network Nodes are:
+
+1. To enable the communication between software modules to collaborate on the testing of ML models.
+2. To enable the distribution of Trading Signals.
+3. Others in the future.  
+
+At the moment, on this README file we will focus on the use case #1, though part of the explanation is valid to set up a Network Node for other purposed too. 
+
 # :small_orange_diamond: Creating Network Node for Bitcoin Factory.
 
 ## :small_orange_diamond: Introduction

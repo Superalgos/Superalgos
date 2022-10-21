@@ -66,7 +66,7 @@ exports.newTradingSignalsModulesTradingSignalsNetworkServiceClient = function ne
                 if (socialEntity === undefined) {
                     let response = {
                         result: 'Error',
-                        message: 'Cannot Locate the Origin Social Entity'
+                        message: 'Cannot Locate the Origin Social Entity. Check if you have added the Social Graph Network Service.'
                     }
                     return response
                 }

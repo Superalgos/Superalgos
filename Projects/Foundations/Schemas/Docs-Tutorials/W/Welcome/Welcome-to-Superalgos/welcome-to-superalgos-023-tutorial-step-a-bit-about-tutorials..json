@@ -140,6 +140,11 @@
                     "language": "TR",
                     "text": "Herhangi bir noktada bir öğreticiyi durdurabilir ve adımları veya tüm konuları atlayabilirsiniz. Dersi tekrar almaya hazır olduğunuzda, tasarım alanının alt kısmında bizi bulun. Kaldığınız yerden veya atladığınız ilk adımdan başlamak için menüde Sürdür'ü (Resume) seçin. Baştan başlamak için Oynat'ı (Play) seçin!",
                     "updated": 1644908281439
+                },
+                {
+                    "language": "IT",
+                    "text": "Puoi interrompere un tutorial e saltare dei passaggi o interi argomenti in qualsiasi momento. Quando sei pronto per riprendere la lezione, mi trovi nella sezione inferiore dello spazio di progettazione. Seleziona Resume nel menu per iniziare da dove eri rimasto o dal primo passaggio che hai saltato. Seleziona Play per ricominciare dall'inizio!",
+                    "updated": 1666388430590
                 }
             ]
         },

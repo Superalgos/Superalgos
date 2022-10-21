@@ -308,9 +308,13 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
                 }
                 case 'Trading Signals': {
                     if (thisObject.p2pNetworkClient.tradingSignalsNetworkServiceClient !== undefined) {
+                        /*
+                        Send the signal to the Service Network Interface.
+                        */
                         thisObject.p2pNetworkClient.tradingSignalsNetworkServiceClient.p2pNetworkInterface.messageReceived(
                             messageHeader.payload,
-                            thisObject.p2pNetworkClient.eventReceivedCallbackFunction
+                            thisObject.p2pNetworkClient.eventReceivedCallbackFunction,
+                            messageHeader.rankingStats
                         )
                     } else {
                         console.log((new Date()).toISOString(), '[WARN] Socket Network Clients -> Trading Signals Network Service Client Not Running')

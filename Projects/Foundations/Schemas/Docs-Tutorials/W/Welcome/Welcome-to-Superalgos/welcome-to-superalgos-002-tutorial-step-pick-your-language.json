@@ -65,8 +65,8 @@
             "translations": [
                 {
                     "language": "FR",
-                    "text": "Voici comment cela fonctionne : la langue par défaut est l'anglais. Si vous choisissez une autre langue et qu'il existe sa traduction, vous l'obtenez, sinon, elle apparaitra en anglais !",
-                    "updated": 1623947447536,
+                    "text": "Voici comment cela fonctionne: la langue par défaut est l'anglais. Si vous choisissez une autre langue et qu'elle est disponible, vous l'obtiendrai, sinon le texte sera en anglais!",
+                    "updated": 1666252457691,
                     "style": "Text"
                 },
                 {

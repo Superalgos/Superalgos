@@ -1464,6 +1464,12 @@
                     "propertyName": "docsFunctions",
                     "functionName": "newEducationUtilitiesDocsFunctions",
                     "fileName": "DocsFunctions.js"
+                },
+                {
+                    "name": "Export Functions",
+                    "propertyName": "exportFunctions",
+                    "functionName": "newEducationUtilitiesExportFunctions",
+                    "fileName": "ExportFunctions.js"
                 }
             ],
             "taskModules": [],

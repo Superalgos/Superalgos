@@ -83,8 +83,8 @@
                 },
                 {
                     "language": "FR",
-                    "text": "Si vous accédez au Client à partir d'une connectio a distance, vous devez ajuster la configuration du nœud de réseau avant de poursuivre.",
-                    "updated": 1623958370168,
+                    "text": "Si vous accédez au Client à partir d'une connexion a distance, vous devez ajuster la configuration du nœud LAN Network avant de poursuivre.",
+                    "updated": 1666253784910,
                     "style": "Text"
                 },
                 {
@@ -136,8 +136,8 @@
                 },
                 {
                     "language": "FR",
-                    "text": "Cliquez sur Configurer dans le coin supérieur droit du menu Network Node",
-                    "updated": 1623958430272,
+                    "text": "Cliquez sur Configure dans le coin supérieur droit du noeud LAN Network.",
+                    "updated": 1666253845977,
                     "style": "List"
                 },
                 {
@@ -195,8 +195,8 @@
                 },
                 {
                     "language": "FR",
-                    "text": "Changez le paramètre host pour l'adresse IP de la machine qui exécute le backend. Si vous utilisez un reverse proxy ajoutez manuellement \"webSocketsExternalURL\": \"wss://mydomain.com:443\" dans les paramètres de configuration ",
-                    "updated": 1623958474738,
+                    "text": "Changez le paramètre host pour l'adresse IP de la machine qui exécute le backend.",
+                    "updated": 1666253928047,
                     "style": "List"
                 },
                 {
@@ -243,6 +243,11 @@
                     "text": "Eğer bir ters proxy kullanıyorsanız, bu parametreyi ekleyin...",
                     "updated": 1654394232057,
                     "style": "List"
+                },
+                {
+                    "language": "FR",
+                    "text": "Si vous utilisez un reverse proxy ajoutez ce paramètre...",
+                    "updated": 1666253948039
                 }
             ]
         },
@@ -275,8 +280,8 @@
                 },
                 {
                     "language": "FR",
-                    "text": "Quittez la configuration en retirant le pointeur de la bulle de configuration ! Si la configuration est correcte, le message d'erreur dans le Network Node devrait disparaître en moins d'une minute !",
-                    "updated": 1623958550219,
+                    "text": "Fermez maintenant l'éditeur. Si la configuration est correcte, le message d'erreur devrait disparaître en une minute !",
+                    "updated": 1666253997151,
                     "style": "List"
                 },
                 {

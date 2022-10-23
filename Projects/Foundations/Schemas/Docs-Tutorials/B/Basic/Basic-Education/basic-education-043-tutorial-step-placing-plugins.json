@@ -108,8 +108,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Her eklenti için \\Foundations\\Plugins\\Trading-Systems dizininde Plugin Files dosyası oluşturulur.İhtiyacınız olmayan Plugin File düğümlerini silebilir ve istediklerinizi saklayabilirsiniz! Şimdi herhangi bir Plugin File düğümünü genişletin, Plugin File Position düğümünü eklentiyi yerleştirmek istediğiniz yere sürükleyerek sabitleyin",
-                    "updated": 1639816060254
+                    "text": "Plugins\\Algorithmic-Trading\\Trading-Systems içindeki her eklenti için yeni Eklenti Dosyası düğümleri oluşturulur. İhtiyacınız olmayan Eklenti Dosyası düğümlerini silebilir ve istediklerinizi saklayabilirsiniz!",
+                    "updated": 1666103969381
                 },
                 {
                     "language": "RU",

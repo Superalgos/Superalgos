@@ -45,8 +45,8 @@
             },
             {
                 "language": "NL",
-                "text": "We gaan nog niet een Live Trading Session starten, dus heeft het geen zin om data mining te blijven uitvoeren.",
-                "updated": 1638779733396
+                "text": "We gaan nog geen Live Trading Session starten, dus het heeft geen zin om onze datamining draaiende te houden.",
+                "updated": 1666616132991
             }
         ],
         "updated": 1640265234059
@@ -185,8 +185,8 @@
                 },
                 {
                     "language": "NL",
-                    "text": "Om een live sessie te draaien: Een live sessie zoals een Paper Trading Session, Forward Testing Session, of Live Trading Session, hebben een een live market feed nodig.",
-                    "updated": 1638780229514
+                    "text": "Om een live sessie te draaien: Verschillende live sessie zoals een Paper Trading Session, Forward Testing Session, of Live Trading Session, hebben actuele markt gegevens nodig.",
+                    "updated": 1666616226456
                 }
             ]
         },
@@ -230,8 +230,8 @@
                 },
                 {
                     "language": "NL",
-                    "text": "Als alle processen up to date zijn, klik op \"Stop All Tasks\" in de Market Data Tasks node. We stoppen de taken vanuit een andere node dan we ze starten!",
-                    "updated": 1638780188048
+                    "text": "Als alle processen up to date zijn, klik op \"Stop All Tasks\" in de Market Data Tasks node. Merk op dat je de taken vanuit een andere node kan stoppen dan welke we gebruikt hebben ze te starten!",
+                    "updated": 1666616307543
                 }
             ],
             "updated": 1622197433719

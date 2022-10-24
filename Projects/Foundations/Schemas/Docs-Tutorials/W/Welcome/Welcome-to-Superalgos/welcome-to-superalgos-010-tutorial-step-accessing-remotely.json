@@ -89,8 +89,8 @@
                 },
                 {
                     "language": "NL",
-                    "text": "Als je de Client benanderd vanaf een ander apparaat moet je nu de Network Node configuratie aanpassen voordat je verder gaat.",
-                    "updated": 1633886630167,
+                    "text": "Als je de Client benaderd vanaf een ander apparaat moet je de LAN Network Node configuratie aanpassen.",
+                    "updated": 1666611338438,
                     "style": "Text"
                 },
                 {
@@ -148,8 +148,8 @@
                 },
                 {
                     "language": "NL",
-                    "text": "Klik op \"Configure\" in de rechterbovenhoek van het \"Network Node\" menu.",
-                    "updated": 1633886682371,
+                    "text": "Klik op Configure in de rechterbovenhoek van het LAN Network Node menu.",
+                    "updated": 1666611398359,
                     "style": "List"
                 },
                 {
@@ -201,8 +201,8 @@
                 },
                 {
                     "language": "NL",
-                    "text": "Verander de waarde in het \"host\" veld, in het IP adres van het apparaat waar het backend draait.",
-                    "updated": 1633887084437,
+                    "text": "Verander de waarde in het host veld, in het IP adres van het apparaat waar het backend draait.",
+                    "updated": 1666611484373,
                     "style": "List"
                 },
                 {
@@ -248,6 +248,11 @@
                     "language": "FR",
                     "text": "Si vous utilisez un reverse proxy ajoutez ce paramètre...",
                     "updated": 1666253948039
+                },
+                {
+                    "language": "NL",
+                    "text": "Wanneer je een reverse proxy gebruikt, voeg dan deze instelling toe.",
+                    "updated": 1666611522719
                 }
             ]
         },
@@ -292,8 +297,8 @@
                 },
                 {
                     "language": "NL",
-                    "text": "Sluit de configuratie door de muis buiten de configuratie cirkel te bewegen! Als de configuratie correct is aangepast, zou de foutmelding in de Network Node binnen een minuut verdwijnen!",
-                    "updated": 1633887318246,
+                    "text": "Sluit nu de editor. Als de configuratie correct is aangepast, zal de foutmelding binnen een minuut verdwijnen!",
+                    "updated": 1666611638462,
                     "style": "List"
                 },
                 {

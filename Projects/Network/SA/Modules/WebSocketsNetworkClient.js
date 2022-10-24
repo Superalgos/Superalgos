@@ -69,14 +69,15 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                 socket.onopen = () => { onConnectionOpened() }
                 socket.onclose = () => { onConnectionClosed() }
                 socket.onerror = err => { onError(err) }
+                socket.on('ping', heartbeat)
 
                 function onConnectionOpened() {
-
+                    heartbeat()
                     thisObject.socketNetworkClients.handshakeProcedure(resolve, reject)
-
                 }
 
                 function onConnectionClosed() {
+                    clearTimeout(socket.pingTimeout)
                     if (thisObject.socketNetworkClients.isConnected === true) {
                         console.log('')
                         console.log('Websockets Client Disconnected from Network Node via Web Sockets ............. Disconnected from ' + thisObject.p2pNetworkNode.userProfile.config.codeName + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
@@ -103,6 +104,15 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                     console.log((new Date()).toISOString(), '[ERROR] Web Sockets Network Client -> onError -> err.stack = ' + err.stack)
                     reject()
                     return
+                }
+
+                /* This function awaits a heartbeat from the server every 30 seconds + 3 seconds grace and re-initializes if not received. Prevents hidden connection drops. Ensure timeout matches with WebSocketsInterface.js */
+                function heartbeat() {
+                    clearTimeout(socket.pingTimeout)
+                    socket.pingTimeout = setTimeout(() => {
+                        console.log((new Date()).toISOString(), '[INFO] No Websockets heartbeat received from server, re-initializing connection...')
+                        socket.terminate()
+                    }, 30000 + 3000)
                 }
 
             } catch (err) {

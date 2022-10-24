@@ -24,6 +24,8 @@ function newPlotterPanel() {
     let upDownButton
     let panelNode
     let recordSet = new Map()
+    let configStyle
+
 
     return thisObject
 
@@ -159,6 +161,15 @@ function newPlotterPanel() {
                 }
             }
 
+            let chartingSpaceNode = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Charting Space')
+            if (chartingSpaceNode !== undefined) {
+                if (chartingSpaceNode.spaceStyle !== undefined) {
+                    configStyle = JSON.parse(chartingSpaceNode.spaceStyle.config)
+                }
+            } else {
+                configStyle = undefined
+            }
+
 
             if (valuePosition > 100) {thisObject.container.frame.height = UI_PANEL.HEIGHT.NORMAL * 1.25}
             
@@ -207,10 +218,14 @@ function newPlotterPanel() {
                     textSize = 14
                 } 
                 case (textColor): {
-                    textColor = UI_COLOR.DARK
+                    if (configStyle === undefined || configStyle.indicatorFrameTextColor === undefined) {
+                        textColor = UI_COLOR.DARK
+                    } else {
+                        textColor = eval(configStyle.indicatorFrameTextColor)
+                    }
                 } 
                 case (valueColor): {
-                    valueColor = UI_COLOR.DARK
+                    valueColor = textColor
                 }
                 case (valueOpacity): {
                     valueOpacity = '1'

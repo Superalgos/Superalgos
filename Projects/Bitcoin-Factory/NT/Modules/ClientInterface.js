@@ -149,12 +149,12 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
 
             async function promiseWork(resolve, reject) {
                 responseFunctions.set(queryReceived.messageId, onResponseFromServer)
-                function onResponseFromServer(awnserReceived) {
-                    console.log((new Date()).toISOString(), '[INFO] Awnser to Test Client v.' + testClientVersion +
+                function onResponseFromServer(answerReceived) {
+                    console.log((new Date()).toISOString(), '[INFO] Answer to Test Client v.' + testClientVersion +
                         '                 -> timestamp = ' + (new Date(requestToServer.timestamp)).toISOString() +
                         ' -> userProfile = ' + userProfile +
-                        ' -> sender = ' + awnserReceived.sender +
-                        ' -> instance = ' + awnserReceived.instance 
+                        ' -> sender = ' + answerReceived.sender +
+                        ' -> instance = ' + answerReceived.instance 
                     )
                     /*
                     Process the Response
@@ -162,7 +162,7 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
                     let response = {
                         result: 'Ok',
                         message: 'Server Responded.',
-                        serverData: awnserReceived
+                        serverData: answerReceived
                     }
                     /*
                     Update the Statistics

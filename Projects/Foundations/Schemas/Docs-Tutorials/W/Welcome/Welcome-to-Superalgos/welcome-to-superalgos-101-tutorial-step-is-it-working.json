@@ -12,8 +12,8 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Il modo più sicuro per verificare che tutto sta andando bene è andare su Binance e controllare la cronologia degli ordini BTC/USDT.",
-                "updated": 1618071697384,
+                "text": "Il modo inequivocabile per verificare se le cose stanno funzionando bene è accedere all'Exchange e controllare la cronologia degli ordini per BTC/USDT.",
+                "updated": 1666394302684,
                 "style": "Definition"
             },
             {
@@ -51,8 +51,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Vai su Binance e controlla costa sta succedendo!",
-                    "updated": 1618071709908,
+                    "text": "Vai all'interfaccia web dell'Exchange e dai un'occhiata a cosa sta succedendo!",
+                    "updated": 1666394349412,
                     "style": "Callout"
                 },
                 {

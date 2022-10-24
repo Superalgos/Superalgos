@@ -11,8 +11,8 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Lo so, ci sono migliaia di cose che non abbiamo trattato o approfondito! C'è così tanto da vedere e imparare!",
-                "updated": 1618072213077,
+                "text": "Lo so, ci sono migliaia di cose che non abbiamo trattato o approfondito! C'è così tanto da vedere e imparare, come per esempio eseguire una vera Live Trading Session! Ci arriveremo, non preoccuparti!",
+                "updated": 1666391042541,
                 "style": "Definition"
             },
             {
@@ -52,8 +52,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Sono sicuro che hai ancora chissà quante domande che ti girano in testa...come costruisco le mie strategie? Come ne misuro la performance? Come costruisco un indicatore? Come configuro una trading farm? Come posso interfacciarmi con TradingView? Come configuro le notifiche Telegram?",
-                    "updated": 1618072291773,
+                    "text": "Sono sicuro che hai ancora chissà quante domande che ti girano in testa...come costruisco le mie strategie? Come ne misuro la performance? Come costruisco un indicatore? Come configuro una trading farm? Come posso interfacciarmi con TradingView? Come configuro le notifiche Telegram o gli annunci Twitter?  Come recupero dati da altre API?",
+                    "updated": 1666391147915,
                     "style": "Text"
                 },
                 {
@@ -98,6 +98,11 @@
                     "language": "TR",
                     "text": "Tüm sorularınızı kapsayan öğreticiler ve 1500 sayfadan fazla belge var! Docs'a göz atmanızda fayda var..",
                     "updated": 1666066431352
+                },
+                {
+                    "language": "IT",
+                    "text": "Ci sono altri tutorial e oltre 1500 pagine di documentazione che coprono tutte le tue domande!",
+                    "updated": 1666391182472
                 }
             ]
         },
@@ -115,6 +120,11 @@
                     "language": "TR",
                     "text": "Diğer konulara geçmeden önce yerleşik dokümantasyon (Docs) sistemine bir göz atalım!",
                     "updated": 1666066466202
+                },
+                {
+                    "language": "IT",
+                    "text": "Quindi diamo un'occhiata al sistema di documentazione integrato prima di passare ad altre cose!",
+                    "updated": 1666391207835
                 }
             ]
         }

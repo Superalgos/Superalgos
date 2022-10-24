@@ -29,6 +29,11 @@
                 "language": "RU",
                 "text": "Вы можете использовать платформу Superalgos для производства сложного интеллекта, но вы также можете использовать ее для копирования чужих сделок!",
                 "updated": 1662035282566
+            },
+            {
+                "language": "IT",
+                "text": "Puoi usare la piattaforma Superalgos per produrre intelligenza sofisticata, ma puoi anche usarla per copiare le operazioni di altri utenti!",
+                "updated": 1666392252904
             }
         ]
     },
@@ -57,6 +62,11 @@
                     "language": "RU",
                     "text": "Альго-трейдеры получают вознаграждение Superalgos SA Token за производство и трансляцию торговых сигналов.",
                     "updated": 1662035303285
+                },
+                {
+                    "language": "IT",
+                    "text": "I trader Algo ricevono premi Superalgos SA Token per la produzione e la trasmissione di segnali di trading.",
+                    "updated": 1666392325067
                 }
             ]
         },
@@ -84,6 +94,11 @@
                     "language": "RU",
                     "text": "Вы можете получать сигналы и автоматически копировать торговлю профи, используя ту же платформу!",
                     "updated": 1662035333551
+                },
+                {
+                    "language": "IT",
+                    "text": "Puoi ricevere i segnali e copiare automaticamente i professionisti utilizzando la stessa piattaforma!",
+                    "updated": 1666392345842
                 }
             ]
         },
@@ -111,6 +126,11 @@
                     "language": "RU",
                     "text": "Для участия в открытом бета-тестировании присоединяйтесь к группе",
                     "updated": 1662035373576
+                },
+                {
+                    "language": "IT",
+                    "text": "Per partecipare al lavoro di beta testing, unisciti a",
+                    "updated": 1666392403723
                 }
             ]
         },
@@ -133,6 +153,11 @@
                     "language": "RU",
                     "text": "Первые несколько сигналов уже в прямом эфире! Чтобы получить доступ к премиальным услугам сообщества, вам необходимо иметь определенный баланс Superalgos SA Tokens.",
                     "updated": 1665737028725
+                },
+                {
+                    "language": "IT",
+                    "text": "I primi segnali sono già operativi! Per accedere a questo servizio di community premium, dovrai possedere un certo saldo di token Superalgos SA.",
+                    "updated": 1666392461290
                 }
             ]
         },

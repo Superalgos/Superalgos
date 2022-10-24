@@ -19,6 +19,11 @@
                 "language": "TR",
                 "text": "İstemci, TS (Task Server) ve UI (User Interface) ile birlikte Superalgos Yazılımının üç temel bileşeninden biridir.",
                 "updated": 1639119130060
+            },
+            {
+                "language": "IT",
+                "text": "Il Client, insieme a TS e UI, è uno dei tre componenti principali del Software Superalgos.",
+                "updated": 1666389841351
             }
         ]
     },
@@ -38,6 +43,11 @@
                     "text": "İstemci, kullanıcıların çalıştırdığı şeydir.",
                     "updated": 1654390868293,
                     "style": "Success"
+                },
+                {
+                    "language": "IT",
+                    "text": "Il Client è quello su cui l'utente lavora.",
+                    "updated": 1666389899091
                 }
             ]
         }

@@ -1538,8 +1538,7 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                             for (let c = 0; c < completeRecord.size; c++) {
                                                 let runCount = c 
                                                 let content = Array.from(completeRecord)
-                                                let contentNum = (content.length - 1) - c
-                                                let thisContent = content[contentNum]
+                                                let thisContent = content[c]
 
                                                 // This is the timestamp we use to build the path.
                                                 let fileT = thisContent[0]

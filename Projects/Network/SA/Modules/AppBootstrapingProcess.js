@@ -30,7 +30,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
         await run()
         if (thisObject.pullUserProfiles === true) {
             setInterval(run, 60000 * MINUTES_TO_UPDATE_USER_PROFILES_AND_BALANCES)
-            console.log((new Date()).toISOString(), '[INFO] Updates of all in-memory User Profiles schedulled to run every ' + MINUTES_TO_UPDATE_USER_PROFILES_AND_BALANCES + ' minutes.')
+            console.log((new Date()).toISOString(), '[INFO] Updates of all in-memory User Profiles scheduled to run every ' + MINUTES_TO_UPDATE_USER_PROFILES_AND_BALANCES + ' minutes.')
             console.log('')
         }
     }

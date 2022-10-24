@@ -50,8 +50,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Lancia la Lightning Strike Task, e poi lancia la Lightning Strike Live Trading Session a destra!",
-                    "updated": 1618071413222,
+                    "text": "Esegui l'attività Lightning Strike Task, quindi esegui la Lightning Strike Live Trading Session più in basso nella gerarchia!",
+                    "updated": 1666393946847,
                     "style": "Callout"
                 },
                 {
@@ -89,8 +89,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Una volta lanciata la sessione, il trading bot può dover attendere fino a 60 secondi perchè gli ultimi indicatori terminino. Una volta completati, vedrai la data corrente e un progresso dello 0% sotto la Trading Process Instance, che rimarrà così per tutta la durata della sessione.",
-                    "updated": 1618071515418,
+                    "text": "Una volta eseguita la sessione, il bot di trading potrebbe dover attendere fino a 60 secondi affinché l'ultimo indicatore termini l'elaborazione. Una volta fatto, vedrai la data corrente e un avviso di avanzamento dello 0% nell'istanza del processo di trading, che rimarrà così per tutta la durata, perché non stiamo fissando un limite di tempo per la sessione.",
+                    "updated": 1666394024795,
                     "style": "Note"
                 },
                 {

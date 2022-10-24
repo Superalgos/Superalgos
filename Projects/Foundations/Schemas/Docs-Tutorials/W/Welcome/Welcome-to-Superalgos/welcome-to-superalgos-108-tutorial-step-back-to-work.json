@@ -12,8 +12,8 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Superalgos è provvisto di una documentazione in-app, editabile e multilingua, e addirittura di una command line! Impara a usare questi strumenti e sarai a cavallo!",
-                "updated": 1618072460548,
+                "text": "Superalgos è provvisto di una documentazione interna, editabile e multilingua, e addirittura di una command line!",
+                "updated": 1666391635027,
                 "style": "Definition"
             },
             {
@@ -52,8 +52,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Hai già utilizzato un paio di pagine della documentazione nel pannello Docs a destra, ma è solo la punta dell'iceberg!",
-                    "updated": 1618072487694,
+                    "text": "Impara a usare i documenti e la riga di comando e sarai a cavallo!",
+                    "updated": 1666391690128,
                     "style": "Text"
                 },
                 {
@@ -92,6 +92,11 @@
                     "language": "RU",
                     "text": "Вы уже использовали несколько страниц документации на панели Docs справа, но это только вершина айсберга!",
                     "updated": 1662035614988
+                },
+                {
+                    "language": "IT",
+                    "text": "Hai già utilizzato un paio di pagine di documentazione nel pannello Documenti a destra, ma questa è solo la punta dell'iceberg!",
+                    "updated": 1666391721369
                 }
             ]
         },
@@ -141,8 +146,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Non per vantarmi, ma la velocità del motore di ricerca fa concorrenza a Google ;-)",
-                    "updated": 1618072524938,
+                    "text": "Non per vantarmi, ma la velocità del motore di ricerca è notevole!",
+                    "updated": 1666391765268,
                     "style": "Success"
                 },
                 {

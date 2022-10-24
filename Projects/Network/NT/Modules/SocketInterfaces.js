@@ -711,7 +711,10 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
         try {
             const MAX_DELAY_FOR_ZERO_RANKING = 60000 // miliseconds
             const COUNT_USER_PROFILES_CONNECTED_AS_CLIENTS = thisObject.userProfilesMap.size
-            const DELAY_BETWEEN_USER_PROFILES = MAX_DELAY_FOR_ZERO_RANKING / (COUNT_USER_PROFILES_CONNECTED_AS_CLIENTS - 1)
+            let DELAY_BETWEEN_USER_PROFILES = 1000 // milliseconds
+            if (COUNT_USER_PROFILES_CONNECTED_AS_CLIENTS >= 60) {
+                DELAY_BETWEEN_USER_PROFILES = MAX_DELAY_FOR_ZERO_RANKING / (COUNT_USER_PROFILES_CONNECTED_AS_CLIENTS - 1)
+            }
             let lastUserProfileId
             let accumulatedDelay = 0
             let positionInQueue = 0
@@ -747,7 +750,18 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                 */
                 networkClient.socket.send(JSON.stringify(socketMessage))
 
-                console.log((new Date()).toISOString(), '[INFO] Signal sent to User Profile: ' + networkClient.userProfile.name)
+                /* Obtain Signal Identifier */
+               let signalId
+                try {
+                    let messagePayload = JSON.parse(socketMessage.payload)
+                    messagePayload = JSON.parse(messagePayload.signalMessage)
+                    signalId = messagePayload.signalId
+                    signalId = signalId.split(/[-]+/).shift()
+                } catch(err) {
+                    signalId = '<unknown>'
+                }
+
+                console.log((new Date()).toISOString(), '[INFO] Signal ' + signalId + '- sent to User ' + networkClient.userProfile.name + ', position ' + positionInQueue + ', delayed ' + accumulatedDelay/1000 + ' seconds')
             }
             return true
         } catch (err) {

@@ -65,8 +65,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "In questa cartella troverai un file chiamato Getting Started.json. È il workspace che stai usando in questo momento! Tutto ciò che hai fatto finora è salvato su questo file.",
-                    "updated": 1619553718618,
+                    "text": "Qui è dove troverai gli workspaces che potresti aver salvato in precedenza. Se la cartella è vuota o non esiste, significa che non hai ancora salvato alcuno workspace!",
+                    "updated": 1666639702525,
                     "style": "List"
                 },
                 {
@@ -108,8 +108,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Qui troverai i Plugin Workspaces originali di Superalgos. Per imparare cosa fa ognuno di essi, leggi il relativo topic nella documentazione!",
-                    "updated": 1619553810915,
+                    "text": "In questa cartella troverai i Plugin Workspaces in dotazione con Superalgos. Potresti voler leggere l'argomento \"Community Workspaces\" nella documentazione per sapere di cosa tratta ciascuno!",
+                    "updated": 1666639782473,
                     "style": "List"
                 },
                 {

@@ -132,8 +132,8 @@
                 },
                 {
                     "language": "NL",
-                    "text": "Druk Ctrl in en scroll met je muiswiel op Windows of ⌘ en - of + op Mac.",
-                    "updated": 1635181100849,
+                    "text": "Druk Ctrl in en scroll met je muiswiel op Windows of <kbd>⌘</kbd> en <kbd>-</kbd> of <kbd>+</kbd> op Mac.",
+                    "updated": 1666613777600,
                     "style": "Callout"
                 },
                 {

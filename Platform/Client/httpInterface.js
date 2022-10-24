@@ -867,20 +867,9 @@ exports.newHttpInterface = function newHttpInterface() {
                         }
 
                         case 'Export': {
-                            SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, httpResponse, (body) => {
-                                // TS.projects.education.utilities.exportFunctions.process(body)
-                                process(body)
+                            SA.projects.foundations.utilities.httpRequests.getRequestBodyAsync(httpRequest, httpResponse).then((body) => {
+                                PL.projects.education.utilities.exportFunctions.process(body)
                                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
-
-                                function process(body) {
-                                    const payload = JSON.parse(body)
-                                    const filePath = global.env.PATH_TO_EXPORT_DOCS + '/' + `${payload.project}/${payload.category}/`
-                                    SA.projects.foundations.utilities.filesAndDirectories.createNewDir(filePath)
-                                    
-                                    const fileName = `${payload.type}.html`
-                            
-                                    SA.nodeModules.fs.writeFileSync(filePath + fileName, payload.content)
-                                }
                             })
                             break
                         }

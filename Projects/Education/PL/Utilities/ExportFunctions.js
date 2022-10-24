@@ -1,4 +1,5 @@
 exports.newEducationUtilitiesExportFunctions = function () {
+
     let thisObject = {
         process: process
     }
@@ -6,11 +7,11 @@ exports.newEducationUtilitiesExportFunctions = function () {
     return thisObject
 
     function process(body) {
-        const filePath = global.env.PATH_TO_EXPORT_DOCS + '/'
+        const payload = JSON.parse(body)
+        const filePath = global.env.PATH_TO_EXPORT_DOCS + '/' + `${payload.project}/${payload.category}/`
         SA.projects.foundations.utilities.filesAndDirectories.createNewDir(filePath)
         
-        const payload = JSON.parse(body)
-        const fileName = `${payload.project}/${payload.category}/${payload.type}.html`
+        const fileName = `${payload.type.replace(' ', '-')}.html`
 
         SA.nodeModules.fs.writeFileSync(filePath + fileName, payload.content)
     }

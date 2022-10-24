@@ -45,6 +45,11 @@
                 "language": "ID",
                 "text": "Tutorial ini memperkenalkan kamu ke Superalgos universe. Bot ini memandu kamu melalui area utama sistem, mengajarkan kamu operasi dasar, memandu kamu melalui proses backtesting Trading System demo, dan bahkan mengatur kamu dengan Live Trading Session pertama kamu.",
                 "updated": 1640567434566
+            },
+            {
+                "language": "IT",
+                "text": "Questo tutorial ti introduce all'universo di Superalgos. Ti guida attraverso le aree principali del sistema, ti insegna le operazioni di base, ti guida attraverso il processo di backtesting di un sistema di trading demo e ti prepara anche con la tua prima sessione di trading dal vivo.",
+                "updated": 1666386340356
             }
         ]
     },

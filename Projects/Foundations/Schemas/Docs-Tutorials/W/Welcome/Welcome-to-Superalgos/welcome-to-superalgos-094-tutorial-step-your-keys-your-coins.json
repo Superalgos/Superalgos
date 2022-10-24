@@ -12,8 +12,8 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Qui è dove configuro le Exchange Account Key per la Live Trading Session del Lightning Strike Trading System.",
-                "updated": 1618070825773,
+                "text": "Qui è dove configuro le chiavi del tuo Account sull'Exchange per avviare la Live Trading Session del Lightning Strike Trading System.",
+                "updated": 1666393478770,
                 "style": "Definition"
             },
             {
@@ -52,8 +52,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Accedi alla configurazione e inserisci attentamente la API Public Key e la API Secret Key.",
-                    "updated": 1618070869172,
+                    "text": "Accedi alla configurazione e inserisci con attenzione la chiave pubblica API e la chiave segreta API.",
+                    "updated": 1666393510693,
                     "style": "Callout"
                 },
                 {
@@ -129,8 +129,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "L'Exchange Account Key è salvata nel workspace file. È utilizzata dal Trading Bot per autenticarsi sull'exchange quando gestisce gli ordini. Non viene inviata nè salvata in nessun'altro luogo.",
-                    "updated": 1618071006665,
+                    "text": "La chiave dell'account Exchange è archiviata nel file dell'area di lavoro dell'utente, non crittografata. Viene utilizzata per autenticarsi con lo Exchange. Non viene mai inviata o archiviata altrove. Non condividere l'area di lavoro finché non impari come farlo in sicurezza nel prossimo tutorial.",
+                    "updated": 1666393643728,
                     "style": "Warning"
                 },
                 {

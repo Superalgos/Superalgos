@@ -133,6 +133,11 @@
                     "language": "NL",
                     "text": "De juiste manier om Superalgos af te sluiten is:",
                     "updated": 1638780416686
+                },
+                {
+                    "language": "IT",
+                    "text": "Il modo corretto per chiudere Superalgos è:",
+                    "updated": 1666389151256
                 }
             ]
         },
@@ -173,6 +178,11 @@
                     "language": "NL",
                     "text": "Stop alle taken en wacht een paar minuten.",
                     "updated": 1638780441110
+                },
+                {
+                    "language": "IT",
+                    "text": "Interrompi tutte le attività e aspetta un paio di minuti.",
+                    "updated": 1666389191816
                 }
             ]
         },
@@ -213,6 +223,11 @@
                     "language": "NL",
                     "text": "Als alle taken gestopt zijn, sluit je de console app of stop het process met Ctrl + Key-C.",
                     "updated": 1638780618494
+                },
+                {
+                    "language": "IT",
+                    "text": "Quando tutte le attività si fermano, puoi chiudere l'app della console o interrompere il processo con Ctrl + <kbd>Tasto-C</kbd>.",
+                    "updated": 1666389337697
                 }
             ]
         },
@@ -252,6 +267,11 @@
                     "language": "NL",
                     "text": "Je kan op elk moment de browser afsluiten en de taken in de achtergrond laten draaien.",
                     "updated": 1638780572014
+                },
+                {
+                    "language": "IT",
+                    "text": "È possibile chiudere il browser in qualsiasi momento e lasciare l'elaborazione delle attività in background.",
+                    "updated": 1666389384070
                 }
             ]
         },
@@ -292,6 +312,11 @@
                     "language": "NL",
                     "text": "Het stoppen van de Client voordat de taken zijn gestopt, kan je data corrupt raken!",
                     "updated": 1638780998930
+                },
+                {
+                    "language": "IT",
+                    "text": "La chiusura del Client prima dell'interruzione delle attività può causare la corruzione dei dati!",
+                    "updated": 1666389415403
                 }
             ]
         }

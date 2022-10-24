@@ -12,8 +12,8 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Ti lascio qualche minuto per divertirti con la tua live session, e quando sarai pronto passeremo ad altre cose!",
-                "updated": 1618071992282,
+                "text": "Ti darò qualche minuto per giocare con la tua sessione dal vivo e, quando sarai pronto, concluderemo tutto e finiremo il tutorial!",
+                "updated": 1666394692797,
                 "style": "Definition"
             },
             {
@@ -91,8 +91,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Una volta che sei pronto a proseguire, sentiti libero di fermare Live Trading Session e Data Tasks. Puoi lasciarle proseguire se preferisci, ma io non affiderei a tempo indefinito i miei sudati soldi alla strategia demo!",
-                    "updated": 1618072064872,
+                    "text": "Quando sarai pronto per andare avanti, puoi interrompere la sessione di trading dal vivo e le attività sui dati.",
+                    "updated": 1666394787078,
                     "style": "Important"
                 },
                 {
@@ -141,6 +141,11 @@
                     "language": "TR",
                     "text": "İsterseniz oturumu çalışır durumda bırakabilirsiniz, ancak ben zor kazandığım paramı süresiz olarak demo stratejisine emanet etmezdim!",
                     "updated": 1666066651976
+                },
+                {
+                    "language": "IT",
+                    "text": "Puoi anche lasciare la sessione in esecuzione se lo desideri, ma non affiderei i miei sudati guadagni alla strategia demo a tempo indeterminato!",
+                    "updated": 1666395128522
                 }
             ]
         }

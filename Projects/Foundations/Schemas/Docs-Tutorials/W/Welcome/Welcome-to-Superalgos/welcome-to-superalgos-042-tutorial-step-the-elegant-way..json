@@ -11,8 +11,8 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Lo so, zoommare su un punto a caso difficilmente farà sì che il grafico si adatti al tuo schermo, vero? No problem...",
-                "updated": 1614893061080,
+                "text": "Lo so, zoommare su un punto a caso difficilmente farà sì che il grafico si adatti al tuo schermo, vero? Nessun problema... prova questo trucco!",
+                "updated": 1666390282402,
                 "style": "Definition"
             },
             {
@@ -79,6 +79,11 @@
                     "language": "RU",
                     "text": "Отрегулируйте соотношение сторон: наведите курсор мыши на график сеансов тестирования (тот, что сверху) и нажмите Ctrl + Shift + Alt + A.",
                     "updated": 1636204626786
+                },
+                {
+                    "language": "IT",
+                    "text": "Regola le proporzioni: punta il mouse sul grafico della sessione di backtesting (quello in alto) e premi Ctrl + <kbd>Maiusc</kbd> + Alt + <kbd>Tasto-A</kbd>",
+                    "updated": 1666390318690
                 }
             ]
         },
@@ -113,6 +118,11 @@
                     "language": "RU",
                     "text": "Уменьшение масштаба: используйте колесико мыши, чтобы перейти в крайнее положение уменьшения масштаба, т.к. только из этого положения будет работать следующая команда!",
                     "updated": 1636204795612
+                },
+                {
+                    "language": "IT",
+                    "text": "Rimpicciolisci: usa la rotellina del mouse per andare alla posizione di rimpicciolimento più lontana; solo da questa posizione il prossimo comando funzionerà!",
+                    "updated": 1666390389684
                 }
             ]
         },
@@ -163,8 +173,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Fai un altro doppio click: questo ti trasporterà dentro il grafico, zoomandolo quanto basta per adattarlo perfettamente allo schermo e farne emergere i layer.",
-                    "updated": 1618647548231,
+                    "text": "Fai un altro doppio click: questo ti trasporterà ulteriormente dentro il grafico, zoomandolo quanto basta per adattarlo perfettamente allo schermo e far emergere i Layer Managers.",
+                    "updated": 1666390442830,
                     "style": "List"
                 },
                 {

@@ -89,8 +89,8 @@
                 },
                 {
                     "language": "NL",
-                    "text": "Veel geruikers kiezen ervoor om de Client in de cloud te draaien op een single-board apparaat zoals de Raspberry Pi, of op een toegewijde PC die altijd aanstaat voor Live Trading. De \"My Computer\" Network Node stelt het apparaat voor waar de Client op draait.",
-                    "updated": 1633854215256,
+                    "text": "Veel gebruikers kiezen ervoor om de Client in de cloud te draaien op een single-board apparaat zoals de Raspberry Pi, of op een toegewijde PC die altijd aanstaat voor continu handelen. De My Computer LAN Network Node stelt het apparaat voor waar de Client op draait.",
+                    "updated": 1666610194202,
                     "style": "Text"
                 },
                 {
@@ -137,8 +137,8 @@
                 },
                 {
                     "language": "NL",
-                    "text": "Op dit moment implementeert Superalgos nog geen enkele vorm van beveiliging. Gebruik het systeem alleen in een \"restricted Local Area Network\". Als je ervoor kiest om de client in de cloud te draaien, moet je jouw eigen beveiliging implementeren!",
-                    "updated": 1633854469540,
+                    "text": "Op dit moment implementeert Superalgos nog geen enkele vorm van beveiliging. Gebruik het systeem alleen in een afgeschermd lokaal netwerk. Als je ervoor kiest om de Client in de cloud te draaien, moet je jouw eigen beveiliging implementeren!",
+                    "updated": 1666610343426,
                     "style": "Warning"
                 },
                 {

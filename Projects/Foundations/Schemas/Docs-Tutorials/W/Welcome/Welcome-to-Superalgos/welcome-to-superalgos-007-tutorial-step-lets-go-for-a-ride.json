@@ -41,8 +41,8 @@
             },
             {
                 "language": "NL",
-                "text": "Voor ik je de rest van het menu laat zien, laten we eerst een andere hiërarchie bekijken: het Netwerk.",
-                "updated": 1633853332041,
+                "text": "Voor ik je de rest van het menu laat zien, laten we eerst een andere hiërarchie bekijken: het LAN Network.",
+                "updated": 1666609602621,
                 "style": "Definition"
             },
             {
@@ -96,8 +96,8 @@
                 },
                 {
                     "language": "NL",
-                    "text": "De Netwerk hiërarchie is de controlekamer van het systeem. Dit is waar je jouw Data Tasks, Test Trading Tasks en Production Trading Tasks beheert.",
-                    "updated": 1633853559028,
+                    "text": "De LAN Network hiërarchie is de controlekamer van het systeem. Dit is waar je jouw Data Tasks, Testing Trading Tasks, en Production Trading Tasks.",
+                    "updated": 1666609720397,
                     "style": "Text"
                 },
                 {
@@ -204,8 +204,8 @@
                 },
                 {
                     "language": "NL",
-                    "text": "Zie je de eerder genoemde (sub)knooppunten? Cool! Wij zijn hier om jouw allereerste datamining operatie op te starten.",
-                    "updated": 1633890622350,
+                    "text": "Zie je de eerder genoemde knooppunten? Cool! Wij zijn hier om jouw allereerste datamining operatie op te starten.",
+                    "updated": 1666609770905,
                     "style": "Text"
                 },
                 {

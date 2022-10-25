@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Этот узел хранит ссылку на узел Task Server App, позволяющий его родительской задаче получить доступ к учетной записи подписи сервера задач текущего пользователя.",
                 "updated": 1645183442185
+            },
+            {
+                "language": "TR",
+                "text": "Bu düğüm, üst görevdeki (Task) geçerli kullanıcının görev sunucusunun, İmzalama Hesabına (Signing Account) erişmesine izin veren Görev Sunucusu Uygulaması (Task Server App) düğümüne bir referans depolar.",
+                "updated": 1666689514950
             }
         ]
     },
@@ -21,6 +26,11 @@
                     "language": "RU",
                     "text": "Получив доступ к учетной записи пользователя, текущая задача теперь сможет получить доступ к одноранговой сети Superalgos.",
                     "updated": 1645183452744
+                },
+                {
+                    "language": "TR",
+                    "text": "Kullanıcının imzalama hesabına erişim sağlayarak, mevcut görev artık Superalgos eşler arası ağa erişebilecek.",
+                    "updated": 1666689551602
                 }
             ]
         }

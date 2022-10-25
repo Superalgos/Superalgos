@@ -226,9 +226,9 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
             } 
             if (forecastCase != undefined) {
                 forecastCase.status = 'Forecasted'
-                forecastCase.enlapsedSeconds = forecastResult.enlapsedTime.toFixed(0)
-                forecastCase.enlapsedMinutes = (forecastResult.enlapsedTime / 60).toFixed(2)
-                forecastCase.enlapsedHours = (forecastResult.enlapsedTime / 3600).toFixed(2)
+                forecastCase.elapsedSeconds = forecastResult.elapsedTime.toFixed(0)
+                forecastCase.elapsedMinutes = (forecastResult.elapsedTime / 60).toFixed(2)
+                forecastCase.elapsedHours = (forecastResult.elapsedTime / 3600).toFixed(2)
                 forecastCase.forecastedBy = forecastedBy
                 forecastCase.testServer = forecastResult.testServer
                 forecastCase.pythonScriptName = forecastResult.pythonScriptName     

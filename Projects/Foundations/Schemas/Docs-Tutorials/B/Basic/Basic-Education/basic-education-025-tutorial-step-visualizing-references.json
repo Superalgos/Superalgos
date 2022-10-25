@@ -86,8 +86,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Premi: Ctrl + Shift + Alt + Key-R",
-                    "updated": 1619501297328,
+                    "text": "Premi: Ctrl + <kbd>Maiusc</kbd> + Alt + <kbd>Tasto-R</kbd> oppure Cmd + <kbd>Maiusc</kbd> + <kbd>Tasto-R</kbd> su Mac.",
+                    "updated": 1666638661060,
                     "style": "Callout"
                 },
                 {

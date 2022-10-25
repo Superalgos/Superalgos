@@ -91,8 +91,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Per ogni plugin nella cartella \\Plugins\\Trading-Systems, viene creato un nodo Plugin File! Cancella i nodi che non ti servono, e magari fissare il nodo Plugin File Position nel punto in cui vuoi piazzare la struttura!",
-                    "updated": 1619590168274,
+                    "text": "Viene creato un nodo Plugin File per ogni plugin presente nella cartella \\Plugins\\Trading-Systems. Puoi cancellare i nodi che non ti servono, e tenere quelli che vuoi!",
+                    "updated": 1666640576352,
                     "style": "Text"
                 },
                 {

@@ -88,8 +88,8 @@ exports.newBitcoinFactoryUtilitiesMiscellaneous = function newBitcoinFacnewBitco
 
     function getHHMMSS(timestamp) {
         let now = (new Date()).valueOf()
-        let enlapsed = now - timestamp
-        return (new Date(enlapsed).toISOString().substr(11, 8))
+        let elapsed = now - timestamp
+        return (new Date(elapsed).toISOString().substr(11, 8))
     }
 
     function getExpiration(thisCase) {

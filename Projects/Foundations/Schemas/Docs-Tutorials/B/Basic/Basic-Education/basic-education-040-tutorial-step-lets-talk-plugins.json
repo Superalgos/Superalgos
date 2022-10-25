@@ -129,8 +129,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Come vedi dalla struttura della gerarchia, ci sono diversi tipi di plugins! Sono salvati in appositi files JSON in una cartella di riferimento. Dai un'occhiata!",
-                    "updated": 1619554435988,
+                    "text": "Come puoi vedere dalla struttura della gerarchia, ci sono diversi tipi di plugin! Vengono spediti come file JSON, ordinati per Project e scritti nella cartella dei plugin.",
+                    "updated": 1666640107286,
                     "style": "Text"
                 },
                 {

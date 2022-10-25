@@ -23,6 +23,11 @@
                 "language": "ES",
                 "text": "El Manual del Usuario cubre Superalgos de la A a la Z, comenzando con una completa introducción conceptual. El libro cubre la funcionalidad y las características, junto con la descripción de cada jerarquía. Está organizado para una lectura continua y le llevará desde el nivel de usuario de Superalgos principiante hasta el avanzado.",
                 "updated": 1641091888093
+            },
+            {
+                "language": "TR",
+                "text": "Kullanım Kılavuzu, kapsamlı bir şekilde A'dan Z'ye Superalgos'u anlatır. Kitap, her bir hiyerarşinin açıklamasıyla birlikte işlevsellik ve özellikleri kapsar. Sürekli okuma için düzenlenmiştir ve sizi başlangıç ​​seviyesinden ileri Superalgos kullanıcı seviyesine götürecektir.",
+                "updated": 1666643078983
             }
         ]
     },

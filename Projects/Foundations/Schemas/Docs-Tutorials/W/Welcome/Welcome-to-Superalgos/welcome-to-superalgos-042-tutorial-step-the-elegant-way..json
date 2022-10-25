@@ -42,6 +42,11 @@
                 "language": "RU",
                 "text": "Я знаю! Увеличение масштаба в случайном месте вряд ли приведет Вас к тому, что диаграмма окажется в квадрате с Вашим экраном, верно? Не беспокойтесь... Попробуйте это трюк!",
                 "updated": 1636204552263
+            },
+            {
+                "language": "NL",
+                "text": "Ik weet! Als u inzoomt op een willekeurige plek, is het onwaarschijnlijk dat de grafiek in verhouding van uw scherm wordt geplaatst, toch? Geen zorgen... probeer deze truc!",
+                "updated": 1666699799907
             }
         ],
         "updated": 1616417516192
@@ -84,6 +89,11 @@
                     "language": "IT",
                     "text": "Regola le proporzioni: punta il mouse sul grafico della sessione di backtesting (quello in alto) e premi Ctrl + <kbd>Maiusc</kbd> + Alt + <kbd>Tasto-A</kbd>",
                     "updated": 1666390318690
+                },
+                {
+                    "language": "NL",
+                    "text": "Pas de beeldverhouding aan: wijs met uw muis naar de Backtesting Session Chart (die bovenaan) en druk op <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>Key-A</kbd>",
+                    "updated": 1666699907091
                 }
             ]
         },
@@ -123,6 +133,11 @@
                     "language": "IT",
                     "text": "Rimpicciolisci: usa la rotellina del mouse per andare alla posizione di rimpicciolimento più lontana; solo da questa posizione il prossimo comando funzionerà!",
                     "updated": 1666390389684
+                },
+                {
+                    "language": "NL",
+                    "text": "Uitzoomen: gebruik het muiswiel om naar de verste uitzoompositie te gaan; alleen vanuit deze positie zal het volgende commando werken!",
+                    "updated": 1666699941850
                 }
             ]
         },
@@ -163,6 +178,11 @@
                     "language": "RU",
                     "text": "Дважды щелкните один раз: это центрирует диаграмму и приведет Вас к определенному уровню масштабирования; в левом верхнем углу остается поле, соответствующее названию вкладке диаграммы.",
                     "updated": 1636204908775
+                },
+                {
+                    "language": "NL",
+                    "text": "Dubbelklik eenmaal: dit centreert de grafiek en brengt u naar een bepaald zoomniveau; er blijft een marge over de naam en het tabblad van het diagram in de linkerbovenhoek zichtbaar te houden.",
+                    "updated": 1666700012138
                 }
             ],
             "updated": 1616418234728
@@ -204,6 +224,11 @@
                     "language": "RU",
                     "text": "Дважды щелкните еще раз: это поведет Вас дальше по диаграмме, к уровню масштабирвания, при котором диаграмма идеально соответствует экрану и появятся Layer Managers.",
                     "updated": 1636204981598
+                },
+                {
+                    "language": "NL",
+                    "text": "Dubbelklik nogmaals: hiermee gaat u verder in de grafiek, naar het zoomniveau waarop de grafiek perfect op het scherm past en Layer Managers tevoorschijn komen.",
+                    "updated": 1666700044985
                 }
             ],
             "updated": 1622198926988

@@ -1,0 +1,50 @@
+{
+    "topic": "Dark Charting Space Themes",
+    "pageNumber": "5",
+    "type": "Alptug-Dark",
+    "definition": {
+        "text": "Write a summary for this topic page."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Author",
+            "updated": 1666735165118
+        },
+        {
+            "style": "Text",
+            "text": "The author of this theme is @EAlptug"
+        },
+        {
+            "style": "Text",
+            "text": "Github https://github.com/EAlptug"
+        },
+        {
+            "style": "Text",
+            "text": "Telegram t.me/E_Alptug"
+        },
+        {
+            "style": "Title",
+            "text": "Images"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/Charts/dark-theme-Alptug-Light-EAlptug.png",
+            "updated": 1666735652050
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/Charts/dark-theme-Alptug-Dark-EAlptug2.png"
+        },
+        {
+            "style": "Title",
+            "text": "Space Style Node Config",
+            "updated": 1666735227959
+        },
+        {
+            "style": "Javascript",
+            "text": "{\n    \"backgroundColor\": \"UI_COLOR.BLACK\",\n    \"candleUpColor\": \"UI_COLOR.WHITE\",\n    \"candleDownColor\": \"UI_COLOR.PINK\",\n    \"candleUpBorderColor\": \"UI_COLOR.WHITE\",\n    \"candleDownBorderColor\": \"UI_COLOR.PINK\",\n    \"panelcandleDownColor\": \"UI_COLOR.BLACK\",\n    \"candleSideColor\": \"UI_COLOR.BLACK\",\n    \"candleSideBorderColor\": \"UI_COLOR.BLACK\",\n    \"panelBackgroundColor\": \"UI_COLOR.DARK\",\n    \"panelBackgroundOpacity\": \"0.77\",\n    \"panelNameColor\": \"UI_COLOR.WHITE\",\n    \"panelExchangeMarketName\": \"UI_COLOR.WHITE\",\n    \"timeMachineNameColor\": \"UI_COLOR.WHITE\",\n    \"onMouseFrameColor\": \"UI_COLOR.TRUE_RED\",\n    \"machineFrameColor\": \"UI_COLOR.WHITE\",\n    \"machineFrameOpacity\": \"1\",\n    \"timeScalePanelColor\": \"UI_COLOR.SKY_BLUE\",\n    \"timeScalePanelLabelColor\": \"UI_COLOR.BLACK\",\n    \"timeScaleDateColor\": \"UI_COLOR.WHITE\",\n    \"timeScaleDateTimeColor\": \"UI_COLOR.WHITE\",\n    \"rateScalePanelColor\": \"UI_COLOR.SKY_BLUE\",\n    \"rateScalePanelLabelColor\": \"UI_COLOR.BLACK\",\n    \"rateScaleLabelColor\": \"UI_COLOR.WHITE\",\n    \"rateScaleLabelDecimalColor\": \"UI_COLOR.WHITE\",\n    \"timeFrameScalePanelColor\": \"UI_COLOR.SKY_BLUE\",\n    \"timeFramePanelLabelColor\": \"UI_COLOR.BLACK\",\n    \"indicatorDropDownPanelColor\": \"UI_COLOR.BLACK\",\n    \"indicatorDropDownPanelOpacity\": \"0.28\",\n    \"indicatorDropDownPanelBorderColor\": \"UI_COLOR.WHITE\",\n    \"indicatorDropDownPanelLabel1\": \"UI_COLOR.BLACK\",\n    \"indicatorDropDownPanelLabel2\": \"UI_COLOR.BLACK\",\n    \"indicatorDropDownPanelLabel3\": \"UI_COLOR.BLACK\",\n    \"indicatorLayersPanelColor\": \"UI_COLOR.SKY_BLUE\",\n    \"indicatorLayersPanelOpacity\": \"0.55\",\n    \"indicatorLayersPanelBorderColor\": \"UI_COLOR.WHITE\",\n    \"indicatorLayersPanelLabel1\": \"UI_COLOR.WHITE\",\n    \"indicatorLayersPanelLabel2\": \"UI_COLOR.WHITE\",\n    \"indicatorFrameBackgroundColor\": \"UI_COLOR.SKY_BLUE\",\n    \"indicatorFrameBackgroundOpacity\": \"0.28\",\n    \"indicatorFrameTextColor\": \"UI_COLOR.WHITE\",\n    \"indicatorPanelTopBarColor\": \"UI_COLOR.SKY_BLUE\",\n    \"indicatorPanelTopBarOpacity\": \"0.55\",\n    \"indicatorPanelTopBarTitleColor\": \"UI_COLOR.WHITE\",\n    \"minCursorSize\": \"10\",\n    \"maxCursorSize\": \"30\"\n}",
+            "updated": 1666735704724
+        }
+    ]
+}

@@ -11,7 +11,7 @@
         <tbody>
             <!-- Loop through the list of data -->
             <tr v-for="item in data">
-               <td v-for="(cell,key) in item">{{cell}}</td>
+               <td v-for="(cell) in item">{{cell}}</td>
             </tr>
         </tbody>
     </table> 

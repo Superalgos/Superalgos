@@ -42,6 +42,11 @@
                 "language": "RU",
                 "text": "Как насчет того, чтобы настроить по форме машину времени в соответствии с правильным соотношение сторон Вашего экрана?",
                 "updated": 1636202464425
+            },
+            {
+                "language": "NL",
+                "text": "Hoe zit het met het vormgeven van de time machine naar de exacte beeldverhouding van uw scherm?",
+                "updated": 1666699195764
             }
         ]
     },
@@ -84,6 +89,11 @@
                     "language": "RU",
                     "text": "Соответствие соотношения сторон Ваших машин времени с соотношению сторон Вашего экрана, имеет решающее значение, т.к. необходимо, чтобы диаграммы плотно прилегали к Вашему экрану при увеличении масштаба!",
                     "updated": 1636202715136
+                },
+                {
+                    "language": "NL",
+                    "text": "Het afstemmen van de beeldverhouding van uw time machines op de beeldverhouding van uw scherm is cruciaal om ervoor te zorgen dat grafieken goed op uw scherm passen terwijl u inzoomt!",
+                    "updated": 1666699226580
                 }
             ]
         },
@@ -125,6 +135,11 @@
                     "language": "RU",
                     "text": "Наведите мышь на одну из машин времени и нажмите Ctrl + Shift + Alt + Key-A. ",
                     "updated": 1662032665322
+                },
+                {
+                    "language": "NL",
+                    "text": "Richt je muis op een van de time machines en druk op Ctrl + Shift + Alt + Key-A.",
+                    "updated": 1666699261421
                 }
             ]
         },
@@ -166,6 +181,11 @@
                     "language": "RU",
                     "text": "На Mac: Ctrl + Shift + Cmd + Key-A.",
                     "updated": 1662032695514
+                },
+                {
+                    "language": "NL",
+                    "text": "Op een Mac: Ctrl + Shift + Cmd + Key-A.",
+                    "updated": 1666699272980
                 }
             ]
         },
@@ -184,6 +204,11 @@
                     "language": "RU",
                     "text": "Сделайте то же самое с другой диаграммой, и отныне две машины времени будут соответствовать соотношению сторон вашего экрана!",
                     "updated": 1662032719880
+                },
+                {
+                    "language": "NL",
+                    "text": "Doe hetzelfde met de andere grafiek en laat de twee time machines voortaan overeenkomen met de beeldverhouding van je scherm!",
+                    "updated": 1666699299533
                 }
             ]
         }

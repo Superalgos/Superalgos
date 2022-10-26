@@ -1,0 +1,64 @@
+{
+    "topic": "Trends Data Mine",
+    "pageNumber": "12",
+    "type": "Enhanced SuperTrend",
+    "definition": {
+        "text": "The Enhanced SuperTrend uses the Volume Adjusted Weighted Moving Average (VAWMA) to calculate it's trendlines, instead of using the HLC3 as the source of the standard indicator. It then goes further to show when the trend is potentially changing when the price action pierces the trendline."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Enhanced SuperTrend on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator shows the usual green line for the support, and red for the resistance line. When the price action pierces the trend line, the line turns yellow to show that it is in a warning/unconfirmed state.",
+            "updated": 1666249629247
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Trends-Enhanced-SuperTrend.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| EnhancedSuperTrend | eSuperTrend | upVal, dnVal, trend, unconfirmed, reversal |"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the indicator's calculations can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"Enhanced SuperTrend\" Procedure Loop.",
+            "updated": 1666249657795
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Trends-Enhanced-SuperTrend-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator can be used to enter a trade when the trend direction changes to 1 and a reversal indication appears:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.eSuperTrend.reversal == 1 &&  chart.at01hs.eSuperTrend.trend == 1"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "TensorFlow.js предоставляет бэкенд WebAssembly (wasm), который обеспечивает ускорение процессора и может использоваться в качестве альтернативы ванильным бэкендам JavaScript CPU (cpu) и WebGL с ускорением (webgl).",
                 "updated": 1645252733508
+            },
+            {
+                "language": "TR",
+                "text": "TensorFlow.js, CPU hızlandırması sunan ve vanilla JavaScript CPU (cpu) ve WebGL hızlandırılmış (webgl) arka uçlarına alternatif olarak kullanılabilen bir WebAssembly arka ucu (wasm) sağlar.",
+                "updated": 1666694039665
             }
         ]
     },
@@ -20,6 +25,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
                     "updated": 1645252738365
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
+                    "updated": 1666693982787
                 }
             ]
         }

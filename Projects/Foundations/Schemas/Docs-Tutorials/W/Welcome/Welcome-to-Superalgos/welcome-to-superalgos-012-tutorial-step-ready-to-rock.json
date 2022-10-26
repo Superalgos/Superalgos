@@ -29,8 +29,8 @@
             },
             {
                 "language": "NL",
-                "text": "Het Data Tasks knooppunt beheerd alle data mining taken die in dit \"Network Node\" knooppunt zijn gedefinieerd.",
-                "updated": 1633887556106,
+                "text": "Het Data Tasks knooppunt beheerd alle data mining taken die in dit LAN Network Node knooppunt zijn gedefinieerd.",
+                "updated": 1666611744948,
                 "style": "Definition"
             },
             {
@@ -83,8 +83,8 @@
                 },
                 {
                     "language": "NL",
-                    "text": "De komende minuten gaan we beginnen met de onderstaande activiteiten:",
-                    "updated": 1633887618880,
+                    "text": "Je staat op het punt de eerstvolgende activiteiten te starten, welke we komende minuten gaan bespreken:",
+                    "updated": 1666611872629,
                     "style": "Text"
                 },
                 {
@@ -135,8 +135,8 @@
                 },
                 {
                     "language": "NL",
-                    "text": "Een data mining operatie starten om data te ontvangen van de BTC/USDT Market van Binance.",
-                    "updated": 1633887723752,
+                    "text": "Een data mining operatie starten om data te ontvangen van de BTC/USDT Market van het handelsplatform.",
+                    "updated": 1666611946339,
                     "style": "List"
                 },
                 {
@@ -188,8 +188,8 @@
                 },
                 {
                     "language": "NL",
-                    "text": "Een Backtesting Session draaien met een bestaande open-source strategie.",
-                    "updated": 1633887785573,
+                    "text": "Een Backtesting Session starten met een bestaande open-source strategie.",
+                    "updated": 1666611967677,
                     "style": "List"
                 },
                 {
@@ -240,8 +240,8 @@
                 },
                 {
                     "language": "NL",
-                    "text": "Een Live Trading Session met minimale middelen, om de kritieke aspecten van het systeem te testen.",
-                    "updated": 1633887854645,
+                    "text": "Een Live Trading Session met een klein bedrag starten, om andere kritieke aspecten van het systeem te testen.",
+                    "updated": 1666612082508,
                     "style": "List"
                 },
                 {

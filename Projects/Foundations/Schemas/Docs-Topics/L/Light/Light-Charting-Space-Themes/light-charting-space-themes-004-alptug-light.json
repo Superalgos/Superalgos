@@ -1,0 +1,48 @@
+{
+    "topic": "Light Charting Space Themes",
+    "pageNumber": "4",
+    "type": "Alptug-Light",
+    "definition": {
+        "text": "Write a summary for this topic page."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Author",
+            "updated": 1666736438104
+        },
+        {
+            "style": "Text",
+            "text": "The author of this theme is @EAlptug"
+        },
+        {
+            "style": "Text",
+            "text": "Github https://github.com/EAlptug"
+        },
+        {
+            "style": "Text",
+            "text": "Telegram t.me/E_Alptug"
+        },
+        {
+            "style": "Title",
+            "text": "Images"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/Charts/light-theme-Alptug-Light-EAlptug2.png"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/Charts/light-theme-Alptug-Light-EAlptug.png"
+        },
+        {
+            "style": "Title",
+            "text": "Space Style Node Config"
+        },
+        {
+            "style": "Javascript",
+            "text": "{\n    \"backgroundColor\": \"UI_COLOR.WHITE\",\n    \"candleUpColor\": \"UI_COLOR.WHITE\",\n    \"candleDownColor\": \"UI_COLOR.BLACK\",\n    \"candleUpBorderColor\": \"UI_COLOR.BLACK\",\n    \"candleDownBorderColor\": \"UI_COLOR.BLACK\",\n    \"panelcandleDownColor\": \"UI_COLOR.BLACK\",\n    \"candleSideColor\": \"UI_COLOR.BLACK\",\n    \"candleSideBorderColor\": \"UI_COLOR.BLACK\",\n    \"panelBackgroundColor\": \"UI_COLOR.GREY\",\n    \"panelBackgroundOpacity\": \"0.15\",\n    \"panelNameColor\": \"UI_COLOR.BLACK\",\n    \"panelExchangeMarketName\": \"UI_COLOR.BLACK\",\n    \"timeMachineNameColor\": \"UI_COLOR.BLACK\",\n    \"onMouseFrameColor\": \"UI_COLOR.TITANIUM_YELLOW\",\n    \"machineFrameColor\": \"UI_COLOR.TURQUOISE\",\n    \"machineFrameOpacity\": \"1\",\n    \"timeScalePanelColor\": \"UI_COLOR.TURQUOISE\",\n    \"timeScalePanelLabelColor\": \"UI_COLOR.BLACK\",\n    \"timeScaleDateColor\": \"UI_COLOR.BLACK\",\n    \"timeScaleDateTimeColor\": \"UI_COLOR.BLACK\",\n    \"rateScalePanelColor\": \"UI_COLOR.TURQUOISE\",\n    \"rateScalePanelLabelColor\": \"UI_COLOR.BLACK\",\n    \"rateScaleLabelColor\": \"UI_COLOR.BLACK\",\n    \"rateScaleLabelDecimalColor\": \"UI_COLOR.BLACK\",\n    \"timeFrameScalePanelColor\": \"UI_COLOR.TURQUOISE\",\n    \"timeFramePanelLabelColor\": \"UI_COLOR.BLACK\",\n    \"indicatorDropDownPanelColor\": \"UI_COLOR.DARK_TURQUOISE\",\n    \"indicatorDropDownPanelOpacity\": \"0.55\",\n    \"indicatorDropDownPanelBorderColor\": \"UI_COLOR.BLACK\",\n    \"indicatorDropDownPanelLabel1Color\": \"UI_COLOR.BLACK\",\n    \"indicatorDropDownPanelLabel2Color\": \"UI_COLOR.BLACK\",\n    \"indicatorDropDownPanelLabel3Color\": \"UI_COLOR.BLACK\",\n    \"indicatorLayersPanelColor\": \"UI_COLOR.TURQUOISE\",\n    \"indicatorLayersPanelOpacity\": \"0.8\",\n    \"indicatorLayersPanelBorderColor\": \"UI_COLOR.BLACK\",\n    \"indicatorLayersPanelLabel1\": \"UI_COLOR.BLACK\",\n    \"indicatorLayersPanelLabel2\": \"UI_COLOR.BLACK\",\n    \"indicatorFrameBackgroundColor\": \"UI_COLOR.DARK_TURQUOISE\",\n    \"indicatorFrameBackgroundOpacity\": \"0.55\",\n    \"indicatorFrameTextColor\": \"UI_COLOR.BLACK\",\n    \"indicatorPanelTopBarColor\": \"UI_COLOR.TURQUOISE\",\n    \"indicatorPanelTopBarOpacity\": \"0.8\",\n    \"indicatorPanelTopBarTitleColor\": \"UI_COLOR.BLACK\",\n    \"minCursorSize\": \"10\",\n    \"maxCursorSize\": \"30\"\n}",
+            "updated": 1666736713105
+        }
+    ]
+}

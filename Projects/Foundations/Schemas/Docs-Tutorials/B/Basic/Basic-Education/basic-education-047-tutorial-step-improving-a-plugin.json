@@ -12,8 +12,8 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Mettiamo che sei uno sviluppatore che testa un nuovo exchange, e vuoi modificare il Sensor Bot introducendo un nuovo parametro.",
-                "updated": 1619590703521,
+                "text": "Riguardo al secondo scenario: diciamo che stai testando l'indicatore EMA, hai trovato un bug e sai come risolverlo. Intendi contribuire alla correzione in modo che tutti ne traggano vantaggio!",
+                "updated": 1666641326747,
                 "style": "Definition"
             },
             {
@@ -53,8 +53,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Quel bot è parte del Master Data Mine, che è incluso come plugin nella maggior parte dei plugin workspace. In questo caso, procedi come nel caso precedente: cancella il nodo Plugin File del Mastart Data Mine e ripristina il file dalla cartella Plugins\\Data-Mines come fosse un Backup.",
-                    "updated": 1619590793878,
+                    "text": "Questo bot indicatore è parte del Master Data Mine, che è incluso come plugin in alcuni dei plugin workspace. Per modificare il plug-in dall'interfaccia utente e salvare le modifiche, hai due opzioni:",
+                    "updated": 1666641428095,
                     "style": "Text"
                 },
                 {
@@ -110,6 +110,11 @@
                     "language": "ID",
                     "text": "Buka File Plugin yang sesuai dalam hierarki Plugin dan pilih Enable Saving With Workspace pada menu. Sekarang file plugin diperbarui setiap kali kamu menyimpan workspace untuk memasukkan perubahan yang mungkin telah kamu perkenalkan!",
                     "updated": 1645559587333
+                },
+                {
+                    "language": "IT",
+                    "text": "Vai al Plugin File corrispondente nella gerarchia Plugin e seleziona <i>Enable Saving With Workspace</i> nel menu. Ora il file del plug-in viene aggiornato ogni volta che salvi l'area di lavoro per includere le modifiche che potresti aver introdotto!",
+                    "updated": 1666641552303
                 }
             ]
         },
@@ -138,6 +143,11 @@
                     "language": "ID",
                     "text": "Atau gunakan opsi Save Plugin File untuk menyimpan file plugin secara manual kapan pun kamu mau!",
                     "updated": 1645559620656
+                },
+                {
+                    "language": "IT",
+                    "text": "Oppure usa l'opzione <i>Save Plugin File</i> per salvare manualmente il file del plugin ogni volta che lo desideri!",
+                    "updated": 1666641598961
                 }
             ]
         }

@@ -77,8 +77,8 @@
                 },
                 {
                     "language": "NL",
-                    "text": "Handel je op binance.com of helemaal niet op Binance, dan kan je deze stap overslaan en op \"Next\" klikken.",
-                    "updated": 1633890006155,
+                    "text": "Handel je op binance.com of helemaal niet op Binance, dan kun je deze stap overslaan en op \"Next\" klikken.",
+                    "updated": 1666612174728,
                     "style": "Text"
                 },
                 {
@@ -171,8 +171,8 @@
                 },
                 {
                     "language": "NL",
-                    "text": "Verander in de configuratie de \"codeName\" in \"binanceus\". Beweeg de muis uit de configuratiecirkel en het zal automatisch de configuratie opslaan en afsluiten.",
-                    "updated": 1633890351655,
+                    "text": "Wijzig de configuratie en verander de codeName in \"binanceus\". Verlaat de editor en het wordt automatisch opgeslagen.",
+                    "updated": 1666612439057,
                     "style": "List"
                 },
                 {

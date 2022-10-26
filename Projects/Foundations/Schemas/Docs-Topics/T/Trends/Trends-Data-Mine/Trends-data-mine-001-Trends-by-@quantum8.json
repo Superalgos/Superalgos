@@ -25,24 +25,62 @@
         },
         {
             "style": "List",
-            "text": "3) ZLSMA"
+            "text": "4) ZLSMA",
+            "updated": 1666676639408
         },
         {
             "style": "List",
-            "text": "4) TRAMA",
-            "updated": 1659511207556
+            "text": "5) TRAMA",
+            "updated": 1666676644076
         },
         {
             "style": "List",
-            "text": "5) Hull Suite"
+            "text": "6) Hull Suite",
+            "updated": 1666676650878
         },
         {
             "style": "List",
-            "text": "6) Pinbar Rejection"
+            "text": "7) Pinbar Rejection",
+            "updated": 1666676657084
         },
         {
             "style": "List",
-            "text": "7) SMMA"
+            "text": "8) SMMA",
+            "updated": 1666676663136
+        },
+        {
+            "style": "List",
+            "text": "9) LWMA",
+            "updated": 1666676667364
+        },
+        {
+            "style": "List",
+            "text": "10) VAWMA",
+            "updated": 1666676673782
+        },
+        {
+            "style": "List",
+            "text": "11) Enhanced SuperTrend",
+            "updated": 1666676680506
+        },
+        {
+            "style": "List",
+            "text": "12) Pursue Line",
+            "updated": 1666676686853
+        },
+        {
+            "style": "List",
+            "text": "13) CoRa",
+            "updated": 1666676691245
+        },
+        {
+            "style": "List",
+            "text": "14) Buy and Sell Trend Identifier",
+            "updated": 1666676695757
+        },
+        {
+            "style": "List",
+            "text": "15) Keltner Baseline"
         },
         {
             "style": "Title",

@@ -3,13 +3,27 @@
     "pageNumber": "3",
     "type": "Raven",
     "definition": {
-        "text": "A clean dark theme for the charting space by BlaaSwe"
+        "text": "A clean dark theme for the charting space by BlaaSwe",
+        "translations": [
+            {
+                "language": "TR",
+                "text": "BlaaSwe'den grafik alanı için temiz ve karanlık bir tema",
+                "updated": 1666641834402
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Author",
-            "updated": 1661949616257
+            "updated": 1661949616257,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yaratıcı",
+                    "updated": 1666641790264
+                }
+            ]
         },
         {
             "style": "Text",
@@ -26,7 +40,14 @@
         },
         {
             "style": "Title",
-            "text": "Images"
+            "text": "Images",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ekran Görüntüsü",
+                    "updated": 1666641801793
+                }
+            ]
         },
         {
             "style": "Png",
@@ -35,7 +56,14 @@
         },
         {
             "style": "Title",
-            "text": "Space Style Node Config"
+            "text": "Space Style Node Config",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Space Style Konfigürasyonu",
+                    "updated": 1666641828749
+                }
+            ]
         },
         {
             "style": "Json",

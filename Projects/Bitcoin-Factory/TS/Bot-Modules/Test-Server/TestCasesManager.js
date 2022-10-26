@@ -386,9 +386,9 @@ exports.newTestCasesManager = function newTestCasesManager(processIndex, network
                 return
             }
             testCase.status = 'Tested'
-            testCase.enlapsedSeconds = testResult.enlapsedTime.toFixed(0)
-            testCase.enlapsedMinutes = (testResult.enlapsedTime / 60).toFixed(2)
-            testCase.enlapsedHours = (testResult.enlapsedTime / 3600).toFixed(2)
+            testCase.elapsedSeconds = testResult.elapsedTime.toFixed(0)
+            testCase.elapsedMinutes = (testResult.elapsedTime / 60).toFixed(2)
+            testCase.elapsedHours = (testResult.elapsedTime / 3600).toFixed(2)
             testCase.testedByInstance = currentClientInstance
             testCase.pythonScriptName = testResult.pythonScriptName
             testCase.testedByProfile = userProfile

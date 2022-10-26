@@ -1,4 +1,4 @@
-onst path = require("path")
+const path = require("path")
 
 let basePath
 if (process.env.PACKAGED_PATH) {

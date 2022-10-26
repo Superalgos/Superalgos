@@ -46,6 +46,3 @@ models
 Bitcoin-Factory/Test-Client/notebooks/parameters.csv
 Bitcoin-Factory/Test-Client/notebooks/time-series.csv
 Bitcoin-Factory/Test-Client/notebooks/ray_results/
-Platform/WebServer/externalScripts/jquery-3.6.0.js
-Platform/WebServer/externalScripts/jquery-ui.js
-Platform/WebServer/externalScripts/jquery-3.6.0.js

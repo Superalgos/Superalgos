@@ -15,6 +15,7 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
         finalize: finalize
     }
     const REPORT_NAME = networkCodeName + '-' + 'Forecaster' + '-' + (new Date()).toISOString().substring(0, 16).replace("T", "-").replace(":", "-").replace(":", "-") + '-00'
+    let Test_Server_BOT_CONFIG = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config
 
     return thisObject
 
@@ -62,9 +63,12 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
 
     function addToforecastCases(testCase) {
         try {
+            console.log((new Date()).toISOString(), '[DEBUG] {ForecastCaseManager} Length forecastCasesArray: ' + thisObject.forecastCasesArray.length)
+            if (testCase.ratio_validate !== undefined) console.log((new Date()).toISOString(), '[DEBUG] {ForecastCaseManager} testCase.id: ' + testCase.id + ' / ratio_validate: ' + testCase.ratio_validate)
+            console.log((new Date()).toISOString(), '[DEBUG] {ForecastCaseManager} testCase.mainAsset: ' + testCase.mainAsset + ' / mainTimeFrame: ' + testCase.mainTimeFrame)
             for (let i = 0; i < thisObject.forecastCasesArray.length; i++) {
                 let forecastCase = thisObject.forecastCasesArray[i]
-                console.log((new Date()).toISOString(), '[DEBUG] {ForecastCaseManager} i: ' + i + ' forecastCase.id ' + forecastCase.id)
+                console.log((new Date()).toISOString(), '[DEBUG] {ForecastCaseManager} i: ' + i + ' / forecastCase.id: ' + forecastCase.id + ' / ratio_validate: ' + forecastCase.ratio_validate)
 
                 // check if testCase has same mainAsset and TimeFrame as current forecastCase, ifso compare if testCase is better
                 if (forecastCase.mainAsset === testCase.mainAsset && forecastCase.mainTimeFrame === testCase.mainTimeFrame) {
@@ -72,18 +76,25 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
                     if (testCase.percentageErrorRMSE !== undefined) {
                         if (Number(testCase.percentageErrorRMSE) < Number(forecastCase.percentageErrorRMSE) && Number(testCase.percentageErrorRMSE) >= 0) {
                             thisObject.forecastCasesArray.splice(i, 1)
-                            thisObject.forecastCasesMap.delete(testCase.id)
+                            thisObject.forecastCasesMap.delete(forecastCase.id)
                             addForcastCase(testCase)
                             return
                         }
                     //RL     
                     } else if (testCase.ratio_validate !== undefined) {
-                        if (Number(testCase.ratio_validate) > Number(forecastCase.ratio_validate) ) {
+                        console.log((new Date()).toISOString(),'Number(testCase.ratio_validate): ' + Number(testCase.ratio_validate) + " / Number(forecastCase.ratio_validate): " + Number(forecastCase.ratio_validate))
+                        if ((Number(testCase.ratio_validate) > Number(forecastCase.ratio_validate)) || (forecastCase.ratio_validate == undefined)) {
+                            console.log((new Date()).toISOString(), '[DEBUG] {ForecastCaseManager} new testCase is better as existing forecastCase')
                             thisObject.forecastCasesArray.splice(i, 1)
-                            thisObject.forecastCasesMap.delete(testCase.id)
+                            thisObject.forecastCasesMap.delete(forecastCase.id)
                             addForcastCase(testCase)
                             return
                         }
+                    }
+                } else {
+                    if (!findForecastCaseWithSameAssetTimeframe(testCase.mainAsset, testCase.mainTimeFrame)) {
+                        addForcastCase(testCase)
+                        return
                     }
                 }
             }
@@ -93,6 +104,16 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
 
             console.log((new Date()).toISOString(), '[INFO] Testserver: Current Forecast table:')
             console.table(thisObject.forecastCasesArray)    
+        }
+
+        function findForecastCaseWithSameAssetTimeframe(mainAsset,mainTimeFrame) {
+            for (let i = 0; i < thisObject.forecastCasesArray.length; i++) {
+                if ((thisObject.forecastCasesArray[i].mainAsset == mainAsset) &&
+                (thisObject.forecastCasesArray[i].mainTimeFrame == mainTimeFrame)) {
+                    return true
+                }
+            }
+            return false
         }
 
         function addForcastCase(testCase) {
@@ -123,6 +144,12 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
                 parametersHash: testCase.parametersHash,
                 predictions: predictions,
                 forcastedCandle: forcastedCandle,
+                ratio_train : testCase.ratio_train,
+                ratio_test : testCase.ratio_test,
+                ratio_validate : testCase.ratio_validate,
+                std_train : testCase.std_train,
+                std_test : testCase.std_test,
+                std_validate : testCase.std_validate,                
                 timeSeriesFileName: testCase.timeSeriesFileName,
                 timestamp: testCase.timestamp,
                 when: testCase.when,
@@ -243,12 +270,21 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
                 //RL      
                 } else if (forecastResult["0"] != undefined) {      
                     forecastCase.predictions = forecastResult["2"].current_action
-                    forecastCase.ratio_train = forecastResult["0"].meanNetWorthAtEnd / forecastResult["0"].NetWorthAtBegin
-                    forecastCase.ratio_test = forecastResult["1"].meanNetWorthAtEnd / forecastResult["1"].NetWorthAtBegin
-                    forecastCase.ratio_validate = forecastResult["2"].meanNetWorthAtEnd / forecastResult["2"].NetWorthAtBegin
-                    forecastCase.std_train = forecastResult["0"].stdNetWorthAtEnd 
-                    forecastCase.std_test = forecastResult["1"].stdNetWorthAtEnd 
-                    forecastCase.std_validate = forecastResult["2"].stdNetWorthAtEnd     
+                    forecastCase.ratio_train = (forecastResult["0"].meanNetWorthAtEnd / forecastResult["0"].NetWorthAtBegin).toFixed(2)
+                    forecastCase.ratio_test = (forecastResult["1"].meanNetWorthAtEnd / forecastResult["1"].NetWorthAtBegin).toFixed(2)
+                    forecastCase.ratio_validate = (forecastResult["2"].meanNetWorthAtEnd / forecastResult["2"].NetWorthAtBegin).toFixed(2)
+                    forecastCase.std_train = (forecastResult["0"].stdNetWorthAtEnd / forecastResult["0"].NetWorthAtBegin).toFixed(4)
+                    forecastCase.std_test = (forecastResult["1"].stdNetWorthAtEnd / forecastResult["1"].NetWorthAtBegin).toFixed(4)
+                    forecastCase.std_validate = (forecastResult["2"].stdNetWorthAtEnd  / forecastResult["2"].NetWorthAtBegin).toFixed(4)   
+                }
+                
+                updateSuperalgos(forecastCase)
+
+                //update forecastCasesArray
+                for (let i = 0; i < thisObject.forecastCasesArray.length; i++) {
+                    if (thisObject.forecastCasesArray[i].id == forecastCase.id) {
+                        thisObject.forecastCasesArray[i] = forecastCase
+                    }
                 }
                 let logQueue = []
                 for (let i = Math.max(0, forecastResult.caseIndex - 5); i < Math.min(thisObject.forecastCasesArray.length, forecastResult.caseIndex + 5); i++) {
@@ -272,6 +308,29 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
         function calculatePercentageErrorRMSE(forecastResult) {
             let percentageErrorRMSE = forecastResult.errorRMSE / forecastResult.predictions[0] * 100
             return percentageErrorRMSE.toFixed(2)
+        }
+
+        function updateSuperalgos(bestPredictions) {
+
+            for (let i = 0; i < bestPredictions.length; i++) {
+                let prediction = bestPredictions[i]
+                prediction.parameters = {}
+            }
+    
+            let params = {
+                method: 'updateForecastedCandles',
+                forcastedCandles: JSON.stringify(bestPredictions)
+            }
+    
+            const axios = require("axios")
+            axios
+                .post('http://' + Test_Server_BOT_CONFIG.targetSuperalgosHost + ':' + Test_Server_BOT_CONFIG.targetSuperalgosHttpPort + '/Bitcoin-Factory', params)
+                .then(res => {
+                    console.log((new Date()).toISOString(), 'Updating Superalgos...', 'Response from Superalgos Bitcoin Factory Server: ' + JSON.stringify(res.data))
+                })
+                .catch(error => {
+                    console.log((new Date()).toISOString(), 'Updating Superalgos...', 'Could not update Superalgos. Had this error: ' + error)
+                })
         }
 
         function saveForecastReportFile() {

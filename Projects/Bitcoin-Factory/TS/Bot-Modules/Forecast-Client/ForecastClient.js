@@ -691,7 +691,7 @@
                             console.log((new Date()).toISOString(), '[INFO] {Forecastclient} Mean Networth at End of Train: ' + processExecutionResult["0"].meanNetWorthAtEnd)
                             console.log((new Date()).toISOString(), '[INFO] {Forecastclient} Mean Networth at End of Test: ' + processExecutionResult["1"].meanNetWorthAtEnd)
                             console.log((new Date()).toISOString(), '[INFO] {Forecastclient} Mean Networth at End of Validation: ' + processExecutionResult["2"].meanNetWorthAtEnd)
-                            console.log((new Date()).toISOString(), '[INFO] {Forecastclient} Next Action: ' + processExecutionResult["2"].current_action.type + ' / ' + processExecutionResult["2"].current_action.amount)
+                            console.log((new Date()).toISOString(), '[INFO] {Forecastclient} Next Action: ' + processExecutionResult["2"].current_action.type + ' / ' + processExecutionResult["2"].current_action.amount + ' / ' + processExecutionResult["2"].current_action.limit)
 
                         } catch (err) {
                             console.log('Error parsing the information generated at the Docker Container executing the Python script. err.stack = ' + err.stack)

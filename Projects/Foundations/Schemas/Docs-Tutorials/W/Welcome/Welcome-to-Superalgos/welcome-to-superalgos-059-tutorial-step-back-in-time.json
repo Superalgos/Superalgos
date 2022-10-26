@@ -41,11 +41,6 @@
                 "language": "ID",
                 "text": "Ini adalah pengaturan hierarki Charting Space dari Time Machine yang telah kita gunakan di Chart.",
                 "updated": 1639708430258
-            },
-            {
-                "language": "NL",
-                "text": "Dit is de hiërarchieconfiguratie van de Charting Space van de Time Machine welke we in de grafieken hebben uitgeprobeerd.",
-                "updated": 1666775472014
             }
         ]
     },
@@ -86,11 +81,6 @@
                     "language": "ID",
                     "text": "Luangkan beberapa menit untuk menjelajahi hal ini! Intip semua menu-menu node yang berbeda-beda.",
                     "updated": 1639708498693
-                },
-                {
-                    "language": "NL",
-                    "text": "Besteed een paar minuten aan het verkennen van deze definities! Neem een kijkje in de menu's van verschillende knooppunten!",
-                    "updated": 1666775520048
                 }
             ]
         },
@@ -130,11 +120,6 @@
                     "language": "ID",
                     "text": "Saya harap struktur node cukup intuitif untuk memahami betapa kuatnya konsep Design Space. Kamu bisa mengatur time machine dengan menambahkan node Timeline Chart dan skala yang diinginkan. Kemudian atur layer managers dan layers yang mereferensikan Data Mine Products yang sesuai sehingga data yang diinginkan tersedia pada layer managers tertentu pada charts. Ini seperti trading charts di Legoland®! Kamu akan belajar mengkostumisasi chart nantinya!",
                     "updated": 1639708702613
-                },
-                {
-                    "language": "NL",
-                    "text": "Ik hoop dat de structuur van knooppunten intuïtief genoeg is om te begrijpen hoe krachtig het concept van de Design Space is. U stelt een time machine in door Timeline Chart en de gewenste as-schalen toe te voegen. Stel vervolgens laagmanagers en lagen in die verwijzen naar de bijbehorende Data Mine Products, zodat de gewenste gegevens beschikbaar komen op een bepaalde laagmanager in de grafieken. Het is als het Legoland® onder de handelsgrafieken! U zult later leren hoe grafieken aan te passen!",
-                    "updated": 1666775637536
                 }
             ]
         }

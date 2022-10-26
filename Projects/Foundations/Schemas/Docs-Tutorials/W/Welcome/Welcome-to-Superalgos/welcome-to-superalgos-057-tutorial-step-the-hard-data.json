@@ -40,11 +40,6 @@
                 "language": "ID",
                 "text": "Plotter Panel menampilkan representasi data non-grafis, sebagian besar dalam bentuk nilai numerik atau teks.",
                 "updated": 1639587646731
-            },
-            {
-                "language": "NL",
-                "text": "Een Plotter Panel bevat niet-grafische representaties van gegevens, meestal in de vorm van numerieke waarden of tekst.",
-                "updated": 1666775214799
             }
         ]
     },
@@ -84,11 +79,6 @@
                     "language": "ID",
                     "text": "Setiap layer mungkin atau mungkin tidak menampilkan satu atau lebih panel terkait. Terserah pengembang Bot Indikator yang sesuai untuk menentukannya atau tidak.",
                     "updated": 1639587864338
-                },
-                {
-                    "language": "NL",
-                    "text": "Elke laag kan al dan niet een of meer bijbehorende panelen bevatten. Het is aan de ontwikkelaar van de bijbehorende Indicator Bot om ze te definiëren of niet.",
-                    "updated": 1666775241607
                 }
             ]
         },
@@ -127,11 +117,6 @@
                     "language": "ID",
                     "text": "Untuk mengakses panel, klik kiri pada icon plotter panel dari layers pilihan.",
                     "updated": 1639587776166
-                },
-                {
-                    "language": "NL",
-                    "text": "Om toegang te krijgen tot panelen, klikt u met de linkermuisknop op het pictogram van het plotterpaneel van de gewenste laag.",
-                    "updated": 1666775279574
                 }
             ]
         },
@@ -170,11 +155,6 @@
                     "language": "ID",
                     "text": "Kamu dapat memindahkan layers manager dan plotter panels dengan mengklik kiri pada headernya dan menyeretnya ke sudut mana pun di layar.",
                     "updated": 1639587712869
-                },
-                {
-                    "language": "NL",
-                    "text": "U kunt laagmanagers en plotterpanelen verplaatsen door met de linkermuisknop op hun koppen te klikken en ze naar een willekeurige hoek van het scherm te slepen.",
-                    "updated": 1666775330479
                 }
             ],
             "updated": 1640359316083

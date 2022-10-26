@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Режим Verbose - это опция, доступная во многих компьютерных операционных системах и языках программирования, которая предоставляет дополнительную информацию о том, что делает компьютер, какие драйверы и программное обеспечение загружаются во время запуска или программирования, что позволяет получить подробный вывод в диагностических целях и облегчает отладку программы.",
                 "updated": 1645252678227
+            },
+            {
+                "language": "TR",
+                "text": "\nAyrıntılı mod, bilgisayarın ne yaptığı ve hangi sürücüleri ve yazılımları yüklediği hakkında ek ayrıntılar sağlayan birçok bilgisayar işletim sisteminde ve programlama dilinde bulunan bir seçenektir. hata ayıklamak daha kolaydır.",
+                "updated": 1666694400316
             }
         ]
     },
@@ -20,6 +25,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
                     "updated": 1645252683006
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
+                    "updated": 1666694333499
                 }
             ]
         }

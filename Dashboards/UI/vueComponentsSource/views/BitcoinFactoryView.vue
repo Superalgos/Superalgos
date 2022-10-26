@@ -21,7 +21,7 @@
           <div class="empty" v-if="serverObj.length === 0"> Bitcoin-Factory Server hasn't provided any data up to now! </div>        
         </template>
         <template v-slot:tabPanel-3>
-          <div v-for="(objs) in getForecaster()">
+          <div>
             <Table :fields="getForecasterColName" :data="getForecasterData"></table>
           </div>
           <div class="empty" v-if="forecasterObj.length === 0"> Bitcoin-Factory Forecaster hasn't provided any data up to now! </div>        
@@ -37,14 +37,13 @@
 <script>
   import dashboardIcon from "../assets/dashboard.png"
   import Tabs from "../components/Tabs.vue"
-  import ExpandableTree from "../components/expandableTree.vue"
   import Table from '../components/Table.vue'
   import "bootstrap/dist/css/bootstrap.min.css";
 
   export default {
     // Receive incoming data from parent app 
     props: ["incomingData", "timestamp"] ,
-    components: { Tabs, ExpandableTree, Table } ,
+    components: { Tabs, Table } ,
     data () {
       return {
         tabList: ["Overview", "Server", "Forecaster"],
@@ -209,9 +208,6 @@
             res.push(item)
           }
           return res
-                 return [
-          {id: 1, desc: "tt"},
-         {id: 2, desc: "ssss"} ]
         }
         return null
       }

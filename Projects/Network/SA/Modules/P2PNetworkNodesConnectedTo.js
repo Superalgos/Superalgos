@@ -43,6 +43,7 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
     ) {
 
         thisObject.peers = []
+        thisObject.peersWaitingForConnection = []
 
         connectToPeers()
         intervalIdConnectToPeers = setInterval(connectToPeers, RECONNECT_DELAY)
@@ -71,7 +72,13 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
                 if (isPeerConnected(peer) === true) {
                     continue
                 }
+                /* Check for pending connection requests to avoid duplicate connections */
+                if (thisObject.peersWaitingForConnection.includes(peer.p2pNetworkNode)) {
+                    console.log((new Date()).toISOString(), '[INFO] Awaiting response to earlier connection attempt, skipping new connection request...')
+                    continue
+                }
                 peer.webSocketsClient = SA.projects.network.modules.webSocketsNetworkClient.newNetworkModulesWebSocketsNetworkClient()
+                thisObject.peersWaitingForConnection.push(peer.p2pNetworkNode)
                 await peer.webSocketsClient.initialize(
                     callerRole,
                     p2pNetworkClientIdentity,
@@ -83,10 +90,12 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
                     .catch(onError)
 
                 function addPeer() {
+                    onFinalizedConnectionRequest()
                     thisObject.peers.push(peer)
                 }
 
                 function onError(err) {
+                    onFinalizedConnectionRequest()
                     if (err !== undefined) {
                         console.log((new Date()).toISOString(), '[ERROR] P2P Network Peers -> onError -> While connecting to node -> ' + peer.p2pNetworkNode.userProfile.config.codeName + ' -> ' + peer.p2pNetworkNode.node.name + ' -> ' + err.message)
                     } else {
@@ -96,6 +105,14 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
                         /*                  
                         console.log((new Date()).toISOString(), '[WARN] P2P Network Peers -> onError -> Peer Not Available at the Moment -> ' + peer.p2pNetworkNode.userProfile.config.codeName + ' -> ' + peer.p2pNetworkNode.node.name)
                         */
+                    }
+                }
+
+                /* After a connection is established, remove the peer from the array of connections-in-progress */
+                function onFinalizedConnectionRequest() {
+                    let index = thisObject.peersWaitingForConnection.indexOf(peer.p2pNetworkNode)
+                    if (index > -1) {
+                        thisObject.peersWaitingForConnection.splice(index, 1)
                     }
                 }
 

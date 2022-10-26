@@ -113,7 +113,7 @@ Second you need to define the range of parameters to be tested: For example the 
 ```
 ### 2.2 Testclient config
 No special config is needed. Look at [Bitcoin Factory Test Client ReadMe](./Test-Client/README.md)
-But run **only one client per machine** (The python script takes care of parallel execution on its own).
+But run **only one client per machine** (The python script takes care of parallel execution on its own). It will not work on ARM based systems out of the box, as ray isn't available as precompiled package.
 #### 2.2.1 Tensorboard
 During run the test-client stores results under Bitcoin-Factory/Test-Client/notebooks/ray_results/. You can easly monitor them with tensorboard. To get tensorboard working a slightly changed docker container is needed
 * change CMD to

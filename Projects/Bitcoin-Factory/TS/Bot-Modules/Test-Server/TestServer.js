@@ -18,6 +18,9 @@
 
     let networkCodeName = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.networkCodeName
     let serverInstanceName = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName
+    
+    let socketClientDashboard
+    let intervalIdupdateDashboard
 
     thisObject.utilities = TS.projects.bitcoinFactory.utilities.miscellaneous
     thisObject.dataBridge = TS.projects.bitcoinFactory.botModules.dataBridge.newDataBridge(processIndex)
@@ -26,6 +29,7 @@
     thisObject.forecastCasesManager = TS.projects.bitcoinFactory.botModules.forecastCasesManager.newForecastCasesManager(processIndex, networkCodeName)
     thisObject.forecastClientsManager = TS.projects.bitcoinFactory.botModules.forecastClientsManager.newForecastClientsManager(processIndex, networkCodeName)
     TS.projects.foundations.globals.taskConstants.TEST_SERVER = thisObject
+
     return thisObject
 
     async function initialize(pStatusDependenciesModule, callBackFunction) {
@@ -38,7 +42,10 @@
                 thisObject.forecastCasesManager.initialize()
             }
             await thisObject.forecastClientsManager.initialize()
-            console.log((new Date()).toISOString(), 'Running Test Server v.' + TEST_SERVER_VERSION)
+            openDashboardSocket()
+            intervalIdupdateDashboard = setInterval(updateDashboard, 60 * 1000)
+
+            console.log((new Date()).toISOString(), '[INFO] Running Test Server v.' + TEST_SERVER_VERSION)
             callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
         } catch (err) {
             TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
@@ -51,7 +58,21 @@
         }
     }
 
+    function openDashboardSocket() {
+        socketClientDashboard = new SA.nodeModules.ws.WebSocket('ws://localhost:18043')
+        socketClientDashboard.on('close', function (close) {
+            console.log((new Date()).toISOString(),'[INFO] {TestServer} Dashboard App has been disconnected.')
+        })
+        socketClientDashboard.on('error', function (error) {
+            console.log((new Date()).toISOString(),'[ERROR] {TestServer} Dashboards Client error: ', error.message, error.stack)
+        });
+        socketClientDashboard.on('message', function (message) {
+            console.log((new Date()).toISOString(),'[INFO] {TestServer} This is a message coming from the Dashboards App', message)
+        });
+    }
+
     function finalize() {
+        clearInterval(intervalIdupdateDashboard)
         thisObject.utilities.finalize()
         thisObject.dataBridge.finalize()
         thisObject.testCasesManager.finalize()
@@ -179,5 +200,18 @@
             }
             callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
         }
+    }
+
+    async function updateDashboard() {
+
+        //console.log((new Date()).toISOString(), '[DEBUG] {TestServer} Updating Dashboard')
+        let fileContent = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.loadFile(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/" + TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName + "/StateData/TestCases/Test-Cases-Array-" + networkCodeName + ".json")
+        let messageToSend = (new Date()).toISOString() + '|*|Platform|*|Data|*|BitcoinFactory-Server|*|'+fileContent
+        socketClientDashboard.send(messageToSend)
+        //console.log((new Date()).toISOString(), '[DEBUG] {TestServer} ' + messageToSend)
+
+        fileContent = TS.projects.foundations.globals.taskConstants.TEST_SERVER.utilities.loadFile(global.env.PATH_TO_BITCOIN_FACTORY + "/Test-Server/" + TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.config.serverInstanceName + "/StateData/ForecastCases/Forecast-Cases-Array-" + networkCodeName + ".json")
+        messageToSend = (new Date()).toISOString() + '|*|Platform|*|Data|*|BitcoinFactory-Forecaster|*|'+fileContent
+        socketClientDashboard.send(messageToSend)
     }
 }

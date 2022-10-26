@@ -71,6 +71,8 @@ exports.newWebSocketsServer = function newWebSocketsServer() {
                                     if (UISocket !== undefined) {
                                         let message = timestamp + '|*|' + dataKey + '|*|' + JSON.stringify(dataContent)
                                         UISocket.send(message)
+                                    } else {
+                                        console.log((new Date()).toISOString(), '[Error] Dashboard App -> UI not connected -> can not forward data')
                                     }
                                 }
                                 catch (err) {

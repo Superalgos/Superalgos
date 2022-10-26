@@ -2,8 +2,6 @@
 # coding: utf-8
 
 import random
-import gym
-from gym import spaces
 import pandas as pd
 import numpy as np
 import matplotlib
@@ -12,11 +10,9 @@ import os, sys, time, platform, subprocess
 import math
 import json
 from typing import Dict, List, Optional, Union
-import ray
 from sklearn.model_selection import train_test_split
 from sklearn import preprocessing
 from sklearn.preprocessing import MinMaxScaler
-from tabulate import tabulate
 import tensorflow as tf
 
 def import_install_packages(package):
@@ -38,6 +34,16 @@ from packaging.version import parse as parse_version
 import_install_packages('quantstats')
 import quantstats
 quantstats.extend_pandas()
+
+import_install_packages('gym')
+import gym
+from gym import spaces
+
+import_install_packages('ray[all]')
+import ray
+
+import_install_packages('tabulate')
+from tabulate import tabulate
 
 print("""Python version: %s
 Platform: %s
@@ -778,8 +784,8 @@ def find_optimal_resource_allocation(available_cpu, available_gpu):
     # If we don't have GPU available, we allocate enough CPU cores for stepping the env (workers) while having enough for training maintaing a ratio of around 3 workers with 1 CPU to 1 driver CPU
     else:
         # according to the benchmark, we should allocate more workers, each with 1 cpu, letting the rest for the driver
-        num_workers = int(math.floor((available_cpu  * 75) / 100))
-        num_cpu_for_driver = available_cpu - num_workers
+        num_workers = min(int(math.floor((available_cpu  * 75) / 100)),4)
+        num_cpu_for_driver = max(available_cpu - num_workers,2)
         return {
             'num_workers': num_workers,
             'num_cpus_per_worker': 1, # this should be enough for stepping an env at once
@@ -1026,7 +1032,20 @@ except:
     pass
 
 agent = ppo.PPOTrainer(config=ppo_trainer_config)
-agent.restore(best_checkpoint)
+try:
+    agent.restore(best_checkpoint)
+except ValueError as e:
+    print("The input data size doesnt fit the trained model network input size") #this may happen for the reforecaster, if the Test-Server did change its config, without renaming the Test-Server
+    print("ValueError error: {0}".format(e))
+    print(e)
+    from shutil import rmtree
+    rmtree(res_dir)
+    print("deleted old result dir: " + res_dir)
+    print("You can now run the script again")
+    raise
+except:
+    print("An unexpected error occurred")
+    raise
 
 #policy = agent.get_policy()
 #model = policy.model #complexinputmodel 

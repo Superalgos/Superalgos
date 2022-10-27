@@ -1,6 +1,31 @@
-function newEducationExportDocsGenerator() {
+exports.documentationExporter = function() {
     let thisObject = {
         docsSchemaDocument: undefined,
+        /**
+         * {
+         *   project: string,
+         *   type: string,
+         *   category: string,
+         *   nodeId: string,
+         *   placeholder: {
+         *     [key: string]: string
+         *   }
+         * } cbr
+         */
+        currentDocumentBeingRendered: undefined,
+        /**
+         * {
+         *   project: string,
+         *   type: string,
+         *   category: string,
+         *   nodeId: string,
+         *   placeholder: {
+         *     [key: string]: string
+         *   }
+         * } cbr
+         */
+        currentBookBeingRendered: undefined,
+        currentLanguageCode: undefined,
         render: render,
         initialize: initialize,
         finalize: finalize
@@ -22,28 +47,12 @@ function newEducationExportDocsGenerator() {
         'EL': 'Greek'
     }
 
-    let currentDocumentBeingRendered // should take this as an input variable
-    let currentBookBeingRendered // should take this as an input variable
-    let currentLanguageCode // should take this as an input variable
     let appSchemaDocument
     let paragraphMap
 
     return thisObject
 
-    /**
-     * 
-     * @param {
-     *   project: string,
-     *   type: string,
-     *   category: string,
-     *   nodeId: string,
-     *   placeholder: {
-     *     [key: string]: string
-     *   }
-     * } cbr
-     */
-    function initialize(cbr) {
-        currentDocumentBeingRendered = cbr
+    function initialize() {
         paragraphMap = new Map()
     }
 
@@ -54,7 +63,7 @@ function newEducationExportDocsGenerator() {
 
     function render() {
 
-        appSchemaDocument = SCHEMAS_BY_PROJECT.get(currentDocumentBeingRendered.project).map.appSchema.get(currentDocumentBeingRendered.type)
+        appSchemaDocument = SCHEMAS_BY_PROJECT.get(thisObject.currentDocumentBeingRendered.project).map.appSchema.get(thisObject.currentDocumentBeingRendered.type)
 
         disableCollapsibleContent()
         getSchemaDocument()
@@ -62,33 +71,33 @@ function newEducationExportDocsGenerator() {
         enableCollapsibleContent()
 
         function getSchemaDocument() {
-            switch (currentDocumentBeingRendered.category) {
+            switch (thisObject.currentDocumentBeingRendered.category) {
                 case 'Node': {
-                    thisObject.docsSchemaDocument = SCHEMAS_BY_PROJECT.get(currentDocumentBeingRendered.project).map.docsNodeSchema.get(currentDocumentBeingRendered.type)
+                    thisObject.docsSchemaDocument = SCHEMAS_BY_PROJECT.get(thisObject.currentDocumentBeingRendered.project).map.docsNodeSchema.get(thisObject.currentDocumentBeingRendered.type)
                     break
                 }
                 case 'Concept': {
-                    thisObject.docsSchemaDocument = SCHEMAS_BY_PROJECT.get(currentDocumentBeingRendered.project).map.docsConceptSchema.get(currentDocumentBeingRendered.type)
+                    thisObject.docsSchemaDocument = SCHEMAS_BY_PROJECT.get(thisObject.currentDocumentBeingRendered.project).map.docsConceptSchema.get(thisObject.currentDocumentBeingRendered.type)
                     break
                 }
                 case 'Topic': {
-                    thisObject.docsSchemaDocument = SCHEMAS_BY_PROJECT.get(currentDocumentBeingRendered.project).map.docsTopicSchema.get(currentDocumentBeingRendered.type)
+                    thisObject.docsSchemaDocument = SCHEMAS_BY_PROJECT.get(thisObject.currentDocumentBeingRendered.project).map.docsTopicSchema.get(thisObject.currentDocumentBeingRendered.type)
                     break
                 }
                 case 'Tutorial': {
-                    thisObject.docsSchemaDocument = SCHEMAS_BY_PROJECT.get(currentDocumentBeingRendered.project).map.docsTutorialSchema.get(currentDocumentBeingRendered.type)
+                    thisObject.docsSchemaDocument = SCHEMAS_BY_PROJECT.get(thisObject.currentDocumentBeingRendered.project).map.docsTutorialSchema.get(thisObject.currentDocumentBeingRendered.type)
                     break
                 }
                 case 'Review': {
-                    thisObject.docsSchemaDocument = SCHEMAS_BY_PROJECT.get(currentDocumentBeingRendered.project).map.docsReviewSchema.get(currentDocumentBeingRendered.type)
+                    thisObject.docsSchemaDocument = SCHEMAS_BY_PROJECT.get(thisObject.currentDocumentBeingRendered.project).map.docsReviewSchema.get(thisObject.currentDocumentBeingRendered.type)
                     break
                 }
                 case 'Workspace': {
-                    thisObject.docsSchemaDocument = SCHEMAS_BY_PROJECT.get(currentDocumentBeingRendered.project).map.workspaceSchema.get(currentDocumentBeingRendered.nodeId)
+                    thisObject.docsSchemaDocument = SCHEMAS_BY_PROJECT.get(thisObject.currentDocumentBeingRendered.project).map.workspaceSchema.get(thisObject.currentDocumentBeingRendered.nodeId)
                     break
                 }
                 case 'Book': {
-                    thisObject.docsSchemaDocument = SCHEMAS_BY_PROJECT.get(currentDocumentBeingRendered.project).map.docsBookSchema.get(currentDocumentBeingRendered.type)
+                    thisObject.docsSchemaDocument = SCHEMAS_BY_PROJECT.get(thisObject.currentDocumentBeingRendered.project).map.docsBookSchema.get(thisObject.currentDocumentBeingRendered.type)
                     break
                 }
             }
@@ -97,30 +106,30 @@ function newEducationExportDocsGenerator() {
                 // Use the New Node Template
                 let template = {
                     updated: true,
-                    type: currentDocumentBeingRendered.type,
-                    definition: {text: "Write the definition for this " + currentDocumentBeingRendered.category + "."},
+                    type: thisObject.currentDocumentBeingRendered.type,
+                    definition: {text: "Write the definition for this " + thisObject.currentDocumentBeingRendered.category + "."},
                     paragraphs: [
                         {
                             style: "Text",
-                            text: "Right click and select the pencil button to enter edit mode."
+                            text: "To write a definition, please open the main platform. There you will be able to generate a new definition and generate a change request for it to be included in the documentation." // TODO: this should move into a config for language translation
                         }
                     ]
                 }
 
-                switch (currentDocumentBeingRendered.category) {
+                switch (thisObject.currentDocumentBeingRendered.category) {
                     case 'Node': {
-                        SCHEMAS_BY_PROJECT.get(currentDocumentBeingRendered.project).array.docsNodeSchema.push(template)
-                        SCHEMAS_BY_PROJECT.get(currentDocumentBeingRendered.project).map.docsNodeSchema.set(currentDocumentBeingRendered.type, template)
+                        SCHEMAS_BY_PROJECT.get(thisObject.currentDocumentBeingRendered.project).array.docsNodeSchema.push(template)
+                        SCHEMAS_BY_PROJECT.get(thisObject.currentDocumentBeingRendered.project).map.docsNodeSchema.set(thisObject.currentDocumentBeingRendered.type, template)
                         break
                     }
                     case 'Concept': {
-                        SCHEMAS_BY_PROJECT.get(currentDocumentBeingRendered.project).array.docsConceptSchema.push(template)
-                        SCHEMAS_BY_PROJECT.get(currentDocumentBeingRendered.project).map.docsConceptSchema.set(currentDocumentBeingRendered.type, template)
+                        SCHEMAS_BY_PROJECT.get(thisObject.currentDocumentBeingRendered.project).array.docsConceptSchema.push(template)
+                        SCHEMAS_BY_PROJECT.get(thisObject.currentDocumentBeingRendered.project).map.docsConceptSchema.set(thisObject.currentDocumentBeingRendered.type, template)
                         break
                     }
                     case 'Book': {
-                        SCHEMAS_BY_PROJECT.get(currentDocumentBeingRendered.project).array.docsBookSchema.push(template)
-                        SCHEMAS_BY_PROJECT.get(currentDocumentBeingRendered.project).map.docsBookSchema.set(currentDocumentBeingRendered.type, template)
+                        SCHEMAS_BY_PROJECT.get(thisObject.currentDocumentBeingRendered.project).array.docsBookSchema.push(template)
+                        SCHEMAS_BY_PROJECT.get(thisObject.currentDocumentBeingRendered.project).map.docsBookSchema.set(thisObject.currentDocumentBeingRendered.type, template)
                         break
                     }
                 }
@@ -130,14 +139,6 @@ function newEducationExportDocsGenerator() {
             /* When for any reason the schema document does not have a paragraphs array */
             if (thisObject.docsSchemaDocument.paragraphs === undefined) {
                 thisObject.docsSchemaDocument.paragraphs = []
-            }
-            /* When the paragraph array is empty. */
-            if (thisObject.docsSchemaDocument.paragraphs.length === 0) {
-                let paragraph = {
-                    style: 'Text',
-                    text: UI.projects.education.globals.docs.NEW_PARAGRAPH_TEXT
-                }
-                thisObject.docsSchemaDocument.paragraphs.push(paragraph)
             }
         }
 
@@ -163,27 +164,9 @@ function newEducationExportDocsGenerator() {
 
             /* Title */
             let titleLabel = thisObject.docsSchemaDocument.type
-            HTML = HTML + '<div id="docs-main-title-div" class="docs-title-table"><div class="docs-table-cell"><h2 class="docs-h2" id="' + currentDocumentBeingRendered.type.toLowerCase().replace(' ', '-') + '" > ' + titleLabel + '</h2></div><div id="projectImageDiv" class="docs-image-container"/></div></div>'
+            HTML = HTML + '<div id="docs-main-title-div" class="docs-title-table"><div class="docs-table-cell"><h2 class="docs-h2" id="' + thisObject.currentDocumentBeingRendered.type.toLowerCase().replace(' ', '-') + '" > ' + titleLabel + '</h2></div><div id="projectImageDiv" class="docs-image-container"/></div></div>'
 
-            if (thisObject.docsSchemaDocument.deleted === true) {
-                let key = 'auto-generated-flag-paragraph'
-                let paragraph = {
-                    style: "Warning",
-                    text: "This page is flagged to be deleted. Next time you run the Docs Save Command, the content will be deleted from the Client's disk. If you refresh the page or close the browser before running the Docs Save Command, the flag will be lost and the page will not be deleted. Changes will be applied to the Docs Search Engine Index only after you run the Docs Reindex Command."
-                }
-                renderParagraph(paragraph, key)
-            } else {
-                if (thisObject.docsSchemaDocument.created === true || thisObject.docsSchemaDocument.updated === true) {
-                    let key = 'auto-generated-flag-paragraph'
-                    let paragraph = {
-                        style: "Important",
-                        text: "This page is flagged to be created / updated. Next time you run the Docs Save Command the content will be saved on the Client's disk. If you refresh the page or close the browser before running the Docs Save Command, changes will be lost. Changes will be applied to the Docs Search Engine Index only after you run the Docs Reindex Command."
-                    }
-                    renderParagraph(paragraph, key)
-                }
-            }
-
-            addDefinitionTable(thisObject.docsSchemaDocument, 'definition-editable-', currentDocumentBeingRendered.category, currentDocumentBeingRendered.project, currentDocumentBeingRendered.type)
+            addDefinitionTable(thisObject.docsSchemaDocument, 'definition-editable-', thisObject.currentDocumentBeingRendered.category, thisObject.currentDocumentBeingRendered.project, thisObject.currentDocumentBeingRendered.type)
 
             let editableParagraphIndex = 0
             let autoGeneratedParagraphIndex = 0
@@ -217,10 +200,10 @@ function newEducationExportDocsGenerator() {
             addImages()
 
             function generateNavigationAndTableOfContents() {
-                if (currentDocumentBeingRendered.category === 'Topic') {
+                if (thisObject.currentDocumentBeingRendered.category === 'Topic') {
 
-                    orderedTopicPageIndexArray = UI.projects.education.utilities.docs.buildOrderedPageIndex(
-                        currentDocumentBeingRendered.project,
+                    orderedTopicPageIndexArray = ED.utilities.buildOrderedPageIndex(
+                        thisObject.currentDocumentBeingRendered.project,
                         'Topic',
                         thisObject.docsSchemaDocument.topic
                     )
@@ -228,7 +211,7 @@ function newEducationExportDocsGenerator() {
                     /* Topic Title 
     
                     titleLabel = thisObject.docsSchemaDocument.topic + ' Topic Navigation'
-                    HTML = HTML + '<div id="docs-main-title-div" class="docs-title-table"><div class="docs-table-cell"><h2 class="docs-h2" id="' + currentDocumentBeingRendered.type.toLowerCase().replace(' ', '-') + '" > ' + titleLabel + '</h2></div><div id="projectImageDiv" class="docs-image-container"/></div></div>'
+                    HTML = HTML + '<div id="docs-main-title-div" class="docs-title-table"><div class="docs-table-cell"><h2 class="docs-h2" id="' + thisObject.currentDocumentBeingRendered.type.toLowerCase().replace(' ', '-') + '" > ' + titleLabel + '</h2></div><div id="projectImageDiv" class="docs-image-container"/></div></div>'
     
                     */
                     generateTopicPreviousAndNextPageNavigation()
@@ -244,17 +227,17 @@ function newEducationExportDocsGenerator() {
                     HTML = HTML + '</div>'  // END Container for Topic Navigation
                 }
 
-                if (currentDocumentBeingRendered.category === 'Tutorial') {
+                if (thisObject.currentDocumentBeingRendered.category === 'Tutorial') {
 
-                    orderedTutorialPageIndexArray = UI.projects.education.utilities.docs.buildOrderedPageIndex(
-                        currentDocumentBeingRendered.project,
+                    orderedTutorialPageIndexArray = ED.utilities.buildOrderedPageIndex(
+                        thisObject.currentDocumentBeingRendered.project,
                         'Tutorial',
                         thisObject.docsSchemaDocument.tutorial
                     )
 
                     /* Tutorial Title 
                     titleLabel = thisObject.docsSchemaDocument.tutorial + ' Tutorial Navigation'
-                    HTML = HTML + '<div id="docs-main-title-div" class="docs-title-table"><div class="docs-table-cell"><h2 class="docs-h2" id="' + currentDocumentBeingRendered.type.toLowerCase().replace(' ', '-') + '" > ' + titleLabel + '</h2></div><div id="projectImageDiv" class="docs-image-container"/></div></div>'
+                    HTML = HTML + '<div id="docs-main-title-div" class="docs-title-table"><div class="docs-table-cell"><h2 class="docs-h2" id="' + thisObject.currentDocumentBeingRendered.type.toLowerCase().replace(' ', '-') + '" > ' + titleLabel + '</h2></div><div id="projectImageDiv" class="docs-image-container"/></div></div>'
                     */
 
                     generateTutorialPreviousAndNextPageNavigation()
@@ -270,17 +253,17 @@ function newEducationExportDocsGenerator() {
                     HTML = HTML + '</div>'  // END Container for Tutorial Navigation
                 }
 
-                if (currentDocumentBeingRendered.category === 'Review') {
+                if (thisObject.currentDocumentBeingRendered.category === 'Review') {
 
-                    orderedReviewPageIndexArray = UI.projects.education.utilities.docs.buildOrderedPageIndex(
-                        currentDocumentBeingRendered.project,
+                    orderedReviewPageIndexArray = ED.utilities.buildOrderedPageIndex(
+                        thisObject.currentDocumentBeingRendered.project,
                         'Review',
                         thisObject.docsSchemaDocument.review
                     )
 
                     /* Review Title 
                     titleLabel = thisObject.docsSchemaDocument.review + ' Review Navigation'
-                    HTML = HTML + '<div id="docs-main-title-div" class="docs-title-table"><div class="docs-table-cell"><h2 class="docs-h2" id="' + currentDocumentBeingRendered.type.toLowerCase().replace(' ', '-') + '" > ' + titleLabel + '</h2></div><div id="projectImageDiv" class="docs-image-container"/></div></div>'
+                    HTML = HTML + '<div id="docs-main-title-div" class="docs-title-table"><div class="docs-table-cell"><h2 class="docs-h2" id="' + thisObject.currentDocumentBeingRendered.type.toLowerCase().replace(' ', '-') + '" > ' + titleLabel + '</h2></div><div id="projectImageDiv" class="docs-image-container"/></div></div>'
                     */
 
                     generateReviewPreviousAndNextPageNavigation()
@@ -304,15 +287,15 @@ function newEducationExportDocsGenerator() {
                     }
                 }
 
-                let definitionText = UI.projects.education.utilities.docs.getTextBasedOnLanguage(docsSchemaDocument.definition)
-                definitionText = definitionText + UI.projects.education.utilities.docs.addWarningIfTranslationIsOutdated(docsSchemaDocument.definition)
+                let definitionText = ED.utilities.getTextBasedOnLanguage(docsSchemaDocument.definition)
+                definitionText = definitionText + ED.utilities.addWarningIfTranslationIsOutdated(docsSchemaDocument.definition)
 
                 /* We will test if we can draw an image here or not*/
                 let testElement
                 if (docsSchemaDocument.definition.icon !== undefined) {
-                    testElement = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName(docsSchemaDocument.definition.icon.project, docsSchemaDocument.definition.icon.name)
+                    testElement = ED.designSpace.getIconByProjectAndName(docsSchemaDocument.definition.icon.project, docsSchemaDocument.definition.icon.name)
                 } else {
-                    testElement = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(project, type)
+                    testElement = ED.designSpace.getIconByProjectAndType(project, type)
                 }
 
                 /* 
@@ -321,7 +304,7 @@ function newEducationExportDocsGenerator() {
                 image we use a table, otherwise we will render the definitaion as a Summary.
                 */
                 if ((category === 'Topic' || category === 'Tutorial' || category === 'Review' || category === 'Concept' || category === 'Book') && testElement === undefined) {
-                    HTML = HTML + '<div id="definition-summary-editable-paragraph" class="docs-summary"><b>Summary:</b> ' + UI.projects.education.utilities.docs.addToolTips(definitionText, currentDocumentBeingRendered.type) + '</div>'
+                    HTML = HTML + '<div id="definition-summary-editable-paragraph" class="docs-summary"><b>Summary:</b> ' + ED.utilities.addToolTips(definitionText, thisObject.currentDocumentBeingRendered.type) + '</div>'
                 } else {
                     HTML = HTML + '<div class="docs-definition-table">'
 
@@ -335,7 +318,7 @@ function newEducationExportDocsGenerator() {
                     definitionImagesArray.push(imageItem)
 
                     HTML = HTML + '<div id="' + imageItem.div + '" class="docs-image-container"></div>'
-                    HTML = HTML + '<div id="' + idPrefix + 'paragraph" class="docs-definition-text"><strong>' + UI.projects.education.utilities.docs.addToolTips(definitionText, currentDocumentBeingRendered.type) + '</strong></div>'
+                    HTML = HTML + '<div id="' + idPrefix + 'paragraph" class="docs-definition-text"><strong>' + ED.utilities.addToolTips(definitionText, thisObject.currentDocumentBeingRendered.type) + '</strong></div>'
                     HTML = HTML + '</div>'
                 }
 
@@ -474,7 +457,7 @@ function newEducationExportDocsGenerator() {
                         }
                     }
                 }
-                if (currentDocumentBeingRendered.category === 'Node') {
+                if (thisObject.currentDocumentBeingRendered.category === 'Node') {
                     autoGeneratedHtml()
                 }
                 HTML = HTML + '</div>' // Content Ends
@@ -574,8 +557,8 @@ function newEducationExportDocsGenerator() {
                 }
 
                 function addPlaceholdedParagraph(propertyName) {
-                    if (currentDocumentBeingRendered.placeholder !== undefined) {
-                        let placeholder = currentDocumentBeingRendered.placeholder[propertyName]
+                    if (thisObject.currentDocumentBeingRendered.placeholder !== undefined) {
+                        let placeholder = thisObject.currentDocumentBeingRendered.placeholder[propertyName]
 
                         if (placeholder !== undefined) {
                             let paragraph = {
@@ -615,8 +598,8 @@ function newEducationExportDocsGenerator() {
 
                     switch (category) {
                         case 'Topic': {
-                            orderedTopicPageIndexArray = UI.projects.education.utilities.docs.buildOrderedPageIndex(
-                                currentDocumentBeingRendered.project,
+                            orderedTopicPageIndexArray = ED.utilities.buildOrderedPageIndex(
+                                thisObject.currentDocumentBeingRendered.project,
                                 'Topic',
                                 chapterName
                             )
@@ -627,7 +610,7 @@ function newEducationExportDocsGenerator() {
                             break
                         }
                         case 'Tutorial': {
-                            orderedTutorialPageIndexArray = UI.projects.education.utilities.docs.buildOrderedPageIndex(
+                            orderedTutorialPageIndexArray = ED.utilities.buildOrderedPageIndex(
                                 project,
                                 'Tutorial',
                                 chapterName
@@ -639,8 +622,8 @@ function newEducationExportDocsGenerator() {
                             break
                         }
                         case 'Review': {
-                            orderedReviewPageIndexArray = UI.projects.education.utilities.docs.buildOrderedPageIndex(
-                                currentDocumentBeingRendered.project,
+                            orderedReviewPageIndexArray = ED.utilities.buildOrderedPageIndex(
+                                thisObject.currentDocumentBeingRendered.project,
                                 'Review',
                                 chapterName
                             )
@@ -703,7 +686,7 @@ function newEducationExportDocsGenerator() {
                 addDefinitionImage()
                 addHierarchyImages()
 
-                if (currentDocumentBeingRendered.category === 'Node') {
+                if (thisObject.currentDocumentBeingRendered.category === 'Node') {
                     addMenuItemsImages()
                     addChildrenNodesPropertiesImages()
                     addAttachingAndReferencingRulesImages()
@@ -723,7 +706,7 @@ function newEducationExportDocsGenerator() {
                             equal to the Node Type.
                             */
                             let imageName = appSchemaDocument.type.toLowerCase().replaceAll(' ', '-')
-                            imageElement = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName(imageItem.project, imageName)
+                            imageElement = ED.designSpace.getIconByProjectAndName(imageItem.project, imageName)
                             if (imageElement === undefined) {
                                 console.log((new Date()).toISOString(), '[WARN] Image for project (' + imageItem.project + ') with name (' + imageName + ') not found. As a consequence, the Docs Page will be rendered without the icon. ')
                                 continue
@@ -731,14 +714,14 @@ function newEducationExportDocsGenerator() {
                         } else {
                             if (imageItem.icon === undefined) {
                                 /* This is the default behaviours */
-                                imageElement = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(imageItem.project, imageItem.type)
+                                imageElement = ED.designSpace.getIconByProjectAndType(imageItem.project, imageItem.type)
                                 if (imageElement === undefined) {
                                     console.log((new Date()).toISOString(), '[WARN] Image for project (' + imageItem.project + ') with name (' + imageItem.type + ') not found. As a consequence, the Docs Page will be rendered without the icon. ')
                                     continue
                                 }
                             } else {
                                 /* Here we take the image from the icon specification */
-                                imageElement = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName(imageItem.icon.project, imageItem.icon.name)
+                                imageElement = ED.designSpace.getIconByProjectAndName(imageItem.icon.project, imageItem.icon.name)
                                 if (imageElement === undefined) {
                                     console.log((new Date()).toISOString(), '[WARN] Image for project (' + imageItem.icon.project + ') with name (' + imageItem.icon.name + ') not found. As a consequence, the Docs Page will be rendered without the icon. ')
                                     continue
@@ -763,20 +746,20 @@ function newEducationExportDocsGenerator() {
                             let appSchemaDocument = SCHEMAS_BY_PROJECT.get(imageItem.project).map.appSchema.get(imageItem.type)
                             if (appSchemaDocument.icon === undefined) {
                                 let imageName = appSchemaDocument.type.toLowerCase().replaceAll(' ', '-')
-                                collectionImage = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName(imageItem.project, imageName)
+                                collectionImage = ED.designSpace.getIconByProjectAndName(imageItem.project, imageName)
                                 if (collectionImage === undefined) {
                                     console.log((new Date()).toISOString(), '[WARN] Image for project (' + imageItem.project + ') with name (' + imageName + ') not found. As a consequence, the hierarchy will be rendered without the icon. ')
                                     continue
                                 }
                             } else {
-                                collectionImage = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(imageItem.project, imageItem.type)
+                                collectionImage = ED.designSpace.getIconByProjectAndType(imageItem.project, imageItem.type)
                                 if (collectionImage === undefined) {
                                     console.log((new Date()).toISOString(), '[WARN] Image for project (' + imageItem.project + ') with type (' + imageItem.type + ') not found. As a consequence, the hierarchy will be rendered without the icon. ')
                                     continue
                                 }
                             }
                         } else {
-                            collectionImage = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName(imageItem.project, imageItem.name)
+                            collectionImage = ED.designSpace.getIconByProjectAndName(imageItem.project, imageItem.name)
                             if (collectionImage === undefined) {
                                 console.log((new Date()).toISOString(), '[WARN] Image for project (' + imageItem.project + ') with name (' + imageItem.name + ') not found. As a consequence, the hierarchy will be rendered without the icon. ')
                                 continue
@@ -799,8 +782,8 @@ function newEducationExportDocsGenerator() {
                 }
 
                 function addProjectImage() {
-                    let imageName = currentDocumentBeingRendered.project.toLowerCase().replaceAll(' ', '-')
-                    let imageElement = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName(currentDocumentBeingRendered.project, imageName)
+                    let imageName = thisObject.currentDocumentBeingRendered.project.toLowerCase().replaceAll(' ', '-')
+                    let imageElement = ED.designSpace.getIconByProjectAndName(thisObject.currentDocumentBeingRendered.project, imageName)
                     if (imageElement !== undefined) {
                         imageElement.width = "50"
                         imageElement.height = "50"
@@ -835,19 +818,19 @@ function newEducationExportDocsGenerator() {
                                 if (relatedUiObjectProject !== undefined) {
                                     project = relatedUiObjectProject
                                 } else {
-                                    project = currentDocumentBeingRendered.project
+                                    project = thisObject.currentDocumentBeingRendered.project
                                 }
-                                return UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(project, menuItem.relatedUiObject)
+                                return ED.designSpace.getIconByProjectAndType(project, menuItem.relatedUiObject)
                             } else {
                                 if (actionProject !== undefined) {
                                     project = actionProject
                                 } else {
-                                    project = currentDocumentBeingRendered.project
+                                    project = thisObject.currentDocumentBeingRendered.project
                                 }
                                 if (menuItem.iconPathOn !== undefined) {
-                                    return UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName(project, menuItem.iconPathOn)
+                                    return ED.designSpace.getIconByProjectAndName(project, menuItem.iconPathOn)
                                 } else {
-                                    return UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName('Foundations', 'bitcoin')
+                                    return ED.designSpace.getIconByProjectAndName('Foundations', 'bitcoin')
                                 }
                             }
                         }
@@ -874,9 +857,9 @@ function newEducationExportDocsGenerator() {
 
                         function getIcon() {
                             if (childrenNodesProperty.project !== undefined) {
-                                return UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(childrenNodesProperty.project, childrenNodesProperty.childType)
+                                return ED.designSpace.getIconByProjectAndType(childrenNodesProperty.project, childrenNodesProperty.childType)
                             } else {
-                                return UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(currentDocumentBeingRendered.project, childrenNodesProperty.childType)
+                                return ED.designSpace.getIconByProjectAndType(thisObject.currentDocumentBeingRendered.project, childrenNodesProperty.childType)
                             }
                         }
                     }
@@ -930,11 +913,11 @@ function newEducationExportDocsGenerator() {
                             function getIcon() {
                                 let splittedListItem = listItem.split('|')
                                 if (splittedListItem.length === 1) {
-                                    return UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(currentDocumentBeingRendered.project, listItem)
+                                    return ED.designSpace.getIconByProjectAndType(thisObject.currentDocumentBeingRendered.project, listItem)
                                 } else {
                                     let project = splittedListItem[0]
                                     let nodeType = splittedListItem[1]
-                                    return UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(project, nodeType)
+                                    return ED.designSpace.getIconByProjectAndType(project, nodeType)
                                 }
                             }
                         }
@@ -962,7 +945,7 @@ function newEducationExportDocsGenerator() {
                     for (let i = 0; i < imageArray.length; i++) {
                         let dummyImage = imageArray[i]
                         let parentElement = dummyImage.parentNode
-                        let collectionImage = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName('Foundations', 'configuration')
+                        let collectionImage = ED.designSpace.getIconByProjectAndName('Foundations', 'configuration')
                         if (collectionImage === undefined) {
                             continue
                         }
@@ -1063,9 +1046,9 @@ function newEducationExportDocsGenerator() {
                     for (let i = 0; i < appSchemaDocument.childrenNodesProperties.length; i++) {
                         let childrenNodesProperty = appSchemaDocument.childrenNodesProperties[i]
 
-                        let name = UI.projects.foundations.utilities.strings.fromCamelCaseToUpperWithSpaces(childrenNodesProperty.name)
+                        let name = ED.utilities.fromCamelCaseToUpperWithSpaces(childrenNodesProperty.name)
 
-                        HTML = HTML + '<button id="docs-children-nodes-property-' + i + '" type="button" class="docs-collapsible-element"><img>' + UI.projects.education.utilities.docs.addToolTips(name, currentDocumentBeingRendered.type) + '</button>'
+                        HTML = HTML + '<button id="docs-children-nodes-property-' + i + '" type="button" class="docs-collapsible-element"><img>' + ED.utilities.addToolTips(name, thisObject.currentDocumentBeingRendered.type) + '</button>'
                         HTML = HTML + '<div class="docs-collapsible-content">'
 
                         paragraph = {
@@ -1142,7 +1125,7 @@ function newEducationExportDocsGenerator() {
                             if (listItem === "") {
                                 continue
                             }
-                            HTML = HTML + '<button id="docs-' + additionToKey + '-' + i + '" type="button" class="docs-non-collapsible-element"><img>' + UI.projects.education.utilities.docs.addToolTips(listItem, currentDocumentBeingRendered.type) + '</button>'
+                            HTML = HTML + '<button id="docs-' + additionToKey + '-' + i + '" type="button" class="docs-non-collapsible-element"><img>' + ED.utilities.addToolTips(listItem, thisObject.currentDocumentBeingRendered.type) + '</button>'
                         }
                     }
                 }
@@ -1201,7 +1184,7 @@ function newEducationExportDocsGenerator() {
                             if (listItem === "") {
                                 continue
                             }
-                            HTML = HTML + '<button id="docs-' + additionToKey + '-' + i + '" type="button" class="docs-non-collapsible-element"><img>' + UI.projects.education.utilities.docs.addToolTips(listItem, currentDocumentBeingRendered.type) + '</button>'
+                            HTML = HTML + '<button id="docs-' + additionToKey + '-' + i + '" type="button" class="docs-non-collapsible-element"><img>' + ED.utilities.addToolTips(listItem, thisObject.currentDocumentBeingRendered.type) + '</button>'
                         }
                     }
                 }
@@ -1258,12 +1241,12 @@ function newEducationExportDocsGenerator() {
                     they are using and sample values for each one.
                     */
                     /* First Step: get an array of all the nodes in the workspace of this type */
-                    let rootNodes = UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode.rootNodes
+                    let rootNodes = ED.designSpace.workspace.workspaceNode.rootNodes
                     let allNodesFound = []
                     for (let i = 0; i < rootNodes.length; i++) {
                         let rootNode = rootNodes[i]
                         if (rootNode !== null) {
-                            let nodeArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(rootNode, appSchemaDocument.type)
+                            let nodeArray = ED.utilities.nodeBranchToArray(rootNode, appSchemaDocument.type)
                             allNodesFound = allNodesFound.concat(nodeArray)
                         }
                     }
@@ -1292,7 +1275,7 @@ function newEducationExportDocsGenerator() {
 
                     function displayProperty(valueArray, mapKey, map) {
 
-                        let name = UI.projects.foundations.utilities.strings.fromCamelCaseToUpperWithSpaces(mapKey)
+                        let name = ED.utilities.fromCamelCaseToUpperWithSpaces(mapKey)
 
                         HTML = HTML + '<button id="docs-config-property-' + mapKey.toLowerCase() + '" type="button" class="docs-collapsible-element"><img class="docs-configuration-property-image">' + name + '</button>'
                         HTML = HTML + '<div class="docs-collapsible-content">'
@@ -1375,12 +1358,12 @@ function newEducationExportDocsGenerator() {
                     and after that, analysing their code in order to extract examples to show.
                     */
                     /* First Step: get an array of all the nodes in the workspace of this type */
-                    let rootNodes = UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode.rootNodes
+                    let rootNodes = ED.designSpace.workspace.workspaceNode.rootNodes
                     let allNodesFound = []
                     for (let i = 0; i < rootNodes.length; i++) {
                         let rootNode = rootNodes[i]
                         if (rootNode !== null) {
-                            let nodeArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(rootNode, appSchemaDocument.type)
+                            let nodeArray = ED.utilities.nodeBranchToArray(rootNode, appSchemaDocument.type)
                             allNodesFound = allNodesFound.concat(nodeArray)
                         }
                     }
@@ -1478,12 +1461,12 @@ function newEducationExportDocsGenerator() {
                     and after that, analysing their code in order to extract examples to show.
                     */
                     /* First Step: get an array of all the nodes in the workspace of this type */
-                    let rootNodes = UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode.rootNodes
+                    let rootNodes = ED.designSpace.workspace.workspaceNode.rootNodes
                     let allNodesFound = []
                     for (let i = 0; i < rootNodes.length; i++) {
                         let rootNode = rootNodes[i]
                         if (rootNode !== null) {
-                            let nodeArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(rootNode, appSchemaDocument.type)
+                            let nodeArray = ED.utilities.nodeBranchToArray(rootNode, appSchemaDocument.type)
                             allNodesFound = allNodesFound.concat(nodeArray)
                         }
                     }
@@ -1532,13 +1515,13 @@ function newEducationExportDocsGenerator() {
                         prefix = ''
                         role = ''
                         key = key + '-text'
-                        innerHTML = UI.projects.education.utilities.docs.getTextBasedOnLanguage(paragraph)
-                        innerHTML = UI.projects.education.utilities.docs.addCodeToCamelCase(innerHTML)
-                        innerHTML = UI.projects.education.utilities.docs.addCodeToWhiteList(innerHTML)
-                        innerHTML = UI.projects.education.utilities.docs.addKeyboard(innerHTML)
-                        innerHTML = UI.projects.education.utilities.docs.addItalics(innerHTML)
-                        innerHTML = UI.projects.education.utilities.docs.addToolTips(innerHTML, currentDocumentBeingRendered.type)
-                        innerHTML = innerHTML + UI.projects.education.utilities.docs.addWarningIfTranslationIsOutdated(paragraph)
+                        innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph)
+                        innerHTML = ED.utilities.addCodeToCamelCase(innerHTML)
+                        innerHTML = ED.utilities.addCodeToWhiteList(innerHTML)
+                        innerHTML = ED.utilities.addKeyboard(innerHTML)
+                        innerHTML = ED.utilities.addItalics(innerHTML)
+                        innerHTML = ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type)
+                        innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
                     case 'Title': {
@@ -1546,8 +1529,8 @@ function newEducationExportDocsGenerator() {
                         prefix = ''
                         role = ''
                         key = key + '-title'
-                        innerHTML = UI.projects.education.utilities.docs.getTextBasedOnLanguage(paragraph)
-                        innerHTML = innerHTML + UI.projects.education.utilities.docs.addWarningIfTranslationIsOutdated(paragraph)
+                        innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph)
+                        innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
                     case 'Subtitle': {
@@ -1555,8 +1538,8 @@ function newEducationExportDocsGenerator() {
                         prefix = ''
                         role = ''
                         key = key + '-subtitle'
-                        innerHTML = UI.projects.education.utilities.docs.getTextBasedOnLanguage(paragraph)
-                        innerHTML = innerHTML + UI.projects.education.utilities.docs.addWarningIfTranslationIsOutdated(paragraph)
+                        innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph)
+                        innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
                     case 'Note': {
@@ -1564,11 +1547,11 @@ function newEducationExportDocsGenerator() {
                         prefix = '<i class="docs-fa docs-note-circle"></i> <b>Note:</b>'
                         role = 'role="alert"'
                         key = key + '-note'
-                        innerHTML = UI.projects.education.utilities.docs.getTextBasedOnLanguage(paragraph)
-                        innerHTML = UI.projects.education.utilities.docs.addKeyboard(innerHTML)
-                        innerHTML = UI.projects.education.utilities.docs.addItalics(innerHTML)
-                        innerHTML = UI.projects.education.utilities.docs.addToolTips(innerHTML, currentDocumentBeingRendered.type)
-                        innerHTML = innerHTML + UI.projects.education.utilities.docs.addWarningIfTranslationIsOutdated(paragraph)
+                        innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph)
+                        innerHTML = ED.utilities.addKeyboard(innerHTML)
+                        innerHTML = ED.utilities.addItalics(innerHTML)
+                        innerHTML = ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type)
+                        innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
                     case 'Success': {
@@ -1576,11 +1559,11 @@ function newEducationExportDocsGenerator() {
                         prefix = '<i class="docs-fa docs-check-square-o"></i> <b>Tip:</b>'
                         role = 'role="alert"'
                         key = key + '-success'
-                        innerHTML = UI.projects.education.utilities.docs.getTextBasedOnLanguage(paragraph)
-                        innerHTML = UI.projects.education.utilities.docs.addKeyboard(innerHTML)
-                        innerHTML = UI.projects.education.utilities.docs.addItalics(innerHTML)
-                        innerHTML = UI.projects.education.utilities.docs.addToolTips(innerHTML, currentDocumentBeingRendered.type)
-                        innerHTML = innerHTML + UI.projects.education.utilities.docs.addWarningIfTranslationIsOutdated(paragraph)
+                        innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph)
+                        innerHTML = ED.utilities.addKeyboard(innerHTML)
+                        innerHTML = ED.utilities.addItalics(innerHTML)
+                        innerHTML = ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type)
+                        innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
                     case 'Important': {
@@ -1588,11 +1571,11 @@ function newEducationExportDocsGenerator() {
                         prefix = '<i class="docs-fa docs-warning-sign"></i> <b>Important:</b>'
                         role = 'role="alert"'
                         key = key + '-important'
-                        innerHTML = UI.projects.education.utilities.docs.getTextBasedOnLanguage(paragraph)
-                        innerHTML = UI.projects.education.utilities.docs.addKeyboard(innerHTML)
-                        innerHTML = UI.projects.education.utilities.docs.addItalics(innerHTML)
-                        innerHTML = UI.projects.education.utilities.docs.addToolTips(innerHTML, currentDocumentBeingRendered.type)
-                        innerHTML = innerHTML + UI.projects.education.utilities.docs.addWarningIfTranslationIsOutdated(paragraph)
+                        innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph)
+                        innerHTML = ED.utilities.addKeyboard(innerHTML)
+                        innerHTML = ED.utilities.addItalics(innerHTML)
+                        innerHTML = ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type)
+                        innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
                     case 'Warning': {
@@ -1600,11 +1583,11 @@ function newEducationExportDocsGenerator() {
                         prefix = '<i class="docs-fa docs-warning-sign"></i> <b>Warning:</b>'
                         role = 'role="alert"'
                         key = key + '-warning'
-                        innerHTML = UI.projects.education.utilities.docs.getTextBasedOnLanguage(paragraph)
-                        innerHTML = UI.projects.education.utilities.docs.addKeyboard(innerHTML)
-                        innerHTML = UI.projects.education.utilities.docs.addItalics(innerHTML)
-                        innerHTML = UI.projects.education.utilities.docs.addToolTips(innerHTML, currentDocumentBeingRendered.type)
-                        innerHTML = innerHTML + UI.projects.education.utilities.docs.addWarningIfTranslationIsOutdated(paragraph)
+                        innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph)
+                        innerHTML = ED.utilities.addKeyboard(innerHTML)
+                        innerHTML = ED.utilities.addItalics(innerHTML)
+                        innerHTML = ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type)
+                        innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
                     case 'Error': {
@@ -1612,9 +1595,9 @@ function newEducationExportDocsGenerator() {
                         prefix = '<i class="docs-fa docs-warning-sign"></i> <b>Error:</b>'
                         role = 'role="alert"'
                         key = key + '-error'
-                        innerHTML = UI.projects.education.utilities.docs.getTextBasedOnLanguage(paragraph)
-                        innerHTML = UI.projects.education.utilities.docs.addToolTips(innerHTML, currentDocumentBeingRendered.type)
-                        innerHTML = innerHTML + UI.projects.education.utilities.docs.addWarningIfTranslationIsOutdated(paragraph)
+                        innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph)
+                        innerHTML = ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type)
+                        innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
                     case 'Callout': {
@@ -1622,11 +1605,11 @@ function newEducationExportDocsGenerator() {
                         prefix = ''
                         role = ''
                         key = key + '-callout'
-                        innerHTML = UI.projects.education.utilities.docs.getTextBasedOnLanguage(paragraph)
-                        innerHTML = UI.projects.education.utilities.docs.addKeyboard(innerHTML)
-                        innerHTML = UI.projects.education.utilities.docs.addItalics(innerHTML)
-                        innerHTML = UI.projects.education.utilities.docs.addToolTips(innerHTML, currentDocumentBeingRendered.type)
-                        innerHTML = innerHTML + UI.projects.education.utilities.docs.addWarningIfTranslationIsOutdated(paragraph)
+                        innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph)
+                        innerHTML = ED.utilities.addKeyboard(innerHTML)
+                        innerHTML = ED.utilities.addItalics(innerHTML)
+                        innerHTML = ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type)
+                        innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
                     case 'Summary': {
@@ -1634,11 +1617,11 @@ function newEducationExportDocsGenerator() {
                         prefix = '<b>Summary:</b>'
                         role = ''
                         key = key + '-summary'
-                        innerHTML = UI.projects.education.utilities.docs.getTextBasedOnLanguage(paragraph)
-                        innerHTML = UI.projects.education.utilities.docs.addKeyboard(innerHTML)
-                        innerHTML = UI.projects.education.utilities.docs.addItalics(innerHTML)
-                        innerHTML = UI.projects.education.utilities.docs.addToolTips(innerHTML, currentDocumentBeingRendered.type)
-                        innerHTML = innerHTML + UI.projects.education.utilities.docs.addWarningIfTranslationIsOutdated(paragraph)
+                        innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph)
+                        innerHTML = ED.utilities.addKeyboard(innerHTML)
+                        innerHTML = ED.utilities.addItalics(innerHTML)
+                        innerHTML = ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type)
+                        innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
                     case 'Section': {
@@ -1646,9 +1629,9 @@ function newEducationExportDocsGenerator() {
                         prefix = ''
                         role = ''
                         key = key + '-section'
-                        innerHTML = UI.projects.education.utilities.docs.getTextBasedOnLanguage(paragraph)
-                        innerHTML = UI.projects.education.utilities.docs.addToolTips(innerHTML, currentDocumentBeingRendered.type)
-                        innerHTML = innerHTML + UI.projects.education.utilities.docs.addWarningIfTranslationIsOutdated(paragraph)
+                        innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph)
+                        innerHTML = ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type)
+                        innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
                     case 'List': {
@@ -1657,25 +1640,25 @@ function newEducationExportDocsGenerator() {
                         sufix = '</li></ul>'
                         role = ''
                         key = key + '-list'
-                        innerHTML = UI.projects.education.utilities.docs.getTextBasedOnLanguage(paragraph)
-                        innerHTML = UI.projects.education.utilities.docs.addCodeToCamelCase(innerHTML)
-                        innerHTML = UI.projects.education.utilities.docs.addBold(innerHTML)
-                        innerHTML = UI.projects.education.utilities.docs.addKeyboard(innerHTML)
-                        innerHTML = UI.projects.education.utilities.docs.addItalics(innerHTML)
-                        innerHTML = UI.projects.education.utilities.docs.addToolTips(innerHTML, currentDocumentBeingRendered.type)
-                        innerHTML = innerHTML + UI.projects.education.utilities.docs.addWarningIfTranslationIsOutdated(paragraph)
+                        innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph)
+                        innerHTML = ED.utilities.addCodeToCamelCase(innerHTML)
+                        innerHTML = ED.utilities.addBold(innerHTML)
+                        innerHTML = ED.utilities.addKeyboard(innerHTML)
+                        innerHTML = ED.utilities.addItalics(innerHTML)
+                        innerHTML = ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type)
+                        innerHTML = innerHTML + ED.utilities.addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
                     case 'Table': {
                         styleClass = ''
                         prefix = '<table class="docs-info-table">'
-                        sufix = '</table>' + UI.projects.education.utilities.docs.addWarningIfTranslationIsOutdated(paragraph)
+                        sufix = '</table>' + ED.utilities.addWarningIfTranslationIsOutdated(paragraph)
                         role = ''
                         key = key + '-table'
-                        innerHTML = UI.projects.education.utilities.docs.getTextBasedOnLanguage(paragraph)
-                        innerHTML = UI.projects.education.utilities.docs.addToolTips(innerHTML, currentDocumentBeingRendered.type)
-                        innerHTML = UI.projects.education.utilities.docs.parseTable(innerHTML)
-                        innerHTML = UI.projects.education.utilities.docs.addItalics(innerHTML)
+                        innerHTML = ED.utilities.getTextBasedOnLanguage(paragraph)
+                        innerHTML = ED.utilities.addToolTips(innerHTML, thisObject.currentDocumentBeingRendered.type)
+                        innerHTML = ED.utilities.parseTable(innerHTML)
+                        innerHTML = ED.utilities.addItalics(innerHTML)
                         break
                     }
                     case 'Hierarchy': {
@@ -1693,7 +1676,7 @@ function newEducationExportDocsGenerator() {
                         sufix = ''
                         role = ''
                         key = key + '-link'
-                        innerHTML = UI.projects.education.utilities.docs.parseLink(UI.projects.education.utilities.docs.getTextBasedOnLanguage(paragraph))
+                        innerHTML = ED.utilities.parseLink(ED.utilities.getTextBasedOnLanguage(paragraph))
                         break
                     }
                     case 'Youtube': {
@@ -1702,7 +1685,7 @@ function newEducationExportDocsGenerator() {
                         sufix = ''
                         role = ''
                         key = key + '-youtube'
-                        innerHTML = UI.projects.education.utilities.docs.parseYoutube(paragraph.text)
+                        innerHTML = ED.utilities.parseYoutube(paragraph.text)
                         break
                     }
                     case 'Gif': {
@@ -1711,7 +1694,7 @@ function newEducationExportDocsGenerator() {
                         sufix = ''
                         role = ''
                         key = key + '-gif'
-                        innerHTML = UI.projects.education.utilities.docs.parseGIF(paragraph.text)
+                        innerHTML = ED.utilities.parseGIF(paragraph.text)
                         break
                     }
                     case 'Png': {
@@ -1720,7 +1703,7 @@ function newEducationExportDocsGenerator() {
                         sufix = ''
                         role = ''
                         key = key + '-png'
-                        innerHTML = UI.projects.education.utilities.docs.parsePNG(paragraph.text)
+                        innerHTML = ED.utilities.parsePNG(paragraph.text)
                         break
                     }
                     case 'Javascript': {
@@ -1853,7 +1836,7 @@ function newEducationExportDocsGenerator() {
                     let imageContainer = '<div id="' + imageItem.div + '" class="docs-hierarchy-image-container"/>'
                     hierarchyImagesArray.push(imageItem)
 
-                    let matrixValue = '<table><tr><td class="docs-hierarchy-table-cell">' + imageContainer + '</td></tr><tr><td  class="docs-hierarchy-table-cell">' + UI.projects.education.utilities.docs.addToolTips(schemaDocument.type, currentDocumentBeingRendered.type) + '</td></tr></table>'
+                    let matrixValue = '<table><tr><td class="docs-hierarchy-table-cell">' + imageContainer + '</td></tr><tr><td  class="docs-hierarchy-table-cell">' + ED.utilities.addToolTips(schemaDocument.type, thisObject.currentDocumentBeingRendered.type) + '</td></tr></table>'
                     let matrixRow = contentMatrix[currentRow]
                     matrixRow[currentColumn] = matrixValue
 
@@ -1936,31 +1919,35 @@ function newEducationExportDocsGenerator() {
                             switch (matrixRow[j]) {
                                 case LINE: {
                                     imageItem.name = 'tree-connector-line'
-                                    matrixRow[j] = '<div id="' + imageItem.div + '" class="docs-hierarchy-image-container"/>'
+                                    matrixRow[j] = generateMatrixRow(imageItem.div)
                                     hierarchyImagesArray.push(imageItem)
                                     break
                                 }
                                 case SPACE: {
                                     imageItem.name = 'tree-spacer'
-                                    matrixRow[j] = '<div id="' + imageItem.div + '" class="docs-hierarchy-image-container"/>'
+                                    matrixRow[j] = generateMatrixRow(imageItem.div)
                                     hierarchyImagesArray.push(imageItem)
                                     break
                                 }
                                 case FORK: {
                                     imageItem.name = 'tree-connector-fork'
-                                    matrixRow[j] = '<div id="' + imageItem.div + '" class="docs-hierarchy-image-container"/>'
+                                    matrixRow[j] = generateMatrixRow(imageItem.div)
                                     hierarchyImagesArray.push(imageItem)
                                     break
                                 }
                                 case ELBOW: {
                                     imageItem.name = 'tree-connector-elbow'
-                                    matrixRow[j] = '<div id="' + imageItem.div + '" class="docs-hierarchy-image-container"/>'
+                                    matrixRow[j] = generateMatrixRow(imageItem.div)
                                     hierarchyImagesArray.push(imageItem)
                                     break
                                 }
                             }
 
                         }
+                    }
+
+                    function generateMatrixRow(imageItemDiv) {
+                        return '<div id="' + imageItemDiv + '" class="docs-hierarchy-image-container"/>'
                     }
                 }
 
@@ -2011,32 +1998,74 @@ function newEducationExportDocsGenerator() {
                 HTML = HTML + '</div></div>'
             }
         }
-    }
 
-    function enableCollapsibleContent() {
-        let collapsibleElementsArray = document.getElementsByClassName("docs-collapsible-element")
+        /**
+         * 
+         * @param category {string}
+         * @param pageType {string}
+         * @returns string
+         */
+        function previousPaginationLinkBuilder(category, pageType) {
+            return paginationLinkBuilder(category, pageType, 'Previous')
+        }
 
-        for (let i = 0; i < collapsibleElementsArray.length; i++) {
-            collapsibleElementsArray[i].addEventListener("click", function () {
-                this.classList.toggle("docs-collapsible-active")
-                let content = this.nextElementSibling
-                if (content.style.display === "block") {
-                    content.style.display = "none";
-                } else {
-                    content.style.display = "block";
-                }
-            })
+        /**
+         * 
+         * @param category {string}
+         * @param pageType {string}
+         * @returns string
+         */
+        function nextPaginationLinkBuilder(category, pageType) {
+            return paginationLinkBuilder(category, pageType, 'Previous')
+        }
+
+        /**
+         * 
+         * @param category {string}
+         * @param pageType {string}
+         * @param content {string}
+         * @returns string
+         */
+        function paginationLinkBuilder(category, pageType, content) {
+            return `${generateUnstyledLink(category, pageType, content)}<br/> ${pageType}`
+        }
+        
+        /**
+         * 
+         * @param category {string}
+         * @param pageType {string}
+         * @param content {string}
+         * @returns string
+         */
+        function generateUnstyledLink(category, pageType, content) {
+            return `<a href="/${currentLanguageCode}/${thisObject.currentDocumentBeingRendered.project}/${category}/${pageType.replace(/'/g, 'AMPERSAND')}"> ${content} </a>`
         }
     }
 
-    function disableCollapsibleContent() {
-        let collapsibleElementsArray = document.getElementsByClassName("docs-collapsible-element")
+    // function enableCollapsibleContent() {
+    //     let collapsibleElementsArray = document.getElementsByClassName("docs-collapsible-element")
 
-        for (let i = 0; i < collapsibleElementsArray.length; i++) {
-            collapsibleElementsArray[i].removeEventListener("click", function () {
-            })
-        }
-    }
+    //     for (let i = 0; i < collapsibleElementsArray.length; i++) {
+    //         collapsibleElementsArray[i].addEventListener("click", function () {
+    //             this.classList.toggle("docs-collapsible-active")
+    //             let content = this.nextElementSibling
+    //             if (content.style.display === "block") {
+    //                 content.style.display = "none";
+    //             } else {
+    //                 content.style.display = "block";
+    //             }
+    //         })
+    //     }
+    // }
+
+    // function disableCollapsibleContent() {
+    //     let collapsibleElementsArray = document.getElementsByClassName("docs-collapsible-element")
+
+    //     for (let i = 0; i < collapsibleElementsArray.length; i++) {
+    //         collapsibleElementsArray[i].removeEventListener("click", function () {
+    //         })
+    //     }
+    // }
 
     function addFooter() {
 
@@ -2051,15 +2080,15 @@ function newEducationExportDocsGenerator() {
 
         HTML = HTML + '<div class="docs-footer-cell" style="white-space: nowrap; overflow-x: auto;" >' // white-space: nowrap; overflow-x: auto; prevents line breaks when combined with display: inline-block;" in the child elements
 
-        if (currentDocumentBeingRendered !== undefined) {
+        if (thisObject.currentDocumentBeingRendered !== undefined) {
             HTML = HTML + '<span style="float: right; display: inline-block;" onClick="sharePage()"><button>SHARE</button></span>'
         }
         HTML = HTML + '<span style="float: right; display: inline-block;" onClick="scrollToElement(\'docs-space-div\')"><button>TO TOP</button></span>'
         if (previousDocumentBeingRendered !== undefined) {
             HTML = HTML + generateFooterBookLink(previousDocumentBeingRendered.project, previousDocumentBeingRendered.category, previousDocumentBeingRendered.type, 'BACK')
         }
-        if (currentBookBeingRendered !== undefined) {
-            HTML = HTML + generateFooterBookLink(currentBookBeingRendered.project, currentBookBeingRendered.category, currentBookBeingRendered.type, 'TO BOOK')
+        if (thisObject.currentBookBeingRendered !== undefined) {
+            HTML = HTML + generateFooterBookLink(thisObject.currentBookBeingRendered.project, thisObject.currentBookBeingRendered.category, thisObject.currentBookBeingRendered.type, 'TO BOOK')
         }
 
         HTML = HTML + generateFooterBookLink('Foundations', 'Book', 'Reviews', 'REVIEWS')
@@ -2213,8 +2242,8 @@ function newEducationExportDocsGenerator() {
          */
         function generateLanguageLink(key, language) {
             let link = `/${key.toLowerCase()}/index.html`
-            if(currentDocumentBeingRendered !== undefined) {
-                link = `/${key.toLowerCase()}/${currentDocumentBeingRendered.project}/${currentDocumentBeingRendered.category}/${currentDocumentBeingRendered.pageType.replace(/'/g, 'AMPERSAND')}`
+            if(thisObject.currentDocumentBeingRendered !== undefined) {
+                link = `/${key.toLowerCase()}/${thisObject.currentDocumentBeingRendered.project}/${thisObject.currentDocumentBeingRendered.category}/${thisObject.currentDocumentBeingRendered.pageType.replace(/'/g, 'AMPERSAND')}`
             }
             let HTML = `<a href="${link}"><img src="Images/Languages/${key}.png" title="${language}" class="docs-footer-language`
             if (currentLanguageCode === key) { 
@@ -2222,47 +2251,5 @@ function newEducationExportDocsGenerator() {
             } 
             return  HTML + '"></a>'
         }
-    }
-
-    /**
-     * 
-     * @param category {string}
-     * @param pageType {string}
-     * @returns string
-     */
-    function previousPaginationLinkBuilder(category, pageType) {
-        return paginationLinkBuilder(category, pageType, 'Previous')
-    }
-
-    /**
-     * 
-     * @param category {string}
-     * @param pageType {string}
-     * @returns string
-     */
-    function nextPaginationLinkBuilder(category, pageType) {
-        return paginationLinkBuilder(category, pageType, 'Previous')
-    }
-
-    /**
-     * 
-     * @param category {string}
-     * @param pageType {string}
-     * @param content {string}
-     * @returns string
-     */
-    function paginationLinkBuilder(category, pageType, content) {
-        return `${generateUnstyledLink(category, pageType, content)}<br/> ${pageType}`
-    }
-    
-    /**
-     * 
-     * @param category {string}
-     * @param pageType {string}
-     * @param content {string}
-     * @returns string
-     */
-    function generateUnstyledLink(category, pageType, content) {
-        return `<a href="/${currentLanguageCode}/${currentDocumentBeingRendered.project}/${category}/${pageType.replace(/'/g, 'AMPERSAND')}"> ${content} </a>`
     }
 }

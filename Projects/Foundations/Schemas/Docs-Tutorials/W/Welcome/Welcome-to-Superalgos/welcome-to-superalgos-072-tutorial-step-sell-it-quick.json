@@ -40,6 +40,11 @@
                 "language": "ID",
                 "text": "Aku yakin kamu mengetahui tidak ada lagi limit buy orders setelah pesanan terisi. Sebaliknya, sell orders mulai hadir!",
                 "updated": 1640562963215
+            },
+            {
+                "language": "NL",
+                "text": "Ik weet zeker dat je hebt opgemerkt dat er geen limiet aankooporders meer zijn nadat de bestelling is gevuld. In plaats daarvan verschijnen er verkooporders!",
+                "updated": 1666878322308
             }
         ]
     },
@@ -79,6 +84,11 @@
                     "language": "ID",
                     "text": "Perhatikan bagaimana Limit Sell Order pertama dipasang pada 00:22 AM, beberapa menit setelah buy order terisi!",
                     "updated": 1640562980011
+                },
+                {
+                    "language": "NL",
+                    "text": "Merk op hoe de eerste Limit Sell Order om 00:22 uur wordt geplaatst, de minuut nadat de kooporder is gevuld!",
+                    "updated": 1666878361205
                 }
             ]
         },
@@ -118,6 +128,11 @@
                     "language": "ID",
                     "text": "Pada saat yang sama Superalgos akan mendapat pemberitahuan dari exchange bahwa pesanan telah dipenuhi. Trading Bot terhubung dengan exchange dan melewati dua Cycle berbeda.",
                     "updated": 1640563068267
+                },
+                {
+                    "language": "NL",
+                    "text": "Het is op hetzelfde moment dat Superalgos bericht zou hebben gekregen van het handelsplatform dat de bestelling werd uitgevoerd. De Trading Bot maakt verbinding met het handelsplatform en doorloopt twee verschillende cycli.",
+                    "updated": 1666878430412
                 }
             ]
         },
@@ -156,6 +171,11 @@
                     "language": "ID",
                     "text": "Pada Cycle pertama, bot mengetahui status pesanan yang ada. Yang kedua, bot akan memberikan instruksi baru.",
                     "updated": 1640563083904
+                },
+                {
+                    "language": "NL",
+                    "text": "In de eerste Cycle komt het de status van bestaande bestellingen te weten. In de tweede geeft het nieuwe instructies.",
+                    "updated": 1666878468319
                 }
             ]
         }

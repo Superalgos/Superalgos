@@ -6,7 +6,8 @@ exports.newExportDocumentationApp = function newExportDocumentationApp() {
 
     return thisObject
 
-    function run() {
+    async function run() {
+        const categories = ['Node', 'Concept', 'Tutorial', 'Topic', 'Review', 'Book', 'Workspace']
         const schemaTypes = [
             {
                 name: 'AppSchema',
@@ -59,16 +60,36 @@ exports.newExportDocumentationApp = function newExportDocumentationApp() {
                     docsBookSchema: new Map()
                 }
             }
-            SCHEMAS_BY_PROJECT.set(PROJECTS_SCHEMA[i].name, schemas)
+            const project = PROJECTS_SCHEMA[i].name
+            SCHEMAS_BY_PROJECT.set(project, schemas)
+            let schema
             for( let j = 0; j < schemaTypes.length; j++ ) {
-                sendSchema(global.env.PATH_TO_PROJECTS + '/' + PROJECTS_SCHEMA[i].name + '/Schemas/', schemaTypes[j].name, s => schemaTypes[j].callback(s, schemas))
+                const schemaType = schemaTypes[j]
+                schema = await sendSchema(global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/', schemaType.name)
+                schemaType.callback(schema, schemas)
+                break
             }
         }
 
-        let first = SCHEMAS_BY_PROJECT.get('Education')
-        console.log(JSON.stringify(first, null, 4))
+        let project
+        let appSchemaTypes
+        for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
+            project = PROJECTS_SCHEMA[i].name
+            appSchemaTypes = SCHEMAS_BY_PROJECT.get(project).map.appSchema.keys()
+            categories.forEach( category => {
+                for(let type of appSchemaTypes) {
+                    ED.exporter.currentDocumentBeingRendered = {
+                        project,
+                        category,
+                        type
+                    }
+                    ED.exporter.render()
+                }
+            })
+            break
+        }
 
-        function sendSchema(filePath, schemaType, callback) {
+        async function sendSchema(filePath, schemaType) {
             let fs = SA.nodeModules.fs
             try {
                 let folder = ''
@@ -102,7 +123,43 @@ exports.newExportDocumentationApp = function newExportDocumentationApp() {
                         break
                     }
                 }
-                SA.projects.foundations.utilities.filesAndDirectories.getAllFilesInDirectoryAndSubdirectories(filePath + folder, onFilesReady)
+
+                const files = await getAllFilesInDirectoryAndSubdirectories(filePath + folder)
+                return onFilesReady(files)
+
+                async function getAllFilesInDirectoryAndSubdirectories(dir) {
+                    const { promisify } = SA.nodeModules.util
+                    const { resolve } = SA.nodeModules.path;
+                    const fs = SA.nodeModules.fs;
+                    const readdir = promisify(fs.readdir);
+                    const stat = promisify(fs.stat);
+            
+                    return await new Promise(res => getFiles(dir)
+                        .then(files => {
+                            let splittedDir = dir.split('/')
+                            let lastFolder = splittedDir[splittedDir.length - 2]
+                            let pathAndNames = []
+                            for (let i = 0; i < files.length; i++) {
+                                let file = files[i]
+                                let pathName = file.substring(file.indexOf(lastFolder) + lastFolder.length, file.length)
+                                pathName = pathName.substring(1, pathName.length)
+                                pathAndNames.push(pathName)
+                            }
+                            res(pathAndNames)
+                        })
+                        .catch(e => {
+                            res([])
+                        }))
+            
+                    async function getFiles(dir) {
+                        const subdirs = await readdir(dir);
+                        const files = await Promise.all(subdirs.map(async (subdir) => {
+                            const res = resolve(dir, subdir);
+                            return (await stat(res)).isDirectory() ? getFiles(res) : res;
+                        }));
+                        return files.reduce((a, f) => a.concat(f), []);
+                    }
+                }
 
                 function onFilesReady(files) {
 
@@ -126,14 +183,14 @@ exports.newExportDocumentationApp = function newExportDocumentationApp() {
                         }
                         schemaArray.push(schemaDocument)
                     }
-                    callback(JSON.stringify(schemaArray))
+                    return JSON.stringify(schemaArray)
                 }
             } catch (err) {
                 if (err.message.indexOf('no such file or directory') < 0) {
                     console.log('Could not send Schema:', filePath, schemaType)
                     console.log(err.stack)
                 }
-                callback([])
+                return []
             }
         }
 

@@ -2,7 +2,7 @@ runRoot()
 
 async function runRoot() {
   global.ED = {
-    generator: require('./Exports/Docs/Scripts/DocumentationExporter').documentationExporter(),
+    exporter: require('./Exports/Docs/Scripts/DocumentationExporter').documentationExporter(),
     utilities: require('./Exports/Docs/Scripts/DocumentationGenerationUtilities').documentGenerationUtilities(),
     designSpace: require('./Exports/Docs/Scripts/DocumentationDesignSpace').documentationDesignSpace()
   }

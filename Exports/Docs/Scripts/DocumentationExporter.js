@@ -65,7 +65,6 @@ exports.documentationExporter = function() {
 
         appSchemaDocument = SCHEMAS_BY_PROJECT.get(thisObject.currentDocumentBeingRendered.project).map.appSchema.get(thisObject.currentDocumentBeingRendered.type)
 
-        disableCollapsibleContent()
         getSchemaDocument()
         buildHtmlPage()
         enableCollapsibleContent()

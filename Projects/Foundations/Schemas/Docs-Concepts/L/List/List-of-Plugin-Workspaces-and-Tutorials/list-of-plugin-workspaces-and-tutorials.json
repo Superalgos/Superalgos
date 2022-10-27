@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Учебники существуют в определенных рабочих пространствах. Здесь приведен список рабочих пространств, поставляемых с Superalgos, и учебников, которые есть в каждом из них.",
                 "updated": 1641834556463
+            },
+            {
+                "language": "TR",
+                "text": "Öğreticiler belirli çalışma alanlarında bulunur. Bu, Superalgos ile birlikte gönderilen çalışma alanlarının ve her birinin içerdiği öğreticilerin bir listesidir.\n\n",
+                "updated": 1666685692419
             }
         ]
     },

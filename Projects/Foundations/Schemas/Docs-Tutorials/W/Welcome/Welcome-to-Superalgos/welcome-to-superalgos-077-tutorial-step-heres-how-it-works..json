@@ -40,6 +40,11 @@
                 "language": "ID",
                 "text": "Sudah paham? Trading Bot menempatkan Limit Buy Order pada level support keempat! Apa logika di balik ini?",
                 "updated": 1640564599187
+            },
+            {
+                "language": "NL",
+                "text": "Ik snap het? De Trading Bot plaatst de Limit Buy Order op het vierde ondersteuningsniveau! Wat is de logica hierachter?",
+                "updated": 1666879640680
             }
         ]
     },
@@ -79,6 +84,11 @@
                     "language": "ID",
                     "text": "Ini agak sewenang-wenang, tetapi strategi mendefinisikan falling knife sebagai aksi harga yang mampu menembus setidaknya tiga support levels dan mencapai yang keempat selama satu menit. Secara statistik, peristiwa semacam itu—dalam time frame ini—menghasilkan lebih banyak pantulan daripada kelanjutan. Mungkin disebabkan oleh pesanan pasar yang besar yang untuk sementara meningkatkan bid/ask yang ada di order book.",
                     "updated": 1640564734842
+                },
+                {
+                    "language": "NL",
+                    "text": "Het is een beetje willekeurig, maar de strategie definieert een vallend mes als de prijsactie die in staat is om ten minste drie ondersteuningsniveaus te doorbreken en in één minuut de vierde te bereiken. Statistisch gezien produceren dergelijke gebeurtenissen - in dit tijdsbestek - meer afwijzingen dan voortzettingen. Ze kunnen worden veroorzaakt door grote marktorders die de bid/ask-spread in het orderboek tijdelijk verhogen.",
+                    "updated": 1666879724696
                 }
             ]
         },
@@ -117,6 +127,11 @@
                     "language": "ID",
                     "text": "Luangkan waktu sebentar untuk memverifikasi bahwa buy order ditempatkan di support level keempat!",
                     "updated": 1640564815395
+                },
+                {
+                    "language": "NL",
+                    "text": "Neem even de tijd om te controleren of kooporders op het vierde ondersteuningsniveau zijn geplaatst!",
+                    "updated": 1666879748360
                 }
             ]
         }

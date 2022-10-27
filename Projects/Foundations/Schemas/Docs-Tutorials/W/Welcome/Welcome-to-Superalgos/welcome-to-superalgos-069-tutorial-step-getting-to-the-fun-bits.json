@@ -40,6 +40,11 @@
                 "language": "ID",
                 "text": "Aku mengambil kebebasan membawa kamu ke saat tertentu dalam waktu, menarik untuk apa yang terjadi selanjutnya.",
                 "updated": 1639748404384
+            },
+            {
+                "language": "NL",
+                "text": "Ik ben zo vrij geweest je naar een bepaald moment in de tijd te brengen, interessant voor wat daarna komt.",
+                "updated": 1666875974821
             }
         ]
     },
@@ -79,6 +84,11 @@
                     "language": "ID",
                     "text": "Kamu akan disuguhi keindahan simulasi. Apakah aku simulasi? Apakah kamu? Apakah semua ini nyata?",
                     "updated": 1639748437321
+                },
+                {
+                    "language": "NL",
+                    "text": "Je staat op het punt om te worden blootgesteld aan de schoonheid van simulaties. Ben ik een simulatie? Jij? Is dit hele ding echt?",
+                    "updated": 1666876017461
                 }
             ]
         },
@@ -117,6 +127,11 @@
                     "language": "ID",
                     "text": "Lihatlah ke sekeliling dan putuskan sendiri!",
                     "updated": 1639748452562
+                },
+                {
+                    "language": "NL",
+                    "text": "Kijk om je heen en oordeel zelf!",
+                    "updated": 1666876038356
                 }
             ]
         },
@@ -155,6 +170,11 @@
                     "language": "ID",
                     "text": "Pertama-tama, perhatikan bahwa kamu sekarang berada dalam time frame 1 menit, dengan demikian, ini adalah candle 1 menit. Rentang waktu di layar Anda sedikit lebih dari satu jam, pada awal 1 September 2020.",
                     "updated": 1639748508769
+                },
+                {
+                    "language": "NL",
+                    "text": "Merk allereerst op dat u zich nu in het tijdsbestek van 1 minuut bevindt, dus dit zijn kaarsen van 1 minuut. De tijdspanne in je scherm is iets meer dan een uur, beginnend op 1 september 2020.",
+                    "updated": 1666876097388
                 }
             ]
         }

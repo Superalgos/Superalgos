@@ -40,6 +40,11 @@
                 "language": "ID",
                 "text": "Kita kembali ke hierarki Network untuk menunjukkan kepadamu salah satu core strategy-testing yang ada di Trading Bot.",
                 "updated": 1639710806131
+            },
+            {
+                "language": "NL",
+                "text": "We zijn terug in de netwerkhiërarchie om u een van de belangrijkste bronnen van het testen van strategieën te laten zien die zijn ingebouwd in de Trading Bot.",
+                "updated": 1666785925409
             }
         ]
     },
@@ -80,6 +85,11 @@
                     "language": "ID",
                     "text": "Tetapi sebelum kamu menjalankan Backtesting Session pertamamu, mari kita lakukan misi pencarian cepat untuk memahami bagaimana Testing Trading Tasks node diatur.",
                     "updated": 1639710881281
+                },
+                {
+                    "language": "NL",
+                    "text": "Maar voordat u uw eerste Backtesting Session uitvoert, gaan we op een snelle verkenningsmissie om te begrijpen hoe het knooppunt Testing Trading Tasks is opgebouwd.",
+                    "updated": 1666785983089
                 }
             ]
         },
@@ -119,6 +129,11 @@
                     "language": "ID",
                     "text": "Perluas Testing Trading Tasks node dan lihat struktur node turunannya... Terlihat familiar?",
                     "updated": 1639710931330
+                },
+                {
+                    "language": "NL",
+                    "text": "Vouw het knooppunt Testing Trading Tasks uit en bekijk de structuur van de knooppunten afstammelingen... Komt het u bekend voor?",
+                    "updated": 1666786071806
                 }
             ]
         },
@@ -157,6 +172,11 @@
                     "language": "ID",
                     "text": "Memang! Ini menyerupai bagian Data Tasks: tugas diatur berdasarkan exchange, market, dan trading mine, sehingga kamu dapat menguji sejumlah strategi yang dioptimalkan untuk markets yang berbeda, di banyak exchanges.",
                     "updated": 1639711778514
+                },
+                {
+                    "language": "NL",
+                    "text": "Inderdaad! Het lijkt op de sectie Data Tasks: taken zijn georganiseerd per handelsplatform, markt en handels mine, zodat u een willekeurig aantal strategieën kunt testen die zijn geoptimaliseerd voor verschillende markten, op meerdere handelsplatformen.",
+                    "updated": 1666786167588
                 }
             ]
         }

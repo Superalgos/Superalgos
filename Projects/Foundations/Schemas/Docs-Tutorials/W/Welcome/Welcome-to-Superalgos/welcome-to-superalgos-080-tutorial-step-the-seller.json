@@ -40,6 +40,11 @@
                 "language": "ID",
                 "text": "Kita sekarang berada di Close Stage. Aku pikir akan menarik untuk memberi tahu kamu lebih banyak tentang execution algorithms, dengan contoh berbeda.",
                 "updated": 1640565537409
+            },
+            {
+                "language": "NL",
+                "text": "We zitten nu in de Close Stage. Ik dacht dat het interessant zou zijn om je meer te vertellen over uitvoeringsalgoritmen, met een ander voorbeeld.",
+                "updated": 1666880237782
             }
         ]
     },
@@ -79,6 +84,11 @@
                     "language": "ID",
                     "text": "Sebuah Execution Algorithm dapat menangani  multiple orders, dari semua tipe. Dalam hal ini, multiple limit sell orders ditentukan.",
                     "updated": 1640565667772
+                },
+                {
+                    "language": "NL",
+                    "text": "Een Execution Algorithm kan meerdere orders van alle soorten verwerken. In dit geval worden meerdere limiet verkooporders gedefinieerd.",
+                    "updated": 1666880281733
                 }
             ]
         },
@@ -117,6 +127,11 @@
                     "language": "ID",
                     "text": "Pilih Configure pada menu algorithm dan reflect implikasi dari definisi ini!",
                     "updated": 1640565742692
+                },
+                {
+                    "language": "NL",
+                    "text": "Selecteer Configure in het menu van het algoritme en denk na over de implicaties van deze definitie!",
+                    "updated": 1666880310737
                 }
             ]
         },
@@ -155,6 +170,11 @@
                     "language": "ID",
                     "text": "Baik open stage, tempat kamu menentukan cara mengambil posisi, dan close stage, tempat kamu menentukan cara keluar, dapat menampilkan multiple execution algorithms, masing-masing menangani sejumlah modal tertentu.",
                     "updated": 1640565889214
+                },
+                {
+                    "language": "NL",
+                    "text": "Zowel de open fase, waarin je bepaalt hoe je een positie inneemt, als de close-fase, waarin je bepaalt wanneer je wilt uitstappen, kunnen meerdere uitvoeringsalgoritmen bevatten, die elk een bepaalde hoeveelheid kapitaal verwerken.",
+                    "updated": 1666880372869
                 }
             ]
         }

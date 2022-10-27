@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Task Server - один из трех основных программных компонентов Superalgos. Назначение сервера задач - запустить задачу Task. Задачи определяются в рабочем пространстве Workspace пользовательского интерфейса UI. Для выполнения задачи сервер задач Task Server получает во время выполнения все необходимые определения из пользовательского интерфейса UI. ",
                 "updated": 1638299320450
+            },
+            {
+                "language": "TR",
+                "text": "Görev Sunucusu, Superalgos'un 3 ana yazılım bileşeninden birisidir. Görev Sunucusunun amacı bir Görevi çalıştırmaktır ( Task ). Görevler kullanıcı arayüzündeki ( UI ) bir Çalışma Alanında ( Workspace )  tanımlanır. Bir Görevi çalıştırmak ( Task ) için, Görev Sunucusu çalışma zamanında kullanıcı arayüzündeki ( UI ) gerekli tüm tanımları alır.",
+                "updated": 1666873964930
             }
         ]
     },
@@ -21,6 +26,11 @@
                     "language": "RU",
                     "text": "Для разработчиков: при чтении кода вы должны заметить широкое использование объекта TS. Объект TS - это корневой объект структуры данных, доступной во время выполнения на сервере задач Task Server.",
                     "updated": 1638299361366
+                },
+                {
+                    "language": "TR",
+                    "text": "Geliştiriciler için: Kodu okurken TS nesnesinin yoğun bir şekilde kullanıldığını fark etmelisiniz. TS nesnesi, Görev Sunucusu içinde çalışma zamanında mevcut olan bir veri yapısının kök nesnesidir.",
+                    "updated": 1666874205445
                 }
             ]
         },
@@ -32,6 +42,11 @@
                     "language": "RU",
                     "text": "Описание того, как отлаживать задачу, выполняемую на сервере задач Task Server, смотрите на странице Debugging a Task.",
                     "updated": 1638299471652
+                },
+                {
+                    "language": "TR",
+                    "text": "Görev sunucusunda çalıştırılan bir görevde nasıl hata ayıklanacağına ilişkin bir açıklama için lütfen Görevde Hata Ayıklama ( Debugging a Task )  sayfasına bakın.",
+                    "updated": 1666874429108
                 }
             ]
         }

@@ -2,9 +2,12 @@ runRoot()
 
 async function runRoot() {
   global.ED = {
+    DEFAULT_LANGUAGE: 'EN',
+    menuLabelsMap: new Map(),
     exporter: require('./Exports/Docs/Scripts/DocumentationExporter').documentationExporter(),
     utilities: require('./Exports/Docs/Scripts/DocumentationGenerationUtilities').documentGenerationUtilities(),
-    designSpace: require('./Exports/Docs/Scripts/DocumentationDesignSpace').documentationDesignSpace()
+    designSpace: require('./Exports/Docs/Scripts/DocumentationDesignSpace').documentationDesignSpace(),
+    strings: require('./Exports/Docs/Scripts/DocumentationStringsUtilities').documentationStringsUtilities()
   }
 
   global.SA = {
@@ -21,7 +24,6 @@ async function runRoot() {
       }
     }
   }
-
 
   /* Load Environment Variables */
   let ENVIRONMENT = require('./Environment.js')
@@ -40,8 +42,11 @@ async function runRoot() {
   SA.nodeModules = {
     fs: require('fs'),
     util: require('util'),
-    path: require('path')
+    path: require('path'),
+    jsDom: require('jsdom').JSDOM
   }
+  console.log(process.cwd())
+  ED.indexFile = SA.nodeModules.fs.readFileSync('./Docs/index.html')
   // /* 
   // Setting up the App Schema Memory Map. 
   // */

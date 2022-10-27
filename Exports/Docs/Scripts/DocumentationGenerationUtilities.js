@@ -1,4 +1,4 @@
-exports.documentGenerationUtilities = function() {
+exports.documentGenerationUtilities = function documentGenerationUtilities() {
     let thisObject = {
         buildOrderedPageIndex: buildOrderedPageIndex,
         addWarningIfTranslationIsOutdated: addWarningIfTranslationIsOutdated,
@@ -96,7 +96,7 @@ exports.documentGenerationUtilities = function() {
         for (let i = 0; i < paragraph.translations.length; i++) {
             let translation = paragraph.translations[i]
             if (translation.updated === undefined) { continue }
-            if (translation.language === UI.projects.education.spaces.docsSpace.language) {
+            if (translation.language === ED.exporter.currentLanguageCode) {
                 if (paragraph.updated <= translation.updated) {
                     return ''
                 } else {
@@ -113,17 +113,17 @@ exports.documentGenerationUtilities = function() {
         if (paragraph.translations.length === 0) { return paragraph.text }
         for (let i = 0; i < paragraph.translations.length; i++) {
             let translation = paragraph.translations[i]
-            if (translation.language === UI.projects.education.spaces.docsSpace.language) { return translation.text }
+            if (translation.language === ED.exporter.currentLanguageCode) { return translation.text }
         }
         return paragraph.text
     }
 
     function setTextBasedOnLanguage(paragraph, text) {
-        if (UI.projects.education.spaces.docsSpace.language === UI.projects.education.globals.docs.DEFAULT_LANGUAGE) {
+        if (ED.exporter.currentLanguageCode === ED.DEFAULT_LANGUAGE) {
             if (paragraph.text !== text) {
 
                 /* This will make the Client to save this in a file overwriting the previous version*/
-                UI.projects.education.spaces.docsSpace.documentPage.docsSchemaDocument.updated = true
+                ED.exporter.docsSchemaDocument.updated = true
 
                 paragraph.text = text
                 paragraph.updated = (new Date()).valueOf()
@@ -144,11 +144,11 @@ exports.documentGenerationUtilities = function() {
         }
         for (let i = 0; i < paragraph.translations.length; i++) {
             let translation = paragraph.translations[i]
-            if (translation.language === UI.projects.education.spaces.docsSpace.language) {
+            if (translation.language === ED.exporter.currentLanguageCode) {
                 if (translation.text !== text) {
 
                     /* This will make the Client to save this in a file overwriting the previous version*/
-                    UI.projects.education.spaces.docsSpace.documentPage.docsSchemaDocument.updated = true
+                    ED.exporter.docsSchemaDocument.updated = true
 
                     translation.text = text
                     translation.updated = (new Date()).valueOf()
@@ -157,14 +157,14 @@ exports.documentGenerationUtilities = function() {
             }
         }
         let translation = {
-            language: UI.projects.education.spaces.docsSpace.language,
+            language: ED.exporter.currentLanguageCode,
             text: text,
             updated: (new Date()).valueOf()
         }
         paragraph.translations.push(translation)
 
         /* This will make the Client to save this in a file overwriting the previous version*/
-        UI.projects.education.spaces.docsSpace.documentPage.docsSchemaDocument.updated = true
+        ED.exporter.docsSchemaDocument.updated = true
         return
     }
 
@@ -447,7 +447,7 @@ exports.documentGenerationUtilities = function() {
         let result = ''
         for (let i = 0; i < splittedText.length; i++) {
             let word = splittedText[i]
-            if (UI.projects.foundations.utilities.strings.isCamelCase(word) === true) {
+            if (ED.strings.isCamelCase(word) === true) {
                 word = '<code class="docs-code">' + word + '</code>'
             }
             if (i === 0) {
@@ -491,25 +491,25 @@ exports.documentGenerationUtilities = function() {
 
             let found = false
 
-            if (found === false && UI.projects.education.spaces.docsSpace.menuLabelsMap.get(cleanPhrase4) === true) {
+            if (found === false && ED.menuLabelsMap.get(cleanPhrase4) === true) {
                 changedText = changedText + phrase4.replace(cleanPhrase4, '<i>' + cleanPhrase4 + '</i>') + ' '
                 i = i + 3
                 found = true
             }
 
-            if (found === false && UI.projects.education.spaces.docsSpace.menuLabelsMap.get(cleanPhrase3) === true) {
+            if (found === false && ED.menuLabelsMap.get(cleanPhrase3) === true) {
                 changedText = changedText + phrase3.replace(cleanPhrase3, '<i>' + cleanPhrase3 + '</i>') + ' '
                 i = i + 2
                 found = true
             }
 
-            if (found === false && UI.projects.education.spaces.docsSpace.menuLabelsMap.get(cleanPhrase2) === true) {
+            if (found === false && ED.menuLabelsMap.get(cleanPhrase2) === true) {
                 changedText = changedText + phrase2.replace(cleanPhrase2, '<i>' + cleanPhrase2 + '</i>') + ' '
                 i = i + 1
                 found = true
             }
 
-            if (found === false && UI.projects.education.spaces.docsSpace.menuLabelsMap.get(cleanPhrase1) === true) {
+            if (found === false && ED.menuLabelsMap.get(cleanPhrase1) === true) {
                 changedText = changedText + phrase1.replace(cleanPhrase1, '<i>' + cleanPhrase1 + '</i>') + ' '
                 i = i + 0
                 found = true

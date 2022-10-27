@@ -49,6 +49,7 @@
     "https": "^1.0.0",
     "hyperquest": "^2.1.3",
     "ip": "^1.1.5",
+    "jsdom": "^20.0.1",
     "lookpath": "^1.2.2",
     "ndjson": "^2.0.0",
     "node-fetch": "^2.6.6",

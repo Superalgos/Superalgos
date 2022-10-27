@@ -7,86 +7,218 @@ exports.newExportDocumentationApp = function newExportDocumentationApp() {
     return thisObject
 
     async function run() {
-        const categories = ['Node', 'Concept', 'Tutorial', 'Topic', 'Review', 'Book', 'Workspace']
-        const schemaTypes = [
-            {
-                name: 'AppSchema',
-                callback: addAppSchema
-            },
-            {
-                 name: 'DocsNodeSchema',
-                 callback: addDocSchema
-            },
-            {
-                 name: 'DocsConceptSchema',
-                 callback: addConceptSchema
-            },
-            {
-                 name: 'DocsTopicSchema',
-                 callback: addTopicSchema
-            },
-            {
-                name: 'DocsTutorialSchema',
-                callback: addTutorialSchema
-            },
-            {
-                 name: 'DocsReviewSchema',
-                 callback: addReviewSchema
-            },
-            {
-                 name: 'DocsBookSchema',
-                 callback: addBookSchema
-             }
-        ]
+        ED.exporter.currentLanguageCode = ED.DEFAULT_LANGUAGE
+        await convertProjectsToSchemas()
+            .then(() => setUpMenuItemsMap())
+            .then(() => triggerPageRendering())
 
-        for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
-            let schemas = {
-                array: {
-                    appSchema: [],
-                    docsNodeSchema: [],
-                    docsConceptSchema: [],
-                    docsTopicSchema: [],
-                    docsTutorialSchema: [],
-                    docsReviewSchema: [],
-                    docsBookSchema: []
+        async function convertProjectsToSchemas() {
+            let schemaTypes = [
+                {
+                    name: 'AppSchema',
+                    callback: addAppSchema
                 },
-                map: {
-                    appSchema: new Map(),
-                    docsNodeSchema: new Map(),
-                    docsConceptSchema: new Map(),
-                    docsTopicSchema: new Map(),
-                    docsTutorialSchema: new Map(),
-                    docsReviewSchema: new Map(),
-                    docsBookSchema: new Map()
+                {
+                     name: 'DocsNodeSchema',
+                     callback: addDocSchema
+                },
+                {
+                     name: 'DocsConceptSchema',
+                     callback: addConceptSchema
+                },
+                {
+                     name: 'DocsTopicSchema',
+                     callback: addTopicSchema
+                },
+                {
+                    name: 'DocsTutorialSchema',
+                    callback: addTutorialSchema
+                },
+                {
+                     name: 'DocsReviewSchema',
+                     callback: addReviewSchema
+                },
+                {
+                     name: 'DocsBookSchema',
+                     callback: addBookSchema
+                 }
+            ]
+
+            for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
+                let schemas = {
+                    array: {
+                        appSchema: [],
+                        docsNodeSchema: [],
+                        docsConceptSchema: [],
+                        docsTopicSchema: [],
+                        docsTutorialSchema: [],
+                        docsReviewSchema: [],
+                        docsBookSchema: []
+                    },
+                    map: {
+                        appSchema: new Map(),
+                        docsNodeSchema: new Map(),
+                        docsConceptSchema: new Map(),
+                        docsTopicSchema: new Map(),
+                        docsTutorialSchema: new Map(),
+                        docsReviewSchema: new Map(),
+                        docsBookSchema: new Map()
+                    }
+                }
+                let project = PROJECTS_SCHEMA[i].name
+                SCHEMAS_BY_PROJECT.set(project, schemas)
+
+                for( let j = 0; j < schemaTypes.length; j++ ) {
+                    let schemaType = schemaTypes[j]
+                    let schema = await sendSchema(global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/', schemaType.name)
+                    schemaType.callback(schema, schemas)
+                    break
                 }
             }
-            const project = PROJECTS_SCHEMA[i].name
-            SCHEMAS_BY_PROJECT.set(project, schemas)
-            let schema
-            for( let j = 0; j < schemaTypes.length; j++ ) {
-                const schemaType = schemaTypes[j]
-                schema = await sendSchema(global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/', schemaType.name)
-                schemaType.callback(schema, schemas)
-                break
+
+            function addAppSchema(schema, schemas) {
+                try {
+                    schemas.array.appSchema = JSON.parse(schema)
+    
+                    for (let j = 0; j < schemas.array.appSchema.length; j++) {
+                        let schemaDocument = schemas.array.appSchema[j]
+                        let key = schemaDocument.type
+                        schemas.map.appSchema.set(key, schemaDocument)
+                    }
+                } catch (err) {
+                    console.log(err.stack)
+                }
+            }
+    
+            function addDocSchema(schema, schemas) {
+                try {
+                    schemas.array.docsNodeSchema = JSON.parse(schema)
+    
+                    for (let j = 0; j < schemas.array.docsNodeSchema.length; j++) {
+                        let schemaDocument = schemas.array.docsNodeSchema[j]
+                        let key = schemaDocument.type
+                        schemas.map.docsNodeSchema.set(key, schemaDocument)
+                    }
+                } catch (err) {
+                    console.log(err.stack)
+                }
+            }
+    
+            function addConceptSchema(schema, schemas) {
+                try {
+                    schemas.array.docsConceptSchema = JSON.parse(schema)
+    
+                    for (let j = 0; j < schemas.array.docsConceptSchema.length; j++) {
+                        let schemaDocument = schemas.array.docsConceptSchema[j]
+                        let key = schemaDocument.type
+                        schemas.map.docsConceptSchema.set(key, schemaDocument)
+                    }
+                } catch (err) {
+                    console.log(err.stack)
+                }
+            }
+    
+            function addTopicSchema(schema, schemas) {
+                try {
+                    schemas.array.docsTopicSchema = JSON.parse(schema)
+    
+                    for (let j = 0; j < schemas.array.docsTopicSchema.length; j++) {
+                        let schemaDocument = schemas.array.docsTopicSchema[j]
+                        let key = schemaDocument.type
+                        schemas.map.docsTopicSchema.set(key, schemaDocument)
+                    }
+                } catch (err) {
+                    console.log(err.stack)
+                }
+            }
+    
+            function addTutorialSchema(schema, schemas) {
+                try {
+                    schemas.array.docsTutorialSchema = JSON.parse(schema)
+    
+                    for (let j = 0; j < schemas.array.docsTutorialSchema.length; j++) {
+                        let schemaDocument = schemas.array.docsTutorialSchema[j]
+                        let key = schemaDocument.type
+                        schemas.map.docsTutorialSchema.set(key, schemaDocument)
+                    }
+                } catch (err) {
+                    console.log(err.stack)
+                }
+            }
+    
+            function addReviewSchema(schema, schemas) {
+                try {
+                    schemas.array.docsReviewSchema = JSON.parse(schema)
+    
+                    for (let j = 0; j < schemas.array.docsReviewSchema.length; j++) {
+                        let schemaDocument = schemas.array.docsReviewSchema[j]
+                        let key = schemaDocument.type
+                        schemas.map.docsReviewSchema.set(key, schemaDocument)
+                    }
+                } catch (err) {
+                    console.log(err.stack)
+                }
+            }
+    
+            function addBookSchema(schema, schemas) {
+                try {
+                    schemas.array.docsBookSchema = JSON.parse(schema)
+    
+                    for (let j = 0; j < schemas.array.docsBookSchema.length; j++) {
+                        let schemaDocument = schemas.array.docsBookSchema[j]
+                        let key = schemaDocument.type
+                        schemas.map.docsBookSchema.set(key, schemaDocument)
+                    }
+                } catch (err) {
+                    console.log(err.stack)
+                }
+            }
+
+        }
+
+
+        function setUpMenuItemsMap() {
+            /*
+            Here we will put put all the menu item labels of all nodes at all
+            app schemas into a single map, that will allow us to know when a phrase
+            is a label of a menu and then change its style.
+            */
+            for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
+                let project = PROJECTS_SCHEMA[i].name
+                let appSchemaArray = SCHEMAS_BY_PROJECT.get(project).array.appSchema
+
+                for (let j = 0; j < appSchemaArray.length; j++) {
+                    let docsSchemaDocument = appSchemaArray[j]
+
+                    if (docsSchemaDocument.menuItems === undefined) { continue }
+                    for (let k = 0; k < docsSchemaDocument.menuItems.length; k++) {
+                        let menuItem = docsSchemaDocument.menuItems[k]
+                        ED.menuLabelsMap.set(menuItem.label, true)
+                    }
+                }
             }
         }
 
-        let project
-        let appSchemaTypes
-        for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
-            project = PROJECTS_SCHEMA[i].name
-            appSchemaTypes = SCHEMAS_BY_PROJECT.get(project).map.appSchema.keys()
-            categories.forEach( category => {
-                for(let type of appSchemaTypes) {
-                    ED.exporter.currentDocumentBeingRendered = {
-                        project,
-                        category,
-                        type
+        function triggerPageRendering() {
+            const categories = ['Node', 'Concept', 'Tutorial', 'Topic', 'Review', 'Book', 'Workspace']
+
+            for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
+                let project = PROJECTS_SCHEMA[i].name
+                let appSchemaTypes = SCHEMAS_BY_PROJECT.get(project).map.appSchema.keys()
+                categories.forEach( category => {
+                    for(let type of appSchemaTypes) {
+                        ED.exporter.currentDocumentBeingRendered = {
+                            project,
+                            category,
+                            type
+                        }
+                        ED.exporter.initialize()
+                        ED.exporter.render()
+                        ED.exporter.finalize()
                     }
-                    ED.exporter.render()
-                }
-            })
-            break
+                })
+                break
+            }
         }
 
         async function sendSchema(filePath, schemaType) {
@@ -191,104 +323,6 @@ exports.newExportDocumentationApp = function newExportDocumentationApp() {
                     console.log(err.stack)
                 }
                 return []
-            }
-        }
-
-        function addAppSchema(schema, schemas) {
-            try {
-                schemas.array.appSchema = JSON.parse(schema)
-
-                for (let j = 0; j < schemas.array.appSchema.length; j++) {
-                    let schemaDocument = schemas.array.appSchema[j]
-                    let key = schemaDocument.type
-                    schemas.map.appSchema.set(key, schemaDocument)
-                }
-            } catch (err) {
-                console.log(err.stack)
-            }
-        }
-
-        function addDocSchema(schema, schemas) {
-            try {
-                schemas.array.docsNodeSchema = JSON.parse(schema)
-
-                for (let j = 0; j < schemas.array.docsNodeSchema.length; j++) {
-                    let schemaDocument = schemas.array.docsNodeSchema[j]
-                    let key = schemaDocument.type
-                    schemas.map.docsNodeSchema.set(key, schemaDocument)
-                }
-            } catch (err) {
-                console.log(err.stack)
-            }
-        }
-
-        function addConceptSchema(schema, schemas) {
-            try {
-                schemas.array.docsConceptSchema = JSON.parse(schema)
-
-                for (let j = 0; j < schemas.array.docsConceptSchema.length; j++) {
-                    let schemaDocument = schemas.array.docsConceptSchema[j]
-                    let key = schemaDocument.type
-                    schemas.map.docsConceptSchema.set(key, schemaDocument)
-                }
-            } catch (err) {
-                console.log(err.stack)
-            }
-        }
-
-        function addTopicSchema(schema, schemas) {
-            try {
-                schemas.array.docsTopicSchema = JSON.parse(schema)
-
-                for (let j = 0; j < schemas.array.docsTopicSchema.length; j++) {
-                    let schemaDocument = schemas.array.docsTopicSchema[j]
-                    let key = schemaDocument.type
-                    schemas.map.docsTopicSchema.set(key, schemaDocument)
-                }
-            } catch (err) {
-                console.log(err.stack)
-            }
-        }
-
-        function addTutorialSchema(schema, schemas) {
-            try {
-                schemas.array.docsTutorialSchema = JSON.parse(schema)
-
-                for (let j = 0; j < schemas.array.docsTutorialSchema.length; j++) {
-                    let schemaDocument = schemas.array.docsTutorialSchema[j]
-                    let key = schemaDocument.type
-                    schemas.map.docsTutorialSchema.set(key, schemaDocument)
-                }
-            } catch (err) {
-                console.log(err.stack)
-            }
-        }
-
-        function addReviewSchema(schema, schemas) {
-            try {
-                schemas.array.docsReviewSchema = JSON.parse(schema)
-
-                for (let j = 0; j < schemas.array.docsReviewSchema.length; j++) {
-                    let schemaDocument = schemas.array.docsReviewSchema[j]
-                    let key = schemaDocument.type
-                    schemas.map.docsReviewSchema.set(key, schemaDocument)
-                }
-            } catch (err) {
-                console.log(err.stack)
-            }
-        }
-
-        function addBookSchema(schema, schemas) {
-            try {
-                schemas.array.docsBookSchema = JSON.parse(schema)
-
-                for (let j = 0; j < schemas.array.docsBookSchema.length; j++) {
-                    let schemaDocument = schemas.array.docsBookSchema[j]
-                    let key = schemaDocument.type
-                    schemas.map.docsBookSchema.set(key, schemaDocument)
-                }
-            } catch (err) {
-                console.log(err.stack)
             }
         }
     }

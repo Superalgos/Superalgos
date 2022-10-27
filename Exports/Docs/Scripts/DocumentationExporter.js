@@ -47,18 +47,22 @@ exports.documentationExporter = function() {
         'EL': 'Greek'
     }
 
+    let previousDocumentBeingRendered
     let appSchemaDocument
     let paragraphMap
+    let document
 
     return thisObject
 
     function initialize() {
         paragraphMap = new Map()
+        document = new SA.nodeModules.jsDom(ED.indexFile).window.document
     }
 
     function finalize() {
         appSchemaDocument = undefined
         thisObject.docsSchemaDocument = undefined
+        document = undefined
     }
 
     function render() {
@@ -67,7 +71,7 @@ exports.documentationExporter = function() {
 
         getSchemaDocument()
         buildHtmlPage()
-        enableCollapsibleContent()
+        // enableCollapsibleContent()
 
         function getSchemaDocument() {
             switch (thisObject.currentDocumentBeingRendered.category) {
@@ -184,11 +188,11 @@ exports.documentationExporter = function() {
             let docsContentDiv = document.getElementById('docs-content-div')
             docsContentDiv.innerHTML = HTML + addFooter()
             // Create tooltip objects for all the elements
-            tippy('#tooltip-container', {
-                theme: "superalgos"
-            });
+            // tippy('#tooltip-container', {
+            //     theme: "superalgos"
+            // });
 
-            hightlightEmbeddedCode()
+            // hightlightEmbeddedCode()
             // TODO: disabling search box detection for now
             // UI.projects.education.spaces.docsSpace.mainSearchPage.detectEnterOnSearchBox()
 
@@ -1770,9 +1774,9 @@ exports.documentationExporter = function() {
                 paragraphMap.set(key, paragraph)
             }
 
-            function hightlightEmbeddedCode() {
-                _self.Prism.highlightAllUnder(docsContentDiv, true)
-            }
+            // function hightlightEmbeddedCode() {
+            //     _self.Prism.highlightAllUnder(docsContentDiv, true)
+            // }
 
             function parseHierarchy(params) {
 
@@ -2037,7 +2041,7 @@ exports.documentationExporter = function() {
          * @returns string
          */
         function generateUnstyledLink(category, pageType, content) {
-            return `<a href="/${currentLanguageCode}/${thisObject.currentDocumentBeingRendered.project}/${category}/${pageType.replace(/'/g, 'AMPERSAND')}"> ${content} </a>`
+            return `<a href="/${thisObject.currentLanguageCode}/${thisObject.currentDocumentBeingRendered.project}/${category}/${pageType.replace(/'/g, 'AMPERSAND')}"> ${content} </a>`
         }
     }
 
@@ -2231,7 +2235,7 @@ exports.documentationExporter = function() {
         return HTML
 
         function generateFooterBookLink(project, category, pageType, content) {
-            return `<a style="float: right; display: inline-block;" href="/${currentLanguageCode}/${project}/${category}/${pageType.replace(/'/g, 'AMPERSAND')}">${content}</a>`
+            return `<a style="float: right; display: inline-block;" href="/${thisObject.currentLanguageCode}/${project}/${category}/${pageType.replace(/'/g, 'AMPERSAND')}">${content}</a>`
         }
 
         /**
@@ -2242,10 +2246,10 @@ exports.documentationExporter = function() {
         function generateLanguageLink(key, language) {
             let link = `/${key.toLowerCase()}/index.html`
             if(thisObject.currentDocumentBeingRendered !== undefined) {
-                link = `/${key.toLowerCase()}/${thisObject.currentDocumentBeingRendered.project}/${thisObject.currentDocumentBeingRendered.category}/${thisObject.currentDocumentBeingRendered.pageType.replace(/'/g, 'AMPERSAND')}`
+                link = `/${key.toLowerCase()}/${thisObject.currentDocumentBeingRendered.project}/${thisObject.currentDocumentBeingRendered.category}/${thisObject.currentDocumentBeingRendered.type.replace(/'/g, 'AMPERSAND')}`
             }
             let HTML = `<a href="${link}"><img src="Images/Languages/${key}.png" title="${language}" class="docs-footer-language`
-            if (currentLanguageCode === key) { 
+            if (thisObject.currentLanguageCode === key) { 
                 HTML = HTML + '-selected'
             } 
             return  HTML + '"></a>'

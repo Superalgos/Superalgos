@@ -119,7 +119,7 @@ exports.documentationDesignSpace = function() {
         let image
         let key = project + '-' + url
 
-        image = UI.projects.workspaces.spaces.designSpace.iconsByProjectAndName.get(key)
+        image = thisObject.iconsByProjectAndName.get(key)
 
         if (image === undefined) {
 
@@ -133,7 +133,7 @@ exports.documentationDesignSpace = function() {
             image.src = url
 
             let key = project + '-' + image.src
-            UI.projects.workspaces.spaces.designSpace.iconsByProjectAndName.set(key, image)
+            thisObject.iconsByProjectAndName.set(key, image)
         }
 
         return image

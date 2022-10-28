@@ -328,11 +328,12 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
     /* Statistics & Maintenance functions to be executed once a minute */
     function statsMaintenance() {
         maintainMemoryStorage()
+        /*  Commenting this block for now not to have the log too verbose, move to dashboard later
+
         let testServerList
         let forecasterList
         if (activeTestServerOperators.size === 0) { testServerList = "none" } else { testServerList = Array.from(activeTestServerOperators).join(', ') }
         if (activeForecasterOperators.size === 0) { forecasterList = "none" } else { forecasterList = Array.from(activeForecasterOperators).join(', ') }
-        /*
         console.log((new Date()).toISOString(), '[INFO] Active Test Server Operators: ', testServerList)
         console.log((new Date()).toISOString(), '[INFO] Active Forecaster Operators: ', forecasterList)
         */

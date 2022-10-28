@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Узел занимает прорезь на выпуклой кривой вдали от своего родительского узла.",
                 "updated": 1638297699918
+            },
+            {
+                "language": "TR",
+                "text": "Düğüm, ana düğümünden uzaktaki dışbükey bir eğri üzerinde bir yuvayı benimser.",
+                "updated": 1666905834311
             }
         ]
     },

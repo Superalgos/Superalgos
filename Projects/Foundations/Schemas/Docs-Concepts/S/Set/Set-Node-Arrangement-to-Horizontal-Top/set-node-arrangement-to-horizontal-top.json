@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Узел занимает слот на вертикальной линии ниже своего родительского узла.",
                 "updated": 1638297802279
+            },
+            {
+                "language": "TR",
+                "text": "Düğüm, ana düğümünün altındaki dikey bir çizgi üzerinde bir yuvayı benimser.",
+                "updated": 1666905915394
             }
         ]
     },

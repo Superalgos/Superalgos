@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Spaces относится к различным типам пространств, для которых существуют определения в виде иерархий. На этом этапе узел может породить иерархии Design Space и Charting Space.",
                 "updated": 1645170380503
+            },
+            {
+                "language": "TR",
+                "text": "Alanlar, hiyerarşiler şeklinde tanımların mevcut olduğu farklı alan türlerini ifade eder. Bu aşamada, düğüm Tasarım Alanı ( Design Space ) ve Grafik Alanı ( Charting Space ) hiyerarşilerini ortaya çıkarabilir.",
+                "updated": 1666872398923
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "RU",
                     "text": "Используйте меню для создания новых иерархий.",
                     "updated": 1645170386241
+                },
+                {
+                    "language": "TR",
+                    "text": "Yeni hiyerarşiler oluşturmak için menüyü kullanın.",
+                    "updated": 1666872450626
                 }
             ]
         }

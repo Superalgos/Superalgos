@@ -248,7 +248,22 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
                         }
                     }
                     /*
-                    There are not request specific for this Test Server Instance, so we can assing the next generic one.
+                    Workaround: The Forecaster is submitting cases with instance name, but without userProfile. Delete this 
+                    block after this issue has been fixed at the source and old test cases were processed
+                    */
+                    for (let i = 0; i < requestsToServer.length; i++) {
+                        let requestToServer = requestsToServer[i]
+                        if (
+                            requestToServer.queryReceived.testServer !== undefined &&
+                            requestToServer.queryReceived.testServer.instance === queryReceived.instance
+                        ) {
+                            requestsToServer.splice(i, 1)
+                            checkExpiration(requestToServer)
+                            return
+                        }
+                    }
+                    /*
+                    There are no requests specific for this Test Server Instance, so we can assign the next generic one.
                     */
                     for (let i = 0; i < requestsToServer.length; i++) {
                         let requestToServer = requestsToServer[i]

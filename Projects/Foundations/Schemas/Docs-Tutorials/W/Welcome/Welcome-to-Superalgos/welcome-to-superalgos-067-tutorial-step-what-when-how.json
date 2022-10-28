@@ -34,6 +34,11 @@
                 "language": "ID",
                 "text": "Trading Parameters menentukan aspek kunci dari bagaimana trading session dijalankan. Mari kita lihat sekilas...",
                 "updated": 1639747547017
+            },
+            {
+                "language": "NL",
+                "text": "Trading Parameters bepalen de belangrijkste aspecten van hoe de handelssessie wordt uitgevoerd. Laten we een snelle, oppervlakkige blik werpen....",
+                "updated": 1666875371447
             }
         ]
     },
@@ -73,6 +78,11 @@
                     "language": "ID",
                     "text": "Session Base Asset: tidak ada modal yang ditetapkan dalam BTC.",
                     "updated": 1639747618439
+                },
+                {
+                    "language": "NL",
+                    "text": "Session Base Asset: er wordt geen kapitaal toegewezen in BTC.",
+                    "updated": 1666875409526
                 }
             ],
             "updated": 1640288657193
@@ -112,6 +122,11 @@
                     "language": "ID",
                     "text": "Session Quoted Asset: 1000 USDT dari modal awal.",
                     "updated": 1639747647586
+                },
+                {
+                    "language": "NL",
+                    "text": "Session Quoted Asset: 1000 USDT aan startkapitaal.",
+                    "updated": 1666875425518
                 }
             ]
         },
@@ -150,6 +165,11 @@
                     "language": "ID",
                     "text": "Time Range: kami akan menguji dalam satu hari, 2020-09-01.",
                     "updated": 1639747681537
+                },
+                {
+                    "language": "NL",
+                    "text": "Time Range: we testen één enkele dag, 01-09-2020.",
+                    "updated": 1666875447838
                 }
             ]
         },
@@ -188,6 +208,11 @@
                     "language": "ID",
                     "text": "Time Frame: order ditempatkan/dibatalkan setiap menit, jadi 01-menit sesuai.",
                     "updated": 1639747733061
+                },
+                {
+                    "language": "NL",
+                    "text": "Time Frame: bestellingen worden elke minuut geplaatst/geannuleerd, dus 01-min is geschikt.",
+                    "updated": 1666875465702
                 }
             ]
         },
@@ -227,6 +252,11 @@
                     "language": "ID",
                     "text": "Slippage: itu tidak relevan untuk kasus ini, karena sistem perdagangan khusus ini hanya menggunakan pesanan terbatas.",
                     "updated": 1639747757651
+                },
+                {
+                    "language": "NL",
+                    "text": "Slippage: het is in dit geval niet relevant, omdat dit specifieke handelssysteem alleen limietorders gebruikt.",
+                    "updated": 1666875484854
                 }
             ]
         },
@@ -260,6 +290,11 @@
                     "language": "RU",
                     "text": "Fee Structure (Структура комиссии): 0,1% - это просто пример.",
                     "updated": 1641832713243
+                },
+                {
+                    "language": "NL",
+                    "text": "Fee Structure: 0.1% is slechts een voorbeeld.",
+                    "updated": 1666875514167
                 }
             ],
             "updated": 1640359705451
@@ -300,6 +335,11 @@
                     "language": "ID",
                     "text": "Parameter yang tersisa tidak mempengaruhi simulasi. Untuk mempelajari lebih lanjut tentang Trading Parameters, lihat documentation.",
                     "updated": 1639747598611
+                },
+                {
+                    "language": "NL",
+                    "text": "De overige parameters hebben geen invloed op de simulatie. Bekijk de documentatie voor meer informatie over Trading Parameters.",
+                    "updated": 1666875543591
                 }
             ]
         }

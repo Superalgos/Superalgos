@@ -80,8 +80,8 @@
                     return
                 }
                 if (TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClient.machineLearningNetworkServiceClient === undefined) {
-                    console.log((new Date()).toISOString(), "Not connected to the Superalgos Network.")
-                    await SA.projects.foundations.utilities.asyncFunctions.sleep(5000)
+                    console.log((new Date()).toISOString(), "Not connected to the Superalgos Network. Retrying in 10 seconds...")
+                    await SA.projects.foundations.utilities.asyncFunctions.sleep(10000)
                 } else {
                     await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClient.machineLearningNetworkServiceClient.sendMessage(messageHeader)
                         .then(onSuccess)
@@ -150,9 +150,11 @@
                         }
                     }
                     async function onError(err) {
-                        console.log((new Date()).toISOString(), 'Error retrieving message from Network Node. ')
+                        console.log((new Date()).toISOString(), 'Error retrieving message from Network Node.')
                         console.log((new Date()).toISOString(), 'err: ' + err)
+                        console.log((new Date()).toISOString(), 'Retrying in 10 seconds...')
                         getReadyForNewMessage()
+                        await SA.projects.foundations.utilities.asyncFunctions.sleep(10000)
                     }
                 }
             }

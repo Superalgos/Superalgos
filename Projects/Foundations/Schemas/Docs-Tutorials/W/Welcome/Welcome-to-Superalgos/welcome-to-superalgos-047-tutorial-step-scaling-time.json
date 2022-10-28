@@ -40,6 +40,11 @@
                 "language": "ID",
                 "text": "Apakah kamu sudah menggunakan trik untuk menskalakan waktu dari video sebelumnya? Jika tidak, lanjutkan ke langkah sebelumnya dan perhatikan dengan seksama!",
                 "updated": 1639584638017
+            },
+            {
+                "language": "NL",
+                "text": "Heb je de truc opgepikt om de tijd te schalen uit de vorige video? Zo niet, ga dan naar de vorige stap en kijk aandachtig!",
+                "updated": 1666700669714
             }
         ]
     },
@@ -79,6 +84,11 @@
                     "language": "ID",
                     "text": "Menggulir mouse wheel di atas time scale box mengecil dan memperbesar waktu! Atau, kamu dapat mengarahkan mouse pointer ke scale box dan tekan tombol panah samping ← →",
                     "updated": 1639584995574
+                },
+                {
+                    "language": "NL",
+                    "text": "Door met het wiel van de muis over het tijdschaalvak te scrollen, wordt de tijd kleiner en groter! U kunt ook met de muis naar het schaalvak wijzen en op de zijpijltjestoetsen ← → drukken.",
+                    "updated": 1666700723080
                 }
             ],
             "updated": 1616495837967
@@ -118,6 +128,11 @@
                     "language": "ID",
                     "text": "Ada satu detail menarik lagi yang perlu diperhatikan dalam video sebelumnya: ketika skala waktu keluar dari mode otomatis, dua segitiga hijau kecil yang menunjukkan setiap ujung skala otomatis menghilang! Skala dapat diatur ke otomatis di salah satu, tidak ada, atau kedua sisi!",
                     "updated": 1639584899904
+                },
+                {
+                    "language": "NL",
+                    "text": "Er is nog een interessant detail dat het vermelden waard is in de vorige video: wanneer de tijdschaal de automatische modus verlaat, verdwijnen de twee kleine groene driehoekjes die elk een uiteinde van de automatische schaal aangeven! De schaal kan aan beide zijden op automatisch worden ingesteld!",
+                    "updated": 1666700806664
                 }
             ],
             "updated": 1616504911488

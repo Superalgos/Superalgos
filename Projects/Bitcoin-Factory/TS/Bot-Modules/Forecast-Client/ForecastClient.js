@@ -682,16 +682,16 @@
                             processExecutionResult = JSON.parse(fileContent)
                             console.log(processExecutionResult)                            
                             let endingTimestamp = (new Date()).valueOf()
-                            processExecutionResult.enlapsedTime = (endingTimestamp - startingTimestamp) / 1000          
+                            processExecutionResult.elapsedTime = (endingTimestamp - startingTimestamp) / 1000          
                             processExecutionResult.pythonScriptName = nextForecastCase.pythonScriptName     
                             processExecutionResult.testServer = nextForecastCase.testServer
                             processExecutionResult.id = nextForecastCase.id
                             processExecutionResult.caseIndex = nextForecastCase.caseIndex                                                                           
-                            console.log((new Date()).toISOString(), '[INFO] {Forecastclient} Enlapsed Time: ' + timeUnits(processExecutionResult.enlapsedTime * 1000) + ' ')
+                            console.log((new Date()).toISOString(), '[INFO] {Forecastclient} Elapsed Time: ' + timeUnits(processExecutionResult.elapsedTime * 1000) + ' ')
                             console.log((new Date()).toISOString(), '[INFO] {Forecastclient} Mean Networth at End of Train: ' + processExecutionResult["0"].meanNetWorthAtEnd)
                             console.log((new Date()).toISOString(), '[INFO] {Forecastclient} Mean Networth at End of Test: ' + processExecutionResult["1"].meanNetWorthAtEnd)
                             console.log((new Date()).toISOString(), '[INFO] {Forecastclient} Mean Networth at End of Validation: ' + processExecutionResult["2"].meanNetWorthAtEnd)
-                            console.log((new Date()).toISOString(), '[INFO] {Forecastclient} Next Action: ' + processExecutionResult["2"].current_action.type + ' / ' + processExecutionResult["2"].current_action.amount)
+                            console.log((new Date()).toISOString(), '[INFO] {Forecastclient} Next Action: ' + processExecutionResult["2"].current_action.type + ' / ' + processExecutionResult["2"].current_action.amount + ' / ' + processExecutionResult["2"].current_action.limit)
 
                         } catch (err) {
                             console.log('Error parsing the information generated at the Docker Container executing the Python script. err.stack = ' + err.stack)
@@ -712,8 +712,8 @@
                         console.log('Predictions [candle.max, candle.min, candle.close]: ' + processExecutionResult.predictions)
         
                         let endingTimestamp = (new Date()).valueOf()
-                        processExecutionResult.enlapsedTime = (endingTimestamp - startingTimestamp) / 1000
-                        console.log('Enlapsed Time (HH:MM:SS): ' + (new Date(processExecutionResult.enlapsedTime * 1000).toISOString().substr(14, 5)) + ' ')
+                        processExecutionResult.elapsedTime = (endingTimestamp - startingTimestamp) / 1000
+                        console.log('Elapsed Time (HH:MM:SS): ' + (new Date(processExecutionResult.elapsedTime * 1000).toISOString().substr(11, 8)) + ' ')
         
                         processExecutionResult.testServer = nextForecastCase.testServer
                         processExecutionResult.id = nextForecastCase.id

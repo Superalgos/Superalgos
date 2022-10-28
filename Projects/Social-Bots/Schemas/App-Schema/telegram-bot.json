@@ -21,6 +21,14 @@
             "relatedUiObjectProject": "Social-Bots"
         },
         {
+            "action": "Add UI Object",
+            "label": "Add Timer Announcement",
+            "relatedUiObject": "Timer Announcement",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Social-Bots"
+        },
+        {
             "action": "Send Telegram Test Message",
             "label": "Send Telegram Test Message",
             "iconPathOn": "test-entity",
@@ -40,7 +48,7 @@
         }
     ],
     "initialValues": {
-        "config": "{ \n\"botToken\": \"Paste the bot token obtained from Telegram Bot Father\",\n\"chatId\": \"Type or paste the chat or group id -a number with no quotes- where announcements are going to be sent to\"\n}"
+        "config": "{ \n\"botToken\": \"Paste_the_bot_token_obtained_from_Telegram_Bot_Father\",\n\"chatId\": \"Type_or_paste_the_chat_or_group_id_A_NUMBER_WITH_NO_QUOTES_where_announcements_are_going_to_be_sent_to\"\n}"
     },
     "addLeftIcons": true,
     "level": 3,
@@ -52,6 +60,13 @@
             "name": "socialBotCommand",
             "type": "array",
             "childType": "Social Bot Command",
+            "autoAdd": false,
+            "project": "Social-Bots"
+        },
+        {
+            "name": "timerAnnouncement",
+            "type": "array",
+            "childType": "Timer Announcement",
             "autoAdd": false,
             "project": "Social-Bots"
         }

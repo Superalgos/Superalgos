@@ -1,0 +1,62 @@
+{
+    "topic": "Trends Data Mine",
+    "pageNumber": "14",
+    "type": "CoRa",
+    "definition": {
+        "text": "The Compound Ratio Weighted Moving average (CoRa) is a moving average that weights recent price action in a logarithmically linear way. This results in an indicator that has even less lag than the ALMA, WMA and EMA."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "CoRa on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator will plot a trend line similar in fashion to the SMA, EMA and other moving average based indicators."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Trends-CoRa.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| CoRa | cora | value |"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the indicator's calculations can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"CoRa\" Procedure Loop."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Trends-CoRa-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator can be used to set a stop loss value:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.psl.value"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

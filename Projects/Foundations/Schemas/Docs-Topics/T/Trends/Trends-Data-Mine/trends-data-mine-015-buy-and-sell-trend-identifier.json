@@ -1,0 +1,63 @@
+{
+    "topic": "Trends Data Mine",
+    "pageNumber": "15",
+    "type": "Buy and Sell Trend Identifier",
+    "definition": {
+        "text": "This indicator produces chart candles based on calculating the trend direction using the an average of the price action exceeding a calculated threshold value."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Buy and Sell Trend Identifier on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "The plotted candles are colored based on the calculated trend direction, rather than the price action for each time period."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Trends-buy-sell-id.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| BuyAndSellTrend | bst | direction, max, min, open, close |"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the indicator's calculations can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"Buy and Sell Trend\" Procedure Loop.",
+            "updated": 1666657391997
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Trends-buy-sell-id-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "Values of the indicator can be accessed in the following manner:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.bst.close\nchart.at10min.bst.min\nchart.at01min.bst.direction"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

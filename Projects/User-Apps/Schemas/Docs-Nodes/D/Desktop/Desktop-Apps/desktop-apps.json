@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Иерархия Desktop Apps содержит определения всех настольных приложений, связанных с текущим профилем пользователя.",
                 "updated": 1645253750159
+            },
+            {
+                "language": "TR",
+                "text": "Masaüstü Uygulamaları hiyerarşisi, mevcut Kullanıcı Profili (User Profile) ile ilişkili tüm masaüstü uygulamalarının tanımlarını içerir.",
+                "updated": 1666692047394
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "RU",
                     "text": "Приложения для настольных компьютеров обычно используются для доступа к социальным торговым функциям одноранговой сети Superalgos.",
                     "updated": 1645253757726
+                },
+                {
+                    "language": "TR",
+                    "text": "Masaüstü uygulamaları genellikle Superalgos eşler arası ağın sosyal ticaret işlevine erişmek için kullanılır.",
+                    "updated": 1666692091334
                 }
             ]
         }

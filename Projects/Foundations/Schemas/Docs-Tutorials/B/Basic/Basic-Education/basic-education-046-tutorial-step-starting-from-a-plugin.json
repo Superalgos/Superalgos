@@ -12,8 +12,8 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Uno scenario tipico è modificare una strategia inclusa nel sistema per iniziare con un setup già pronto.",
-                "updated": 1619590461442,
+                "text": "Esaminiamo il primo scenario: un caso tipico è quando si desidera introdurre modifiche a una strategia già presente nel sistema per iniziare con una configurazione collaudata!",
+                "updated": 1666640946648,
                 "style": "Definition"
             },
             {
@@ -52,8 +52,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Mettiamo che hai completato i tutorial di Superalgos e sei pronto a sperimentare con una strategia. Vuoi iniziare da una strategia esistente e modificare qualche dettaglio per capire meglio come funziona il tutto. La strategia in questione è inclusa come un plugin in uno specifico workspace.",
-                    "updated": 1619590579206,
+                    "text": "Diciamo che desideri costruire una strategia. Vuoi iniziare con una esistente e introdurre modifiche per capire come funzionano le cose. Non intendi contribuire alle modifiche. Vuoi solo giocarci e modularla a tuo piacimento! Quindi, procedi come segue:",
+                    "updated": 1666641003137,
                     "style": "Text"
                 },
                 {
@@ -69,8 +69,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Diyelim ki bir strateji ile başlamaya hazırsınız. Mevcut olanla başlamak ve işlerin nasıl yürüdüğünü anlamak için değişiklikler yapmak istiyorsunuz. Değişiklik yaparak katkıda bulunmak niyetinde değilsiniz. Sadece onu denemek ve beğeninize göre ayarlamak istiyorsunuz! Aşağıdakileri yapın:",
-                    "updated": 1639817833420
+                    "text": "Diyelim ki bir strateji oluşturmak istiyorsunuz. Mevcut bir strateji ile başlamak ve işlerin nasıl yürüdüğünü anlamak için değişiklikler yapmak istiyorsunuz. Değişikliklere katkıda bulunmak niyetinde değilsiniz. Sadece onunla oynamak ve beğeninize göre ayarlamak istiyorsunuz! O zaman aşağıdakileri yapın:",
+                    "updated": 1666104096123
                 },
                 {
                     "language": "RU",
@@ -91,8 +91,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "In questi casi, devi cancellare il nodo Plugin File corrispondente al Trading System e ripristinare l'originle presente in \\Plugins\\Trading-Systems come fosse un backup: trascina il file e rilascialo nel Design Space!",
-                    "updated": 1619590641442,
+                    "text": "Cancella il nodo Plugin File corrispondente al Trading System e ripristina l'originale presente in \\Plugins\\Trading-Systems come fosse un backup: trascina il file e rilascialo nel Design Space! La strategia ora vive nell'area di lavoro e puoi modificarla e salvarla!",
+                    "updated": 1666641097053,
                     "style": "Success"
                 },
                 {
@@ -108,8 +108,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Plugin Trading System düğümünde Plugin file düğümünü silin ve orijinal eklenti dosyasını (\\Plugins\\Trading-Systems klasöründe) (sanki bir yedekmiş gibi) geri yükleyin: dosyayı sürükleyin ve Tasarım Alanına bırakın! Strateji artık çalışma alanına yüklendi, onu değiştirebilir ve kaydedebilirsiniz!",
-                    "updated": 1639818432673
+                    "text": "İşlem Sisteminin Eklenti Dosyası düğümünü silin ve orijinal eklenti dosyasını (\\Plugins\\Algorithmic-Trading\\Trading-Systems) bir yedekmiş gibi geri yükleyin: dosyayı sürükleyin ve Tasarım Alanına bırakın! Strateji artık çalışma alanında yaşıyor ve onu değiştirebilir ve kaydedebilirsiniz!",
+                    "updated": 1666104165309
                 },
                 {
                     "language": "RU",

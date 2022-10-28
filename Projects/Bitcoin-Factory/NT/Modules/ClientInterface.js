@@ -15,12 +15,14 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
     let messagesForDashboard = new Map()
     let responseFunctions = new Map()
     let statsByNetworkClients = new Map()
+    let activeTestServerOperators = new Set()
+    let activeForecasterOperators = new Set()
     let stats = {
 
     }
 
     /**Here we control our memory cleanup, it will run every 60 seconds. */
-    let intervalId = setInterval(maintainMemoryStorage, 60 * 1000)
+    let intervalId = setInterval(statsMaintenance, 60 * 1000)
 
     return thisObject
 
@@ -92,10 +94,12 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
                 }
                 case 'Forecast-Client': {
                     queryReceived.userProfile = userProfile.name
+                    activeForecasterOperators.add(userProfile.name)
                     return await forecastClientMessage(queryReceived, userProfile.name)
                 }
                 case 'Test-Server': {
                     queryReceived.userProfile = userProfile.name
+                    activeTestServerOperators.add(userProfile.name)
                     return await testServerMessage(queryReceived, userProfile.name)
                 }
             }
@@ -294,7 +298,7 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
                                 clientData: JSON.stringify(requestToServer.queryReceived)
                             }
 
-                            console.log((new Date()).toISOString(), '[INFO] Request Sent to Server                       -> timestamp = ' + (new Date(requestToServer.timestamp)).toISOString() +
+                            console.log((new Date()).toISOString(), '[INFO] Request sent to Server:                     -> timestamp = ' + (new Date(requestToServer.timestamp)).toISOString() +
                                 ' -> Websockets Clients = ' + connectedUserProfilesLabel +
                                 ' -> Clients Requests Queue Size = ' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(requestsToServer.length, 3) +
                                 ' -> userProfile = ' + userProfile +
@@ -321,6 +325,21 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
         }
     }
     
+    /* Statistics & Maintenance functions to be executed once a minute */
+    function statsMaintenance() {
+        maintainMemoryStorage()
+        let testServerList
+        let forecasterList
+        if (activeTestServerOperators.size === 0) { testServerList = "none" } else { testServerList = Array.from(activeTestServerOperators).join(', ') }
+        if (activeForecasterOperators.size === 0) { forecasterList = "none" } else { forecasterList = Array.from(activeForecasterOperators).join(', ') }
+        /*
+        console.log((new Date()).toISOString(), '[INFO] Active Test Server Operators: ', testServerList)
+        console.log((new Date()).toISOString(), '[INFO] Active Forecaster Operators: ', forecasterList)
+        */
+        activeTestServerOperators.clear()
+        activeForecasterOperators.clear()
+    }
+
     /**Here we add the message we are handling to memory for the dashboard to later access. */
     function rememberMessagesForDashboard(queryReceived) {
         let dashboardMemoryKeys = (new Date()).valueOf()

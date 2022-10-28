@@ -28,7 +28,8 @@ exports.documentationExporter = function() {
         currentLanguageCode: undefined,
         render: render,
         initialize: initialize,
-        finalize: finalize
+        finalize: finalize,
+        write: write
     }
 
     // Should read this from JSON config
@@ -51,12 +52,24 @@ exports.documentationExporter = function() {
     let appSchemaDocument
     let paragraphMap
     let document
+    let dom
 
     return thisObject
 
     function initialize() {
         paragraphMap = new Map()
-        document = new SA.nodeModules.jsDom(ED.indexFile).window.document
+        dom = new SA.nodeModules.jsDom(ED.indexFile)
+        document = dom.window.document
+    }
+
+    function write() {
+        // TODO: write document to file before finalizing
+        const filePath = global.env.PATH_TO_PAGES_DIR + '/' + thisObject.currentDocumentBeingRendered.project + '/' + thisObject.currentDocumentBeingRendered.category + '/'
+        SA.projects.foundations.utilities.filesAndDirectories.createNewDir(filePath)
+
+        const fileName = thisObject.currentDocumentBeingRendered.type + '.html'
+
+        SA.nodeModules.fs.writeFileSync(filePath + fileName, dom.serialize())
     }
 
     function finalize() {
@@ -731,7 +744,7 @@ exports.documentationExporter = function() {
                                 }
                             }
                         }
-
+                        imageElement = imageElement.asImageNode(document)
                         imageElement.width = "150"
                         imageElement.height = "150"
 
@@ -769,7 +782,7 @@ exports.documentationExporter = function() {
                             }
                         }
 
-                        let imageElement = collectionImage.cloneNode()
+                        let imageElement = collectionImage.asImageNode(document)
 
                         if (imageItem.size !== undefined) {
                             imageElement.width = imageItem.size
@@ -788,6 +801,7 @@ exports.documentationExporter = function() {
                     let imageName = thisObject.currentDocumentBeingRendered.project.toLowerCase().replaceAll(' ', '-')
                     let imageElement = ED.designSpace.getIconByProjectAndName(thisObject.currentDocumentBeingRendered.project, imageName)
                     if (imageElement !== undefined) {
+                        imageElement = imageElement.asImageNode(document)
                         imageElement.width = "50"
                         imageElement.height = "50"
 
@@ -807,7 +821,7 @@ exports.documentationExporter = function() {
                         if (collectionImage === undefined) {
                             continue
                         }
-                        let imageElement = collectionImage.cloneNode()
+                        let imageElement = collectionImage.asImageNode(document)
 
                         imageElement.className = "docs-collapsible-image"
 
@@ -850,7 +864,7 @@ exports.documentationExporter = function() {
                         if (collectionImage === undefined) {
                             continue
                         }
-                        let imageElement = collectionImage.cloneNode()
+                        let imageElement = collectionImage.asImageNode(document)
 
                         imageElement.className = "docs-collapsible-image"
 
@@ -905,7 +919,7 @@ exports.documentationExporter = function() {
                             if (collectionImage === undefined) {
                                 continue
                             }
-                            let imageElement = collectionImage.cloneNode()
+                            let imageElement = collectionImage.asImageNode(document)
 
                             imageElement.className = "docs-collapsible-image"
 
@@ -952,7 +966,7 @@ exports.documentationExporter = function() {
                         if (collectionImage === undefined) {
                             continue
                         }
-                        let imageElement = collectionImage.cloneNode()
+                        let imageElement = collectionImage.asImageNode(document)
 
                         imageElement.className = "docs-collapsible-image"
                         parentElement.replaceChild(imageElement, dummyImage)
@@ -1244,7 +1258,7 @@ exports.documentationExporter = function() {
                     they are using and sample values for each one.
                     */
                     /* First Step: get an array of all the nodes in the workspace of this type */
-                    let rootNodes = ED.designSpace.workspace.workspaceNode.rootNodes
+                    let rootNodes = [] //ED.designSpace.workspace.workspaceNode.rootNodes
                     let allNodesFound = []
                     for (let i = 0; i < rootNodes.length; i++) {
                         let rootNode = rootNodes[i]
@@ -1361,7 +1375,7 @@ exports.documentationExporter = function() {
                     and after that, analysing their code in order to extract examples to show.
                     */
                     /* First Step: get an array of all the nodes in the workspace of this type */
-                    let rootNodes = ED.designSpace.workspace.workspaceNode.rootNodes
+                    let rootNodes = [] //ED.designSpace.workspace.workspaceNode.rootNodes
                     let allNodesFound = []
                     for (let i = 0; i < rootNodes.length; i++) {
                         let rootNode = rootNodes[i]
@@ -1464,7 +1478,7 @@ exports.documentationExporter = function() {
                     and after that, analysing their code in order to extract examples to show.
                     */
                     /* First Step: get an array of all the nodes in the workspace of this type */
-                    let rootNodes = ED.designSpace.workspace.workspaceNode.rootNodes
+                    let rootNodes = [] //ED.designSpace.workspace.workspaceNode.rootNodes
                     let allNodesFound = []
                     for (let i = 0; i < rootNodes.length; i++) {
                         let rootNode = rootNodes[i]

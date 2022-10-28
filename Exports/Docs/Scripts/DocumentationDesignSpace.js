@@ -2,12 +2,9 @@ exports.documentationDesignSpace = function() {
     let thisObject = {
         iconsByProjectAndName: undefined,
         iconsByProjectAndType: undefined,
-        workspace: undefined,
         getIconByProjectAndName: getIconByProjectAndName,
         getIconByProjectAndType: getIconByProjectAndType,
         getIconByExternalSource: getIconByExternalSource,
-        physics: physics,
-        draw: draw,
         makeVisible: makeVisible,
         makeInvisible: makeInvisible,
         initialize: initialize
@@ -19,88 +16,106 @@ exports.documentationDesignSpace = function() {
     return thisObject
 
     async function initialize() {
-        let promise = new Promise((resolve, reject) => {
 
-            loadIconCollection(onIconsReady)
+        await copyWebServerData()
 
-            async function onIconsReady() {
-                buildIconByProjectAndTypeMap()
-                thisObject.workspace = newWorkspace()
-                await thisObject.workspace.initialize()
-                resolve()
+        const iconsArray = await new Promise(res => SA.projects.foundations.utilities.icons.retrieveIcons(x => res(x)))
+
+        let imageLoadedCounter = 0
+
+        for(let i = 0; i < iconsArray.length; i++) {
+            let project = iconsArray[i][0]
+            let path = iconsArray[i][1]
+            loadImage(project, path)
+        }
+
+        buildIconByProjectAndTypeMap()
+
+        return 'loaded ' + imageLoadedCounter + ' image' + (imageLoadedCounter == 1 ? '' : 's')
+
+        /**
+         * 
+         * @param {string} project 
+         * @param {string} path 
+         */
+        function loadImage(project, path) {
+            imageLoadedCounter++
+            let image = new Image()
+            const pathParts = path.replaceAll('\\', '/').split('/')
+            image.fileName = pathParts.length === 1 ? pathParts[0] : pathParts[pathParts.length-1]
+            
+            let splittedPath = path.split('\\')
+            let name = splittedPath[splittedPath.length - 1]
+            
+            let from = global.env.PATH_TO_PROJECTS + '/' + project + '/Icons/'
+            let to = global.env.PATH_TO_PAGES_DIR + '/' + 'Icons/' + project + '/'
+            
+            if(pathParts.length > 1) {
+                pathParts.splice(pathParts.length-1)
+                from = from + pathParts.join('/') + '/'
+                to = to +  pathParts.join('/') + '/'
             }
-    
-            function buildIconByProjectAndTypeMap() {
-                /* Take types-icons relationships defined at the schema */
-                for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
-                    let project = PROJECTS_SCHEMA[i].name
-    
-                    addSchemaTypes(SCHEMAS_BY_PROJECT.get(project).array.appSchema)
-                    addSchemaTypes(SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema)
-                    addSchemaTypes(SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema)
-                    addSchemaTypes(SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema)
-    
-                    function addSchemaTypes(schema) {
-                        for (let j = 0; j < schema.length; j++) {
-                            let schemaDocument = schema[j]
-                            let iconName = schemaDocument.icon
-                            if (iconName === undefined) {
-                                iconName = schemaDocument.type.toLowerCase()
-                                iconName = iconName.split(" ").join("-")
-                            }
-                            let icon = thisObject.getIconByProjectAndName(project, iconName)
-                            if (icon !== undefined) {
-                                let key = project + '-' + schemaDocument.type
-                                thisObject.iconsByProjectAndType.set(key, icon)
-                            }
+            image.src = to + path
+
+            copyFile(from, to, image.fileName)
+
+            let key = project + '-' + name.substring(0, name.length - 4)
+            thisObject.iconsByProjectAndName.set(key, image)
+            
+        }
+
+        /**
+         * 
+         * @param {string} from directory the file is currently in 
+         * @param {string} to directory the file is moving to
+         * @param {string} fileName the file name to transfer
+         */
+        function copyFile(from, to, fileName) {
+            const fs = SA.nodeModules.fs
+            if(!fs.existsSync(to)) {
+                SA.projects.foundations.utilities.filesAndDirectories.createNewDir(to)
+            }
+            fs.copyFileSync(from + fileName, to + fileName)
+        }
+
+        async function copyWebServerData() {
+            //TOD: transfer css, Fonts, Images
+            const base = global.env.PATH_TO_PLATFORM + '/WebServer/'
+            const transferDirectories = ['css', 'Fonts', 'Images']
+            const filesTasks = transferDirectories.map( dir => new Promise(res => SA.projects.foundations.utilities.filesAndDirectories.getAllFilesInDirectoryAndSubdirectories(base + dir, (f) => res(f))))
+            const files = (await Promise.all(filesTasks)).flat()
+            files.forEach(file => {
+                let fileParts = file.replaceAll('\\','/').split('/')
+                const fileName = fileParts.length === 1 ? fileParts[0] : fileParts.splice(fileParts.length-1)[0]
+                const additionalPath = fileParts.length > 0 ? fileParts.join('/') + '/' : ''
+                copyFile(base + additionalPath, global.env.PATH_TO_PAGES_DIR + '/' + additionalPath, fileName) 
+            })
+        }
+
+        function buildIconByProjectAndTypeMap() {
+            /* Take types-icons relationships defined at the schema */
+            for(let i = 0; i < PROJECTS_SCHEMA.length; i++) {
+                let project = PROJECTS_SCHEMA[i].name
+
+                addSchemaTypes(SCHEMAS_BY_PROJECT.get(project).array.appSchema)
+                addSchemaTypes(SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema)
+                addSchemaTypes(SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema)
+                addSchemaTypes(SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema)
+
+                function addSchemaTypes(schema) {
+                    for(let j = 0; j < schema.length; j++) {
+                        let schemaDocument = schema[j]
+                        let iconName = schemaDocument.icon
+                        if(iconName === undefined) {
+                            iconName = schemaDocument.type.toLowerCase()
+                            iconName = iconName.split(" ").join("-")
+                        }
+                        let icon = thisObject.getIconByProjectAndName(project, iconName)
+                        if(icon !== undefined) {
+                            let key = project + '-' + schemaDocument.type
+                            thisObject.iconsByProjectAndType.set(key, icon)
                         }
                     }
-                }
-            }
-          })
-
-        return promise
-
-    }
-
-    function loadIconCollection(callBack) {
-
-        httpRequest(undefined, 'IconNames', onResponse)
-
-        function onResponse(err, data) {
-            if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                console.log('Failed to Fetch Image Names from the Client')
-                return
-            }
-
-            let iconsArray = JSON.parse(data)
-            let imageLoadedCounter = 0
-
-            for (let i = 0; i < iconsArray.length; i++) {
-                let project = iconsArray[i][0]
-                let path = iconsArray[i][1]
-                loadImage(project, path)
-            }
-
-            function loadImage(project, path) {
-                imageLoadedCounter++
-                const PATH = 'Icons/' + project + '/'
-                let image = new Image()
-                image.onload = onImageLoad
-                image.fileName = path
-
-                function onImageLoad() {
-                    image.canDrawIcon = true
-                }
-                image.src = PATH + path
-                let splittedPath = path.split('\\')
-                let name = splittedPath[splittedPath.length - 1]
-
-                let key = project + '-' + name.substring(0, name.length - 4)
-                thisObject.iconsByProjectAndName.set(key, image)
-
-                if (imageLoadedCounter === iconsArray.length) {
-                    callBack()
                 }
             }
         }
@@ -114,6 +129,7 @@ exports.documentationDesignSpace = function() {
         return thisObject.iconsByProjectAndType.get(project + '-' + type)
     }
 
+    // TODO: review for potential download during build process
     function getIconByExternalSource(project, url) {
 
         let image
@@ -121,15 +137,9 @@ exports.documentationDesignSpace = function() {
 
         image = thisObject.iconsByProjectAndName.get(key)
 
-        if (image === undefined) {
+        if(image === undefined) {
 
             image = new Image()
-            image.onload = onImageLoad
-
-            function onImageLoad() {
-                image.canDrawIcon = true
-            }
-
             image.src = url
 
             let key = project + '-' + image.src
@@ -137,11 +147,6 @@ exports.documentationDesignSpace = function() {
         }
 
         return image
-    }
-
-    function physics() {
-        if (thisObject.workspace === undefined) { return }
-        thisObject.workspace.physics()
     }
 
     function makeVisible() {
@@ -152,9 +157,21 @@ exports.documentationDesignSpace = function() {
         visible = false
     }
 
-    function draw() {
-        if (thisObject.workspace === undefined) { return }
-        if (CAN_SPACES_DRAW === false) { return }
-        thisObject.workspace.draw()
+    function Image() {
+        const image = {
+            canDrawIcon: false,
+            src: '',
+            fileName: '',
+            asImageNode: asImageNode
+        }
+
+        return image
+
+        function asImageNode(doc) {
+            const img = doc.createElement('img')
+            img.src = image.src.replaceAll('\\','/')
+            img.alt = image.fileName.replaceAll('\\','/')
+            return img
+        }
     }
 }

@@ -1,20 +1,15 @@
 runRoot()
 
 async function runRoot() {
-  global.ED = {
-    DEFAULT_LANGUAGE: 'EN',
-    menuLabelsMap: new Map(),
-    exporter: require('./Exports/Docs/Scripts/DocumentationExporter').documentationExporter(),
-    utilities: require('./Exports/Docs/Scripts/DocumentationGenerationUtilities').documentGenerationUtilities(),
-    designSpace: require('./Exports/Docs/Scripts/DocumentationDesignSpace').documentationDesignSpace(),
-    strings: require('./Exports/Docs/Scripts/DocumentationStringsUtilities').documentationStringsUtilities()
-  }
-
+  /*
+  Setting up external dependencies.
+  */
   global.SA = {
     projects: {
       foundations: {
         utilities: {
-          filesAndDirectories: require('./Projects/Foundations/SA/Utilities/FilesAndDirectories').newFoundationsUtilitiesFilesAndDirectories()
+          filesAndDirectories: require('./Projects/Foundations/SA/Utilities/FilesAndDirectories').newFoundationsUtilitiesFilesAndDirectories(),
+          icons: require('./Projects/Foundations/SA/Utilities/Icons').newFoundationsUtilitiesIcons()
         },
         globals: {
           schemas: {
@@ -22,8 +17,25 @@ async function runRoot() {
           }
         }
       }
+    },
+    nodeModules: {
+      fs: require('fs'),
+      util: require('util'),
+      path: require('path'),
+      jsDom: require('jsdom').JSDOM
     }
   }
+
+  global.ED = {
+    DEFAULT_LANGUAGE: 'EN',
+    menuLabelsMap: new Map(),
+    exporter: require('./Exports/Docs/Scripts/DocumentationExporter').documentationExporter(),
+    utilities: require('./Exports/Docs/Scripts/DocumentationGenerationUtilities').documentGenerationUtilities(),
+    designSpace: require('./Exports/Docs/Scripts/DocumentationDesignSpace').documentationDesignSpace(),
+    strings: require('./Exports/Docs/Scripts/DocumentationStringsUtilities').documentationStringsUtilities(),
+    indexFile: SA.nodeModules.fs.readFileSync('./Exports/Docs/index.html')
+  }
+
 
   /* Load Environment Variables */
   let ENVIRONMENT = require('./Environment.js')
@@ -35,24 +47,6 @@ async function runRoot() {
   */
   global.PROJECTS_SCHEMA = require(global.env.PATH_TO_PROJECT_SCHEMA)
   global.SCHEMAS_BY_PROJECT = new Map()
-  
-  /*
-  Setting up external dependencies.
-  */
-  SA.nodeModules = {
-    fs: require('fs'),
-    util: require('util'),
-    path: require('path'),
-    jsDom: require('jsdom').JSDOM
-  }
-  console.log(process.cwd())
-  ED.indexFile = SA.nodeModules.fs.readFileSync('./Docs/index.html')
-  // /* 
-  // Setting up the App Schema Memory Map. 
-  // */
-  // let APP_SCHEMAS = require('./AppSchemas.js')
-  // let APP_SCHEMAS_MODULE = APP_SCHEMAS.newAppSchemas()
-  // await APP_SCHEMAS_MODULE.initialize()
 
   /*
   Version Management

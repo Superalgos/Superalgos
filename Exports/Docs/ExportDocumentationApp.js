@@ -8,9 +8,18 @@ exports.newExportDocumentationApp = function newExportDocumentationApp() {
 
     async function run() {
         ED.exporter.currentLanguageCode = ED.DEFAULT_LANGUAGE
-        await convertProjectsToSchemas()
+        
+        const completed = await convertProjectsToSchemas()
+            .then(() => ED.designSpace.initialize())
             .then(() => setUpMenuItemsMap())
             .then(() => triggerPageRendering())
+        
+        if(completed) {
+            console.log('page creation competed')
+        }
+        else {
+            console.log('page creation failed')
+        }
 
         async function convertProjectsToSchemas() {
             let schemaTypes = [
@@ -72,7 +81,6 @@ exports.newExportDocumentationApp = function newExportDocumentationApp() {
                     let schemaType = schemaTypes[j]
                     let schema = await sendSchema(global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/', schemaType.name)
                     schemaType.callback(schema, schemas)
-                    break
                 }
             }
 
@@ -176,7 +184,6 @@ exports.newExportDocumentationApp = function newExportDocumentationApp() {
 
         }
 
-
         function setUpMenuItemsMap() {
             /*
             Here we will put put all the menu item labels of all nodes at all
@@ -214,11 +221,12 @@ exports.newExportDocumentationApp = function newExportDocumentationApp() {
                         }
                         ED.exporter.initialize()
                         ED.exporter.render()
+                        ED.exporter.write()
                         ED.exporter.finalize()
                     }
                 })
-                break
             }
+            return true
         }
 
         async function sendSchema(filePath, schemaType) {
